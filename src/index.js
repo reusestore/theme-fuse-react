@@ -7,7 +7,7 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
-import reducers from './reducers';
+import reducers from './store/reducers';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import MailApp from './main/content/apps/mail/MailApp';
