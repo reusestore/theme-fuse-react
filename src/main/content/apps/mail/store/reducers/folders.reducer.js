@@ -5,7 +5,6 @@ const foldersReducer = function (state = [], action) {
     {
         case Actions.GET_FOLDERS:
             return [
-                ...state,
                 ...action.payload
             ];
         default:

@@ -5,7 +5,6 @@ const labelsReducer = function (state = [], action) {
     {
         case Actions.GET_LABELS:
             return [
-                ...state,
                 ...action.payload
             ];
         default:

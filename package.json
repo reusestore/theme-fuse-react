@@ -1,27 +1,35 @@
 {
-  "name": "create-react-app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "axios": "^0.17.1",
-    "axios-mock-adapter": "^1.10.0",
-    "material-ui": "^1.0.0-beta.25",
-    "material-ui-icons": "^1.0.0-beta.17",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-redux": "^5.0.6",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.17",
-    "redux": "^3.7.2",
-    "redux-form": "^7.2.0",
-    "redux-thunk": "^2.2.0",
-    "typeface-roboto": "^0.0.45"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "devDependencies": {}
+    "name": "create-react-app",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "axios": "^0.17.1",
+        "axios-mock-adapter": "^1.10.0",
+        "lodash": "^4.17.4",
+        "material-ui": "^1.0.0-beta.29",
+        "material-ui-icons": "^1.0.0-beta.17",
+        "path-to-regexp": "^2.1.0",
+        "react": "^16.2.0",
+        "react-dom": "^16.2.0",
+        "react-redux": "^5.0.6",
+        "react-router-config": "^1.0.0-beta.4",
+        "react-router-dom": "^4.2.2",
+        "react-scripts": "1.1.0",
+        "redux": "^3.7.2",
+        "redux-form": "^7.2.0",
+        "redux-thunk": "^2.2.0",
+        "typeface-roboto": "^0.0.50"
+    },
+    "scripts": {
+        "start": "npm run build-css-helpers && react-scripts start",
+        "build": "npm run build-css-helpers && react-scripts build",
+        "build-css-helpers": "tailwind build ./src/index.tailwind.css -c ./tailwind.js -o ./src/fuse-helpers.css && postcss --use autoprefixer -o ./src/fuse-helpers.css ./src/fuse-helpers.css",
+        "test": "react-scripts test --env=jsdom",
+        "eject": "react-scripts eject"
+    },
+    "devDependencies": {
+        "autoprefixer": "^7.2.4",
+        "postcss-cli": "^4.1.1",
+        "tailwindcss": "^0.4.0"
+    }
 }

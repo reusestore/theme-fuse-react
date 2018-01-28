@@ -5,7 +5,6 @@ const filtersReducer = function (state = [], action) {
     {
         case Actions.GET_FILTERS:
             return [
-                ...state,
                 ...action.payload
             ];
         default:

@@ -4,68 +4,68 @@ import MailList from './MailList';
 import * as Actions from './store/actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-
-import {Divider, Grid, Paper, AppBar, Toolbar, Hidden, Drawer, IconButton, Typography} from 'material-ui';
-import {Menu} from 'material-ui-icons';
-
-const drawerWidth = 240;
+import {withRouter} from 'react-router-dom'
+import {Grid} from 'material-ui';
+import Sidebar from './Sidebar';
+import MailDetails from './MailDetails';
+import _ from 'lodash';
+import FusePageCarded from '../../../../core/components/FusePageLayouts/FusePageCarded';
+import SidebarHeader from './SidebarHeader';
+import classNames from 'classnames';
 
 const styles = theme => ({
-    root        : {
-        width    : '100%',
-        height   : '100%',
-        zIndex   : 1,
-        overflow : 'hidden'
+    layoutRoot          : {},
+    layoutSidebarContent: {
+        padding: 0
     },
-    appFrame    : {
-        position: 'relative',
-        display : 'flex',
-        width   : '100%',
-        height  : '100%'
+    layoutContent       : {
+        padding      : 0,
+        overflow     : 'hidden',
+        display      : 'flex',
+        flexDirection: 'column'
     },
-    appBar      : {
-        position                    : 'absolute',
-        marginLeft                  : drawerWidth,
-        [theme.breakpoints.up('md')]: {
-            width: `calc(100% - ${drawerWidth}px)`
-        }
-    },
-    navIconHide : {
-        [theme.breakpoints.up('md')]: {
-            display: 'none'
-        }
-    },
-    drawerHeader: theme.mixins.toolbar,
-    drawerPaper : {
-        width                       : 250,
-        [theme.breakpoints.up('md')]: {
-            width   : drawerWidth,
-            position: 'relative',
-            height  : '100%'
-        }
-    },
-    content     : {
-        backgroundColor             : theme.palette.background.default,
-        width                       : '100%',
-        padding                     : theme.spacing.unit * 3,
-        height                      : 'calc(100% - 56px)',
-        marginTop                   : 56,
-        [theme.breakpoints.up('sm')]: {
-            height   : 'calc(100% - 64px)',
-            marginTop: 64
-        }
+    gridItem            : {
+        overflowY: 'auto',
+        overflowX: 'hidden'
     }
 });
 
 class MailApp extends Component {
-
     state = {
         mobileOpen: false
     };
 
     componentDidMount()
     {
-        this.props.getData();
+        this.props.getData(this.props.match);
+    }
+
+    componentWillReceiveProps(nextProps)
+    {
+        if ( !_.isEqual(nextProps.location, this.props.location) )
+        {
+            this.props.getMails(nextProps.match);
+        }
+        /*  let loadedParams = {
+              id   : '',
+              value: ''
+          };
+
+          ['labelHandle', 'filterHandle', 'folderHandle'].map((param) => {
+                  if ( props.match.params[param] )
+                  {
+                      loadedParams = {
+                          id   : param,
+                          value: props.match.params[param]
+                      };
+                  }
+              }
+          );
+
+          if ( this.props.mails.loadedParams && !_.isEqual(this.props.mails.loadedParams, loadedParams) )
+          {
+              // this.props.getMails(props.match);
+          }*/
     }
 
     handleDrawerToggle = () => {
@@ -74,84 +74,48 @@ class MailApp extends Component {
 
     render()
     {
-        const {classes, theme, mails, folders, filters, labels} = this.props;
-
-        console.info(folders, filters, labels);
-
-        const drawer = (
-            <div>
-                <div className={classes.drawerHeader}>
-                    Sidebar Header
-                </div>
-                <Divider/>
-                Sidebar
-            </div>
-        );
+        const {classes, theme} = this.props;
 
         return (
-            <div className={classes.root}>
-                <div className={classes.appFrame}>
-                    <AppBar className={classes.appBar}>
-                        <Toolbar>
-                            <IconButton color="contrast" aria-label="open drawer" onClick={this.handleDrawerToggle} className={classes.navIconHide}>
-                                <Menu/>
-                            </IconButton>
-                            <Typography type="title" color="inherit" noWrap>
-                                Responsive drawer
-                            </Typography>
-                        </Toolbar>
-                    </AppBar>
-                    <Hidden mdUp>
-                        <Drawer
-                            type="temporary"
-                            anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-                            open={this.state.mobileOpen}
-                            classes={{
-                                paper: classes.drawerPaper
-                            }}
-                            onClose={this.handleDrawerToggle}
-                            ModalProps={{
-                                keepMounted: true // Better open performance on mobile.
-                            }}
-                        >
-                            {drawer}
-                        </Drawer>
-                    </Hidden>
-                    <Hidden mdDown implementation="css">
-                        <Drawer
-                            type="permanent"
-                            open
-                            classes={{
-                                paper: classes.drawerPaper
-                            }}
-                        >
-                            {drawer}
-                        </Drawer>
-                    </Hidden>
-                    <main className={classes.content}>
-
-                        <div>
-                            <Grid container spacing={24}>
-                                <Grid item xs={12} sm={6}>
-                                    <MailList mails={mails}></MailList>
-                                </Grid>
-                                <Grid item xs={12} sm={6}>
-                                    <Paper className={classes.paper}>xs=12</Paper>
-                                </Grid>
-                            </Grid>
-                        </div>
-                        {/*<Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>*/}
-                    </main>
-                </div>
-            </div>
+            <FusePageCarded
+                classes={{
+                    root          : classes.layoutRoot,
+                    sidebarContent: classes.layoutSidebarContent,
+                    content       : classes.layoutContent
+                }}
+                header={
+                    <h4>Header</h4>
+                }
+                contentToolbar={
+                    <h4>Content Toolbar</h4>
+                }
+                content={
+                    <Grid container spacing={0}>
+                        <Grid item xs={12} sm={6} className={classes.gridItem}>
+                            <MailList/>
+                        </Grid>
+                        <Grid item xs={12} sm={6} className={classNames(classes.gridItem, 'p-24')}>
+                            <MailDetails/>
+                        </Grid>
+                    </Grid>
+                }
+                sidebarPosition="left"
+                sidebarHeader={
+                    <SidebarHeader/>
+                }
+                sidebarContent={
+                    <Sidebar/>
+                }
+            />
         )
-    }
+    };
 }
 
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-        getData: Actions.getData
+        getData : Actions.getData,
+        getMails: Actions.getMails
     }, dispatch);
 }
 
@@ -165,4 +129,4 @@ function mapStateToProps({mailApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(MailApp));
+export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(MailApp)));
