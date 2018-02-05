@@ -1,16 +1,13 @@
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles';
-import List, {ListItem} from 'material-ui/List';
-import Checkbox from 'material-ui/Checkbox';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import {Avatar, Typography} from 'material-ui';
+import MailListItem from './MailListItem';
+import FuseUtils from '../../../../core/fuseUtils';
+import {List, Typography} from 'material-ui';
 import _ from 'lodash';
-import MailChip from './MailChip';
-import classNames from 'classnames';
 
-const pathToRegexp = require('path-to-regexp');
 
 const styles = theme => ({
     mailList: {
@@ -25,66 +22,43 @@ const styles = theme => ({
 
 class MailList extends Component {
 
+    getFilteredArray = (entities, searchText) => {
+        const arr = Object.keys(entities).map((id) => entities[id]);
+        if ( searchText.length === 0 )
+        {
+            return arr;
+        }
+        return FuseUtils.filterArrayByString(arr, searchText);
+    };
+
     render()
     {
-        const {mails, labels, classes, match, history} = this.props;
-        const toPath = pathToRegexp.compile(match.path);
+        const {mails, classes, searchText} = this.props;
 
-        if ( !mails.length )
+        const arr = this.getFilteredArray(mails, searchText);
+
+        if ( arr.length === 0 )
         {
-            return 'loading...';
+            return (
+                <div className="flex items-center justify-center h-full">
+                    <Typography color="textSecondary" variant="headline">
+                        There are no messages!
+                    </Typography>
+                </div>
+            );
         }
 
         return (
             <List className={classes.mailList}>
-                {mails.map(mail => (
-                    <ListItem
-                        dense
-                        button
-                        key={mail.id}
-                        onClick={() => history.push(toPath(
-                            {
-                                ...match.params,
-                                mailId: mail.id
-                            }
-                        ))}
-                        className={classNames(classes.mailItem, 'py-16 pl-8 pr-24')}>
-
-                        <Checkbox tabIndex={-1} disableRipple/>
-
-                        <div className="flex flex-col relative overflow-hidden">
-
-                            <div className="flex items-center justify-between px-16 pb-8">
-                                <div className="flex items-center">
-                                    {mail.from.avatar ? (
-                                        <Avatar className="mr-8" alt={mail.from.name} src={mail.from.avatar}/>
-                                    ) : (
-                                        <Avatar className={`mr-8 ${classes.avatar}`}>
-                                            {mail.from.name[0]}
-                                        </Avatar>
-                                    )}
-                                    <Typography type="subheading">{mail.from.name}</Typography>
-                                </div>
-                                <Typography type="subheading">{mail.time}</Typography>
-                            </div>
-
-                            <div className="flex flex-col px-16 py-0">
-                                <Typography className="truncate">{mail.subject}</Typography>
-                                <Typography color="secondary" className="truncate">{_.truncate(mail.message.replace(/<(?:.|\n)*?>/gm, ''), {'length': 180})}</Typography>
-                            </div>
-
-                            <div className={`flex justify-end ${classes.labels}`}>
-                                {mail.labels.map(label => (
-                                    <MailChip className="mr-1" title={_.find(labels, {id: label}).title} color={_.find(labels, {id: label}).color} key={label}/>
-                                ))}
-                            </div>
-                        </div>
-                    </ListItem>
-                ))}
+                {
+                    arr.map((mail) => (
+                            <MailListItem mail={mail} key={mail.id}/>
+                        )
+                    )}
             </List>
         );
     }
-};
+}
 
 function mapDispatchToProps(dispatch)
 {
@@ -95,6 +69,7 @@ function mapStateToProps({mailApp})
 {
     return {
         mails      : mailApp.mails.entities,
+        searchText : mailApp.mails.searchText,
         currentMail: mailApp.mails.currentMail,
         folders    : mailApp.folders,
         labels     : mailApp.labels,

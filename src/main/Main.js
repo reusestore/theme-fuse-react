@@ -211,7 +211,7 @@ class Main extends React.Component {
 
                 <Hidden lgUp>
                     <Drawer
-                        type="temporary"
+                        variant="temporary"
                         open={this.state.mobileNavbarOpen}
                         classes={{
                             paper: classes.navbar

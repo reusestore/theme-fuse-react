@@ -4,13 +4,12 @@ import {Icon} from 'material-ui';
 import classNames from 'classnames';
 
 const styles = theme => ({
-    sidebarHeader: {
-        height: '200px'
-    },
-    logoIcon     : {
+    root    : {},
+    logo    : {},
+    logoIcon: {
         fontSize: '32px!important'
     },
-    logoText     : {
+    logoText: {
         fontSize: 24
     }
 });
@@ -18,9 +17,11 @@ const styles = theme => ({
 const SidebarHeader = ({classes}) => {
 
     return (
-        <div className={classNames(classes.sidebarHeader, 'flex items-center')}>
-            <Icon className={classNames(classes.logoIcon, 'mr-16')}>mail</Icon>
-            <span className={classes.logoText}>Mailbox</span>
+        <div className={classNames(classes.root, 'flex items-center h-full')}>
+            <div className={classNames(classes.logo, 'flex items-center')}>
+                <Icon className={classNames(classes.logoIcon, 'mr-16')}>mail</Icon>
+                <span className={classes.logoText}>Mailbox</span>
+            </div>
         </div>
     );
 };

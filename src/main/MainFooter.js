@@ -14,7 +14,7 @@ const MainFooter = ({classes}) => {
     return (
         <AppBar className={classNames(classes.footer)} color="default">
             <Toolbar>
-                <Typography type="title" color="inherit" noWrap>
+                <Typography variant="title" color="inherit" noWrap>
                     Footer
                 </Typography>
             </Toolbar>

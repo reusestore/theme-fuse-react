@@ -21,7 +21,7 @@ const MainToolbar = ({classes, parent}) => {
                         <Icon>menu</Icon>
                     </IconButton>
                 </Hidden>
-                <Typography type="title" color="inherit" noWrap>
+                <Typography variant="title" color="inherit" noWrap>
                     Toolbar
                 </Typography>
             </Toolbar>

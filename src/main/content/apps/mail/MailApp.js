@@ -12,11 +12,16 @@ import _ from 'lodash';
 import FusePageCarded from '../../../../core/components/FusePageLayouts/FusePageCarded';
 import SidebarHeader from './SidebarHeader';
 import classNames from 'classnames';
+import MailToolbar from './MailToolbar';
+import MailHeader from './MailHeader';
 
 const styles = theme => ({
     layoutRoot          : {},
     layoutSidebarContent: {
         padding: 0
+    },
+    layoutToolbar       : {
+        paddingLeft: 8
     },
     layoutContent       : {
         padding      : 0,
@@ -24,9 +29,11 @@ const styles = theme => ({
         display      : 'flex',
         flexDirection: 'column'
     },
-    gridItem            : {
-        overflowY: 'auto',
-        overflowX: 'hidden'
+    layoutHeader        : {
+        alignItems: 'center'
+    },
+    layoutHeaderContent : {
+        paddingTop: 0
     }
 });
 
@@ -37,14 +44,14 @@ class MailApp extends Component {
 
     componentDidMount()
     {
-        this.props.getData(this.props.match);
+        this.props.getData(this.props.match.params);
     }
 
     componentWillReceiveProps(nextProps)
     {
         if ( !_.isEqual(nextProps.location, this.props.location) )
         {
-            this.props.getMails(nextProps.match);
+            this.props.getMails(nextProps.match.params);
         }
         /*  let loadedParams = {
               id   : '',
@@ -68,10 +75,6 @@ class MailApp extends Component {
           }*/
     }
 
-    handleDrawerToggle = () => {
-        this.setState({mobileOpen: !this.state.mobileOpen});
-    };
-
     render()
     {
         const {classes, theme} = this.props;
@@ -81,23 +84,26 @@ class MailApp extends Component {
                 classes={{
                     root          : classes.layoutRoot,
                     sidebarContent: classes.layoutSidebarContent,
-                    content       : classes.layoutContent
+                    toolbar       : classes.layoutToolbar,
+                    content       : classes.layoutContent,
+                    header        : classes.layoutHeader,
+                    headerContent : classes.layoutHeaderContent
                 }}
                 header={
-                    <h4>Header</h4>
+                    <MailHeader/>
                 }
                 contentToolbar={
-                    <h4>Content Toolbar</h4>
+                    <MailToolbar/>
                 }
                 content={
-                    <Grid container spacing={0}>
-                        <Grid item xs={12} sm={6} className={classes.gridItem}>
+                    <div className="flex flex-1 h-full">
+                        <div className="w-1/2 overflow-auto border-r">
                             <MailList/>
-                        </Grid>
-                        <Grid item xs={12} sm={6} className={classNames(classes.gridItem, 'p-24')}>
+                        </div>
+                        <div className="w-1/2 p-24 overflow-auto">
                             <MailDetails/>
-                        </Grid>
-                    </Grid>
+                        </div>
+                    </div>
                 }
                 sidebarPosition="left"
                 sidebarHeader={

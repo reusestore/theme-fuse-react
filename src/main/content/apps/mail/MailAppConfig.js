@@ -1,4 +1,6 @@
 import MailApp from './MailApp';
+import React from 'react';
+import {Redirect} from 'react-router-dom';
 
 export const MailAppConfig = {
     layout: {
@@ -8,7 +10,7 @@ export const MailAppConfig = {
         {
             path     : '/apps/mail/label/:labelHandle/:mailId?',
             component: MailApp,
-            layout: {
+            layout   : {
                 navigation: 'left'
             }
         },
@@ -22,7 +24,7 @@ export const MailAppConfig = {
         },
         {
             path     : '/apps/mail',
-            component: MailApp
+            component: () => <Redirect to="/apps/mail/inbox"/>
         }
     ]
 };

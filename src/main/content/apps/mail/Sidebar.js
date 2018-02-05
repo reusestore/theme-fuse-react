@@ -4,21 +4,34 @@ import * as Actions from './store/actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {Button, Divider, Icon, List, ListItem, ListItemIcon, ListItemText, ListSubheader} from 'material-ui';
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 
 const styles = theme => ({
     listWrapper  : {},
     composeButton: {
         width: '100%'
     },
-    listLink     : {
-        textDecoration: 'none'
+    listItem     : {
+        paddingRight       : 24,
+        paddingLeft        : 24,
+        minHeight          : 48,
+        '&.active'         : {
+            backgroundColor    : theme.palette.secondary.main,
+            color              : theme.palette.secondary.contrastText,
+            pointerEvents      : 'none',
+            '& .list-item-icon': {
+                color: 'inherit'
+            }
+        },
+        '& .list-item-icon': {
+            fontSize: 16,
+            width   : 16,
+            height  : 16
+        }
     },
-    listItemIcon : {
-        fontSize   : 16,
-        width      : 16,
-        height     : 16,
-        marginRight: 0
+    listSubheader: {
+        paddingRight: 24,
+        paddingLeft : 24
     }
 });
 
@@ -27,48 +40,50 @@ const Sidebar = ({classes, folders, filters, labels}) => {
     return (
         <div>
             <div className="p-24">
-                <Button raised color="primary" className={classes.composeButton}>
+                <Button variant="raised" color="primary" className={classes.composeButton}>
                     COMPOSE
                 </Button>
             </div>
             <div className={classes.listWrapper}>
                 <List>
-                    <ListSubheader>FOLDERS</ListSubheader>
+                    <ListSubheader className={classes.listSubheader}>FOLDERS</ListSubheader>
                     {folders.length > 0 && folders.map((folder) => (
-                        <Link className={classes.listLink} to={'/apps/mail/' + folder.handle} key={folder.id}>
-                            <ListItem button>
-                                <ListItemIcon className={classes.listItemIcon}>
-                                    <Icon>{folder.icon}</Icon>
-                                </ListItemIcon>
-                                <ListItemText primary={folder.title}/>
-                            </ListItem>
-                        </Link>
+                        <ListItem button
+                                  component={NavLink}
+                                  to={'/apps/mail/' + folder.handle} key={folder.id}
+                                  activeClassName="active"
+                                  className={classes.listItem}>
+                            <Icon className="list-item-icon" color="action">{folder.icon}</Icon>
+                            <ListItemText primary={folder.title} disableTypography={true}/>
+                        </ListItem>
                     ))}
                 </List>
                 <List>
-                    <ListSubheader>FILTERS</ListSubheader>
+                    <ListSubheader className={classes.listSubheader}>FILTERS</ListSubheader>
                     {filters.length > 0 && filters.map((filter) => (
-                        <Link className={classes.listLink} to={'/apps/mail/filter/' + filter.handle} key={filter.id}>
-                            <ListItem button>
-                                <ListItemIcon className={classes.listItemIcon}>
-                                    <Icon>{filter.icon}</Icon>
-                                </ListItemIcon>
-                                <ListItemText primary={filter.title}/>
-                            </ListItem>
-                        </Link>
+                        <ListItem button
+                                  component={NavLink}
+                                  to={'/apps/mail/filter/' + filter.handle}
+                                  activeClassName="active"
+                                  className={classes.listItem}
+                                  key={filter.id}
+                        >
+                            <Icon className="list-item-icon" color="action">{filter.icon}</Icon>
+                            <ListItemText primary={filter.title} disableTypography={true}/>
+                        </ListItem>
                     ))}
                 </List>
                 <List>
-                    <ListSubheader>LABELS</ListSubheader>
+                    <ListSubheader className={classes.listSubheader}>LABELS</ListSubheader>
                     {labels.length > 0 && labels.map((label) => (
-                        <Link className={classes.listLink} to={'/apps/mail/label/' + label.handle} key={label.id}>
-                            <ListItem button>
-                                <ListItemIcon className={classes.listItemIcon}>
-                                    <Icon style={{color: label.color}}>label</Icon>
-                                </ListItemIcon>
-                                <ListItemText primary={label.title}/>
-                            </ListItem>
-                        </Link>
+                        <ListItem button
+                                  component={NavLink}
+                                  to={'/apps/mail/label/' + label.handle}
+                                  key={label.id}
+                                  className={classes.listItem}>
+                            <Icon className="list-item-icon" style={{color: label.color}} color="action">label</Icon>
+                            <ListItemText primary={label.title} disableTypography={true}/>
+                        </ListItem>
                     ))}
                 </List>
 

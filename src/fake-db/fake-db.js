@@ -33,6 +33,62 @@ mock.onGet('/api/mail-app/mails').reply((config) => {
 
     return [200, response];
 });
+
+mock.onPost('/api/mail-app/update-mail').reply((request) => {
+    const mail = JSON.parse(request.data);
+    console.info(mail);
+    mailDB.mails = mailDB.mails.map((_mail) => {
+        if ( _mail.id === mail.id )
+        {
+            return mail;
+        }
+        return _mail;
+    });
+
+    return [200, mail];
+});
 mock.onGet('/api/mail-app/filters').reply(200, mailDB.filters);
 mock.onGet('/api/mail-app/labels').reply(200, mailDB.labels);
 mock.onGet('/api/mail-app/folders').reply(200, mailDB.folders);
+
+
+mock.onPost('/api/mail-app/set-folder').reply((request) => {
+    const data = JSON.parse(request.data);
+    const {selectedMailIds, folderId} = data;
+    mailDB.mails = mailDB.mails.map((_mail) => {
+
+        if ( selectedMailIds.includes(_mail.id) )
+        {
+            return {
+                ..._mail,
+                folder: folderId
+            };
+        }
+        return _mail;
+    });
+
+    return [200];
+});
+
+mock.onPost('/api/mail-app/toggle-label').reply((request) => {
+    const data = JSON.parse(request.data);
+    const {selectedMailIds, labelId} = data;
+    mailDB.mails = mailDB.mails.map((_mail) => {
+        if ( selectedMailIds.includes(_mail.id) )
+        {
+            return {
+                ..._mail,
+                labels: _mail.labels.includes(labelId) ? _mail.labels.filter(_id => _id !== labelId) : [..._mail.labels, labelId]
+            };
+        }
+        return _mail;
+    });
+
+    return [200];
+});
+mock.onPost('/api/mail-app/delete-mails').reply((request) => {
+    const data = JSON.parse(request.data);
+    const {selectedMailIds} = data;
+    mailDB.mails = mailDB.mails.filter((_mail) => selectedMailIds.includes(_mail.id) ? false : _mail);
+    return [200];
+});

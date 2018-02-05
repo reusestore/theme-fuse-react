@@ -19,26 +19,26 @@ class MailDetails extends Component {
 
     render()
     {
-        const {classes, mail, labels} = this.props;
+        const {classes, mail, labels, toggleStar, toggleImportant} = this.props;
 
         if ( !mail )
         {
             return (
                 <div className="flex flex-col items-center justify-center h-full">
                     <Icon color="action" className="mb-16 text-128">email</Icon>
-                    <div className="text-24 font-light">
-                        <span>Select a message to read</span>
-                    </div>
+                    <Typography color="textSecondary" variant="headline">
+                        Select a message to read
+                    </Typography>
                 </div>
             )
         }
 
         return (
             <React.Fragment>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between overflow-hidden">
 
                     <div className="flex flex-col">
-                        <Typography type="subheading" className="flex">{mail.subject}</Typography>
+                        <Typography variant="subheading" className="flex">{mail.subject}</Typography>
 
                         {mail.labels.length > 0 && (
                             <div className="flex flex-wrap mt-8">
@@ -50,14 +50,14 @@ class MailDetails extends Component {
                     </div>
 
                     <div className="flex items-center justify-start" aria-label="Toggle star">
-                        <IconButton>
+                        <IconButton onClick={() => toggleStar(mail)}>
                             {mail.starred ? (
-                                <Icon>start</Icon>
+                                <Icon>star</Icon>
                             ) : (
-                                <Icon>start_outline</Icon>
+                                <Icon>star_border</Icon>
                             )}
                         </IconButton>
-                        <IconButton>
+                        <IconButton onClick={() => toggleImportant(mail)}>
                             {mail.important ? (
                                 <Icon>label</Icon>
                             ) : (
@@ -82,7 +82,7 @@ class MailDetails extends Component {
 
                         <div className="flex flex-col">
                             <span>{mail.from.name}</span>
-                            <Typography color="secondary" type="body2" className="flex items-center justify-start">
+                            <Typography color="textSecondary" variant="body2" className="flex items-center justify-start">
                                 <div>to</div>
                                 <div className="ml-4">{mail.to[0].name}</div>
                             </Typography>
@@ -107,13 +107,13 @@ class MailDetails extends Component {
 
                     {this.state.showDetails && (
                         <div className="flex">
-                            <Typography type="body1" className="flex flex-col">
+                            <Typography variant="body1" className="flex flex-col">
                                 <span>From:</span>
                                 <span>To:</span>
                                 <span>Date:</span>
                             </Typography>
 
-                            <Typography type="body1" color="secondary" className="pl-4 flex flex-col">
+                            <Typography variant="body1" color="textSecondary" className="pl-4 flex flex-col">
                                 <span>{mail.from.email}</span>
                                 <span>{mail.to[0].email}</span>
                                 <span>{mail.time}</span>
@@ -122,13 +122,13 @@ class MailDetails extends Component {
                     )}
                 </div>
 
-                <Typography type="body1" dangerouslySetInnerHTML={{__html: mail.message}}/>
+                <Typography variant="body1" dangerouslySetInnerHTML={{__html: mail.message}}/>
 
                 <Divider className="my-16"/>
 
                 {mail.attachments && (
                     <div>
-                        <Typography type="subheading" className="mb-16">
+                        <Typography variant="subheading" className="mb-16">
                             <span>Attachments</span>
                             <span className="ml-4">({mail.attachments.length})</span>
                         </Typography>
@@ -155,7 +155,9 @@ class MailDetails extends Component {
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-        getData: Actions.getData
+        getData        : Actions.getData,
+        toggleStar     : Actions.toggleStar,
+        toggleImportant: Actions.toggleImportant
     }, dispatch);
 }
 

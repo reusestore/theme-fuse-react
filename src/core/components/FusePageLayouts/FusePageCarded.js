@@ -127,9 +127,7 @@ class FusePageCarded extends React.Component {
             <React.Fragment>
                 {sidebarHeader && (
                     <div className={classes.sidebarHeader}>
-                        <span className="h4">
-                            {sidebarHeader}
-                        </span>
+                        {sidebarHeader}
                     </div>
                 )}
 
@@ -146,7 +144,7 @@ class FusePageCarded extends React.Component {
                 <Hidden lgUp>
                     <Drawer
                         className={classes.sidebarWrapper}
-                        type="temporary"
+                        variant="temporary"
                         anchor={sidebarPosition}
                         open={this.state.mobileOpen}
                         classes={{
@@ -162,7 +160,7 @@ class FusePageCarded extends React.Component {
 
                 <Hidden mdDown>
                     <Drawer
-                        type="permanent"
+                        variant="permanent"
                         className={classes.sidebarWrapper}
                         open
                         classes={{
@@ -181,7 +179,7 @@ class FusePageCarded extends React.Component {
 
                 {(sidebarPosition === 'left') && SidebarWrapper}
 
-                <div className={classes.contentWrapper}>
+                <div className={classNames(classes.contentWrapper, sidebarPosition === 'left' && 'lg:pl-0', sidebarPosition === 'right' && 'lg:pr-0')}>
 
                     <div className={classes.header}>
 

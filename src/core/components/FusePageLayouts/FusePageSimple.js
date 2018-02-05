@@ -149,7 +149,7 @@ class FusePageSimple extends React.Component {
                 <Hidden lgUp>
                     <Drawer
                         className={classes.sidebarWrapper}
-                        type="temporary"
+                        variant="temporary"
                         anchor={sidebarPosition}
                         open={this.state.mobileOpen}
                         classes={{
@@ -165,7 +165,7 @@ class FusePageSimple extends React.Component {
 
                 <Hidden mdDown>
                     <Drawer
-                        type="permanent"
+                        variant="permanent"
                         className={classes.sidebarWrapper}
                         open
                         classes={{

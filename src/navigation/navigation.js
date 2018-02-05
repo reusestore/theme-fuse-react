@@ -197,7 +197,7 @@ export const navigation = [
                 'translate': 'NAV.MAIL.TITLE',
                 'type'     : 'item',
                 'icon'     : 'email',
-                'url'      : '/apps/mail/inbox',
+                'url'      : '/apps/mail',
                 'badge'    : {
                     'title'    : 25,
                     'translate': 'NAV.MAIL.BADGE',
