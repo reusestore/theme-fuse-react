@@ -18,16 +18,32 @@ const styles = theme => ({
         padding: 0
     },
     mailItem: {
-        background      : '#FAFAFA',
-        borderBottom    : '1px solid rgba(0,0,0,.12)',
+        borderBottom: '1px solid  ' + theme.palette.divider,
+
         '&.unread'      : {
-            background: '#FFFFFF'
+            background: 'rgba(0,0,0,0.03)'
         },
         '&.current-mail': {
-            background: '#E3F2FD'
+            '&::before': {
+                content        : '""',
+                position       : 'absolute',
+                right          : 0,
+                display        : 'block',
+                height         : '100%',
+                width          : 3,
+                backgroundColor: theme.palette.secondary.main
+            }
         },
         '&.selected'    : {
-            background: '#FFF8E1'
+            '&::after': {
+                content        : '""',
+                position       : 'absolute',
+                left           : 0,
+                display        : 'block',
+                height         : '100%',
+                width          : 3,
+                backgroundColor: theme.palette.primary.main
+            }
         }
     },
     avatar  : {

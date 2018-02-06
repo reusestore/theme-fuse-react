@@ -3,14 +3,12 @@ import {withStyles} from 'material-ui/styles/index';
 import * as Actions from './store/actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {Button, Divider, Icon, List, ListItem, ListItemIcon, ListItemText, ListSubheader} from 'material-ui';
-import {Link, NavLink} from 'react-router-dom';
+import {Icon, List, ListItem, ListItemText, ListSubheader} from 'material-ui';
+import {NavLink} from 'react-router-dom';
+import MailCompose from './MailCompose';
 
 const styles = theme => ({
     listWrapper  : {},
-    composeButton: {
-        width: '100%'
-    },
     listItem     : {
         paddingRight       : 24,
         paddingLeft        : 24,
@@ -35,18 +33,16 @@ const styles = theme => ({
     }
 });
 
-const Sidebar = ({classes, folders, filters, labels}) => {
+const MailSidebarContent = ({classes, folders, filters, labels}) => {
 
     return (
         <div>
-            <div className="p-24">
-                <Button variant="raised" color="primary" className={classes.composeButton}>
-                    COMPOSE
-                </Button>
-            </div>
+
+            <MailCompose/>
+
             <div className={classes.listWrapper}>
                 <List>
-                    <ListSubheader className={classes.listSubheader}>FOLDERS</ListSubheader>
+                    <ListSubheader className={classes.listSubheader} disableSticky>FOLDERS</ListSubheader>
                     {folders.length > 0 && folders.map((folder) => (
                         <ListItem button
                                   component={NavLink}
@@ -59,7 +55,7 @@ const Sidebar = ({classes, folders, filters, labels}) => {
                     ))}
                 </List>
                 <List>
-                    <ListSubheader className={classes.listSubheader}>FILTERS</ListSubheader>
+                    <ListSubheader className={classes.listSubheader} disableSticky>FILTERS</ListSubheader>
                     {filters.length > 0 && filters.map((filter) => (
                         <ListItem button
                                   component={NavLink}
@@ -74,7 +70,7 @@ const Sidebar = ({classes, folders, filters, labels}) => {
                     ))}
                 </List>
                 <List>
-                    <ListSubheader className={classes.listSubheader}>LABELS</ListSubheader>
+                    <ListSubheader className={classes.listSubheader} disableSticky>LABELS</ListSubheader>
                     {labels.length > 0 && labels.map((label) => (
                         <ListItem button
                                   component={NavLink}
@@ -86,7 +82,6 @@ const Sidebar = ({classes, folders, filters, labels}) => {
                         </ListItem>
                     ))}
                 </List>
-
             </div>
         </div>
     );
@@ -110,4 +105,4 @@ function mapStateToProps({mailApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(Sidebar));
+export default withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(MailSidebarContent));

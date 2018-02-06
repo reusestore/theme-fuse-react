@@ -2,8 +2,9 @@ import React from 'react';
 import {withStyles} from 'material-ui/styles';
 import Drawer from 'material-ui/Drawer';
 import Hidden from 'material-ui/Hidden';
-import {Icon, IconButton} from 'material-ui';
+import {Icon, IconButton, MuiThemeProvider} from 'material-ui';
 import classNames from 'classnames';
+import {themes} from '../FuseTheme/FuseTheme';
 
 const drawerWidth = 240;
 const headerHeight = 200;
@@ -61,7 +62,8 @@ const styles = theme => ({
         display        : 'flex',
         flex           : '1 1 auto',
         flexDirection  : 'column',
-        backgroundColor: 'white',
+        backgroundColor: theme.palette.background.paper,
+        color          : theme.palette.text.paper,
         boxShadow      : '0px 4px 5px -2px rgba(0,0,0,0.2), 0px 7px 10px 1px rgba(0,0,0,0.14), 0px 2px 16px 1px rgba(0,0,0,0.12)'
     },
     toolbar                  : {
@@ -70,7 +72,7 @@ const styles = theme => ({
         display     : 'flex',
         alignItems  : 'center',
         padding     : '0 24px',
-        borderBottom: '1px solid rgba(0,0,0,0.12)'
+        borderBottom: '1px solid ' + theme.palette.divider
     },
     content                  : {
         flex    : '1 1 auto',
@@ -79,7 +81,9 @@ const styles = theme => ({
     },
     sidebarWrapper           : {
         backgroundColor             : 'transparent',
+        zIndex                      : 3,
         [theme.breakpoints.up('md')]: {
+            zIndex  : 1,
             position: 'relative'
         }
     },
@@ -95,15 +99,18 @@ const styles = theme => ({
 
     },
     sidebarHeader            : {
-        height                      : headerHeight,
-        minHeight                   : headerHeight,
-        padding                     : 24,
-        [theme.breakpoints.up('lg')]: {
-            color: theme.palette.primary.contrastText
+        height                        : headerHeight,
+        minHeight                     : headerHeight,
+        padding                       : 24,
+        color                         : theme.palette.primary.contrastText,
+        [theme.breakpoints.down('md')]: {
+            backgroundColor: theme.palette.primary.dark
         }
     },
     sidebarContent           : {
         padding                     : 24,
+        backgroundColor             : theme.palette.background.default,
+        color                       : theme.palette.text.primary,
         [theme.breakpoints.up('lg')]: {
             overflow: 'auto'
         }
@@ -126,9 +133,11 @@ class FusePageCarded extends React.Component {
         const Sidebar = (
             <React.Fragment>
                 {sidebarHeader && (
-                    <div className={classes.sidebarHeader}>
-                        {sidebarHeader}
-                    </div>
+                    <MuiThemeProvider theme={themes['dark']}>
+                        <div className={classes.sidebarHeader}>
+                            {sidebarHeader}
+                        </div>
+                    </MuiThemeProvider>
                 )}
 
                 {sidebarContent && (

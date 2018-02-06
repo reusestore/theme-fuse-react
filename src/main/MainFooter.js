@@ -1,24 +1,20 @@
 import React from 'react';
-import {AppBar, Hidden, Icon, IconButton, Toolbar, Typography} from 'material-ui';
+import {Typography} from 'material-ui';
 import {withStyles} from 'material-ui/styles/index';
 import classNames from 'classnames';
 
 const styles = theme => ({
-    footer: {
-        position: 'relative',
-        zIndex  : 5
+    root: {
     }
 });
 
 const MainFooter = ({classes}) => {
     return (
-        <AppBar className={classNames(classes.footer)} color="default">
-            <Toolbar>
-                <Typography variant="title" color="inherit" noWrap>
-                    Footer
-                </Typography>
-            </Toolbar>
-        </AppBar>
+        <div className={classNames(classes.root)}>
+            <Typography variant="title" color="inherit" noWrap>
+                Footer
+            </Typography>
+        </div>
     );
 };
 

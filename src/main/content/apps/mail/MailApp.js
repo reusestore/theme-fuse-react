@@ -5,15 +5,14 @@ import * as Actions from './store/actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom'
-import {Grid} from 'material-ui';
-import Sidebar from './Sidebar';
 import MailDetails from './MailDetails';
 import _ from 'lodash';
 import FusePageCarded from '../../../../core/components/FusePageLayouts/FusePageCarded';
-import SidebarHeader from './SidebarHeader';
 import classNames from 'classnames';
 import MailToolbar from './MailToolbar';
 import MailHeader from './MailHeader';
+import MailSidebarHeader from './MailSidebarHeader';
+import MailSidebarContent from './MailSidebarContent';
 
 const styles = theme => ({
     layoutRoot          : {},
@@ -34,6 +33,27 @@ const styles = theme => ({
     },
     layoutHeaderContent : {
         paddingTop: 0
+    },
+    mailListWrapper     : {
+        borderRight                   : '1px solid ' + theme.palette.divider,
+        display                       : 'block',
+        width                         : '50%',
+        [theme.breakpoints.down('sm')]: {
+            width            : '100%',
+            '&.mail-selected': {
+                display: 'none'
+            }
+        }
+    },
+    mailDetailsWrapper  : {
+        width                         : '50%',
+        [theme.breakpoints.down('sm')]: {
+            display          : 'none',
+            width            : '100%',
+            '&.mail-selected': {
+                display: 'block'
+            }
+        }
     }
 });
 
@@ -77,7 +97,7 @@ class MailApp extends Component {
 
     render()
     {
-        const {classes, theme} = this.props;
+        const {classes, currentMail} = this.props;
 
         return (
             <FusePageCarded
@@ -97,20 +117,20 @@ class MailApp extends Component {
                 }
                 content={
                     <div className="flex flex-1 h-full">
-                        <div className="w-1/2 overflow-auto border-r">
+                        <div className={classNames(classes.mailListWrapper, currentMail && "mail-selected", "overflow-auto")}>
                             <MailList/>
                         </div>
-                        <div className="w-1/2 p-24 overflow-auto">
+                        <div className={classNames(classes.mailDetailsWrapper, currentMail && "mail-selected", "p-24 overflow-auto")}>
                             <MailDetails/>
                         </div>
                     </div>
                 }
                 sidebarPosition="left"
                 sidebarHeader={
-                    <SidebarHeader/>
+                    <MailSidebarHeader/>
                 }
                 sidebarContent={
-                    <Sidebar/>
+                    <MailSidebarContent/>
                 }
             />
         )
@@ -128,10 +148,11 @@ function mapDispatchToProps(dispatch)
 function mapStateToProps({mailApp})
 {
     return {
-        mails  : mailApp.mails,
-        folders: mailApp.folders,
-        labels : mailApp.labels,
-        filters: mailApp.filters
+        mails      : mailApp.mails,
+        currentMail: mailApp.mails.currentMail,
+        folders    : mailApp.folders,
+        labels     : mailApp.labels,
+        filters    : mailApp.filters
     }
 }
 

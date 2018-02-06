@@ -3,24 +3,21 @@ import {withStyles} from 'material-ui/styles';
 import classNames from 'classnames';
 import Drawer from 'material-ui/Drawer';
 import {withRouter} from 'react-router-dom';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import _ from 'lodash';
-import {Hidden, Paper} from 'material-ui';
+import {AppBar, Hidden, Icon, IconButton, MuiThemeProvider, Paper, Toolbar, Typography} from 'material-ui';
 import {matchRoutes, renderRoutes} from 'react-router-config'
-import MainToolbar from './MainToolbar';
-import MainFooter from './MainFooter';
-import MainNavbar from './MainNavbar';
 
 const navbarWidth = 256;
 
 const styles = theme => ({
     root                : {
-        display      : 'flex',
-        flexDirection: 'column',
-        width        : '100%',
-        height       : '100%',
-        overflow     : 'hidden'
+        display        : 'flex',
+        flexDirection  : 'column',
+        width          : '100%',
+        height         : '100%',
+        overflow       : 'hidden',
+        backgroundColor: theme.palette.background.default,
+        color          : theme.palette.text.primary
     },
     wrapper             : {
         display : 'flex',
@@ -36,25 +33,25 @@ const styles = theme => ({
         flex         : '1 1 auto'
     },
     content             : {
-        display        : 'flex',
-        overflow       : 'auto',
-        flex           : '1 1 auto',
-        flexDirection  : 'column',
-        width          : '100%',
-        backgroundColor: theme.palette.background.default
+        display      : 'flex',
+        overflow     : 'auto',
+        flex         : '1 1 auto',
+        flexDirection: 'column',
+        width        : '100%'
     },
     navbarWrapper       : {
         zIndex: 4
     },
     navbarPaperWrapper  : {},
     navbar              : {
-        background: '#ffffff',
-        overflowX : 'hidden',
-        overflowY : 'auto',
-        width     : navbarWidth,
-        minWidth  : navbarWidth,
-        height    : '100%',
-        transition: theme.transitions.create(['width', 'min-width'], {
+        overflowX      : 'hidden',
+        overflowY      : 'auto',
+        width          : navbarWidth,
+        minWidth       : navbarWidth,
+        height         : '100%',
+        backgroundColor: theme.palette.background.default,
+        color          : theme.palette.text.primary,
+        transition     : theme.transitions.create(['width', 'min-width'], {
             easing  : theme.transitions.easing.sharp,
             duration: theme.transitions.duration.shorter
         })
@@ -75,10 +72,43 @@ const styles = theme => ({
     navigationFoldedOpen: {
         width   : navbarWidth,
         minWidth: navbarWidth
+    },
+    navbarHeaderWrapper : {
+        display        : 'flex',
+        alignItems     : 'center',
+        flex           : '1 0 auto',
+        ...theme.mixins.toolbar,
+        backgroundColor: 'rgba(255, 255, 255, .05)',
+        boxShadow      : theme.shadows[1]
+    },
+    navbarHeader        : {
+        display: 'flex',
+        flex   : '1 1 auto',
+        padding: '0 8px 0 16px'
+    },
+    navbarContent       : {
+
+    },
+    toolbarWrapper      : {
+        display : 'flex',
+        position: 'relative',
+        zIndex  : 5
+    },
+    toolbar             : {
+        display: 'flex',
+        flex   : '1 0 auto'
+    },
+    footerWrapper       : {
+        position: 'relative',
+        zIndex  : 5
+    },
+    footer              : {
+        display: 'flex',
+        flex   : '1 0 auto'
     }
 });
 
-class Main extends React.Component {
+class FuseLayout extends React.Component {
 
     state = {
         settings            : {...this.defaultSettings},
@@ -191,9 +221,33 @@ class Main extends React.Component {
 
     render()
     {
-        const {classes} = this.props;
+        const {classes, toolbar, footer, navbarHeader, navbarContent} = this.props;
 
-        const navBar = (
+        const navbarHeaderTemplate = (
+            <div className={classes.navbarHeaderWrapper}>
+                <div className={classes.navbarHeader}>
+                    {navbarHeader}
+                </div>
+                <Hidden smDown>
+                    <IconButton onClick={this.handleToggleFolded}>
+                        <Icon>menu</Icon>
+                    </IconButton>
+                </Hidden>
+                <Hidden mdUp>
+                    <IconButton onClick={this.handleMobileNavbarClose}>
+                        <Icon>menu</Icon>
+                    </IconButton>
+                </Hidden>
+            </div>
+        );
+
+        const navbarContentTemplate = (
+            <div className={classes.navbarContent}>
+                {navbarContent}
+            </div>
+        );
+
+        const navBarTemplate = (
 
             <div className={classes.navbarWrapper}>
 
@@ -205,7 +259,8 @@ class Main extends React.Component {
                         this.state.settings.layout.navigationFolded && this.state.navigationFoldedOpen && classes.navigationFoldedOpen)}
                            onMouseEnter={this.handleFoldedOpen}
                            onMouseLeave={this.handleFoldedClose}>
-                        <MainNavbar parent={this}/>
+                        {navbarHeaderTemplate}
+                        {navbarContentTemplate}
                     </Paper>
                 </Hidden>
 
@@ -221,23 +276,52 @@ class Main extends React.Component {
                             keepMounted: true // Better open performance on mobile.
                         }}
                     >
-                        <MainNavbar parent={this}/>
+                        {navbarHeaderTemplate}
+                        {navbarContentTemplate}
                     </Drawer>
                 </Hidden>
             </div>
         );
 
+        const toolbarTemplate = (
+            <AppBar className={classNames(classes.toolbarWrapper)} color="default">
+                <Toolbar>
+                    <Hidden lgUp>
+                        <IconButton
+                            aria-label="open drawer"
+                            onClick={this.handleMobileNavbarOpen}>
+                            <Icon>menu</Icon>
+                        </IconButton>
+                    </Hidden>
+                    <div className={classes.toolbar}>
+                        {toolbar}
+                    </div>
+                </Toolbar>
+            </AppBar>
+        );
+
+        const footerTemplate = (
+            <AppBar className={classNames(classes.footerWrapper)} color="default">
+                <Toolbar>
+                    <div className={classNames(classes.footer)}>
+                        {footer}
+                    </div>
+                </Toolbar>
+            </AppBar>
+        );
+
         return (
+
             <div className={classes.root}>
 
                 {this.state.settings.layout.toolbar === 'above' && (
-                    <MainToolbar parent={this}/>
+                    toolbarTemplate
                 )}
 
                 <div className={classes.wrapper}>
 
                     {this.state.settings.layout.navigation === 'left' && (
-                        navBar
+                        navBarTemplate
                     )}
 
                     <div className={classNames(
@@ -247,7 +331,7 @@ class Main extends React.Component {
                     )}>
 
                         {this.state.settings.layout.toolbar === 'below' && (
-                            <MainToolbar parent={this}/>
+                            toolbarTemplate
                         )}
 
                         <div className={classes.content}>
@@ -255,22 +339,22 @@ class Main extends React.Component {
                         </div>
 
                         {this.state.settings.layout.footer === 'below' && (
-                            <MainFooter/>
+                            footerTemplate
                         )}
                     </div>
 
                     {this.state.settings.layout.navigation === 'right' && (
-                        navBar
+                        navBarTemplate
                     )}
 
                 </div>
 
                 {this.state.settings.layout.footer === 'above' && (
-                    <MainFooter/>
+                    footerTemplate
                 )}
             </div>
         );
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(Main));
+export default withStyles(styles, {withTheme: true})(withRouter(FuseLayout));

@@ -13,10 +13,13 @@ import thunk from 'redux-thunk';
 import reducers from './store/reducers';
 import {BrowserRouter} from 'react-router-dom';
 import './fake-db/fake-db'
-
-import Main from './main/Main';
-import {createMuiTheme, MuiThemeProvider} from 'material-ui';
 import {routes} from './routes';
+import FuseLayout from './core/components/FuseLayout/FuseLayout';
+import MainToolbar from './main/MainToolbar';
+import MainNavbarContent from './main/MainNavbarContent';
+import MainNavbarHeader from './main/MainNavbarHeader';
+import MainFooter from './main/MainFooter';
+import FuseTheme from './core/components/FuseTheme/FuseTheme';
 
 const composeEnhancers =
     typeof window === 'object' &&
@@ -33,29 +36,29 @@ const jss = create(jssPreset());
 jss.options.insertionPoint = 'insertion-point-jss';
 jss.options.createGenerateClassName = createGenerateClassName;
 
-const theme = createMuiTheme({
-    typography: {
-        htmlFontSize: 10,
-        subheading  : {
-            fontSize: "1.4rem"
-        }
-    },
-    status    : {
-        danger: 'orange'
-    }
-});
-
-console.info(theme);
-
 ReactDOM.render(
-    <MuiThemeProvider theme={theme}>
-        <JssProvider jss={jss}>
-            <Provider store={store}>
-                <BrowserRouter>
-                    <Main routes={routes}/>
-                </BrowserRouter>
-            </Provider>
-        </JssProvider>
-    </MuiThemeProvider>
+    <JssProvider jss={jss}>
+        <Provider store={store}>
+            <BrowserRouter>
+                <FuseTheme>
+                    <FuseLayout
+                        routes={routes}
+                        toolbar={
+                            <MainToolbar/>
+                        }
+                        navbarHeader={
+                            <MainNavbarHeader/>
+                        }
+                        navbarContent={
+                            <MainNavbarContent/>
+                        }
+                        footer={
+                            <MainFooter/>
+                        }
+                    />
+                </FuseTheme>
+            </BrowserRouter>
+        </Provider>
+    </JssProvider>
     , document.getElementById('root'));
 registerServiceWorker();

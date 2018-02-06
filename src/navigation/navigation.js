@@ -1,116 +1,5 @@
 export const navigation = [
     {
-        'id'   : 'test-item',
-        'title': 'Test Item',
-        'type' : 'item',
-        'url'  : '/demo'
-    },
-    {
-        'id'      : 'test-collapse',
-        'title'   : 'Test Collapse',
-        'type'    : 'collapse',
-        'icon'    : 'dashboard',
-        'children': [
-            {
-                'id'   : 'test-item',
-                'title': 'Mail',
-                'type' : 'item',
-                'url'  : '/apps/mail'
-            }
-        ]
-    },
-    {
-        'id'      : 'test-group',
-        'title'   : 'Test Group',
-        'type'    : 'group',
-        'icon'    : 'apps',
-        'children': [
-            {
-                'id'      : 'test-collapse',
-                'title'   : 'Test Collapse',
-                'type'    : 'collapse',
-                'icon'    : 'dashboard',
-                'children': [
-                    {
-                        'id'   : 'test-item',
-                        'title': 'Item',
-                        'type' : 'item',
-                        'url'  : '/apps/dashboards/project'
-                    },
-                    {
-                        'id'      : 'test-collapse-2',
-                        'title'   : 'Collapse 2',
-                        'type'    : 'collapse',
-                        'children': [
-                            {
-                                'id'   : 'test-item 2',
-                                'title': 'Item 2',
-                                'type' : 'item',
-                                'url'  : '/apps/dashboards/project'
-                            },
-                            {
-                                'id'      : 'test-collapse-3',
-                                'title'   : 'Collapse 3',
-                                'type'    : 'collapse',
-                                'icon'    : 'dashboard',
-                                'children': [
-                                    {
-                                        'id'   : 'test-item 3',
-                                        'title': 'Item 3',
-                                        'type' : 'item',
-                                        'url'  : '/apps/dashboards/project'
-                                    },
-                                    {
-                                        'id'      : 'test-collapse-4',
-                                        'title'   : 'Collapse 4',
-                                        'type'    : 'collapse',
-                                        'icon'    : 'dashboard',
-                                        'children': [
-                                            {
-                                                'id'   : 'test-item 4',
-                                                'title': 'Item 4',
-                                                'type' : 'item',
-                                                'url'  : '/apps/dashboards/project'
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        'id'      : 'test-group',
-                        'title'   : 'Sub Group',
-                        'type'    : 'group',
-                        'icon'    : 'apps',
-                        'children': [
-                            {
-                                'id'      : 'test-collapse',
-                                'title'   : 'Collapse',
-                                'type'    : 'collapse',
-                                'icon'    : 'dashboard',
-                                'children': [
-                                    {
-                                        'id'   : 'test-item',
-                                        'title': 'Item',
-                                        'type' : 'item',
-                                        'url'  : '/apps/dashboards/project'
-                                    }
-                                ]
-                            },
-                            {
-                                'id'   : 'test-item',
-                                'title': 'Mail',
-                                'type' : 'item',
-                                'url'  : '/apps/mail'
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    },
-    {
         'id'       : 'applications',
         'title'    : 'Applications',
         'translate': 'NAV.APPLICATIONS',
@@ -1002,6 +891,117 @@ export const navigation = [
                 'type' : 'item',
                 'icon' : 'place',
                 'url'  : '/components-third-party/google-maps'
+            }
+        ]
+    },
+    {
+        'id'   : 'test-item',
+        'title': 'Test Item',
+        'type' : 'item',
+        'url'  : '/demo'
+    },
+    {
+        'id'      : 'test-collapse',
+        'title'   : 'Test Collapse',
+        'type'    : 'collapse',
+        'icon'    : 'dashboard',
+        'children': [
+            {
+                'id'   : 'test-item',
+                'title': 'Mail',
+                'type' : 'item',
+                'url'  : '/apps/mail'
+            }
+        ]
+    },
+    {
+        'id'      : 'test-group',
+        'title'   : 'Test Group',
+        'type'    : 'group',
+        'icon'    : 'apps',
+        'children': [
+            {
+                'id'      : 'test-collapse',
+                'title'   : 'Test Collapse',
+                'type'    : 'collapse',
+                'icon'    : 'dashboard',
+                'children': [
+                    {
+                        'id'   : 'test-item',
+                        'title': 'Item',
+                        'type' : 'item',
+                        'url'  : '/apps/dashboards/project'
+                    },
+                    {
+                        'id'      : 'test-collapse-2',
+                        'title'   : 'Collapse 2',
+                        'type'    : 'collapse',
+                        'children': [
+                            {
+                                'id'   : 'test-item 2',
+                                'title': 'Item 2',
+                                'type' : 'item',
+                                'url'  : '/apps/dashboards/project'
+                            },
+                            {
+                                'id'      : 'test-collapse-3',
+                                'title'   : 'Collapse 3',
+                                'type'    : 'collapse',
+                                'icon'    : 'dashboard',
+                                'children': [
+                                    {
+                                        'id'   : 'test-item 3',
+                                        'title': 'Item 3',
+                                        'type' : 'item',
+                                        'url'  : '/apps/dashboards/project'
+                                    },
+                                    {
+                                        'id'      : 'test-collapse-4',
+                                        'title'   : 'Collapse 4',
+                                        'type'    : 'collapse',
+                                        'icon'    : 'dashboard',
+                                        'children': [
+                                            {
+                                                'id'   : 'test-item 4',
+                                                'title': 'Item 4',
+                                                'type' : 'item',
+                                                'url'  : '/apps/dashboards/project'
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        'id'      : 'test-group',
+                        'title'   : 'Sub Group',
+                        'type'    : 'group',
+                        'icon'    : 'apps',
+                        'children': [
+                            {
+                                'id'      : 'test-collapse',
+                                'title'   : 'Collapse',
+                                'type'    : 'collapse',
+                                'icon'    : 'dashboard',
+                                'children': [
+                                    {
+                                        'id'   : 'test-item',
+                                        'title': 'Item',
+                                        'type' : 'item',
+                                        'url'  : '/apps/dashboards/project'
+                                    }
+                                ]
+                            },
+                            {
+                                'id'   : 'test-item',
+                                'title': 'Mail',
+                                'type' : 'item',
+                                'url'  : '/apps/mail'
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     }
