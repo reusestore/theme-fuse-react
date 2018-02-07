@@ -3,10 +3,13 @@ import React from 'react';
 import {Redirect} from 'react-router-dom';
 
 export const MailAppConfig = {
-    layout: {
-        navigation: 'left'
+    settings: {
+        layout: {
+            navigation: 'left'
+        },
+        customScrollbars: true,
     },
-    routes: [
+    routes  : [
         {
             path     : '/apps/mail/label/:labelHandle/:mailId?',
             component: MailApp,

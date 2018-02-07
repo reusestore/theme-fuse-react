@@ -13,6 +13,7 @@ import MailHeader from './MailHeader';
 import MailSidebarHeader from './MailSidebarHeader';
 import MailSidebarContent from './MailSidebarContent';
 import _ from 'lodash';
+import FuseScrollbars from '../../../../core/components/FuseScrollbars/FuseScrollbars';
 
 const styles = theme => ({
     layoutRoot          : {},
@@ -97,12 +98,12 @@ class MailApp extends Component {
                 }
                 content={
                     <div className="flex flex-1 h-full">
-                        <div className={classNames(classes.mailListWrapper, currentMail && "mail-selected", "overflow-auto")}>
+                        <FuseScrollbars className={classNames(classes.mailListWrapper, currentMail && "mail-selected", "overflow-auto")}>
                             <MailList/>
-                        </div>
-                        <div className={classNames(classes.mailDetailsWrapper, currentMail && "mail-selected", "p-24 overflow-auto")}>
+                        </FuseScrollbars>
+                        <FuseScrollbars className={classNames(classes.mailDetailsWrapper, currentMail && "mail-selected", "p-24 overflow-auto")}>
                             <MailDetails/>
-                        </div>
+                        </FuseScrollbars>
                     </div>
                 }
                 sidebarPosition="left"

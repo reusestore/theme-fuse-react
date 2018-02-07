@@ -1,3 +1,4 @@
+import './polyfills';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'typeface-roboto'
@@ -5,7 +6,6 @@ import './index.css';
 import JssProvider from 'react-jss/lib/JssProvider';
 import {create} from 'jss';
 import {createGenerateClassName, jssPreset} from 'material-ui/styles';
-
 import registerServiceWorker from './registerServiceWorker';
 import {Provider} from 'react-redux';
 import {applyMiddleware, compose, createStore} from 'redux';

@@ -1,16 +1,14 @@
 import * as Actions from '../actions';
 
-const initialState = {
-    selectedTheme: 'default'
-};
+const initialState = {};
 
 const theme = function (state = initialState, action) {
     switch ( action.type )
     {
-        case Actions.SET_THEME:
+        case Actions.SET_SETTINGS:
             return {
                 ...state,
-                selectedTheme: action.value
+                ...action.value
             };
         default:
             return state;

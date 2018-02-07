@@ -7,16 +7,16 @@ function setRoutes(config)
 {
     let routes = [...config.routes];
 
-    if ( config.layout && !_.isEmpty(config.layout) )
+    if ( config.settings && !_.isEmpty(config.settings) )
     {
         routes = routes.map((route) => {
-            if ( route.layout )
+            if ( route.settings )
             {
                 return route;
             }
             return {
                 ...route,
-                layout: config.layout
+                settings: config.settings
             }
         })
     }

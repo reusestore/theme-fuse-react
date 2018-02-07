@@ -5,6 +5,7 @@ import Hidden from 'material-ui/Hidden';
 import {Icon, IconButton, MuiThemeProvider} from 'material-ui';
 import classNames from 'classnames';
 import {themes} from '../FuseTheme/FuseTheme';
+import FuseScrollbars from '../FuseScrollbars/FuseScrollbars';
 
 const drawerWidth = 240;
 const headerHeight = 200;
@@ -38,10 +39,11 @@ const styles = theme => ({
         display      : 'flex',
         flexDirection: 'column',
         padding      : '0 3.2rem',
-        flex         : '1 1 auto',
+        flex         : '1 1 100%',
         zIndex       : 2,
         maxWidth     : '100%',
-        minWidth     : 0
+        minWidth     : 0,
+        minHeight     : 0
     },
     header                   : {
         height   : headerContentHeight,
@@ -60,11 +62,12 @@ const styles = theme => ({
     },
     contentCard              : {
         display        : 'flex',
-        flex           : '1 1 auto',
+        flex           : '1 1 100%',
         flexDirection  : 'column',
         backgroundColor: theme.palette.background.paper,
         color          : theme.palette.text.paper,
-        boxShadow      : theme.shadows[7]
+        boxShadow      : theme.shadows[7],
+        minHeight     : 0
     },
     toolbar                  : {
         height      : toolbarHeight,
@@ -141,9 +144,9 @@ class FusePageCarded extends React.Component {
                 )}
 
                 {sidebarContent && (
-                    <div className={classes.sidebarContent}>
+                    <FuseScrollbars className={classes.sidebarContent} enable={!singleScroll}>
                         {sidebarContent}
-                    </div>
+                    </FuseScrollbars>
                 )}
             </React.Fragment>
         );
@@ -221,7 +224,7 @@ class FusePageCarded extends React.Component {
 
                     </div>
 
-                    <div className={classes.contentCard}>
+                    <div className={classNames(classes.contentCard, singleScroll && 'single-scroll')}>
 
                         {contentToolbar && (
                             <div className={classes.toolbar}>
@@ -230,9 +233,9 @@ class FusePageCarded extends React.Component {
                         )}
 
                         {content && (
-                            <div className={classes.content}>
+                            <FuseScrollbars className={classes.content} enable={!singleScroll}>
                                 {content}
-                            </div>
+                            </FuseScrollbars>
                         )}
 
                     </div>

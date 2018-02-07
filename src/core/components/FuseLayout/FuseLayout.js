@@ -3,8 +3,12 @@ import {withStyles} from 'material-ui/styles';
 import {withRouter} from 'react-router-dom';
 import {AppBar, Hidden, Icon, IconButton, Paper, Toolbar, Drawer} from 'material-ui';
 import {matchRoutes, renderRoutes} from 'react-router-config'
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import * as Actions from '../../../store/actions';
 import classNames from 'classnames';
 import _ from 'lodash';
+import FuseScrollbars from '../FuseScrollbars/FuseScrollbars';
 
 const navbarWidth = 256;
 
@@ -43,8 +47,9 @@ const styles = theme => ({
     },
     navbarPaperWrapper  : {},
     navbar              : {
-        overflowX      : 'hidden',
-        overflowY      : 'auto',
+        display        : 'flex',
+        overflow       : 'hidden',
+        flexDirection  : 'column',
         width          : navbarWidth,
         minWidth       : navbarWidth,
         height         : '100%',
@@ -85,7 +90,10 @@ const styles = theme => ({
         flex   : '1 1 auto',
         padding: '0 8px 0 16px'
     },
-    navbarContent       : {},
+    navbarContent       : {
+        overflowX: 'hidden',
+        overflowY: 'auto'
+    },
     toolbarWrapper      : {
         display : 'flex',
         position: 'relative',
@@ -177,38 +185,44 @@ class FuseLayout extends React.Component {
 
     updateLayoutSettings(props)
     {
-        let layoutSettings = matchRoutes(this.props.routes, props.location.pathname)[0].route.layout;
+        let routeSettings = matchRoutes(this.props.routes, props.location.pathname)[0].route.settings;
 
-        if ( layoutSettings )
+        if ( routeSettings )
         {
-            layoutSettings = {
-                ...this.defaultSettings.layout,
-                ...layoutSettings
+            routeSettings = {
+                ...this.defaultSettings,
+                ...routeSettings,
+                layout: {
+                    ...this.defaultSettings.layout,
+                    ...routeSettings.layout
+                }
             };
 
-            if ( !_.isEqual(this.state.settings, layoutSettings) )
+            if ( !_.isEqual(this.state.settings, routeSettings) )
             {
-                this.setState({
-                    settings            : {
-                        ...this.settings,
-                        layout: layoutSettings
-                    },
-                    navigationFoldedOpen: false
+                this.updateSettings(props, {
+                    ...this.settings,
+                    ...routeSettings
                 });
             }
         }
         else
         {
-            this.setState({
-                settings            : {
-                    ...this.settings,
-                    layout: this.defaultSettings.layout
-                },
-                navigationFoldedOpen: false
+            this.updateSettings(props, {
+                ...this.settings,
+                ...this.defaultSettings
             });
         }
     }
 
+    updateSettings(props, settings)
+    {
+        this.setState({
+            settings,
+            navigationFoldedOpen: false
+        });
+        props.setSettings(settings);
+    }
 
     render()
     {
@@ -233,9 +247,9 @@ class FuseLayout extends React.Component {
         );
 
         const navbarContentTemplate = (
-            <div className={classes.navbarContent}>
+            <FuseScrollbars className={classes.navbarContent}>
                 {navbarContent}
-            </div>
+            </FuseScrollbars>
         );
 
         const navBarTemplate = (
@@ -325,9 +339,9 @@ class FuseLayout extends React.Component {
                             toolbarTemplate
                         )}
 
-                        <div className={classes.content}>
+                        <FuseScrollbars className={classes.content}>
                             {renderRoutes(this.props.routes)}
-                        </div>
+                        </FuseScrollbars>
 
                         {this.state.settings.layout.footer === 'below' && (
                             footerTemplate
@@ -348,4 +362,17 @@ class FuseLayout extends React.Component {
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(FuseLayout));
+
+function mapDispatchToProps(dispatch)
+{
+    return bindActionCreators({
+        setSettings: Actions.setSettings
+    }, dispatch);
+}
+
+function mapStateToProps({settings})
+{
+    return {}
+}
+
+export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(FuseLayout)));

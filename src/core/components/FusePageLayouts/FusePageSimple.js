@@ -4,6 +4,7 @@ import Drawer from 'material-ui/Drawer';
 import Hidden from 'material-ui/Hidden';
 import {Icon, IconButton} from 'material-ui';
 import classNames from 'classnames';
+import FuseScrollbars from '../FuseScrollbars/FuseScrollbars';
 
 const drawerWidth = 240;
 const headerHeight = 120;
@@ -27,7 +28,8 @@ const styles = theme => ({
         flex         : '1 1 auto',
         zIndex       : 2,
         maxWidth     : '100%',
-        minWidth     : 0
+        minWidth     : 0,
+        height  : '100%'
     },
     header                        : {
         height         : headerHeight,
@@ -64,7 +66,7 @@ const styles = theme => ({
         color          : theme.palette.text.paper,
         flexDirection  : 'column',
         flex           : '1 1 auto',
-        boxShadow      :  theme.shadows[7],
+        boxShadow      : theme.shadows[7],
         overflow       : 'auto'
     },
     toolbar                       : {
@@ -128,7 +130,7 @@ class FusePageSimple extends React.Component {
         const {classes, sidebarHeader, sidebarContent, header, content, contentToolbar, sidebarInner, sidebarPosition, singleScroll} = this.props;
 
         const Sidebar = (
-            <React.Fragment>
+            <FuseScrollbars enable={!singleScroll}>
                 {sidebarHeader && (
                     <div className={classNames(classes.sidebarHeader, sidebarInner && classes.sidebarHeaderInnerSidebar)}>
                         <span className="h4">
@@ -142,7 +144,7 @@ class FusePageSimple extends React.Component {
                         {sidebarContent}
                     </div>
                 )}
-            </React.Fragment>
+            </FuseScrollbars>
         );
 
         const SidebarWrapper = (
@@ -219,9 +221,10 @@ class FusePageSimple extends React.Component {
 
                     {(sidebarPosition === 'left') && SidebarWrapper}
 
-                    <div className={classNames(classes.contentCardWrapper, sidebarInner && classes.contentCardWrapperInnerSidebar)}>
+                    <FuseScrollbars className={classNames(classes.contentCardWrapper, sidebarInner && classes.contentCardWrapperInnerSidebar)}
+                                    enable={!singleScroll && sidebarInner}>
 
-                        <div className={classes.contentCard}>
+                        <FuseScrollbars className={classes.contentCard} enable={!singleScroll && !sidebarInner}>
 
                             {header && !sidebarInner && headerContent}
 
@@ -237,8 +240,8 @@ class FusePageSimple extends React.Component {
                                 </div>
                             )}
 
-                        </div>
-                    </div>
+                        </FuseScrollbars>
+                    </FuseScrollbars>
 
                     {(sidebarPosition === 'right') && SidebarWrapper}
                 </div>
