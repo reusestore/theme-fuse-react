@@ -1,5 +1,6 @@
 import React from 'react';
 import {withStyles} from 'material-ui/styles/index';
+import classNames from 'classnames';
 
 const styles = theme => ({
     root : {
@@ -20,7 +21,7 @@ const styles = theme => ({
 });
 const MailChip = ({classes, title, color, className}) => {
     return (
-        <div className={`${classes.root} ${className}`}>
+        <div className={classNames(classes.root, className)}>
             <div className={classes.color} style={{backgroundColor: color}}/>
             <div>{title}</div>
         </div>

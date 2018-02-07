@@ -6,13 +6,13 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom'
 import MailDetails from './MailDetails';
-import _ from 'lodash';
 import FusePageCarded from '../../../../core/components/FusePageLayouts/FusePageCarded';
 import classNames from 'classnames';
 import MailToolbar from './MailToolbar';
 import MailHeader from './MailHeader';
 import MailSidebarHeader from './MailSidebarHeader';
 import MailSidebarContent from './MailSidebarContent';
+import _ from 'lodash';
 
 const styles = theme => ({
     layoutRoot          : {},
@@ -73,26 +73,6 @@ class MailApp extends Component {
         {
             this.props.getMails(nextProps.match.params);
         }
-        /*  let loadedParams = {
-              id   : '',
-              value: ''
-          };
-
-          ['labelHandle', 'filterHandle', 'folderHandle'].map((param) => {
-                  if ( props.match.params[param] )
-                  {
-                      loadedParams = {
-                          id   : param,
-                          value: props.match.params[param]
-                      };
-                  }
-              }
-          );
-
-          if ( this.props.mails.loadedParams && !_.isEqual(this.props.mails.loadedParams, loadedParams) )
-          {
-              // this.props.getMails(props.match);
-          }*/
     }
 
     render()
@@ -148,11 +128,7 @@ function mapDispatchToProps(dispatch)
 function mapStateToProps({mailApp})
 {
     return {
-        mails      : mailApp.mails,
-        currentMail: mailApp.mails.currentMail,
-        folders    : mailApp.folders,
-        labels     : mailApp.labels,
-        filters    : mailApp.filters
+        currentMail: mailApp.mails.currentMail
     }
 }
 

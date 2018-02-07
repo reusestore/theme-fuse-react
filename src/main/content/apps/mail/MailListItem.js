@@ -1,15 +1,13 @@
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles';
-import List, {ListItem} from 'material-ui/List';
-import Checkbox from 'material-ui/Checkbox';
+import {withRouter} from 'react-router-dom';
+import {Avatar, Typography, Checkbox, ListItem} from 'material-ui';
+import MailChip from './MailChip';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom';
-import {Avatar, Typography} from 'material-ui';
-import _ from 'lodash';
-import MailChip from './MailChip';
-import classNames from 'classnames';
 import * as Actions from './store/actions';
+import classNames from 'classnames';
+import _ from 'lodash';
 
 const pathToRegexp = require('path-to-regexp');
 
@@ -86,7 +84,7 @@ class MailListItem extends Component {
                             {mail.from.avatar ? (
                                 <Avatar className="mr-8" alt={mail.from.name} src={mail.from.avatar}/>
                             ) : (
-                                <Avatar className={`mr-8 ${classes.avatar}`}>
+                                <Avatar className={classNames(classes.avatar, "mr-8")}>
                                     {mail.from.name[0]}
                                 </Avatar>
                             )}
@@ -100,7 +98,7 @@ class MailListItem extends Component {
                         <Typography color="textSecondary" className="truncate">{_.truncate(mail.message.replace(/<(?:.|\n)*?>/gm, ''), {'length': 180})}</Typography>
                     </div>
 
-                    <div className={`flex justify-end ${classes.labels}`}>
+                    <div className={classNames(classes.labels, "flex justify-end")}>
                         {mail.labels.map(label => (
                             <MailChip className="mr-4" title={_.find(labels, {id: label}).title} color={_.find(labels, {id: label}).color} key={label}/>
                         ))}
@@ -123,9 +121,7 @@ function mapStateToProps({mailApp})
     return {
         currentMail    : mailApp.mails.currentMail,
         selectedMailIds: mailApp.mails.selectedMailIds,
-        folders        : mailApp.folders,
-        labels         : mailApp.labels,
-        filters        : mailApp.filters
+        labels         : mailApp.labels
     }
 }
 

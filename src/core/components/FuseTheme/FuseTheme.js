@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {createMuiTheme, MuiThemeProvider} from 'material-ui';
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 

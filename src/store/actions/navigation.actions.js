@@ -12,7 +12,6 @@ export function getNavigation()
 
 export function setNavigation(settings)
 {
-    console.info('Set settings Action');
     return {
         type: SET_NAVIGATION,
         settings
@@ -20,7 +19,6 @@ export function setNavigation(settings)
 }
 export function resetNavigation()
 {
-    console.info('Reset settings Action');
     return {
         type: RESET_NAVIGATION
     }

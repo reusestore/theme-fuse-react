@@ -6,6 +6,7 @@ import {bindActionCreators} from 'redux';
 import {Avatar, Divider, Grid, Icon, IconButton, Typography} from 'material-ui';
 import MailChip from './MailChip';
 import _ from 'lodash';
+import classNames from 'classnames';
 
 const styles = theme => ({});
 
@@ -75,7 +76,7 @@ class MailDetails extends Component {
                         {mail.from.avatar ? (
                             <Avatar className="mr-8" alt={mail.from.name} src={mail.from.avatar}/>
                         ) : (
-                            <Avatar className={`mr-8 ${classes.avatar}`}>
+                            <Avatar className={classNames(classes.avatar, "mr-8")}>
                                 {mail.from.name[0]}
                             </Avatar>
                         )}
@@ -155,7 +156,6 @@ class MailDetails extends Component {
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-        getData        : Actions.getData,
         toggleStar     : Actions.toggleStar,
         toggleImportant: Actions.toggleImportant
     }, dispatch);
@@ -164,11 +164,8 @@ function mapDispatchToProps(dispatch)
 function mapStateToProps({mailApp})
 {
     return {
-        mails  : mailApp.mails.entities,
-        mail   : mailApp.mails.currentMail,
-        folders: mailApp.folders,
-        labels : mailApp.labels,
-        filters: mailApp.filters
+        mail  : mailApp.mails.currentMail,
+        labels: mailApp.labels
     }
 }
 

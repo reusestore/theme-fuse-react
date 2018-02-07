@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {TextField, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, FormControl, InputLabel, Input, Icon, IconButton, Typography} from 'material-ui';
+import {TextField, Button, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel, Input, Icon, IconButton, Typography} from 'material-ui';
 import {withStyles} from 'material-ui/styles/index';
 
 const styles = theme => ({
@@ -123,8 +123,8 @@ class MailCompose extends Component {
                             <Attachment fileName="attachment-2.doc" size="12 kb"/>
                             <Attachment fileName="attachment-1.jpg" size="350 kb"/>
                         </div>
-
                     </DialogContent>
+
                     <DialogActions className="justify-between pl-16">
                         <div>
                             <Button variant="raised" color="primary" onClick={this.closeComposeDialog}>

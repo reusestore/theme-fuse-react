@@ -1,6 +1,5 @@
 import * as Actions from '../actions';
 import _ from 'lodash';
-import {SET_SEARCH_TEXT} from '../actions/mails.actions';
 
 const initialState = {
     entities       : [],
@@ -62,7 +61,6 @@ const mailsReducer = function (state = initialState, action) {
         case Actions.UPDATE_MAIL:
         {
             const mail = action.payload;
-            console.info(mail);
 
             return {
                 ...state,

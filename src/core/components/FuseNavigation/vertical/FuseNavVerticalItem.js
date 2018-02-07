@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Icon, ListItem, ListItemText} from 'material-ui';
 import {withStyles} from 'material-ui/styles/index';
 import {NavLink, withRouter} from 'react-router-dom';

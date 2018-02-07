@@ -36,7 +36,6 @@ mock.onGet('/api/mail-app/mails').reply((config) => {
 
 mock.onPost('/api/mail-app/update-mail').reply((request) => {
     const mail = JSON.parse(request.data);
-    console.info(mail);
     mailDB.mails = mailDB.mails.map((_mail) => {
         if ( _mail.id === mail.id )
         {

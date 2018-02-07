@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles/index';
-import {Checkbox, Icon, IconButton, Input, Menu, MenuItem, Paper, TextField} from 'material-ui';
+import {Icon, Input, Paper} from 'material-ui';
 import * as Actions from './store/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
@@ -29,8 +29,11 @@ class MailHeader extends Component {
 
         return (
             <div className={classes.root}>
-                <Paper className={classes.searchWrapper} elevation={5} square>
+
+                <Paper className={classes.searchWrapper} elevation={7} square>
+
                     <Icon color="action">search</Icon>
+
                     <Input
                         placeholder="Search"
                         className={classes.search}
@@ -40,7 +43,6 @@ class MailHeader extends Component {
                         inputProps={{
                             'aria-label': 'Search'
                         }}
-
                         onChange={setSearchText}
                     />
                 </Paper>
@@ -52,24 +54,14 @@ class MailHeader extends Component {
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-        selectAllMails            : Actions.selectAllMails,
-        deselectAllMails          : Actions.deselectAllMails,
-        selectMailsByParameter    : Actions.selectMailsByParameter,
-        setFolderOnSelectedMails  : Actions.setFolderOnSelectedMails,
-        toggleLabelOnSelectedMails: Actions.toggleLabelOnSelectedMails,
-        setSearchText             : Actions.setSearchText
+        setSearchText: Actions.setSearchText
     }, dispatch);
 }
 
 function mapStateToProps({mailApp})
 {
     return {
-        mails          : mailApp.mails.entities,
-        searchText     : mailApp.mails.searchText,
-        selectedMailIds: mailApp.mails.selectedMailIds,
-        folders        : mailApp.folders,
-        labels         : mailApp.labels,
-        filters        : mailApp.filters
+        searchText: mailApp.mails.searchText
     }
 }
 

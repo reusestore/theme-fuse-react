@@ -1,11 +1,10 @@
 import React from 'react';
 import {withStyles} from 'material-ui/styles';
-import classNames from 'classnames';
-import Drawer from 'material-ui/Drawer';
 import {withRouter} from 'react-router-dom';
-import _ from 'lodash';
-import {AppBar, Hidden, Icon, IconButton, MuiThemeProvider, Paper, Toolbar, Typography} from 'material-ui';
+import {AppBar, Hidden, Icon, IconButton, Paper, Toolbar, Drawer} from 'material-ui';
 import {matchRoutes, renderRoutes} from 'react-router-config'
+import classNames from 'classnames';
+import _ from 'lodash';
 
 const navbarWidth = 256;
 
@@ -86,9 +85,7 @@ const styles = theme => ({
         flex   : '1 1 auto',
         padding: '0 8px 0 16px'
     },
-    navbarContent       : {
-
-    },
+    navbarContent       : {},
     toolbarWrapper      : {
         display : 'flex',
         position: 'relative',
@@ -139,7 +136,6 @@ class FuseLayout extends React.Component {
                 }
             }
         });
-        console.info(this.state);
     };
 
     handleFoldedOpen = () => {
@@ -159,7 +155,6 @@ class FuseLayout extends React.Component {
     };
 
     handleMobileNavbarOpen = () => {
-        console.info('clicked');
         this.setState({mobileNavbarOpen: true});
     };
 
@@ -169,7 +164,6 @@ class FuseLayout extends React.Component {
 
     componentWillMount()
     {
-        console.info('WILL MOUNT');
         this.updateLayoutSettings(this.props);
     }
 
@@ -177,7 +171,6 @@ class FuseLayout extends React.Component {
     {
         if ( !_.isEqual(nextProps.location.pathname, this.props.location.pathname) )
         {
-            console.warn('RESET SETTINGS', nextProps.location, this.props.location);
             this.updateLayoutSettings(nextProps);
         }
     }
@@ -192,11 +185,9 @@ class FuseLayout extends React.Component {
                 ...this.defaultSettings.layout,
                 ...layoutSettings
             };
-            console.info(layoutSettings);
 
             if ( !_.isEqual(this.state.settings, layoutSettings) )
             {
-                console.info('UPDATE LAYOUT SETTINGS', layoutSettings);
                 this.setState({
                     settings            : {
                         ...this.settings,

@@ -64,7 +64,7 @@ const styles = theme => ({
         color          : theme.palette.text.paper,
         flexDirection  : 'column',
         flex           : '1 1 auto',
-        boxShadow      : '0px 4px 5px -2px rgba(0,0,0,0.2), 0px 7px 10px 1px rgba(0,0,0,0.14), 0px 2px 16px 1px rgba(0,0,0,0.12)',
+        boxShadow      :  theme.shadows[7],
         overflow       : 'auto'
     },
     toolbar                       : {
@@ -159,7 +159,8 @@ class FusePageSimple extends React.Component {
                         onClose={this.handleDrawerToggle}
                         ModalProps={{
                             keepMounted: true // Better open performance on mobile.
-                        }}>
+                        }}
+                        onClick={this.handleDrawerToggle}>
                         {Sidebar}
                     </Drawer>
                 </Hidden>

@@ -120,7 +120,6 @@ export function updateMail(mail)
 
     return (dispatch) =>
         request.then((response) => {
-                console.info(response);
                 return dispatch({
                     type   : UPDATE_MAIL,
                     payload: response.data

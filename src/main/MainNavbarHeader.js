@@ -20,7 +20,7 @@ const MainNavbarHeader = ({classes}) => {
     return (
         <div className={classes.root}>
             <div className={classNames(classes.logo, "flex items-center")}>
-                <img className={classes.logoIcon} src="assets/images/logos/fuse.svg"/>
+                <img className={classes.logoIcon} src="assets/images/logos/fuse.svg" alt="logo"/>
                 <span className={classNames(classes.logoText, "text-20 ml-8 font-light")}>FUSE</span>
             </div>
         </div>

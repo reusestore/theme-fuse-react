@@ -1,13 +1,10 @@
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles';
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import MailListItem from './MailListItem';
-import FuseUtils from '../../../../core/fuseUtils';
+import FuseUtils from '../../../../core/FuseUtils';
 import {List, Typography} from 'material-ui';
-import _ from 'lodash';
-
 
 const styles = theme => ({
     mailList: {
@@ -60,21 +57,12 @@ class MailList extends Component {
     }
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({}, dispatch);
-}
-
 function mapStateToProps({mailApp})
 {
     return {
-        mails      : mailApp.mails.entities,
-        searchText : mailApp.mails.searchText,
-        currentMail: mailApp.mails.currentMail,
-        folders    : mailApp.folders,
-        labels     : mailApp.labels,
-        filters    : mailApp.filters
+        mails     : mailApp.mails.entities,
+        searchText: mailApp.mails.searchText
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(MailList)));
+export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps)(MailList)));
