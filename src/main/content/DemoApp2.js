@@ -7,7 +7,7 @@ import DemoContent from '../../core/components/DemoContent';
 
 const styles = theme => ({});
 
-class DemoApp extends Component {
+class DemoApp2 extends Component {
 
     componentWillMount()
     {
@@ -51,12 +51,13 @@ class DemoApp extends Component {
     {
         return (
             <div className="p-24">
-                <h1>Demo 1</h1>
+                <h1>Demo 2</h1>
                 <DemoContent/>
             </div>
         );
     }
 }
+
 
 function mapDispatchToProps(dispatch)
 {
@@ -70,4 +71,4 @@ function mapStateToProps()
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(DemoApp)));
+export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(DemoApp2)));

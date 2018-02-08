@@ -25,7 +25,7 @@ export const themes = {
 
 class FuseTheme extends Component {
     state = {
-        theme: 'default'
+        theme: this.props.selectedTheme
     };
 
     changeTheme = (val) => {
@@ -48,6 +48,7 @@ class FuseTheme extends Component {
 
     render()
     {
+        console.warn('FuseTheme:: rendered');
         const {children} = this.props;
         const {theme} = this.state;
 
@@ -59,11 +60,11 @@ class FuseTheme extends Component {
     }
 }
 
-function mapStateToProps({theme})
+function mapStateToProps({settings})
 {
     return {
-        selectedTheme: theme.selectedTheme
+        selectedTheme: settings.theme
     }
 }
 
-export default withRouter(connect(mapStateToProps)(FuseTheme));
+export default withRouter(connect(mapStateToProps, null)(FuseTheme));

@@ -7,20 +7,28 @@ const navigation = function (state = initialState, action) {
     switch ( action.type )
     {
         case Actions.GET_NAVIGATION:
-            return {
+        {
+            return [
                 ...state
-            };
+            ];
+        }
         case Actions.SET_NAVIGATION:
-            return {
+        {
+            return [
                 ...state,
                 ...action.navigation
-            };
+            ];
+        }
         case Actions.RESET_NAVIGATION:
-            return {
+        {
+            return [
                 ...initialState
-            };
+            ];
+        }
         default:
+        {
             return state;
+        }
     }
 };
 

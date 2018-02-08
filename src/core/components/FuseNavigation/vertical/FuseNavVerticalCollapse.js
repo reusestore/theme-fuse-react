@@ -81,8 +81,8 @@ class FuseNavVerticalCollapse extends Component {
     {
         const {item, nestedLevel, classes} = this.props;
 
-        let paddingValue = 32 + (nestedLevel * 16);
-        const listItemPadding = nestedLevel > 0 ? 'pl-' + (paddingValue > 80 ? 80 : paddingValue) : '';
+        let paddingValue = 40 + (nestedLevel * 16);
+        const listItemPadding = nestedLevel > 0 ? 'pl-' + (paddingValue > 80 ? 80 : paddingValue) : 'pl-24';
 
         return (
             <ul className={classNames(classes.root, this.state.open && 'open')}>
@@ -93,14 +93,14 @@ class FuseNavVerticalCollapse extends Component {
                     {item.icon && (
                         <Icon color="action" className="text-16">{item.icon}</Icon>
                     )}
-                    <ListItemText primary={item.title}/>
-                    <Icon className="text-16">
+                    <ListItemText className="list-item-text" primary={item.title}/>
+                    <Icon className="text-16 arrow-icon">
                         {this.state.open ? 'expand_less' : 'expand_more'}
                     </Icon>
                 </ListItem>
 
                 {item.children && (
-                    <Collapse in={this.state.open}>
+                    <Collapse in={this.state.open} className="collapse-children">
                         {
                             item.children.map((item) => (
 

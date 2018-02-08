@@ -34,10 +34,69 @@ class FuseScrollbars extends Component {
 
     componentDidMount()
     {
-        if ( !this._container )
+        this.createPs();
+        // console.info('componentDidMount: create Ps');
+    }
+
+    componentWillReceiveProps(nextProps)
+    {
+        if ( nextProps.customScrollbars )
+        {
+            // console.info('componentWillReceiveProps: create Ps');
+            setTimeout(()=>{
+                this.createPs();
+            });
+        }
+        else
+        {
+            // console.info('componentWillReceiveProps: destroy Ps');
+            setTimeout(()=>{
+                this.destroyPs();
+            });
+        }
+    }
+
+    componentDidUpdate()
+    {
+        this.updatePs();
+    }
+
+    componentWillUnmount()
+    {
+        // console.info('componentWillUnmount: destroy Ps');
+        this.destroyPs();
+    }
+
+    updatePs = () => {
+        if ( !this._ps )
         {
             return;
         }
+        this._ps.update();
+    };
+
+    destroyPs = () => {
+        // console.info('destroy Ps');
+        if ( !this._ps )
+        {
+            return;
+        }
+        // unhook up evens
+        Object.keys(this._handlerByEvent).forEach((value, key) => {
+            this._container.removeEventListener(key, value, false);
+        });
+        this._handlerByEvent.clear();
+        this._ps.destroy();
+        this._ps = null;
+    };
+
+    createPs = () => {
+        // console.info('create Ps');
+        if ( !this._container || this._ps )
+        {
+            return;
+        }
+
         this._ps = new PerfectScrollbar(this._container, this.props.option);
 
         // hook up events
@@ -50,31 +109,7 @@ class FuseScrollbars extends Component {
                 this._container.addEventListener(key, handler, false);
             }
         });
-    }
-
-    componentDidUpdate()
-    {
-        if ( !this._ps )
-        {
-            return;
-        }
-        this._ps.update();
-    }
-
-    componentWillUnmount()
-    {
-        if ( !this._ps )
-        {
-            return;
-        }
-        // unhook up evens
-        Object.keys(this._handlerByEvent).forEach((value, key) => {
-            this._container.removeEventListener(key, value, false);
-        });
-        this._handlerByEvent.clear();
-        this._ps.destroy();
-        this._ps = null;
-    }
+    };
 
     handleRef = (ref) => {
         this._container = ref;
@@ -117,7 +152,7 @@ function mapStateToProps({settings})
 
 FuseScrollbars.defaultProps = {
     className    : '',
-    enable      : true,
+    enable       : true,
     option       : undefined,
     containerRef : () => {
     },

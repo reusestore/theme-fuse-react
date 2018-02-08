@@ -20,6 +20,7 @@ import MainNavbarContent from './main/MainNavbarContent';
 import MainNavbarHeader from './main/MainNavbarHeader';
 import MainFooter from './main/MainFooter';
 import FuseTheme from './core/components/FuseTheme/FuseTheme';
+import FuseSettings from './core/components/FuseSettings/FuseSettings';
 
 const composeEnhancers =
     typeof window === 'object' &&
@@ -56,6 +57,7 @@ ReactDOM.render(
                             <MainFooter/>
                         }
                     />
+                    <FuseSettings/>
                 </FuseTheme>
             </BrowserRouter>
         </Provider>

@@ -21,8 +21,8 @@ const styles = theme => ({
 
 const FuseNavVerticalItem = ({item, classes, nestedLevel}) => {
 
-    let paddingValue = 32 + (nestedLevel * 16);
-    const listItemPadding = nestedLevel > 0 ? 'pl-' + (paddingValue > 80 ? 80 : paddingValue) : '';
+    let paddingValue = 40 + (nestedLevel * 16);
+    const listItemPadding = nestedLevel > 0 ? 'pl-' + (paddingValue > 80 ? 80 : paddingValue) : 'pl-24';
 
     return (
         <ListItem button
@@ -33,7 +33,7 @@ const FuseNavVerticalItem = ({item, classes, nestedLevel}) => {
             {item.icon && (
                 <Icon className="list-item-icon text-16" color="action">{item.icon}</Icon>
             )}
-            <ListItemText primary={item.title} disableTypography={true}/>
+            <ListItemText className="list-item-text" primary={item.title} disableTypography={true}/>
         </ListItem>
     )
 };

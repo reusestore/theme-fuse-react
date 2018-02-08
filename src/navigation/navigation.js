@@ -901,6 +901,12 @@ export const navigation = [
         'url'  : '/demo'
     },
     {
+        'id'   : 'test-item-2',
+        'title': 'Test Item 2',
+        'type' : 'item',
+        'url'  : '/demo2'
+    },
+    {
         'id'      : 'test-collapse',
         'title'   : 'Test Collapse',
         'type'    : 'collapse',

@@ -9,11 +9,12 @@ import * as Actions from '../../../store/actions';
 import classNames from 'classnames';
 import _ from 'lodash';
 import FuseScrollbars from '../FuseScrollbars/FuseScrollbars';
+import FuseDefaultSettings from '../../FuseDefaultSettings';
 
 const navbarWidth = 256;
 
 const styles = theme => ({
-    root                : {
+    root                 : {
         display        : 'flex',
         flexDirection  : 'column',
         width          : '100%',
@@ -22,31 +23,31 @@ const styles = theme => ({
         backgroundColor: theme.palette.background.default,
         color          : theme.palette.text.primary
     },
-    wrapper             : {
+    wrapper              : {
         display : 'flex',
         position: 'relative',
         width   : '100%',
         height  : '100%'
     },
-    contentWrapper      : {
+    contentWrapper       : {
         display      : 'flex',
         flexDirection: 'column',
         zIndex       : 3,
         overflow     : 'hidden',
         flex         : '1 1 auto'
     },
-    content             : {
+    content              : {
         display      : 'flex',
         overflow     : 'auto',
         flex         : '1 1 auto',
         flexDirection: 'column',
         width        : '100%'
     },
-    navbarWrapper       : {
+    navbarWrapper        : {
         zIndex: 4
     },
-    navbarPaperWrapper  : {},
-    navbar              : {
+    navbarPaperWrapper   : {},
+    navbar               : {
         display        : 'flex',
         overflow       : 'hidden',
         flexDirection  : 'column',
@@ -60,24 +61,49 @@ const styles = theme => ({
             duration: theme.transitions.duration.shorter
         })
     },
-    navbarLeft          : {
+    navbarLeft           : {
         left: 0
     },
-    navbarRight         : {
+    navbarRight          : {
         right: 0
     },
-    navigationFolded    : {
+    navigationFolded     : {
         position: 'absolute',
         width   : 64,
         minWidth: 64,
         top     : 0,
         bottom  : 0
     },
-    navigationFoldedOpen: {
+    navigationFoldedOpen : {
         width   : navbarWidth,
         minWidth: navbarWidth
     },
-    navbarHeaderWrapper : {
+    navigationFoldedClose: {
+        '& $navbarHeader'                       : {
+            padding       : '0 8px 0 13px',
+            '& .logo-text': {
+                opacity: 0
+            }
+        },
+        '& .list-item-text, & .arrow-icon'      : {
+            opacity: 0
+        },
+        '& .list-subheader .list-subheader-text': {
+            opacity: 0
+        },
+        '& .list-subheader:before'              : {
+            content  : '""',
+            display  : 'block',
+            position : 'absolute',
+            minWidth : 16,
+            borderTop: '2px solid',
+            opacity  : .2
+        },
+        '& .collapse-children'                  : {
+            display: 'none'
+        }
+    },
+    navbarHeaderWrapper  : {
         display        : 'flex',
         alignItems     : 'center',
         flex           : '1 0 auto',
@@ -85,29 +111,29 @@ const styles = theme => ({
         backgroundColor: 'rgba(255, 255, 255, .05)',
         boxShadow      : theme.shadows[1]
     },
-    navbarHeader        : {
+    navbarHeader         : {
         display: 'flex',
         flex   : '1 1 auto',
         padding: '0 8px 0 16px'
     },
-    navbarContent       : {
+    navbarContent        : {
         overflowX: 'hidden',
         overflowY: 'auto'
     },
-    toolbarWrapper      : {
+    toolbarWrapper       : {
         display : 'flex',
         position: 'relative',
         zIndex  : 5
     },
-    toolbar             : {
+    toolbar              : {
         display: 'flex',
         flex   : '1 0 auto'
     },
-    footerWrapper       : {
+    footerWrapper        : {
         position: 'relative',
         zIndex  : 5
     },
-    footer              : {
+    footer               : {
         display: 'flex',
         flex   : '1 0 auto'
     }
@@ -115,51 +141,69 @@ const styles = theme => ({
 
 class FuseLayout extends React.Component {
 
+    defaultSettings = {...FuseDefaultSettings};
+
     state = {
-        settings            : {...this.defaultSettings},
-        navigationFoldedOpen: false,
-        mobileNavbarOpen    : false
+        mobileNavbarOpen: false
     };
 
-    defaultSettings = {
-        layout          : {
-            navigation      : 'left', // 'right', 'left', 'top', 'none'
-            navigationFolded: false, // true, false
-            toolbar         : 'below', // 'above', 'below', 'none'
-            footer          : 'above', // 'above', 'below', 'none'
-            mode            : 'fullwidth' // 'boxed', 'fullwidth'
-        },
-        customScrollbars: true,
-        routerAnimation : 'fadeIn' // fadeIn, slideUp, slideDown, slideRight, slideLeft, none
-    };
+    componentWillMount()
+    {
+        this.updateLayoutSettings(this.props);
+    }
 
+    componentWillReceiveProps(nextProps, nextContext)
+    {
+        /**
+         * If route is changed
+         * Update settings
+         */
+        if ( !_.isEqual(nextProps.location.pathname, this.props.location.pathname) )
+        {
+            this.updateLayoutSettings(nextProps);
+        }
+    }
+
+
+    updateLayoutSettings(props)
+    {
+        const matched = matchRoutes(this.props.routes, props.location.pathname)[0];
+        if ( matched && matched.route.settings )
+        {
+            const routeSettings = _.merge({}, this.defaultSettings, matched.route.settings);
+
+            if ( !_.isEqual(props.settings, routeSettings) )
+            {
+                props.setSettings(_.merge({}, props.settings, routeSettings));
+            }
+        }
+        else
+        {
+            if ( !_.isEqual(props.settings, this.defaultSettings) )
+            {
+                props.setSettings(this.defaultSettings);
+            }
+        }
+    }
 
     handleToggleFolded = () => {
-        this.setState({
-            settings: {
-                ...this.state.settings,
-                layout: {
-                    ...this.state.settings.layout,
-                    navigationFolded: !this.state.settings.layout.navigationFolded
-                }
-            }
-        });
+        this.props.setSettings({layout: {navigationFolded: !this.props.settings.layout.navigationFolded}});
     };
 
     handleFoldedOpen = () => {
-        if ( !this.state.settings.layout.navigationFolded )
+        if ( !this.props.settings.layout.navigationFolded )
         {
             return;
         }
-        this.setState({navigationFoldedOpen: true});
+        this.props.setSettings({layout: {navigationFoldedOpen: true}});
     };
 
     handleFoldedClose = () => {
-        if ( !this.state.settings.layout.navigationFolded )
+        if ( !this.props.settings.layout.navigationFolded )
         {
             return;
         }
-        this.setState({navigationFoldedOpen: false});
+        this.props.setSettings({layout: {navigationFoldedOpen: false}});
     };
 
     handleMobileNavbarOpen = () => {
@@ -170,63 +214,11 @@ class FuseLayout extends React.Component {
         this.setState({mobileNavbarOpen: false});
     };
 
-    componentWillMount()
-    {
-        this.updateLayoutSettings(this.props);
-    }
-
-    componentWillReceiveProps(nextProps)
-    {
-        if ( !_.isEqual(nextProps.location.pathname, this.props.location.pathname) )
-        {
-            this.updateLayoutSettings(nextProps);
-        }
-    }
-
-    updateLayoutSettings(props)
-    {
-        let routeSettings = matchRoutes(this.props.routes, props.location.pathname)[0].route.settings;
-
-        if ( routeSettings )
-        {
-            routeSettings = {
-                ...this.defaultSettings,
-                ...routeSettings,
-                layout: {
-                    ...this.defaultSettings.layout,
-                    ...routeSettings.layout
-                }
-            };
-
-            if ( !_.isEqual(this.state.settings, routeSettings) )
-            {
-                this.updateSettings(props, {
-                    ...this.settings,
-                    ...routeSettings
-                });
-            }
-        }
-        else
-        {
-            this.updateSettings(props, {
-                ...this.settings,
-                ...this.defaultSettings
-            });
-        }
-    }
-
-    updateSettings(props, settings)
-    {
-        this.setState({
-            settings,
-            navigationFoldedOpen: false
-        });
-        props.setSettings(settings);
-    }
-
     render()
     {
-        const {classes, toolbar, footer, navbarHeader, navbarContent} = this.props;
+        const {classes, toolbar, footer, navbarHeader, navbarContent, settings} = this.props;
+
+        console.warn('FuseLayout:: rendered', this.state.navigationFoldedOpen);
 
         const navbarHeaderTemplate = (
             <div className={classes.navbarHeaderWrapper}>
@@ -259,9 +251,10 @@ class FuseLayout extends React.Component {
                 <Hidden mdDown>
                     <Paper className={classNames(
                         classes.navbar,
-                        classes['navbar' + _.upperFirst(this.state.settings.layout.navigation)],
-                        this.state.settings.layout.navigationFolded && classes.navigationFolded,
-                        this.state.settings.layout.navigationFolded && this.state.navigationFoldedOpen && classes.navigationFoldedOpen)}
+                        classes['navbar' + _.upperFirst(settings.layout.navigation)],
+                        settings.layout.navigationFolded && classes.navigationFolded,
+                        settings.layout.navigationFolded && settings.layout.navigationFoldedOpen && classes.navigationFoldedOpen,
+                        settings.layout.navigationFolded && !settings.layout.navigationFoldedOpen && classes.navigationFoldedClose)}
                            onMouseEnter={this.handleFoldedOpen}
                            onMouseLeave={this.handleFoldedClose}>
                         {navbarHeaderTemplate}
@@ -319,23 +312,23 @@ class FuseLayout extends React.Component {
 
             <div className={classes.root}>
 
-                {this.state.settings.layout.toolbar === 'above' && (
+                {settings.layout.toolbar === 'above' && (
                     toolbarTemplate
                 )}
 
                 <div className={classes.wrapper}>
 
-                    {this.state.settings.layout.navigation === 'left' && (
+                    {settings.layout.navigation === 'left' && (
                         navBarTemplate
                     )}
 
                     <div className={classNames(
                         classes.contentWrapper,
-                        this.state.settings.layout.navigationFolded && this.state.settings.layout.navigation === 'left' && 'md:ml-64',
-                        this.state.settings.layout.navigationFolded && this.state.settings.layout.navigation === 'right' && 'md:mr-64'
+                        settings.layout.navigationFolded && settings.layout.navigation === 'left' && 'md:ml-64',
+                        settings.layout.navigationFolded && settings.layout.navigation === 'right' && 'md:mr-64'
                     )}>
 
-                        {this.state.settings.layout.toolbar === 'below' && (
+                        {settings.layout.toolbar === 'below' && (
                             toolbarTemplate
                         )}
 
@@ -343,18 +336,18 @@ class FuseLayout extends React.Component {
                             {renderRoutes(this.props.routes)}
                         </FuseScrollbars>
 
-                        {this.state.settings.layout.footer === 'below' && (
+                        {settings.layout.footer === 'below' && (
                             footerTemplate
                         )}
                     </div>
 
-                    {this.state.settings.layout.navigation === 'right' && (
+                    {settings.layout.navigation === 'right' && (
                         navBarTemplate
                     )}
 
                 </div>
 
-                {this.state.settings.layout.footer === 'above' && (
+                {settings.layout.footer === 'above' && (
                     footerTemplate
                 )}
             </div>
@@ -372,7 +365,9 @@ function mapDispatchToProps(dispatch)
 
 function mapStateToProps({settings})
 {
-    return {}
+    return {
+        settings
+    }
 }
 
 export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(FuseLayout)));
