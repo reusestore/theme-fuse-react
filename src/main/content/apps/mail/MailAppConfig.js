@@ -5,15 +5,16 @@ import {Redirect} from 'react-router-dom';
 export const MailAppConfig = {
     settings: {
         layout: {
-            navigation: 'right'
         }
     },
     routes  : [
         {
             path     : '/apps/mail/label/:labelHandle/:mailId?',
             component: MailApp,
-            layout   : {
-                navigation: 'left'
+            settings : {
+                layout: {
+                    navigation: 'right'
+                }
             }
         },
         {

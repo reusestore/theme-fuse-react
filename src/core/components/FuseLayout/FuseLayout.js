@@ -83,7 +83,10 @@ const styles = theme => ({
             padding       : '0 8px 0 13px',
             '& .logo-text': {
                 opacity: 0
-            }
+            },
+            '& .react-badge'      : {
+                opacity: 0
+            },
         },
         '& .list-item-text, & .arrow-icon'      : {
             opacity: 0

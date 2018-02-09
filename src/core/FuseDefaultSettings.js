@@ -1,7 +1,7 @@
 const FuseDefaultSettings = {
     layout          : {
         navigation          : 'left', // 'right', 'left', 'top', 'none'
-        navigationFolded    : true, // true, false
+        navigationFolded    : false, // true, false
         navigationFoldedOpen: false,
         toolbar             : 'below', // 'above', 'below', 'none'
         footer              : 'below', // 'above', 'below', 'none'
