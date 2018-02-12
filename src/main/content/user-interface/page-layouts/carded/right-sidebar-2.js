@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles';
-import FusePageCarded from '../../../../../core/components/FusePageLayouts/FusePageCarded';
-import DemoSidebarContent from '../../../../../core/components/DemoSidebarContent';
-import DemoContent from '../../../../../core/components/DemoContent';
+import {FusePageCarded, DemoContent, DemoSidebarContent} from '@fuse';
 
 const styles = theme => ({
     layoutRoot: {}
@@ -31,11 +29,10 @@ class CardedRightSidebar2Sample extends Component {
                         <DemoContent/>
                     </div>
                 }
-                sidebarPosition="right"
-                sidebarHeader={
+                rightSidebarHeader={
                     <h4>Sidebar Header</h4>
                 }
-                sidebarContent={
+                rightSidebarContent={
                     <div>
                         <h4>Sidebar Content</h4>
                         <br/>

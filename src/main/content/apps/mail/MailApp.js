@@ -6,14 +6,14 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom'
 import MailDetails from './MailDetails';
-import FusePageCarded from '../../../../core/components/FusePageLayouts/FusePageCarded';
+import {FusePageCarded} from '@fuse';
 import classNames from 'classnames';
 import MailToolbar from './MailToolbar';
 import MailHeader from './MailHeader';
 import MailSidebarHeader from './MailSidebarHeader';
 import MailSidebarContent from './MailSidebarContent';
 import _ from 'lodash';
-import FuseScrollbars from '../../../../core/components/FuseScrollbars/FuseScrollbars';
+import {FuseScrollbars} from '@fuse';
 
 const styles = theme => ({
     layoutRoot          : {},
@@ -106,11 +106,10 @@ class MailApp extends Component {
                         </FuseScrollbars>
                     </div>
                 }
-                sidebarPosition="left"
-                sidebarHeader={
+                leftSidebarHeader={
                     <MailSidebarHeader/>
                 }
-                sidebarContent={
+                leftSidebarContent={
                     <MailSidebarContent/>
                 }
             />

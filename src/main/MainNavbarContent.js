@@ -1,7 +1,7 @@
 import React from 'react';
 import {withStyles} from 'material-ui/styles/index';
 import {withRouter} from 'react-router-dom';
-import FuseNavigation from '../core/components/FuseNavigation/FuseNavigation';
+import {FuseNavigation} from '@fuse';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 

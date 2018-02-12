@@ -4,7 +4,7 @@ import Drawer from 'material-ui/Drawer';
 import Hidden from 'material-ui/Hidden';
 import {Icon, IconButton} from 'material-ui';
 import classNames from 'classnames';
-import FuseScrollbars from '../FuseScrollbars/FuseScrollbars';
+import {FuseScrollbars} from '@fuse';
 
 const drawerWidth = 240;
 const headerHeight = 120;
@@ -29,7 +29,7 @@ const styles = theme => ({
         zIndex       : 2,
         maxWidth     : '100%',
         minWidth     : 0,
-        height  : '100%'
+        height       : '100%'
     },
     header                        : {
         height         : headerHeight,
@@ -82,19 +82,23 @@ const styles = theme => ({
         padding: 24
     },
     sidebarWrapper                : {
-        backgroundColor             : 'transparent',
-        [theme.breakpoints.up('md')]: {
-            position: 'relative'
+        backgroundColor: 'transparent',
+        '&.permanent'  : {
+            [theme.breakpoints.up('md')]: {
+                position: 'relative'
+            }
         }
     },
     sidebar                       : {
-        [theme.breakpoints.up('lg')]: {
-            backgroundColor: 'transparent',
-            position       : 'relative',
-            border         : 'none'
+        '&.permanent': {
+            [theme.breakpoints.up('lg')]: {
+                backgroundColor: 'transparent',
+                position       : 'relative',
+                border         : 'none'
+            }
         },
-        width                       : drawerWidth,
-        height                      : '100%'
+        width        : drawerWidth,
+        height       : '100%'
 
     },
     sidebarHeader                 : {
@@ -106,7 +110,7 @@ const styles = theme => ({
     },
     sidebarHeaderInnerSidebar     : {
         backgroundColor: 'transparent',
-        color          : 'initial',
+        color          : 'inherit',
         height         : 'auto',
         minHeight      : 'auto'
     },
@@ -118,77 +122,101 @@ const styles = theme => ({
 
 class FusePageSimple extends React.Component {
     state = {
-        mobileOpen: false
+        leftSidebar : false,
+        rightSidebar: false
     };
 
-    handleDrawerToggle = () => {
-        this.setState({mobileOpen: !this.state.mobileOpen});
+    componentDidMount()
+    {
+        this.props.onRef(this)
+    }
+
+    componentWillUnmount()
+    {
+        this.props.onRef(undefined)
+    }
+
+    handleDrawerToggle = (sidebarId) => {
+        this.setState({[sidebarId]: !this.state[sidebarId]});
+    };
+
+    toggleLeftSidebar = () => {
+        this.handleDrawerToggle('leftSidebar');
+    };
+
+    toggleRightSidebar = () => {
+        this.handleDrawerToggle('rightSidebar');
+    };
+
+    toggleSidebar = (id) => {
+        this.handleDrawerToggle(id);
     };
 
     render()
     {
-        const {classes, sidebarHeader, sidebarContent, header, content, contentToolbar, sidebarInner, sidebarPosition, singleScroll} = this.props;
+        const {classes, leftSidebarHeader, leftSidebarContent, leftSidebarVariant, rightSidebarHeader, rightSidebarContent, rightSidebarVariant, header, content, contentToolbar, sidebarInner, singleScroll} = this.props;
+        const isRightSidebar = rightSidebarHeader || rightSidebarContent;
+        const isLeftSidebar = leftSidebarHeader || leftSidebarContent;
 
-        const Sidebar = (
+        const Sidebar = (header, content, variant) => (
             <FuseScrollbars enable={!singleScroll}>
-                {sidebarHeader && (
-                    <div className={classNames(classes.sidebarHeader, sidebarInner && classes.sidebarHeaderInnerSidebar)}>
-                        <span className="h4">
-                            {sidebarHeader}
-                        </span>
+                {header && (
+                    <div className={classNames(classes.sidebarHeader, variant, sidebarInner && classes.sidebarHeaderInnerSidebar)}>
+                        {header}
                     </div>
                 )}
 
-                {sidebarContent && (
+                {content && (
                     <div className={classes.sidebarContent}>
-                        {sidebarContent}
+                        {content}
                     </div>
                 )}
             </FuseScrollbars>
         );
 
-        const SidebarWrapper = (
+        const SidebarWrapper = (header, content, sidebarId, variant) => (
             <React.Fragment>
-                <Hidden lgUp>
+                <Hidden lgUp={variant === 'permanent'}>
                     <Drawer
-                        className={classes.sidebarWrapper}
+                        className={classNames(classes.sidebarWrapper, variant)}
                         variant="temporary"
-                        anchor={sidebarPosition}
-                        open={this.state.mobileOpen}
+                        anchor={sidebarId === 'leftSidebar' ? 'left' : 'right'}
+                        open={this.state[sidebarId]}
+                        onClose={(ev) => this.handleDrawerToggle(sidebarId)}
                         classes={{
-                            paper: classes.sidebar
+                            paper: classNames(classes.sidebar, variant)
                         }}
-                        onClose={this.handleDrawerToggle}
                         ModalProps={{
                             keepMounted: true // Better open performance on mobile.
                         }}
-                        onClick={this.handleDrawerToggle}>
-                        {Sidebar}
+                        onClick={(ev) => this.handleDrawerToggle(sidebarId)}>
+                        {Sidebar(header, content, variant)}
                     </Drawer>
                 </Hidden>
-
-                <Hidden mdDown>
-                    <Drawer
-                        variant="permanent"
-                        className={classes.sidebarWrapper}
-                        open
-                        classes={{
-                            paper: classes.sidebar
-                        }}>
-                        {Sidebar}
-                    </Drawer>
-                </Hidden>
+                {variant === 'permanent' && (
+                    <Hidden mdDown>
+                        <Drawer
+                            variant="permanent"
+                            className={classNames(classes.sidebarWrapper, variant)}
+                            open={this.state[sidebarId]}
+                            classes={{
+                                paper: classNames(classes.sidebar, variant)
+                            }}>
+                            {Sidebar(header, content, variant)}
+                        </Drawer>
+                    </Hidden>
+                )}
             </React.Fragment>
         );
 
         const headerContent = (
             <div className={classes.header}>
 
-                {(sidebarPosition === 'left') && (
-                    <Hidden lgUp>
+                {isLeftSidebar && (
+                    <Hidden lgUp={leftSidebarVariant !== 'temporary'}>
                         <IconButton className={classes.headerSidebarToggleButton}
-                                    aria-label="open drawer"
-                                    onClick={this.handleDrawerToggle}>
+                                    aria-label="open left sidebar"
+                                    onClick={(ev) => this.handleDrawerToggle('leftSidebar')}>
                             <Icon>menu</Icon>
                         </IconButton>
                     </Hidden>
@@ -200,11 +228,11 @@ class FusePageSimple extends React.Component {
                     </span>
                 )}
 
-                {(sidebarPosition === 'right') && (
-                    <Hidden lgUp>
+                {isRightSidebar && (
+                    <Hidden lgUp={rightSidebarVariant !== 'temporary'}>
                         <IconButton className={classes.headerSidebarToggleButton}
-                                    aria-label="open drawer"
-                                    onClick={this.handleDrawerToggle}>
+                                    aria-label="open right sidebar"
+                                    onClick={(ev) => this.handleDrawerToggle('rightSidebar')}>
                             <Icon>menu</Icon>
                         </IconButton>
                     </Hidden>
@@ -219,7 +247,7 @@ class FusePageSimple extends React.Component {
 
                 <div className={classes.contentWrapper}>
 
-                    {(sidebarPosition === 'left') && SidebarWrapper}
+                    {isLeftSidebar && SidebarWrapper(leftSidebarHeader, leftSidebarContent, 'leftSidebar', leftSidebarVariant || 'permanent')}
 
                     <FuseScrollbars className={classNames(classes.contentCardWrapper, sidebarInner && classes.contentCardWrapperInnerSidebar)}
                                     enable={!singleScroll && sidebarInner}>
@@ -243,7 +271,8 @@ class FusePageSimple extends React.Component {
                         </FuseScrollbars>
                     </FuseScrollbars>
 
-                    {(sidebarPosition === 'right') && SidebarWrapper}
+                    {isRightSidebar && SidebarWrapper(rightSidebarHeader, rightSidebarContent, 'rightSidebar', rightSidebarVariant || 'permanent')}
+
                 </div>
             </div>
         );

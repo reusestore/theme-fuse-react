@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles';
-import {FusePageSimple, DemoContent, DemoSidebarContent} from '@fuse';
-
+import {FusePageSimple} from '@fuse';
 
 const styles = theme => ({
     layoutRoot: {}
 });
 
-class SimpleRightSidebar2Sample extends Component {
+class FileManagerApp extends Component {
+    toggleLeftSidebar = () => {
+    };
 
     render()
     {
@@ -27,7 +28,18 @@ class SimpleRightSidebar2Sample extends Component {
                     <div>
                         <h4>Content</h4>
                         <br/>
-                        <DemoContent/>
+                        <button onClick={() => this.pageLayout.toggleLeftSidebar()}>toggle left</button>
+                        <button onClick={() => this.pageLayout.toggleRightSidebar()}>toggle right</button>
+                    </div>
+                }
+                leftSidebarVariant="temporary"
+                leftSidebarHeader={
+                    <h4>Sidebar Header</h4>
+                }
+                leftSidebarContent={
+                    <div>
+                        <h4>Sidebar Content</h4>
+                        <br/>
                     </div>
                 }
                 rightSidebarHeader={
@@ -37,13 +49,14 @@ class SimpleRightSidebar2Sample extends Component {
                     <div>
                         <h4>Sidebar Content</h4>
                         <br/>
-                        <DemoSidebarContent/>
                     </div>
                 }
-                singleScroll
+                onRef={instance => {
+                    this.pageLayout = instance;
+                }}
             />
         )
     };
 }
 
-export default withStyles(styles, {withTheme: true})(SimpleRightSidebar2Sample);
+export default withStyles(styles, {withTheme: true})(FileManagerApp);

@@ -8,8 +8,7 @@ import {connect} from 'react-redux';
 import * as Actions from '../../../store/actions';
 import classNames from 'classnames';
 import _ from 'lodash';
-import FuseScrollbars from '../FuseScrollbars/FuseScrollbars';
-import FuseDefaultSettings from '../../FuseDefaultSettings';
+import {FuseScrollbars, FuseDefaultSettings} from '@fuse';
 
 const navbarWidth = 256;
 
@@ -80,13 +79,13 @@ const styles = theme => ({
     },
     navigationFoldedClose: {
         '& $navbarHeader'                       : {
-            padding       : '0 8px 0 13px',
-            '& .logo-text': {
+            padding         : '0 8px 0 13px',
+            '& .logo-text'  : {
                 opacity: 0
             },
-            '& .react-badge'      : {
+            '& .react-badge': {
                 opacity: 0
-            },
+            }
         },
         '& .list-item-text, & .arrow-icon'      : {
             opacity: 0

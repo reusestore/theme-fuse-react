@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles';
-import DemoContent from '../../../../core/components/DemoContent';
+import {DemoContent} from '@fuse';
 
 const styles = theme => ({
     root: {

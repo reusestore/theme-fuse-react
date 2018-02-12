@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles';
-import DemoSidebarContent from '../../../../../core/components/DemoSidebarContent';
-import DemoContent from '../../../../../core/components/DemoContent';
-import FusePageSimple from '../../../../../core/components/FusePageLayouts/FusePageSimple';
+import {FusePageSimple, DemoContent, DemoSidebarContent} from '@fuse';
 
 const styles = theme => ({
     layoutRoot: {}
@@ -31,11 +29,10 @@ class SimpleLeftSidebarSample extends Component {
                         <DemoContent/>
                     </div>
                 }
-                sidebarPosition="left"
-                sidebarHeader={
+                leftSidebarHeader={
                     <h4>Sidebar Header</h4>
                 }
-                sidebarContent={
+                leftSidebarContent={
                     <div>
                         <h4>Sidebar Content</h4>
                         <br/>

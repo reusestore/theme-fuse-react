@@ -3,7 +3,7 @@ import {withStyles} from 'material-ui/styles';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import MailListItem from './MailListItem';
-import FuseUtils from '../../../../core/FuseUtils';
+import {FuseUtils} from '@fuse';
 import {List, Typography} from 'material-ui';
 
 const styles = theme => ({

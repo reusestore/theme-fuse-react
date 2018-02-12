@@ -14,13 +14,11 @@ import reducers from './store/reducers';
 import {BrowserRouter} from 'react-router-dom';
 import './fake-db/fake-db'
 import {routes} from './routes';
-import FuseLayout from './core/components/FuseLayout/FuseLayout';
+import {FuseLayout, FuseTheme, FuseSettings} from '@fuse';
 import MainToolbar from './main/MainToolbar';
 import MainNavbarContent from './main/MainNavbarContent';
 import MainNavbarHeader from './main/MainNavbarHeader';
 import MainFooter from './main/MainFooter';
-import FuseTheme from './core/components/FuseTheme/FuseTheme';
-import FuseSettings from './core/components/FuseSettings/FuseSettings';
 
 const composeEnhancers =
     typeof window === 'object' &&

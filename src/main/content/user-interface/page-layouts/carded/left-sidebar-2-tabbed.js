@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles';
-import FusePageCarded from '../../../../../core/components/FusePageLayouts/FusePageCarded';
-import DemoSidebarContent from '../../../../../core/components/DemoSidebarContent';
-import DemoContent from '../../../../../core/components/DemoContent';
+import {FusePageCarded, DemoContent, DemoSidebarContent} from '@fuse';
 import {Tab, Tabs} from 'material-ui';
 
 const styles = theme => ({
@@ -132,11 +130,10 @@ class CardedLeftSidebar2TabbedSample extends Component {
                         )}
                     </div>
                 }
-                sidebarPosition="left"
-                sidebarHeader={
+                leftSidebarHeader={
                     <h4>Sidebar Header</h4>
                 }
-                sidebarContent={
+                leftSidebarContent={
                     <div>
                         <h4>Sidebar Content</h4>
                         <br/>

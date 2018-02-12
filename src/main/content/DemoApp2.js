@@ -3,7 +3,7 @@ import {bindActionCreators} from 'redux';
 import {withStyles} from 'material-ui/styles/index';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import DemoContent from '../../core/components/DemoContent';
+import {DemoContent} from '@fuse';
 
 const styles = theme => ({});
 
