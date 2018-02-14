@@ -1,3 +1,7 @@
+* {
+    outline: none !important;
+}
+
 html {
     font-size: 62.5%;
     font-family: Roboto, Helvetica Neue, Arial, sans-serif;
@@ -23,3 +27,7 @@ html, body, #root {
 }
 
 @import 'fuse-helpers.css';
+
+[class*="MuiButton-fab"] {
+    border-radius: 50%;
+}

@@ -1,12 +1,14 @@
 import {combineReducers} from 'redux';
-import mailApp from '../../main/content/apps/mail/store/reducers/index';
 import navigation from './navigation.reducer';
 import settings from './settings.reducer';
+import mailApp from 'main/content/apps/mail/store/reducers/index';
+import fileManagerApp from 'main/content/apps/file-manager/store/reducers/index';
 
 const rootReducer = combineReducers({
-    mailApp,
     navigation,
-    settings
+    settings,
+    mailApp,
+    fileManagerApp
 });
 
 export default rootReducer;

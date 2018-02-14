@@ -1,8 +1,4 @@
-const MockAdapter = require('axios-mock-adapter');
-const axios = require('axios');
-
-// This sets the mock adapter on the default instance
-const mock = new MockAdapter(axios);
+import mock from './mock';
 
 const mailDB = {
     mails  : [

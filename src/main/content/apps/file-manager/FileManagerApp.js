@@ -1,55 +1,114 @@
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles';
 import {FusePageSimple} from '@fuse';
+import {bindActionCreators} from 'redux';
+import {withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
+import * as Actions from './store/actions';
+import FileList from 'main/content/apps/file-manager/FileList';
+import DetailSidebarHeader from 'main/content/apps/file-manager/DetailSidebarHeader';
+import DetailSidebarContent from 'main/content/apps/file-manager/DetailSidebarContent';
+import {Button, Icon, IconButton, Typography} from 'material-ui';
+import MainSidebarHeader from 'main/content/apps/file-manager/MainSidebarHeader';
+import MainSidebarContent from 'main/content/apps/file-manager/MainSidebarContent';
+
+const headerHeight = 160;
 
 const styles = theme => ({
-    layoutRoot: {}
+    layoutHeader       : {
+        height   : headerHeight,
+        minHeight: headerHeight
+    },
+    layoutRightSidebar : {
+        width: 320
+    },
+    layoutSidebarHeader: {
+        height   : headerHeight,
+        minHeight: headerHeight
+    },
+    addButton          : {
+        position: 'absolute',
+        bottom  : -28,
+        left    : 16,
+        zIndex  : 999
+    }
 });
 
 class FileManagerApp extends Component {
     toggleLeftSidebar = () => {
     };
 
+    componentDidMount()
+    {
+        this.props.getFiles();
+    }
+
+    handleClick = (event, id) => {
+
+    };
+
     render()
     {
-        const {classes} = this.props;
+        const {classes, selectedItem, files} = this.props;
+        const selected = files[selectedItem];
+
+        const Breadcrumb = ({className}) => {
+            const arr = selected.location.split('>');
+            return (
+                <Typography variant="headline" className={className}>
+                    {arr.map((path, i) => (
+                        <span key={i} className="flex items-center">
+                            <span>{path}</span>
+                            {arr.length - 1 !== i && (
+                                <Icon>chevron_right</Icon>
+                            )}
+                        </span>))}
+                </Typography>
+            )
+        };
+
         return (
             <FusePageSimple
                 classes={{
-                    root: classes.layoutRoot
+                    header       : classes.layoutHeader,
+                    sidebarHeader: classes.layoutSidebarHeader,
+                    rightSidebar : classes.layoutRightSidebar
                 }}
                 header={
-                    <h4>Header</h4>
-                }
-                contentToolbar={
-                    <h4>Content Toolbar</h4>
+                    <div className="flex flex-col flex-1 p-12 relative">
+                        <div className="flex items-center justify-between">
+                            <IconButton onClick={(ev) => this.pageLayout.toggleLeftSidebar()}
+                                        aria-label="open left sidebar">
+                                <Icon>menu</Icon>
+                            </IconButton>
+
+                            <IconButton aria-label="search">
+                                <Icon>search</Icon>
+                            </IconButton>
+                        </div>
+                        <div className="flex flex-1 items-end">
+                            <Button variant="fab" color="secondary" aria-label="add" className={classes.addButton}>
+                                <Icon>add</Icon>
+                            </Button>
+                            {selected && <Breadcrumb className="flex flex-1 pl-72 pb-12"/>}
+                        </div>
+                    </div>
                 }
                 content={
-                    <div>
-                        <h4>Content</h4>
-                        <br/>
-                        <button onClick={() => this.pageLayout.toggleLeftSidebar()}>toggle left</button>
-                        <button onClick={() => this.pageLayout.toggleRightSidebar()}>toggle right</button>
-                    </div>
+                    <FileList pageLayout={() => this.pageLayout}/>
                 }
                 leftSidebarVariant="temporary"
                 leftSidebarHeader={
-                    <h4>Sidebar Header</h4>
+                    <MainSidebarHeader/>
                 }
                 leftSidebarContent={
-                    <div>
-                        <h4>Sidebar Content</h4>
-                        <br/>
-                    </div>
+                    <MainSidebarContent/>
                 }
                 rightSidebarHeader={
-                    <h4>Sidebar Header</h4>
+                    <DetailSidebarHeader/>
                 }
                 rightSidebarContent={
-                    <div>
-                        <h4>Sidebar Content</h4>
-                        <br/>
-                    </div>
+                    <DetailSidebarContent/>
                 }
                 onRef={instance => {
                     this.pageLayout = instance;
@@ -59,4 +118,19 @@ class FileManagerApp extends Component {
     };
 }
 
-export default withStyles(styles, {withTheme: true})(FileManagerApp);
+function mapDispatchToProps(dispatch)
+{
+    return bindActionCreators({
+        getFiles: Actions.getFiles
+    }, dispatch);
+}
+
+function mapStateToProps({fileManagerApp})
+{
+    return {
+        files       : fileManagerApp.files,
+        selectedItem: fileManagerApp.selectedItem
+    }
+}
+
+export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(FileManagerApp)));

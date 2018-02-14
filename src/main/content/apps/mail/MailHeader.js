@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles/index';
-import {Icon, Input, Paper} from 'material-ui';
+import {Hidden, Icon, IconButton, Input, MuiThemeProvider, Paper} from 'material-ui';
 import * as Actions from './store/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {FuseThemes} from '@fuse';
 
 const styles = theme => ({
     root         : {
-        display: 'flex'
+        display: 'flex',
+        flex   : '1'
     },
     searchWrapper: {
         width     : '100%',
@@ -25,28 +27,34 @@ class MailHeader extends Component {
 
     render()
     {
-        const {classes, setSearchText, searchText} = this.props;
-
+        const {classes, setSearchText, searchText, pageLayout, selectedTheme} = this.props;
         return (
-            <div className={classes.root}>
+            <MuiThemeProvider theme={FuseThemes[selectedTheme]}>
+                <div className={classes.root}>
+                    <Paper className={classes.searchWrapper} elevation={7} square>
+                        <Hidden lgUp>
+                            <IconButton onClick={(ev) => pageLayout().toggleLeftSidebar()}
+                                        aria-label="open left sidebar">
+                                <Icon>menu</Icon>
+                            </IconButton>
+                        </Hidden>
 
-                <Paper className={classes.searchWrapper} elevation={7} square>
+                        <Icon color="action">search</Icon>
 
-                    <Icon color="action">search</Icon>
-
-                    <Input
-                        placeholder="Search"
-                        className={classes.search}
-                        disableUnderline
-                        fullWidth
-                        value={searchText}
-                        inputProps={{
-                            'aria-label': 'Search'
-                        }}
-                        onChange={setSearchText}
-                    />
-                </Paper>
-            </div>
+                        <Input
+                            placeholder="Search"
+                            className={classes.search}
+                            disableUnderline
+                            fullWidth
+                            value={searchText}
+                            inputProps={{
+                                'aria-label': 'Search'
+                            }}
+                            onChange={setSearchText}
+                        />
+                    </Paper>
+                </div>
+            </MuiThemeProvider>
         );
     }
 }
@@ -58,10 +66,11 @@ function mapDispatchToProps(dispatch)
     }, dispatch);
 }
 
-function mapStateToProps({mailApp})
+function mapStateToProps({mailApp, settings})
 {
     return {
-        searchText: mailApp.mails.searchText
+        selectedTheme: settings.theme,
+        searchText   : mailApp.mails.searchText
     }
 }
 

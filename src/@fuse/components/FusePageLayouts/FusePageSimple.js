@@ -2,9 +2,10 @@ import React from 'react';
 import {withStyles} from 'material-ui/styles';
 import Drawer from 'material-ui/Drawer';
 import Hidden from 'material-ui/Hidden';
-import {Icon, IconButton} from 'material-ui';
 import classNames from 'classnames';
 import {FuseScrollbars} from '@fuse';
+import {FuseThemes} from '@fuse/index';
+import {MuiThemeProvider} from 'material-ui';
 
 const drawerWidth = 240;
 const headerHeight = 120;
@@ -34,9 +35,7 @@ const styles = theme => ({
     header                        : {
         height         : headerHeight,
         minHeight      : headerHeight,
-        maxHeight      : headerHeight,
         display        : 'flex',
-        padding        : '24px',
         backgroundImage: 'url("../../assets/images/backgrounds/header-bg.png")',
         backgroundColor: theme.palette.primary.dark,
         color          : theme.palette.primary.contrastText,
@@ -45,10 +44,6 @@ const styles = theme => ({
     headerSidebarToggleButton     : {
         color: theme.palette.primary.contrastText
     },
-    headerContent                 : {
-        flex      : '1 1 auto',
-        paddingTop: 16
-    },
     contentCardWrapper            : {
         display : 'flex ',
         flex    : '1 1 auto',
@@ -56,7 +51,6 @@ const styles = theme => ({
         minWidth: 0
     },
     contentCardWrapperInnerSidebar: {
-        padding : 24,
         display : 'block',
         overflow: 'auto'
     },
@@ -74,22 +68,22 @@ const styles = theme => ({
         minHeight   : toolbarHeight,
         display     : 'flex',
         alignItems  : 'center',
-        padding     : '0 24px',
         borderBottom: '1px solid rgba(0,0,0,0.12)'
     },
     content                       : {
-        flex   : '1 0 auto',
-        padding: 24
+        flex: '1 0 auto'
     },
     sidebarWrapper                : {
         backgroundColor: 'transparent',
+        position       : 'absolute',
         '&.permanent'  : {
-            [theme.breakpoints.up('md')]: {
+            [theme.breakpoints.up('lg')]: {
                 position: 'relative'
             }
         }
     },
     sidebar                       : {
+        position     : 'absolute',
         '&.permanent': {
             [theme.breakpoints.up('lg')]: {
                 backgroundColor: 'transparent',
@@ -99,12 +93,12 @@ const styles = theme => ({
         },
         width        : drawerWidth,
         height       : '100%'
-
     },
+    leftSidebar                   : {},
+    rightSidebar                  : {},
     sidebarHeader                 : {
         height         : headerHeight,
         minHeight      : headerHeight,
-        padding        : 24,
         backgroundColor: theme.palette.primary.dark,
         color          : theme.palette.primary.contrastText
     },
@@ -114,9 +108,9 @@ const styles = theme => ({
         height         : 'auto',
         minHeight      : 'auto'
     },
-    sidebarContent                : {
-        padding: 24
-
+    sidebarContent                : {},
+    backdrop                      : {
+        position: 'absolute'
     }
 });
 
@@ -167,9 +161,11 @@ class FusePageSimple extends React.Component {
         const Sidebar = (header, content, variant) => (
             <FuseScrollbars enable={!singleScroll}>
                 {header && (
-                    <div className={classNames(classes.sidebarHeader, variant, sidebarInner && classes.sidebarHeaderInnerSidebar)}>
-                        {header}
-                    </div>
+                    <MuiThemeProvider theme={FuseThemes['dark']}>
+                        <div className={classNames(classes.sidebarHeader, variant, sidebarInner && classes.sidebarHeaderInnerSidebar)}>
+                            {header}
+                        </div>
+                    </MuiThemeProvider>
                 )}
 
                 {content && (
@@ -181,73 +177,60 @@ class FusePageSimple extends React.Component {
         );
 
         const SidebarWrapper = (header, content, sidebarId, variant) => (
-            <React.Fragment>
-                <Hidden lgUp={variant === 'permanent'}>
-                    <Drawer
-                        className={classNames(classes.sidebarWrapper, variant)}
-                        variant="temporary"
-                        anchor={sidebarId === 'leftSidebar' ? 'left' : 'right'}
-                        open={this.state[sidebarId]}
-                        onClose={(ev) => this.handleDrawerToggle(sidebarId)}
-                        classes={{
-                            paper: classNames(classes.sidebar, variant)
-                        }}
-                        ModalProps={{
-                            keepMounted: true // Better open performance on mobile.
-                        }}
-                        onClick={(ev) => this.handleDrawerToggle(sidebarId)}>
-                        {Sidebar(header, content, variant)}
-                    </Drawer>
-                </Hidden>
-                {variant === 'permanent' && (
-                    <Hidden mdDown>
+                <React.Fragment>
+                    <Hidden lgUp={variant === 'permanent'}>
                         <Drawer
-                            variant="permanent"
                             className={classNames(classes.sidebarWrapper, variant)}
+                            variant="temporary"
+                            anchor={sidebarId === 'leftSidebar' ? 'left' : 'right'}
                             open={this.state[sidebarId]}
+                            onClose={(ev) => this.handleDrawerToggle(sidebarId)}
                             classes={{
-                                paper: classNames(classes.sidebar, variant)
-                            }}>
+                                paper: classNames(classes.sidebar, variant, sidebarId === 'leftSidebar' ? classes.leftSidebar : classes.rightSidebar)
+                            }}
+                            ModalProps={{
+                                keepMounted: true // Better open performance on mobile.
+                            }}
+                            container={this.root}
+                            BackdropProps={{
+                                classes: {
+                                    root: classes.backdrop
+                                }
+                            }}
+                            onClick={(ev) => this.handleDrawerToggle(sidebarId)}>
                             {Sidebar(header, content, variant)}
                         </Drawer>
                     </Hidden>
-                )}
-            </React.Fragment>
-        );
+                    {variant === 'permanent' && (
+                        <Hidden mdDown>
+                            <Drawer
+                                variant="permanent"
+                                className={classNames(classes.sidebarWrapper, variant)}
+                                open={this.state[sidebarId]}
+                                classes={{
+                                    paper: classNames(classes.sidebar, variant, sidebarId === 'leftSidebar' ? classes.leftSidebar : classes.rightSidebar)
+                                }}>
+                                {Sidebar(header, content, variant)}
+                            </Drawer>
+                        </Hidden>
+                    )}
+                </React.Fragment>
+            )
+        ;
 
         const headerContent = (
             <div className={classes.header}>
-
-                {isLeftSidebar && (
-                    <Hidden lgUp={leftSidebarVariant !== 'temporary'}>
-                        <IconButton className={classes.headerSidebarToggleButton}
-                                    aria-label="open left sidebar"
-                                    onClick={(ev) => this.handleDrawerToggle('leftSidebar')}>
-                            <Icon>menu</Icon>
-                        </IconButton>
-                    </Hidden>
-                )}
-
-                {header && (
-                    <span className={classes.headerContent}>
-                        {header}
-                    </span>
-                )}
-
-                {isRightSidebar && (
-                    <Hidden lgUp={rightSidebarVariant !== 'temporary'}>
-                        <IconButton className={classes.headerSidebarToggleButton}
-                                    aria-label="open right sidebar"
-                                    onClick={(ev) => this.handleDrawerToggle('rightSidebar')}>
-                            <Icon>menu</Icon>
-                        </IconButton>
-                    </Hidden>
-                )}
+                <MuiThemeProvider theme={FuseThemes['dark']}>
+                    {header}
+                </MuiThemeProvider>
             </div>
         );
 
         return (
-            <div className={classNames(classes.root, singleScroll && classes.singleScroll)}>
+            <div className={classNames(classes.root, singleScroll && classes.singleScroll)}
+                 ref={(root) => {
+                     this.root = root;
+                 }}>
 
                 {header && sidebarInner && headerContent}
 

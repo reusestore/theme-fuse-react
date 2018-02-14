@@ -2,7 +2,7 @@ import React from 'react';
 import {withStyles} from 'material-ui/styles';
 import Drawer from 'material-ui/Drawer';
 import Hidden from 'material-ui/Hidden';
-import {Icon, IconButton, MuiThemeProvider} from 'material-ui';
+import {MuiThemeProvider} from 'material-ui';
 import classNames from 'classnames';
 import {FuseScrollbars, FuseThemes} from '@fuse';
 
@@ -49,15 +49,10 @@ const styles = theme => ({
         minHeight: headerContentHeight,
         maxHeight: headerContentHeight,
         display  : 'flex',
-        padding  : '24px 0',
         color    : theme.palette.primary.contrastText
     },
     headerSidebarToggleButton: {
         color: theme.palette.primary.contrastText
-    },
-    headerContent            : {
-        flex      : '1 1 auto',
-        paddingTop: 16
     },
     contentCard              : {
         display        : 'flex',
@@ -73,15 +68,14 @@ const styles = theme => ({
         minHeight   : toolbarHeight,
         display     : 'flex',
         alignItems  : 'center',
-        padding     : '0 24px',
         borderBottom: '1px solid ' + theme.palette.divider
     },
     content                  : {
         flex    : '1 1 auto',
-        overflow: 'auto',
-        padding : 24
+        overflow: 'auto'
     },
     sidebarWrapper           : {
+        position       : 'absolute',
         backgroundColor: 'transparent',
         zIndex         : 5,
         '&.permanent'  : {
@@ -92,6 +86,7 @@ const styles = theme => ({
         }
     },
     sidebar                  : {
+        position     : 'absolute',
         '&.permanent': {
             [theme.breakpoints.up('lg')]: {
                 backgroundColor: 'transparent',
@@ -104,10 +99,11 @@ const styles = theme => ({
         height       : '100%'
 
     },
+    leftSidebar              : {},
+    rightSidebar             : {},
     sidebarHeader            : {
         height         : headerHeight,
         minHeight      : headerHeight,
-        padding        : 24,
         color          : theme.palette.primary.contrastText,
         backgroundColor: theme.palette.primary.dark,
         '&.permanent'  : {
@@ -117,12 +113,14 @@ const styles = theme => ({
         }
     },
     sidebarContent           : {
-        padding                     : 24,
         backgroundColor             : theme.palette.background.default,
         color                       : theme.palette.text.primary,
         [theme.breakpoints.up('lg')]: {
             overflow: 'auto'
         }
+    },
+    backdrop                 : {
+        position: 'absolute'
     }
 });
 
@@ -199,10 +197,16 @@ class FusePageCarded extends React.Component {
                         open={this.state[sidebarId]}
                         onClose={(ev) => this.handleDrawerToggle(sidebarId)}
                         classes={{
-                            paper: classNames(classes.sidebar, variant)
+                            paper: classNames(classes.sidebar, variant, sidebarId === 'leftSidebar' ? classes.leftSidebar : classes.rightSidebar)
                         }}
                         ModalProps={{
                             keepMounted: true // Better open performance on mobile.
+                        }}
+                        container={this.root}
+                        BackdropProps={{
+                            classes: {
+                                root: classes.backdrop
+                            }
                         }}
                         onClick={(ev) => this.handleDrawerToggle(sidebarId)}>
                         {Sidebar(header, content, variant)}
@@ -215,7 +219,7 @@ class FusePageCarded extends React.Component {
                             className={classNames(classes.sidebarWrapper, variant)}
                             open={this.state[sidebarId]}
                             classes={{
-                                paper: classNames(classes.sidebar, variant)
+                                paper: classNames(classes.sidebar, variant, sidebarId === 'leftSidebar' ? classes.leftSidebar : classes.rightSidebar)
                             }}>
                             {Sidebar(header, content, variant)}
                         </Drawer>
@@ -225,7 +229,10 @@ class FusePageCarded extends React.Component {
         );
 
         return (
-            <div className={classNames(classes.root, singleScroll && classes.singleScroll)}>
+            <div className={classNames(classes.root, singleScroll && classes.singleScroll)}
+                 ref={(root) => {
+                     this.root = root;
+                 }}>
 
                 <div className={classes.topBg}></div>
 
@@ -234,33 +241,9 @@ class FusePageCarded extends React.Component {
                 <div className={classNames(classes.contentWrapper, sidebarPosition === 'left' && 'lg:pl-0', sidebarPosition === 'right' && 'lg:pr-0')}>
 
                     <div className={classes.header}>
-
-                        {isLeftSidebar && (
-                            <Hidden lgUp={leftSidebarVariant !== 'temporary'}>
-                                <IconButton className={classes.headerSidebarToggleButton}
-                                            aria-label="open left sidebar"
-                                            onClick={(ev) => this.handleDrawerToggle('leftSidebar')}>
-                                    <Icon>menu</Icon>
-                                </IconButton>
-                            </Hidden>
-                        )}
-
-                        {header && (
-                            <span className={classes.headerContent}>
-                                {header}
-                            </span>
-                        )}
-
-                        {isRightSidebar && (
-                            <Hidden lgUp={leftSidebarVariant !== 'temporary'}>
-                                <IconButton className={classes.headerSidebarToggleButton}
-                                            aria-label="open right sidebar"
-                                            onClick={(ev) => this.handleDrawerToggle('rightSidebar')}>
-                                    <Icon>menu</Icon>
-                                </IconButton>
-                            </Hidden>
-                        )}
-
+                        <MuiThemeProvider theme={FuseThemes['dark']}>
+                            {header}
+                        </MuiThemeProvider>
                     </div>
 
                     <div className={classNames(classes.contentCard, singleScroll && 'single-scroll')}>

@@ -39,7 +39,7 @@ class SimpleTabbedSample extends Component {
                     toolbar: classes.layoutToolbar
                 }}
                 header={
-                    <h4>Header</h4>
+                    <div className="p-24"><h4>Header</h4></div>
                 }
                 contentToolbar={
                     <Tabs
@@ -85,47 +85,47 @@ class SimpleTabbedSample extends Component {
                     </Tabs>
                 }
                 content={
-                    <div>
+                    <div className="p-24">
                         {value === 0 &&
                         (
                             <div>
-                                <h3>Item One</h3>
+                                <h3 className="mb-16">Item One</h3>
                                 <DemoContent/>
                             </div>
                         )}
                         {value === 1 && (
                             <div>
-                                <h3>Item Two</h3>
+                                <h3 className="mb-16">Item Two</h3>
                                 <DemoContent/>
                             </div>
                         )}
                         {value === 2 && (
                             <div>
-                                <h3>Item Three</h3>
+                                <h3 className="mb-16">Item Three</h3>
                                 <DemoContent/>
                             </div>
                         )}
                         {value === 3 && (
                             <div>
-                                <h3>Item Four</h3>
+                                <h3 className="mb-16">Item Four</h3>
                                 <DemoContent/>
                             </div>
                         )}
                         {value === 4 && (
                             <div>
-                                <h3>Item Five</h3>
+                                <h3 className="mb-16">Item Five</h3>
                                 <DemoContent/>
                             </div>
                         )}
                         {value === 5 && (
                             <div>
-                                <h3>Item Six</h3>
+                                <h3 className="mb-16">Item Six</h3>
                                 <DemoContent/>
                             </div>
                         )}
                         {value === 6 && (
                             <div>
-                                <h3>Item Seven</h3>
+                                <h3 className="mb-16">Item Seven</h3>
                                 <DemoContent/>
                             </div>
                         )}

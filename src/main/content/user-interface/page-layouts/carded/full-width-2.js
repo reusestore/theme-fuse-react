@@ -17,13 +17,13 @@ class CardedFullWidth2Sample extends Component {
                     root: classes.layoutRoot
                 }}
                 header={
-                    <h4>Header</h4>
+                    <div className="py-24"><h4>Header</h4></div>
                 }
                 contentToolbar={
-                    <h4>Content Toolbar</h4>
+                    <div className="px-24"><h4>Content Toolbar</h4></div>
                 }
                 content={
-                    <div>
+                    <div className="p-24">
                         <h4>Content</h4>
                         <br/>
                         <DemoContent/>

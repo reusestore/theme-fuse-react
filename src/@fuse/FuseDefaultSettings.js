@@ -8,7 +8,7 @@ const FuseDefaultSettings = {
         mode                : 'fullwidth' // 'boxed', 'fullwidth'
     },
     customScrollbars: true,
-    theme           : 'dark'
+    theme           : 'default'
 };
 
 export default FuseDefaultSettings;

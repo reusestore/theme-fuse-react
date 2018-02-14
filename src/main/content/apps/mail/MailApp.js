@@ -16,26 +16,15 @@ import _ from 'lodash';
 import {FuseScrollbars} from '@fuse';
 
 const styles = theme => ({
-    layoutRoot          : {},
-    layoutSidebarContent: {
-        padding: 0
-    },
-    layoutToolbar       : {
-        paddingLeft: 8
-    },
-    layoutContent       : {
-        padding      : 0,
+    layoutContent     : {
         overflow     : 'hidden',
         display      : 'flex',
         flexDirection: 'column'
     },
-    layoutHeader        : {
+    layoutHeader      : {
         alignItems: 'center'
     },
-    layoutHeaderContent : {
-        paddingTop: 0
-    },
-    mailListWrapper     : {
+    mailListWrapper   : {
         borderRight                   : '1px solid ' + theme.palette.divider,
         display                       : 'block',
         width                         : '50%',
@@ -46,7 +35,7 @@ const styles = theme => ({
             }
         }
     },
-    mailDetailsWrapper  : {
+    mailDetailsWrapper: {
         width                         : '50%',
         [theme.breakpoints.down('sm')]: {
             display          : 'none',
@@ -83,15 +72,11 @@ class MailApp extends Component {
         return (
             <FusePageCarded
                 classes={{
-                    root          : classes.layoutRoot,
-                    sidebarContent: classes.layoutSidebarContent,
-                    toolbar       : classes.layoutToolbar,
-                    content       : classes.layoutContent,
-                    header        : classes.layoutHeader,
-                    headerContent : classes.layoutHeaderContent
+                    content: classes.layoutContent,
+                    header : classes.layoutHeader
                 }}
                 header={
-                    <MailHeader/>
+                    <MailHeader pageLayout={() => this.pageLayout}/>
                 }
                 contentToolbar={
                     <MailToolbar/>
@@ -112,6 +97,9 @@ class MailApp extends Component {
                 leftSidebarContent={
                     <MailSidebarContent/>
                 }
+                onRef={instance => {
+                    this.pageLayout = instance;
+                }}
             />
         )
     };

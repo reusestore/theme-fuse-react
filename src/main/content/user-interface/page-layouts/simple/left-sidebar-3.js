@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles';
 import {FusePageSimple, DemoContent, DemoSidebarContent} from '@fuse';
-
+import {Hidden, Icon, IconButton} from 'material-ui';
 
 const styles = theme => ({
     layoutRoot: {}
@@ -18,13 +18,21 @@ class SimpleLeftSidebar3Sample extends Component {
                     root: classes.layoutRoot
                 }}
                 header={
-                    <h4>Header</h4>
+                    <div className="flex flex-1 p-24">
+                        <Hidden lgUp>
+                            <IconButton onClick={(ev) => this.pageLayout.toggleLeftSidebar()}
+                                        aria-label="open left sidebar">
+                                <Icon>menu</Icon>
+                            </IconButton>
+                        </Hidden>
+                        <div className="flex-1 py-16"><h4>Header</h4></div>
+                    </div>
                 }
                 contentToolbar={
-                    <h4>Content Toolbar</h4>
+                    <div className="px-24"><h4>Content Toolbar</h4></div>
                 }
                 content={
-                    <div>
+                    <div className="p-24">
                         <h4>Content</h4>
                         <br/>
                         <DemoContent/>
@@ -32,16 +40,19 @@ class SimpleLeftSidebar3Sample extends Component {
                 }
 
                 leftSidebarHeader={
-                    <h4>Sidebar Header</h4>
+                    <div className="p-24"><h4>Sidebar Header</h4></div>
                 }
                 leftSidebarContent={
-                    <div>
+                    <div className="p-24">
                         <h4>Sidebar Content</h4>
                         <br/>
                         <DemoSidebarContent/>
                     </div>
                 }
                 sidebarInner
+                onRef={instance => {
+                    this.pageLayout = instance;
+                }}
             />
         )
     };

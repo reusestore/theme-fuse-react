@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles';
 import {FusePageCarded, DemoContent, DemoSidebarContent} from '@fuse';
-import {Tab, Tabs} from 'material-ui';
+import {Tab, Tabs, Hidden, Icon, IconButton} from 'material-ui';
 
 const styles = theme => ({
     layoutRoot   : {},
@@ -38,7 +38,15 @@ class CardedLeftSidebar2TabbedSample extends Component {
                     toolbar: classes.layoutToolbar
                 }}
                 header={
-                    <h4>Header</h4>
+                    <div className="flex flex-1">
+                        <Hidden lgUp>
+                            <IconButton onClick={(ev) => this.pageLayout.toggleLeftSidebar()}
+                                        aria-label="open left sidebar">
+                                <Icon>menu</Icon>
+                            </IconButton>
+                        </Hidden>
+                        <div className="flex-1 py-16"><h4>Header</h4></div>
+                    </div>
                 }
                 contentToolbar={
                     <Tabs
@@ -84,63 +92,66 @@ class CardedLeftSidebar2TabbedSample extends Component {
                     </Tabs>
                 }
                 content={
-                    <div>
+                    <div className="p-24">
                         {value === 0 &&
                         (
                             <div>
-                                <h3>Item One</h3>
+                                <h3 className="mb-16">Item One</h3>
                                 <DemoContent/>
                             </div>
                         )}
                         {value === 1 && (
                             <div>
-                                <h3>Item Two</h3>
+                                <h3 className="mb-16">Item Two</h3>
                                 <DemoContent/>
                             </div>
                         )}
                         {value === 2 && (
                             <div>
-                                <h3>Item Three</h3>
+                                <h3 className="mb-16">Item Three</h3>
                                 <DemoContent/>
                             </div>
                         )}
                         {value === 3 && (
                             <div>
-                                <h3>Item Four</h3>
+                                <h3 className="mb-16">Item Four</h3>
                                 <DemoContent/>
                             </div>
                         )}
                         {value === 4 && (
                             <div>
-                                <h3>Item Five</h3>
+                                <h3 className="mb-16">Item Five</h3>
                                 <DemoContent/>
                             </div>
                         )}
                         {value === 5 && (
                             <div>
-                                <h3>Item Six</h3>
+                                <h3 className="mb-16">Item Six</h3>
                                 <DemoContent/>
                             </div>
                         )}
                         {value === 6 && (
                             <div>
-                                <h3>Item Seven</h3>
+                                <h3 className="mb-16">Item Seven</h3>
                                 <DemoContent/>
                             </div>
                         )}
                     </div>
                 }
                 leftSidebarHeader={
-                    <h4>Sidebar Header</h4>
+                    <div className="p-24"><h4>Sidebar Header</h4></div>
                 }
                 leftSidebarContent={
-                    <div>
+                    <div className="p-24">
                         <h4>Sidebar Content</h4>
                         <br/>
                         <DemoSidebarContent/>
                     </div>
                 }
                 singleScroll
+                onRef={instance => {
+                    this.pageLayout = instance;
+                }}
             />
         )
     };
