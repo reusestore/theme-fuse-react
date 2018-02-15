@@ -238,7 +238,8 @@ class FusePageCarded extends React.Component {
 
                 {isLeftSidebar && SidebarWrapper(leftSidebarHeader, leftSidebarContent, 'leftSidebar', leftSidebarVariant || 'permanent')}
 
-                <div className={classNames(classes.contentWrapper, sidebarPosition === 'left' && 'lg:pl-0', sidebarPosition === 'right' && 'lg:pr-0')}>
+                <div
+                    className={classNames(classes.contentWrapper, isLeftSidebar && (leftSidebarVariant === undefined || leftSidebarVariant === 'permanent') && 'lg:pl-0', isRightSidebar && (rightSidebarVariant === undefined || rightSidebarVariant === 'permanent') && 'lg:pr-0')}>
 
                     <div className={classes.header}>
                         <MuiThemeProvider theme={FuseThemes['dark']}>
