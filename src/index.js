@@ -1,7 +1,8 @@
 import './polyfills';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'typeface-roboto'
+import 'typeface-roboto';
+import './react-table-defaults';
 import './index.css';
 import JssProvider from 'react-jss/lib/JssProvider';
 import {create} from 'jss';
@@ -34,6 +35,7 @@ const store = createStore(reducers, enhancer);
 const jss = create(jssPreset());
 jss.options.insertionPoint = 'insertion-point-jss';
 jss.options.createGenerateClassName = createGenerateClassName;
+
 
 ReactDOM.render(
     <JssProvider jss={jss}>

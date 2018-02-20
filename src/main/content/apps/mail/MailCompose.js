@@ -1,14 +1,10 @@
 import React, {Component} from 'react';
-import {TextField, Button, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel, Input, Icon, IconButton, Typography} from 'material-ui';
+import {TextField, Button, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel, Input, Icon, IconButton, Typography, Toolbar, AppBar} from 'material-ui';
 import {withStyles} from 'material-ui/styles/index';
 
 const styles = theme => ({
     composeButton     : {
         width: '100%'
-    },
-    dialogTitle       : {
-        backgroundColor: theme.palette.primary.dark,
-        color          : theme.palette.text.primary
     },
     formControl       : {
         marginBottom: 16
@@ -84,9 +80,13 @@ class MailCompose extends Component {
                     onClose={this.closeComposeDialog}
                     aria-labelledby="form-dialog-title">
 
-                    <DialogTitle className={classes.dialogTitle} id="form-dialog-title">
-                        New Message
-                    </DialogTitle>
+                    <AppBar position="static">
+                        <Toolbar className="flex w-full">
+                            <Typography variant="subheading" color="inherit">
+                                New Message
+                            </Typography>
+                        </Toolbar>
+                    </AppBar>
 
                     <DialogContent className="p-24">
 

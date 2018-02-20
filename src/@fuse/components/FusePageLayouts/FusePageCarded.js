@@ -164,7 +164,7 @@ class FusePageCarded extends React.Component {
 
     render()
     {
-        const {classes, rightSidebarHeader, rightSidebarContent, rightSidebarVariant, leftSidebarHeader, leftSidebarContent, leftSidebarVariant, header, content, contentToolbar, sidebarPosition, singleScroll} = this.props;
+        const {classes, rightSidebarHeader, rightSidebarContent, rightSidebarVariant, leftSidebarHeader, leftSidebarContent, leftSidebarVariant, header, content, contentToolbar, singleScroll} = this.props;
 
         const isRightSidebar = rightSidebarHeader || rightSidebarContent;
         const isLeftSidebar = leftSidebarHeader || leftSidebarContent;

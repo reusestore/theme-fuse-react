@@ -52,7 +52,7 @@ const styles = theme => ({
     },
     contentCardWrapperInnerSidebar: {
         display : 'block',
-        overflow: 'auto'
+        overflow: 'auto',
     },
     contentCard                   : {
         display        : 'flex',
@@ -60,7 +60,7 @@ const styles = theme => ({
         color          : theme.palette.text.paper,
         flexDirection  : 'column',
         flex           : '1 1 auto',
-        boxShadow      : theme.shadows[7],
+        boxShadow      : theme.shadows[5],
         overflow       : 'auto'
     },
     toolbar                       : {

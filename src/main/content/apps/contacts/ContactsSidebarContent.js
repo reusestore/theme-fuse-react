@@ -1,0 +1,83 @@
+import React, {Component} from 'react';
+import {withStyles} from 'material-ui/styles/index';
+import {Avatar, Divider, Icon, List, ListItem, ListItemText, Paper, Typography} from 'material-ui';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import classNames from 'classnames';
+import {NavLink, withRouter} from 'react-router-dom';
+
+const styles = theme => ({
+    root    : {},
+    listItem: {
+        '&.active': {
+            backgroundColor    : theme.palette.secondary.main,
+            color              : theme.palette.secondary.contrastText,
+            pointerEvents      : 'none',
+            '& .list-item-icon': {
+                color: 'inherit'
+            }
+        }
+    }
+});
+
+class ContactsSidebarContent extends Component {
+
+    render()
+    {
+        const {classes, user} = this.props;
+        return (
+            <div className={classNames(classes.root, "lg:p-24 lg:pr-4")}>
+                <Paper>
+                    <div className="p-24 flex items-center">
+                        <Avatar className="mr-12" alt={user.name} src={user.avatar}/>
+                        <Typography>{user.name}</Typography>
+                    </div>
+                    <Divider/>
+                    <List>
+                        <ListItem button
+                                  component={NavLink}
+                                  to={'/apps/contacts/all'}
+                                  activeClassName="active"
+                                  className={classes.listItem}
+                        >
+                            <Icon className="list-item-icon text-16" color="action">people</Icon>
+                            <ListItemText primary="All contacts" disableTypography={true}/>
+                        </ListItem>
+                        <ListItem button
+                                  component={NavLink}
+                                  to={'/apps/contacts/frequent'}
+                                  activeClassName="active"
+                                  className={classes.listItem}
+                        >
+                            <Icon className="list-item-icon text-16" color="action">restore</Icon>
+                            <ListItemText primary="Frequently contacted" disableTypography={true}/>
+                        </ListItem>
+                        <ListItem button
+                                  component={NavLink}
+                                  to={'/apps/contacts/starred'}
+                                  activeClassName="active"
+                                  className={classes.listItem}
+                        >
+                            <Icon className="list-item-icon text-16" color="action">star</Icon>
+                            <ListItemText primary="Starred contacts" disableTypography={true}/>
+                        </ListItem>
+                    </List>
+                </Paper>
+            </div>
+        );
+    }
+}
+
+function mapDispatchToProps(dispatch)
+{
+    return bindActionCreators({}, dispatch);
+}
+
+function mapStateToProps({contactsApp})
+{
+    return {
+        user: contactsApp.user
+    }
+}
+
+export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(ContactsSidebarContent)));

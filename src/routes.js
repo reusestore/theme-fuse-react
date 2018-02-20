@@ -4,6 +4,7 @@ import {FileManagerAppConfig} from './main/content/apps/file-manager/FileManager
 import {UserInterfaceConfig} from './main/content/user-interface/UserInterfaceConfig';
 import DemoApp from './main/content/DemoApp';
 import DemoApp2 from './main/content/DemoApp2';
+import {ContactsAppConfig} from 'main/content/apps/contacts/ContactsAppConfig';
 
 function setRoutes(config)
 {
@@ -29,6 +30,7 @@ function setRoutes(config)
 export const routes = [
     ...setRoutes(MailAppConfig),
     ...setRoutes(FileManagerAppConfig),
+    ...setRoutes(ContactsAppConfig),
     ...setRoutes(UserInterfaceConfig),
     {
         path     : '/demo',
