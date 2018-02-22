@@ -43,10 +43,6 @@ class FileManagerApp extends Component {
         this.props.getFiles();
     }
 
-    handleClick = (event, id) => {
-
-    };
-
     render()
     {
         const {classes, selectedItem, files} = this.props;

@@ -10,12 +10,7 @@ export const MailAppConfig = {
     routes  : [
         {
             path     : '/apps/mail/label/:labelHandle/:mailId?',
-            component: MailApp,
-            settings : {
-                layout: {
-                    navigation: 'right'
-                }
-            }
+            component: MailApp
         },
         {
             path     : '/apps/mail/filter/:filterHandle/:mailId?',

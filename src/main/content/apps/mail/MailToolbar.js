@@ -43,9 +43,7 @@ class MailToolbar extends Component {
     state = {
         selectMenu   : null,
         foldersMenu  : null,
-        labelsMenu   : null,
-        checked      : false,
-        indeterminate: false
+        labelsMenu   : null
     };
 
     handleMenuOpen = (event, menu) => {
@@ -60,16 +58,12 @@ class MailToolbar extends Component {
         event.target.checked ? this.props.selectAllMails() : this.props.deselectAllMails();
     };
 
-    componentWillReceiveProps(nextProps)
-    {
-        this.setState({indeterminate: nextProps.selectedMailIds.length !== Object.keys(nextProps.mails).length && nextProps.selectedMailIds.length > 0});
-        this.setState({checked: nextProps.selectedMailIds.length === Object.keys(nextProps.mails).length && nextProps.selectedMailIds.length > 0});
-    }
+
 
     render()
     {
-        const {classes, match, history, selectAllMails, deselectAllMails, selectMailsByParameter, setFolderOnSelectedMails, toggleLabelOnSelectedMails, folders, labels, selectedMailIds, currentMail} = this.props;
-        const {foldersMenu, selectMenu, labelsMenu, indeterminate, checked} = this.state;
+        const {classes, match, history,mails, selectAllMails, deselectAllMails, selectMailsByParameter, setFolderOnSelectedMails, toggleLabelOnSelectedMails, folders, labels, selectedMailIds, currentMail} = this.props;
+        const {foldersMenu, selectMenu, labelsMenu} = this.state;
         const toPath = pathToRegexp.compile(match.path);
         const matchParams = {...match.params};
         delete matchParams['mailId'];
@@ -82,8 +76,8 @@ class MailToolbar extends Component {
 
                     <Checkbox
                         onChange={this.handleChange()}
-                        checked={checked}
-                        indeterminate={indeterminate}
+                        checked={selectedMailIds.length === Object.keys(mails).length && selectedMailIds.length > 0}
+                        indeterminate={selectedMailIds.length !== Object.keys(mails).length && selectedMailIds.length > 0}
                     />
 
                     <IconButton

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {TextField, Button, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel, Input, Icon, IconButton, Typography, Toolbar, AppBar} from 'material-ui';
+import {TextField, Button, Dialog, DialogActions, DialogContent, FormControl, InputLabel, Input, Icon, IconButton, Typography, Toolbar, AppBar} from 'material-ui';
 import {withStyles} from 'material-ui/styles/index';
+import _ from 'lodash';
 
 const styles = theme => ({
     composeButton     : {
@@ -51,6 +52,10 @@ class MailCompose extends Component {
         this.setState({composeDialog: false});
     };
 
+    handleChange = (event) => {
+        this.setState(_.set({...this.state}, event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value));
+    };
+
     render()
     {
         const {classes} = this.props;
@@ -92,31 +97,32 @@ class MailCompose extends Component {
 
                         <FormControl className={classes.formControl} disabled fullWidth>
                             <InputLabel htmlFor="from">From</InputLabel>
-                            <Input id="from" value={this.state.from}/>
+                            <Input id="from" name="from" value={this.state.from} onChange={this.handleChange}/>
                         </FormControl>
 
                         <FormControl className={classes.formControl} required fullWidth>
                             <InputLabel htmlFor="to">To</InputLabel>
-                            <Input autoFocus id="to" value={this.state.to}/>
+                            <Input autoFocus id="to" name="to" value={this.state.to} onChange={this.handleChange}/>
                         </FormControl>
 
                         <FormControl className={classes.formControl} fullWidth>
                             <InputLabel htmlFor="cc">Cc</InputLabel>
-                            <Input id="cc" value={this.state.cc}/>
+                            <Input id="cc" name="cc" value={this.state.cc} onChange={this.handleChange}/>
                         </FormControl>
 
                         <FormControl className={classes.formControl} fullWidth>
                             <InputLabel htmlFor="bcc">Bcc</InputLabel>
-                            <Input id="bcc" value={this.state.bcc}/>
+                            <Input id="bcc" name="bcc" value={this.state.bcc} onChange={this.handleChange}/>
                         </FormControl>
 
                         <FormControl className={classes.formControl} fullWidth>
                             <InputLabel htmlFor="subject">Subject</InputLabel>
-                            <Input id="subject" value={this.state.subject}/>
+                            <Input id="subject" name="subject" value={this.state.subject} onChange={this.handleChange}/>
                         </FormControl>
 
                         <TextField className={classes.formControl}
-                                   id="message" label="Message" type="text"
+                                   id="message" name="message"  onChange={this.handleChange}
+                                   label="Message" type="text"
                                    multiline rows={5} fullWidth/>
 
                         <div className={classes.attachmentList}>

@@ -48,9 +48,6 @@ const styles = theme => ({
 });
 
 class MailApp extends Component {
-    state = {
-        mobileOpen: false
-    };
 
     componentDidMount()
     {

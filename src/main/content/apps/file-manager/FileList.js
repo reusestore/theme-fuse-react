@@ -48,7 +48,8 @@ class FileList extends Component {
                             <TableRow key={n.id}
                                       hover
                                       onClick={event => setSelectedItem(n.id)}
-                                      selected={n.id === selectedItem}>
+                                      selected={n.id === selectedItem}
+                                      className="cursor-pointer">
                                 <TableCell className="max-w-64 w-64 p-0 text-center">
                                     <Icon className={classNames(classes.typeIcon, n.type)}></Icon>
                                 </TableCell>
