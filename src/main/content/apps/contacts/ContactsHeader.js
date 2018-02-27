@@ -27,7 +27,7 @@ class ContactsHeader extends Component {
                     </Hidden>
 
                     <div className="flex items-center">
-                        <Icon className="text-32 mr-16">account_box</Icon>
+                        <Icon className="text-32 mr-12">account_box</Icon>
                         <Typography variant="title">Contacts</Typography>
                     </div>
                 </div>

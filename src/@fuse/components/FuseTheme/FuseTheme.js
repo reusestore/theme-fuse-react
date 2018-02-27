@@ -25,7 +25,7 @@ export const themes = {
 
 class FuseTheme extends Component {
     state = {
-        theme: this.props.selectedTheme
+        theme: themes[this.props.selectedTheme]
     };
 
     changeTheme = (val) => {
@@ -46,14 +46,50 @@ class FuseTheme extends Component {
         this.changeTheme(nextProps.selectedTheme);
     }
 
+    customMixins = (theme) => ({
+        border      : (width = 1) => ({
+            borderWidth: width,
+            borderStyle: 'solid',
+            borderColor: theme.palette.divider
+        }),
+        borderLeft  : (width = 1) => ({
+            borderLeftWidth: width,
+            borderStyle    : 'solid',
+            borderColor    : theme.palette.divider
+        }),
+        borderRight : (width = 1) => ({
+            borderRightWidth: width,
+            borderStyle     : 'solid',
+            borderColor     : theme.palette.divider
+        }),
+        borderTop   : (width = 1) => ({
+            borderTopWidth: width,
+            borderStyle   : 'solid',
+            borderColor   : theme.palette.divider
+        }),
+        borderBottom: (width = 1) => ({
+            borderBottomWidth: width,
+            borderStyle      : 'solid',
+            borderColor      : theme.palette.divider
+        })
+    });
+
     render()
     {
         console.warn('FuseTheme:: rendered');
         const {children} = this.props;
         const {theme} = this.state;
-
+        const themeExt = {
+            ...theme,
+            mixins: {
+                ...theme.mixins,
+                ...this.customMixins(theme)
+            }
+        };
+        console.info(theme);
+        console.info(themeExt);
         return (
-            <MuiThemeProvider theme={theme}>
+            <MuiThemeProvider theme={themeExt}>
                 {children}
             </MuiThemeProvider>
         );

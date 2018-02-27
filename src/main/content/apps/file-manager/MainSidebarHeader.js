@@ -16,7 +16,7 @@ class MainSidebarHeader extends Component {
         return (
             <div className={classNames(classes.root, 'flex items-center h-full p-12')}>
                 <Icon>folder</Icon>
-                <Typography variant="title" className="ml-16">File Manager</Typography>
+                <Typography variant="title" className="ml-12">File Manager</Typography>
             </div>
         )
     };

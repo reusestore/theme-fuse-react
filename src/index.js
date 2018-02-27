@@ -20,6 +20,7 @@ import MainToolbar from './main/MainToolbar';
 import MainNavbarContent from './main/MainNavbarContent';
 import MainNavbarHeader from './main/MainNavbarHeader';
 import MainFooter from './main/MainFooter';
+import jssExtend from 'jss-extend'
 
 const composeEnhancers =
     typeof window === 'object' &&
@@ -32,7 +33,12 @@ const enhancer = composeEnhancers(
 
 const store = createStore(reducers, enhancer);
 
-const jss = create(jssPreset());
+// const jss = create(jssPreset());
+const jss = create({
+    ...jssPreset(),
+    plugins: [...jssPreset().plugins, jssExtend()]
+});
+
 jss.options.insertionPoint = 'insertion-point-jss';
 jss.options.createGenerateClassName = createGenerateClassName;
 
