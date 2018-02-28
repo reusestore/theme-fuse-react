@@ -1,4 +1,4 @@
-export const navigation = [
+export const fuseNavigation = [
     {
         'id'       : 'applications',
         'title'    : 'Applications',
@@ -30,57 +30,6 @@ export const navigation = [
                 'url'      : '/apps/calendar'
             },
             {
-                'id'       : 'e-commerce',
-                'title'    : 'E-Commerce',
-                'translate': 'NAV.ECOMMERCE',
-                'type'     : 'collapse',
-                'icon'     : 'shopping_cart',
-                'children' : [
-                    {
-                        'id'   : 'dashboard',
-                        'title': 'Dashboard',
-                        'type' : 'item',
-                        'url'  : '/apps/e-commerce/dashboard'
-                    },
-                    {
-                        'id'        : 'products',
-                        'title'     : 'Products',
-                        'type'      : 'item',
-                        'url'       : '/apps/e-commerce/products',
-                        'exactMatch': true
-                    },
-                    {
-                        'id'        : 'productDetail',
-                        'title'     : 'Product Detail',
-                        'type'      : 'item',
-                        'url'       : '/apps/e-commerce/products/1/printed-dress',
-                        'exactMatch': true
-                    },
-                    {
-                        'id'        : 'orders',
-                        'title'     : 'Orders',
-                        'type'      : 'item',
-                        'url'       : '/apps/e-commerce/orders',
-                        'exactMatch': true
-                    },
-                    {
-                        'id'        : 'orderDetail',
-                        'title'     : 'Order Detail',
-                        'type'      : 'item',
-                        'url'       : '/apps/e-commerce/orders/1',
-                        'exactMatch': true
-                    }
-                ]
-            },
-            {
-                'id'       : 'academy',
-                'title'    : 'Academy',
-                'translate': 'NAV.ACADEMY',
-                'type'     : 'item',
-                'icon'     : 'school',
-                'url'      : '/apps/academy'
-            },
-            {
                 'id'       : 'mail',
                 'title'    : 'Mail',
                 'translate': 'NAV.MAIL.TITLE',
@@ -92,19 +41,6 @@ export const navigation = [
                     'translate': 'NAV.MAIL.BADGE',
                     'bg'       : '#F44336',
                     'fg'       : '#FFFFFF'
-                }
-            },
-            {
-                'id'       : 'chat',
-                'title'    : 'Chat',
-                'translate': 'NAV.CHAT',
-                'type'     : 'item',
-                'icon'     : 'chat',
-                'url'      : '/apps/chat',
-                'badge'    : {
-                    'title': 13,
-                    'bg'   : '#09d261',
-                    'fg'   : '#FFFFFF'
                 }
             },
             {
@@ -122,27 +58,6 @@ export const navigation = [
                 'type'     : 'item',
                 'icon'     : 'account_box',
                 'url'      : '/apps/contacts'
-            },
-            {
-                'id'       : 'to-do',
-                'title'    : 'To-Do',
-                'translate': 'NAV.TODO',
-                'type'     : 'item',
-                'icon'     : 'check_box',
-                'url'      : '/apps/todo',
-                'badge'    : {
-                    'title': 3,
-                    'bg'   : '#FF6F00',
-                    'fg'   : '#FFFFFF'
-                }
-            },
-            {
-                'id'       : 'scrumboard',
-                'title'    : 'Scrumboard',
-                'translate': 'NAV.SCRUMBOARD',
-                'type'     : 'item',
-                'icon'     : 'assessment',
-                'url'      : '/apps/scrumboard'
             }
         ]
     },

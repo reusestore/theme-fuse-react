@@ -1,7 +1,7 @@
 import * as Actions from '../actions';
-import {navigation as navigationData} from '../../navigation/navigation';
+import {fuseNavigation} from 'fuseNavigation';
 
-const initialState = navigationData;
+const initialState = fuseNavigation;
 
 const navigation = function (state = initialState, action) {
     switch ( action.type )
