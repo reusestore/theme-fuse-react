@@ -1,11 +1,13 @@
 import _ from 'lodash';
+import DemoApp from './main/content/DemoApp';
+import DemoApp2 from './main/content/DemoApp2';
 import {MailAppConfig} from 'main/content/apps/mail/MailAppConfig';
 import {FileManagerAppConfig} from 'main/content/apps/file-manager/FileManagerAppConfig';
 import {ContactsAppConfig} from 'main/content/apps/contacts/ContactsAppConfig';
 import {CalendarAppConfig} from 'main/content/apps/calendar/CalendarAppConfig';
 import {UserInterfaceConfig} from 'main/content/user-interface/UserInterfaceConfig';
-import DemoApp from './main/content/DemoApp';
-import DemoApp2 from './main/content/DemoApp2';
+import {LoginPageConfig} from 'main/content/pages/auth/login/LoginPageConfig';
+import {RegisterPageConfig} from 'main/content/pages/auth/register/RegisterPageConfig';
 
 function setRoutes(config)
 {
@@ -34,6 +36,8 @@ export const routes = [
     ...setRoutes(ContactsAppConfig),
     ...setRoutes(CalendarAppConfig),
     ...setRoutes(UserInterfaceConfig),
+    ...setRoutes(LoginPageConfig),
+    ...setRoutes(RegisterPageConfig),
     {
         path     : '/demo',
         exact    : true,
