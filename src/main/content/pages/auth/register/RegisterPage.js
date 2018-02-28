@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles/index';
-import {Button, Card, CardContent, Checkbox, FormControl, FormControlLabel, Input, InputLabel, Typography} from 'material-ui';
+import {Button, Card, CardContent, Checkbox, FormControl, FormControlLabel, Grow, Input, InputLabel, Typography} from 'material-ui';
 import classNames from 'classnames';
 import {Link} from 'react-router-dom';
 import _ from 'lodash';
@@ -51,86 +51,88 @@ class RegisterPage extends Component {
 
                 <div className="flex flex-col items-center justify-center w-full">
 
-                    <Card className={classes.card}>
+                    <Grow in={true}>
+                        <Card className={classes.card}>
 
-                        <CardContent className="flex flex-col items-center justify-center p-32">
+                            <CardContent className="flex flex-col items-center justify-center p-32">
 
-                            <div className="w-128 m-32">
-                                <img src="assets/images/logos/fuse.svg" alt="logo"/>
-                            </div>
+                                <div className="w-128 m-32">
+                                    <img src="assets/images/logos/fuse.svg" alt="logo"/>
+                                </div>
 
-                            <Typography variant="title" className="mt-16 mb-32">CREATE AN ACCOUNT</Typography>
+                                <Typography variant="title" className="mt-16 mb-32">CREATE AN ACCOUNT</Typography>
 
-                            <form name="loginForm" noValidate className="flex flex-col justify-center w-full">
+                                <form name="registerForm" noValidate className="flex flex-col justify-center w-full">
 
-                                <FormControl className="mb-16" fullWidth required>
-                                    <InputLabel>Name</InputLabel>
-                                    <Input
-                                        type="text"
-                                        name="name"
-                                        value={name}
-                                        onChange={this.handleChange}
-                                    />
-                                </FormControl>
+                                    <FormControl className="mb-16" fullWidth required>
+                                        <InputLabel>Name</InputLabel>
+                                        <Input
+                                            type="text"
+                                            name="name"
+                                            value={name}
+                                            onChange={this.handleChange}
+                                        />
+                                    </FormControl>
 
-                                <FormControl className="mb-16" fullWidth required>
-                                    <InputLabel>Email</InputLabel>
-                                    <Input
-                                        type="email"
-                                        name="email"
-                                        value={email}
-                                        onChange={this.handleChange}
-                                    />
-                                </FormControl>
+                                    <FormControl className="mb-16" fullWidth required>
+                                        <InputLabel>Email</InputLabel>
+                                        <Input
+                                            type="email"
+                                            name="email"
+                                            value={email}
+                                            onChange={this.handleChange}
+                                        />
+                                    </FormControl>
 
-                                <FormControl className="mb-16" fullWidth required>
-                                    <InputLabel>Password</InputLabel>
-                                    <Input
-                                        type="password"
-                                        name="password"
-                                        value={password}
-                                        onChange={this.handleChange}
-                                    />
-                                </FormControl>
+                                    <FormControl className="mb-16" fullWidth required>
+                                        <InputLabel>Password</InputLabel>
+                                        <Input
+                                            type="password"
+                                            name="password"
+                                            value={password}
+                                            onChange={this.handleChange}
+                                        />
+                                    </FormControl>
 
-                                <FormControl className="mb-16" fullWidth required>
-                                    <InputLabel>Password (Confirm)</InputLabel>
-                                    <Input
-                                        type="password"
-                                        name="passwordConfirm"
-                                        value={passwordConfirm}
-                                        onChange={this.handleChange}
-                                    />
-                                </FormControl>
-
-
-                                <FormControl className="items-center">
-                                    <FormControlLabel
-                                        control={
-                                            <Checkbox
-                                                name="acceptTermsConditions"
-                                                checked={acceptTermsConditions}
-                                                onChange={this.handleChange}/>
-                                        }
-                                        label="I read and accept terms and conditions"
-                                    />
-                                </FormControl>
+                                    <FormControl className="mb-16" fullWidth required>
+                                        <InputLabel>Password (Confirm)</InputLabel>
+                                        <Input
+                                            type="password"
+                                            name="passwordConfirm"
+                                            value={passwordConfirm}
+                                            onChange={this.handleChange}
+                                        />
+                                    </FormControl>
 
 
-                                <Button variant="raised" color="primary" className="w-224 mx-auto mt-16" aria-label="Register"
-                                        disabled={!this.canBeSubmitted()}>
-                                    CREATE AN ACCOUNT
-                                </Button>
+                                    <FormControl className="items-center">
+                                        <FormControlLabel
+                                            control={
+                                                <Checkbox
+                                                    name="acceptTermsConditions"
+                                                    checked={acceptTermsConditions}
+                                                    onChange={this.handleChange}/>
+                                            }
+                                            label="I read and accept terms and conditions"
+                                        />
+                                    </FormControl>
 
-                            </form>
 
-                            <div className="register flex flex-col items-center justify-center pt-32 pb-24">
-                                <span className="font-medium">Already have an account?</span>
-                                <Link className="font-medium" to="/pages/auth/login">Login</Link>
-                            </div>
+                                    <Button variant="raised" color="primary" className="w-224 mx-auto mt-16" aria-label="Register"
+                                            disabled={!this.canBeSubmitted()}>
+                                        CREATE AN ACCOUNT
+                                    </Button>
 
-                        </CardContent>
-                    </Card>
+                                </form>
+
+                                <div className="register flex flex-col items-center justify-center pt-32 pb-24">
+                                    <span className="font-medium">Already have an account?</span>
+                                    <Link className="font-medium" to="/pages/auth/login">Login</Link>
+                                </div>
+
+                            </CardContent>
+                        </Card>
+                    </Grow>
                 </div>
             </div>
         );
