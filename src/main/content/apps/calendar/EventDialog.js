@@ -22,7 +22,8 @@ const defaultEventState = {
     title : '',
     allDay: true,
     start : new Date(),
-    end   : new Date()
+    end   : new Date(),
+    desc  : ''
 };
 
 class EventDialog extends Component {
@@ -141,6 +142,16 @@ class EventDialog extends Component {
                             value={end}
                             onChange={this.handleChange}
                         />
+                    </div>
+
+                    <div className="flex">
+                        <TextField className={classes.formControl}
+                                   id="desc" label="Description"
+                                   type="text"
+                                   name="desc"
+                                   value={this.state.desc}
+                                   onChange={this.handleChange}
+                                   multiline rows={5} fullWidth/>
                     </div>
 
                 </DialogContent>

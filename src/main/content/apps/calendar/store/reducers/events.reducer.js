@@ -16,9 +16,17 @@ const eventsReducer = function (state = initialState, action) {
     {
         case Actions.GET_EVENTS:
         {
+            const entities = action.payload.map((event) => (
+                {
+                    ...event,
+                    start: new Date(event.start),
+                    end  : new Date(event.end)
+                }
+            ));
+
             return {
                 ...state,
-                entities: action.payload
+                entities
             };
         }
         case Actions.OPEN_NEW_EVENT_DIALOG:

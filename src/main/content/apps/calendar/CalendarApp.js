@@ -9,35 +9,41 @@ import {connect} from 'react-redux';
 import * as Actions from './store/actions';
 import {Button, Icon} from 'material-ui';
 import EventDialog from 'main/content/apps/calendar/EventDialog';
+import {DragDropContext} from 'react-dnd'
+import HTML5Backend from 'react-dnd-html5-backend'
+import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
+import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
 
 BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment));
+
+const DragAndDropCalendar = withDragAndDrop(BigCalendar);
 
 let allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k]);
 
 const styles = theme => ({
     root     : {
-        display                                                           : 'flex',
-        flexDirection                                                     : 'column',
-        flex                                                              : 1,
-        '& .rbc-header'                                                   : {
+        display                                                                                                        : 'flex',
+        flexDirection                                                                                                  : 'column',
+        flex                                                                                                           : 1,
+        '& .rbc-header'                                                                                                : {
             padding   : '12px 6px',
             fontWeight: 500,
             fontSize  : 14
         },
-        '& .rbc-label'                                                    : {
+        '& .rbc-label'                                                                                                 : {
             padding: '8px 6px'
         },
-        '& .rbc-today'                                                    : {
+        '& .rbc-today'                                                                                                 : {
             backgroundColor: 'transparent'
         },
-        '& .rbc-header.rbc-today, & .rbc-month-view .rbc-day-bg.rbc-today': {
+        '& .rbc-header.rbc-today, & .rbc-month-view .rbc-day-bg.rbc-today'                                             : {
             borderBottom: '2px solid ' + theme.palette.secondary.main + '!important'
         },
-        '& .rbc-month-view, & .rbc-time-view, & .rbc-agenda-view'         : {
+        '& .rbc-month-view, & .rbc-time-view, & .rbc-agenda-view'                                                      : {
             padding: 24,
             ...theme.mixins.border(0)
         },
-        '& .rbc-agenda-view table'                                        : {
+        '& .rbc-agenda-view table'                                                                                     : {
             ...theme.mixins.border(1),
             '& thead > tr > th': {
                 ...theme.mixins.borderBottom(0)
@@ -49,7 +55,7 @@ const styles = theme => ({
                 }
             }
         },
-        '& .rbc-time-view'                                                : {
+        '& .rbc-time-view'                                                                                             : {
             '& .rbc-time-header' : {
                 ...theme.mixins.border(1)
             },
@@ -58,7 +64,7 @@ const styles = theme => ({
                 ...theme.mixins.border(1)
             }
         },
-        '& .rbc-month-view'                                               : {
+        '& .rbc-month-view'                                                                                            : {
             '& > .rbc-row'               : {
                 ...theme.mixins.border(1)
             },
@@ -76,33 +82,33 @@ const styles = theme => ({
                 ...theme.mixins.borderLeft(1)
             }
         },
-        '& .rbc-day-slot .rbc-time-slot'                                  : {
+        '& .rbc-day-slot .rbc-time-slot'                                                                               : {
             ...theme.mixins.borderTop(1),
             opacity: 0.5
         },
-        '& .rbc-time-header > .rbc-row > * + *'                           : {
+        '& .rbc-time-header > .rbc-row > * + *'                                                                        : {
             ...theme.mixins.borderLeft(1)
         },
-        '& .rbc-time-content > * + * > *'                                 : {
+        '& .rbc-time-content > * + * > *'                                                                              : {
             ...theme.mixins.borderLeft(1)
         },
-        '& .rbc-day-bg + .rbc-day-bg'                                     : {
+        '& .rbc-day-bg + .rbc-day-bg'                                                                                  : {
             ...theme.mixins.borderLeft(1)
         },
-        '& .rbc-time-header > .rbc-row:first-child'                       : {
+        '& .rbc-time-header > .rbc-row:first-child'                                                                    : {
             ...theme.mixins.borderBottom(1)
         },
-        '& .rbc-timeslot-group'                                           : {
+        '& .rbc-timeslot-group'                                                                                        : {
             minHeight: 64,
             ...theme.mixins.borderBottom(1)
         },
-        '& .rbc-date-cell'                                                : {
+        '& .rbc-date-cell'                                                                                             : {
             padding   : 8,
             fontSize  : 16,
             fontWeight: 400,
             opacity   : .5
         },
-        '& .rbc-event'                                                    : {
+        '& .rbc-event'                                                                                                 : {
             borderRadius            : 0,
             padding                 : '4px 8px',
             backgroundColor         : theme.palette.primary.dark,
@@ -111,19 +117,35 @@ const styles = theme => ({
             transitionProperty      : 'box-shadow',
             transitionDuration      : theme.transitions.duration.short,
             transitionTimingFunction: theme.transitions.easing.easeInOut,
+            position                : 'relative',
             '&:hover'               : {
                 boxShadow: theme.shadows[2]
             }
         },
-        '& .rbc-row-segment'                                              : {
+        '& .rbc-row-segment'                                                                                           : {
             padding: '0 4px 4px 4px'
         },
-        '& .rbc-off-range-bg'                                             : {
+        '& .rbc-off-range-bg'                                                                                          : {
             backgroundColor: theme.palette.type === 'light' ? 'rgba(0,0,0,0.03)' : 'rgba(0,0,0,0.16)'
         },
-        '& .rbc-show-more'                                                : {
+        '& .rbc-show-more'                                                                                             : {
             color     : theme.palette.secondary.main,
             background: 'transparent'
+        },
+        '& .rbc-addons-dnd .rbc-addons-dnd-resizable-month-event'                                                      : {
+            position: 'static'
+        },
+        '& .rbc-addons-dnd .rbc-addons-dnd-resizable-month-event .rbc-addons-dnd-resize-month-event-anchor:first-child': {
+            left  : 0,
+            top   : 0,
+            bottom: 0,
+            height: 'auto'
+        },
+        '& .rbc-addons-dnd .rbc-addons-dnd-resizable-month-event .rbc-addons-dnd-resize-month-event-anchor:last-child' : {
+            right : 0,
+            top   : 0,
+            bottom: 0,
+            height: 'auto'
         }
     },
     addButton: {
@@ -141,14 +163,34 @@ class CalendarApp extends Component {
         this.props.getEvents();
     }
 
+    moveEvent = ({event, start, end}) => {
+        this.props.updateEvent({
+            ...event,
+            start,
+            end
+        });
+    };
+
+    resizeEvent = (resizeType, {event, start, end}) => {
+        delete event.type;
+        this.props.updateEvent({
+            ...event,
+            start,
+            end
+        });
+    };
+
     render()
     {
         const {classes, events, openNewEventDialog, openEditEventDialog} = this.props;
 
         return (
             <div className={classes.root}>
-                <BigCalendar
+                <DragAndDropCalendar
                     selectable
+                    onEventDrop={this.moveEvent}
+                    resizable
+                    onEventResize={this.resizeEvent}
                     className="flex flex-1"
                     events={events}
                     views={allViews}
@@ -186,7 +228,8 @@ function mapDispatchToProps(dispatch)
     return bindActionCreators({
         getEvents          : Actions.getEvents,
         openNewEventDialog : Actions.openNewEventDialog,
-        openEditEventDialog: Actions.openEditEventDialog
+        openEditEventDialog: Actions.openEditEventDialog,
+        updateEvent        : Actions.updateEvent
     }, dispatch);
 }
 
@@ -197,4 +240,4 @@ function mapStateToProps({calendarApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(CalendarApp));
+export default withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(DragDropContext(HTML5Backend)(CalendarApp)));
