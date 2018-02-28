@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 class FuseUtils {
 
     static filterArrayByString(mainArr, searchText)
@@ -108,6 +110,39 @@ class FuseUtils {
             .replace(/--+/g, '-')         // Replace multiple - with single -
             .replace(/^-+/, '')             // Trim - from start of text
             .replace(/-+$/, '');            // Trim - from end of text
+    }
+
+    static setRoutes(config)
+    {
+        let routes = [...config.routes];
+
+        if ( config.settings && !_.isEmpty(config.settings) )
+        {
+            routes = routes.map((route) => {
+                if ( route.settings )
+                {
+                    return route;
+                }
+                return {
+                    ...route,
+                    settings: config.settings
+                }
+            })
+        }
+
+        return [...routes];
+    }
+
+    static generateRoutesFromConfigs(configs)
+    {
+        let allRoutes = [];
+        configs.map((config) => {
+            allRoutes = [
+                ...allRoutes,
+                ...this.setRoutes(config)
+            ];
+        });
+        return allRoutes;
     }
 }
 

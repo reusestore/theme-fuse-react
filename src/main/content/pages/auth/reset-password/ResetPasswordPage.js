@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles/index';
-import {Button, Card, CardContent, Checkbox, FormControl, FormControlLabel, Grow, Input, InputLabel, Typography} from 'material-ui';
+import {Button, Card, CardContent, FormControl, Grow, Input, InputLabel, Typography} from 'material-ui';
 import classNames from 'classnames';
 import {Link} from 'react-router-dom';
 import _ from 'lodash';
@@ -16,13 +16,12 @@ const styles = theme => ({
     }
 });
 
-class RegisterPage extends Component {
+class ResetPasswordPage extends Component {
     state = {
-        name                 : '',
-        email                : '',
-        password             : '',
-        passwordConfirm      : '',
-        acceptTermsConditions: false
+        name           : '',
+        email          : '',
+        password       : '',
+        passwordConfirm: ''
     };
 
     handleChange = (event) => {
@@ -31,20 +30,19 @@ class RegisterPage extends Component {
 
     canBeSubmitted()
     {
-        const {email, password, passwordConfirm, acceptTermsConditions} = this.state;
+        const {email, password, passwordConfirm} = this.state;
         return (
             email.length > 0 &&
             password.length > 0 &&
             password.length > 3 &&
-            password === passwordConfirm &&
-            acceptTermsConditions
+            password === passwordConfirm
         );
     }
 
     render()
     {
         const {classes} = this.props;
-        const {name, email, password, passwordConfirm, acceptTermsConditions} = this.state;
+        const {email, password, passwordConfirm} = this.state;
 
         return (
             <div className={classNames(classes.root, "flex flex-col flex-1 flex-no-shrink items-center justify-center p-32")}>
@@ -60,19 +58,9 @@ class RegisterPage extends Component {
                                     <img src="assets/images/logos/fuse.svg" alt="logo"/>
                                 </div>
 
-                                <Typography variant="title" className="mt-16 mb-32">CREATE AN ACCOUNT</Typography>
+                                <Typography variant="title" className="mt-16 mb-32">RESET YOUR PASSWORD</Typography>
 
-                                <form name="registerForm" noValidate className="flex flex-col justify-center w-full">
-
-                                    <FormControl className="mb-16" fullWidth required>
-                                        <InputLabel>Name</InputLabel>
-                                        <Input
-                                            type="text"
-                                            name="name"
-                                            value={name}
-                                            onChange={this.handleChange}
-                                        />
-                                    </FormControl>
+                                <form name="resetForm" noValidate className="flex flex-col justify-center w-full">
 
                                     <FormControl className="mb-16" fullWidth required>
                                         <InputLabel>Email</InputLabel>
@@ -104,30 +92,15 @@ class RegisterPage extends Component {
                                         />
                                     </FormControl>
 
-
-                                    <FormControl className="items-center">
-                                        <FormControlLabel
-                                            control={
-                                                <Checkbox
-                                                    name="acceptTermsConditions"
-                                                    checked={acceptTermsConditions}
-                                                    onChange={this.handleChange}/>
-                                            }
-                                            label="I read and accept terms and conditions"
-                                        />
-                                    </FormControl>
-
-
-                                    <Button variant="raised" color="primary" className="w-224 mx-auto mt-16" aria-label="Register"
+                                    <Button variant="raised" color="primary" className="w-224 mx-auto mt-16" aria-label="Reset"
                                             disabled={!this.canBeSubmitted()}>
-                                        CREATE AN ACCOUNT
+                                        RESET MY PASSWORD
                                     </Button>
 
                                 </form>
 
                                 <div className="flex flex-col items-center justify-center pt-32 pb-24">
-                                    <span className="font-medium">Already have an account?</span>
-                                    <Link className="font-medium" to="/pages/auth/login">Login</Link>
+                                    <Link className="font-medium" to="/pages/auth/login">Go back to login</Link>
                                 </div>
 
                             </CardContent>
@@ -139,4 +112,4 @@ class RegisterPage extends Component {
     }
 }
 
-export default withStyles(styles, {withTheme: true})(RegisterPage);
+export default withStyles(styles, {withTheme: true})(ResetPasswordPage);
