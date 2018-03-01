@@ -9,7 +9,7 @@ const styles = theme => ({
 
 class FuseCountdown extends Component {
     state = {
-        eventDate: moment(this.props.eventDate),
+        endDate: moment(this.props.endDate),
         countdown: {
             days   : '',
             hours  : '',
@@ -34,10 +34,10 @@ class FuseCountdown extends Component {
 
     tick()
     {
-        const {eventDate} = this.state;
+        const {endDate} = this.state;
 
         const currDate = moment();
-        const diff = eventDate.diff(currDate, 'seconds');
+        const diff = endDate.diff(currDate, 'seconds');
         if ( diff < 0 )
         {
             this.complete();

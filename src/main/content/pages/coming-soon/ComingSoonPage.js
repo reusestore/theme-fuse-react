@@ -60,7 +60,7 @@ class ComingSoonPage extends Component {
                                     It’s not quite ready yet, but we are working hard and it will be ready in approximately:
                                 </Typography>
 
-                                <FuseCountdown eventDate="2019-07-28" className="my-48"/>
+                                <FuseCountdown endDate="2019-07-28" className="my-48"/>
 
                                 <Divider className="w-48"/>
 

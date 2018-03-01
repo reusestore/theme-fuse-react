@@ -93,7 +93,7 @@ class FuseNavVerticalCollapse extends Component {
                     {item.icon && (
                         <Icon color="action" className="text-16">{item.icon}</Icon>
                     )}
-                    <ListItemText className="list-item-text" primary={item.title}/>
+                    <ListItemText className="list-item-text" primary={item.title} disableTypography/>
                     <Icon className="text-16 arrow-icon">
                         {this.state.open ? 'expand_less' : 'expand_more'}
                     </Icon>
