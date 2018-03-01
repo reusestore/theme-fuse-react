@@ -14,13 +14,19 @@ const navbarWidth = 256;
 
 const styles = theme => ({
     root                 : {
-        display        : 'flex',
-        flexDirection  : 'column',
-        width          : '100%',
-        height         : '100%',
-        overflow       : 'hidden',
-        backgroundColor: theme.palette.background.default,
-        color          : theme.palette.text.primary
+        display                     : 'flex',
+        flexDirection               : 'column',
+        width                       : '100%',
+        height                      : '100%',
+        overflow                    : 'hidden',
+        backgroundColor             : theme.palette.background.default,
+        color                       : theme.palette.text.primary,
+        '& table.simple tbody tr td': {
+            borderColor: theme.palette.divider
+        },
+        '& table.simple thead tr th': {
+            borderColor: theme.palette.divider
+        }
     },
     wrapper              : {
         display : 'flex',
@@ -248,7 +254,7 @@ class FuseLayout extends React.Component {
 
         const navBarTemplate = (
 
-            <div className={classes.navbarWrapper}>
+            <div id="fuse-navbar" className={classes.navbarWrapper}>
 
                 <Hidden mdDown>
                     <Paper className={classNames(
@@ -284,7 +290,7 @@ class FuseLayout extends React.Component {
         );
 
         const toolbarTemplate = (
-            <AppBar className={classNames(classes.toolbarWrapper)} color="default">
+            <AppBar id="fuse-toolbar" className={classNames(classes.toolbarWrapper)} color="default">
                 <Toolbar>
                     <Hidden lgUp>
                         <IconButton
@@ -301,7 +307,7 @@ class FuseLayout extends React.Component {
         );
 
         const footerTemplate = (
-            <AppBar className={classNames(classes.footerWrapper)} color="default">
+            <AppBar id="fuse-footer" className={classNames(classes.footerWrapper)} color="default">
                 <Toolbar>
                     <div className={classNames(classes.footer)}>
                         {footer}
@@ -312,7 +318,7 @@ class FuseLayout extends React.Component {
 
         return (
 
-            <div className={classes.root}>
+            <div id="fuse-layout" className={classes.root}>
 
                 {settings.layout.toolbar === 'above' && (
                     toolbarTemplate

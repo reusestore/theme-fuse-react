@@ -12,6 +12,7 @@ import {ComingSoonPageConfig} from 'main/content/pages/coming-soon/ComingSoonPag
 import {Error404PageConfig} from 'main/content/pages/errors/404/Error404PageConfig';
 import {Error500PageConfig} from 'main/content/pages/errors/500/Error500PageConfig';
 import {MaintenancePageConfig} from 'main/content/pages/maintenance/MaintenancePageConfig';
+import {ModernInvoicePageConfig} from 'main/content/pages/invoices/modern/ModernInvoicePageConfig';
 
 export const pagesRoutes = [
     LoginPageConfig,
@@ -27,5 +28,6 @@ export const pagesRoutes = [
     ComingSoonPageConfig,
     Error404PageConfig,
     Error500PageConfig,
-    MaintenancePageConfig
+    MaintenancePageConfig,
+    ModernInvoicePageConfig
 ];

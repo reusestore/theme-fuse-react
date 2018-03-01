@@ -66,7 +66,7 @@ class FuseSettings extends Component {
     {
         const {classes, settings} = this.props;
         return (
-            <div className={classes.root}>
+            <div id="fuse-settings" className={classes.root}>
                 <Button className={classes.button} variant="raised" color="secondary" onClick={this.handleOpen}>
                     <Icon className={classes.buttonIcon}>settings</Icon>
                 </Button>
