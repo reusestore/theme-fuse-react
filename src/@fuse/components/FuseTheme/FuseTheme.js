@@ -5,10 +5,7 @@ import {withRouter} from 'react-router-dom';
 
 const defaultThemeOptions = {
     typography: {
-        htmlFontSize: 10,
-        subheading  : {
-            fontSize: "1.4rem"
-        }
+        htmlFontSize: 10
     },
     status    : {
         danger: 'orange'

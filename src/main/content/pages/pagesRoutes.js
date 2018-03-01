@@ -8,6 +8,7 @@ import {Login2PageConfig} from 'main/content/pages/auth/login-2/Login2PageConfig
 import {Register2PageConfig} from 'main/content/pages/auth/register-2/Register2PageConfig';
 import {ForgotPassword2PageConfig} from 'main/content/pages/auth/forgot-password-2/ForgotPassword2PageConfig';
 import {ResetPassword2PageConfig} from 'main/content/pages/auth/reset-password-2/ResetPassword2PageConfig';
+import {ComingSoonPageConfig} from 'main/content/pages/coming-soon/ComingSoonPageConfig';
 
 export const pagesRoutes = [
     LoginPageConfig,
@@ -19,5 +20,6 @@ export const pagesRoutes = [
     Login2PageConfig,
     Register2PageConfig,
     ForgotPassword2PageConfig,
-    ResetPassword2PageConfig
+    ResetPassword2PageConfig,
+    ComingSoonPageConfig
 ];
