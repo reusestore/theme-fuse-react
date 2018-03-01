@@ -9,6 +9,8 @@ import {Register2PageConfig} from 'main/content/pages/auth/register-2/Register2P
 import {ForgotPassword2PageConfig} from 'main/content/pages/auth/forgot-password-2/ForgotPassword2PageConfig';
 import {ResetPassword2PageConfig} from 'main/content/pages/auth/reset-password-2/ResetPassword2PageConfig';
 import {ComingSoonPageConfig} from 'main/content/pages/coming-soon/ComingSoonPageConfig';
+import {Error404PageConfig} from 'main/content/pages/errors/404/Error404PageConfig';
+import {Error500PageConfig} from 'main/content/pages/errors/500/Error500PageConfig';
 
 export const pagesRoutes = [
     LoginPageConfig,
@@ -21,5 +23,7 @@ export const pagesRoutes = [
     Register2PageConfig,
     ForgotPassword2PageConfig,
     ResetPassword2PageConfig,
-    ComingSoonPageConfig
+    ComingSoonPageConfig,
+    Error404PageConfig,
+    Error500PageConfig
 ];
