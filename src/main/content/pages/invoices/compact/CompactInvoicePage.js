@@ -12,6 +12,14 @@ const styles = theme => ({
         '@media print': {
             transform      : 'scale(0.9)',
             transformOrigin: 'top'
+        },
+        '& table '    : {
+            '& th:first-child, & td:first-child': {
+                paddingLeft: 0 + '!important'
+            },
+            '& th:last-child, & td:last-child'  : {
+                paddingRight: 0 + '!important'
+            }
         }
     },
     card       : {
@@ -26,10 +34,21 @@ const styles = theme => ({
         width          : 1,
         backgroundColor: theme.palette.divider,
         height         : 144
+    },
+    seller     : {
+        backgroundColor: theme.palette.primary.dark,
+        color          : theme.palette.getContrastText(theme.palette.primary.dark),
+        marginRight    : -88,
+        paddingRight   : 66,
+        width          : 480,
+        '& .divider'   : {
+            backgroundColor: theme.palette.getContrastText(theme.palette.primary.dark),
+            opacity        : .5
+        }
     }
 });
 
-class ModernInvoicePage extends Component {
+class CompactInvoicePage extends Component {
     state = {
         invoice: null
     };
@@ -64,142 +83,114 @@ class ModernInvoicePage extends Component {
 
                             <CardContent className={classNames(classes.cardContent, "p-88 print:p-0")}>
 
-                                <div className="flex flex-row justify-between items-start">
+                                <Typography color="textSecondary" className="mb-32">
+                                    {invoice.date}
+                                </Typography>
 
-                                    <div className="flex flex-col">
+                                <div className="flex justify-between">
 
-                                        <div className="flex items-center mb-80 print:mb-0">
+                                    <div>
+                                        <table className="mb-16">
+                                            <tbody>
+                                                <tr>
+                                                    <td className="pr-16 pb-4">
+                                                        <Typography className="font-light" variant="title" color="textSecondary">
+                                                            INVOICE
+                                                        </Typography>
+                                                    </td>
+                                                    <td className="pb-4">
+                                                        <Typography className="font-light" variant="title" color="inherit">
+                                                            {invoice.number}
+                                                        </Typography>
+                                                    </td>
+                                                </tr>
 
-                                            <img className="w-160 print:w-60" src="assets/images/logos/fuse.svg" alt="logo"/>
+                                                <tr>
+                                                    <td className="pr-16">
+                                                        <Typography color="textSecondary">
+                                                            INVOICE DATE
+                                                        </Typography>
+                                                    </td>
+                                                    <td>
+                                                        <Typography color="inherit">
+                                                            {invoice.date}
+                                                        </Typography>
+                                                    </td>
+                                                </tr>
 
-                                            <div className={classNames(classes.divider, "mx-48 print:mx-16")}/>
+                                                <tr>
+                                                    <td className="pr-16">
+                                                        <Typography color="textSecondary">
+                                                            DUE DATE
+                                                        </Typography>
+                                                    </td>
+                                                    <td>
+                                                        <Typography color="inherit">
+                                                            {invoice.dueDate}
+                                                        </Typography>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
 
-                                            <div className="max-w-160">
+                                        <Typography color="textSecondary">{invoice.client.title}</Typography>
 
-                                                <Typography color="textSecondary">{invoice.from.title}</Typography>
-
-                                                {invoice.from.address && (
-                                                    <Typography color="textSecondary">
-                                                        {invoice.from.address}
-                                                    </Typography>
-                                                )}
-                                                {invoice.from.phone && (
-                                                    <Typography color="textSecondary">
-                                                        <span>Phone:</span>
-                                                        {invoice.from.phone}
-                                                    </Typography>
-                                                )}
-                                                {invoice.from.email && (
-                                                    <Typography color="textSecondary">
-                                                        <span>Email:</span>
-                                                        {invoice.from.email}
-                                                    </Typography>
-                                                )}
-                                                {invoice.from.website && (
-                                                    <Typography color="textSecondary">
-                                                        <span>Web:</span>
-                                                        {invoice.from.website}
-                                                    </Typography>
-                                                )}
-                                            </div>
-                                        </div>
-
-                                        <div className="flex items-center">
-                                            <div className="flex justify-end items-center w-160 print:w-60">
-                                                <Typography variant="headline" className="font-light" color="textSecondary">CLIENT</Typography>
-                                            </div>
-
-                                            <div className={classNames(classes.divider, "mx-48 print:mx-16")}/>
-
-                                            <div className="max-w-160">
-
-                                                <Typography color="textSecondary">{invoice.client.title}</Typography>
-
-                                                {invoice.client.address && (
-                                                    <Typography color="textSecondary">
-                                                        {invoice.client.address}
-                                                    </Typography>
-                                                )}
-                                                {invoice.client.phone && (
-                                                    <Typography color="textSecondary">
-                                                        <span>Phone:</span>
-                                                        {invoice.client.phone}
-                                                    </Typography>
-                                                )}
-                                                {invoice.client.email && (
-                                                    <Typography color="textSecondary">
-                                                        <span>Email:</span>
-                                                        {invoice.client.email}
-                                                    </Typography>
-                                                )}
-                                                {invoice.client.website && (
-                                                    <Typography color="textSecondary">
-                                                        <span>Web:</span>
-                                                        {invoice.client.website}
-                                                    </Typography>
-                                                )}
-                                            </div>
-                                        </div>
+                                        {invoice.client.address && (
+                                            <Typography color="textSecondary">
+                                                {invoice.client.address}
+                                            </Typography>
+                                        )}
+                                        {invoice.client.phone && (
+                                            <Typography color="textSecondary">
+                                                {invoice.client.phone}
+                                            </Typography>
+                                        )}
+                                        {invoice.client.email && (
+                                            <Typography color="textSecondary">
+                                                {invoice.client.email}
+                                            </Typography>
+                                        )}
+                                        {invoice.client.website && (
+                                            <Typography color="textSecondary">
+                                                {invoice.client.website}
+                                            </Typography>
+                                        )}
                                     </div>
 
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td className="pr-16 pb-32">
-                                                    <Typography className="font-light" variant="display1" color="textSecondary">
-                                                        INVOICE
-                                                    </Typography>
-                                                </td>
-                                                <td className="pb-32">
-                                                    <Typography className="font-light" variant="display1" color="inherit">
-                                                        {invoice.number}
-                                                    </Typography>
-                                                </td>
-                                            </tr>
+                                    <div className={classNames(classes.seller, "flex items-center p-16")}>
 
-                                            <tr>
-                                                <td className="text-right pr-16">
-                                                    <Typography color="textSecondary">
-                                                        INVOICE DATE
-                                                    </Typography>
-                                                </td>
-                                                <td>
-                                                    <Typography color="inherit">
-                                                        {invoice.date}
-                                                    </Typography>
-                                                </td>
-                                            </tr>
+                                        <img className="w-80" src="assets/images/logos/fuse.svg" alt="logo"/>
 
-                                            <tr>
-                                                <td className="text-right pr-16">
-                                                    <Typography color="textSecondary">
-                                                        DUE DATE
-                                                    </Typography>
-                                                </td>
-                                                <td>
-                                                    <Typography color="inherit">
-                                                        {invoice.dueDate}
-                                                    </Typography>
-                                                </td>
-                                            </tr>
+                                        <div className={classNames(classes.divider, "divider ml-8 mr-16 h-96")}/>
 
-                                            <tr>
-                                                <td className="text-right pr-16">
-                                                    <Typography color="textSecondary">
-                                                        TOTAL DUE
-                                                    </Typography>
-                                                </td>
-                                                <td>
-                                                    <Typography color="inherit">
-                                                        {formatter.format(invoice.total)}
-                                                    </Typography>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                        <div>
+                                            <Typography color="inherit">{invoice.from.title}</Typography>
+
+                                            {invoice.from.address && (
+                                                <Typography color="inherit">
+                                                    {invoice.from.address}
+                                                </Typography>
+                                            )}
+                                            {invoice.from.phone && (
+                                                <Typography color="inherit">
+                                                    {invoice.from.phone}
+                                                </Typography>
+                                            )}
+                                            {invoice.from.email && (
+                                                <Typography color="inherit">
+                                                    {invoice.from.email}
+                                                </Typography>
+                                            )}
+                                            {invoice.from.website && (
+                                                <Typography color="inherit">
+                                                    {invoice.from.website}
+                                                </Typography>
+                                            )}
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div className="mt-96 print:mt-0">
+                                <div className="mt-64">
 
                                     <table className="simple invoice-table">
                                         <thead>
@@ -225,8 +216,7 @@ class ModernInvoicePage extends Component {
                                             {invoice.services.map((service) => (
                                                 <tr key={service.id}>
                                                     <td>
-                                                        <Typography className="mb-8" variant="subheading">{service.title}</Typography>
-                                                        <Typography variant="caption">{service.detail}</Typography>
+                                                        <Typography variant="subheading">{service.title}</Typography>
                                                     </td>
                                                     <td>
                                                         {service.unit}
@@ -245,7 +235,7 @@ class ModernInvoicePage extends Component {
                                         </tbody>
                                     </table>
 
-                                    <table className="simple">
+                                    <table className="simple mt-32">
                                         <tbody>
                                             <tr>
                                                 <td>
@@ -292,7 +282,7 @@ class ModernInvoicePage extends Component {
 
                                 </div>
 
-                                <div className="mt-96 print:mt-0">
+                                <div className="mt-96">
 
                                     <Typography className="mb-24 print:mb-12" variant="body2">Please pay within 15 days. Thank you for your business.</Typography>
 
@@ -320,7 +310,7 @@ class ModernInvoicePage extends Component {
     }
 }
 
-export default withStyles(styles, {withTheme: true})(ModernInvoicePage);
+export default withStyles(styles, {withTheme: true})(CompactInvoicePage);
 /**
 
  Use the following elements to add breaks to your pages. This will make sure that the section in between
