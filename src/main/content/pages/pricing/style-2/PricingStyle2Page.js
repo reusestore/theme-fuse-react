@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles/index';
-import {Button, Card, CardContent, Divider, Typography} from 'material-ui';
+import {Button, Card, CardContent, Typography} from 'material-ui';
 import classNames from 'classnames';
 
 const styles = theme => ({
@@ -11,10 +11,8 @@ const styles = theme => ({
             margin  : '0 auto'
         }
     },
-    card      : {},
-    cardHeader: {
-        backgroundColor: theme.palette.grey[800],
-        color          : theme.palette.getContrastText(theme.palette.grey[800])
+    card      : {
+        position: 'relative'
     },
     header    : {
         height        : 600,
@@ -22,11 +20,14 @@ const styles = theme => ({
         backgroundSize: 'cover',
         color         : '#fff'
     },
+    badge     : {
+        backgroundColor: theme.palette.error.main,
+        color          : theme.palette.getContrastText(theme.palette.error.main)
+    },
     content   : {}
-
 });
 
-class PricingStyle1Page extends Component {
+class PricingStyle2Page extends Component {
 
     render()
     {
@@ -60,32 +61,34 @@ class PricingStyle1Page extends Component {
                             <div className="w-full max-w-320 sm:w-1/3 p-12">
                                 <Card className={classes.card}>
 
-                                    <div className={classNames(classes.cardHeader, "px-24 py-16")}>
-                                        <Typography variant="subheading" color="inherit">BASIC</Typography>
+                                    <div className="pt-48 pb-24 text-center">
+                                        <Typography variant="subheading" color="inherit" className="text-20 font-medium">
+                                            SILVER PACKAGE
+                                        </Typography>
                                     </div>
 
-                                    <CardContent className="p-32">
-
-                                        <div className="flex justify-center">
-                                            <Typography variant="headline" color="textSecondary">$</Typography>
-                                            <div className="flex items-end">
-                                                <Typography className="text-72 mx-4 font-light leading-none">4</Typography>
-                                                <Typography variant="subheading" color="textSecondary">/ month</Typography>
-                                            </div>
-                                        </div>
-
-                                        <Divider className="my-32"/>
+                                    <CardContent className="text-center p-0">
 
                                         <div className="flex flex-col">
-                                            <Typography variant="subheading" className="">
+                                            <div className="flex justify-center mb-8">
+                                                <Typography variant="headline" color="textSecondary" className="font-medium">$</Typography>
+                                                <Typography className="text-56 ml-4 font-light leading-none">4</Typography>
+                                            </div>
+                                            <Typography color="textSecondary" className="font-medium text-16">
+                                                PER MONTH
+                                            </Typography>
+                                        </div>
+
+                                        <div className="flex flex-col p-32">
+                                            <Typography variant="subheading" className="mb-8">
                                                 <span className="font-bold mr-4">10</span>
                                                 Projects
                                             </Typography>
-                                            <Typography variant="subheading" className="">
+                                            <Typography variant="subheading" className="mb-8">
                                                 <span className="font-bold mr-4">10</span>
                                                 Pages
                                             </Typography>
-                                            <Typography variant="subheading" className="">
+                                            <Typography variant="subheading" className="mb-8">
                                                 <span className="font-bold mr-4">100</span>
                                                 Mb Disk Space
                                             </Typography>
@@ -93,42 +96,48 @@ class PricingStyle1Page extends Component {
                                     </CardContent>
 
                                     <div className="flex justify-center pb-32">
-                                        <Button variant="raised" color="secondary" className="w-128">BUY NOW</Button>
+                                        <Button variant="raised" color="secondary" className="w-128">GET STARTED</Button>
                                     </div>
                                 </Card>
                             </div>
 
                             <div className="w-full max-w-320 sm:w-1/3 p-12">
-
                                 <Card className={classes.card} raised>
 
-                                    <div className={classNames(classes.cardHeader, "flex items-center justify-between px-24 py-16")}>
-                                        <Typography variant="subheading" color="inherit">STANDART</Typography>
-                                        <Typography variant="caption" color="inherit">Save 15%</Typography>
+                                    <div className="absolute pin-t pin-x flex justify-center">
+                                        <div className={classNames(classes.badge, "py-4 px-8")}>
+                                            <Typography variant="caption" color="inherit">BEST VALUE</Typography>
+                                        </div>
                                     </div>
 
-                                    <CardContent className="p-32">
+                                    <div className="pt-48 pb-24 text-center">
+                                        <Typography variant="subheading" color="inherit" className="text-20 font-medium">
+                                            GOLD PACKAGE
+                                        </Typography>
+                                    </div>
 
-                                        <div className="flex justify-center">
-                                            <Typography variant="headline" color="textSecondary">$</Typography>
-                                            <div className="flex items-end">
-                                                <Typography className="text-72 mx-4 font-light leading-none">8</Typography>
-                                                <Typography variant="subheading" color="textSecondary">/ month</Typography>
-                                            </div>
-                                        </div>
-
-                                        <Divider className="my-32"/>
+                                    <CardContent className="text-center p-0">
 
                                         <div className="flex flex-col">
-                                            <Typography variant="subheading" className="">
+                                            <div className="flex justify-center mb-8">
+                                                <Typography variant="headline" color="textSecondary" className="font-medium">$</Typography>
+                                                <Typography className="text-56 ml-4 font-light leading-none">299</Typography>
+                                            </div>
+                                            <Typography color="textSecondary" className="font-medium text-16">
+                                                PER MONTH
+                                            </Typography>
+                                        </div>
+
+                                        <div className="flex flex-col p-32">
+                                            <Typography variant="subheading" className="mb-8">
                                                 <span className="font-bold mr-4">20</span>
                                                 Projects
                                             </Typography>
-                                            <Typography variant="subheading" className="">
+                                            <Typography variant="subheading" className="mb-8">
                                                 <span className="font-bold mr-4">20</span>
                                                 Pages
                                             </Typography>
-                                            <Typography variant="subheading" className="">
+                                            <Typography variant="subheading" className="mb-8">
                                                 <span className="font-bold mr-4">200</span>
                                                 Mb Disk Space
                                             </Typography>
@@ -136,41 +145,42 @@ class PricingStyle1Page extends Component {
                                     </CardContent>
 
                                     <div className="flex justify-center pb-32">
-                                        <Button variant="raised" color="secondary" className="w-128">BUY NOW</Button>
+                                        <Button variant="raised" color="secondary" className="w-128">GET STARTED</Button>
                                     </div>
                                 </Card>
                             </div>
 
                             <div className="w-full max-w-320 sm:w-1/3 p-12">
-
                                 <Card className={classes.card}>
 
-                                    <div className={classNames(classes.cardHeader, "px-24 py-16")}>
-                                        <Typography variant="subheading" color="inherit">ADVANCED</Typography>
+                                    <div className="pt-48 pb-24 text-center">
+                                        <Typography variant="subheading" color="inherit" className="text-20 font-medium">
+                                            PLATINUM PACKAGE
+                                        </Typography>
                                     </div>
 
-                                    <CardContent className="p-32">
-
-                                        <div className="flex justify-center">
-                                            <Typography variant="headline" color="textSecondary" className="font-medium">$</Typography>
-                                            <div className="flex items-end">
-                                                <Typography className="text-72 mx-4 font-light leading-none">12</Typography>
-                                                <Typography variant="subheading" color="textSecondary">/ month</Typography>
-                                            </div>
-                                        </div>
-
-                                        <Divider className="my-32"/>
+                                    <CardContent className="text-center p-0">
 
                                         <div className="flex flex-col">
-                                            <Typography variant="subheading" className="">
+                                            <div className="flex justify-center mb-8">
+                                                <Typography variant="headline" color="textSecondary" className="font-medium">$</Typography>
+                                                <Typography className="text-56 ml-4 font-light leading-none">499</Typography>
+                                            </div>
+                                            <Typography color="textSecondary" className="font-medium text-16">
+                                                PER MONTH
+                                            </Typography>
+                                        </div>
+
+                                        <div className="flex flex-col p-32">
+                                            <Typography variant="subheading" className="mb-8">
                                                 <span className="font-bold mr-4">40</span>
                                                 Projects
                                             </Typography>
-                                            <Typography variant="subheading" className="">
+                                            <Typography variant="subheading" className="mb-8">
                                                 <span className="font-bold mr-4">40</span>
                                                 Pages
                                             </Typography>
-                                            <Typography variant="subheading" className="">
+                                            <Typography variant="subheading" className="mb-8">
                                                 <span className="font-bold mr-4">500</span>
                                                 Mb Disk Space
                                             </Typography>
@@ -178,10 +188,11 @@ class PricingStyle1Page extends Component {
                                     </CardContent>
 
                                     <div className="flex justify-center pb-32">
-                                        <Button variant="raised" color="secondary" className="w-128">BUY NOW</Button>
+                                        <Button variant="raised" color="secondary" className="w-128">GET STARTED</Button>
                                     </div>
                                 </Card>
                             </div>
+
                         </div>
 
                         <div className="flex flex-col items-center py-96">
@@ -231,4 +242,4 @@ class PricingStyle1Page extends Component {
     }
 }
 
-export default withStyles(styles, {withTheme: true})(PricingStyle1Page);
+export default withStyles(styles, {withTheme: true})(PricingStyle2Page);

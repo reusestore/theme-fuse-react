@@ -15,6 +15,7 @@ import {MaintenancePageConfig} from 'main/content/pages/maintenance/MaintenanceP
 import {ModernInvoicePageConfig} from 'main/content/pages/invoices/modern/ModernInvoicePageConfig';
 import {CompactInvoicePageConfig} from 'main/content/pages/invoices/compact/CompactInvoicePageConfig';
 import {PricingStyle1PageConfig} from 'main/content/pages/pricing/style-1/PricingStyle1PageConfig';
+import {PricingStyle2PageConfig} from 'main/content/pages/pricing/style-2/PricingStyle2PageConfig';
 
 export const pagesRoutes = [
     LoginPageConfig,
@@ -33,5 +34,6 @@ export const pagesRoutes = [
     MaintenancePageConfig,
     ModernInvoicePageConfig,
     CompactInvoicePageConfig,
-    PricingStyle1PageConfig
+    PricingStyle1PageConfig,
+    PricingStyle2PageConfig
 ];
