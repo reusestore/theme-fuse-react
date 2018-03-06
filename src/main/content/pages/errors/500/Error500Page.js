@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles/index';
-import {Icon, Input, Paper, Typography} from 'material-ui';
+import {Typography} from 'material-ui';
 import classNames from 'classnames';
 import {Link} from 'react-router-dom';
 

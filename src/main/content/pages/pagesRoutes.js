@@ -14,6 +14,7 @@ import {Error500PageConfig} from 'main/content/pages/errors/500/Error500PageConf
 import {MaintenancePageConfig} from 'main/content/pages/maintenance/MaintenancePageConfig';
 import {ModernInvoicePageConfig} from 'main/content/pages/invoices/modern/ModernInvoicePageConfig';
 import {CompactInvoicePageConfig} from 'main/content/pages/invoices/compact/CompactInvoicePageConfig';
+import {PricingStyle1PageConfig} from 'main/content/pages/pricing/style-1/PricingStyle1PageConfig';
 
 export const pagesRoutes = [
     LoginPageConfig,
@@ -31,5 +32,6 @@ export const pagesRoutes = [
     Error500PageConfig,
     MaintenancePageConfig,
     ModernInvoicePageConfig,
-    CompactInvoicePageConfig
+    CompactInvoicePageConfig,
+    PricingStyle1PageConfig
 ];

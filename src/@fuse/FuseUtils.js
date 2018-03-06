@@ -136,11 +136,11 @@ class FuseUtils {
     static generateRoutesFromConfigs(configs)
     {
         let allRoutes = [];
-        configs.map((config) => {
+        configs.forEach((config) => {
             allRoutes = [
                 ...allRoutes,
                 ...this.setRoutes(config)
-            ];
+            ]
         });
         return allRoutes;
     }
