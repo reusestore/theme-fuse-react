@@ -73,7 +73,8 @@ const styles = theme => ({
         minHeight   : toolbarHeight,
         display     : 'flex',
         alignItems  : 'center',
-        borderBottom: '1px solid rgba(0,0,0,0.12)'
+        borderBottom: '1px solid rgba(0,0,0,0.12)',
+        backgroundColor: theme.palette.background.paper
     },
     content                       : {
         flex: '1 0 auto'
