@@ -18,6 +18,8 @@ import {PricingStyle1PageConfig} from 'main/content/pages/pricing/style-1/Pricin
 import {PricingStyle2PageConfig} from 'main/content/pages/pricing/style-2/PricingStyle2PageConfig';
 import {PricingStyle3PageConfig} from 'main/content/pages/pricing/style-3/PricingStyle3PageConfig';
 import {ProfilePageConfig} from 'main/content/pages/profile/ProfilePageConfig';
+import {ClassicSearchPageConfig} from 'main/content/pages/search/classic/ClassicSearchPageConfig';
+import {ModernSearchPageConfig} from 'main/content/pages/search/modern/ModernSearchPageConfig';
 
 export const pagesRoutes = [
     LoginPageConfig,
@@ -39,5 +41,7 @@ export const pagesRoutes = [
     PricingStyle1PageConfig,
     PricingStyle2PageConfig,
     PricingStyle3PageConfig,
-    ProfilePageConfig
+    ProfilePageConfig,
+    ClassicSearchPageConfig,
+    ModernSearchPageConfig
 ];

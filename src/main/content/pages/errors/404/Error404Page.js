@@ -38,9 +38,7 @@ class Error404Page extends Component {
                     </Typography>
 
                     <Paper className={classNames(classes.searchWrapper, "mt-48 mb-16")} elevation={1} square>
-
                         <Icon color="action">search</Icon>
-
                         <Input
                             placeholder="Search for anything"
                             className={classes.search}
@@ -48,8 +46,7 @@ class Error404Page extends Component {
                             fullWidth
                             inputProps={{
                                 'aria-label': 'Search'
-                            }}
-                        />
+                            }}/>
                     </Paper>
 
                     <Link className="font-medium" to="/apps/dashboards/project">Go back to dashboard</Link>

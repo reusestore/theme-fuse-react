@@ -84,7 +84,7 @@ class CardedFullWidthTabbedSample extends Component {
                     </Tabs>
                 }
                 content={
-                    <div className="py-24">
+                    <div className="p-24">
                         {value === 0 &&
                         (
                             <div>

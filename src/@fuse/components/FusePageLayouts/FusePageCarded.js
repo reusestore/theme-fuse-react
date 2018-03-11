@@ -18,7 +18,8 @@ const styles = theme => ({
         height       : '100%',
         minHeight    : '100%',
         position     : 'relative',
-        flex         : '1 1 auto'
+        flex         : '1 1 auto',
+        backgroundColor: theme.palette.background.default
     },
     singleScroll             : {
         flex: '1 0 auto'
@@ -59,7 +60,6 @@ const styles = theme => ({
         flex           : '1 1 100%',
         flexDirection  : 'column',
         backgroundColor: theme.palette.background.paper,
-        color          : theme.palette.text.paper,
         boxShadow      : theme.shadows[7],
         minHeight      : 0
     },

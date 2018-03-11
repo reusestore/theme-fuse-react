@@ -13,12 +13,13 @@ const toolbarHeight = 64;
 
 const styles = theme => ({
     root                          : {
-        display      : 'flex',
-        flexDirection: 'column',
-        height       : '100%',
-        minHeight    : '100%',
-        position     : 'relative',
-        flex         : '1 1 auto'
+        display        : 'flex',
+        flexDirection  : 'column',
+        height         : '100%',
+        minHeight      : '100%',
+        position       : 'relative',
+        flex           : '1 1 auto',
+        backgroundColor: theme.palette.background.default
     },
     singleScroll                  : {
         flex: '1 0 auto'
@@ -47,21 +48,25 @@ const styles = theme => ({
     contentCardWrapper            : {
         display : 'flex ',
         flex    : '1 1 auto',
-        overflow: 'visible',
-        minWidth: 0
+        overflow: 'visible!important',
+        minWidth: 0,
+        '&.ps'  : {
+            overflow: 'visible!important'
+        }
     },
     contentCardWrapperInnerSidebar: {
         display : 'block',
-        overflow: 'auto',
+        overflow: 'auto!important',
+        '&.ps'  : {
+            overflow: 'hidden!important'
+        }
     },
     contentCard                   : {
-        display        : 'flex',
-        backgroundColor: theme.palette.background.paper,
-        color          : theme.palette.text.paper,
-        flexDirection  : 'column',
-        flex           : '1 1 auto',
-        boxShadow      : theme.shadows[5],
-        overflow       : 'auto'
+        display      : 'flex',
+        flexDirection: 'column',
+        flex         : '1 1 auto',
+        boxShadow    : theme.shadows[5],
+        overflow     : 'auto'
     },
     toolbar                       : {
         height      : toolbarHeight,

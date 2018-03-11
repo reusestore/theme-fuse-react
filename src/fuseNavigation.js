@@ -228,11 +228,24 @@ export const fuseNavigation = [
                 'url'  : '/pages/profile'
             },
             {
-                'id'   : 'search',
-                'title': 'Search',
-                'type' : 'item',
-                'icon' : 'search',
-                'url'  : '/pages/search'
+                'id'      : 'search',
+                'title'   : 'Search',
+                'type'    : 'collapse',
+                'icon'    : 'search',
+                'children': [
+                    {
+                        'id'   : 'classic-search',
+                        'title': 'Classic Search',
+                        'type' : 'item',
+                        'url'  : '/pages/search/classic'
+                    },
+                    {
+                        'id'   : 'modern-search',
+                        'title': 'Modern Search',
+                        'type' : 'item',
+                        'url'  : '/pages/search/modern'
+                    },
+                ]
             },
             {
                 'id'   : 'faq',
