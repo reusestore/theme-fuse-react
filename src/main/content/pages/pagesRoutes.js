@@ -21,6 +21,7 @@ import {ProfilePageConfig} from 'main/content/pages/profile/ProfilePageConfig';
 import {ClassicSearchPageConfig} from 'main/content/pages/search/classic/ClassicSearchPageConfig';
 import {ModernSearchPageConfig} from 'main/content/pages/search/modern/ModernSearchPageConfig';
 import {FaqPageConfig} from 'main/content/pages/faq/FaqPageConfig';
+import {KnowledgeBasePageConfig} from 'main/content/pages/knowledge-base/KnowledgeBaseConfig';
 
 export const pagesRoutes = [
     LoginPageConfig,
@@ -45,5 +46,6 @@ export const pagesRoutes = [
     ProfilePageConfig,
     ClassicSearchPageConfig,
     ModernSearchPageConfig,
-    FaqPageConfig
+    FaqPageConfig,
+    KnowledgeBasePageConfig
 ];

@@ -7,5 +7,6 @@ import './invoices-db'
 import './profile-db'
 import './search-db'
 import './faq-db'
+import './knowledge-base-db'
 
 
