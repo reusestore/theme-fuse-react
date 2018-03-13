@@ -270,13 +270,6 @@ export const fuseNavigation = [
         'icon'    : 'web',
         'children': [
             {
-                'id'   : 'forms',
-                'title': 'Forms',
-                'type' : 'item',
-                'icon' : 'web_asset',
-                'url'  : '/ui/forms'
-            },
-            {
                 'id'   : 'icons',
                 'title': 'Icons',
                 'type' : 'item',

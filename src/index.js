@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'typeface-roboto';
 import './react-table-defaults';
-import './index.css';
+import './styles/index.css';
 import JssProvider from 'react-jss/lib/JssProvider';
 import {create} from 'jss';
 import {createGenerateClassName, jssPreset} from 'material-ui/styles';
@@ -39,12 +39,11 @@ const jss = create({
     plugins: [...jssPreset().plugins, jssExtend()]
 });
 
-jss.options.insertionPoint = 'insertion-point-jss';
-jss.options.createGenerateClassName = createGenerateClassName;
-
+jss.options.insertionPoint = document.getElementById('jss-insertion-point');
+const generateClassName = createGenerateClassName();
 
 ReactDOM.render(
-    <JssProvider jss={jss}>
+    <JssProvider jss={jss} generateClassName={generateClassName}>
         <Provider store={store}>
             <BrowserRouter>
                 <FuseTheme>
@@ -69,4 +68,5 @@ ReactDOM.render(
         </Provider>
     </JssProvider>
     , document.getElementById('root'));
+
 registerServiceWorker();

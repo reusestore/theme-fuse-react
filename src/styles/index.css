@@ -1,4 +1,4 @@
-@tailwind preflight;
+@import 'normalize.css';
 
 * {
     outline: none !important;
@@ -20,25 +20,15 @@ html, body, #root {
     overflow: hidden;
 }
 
-.material-icons {
-    /*font-size: 16px;*/
-}
-
 .ps > .ps__rail-y,
 .ps > .ps__rail-x {
     z-index: 99;
 }
 
-@import 'styles/print.css';
+@import 'print.css';
 
-@import 'styles/tables.css';
+@import 'tables.css';
 
-@import 'styles/react-table.css';
+@import 'react-table.css';
 
-@import 'styles/fuse-helpers.css';
-
-[class*="MuiButton-fab"] {
-    border-radius: 50%;
-}
-
-@tailwind utilities;
+@import 'fuse-helpers.css';

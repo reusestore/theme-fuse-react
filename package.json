@@ -30,7 +30,7 @@
     "scripts": {
         "start": "npm run build-css-helpers && react-scripts start",
         "build": "npm run build-css-helpers && react-scripts build",
-        "build-css-helpers": "tailwind build ./src/styles/index.tailwind.css -c ./tailwind.js -o ./src/styles/fuse-helpers.css && postcss --use autoprefixer -o ./src/styles/fuse-helpers.css ./src/styles/fuse-helpers.css",
+        "build-css-helpers": "tailwind build ./src/styles/fuse-helpers.tailwind.css -c ./tailwind.js -o ./src/styles/fuse-helpers.css && postcss --use autoprefixer -o ./src/styles/fuse-helpers.css ./src/styles/fuse-helpers.css",
         "test": "react-scripts test --env=jsdom",
         "eject": "react-scripts eject"
     },
