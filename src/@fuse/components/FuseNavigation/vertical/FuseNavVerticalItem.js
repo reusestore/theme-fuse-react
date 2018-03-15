@@ -31,7 +31,7 @@ const FuseNavVerticalItem = ({item, classes, nestedLevel}) => {
                   activeClassName="active"
                   className={classNames(classes.root, listItemPadding)}>
             {item.icon && (
-                <Icon className="list-item-icon text-16" color="action">{item.icon}</Icon>
+                <Icon className="list-item-icon text-16 flex-no-shrink" color="action">{item.icon}</Icon>
             )}
             <ListItemText className="list-item-text" primary={item.title} disableTypography/>
         </ListItem>

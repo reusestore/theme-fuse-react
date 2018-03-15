@@ -37,6 +37,7 @@ class IconsUI extends Component {
                     return true;
                 }
             }
+            return false;
         }) : data;
 
         return (

@@ -31,4 +31,6 @@ html, body, #root {
 
 @import 'react-table.css';
 
+@import 'prism.css';
+
 @import 'fuse-helpers.css';

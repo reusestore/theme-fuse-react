@@ -91,7 +91,7 @@ class FuseNavVerticalCollapse extends Component {
                           className={listItemPadding}
                           onClick={this.handleClick}>
                     {item.icon && (
-                        <Icon color="action" className="text-16">{item.icon}</Icon>
+                        <Icon color="action" className="text-16 flex-no-shrink">{item.icon}</Icon>
                     )}
                     <ListItemText className="list-item-text" primary={item.title} disableTypography/>
                     <Icon className="text-16 arrow-icon">

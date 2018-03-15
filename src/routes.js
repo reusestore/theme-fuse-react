@@ -4,10 +4,12 @@ import {UserInterfaceConfig} from 'main/content/user-interface/UserInterfaceConf
 import {pagesRoutes} from 'main/content/pages/pagesRoutes';
 import {FuseUtils} from '@fuse';
 import {appsRoutes} from 'main/content/apps/appsRoutes';
+import {ComponentsConfig} from 'main/content/components/ComponentsConfig';
 
 const routeConfigs = [
     ...appsRoutes,
     ...pagesRoutes,
+    ComponentsConfig,
     UserInterfaceConfig
 ];
 

@@ -16,7 +16,8 @@ const styles = theme => ({
         minWidth: 48,
         width   : 48,
         height  : 48,
-        opacity : .75
+        opacity : .75,
+        padding : 0
     },
     '@keyframes rotating': {
         from: {
