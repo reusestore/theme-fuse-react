@@ -495,62 +495,6 @@ export const fuseNavigation = [
                 'type' : 'item',
                 'icon' : 'settings_input_component',
                 'url'  : '/components/cards'
-            },
-            {
-                'id'   : 'countdown',
-                'title': 'Countdown',
-                'type' : 'item',
-                'icon' : 'settings_input_component',
-                'url'  : '/components/countdown'
-            },
-            {
-                'id'   : 'highlight',
-                'title': 'Highlight',
-                'type' : 'item',
-                'icon' : 'settings_input_component',
-                'url'  : '/components/highlight'
-            },
-            {
-                'id'   : 'material-color-picker',
-                'title': 'Material Color Picker',
-                'type' : 'item',
-                'icon' : 'settings_input_component',
-                'url'  : '/components/material-color-picker'
-            },
-            {
-                'id'   : 'multi-language',
-                'title': 'Multi Language',
-                'type' : 'item',
-                'icon' : 'settings_input_component',
-                'url'  : '/components/multi-language'
-            },
-            {
-                'id'   : 'navigation',
-                'title': 'Navigation',
-                'type' : 'item',
-                'icon' : 'settings_input_component',
-                'url'  : '/components/navigation'
-            },
-            {
-                'id'   : 'search-bar',
-                'title': 'Search Bar',
-                'type' : 'item',
-                'icon' : 'settings_input_component',
-                'url'  : '/components/search-bar'
-            },
-            {
-                'id'   : 'shortcuts',
-                'title': 'Shortcuts',
-                'type' : 'item',
-                'icon' : 'settings_input_component',
-                'url'  : '/components/shortcuts'
-            },
-            {
-                'id'   : 'widget',
-                'title': 'Widget',
-                'type' : 'item',
-                'icon' : 'settings_input_component',
-                'url'  : '/components/widget'
             }
         ]
     },
@@ -584,81 +528,57 @@ export const fuseNavigation = [
         ]
     },
     {
-        'id'   : 'test-item',
-        'title': 'Test Item',
-        'type' : 'item',
-        'url'  : '/demo'
+        'type': 'divider',
+        'id'  : 'divider-1'
     },
     {
-        'id'   : 'test-item-2',
-        'title': 'Test Item 2',
-        'type' : 'item',
-        'url'  : '/demo2'
-    },
-    {
-        'id'      : 'test-collapse',
-        'title'   : 'Test Collapse',
-        'type'    : 'collapse',
-        'icon'    : 'dashboard',
-        'children': [
-            {
-                'id'   : 'test-item',
-                'title': 'Mail',
-                'type' : 'item',
-                'url'  : '/apps/mail'
-            }
-        ]
-    },
-    {
-        'id'      : 'test-group',
-        'title'   : 'Test Group',
+        'id'      : 'test-group-level-1',
+        'title'   : 'Test Group Level 1',
         'type'    : 'group',
         'icon'    : 'apps',
         'children': [
             {
-                'id'      : 'test-collapse',
-                'title'   : 'Test Collapse',
+                'id'      : 'test-collapse-level-1',
+                'title'   : 'Test Collapse Level 1',
                 'type'    : 'collapse',
                 'icon'    : 'dashboard',
                 'children': [
                     {
-                        'id'   : 'test-item',
-                        'title': 'Item',
+                        'id'   : 'test-item-level-1',
+                        'title': 'Test Item Level 1',
                         'type' : 'item',
                         'url'  : '/apps/dashboards/project'
                     },
                     {
                         'id'      : 'test-collapse-2',
-                        'title'   : 'Collapse 2',
+                        'title'   : 'Test Collapse Level 2',
                         'type'    : 'collapse',
                         'children': [
                             {
-                                'id'   : 'test-item 2',
-                                'title': 'Item 2',
+                                'id'   : 'test-item-level-2',
+                                'title': 'Test Item Level 2',
                                 'type' : 'item',
                                 'url'  : '/apps/dashboards/project'
                             },
                             {
-                                'id'      : 'test-collapse-3',
-                                'title'   : 'Collapse 3',
+                                'id'      : 'test-collapse-level-3',
+                                'title'   : 'Test Collapse Level 3',
                                 'type'    : 'collapse',
-                                'icon'    : 'dashboard',
                                 'children': [
                                     {
-                                        'id'   : 'test-item 3',
-                                        'title': 'Item 3',
+                                        'id'   : 'test-item-level-3',
+                                        'title': 'Test Item Level 3',
                                         'type' : 'item',
                                         'url'  : '/apps/dashboards/project'
                                     },
                                     {
-                                        'id'      : 'test-collapse-4',
-                                        'title'   : 'Collapse 4',
+                                        'id'      : 'test-collapse-level-4',
+                                        'title'   : 'Test Collapse Level 4',
                                         'type'    : 'collapse',
-                                        'icon'    : 'dashboard',
                                         'children': [
                                             {
-                                                'id'   : 'test-item 4',
-                                                'title': 'Item 4',
+                                                'id'   : 'test-item-level-4',
+                                                'title': 'Test Item Level 4',
                                                 'type' : 'item',
                                                 'url'  : '/apps/dashboards/project'
                                             }
@@ -669,30 +589,23 @@ export const fuseNavigation = [
                         ]
                     },
                     {
-                        'id'      : 'test-group',
-                        'title'   : 'Sub Group',
+                        'id'      : 'test-group-level-2',
+                        'title'   : 'Test Group Level 2',
                         'type'    : 'group',
                         'icon'    : 'apps',
                         'children': [
                             {
-                                'id'      : 'test-collapse',
-                                'title'   : 'Collapse',
+                                'id'      : 'test-collapse-level-2-',
+                                'title'   : 'Test Collapse Level 2',
                                 'type'    : 'collapse',
-                                'icon'    : 'dashboard',
                                 'children': [
                                     {
-                                        'id'   : 'test-item',
-                                        'title': 'Item',
+                                        'id'   : 'test-item-level-2-',
+                                        'title': 'Test Item Level 2',
                                         'type' : 'item',
                                         'url'  : '/apps/dashboards/project'
                                     }
                                 ]
-                            },
-                            {
-                                'id'   : 'test-item',
-                                'title': 'Mail',
-                                'type' : 'item',
-                                'url'  : '/apps/mail'
                             }
                         ]
                     }

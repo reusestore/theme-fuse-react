@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import FuseNavVerticalGroup from './vertical/FuseNavVerticalGroup';
 import FuseNavVerticalCollapse from './vertical/FuseNavVerticalCollapse';
 import FuseNavVerticalItem from './vertical/FuseNavVerticalItem';
-import {List} from 'material-ui';
+import {Divider, List} from 'material-ui';
 import {withRouter} from 'react-router-dom';
 
 class FuseNavigation extends Component {
@@ -29,6 +29,10 @@ class FuseNavigation extends Component {
 
                                 {item.type === 'item' && (
                                     <FuseNavVerticalItem item={item} nestedLevel={0}/>
+                                )}
+
+                                {item.type === 'divider' && (
+                                    <Divider className="my-16"/>
                                 )}
 
                             </React.Fragment>
