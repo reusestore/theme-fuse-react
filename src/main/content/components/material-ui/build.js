@@ -242,6 +242,7 @@ function writePage(file)
                         import {Button, Icon, Typography} from 'material-ui';
                         import {withStyles} from 'material-ui/styles/index';
                         /* eslint import/no-webpack-loader-syntax: off */
+                        /* eslint no-unused-vars: off */
                         const styles = theme => ({
                             layoutRoot: {}
                         });

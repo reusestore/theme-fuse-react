@@ -3,6 +3,7 @@ import {simpleLayoutRoutes} from './page-layouts/simple/simpleLayoutRoutes';
 import BlankSample from './page-layouts/blank';
 import IconsUI from 'main/content/user-interface/icons/IconsUI';
 import TypographyUI from 'main/content/user-interface/typography/TypographyUI';
+import HelperClassesUI from 'main/content/user-interface/helper-classes/HelperClassesUI';
 
 export const UserInterfaceConfig = {
     routes: [
@@ -19,6 +20,10 @@ export const UserInterfaceConfig = {
         {
             path     : '/ui/typography',
             component: TypographyUI
+        },
+        {
+            path     : '/ui/helper-classes',
+            component: HelperClassesUI
         }
     ]
 };

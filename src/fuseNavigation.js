@@ -449,13 +449,6 @@ export const fuseNavigation = [
                         'url'  : '/ui/page-layouts/blank'
                     }
                 ]
-            },
-            {
-                'id'   : 'colors',
-                'title': 'Colors',
-                'type' : 'item',
-                'icon' : 'color_lens',
-                'url'  : '/ui/colors'
             }
         ]
     },
