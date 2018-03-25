@@ -4,14 +4,12 @@ export const fuseNavigation = [
     {
         'id'       : 'applications',
         'title'    : 'Applications',
-        'translate': 'NAV.APPLICATIONS',
         'type'     : 'group',
         'icon'     : 'apps',
         'children' : [
             {
                 'id'       : 'dashboards',
                 'title'    : 'Dashboards',
-                'translate': 'NAV.DASHBOARDS',
                 'type'     : 'collapse',
                 'icon'     : 'dashboard',
                 'children' : [
@@ -26,7 +24,6 @@ export const fuseNavigation = [
             {
                 'id'       : 'calendar',
                 'title'    : 'Calendar',
-                'translate': 'NAV.CALENDAR',
                 'type'     : 'item',
                 'icon'     : 'today',
                 'url'      : '/apps/calendar'
@@ -34,13 +31,11 @@ export const fuseNavigation = [
             {
                 'id'       : 'mail',
                 'title'    : 'Mail',
-                'translate': 'NAV.MAIL.TITLE',
                 'type'     : 'item',
                 'icon'     : 'email',
                 'url'      : '/apps/mail',
                 'badge'    : {
                     'title'    : 25,
-                    'translate': 'NAV.MAIL.BADGE',
                     'bg'       : '#F44336',
                     'fg'       : '#FFFFFF'
                 }
@@ -48,7 +43,6 @@ export const fuseNavigation = [
             {
                 'id'       : 'file-manager',
                 'title'    : 'File Manager',
-                'translate': 'NAV.FILE_MANAGER',
                 'type'     : 'item',
                 'icon'     : 'folder',
                 'url'      : '/apps/file-manager'
@@ -56,7 +50,6 @@ export const fuseNavigation = [
             {
                 'id'       : 'contacts',
                 'title'    : 'Contacts',
-                'translate': 'NAV.CONTACTS',
                 'type'     : 'item',
                 'icon'     : 'account_box',
                 'url'      : '/apps/contacts'
@@ -453,28 +446,6 @@ export const fuseNavigation = [
         ]
     },
     {
-        'id'      : 'services',
-        'title'   : 'Services',
-        'type'    : 'group',
-        'icon'    : 'settings',
-        'children': [
-            {
-                'id'   : 'config',
-                'title': 'Config',
-                'type' : 'item',
-                'icon' : 'settings',
-                'url'  : '/services/config'
-            },
-            {
-                'id'   : 'splash-screen',
-                'title': 'Splash Screen',
-                'type' : 'item',
-                'icon' : 'settings',
-                'url'  : '/services/splash-screen'
-            }
-        ]
-    },
-    {
         'id'      : 'components',
         'title'   : 'Components',
         'type'    : 'group',
@@ -490,11 +461,66 @@ export const fuseNavigation = [
                 ]
             },
             {
-                'id'   : 'cards',
-                'title': 'Cards',
+                'id'   : 'fuse-theme',
+                'title': 'FuseTheme',
                 'type' : 'item',
                 'icon' : 'settings_input_component',
-                'url'  : '/components/cards'
+                'url'  : '/components/fuse-theme'
+            },
+            {
+                'id'   : 'fuse-layout',
+                'title': 'FuseLayout',
+                'type' : 'item',
+                'icon' : 'settings_input_component',
+                'url'  : '/components/fuse-layout'
+            },
+            {
+                'id'      : 'fuse-page',
+                'title'   : 'Fuse Page Layouts',
+                'type'    : 'collapse',
+                'icon'    : 'settings_input_component',
+                'children': [
+                    {
+                        'id'   : 'fuse-page-carded',
+                        'title': 'FusePageCarded',
+                        'type' : 'item',
+                        'url'  : '/components/fuse-page-carded'
+                    },
+                    {
+                        'id'   : 'fuse-page-simple',
+                        'title': 'FusePageSimple',
+                        'type' : 'item',
+                        'url'  : '/components/fuse-page-simple'
+                    }
+                ]
+            },
+            {
+                'id'   : 'fuse-navigation',
+                'title': 'FuseNavigation',
+                'type' : 'item',
+                'icon' : 'settings_input_component',
+                'url'  : '/components/fuse-navigation'
+            },
+            {
+                'id'   : 'fuse-scrollbars',
+                'title': 'FuseScrollbars',
+                'type' : 'item',
+                'icon' : 'settings_input_component',
+                'url'  : '/components/fuse-scrollbars'
+            },
+            {
+                'id'   : 'fuse-highlight',
+                'title': 'FuseHighlight',
+                'type' : 'item',
+                'icon' : 'settings_input_component',
+                'url'  : '/components/fuse-highlight'
+            },
+            {
+                'id'   : 'fuse-countdown',
+                'title': 'FuseCountdown',
+                'type' : 'item',
+                'icon' : 'settings_input_component',
+                'url'  : '/components/fuse-countdown'
             }
         ]
     },
@@ -524,6 +550,55 @@ export const fuseNavigation = [
                 'type' : 'item',
                 'icon' : 'place',
                 'url'  : '/components-third-party/google-maps'
+            }
+        ]
+    },
+    {
+        'id'      : 'getting-started',
+        'title'   : 'Getting Started',
+        'type'    : 'group',
+        'children': [
+            {
+                'id'   : 'introduction',
+                'title': 'Introduction',
+                'type' : 'item',
+                'icon' : 'info',
+                'url'  : '/getting-started/introduction'
+            },
+            {
+                'id'   : 'prerequisites',
+                'title': 'Prerequisites',
+                'type' : 'item',
+                'icon' : 'view_stream',
+                'url'  : '/getting-started/prerequisites'
+            },
+            {
+                'id'   : 'installation',
+                'title': 'Installation',
+                'type' : 'item',
+                'icon' : 'settings_applications',
+                'url'  : '/getting-started/installation'
+            },
+            {
+                'id'   : 'working-with-fuse',
+                'title': 'Working with Fuse',
+                'type' : 'item',
+                'icon' : 'computer',
+                'url'  : '/getting-started/working-with-fuse'
+            },
+            {
+                'id'   : 'settings',
+                'title': 'Settings',
+                'type' : 'item',
+                'icon' : 'settings',
+                'url'  : '/getting-started/settings'
+            },
+            {
+                'id'   : 'fuse-react-routing',
+                'title': 'Routing',
+                'type' : 'item',
+                'icon' : 'menu',
+                'url'  : '/getting-started/routing'
             }
         ]
     },

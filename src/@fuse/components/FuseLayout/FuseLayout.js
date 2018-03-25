@@ -5,7 +5,7 @@ import {AppBar, Hidden, Icon, IconButton, Paper, Toolbar, Drawer} from 'material
 import {matchRoutes, renderRoutes} from 'react-router-config'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import * as Actions from '../../../store/actions';
+import * as Actions from '../../../store/actions/fuse/index';
 import classNames from 'classnames';
 import _ from 'lodash';
 import {FuseScrollbars, FuseDefaultSettings} from '@fuse';
@@ -25,6 +25,19 @@ const styles = theme => ({
             borderColor: theme.palette.divider
         },
         '& table.simple thead tr th': {
+            borderColor: theme.palette.divider
+        },
+        '& a'                       : {
+            color         : theme.palette.secondary.main,
+            textDecoration: 'none',
+            '&:hover'     : {
+                textDecoration: 'underline'
+            }
+        },
+        '& [class^="border-"]'                       : {
+            borderColor: theme.palette.divider
+        },
+        '& [class*="border-"]'                       : {
             borderColor: theme.palette.divider
         }
     },
@@ -371,10 +384,10 @@ function mapDispatchToProps(dispatch)
     }, dispatch);
 }
 
-function mapStateToProps({settings})
+function mapStateToProps({fuse})
 {
     return {
-        settings
+        settings: fuse.settings
     }
 }
 

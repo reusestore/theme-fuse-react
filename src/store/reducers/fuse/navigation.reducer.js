@@ -1,5 +1,5 @@
-import * as Actions from '../actions';
-import {fuseNavigation} from 'fuseNavigation';
+import * as Actions from '../../actions/fuse/index';
+import {fuseNavigation} from 'fuse-configs/fuseNavigation';
 
 const initialState = fuseNavigation;
 

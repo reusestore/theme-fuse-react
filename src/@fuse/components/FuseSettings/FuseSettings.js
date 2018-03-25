@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Button, FormControl, FormControlLabel, FormLabel, Icon, MenuItem, Modal, Radio, RadioGroup, Select, Slide, Switch, withStyles} from 'material-ui';
-import * as Actions from '../../../store/actions';
+import * as Actions from '../../../store/actions/fuse/index';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import _ from 'lodash';
@@ -184,10 +184,10 @@ function mapDispatchToProps(dispatch)
     }, dispatch);
 }
 
-function mapStateToProps({settings})
+function mapStateToProps({fuse})
 {
     return {
-        settings
+        settings: fuse.settings
     }
 }
 

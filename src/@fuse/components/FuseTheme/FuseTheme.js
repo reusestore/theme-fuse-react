@@ -2,23 +2,29 @@ import React, {Component} from 'react';
 import {createMuiTheme, MuiThemeProvider} from 'material-ui';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
+import {fuseThemes} from 'fuse-configs/fuseThemes';
+import _ from 'lodash';
 
-const defaultThemeOptions = {
+const mustHaveOptions = {
     typography: {
         htmlFontSize: 10
-    },
-    status    : {
-        danger: 'orange'
     }
 };
 
-export const themes = {
-    default: createMuiTheme(defaultThemeOptions),
-    dark   : createMuiTheme({
-        ...defaultThemeOptions,
+export const defaults = {
+    default: {},
+    dark   : {
         palette: {type: 'dark'}
-    })
+    }
 };
+
+const themesObj = Object.keys(fuseThemes).length !== 0 ? fuseThemes : defaults;
+
+export const themes = Object.assign({}, ...Object.entries(themesObj).map(([key, value]) => (
+    {
+        [key]: createMuiTheme(_.merge({}, value, mustHaveOptions))
+    }
+)));
 
 class FuseTheme extends Component {
     state = {
@@ -93,10 +99,10 @@ class FuseTheme extends Component {
     }
 }
 
-function mapStateToProps({settings})
+function mapStateToProps({fuse})
 {
     return {
-        selectedTheme: settings.theme
+        selectedTheme: fuse.settings.theme
     }
 }
 

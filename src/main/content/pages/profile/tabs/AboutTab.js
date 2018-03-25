@@ -5,10 +5,7 @@ import {AppBar, Button, Card, CardContent, Icon, IconButton, List, ListItem, Lis
 import classNames from 'classnames';
 
 const styles = theme => ({
-    root     : {},
-    groupLogo: {
-        ...theme.mixins.border(1)
-    }
+    root: {}
 });
 
 class AboutTab extends Component {
@@ -205,7 +202,7 @@ class AboutTab extends Component {
                             <List className="p-0">
                                 {groups && groups.map((group) => (
                                     <ListItem key={group.id}>
-                                        <img className={classNames(classes.groupLogo, "w-64")} alt={group.name} src={group.logo}/>
+                                        <img className="w-64 border-1" alt={group.name} src={group.logo}/>
                                         <ListItemText
                                             primary={(
                                                 <div className="">

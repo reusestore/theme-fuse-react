@@ -9,9 +9,11 @@ import {NavLink, withRouter} from 'react-router-dom';
 const styles = theme => ({
     root    : {},
     listItem: {
-        '&.active': {
+        color         : 'inherit!important',
+        textDecoration: 'none!important',
+        '&.active'    : {
             backgroundColor    : theme.palette.secondary.main,
-            color              : theme.palette.secondary.contrastText,
+            color              : theme.palette.secondary.contrastText + '!important',
             pointerEvents      : 'none',
             '& .list-item-icon': {
                 color: 'inherit'

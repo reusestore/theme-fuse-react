@@ -66,10 +66,10 @@ function mapDispatchToProps(dispatch)
     }, dispatch);
 }
 
-function mapStateToProps({mailApp, settings})
+function mapStateToProps({mailApp, fuse})
 {
     return {
-        selectedTheme: settings.theme,
+        selectedTheme: fuse.settings.theme,
         searchText   : mailApp.mails.searchText
     }
 }

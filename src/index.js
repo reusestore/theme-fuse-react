@@ -11,10 +11,10 @@ import registerServiceWorker from './registerServiceWorker';
 import {Provider} from 'react-redux';
 import {applyMiddleware, compose, createStore} from 'redux';
 import thunk from 'redux-thunk';
-import reducers from './store/reducers';
+import reducers from './store/reducers/index';
 import {BrowserRouter} from 'react-router-dom';
 import './fake-db/fake-db'
-import {routes} from './routes';
+import {routes} from './fuse-configs/fuseRoutes';
 import {FuseLayout, FuseTheme, FuseSettings} from '@fuse';
 import MainToolbar from './main/MainToolbar';
 import MainNavbarContent from './main/MainNavbarContent';

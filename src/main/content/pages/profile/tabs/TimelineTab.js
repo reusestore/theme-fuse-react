@@ -9,20 +9,7 @@ import classNames from 'classnames';
 import {Link} from 'react-router-dom';
 
 const styles = theme => ({
-    root        : {
-        '& .card-footer': {
-            ...theme.mixins.borderTop(1)
-        }
-    },
-    article     : {
-        ...theme.mixins.border(1),
-        '& > img': {
-            ...theme.mixins.borderBottom(1)
-        }
-    },
-    commentInput: {
-        ...theme.mixins.border(1)
-    }
+    root: {}
 });
 
 class TimelineTab extends Component {
@@ -59,7 +46,7 @@ class TimelineTab extends Component {
                             margin="none"
                             disableUnderline
                         />
-                        <AppBar className="card-footer flex flex-row" position="static" color="default" elevation={0}>
+                        <AppBar className="card-footer flex flex-row border-t-1" position="static" color="default" elevation={0}>
                             <div className="flex-1 items-center">
                                 <IconButton aria-label="Add photo">
                                     <Icon>photo</Icon>
@@ -122,8 +109,8 @@ class TimelineTab extends Component {
                                 )}
 
                                 {post.article && (
-                                    <div className={classNames(classes.article)}>
-                                        <img className="w-full" src={post.article.media.preview} alt="article"/>
+                                    <div className="border-1">
+                                        <img className="w-full border-b-1" src={post.article.media.preview} alt="article"/>
                                         <div className="p-16">
                                             <Typography variant="subheading">{post.article.title}</Typography>
                                             <Typography variant="caption">{post.article.subtitle}</Typography>
@@ -190,7 +177,7 @@ class TimelineTab extends Component {
                                     <div className="flex-1 pl-8">
                                         <Paper elevation={0} className="w-full mb-16">
                                             <Input
-                                                className={classNames(classes.commentInput, "p-8 w-full")}
+                                                className="p-8 w-full border-1"
                                                 classes={{root: 'text-13'}}
                                                 placeholder="Add a comment.."
                                                 multiline

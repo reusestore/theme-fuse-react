@@ -34,7 +34,6 @@ class FuseNavigation extends Component {
                                 {item.type === 'divider' && (
                                     <Divider className="my-16"/>
                                 )}
-
                             </React.Fragment>
                         ))
                     }

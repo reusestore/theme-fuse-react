@@ -1,6 +1,6 @@
-import * as Actions from '../actions';
+import * as Actions from '../../actions/fuse/index';
 import _ from 'lodash';
-import {FuseDefaultSettings} from '@fuse';
+import {FuseDefaultSettings} from '@fuse/index';
 
 const initialState = {...FuseDefaultSettings};
 

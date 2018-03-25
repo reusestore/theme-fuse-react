@@ -23,10 +23,10 @@ function mapDispatchToProps(dispatch)
     return bindActionCreators({}, dispatch);
 }
 
-function mapStateToProps({navigation})
+function mapStateToProps({fuse})
 {
     return {
-        navigation
+        navigation: fuse.navigation
     }
 }
 

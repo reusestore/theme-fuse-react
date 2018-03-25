@@ -9,13 +9,16 @@ const styles = theme => ({
         minHeight          : 48,
         '&.active'         : {
             backgroundColor    : theme.palette.secondary.main,
-            color              : theme.palette.secondary.contrastText,
+            color              : theme.palette.secondary.contrastText + '!important',
             pointerEvents      : 'none',
             '& .list-item-icon': {
                 color: 'inherit'
             }
         },
-        '& .list-item-icon': {}
+        '& .list-item-icon': {},
+        '& .list-item-text': {},
+        color              : 'inherit!important',
+        textDecoration     : 'none!important'
     }
 });
 

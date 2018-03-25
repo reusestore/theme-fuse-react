@@ -11,9 +11,11 @@ const styles = theme => ({
         paddingRight       : 24,
         paddingLeft        : 24,
         minHeight          : 48,
+        color              : 'inherit!important',
+        textDecoration     : 'none!important',
         '&.active'         : {
             backgroundColor    : theme.palette.secondary.main,
-            color              : theme.palette.secondary.contrastText,
+            color              : theme.palette.secondary.contrastText + '!important',
             pointerEvents      : 'none',
             '& .list-item-icon': {
                 color: 'inherit'

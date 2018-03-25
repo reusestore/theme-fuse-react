@@ -3,10 +3,7 @@ import {AppBar, Card, Icon, Tab, Tabs, withStyles} from 'material-ui';
 import {FuseHighlight} from '@fuse';
 
 const styles = theme => ({
-    root: {},
-    tabs: {
-        ...theme.mixins.borderBottom(1)
-    }
+    root: {}
 });
 
 class FuseExample extends PureComponent {
@@ -27,7 +24,7 @@ class FuseExample extends PureComponent {
                 <AppBar position="static" color="default" elevation={0}>
                     <Tabs classes={
                         {
-                            root         : classes.tabs,
+                            root         : 'border-b-1',
                             flexContainer: 'justify-end'
                         }} value={value} onChange={this.handleChange}>
                         <Tab classes={{root: 'min-w-64'}} icon={<Icon>remove_red_eye</Icon>}/>

@@ -43,14 +43,14 @@ class FuseScrollbars extends Component {
         if ( nextProps.customScrollbars )
         {
             // console.info('componentWillReceiveProps: create Ps');
-            setTimeout(()=>{
+            setTimeout(() => {
                 this.createPs();
             });
         }
         else
         {
             // console.info('componentWillReceiveProps: destroy Ps');
-            setTimeout(()=>{
+            setTimeout(() => {
                 this.destroyPs();
             });
         }
@@ -143,10 +143,10 @@ function mapDispatchToProps(dispatch)
     return bindActionCreators({}, dispatch);
 }
 
-function mapStateToProps({settings})
+function mapStateToProps({fuse})
 {
     return {
-        customScrollbars: settings.customScrollbars
+        customScrollbars: fuse.settings.customScrollbars
     }
 }
 

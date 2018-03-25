@@ -1,7 +1,4 @@
-import _ from 'lodash';
-import FuseSettings from 'fuse-configs/fuseSettings';
-
-const defaultSettings = {
+const fuseSettings = {
     layout          : {
         navigation          : 'left', // 'right', 'left', 'top', 'none'
         navigationFolded    : false, // true, false
@@ -14,6 +11,4 @@ const defaultSettings = {
     theme           : 'default'
 };
 
-const FuseDefaultSettings = _.merge({}, defaultSettings, FuseSettings);
-
-export default FuseDefaultSettings;
+export default fuseSettings;
