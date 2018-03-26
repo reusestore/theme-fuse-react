@@ -106,7 +106,10 @@ const styles = theme => ({
             padding   : 8,
             fontSize  : 16,
             fontWeight: 400,
-            opacity   : .5
+            opacity   : .5,
+            '& > a'   : {
+                color: 'inherit'
+            }
         },
         '& .rbc-event'                                                                                                 : {
             borderRadius            : 0,
