@@ -3,6 +3,7 @@ import {Icon, ListItem, ListItemText} from 'material-ui';
 import {withStyles} from 'material-ui/styles/index';
 import {NavLink, withRouter} from 'react-router-dom';
 import classNames from 'classnames';
+import FuseNavBadge from './FuseNavBadge';
 
 const styles = theme => ({
     root: {
@@ -37,6 +38,9 @@ const FuseNavVerticalItem = ({item, classes, nestedLevel}) => {
                 <Icon className="list-item-icon text-16 flex-no-shrink" color="action">{item.icon}</Icon>
             )}
             <ListItemText className="list-item-text" primary={item.title} disableTypography/>
+            {item.badge && (
+                <FuseNavBadge badge={item.badge}/>
+            )}
         </ListItem>
     )
 };

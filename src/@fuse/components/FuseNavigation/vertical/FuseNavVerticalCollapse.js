@@ -6,6 +6,7 @@ import {withStyles} from 'material-ui/styles/index';
 import {withRouter} from 'react-router-dom';
 import _ from 'lodash';
 import classNames from 'classnames';
+import FuseNavBadge from './FuseNavBadge';
 
 const styles = theme => ({
     root: {
@@ -94,6 +95,9 @@ class FuseNavVerticalCollapse extends Component {
                         <Icon color="action" className="text-16 flex-no-shrink">{item.icon}</Icon>
                     )}
                     <ListItemText className="list-item-text" primary={item.title} disableTypography/>
+                    {item.badge && (
+                        <FuseNavBadge className="mr-4" badge={item.badge}/>
+                    )}
                     <Icon className="text-16 arrow-icon">
                         {this.state.open ? 'expand_less' : 'expand_more'}
                     </Icon>
