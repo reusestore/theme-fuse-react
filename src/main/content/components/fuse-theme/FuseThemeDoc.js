@@ -27,7 +27,7 @@ class FuseThemeDoc extends Component {
                     <div className="p-24 max-w-2xl mx-auto">
 
                         <Typography className="mb-16" component="p">
-                            <code className="language-cmd">FuseTheme</code> is theming component of the Fuse React. It allows to change predefined Material UI themes. It should
+                            <code className="language-bash">FuseTheme</code> is theming component of the Fuse React. It allows to change predefined Material UI themes. It should
                             wraps the FuseLayout component.
                         </Typography>
 
@@ -59,7 +59,7 @@ class FuseThemeDoc extends Component {
                         <Typography className="text-32 mt-32 mb-8" component="h2">Configuration</Typography>
 
                         <Typography className="mb-16" component="p">
-                            You can define the material ui themes under <code className="language-cmd">fuse-configs/fuseThemes.js</code> <a
+                            You can define the material ui themes under <code className="language-bash">fuse-configs/fuseThemes.js</code> <a
                             href="https://material-ui-next.com/customization/themes/" target="_blank" rel="noopener noreferrer" className="font-bold">
                             Checkout</a> the Material UI's theme configuration options.
                         </Typography>

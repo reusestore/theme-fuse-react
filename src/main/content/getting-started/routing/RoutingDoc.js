@@ -37,7 +37,9 @@ class RoutingDoc extends Component {
                         </Typography>
 
                         <Typography className="mb-16" component="p">
-                            For example, have a look  at <code className="language-cmd">MailAppConfig.js</code> file under <code className="language-cmd">src/main/content/apps/mail</code>. Whenever we navigate to <code className="language-cmd">/apps/mail</code>, the navigation sidebar position will be changed to right.
+                            For example, have a look at <FuseHighlight component="code" className="language-bash">MailAppConfig.js</FuseHighlight> file under <code
+                            className="language-bash">src/main/content/apps/mail</code>. Whenever we navigate to <code className="language-bash">/apps/mail</code>, the navigation
+                            sidebar position will be changed to right.
                         </Typography>
 
                         <FuseHighlight component="pre" className="language-jsx my-16">
@@ -48,9 +50,16 @@ class RoutingDoc extends Component {
 
                             export const MailAppConfig = {
                                 settings: {
-                                    layout: {
-                                        navigation          : 'right'
-                                    }
+                                     layout          : {
+                                        navigation          : 'right', // 'right', 'left', 'top', 'none'
+                                        navigationFolded    : false, // true, false
+                                        navigationFoldedOpen: false,
+                                        toolbar             : 'below', // 'above', 'below', 'none'
+                                        footer              : 'below', // 'above', 'below', 'none'
+                                        mode                : 'fullwidth' // 'boxed', 'fullwidth'
+                                     },
+                                     customScrollbars: true,
+                                     theme           : 'default'
                                 },
                                 routes  : [
                                     {
@@ -75,7 +84,7 @@ class RoutingDoc extends Component {
                         </FuseHighlight>
 
                         <Typography className="mb-16" component="p">
-                            Then we import and generate routes from that file in <code className="language-cmd">fuse-configs/fuseRoutes</code>
+                            Then we import and generate routes from that file in <code className="language-bash">fuse-configs/fuseRoutes</code>
                         </Typography>
 
                         <FuseHighlight component="pre" className="language-jsx my-16">

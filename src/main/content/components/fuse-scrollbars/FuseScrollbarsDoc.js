@@ -27,7 +27,7 @@ class FuseScrollbarsDoc extends Component {
                     <div className="p-24 max-w-2xl mx-auto">
 
                         <Typography className="mb-16" component="p">
-                            <code className="language-cmd">FuseScrollbars</code> is a simple <a href="http://utatti.github.io/perfect-scrollbar/" target="_blank"
+                            <code className="language-bash">FuseScrollbars</code> is a simple <a href="http://utatti.github.io/perfect-scrollbar/" target="_blank"
                                                                                                 rel="noreferrer noopener" className="font-bold">perfect-scrollbar</a> component for
                             react.
                         </Typography>

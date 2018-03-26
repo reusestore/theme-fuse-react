@@ -79,7 +79,7 @@ class FusePageCardedDoc extends Component {
                     <div className="p-24 max-w-2xl mx-auto">
 
                         <Typography className="mb-16" component="p">
-                            <code className="language-cmd">FusePageCarded</code> is the carded page layout component of the Fuse React.
+                            <code className="language-bash">FusePageCarded</code> is the carded page layout component of the Fuse React.
                         </Typography>
                         <Typography className="mb-16" component="p">
                             The component has layout areas to easily enter the contents of the app.

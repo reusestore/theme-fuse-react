@@ -79,7 +79,7 @@ class FusePageSimpleDoc extends Component {
                     <div className="p-24 max-w-2xl mx-auto">
 
                         <Typography className="mb-16" component="p">
-                            <code className="language-cmd">FusePageSimple</code> is the simple page layout component of the Fuse React.
+                            <code className="language-bash">FusePageSimple</code> is the simple page layout component of the Fuse React.
                         </Typography>
                         <Typography className="mb-16" component="p">
                             The component has layout areas to easily enter the contents of the app.

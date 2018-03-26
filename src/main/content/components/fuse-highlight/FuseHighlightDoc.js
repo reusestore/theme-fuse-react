@@ -27,7 +27,7 @@ class FuseHighlightDoc extends Component {
                     <div className="p-24 max-w-2xl mx-auto">
 
                         <Typography className="mb-16" component="p">
-                            <code className="language-cmd">FuseHighlight</code> is a custom built Fuse component allows to show syntax highlighted codes with
+                            <code className="language-bash">FuseHighlight</code> is a custom built Fuse component allows to show syntax highlighted codes with
                             <a href="http://prismjs.com/" target="_blank" rel="noopener noreferrer" className="ml-8 font-bold">PrismJS</a>.
                         </Typography>
 

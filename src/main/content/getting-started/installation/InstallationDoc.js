@@ -46,7 +46,7 @@ class InstallationDoc extends Component {
                             <li className="mb-16">
                                 Open your favorite console application (Terminal, Command Prompt etc.), navigate into your work folder, run the following command and wait for it to
                                 finish:
-                                <FuseHighlight component="pre" className="language-cmd my-16">
+                                <FuseHighlight component="pre" className="language-bash my-16">
                                     {`
                                       yarn
                                     `}

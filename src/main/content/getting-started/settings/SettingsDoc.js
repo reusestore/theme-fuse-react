@@ -29,7 +29,7 @@ class SettingsDoc extends Component {
                         <Typography className="text-32 mb-8" component="h2">Default Settings</Typography>
 
                         <Typography className="mb-16" component="p">
-                            You can set default settings of your app at <code className="language-cmd">fuse-configs/FuseSettings.js</code>
+                            You can set default settings of your app at <code className="language-bash">fuse-configs/FuseSettings.js</code>
                         </Typography>
 
                         <FuseHighlight component="pre" className="language-js">

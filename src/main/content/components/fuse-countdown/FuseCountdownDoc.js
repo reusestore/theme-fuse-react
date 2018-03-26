@@ -28,7 +28,7 @@ class FuseCountdownDoc extends Component {
                     <div className="p-24 max-w-2xl mx-auto">
 
                         <Typography className="mb-16" component="p">
-                            <code className="language-cmd">FuseCountdown</code> is a custom built Fuse component allows you to create countdowns.
+                            <code className="language-bash">FuseCountdown</code> is a custom built Fuse component allows you to create countdowns.
                         </Typography>
 
                         <Typography className="text-32 mt-32 mb-8" component="h2">Usage</Typography>

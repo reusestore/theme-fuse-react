@@ -50,7 +50,7 @@ class WorkingWithFuseDoc extends Component {
                             change depending on your setup.
                         </Typography>
 
-                        <FuseHighlight component="pre" className="language-cmd my-16">
+                        <FuseHighlight component="pre" className="language-bash my-16">
                             {`
                               yarn start
                             `}
@@ -58,14 +58,14 @@ class WorkingWithFuseDoc extends Component {
 
                         <Typography className="text-32 mb-8" component="h2">Production</Typography>
 
-                        <FuseHighlight component="pre" className="language-cmd my-16">
+                        <FuseHighlight component="pre" className="language-bash my-16">
                             {`
                               yarn run build
                             `}
                         </FuseHighlight>
 
                         <Typography className="mb-16" component="p">
-                            compiles the application into <code className="language-cmd">/build</code> directory
+                            compiles the application into <code className="language-bash">/build</code> directory
                         </Typography>
                     </div>
                 }

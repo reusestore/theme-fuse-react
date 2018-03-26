@@ -27,7 +27,7 @@ const styles = theme => ({
         '& table.simple thead tr th': {
             borderColor: theme.palette.divider
         },
-        '& a'                       : {
+        '& a:not([role=button])'                       : {
             color         : theme.palette.secondary.main,
             textDecoration: 'none',
             '&:hover'     : {
