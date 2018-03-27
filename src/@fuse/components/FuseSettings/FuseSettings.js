@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Dialog, FormControl, FormControlLabel, FormLabel, Icon, MenuItem, Modal, Radio, RadioGroup, Select, Slide, Switch, withStyles} from 'material-ui';
+import {Button, Dialog, FormControl, FormControlLabel, FormLabel, Icon, MenuItem, Radio, RadioGroup, Select, Slide, Switch, withStyles} from 'material-ui';
 import * as Actions from '../../../store/actions/fuse/index';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';

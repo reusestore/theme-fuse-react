@@ -20,11 +20,13 @@ export const defaults = {
 
 const themesObj = Object.keys(fuseThemes).length !== 0 ? fuseThemes : defaults;
 
-export const themes = Object.assign({}, ...Object.entries(themesObj).map(([key, value]) => (
+export let themes = Object.assign({}, ...Object.entries(themesObj).map(([key, value]) => (
     {
         [key]: createMuiTheme(_.merge({}, value, mustHaveOptions))
     }
 )));
+
+export let FuseSelectedTheme;
 
 class FuseTheme extends Component {
     state = {
@@ -37,7 +39,19 @@ class FuseTheme extends Component {
             return;
         }
         this.setState({theme: themes[val]});
+        FuseSelectedTheme = themes[val];
+        this.updateLightDarkThemes(val);
     };
+
+    updateLightDarkThemes(val)
+    {
+        const theme = themesObj[val];
+        themes = {
+            ...themes,
+            darkTheme : createMuiTheme(_.merge({}, theme, {palette: {type: 'dark'}, ...mustHaveOptions})),
+            lightTheme: createMuiTheme(_.merge({}, theme, {palette: {type: 'light'}, ...mustHaveOptions}))
+        }
+    }
 
     componentWillMount()
     {

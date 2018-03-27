@@ -165,7 +165,7 @@ function getHtmlCode(markdownSource)
         }
         return content;
     });
-    const response = marked(contentsArr.join('')).replace(new RegExp('"{', 'g'), '{').replace(new RegExp('}"', 'g'), '}').replace(new RegExp('p>', 'g'), 'div>').replace(new RegExp('class=', 'g'), "className=");
+    const response = marked(contentsArr.join('')).replace(new RegExp('"{', 'g'), '{').replace(new RegExp('}"', 'g'), '}').replace(new RegExp('p>', 'g'), 'div>').replace(new RegExp('className=', 'g'), "className=");
     return response;
 }
 

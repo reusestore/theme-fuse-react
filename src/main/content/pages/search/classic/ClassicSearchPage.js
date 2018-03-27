@@ -3,7 +3,7 @@ import {withStyles} from 'material-ui/styles/index';
 import classNames from 'classnames';
 import {FusePageSimple} from '@fuse';
 import axios from 'axios/index';
-import {Button, colors, Icon, IconButton, Input, Paper, Typography} from 'material-ui';
+import {Button, colors, Icon, IconButton, Input, MuiThemeProvider, Paper, Typography} from 'material-ui';
 
 const styles = theme => ({
     layoutRoot: {},
@@ -40,17 +40,19 @@ class ClassicSearchPage extends Component {
                 }}
                 header={
                     <div className="flex flex-1 items-center p-24 max-w-md">
-                        <Paper className={"flex items-center h-44 w-full"} elevation={1} square>
-                            <Input
-                                placeholder="Search..."
-                                className="pl-16"
-                                disableUnderline
-                                fullWidth
-                                inputProps={{
-                                    'aria-label': 'Search'
-                                }}/>
-                            <Icon color="action" className="mr-16">search</Icon>
-                        </Paper>
+                        <MuiThemeProvider theme={this.props.theme}>
+                            <Paper className={"flex items-center h-44 w-full"} elevation={1} square>
+                                <Input
+                                    placeholder="Search..."
+                                    className="pl-16"
+                                    disableUnderline
+                                    fullWidth
+                                    inputProps={{
+                                        'aria-label': 'Search'
+                                    }}/>
+                                <Icon color="action" className="mr-16">search</Icon>
+                            </Paper>
+                        </MuiThemeProvider>
                     </div>
                 }
                 content={

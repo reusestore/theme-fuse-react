@@ -311,7 +311,16 @@ module.exports = {
         'semibold' : 600,
         'bold'     : 700,
         'extrabold': 800,
-        'black'    : 900
+        'black'    : 900,
+        '100'      : 100,
+        '200'      : 200,
+        '300'      : 300,
+        '400'      : 400,
+        '500'      : 500,
+        '600'      : 600,
+        '700'      : 700,
+        '800'      : 800,
+        '900'      : 900
     },
 
 
@@ -440,7 +449,7 @@ module.exports = {
     | utility.
     |
     | If your scale includes a `0` value to reset already rounded corners, it's
-    | a good idea to put it first so other values are able to override it.
+    | a good idea to put it first so other values are able to override it.T
     |
     | Class name: .rounded{-side?}{-size?}
     |

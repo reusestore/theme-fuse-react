@@ -9,5 +9,6 @@ import './search-db'
 import './faq-db'
 import './knowledge-base-db'
 import './icons-db'
+import './analytics-dashboard-db'
 
 

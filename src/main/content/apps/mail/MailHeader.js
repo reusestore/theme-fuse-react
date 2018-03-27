@@ -4,7 +4,7 @@ import {Hidden, Icon, IconButton, Input, MuiThemeProvider, Paper} from 'material
 import * as Actions from './store/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {FuseThemes} from '@fuse';
+import {FuseSelectedTheme} from '@fuse';
 
 const styles = theme => ({
     root         : {
@@ -27,9 +27,9 @@ class MailHeader extends Component {
 
     render()
     {
-        const {classes, setSearchText, searchText, pageLayout, selectedTheme} = this.props;
+        const {classes, setSearchText, searchText, pageLayout} = this.props;
         return (
-            <MuiThemeProvider theme={FuseThemes[selectedTheme]}>
+            <MuiThemeProvider theme={FuseSelectedTheme}>
                 <div className={classes.root}>
                     <Paper className={classes.searchWrapper} elevation={7} square>
                         <Hidden lgUp>
@@ -66,11 +66,10 @@ function mapDispatchToProps(dispatch)
     }, dispatch);
 }
 
-function mapStateToProps({mailApp, fuse})
+function mapStateToProps({mailApp})
 {
     return {
-        selectedTheme: fuse.settings.theme,
-        searchText   : mailApp.mails.searchText
+        searchText: mailApp.mails.searchText
     }
 }
 

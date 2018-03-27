@@ -37,7 +37,7 @@ class FuseHighlightDoc extends Component {
                             {
                                 `
                                  <FuseHighlight component="pre" className="language-html">
-                                   <div class="title">
+                                   <div className="title">
                                         <span>Example Title</span>
                                     </div>
                                  </FuseHighlight>
@@ -50,7 +50,7 @@ class FuseHighlightDoc extends Component {
                         <FuseHighlight component="pre" className="language-html">
                             {
                                 `
-                            <div class="title">
+                            <div className="title">
                                 <span>Example Title</span>
                             </div>
                             `

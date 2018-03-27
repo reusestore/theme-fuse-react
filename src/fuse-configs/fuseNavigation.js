@@ -14,10 +14,10 @@ export const fuseNavigation = [
                 'icon'     : 'dashboard',
                 'children' : [
                     {
-                        'id'   : 'project',
-                        'title': 'Project',
+                        'id'   : 'analytics-dashboard',
+                        'title': 'Analytics',
                         'type' : 'item',
-                        'url'  : '/apps/dashboards/project'
+                        'url'  : '/apps/dashboards/analytics'
                     }
                 ]
             },
@@ -296,7 +296,7 @@ export const fuseNavigation = [
                         'title'   : 'Carded',
                         'type'    : 'collapse',
                         'badge'   : {
-                            'title': 10,
+                            'title': 12,
                             'bg'   : '#525e8a',
                             'fg'   : '#FFFFFF'
                         },

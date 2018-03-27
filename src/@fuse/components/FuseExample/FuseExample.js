@@ -17,7 +17,7 @@ class FuseExample extends PureComponent {
 
     render()
     {
-        const {classes, className, component: Component, raw} = this.props;
+        const {className, component: Component, raw} = this.props;
         const {value} = this.state;
         return (
             <Card className={className}>

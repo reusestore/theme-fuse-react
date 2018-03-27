@@ -26,7 +26,7 @@ class HelperClassesUI extends Component {
                 content={
                     <div className="p-24 max-w-2xl mx-auto">
 
-                        <Typography className="text-44 mt-32 mb-8" component="h1">Styling in Material-UI</Typography>
+                        <Typography className="text-44 mb-8" component="h1">Styling in Material-UI</Typography>
 
                         <Typography className="mb-16" component="p">
                             Fuse React developed based on Material-UI as ui library.

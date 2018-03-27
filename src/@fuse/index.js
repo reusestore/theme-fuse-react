@@ -7,6 +7,7 @@ export {default as FuseDefaultSettings} from './FuseDefaultSettings';
 export {default as FuseScrollbars} from './components/FuseScrollbars/FuseScrollbars';
 export {default as FuseTheme} from './components/FuseTheme/FuseTheme';
 export {themes as FuseThemes} from './components/FuseTheme/FuseTheme';
+export {FuseSelectedTheme} from './components/FuseTheme/FuseTheme';
 export {default as FuseLayout} from './components/FuseLayout/FuseLayout';
 export {default as FuseSettings} from './components/FuseSettings/FuseSettings';
 export {default as FuseCountdown} from './components/FuseCountdown/FuseCountdown';
