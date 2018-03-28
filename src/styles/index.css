@@ -49,6 +49,10 @@ h6, .h6 {
     z-index: 99;
 }
 
+a[role=button] {
+    text-decoration: none;
+}
+
 @import 'print.css';
 
 @import 'tables.css';

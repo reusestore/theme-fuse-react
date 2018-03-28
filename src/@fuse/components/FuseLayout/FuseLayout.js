@@ -27,17 +27,17 @@ const styles = theme => ({
         '& table.simple thead tr th': {
             borderColor: theme.palette.divider
         },
-        '& a:not([role=button])'                       : {
+        '& a:not([role=button])'    : {
             color         : theme.palette.secondary.main,
             textDecoration: 'none',
             '&:hover'     : {
                 textDecoration: 'underline'
             }
         },
-        '& [class^="border-"]'                       : {
+        '& [class^="border-"]'      : {
             borderColor: theme.palette.divider
         },
-        '& [class*="border-"]'                       : {
+        '& [class*="border-"]'      : {
             borderColor: theme.palette.divider
         }
     },
@@ -321,7 +321,7 @@ class FuseLayout extends React.Component {
 
         const footerTemplate = (
             <AppBar id="fuse-footer" className={classNames(classes.footerWrapper)} color="default">
-                <Toolbar>
+                <Toolbar className="p-0">
                     <div className={classNames(classes.footer)}>
                         {footer}
                     </div>
