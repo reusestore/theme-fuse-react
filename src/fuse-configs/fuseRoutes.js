@@ -19,6 +19,6 @@ export const routes = [
     ...FuseUtils.generateRoutesFromConfigs(routeConfigs),
     {
         path     : '/',
-        component: () => <Redirect to="/pages/errors/error-404"/>
+        component: () => <Redirect to="/apps/dashboards/analytics"/>
     }
 ];

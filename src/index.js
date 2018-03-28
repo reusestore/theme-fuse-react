@@ -21,6 +21,7 @@ import MainNavbarContent from './main/MainNavbarContent';
 import MainNavbarHeader from './main/MainNavbarHeader';
 import MainFooter from './main/MainFooter';
 import jssExtend from 'jss-extend'
+import QuickPanel from 'main/QuickPanel';
 
 const composeEnhancers =
     typeof window === 'object' &&
@@ -63,6 +64,7 @@ ReactDOM.render(
                         }
                     />
                     <FuseSettings/>
+                    <QuickPanel/>
                 </FuseTheme>
             </BrowserRouter>
         </Provider>

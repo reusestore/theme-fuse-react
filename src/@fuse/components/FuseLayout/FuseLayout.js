@@ -304,7 +304,7 @@ class FuseLayout extends React.Component {
 
         const toolbarTemplate = (
             <AppBar id="fuse-toolbar" className={classNames(classes.toolbarWrapper)} color="default">
-                <Toolbar>
+                <Toolbar className="p-0">
                     <Hidden lgUp>
                         <IconButton
                             aria-label="open drawer"
