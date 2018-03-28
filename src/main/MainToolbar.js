@@ -5,6 +5,7 @@ import {Avatar, Button, Icon, IconButton, ListItemIcon, ListItemText, Menu, Menu
 import {connect} from 'react-redux';
 import * as Actions from 'store/actions';
 import {bindActionCreators} from 'redux';
+import {FuseShortcuts} from '@fuse';
 
 const styles = theme => ({
     root     : {
@@ -36,10 +37,15 @@ class MainToolbar extends Component {
     {
         const {classes, toggleQuickPanel} = this.props;
         const {userMenu} = this.state;
-        return (
-            <div className={classNames(classes.root, "flex flex-row pl-24")}>
 
-                <div className="flex flex-1">Favorites</div>
+        return (
+            <div className={classNames(classes.root, "flex flex-row")}>
+
+                <div className={classNames(classes.seperator, "flex lg:hidden")}/>
+
+                <div className="flex flex-1">
+                    <FuseShortcuts/>
+                </div>
 
                 <div className="flex">
                     <Button
@@ -48,9 +54,9 @@ class MainToolbar extends Component {
                         aria-haspopup="true"
                         onClick={this.userMenuClick}
                     >
-                        <Avatar className="mr-12" alt="John Doe" src="assets/images/avatars/profile.jpg"/>
-                        <Typography component="span" className="normal-case font-500">John Doe</Typography>
-                        <Icon className="text-16 ml-12" variant="action">keyboard_arrow_down</Icon>
+                        <Avatar className="" alt="John Doe" src="assets/images/avatars/profile.jpg"/>
+                        <Typography component="span" className="normal-case font-500 ml-12 hidden md:flex ">John Doe</Typography>
+                        <Icon className="text-16 ml-12 hidden sm:flex" variant="action">keyboard_arrow_down</Icon>
                     </Button>
                     <Menu
                         id="user-menu"

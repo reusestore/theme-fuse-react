@@ -144,6 +144,63 @@ class FuseUtils {
         });
         return allRoutes;
     }
+
+    static findById(o, id)
+    {
+        //Early return
+        if ( o.id === id )
+        {
+            return o;
+        }
+        let result, p;
+        for ( p in o )
+        {
+            if ( o.hasOwnProperty(p) && typeof o[p] === 'object' )
+            {
+                result = this.findById(o[p], id);
+                if ( result )
+                {
+                    return result;
+                }
+            }
+        }
+        return result;
+    }
+
+    static getFlatNavigation(navigationItems, flatNavigation)
+    {
+        flatNavigation = flatNavigation ? flatNavigation : [];
+        for ( const navItem of navigationItems )
+        {
+            if ( navItem.type === 'subheader' )
+            {
+                continue;
+            }
+
+            if ( navItem.type === 'item' )
+            {
+                flatNavigation.push({
+                    id   : navItem.id,
+                    title: navItem.title,
+                    type : navItem.type,
+                    icon : navItem.icon || false,
+                    url  : navItem.url
+                });
+
+                continue;
+            }
+
+            if ( navItem.type === 'collapse' || navItem.type === 'group' )
+            {
+                if ( navItem.children )
+                {
+                    this.getFlatNavigation(navItem.children, flatNavigation);
+                }
+            }
+        }
+
+        return flatNavigation;
+    }
 }
 
 export default FuseUtils;

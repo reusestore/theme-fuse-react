@@ -2,17 +2,17 @@ import {MaterialUINavigation} from 'main/content/components/material-ui/Material
 
 export const fuseNavigation = [
     {
-        'id'       : 'applications',
-        'title'    : 'Applications',
-        'type'     : 'group',
-        'icon'     : 'apps',
-        'children' : [
+        'id'      : 'applications',
+        'title'   : 'Applications',
+        'type'    : 'group',
+        'icon'    : 'apps',
+        'children': [
             {
-                'id'       : 'dashboards',
-                'title'    : 'Dashboards',
-                'type'     : 'collapse',
-                'icon'     : 'dashboard',
-                'children' : [
+                'id'      : 'dashboards',
+                'title'   : 'Dashboards',
+                'type'    : 'collapse',
+                'icon'    : 'dashboard',
+                'children': [
                     {
                         'id'   : 'analytics-dashboard',
                         'title': 'Analytics',
@@ -22,37 +22,37 @@ export const fuseNavigation = [
                 ]
             },
             {
-                'id'       : 'calendar',
-                'title'    : 'Calendar',
-                'type'     : 'item',
-                'icon'     : 'today',
-                'url'      : '/apps/calendar'
+                'id'   : 'calendar',
+                'title': 'Calendar',
+                'type' : 'item',
+                'icon' : 'today',
+                'url'  : '/apps/calendar'
             },
             {
-                'id'       : 'mail',
-                'title'    : 'Mail',
-                'type'     : 'item',
-                'icon'     : 'email',
-                'url'      : '/apps/mail',
-                'badge'    : {
-                    'title'    : 25,
-                    'bg'       : '#F44336',
-                    'fg'       : '#FFFFFF'
+                'id'   : 'mail',
+                'title': 'Mail',
+                'type' : 'item',
+                'icon' : 'email',
+                'url'  : '/apps/mail',
+                'badge': {
+                    'title': 25,
+                    'bg'   : '#F44336',
+                    'fg'   : '#FFFFFF'
                 }
             },
             {
-                'id'       : 'file-manager',
-                'title'    : 'File Manager',
-                'type'     : 'item',
-                'icon'     : 'folder',
-                'url'      : '/apps/file-manager'
+                'id'   : 'file-manager',
+                'title': 'File Manager',
+                'type' : 'item',
+                'icon' : 'folder',
+                'url'  : '/apps/file-manager'
             },
             {
-                'id'       : 'contacts',
-                'title'    : 'Contacts',
-                'type'     : 'item',
-                'icon'     : 'account_box',
-                'url'      : '/apps/contacts'
+                'id'   : 'contacts',
+                'title': 'Contacts',
+                'type' : 'item',
+                'icon' : 'account_box',
+                'url'  : '/apps/contacts'
             }
         ]
     },
@@ -302,73 +302,73 @@ export const fuseNavigation = [
                         },
                         'children': [
                             {
-                                'id'   : 'full-width',
+                                'id'   : 'carded-full-width',
                                 'title': 'Full Width',
                                 'type' : 'item',
                                 'url'  : '/ui/page-layouts/carded/full-width'
                             },
                             {
-                                'id'   : 'full-width-tabbed',
+                                'id'   : 'carded-full-width-tabbed',
                                 'title': 'Full Width Tabbed',
                                 'type' : 'item',
                                 'url'  : '/ui/page-layouts/carded/full-width-tabbed'
                             },
                             {
-                                'id'   : 'full-width-2',
+                                'id'   : 'carded-full-width-2',
                                 'title': 'Full Width 2',
                                 'type' : 'item',
                                 'url'  : '/ui/page-layouts/carded/full-width-2'
                             },
                             {
-                                'id'   : 'full-width-2-tabbed',
+                                'id'   : 'carded-full-width-2-tabbed',
                                 'title': 'Full Width 2 Tabbed',
                                 'type' : 'item',
                                 'url'  : '/ui/page-layouts/carded/full-width-2-tabbed'
                             },
                             {
-                                'id'   : 'left-sidebar',
+                                'id'   : 'carded-left-sidebar',
                                 'title': 'Left Sidebar',
                                 'type' : 'item',
                                 'url'  : '/ui/page-layouts/carded/left-sidebar'
                             },
                             {
-                                'id'   : 'left-sidebar-tabbed',
+                                'id'   : 'carded-left-sidebar-tabbed',
                                 'title': 'Left Sidebar Tabbed',
                                 'type' : 'item',
                                 'url'  : '/ui/page-layouts/carded/left-sidebar-tabbed'
                             },
                             {
-                                'id'   : 'left-sidebar-2',
+                                'id'   : 'carded-left-sidebar-2',
                                 'title': 'Left Sidebar 2',
                                 'type' : 'item',
                                 'url'  : '/ui/page-layouts/carded/left-sidebar-2'
                             },
                             {
-                                'id'   : 'left-sidebar-2-tabbed',
+                                'id'   : 'carded-left-sidebar-2-tabbed',
                                 'title': 'Left Sidebar 2 Tabbed',
                                 'type' : 'item',
                                 'url'  : '/ui/page-layouts/carded/left-sidebar-2-tabbed'
                             },
                             {
-                                'id'   : 'right-sidebar',
+                                'id'   : 'carded-right-sidebar',
                                 'title': 'Right Sidebar',
                                 'type' : 'item',
                                 'url'  : '/ui/page-layouts/carded/right-sidebar'
                             },
                             {
-                                'id'   : 'right-sidebar-tabbed',
+                                'id'   : 'carded-right-sidebar-tabbed',
                                 'title': 'Right Sidebar Tabbed',
                                 'type' : 'item',
                                 'url'  : '/ui/page-layouts/carded/right-sidebar-tabbed'
                             },
                             {
-                                'id'   : 'right-sidebar-2',
+                                'id'   : 'carded-right-sidebar-2',
                                 'title': 'Right Sidebar 2',
                                 'type' : 'item',
                                 'url'  : '/ui/page-layouts/carded/right-sidebar-2'
                             },
                             {
-                                'id'   : 'right-sidebar-2-tabbed',
+                                'id'   : 'carded-right-sidebar-2-tabbed',
                                 'title': 'Right Sidebar 2 Tabbed',
                                 'type' : 'item',
                                 'url'  : '/ui/page-layouts/carded/right-sidebar-2-tabbed'
@@ -386,49 +386,49 @@ export const fuseNavigation = [
                         },
                         'children': [
                             {
-                                'id'   : 'full-width',
+                                'id'   : 'simple-full-width',
                                 'title': 'Full Width',
                                 'type' : 'item',
                                 'url'  : '/ui/page-layouts/simple/full-width'
                             },
                             {
-                                'id'   : 'left-sidebar',
+                                'id'   : 'simple-left-sidebar',
                                 'title': 'Left Sidebar',
                                 'type' : 'item',
                                 'url'  : '/ui/page-layouts/simple/left-sidebar'
                             },
                             {
-                                'id'   : 'left-sidebar-2',
+                                'id'   : 'simple-left-sidebar-2',
                                 'title': 'Left Sidebar 2',
                                 'type' : 'item',
                                 'url'  : '/ui/page-layouts/simple/left-sidebar-2'
                             },
                             {
-                                'id'   : 'left-sidebar-3',
+                                'id'   : 'simple-left-sidebar-3',
                                 'title': 'Left Sidebar 3',
                                 'type' : 'item',
                                 'url'  : '/ui/page-layouts/simple/left-sidebar-3'
                             },
                             {
-                                'id'   : 'right-sidebar',
+                                'id'   : 'simple-right-sidebar',
                                 'title': 'Right Sidebar',
                                 'type' : 'item',
                                 'url'  : '/ui/page-layouts/simple/right-sidebar'
                             },
                             {
-                                'id'   : 'right-sidebar-2',
+                                'id'   : 'simple-right-sidebar-2',
                                 'title': 'Right Sidebar 2',
                                 'type' : 'item',
                                 'url'  : '/ui/page-layouts/simple/right-sidebar-2'
                             },
                             {
-                                'id'   : 'right-sidebar-3',
+                                'id'   : 'simple-right-sidebar-3',
                                 'title': 'Right Sidebar 3',
                                 'type' : 'item',
                                 'url'  : '/ui/page-layouts/simple/right-sidebar-3'
                             },
                             {
-                                'id'   : 'tabbed',
+                                'id'   : 'simple-tabbed',
                                 'title': 'Tabbed',
                                 'type' : 'item',
                                 'url'  : '/ui/page-layouts/simple/tabbed'

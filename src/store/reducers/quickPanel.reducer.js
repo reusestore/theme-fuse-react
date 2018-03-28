@@ -1,7 +1,7 @@
 import * as Actions from '../actions/quickPanel.actions';
 
 const initialState = {
-    state: true,
+    state: false,
     data : null
 };
 

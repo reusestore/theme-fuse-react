@@ -4,7 +4,7 @@ import {withStyles} from 'material-ui/styles/index';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as Actions from 'store/actions'
-import classNames from 'classnames';
+
 import moment from 'moment';
 
 const styles = theme => ({
