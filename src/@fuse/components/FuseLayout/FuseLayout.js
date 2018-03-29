@@ -22,6 +22,11 @@ const styles = theme => ({
         overflow                    : 'hidden',
         backgroundColor             : theme.palette.background.default,
         color                       : theme.palette.text.primary,
+        '&.boxed'                   : {
+            maxWidth : 1280,
+            margin   : '0 auto',
+            boxShadow: theme.shadows[3]
+        },
         '& table.simple tbody tr td': {
             borderColor: theme.palette.divider
         },
@@ -337,7 +342,7 @@ class FuseLayout extends React.Component {
 
         return (
 
-            <div id="fuse-layout" className={classes.root}>
+            <div id="fuse-layout" className={classNames(classes.root, settings.layout.mode)}>
 
                 {settings.layout.toolbar === 'above' && (
                     toolbarTemplate
