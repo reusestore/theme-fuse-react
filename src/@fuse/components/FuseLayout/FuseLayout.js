@@ -243,7 +243,6 @@ class FuseLayout extends React.Component {
     render()
     {
         const {classes, toolbar, footer, navbarHeader, navbarContent, settings} = this.props;
-
 //        console.warn('FuseLayout:: rendered', this.state.navigationFoldedOpen);
 
         const navbarHeaderTemplate = (

@@ -67,7 +67,7 @@ class FuseSettings extends Component {
     };
 
     handleChange = (event) => {
-        this.props.setSettings(_.set({...this.props.settings}, event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value));
+        this.props.setSettings(_.set(_.merge({}, this.props.settings), event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value));
     };
 
     render()
