@@ -4,6 +4,7 @@ import * as Actions from '../../../store/actions/fuse/index';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import _ from 'lodash';
+import {FuseThemes} from '@fuse/index';
 
 const styles = theme => ({
     root                 : {
@@ -72,6 +73,35 @@ class FuseSettings extends Component {
     render()
     {
         const {classes, settings} = this.props;
+
+        const ThemeSelect = ({value, name}) => (
+            <Select
+                value={value}
+                onChange={this.handleChange}
+                name={name}
+            >
+                {Object.entries(FuseThemes).map(([key, val]) => (
+                    <MenuItem key={key} value={key}
+                              className="m-8 mt-0 rounded-lg"
+                              style={{
+                                  backgroundColor: val.palette.background.default,
+                                  color          : val.palette.text.primary,
+                                  border         : '1px solid ' + val.palette.divider
+                              }}>
+                        {_.startCase(key)}
+                        <div className="flex w-full h-8 block absolute pin-b pin-l pin-r"
+                             style={{
+                                 borderTop: '1px solid ' + val.palette.divider
+                             }}>
+                            <div className="w-1/4 h-8" style={{backgroundColor: val.palette.primary.main}}/>
+                            <div className="w-1/4 h-8" style={{backgroundColor: val.palette.secondary.main}}/>
+                            <div className="w-1/4 h-8" style={{backgroundColor: val.palette.error.main}}/>
+                            <div className="w-1/4 h-8" style={{backgroundColor: val.palette.background.paper}}/>
+                        </div>
+                    </MenuItem>
+                ))}
+            </Select>
+        );
         return (
             <div id="fuse-settings" className={classes.root}>
                 <Button className={classes.button} variant="raised" color="secondary" onClick={this.handleOpen}>
@@ -159,14 +189,19 @@ class FuseSettings extends Component {
                     </FormControl>
                     <FormControl component="fieldset" className={classes.formControl}>
                         <FormLabel component="legend">Theme</FormLabel>
-                        <Select
-                            value={settings.theme}
-                            onChange={this.handleChange}
-                            name="theme"
-                        >
-                            <MenuItem value="default">Default</MenuItem>
-                            <MenuItem value="dark">Dark</MenuItem>
-                        </Select>
+                        <ThemeSelect value={settings.theme} name="theme"/>
+                    </FormControl>
+                    <FormControl component="fieldset" className={classes.formControl}>
+                        <FormLabel component="legend">Navbar Theme</FormLabel>
+                        <ThemeSelect value={settings.navbarTheme} name="navbarTheme"/>
+                    </FormControl>
+                    <FormControl component="fieldset" className={classes.formControl}>
+                        <FormLabel component="legend">Toolbar Theme</FormLabel>
+                        <ThemeSelect value={settings.toolbarTheme} name="toolbarTheme"/>
+                    </FormControl>
+                    <FormControl component="fieldset" className={classes.formControl}>
+                        <FormLabel component="legend">Footer Theme</FormLabel>
+                        <ThemeSelect value={settings.footerTheme} name="footerTheme"/>
                     </FormControl>
                     <FormControl className={classes.formControl}>
                         <FormLabel component="legend">Custom Scrollbars</FormLabel>

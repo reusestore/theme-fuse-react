@@ -11,7 +11,10 @@ const defaultSettings = {
         mode                : 'fullwidth' // 'boxed', 'fullwidth'
     },
     customScrollbars: true,
-    theme           : 'default'
+    theme           : 'default',
+    navbarTheme     : 'default',
+    toolbarTheme    : 'default',
+    footerTheme     : 'default'
 };
 
 const FuseDefaultSettings = _.merge({}, defaultSettings, FuseSettings);

@@ -13,8 +13,11 @@ const styles = theme => ({
 class Widget3 extends Component {
     render()
     {
-        const {data, classes} = this.props;
-
+        const {data, classes, theme} = this.props;
+        const dataWithColors = data.datasets.map(obj => ({
+            ...obj,
+            borderColor    : theme.palette.secondary.main
+        }));
         return (
             <Card className={classNames(classes.root, "w-full")}>
 
@@ -44,7 +47,7 @@ class Widget3 extends Component {
                 <div className="h-96 w-100-p">
                     <Line data={{
                         labels  : data.labels,
-                        datasets: data.datasets
+                        datasets: dataWithColors
                     }} options={data.options}/>
                 </div>
             </Card>

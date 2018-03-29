@@ -172,7 +172,7 @@ class FusePageCarded extends React.Component {
         const Sidebar = (header, content, variant) => (
             <React.Fragment>
                 {header && (
-                    <MuiThemeProvider theme={FuseThemes['darkTheme']}>
+                    <MuiThemeProvider theme={FuseThemes['currentThemeDark']}>
                         <div className={classNames(classes.sidebarHeader, variant)}>
                             {header}
                         </div>
@@ -242,7 +242,7 @@ class FusePageCarded extends React.Component {
                     className={classNames(classes.contentWrapper, isLeftSidebar && (leftSidebarVariant === undefined || leftSidebarVariant === 'permanent') && 'lg:pl-0', isRightSidebar && (rightSidebarVariant === undefined || rightSidebarVariant === 'permanent') && 'lg:pr-0')}>
 
                     <div className={classes.header}>
-                        <MuiThemeProvider theme={FuseThemes['darkTheme']}>
+                        <MuiThemeProvider theme={FuseThemes['currentThemeDark']}>
                             {header}
                         </MuiThemeProvider>
                     </div>

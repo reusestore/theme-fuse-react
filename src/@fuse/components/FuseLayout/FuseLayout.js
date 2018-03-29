@@ -1,7 +1,7 @@
 import React from 'react';
 import {withStyles} from 'material-ui/styles';
 import {withRouter} from 'react-router-dom';
-import {AppBar, Hidden, Icon, IconButton, Paper, Toolbar, Drawer} from 'material-ui';
+import {AppBar, Hidden, Icon, IconButton, Toolbar, Drawer, MuiThemeProvider} from 'material-ui';
 import {matchRoutes, renderRoutes} from 'react-router-config'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
@@ -9,6 +9,7 @@ import * as Actions from '../../../store/actions/fuse/index';
 import classNames from 'classnames';
 import _ from 'lodash';
 import {FuseScrollbars, FuseDefaultSettings} from '@fuse';
+import {FuseThemes} from '@fuse/index';
 
 const navbarWidth = 256;
 
@@ -62,19 +63,18 @@ const styles = theme => ({
         width        : '100%'
     },
     navbarWrapper        : {
-        zIndex: 4
+        boxShadow: theme.shadows[3],
+        zIndex   : 4
     },
     navbarPaperWrapper   : {},
     navbar               : {
-        display        : 'flex',
-        overflow       : 'hidden',
-        flexDirection  : 'column',
-        width          : navbarWidth,
-        minWidth       : navbarWidth,
-        height         : '100%',
-        backgroundColor: theme.palette.background.default,
-        color          : theme.palette.text.primary,
-        transition     : theme.transitions.create(['width', 'min-width'], {
+        display      : 'flex',
+        overflow     : 'hidden',
+        flexDirection: 'column',
+        width        : navbarWidth,
+        minWidth     : navbarWidth,
+        height       : '100%',
+        transition   : theme.transitions.create(['width', 'min-width'], {
             easing  : theme.transitions.easing.sharp,
             duration: theme.transitions.duration.shorter
         })
@@ -239,7 +239,7 @@ class FuseLayout extends React.Component {
     {
         const {classes, toolbar, footer, navbarHeader, navbarContent, settings} = this.props;
 
-        console.warn('FuseLayout:: rendered', this.state.navigationFoldedOpen);
+//        console.warn('FuseLayout:: rendered', this.state.navigationFoldedOpen);
 
         const navbarHeaderTemplate = (
             <div className={classes.navbarHeaderWrapper}>
@@ -266,67 +266,73 @@ class FuseLayout extends React.Component {
         );
 
         const navBarTemplate = (
+            <MuiThemeProvider theme={FuseThemes[settings.navbarTheme]}>
+                <div id="fuse-navbar" className={classes.navbarWrapper}>
+                    <Hidden mdDown>
+                        <div className={classNames(
+                            classes.navbar,
+                            classes['navbar' + _.upperFirst(settings.layout.navigation)],
+                            settings.layout.navigationFolded && classes.navigationFolded,
+                            settings.layout.navigationFolded && settings.layout.navigationFoldedOpen && classes.navigationFoldedOpen,
+                            settings.layout.navigationFolded && !settings.layout.navigationFoldedOpen && classes.navigationFoldedClose)}
+                             onMouseEnter={this.handleFoldedOpen}
+                             onMouseLeave={this.handleFoldedClose}
+                             style={{backgroundColor: FuseThemes[settings.navbarTheme].palette.background.default}}
+                        >
+                            {navbarHeaderTemplate}
+                            {navbarContentTemplate}
+                        </div>
+                    </Hidden>
 
-            <div id="fuse-navbar" className={classes.navbarWrapper}>
-
-                <Hidden mdDown>
-                    <Paper className={classNames(
-                        classes.navbar,
-                        classes['navbar' + _.upperFirst(settings.layout.navigation)],
-                        settings.layout.navigationFolded && classes.navigationFolded,
-                        settings.layout.navigationFolded && settings.layout.navigationFoldedOpen && classes.navigationFoldedOpen,
-                        settings.layout.navigationFolded && !settings.layout.navigationFoldedOpen && classes.navigationFoldedClose)}
-                           onMouseEnter={this.handleFoldedOpen}
-                           onMouseLeave={this.handleFoldedClose}>
-                        {navbarHeaderTemplate}
-                        {navbarContentTemplate}
-                    </Paper>
-                </Hidden>
-
-                <Hidden lgUp>
-                    <Drawer
-                        variant="temporary"
-                        open={this.state.mobileNavbarOpen}
-                        classes={{
-                            paper: classes.navbar
-                        }}
-                        onClose={this.handleMobileNavbarClose}
-                        ModalProps={{
-                            keepMounted: true // Better open performance on mobile.
-                        }}
-                    >
-                        {navbarHeaderTemplate}
-                        {navbarContentTemplate}
-                    </Drawer>
-                </Hidden>
-            </div>
+                    <Hidden lgUp>
+                        <Drawer
+                            variant="temporary"
+                            open={this.state.mobileNavbarOpen}
+                            classes={{
+                                paper: classes.navbar
+                            }}
+                            onClose={this.handleMobileNavbarClose}
+                            ModalProps={{
+                                keepMounted: true // Better open performance on mobile.
+                            }}
+                        >
+                            {navbarHeaderTemplate}
+                            {navbarContentTemplate}
+                        </Drawer>
+                    </Hidden>
+                </div>
+            </MuiThemeProvider>
         );
 
         const toolbarTemplate = (
-            <AppBar id="fuse-toolbar" className={classNames(classes.toolbarWrapper)} color="default">
-                <Toolbar className="p-0">
-                    <Hidden lgUp>
-                        <IconButton
-                            aria-label="open drawer"
-                            onClick={this.handleMobileNavbarOpen}>
-                            <Icon>menu</Icon>
-                        </IconButton>
-                    </Hidden>
-                    <div className={classes.toolbar}>
-                        {toolbar}
-                    </div>
-                </Toolbar>
-            </AppBar>
+            <MuiThemeProvider theme={FuseThemes[settings.toolbarTheme]}>
+                <AppBar id="fuse-toolbar" className={classNames(classes.toolbarWrapper)} color="default">
+                    <Toolbar className="p-0">
+                        <Hidden lgUp>
+                            <IconButton
+                                aria-label="open drawer"
+                                onClick={this.handleMobileNavbarOpen}>
+                                <Icon>menu</Icon>
+                            </IconButton>
+                        </Hidden>
+                        <div className={classes.toolbar}>
+                            {toolbar}
+                        </div>
+                    </Toolbar>
+                </AppBar>
+            </MuiThemeProvider>
         );
 
         const footerTemplate = (
-            <AppBar id="fuse-footer" className={classNames(classes.footerWrapper)} color="default">
-                <Toolbar className="p-0">
-                    <div className={classNames(classes.footer)}>
-                        {footer}
-                    </div>
-                </Toolbar>
-            </AppBar>
+            <MuiThemeProvider theme={FuseThemes[settings.footerTheme]}>
+                <AppBar id="fuse-footer" className={classNames(classes.footerWrapper)} color="default">
+                    <Toolbar className="p-0">
+                        <div className={classNames(classes.footer)}>
+                            {footer}
+                        </div>
+                    </Toolbar>
+                </AppBar>
+            </MuiThemeProvider>
         );
 
         return (

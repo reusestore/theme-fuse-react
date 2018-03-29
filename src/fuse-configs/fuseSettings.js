@@ -8,7 +8,10 @@ const fuseSettings = {
         mode                : 'fullwidth' // 'boxed', 'fullwidth'
     },
     customScrollbars: true,
-    theme           : 'default'
+    theme           : 'default',
+    navbarTheme     : 'currentThemeDark',
+    toolbarTheme    : 'default',
+    footerTheme     : 'currentThemeDark'
 };
 
 export default fuseSettings;

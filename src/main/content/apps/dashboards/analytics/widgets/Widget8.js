@@ -24,9 +24,12 @@ class Widget8 extends Component {
 
     render()
     {
-        const {data, classes} = this.props;
+        const {data, classes, theme} = this.props;
         const {tabIndex} = this.state;
-
+        const dataWithColors = data.datasets[tabIndex].map(obj => ({
+            ...obj,
+            borderColor: theme.palette.secondary.main
+        }));
         return (
             <Card className={classNames(classes.root, "w-full")}>
                 <AppBar position="static">
@@ -70,7 +73,7 @@ class Widget8 extends Component {
                 </AppBar>
                 <Line data={{
                     labels  : data.labels,
-                    datasets: data.datasets[tabIndex]
+                    datasets: dataWithColors
                 }} options={data.options}/>
             </Card>
         );

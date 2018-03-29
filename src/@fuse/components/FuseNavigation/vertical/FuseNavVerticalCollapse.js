@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import FuseNavVerticalGroup from './FuseNavVerticalGroup';
 import FuseNavVerticalItem from './FuseNavVerticalItem';
-import {Collapse, Icon, ListItem, ListItemText} from 'material-ui';
+import {Collapse, Icon, IconButton, ListItem, ListItemText} from 'material-ui';
 import {withStyles} from 'material-ui/styles/index';
 import {withRouter} from 'react-router-dom';
 import _ from 'lodash';
@@ -94,13 +94,15 @@ class FuseNavVerticalCollapse extends Component {
                     {item.icon && (
                         <Icon color="action" className="text-16 flex-no-shrink">{item.icon}</Icon>
                     )}
-                    <ListItemText className="list-item-text" primary={item.title} disableTypography/>
+                    <ListItemText className="list-item-text" primary={item.title} classes={{primary: 'text-14'}}/>
                     {item.badge && (
                         <FuseNavBadge className="mr-4" badge={item.badge}/>
                     )}
-                    <Icon className="text-16 arrow-icon">
-                        {this.state.open ? 'expand_less' : 'expand_more'}
-                    </Icon>
+                    <IconButton disableRipple className="w-16 h-16">
+                        <Icon className="text-16 arrow-icon">
+                            {this.state.open ? 'expand_less' : 'expand_more'}
+                        </Icon>
+                    </IconButton>
                 </ListItem>
 
                 {item.children && (

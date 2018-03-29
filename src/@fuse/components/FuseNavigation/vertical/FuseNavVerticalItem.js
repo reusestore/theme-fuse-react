@@ -9,10 +9,13 @@ const styles = theme => ({
     root: {
         minHeight          : 48,
         '&.active'         : {
-            backgroundColor    : theme.palette.secondary.main,
-            color              : theme.palette.secondary.contrastText + '!important',
-            pointerEvents      : 'none',
-            '& .list-item-icon': {
+            backgroundColor            : theme.palette.secondary.main,
+            color                      : theme.palette.secondary.contrastText + '!important',
+            pointerEvents              : 'none',
+            '& .list-item-text-primary': {
+                color: 'inherit'
+            },
+            '& .list-item-icon'        : {
                 color: 'inherit'
             }
         },
@@ -37,7 +40,7 @@ const FuseNavVerticalItem = ({item, classes, nestedLevel}) => {
             {item.icon && (
                 <Icon className="list-item-icon text-16 flex-no-shrink" color="action">{item.icon}</Icon>
             )}
-            <ListItemText className="list-item-text" primary={item.title} disableTypography/>
+            <ListItemText className="list-item-text" primary={item.title} classes={{primary: 'text-14 list-item-text-primary'}}/>
             {item.badge && (
                 <FuseNavBadge badge={item.badge}/>
             )}

@@ -4,6 +4,9 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import {fuseThemes} from 'fuse-configs/fuseThemes';
 import _ from 'lodash';
+import {fuseDark} from '@fuse/fuse-colors';
+import lightBlue from 'material-ui/es/colors/lightBlue';
+import red from 'material-ui/es/colors/red';
 
 const mustHaveOptions = {
     typography: {
@@ -12,10 +15,36 @@ const mustHaveOptions = {
 };
 
 export const defaults = {
-    default: {},
-    dark   : {
-        palette: {type: 'dark'}
-    }
+    default    : {
+        palette: {
+            type     : 'light',
+            primary  : fuseDark,
+            secondary: {
+                light: lightBlue[400],
+                main : lightBlue[600],
+                dark : lightBlue[700]
+            },
+            error    : red
+        },
+        status : {
+            danger: 'orange'
+        }
+    },
+    defaultDark: {
+        palette: {
+            type     : 'dark',
+            primary  : fuseDark,
+            secondary: {
+                light: lightBlue[400],
+                main : lightBlue[600],
+                dark : lightBlue[700]
+            },
+            error    : red
+        },
+        status : {
+            danger: 'orange'
+        }
+    },
 };
 
 const themesObj = Object.keys(fuseThemes).length !== 0 ? fuseThemes : defaults;
@@ -48,8 +77,8 @@ class FuseTheme extends Component {
         const theme = themesObj[val];
         themes = {
             ...themes,
-            darkTheme : createMuiTheme(_.merge({}, theme, {palette: {type: 'dark'}, ...mustHaveOptions})),
-            lightTheme: createMuiTheme(_.merge({}, theme, {palette: {type: 'light'}, ...mustHaveOptions}))
+            currentThemeDark : createMuiTheme(_.merge({}, theme, {palette: {type: 'dark'}, ...mustHaveOptions})),
+            currentThemeLight: createMuiTheme(_.merge({}, theme, {palette: {type: 'light'}, ...mustHaveOptions}))
         }
     }
 
@@ -93,7 +122,7 @@ class FuseTheme extends Component {
 
     render()
     {
-        console.warn('FuseTheme:: rendered');
+        //console.warn('FuseTheme:: rendered');
         const {children} = this.props;
         const {theme} = this.state;
         const themeExt = {
@@ -103,8 +132,8 @@ class FuseTheme extends Component {
                 ...this.customMixins(theme)
             }
         };
-        console.info(theme);
-        console.info(themeExt);
+        //console.info(theme);
+        //console.info(themeExt);
         return (
             <MuiThemeProvider theme={themeExt}>
                 {children}

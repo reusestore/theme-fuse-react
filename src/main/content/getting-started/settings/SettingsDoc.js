@@ -44,7 +44,10 @@ class SettingsDoc extends Component {
                                     mode                : 'fullwidth' // 'boxed', 'fullwidth'
                                 },
                                 customScrollbars: true,
-                                theme           : 'default'
+                                theme           : 'default',
+                                navbarTheme     : 'default',
+                                toolbarTheme    : 'default',
+                                footerTheme     : 'default'
                             };
 
                             export default FuseSettings;

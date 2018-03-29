@@ -8,41 +8,23 @@ const analyticsDashboardAppDB = {
             datasets : {
                 '2015': [
                     {
-                        label                    : 'Sales',
-                        data                     : [1.9, 3, 3.4, 2.2, 2.9, 3.9, 2.5, 3.8, 4.1, 3.8, 3.2, 2.9],
-                        fill                     : 'start',
-                        borderColor              : '#42a5f5',
-                        backgroundColor          : '#42a5f5',
-                        pointBackgroundColor     : '#1e88e5',
-                        pointHoverBackgroundColor: '#1e88e5',
-                        pointBorderColor         : '#ffffff',
-                        pointHoverBorderColor    : '#ffffff'
+                        label: 'Sales',
+                        data : [1.9, 3, 3.4, 2.2, 2.9, 3.9, 2.5, 3.8, 4.1, 3.8, 3.2, 2.9],
+                        fill : 'start'
                     }
                 ],
                 '2016': [
                     {
-                        label                    : 'Sales',
-                        data                     : [2.2, 2.9, 3.9, 2.5, 3.8, 3.2, 2.9, 1.9, 3, 3.4, 4.1, 3.8],
-                        fill                     : 'start',
-                        borderColor              : '#42a5f5',
-                        backgroundColor          : '#42a5f5',
-                        pointBackgroundColor     : '#1e88e5',
-                        pointHoverBackgroundColor: '#1e88e5',
-                        pointBorderColor         : '#ffffff',
-                        pointHoverBorderColor    : '#ffffff'
+                        label: 'Sales',
+                        data : [2.2, 2.9, 3.9, 2.5, 3.8, 3.2, 2.9, 1.9, 3, 3.4, 4.1, 3.8],
+                        fill : 'start'
                     }
                 ],
                 '2017': [
                     {
-                        label                    : 'Sales',
-                        data                     : [3.9, 2.5, 3.8, 4.1, 1.9, 3, 3.8, 3.2, 2.9, 3.4, 2.2, 2.9],
-                        fill                     : 'start',
-                        borderColor              : '#42a5f5',
-                        backgroundColor          : '#42a5f5',
-                        pointBackgroundColor     : '#1e88e5',
-                        pointHoverBackgroundColor: '#1e88e5',
-                        pointBorderColor         : '#ffffff',
-                        pointHoverBorderColor    : '#ffffff'
+                        label: 'Sales',
+                        data : [3.9, 2.5, 3.8, 4.1, 1.9, 3, 3.8, 3.2, 2.9, 3.4, 2.2, 2.9],
+                        fill : 'start'
                     }
                 ]
             },
@@ -113,10 +95,8 @@ const analyticsDashboardAppDB = {
             chartType : 'bar',
             datasets  : [
                 {
-                    label          : 'Conversion',
-                    data           : [221, 428, 492, 471, 413, 344, 294],
-                    borderColor    : '#42a5f5',
-                    backgroundColor: '#42a5f5'
+                    label: 'Conversion',
+                    data : [221, 428, 492, 471, 413, 344, 294]
                 }
             ],
             labels    : ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
@@ -160,10 +140,9 @@ const analyticsDashboardAppDB = {
             chartType  : 'line',
             datasets   : [
                 {
-                    label      : 'Impression',
-                    data       : [67000, 54000, 82000, 57000, 72000, 57000, 87000, 72000, 89000, 98700, 112000, 136000, 110000, 149000, 98000],
-                    fill       : false,
-                    borderColor: '#5c84f1'
+                    label: 'Impression',
+                    data : [67000, 54000, 82000, 57000, 72000, 57000, 87000, 72000, 89000, 98700, 112000, 136000, 110000, 149000, 98000],
+                    fill : false
                 }
             ],
             labels     : ['Jan 1', 'Jan 2', 'Jan 3', 'Jan 4', 'Jan 5', 'Jan 6', 'Jan 7', 'Jan 8', 'Jan 9', 'Jan 10', 'Jan 11', 'Jan 12', 'Jan 13', 'Jan 14', 'Jan 15'],
@@ -218,10 +197,8 @@ const analyticsDashboardAppDB = {
             chartType: 'bar',
             datasets : [
                 {
-                    label          : 'Visits',
-                    data           : [432, 428, 327, 363, 456, 267, 231],
-                    borderColor    : '#f44336',
-                    backgroundColor: '#f44336'
+                    label: 'Visits',
+                    data : [432, 428, 327, 363, 456, 267, 231]
                 }
             ],
             labels   : ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
@@ -262,50 +239,26 @@ const analyticsDashboardAppDB = {
             datasets : {
                 'yesterday': [
                     {
-                        label                    : 'Visitors',
-                        data                     : [190, 300, 340, 220, 290, 390, 250, 380, 410, 380, 320, 290],
-                        fill                     : 'start',
-                        borderColor              : '#3949ab',
-                        backgroundColor          : '#3949ab',
-                        pointBackgroundColor     : '#3949ab',
-                        pointHoverBackgroundColor: '#3949ab',
-                        pointBorderColor         : '#ffffff',
-                        pointHoverBorderColor    : '#ffffff'
+                        label: 'Visitors',
+                        data : [190, 300, 340, 220, 290, 390, 250, 380, 410, 380, 320, 290],
+                        fill : 'start'
                     },
                     {
-                        label                    : 'Page views',
-                        data                     : [2200, 2900, 3900, 2500, 3800, 3200, 2900, 1900, 3000, 3400, 4100, 3800],
-                        fill                     : 'start',
-                        borderColor              : 'rgba(30, 136, 229, 0.87)',
-                        backgroundColor          : 'rgba(30, 136, 229, 0.87)',
-                        pointBackgroundColor     : 'rgba(30, 136, 229, 0.87)',
-                        pointHoverBackgroundColor: 'rgba(30, 136, 229, 0.87)',
-                        pointBorderColor         : '#ffffff',
-                        pointHoverBorderColor    : '#ffffff'
+                        label: 'Page views',
+                        data : [2200, 2900, 3900, 2500, 3800, 3200, 2900, 1900, 3000, 3400, 4100, 3800],
+                        fill : 'start'
                     }
                 ],
                 'today'    : [
                     {
-                        label                    : 'Visitors',
-                        data                     : [410, 380, 320, 290, 190, 390, 250, 380, 300, 340, 220, 290],
-                        fill                     : 'start',
-                        borderColor              : '#3949ab',
-                        backgroundColor          : '#3949ab',
-                        pointBackgroundColor     : '#3949ab',
-                        pointHoverBackgroundColor: '#3949ab',
-                        pointBorderColor         : '#ffffff',
-                        pointHoverBorderColor    : '#ffffff'
+                        label: 'Visitors',
+                        data : [410, 380, 320, 290, 190, 390, 250, 380, 300, 340, 220, 290],
+                        fill : 'start'
                     },
                     {
-                        label                    : 'Page Views',
-                        data                     : [3000, 3400, 4100, 3800, 2200, 3200, 2900, 1900, 2900, 3900, 2500, 3800],
-                        fill                     : 'start',
-                        borderColor              : 'rgba(30, 136, 229, 0.87)',
-                        backgroundColor          : 'rgba(30, 136, 229, 0.87)',
-                        pointBackgroundColor     : 'rgba(30, 136, 229, 0.87)',
-                        pointHoverBackgroundColor: 'rgba(30, 136, 229, 0.87)',
-                        pointBorderColor         : '#ffffff',
-                        pointHoverBorderColor    : '#ffffff'
+                        label: 'Page Views',
+                        data : [3000, 3400, 4100, 3800, 2200, 3200, 2900, 1900, 2900, 3900, 2500, 3800],
+                        fill : 'start'
                     }
                 ]
             },
@@ -508,81 +461,31 @@ const analyticsDashboardAppDB = {
                 'Today'       : [
                     {
                         data                : [92.8, 6.1, 1.1],
-                        change              : [-0.6, 0.7, 0.1],
-                        backgroundColor     : [
-                            '#4867d2',
-                            '#5c84f1',
-                            '#89a9f4'
-                        ],
-                        hoverBackgroundColor: [
-                            '#039be5',
-                            '#039be5',
-                            '#039be5'
-                        ]
+                        change              : [-0.6, 0.7, 0.1]
                     }
                 ],
                 'Yesterday'   : [
                     {
                         data                : [77.2, 8.4, 14.4],
-                        change              : [-2.3, 0.3, -0.2],
-                        backgroundColor     : [
-                            '#4867d2',
-                            '#5c84f1',
-                            '#89a9f4'
-                        ],
-                        hoverBackgroundColor: [
-                            '#039be5',
-                            '#039be5',
-                            '#039be5'
-                        ]
+                        change              : [-2.3, 0.3, -0.2]
                     }
                 ],
                 'Last 7 days' : [
                     {
                         data                : [88.2, 9.2, 2.6],
-                        change              : [1.9, -0.4, 0.3],
-                        backgroundColor     : [
-                            '#4867d2',
-                            '#5c84f1',
-                            '#89a9f4'
-                        ],
-                        hoverBackgroundColor: [
-                            '#039be5',
-                            '#039be5',
-                            '#039be5'
-                        ]
+                        change              : [1.9, -0.4, 0.3]
                     }
                 ],
                 'Last 28 days': [
                     {
                         data                : [65.2, 2.6, 32.2],
-                        change              : [-12.6, -0.7, 4.2],
-                        backgroundColor     : [
-                            '#4867d2',
-                            '#5c84f1',
-                            '#89a9f4'
-                        ],
-                        hoverBackgroundColor: [
-                            '#039be5',
-                            '#039be5',
-                            '#039be5'
-                        ]
+                        change              : [-12.6, -0.7, 4.2]
                     }
                 ],
                 'Last 90 days': [
                     {
                         data                : [93.5, 4.2, 2.3],
-                        change              : [2.6, -0.7, 2.1],
-                        backgroundColor     : [
-                            '#4867d2',
-                            '#5c84f1',
-                            '#89a9f4'
-                        ],
-                        hoverBackgroundColor: [
-                            '#039be5',
-                            '#039be5',
-                            '#039be5'
-                        ]
+                        change              : [2.6, -0.7, 2.1]
                     }
                 ]
             },

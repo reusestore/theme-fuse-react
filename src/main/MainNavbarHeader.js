@@ -2,6 +2,7 @@ import React from 'react';
 import {withStyles} from 'material-ui/styles/index';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
+import {Typography} from 'material-ui';
 
 const styles = theme => ({
     root    : {
@@ -12,8 +13,7 @@ const styles = theme => ({
     logoIcon: {
         width : 38,
         height: 38
-    },
-    logoText: {}
+    }
 });
 
 const MainNavbarHeader = ({classes}) => {
@@ -21,7 +21,7 @@ const MainNavbarHeader = ({classes}) => {
         <div className={classes.root}>
             <div className={classNames(classes.logo, "flex items-center")}>
                 <img className={classes.logoIcon} src="assets/images/logos/fuse.svg" alt="logo"/>
-                <span className={classNames(classes.logoText, "text-20 ml-8 font-light logo-text")}>FUSE</span>
+                <Typography className="text-20 ml-8 font-light logo-text">FUSE</Typography>
                 <div className="react-badge flex items-center ml-12 py-4 px-8 rounded" style={{
                     backgroundColor: 'rgba(0,0,0,0.6)',
                     color          : '#61dafb'

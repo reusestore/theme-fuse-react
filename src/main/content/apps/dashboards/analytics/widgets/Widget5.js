@@ -21,9 +21,21 @@ class Widget5 extends Component {
 
     render()
     {
-        const {classes, data: dataRaw} = this.props;
+        const {classes, data: dataRaw, theme} = this.props;
         const {dataset} = this.state;
         const data = _.merge({}, dataRaw);
+        const dataWithColors = data.datasets[dataset].map((obj, index) => {
+            const palette = theme.palette[index === 0 ? 'primary' : 'secondary'];
+            return {
+                ...obj,
+                borderColor              : palette.main,
+                backgroundColor          : palette.main,
+                pointBackgroundColor     : palette.dark,
+                pointHoverBackgroundColor: palette.main,
+                pointBorderColor         : palette.contrastText,
+                pointHoverBorderColor    : palette.contrastText
+            }
+        });
         return (
             <Card className={classNames(classes.root, "w-full")}>
                 <div className="relative p-24 flex flex-row items-center justify-between">
@@ -43,7 +55,7 @@ class Widget5 extends Component {
                 <Typography className="relative h-320 pb-16">
                     <Line data={{
                         labels  : data.labels,
-                        datasets: data.datasets[dataset]
+                        datasets: dataWithColors
                     }} options={data.options}/>
                 </Typography>
             </Card>

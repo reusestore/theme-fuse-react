@@ -20,10 +20,23 @@ class Widget7 extends Component {
 
     render()
     {
-        const {classes, data: dataRaw} = this.props;
+        const {classes, data: dataRaw, theme} = this.props;
         const {dataset} = this.state;
         const data = _.merge({}, dataRaw);
-
+        const dataWithColors = data.datasets[dataset].map(obj => ({
+            ...obj,
+            borderColor         : theme.palette.divider,
+            backgroundColor     : [
+                theme.palette.primary.dark,
+                theme.palette.primary.main,
+                theme.palette.primary.light
+            ],
+            hoverBackgroundColor: [
+                theme.palette.secondary.dark,
+                theme.palette.secondary.main,
+                theme.palette.secondary.light
+            ]
+        }));
         return (
             <Card className={classNames(classes.root, "w-full")}>
 
@@ -35,7 +48,7 @@ class Widget7 extends Component {
                     <Doughnut
                         data={{
                             labels  : data.labels,
-                            datasets: data.datasets[dataset]
+                            datasets: dataWithColors
                         }}
                         options={data.options}/>
                 </div>

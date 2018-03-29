@@ -167,7 +167,7 @@ class FusePageSimple extends React.Component {
         const Sidebar = (header, content, variant) => (
             <FuseScrollbars enable={!singleScroll}>
                 {header && (
-                    <MuiThemeProvider theme={FuseThemes['darkTheme']}>
+                    <MuiThemeProvider theme={FuseThemes['currentThemeDark']}>
                         <div className={classNames(classes.sidebarHeader, variant, sidebarInner && classes.sidebarHeaderInnerSidebar)}>
                             {header}
                         </div>
@@ -226,7 +226,7 @@ class FusePageSimple extends React.Component {
 
         const headerContent = (
             <div className={classes.header}>
-                <MuiThemeProvider theme={FuseThemes['darkTheme']}>
+                <MuiThemeProvider theme={FuseThemes['currentThemeDark']}>
                     {header}
                 </MuiThemeProvider>
             </div>

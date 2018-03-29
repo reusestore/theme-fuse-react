@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {FuseThemes} from '@fuse';
-import blue from 'material-ui/es/colors/blue';
 import {Button, MuiThemeProvider, Typography} from 'material-ui';
 import {Line} from 'react-chartjs-2';
 import {withStyles} from 'material-ui/styles/index';
@@ -21,13 +20,22 @@ class Widget1 extends Component {
 
     render()
     {
-        const {classes, data: dataRaw} = this.props;
+        const {classes, data: dataRaw, theme} = this.props;
         const {dataset} = this.state;
         const data = _.merge({}, dataRaw);
+        const dataWithColors = data.datasets[dataset].map(obj => ({
+            ...obj,
+            borderColor              : theme.palette.secondary.main,
+            backgroundColor          : theme.palette.secondary.main,
+            pointBackgroundColor     : theme.palette.secondary.dark,
+            pointHoverBackgroundColor: theme.palette.secondary.main,
+            pointBorderColor         : theme.palette.secondary.contrastText,
+            pointHoverBorderColor    : theme.palette.secondary.contrastText
+        }));
 
         return (
-            <MuiThemeProvider theme={FuseThemes.darkTheme}>
-                <div style={{backgroundColor: blue[600]}} className={classes.root}>
+            <MuiThemeProvider theme={FuseThemes.currentThemeDark}>
+                <div style={{backgroundColor: theme.palette.primary.main}} className={classes.root}>
 
                     <div className="relative p-24 flex flex-row justify-between items-center">
                         <div className="flex-col">
@@ -46,7 +54,7 @@ class Widget1 extends Component {
                     <div className="relative h-256 pb-16">
                         <Line data={{
                             labels  : data.labels,
-                            datasets: data.datasets[dataset]
+                            datasets: dataWithColors
                         }} options={data.options}/>
                     </div>
                 </div>
