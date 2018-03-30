@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import * as colors from 'material-ui/colors';
 
 class FuseUtils {
 
@@ -200,6 +201,31 @@ class FuseUtils {
         }
 
         return flatNavigation;
+    }
+
+    static randomMatColor(hue)
+    {
+        hue = hue ? hue : '400';
+        const mainColors = [
+            'red',
+            'pink',
+            'purple',
+            'deepPurple',
+            'indigo',
+            'blue',
+            'lightBlue',
+            'cyan',
+            'teal',
+            'green',
+            'lightGreen',
+            'lime',
+            'yellow',
+            'amber',
+            'orange',
+            'deepOrange'
+        ];
+        const randomColor = mainColors[Math.floor(Math.random() * mainColors.length)];
+        return colors[randomColor][hue];
     }
 }
 

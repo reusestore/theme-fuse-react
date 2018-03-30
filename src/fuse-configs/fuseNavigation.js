@@ -537,19 +537,26 @@ export const fuseNavigation = [
                 'icon'    : 'border_all',
                 'children': [
                     {
-                        'id'   : 'ngxdatatable',
-                        'title': 'ngx-datatable',
+                        'id'   : 'react-table',
+                        'title': 'React Table',
                         'type' : 'item',
-                        'url'  : '/components-third-party/datatables/ngx-datatable'
+                        'url'  : '/components-third-party/datatables/react-table'
                     }
                 ]
             },
             {
-                'id'   : 'google-maps',
-                'title': 'Google Maps',
+                'id'   : 'google-map-react',
+                'title': 'Google Map React',
                 'type' : 'item',
                 'icon' : 'place',
-                'url'  : '/components-third-party/google-maps'
+                'url'  : '/components-third-party/google-map-react'
+            },
+            {
+                'id'   : 'react-chartjs-2',
+                'title': 'React ChartJs 2',
+                'type' : 'item',
+                'icon' : 'poll',
+                'url'  : '/components-third-party/react-chartjs-2'
             }
         ]
     },
