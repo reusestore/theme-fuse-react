@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {createMuiTheme, MuiThemeProvider} from 'material-ui';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import {fuseThemes} from 'fuse-configs/fuseThemes';
+import {fuseThemesConfig} from 'fuse-configs/fuseThemesConfig';
 import _ from 'lodash';
 import {fuseDark} from '@fuse/fuse-colors';
 import lightBlue from 'material-ui/es/colors/lightBlue';
@@ -47,7 +47,7 @@ export const defaults = {
     },
 };
 
-const themesObj = Object.keys(fuseThemes).length !== 0 ? fuseThemes : defaults;
+const themesObj = Object.keys(fuseThemesConfig).length !== 0 ? fuseThemesConfig : defaults;
 
 export let themes = Object.assign({}, ...Object.entries(themesObj).map(([key, value]) => (
     {

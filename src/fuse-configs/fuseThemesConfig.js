@@ -2,7 +2,7 @@ import {fuseDark} from '@fuse/fuse-colors';
 import lightBlue from 'material-ui/es/colors/lightBlue';
 import red from 'material-ui/es/colors/red';
 
-export const fuseThemes = {
+export const fuseThemesConfig = {
     default    : {
         palette: {
             type     : 'light',

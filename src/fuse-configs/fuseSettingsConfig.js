@@ -1,4 +1,4 @@
-const fuseSettings = {
+const fuseSettingsConfig = {
     layout          : {
         navigation          : 'left', // 'right', 'left', 'top', 'none'
         navigationFolded    : false, // true, false
@@ -14,4 +14,4 @@ const fuseSettings = {
     footerTheme     : 'currentThemeDark'
 };
 
-export default fuseSettings;
+export default fuseSettingsConfig;

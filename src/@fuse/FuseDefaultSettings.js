@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import FuseSettings from 'fuse-configs/fuseSettings';
+import FuseSettings from 'fuse-configs/fuseSettingsConfig';
 
 const defaultSettings = {
     layout          : {

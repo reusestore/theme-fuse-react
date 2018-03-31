@@ -1,6 +1,6 @@
 import {MaterialUINavigation} from 'main/content/components/material-ui/MaterialUINavigation';
 
-export const fuseNavigation = [
+export const fuseNavigationConfig = [
     {
         'id'      : 'applications',
         'title'   : 'Applications',

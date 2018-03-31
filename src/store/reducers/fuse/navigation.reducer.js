@@ -1,7 +1,7 @@
 import * as Actions from '../../actions/fuse/index';
-import {fuseNavigation} from 'fuse-configs/fuseNavigation';
+import {fuseNavigationConfig} from 'fuse-configs/fuseNavigationConfig';
 
-const initialState = fuseNavigation;
+const initialState = fuseNavigationConfig;
 
 const navigation = function (state = initialState, action) {
     switch ( action.type )
