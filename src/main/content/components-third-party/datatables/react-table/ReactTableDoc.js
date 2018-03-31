@@ -8,7 +8,7 @@ const styles = theme => ({
     layoutRoot: {}
 });
 
-class GoogleMapReactDoc extends Component {
+class ReactTableDoc extends Component {
 
     render()
     {
@@ -21,9 +21,9 @@ class GoogleMapReactDoc extends Component {
                 }}
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="title">Google Map React</Typography>
+                        <Typography variant="title">React Table</Typography>
                         <Button className="normal-case"
-                                variant="raised" component="a" href="https://github.com/google-map-react/google-map-react" target="_blank">
+                                variant="raised" component="a" href="https://github.com/react-tools/react-table" target="_blank">
                             <Icon className="mr-4">link</Icon>
                             Reference
                         </Button>
@@ -33,7 +33,7 @@ class GoogleMapReactDoc extends Component {
                     <div className="p-24 max-w-2xl mx-auto">
 
                         <Typography className="mb-16" component="p">
-                            <code className="language-bash">google-map-react</code> is a component written over a small set of the Google Maps API.
+                            <code className="language-bash">react-table</code>  is a lightweight, fast and extendable datagrid built for React.
                         </Typography>
 
                         <hr/>
@@ -49,7 +49,7 @@ class GoogleMapReactDoc extends Component {
 
                         <ul>
                             <li className="mb-8">
-                                <Link to="/apps/dashboards/analytics">Analytics Dashboard</Link>
+                                <Link to="/apps/contacts">Contacts App</Link>
                             </li>
                         </ul>
                     </div>
@@ -59,4 +59,4 @@ class GoogleMapReactDoc extends Component {
     }
 }
 
-export default withStyles(styles, {withTheme: true})(GoogleMapReactDoc);
+export default withStyles(styles, {withTheme: true})(ReactTableDoc);
