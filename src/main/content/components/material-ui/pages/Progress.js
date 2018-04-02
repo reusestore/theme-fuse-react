@@ -19,8 +19,13 @@ function Progress({classes})
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
                     <Typography variant="title">Progress</Typography>
-                    <Button className="normal-case"
-                            variant="raised" component="a" href="https://material-ui-next.com/demos/progress" target="_blank">
+                    <Button
+                        className="normal-case"
+                        variant="raised"
+                        component="a"
+                        href="https://material-ui-next.com/demos/progress"
+                        target="_blank"
+                    >
                         <Icon className="mr-4">link</Icon>
                         Reference
                     </Button>
@@ -79,7 +84,7 @@ function Progress({classes})
                     raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/progress/LinearQuery.js')}/>
 
                     <Typography className="text-32 mt-32 mb-8" component="h2">Delaying appearance</Typography><Typography className="mb-16" component="p">There are <a
-                    href="http://www.nngroup.com/articles/response-times-3-important-limits/">3 important limits</a> to know around reponse time.
+                    href="http://www.nngroup.com/articles/response-times-3-important-limits/">3 important limits</a> to know around response time.
                     The ripple effect of the <code>ButtonBase</code> component ensures that the user feels that the system is reacting instantaneously.
                     Normally, no special feedback is necessary during delays of more than 0.1 but less than 1.0 second.
                     After 1.0 second, you can display a loader to keep user&#39;s flow of thought uninterrupted.</Typography><FuseExample

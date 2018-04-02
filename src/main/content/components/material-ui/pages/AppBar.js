@@ -19,8 +19,13 @@ function AppBar({classes})
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
                     <Typography variant="title">App Bar</Typography>
-                    <Button className="normal-case"
-                            variant="raised" component="a" href="https://material-ui-next.com/demos/app-bar" target="_blank">
+                    <Button
+                        className="normal-case"
+                        variant="raised"
+                        component="a"
+                        href="https://material-ui-next.com/demos/app-bar"
+                        target="_blank"
+                    >
                         <Icon className="mr-4">link</Icon>
                         Reference
                     </Button>
@@ -34,8 +39,7 @@ function AppBar({classes})
                     bar</Typography><FuseExample
                     className="my-24"
                     component={require('main/content/components/material-ui/material-ui-examples/app-bar/SimpleAppBar.js').default}
-                    raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/app-bar/SimpleAppBar.js')}
-                />
+                    raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/app-bar/SimpleAppBar.js')}/>
 
                     <Typography className="text-32 mt-32 mb-8" component="h2">App bar with buttons</Typography><FuseExample
                     className="my-24"

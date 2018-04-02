@@ -19,8 +19,13 @@ function Tooltips({classes})
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
                     <Typography variant="title">Tooltips</Typography>
-                    <Button className="normal-case"
-                            variant="raised" component="a" href="https://material-ui-next.com/demos/tooltips" target="_blank">
+                    <Button
+                        className="normal-case"
+                        variant="raised"
+                        component="a"
+                        href="https://material-ui-next.com/demos/tooltips"
+                        target="_blank"
+                    >
                         <Icon className="mr-4">link</Icon>
                         Reference
                     </Button>
@@ -52,7 +57,7 @@ function Tooltips({classes})
                     shown immediately when the user&#39;s mouse hovers over the element, and hides immediately when the user&#39;s mouse leaves. A delay in showing or hiding the
                     tooltip can be added through the properties <code>enterDelay</code> and <code>leaveDelay</code>, as shown in the Controlled Tooltips demo
                     above.</Typography><Typography className="mb-16" component="p">On mobile, the tooltip is displayed when the user longpresses the element and hides after a delay
-                    of 1500ms. You can disable this feature with the <code>disableTriggerTouch</code> property.</Typography>
+                    of 1500ms. You can disable this feature with the <code>disableTouchListener</code> property.</Typography>
                 </div>
             }
         />

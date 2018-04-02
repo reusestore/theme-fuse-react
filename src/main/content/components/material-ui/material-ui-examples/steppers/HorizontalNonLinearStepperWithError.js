@@ -35,7 +35,7 @@ function getStepContent(step) {
   }
 }
 
-class HorizontalLinearStepper extends React.Component {
+class HorizontalNonLinearStepperWithError extends React.Component {
   static propTypes = {
     classes: PropTypes.object,
   };
@@ -52,6 +52,10 @@ class HorizontalLinearStepper extends React.Component {
   isStepSkipped(step) {
     return this.state.skipped.has(step);
   }
+
+  isStepFailed = step => {
+    return step === 1;
+  };
 
   handleNext = () => {
     const { activeStep } = this.state;
@@ -106,7 +110,14 @@ class HorizontalLinearStepper extends React.Component {
             const props = {};
             const labelProps = {};
             if (this.isStepOptional(index)) {
-              labelProps.optional = <Typography variant="caption">Optional</Typography>;
+              labelProps.optional = (
+                <Typography variant="caption" color="error">
+                  Alert message
+                </Typography>
+              );
+            }
+            if (this.isStepFailed(index)) {
+              labelProps.error = true;
             }
             if (this.isStepSkipped(index)) {
               props.completed = false;
@@ -166,4 +177,4 @@ class HorizontalLinearStepper extends React.Component {
   }
 }
 
-export default withStyles(styles)(HorizontalLinearStepper);
+export default withStyles(styles)(HorizontalNonLinearStepperWithError);

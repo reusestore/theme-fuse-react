@@ -19,8 +19,13 @@ function Tables({classes})
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
                     <Typography variant="title">Tables</Typography>
-                    <Button className="normal-case"
-                            variant="raised" component="a" href="https://material-ui-next.com/demos/tables" target="_blank">
+                    <Button
+                        className="normal-case"
+                        variant="raised"
+                        component="a"
+                        href="https://material-ui-next.com/demos/tables"
+                        target="_blank"
+                    >
                         <Icon className="mr-4">link</Icon>
                         Reference
                     </Button>
@@ -53,6 +58,12 @@ function Tables({classes})
                     className="my-24"
                     component={require('main/content/components/material-ui/material-ui-examples/tables/CustomPaginationActionsTable.js').default}
                     raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tables/CustomPaginationActionsTable.js')}/>
+
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Customized tables</Typography><Typography className="mb-16" component="p">You can customize the look
+                    and feel of the table by overriding the styles of the <code>TableCell</code> component.</Typography><FuseExample
+                    className="my-24"
+                    component={require('main/content/components/material-ui/material-ui-examples/tables/CustomizedTable.js').default}
+                    raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tables/CustomizedTable.js')}/>
 
                     <Typography className="text-32 mt-32 mb-8" component="h2">Advanced use cases</Typography><Typography className="mb-16" component="p">For more advanced use cases
                     you might be able to take advantage of <a href="https://devexpress.github.io/devextreme-reactive/react/grid/">dx-react-grid-material-ui</a>. It&#39;s a data

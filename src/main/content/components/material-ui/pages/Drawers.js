@@ -19,8 +19,13 @@ function Drawers({classes})
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
                     <Typography variant="title">Drawer</Typography>
-                    <Button className="normal-case"
-                            variant="raised" component="a" href="https://material-ui-next.com/demos/drawers" target="_blank">
+                    <Button
+                        className="normal-case"
+                        variant="raised"
+                        component="a"
+                        href="https://material-ui-next.com/demos/drawers"
+                        target="_blank"
+                    >
                         <Icon className="mr-4">link</Icon>
                         Reference
                     </Button>
@@ -40,6 +45,34 @@ function Drawers({classes})
                     component={require('main/content/components/material-ui/material-ui-examples/drawers/TemporaryDrawer.js').default}
                     raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/drawers/TemporaryDrawer.js')}/>
 
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Swipeable Temporary drawer</Typography><Typography className="mb-16" component="p">You can make the
+                    drawer swipeable with the <code>SwipeableDrawer</code> component.</Typography><Typography className="mb-16" component="p">This component comes with a 2 kB
+                    gzipped payload overhead.
+                    Some low-end mobile devices won&#39;t be able to follow the fingers at 60 FPS.
+                    You can use the <code>disableBackdropTransition</code> property to help.</Typography><FuseExample
+                    className="my-24"
+                    component={require('main/content/components/material-ui/material-ui-examples/drawers/SwipeableTemporaryDrawer.js').default}
+                    raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/drawers/SwipeableTemporaryDrawer.js')}/>
+
+                    <Typography className="mb-16" component="p">We are using the following set of properties on this documentation website for optimal usability of the
+                        component:</Typography>
+                    <ul>
+                        <li>iOS is hosted on high-end devices.
+                            We can enable the backdrop transition without dropping frames.
+                            The performance will be good enough.
+                        </li>
+                        <li>iOS has a &quot;swipe to go back&quot; feature that mess
+                            with the discovery feature. We have to disable it.
+                        </li>
+                    </ul>
+
+                    <FuseHighlight component="pre" className="language-jsx">
+                        {`
+const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+<SwipeableDrawer disableBackdropTransition={!iOS} disableDiscovery={iOS} />
+`}
+                    </FuseHighlight>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Permanent drawer</Typography><Typography className="mb-16" component="p">Permanent navigation drawers
                     are always visible and pinned to the left edge, at the same elevation as the content or background. They cannot be closed.</Typography><Typography
                     className="mb-16" component="p">Permanent navigation drawers are the <strong>recommended default for desktop</strong>.</Typography><Typography

@@ -102,3 +102,5 @@ const MyLink = props => <Link to="/open-collective" {...props} />
   Link
 </Button>
 ```
+
+*Note: Creating `MyLink` is necessary to prevent unexpected unmounting. You can read more about it [here](/guides/composition#component-property).*

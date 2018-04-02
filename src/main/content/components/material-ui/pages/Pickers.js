@@ -19,8 +19,13 @@ function Pickers({classes})
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
                     <Typography variant="title">Pickers</Typography>
-                    <Button className="normal-case"
-                            variant="raised" component="a" href="https://material-ui-next.com/demos/pickers" target="_blank">
+                    <Button
+                        className="normal-case"
+                        variant="raised"
+                        component="a"
+                        href="https://material-ui-next.com/demos/pickers"
+                        target="_blank"
+                    >
                         <Icon className="mr-4">link</Icon>
                         Reference
                     </Button>
@@ -39,10 +44,10 @@ function Pickers({classes})
                     If you are interested in implementing or have implemented a rich Material Design Picker with an awesome UX, please, let us know on <a
                         href="https://github.com/mui-org/material-ui/issues/4787">#4787</a> and <a href="https://github.com/mui-org/material-ui/issues/4796">#4796</a>! We could add
                     a link to or a demo of your project in the documentation.
-                    Here are some components that are promising:</Typography>
+                    Here are some components that are <strong>promising</strong>:</Typography>
                     <ul>
-                        <li><a href="https://github.com/TeamWertarbyte/material-ui-time-picker">material-ui-time-picker</a></li>
                         <li><a href="https://github.com/dmtrKovalenko/material-ui-pickers">material-ui-pickers</a></li>
+                        <li><a href="https://github.com/TeamWertarbyte/material-ui-time-picker">material-ui-time-picker</a></li>
                     </ul>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Date pickers</Typography><FuseExample
                     className="my-24"

@@ -4,37 +4,36 @@ import IconButton from 'material-ui/IconButton';
 import Tooltip from 'material-ui/Tooltip';
 
 class ControlledTooltips extends React.Component {
-    state = {
-        open: false
-    };
+  state = {
+    open: false,
+  };
 
-    handleTooltipClose = () => {
-        this.setState({open: false});
-    };
+  handleTooltipClose = () => {
+    this.setState({ open: false });
+  };
 
-    handleTooltipOpen = () => {
-        this.setState({open: true});
-    };
+  handleTooltipOpen = () => {
+    this.setState({ open: true });
+  };
 
-    render()
-    {
-        return (
-            <Tooltip
-                id="tooltip-controlled"
-                title="Delete"
-                onClose={this.handleTooltipClose}
-                enterDelay={300}
-                leaveDelay={300}
-                onOpen={this.handleTooltipOpen}
-                open={this.state.open}
-                placement="bottom"
-            >
-                <IconButton aria-label="Delete">
-                    <DeleteIcon/>
-                </IconButton>
-            </Tooltip>
-        );
-    }
+  render() {
+    return (
+      <Tooltip
+        enterDelay={300}
+        id="tooltip-controlled"
+        leaveDelay={300}
+        onClose={this.handleTooltipClose}
+        onOpen={this.handleTooltipOpen}
+        open={this.state.open}
+        placement="bottom"
+        title="Delete"
+      >
+        <IconButton aria-label="Delete">
+          <DeleteIcon />
+        </IconButton>
+      </Tooltip>
+    );
+  }
 }
 
 export default ControlledTooltips;

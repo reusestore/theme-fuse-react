@@ -19,8 +19,13 @@ function Selects({classes})
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
                     <Typography variant="title">Selects</Typography>
-                    <Button className="normal-case"
-                            variant="raised" component="a" href="https://material-ui-next.com/demos/selects" target="_blank">
+                    <Button
+                        className="normal-case"
+                        variant="raised"
+                        component="a"
+                        href="https://material-ui-next.com/demos/selects"
+                        target="_blank"
+                    >
                         <Icon className="mr-4">link</Icon>
                         Reference
                     </Button>
@@ -45,7 +50,8 @@ function Selects({classes})
                     <Typography className="text-32 mt-32 mb-8" component="h2">Multiple Select</Typography><Typography className="mb-16"
                                                                                                                       component="p">The <code>Select</code> component can handle
                     multiple selections.
-                    It&#39;s enabled with the <code>multiple</code> property.</Typography><FuseExample
+                    It&#39;s enabled with the <code>multiple</code> property.</Typography><Typography className="mb-16" component="p">Like with the single selection, you can pull
+                    out the new value by accessing <code>event.target.value</code> in the <code>onChange</code> callback. It&#39;s always an array.</Typography><FuseExample
                     className="my-24"
                     component={require('main/content/components/material-ui/material-ui-examples/selects/MultipleSelect.js').default}
                     raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/selects/MultipleSelect.js')}/>

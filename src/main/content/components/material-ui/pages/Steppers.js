@@ -19,8 +19,13 @@ function Steppers({classes})
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
                     <Typography variant="title">Steppers</Typography>
-                    <Button className="normal-case"
-                            variant="raised" component="a" href="https://material-ui-next.com/demos/steppers" target="_blank">
+                    <Button
+                        className="normal-case"
+                        variant="raised"
+                        component="a"
+                        href="https://material-ui-next.com/demos/steppers"
+                        target="_blank"
+                    >
                         <Icon className="mr-4">link</Icon>
                         Reference
                     </Button>
@@ -79,6 +84,11 @@ function Steppers({classes})
                     className="my-24"
                     component={require('main/content/components/material-ui/material-ui-examples/steppers/HorizontalNonLinearAlternativeLabelStepper.js').default}
                     raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/steppers/HorizontalNonLinearAlternativeLabelStepper.js')}/>
+
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Horizontal Non Linear - Error Step</Typography><FuseExample
+                    className="my-24"
+                    component={require('main/content/components/material-ui/material-ui-examples/steppers/HorizontalNonLinearStepperWithError.js').default}
+                    raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/steppers/HorizontalNonLinearStepperWithError.js')}/>
 
                     <Typography className="text-32 mt-32 mb-8" component="h2">Vertical Stepper</Typography><FuseExample
                     className="my-24"

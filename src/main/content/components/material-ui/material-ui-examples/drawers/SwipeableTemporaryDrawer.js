@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import Drawer from 'material-ui/Drawer';
+import SwipeableDrawer from 'material-ui/SwipeableDrawer';
 import Button from 'material-ui/Button';
 import List from 'material-ui/List';
 import Divider from 'material-ui/Divider';
@@ -16,7 +16,7 @@ const styles = {
   },
 };
 
-class TemporaryDrawer extends React.Component {
+class SwipeableTemporaryDrawer extends React.Component {
   state = {
     top: false,
     left: false,
@@ -55,7 +55,11 @@ class TemporaryDrawer extends React.Component {
         <Button onClick={this.toggleDrawer('right', true)}>Open Right</Button>
         <Button onClick={this.toggleDrawer('top', true)}>Open Top</Button>
         <Button onClick={this.toggleDrawer('bottom', true)}>Open Bottom</Button>
-        <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
+        <SwipeableDrawer
+          open={this.state.left}
+          onClose={this.toggleDrawer('left', false)}
+          onOpen={this.toggleDrawer('left', true)}
+        >
           <div
             tabIndex={0}
             role="button"
@@ -64,8 +68,13 @@ class TemporaryDrawer extends React.Component {
           >
             {sideList}
           </div>
-        </Drawer>
-        <Drawer anchor="top" open={this.state.top} onClose={this.toggleDrawer('top', false)}>
+        </SwipeableDrawer>
+        <SwipeableDrawer
+          anchor="top"
+          open={this.state.top}
+          onClose={this.toggleDrawer('top', false)}
+          onOpen={this.toggleDrawer('top', true)}
+        >
           <div
             tabIndex={0}
             role="button"
@@ -74,11 +83,12 @@ class TemporaryDrawer extends React.Component {
           >
             {fullList}
           </div>
-        </Drawer>
-        <Drawer
+        </SwipeableDrawer>
+        <SwipeableDrawer
           anchor="bottom"
           open={this.state.bottom}
           onClose={this.toggleDrawer('bottom', false)}
+          onOpen={this.toggleDrawer('bottom', true)}
         >
           <div
             tabIndex={0}
@@ -88,8 +98,13 @@ class TemporaryDrawer extends React.Component {
           >
             {fullList}
           </div>
-        </Drawer>
-        <Drawer anchor="right" open={this.state.right} onClose={this.toggleDrawer('right', false)}>
+        </SwipeableDrawer>
+        <SwipeableDrawer
+          anchor="right"
+          open={this.state.right}
+          onClose={this.toggleDrawer('right', false)}
+          onOpen={this.toggleDrawer('right', true)}
+        >
           <div
             tabIndex={0}
             role="button"
@@ -98,14 +113,14 @@ class TemporaryDrawer extends React.Component {
           >
             {sideList}
           </div>
-        </Drawer>
+        </SwipeableDrawer>
       </div>
     );
   }
 }
 
-TemporaryDrawer.propTypes = {
+SwipeableTemporaryDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(TemporaryDrawer);
+export default withStyles(styles)(SwipeableTemporaryDrawer);
