@@ -212,11 +212,16 @@ class CalendarApp extends Component {
                         end  : slotInfo.end.toLocaleString()
                     })}
                 />
-                <Button variant="fab" color="secondary" aria-label="add" className={classes.addButton}
-                        onClick={() => openNewEventDialog({
-                            start: new Date(),
-                            end  : new Date()
-                        })}>
+                <Button
+                    variant="fab"
+                    color="secondary"
+                    aria-label="add"
+                    className={classes.addButton}
+                    onClick={() => openNewEventDialog({
+                        start: new Date(),
+                        end  : new Date()
+                    })}
+                >
                     <Icon>add</Icon>
                 </Button>
 

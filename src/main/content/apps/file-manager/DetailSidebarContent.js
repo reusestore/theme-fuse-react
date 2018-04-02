@@ -46,17 +46,18 @@ class DetailSidebarContent extends Component {
             <div className="file-details p-24">
 
                 <div className="preview h-256 file-icon flex items-center justify-center">
-                    <Icon className={classNames(classes.typeIcon, selected.type, 'text-48')}></Icon>
+                    <Icon className={classNames(classes.typeIcon, selected.type, "text-48")}/>
                 </div>
 
-                <FormControlLabel className="offline-switch"
-                                  control={
-                                      <Switch
-                                          checked={selected.offline}
-                                          aria-label="Available Offline"
-                                      />
-                                  }
-                                  label="Available Offline"
+                <FormControlLabel
+                    className="offline-switch"
+                    control={
+                        <Switch
+                            checked={selected.offline}
+                            aria-label="Available Offline"
+                        />
+                    }
+                    label="Available Offline"
                 />
 
                 <Typography variant="subheading" className="py-16">Info</Typography>

@@ -8,11 +8,14 @@ const styles = theme => ({
     root: {}
 });
 
-const Marker = ({text}) => (
-    <Tooltip title={text} placement="top">
-        <Icon className="text-red">place</Icon>
-    </Tooltip>
-);
+function Marker({text})
+{
+    return (
+        <Tooltip title={text} placement="top">
+            <Icon className="text-red">place</Icon>
+        </Tooltip>
+    );
+}
 
 class Widget6 extends Component {
     render()

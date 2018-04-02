@@ -4,10 +4,14 @@ const DemoContent = () => {
     return (
         <div>
 
-            <img src="assets/images/beach.jpg" alt="beach" style={{
-                maxWidth: '640px',
-                width   : '100%'
-            }}/>
+            <img
+                src="assets/images/beach.jpg"
+                alt="beach"
+                style={{
+                    maxWidth: '640px',
+                    width   : '100%'
+                }}
+            />
 
             <h1 className="py-16">Early Sunrise</h1>
             <h4 className="pb-12">Demo Content</h4>
@@ -77,11 +81,11 @@ const DemoContent = () => {
                 breakfasts. I ought to just try that with my boss; I'd get kicked out on the spot. But who knows, maybe
                 that would be the best thing for me...
             </p>  <p>
-                His room, a proper human room although a little too small, lay peacefully between its four familiar
-                walls. A collection of textile samples lay spread out on the table - Samsa was a travelling salesman -
-                and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in
-                a nice, gilded frame.
-            </p>
+            His room, a proper human room although a little too small, lay peacefully between its four familiar
+            walls. A collection of textile samples lay spread out on the table - Samsa was a travelling salesman -
+            and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in
+            a nice, gilded frame.
+        </p>
 
             <p>
                 It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that

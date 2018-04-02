@@ -62,162 +62,176 @@ class ContactsList extends Component {
         }
 
         return (
-            <ReactTable className={classNames(classes.root, "-striped -highlight")}
-                        getTrProps={(state, rowInfo, column) => {
-                            return {
-                                className: "cursor-pointer",
-                                onClick  : (e, handleOriginal) => {
-                                    if ( rowInfo )
-                                    {
-                                        openEditContactDialog(rowInfo.original);
-                                    }
-                                }
+            <ReactTable
+                className={classNames(classes.root, "-striped -highlight")}
+                getTrProps={(state, rowInfo, column) => {
+                    return {
+                        className: "cursor-pointer",
+                        onClick  : (e, handleOriginal) => {
+                            if ( rowInfo )
+                            {
+                                openEditContactDialog(rowInfo.original);
                             }
-                        }}
-                        data={data}
-                        columns={[
-                            {
-                                Header   : () => (
-                                    <Checkbox
-                                        onClick={(event) => {
-                                            event.stopPropagation();
-                                        }}
-                                        onChange={(event) => {
-                                            event.target.checked ? selectAllContacts() : deSelectAllContacts();
-                                        }}
-                                        checked={selectedContactIds.length === Object.keys(contacts).length && selectedContactIds.length > 0}
-                                        indeterminate={selectedContactIds.length !== Object.keys(contacts).length && selectedContactIds.length > 0}
-                                    />
-                                ),
-                                accessor : "",
-                                Cell     : row => {
-                                    return (<Checkbox
-                                            onClick={(event) => {
-                                                event.stopPropagation();
-                                            }}
-                                            checked={selectedContactIds.includes(row.value.id)}
-                                            onChange={() => toggleInSelectedContacts(row.value.id)}/>
-                                    )
-                                },
-                                className: "justify-center",
-                                sortable : false,
-                                width    : 64
-                            },
-                            {
-                                Header   : () => (
-                                    selectedContactIds.length > 0 && (
-                                        <React.Fragment>
-                                            <IconButton aria-owns={selectedContactsMenu ? 'selectedContactsMenu' : null}
-                                                        aria-haspopup="true"
-                                                        onClick={this.openSelectedContactMenu}>
-                                                <Icon>more_horiz</Icon>
-                                            </IconButton>
-                                            <Menu
-                                                id="selectedContactsMenu"
-                                                anchorEl={selectedContactsMenu}
-                                                open={Boolean(selectedContactsMenu)}
-                                                onClose={this.closeSelectedContactsMenu}
+                        }
+                    }
+                }}
+                data={data}
+                columns={[
+                    {
+                        Header   : () => (
+                            <Checkbox
+                                onClick={(event) => {
+                                    event.stopPropagation();
+                                }}
+                                onChange={(event) => {
+                                    event.target.checked ? selectAllContacts() : deSelectAllContacts();
+                                }}
+                                checked={selectedContactIds.length === Object.keys(contacts).length && selectedContactIds.length > 0}
+                                indeterminate={selectedContactIds.length !== Object.keys(contacts).length && selectedContactIds.length > 0}
+                            />
+                        ),
+                        accessor : "",
+                        Cell     : row => {
+                            return (<Checkbox
+                                    onClick={(event) => {
+                                        event.stopPropagation();
+                                    }}
+                                    checked={selectedContactIds.includes(row.value.id)}
+                                    onChange={() => toggleInSelectedContacts(row.value.id)}
+                                />
+                            )
+                        },
+                        className: "justify-center",
+                        sortable : false,
+                        width    : 64
+                    },
+                    {
+                        Header   : () => (
+                            selectedContactIds.length > 0 && (
+                                <React.Fragment>
+                                    <IconButton
+                                        aria-owns={selectedContactsMenu ? 'selectedContactsMenu' : null}
+                                        aria-haspopup="true"
+                                        onClick={this.openSelectedContactMenu}
+                                    >
+                                        <Icon>more_horiz</Icon>
+                                    </IconButton>
+                                    <Menu
+                                        id="selectedContactsMenu"
+                                        anchorEl={selectedContactsMenu}
+                                        open={Boolean(selectedContactsMenu)}
+                                        onClose={this.closeSelectedContactsMenu}
+                                    >
+                                        <MenuList>
+                                            <MenuItem
+                                                onClick={() => {
+                                                    removeContacts(selectedContactIds);
+                                                    this.closeSelectedContactsMenu();
+                                                }}
                                             >
-                                                <MenuList>
-                                                    <MenuItem onClick={() => {
-                                                        removeContacts(selectedContactIds);
-                                                        this.closeSelectedContactsMenu();
-                                                    }}>
-                                                        <ListItemIcon className={classes.icon}>
-                                                            <Icon>delete</Icon>
-                                                        </ListItemIcon>
-                                                        <ListItemText inset primary="Remove"/>
-                                                    </MenuItem>
-                                                    <MenuItem onClick={() => {
-                                                        setContactsStarred(selectedContactIds);
-                                                        this.closeSelectedContactsMenu();
-                                                    }}>
-                                                        <ListItemIcon className={classes.icon}>
-                                                            <Icon>star</Icon>
-                                                        </ListItemIcon>
-                                                        <ListItemText inset primary="Starred"/>
-                                                    </MenuItem>
-                                                    <MenuItem onClick={() => {
-                                                        setContactsUnstarred(selectedContactIds);
-                                                        this.closeSelectedContactsMenu();
-                                                    }}>
-                                                        <ListItemIcon className={classes.icon}>
-                                                            <Icon>star_border</Icon>
-                                                        </ListItemIcon>
-                                                        <ListItemText inset primary="Unstarred"/>
-                                                    </MenuItem>
-                                                </MenuList>
-                                            </Menu>
-                                        </React.Fragment>
-                                    )
-                                ),
-                                accessor : "avatar",
-                                Cell     : row => (
-                                    <Avatar className="mr-8" alt={row.original.name} src={row.value}/>
-                                ),
-                                className: "justify-center",
-                                width    : 64,
-                                sortable : false
-                            },
-                            {
-                                Header    : "First Name",
-                                accessor  : "name",
-                                filterable: true,
-                                className : "font-bold"
-                            },
-                            {
-                                Header    : "Last Name",
-                                accessor  : "lastName",
-                                filterable: true,
-                                className : "font-bold"
-                            },
-                            {
-                                Header    : "Company",
-                                accessor  : "company",
-                                filterable: true
-                            },
-                            {
-                                Header    : "Job Title",
-                                accessor  : "jobTitle",
-                                filterable: true
-                            },
-                            {
-                                Header    : "Email",
-                                accessor  : "email",
-                                filterable: true
-                            },
-                            {
-                                Header    : "Phone",
-                                accessor  : "phone",
-                                filterable: true
-                            },
-                            {
-                                Header: "",
-                                width : 128,
-                                Cell  : row => (
-                                    <div className="flex items-center">
-                                        <IconButton onClick={(ev) => {
-                                            ev.stopPropagation();
-                                            toggleStarredContact(row.original.id)
-                                        }}>
-                                            {user.starred && user.starred.includes(row.original.id) ? (
-                                                <Icon>star</Icon>
-                                            ) : (
-                                                <Icon>star_border</Icon>
-                                            )}
-                                        </IconButton>
-                                        <IconButton onClick={(ev) => {
-                                            ev.stopPropagation();
-                                            removeContact(row.original.id);
-                                        }}>
-                                            <Icon>delete</Icon>
-                                        </IconButton>
-                                    </div>
-                                )
-                            }
-                        ]}
-                        defaultPageSize={10}
-                        noDataText="No contacts found"
+                                                <ListItemIcon className={classes.icon}>
+                                                    <Icon>delete</Icon>
+                                                </ListItemIcon>
+                                                <ListItemText inset primary="Remove"/>
+                                            </MenuItem>
+                                            <MenuItem
+                                                onClick={() => {
+                                                    setContactsStarred(selectedContactIds);
+                                                    this.closeSelectedContactsMenu();
+                                                }}
+                                            >
+                                                <ListItemIcon className={classes.icon}>
+                                                    <Icon>star</Icon>
+                                                </ListItemIcon>
+                                                <ListItemText inset primary="Starred"/>
+                                            </MenuItem>
+                                            <MenuItem
+                                                onClick={() => {
+                                                    setContactsUnstarred(selectedContactIds);
+                                                    this.closeSelectedContactsMenu();
+                                                }}
+                                            >
+                                                <ListItemIcon className={classes.icon}>
+                                                    <Icon>star_border</Icon>
+                                                </ListItemIcon>
+                                                <ListItemText inset primary="Unstarred"/>
+                                            </MenuItem>
+                                        </MenuList>
+                                    </Menu>
+                                </React.Fragment>
+                            )
+                        ),
+                        accessor : "avatar",
+                        Cell     : row => (
+                            <Avatar className="mr-8" alt={row.original.name} src={row.value}/>
+                        ),
+                        className: "justify-center",
+                        width    : 64,
+                        sortable : false
+                    },
+                    {
+                        Header    : "First Name",
+                        accessor  : "name",
+                        filterable: true,
+                        className : "font-bold"
+                    },
+                    {
+                        Header    : "Last Name",
+                        accessor  : "lastName",
+                        filterable: true,
+                        className : "font-bold"
+                    },
+                    {
+                        Header    : "Company",
+                        accessor  : "company",
+                        filterable: true
+                    },
+                    {
+                        Header    : "Job Title",
+                        accessor  : "jobTitle",
+                        filterable: true
+                    },
+                    {
+                        Header    : "Email",
+                        accessor  : "email",
+                        filterable: true
+                    },
+                    {
+                        Header    : "Phone",
+                        accessor  : "phone",
+                        filterable: true
+                    },
+                    {
+                        Header: "",
+                        width : 128,
+                        Cell  : row => (
+                            <div className="flex items-center">
+                                <IconButton
+                                    onClick={(ev) => {
+                                        ev.stopPropagation();
+                                        toggleStarredContact(row.original.id)
+                                    }}
+                                >
+                                    {user.starred && user.starred.includes(row.original.id) ? (
+                                        <Icon>star</Icon>
+                                    ) : (
+                                        <Icon>star_border</Icon>
+                                    )}
+                                </IconButton>
+                                <IconButton
+                                    onClick={(ev) => {
+                                        ev.stopPropagation();
+                                        removeContact(row.original.id);
+                                    }}
+                                >
+                                    <Icon>delete</Icon>
+                                </IconButton>
+                            </div>
+                        )
+                    }
+                ]}
+                defaultPageSize={10}
+                noDataText="No contacts found"
             />
         );
     }

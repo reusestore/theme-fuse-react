@@ -76,7 +76,7 @@ class ForgotPassword2Page extends Component {
                 <Slide in={true} direction="left">
                     <Card className={classNames(classes.card, "mx-auto m-16 md:m-0")}>
 
-                        <CardContent className="flex flex-col items-center justify-center p-32 md:p-48 md:pt-128 ">
+                        <CardContent className="flex flex-col items-center justify-center p-32 md:p-48 md:pt-128">
 
                             <Typography variant="title" className="md:w-full mb-32">RESET YOUR PASSWORD</Typography>
 

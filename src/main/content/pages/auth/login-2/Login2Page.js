@@ -117,8 +117,13 @@ class Login2Page extends Component {
                                     </Link>
                                 </div>
 
-                                <Button variant="raised" color="primary" className="w-full mx-auto mt-16" aria-label="LOG IN"
-                                        disabled={!this.canBeSubmitted()}>
+                                <Button
+                                    variant="raised"
+                                    color="primary"
+                                    className="w-full mx-auto mt-16"
+                                    aria-label="LOG IN"
+                                    disabled={!this.canBeSubmitted()}
+                                >
                                     LOGIN
                                 </Button>
 

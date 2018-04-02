@@ -46,9 +46,12 @@ class QuickPanel extends Component {
     {
         const {classes, state, toggleQuickPanel, data} = this.props;
         return (
-            <Drawer classes={{paper: classes.root}}
-                    open={state} anchor="right"
-                    onClose={() => toggleQuickPanel(false)}>
+            <Drawer
+                classes={{paper: classes.root}}
+                open={state}
+                anchor="right"
+                onClose={() => toggleQuickPanel(false)}
+            >
                 <ListSubheader component="div">Today</ListSubheader>
 
                 <div className="mb-0 py-16 px-24">

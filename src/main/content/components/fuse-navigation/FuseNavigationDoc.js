@@ -43,7 +43,8 @@ class FuseNavigationDoc extends Component {
                         <Typography className="text-24 mt-32 mb-8" component="h2">[navigation]</Typography>
 
                         <Typography className="mb-16" component="p">
-                            <code className="language-bash">FuseNavigation</code> uses a array to populate the entire navigation. It supports four different navigation items; Group,
+                            <code className="language-bash">FuseNavigation</code> uses a array to populate the entire navigation. It supports four different navigation items;
+                            Group,
                             Collapse, Item. and Divider. These items can be mixed and matched to create unique and complex navigation layouts.
                         </Typography>
 

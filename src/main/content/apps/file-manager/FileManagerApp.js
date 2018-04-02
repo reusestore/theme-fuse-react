@@ -48,7 +48,8 @@ class FileManagerApp extends Component {
         const {classes, selectedItem, files} = this.props;
         const selected = files[selectedItem];
 
-        const Breadcrumb = ({className}) => {
+        function Breadcrumb({className})
+        {
             const arr = selected.location.split('>');
             return (
                 <Typography variant="headline" className={className}>
@@ -61,7 +62,7 @@ class FileManagerApp extends Component {
                         </span>))}
                 </Typography>
             )
-        };
+        }
 
         return (
             <FusePageSimple
@@ -73,8 +74,10 @@ class FileManagerApp extends Component {
                 header={
                     <div className="flex flex-col flex-1 p-12 relative">
                         <div className="flex items-center justify-between">
-                            <IconButton onClick={(ev) => this.pageLayout.toggleLeftSidebar()}
-                                        aria-label="open left sidebar">
+                            <IconButton
+                                onClick={(ev) => this.pageLayout.toggleLeftSidebar()}
+                                aria-label="open left sidebar"
+                            >
                                 <Icon>menu</Icon>
                             </IconButton>
 

@@ -41,9 +41,9 @@ const styles = theme => ({
 
 class MailToolbar extends Component {
     state = {
-        selectMenu   : null,
-        foldersMenu  : null,
-        labelsMenu   : null
+        selectMenu : null,
+        foldersMenu: null,
+        labelsMenu : null
     };
 
     handleMenuOpen = (event, menu) => {
@@ -59,10 +59,9 @@ class MailToolbar extends Component {
     };
 
 
-
     render()
     {
-        const {classes, match, history,mails, selectAllMails, deselectAllMails, selectMailsByParameter, setFolderOnSelectedMails, toggleLabelOnSelectedMails, folders, labels, selectedMailIds, currentMail} = this.props;
+        const {classes, match, history, mails, selectAllMails, deselectAllMails, selectMailsByParameter, setFolderOnSelectedMails, toggleLabelOnSelectedMails, folders, labels, selectedMailIds, currentMail} = this.props;
         const {foldersMenu, selectMenu, labelsMenu} = this.state;
         const toPath = pathToRegexp.compile(match.path);
         const matchParams = {...match.params};
@@ -96,38 +95,70 @@ class MailToolbar extends Component {
                         open={Boolean(selectMenu)}
                         onClose={(ev) => this.handleMenuClose(ev, 'selectMenu')}
                     >
-                        <MenuItem onClick={(ev) => {
-                            selectAllMails();
-                            this.handleMenuClose(ev, 'selectMenu');
-                        }}>All</MenuItem>
-                        <MenuItem onClick={(ev) => {
-                            deselectAllMails();
-                            this.handleMenuClose(ev, 'selectMenu')
-                        }}>None</MenuItem>
-                        <MenuItem onClick={(ev) => {
-                            selectMailsByParameter('read', true);
-                            this.handleMenuClose(ev, 'selectMenu');
-                        }}>Read</MenuItem>
-                        <MenuItem onClick={(ev) => {
-                            selectMailsByParameter('read', false);
-                            this.handleMenuClose(ev, 'selectMenu');
-                        }}>Unread</MenuItem>
-                        <MenuItem onClick={(ev) => {
-                            selectMailsByParameter('starred', true);
-                            this.handleMenuClose(ev, 'selectMenu');
-                        }}>Starred</MenuItem>
-                        <MenuItem onClick={(ev) => {
-                            selectMailsByParameter('starred', false);
-                            this.handleMenuClose(ev, 'selectMenu');
-                        }}>Unstarred</MenuItem>
-                        <MenuItem onClick={(ev) => {
-                            selectMailsByParameter('important', true);
-                            this.handleMenuClose(ev, 'selectMenu');
-                        }}>Important</MenuItem>
-                        <MenuItem onClick={(ev) => {
-                            selectMailsByParameter('important', false);
-                            this.handleMenuClose(ev, 'selectMenu');
-                        }}>Unimportant</MenuItem>
+                        <MenuItem
+                            onClick={(ev) => {
+                                selectAllMails();
+                                this.handleMenuClose(ev, 'selectMenu');
+                            }}
+                        >
+                            All
+                        </MenuItem>
+                        <MenuItem
+                            onClick={(ev) => {
+                                deselectAllMails();
+                                this.handleMenuClose(ev, 'selectMenu')
+                            }}
+                        >
+                            None
+                        </MenuItem>
+                        <MenuItem
+                            onClick={(ev) => {
+                                selectMailsByParameter('read', true);
+                                this.handleMenuClose(ev, 'selectMenu');
+                            }}
+                        >
+                            Read
+                        </MenuItem>
+                        <MenuItem
+                            onClick={(ev) => {
+                                selectMailsByParameter('read', false);
+                                this.handleMenuClose(ev, 'selectMenu');
+                            }}
+                        >
+                            Unread
+                        </MenuItem>
+                        <MenuItem
+                            onClick={(ev) => {
+                                selectMailsByParameter('starred', true);
+                                this.handleMenuClose(ev, 'selectMenu');
+                            }}
+                        >
+                            Starred
+                        </MenuItem>
+                        <MenuItem
+                            onClick={(ev) => {
+                                selectMailsByParameter('starred', false);
+                                this.handleMenuClose(ev, 'selectMenu');
+                            }}
+                        >
+                            Unstarred
+                        </MenuItem>
+                        <MenuItem
+                            onClick={(ev) => {
+                                selectMailsByParameter('important', true);
+                                this.handleMenuClose(ev, 'selectMenu');
+                            }}
+                        >
+                            Important
+                        </MenuItem>
+                        <MenuItem
+                            onClick={(ev) => {
+                                selectMailsByParameter('important', false);
+                                this.handleMenuClose(ev, 'selectMenu');
+                            }}
+                        >
+                            Unimportant
+                        </MenuItem>
                     </Menu>
 
                     {selectedMailIds.length > 0 && (
@@ -142,7 +173,7 @@ class MailToolbar extends Component {
                                 <Icon>delete</Icon>
                             </IconButton>
 
-                            < IconButton
+                            <IconButton
                                 aria-label="More"
                                 aria-owns={foldersMenu ? 'folders-menu' : null}
                                 aria-haspopup="true"
@@ -158,10 +189,15 @@ class MailToolbar extends Component {
                                 onClose={(ev) => this.handleMenuClose(ev, 'foldersMenu')}
                             >
                                 {folders.length > 0 && folders.map((folder) => (
-                                    <MenuItem onClick={(ev) => {
-                                        setFolderOnSelectedMails(folder.id);
-                                        this.handleMenuClose(ev, 'foldersMenu')
-                                    }} key={folder.id}>{folder.title}</MenuItem>
+                                    <MenuItem
+                                        onClick={(ev) => {
+                                            setFolderOnSelectedMails(folder.id);
+                                            this.handleMenuClose(ev, 'foldersMenu')
+                                        }}
+                                        key={folder.id}
+                                    >
+                                        {folder.title}
+                                    </MenuItem>
                                 ))}
                             </Menu>
 
@@ -181,10 +217,15 @@ class MailToolbar extends Component {
                                 onClose={(ev) => this.handleMenuClose(ev, 'labelsMenu')}
                             >
                                 {labels.length > 0 && labels.map((label) => (
-                                    <MenuItem onClick={(ev) => {
-                                        toggleLabelOnSelectedMails(label.id);
-                                        this.handleMenuClose(ev, 'labelsMenu')
-                                    }} key={label.id}>{label.title}</MenuItem>
+                                    <MenuItem
+                                        onClick={(ev) => {
+                                            toggleLabelOnSelectedMails(label.id);
+                                            this.handleMenuClose(ev, 'labelsMenu')
+                                        }}
+                                        key={label.id}
+                                    >
+                                        {label.title}
+                                    </MenuItem>
                                 ))}
                             </Menu>
                         </React.Fragment>

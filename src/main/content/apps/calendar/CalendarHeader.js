@@ -121,9 +121,11 @@ class CalendarHeader extends Toolbar {
             return viewNames.map(name => (
                     <Tooltip title={viewNamesObj[name].title} key={name}>
                         <div>
-                            <IconButton aria-label={this.props.messages[name]}
-                                        onClick={this.view.bind(null, name)}
-                                        disabled={view === name}>
+                            <IconButton
+                                aria-label={this.props.messages[name]}
+                                onClick={this.view.bind(null, name)}
+                                disabled={view === name}
+                            >
                                 <Icon>{viewNamesObj[name].icon}</Icon>
                             </IconButton>
                         </div>

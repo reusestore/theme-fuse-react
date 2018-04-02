@@ -23,7 +23,7 @@ class DetailSidebarHeader extends Component {
         }
 
         return (
-            <div className={classNames(classes.root, 'flex flex-col justify-between h-full p-12')}>
+            <div className={classNames(classes.root, "flex flex-col justify-between h-full p-12")}>
 
                 <div className="toolbar flex align-center justify-end">
                     <IconButton>

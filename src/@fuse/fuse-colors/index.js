@@ -1,1 +1,1 @@
-export { default as fuseDark } from './fuseDark';
+export {default as fuseDark} from './fuseDark';

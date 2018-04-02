@@ -19,13 +19,15 @@ const styles = theme => ({
         borderRadius: '50%'
     }
 });
-const MailChip = ({classes, title, color, className}) => {
+
+function MailChip({classes, title, color, className})
+{
     return (
         <div className={classNames(classes.root, className)}>
             <div className={classes.color} style={{backgroundColor: color}}/>
             <div>{title}</div>
         </div>
     );
-};
+}
 
 export default withStyles(styles, {withTheme: true})(MailChip);

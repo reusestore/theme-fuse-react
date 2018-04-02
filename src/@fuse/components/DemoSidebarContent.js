@@ -2,14 +2,17 @@ import React from 'react';
 import {List, ListItem, ListItemText} from 'material-ui';
 import _ from 'lodash';
 
-const DemoSidebarContent = () => {
-    const generate = (element) => {
+function DemoSidebarContent()
+{
+    function generate(element)
+    {
         return _(30).times(value =>
             React.cloneElement(element, {
                 key: value
             })
         );
-    };
+    }
+
     return (
         <div>
             <List dense={true}>
@@ -23,6 +26,6 @@ const DemoSidebarContent = () => {
             </List>
         </div>
     );
-};
+}
 
 export default DemoSidebarContent;

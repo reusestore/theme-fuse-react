@@ -33,8 +33,8 @@ const styles = theme => ({
     }
 });
 
-const MailSidebarContent = ({classes, folders, filters, labels}) => {
-
+function MailSidebarContent({classes, folders, filters, labels})
+{
     return (
         <div>
 
@@ -47,11 +47,13 @@ const MailSidebarContent = ({classes, folders, filters, labels}) => {
                     <ListSubheader className={classes.listSubheader} disableSticky>FOLDERS</ListSubheader>
 
                     {folders.length > 0 && folders.map((folder) => (
-                        <ListItem button
-                                  component={NavLink}
-                                  to={'/apps/mail/' + folder.handle} key={folder.id}
-                                  activeClassName="active"
-                                  className={classes.listItem}>
+                        <ListItem
+                            button
+                            component={NavLink}
+                            to={'/apps/mail/' + folder.handle} key={folder.id}
+                            activeClassName="active"
+                            className={classes.listItem}
+                        >
                             <Icon className="list-item-icon" color="action">{folder.icon}</Icon>
                             <ListItemText primary={folder.title} disableTypography={true}/>
                         </ListItem>
@@ -63,12 +65,13 @@ const MailSidebarContent = ({classes, folders, filters, labels}) => {
                     <ListSubheader className={classes.listSubheader} disableSticky>FILTERS</ListSubheader>
 
                     {filters.length > 0 && filters.map((filter) => (
-                        <ListItem button
-                                  component={NavLink}
-                                  to={'/apps/mail/filter/' + filter.handle}
-                                  activeClassName="active"
-                                  className={classes.listItem}
-                                  key={filter.id}
+                        <ListItem
+                            button
+                            component={NavLink}
+                            to={'/apps/mail/filter/' + filter.handle}
+                            activeClassName="active"
+                            className={classes.listItem}
+                            key={filter.id}
                         >
                             <Icon className="list-item-icon" color="action">{filter.icon}</Icon>
                             <ListItemText primary={filter.title} disableTypography={true}/>
@@ -81,11 +84,13 @@ const MailSidebarContent = ({classes, folders, filters, labels}) => {
                     <ListSubheader className={classes.listSubheader} disableSticky>LABELS</ListSubheader>
 
                     {labels.length > 0 && labels.map((label) => (
-                        <ListItem button
-                                  component={NavLink}
-                                  to={'/apps/mail/label/' + label.handle}
-                                  key={label.id}
-                                  className={classes.listItem}>
+                        <ListItem
+                            button
+                            component={NavLink}
+                            to={'/apps/mail/label/' + label.handle}
+                            key={label.id}
+                            className={classes.listItem}
+                        >
                             <Icon className="list-item-icon" style={{color: label.color}} color="action">label</Icon>
                             <ListItemText primary={label.title} disableTypography={true}/>
                         </ListItem>
@@ -94,7 +99,7 @@ const MailSidebarContent = ({classes, folders, filters, labels}) => {
             </div>
         </div>
     );
-};
+}
 
 function mapStateToProps({mailApp})
 {

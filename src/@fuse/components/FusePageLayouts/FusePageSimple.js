@@ -6,6 +6,23 @@ import classNames from 'classnames';
 import {FuseScrollbars} from '@fuse';
 import {FuseThemes} from '@fuse/index';
 import {MuiThemeProvider} from 'material-ui';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+    leftSidebarHeader  : PropTypes.node,
+    leftSidebarContent : PropTypes.node,
+    leftSidebarVariant : PropTypes.node,
+    rightSidebarHeader : PropTypes.node,
+    rightSidebarContent: PropTypes.node,
+    rightSidebarVariant: PropTypes.node,
+    header             : PropTypes.node,
+    content            : PropTypes.node,
+    contentToolbar     : PropTypes.node,
+    sidebarInner       : PropTypes.bool,
+    singleScroll       : PropTypes.bool
+};
+
+const defaultProps = {};
 
 const drawerWidth = 240;
 const headerHeight = 120;
@@ -69,11 +86,11 @@ const styles = theme => ({
         overflow     : 'auto'
     },
     toolbar                       : {
-        height      : toolbarHeight,
-        minHeight   : toolbarHeight,
-        display     : 'flex',
-        alignItems  : 'center',
-        borderBottom: '1px solid rgba(0,0,0,0.12)',
+        height         : toolbarHeight,
+        minHeight      : toolbarHeight,
+        display        : 'flex',
+        alignItems     : 'center',
+        borderBottom   : '1px solid rgba(0,0,0,0.12)',
         backgroundColor: theme.palette.background.paper
     },
     content                       : {
@@ -203,7 +220,8 @@ class FusePageSimple extends React.Component {
                                     root: classes.backdrop
                                 }
                             }}
-                            onClick={(ev) => this.handleDrawerToggle(sidebarId)}>
+                            onClick={(ev) => this.handleDrawerToggle(sidebarId)}
+                        >
                             {Sidebar(header, content, variant)}
                         </Drawer>
                     </Hidden>
@@ -215,7 +233,8 @@ class FusePageSimple extends React.Component {
                                 open={this.state[sidebarId]}
                                 classes={{
                                     paper: classNames(classes.sidebar, variant, sidebarId === 'leftSidebar' ? classes.leftSidebar : classes.rightSidebar)
-                                }}>
+                                }}
+                            >
                                 {Sidebar(header, content, variant)}
                             </Drawer>
                         </Hidden>
@@ -233,10 +252,12 @@ class FusePageSimple extends React.Component {
         );
 
         return (
-            <div className={classNames(classes.root, singleScroll && classes.singleScroll)}
-                 ref={(root) => {
-                     this.root = root;
-                 }}>
+            <div
+                className={classNames(classes.root, singleScroll && classes.singleScroll)}
+                ref={(root) => {
+                    this.root = root;
+                }}
+            >
 
                 {header && sidebarInner && headerContent}
 
@@ -244,9 +265,10 @@ class FusePageSimple extends React.Component {
 
                     {isLeftSidebar && SidebarWrapper(leftSidebarHeader, leftSidebarContent, 'leftSidebar', leftSidebarVariant || 'permanent')}
 
-                    <FuseScrollbars className={classNames(classes.contentCardWrapper, sidebarInner && classes.contentCardWrapperInnerSidebar)}
-                                    enable={!singleScroll && sidebarInner}>
-
+                    <FuseScrollbars
+                        className={classNames(classes.contentCardWrapper, sidebarInner && classes.contentCardWrapperInnerSidebar)}
+                        enable={!singleScroll && sidebarInner}
+                    >
                         <FuseScrollbars className={classes.contentCard} enable={!singleScroll && !sidebarInner}>
 
                             {header && !sidebarInner && headerContent}
@@ -262,7 +284,6 @@ class FusePageSimple extends React.Component {
                                     {content}
                                 </div>
                             )}
-
                         </FuseScrollbars>
                     </FuseScrollbars>
 
@@ -273,5 +294,8 @@ class FusePageSimple extends React.Component {
         );
     }
 }
+
+FusePageSimple.propTypes = propTypes;
+FusePageSimple.defaultProps = defaultProps;
 
 export default withStyles(styles, {withTheme: true})(FusePageSimple);

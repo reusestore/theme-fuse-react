@@ -85,8 +85,13 @@ class LockPage extends Component {
                                         />
                                     </FormControl>
 
-                                    <Button variant="raised" color="primary" className="w-224 mx-auto mt-16" aria-label="Reset"
-                                            disabled={!this.canBeSubmitted()}>
+                                    <Button
+                                        variant="raised"
+                                        color="primary"
+                                        className="w-224 mx-auto mt-16"
+                                        aria-label="Reset"
+                                        disabled={!this.canBeSubmitted()}
+                                    >
                                         UNLOCK
                                     </Button>
 

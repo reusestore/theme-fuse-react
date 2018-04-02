@@ -2,6 +2,16 @@ import React, {Component} from 'react';
 import {Typography, withStyles} from 'material-ui';
 import moment from 'moment';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+    endDate   : PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
+    onComplete: PropTypes.func
+};
+
+const defaultProps = {
+    endDate: moment().add(15, 'days')
+};
 
 const styles = theme => ({
     root: {}
@@ -9,7 +19,7 @@ const styles = theme => ({
 
 class FuseCountdown extends Component {
     state = {
-        endDate: moment(this.props.endDate),
+        endDate  : moment.isMoment(this.props.endDate) ? this.props.endDate : moment(this.props.endDate),
         countdown: {
             days   : '',
             hours  : '',
@@ -106,5 +116,8 @@ class FuseCountdown extends Component {
         );
     }
 }
+
+FuseCountdown.propTypes = propTypes;
+FuseCountdown.defaultProps = defaultProps;
 
 export default withStyles(styles)(FuseCountdown);

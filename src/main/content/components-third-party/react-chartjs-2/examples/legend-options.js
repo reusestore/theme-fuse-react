@@ -68,7 +68,8 @@ class LegendExample extends Component {
                     ref={input => {
                         this.legendOptsInput = input;
                     }}
-                    defaultValue={JSON.stringify(this.state.legend, null, 2)}></textarea>
+                    defaultValue={JSON.stringify(this.state.legend, null, 2)}
+                />
                 <div>
                     <button onClick={this.applyLegendSettings}>Apply legend settings</button>
                 </div>

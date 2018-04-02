@@ -31,9 +31,7 @@ const getState = () => ({
 
 class DynamicDoughnutExample extends Component {
 
-    state = {
-
-    };
+    state = {};
 
     componentWillMount()
     {

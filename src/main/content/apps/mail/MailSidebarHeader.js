@@ -36,10 +36,10 @@ class MailSidebarHeader extends Component {
         const {classes} = this.props;
 
         return (
-            <div className={classNames(classes.root, 'flex flex-col justify-center h-full p-24')}>
+            <div className={classNames(classes.root, "flex flex-col justify-center h-full p-24")}>
 
-                <div className={classNames(classes.logo, 'flex items-center flex-1')}>
-                    <Icon className={classNames(classes.logoIcon, 'mr-16')}>mail</Icon>
+                <div className={classNames(classes.logo, "flex items-center flex-1")}>
+                    <Icon className={classNames(classes.logoIcon, "mr-16")}>mail</Icon>
                     <span className={classes.logoText}>Mailbox</span>
                 </div>
 

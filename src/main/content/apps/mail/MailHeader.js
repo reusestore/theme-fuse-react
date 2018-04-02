@@ -33,8 +33,10 @@ class MailHeader extends Component {
                 <div className={classes.root}>
                     <Paper className={classes.searchWrapper} elevation={7} square>
                         <Hidden lgUp>
-                            <IconButton onClick={(ev) => pageLayout().toggleLeftSidebar()}
-                                        aria-label="open left sidebar">
+                            <IconButton
+                                onClick={(ev) => pageLayout().toggleLeftSidebar()}
+                                aria-label="open left sidebar"
+                            >
                                 <Icon>menu</Icon>
                             </IconButton>
                         </Hidden>

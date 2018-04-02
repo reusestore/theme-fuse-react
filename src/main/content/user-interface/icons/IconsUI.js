@@ -48,8 +48,13 @@ class IconsUI extends Component {
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
                         <Typography variant="title">Icons</Typography>
-                        <Button className="normal-case"
-                                variant="raised" component="a" href="https://material.io/icons/" target="_blank">
+                        <Button
+                            className="normal-case"
+                            variant="raised"
+                            component="a"
+                            href="https://material.io/icons/"
+                            target="_blank"
+                        >
                             <Icon className="mr-4">link</Icon>
                             Reference
                         </Button>
@@ -66,7 +71,8 @@ class IconsUI extends Component {
                             onChange={this.handleSearch}
                             inputProps={{
                                 'aria-label': 'Search'
-                            }}/>
+                            }}
+                        />
                         <Icon color="action" className="mr-16">search</Icon>
                     </div>
                 }

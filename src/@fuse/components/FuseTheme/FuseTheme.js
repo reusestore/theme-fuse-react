@@ -44,7 +44,7 @@ export const defaults = {
         status : {
             danger: 'orange'
         }
-    },
+    }
 };
 
 const themesObj = Object.keys(fuseThemesConfig).length !== 0 ? fuseThemesConfig : defaults;
@@ -132,8 +132,6 @@ class FuseTheme extends Component {
                 ...this.customMixins(theme)
             }
         };
-        //console.info(theme);
-        //console.info(themeExt);
         return (
             <MuiThemeProvider theme={themeExt}>
                 {children}

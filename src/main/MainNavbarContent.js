@@ -10,13 +10,14 @@ const styles = theme => ({
 
 });
 
-const MainNavbar = ({classes, navigation}) => {
+function MainNavbar({classes, navigation})
+{
     return (
         <div className={classes.root}>
             <FuseNavigation navigation={navigation}/>
         </div>
     );
-};
+}
 
 function mapDispatchToProps(dispatch)
 {

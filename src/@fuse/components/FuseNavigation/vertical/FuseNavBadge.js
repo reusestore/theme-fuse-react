@@ -1,6 +1,18 @@
 import React from 'react';
 import {withStyles} from 'material-ui/styles/index';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+    badge: PropTypes.shape(
+        {
+            title: PropTypes.node,
+            bg   : PropTypes.string,
+            fg   : PropTypes.string
+        })
+};
+
+const defaultProps = {};
 
 const styles = theme => ({
     root: {
@@ -16,17 +28,24 @@ const styles = theme => ({
         color          : theme.palette.secondary.contrastText
     }
 });
-const FuseNavBadge = ({classes, className, badge}) => {
+
+function FuseNavBadge({classes, className, badge})
+{
 
     return (
-        <div className={classNames(classes.root, className)}
-             style={{
-                 backgroundColor: badge.bg,
-                 color          : badge.fg
-             }}>
+        <div
+            className={classNames(classes.root, className)}
+            style={{
+                backgroundColor: badge.bg,
+                color          : badge.fg
+            }}
+        >
             {badge.title}
         </div>
     )
-};
+}
+
+FuseNavBadge.propTypes = propTypes;
+FuseNavBadge.defaultProps = defaultProps;
 
 export default withStyles(styles, {withTheme: true})(FuseNavBadge);

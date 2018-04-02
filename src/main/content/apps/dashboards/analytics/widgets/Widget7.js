@@ -87,8 +87,7 @@ class Widget7 extends Component {
                 <div className="p-16 flex flex-row items-center justify-between">
                     <div>
                         <FormControl className="">
-                            <Select value={dataset}
-                                    onChange={this.setDataSet}>
+                            <Select value={dataset} onChange={this.setDataSet}>
                                 {Object.keys(data.datasets).map(key => (
                                     <MenuItem key={key} value={key}>{key}</MenuItem>
                                 ))}

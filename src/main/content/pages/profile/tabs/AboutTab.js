@@ -215,7 +215,8 @@ class AboutTab extends Component {
                                                     </Typography>
                                                 </div>
                                             )}
-                                            secondary={group.members}/>
+                                            secondary={group.members}
+                                        />
                                         <ListItemSecondaryAction>
                                             <IconButton>
                                                 <Icon>more_vert</Icon>

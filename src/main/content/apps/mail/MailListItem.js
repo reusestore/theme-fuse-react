@@ -69,12 +69,14 @@ class MailListItem extends Component {
                         mailId: mail.id
                     }
                 ))}
-                className={classNames(classes.mailItem, currentMail && currentMail.id === mail.id && 'current-mail', checked && 'selected', !mail.read && 'unread', 'py-16 pl-8 pr-24')}>
+                className={classNames(classes.mailItem, currentMail && currentMail.id === mail.id && "current-mail", checked && "selected", !mail.read && "unread", "py-16 pl-8 pr-24")}>
 
-                <Checkbox tabIndex={-1} disableRipple
-                          checked={checked}
-                          onChange={() => toggleInSelectedMails(mail.id)}
-                          onClick={(ev) => ev.stopPropagation()}
+                <Checkbox
+                    tabIndex={-1}
+                    disableRipple
+                    checked={checked}
+                    onChange={() => toggleInSelectedMails(mail.id)}
+                    onClick={(ev) => ev.stopPropagation()}
                 />
 
                 <div className="flex flex-col relative overflow-hidden">

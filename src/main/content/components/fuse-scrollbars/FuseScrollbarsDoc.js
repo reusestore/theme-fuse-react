@@ -28,9 +28,10 @@ class FuseScrollbarsDoc extends Component {
 
                         <Typography className="mb-16" component="p">
                             <code className="language-bash">FuseScrollbars</code> is a simple <a href="http://utatti.github.io/perfect-scrollbar/" target="_blank"
-                                                                                                rel="noreferrer noopener" className="font-bold">perfect-scrollbar</a> component for
+                                                                                                 rel="noreferrer noopener" className="font-bold">perfect-scrollbar</a> component for
                             react.
                         </Typography>
+
                         <Typography className="mb-16" component="p">
                             It can be disabled globally by Fuse Settings.
                         </Typography>

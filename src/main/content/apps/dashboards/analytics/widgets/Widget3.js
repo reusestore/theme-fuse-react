@@ -16,7 +16,7 @@ class Widget3 extends Component {
         const {data, classes, theme} = this.props;
         const dataWithColors = data.datasets.map(obj => ({
             ...obj,
-            borderColor    : theme.palette.secondary.main
+            borderColor: theme.palette.secondary.main
         }));
         return (
             <Card className={classNames(classes.root, "w-full")}>
@@ -45,16 +45,18 @@ class Widget3 extends Component {
                 </div>
 
                 <div className="h-96 w-100-p">
-                    <Line data={{
-                        labels  : data.labels,
-                        datasets: dataWithColors
-                    }} options={data.options}/>
+                    <Line
+                        data={{
+                            labels  : data.labels,
+                            datasets: dataWithColors
+                        }}
+                        options={data.options}
+                    />
                 </div>
             </Card>
         );
     }
 }
-
 
 function mapDispatchToProps(dispatch)
 {

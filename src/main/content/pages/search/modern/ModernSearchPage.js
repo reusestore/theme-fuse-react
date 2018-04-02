@@ -48,7 +48,8 @@ class ModernSearchPage extends Component {
                                     fullWidth
                                     inputProps={{
                                         'aria-label': 'Search'
-                                    }}/>
+                                    }}
+                                />
                                 <Icon color="action" className="mr-16">search</Icon>
                             </Paper>
                         </MuiThemeProvider>

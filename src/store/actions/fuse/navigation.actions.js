@@ -1,4 +1,3 @@
-
 export const GET_NAVIGATION = '[NAVIGATION] GET NAVIGATION';
 export const SET_NAVIGATION = '[NAVIGATION] SET NAVIGATION';
 export const RESET_NAVIGATION = '[NAVIGATION] RESET NAVIGATION';
@@ -17,6 +16,7 @@ export function setNavigation(settings)
         settings
     }
 }
+
 export function resetNavigation()
 {
     return {

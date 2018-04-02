@@ -79,8 +79,13 @@ class ContactsApp extends Component {
                         this.pageLayout = instance;
                     }}
                 />
-                <Button variant="fab" color="primary" aria-label="add" className={classes.addButton}
-                        onClick={openNewContactDialog}>
+                <Button
+                    variant="fab"
+                    color="primary"
+                    aria-label="add"
+                    className={classes.addButton}
+                    onClick={openNewContactDialog}
+                >
                     <Icon>person_add</Icon>
                 </Button>
 

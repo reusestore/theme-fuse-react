@@ -224,7 +224,6 @@ class PricingStyle1Page extends Component {
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         );

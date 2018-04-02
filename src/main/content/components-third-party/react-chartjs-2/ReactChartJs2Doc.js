@@ -22,8 +22,13 @@ class ReactChartJs2Doc extends Component {
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
                         <Typography variant="title">React ChartJs 2</Typography>
-                        <Button className="normal-case"
-                                variant="raised" component="a" href="https://github.com/jerairrest/react-chartjs-2" target="_blank">
+                        <Button
+                            className="normal-case"
+                            variant="raised"
+                            component="a"
+                            href="https://github.com/jerairrest/react-chartjs-2"
+                            target="_blank"
+                        >
                             <Icon className="mr-4">link</Icon>
                             Reference
                         </Button>
@@ -43,77 +48,92 @@ class ReactChartJs2Doc extends Component {
                         <FuseExample
                             className="mb-64"
                             component={require('./examples/doughnut.js').default}
-                            raw={require('!raw-loader!./examples/doughnut.js')}/>
+                            raw={require('!raw-loader!./examples/doughnut.js')}
+                        />
 
                         <FuseExample
                             className="mb-64"
                             component={require('./examples/dynamic-doughnut.js').default}
-                            raw={require('!raw-loader!./examples/dynamic-doughnut.js')}/>
+                            raw={require('!raw-loader!./examples/dynamic-doughnut.js')}
+                        />
 
                         <FuseExample
                             className="mb-64"
                             component={require('./examples/pie.js').default}
-                            raw={require('!raw-loader!./examples/pie.js')}/>
+                            raw={require('!raw-loader!./examples/pie.js')}
+                        />
 
                         <FuseExample
                             className="mb-64"
                             component={require('./examples/line.js').default}
-                            raw={require('!raw-loader!./examples/line.js')}/>
+                            raw={require('!raw-loader!./examples/line.js')}
+                        />
 
                         <FuseExample
                             className="mb-64"
                             component={require('./examples/bar.js').default}
-                            raw={require('!raw-loader!./examples/bar.js')}/>
+                            raw={require('!raw-loader!./examples/bar.js')}
+                        />
 
                         <FuseExample
                             className="mb-64"
                             component={require('./examples/horizontalBar.js').default}
-                            raw={require('!raw-loader!./examples/horizontalBar.js')}/>
+                            raw={require('!raw-loader!./examples/horizontalBar.js')}
+                        />
 
                         <FuseExample
                             className="mb-64"
                             component={require('./examples/radar.js').default}
-                            raw={require('!raw-loader!./examples/radar.js')}/>
+                            raw={require('!raw-loader!./examples/radar.js')}
+                        />
 
                         <FuseExample
                             className="mb-64"
                             component={require('./examples/polar.js').default}
-                            raw={require('!raw-loader!./examples/polar.js')}/>
+                            raw={require('!raw-loader!./examples/polar.js')}
+                        />
 
                         <FuseExample
                             className="mb-64"
                             component={require('./examples/bubble.js').default}
-                            raw={require('!raw-loader!./examples/bubble.js')}/>
+                            raw={require('!raw-loader!./examples/bubble.js')}
+                        />
 
                         <FuseExample
                             className="mb-64"
                             component={require('./examples/scatter.js').default}
-                            raw={require('!raw-loader!./examples/scatter.js')}/>
+                            raw={require('!raw-loader!./examples/scatter.js')}
+                        />
 
                         <FuseExample
                             className="mb-64"
                             component={require('./examples/mix.js').default}
-                            raw={require('!raw-loader!./examples/mix.js')}/>
+                            raw={require('!raw-loader!./examples/mix.js')}
+                        />
 
                         <FuseExample
                             className="mb-64"
                             component={require('./examples/randomizedLine.js').default}
-                            raw={require('!raw-loader!./examples/randomizedLine.js')}/>
+                            raw={require('!raw-loader!./examples/randomizedLine.js')}
+                        />
 
                         <FuseExample
                             className="mb-64"
                             component={require('./examples/crazyLine.js').default}
-                            raw={require('!raw-loader!./examples/crazyLine.js')}/>
+                            raw={require('!raw-loader!./examples/crazyLine.js')}
+                        />
 
                         <FuseExample
                             className="mb-64"
                             component={require('./examples/legend-options.js').default}
-                            raw={require('!raw-loader!./examples/legend-options.js')}/>
+                            raw={require('!raw-loader!./examples/legend-options.js')}
+                        />
 
                         <FuseExample
                             className="mb-64"
                             component={require('./examples/legend-handlers.js').default}
-                            raw={require('!raw-loader!./examples/legend-handlers.js')}/>
+                            raw={require('!raw-loader!./examples/legend-handlers.js')}
+                        />
 
                         <Typography className="text-32 mt-32 mb-8" component="h2">Demos</Typography>
 

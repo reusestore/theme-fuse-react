@@ -259,7 +259,6 @@ class PricingStyle3Page extends Component {
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         );

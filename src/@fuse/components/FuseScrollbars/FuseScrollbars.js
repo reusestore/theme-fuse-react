@@ -5,6 +5,38 @@ import {bindActionCreators} from 'redux';
 import {withStyles} from 'material-ui/styles/index';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+    onScrollY    : PropTypes.func,
+    onScrollX    : PropTypes.func,
+    onScrollUp   : PropTypes.func,
+    onScrollDown : PropTypes.func,
+    onScrollLeft : PropTypes.func,
+    onScrollRight: PropTypes.func,
+    onYReachStart: PropTypes.func,
+    onYReachEnd  : PropTypes.func,
+    onXReachStart: PropTypes.func,
+    onXReachEnd  : PropTypes.func
+};
+
+const defaultProps = {
+    className    : '',
+    enable       : true,
+    option       : undefined,
+    containerRef : () => {
+    },
+    onScrollY    : undefined,
+    onScrollX    : undefined,
+    onScrollUp   : undefined,
+    onScrollDown : undefined,
+    onScrollLeft : undefined,
+    onScrollRight: undefined,
+    onYReachStart: undefined,
+    onYReachEnd  : undefined,
+    onXReachStart: undefined,
+    onXReachEnd  : undefined
+};
 
 const handlerNameByEvent = {
     'ps-scroll-y'     : 'onScrollY',
@@ -35,21 +67,18 @@ class FuseScrollbars extends Component {
     componentDidMount()
     {
         this.createPs();
-        // console.info('componentDidMount: create Ps');
     }
 
     componentWillReceiveProps(nextProps)
     {
         if ( nextProps.customScrollbars )
         {
-            // console.info('componentWillReceiveProps: create Ps');
             setTimeout(() => {
                 this.createPs();
             });
         }
         else
         {
-            // console.info('componentWillReceiveProps: destroy Ps');
             setTimeout(() => {
                 this.destroyPs();
             });
@@ -63,7 +92,6 @@ class FuseScrollbars extends Component {
 
     componentWillUnmount()
     {
-        // console.info('componentWillUnmount: destroy Ps');
         this.destroyPs();
     }
 
@@ -76,7 +104,6 @@ class FuseScrollbars extends Component {
     };
 
     destroyPs = () => {
-        // console.info('destroy Ps');
         if ( !this._ps )
         {
             return;
@@ -91,7 +118,6 @@ class FuseScrollbars extends Component {
     };
 
     createPs = () => {
-        // console.info('create Ps');
         if ( !this._container || this._ps )
         {
             return;
@@ -122,18 +148,24 @@ class FuseScrollbars extends Component {
 
         return (
             customScrollbars && enable ?
-                <div className={className}
-                     style={{
-                         position: 'relative',
-                         overflow: 'hidden'
-                     }}
-                     ref={this.handleRef}>
-                    {children}
-                </div>
+                (
+                    <div
+                        className={className}
+                        style={{
+                            position: 'relative',
+                            overflow: 'hidden'
+                        }}
+                        ref={this.handleRef}
+                    >
+                        {children}
+                    </div>
+                )
                 :
-                <div className={this.props.className}>
-                    {this.props.children}
-                </div>
+                (
+                    <div className={this.props.className}>
+                        {this.props.children}
+                    </div>
+                )
         );
     }
 }
@@ -150,22 +182,7 @@ function mapStateToProps({fuse})
     }
 }
 
-FuseScrollbars.defaultProps = {
-    className    : '',
-    enable       : true,
-    option       : undefined,
-    containerRef : () => {
-    },
-    onScrollY    : undefined,
-    onScrollX    : undefined,
-    onScrollUp   : undefined,
-    onScrollDown : undefined,
-    onScrollLeft : undefined,
-    onScrollRight: undefined,
-    onYReachStart: undefined,
-    onYReachEnd  : undefined,
-    onXReachStart: undefined,
-    onXReachEnd  : undefined
-};
+FuseScrollbars.propTypes = propTypes;
+FuseScrollbars.defaultProps = defaultProps;
 
 export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(FuseScrollbars)));

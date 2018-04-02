@@ -36,29 +36,32 @@ class ContactsSidebarContent extends Component {
                     </div>
                     <Divider/>
                     <List>
-                        <ListItem button
-                                  component={NavLink}
-                                  to={'/apps/contacts/all'}
-                                  activeClassName="active"
-                                  className={classes.listItem}
+                        <ListItem
+                            button
+                            component={NavLink}
+                            to={'/apps/contacts/all'}
+                            activeClassName="active"
+                            className={classes.listItem}
                         >
                             <Icon className="list-item-icon text-16" color="action">people</Icon>
                             <ListItemText primary="All contacts" disableTypography={true}/>
                         </ListItem>
-                        <ListItem button
-                                  component={NavLink}
-                                  to={'/apps/contacts/frequent'}
-                                  activeClassName="active"
-                                  className={classes.listItem}
+                        <ListItem
+                            button
+                            component={NavLink}
+                            to={'/apps/contacts/frequent'}
+                            activeClassName="active"
+                            className={classes.listItem}
                         >
                             <Icon className="list-item-icon text-16" color="action">restore</Icon>
                             <ListItemText primary="Frequently contacted" disableTypography={true}/>
                         </ListItem>
-                        <ListItem button
-                                  component={NavLink}
-                                  to={'/apps/contacts/starred'}
-                                  activeClassName="active"
-                                  className={classes.listItem}
+                        <ListItem
+                            button
+                            component={NavLink}
+                            to={'/apps/contacts/starred'}
+                            activeClassName="active"
+                            className={classes.listItem}
                         >
                             <Icon className="list-item-icon text-16" color="action">star</Icon>
                             <ListItemText primary="Starred contacts" disableTypography={true}/>

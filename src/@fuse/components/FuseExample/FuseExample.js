@@ -1,6 +1,17 @@
 import React, {PureComponent} from 'react';
 import {AppBar, Card, Icon, Tab, Tabs, withStyles} from 'material-ui';
 import {FuseHighlight} from '@fuse';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+    component      : PropTypes.func,
+    raw            : PropTypes.string,
+    currentTabIndex: PropTypes.number
+};
+
+const defaultProps = {
+    currentTabIndex: 0
+};
 
 const styles = theme => ({
     root: {}
@@ -8,7 +19,7 @@ const styles = theme => ({
 
 class FuseExample extends PureComponent {
     state = {
-        value: 0
+        value: this.props.currentTabIndex
     };
 
     handleChange = (event, value) => {
@@ -22,22 +33,30 @@ class FuseExample extends PureComponent {
         return (
             <Card className={className}>
                 <AppBar position="static" color="default" elevation={0}>
-                    <Tabs classes={
-                        {
-                            root         : 'border-b-1',
-                            flexContainer: 'justify-end'
-                        }} value={value} onChange={this.handleChange}>
-                        <Tab classes={{root: 'min-w-64'}} icon={<Icon>remove_red_eye</Icon>}/>
-                        <Tab classes={{root: 'min-w-64'}} icon={<Icon>code</Icon>}/>
+                    <Tabs
+                        classes={
+                            {
+                                root         : 'border-b-1',
+                                flexContainer: 'justify-end'
+                            }}
+                        value={value}
+                        onChange={this.handleChange}
+                    >
+                        {Component && (
+                            <Tab classes={{root: 'min-w-64'}} icon={<Icon>remove_red_eye</Icon>}/>
+                        )}
+                        {raw && (
+                            <Tab classes={{root: 'min-w-64'}} icon={<Icon>code</Icon>}/>
+                        )}
                     </Tabs>
                 </AppBar>
                 <div>
-                    {value === 0 && (
+                    {value === 0 && Component && (
                         <div className="p-24">
                             <Component/>
                         </div>
                     )}
-                    {value === 1 && (
+                    {value === 1 && raw && (
                         <div>
                             <FuseHighlight component="pre" className="language-javascript">
                                 {raw}
@@ -49,5 +68,8 @@ class FuseExample extends PureComponent {
         )
     }
 }
+
+FuseExample.propTypes = propTypes;
+FuseExample.defaultProps = defaultProps;
 
 export default withStyles(styles)(FuseExample);

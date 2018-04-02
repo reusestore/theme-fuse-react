@@ -4,8 +4,21 @@ import FuseNavVerticalItem from './FuseNavVerticalItem';
 import {ListSubheader} from 'material-ui';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
-const FuseNavVerticalGroup = ({item, nestedLevel}) => {
+const propTypes = {
+    item: PropTypes.shape(
+        {
+            id      : PropTypes.string.isRequired,
+            title   : PropTypes.string,
+            children: PropTypes.array
+        })
+};
+
+const defaultProps = {};
+
+function FuseNavVerticalGroup({item, nestedLevel})
+{
 
     let paddingValue = 40 + (nestedLevel * 16);
     const listItemPadding = nestedLevel > 0 ? 'pl-' + (paddingValue > 80 ? 80 : paddingValue) : 'pl-24';
@@ -14,9 +27,9 @@ const FuseNavVerticalGroup = ({item, nestedLevel}) => {
         <React.Fragment>
 
             <ListSubheader disableSticky={true} className={classNames(listItemPadding, "list-subheader flex items-center")}>
-               <span className="list-subheader-text">
-                {item.title}
-               </span>
+                <span className="list-subheader-text">
+                    {item.title}
+                </span>
             </ListSubheader>
 
             {item.children && (
@@ -45,7 +58,10 @@ const FuseNavVerticalGroup = ({item, nestedLevel}) => {
             )}
         </React.Fragment>
     );
-};
+}
+
+FuseNavVerticalGroup.propTypes = propTypes;
+FuseNavVerticalGroup.defaultProps = defaultProps;
 
 const NavVerticalGroup = withRouter(FuseNavVerticalGroup);
 

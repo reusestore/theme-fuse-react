@@ -74,12 +74,14 @@ class FilterComponent extends Component {
                         onChange={this.changeFilterValue}
                         value={this.state.filterValue}
                         className="w-full"
-                        inputProps={{placeholder: "Filter"}}
+                        inputProps={{placeholder: 'Filter'}}
                         endAdornment={
                             <InputAdornment position="end">
-                                <IconButton aria-owns={filterMenuEl ? 'filter-menu' : null}
-                                            aria-haspopup="true"
-                                            onClick={this.handleFilterMenuClick}>
+                                <IconButton
+                                    aria-owns={filterMenuEl ? 'filter-menu' : null}
+                                    aria-haspopup="true"
+                                    onClick={this.handleFilterMenuClick}
+                                >
                                     <Icon color="action" className="text-20">filter_list</Icon>
                                 </IconButton>
                                 <Menu

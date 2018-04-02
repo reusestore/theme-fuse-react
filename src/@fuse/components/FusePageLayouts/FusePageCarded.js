@@ -5,6 +5,22 @@ import Hidden from 'material-ui/Hidden';
 import {MuiThemeProvider} from 'material-ui';
 import classNames from 'classnames';
 import {FuseScrollbars, FuseThemes} from '@fuse';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+    rightSidebarHeader : PropTypes.node,
+    rightSidebarContent: PropTypes.node,
+    rightSidebarVariant: PropTypes.node,
+    leftSidebarHeader  : PropTypes.node,
+    leftSidebarContent : PropTypes.node,
+    leftSidebarVariant : PropTypes.node,
+    header             : PropTypes.node,
+    content            : PropTypes.node,
+    contentToolbar     : PropTypes.node,
+    singleScroll       : PropTypes.bool
+};
+
+const defaultProps = {};
 
 const drawerWidth = 240;
 const headerHeight = 200;
@@ -13,12 +29,12 @@ const headerContentHeight = headerHeight - toolbarHeight;
 
 const styles = theme => ({
     root                     : {
-        display      : 'flex',
-        flexDirection: 'row',
-        height       : '100%',
-        minHeight    : '100%',
-        position     : 'relative',
-        flex         : '1 1 auto',
+        display        : 'flex',
+        flexDirection  : 'row',
+        height         : '100%',
+        minHeight      : '100%',
+        position       : 'relative',
+        flex           : '1 1 auto',
         backgroundColor: theme.palette.background.default
     },
     singleScroll             : {
@@ -165,7 +181,6 @@ class FusePageCarded extends React.Component {
     render()
     {
         const {classes, rightSidebarHeader, rightSidebarContent, rightSidebarVariant, leftSidebarHeader, leftSidebarContent, leftSidebarVariant, header, content, contentToolbar, singleScroll} = this.props;
-
         const isRightSidebar = rightSidebarHeader || rightSidebarContent;
         const isLeftSidebar = leftSidebarHeader || leftSidebarContent;
 
@@ -208,7 +223,8 @@ class FusePageCarded extends React.Component {
                                 root: classes.backdrop
                             }
                         }}
-                        onClick={(ev) => this.handleDrawerToggle(sidebarId)}>
+                        onClick={(ev) => this.handleDrawerToggle(sidebarId)}
+                    >
                         {Sidebar(header, content, variant)}
                     </Drawer>
                 </Hidden>
@@ -234,13 +250,13 @@ class FusePageCarded extends React.Component {
                      this.root = root;
                  }}>
 
-                <div className={classes.topBg}></div>
+                <div className={classes.topBg}/>
 
                 {isLeftSidebar && SidebarWrapper(leftSidebarHeader, leftSidebarContent, 'leftSidebar', leftSidebarVariant || 'permanent')}
 
                 <div
-                    className={classNames(classes.contentWrapper, isLeftSidebar && (leftSidebarVariant === undefined || leftSidebarVariant === 'permanent') && 'lg:pl-0', isRightSidebar && (rightSidebarVariant === undefined || rightSidebarVariant === 'permanent') && 'lg:pr-0')}>
-
+                    className={classNames(classes.contentWrapper, isLeftSidebar && (leftSidebarVariant === undefined || leftSidebarVariant === 'permanent') && 'lg:pl-0', isRightSidebar && (rightSidebarVariant === undefined || rightSidebarVariant === 'permanent') && 'lg:pr-0')}
+                >
                     <div className={classes.header}>
                         <MuiThemeProvider theme={FuseThemes['currentThemeDark']}>
                             {header}
@@ -260,7 +276,6 @@ class FusePageCarded extends React.Component {
                                 {content}
                             </FuseScrollbars>
                         )}
-
                     </div>
                 </div>
 
@@ -270,5 +285,8 @@ class FusePageCarded extends React.Component {
         );
     }
 }
+
+FusePageCarded.propTypes = propTypes;
+FusePageCarded.defaultProps = defaultProps;
 
 export default withStyles(styles, {withTheme: true})(FusePageCarded);

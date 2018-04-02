@@ -26,18 +26,18 @@ class Graph extends Component {
     componentDidMount()
     {
 
-        var _this = this;
+        const _this = this;
 
         setInterval(function () {
-            var oldDataSet = _this.state.datasets[0];
-            var newData = [];
+            const oldDataSet = _this.state.datasets[0];
+            const newData = [];
 
-            for ( var x = 0; x < _this.state.labels.length; x++ )
+            for ( let x = 0; x < _this.state.labels.length; x++ )
             {
                 newData.push(Math.floor(Math.random() * 100));
             }
 
-            var newDataSet = {
+            const newDataSet = {
                 ...oldDataSet
             };
 
@@ -47,7 +47,7 @@ class Graph extends Component {
             newDataSet.hoverBackgroundColor = FuseUtils.randomMatColor();
             newDataSet.hoverBorderColor = FuseUtils.randomMatColor();
 
-            var newState = {
+            const newState = {
                 ...initialState,
                 datasets: [newDataSet]
             };

@@ -20,8 +20,10 @@ class CardedLeftSidebarSample extends Component {
                 header={
                     <div className="flex flex-1">
                         <Hidden lgUp>
-                            <IconButton onClick={(ev) => this.pageLayout.toggleLeftSidebar()}
-                                        aria-label="open left sidebar">
+                            <IconButton
+                                onClick={(ev) => this.pageLayout.toggleLeftSidebar()}
+                                aria-label="open left sidebar"
+                            >
                                 <Icon>menu</Icon>
                             </IconButton>
                         </Hidden>

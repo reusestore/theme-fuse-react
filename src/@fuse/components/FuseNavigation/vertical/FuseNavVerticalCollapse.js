@@ -7,6 +7,19 @@ import {withRouter} from 'react-router-dom';
 import _ from 'lodash';
 import classNames from 'classnames';
 import FuseNavBadge from './FuseNavBadge';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+    item: PropTypes.shape(
+        {
+            id      : PropTypes.string.isRequired,
+            title   : PropTypes.string,
+            icon    : PropTypes.string,
+            children: PropTypes.array
+        })
+};
+
+const defaultProps = {};
 
 const styles = theme => ({
     root: {
@@ -86,11 +99,13 @@ class FuseNavVerticalCollapse extends Component {
         const listItemPadding = nestedLevel > 0 ? 'pl-' + (paddingValue > 80 ? 80 : paddingValue) : 'pl-24';
 
         return (
-            <ul className={classNames(classes.root, this.state.open && 'open')}>
+            <ul className={classNames(classes.root, this.state.open && "open")}>
 
-                <ListItem button
-                          className={listItemPadding}
-                          onClick={this.handleClick}>
+                <ListItem
+                    button
+                    className={listItemPadding}
+                    onClick={this.handleClick}
+                >
                     {item.icon && (
                         <Icon color="action" className="text-16 flex-no-shrink">{item.icon}</Icon>
                     )}
@@ -133,6 +148,9 @@ class FuseNavVerticalCollapse extends Component {
         );
     };
 }
+
+FuseNavVerticalCollapse.propTypes = propTypes;
+FuseNavVerticalCollapse.defaultProps = defaultProps;
 
 const NavVerticalCollapse = withStyles(styles, {withTheme: true})(withRouter(FuseNavVerticalCollapse));
 

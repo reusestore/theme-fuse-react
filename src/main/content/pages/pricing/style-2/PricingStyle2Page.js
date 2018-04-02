@@ -4,27 +4,27 @@ import {Button, Card, CardContent, Typography} from 'material-ui';
 import classNames from 'classnames';
 
 const styles = theme => ({
-    root      : {
+    root   : {
         '& .container': {
             width   : '100%',
             maxWidth: 840,
             margin  : '0 auto'
         }
     },
-    card      : {
+    card   : {
         position: 'relative'
     },
-    header    : {
+    header : {
         height        : 600,
         background    : "url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat",
         backgroundSize: 'cover',
         color         : '#fff'
     },
-    badge     : {
+    badge  : {
         backgroundColor: theme.palette.error.main,
         color          : theme.palette.getContrastText(theme.palette.error.main)
     },
-    content   : {}
+    content: {}
 });
 
 class PricingStyle2Page extends Component {
@@ -235,7 +235,6 @@ class PricingStyle2Page extends Component {
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         );

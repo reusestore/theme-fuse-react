@@ -1,16 +1,18 @@
 import React from 'react';
-                        import {FuseExample, FuseHighlight, FusePageSimple} from '@fuse';
-                        import {Button, Icon, Typography} from 'material-ui';
-                        import {withStyles} from 'material-ui/styles/index';
-                        /* eslint import/no-webpack-loader-syntax: off */
-                        /* eslint no-unused-vars: off */
-                        const styles = theme => ({
-                            layoutRoot: {}
-                        });
-                        function Avatars({classes}) {
-                          return (
-                            
-         <FusePageSimple
+import {FuseExample, FuseHighlight, FusePageSimple} from '@fuse';
+import {Button, Icon, Typography} from 'material-ui';
+import {withStyles} from 'material-ui/styles/index';
+/* eslint import/no-webpack-loader-syntax: off */
+/* eslint no-unused-vars: off */
+const styles = theme => ({
+    layoutRoot: {}
+});
+
+function Avatars({classes})
+{
+    return (
+
+        <FusePageSimple
             classes={{
                 root: classes.layoutRoot
             }}
@@ -26,26 +28,31 @@ import React from 'react';
             }
             content={
                 <div className="p-24 max-w-2xl mx-auto">
-                     <Typography className="text-44 mt-32 mb-8" component="h1">Avatars</Typography><Typography className="mb-16" component="p">Avatars are found throughout material design with uses in everything from tables to dialog menus.</Typography><Typography className="text-32 mt-32 mb-8" component="h2">Image avatars</Typography><Typography className="mb-16" component="p">Image avatars can be created by passing standard <code>img</code> props <code>src</code> or <code>srcSet</code> into the component.</Typography><FuseExample
+                    <Typography className="text-44 mt-32 mb-8" component="h1">Avatars</Typography><Typography className="mb-16" component="p">Avatars are found throughout material
+                    design with uses in everything from tables to dialog menus.</Typography><Typography className="text-32 mt-32 mb-8" component="h2">Image
+                    avatars</Typography><Typography className="mb-16" component="p">Image avatars can be created by passing
+                    standard <code>img</code> props <code>src</code> or <code>srcSet</code> into the component.</Typography><FuseExample
                     className="my-24"
-                    component={require('main/content/components/material-ui/material-ui-examples/avatars/ImageAvatars.js').default} 
+                    component={require('main/content/components/material-ui/material-ui-examples/avatars/ImageAvatars.js').default}
                     raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/avatars/ImageAvatars.js')}/>
 
-<Typography className="text-32 mt-32 mb-8" component="h2">Icon avatars</Typography><Typography className="mb-16" component="p">Icon avatars are created by passing an icon as <code>children</code>.</Typography><FuseExample
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Icon avatars</Typography><Typography className="mb-16" component="p">Icon avatars are created by
+                    passing an icon as <code>children</code>.</Typography><FuseExample
                     className="my-24"
-                    component={require('main/content/components/material-ui/material-ui-examples/avatars/IconAvatars.js').default} 
+                    component={require('main/content/components/material-ui/material-ui-examples/avatars/IconAvatars.js').default}
                     raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/avatars/IconAvatars.js')}/>
 
-<Typography className="text-32 mt-32 mb-8" component="h2">Letter avatars</Typography><Typography className="mb-16" component="p">Avatars containing simple characters can be created by passing your string as <code>children</code>.</Typography><FuseExample
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Letter avatars</Typography><Typography className="mb-16" component="p">Avatars containing simple
+                    characters can be created by passing your string as <code>children</code>.</Typography><FuseExample
                     className="my-24"
-                    component={require('main/content/components/material-ui/material-ui-examples/avatars/LetterAvatars.js').default} 
+                    component={require('main/content/components/material-ui/material-ui-examples/avatars/LetterAvatars.js').default}
                     raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/avatars/LetterAvatars.js')}/>
                 </div>
             }
         />
-    
-                          );
-                        }
-                        
-                        export default withStyles(styles, {withTheme: true})(Avatars);
+
+    );
+}
+
+export default withStyles(styles, {withTheme: true})(Avatars);
                         

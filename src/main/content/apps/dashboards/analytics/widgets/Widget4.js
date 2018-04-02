@@ -11,7 +11,7 @@ const styles = theme => ({
 class Widget4 extends Component {
     render()
     {
-        const {data, classes,theme} = this.props;
+        const {data, classes, theme} = this.props;
         const dataWithColors = data.datasets.map(obj => ({
             ...obj,
             borderColor    : theme.palette.error.main,
@@ -44,10 +44,13 @@ class Widget4 extends Component {
                 </div>
 
                 <div className="h-96 w-100-p">
-                    <Bar data={{
-                        labels  : data.labels,
-                        datasets: dataWithColors
-                    }} options={data.options}/>
+                    <Bar
+                        data={{
+                            labels  : data.labels,
+                            datasets: dataWithColors
+                        }}
+                        options={data.options}
+                    />
                 </div>
             </Card>
         );

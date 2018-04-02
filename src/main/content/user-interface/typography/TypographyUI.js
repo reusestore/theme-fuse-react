@@ -21,8 +21,13 @@ class TypographyUI extends Component {
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
                         <Typography variant="title">Typography</Typography>
-                        <Button className="normal-case"
-                                variant="raised" component="a" href="https://material-ui-next.com/style/typography/" target="_blank">
+                        <Button
+                            className="normal-case"
+                            variant="raised"
+                            component="a"
+                            href="https://material-ui-next.com/style/typography/"
+                            target="_blank"
+                        >
                             <Icon className="mr-4">link</Icon>
                             Reference
                         </Button>

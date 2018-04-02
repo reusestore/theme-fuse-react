@@ -46,7 +46,8 @@ class Error404Page extends Component {
                             fullWidth
                             inputProps={{
                                 'aria-label': 'Search'
-                            }}/>
+                            }}
+                        />
                     </Paper>
 
                     <Link className="font-medium" to="/apps/dashboards/project">Go back to dashboard</Link>

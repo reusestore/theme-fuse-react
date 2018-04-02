@@ -60,31 +60,38 @@ class MailCompose extends Component {
     {
         const {classes} = this.props;
 
-        const Attachment = ({fileName, size}) => (
-            <div className={classes.attachment}>
-                <div className="flex">
-                    <Typography variant="caption" className={classes.attachmentFilename}>{fileName}</Typography>
-                    <Typography variant="caption" className={classes.attachmentSize}>({size})</Typography>
+        function Attachment({fileName, size})
+        {
+            return (
+                <div className={classes.attachment}>
+                    <div className="flex">
+                        <Typography variant="caption" className={classes.attachmentFilename}>{fileName}</Typography>
+                        <Typography variant="caption" className={classes.attachmentSize}>({size})</Typography>
+                    </div>
+                    <IconButton>
+                        <Icon className="text-16">close</Icon>
+                    </IconButton>
                 </div>
-                <IconButton>
-                    <Icon className="text-16">close</Icon>
-                </IconButton>
-            </div>
-        );
+            );
+        }
 
         return (
             <div className="p-24">
 
-                <Button variant="raised" color="primary" className={classes.composeButton}
-                        onClick={this.openComposeDialog}>
+                <Button
+                    variant="raised"
+                    color="primary"
+                    className={classes.composeButton}
+                    onClick={this.openComposeDialog}
+                >
                     COMPOSE
                 </Button>
 
                 <Dialog
                     open={this.state.composeDialog}
                     onClose={this.closeComposeDialog}
-                    aria-labelledby="form-dialog-title">
-
+                    aria-labelledby="form-dialog-title"
+                >
                     <AppBar position="static">
                         <Toolbar className="flex w-full">
                             <Typography variant="subheading" color="inherit">
@@ -120,10 +127,17 @@ class MailCompose extends Component {
                             <Input id="subject" name="subject" value={this.state.subject} onChange={this.handleChange}/>
                         </FormControl>
 
-                        <TextField className={classes.formControl}
-                                   id="message" name="message"  onChange={this.handleChange}
-                                   label="Message" type="text"
-                                   multiline rows={5} fullWidth/>
+                        <TextField
+                            className={classes.formControl}
+                            id="message"
+                            name="message"
+                            onChange={this.handleChange}
+                            label="Message"
+                            type="text"
+                            multiline
+                            rows={5}
+                            fullWidth
+                        />
 
                         <div className={classes.attachmentList}>
                             <Attachment fileName="attachment-2.doc" size="12 kb"/>

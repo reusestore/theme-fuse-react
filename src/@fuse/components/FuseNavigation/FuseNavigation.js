@@ -4,6 +4,13 @@ import FuseNavVerticalCollapse from './vertical/FuseNavVerticalCollapse';
 import FuseNavVerticalItem from './vertical/FuseNavVerticalItem';
 import {Divider, List} from 'material-ui';
 import {withRouter} from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+    navigation: PropTypes.array.isRequired
+};
+
+const defaultProps = {};
 
 class FuseNavigation extends Component {
 
@@ -41,6 +48,9 @@ class FuseNavigation extends Component {
             )
         );
     }
-};
+}
+
+FuseNavigation.propTypes = propTypes;
+FuseNavigation.defaultProps = defaultProps;
 
 export default withRouter(FuseNavigation);

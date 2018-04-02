@@ -4,8 +4,7 @@ import {Redirect} from 'react-router-dom';
 
 export const MailAppConfig = {
     settings: {
-        layout: {
-        }
+        layout: {}
     },
     routes  : [
         {

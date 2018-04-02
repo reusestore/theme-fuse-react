@@ -2,11 +2,14 @@ import React, {Component} from 'react';
 import {Icon, Tooltip, Typography} from 'material-ui';
 import GoogleMap from 'google-map-react';
 
-const Marker = ({text}) => (
-    <Tooltip title={text} placement="top">
-        <Icon className="text-red">place</Icon>
-    </Tooltip>
-);
+function Marker({text})
+{
+    return (
+        <Tooltip title={text} placement="top">
+            <Icon className="text-red">place</Icon>
+        </Tooltip>
+    );
+}
 
 
 class SimpleExample extends Component {

@@ -40,8 +40,10 @@ class CardedLeftSidebarTabbedSample extends Component {
                 header={
                     <div className="flex flex-1">
                         <Hidden lgUp>
-                            <IconButton onClick={(ev) => this.pageLayout.toggleLeftSidebar()}
-                                        aria-label="open left sidebar">
+                            <IconButton
+                                onClick={(ev) => this.pageLayout.toggleLeftSidebar()}
+                                aria-label="open left sidebar"
+                            >
                                 <Icon>menu</Icon>
                             </IconButton>
                         </Hidden>
@@ -64,31 +66,44 @@ class CardedLeftSidebarTabbedSample extends Component {
                             classes={{
                                 root: classes.tabRoot
                             }}
-                            label="Item One"/>
+                            label="Item One"
+                        />
                         <Tab
                             classes={{
                                 root: classes.tabRoot
-                            }} label="Item Two"/>
+                            }}
+                            label="Item Two"
+                        />
                         <Tab
                             classes={{
                                 root: classes.tabRoot
-                            }} label="Item Three"/>
+                            }}
+                            label="Item Three"
+                        />
                         <Tab
                             classes={{
                                 root: classes.tabRoot
-                            }} label="Item Four"/>
+                            }}
+                            label="Item Four"
+                        />
                         <Tab
                             classes={{
                                 root: classes.tabRoot
-                            }} label="Item Five"/>
+                            }}
+                            label="Item Five"
+                        />
                         <Tab
                             classes={{
                                 root: classes.tabRoot
-                            }} label="Item Six"/>
+                            }}
+                            label="Item Six"
+                        />
                         <Tab
                             classes={{
                                 root: classes.tabRoot
-                            }} label="Item Seven"/>
+                            }}
+                            label="Item Seven"
+                        />
                     </Tabs>
                 }
                 content={

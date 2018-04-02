@@ -52,18 +52,26 @@ class MailDetails extends Component {
 
                     <div className="flex items-center justify-start" aria-label="Toggle star">
                         <IconButton onClick={() => toggleStar(mail)}>
-                            {mail.starred ? (
-                                <Icon>star</Icon>
-                            ) : (
-                                <Icon>star_border</Icon>
-                            )}
+                            {mail.starred ?
+                                (
+                                    <Icon>star</Icon>
+                                )
+                                :
+                                (
+                                    <Icon>star_border</Icon>
+                                )
+                            }
                         </IconButton>
                         <IconButton onClick={() => toggleImportant(mail)}>
-                            {mail.important ? (
-                                <Icon>label</Icon>
-                            ) : (
-                                <Icon>label_outline</Icon>
-                            )}
+                            {mail.important ?
+                                (
+                                    <Icon>label</Icon>
+                                )
+                                :
+                                (
+                                    <Icon>label_outline</Icon>
+                                )
+                            }
                         </IconButton>
                     </div>
                 </div>
@@ -73,13 +81,17 @@ class MailDetails extends Component {
                 <div className="flex items-start justify-between">
 
                     <div className="flex items-center justify-start">
-                        {mail.from.avatar ? (
-                            <Avatar className="mr-8" alt={mail.from.name} src={mail.from.avatar}/>
-                        ) : (
-                            <Avatar className={classNames(classes.avatar, "mr-8")}>
-                                {mail.from.name[0]}
-                            </Avatar>
-                        )}
+                        {mail.from.avatar ?
+                            (
+                                <Avatar className="mr-8" alt={mail.from.name} src={mail.from.avatar}/>
+                            )
+                            :
+                            (
+                                <Avatar className={classNames(classes.avatar, "mr-8")}>
+                                    {mail.from.name[0]}
+                                </Avatar>
+                            )
+                        }
 
                         <div className="flex flex-col">
                             <span>{mail.from.name}</span>
@@ -95,15 +107,22 @@ class MailDetails extends Component {
                 </div>
 
                 <div className="my-16">
-                    <Typography color="primary" className="cursor-pointer underline mb-8"
-                                onClick={() => {
-                                    this.setState({showDetails: !this.state.showDetails});
-                                }}>
-                        {this.state.showDetails ? (
-                            <span>Hide Details</span>
-                        ) : (
-                            <span>Show Details</span>
-                        )}
+                    <Typography
+                        color="primary"
+                        className="cursor-pointer underline mb-8"
+                        onClick={() => {
+                            this.setState({showDetails: !this.state.showDetails});
+                        }}
+                    >
+                        {this.state.showDetails ?
+                            (
+                                <span>Hide Details</span>
+                            )
+                            :
+                            (
+                                <span>Show Details</span>
+                            )
+                        }
                     </Typography>
 
                     {this.state.showDetails && (

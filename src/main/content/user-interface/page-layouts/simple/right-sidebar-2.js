@@ -21,8 +21,10 @@ class SimpleRightSidebar2Sample extends Component {
                     <div className="flex flex-1 p-24">
                         <div className="flex-1 py-16"><h4>Header</h4></div>
                         <Hidden lgUp>
-                            <IconButton onClick={(ev) => this.pageLayout.toggleRightSidebar()}
-                                        aria-label="open right sidebar">
+                            <IconButton
+                                onClick={(ev) => this.pageLayout.toggleRightSidebar()}
+                                aria-label="open right sidebar"
+                            >
                                 <Icon>menu</Icon>
                             </IconButton>
                         </Hidden>

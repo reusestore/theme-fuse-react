@@ -160,7 +160,8 @@ class TimelineTab extends Component {
                                                                     </Typography>
                                                                 </div>
                                                             )}
-                                                            secondary={comment.message}/>
+                                                            secondary={comment.message}
+                                                        />
                                                     </ListItem>
                                                     <div className="flex items-center ml-56 mb-8">
                                                         <Link to="#" className="mr-8">Reply</Link>
@@ -189,7 +190,6 @@ class TimelineTab extends Component {
                                         <Button className="normal-case" variant="raised" color="primary" size="small">Post Comment</Button>
                                     </div>
                                 </div>
-
                             </AppBar>
                         </Card>
                     ))}
@@ -222,11 +222,11 @@ class TimelineTab extends Component {
                                                     </Typography>
                                                 </div>
                                             )}
-                                            secondary={activity.time}/>
+                                            secondary={activity.time}
+                                        />
                                     </ListItem>
                                 ))}
                             </List>
-
                         </CardContent>
                     </Card>
                 </div>

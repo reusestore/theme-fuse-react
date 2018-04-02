@@ -145,37 +145,51 @@ class EventDialog extends Component {
                     </div>
 
                     <div className="flex">
-                        <TextField className={classes.formControl}
-                                   id="desc" label="Description"
-                                   type="text"
-                                   name="desc"
-                                   value={this.state.desc}
-                                   onChange={this.handleChange}
-                                   multiline rows={5} fullWidth/>
+                        <TextField
+                            className={classes.formControl}
+                            id="desc" label="Description"
+                            type="text"
+                            name="desc"
+                            value={this.state.desc}
+                            onChange={this.handleChange}
+                            multiline rows={5} fullWidth
+                        />
                     </div>
 
                 </DialogContent>
 
                 {eventDialog.type === 'new' ? (
                     <DialogActions className="justify-between pl-16">
-                        <Button variant="raised" color="primary" onClick={() => {
-                            addEvent(this.state);
-                            this.closeComposeDialog();
-                        }} disabled={!this.canBeSubmitted()}>
+                        <Button
+                            variant="raised"
+                            color="primary"
+                            onClick={() => {
+                                addEvent(this.state);
+                                this.closeComposeDialog();
+                            }}
+                            disabled={!this.canBeSubmitted()}
+                        >
                             Add
                         </Button>
                     </DialogActions>
                 ) : (
                     <DialogActions className="justify-between pl-16">
-                        <Button variant="raised" color="primary" onClick={() => {
-                            updateEvent(this.state);
-                            this.closeComposeDialog();
-                        }} disabled={!this.canBeSubmitted()}> Save
+                        <Button
+                            variant="raised"
+                            color="primary"
+                            onClick={() => {
+                                updateEvent(this.state);
+                                this.closeComposeDialog();
+                            }}
+                            disabled={!this.canBeSubmitted()}
+                        > Save
                         </Button>
-                        <IconButton onClick={() => {
-                            removeEvent(this.state.id);
-                            this.closeComposeDialog();
-                        }}>
+                        <IconButton
+                            onClick={() => {
+                                removeEvent(this.state.id);
+                                this.closeComposeDialog();
+                            }}
+                        >
                             <Icon>delete</Icon>
                         </IconButton>
                     </DialogActions>

@@ -1,7 +1,7 @@
 import * as Actions from '../actions';
 
 const initialState = {
-    data                  : null
+    data: null
 };
 
 const widgetsReducer = function (state = initialState, action) {

@@ -25,82 +25,84 @@ import Tabs from 'main/content/components/material-ui/pages/Tabs';
 import TextFields from 'main/content/components/material-ui/pages/TextFields';
 import Tooltips from 'main/content/components/material-ui/pages/Tooltips';
 
-export const MaterialUIRoutes = [{
-    path: '/components/material-ui/app-bar',
-    component: AppBar
-}, {
-    path: '/components/material-ui/autocomplete',
-    component: Autocomplete
-}, {
-    path: '/components/material-ui/avatars',
-    component: Avatars
-}, {
-    path: '/components/material-ui/badges',
-    component: Badges
-}, {
-    path: '/components/material-ui/bottom-navigation',
-    component: BottomNavigation
-}, {
-    path: '/components/material-ui/buttons',
-    component: Buttons
-}, {
-    path: '/components/material-ui/cards',
-    component: Cards
-}, {
-    path: '/components/material-ui/chips',
-    component: Chips
-}, {
-    path: '/components/material-ui/dialogs',
-    component: Dialogs
-}, {
-    path: '/components/material-ui/dividers',
-    component: Dividers
-}, {
-    path: '/components/material-ui/drawers',
-    component: Drawers
-}, {
-    path: '/components/material-ui/expansion-panels',
-    component: ExpansionPanels
-}, {
-    path: '/components/material-ui/grid-list',
-    component: GridList
-}, {
-    path: '/components/material-ui/lists',
-    component: Lists
-}, {
-    path: '/components/material-ui/menus',
-    component: Menus
-}, {
-    path: '/components/material-ui/paper',
-    component: Paper
-}, {
-    path: '/components/material-ui/pickers',
-    component: Pickers
-}, {
-    path: '/components/material-ui/progress',
-    component: Progress
-}, {
-    path: '/components/material-ui/selection-controls',
-    component: SelectionControls
-}, {
-    path: '/components/material-ui/selects',
-    component: Selects
-}, {
-    path: '/components/material-ui/snackbars',
-    component: Snackbars
-}, {
-    path: '/components/material-ui/steppers',
-    component: Steppers
-}, {
-    path: '/components/material-ui/tables',
-    component: Tables
-}, {
-    path: '/components/material-ui/tabs',
-    component: Tabs
-}, {
-    path: '/components/material-ui/text-fields',
-    component: TextFields
-}, {
-    path: '/components/material-ui/tooltips',
-    component: Tooltips
-}];
+export const MaterialUIRoutes = [
+    {
+        path     : '/components/material-ui/app-bar',
+        component: AppBar
+    }, {
+        path     : '/components/material-ui/autocomplete',
+        component: Autocomplete
+    }, {
+        path     : '/components/material-ui/avatars',
+        component: Avatars
+    }, {
+        path     : '/components/material-ui/badges',
+        component: Badges
+    }, {
+        path     : '/components/material-ui/bottom-navigation',
+        component: BottomNavigation
+    }, {
+        path     : '/components/material-ui/buttons',
+        component: Buttons
+    }, {
+        path     : '/components/material-ui/cards',
+        component: Cards
+    }, {
+        path     : '/components/material-ui/chips',
+        component: Chips
+    }, {
+        path     : '/components/material-ui/dialogs',
+        component: Dialogs
+    }, {
+        path     : '/components/material-ui/dividers',
+        component: Dividers
+    }, {
+        path     : '/components/material-ui/drawers',
+        component: Drawers
+    }, {
+        path     : '/components/material-ui/expansion-panels',
+        component: ExpansionPanels
+    }, {
+        path     : '/components/material-ui/grid-list',
+        component: GridList
+    }, {
+        path     : '/components/material-ui/lists',
+        component: Lists
+    }, {
+        path     : '/components/material-ui/menus',
+        component: Menus
+    }, {
+        path     : '/components/material-ui/paper',
+        component: Paper
+    }, {
+        path     : '/components/material-ui/pickers',
+        component: Pickers
+    }, {
+        path     : '/components/material-ui/progress',
+        component: Progress
+    }, {
+        path     : '/components/material-ui/selection-controls',
+        component: SelectionControls
+    }, {
+        path     : '/components/material-ui/selects',
+        component: Selects
+    }, {
+        path     : '/components/material-ui/snackbars',
+        component: Snackbars
+    }, {
+        path     : '/components/material-ui/steppers',
+        component: Steppers
+    }, {
+        path     : '/components/material-ui/tables',
+        component: Tables
+    }, {
+        path     : '/components/material-ui/tabs',
+        component: Tabs
+    }, {
+        path     : '/components/material-ui/text-fields',
+        component: TextFields
+    }, {
+        path     : '/components/material-ui/tooltips',
+        component: Tooltips
+    }
+];

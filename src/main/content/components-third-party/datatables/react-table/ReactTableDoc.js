@@ -22,8 +22,13 @@ class ReactTableDoc extends Component {
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
                         <Typography variant="title">React Table</Typography>
-                        <Button className="normal-case"
-                                variant="raised" component="a" href="https://github.com/react-tools/react-table" target="_blank">
+                        <Button
+                            className="normal-case"
+                            variant="raised"
+                            component="a"
+                            href="https://github.com/react-tools/react-table"
+                            target="_blank"
+                        >
                             <Icon className="mr-4">link</Icon>
                             Reference
                         </Button>
@@ -33,7 +38,7 @@ class ReactTableDoc extends Component {
                     <div className="p-24 max-w-2xl mx-auto">
 
                         <Typography className="mb-16" component="p">
-                            <code className="language-bash">react-table</code>  is a lightweight, fast and extendable datagrid built for React.
+                            <code className="language-bash">react-table</code> is a lightweight, fast and extendable datagrid built for React.
                         </Typography>
 
                         <hr/>
@@ -43,7 +48,8 @@ class ReactTableDoc extends Component {
                         <FuseExample
                             className="mb-64"
                             component={require('./examples/simple.js').default}
-                            raw={require('!raw-loader!./examples/simple.js')}/>
+                            raw={require('!raw-loader!./examples/simple.js')}
+                        />
 
                         <Typography className="text-32 mt-32 mb-8" component="h2">Demos</Typography>
 

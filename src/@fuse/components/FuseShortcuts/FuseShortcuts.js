@@ -9,6 +9,10 @@ import amber from 'material-ui/es/colors/amber';
 import classNames from 'classnames';
 import _ from 'lodash';
 
+const propTypes = {};
+
+const defaultProps = {};
+
 const styles = theme => ({
     root   : {},
     item   : {
@@ -73,39 +77,46 @@ class FuseShortcuts extends Component {
         const {addMenu, searchText, searchResults} = this.state;
         const shortcutItems = shortcuts ? shortcuts.map(id => FuseUtils.findById(navigation, id)) : [];
 
-        const ShortcutMenuItem = ({item, onToggle}) => (
-            <Link to={item.url} className={classes.item}>
-                <MenuItem key={item.id}>
-                    <ListItemIcon>
-                        {item.icon ? (
-                                <Icon>{item.icon}</Icon>
-                            ) :
-                            (
-                                <span className="text-20 font-bold uppercase text-center">{item.title[0]}</span>
-                            )
-                        }
-                    </ListItemIcon>
-                    <ListItemText className="pl-0" primary={item.title}/>
-                    <IconButton onClick={(ev) => {
-                        ev.preventDefault();
-                        ev.stopPropagation();
-                        onToggle(item.id);
-                    }}>
-                        <Icon color="action">{shortcuts.includes(item.id) ? 'star' : 'star_border'}</Icon>
-                    </IconButton>
-                </MenuItem>
-            </Link>
-        );
+        function ShortcutMenuItem({item, onToggle})
+        {
+            return (
+                <Link to={item.url} className={classes.item}>
+                    <MenuItem key={item.id}>
+                        <ListItemIcon>
+                            {item.icon ?
+                                (
+                                    <Icon>{item.icon}</Icon>
+                                ) :
+                                (
+                                    <span className="text-20 font-bold uppercase text-center">{item.title[0]}</span>
+                                )
+                            }
+                        </ListItemIcon>
+                        <ListItemText className="pl-0" primary={item.title}/>
+                        <IconButton
+                            onClick={(ev) => {
+                                ev.preventDefault();
+                                ev.stopPropagation();
+                                onToggle(item.id);
+                            }}
+                        >
+                            <Icon color="action">{shortcuts.includes(item.id) ? 'star' : 'star_border'}</Icon>
+                        </IconButton>
+                    </MenuItem>
+                </Link>
+            );
+        }
 
         return (
             <div className={classNames(classes.root, "flex flex-1 px-16")}>
 
                 <div className="hidden md:flex md-flex-1">
-                    {shortcutItems.map(item => (
+                    {shortcutItems.map(item => item && (
                         <Link to={item.url} key={item.id} className={classes.item}>
                             <Tooltip title={item.title} placement="bottom">
                                 <IconButton className="w-40 h-40">
-                                    {item.icon ? (
+                                    {item.icon ?
+                                        (
                                             <Icon>{item.icon}</Icon>
                                         ) :
                                         (
@@ -119,10 +130,12 @@ class FuseShortcuts extends Component {
                 </div>
 
                 <Tooltip title="Click to add/remove shortcut" placement="bottom">
-                    <IconButton className="w-40 h-40"
-                                aria-owns={addMenu ? 'add-menu' : null}
-                                aria-haspopup="true"
-                                onClick={this.addMenuClick}>
+                    <IconButton
+                        className="w-40 h-40"
+                        aria-owns={addMenu ? 'add-menu' : null}
+                        aria-haspopup="true"
+                        onClick={this.addMenuClick}
+                    >
                         <Icon className={classes.addIcon}>star</Icon>
                     </IconButton>
                 </Tooltip>
@@ -151,7 +164,8 @@ class FuseShortcuts extends Component {
                             fullWidth
                             inputProps={{
                                 'aria-label': 'Search'
-                            }}/>
+                            }}
+                        />
                     </div>
 
                     <Divider/>
@@ -160,18 +174,20 @@ class FuseShortcuts extends Component {
                         <ShortcutMenuItem
                             key={item.id}
                             item={item}
-                            onToggle={() => toggleInShortcuts(item.id)}/>
+                            onToggle={() => toggleInShortcuts(item.id)}
+                        />
                     ))}
 
                     {searchText.length !== 0 && searchResults.length === 0 && (
                         <Typography color="textSecondary" className="p-16 pb-8">No results..</Typography>
                     )}
 
-                    {searchText.length === 0 && shortcutItems.map(item => (
+                    {searchText.length === 0 && shortcutItems.map(item => item && (
                         <ShortcutMenuItem
                             key={item.id}
                             item={item}
-                            onToggle={() => toggleInShortcuts(item.id)}/>
+                            onToggle={() => toggleInShortcuts(item.id)}
+                        />
                     ))}
                 </Menu>
             </div>
@@ -194,5 +210,8 @@ function mapStateToProps({fuse})
         shortcuts : fuse.shortcuts
     }
 }
+
+FuseShortcuts.propTypes = propTypes;
+FuseShortcuts.defaultProps = defaultProps;
 
 export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(FuseShortcuts));

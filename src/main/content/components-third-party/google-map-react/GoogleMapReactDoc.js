@@ -22,8 +22,13 @@ class GoogleMapReactDoc extends Component {
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
                         <Typography variant="title">Google Map React</Typography>
-                        <Button className="normal-case"
-                                variant="raised" component="a" href="https://github.com/google-map-react/google-map-react" target="_blank">
+                        <Button
+                            className="normal-case"
+                            variant="raised"
+                            component="a"
+                            href="https://github.com/google-map-react/google-map-react"
+                            target="_blank"
+                        >
                             <Icon className="mr-4">link</Icon>
                             Reference
                         </Button>
@@ -43,7 +48,8 @@ class GoogleMapReactDoc extends Component {
                         <FuseExample
                             className="mb-64"
                             component={require('./examples/simple.js').default}
-                            raw={require('!raw-loader!./examples/simple.js')}/>
+                            raw={require('!raw-loader!./examples/simple.js')}
+                        />
 
                         <Typography className="text-32 mt-32 mb-8" component="h2">Demos</Typography>
 

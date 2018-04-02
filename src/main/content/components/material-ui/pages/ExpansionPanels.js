@@ -1,16 +1,18 @@
 import React from 'react';
-                        import {FuseExample, FuseHighlight, FusePageSimple} from '@fuse';
-                        import {Button, Icon, Typography} from 'material-ui';
-                        import {withStyles} from 'material-ui/styles/index';
-                        /* eslint import/no-webpack-loader-syntax: off */
-                        /* eslint no-unused-vars: off */
-                        const styles = theme => ({
-                            layoutRoot: {}
-                        });
-                        function ExpansionPanels({classes}) {
-                          return (
-                            
-         <FusePageSimple
+import {FuseExample, FuseHighlight, FusePageSimple} from '@fuse';
+import {Button, Icon, Typography} from 'material-ui';
+import {withStyles} from 'material-ui/styles/index';
+/* eslint import/no-webpack-loader-syntax: off */
+/* eslint no-unused-vars: off */
+const styles = theme => ({
+    layoutRoot: {}
+});
+
+function ExpansionPanels({classes})
+{
+    return (
+
+        <FusePageSimple
             classes={{
                 root: classes.layoutRoot
             }}
@@ -26,26 +28,30 @@ import React from 'react';
             }
             content={
                 <div className="p-24 max-w-2xl mx-auto">
-                     <Typography className="text-44 mt-32 mb-8" component="h1">Expansion Panel</Typography><Typography className="mb-16" component="p"><a href="https://material.io/guidelines/components/expansion-panels.html">Expansion Panels</a> contain creation flows and allow lightweight editing of an element.</Typography><Typography className="text-32 mt-32 mb-8" component="h2">Simple Expansion Panel</Typography><FuseExample
+                    <Typography className="text-44 mt-32 mb-8" component="h1">Expansion Panel</Typography><Typography className="mb-16" component="p"><a
+                    href="https://material.io/guidelines/components/expansion-panels.html">Expansion Panels</a> contain creation flows and allow lightweight editing of an element.</Typography><Typography
+                    className="text-32 mt-32 mb-8" component="h2">Simple Expansion Panel</Typography><FuseExample
                     className="my-24"
-                    component={require('main/content/components/material-ui/material-ui-examples/expansion-panels/SimpleExpansionPanel.js').default} 
+                    component={require('main/content/components/material-ui/material-ui-examples/expansion-panels/SimpleExpansionPanel.js').default}
                     raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/expansion-panels/SimpleExpansionPanel.js')}/>
 
-<Typography className="text-32 mt-32 mb-8" component="h2">Secondary heading and Columns</Typography><Typography className="mb-16" component="p">Multiple columns can be used to structure the content, and a helper text may be added to the panel to assist the user.</Typography><FuseExample
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Secondary heading and Columns</Typography><Typography className="mb-16" component="p">Multiple columns
+                    can be used to structure the content, and a helper text may be added to the panel to assist the user.</Typography><FuseExample
                     className="my-24"
-                    component={require('main/content/components/material-ui/material-ui-examples/expansion-panels/DetailedExpansionPanel.js').default} 
+                    component={require('main/content/components/material-ui/material-ui-examples/expansion-panels/DetailedExpansionPanel.js').default}
                     raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/expansion-panels/DetailedExpansionPanel.js')}/>
 
-<Typography className="text-32 mt-32 mb-8" component="h2">Controlled Accordion</Typography><Typography className="mb-16" component="p">Extend the default panel behavior to create an accordion with the <code>ExpansionPanel</code> component.</Typography><FuseExample
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Controlled Accordion</Typography><Typography className="mb-16" component="p">Extend the default panel
+                    behavior to create an accordion with the <code>ExpansionPanel</code> component.</Typography><FuseExample
                     className="my-24"
-                    component={require('main/content/components/material-ui/material-ui-examples/expansion-panels/ControlledExpansionPanels.js').default} 
+                    component={require('main/content/components/material-ui/material-ui-examples/expansion-panels/ControlledExpansionPanels.js').default}
                     raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/expansion-panels/ControlledExpansionPanels.js')}/>
                 </div>
             }
         />
-    
-                          );
-                        }
-                        
-                        export default withStyles(styles, {withTheme: true})(ExpansionPanels);
+
+    );
+}
+
+export default withStyles(styles, {withTheme: true})(ExpansionPanels);
                         

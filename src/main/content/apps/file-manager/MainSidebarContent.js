@@ -3,7 +3,7 @@ import {withStyles} from 'material-ui/styles';
 import {Icon, List, ListItem, ListItemIcon, ListItemText} from 'material-ui';
 
 const styles = theme => ({
-    root:{}
+    root: {}
 });
 
 class MainSidebarContent extends Component {

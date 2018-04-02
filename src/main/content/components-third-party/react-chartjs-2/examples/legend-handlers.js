@@ -30,7 +30,6 @@ const legendOpts = {
 };
 
 class LegendExample extends Component {
-
     state = {
         legend: legendOpts
     };

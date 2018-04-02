@@ -95,7 +95,7 @@ const profileDB = {
                 },
                 'comments': [
                     {
-                        'id':'1',
+                        'id'     : '1',
                         'user'   : {
                             'name'  : 'Alice Freeman',
                             'avatar': 'assets/images/avatars/alice.jpg'
@@ -289,21 +289,21 @@ const profileDB = {
         },
         'groups' : [
             {
-                'id'    : '1',
+                'id'      : '1',
                 'logo'    : 'assets/images/logos/android.png',
                 'name'    : 'Android',
                 'category': 'Technology',
                 'members' : '1.856.546'
             },
             {
-                'id'    : '2',
+                'id'      : '2',
                 'logo'    : 'assets/images/logos/google.png',
                 'name'    : 'Google',
                 'category': 'Web',
                 'members' : '1.226.121'
             },
             {
-                'id'    : '3',
+                'id'      : '3',
                 'logo'    : 'assets/images/logos/fallout.png',
                 'name'    : 'Fallout',
                 'category': 'Games',

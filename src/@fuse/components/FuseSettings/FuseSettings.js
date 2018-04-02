@@ -74,34 +74,42 @@ class FuseSettings extends Component {
     {
         const {classes, settings} = this.props;
 
-        const ThemeSelect = ({value, name}) => (
-            <Select
-                value={value}
-                onChange={this.handleChange}
-                name={name}
-            >
-                {Object.entries(FuseThemes).map(([key, val]) => (
-                    <MenuItem key={key} value={key}
-                              className="m-8 mt-0 rounded-lg"
-                              style={{
-                                  backgroundColor: val.palette.background.default,
-                                  color          : val.palette.text.primary,
-                                  border         : '1px solid ' + val.palette.divider
-                              }}>
-                        {_.startCase(key)}
-                        <div className="flex w-full h-8 block absolute pin-b pin-l pin-r"
-                             style={{
-                                 borderTop: '1px solid ' + val.palette.divider
-                             }}>
-                            <div className="w-1/4 h-8" style={{backgroundColor: val.palette.primary.main}}/>
-                            <div className="w-1/4 h-8" style={{backgroundColor: val.palette.secondary.main}}/>
-                            <div className="w-1/4 h-8" style={{backgroundColor: val.palette.error.main}}/>
-                            <div className="w-1/4 h-8" style={{backgroundColor: val.palette.background.paper}}/>
-                        </div>
-                    </MenuItem>
-                ))}
-            </Select>
-        );
+        function ThemeSelect({value, name, handleChange})
+        {
+            return (
+                <Select
+                    value={value}
+                    onChange={handleChange}
+                    name={name}
+                >
+                    {Object.entries(FuseThemes).map(([key, val]) => (
+                        <MenuItem
+                            key={key} value={key}
+                            className="m-8 mt-0 rounded-lg"
+                            style={{
+                                backgroundColor: val.palette.background.default,
+                                color          : val.palette.text.primary,
+                                border         : '1px solid ' + val.palette.divider
+                            }}
+                        >
+                            {_.startCase(key)}
+                            <div
+                                className="flex w-full h-8 block absolute pin-b pin-l pin-r"
+                                style={{
+                                    borderTop: '1px solid ' + val.palette.divider
+                                }}
+                            >
+                                <div className="w-1/4 h-8" style={{backgroundColor: val.palette.primary.main}}/>
+                                <div className="w-1/4 h-8" style={{backgroundColor: val.palette.secondary.main}}/>
+                                <div className="w-1/4 h-8" style={{backgroundColor: val.palette.error.main}}/>
+                                <div className="w-1/4 h-8" style={{backgroundColor: val.palette.background.paper}}/>
+                            </div>
+                        </MenuItem>
+                    ))}
+                </Select>
+            );
+        }
+
         return (
             <div id="fuse-settings" className={classes.root}>
                 <Button className={classes.button} variant="raised" color="secondary" onClick={this.handleOpen}>
@@ -189,19 +197,19 @@ class FuseSettings extends Component {
                     </FormControl>
                     <FormControl component="fieldset" className={classes.formControl}>
                         <FormLabel component="legend">Theme</FormLabel>
-                        <ThemeSelect value={settings.theme} name="theme"/>
+                        <ThemeSelect value={settings.theme} name="theme" handleChange={this.handleChange}/>
                     </FormControl>
                     <FormControl component="fieldset" className={classes.formControl}>
                         <FormLabel component="legend">Navbar Theme</FormLabel>
-                        <ThemeSelect value={settings.navbarTheme} name="navbarTheme"/>
+                        <ThemeSelect value={settings.navbarTheme} name="navbarTheme" handleChange={this.handleChange}/>
                     </FormControl>
                     <FormControl component="fieldset" className={classes.formControl}>
                         <FormLabel component="legend">Toolbar Theme</FormLabel>
-                        <ThemeSelect value={settings.toolbarTheme} name="toolbarTheme"/>
+                        <ThemeSelect value={settings.toolbarTheme} name="toolbarTheme" handleChange={this.handleChange}/>
                     </FormControl>
                     <FormControl component="fieldset" className={classes.formControl}>
                         <FormLabel component="legend">Footer Theme</FormLabel>
-                        <ThemeSelect value={settings.footerTheme} name="footerTheme"/>
+                        <ThemeSelect value={settings.footerTheme} name="footerTheme" handleChange={this.handleChange}/>
                     </FormControl>
                     <FormControl className={classes.formControl}>
                         <FormLabel component="legend">Custom Scrollbars</FormLabel>

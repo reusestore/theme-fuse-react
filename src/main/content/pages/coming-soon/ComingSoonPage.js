@@ -80,8 +80,13 @@ class ComingSoonPage extends Component {
                                         />
                                     </FormControl>
 
-                                    <Button variant="raised" color="primary" className="w-224 mx-auto my-16" aria-label="Subscribe"
-                                            disabled={!this.canBeSubmitted()}>
+                                    <Button
+                                        variant="raised"
+                                        color="primary"
+                                        className="w-224 mx-auto my-16"
+                                        aria-label="Subscribe"
+                                        disabled={!this.canBeSubmitted()}
+                                    >
                                         SUBSCRIBE
                                     </Button>
                                 </form>

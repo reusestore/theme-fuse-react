@@ -202,34 +202,51 @@ class ContactDialog extends Component {
                         <div className="min-w-48 pt-20">
                             <Icon color="action">note</Icon>
                         </div>
-                        <TextField className={classes.formControl}
-                                   id="notes" label="Notes" type="text"
-                                   value={this.state.notes}
-                                   multiline rows={5} fullWidth/>
+                        <TextField
+                            className={classes.formControl}
+                            id="notes"
+                            label="Notes"
+                            type="text"
+                            value={this.state.notes}
+                            multiline rows={5} fullWidth
+                        />
                     </div>
 
                 </DialogContent>
 
                 {contactDialog.type === 'new' ? (
                     <DialogActions className="justify-between pl-16">
-                        <Button variant="raised" color="primary" onClick={() => {
-                            addContact(this.state);
-                            this.closeComposeDialog();
-                        }} disabled={!this.canBeSubmitted()}>
+                        <Button
+                            variant="raised"
+                            color="primary"
+                            onClick={() => {
+                                addContact(this.state);
+                                this.closeComposeDialog();
+                            }}
+                            disabled={!this.canBeSubmitted()}
+                        >
                             Add
                         </Button>
                     </DialogActions>
                 ) : (
                     <DialogActions className="justify-between pl-16">
-                        <Button variant="raised" color="primary" onClick={() => {
-                            updateContact(this.state);
-                            this.closeComposeDialog();
-                        }} disabled={!this.canBeSubmitted()}> Save
+                        <Button
+                            variant="raised"
+                            color="primary"
+                            onClick={() => {
+                                updateContact(this.state);
+                                this.closeComposeDialog();
+                            }}
+                            disabled={!this.canBeSubmitted()}
+                        >
+                            Save
                         </Button>
-                        <IconButton onClick={() => {
-                            removeContact(this.state.id);
-                            this.closeComposeDialog();
-                        }}>
+                        <IconButton
+                            onClick={() => {
+                                removeContact(this.state.id);
+                                this.closeComposeDialog();
+                            }}
+                        >
                             <Icon>delete</Icon>
                         </IconButton>
                     </DialogActions>

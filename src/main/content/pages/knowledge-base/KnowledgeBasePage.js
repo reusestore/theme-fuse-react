@@ -101,7 +101,8 @@ class KnowledgeBasePage extends Component {
                     open={openDialog}
                     onClose={this.handleCloseDialog}
                     aria-labelledby="knowledge-base-document"
-                    transition={Transition}>
+                    transition={Transition}
+                >
                     <DialogTitle>
                         {dialogData.title}
                     </DialogTitle>

@@ -45,11 +45,13 @@ class FileList extends Component {
                 <TableBody>
                     {Object.entries(files).map(([key, n]) => {
                         return (
-                            <TableRow key={n.id}
-                                      hover
-                                      onClick={event => setSelectedItem(n.id)}
-                                      selected={n.id === selectedItem}
-                                      className="cursor-pointer">
+                            <TableRow
+                                key={n.id}
+                                hover
+                                onClick={event => setSelectedItem(n.id)}
+                                selected={n.id === selectedItem}
+                                className="cursor-pointer"
+                            >
                                 <TableCell className="max-w-64 w-64 p-0 text-center">
                                     <Icon className={classNames(classes.typeIcon, n.type)}></Icon>
                                 </TableCell>
@@ -60,8 +62,10 @@ class FileList extends Component {
                                 <TableCell className="hidden sm:table-cell">{n.modified}</TableCell>
                                 <Hidden lgUp>
                                     <TableCell>
-                                        <IconButton onClick={(ev) => pageLayout().toggleRightSidebar()}
-                                                    aria-label="open right sidebar">
+                                        <IconButton
+                                            onClick={(ev) => pageLayout().toggleRightSidebar()}
+                                            aria-label="open right sidebar"
+                                        >
                                             <Icon>info</Icon>
                                         </IconButton>
                                     </TableCell>

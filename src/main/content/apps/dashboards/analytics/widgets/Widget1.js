@@ -44,18 +44,26 @@ class Widget1 extends Component {
                         </div>
                         <div className="flex flex-row items-center">
                             {Object.keys(data.datasets).map((key) => (
-                                <Button key={key} className="py-8 px-12" size="small"
-                                        onClick={() => this.setDataSet(key)} disabled={key === dataset}>
+                                <Button
+                                    key={key}
+                                    className="py-8 px-12"
+                                    size="small"
+                                    onClick={() => this.setDataSet(key)}
+                                    disabled={key === dataset}
+                                >
                                     {key}
                                 </Button>
                             ))}
                         </div>
                     </div>
                     <div className="relative h-256 pb-16">
-                        <Line data={{
-                            labels  : data.labels,
-                            datasets: dataWithColors
-                        }} options={data.options}/>
+                        <Line
+                            data={{
+                                labels  : data.labels,
+                                datasets: dataWithColors
+                            }}
+                            options={data.options}
+                        />
                     </div>
                 </div>
             </MuiThemeProvider>

@@ -31,7 +31,6 @@ class PhotosVideosTab extends Component {
 
         return (
             <div className={classNames(classes.root, "md:flex max-w-2xl")}>
-
                 <div className="flex flex-col flex-1 md:pr-32">
 
                     {photosVideos.map((period) => (

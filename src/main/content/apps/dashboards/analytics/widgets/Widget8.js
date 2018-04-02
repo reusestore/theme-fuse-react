@@ -71,10 +71,13 @@ class Widget8 extends Component {
                         <Tab label="1Month" className="min-w-0"/>
                     </Tabs>
                 </AppBar>
-                <Line data={{
-                    labels  : data.labels,
-                    datasets: dataWithColors
-                }} options={data.options}/>
+                <Line
+                    data={{
+                        labels  : data.labels,
+                        datasets: dataWithColors
+                    }}
+                    options={data.options}
+                />
             </Card>
         );
     }

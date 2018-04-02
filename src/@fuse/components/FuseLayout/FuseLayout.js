@@ -10,6 +10,17 @@ import classNames from 'classnames';
 import _ from 'lodash';
 import {FuseScrollbars, FuseDefaultSettings} from '@fuse';
 import {FuseThemes} from '@fuse/index';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+    routes       : PropTypes.array,
+    toolbar      : PropTypes.node,
+    footer       : PropTypes.node,
+    navbarHeader : PropTypes.node,
+    navbarContent: PropTypes.node
+};
+
+const defaultProps = {};
 
 const navbarWidth = 256;
 
@@ -190,7 +201,6 @@ class FuseLayout extends React.Component {
         }
     }
 
-
     updateLayoutSettings(props)
     {
         const matched = matchRoutes(this.props.routes, props.location.pathname)[0];
@@ -243,7 +253,6 @@ class FuseLayout extends React.Component {
     render()
     {
         const {classes, toolbar, footer, navbarHeader, navbarContent, settings} = this.props;
-//        console.warn('FuseLayout:: rendered', this.state.navigationFoldedOpen);
 
         const navbarHeaderTemplate = (
             <div className={classes.navbarHeaderWrapper}>
@@ -273,15 +282,16 @@ class FuseLayout extends React.Component {
             <MuiThemeProvider theme={FuseThemes[settings.navbarTheme]}>
                 <div id="fuse-navbar" className={classes.navbarWrapper}>
                     <Hidden mdDown>
-                        <div className={classNames(
-                            classes.navbar,
-                            classes['navbar' + _.upperFirst(settings.layout.navigation)],
-                            settings.layout.navigationFolded && classes.navigationFolded,
-                            settings.layout.navigationFolded && settings.layout.navigationFoldedOpen && classes.navigationFoldedOpen,
-                            settings.layout.navigationFolded && !settings.layout.navigationFoldedOpen && classes.navigationFoldedClose)}
-                             onMouseEnter={this.handleFoldedOpen}
-                             onMouseLeave={this.handleFoldedClose}
-                             style={{backgroundColor: FuseThemes[settings.navbarTheme].palette.background.default}}
+                        <div
+                            className={classNames(
+                                classes.navbar,
+                                classes['navbar' + _.upperFirst(settings.layout.navigation)],
+                                settings.layout.navigationFolded && classes.navigationFolded,
+                                settings.layout.navigationFolded && settings.layout.navigationFoldedOpen && classes.navigationFoldedOpen,
+                                settings.layout.navigationFolded && !settings.layout.navigationFoldedOpen && classes.navigationFoldedClose)}
+                            onMouseEnter={this.handleFoldedOpen}
+                            onMouseLeave={this.handleFoldedClose}
+                            style={{backgroundColor: FuseThemes[settings.navbarTheme].palette.background.default}}
                         >
                             {navbarHeaderTemplate}
                             {navbarContentTemplate}
@@ -315,7 +325,8 @@ class FuseLayout extends React.Component {
                         <Hidden lgUp>
                             <IconButton
                                 aria-label="open drawer"
-                                onClick={this.handleMobileNavbarOpen}>
+                                onClick={this.handleMobileNavbarOpen}
+                            >
                                 <Icon>menu</Icon>
                             </IconButton>
                         </Hidden>
@@ -353,11 +364,13 @@ class FuseLayout extends React.Component {
                         navBarTemplate
                     )}
 
-                    <div className={classNames(
-                        classes.contentWrapper,
-                        settings.layout.navigationFolded && settings.layout.navigation === 'left' && 'md:ml-64',
-                        settings.layout.navigationFolded && settings.layout.navigation === 'right' && 'md:mr-64'
-                    )}>
+                    <div
+                        className={classNames(
+                            classes.contentWrapper,
+                            settings.layout.navigationFolded && settings.layout.navigation === 'left' && 'md:ml-64',
+                            settings.layout.navigationFolded && settings.layout.navigation === 'right' && 'md:mr-64'
+                        )}
+                    >
 
                         {settings.layout.toolbar === 'below' && (
                             toolbarTemplate
@@ -375,7 +388,6 @@ class FuseLayout extends React.Component {
                     {settings.layout.navigation === 'right' && (
                         navBarTemplate
                     )}
-
                 </div>
 
                 {settings.layout.footer === 'above' && (
@@ -400,5 +412,8 @@ function mapStateToProps({fuse})
         settings: fuse.settings
     }
 }
+
+FuseLayout.propTypes = propTypes;
+FuseLayout.defaultProps = defaultProps;
 
 export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(FuseLayout)));
