@@ -33,14 +33,15 @@ function Chips({classes})
             }
             content={
                 <div className="p-24 max-w-2xl mx-auto">
-                    <Typography className="text-44 mt-32 mb-8" component="h1">Chips</Typography><Typography className="mb-16" component="p"><a
-                    href="https://www.google.com/design/spec/components/chips.html">Chips</a>
-                    represent complex entities in small blocks, such as a contact.</Typography><Typography className="mb-16" component="p">While included here as a standalone
-                    component, the most common use will
-                    be in some form of input, so some of the behaviour demonstrated here is
-                    not shown in context.</Typography><Typography className="text-32 mt-32 mb-8" component="h2">Chip</Typography><Typography className="mb-16" component="p">Examples
-                    of Chips, using an image Avatar, SVG Icon Avatar, &quot;Letter&quot;
-                    and (string) Avatar.</Typography>
+                    <Typography className="text-44 mt-32 mb-8" component="h1">Chips</Typography>
+                    <Typography className="mb-16" component="div"><a href="https://www.google.com/design/spec/components/chips.html">Chips</a>
+                        represent complex entities in small blocks, such as a contact.</Typography>
+                    <Typography className="mb-16" component="div">While included here as a standalone component, the most common use will
+                        be in some form of input, so some of the behaviour demonstrated here is
+                        not shown in context.</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Chip</Typography>
+                    <Typography className="mb-16" component="div">Examples of Chips, using an image Avatar, SVG Icon Avatar, &quot;Letter&quot;
+                        and (string) Avatar.</Typography>
                     <ul>
                         <li>Chips with the <code>onClick</code> property defined change appearance on focus,
                             hover, and click.
@@ -52,16 +53,19 @@ function Chips({classes})
                     <FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/chips/Chips.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/chips/Chips.js')}/>
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/chips/Chips.js')}
+                    />
 
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Chip array</Typography><Typography className="mb-16" component="p">An example of rendering multiple
-                    Chips from an array of values.
-                    Deleting a chip removes it from the array. Note that since no
-                    <code>onClick</code> property is defined, the Chip can be focused, but does not
-                    gain depth while clicked or touched.</Typography><FuseExample
-                    className="my-24"
-                    component={require('main/content/components/material-ui/material-ui-examples/chips/ChipsArray.js').default}
-                    raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/chips/ChipsArray.js')}/>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Chip array</Typography>
+                    <Typography className="mb-16" component="div">An example of rendering multiple Chips from an array of values.
+                        Deleting a chip removes it from the array. Note that since no
+                        <code>onClick</code> property is defined, the Chip can be focused, but does not
+                        gain depth while clicked or touched.</Typography>
+                    <FuseExample
+                        className="my-24"
+                        component={require('main/content/components/material-ui/material-ui-examples/chips/ChipsArray.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/chips/ChipsArray.js')}
+                    />
                 </div>
             }
         />

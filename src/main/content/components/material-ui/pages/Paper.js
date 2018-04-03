@@ -33,13 +33,16 @@ function Paper({classes})
             }
             content={
                 <div className="p-24 max-w-2xl mx-auto">
-                    <Typography className="text-44 mt-32 mb-8" component="h1">Paper</Typography><Typography className="mb-16" component="p">In material design, the physical
-                    properties of <a href="https://material.google.com/layout/principles.html#principles-how-paper-works">paper</a> are translated to the screen.
-                    The background of an application resembles the flat, opaque texture of a sheet of paper, and an application’s behavior mimics paper’s ability to be re-sized,
-                    shuffled, and bound together in multiple sheets.</Typography><FuseExample
-                    className="my-24"
-                    component={require('main/content/components/material-ui/material-ui-examples/paper/PaperSheet.js').default}
-                    raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/paper/PaperSheet.js')}/>
+                    <Typography className="text-44 mt-32 mb-8" component="h1">Paper</Typography>
+                    <Typography className="mb-16" component="div">In material design, the physical properties of <a
+                        href="https://material.google.com/layout/principles.html#principles-how-paper-works">paper</a> are translated to the screen.
+                        The background of an application resembles the flat, opaque texture of a sheet of paper, and an application’s behavior mimics paper’s ability to be
+                        re-sized, shuffled, and bound together in multiple sheets.</Typography>
+                    <FuseExample
+                        className="my-24"
+                        component={require('main/content/components/material-ui/material-ui-examples/paper/PaperSheet.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/paper/PaperSheet.js')}
+                    />
                 </div>
             }
         />

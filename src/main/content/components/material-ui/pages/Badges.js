@@ -33,13 +33,16 @@ function Badges({classes})
             }
             content={
                 <div className="p-24 max-w-2xl mx-auto">
-                    <Typography className="text-44 mt-32 mb-8" component="h1">Badge</Typography><Typography className="mb-16" component="p">Badge generates a small badge to the
-                    top-right of its child(ren).</Typography><Typography className="text-32 mt-32 mb-8" component="h2">Simple Badges</Typography><Typography className="mb-16"
-                                                                                                                                                             component="p">Examples
-                    of badges containing text, using primary and secondary colors. The badge is applied to its children.</Typography><FuseExample
-                    className="my-24"
-                    component={require('main/content/components/material-ui/material-ui-examples/badges/SimpleBadge.js').default}
-                    raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/badges/SimpleBadge.js')}/>
+                    <Typography className="text-44 mt-32 mb-8" component="h1">Badge</Typography>
+                    <Typography className="mb-16" component="div">Badge generates a small badge to the top-right of its child(ren).</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Simple Badges</Typography>
+                    <Typography className="mb-16" component="div">Examples of badges containing text, using primary and secondary colors. The badge is applied to its
+                        children.</Typography>
+                    <FuseExample
+                        className="my-24"
+                        component={require('main/content/components/material-ui/material-ui-examples/badges/SimpleBadge.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/badges/SimpleBadge.js')}
+                    />
                 </div>
             }
         />

@@ -82,12 +82,12 @@ renderer.heading = (text, level) => {
             className = 'text-16 mt-32 mb-8';
     }
 
-    return `<Typography className="${className}" component="h${level}">${text}</Typography>`;
+    return `<Typography className="${className}" component="h${level}">${text}</Typography>\n`;
 };
 
 renderer.paragraph = (text) => {
     let className = 'mb-16';
-    return `<Typography className="${className}" component="p">${text}</Typography>`;
+    return `<Typography className="${className}" component="div">${text}</Typography>\n`;
 };
 
 renderer.code = (code, lang) => {
@@ -157,10 +157,11 @@ function getHtmlCode(markdownSource)
             const name = demoOptions.demo;
             const path = name.replace('pages/demos/', 'main/content/components/material-ui/material-ui-examples/');
             return (
-                `<FuseExample
+                `\n<FuseExample
                     className="my-24"
                     component="{require('${path}').default}" 
-                    raw="{require('!raw-loader!${path}')}"/>`
+                    raw="{require('!raw-loader!${path}')}"
+                    />`
             );
         }
         return content;
@@ -260,7 +261,7 @@ function writePage(file)
                         export default withStyles(styles, {withTheme: true})(${fileName});
                         `;
 
-    // content = Beautify(content, BeautifyConfig);
+    //content = Beautify(content, BeautifyConfig);
 
     fs.writeFileSync(path.resolve(pagesDirectory, fileName + '.js'), content);
 }

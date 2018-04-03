@@ -33,23 +33,29 @@ function AppBar({classes})
             }
             content={
                 <div className="p-24 max-w-2xl mx-auto">
-                    <Typography className="text-44 mt-32 mb-8" component="h1">App Bar</Typography><Typography className="mb-16" component="p">The <a
-                    href="https://material.io/guidelines/layout/structure.html#structure-app-bar">App bar</a>, formerly known as the action bar in Android, is a special kind of
-                    toolbar that’s used for branding, navigation, search, and actions.</Typography><Typography className="text-32 mt-32 mb-8" component="h2">Simple App
-                    bar</Typography><FuseExample
-                    className="my-24"
-                    component={require('main/content/components/material-ui/material-ui-examples/app-bar/SimpleAppBar.js').default}
-                    raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/app-bar/SimpleAppBar.js')}/>
+                    <Typography className="text-44 mt-32 mb-8" component="h1">App Bar</Typography>
+                    <Typography className="mb-16" component="div">The <a href="https://material.io/guidelines/layout/structure.html#structure-app-bar">App bar</a>, formerly known
+                        as the action bar in Android, is a special kind of toolbar that’s used for branding, navigation, search, and actions.</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Simple App bar</Typography>
+                    <FuseExample
+                        className="my-24"
+                        component={require('main/content/components/material-ui/material-ui-examples/app-bar/SimpleAppBar.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/app-bar/SimpleAppBar.js')}
+                    />
 
-                    <Typography className="text-32 mt-32 mb-8" component="h2">App bar with buttons</Typography><FuseExample
-                    className="my-24"
-                    component={require('main/content/components/material-ui/material-ui-examples/app-bar/ButtonAppBar.js').default}
-                    raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/app-bar/ButtonAppBar.js')}/>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">App bar with buttons</Typography>
+                    <FuseExample
+                        className="my-24"
+                        component={require('main/content/components/material-ui/material-ui-examples/app-bar/ButtonAppBar.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/app-bar/ButtonAppBar.js')}
+                    />
 
-                    <Typography className="text-32 mt-32 mb-8" component="h2">App bar with menu</Typography><FuseExample
-                    className="my-24"
-                    component={require('main/content/components/material-ui/material-ui-examples/app-bar/MenuAppBar.js').default}
-                    raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/app-bar/MenuAppBar.js')}/>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">App bar with menu</Typography>
+                    <FuseExample
+                        className="my-24"
+                        component={require('main/content/components/material-ui/material-ui-examples/app-bar/MenuAppBar.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/app-bar/MenuAppBar.js')}
+                    />
                 </div>
             }
         />
