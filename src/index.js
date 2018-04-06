@@ -15,7 +15,7 @@ import reducers from './store/reducers/index';
 import {BrowserRouter} from 'react-router-dom';
 import './fake-db/fake-db'
 import {routes} from './fuse-configs/fuseRoutesConfig';
-import {FuseLayout, FuseTheme, FuseSettings} from '@fuse';
+import {FuseLayout, FuseTheme, FuseSettings, FuseAuth} from '@fuse';
 import MainToolbar from './main/MainToolbar';
 import MainNavbarContent from './main/MainNavbarContent';
 import MainNavbarHeader from './main/MainNavbarHeader';
@@ -47,25 +47,27 @@ ReactDOM.render(
     <JssProvider jss={jss} generateClassName={generateClassName}>
         <Provider store={store}>
             <BrowserRouter>
-                <FuseTheme>
-                    <FuseLayout
-                        routes={routes}
-                        toolbar={
-                            <MainToolbar/>
-                        }
-                        navbarHeader={
-                            <MainNavbarHeader/>
-                        }
-                        navbarContent={
-                            <MainNavbarContent/>
-                        }
-                        footer={
-                            <MainFooter/>
-                        }
-                    />
-                    <FuseSettings/>
-                    <QuickPanel/>
-                </FuseTheme>
+                <FuseAuth routes={routes}>
+                    <FuseTheme>
+                        <FuseLayout
+                            routes={routes}
+                            toolbar={
+                                <MainToolbar/>
+                            }
+                            navbarHeader={
+                                <MainNavbarHeader/>
+                            }
+                            navbarContent={
+                                <MainNavbarContent/>
+                            }
+                            footer={
+                                <MainFooter/>
+                            }
+                        />
+                        <FuseSettings/>
+                        <QuickPanel/>
+                    </FuseTheme>
+                </FuseAuth>
             </BrowserRouter>
         </Provider>
     </JssProvider>

@@ -5,6 +5,7 @@ import {NavLink, withRouter} from 'react-router-dom';
 import classNames from 'classnames';
 import FuseNavBadge from './FuseNavBadge';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 const propTypes = {
     item: PropTypes.shape(
@@ -39,8 +40,12 @@ const styles = theme => ({
     }
 });
 
-function FuseNavVerticalItem({item, classes, nestedLevel})
+function FuseNavVerticalItem({item, classes, nestedLevel, userRole})
 {
+    if ( item.auth && (!item.auth.includes(userRole) || (userRole !== 'guest' && item.auth.length === 1 && item.auth.includes('guest'))) )
+    {
+        return null;
+    }
 
     let paddingValue = 40 + (nestedLevel * 16);
     const listItemPadding = nestedLevel > 0 ? 'pl-' + (paddingValue > 80 ? 80 : paddingValue) : 'pl-24';
@@ -61,12 +66,19 @@ function FuseNavVerticalItem({item, classes, nestedLevel})
                 <FuseNavBadge badge={item.badge}/>
             )}
         </ListItem>
-    )
+    );
+}
+
+function mapStateToProps({auth})
+{
+    return {
+        userRole: auth.user.role
+    }
 }
 
 FuseNavVerticalItem.propTypes = propTypes;
 FuseNavVerticalItem.defaultProps = defaultProps;
 
-const NavVerticalItem = withStyles(styles, {withTheme: true})(withRouter(FuseNavVerticalItem));
+const NavVerticalItem = withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps)(FuseNavVerticalItem)));
 
 export default NavVerticalItem;

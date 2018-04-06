@@ -8,6 +8,7 @@ import _ from 'lodash';
 import classNames from 'classnames';
 import FuseNavBadge from './FuseNavBadge';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 const propTypes = {
     item: PropTypes.shape(
@@ -93,11 +94,13 @@ class FuseNavVerticalCollapse extends Component {
 
     render()
     {
-        const {item, nestedLevel, classes} = this.props;
-
+        const {item, nestedLevel, classes, userRole} = this.props;
+        if ( item.auth && (!item.auth.includes(userRole) || (userRole !== 'guest' && item.auth.length === 1 && item.auth.includes('guest'))) )
+        {
+            return null;
+        }
         let paddingValue = 40 + (nestedLevel * 16);
         const listItemPadding = nestedLevel > 0 ? 'pl-' + (paddingValue > 80 ? 80 : paddingValue) : 'pl-24';
-
         return (
             <ul className={classNames(classes.root, this.state.open && "open")}>
 
@@ -149,9 +152,16 @@ class FuseNavVerticalCollapse extends Component {
     };
 }
 
+function mapStateToProps({auth})
+{
+    return {
+        userRole: auth.user.role
+    }
+}
+
 FuseNavVerticalCollapse.propTypes = propTypes;
 FuseNavVerticalCollapse.defaultProps = defaultProps;
 
-const NavVerticalCollapse = withStyles(styles, {withTheme: true})(withRouter(FuseNavVerticalCollapse));
+const NavVerticalCollapse = withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps)(FuseNavVerticalCollapse)));
 
 export default NavVerticalCollapse;

@@ -1,4 +1,5 @@
 import {MaterialUINavigation} from 'main/content/components/material-ui/MaterialUINavigation';
+import {authRoles} from 'auth/auth';
 
 export const fuseNavigationConfig = [
     {
@@ -612,6 +613,70 @@ export const fuseNavigationConfig = [
     {
         'type': 'divider',
         'id'  : 'divider-1'
+    },
+    {
+        'id'      : 'auth',
+        'title'   : 'Auth',
+        'type'    : 'group',
+        'icon'    : 'apps',
+        'children': [
+            {
+                'id'   : 'login',
+                'title': 'Login',
+                'type' : 'item',
+                'url'  : '/login',
+                'icon' : 'lock'
+            },
+            {
+                'id'   : 'auth-admin-example',
+                'title': 'Admin: Auth protected page',
+                'type' : 'item',
+                'url'  : '/auth/admin-role-example',
+                'icon' : 'security'
+            },
+            {
+                'id'   : 'only-admin-navigation-item',
+                'title': 'Nav item only for Admin',
+                'type' : 'item',
+                'auth' : authRoles.admin,
+                'url'  : '/auth/admin-role-example',
+                'icon' : 'verified_user'
+            },
+            {
+                'id'   : 'auth-staff-example',
+                'title': 'Staff: Auth protected page',
+                'type' : 'item',
+                'url'  : '/auth/staff-role-example',
+                'icon' : 'security'
+            },
+            {
+                'id'   : 'only-staff-navigation-item',
+                'title': 'Nav item only for Staff',
+                'type' : 'item',
+                'auth' : authRoles.staff,
+                'url'  : '/auth/staff-role-example',
+                'icon' : 'verified_user'
+            },
+            {
+                'id'   : 'auth-guest-example',
+                'title': 'Guest: Auth protected page',
+                'type' : 'item',
+                'url'  : '/auth/guest-role-example',
+                'icon' : 'security'
+            },
+            {
+                'id'   : 'only-guest-navigation-item',
+                'title': 'Nav item only for Guest',
+                'type' : 'item',
+                'auth' : authRoles.onlyGuest,
+                'url'  : '/auth/guest-role-example',
+                'icon' : 'verified_user'
+            }
+        ]
+    },
+    {
+        'type': 'divider',
+        'id'  : 'divider-2'
     },
     {
         'id'      : 'test-group-level-1',

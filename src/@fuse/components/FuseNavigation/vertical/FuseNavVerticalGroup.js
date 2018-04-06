@@ -5,6 +5,7 @@ import {ListSubheader} from 'material-ui';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 const propTypes = {
     item: PropTypes.shape(
@@ -17,8 +18,12 @@ const propTypes = {
 
 const defaultProps = {};
 
-function FuseNavVerticalGroup({item, nestedLevel})
+function FuseNavVerticalGroup({item, nestedLevel, userRole})
 {
+    if ( item.auth && (!item.auth.includes(userRole) || (userRole !== 'guest' && item.auth.length === 1 && item.auth.includes('guest'))) )
+    {
+        return null;
+    }
 
     let paddingValue = 40 + (nestedLevel * 16);
     const listItemPadding = nestedLevel > 0 ? 'pl-' + (paddingValue > 80 ? 80 : paddingValue) : 'pl-24';
@@ -60,9 +65,16 @@ function FuseNavVerticalGroup({item, nestedLevel})
     );
 }
 
+function mapStateToProps({auth})
+{
+    return {
+        userRole: auth.user.role
+    }
+}
+
 FuseNavVerticalGroup.propTypes = propTypes;
 FuseNavVerticalGroup.defaultProps = defaultProps;
 
-const NavVerticalGroup = withRouter(FuseNavVerticalGroup);
+const NavVerticalGroup = withRouter(connect(mapStateToProps)(FuseNavVerticalGroup));
 
 export default NavVerticalGroup;

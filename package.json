@@ -9,6 +9,7 @@
         "chart.js": "2.7.2",
         "core-js": "2.5.4",
         "downshift": "1.31.2",
+        "formsy-react": "1.1.4",
         "google-map-react": "0.34.0",
         "jss-extend": "6.2.0",
         "keycode": "2.2.0",

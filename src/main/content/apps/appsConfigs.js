@@ -4,7 +4,7 @@ import {ContactsAppConfig} from 'main/content/apps/contacts/ContactsAppConfig';
 import {FileManagerAppConfig} from 'main/content/apps/file-manager/FileManagerAppConfig';
 import {CalendarAppConfig} from 'main/content/apps/calendar/CalendarAppConfig';
 
-export const appsRoutes = [
+export const appsConfigs = [
     AnalyticsDashboardAppConfig,
     MailAppConfig,
     FileManagerAppConfig,

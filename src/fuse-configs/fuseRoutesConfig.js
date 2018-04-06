@@ -1,16 +1,20 @@
-import {UserInterfaceConfig} from 'main/content/user-interface/UserInterfaceConfig';
-import {pagesRoutes} from 'main/content/pages/pagesRoutes';
+import React from 'react';
+import {Redirect} from 'react-router-dom';
 import {FuseUtils} from '@fuse/index';
-import {appsRoutes} from 'main/content/apps/appsRoutes';
+import {appsConfigs} from 'main/content/apps/appsConfigs';
+import {pagesConfigs} from 'main/content/pages/pagesConfigs';
+import {authRoleExamplesConfigs} from 'main/content/auth/authRoleExamplesConfigs';
+import {UserInterfaceConfig} from 'main/content/user-interface/UserInterfaceConfig';
 import {ComponentsConfig} from 'main/content/components/ComponentsConfig';
 import {ComponentsThirdPartyConfig} from 'main/content/components-third-party/ComponentsThirdPartyConfig';
 import {GettingStartedConfig} from 'main/content/getting-started/GettingStartedConfig';
-import {Redirect} from 'react-router-dom';
-import React from 'react';
+import {LoginConfig} from 'main/content/login/LoginConfig';
 
 const routeConfigs = [
-    ...appsRoutes,
-    ...pagesRoutes,
+    LoginConfig,
+    ...appsConfigs,
+    ...pagesConfigs,
+    ...authRoleExamplesConfigs,
     ComponentsConfig,
     ComponentsThirdPartyConfig,
     UserInterfaceConfig,

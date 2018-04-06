@@ -23,7 +23,7 @@ import {ModernSearchPageConfig} from 'main/content/pages/search/modern/ModernSea
 import {FaqPageConfig} from 'main/content/pages/faq/FaqPageConfig';
 import {KnowledgeBasePageConfig} from 'main/content/pages/knowledge-base/KnowledgeBaseConfig';
 
-export const pagesRoutes = [
+export const pagesConfigs = [
     LoginPageConfig,
     RegisterPageConfig,
     ResetPasswordPageConfig,

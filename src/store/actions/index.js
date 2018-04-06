@@ -1,2 +1,2 @@
 export * from './fuse';
-export * from './quickPanel.actions';
+export * from './quickPanel/quickPanel.actions';

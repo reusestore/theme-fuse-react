@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import * as colors from 'material-ui/colors';
 
 class FuseUtils {
@@ -117,18 +116,17 @@ class FuseUtils {
     {
         let routes = [...config.routes];
 
-        if ( config.settings && !_.isEmpty(config.settings) )
+        if ( config.settings || config.auth )
         {
             routes = routes.map((route) => {
-                if ( route.settings )
-                {
-                    return route;
-                }
+                let auth = config.auth ? [...config.auth] : [];
+                auth = route.auth ? [...auth, ...route.auth] : auth;
                 return {
                     ...route,
-                    settings: config.settings
-                }
-            })
+                    settings: {...config.settings, ...route.settings},
+                    auth
+                };
+            });
         }
 
         return [...routes];

@@ -204,6 +204,7 @@ class FuseLayout extends React.Component {
     updateLayoutSettings(props)
     {
         const matched = matchRoutes(this.props.routes, props.location.pathname)[0];
+
         if ( matched && matched.route.settings )
         {
             const routeSettings = _.merge({}, this.defaultSettings, matched.route.settings);
@@ -406,10 +407,11 @@ function mapDispatchToProps(dispatch)
     }, dispatch);
 }
 
-function mapStateToProps({fuse})
+function mapStateToProps({fuse, auth})
 {
     return {
-        settings: fuse.settings
+        settings: fuse.settings,
+        user    : auth.user
     }
 }
 
