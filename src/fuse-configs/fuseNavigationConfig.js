@@ -462,6 +462,13 @@ export const fuseNavigationConfig = [
                 ]
             },
             {
+                'id'   : 'fuse-auth',
+                'title': 'FuseAuth',
+                'type' : 'item',
+                'icon' : 'settings_input_component',
+                'url'  : '/components/fuse-auth'
+            },
+            {
                 'id'   : 'fuse-theme',
                 'title': 'FuseTheme',
                 'type' : 'item',

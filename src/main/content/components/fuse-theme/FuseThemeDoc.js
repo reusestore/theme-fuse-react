@@ -59,7 +59,7 @@ class FuseThemeDoc extends Component {
                         <Typography className="text-32 mt-32 mb-8" component="h2">Configuration</Typography>
 
                         <Typography className="mb-16" component="p">
-                            You can define the material ui themes under <code className="language-bash">fuse-configs/fuseThemes.js</code> <a
+                            You can define the material ui themes under <code className="language-bash">fuse-configs/fuseThemesConfig.js</code> <a
                             href="https://material-ui-next.com/customization/themes/" target="_blank" rel="noopener noreferrer" className="font-bold">
                             Checkout</a> the Material UI's theme configuration options.
                         </Typography>
