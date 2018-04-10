@@ -4,8 +4,10 @@ import classNames from 'classnames';
 import {Avatar, Button, Icon, IconButton, ListItemIcon, ListItemText, Menu, MenuItem, Typography} from 'material-ui';
 import {connect} from 'react-redux';
 import * as Actions from 'store/actions';
+import * as authActions from 'auth/store/actions';
 import {bindActionCreators} from 'redux';
 import {FuseShortcuts} from '@fuse';
+import {Link} from 'react-router-dom';
 
 const styles = theme => ({
     root     : {
@@ -35,7 +37,7 @@ class MainToolbar extends Component {
 
     render()
     {
-        const {classes, toggleQuickPanel} = this.props;
+        const {classes, toggleQuickPanel, user, logout} = this.props;
         const {userMenu} = this.state;
 
         return (
@@ -48,14 +50,40 @@ class MainToolbar extends Component {
                 </div>
 
                 <div className="flex">
+
                     <Button
                         className="h-64"
                         aria-owns={userMenu ? 'user-menu' : null}
                         aria-haspopup="true"
                         onClick={this.userMenuClick}
                     >
-                        <Avatar className="" alt="John Doe" src="assets/images/avatars/profile.jpg"/>
-                        <Typography component="span" className="normal-case font-500 ml-12 hidden md:flex ">John Doe</Typography>
+                        {user.data ? (
+                            <React.Fragment>
+                                <Avatar className="" alt="Guest" src={user.data.avatar}/>
+
+                                <div className="flex flex-col ml-12 items-start">
+                                    <Typography component="span" className="normal-case font-500 hidden md:flex">
+                                        {user.data.name + ' ' + user.data.lastName}
+                                    </Typography>
+                                    <Typography className="text-11 capitalize" color="textSecondary">
+                                        {user.role}
+                                    </Typography>
+                                </div>
+                            </React.Fragment>
+                        ) : (
+                            <React.Fragment>
+                                <Avatar className="" alt="Guest" src="assets/images/avatars/profile.jpg"/>
+                                <div className="flex flex-col ml-12 items-start">
+                                    <Typography component="span" className="normal-case font-500 hidden md:flex">
+                                        John Doe
+                                    </Typography>
+                                    <Typography className="text-11 capitalize" color="textSecondary">
+                                        {user.role}
+                                    </Typography>
+                                </div>
+                            </React.Fragment>
+                        )}
+
                         <Icon className="text-16 ml-12 hidden sm:flex" variant="action">keyboard_arrow_down</Icon>
                     </Button>
                     <Menu
@@ -67,24 +95,43 @@ class MainToolbar extends Component {
                             paper: 'mt-48'
                         }}
                     >
-                        <MenuItem onClick={this.userMenuClose}>
-                            <ListItemIcon>
-                                <Icon>account_circle</Icon>
-                            </ListItemIcon>
-                            <ListItemText className="pl-0" primary="My Profile"/>
-                        </MenuItem>
-                        <MenuItem onClick={this.userMenuClose}>
-                            <ListItemIcon>
-                                <Icon>mail</Icon>
-                            </ListItemIcon>
-                            <ListItemText className="pl-0" primary="Inbox"/>
-                        </MenuItem>
-                        <MenuItem onClick={this.userMenuClose}>
-                            <ListItemIcon>
-                                <Icon>exit_to_app</Icon>
-                            </ListItemIcon>
-                            <ListItemText className="pl-0" primary="Logout"/>
-                        </MenuItem>
+                        {user.role === 'guest' ? (
+                            <React.Fragment>
+                                <MenuItem component={Link} to="/login"
+                                >
+                                    <ListItemIcon>
+                                        <Icon>lock</Icon>
+                                    </ListItemIcon>
+                                    <ListItemText className="pl-0" primary="Login"/>
+                                </MenuItem>
+                            </React.Fragment>
+                        ) : (
+                            <React.Fragment>
+                                <MenuItem component={Link} to="/pages/profile" onClick={this.userMenuClose}>
+                                    <ListItemIcon>
+                                        <Icon>account_circle</Icon>
+                                    </ListItemIcon>
+                                    <ListItemText className="pl-0" primary="My Profile"/>
+                                </MenuItem>
+                                <MenuItem component={Link} to="/apps/mail" onClick={this.userMenuClose}>
+                                    <ListItemIcon>
+                                        <Icon>mail</Icon>
+                                    </ListItemIcon>
+                                    <ListItemText className="pl-0" primary="Inbox"/>
+                                </MenuItem>
+                                <MenuItem
+                                    onClick={() => {
+                                        logout();
+                                        this.userMenuClose();
+                                    }}
+                                >
+                                    <ListItemIcon>
+                                        <Icon>exit_to_app</Icon>
+                                    </ListItemIcon>
+                                    <ListItemText className="pl-0" primary="Logout"/>
+                                </MenuItem>
+                            </React.Fragment>
+                        )}
                     </Menu>
 
                     <div className={classes.seperator}/>
@@ -107,8 +154,17 @@ class MainToolbar extends Component {
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-        toggleQuickPanel: Actions.toggleQuickPanel
+        toggleQuickPanel: Actions.toggleQuickPanel,
+        logout          : authActions.logoutUser
     }, dispatch);
 }
 
-export default withStyles(styles, {withTheme: true})(connect(null, mapDispatchToProps)(MainToolbar));
+
+function mapStateToProps({auth})
+{
+    return {
+        user: auth.user
+    }
+}
+
+export default withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(MainToolbar));

@@ -14,7 +14,6 @@ export function submitLogin({username, password})
     });
     return (dispatch) =>
         request.then((response) => {
-            console.info(response);
             if ( !response.data.error )
             {
                 dispatch({
@@ -32,6 +31,5 @@ export function submitLogin({username, password})
                     payload: response.data.error
                 });
             }
-
         });
 }

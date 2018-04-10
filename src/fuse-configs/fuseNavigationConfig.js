@@ -625,7 +625,16 @@ export const fuseNavigationConfig = [
                 'title': 'Login',
                 'type' : 'item',
                 'url'  : '/login',
+                auth   : authRoles.onlyGuest,
                 'icon' : 'lock'
+            },
+            {
+                'id'   : 'logout',
+                'title': 'Logout',
+                'type' : 'item',
+                auth   : authRoles.user,
+                'url'  : '/logout',
+                'icon' : 'exit_to_app'
             },
             {
                 'id'   : 'auth-admin-example',

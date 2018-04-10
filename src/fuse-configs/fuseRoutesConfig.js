@@ -9,16 +9,18 @@ import {ComponentsConfig} from 'main/content/components/ComponentsConfig';
 import {ComponentsThirdPartyConfig} from 'main/content/components-third-party/ComponentsThirdPartyConfig';
 import {GettingStartedConfig} from 'main/content/getting-started/GettingStartedConfig';
 import {LoginConfig} from 'main/content/login/LoginConfig';
+import {LogoutConfig} from 'main/content/logout/LogoutConfig';
 
 const routeConfigs = [
-    LoginConfig,
     ...appsConfigs,
     ...pagesConfigs,
     ...authRoleExamplesConfigs,
     ComponentsConfig,
     ComponentsThirdPartyConfig,
     UserInterfaceConfig,
-    GettingStartedConfig
+    GettingStartedConfig,
+    LoginConfig,
+    LogoutConfig
 ];
 
 export const routes = [

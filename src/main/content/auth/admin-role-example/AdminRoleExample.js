@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles';
 import {FusePageSimple, FuseHighlight} from '@fuse';
-import {Typography} from 'material-ui';
+import {Button, Icon, Typography} from 'material-ui';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as authActions from 'auth/store/actions';
 
 const styles = theme => ({
     layoutRoot: {}
@@ -11,15 +14,23 @@ class AdminRoleExample extends Component {
 
     render()
     {
-        const {classes} = this.props;
+        const {classes, logout} = this.props;
         return (
             <FusePageSimple
                 classes={{
                     root: classes.layoutRoot
                 }}
                 header={
-                    <div className="p-24 flex items-center">
+                    <div className="flex flex-1 items-center justify-between p-24">
                         <Typography className="h2">Admin: Auth role example page</Typography>
+                        <Button
+                            className="normal-case"
+                            variant="raised"
+                            onClick={logout}
+                        >
+                            <Icon className="mr-4">exit_to_app</Icon>
+                            Logout
+                        </Button>
                     </div>
                 }
                 content={
@@ -77,4 +88,18 @@ class AdminRoleExample extends Component {
     }
 }
 
-export default withStyles(styles, {withTheme: true})(AdminRoleExample);
+function mapDispatchToProps(dispatch)
+{
+    return bindActionCreators({
+        logout: authActions.logoutUser
+    }, dispatch);
+}
+
+function mapStateToProps({auth})
+{
+    return {
+        user: auth.user
+    }
+}
+
+export default withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(AdminRoleExample));

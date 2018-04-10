@@ -1,5 +1,6 @@
 import './../polyfills';
 import mock from './mock';
+import _ from 'lodash';
 
 let authDB = {
     users: {
@@ -7,7 +8,10 @@ let authDB = {
             password: "admin",
             role    : "admin",
             data    : {
-                settings: {
+                'name'    : 'Abbott',
+                'lastName': 'Keitch',
+                'avatar'  : 'assets/images/avatars/Abbott.jpg',
+                settings  : {
                     layout          : {
                         navigation          : 'right',
                         navigationFolded    : true,
@@ -27,7 +31,11 @@ let authDB = {
         staff: {
             password: "staff",
             role    : "staff",
-            data    : {}
+            data    : {
+                'name'    : 'Arnold',
+                'lastName': 'Matlock',
+                'avatar'  : 'assets/images/avatars/Arnold.jpg'
+            }
         }
     }
 };
@@ -39,9 +47,10 @@ mock.onGet('/api/auth').reply((config) => {
         username: authDB.users[username] ? null : 'Check your username',
         password: authDB.users[username] && authDB.users[username].password === password ? null : 'Check your password'
     };
+
     if ( !error.username && !error.password )
     {
-        const response = authDB.users[username];
+        const response = _.cloneDeep(authDB.users[username]);
         delete response['password'];
         return [200, response];
     }
