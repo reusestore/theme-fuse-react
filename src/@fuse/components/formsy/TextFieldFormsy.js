@@ -6,10 +6,6 @@ import _ from 'lodash';
 class TextFieldFormsy extends Component {
 
     changeValue = (event) => {
-        // setValue() will set the value of the component, which in
-        // turn will validate it and the rest of the form
-        // Important: Don't skip this step. This pattern is required
-        // for Formsy to work.
         this.props.setValue(event.currentTarget.value);
     };
 
@@ -44,13 +40,14 @@ class TextFieldFormsy extends Component {
             'type'
         ]);
 
-        // An error message is returned only if the component is invalid
         const errorMessage = this.props.getErrorMessage();
+        const value = this.props.getValue() || '';
+
         return (
             <TextField
                 {...importedProps}
                 onChange={this.changeValue}
-                value={this.props.getValue() || ''}
+                value={value}
                 error={Boolean(errorMessage)}
                 helperText={errorMessage}
             />

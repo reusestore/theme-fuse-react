@@ -553,6 +553,13 @@ export const fuseNavigationConfig = [
                 ]
             },
             {
+                'id'   : 'formsy',
+                'title': 'Formsy',
+                'type' : 'item',
+                'icon' : 'priority_high',
+                'url'  : '/components-third-party/formsy'
+            },
+            {
                 'id'   : 'google-map-react',
                 'title': 'Google Map React',
                 'type' : 'item',
