@@ -19,7 +19,7 @@ import MainNavbarContent from './main/MainNavbarContent';
 import MainNavbarHeader from './main/MainNavbarHeader';
 import MainFooter from './main/MainFooter';
 import jssExtend from 'jss-extend'
-import QuickPanel from 'main/QuickPanel';
+import QuickPanel from 'main/quickPanel/QuickPanel';
 import store from 'store';
 
 const jss = create({

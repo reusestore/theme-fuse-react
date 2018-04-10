@@ -3,7 +3,7 @@ import {withStyles} from 'material-ui/styles/index';
 import classNames from 'classnames';
 import {Avatar, Button, Icon, IconButton, ListItemIcon, ListItemText, Menu, MenuItem, Typography} from 'material-ui';
 import {connect} from 'react-redux';
-import * as Actions from 'store/actions';
+import * as quickPanelActions from 'main/quickPanel/store/actions';
 import * as authActions from 'auth/store/actions';
 import {bindActionCreators} from 'redux';
 import {FuseShortcuts} from '@fuse';
@@ -154,7 +154,7 @@ class MainToolbar extends Component {
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-        toggleQuickPanel: Actions.toggleQuickPanel,
+        toggleQuickPanel: quickPanelActions.toggleQuickPanel,
         logout          : authActions.logoutUser
     }, dispatch);
 }

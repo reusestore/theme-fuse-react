@@ -3,7 +3,7 @@ import {Divider, Drawer, Icon, List, ListItem, ListItemIcon, ListItemSecondaryAc
 import {withStyles} from 'material-ui/styles/index';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import * as Actions from 'store/actions'
+import * as Actions from './store/actions/index'
 
 import moment from 'moment';
 

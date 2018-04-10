@@ -1,4 +1,4 @@
-import * as Actions from '../../actions/quickPanel/quickPanel.actions';
+import * as Actions from '../actions';
 
 const initialState = {
     state: false,
