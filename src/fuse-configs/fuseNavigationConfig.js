@@ -621,7 +621,14 @@ export const fuseNavigationConfig = [
                 'type' : 'item',
                 'icon' : 'menu',
                 'url'  : '/getting-started/routing'
-            }
+            },
+            {
+                'id'   : 'changelog',
+                'title': 'Changelog',
+                'type' : 'item',
+                'icon' : 'history',
+                'url'  : '/getting-started/changelog'
+            },
         ]
     },
     {

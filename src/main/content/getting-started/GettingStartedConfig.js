@@ -3,7 +3,7 @@ import IntroductionDoc from 'main/content/getting-started/introduction/Introduct
 import PrerequisitesDoc from 'main/content/getting-started/prerequisites/PrerequisitesDoc';
 import InstallationDoc from 'main/content/getting-started/installation/InstallationDoc';
 import WorkingWithFuseDoc from 'main/content/getting-started/working-with-fuse/WorkingWithFuseDoc';
-import RoutingDoc from 'main/content/getting-started/routing/RoutingDoc';
+import ChangelogDoc from 'main/content/getting-started/changelog/ChangelogDoc';
 
 export const GettingStartedConfig = {
     routes: [
@@ -28,8 +28,8 @@ export const GettingStartedConfig = {
             component: SettingsDoc
         },
         {
-            path     : '/getting-started/routing',
-            component: RoutingDoc
+            path     : '/getting-started/changelog',
+            component: ChangelogDoc
         }
     ]
 };
