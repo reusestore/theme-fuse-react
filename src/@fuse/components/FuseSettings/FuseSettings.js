@@ -236,7 +236,7 @@ function mapDispatchToProps(dispatch)
 function mapStateToProps({fuse})
 {
     return {
-        settings: fuse.settings
+        settings: fuse.settings.current
     }
 }
 

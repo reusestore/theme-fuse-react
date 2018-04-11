@@ -6,11 +6,11 @@ import {matchRoutes, renderRoutes} from 'react-router-config'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as Actions from '../../../store/actions/fuse/index';
-import classNames from 'classnames';
-import _ from 'lodash';
 import {FuseScrollbars, FuseDefaultSettings} from '@fuse';
 import {FuseThemes} from '@fuse/index';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import _ from 'lodash';
 
 const propTypes = {
     routes       : PropTypes.array,
@@ -94,6 +94,14 @@ const styles = theme => ({
             easing  : theme.transitions.easing.sharp,
             duration: theme.transitions.duration.shorter
         })
+    },
+    navbarButton         : {
+        '&.right': {
+            borderLeft: '1px solid ' + theme.palette.divider
+        },
+        '&.left' : {
+            borderRight: '1px solid ' + theme.palette.divider
+        }
     },
     navbarLeft           : {
         left: 0
@@ -191,6 +199,13 @@ class FuseLayout extends React.Component {
 
     componentWillReceiveProps(nextProps, nextContext)
     {
+        // console.error(FuseUtils.difference(this.props, nextProps));
+
+        if ( !_.isEqual(nextProps.defaultSettings, this.defaultSettings) )
+        {
+            this.defaultSettings = nextProps.defaultSettings;
+        }
+
         /**
          * If route is changed
          * Update settings
@@ -207,8 +222,7 @@ class FuseLayout extends React.Component {
 
         if ( matched && matched.route.settings )
         {
-            const routeSettings = _.merge({}, this.defaultSettings, matched.route.settings);
-
+            const routeSettings = _.merge({}, this.defaultSettings, props.settings, matched.route.settings);
             if ( !_.isEqual(props.settings, routeSettings) )
             {
                 props.setSettings(_.merge({}, props.settings, routeSettings));
@@ -218,7 +232,7 @@ class FuseLayout extends React.Component {
         {
             if ( !_.isEqual(props.settings, this.defaultSettings) )
             {
-                props.setSettings(this.defaultSettings);
+                props.resetSettings();
             }
         }
     }
@@ -301,6 +315,7 @@ class FuseLayout extends React.Component {
 
                     <Hidden lgUp>
                         <Drawer
+                            anchor={settings.layout.navigation}
                             variant="temporary"
                             open={this.state.mobileNavbarOpen}
                             classes={{
@@ -323,17 +338,31 @@ class FuseLayout extends React.Component {
             <MuiThemeProvider theme={FuseThemes[settings.toolbarTheme]}>
                 <AppBar id="fuse-toolbar" className={classNames(classes.toolbarWrapper)} color="default">
                     <Toolbar className="p-0">
-                        <Hidden lgUp>
-                            <IconButton
-                                aria-label="open drawer"
-                                onClick={this.handleMobileNavbarOpen}
-                            >
-                                <Icon>menu</Icon>
-                            </IconButton>
-                        </Hidden>
+                        {settings.layout.navigation === 'left' && (
+                            <Hidden lgUp>
+                                <IconButton
+                                    className={classNames(classes.navbarButton, 'w-64 h-64 rounded-none', settings.layout.navigation)}
+                                    aria-label="open drawer"
+                                    onClick={this.handleMobileNavbarOpen}
+                                >
+                                    <Icon>menu</Icon>
+                                </IconButton>
+                            </Hidden>
+                        )}
                         <div className={classes.toolbar}>
                             {toolbar}
                         </div>
+                        {settings.layout.navigation === 'right' && (
+                            <Hidden lgUp>
+                                <IconButton
+                                    className={classNames(classes.navbarButton, 'w-64 h-64 rounded-none', settings.layout.navigation)}
+                                    aria-label="open drawer"
+                                    onClick={this.handleMobileNavbarOpen}
+                                >
+                                    <Icon>menu</Icon>
+                                </IconButton>
+                            </Hidden>
+                        )}
                     </Toolbar>
                 </AppBar>
             </MuiThemeProvider>
@@ -399,19 +428,19 @@ class FuseLayout extends React.Component {
     }
 }
 
-
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-        setSettings: Actions.setSettings
+        setSettings  : Actions.setSettings,
+        resetSettings: Actions.resetSettings
     }, dispatch);
 }
 
-function mapStateToProps({fuse, auth})
+function mapStateToProps({fuse})
 {
     return {
-        settings: fuse.settings,
-        user    : auth.user
+        defaultSettings: fuse.settings.default,
+        settings       : fuse.settings.current
     }
 }
 

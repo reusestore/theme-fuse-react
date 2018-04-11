@@ -43,8 +43,6 @@ class MainToolbar extends Component {
         return (
             <div className={classNames(classes.root, "flex flex-row")}>
 
-                <div className={classNames(classes.seperator, "flex lg:hidden")}/>
-
                 <div className="flex flex-1">
                     <FuseShortcuts/>
                 </div>

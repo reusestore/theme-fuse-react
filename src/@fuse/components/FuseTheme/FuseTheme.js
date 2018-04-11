@@ -51,13 +51,45 @@ const themesObj = Object.keys(fuseThemesConfig).length !== 0 ? fuseThemesConfig 
 
 export let themes = Object.assign({}, ...Object.entries(themesObj).map(([key, value]) => (
     {
-        [key]: createMuiTheme(_.merge({}, value, mustHaveOptions))
+        [key]: createMuiTheme(_.merge({}, value, mustHaveOptions, {mixins: customMixins(value)}))
     }
 )));
+
+function customMixins(theme)
+{
+    return {
+        border      : (width = 1) => ({
+            borderWidth: width,
+            borderStyle: 'solid',
+            borderColor: theme.palette.divider
+        }),
+        borderLeft  : (width = 1) => ({
+            borderLeftWidth: width,
+            borderStyle    : 'solid',
+            borderColor    : theme.palette.divider
+        }),
+        borderRight : (width = 1) => ({
+            borderRightWidth: width,
+            borderStyle     : 'solid',
+            borderColor     : theme.palette.divider
+        }),
+        borderTop   : (width = 1) => ({
+            borderTopWidth: width,
+            borderStyle   : 'solid',
+            borderColor   : theme.palette.divider
+        }),
+        borderBottom: (width = 1) => ({
+            borderBottomWidth: width,
+            borderStyle      : 'solid',
+            borderColor      : theme.palette.divider
+        })
+    }
+}
 
 export let FuseSelectedTheme;
 
 class FuseTheme extends Component {
+
     state = {
         theme: themes[this.props.selectedTheme]
     };
@@ -92,48 +124,14 @@ class FuseTheme extends Component {
         this.changeTheme(nextProps.selectedTheme);
     }
 
-    customMixins = (theme) => ({
-        border      : (width = 1) => ({
-            borderWidth: width,
-            borderStyle: 'solid',
-            borderColor: theme.palette.divider
-        }),
-        borderLeft  : (width = 1) => ({
-            borderLeftWidth: width,
-            borderStyle    : 'solid',
-            borderColor    : theme.palette.divider
-        }),
-        borderRight : (width = 1) => ({
-            borderRightWidth: width,
-            borderStyle     : 'solid',
-            borderColor     : theme.palette.divider
-        }),
-        borderTop   : (width = 1) => ({
-            borderTopWidth: width,
-            borderStyle   : 'solid',
-            borderColor   : theme.palette.divider
-        }),
-        borderBottom: (width = 1) => ({
-            borderBottomWidth: width,
-            borderStyle      : 'solid',
-            borderColor      : theme.palette.divider
-        })
-    });
-
     render()
     {
-        //console.warn('FuseTheme:: rendered');
+        // console.warn('FuseTheme:: rendered');
         const {children} = this.props;
         const {theme} = this.state;
-        const themeExt = {
-            ...theme,
-            mixins: {
-                ...theme.mixins,
-                ...this.customMixins(theme)
-            }
-        };
+
         return (
-            <MuiThemeProvider theme={themeExt}>
+            <MuiThemeProvider theme={theme}>
                 {children}
             </MuiThemeProvider>
         );
@@ -143,7 +141,7 @@ class FuseTheme extends Component {
 function mapStateToProps({fuse})
 {
     return {
-        selectedTheme: fuse.settings.theme
+        selectedTheme: fuse.settings.current.theme
     }
 }
 

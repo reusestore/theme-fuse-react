@@ -178,7 +178,7 @@ function mapDispatchToProps(dispatch)
 function mapStateToProps({fuse})
 {
     return {
-        customScrollbars: fuse.settings.customScrollbars
+        customScrollbars: fuse.settings.current.customScrollbars
     }
 }
 

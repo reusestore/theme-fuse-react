@@ -30,7 +30,6 @@ class FuseAuth extends Component {
         const matched = matchRoutes(this.props.routes, props.location.pathname)[0];
         if ( matched && matched.route.auth && matched.route.auth.length > 0 )
         {
-            // console.info('AUTH!!!', matched.route.auth);
             if ( !matched.route.auth.includes(props.user.role) )
             {
                 redirect = true;
@@ -47,7 +46,6 @@ class FuseAuth extends Component {
                         pathname: '/'
                     });
                 }
-                // console.info('REDIRECT!!!', props.user.role)
             }
         }
     }

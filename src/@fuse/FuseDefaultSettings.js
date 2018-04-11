@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import FuseSettings from 'fuse-configs/fuseSettingsConfig';
+import FuseSettingsConfig from 'fuse-configs/fuseSettingsConfig';
 
 const defaultSettings = {
     layout          : {
@@ -17,6 +17,6 @@ const defaultSettings = {
     footerTheme     : 'default'
 };
 
-const FuseDefaultSettings = _.merge({}, defaultSettings, FuseSettings);
+const FuseDefaultSettings = _.merge({}, defaultSettings, FuseSettingsConfig);
 
 export default FuseDefaultSettings;

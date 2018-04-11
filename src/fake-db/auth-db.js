@@ -13,7 +13,7 @@ let authDB = {
                 'avatar'  : 'assets/images/avatars/Abbott.jpg',
                 settings  : {
                     layout          : {
-                        navigation          : 'right',
+                        navigation          : 'left',
                         navigationFolded    : true,
                         navigationFoldedOpen: false,
                         toolbar             : 'below',
@@ -21,10 +21,10 @@ let authDB = {
                         mode                : 'fullwidth'
                     },
                     customScrollbars: true,
-                    theme           : 'default',
-                    navbarTheme     : 'currentThemeDark',
-                    toolbarTheme    : 'default',
-                    footerTheme     : 'currentThemeDark'
+                    theme           : 'defaultDark',
+                    navbarTheme     : 'defaultDark',
+                    toolbarTheme    : 'defaultDark',
+                    footerTheme     : 'defaultDark'
                 }
             }
         },
@@ -34,7 +34,22 @@ let authDB = {
             data    : {
                 'name'    : 'Arnold',
                 'lastName': 'Matlock',
-                'avatar'  : 'assets/images/avatars/Arnold.jpg'
+                'avatar'  : 'assets/images/avatars/Arnold.jpg',
+                settings  : {
+                    layout          : {
+                        navigation          : 'right',
+                        navigationFolded    : false,
+                        navigationFoldedOpen: false,
+                        toolbar             : 'above',
+                        footer              : 'above',
+                        mode                : 'boxed'
+                    },
+                    customScrollbars: true,
+                    theme           : 'greeny',
+                    navbarTheme     : 'currentThemeDark',
+                    toolbarTheme    : 'currentThemeDark',
+                    footerTheme     : 'currentThemeDark'
+                }
             }
         }
     }

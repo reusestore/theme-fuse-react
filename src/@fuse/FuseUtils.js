@@ -1,4 +1,5 @@
 import * as colors from 'material-ui/colors';
+import _ from 'lodash';
 
 class FuseUtils {
 
@@ -224,6 +225,21 @@ class FuseUtils {
         ];
         const randomColor = mainColors[Math.floor(Math.random() * mainColors.length)];
         return colors[randomColor][hue];
+    }
+
+    static difference(object, base)
+    {
+        function changes(object, base)
+        {
+            return _.transform(object, function (result, value, key) {
+                if ( !_.isEqual(value, base[key]) )
+                {
+                    result[key] = (_.isObject(value) && _.isObject(base[key])) ? changes(value, base[key]) : value;
+                }
+            });
+        }
+
+        return changes(object, base);
     }
 }
 
