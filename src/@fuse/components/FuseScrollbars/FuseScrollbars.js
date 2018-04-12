@@ -6,6 +6,10 @@ import {withStyles} from 'material-ui/styles/index';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import MobileDetect from 'mobile-detect';
+
+const md = new MobileDetect(window.navigator.userAgent);
+const isMobile = md.mobile();
 
 const propTypes = {
     onScrollY    : PropTypes.func,
@@ -115,7 +119,7 @@ class FuseScrollbars extends Component {
     };
 
     createPs = () => {
-        if ( !this._container || this._ps )
+        if ( isMobile || !this._container || this._ps )
         {
             return;
         }
@@ -144,7 +148,7 @@ class FuseScrollbars extends Component {
         const {children, className, customScrollbars, enable} = this.props;
 
         return (
-            customScrollbars && enable ?
+            customScrollbars && enable && !isMobile ?
                 (
                     <div
                         className={className}

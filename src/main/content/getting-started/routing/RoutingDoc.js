@@ -52,8 +52,8 @@ class RoutingDoc extends Component {
                                 settings: {
                                      layout          : {
                                         navigation          : 'right', // 'right', 'left', 'top', 'none'
-                                        navigationFolded    : false, // true, false
-                                        navigationFoldedOpen: false,
+                                        navbarFolded    : false, // true, false
+                                        navbarFoldedOpen: false,
                                         toolbar             : 'below', // 'above', 'below', 'none'
                                         footer              : 'below', // 'above', 'below', 'none'
                                         mode                : 'fullwidth' // 'boxed', 'fullwidth'

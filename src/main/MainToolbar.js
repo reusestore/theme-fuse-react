@@ -59,8 +59,8 @@ class MainToolbar extends Component {
                             <React.Fragment>
                                 <Avatar className="" alt="Guest" src={user.data.avatar}/>
 
-                                <div className="flex flex-col ml-12 items-start">
-                                    <Typography component="span" className="normal-case font-500 hidden md:flex">
+                                <div className="hidden md:flex flex-col ml-12 items-start">
+                                    <Typography component="span" className="normal-case font-500 flex">
                                         {user.data.name + ' ' + user.data.lastName}
                                     </Typography>
                                     <Typography className="text-11 capitalize" color="textSecondary">
@@ -71,8 +71,8 @@ class MainToolbar extends Component {
                         ) : (
                             <React.Fragment>
                                 <Avatar className="" alt="Guest" src="assets/images/avatars/profile.jpg"/>
-                                <div className="flex flex-col ml-12 items-start">
-                                    <Typography component="span" className="normal-case font-500 hidden md:flex">
+                                <div className="hidden md:flex flex-col ml-12 items-start">
+                                    <Typography component="span" className="normal-case font-500 flex">
                                         John Doe
                                     </Typography>
                                     <Typography className="text-11 capitalize" color="textSecondary">

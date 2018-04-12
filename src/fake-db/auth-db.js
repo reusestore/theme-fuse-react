@@ -13,12 +13,11 @@ let authDB = {
                 'avatar'  : 'assets/images/avatars/Abbott.jpg',
                 settings  : {
                     layout          : {
-                        navigation          : 'left',
-                        navigationFolded    : true,
-                        navigationFoldedOpen: false,
-                        toolbar             : 'below',
-                        footer              : 'below',
-                        mode                : 'fullwidth'
+                        navigation  : 'left',
+                        navbarFolded: true,
+                        toolbar     : 'below',
+                        footer      : 'below',
+                        mode        : 'fullwidth'
                     },
                     customScrollbars: true,
                     theme           : 'defaultDark',
@@ -37,12 +36,11 @@ let authDB = {
                 'avatar'  : 'assets/images/avatars/Arnold.jpg',
                 settings  : {
                     layout          : {
-                        navigation          : 'right',
-                        navigationFolded    : false,
-                        navigationFoldedOpen: false,
-                        toolbar             : 'above',
-                        footer              : 'above',
-                        mode                : 'boxed'
+                        navigation  : 'right',
+                        navbarFolded: false,
+                        toolbar     : 'above',
+                        footer      : 'above',
+                        mode        : 'boxed'
                     },
                     customScrollbars: true,
                     theme           : 'greeny',

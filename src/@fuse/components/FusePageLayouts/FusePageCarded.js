@@ -88,7 +88,8 @@ const styles = theme => ({
     },
     content                  : {
         flex    : '1 1 auto',
-        overflow: 'auto'
+        overflow: 'auto',
+        '-webkit-overflow-scrolling': 'touch'
     },
     sidebarWrapper           : {
         position       : 'absolute',
@@ -132,7 +133,8 @@ const styles = theme => ({
         backgroundColor             : theme.palette.background.default,
         color                       : theme.palette.text.primary,
         [theme.breakpoints.up('lg')]: {
-            overflow: 'auto'
+            overflow: 'auto',
+            '-webkit-overflow-scrolling': 'touch'
         }
     },
     backdrop                 : {

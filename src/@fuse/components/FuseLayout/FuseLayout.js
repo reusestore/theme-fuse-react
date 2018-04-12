@@ -5,7 +5,7 @@ import {AppBar, Hidden, Icon, IconButton, Toolbar, Drawer, MuiThemeProvider} fro
 import {matchRoutes, renderRoutes} from 'react-router-config'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import * as Actions from '../../../store/actions/fuse/index';
+import * as Actions from 'store/actions';
 import {FuseScrollbars} from '@fuse';
 import {FuseThemes} from '@fuse/index';
 import PropTypes from 'prop-types';
@@ -25,7 +25,7 @@ const defaultProps = {};
 const navbarWidth = 256;
 
 const styles = theme => ({
-    root                 : {
+    root               : {
         display                     : 'flex',
         flexDirection               : 'column',
         width                       : '100%',
@@ -58,32 +58,33 @@ const styles = theme => ({
             borderColor: theme.palette.divider
         }
     },
-    wrapper              : {
+    wrapper            : {
         display : 'flex',
         position: 'relative',
         width   : '100%',
         height  : '100%'
     },
-    contentWrapper       : {
+    contentWrapper     : {
         display      : 'flex',
         flexDirection: 'column',
         zIndex       : 3,
         overflow     : 'hidden',
         flex         : '1 1 auto'
     },
-    content              : {
-        display      : 'flex',
-        overflow     : 'auto',
-        flex         : '1 1 auto',
-        flexDirection: 'column',
-        width        : '100%'
+    content            : {
+        display                     : 'flex',
+        overflow                    : 'auto',
+        flex                        : '1 1 auto',
+        flexDirection               : 'column',
+        width                       : '100%',
+        '-webkit-overflow-scrolling': 'touch'
     },
-    navbarWrapper        : {
+    navbarWrapper      : {
         boxShadow: theme.shadows[3],
         zIndex   : 4
     },
-    navbarPaperWrapper   : {},
-    navbar               : {
+    navbarPaperWrapper : {},
+    navbar             : {
         display      : 'flex',
         overflow     : 'hidden',
         flexDirection: 'column',
@@ -95,7 +96,7 @@ const styles = theme => ({
             duration: theme.transitions.duration.shorter
         })
     },
-    navbarButton         : {
+    navbarButton       : {
         '&.right': {
             borderLeft: '1px solid ' + theme.palette.divider
         },
@@ -103,24 +104,24 @@ const styles = theme => ({
             borderRight: '1px solid ' + theme.palette.divider
         }
     },
-    navbarLeft           : {
+    navbarLeft         : {
         left: 0
     },
-    navbarRight          : {
+    navbarRight        : {
         right: 0
     },
-    navigationFolded     : {
+    navbarFolded       : {
         position: 'absolute',
         width   : 64,
         minWidth: 64,
         top     : 0,
         bottom  : 0
     },
-    navigationFoldedOpen : {
+    navbarFoldedOpen   : {
         width   : navbarWidth,
         minWidth: navbarWidth
     },
-    navigationFoldedClose: {
+    navbarFoldedClose  : {
         '& $navbarHeader'                       : {
             padding         : '0 8px 0 13px',
             '& .logo-text'  : {
@@ -148,7 +149,7 @@ const styles = theme => ({
             display: 'none'
         }
     },
-    navbarHeaderWrapper  : {
+    navbarHeaderWrapper: {
         display        : 'flex',
         alignItems     : 'center',
         flex           : '1 0 auto',
@@ -156,38 +157,36 @@ const styles = theme => ({
         backgroundColor: 'rgba(255, 255, 255, .05)',
         boxShadow      : theme.shadows[1]
     },
-    navbarHeader         : {
+    navbarHeader       : {
         display: 'flex',
         flex   : '1 1 auto',
         padding: '0 8px 0 16px'
     },
-    navbarContent        : {
-        overflowX: 'hidden',
-        overflowY: 'auto'
+    navbarContent      : {
+        overflowX                   : 'hidden',
+        overflowY                   : 'auto',
+        '-webkit-overflow-scrolling': 'touch'
     },
-    toolbarWrapper       : {
+    toolbarWrapper     : {
         display : 'flex',
         position: 'relative',
         zIndex  : 5
     },
-    toolbar              : {
+    toolbar            : {
         display: 'flex',
         flex   : '1 0 auto'
     },
-    footerWrapper        : {
+    footerWrapper      : {
         position: 'relative',
         zIndex  : 5
     },
-    footer               : {
+    footer             : {
         display: 'flex',
         flex   : '1 0 auto'
     }
 });
 
 class FuseLayout extends Component {
-    state = {
-        mobileNavbarOpen: false
-    };
 
     constructor(props)
     {
@@ -224,36 +223,44 @@ class FuseLayout extends Component {
     };
 
     handleToggleFolded = () => {
-        this.props.setSettings({layout: {navigationFolded: !this.props.settings.layout.navigationFolded}});
+        this.props.setSettings({layout: {navbarFolded: !this.props.settings.layout.navbarFolded}});
     };
 
     handleFoldedOpen = () => {
-        if ( !this.props.settings.layout.navigationFolded )
+        if ( !this.props.settings.layout.navbarFolded )
         {
             return;
         }
-        this.props.setSettings({layout: {navigationFoldedOpen: true}});
+        this.props.setSettings({layout: {navbarFoldedOpen: true}});
     };
 
     handleFoldedClose = () => {
-        if ( !this.props.settings.layout.navigationFolded )
+        if ( !this.props.settings.layout.navbarFolded )
         {
             return;
         }
-        this.props.setSettings({layout: {navigationFoldedOpen: false}});
+        this.props.setSettings({layout: {navbarFoldedOpen: false}});
     };
 
-    handleMobileNavbarOpen = () => {
-        this.setState({mobileNavbarOpen: true});
+    handlenavbarMobileOpen = () => {
+        if ( this.props.settings.layout.navbarMobileOpen )
+        {
+            return;
+        }
+        this.props.setSettings({layout: {navbarMobileOpen: true}});
     };
 
     handleMobileNavbarClose = () => {
-        this.setState({mobileNavbarOpen: false});
+        if ( !this.props.settings.layout.navbarMobileOpen )
+        {
+            return;
+        }
+        this.props.setSettings({layout: {navbarMobileOpen: false}});
     };
 
     render()
     {
-        const {classes, toolbar, footer, navbarHeader, navbarContent, settings} = this.props;
+        const {classes, toolbar, footer, navbarHeader, navbarContent, settings, navbar, navbarOpenMobile, navbarCloseMobile, navbarOpenFolded, navbarCloseFolded} = this.props;
         // console.warn('FuseLayout:: rendered');
 
         const navbarHeaderTemplate = (
@@ -287,12 +294,12 @@ class FuseLayout extends Component {
                         <div
                             className={classNames(
                                 classes.navbar,
-                                classes['navbar' + _.upperFirst(settings.layout.navigation)],
-                                settings.layout.navigationFolded && classes.navigationFolded,
-                                settings.layout.navigationFolded && settings.layout.navigationFoldedOpen && classes.navigationFoldedOpen,
-                                settings.layout.navigationFolded && !settings.layout.navigationFoldedOpen && classes.navigationFoldedClose)}
-                            onMouseEnter={this.handleFoldedOpen}
-                            onMouseLeave={this.handleFoldedClose}
+                                classes['navbar' + _.upperFirst(settings.layout.navbar)],
+                                settings.layout.navbarFolded && classes.navbarFolded,
+                                settings.layout.navbarFolded && navbar.foldedOpen && classes.navbarFoldedOpen,
+                                settings.layout.navbarFolded && !navbar.foldedOpen && classes.navbarFoldedClose)}
+                            onMouseEnter={navbarOpenFolded}
+                            onMouseLeave={navbarCloseFolded}
                             style={{backgroundColor: FuseThemes[settings.navbarTheme].palette.background.default}}
                         >
                             {navbarHeaderTemplate}
@@ -302,13 +309,13 @@ class FuseLayout extends Component {
 
                     <Hidden lgUp>
                         <Drawer
-                            anchor={settings.layout.navigation}
+                            anchor={settings.layout.navbar}
                             variant="temporary"
-                            open={this.state.mobileNavbarOpen}
+                            open={navbar.mobileOpen}
                             classes={{
                                 paper: classes.navbar
                             }}
-                            onClose={this.handleMobileNavbarClose}
+                            onClose={navbarCloseMobile}
                             ModalProps={{
                                 keepMounted: true // Better open performance on mobile.
                             }}
@@ -325,12 +332,12 @@ class FuseLayout extends Component {
             <MuiThemeProvider theme={FuseThemes[settings.toolbarTheme]}>
                 <AppBar id="fuse-toolbar" className={classNames(classes.toolbarWrapper)} color="default">
                     <Toolbar className="p-0">
-                        {settings.layout.navigation === 'left' && (
+                        {settings.layout.navbar === 'left' && (
                             <Hidden lgUp>
                                 <IconButton
-                                    className={classNames(classes.navbarButton, 'w-64 h-64 rounded-none', settings.layout.navigation)}
+                                    className={classNames(classes.navbarButton, 'w-64 h-64 rounded-none', settings.layout.navbar)}
                                     aria-label="open drawer"
-                                    onClick={this.handleMobileNavbarOpen}
+                                    onClick={navbarOpenMobile}
                                 >
                                     <Icon>menu</Icon>
                                 </IconButton>
@@ -339,12 +346,12 @@ class FuseLayout extends Component {
                         <div className={classes.toolbar}>
                             {toolbar}
                         </div>
-                        {settings.layout.navigation === 'right' && (
+                        {settings.layout.navbar === 'right' && (
                             <Hidden lgUp>
                                 <IconButton
-                                    className={classNames(classes.navbarButton, 'w-64 h-64 rounded-none', settings.layout.navigation)}
+                                    className={classNames(classes.navbarButton, 'w-64 h-64 rounded-none', settings.layout.navbar)}
                                     aria-label="open drawer"
-                                    onClick={this.handleMobileNavbarOpen}
+                                    onClick={navbarOpenMobile}
                                 >
                                     <Icon>menu</Icon>
                                 </IconButton>
@@ -377,15 +384,15 @@ class FuseLayout extends Component {
 
                 <div className={classes.wrapper}>
 
-                    {settings.layout.navigation === 'left' && (
+                    {settings.layout.navbar === 'left' && (
                         navBarTemplate
                     )}
 
                     <div
                         className={classNames(
                             classes.contentWrapper,
-                            settings.layout.navigationFolded && settings.layout.navigation === 'left' && 'md:ml-64',
-                            settings.layout.navigationFolded && settings.layout.navigation === 'right' && 'md:mr-64'
+                            settings.layout.navbarFolded && settings.layout.navbar === 'left' && 'md:ml-64',
+                            settings.layout.navbarFolded && settings.layout.navbar === 'right' && 'md:mr-64'
                         )}
                     >
 
@@ -402,7 +409,7 @@ class FuseLayout extends Component {
                         )}
                     </div>
 
-                    {settings.layout.navigation === 'right' && (
+                    {settings.layout.navbar === 'right' && (
                         navBarTemplate
                     )}
                 </div>
@@ -418,8 +425,12 @@ class FuseLayout extends Component {
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-        setSettings  : Actions.setSettings,
-        resetSettings: Actions.resetSettings
+        setSettings      : Actions.setSettings,
+        resetSettings    : Actions.resetSettings,
+        navbarOpenFolded : Actions.navbarOpenFolded,
+        navbarCloseFolded: Actions.navbarCloseFolded,
+        navbarOpenMobile : Actions.navbarOpenMobile,
+        navbarCloseMobile: Actions.navbarCloseMobile
     }, dispatch);
 }
 
@@ -427,7 +438,8 @@ function mapStateToProps({fuse})
 {
     return {
         defaultSettings: fuse.settings.defaults,
-        settings       : fuse.settings.current
+        settings       : fuse.settings.current,
+        navbar         : fuse.navbar
     }
 }
 

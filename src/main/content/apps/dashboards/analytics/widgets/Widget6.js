@@ -10,6 +10,7 @@ const styles = theme => ({
 
 function Marker({text})
 {
+
     return (
         <Tooltip title={text} placement="top">
             <Icon className="text-red">place</Icon>

@@ -4,6 +4,7 @@ import PrerequisitesDoc from 'main/content/getting-started/prerequisites/Prerequ
 import InstallationDoc from 'main/content/getting-started/installation/InstallationDoc';
 import WorkingWithFuseDoc from 'main/content/getting-started/working-with-fuse/WorkingWithFuseDoc';
 import ChangelogDoc from 'main/content/getting-started/changelog/ChangelogDoc';
+import RoutingDoc from 'main/content/getting-started/routing/RoutingDoc';
 
 export const GettingStartedConfig = {
     routes: [
@@ -26,6 +27,10 @@ export const GettingStartedConfig = {
         {
             path     : '/getting-started/settings',
             component: SettingsDoc
+        },
+        {
+            path     : '/getting-started/routing',
+            component: RoutingDoc
         },
         {
             path     : '/getting-started/changelog',

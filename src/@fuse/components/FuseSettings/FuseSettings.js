@@ -128,12 +128,12 @@ class FuseSettings extends Component {
                     }}
                 >
                     <FormControl component="fieldset" className={classes.formControl}>
-                        <FormLabel component="legend">Navigation</FormLabel>
+                        <FormLabel component="legend">Navbar</FormLabel>
                         <RadioGroup
-                            aria-label="Navigation"
-                            name="layout.navigation"
+                            aria-label="Navbar"
+                            name="layout.navbar"
                             className={classes.group}
-                            value={settings.layout.navigation}
+                            value={settings.layout.navbar}
                             onChange={this.handleChange}
                             row
                         >
@@ -143,12 +143,12 @@ class FuseSettings extends Component {
                         </RadioGroup>
                     </FormControl>
                     <FormControl className={classes.formControl}>
-                        <FormLabel component="legend">Navigation Folded</FormLabel>
+                        <FormLabel component="legend">Navbar Folded</FormLabel>
                         <Switch
-                            checked={settings.layout.navigationFolded}
+                            checked={settings.layout.navbarFolded}
                             onChange={this.handleChange}
-                            aria-label="Navigation Folded"
-                            name="layout.navigationFolded"
+                            aria-label="Navbar Folded"
+                            name="layout.navbarFolded"
                         />
                     </FormControl>
                     <FormControl component="fieldset" className={classes.formControl}>

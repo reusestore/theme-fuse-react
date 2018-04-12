@@ -6,6 +6,8 @@ import classNames from 'classnames';
 import FuseNavBadge from './FuseNavBadge';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as Actions from 'store/actions';
 
 const propTypes = {
     item: PropTypes.shape(
@@ -40,7 +42,7 @@ const styles = theme => ({
     }
 });
 
-function FuseNavVerticalItem({item, classes, nestedLevel, userRole})
+function FuseNavVerticalItem({item, classes, nestedLevel, userRole, navbarCloseMobile})
 {
     if ( item.auth && (!item.auth.includes(userRole) || (userRole !== 'guest' && item.auth.length === 1 && item.auth.includes('guest'))) )
     {
@@ -57,6 +59,7 @@ function FuseNavVerticalItem({item, classes, nestedLevel, userRole})
             to={item.url}
             activeClassName="active"
             className={classNames(classes.root, listItemPadding)}
+            onClick={navbarCloseMobile}
         >
             {item.icon && (
                 <Icon className="list-item-icon text-16 flex-no-shrink" color="action">{item.icon}</Icon>
@@ -69,7 +72,14 @@ function FuseNavVerticalItem({item, classes, nestedLevel, userRole})
     );
 }
 
-function mapStateToProps({auth})
+function mapDispatchToProps(dispatch)
+{
+    return bindActionCreators({
+        navbarCloseMobile: Actions.navbarCloseMobile
+    }, dispatch);
+}
+
+function mapStateToProps({auth, fuse})
 {
     return {
         userRole: auth.user.role
@@ -79,6 +89,6 @@ function mapStateToProps({auth})
 FuseNavVerticalItem.propTypes = propTypes;
 FuseNavVerticalItem.defaultProps = defaultProps;
 
-const NavVerticalItem = withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps)(FuseNavVerticalItem)));
+const NavVerticalItem = withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(FuseNavVerticalItem)));
 
 export default NavVerticalItem;

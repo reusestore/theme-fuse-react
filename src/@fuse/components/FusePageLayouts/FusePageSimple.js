@@ -72,9 +72,10 @@ const styles = theme => ({
         }
     },
     contentCardWrapperInnerSidebar: {
-        display : 'block',
-        overflow: 'auto!important',
-        '&.ps'  : {
+        display                     : 'block',
+        overflow                    : 'auto!important',
+        '-webkit-overflow-scrolling': 'touch',
+        '&.ps'                      : {
             overflow: 'hidden!important'
         }
     },
@@ -83,7 +84,8 @@ const styles = theme => ({
         flexDirection: 'column',
         flex         : '1 1 auto',
         boxShadow    : theme.shadows[5],
-        overflow     : 'auto'
+        overflow     : 'auto',
+        '-webkit-overflow-scrolling': 'touch'
     },
     toolbar                       : {
         height         : toolbarHeight,

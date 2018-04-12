@@ -34,23 +34,22 @@ class SettingsDoc extends Component {
 
                         <FuseHighlight component="pre" className="language-js">
                             {`
-                            const FuseSettings = {
+                            const fuseSettingsConfig = {
                                 layout          : {
-                                    navigation          : 'left', // 'right', 'left', 'top', 'none'
-                                    navigationFolded    : false, // true, false
-                                    navigationFoldedOpen: false,
-                                    toolbar             : 'below', // 'above', 'below', 'none'
-                                    footer              : 'below', // 'above', 'below', 'none'
-                                    mode                : 'fullwidth' // 'boxed', 'fullwidth'
+                                    navbar      : 'left', // 'right', 'left', 'top', 'none'
+                                    navbarFolded: false, // true, false
+                                    toolbar     : 'below', // 'above', 'below', 'none'
+                                    footer      : 'below', // 'above', 'below', 'none'
+                                    mode        : 'fullwidth' // 'boxed', 'fullwidth'
                                 },
                                 customScrollbars: true,
                                 theme           : 'default',
-                                navbarTheme     : 'default',
+                                navbarTheme     : 'currentThemeDark',
                                 toolbarTheme    : 'default',
-                                footerTheme     : 'default'
+                                footerTheme     : 'currentThemeDark'
                             };
 
-                            export default FuseSettings;
+                            export default fuseSettingsConfig;
                             `}
                         </FuseHighlight>
                     </div>
