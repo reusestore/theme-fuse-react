@@ -39,7 +39,8 @@ const styles = theme => ({
         backgroundColor: theme.palette.background.default
     },
     singleScroll                  : {
-        flex: '1 0 auto'
+        flex  : '1 0 auto',
+        height: 'auto'
     },
     contentWrapper                : {
         display      : 'flex',
@@ -80,11 +81,11 @@ const styles = theme => ({
         }
     },
     contentCard                   : {
-        display      : 'flex',
-        flexDirection: 'column',
-        flex         : '1 1 auto',
-        boxShadow    : theme.shadows[5],
-        overflow     : 'auto',
+        display                     : 'flex',
+        flexDirection               : 'column',
+        flex                        : '1 1 auto',
+        boxShadow                   : theme.shadows[5],
+        overflow                    : 'auto',
         '-webkit-overflow-scrolling': 'touch'
     },
     toolbar                       : {

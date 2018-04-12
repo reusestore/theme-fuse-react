@@ -4,7 +4,7 @@ import {authRoles} from 'auth/auth';
 export const LoginConfig = {
     settings: {
         layout: {
-            navigation: 'none',
+            navbar: 'none',
             toolbar   : 'none',
             footer    : 'none'
         }

@@ -17,7 +17,7 @@ const styles = theme => ({
         backgroundImage   : 'url("../../assets/images/backgrounds/header-bg.png")',
         backgroundColor   : '#FAFAFA',
         color             : '#FFFFFF',
-        backgroundSize    : '100% auto',
+        backgroundSize    : 'cover',
         backgroundPosition: '0 50%',
         backgroundRepeat  : 'no-repeat',
         position          : 'relative',
@@ -146,8 +146,8 @@ class CalendarHeader extends Toolbar {
 
                     <div className="flex flex-1 flex-col p-12 justify-between z-10">
 
-                        <div className="flex items-center justify-between">
-                            <div className="flex items-center">
+                        <div className="flex flex-col items-center justify-between sm:flex-row">
+                            <div className="flex items-center my-16 sm:mb-0">
                                 <Icon className="text-32 mx-12">today</Icon>
                                 <Typography variant="title">Calendar</Typography>
                             </div>

@@ -55,12 +55,12 @@ class ModernInvoicePage extends Component {
             });
 
         return (
-            <div className={classNames(classes.root, "p-64 print:p-0")}>
+            <div className={classNames(classes.root, "p-0 sm:p-64  print:p-0")}>
 
                 {invoice && (
                     <Slide direction="up" in={true} timeout={500}>
 
-                        <Card className={classNames(classes.card)}>
+                        <Card className={classNames(classes.card, "mx-auto")}>
 
                             <CardContent className={classNames(classes.cardContent, "p-88 print:p-0")}>
 

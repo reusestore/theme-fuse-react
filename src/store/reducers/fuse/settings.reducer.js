@@ -21,8 +21,8 @@ const settings = function (state = initialState, action) {
         {
             return {
                 ...state,
-                defaults: _.merge({}, action.value),
-                current : _.merge({}, action.value)
+                defaults: _.merge({}, state.defaults, action.value),
+                current : _.merge({}, state.defaults, action.value)
             };
         }
         case Actions.RESET_DEFAULT_SETTINGS:

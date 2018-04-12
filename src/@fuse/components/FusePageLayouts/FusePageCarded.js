@@ -38,7 +38,8 @@ const styles = theme => ({
         backgroundColor: theme.palette.background.default
     },
     singleScroll             : {
-        flex: '1 0 auto'
+        flex  : '1 0 auto',
+        height: 'auto'
     },
     topBg                    : {
         position       : 'absolute',
@@ -52,14 +53,17 @@ const styles = theme => ({
         pointerEvents  : 'none'
     },
     contentWrapper           : {
-        display      : 'flex',
-        flexDirection: 'column',
-        padding      : '0 3.2rem',
-        flex         : '1 1 100%',
-        zIndex       : 2,
-        maxWidth     : '100%',
-        minWidth     : 0,
-        minHeight    : 0
+        display                       : 'flex',
+        flexDirection                 : 'column',
+        padding                       : '0 3.2rem',
+        flex                          : '1 1 100%',
+        zIndex                        : 2,
+        maxWidth                      : '100%',
+        minWidth                      : 0,
+        minHeight                     : 0,
+        [theme.breakpoints.down('xs')]: {
+            padding: '0 1.6rem'
+        }
     },
     header                   : {
         height   : headerContentHeight,
@@ -87,8 +91,8 @@ const styles = theme => ({
         borderBottom: '1px solid ' + theme.palette.divider
     },
     content                  : {
-        flex    : '1 1 auto',
-        overflow: 'auto',
+        flex                        : '1 1 auto',
+        overflow                    : 'auto',
         '-webkit-overflow-scrolling': 'touch'
     },
     sidebarWrapper           : {
@@ -133,7 +137,7 @@ const styles = theme => ({
         backgroundColor             : theme.palette.background.default,
         color                       : theme.palette.text.primary,
         [theme.breakpoints.up('lg')]: {
-            overflow: 'auto',
+            overflow                    : 'auto',
             '-webkit-overflow-scrolling': 'touch'
         }
     },

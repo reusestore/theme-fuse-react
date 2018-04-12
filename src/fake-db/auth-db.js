@@ -13,7 +13,7 @@ let authDB = {
                 'avatar'  : 'assets/images/avatars/Abbott.jpg',
                 settings  : {
                     layout          : {
-                        navigation  : 'left',
+                        navbar      : 'left',
                         navbarFolded: true,
                         toolbar     : 'below',
                         footer      : 'below',
@@ -36,7 +36,7 @@ let authDB = {
                 'avatar'  : 'assets/images/avatars/Arnold.jpg',
                 settings  : {
                     layout          : {
-                        navigation  : 'right',
+                        navbar      : 'right',
                         navbarFolded: false,
                         toolbar     : 'above',
                         footer      : 'above',

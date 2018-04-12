@@ -18,16 +18,18 @@ class SimpleRightSidebar2Sample extends Component {
                     root: classes.layoutRoot
                 }}
                 header={
-                    <div className="flex flex-1 p-24">
-                        <div className="flex-1 py-16"><h4>Header</h4></div>
-                        <Hidden lgUp>
-                            <IconButton
-                                onClick={(ev) => this.pageLayout.toggleRightSidebar()}
-                                aria-label="open right sidebar"
-                            >
-                                <Icon>menu</Icon>
-                            </IconButton>
-                        </Hidden>
+                    <div className="flex flex-col flex-1">
+                        <div className="flex items-center pr-12 lg:pr-24 p-24">
+                            <div className="flex-1"><h4>Header</h4></div>
+                            <Hidden lgUp>
+                                <IconButton
+                                    onClick={(ev) => this.pageLayout.toggleRightSidebar()}
+                                    aria-label="open left sidebar"
+                                >
+                                    <Icon>menu</Icon>
+                                </IconButton>
+                            </Hidden>
+                        </div>
                     </div>
                 }
                 contentToolbar={

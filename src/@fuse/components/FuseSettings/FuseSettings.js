@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {Button, Dialog, FormControl, FormControlLabel, FormLabel, Icon, MenuItem, Radio, RadioGroup, Select, Slide, Switch, withStyles} from 'material-ui';
-import * as Actions from '../../../store/actions/fuse/index';
+import {Button, Dialog, FormControl, FormControlLabel, FormLabel, Icon, IconButton, MenuItem, Radio, RadioGroup, Select, Slide, Switch, withStyles} from 'material-ui';
+import _ from 'lodash';
+import * as Actions from 'store/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import _ from 'lodash';
-import {FuseThemes} from '@fuse/index';
+import {FuseScrollbars, FuseThemes} from '@fuse';
 
 const styles = theme => ({
     root                 : {
@@ -32,14 +32,18 @@ const styles = theme => ({
         animation: 'rotating 3s linear infinite'
     },
     dialogPaper          : {
-        position       : 'absolute',
-        width          : 360,
-        backgroundColor: theme.palette.background.paper,
-        boxShadow      : theme.shadows[5],
-        padding        : 32,
-        top            : 160,
-        right          : 0,
-        margin         : 0
+        position                      : 'absolute',
+        width                         : 360,
+        maxWidth                      : '90vw',
+        backgroundColor               : theme.palette.background.paper,
+        boxShadow                     : theme.shadows[5],
+        top                           : 160,
+        right                         : 0,
+        margin                        : 0,
+        [theme.breakpoints.down('md')]: {
+            top      : 64,
+            maxHeight: 'calc(100vh - 128px)'
+        }
     },
     formControl          : {
         marginBottom: 16,
@@ -127,99 +131,104 @@ class FuseSettings extends Component {
                         paper: classes.dialogPaper
                     }}
                 >
-                    <FormControl component="fieldset" className={classes.formControl}>
-                        <FormLabel component="legend">Navbar</FormLabel>
-                        <RadioGroup
-                            aria-label="Navbar"
-                            name="layout.navbar"
-                            className={classes.group}
-                            value={settings.layout.navbar}
-                            onChange={this.handleChange}
-                            row
-                        >
-                            <FormControlLabel value="left" control={<Radio/>} label="Left"/>
-                            <FormControlLabel value="right" control={<Radio/>} label="Right"/>
-                            <FormControlLabel value="none" control={<Radio/>} label="None"/>
-                        </RadioGroup>
-                    </FormControl>
-                    <FormControl className={classes.formControl}>
-                        <FormLabel component="legend">Navbar Folded</FormLabel>
-                        <Switch
-                            checked={settings.layout.navbarFolded}
-                            onChange={this.handleChange}
-                            aria-label="Navbar Folded"
-                            name="layout.navbarFolded"
-                        />
-                    </FormControl>
-                    <FormControl component="fieldset" className={classes.formControl}>
-                        <FormLabel component="legend">Toolbar</FormLabel>
-                        <RadioGroup
-                            aria-label="Toolbar"
-                            name="layout.toolbar"
-                            className={classes.group}
-                            value={settings.layout.toolbar}
-                            onChange={this.handleChange}
-                            row
-                        >
-                            <FormControlLabel value="below" control={<Radio/>} label="Below"/>
-                            <FormControlLabel value="above" control={<Radio/>} label="Above"/>
-                            <FormControlLabel value="none" control={<Radio/>} label="None"/>
-                        </RadioGroup>
-                    </FormControl>
-                    <FormControl component="fieldset" className={classes.formControl}>
-                        <FormLabel component="legend">Footer</FormLabel>
-                        <RadioGroup
-                            aria-label="Footer"
-                            name="layout.footer"
-                            className={classes.group}
-                            value={settings.layout.footer}
-                            onChange={this.handleChange}
-                            row
-                        >
-                            <FormControlLabel value="below" control={<Radio/>} label="Below"/>
-                            <FormControlLabel value="above" control={<Radio/>} label="Above"/>
-                            <FormControlLabel value="none" control={<Radio/>} label="None"/>
-                        </RadioGroup>
-                    </FormControl>
-                    <FormControl component="fieldset" className={classes.formControl}>
-                        <FormLabel component="legend">Layout Mode</FormLabel>
-                        <RadioGroup
-                            aria-label="Layout mode"
-                            name="layout.mode"
-                            className={classes.group}
-                            value={settings.layout.mode}
-                            onChange={this.handleChange}
-                            row
-                        >
-                            <FormControlLabel value="fullwidth" control={<Radio/>} label="Full Width"/>
-                            <FormControlLabel value="boxed" control={<Radio/>} label="Boxed"/>
-                        </RadioGroup>
-                    </FormControl>
-                    <FormControl component="fieldset" className={classes.formControl}>
-                        <FormLabel component="legend">Theme</FormLabel>
-                        <ThemeSelect value={settings.theme} name="theme" handleChange={this.handleChange}/>
-                    </FormControl>
-                    <FormControl component="fieldset" className={classes.formControl}>
-                        <FormLabel component="legend">Navbar Theme</FormLabel>
-                        <ThemeSelect value={settings.navbarTheme} name="navbarTheme" handleChange={this.handleChange}/>
-                    </FormControl>
-                    <FormControl component="fieldset" className={classes.formControl}>
-                        <FormLabel component="legend">Toolbar Theme</FormLabel>
-                        <ThemeSelect value={settings.toolbarTheme} name="toolbarTheme" handleChange={this.handleChange}/>
-                    </FormControl>
-                    <FormControl component="fieldset" className={classes.formControl}>
-                        <FormLabel component="legend">Footer Theme</FormLabel>
-                        <ThemeSelect value={settings.footerTheme} name="footerTheme" handleChange={this.handleChange}/>
-                    </FormControl>
-                    <FormControl className={classes.formControl}>
-                        <FormLabel component="legend">Custom Scrollbars</FormLabel>
-                        <Switch
-                            checked={settings.customScrollbars}
-                            onChange={this.handleChange}
-                            aria-label="Custom Scrollbars"
-                            name="customScrollbars"
-                        />
-                    </FormControl>
+                    <FuseScrollbars className="p-24 sm:p-32">
+                        <IconButton className="absolute pin-t pin-r z-10" onClick={this.handleClose}>
+                            <Icon>close</Icon>
+                        </IconButton>
+                        <FormControl component="fieldset" className={classes.formControl}>
+                            <FormLabel component="legend">Navbar</FormLabel>
+                            <RadioGroup
+                                aria-label="Navbar"
+                                name="layout.navbar"
+                                className={classes.group}
+                                value={settings.layout.navbar}
+                                onChange={this.handleChange}
+                                row
+                            >
+                                <FormControlLabel value="left" control={<Radio/>} label="Left"/>
+                                <FormControlLabel value="right" control={<Radio/>} label="Right"/>
+                                <FormControlLabel value="none" control={<Radio/>} label="None"/>
+                            </RadioGroup>
+                        </FormControl>
+                        <FormControl component="fieldset" className={classes.formControl}>
+                            <FormLabel component="legend">Navbar Folded</FormLabel>
+                            <Switch
+                                checked={settings.layout.navbarFolded}
+                                onChange={this.handleChange}
+                                aria-label="Navbar Folded"
+                                name="layout.navbarFolded"
+                            />
+                        </FormControl>
+                        <FormControl component="fieldset" className={classes.formControl}>
+                            <FormLabel component="legend">Toolbar</FormLabel>
+                            <RadioGroup
+                                aria-label="Toolbar"
+                                name="layout.toolbar"
+                                className={classes.group}
+                                value={settings.layout.toolbar}
+                                onChange={this.handleChange}
+                                row
+                            >
+                                <FormControlLabel value="below" control={<Radio/>} label="Below"/>
+                                <FormControlLabel value="above" control={<Radio/>} label="Above"/>
+                                <FormControlLabel value="none" control={<Radio/>} label="None"/>
+                            </RadioGroup>
+                        </FormControl>
+                        <FormControl component="fieldset" className={classes.formControl}>
+                            <FormLabel component="legend">Footer</FormLabel>
+                            <RadioGroup
+                                aria-label="Footer"
+                                name="layout.footer"
+                                className={classes.group}
+                                value={settings.layout.footer}
+                                onChange={this.handleChange}
+                                row
+                            >
+                                <FormControlLabel value="below" control={<Radio/>} label="Below"/>
+                                <FormControlLabel value="above" control={<Radio/>} label="Above"/>
+                                <FormControlLabel value="none" control={<Radio/>} label="None"/>
+                            </RadioGroup>
+                        </FormControl>
+                        <FormControl component="fieldset" className={classes.formControl}>
+                            <FormLabel component="legend">Layout Mode</FormLabel>
+                            <RadioGroup
+                                aria-label="Layout mode"
+                                name="layout.mode"
+                                className={classes.group}
+                                value={settings.layout.mode}
+                                onChange={this.handleChange}
+                                row
+                            >
+                                <FormControlLabel value="fullwidth" control={<Radio/>} label="Full Width"/>
+                                <FormControlLabel value="boxed" control={<Radio/>} label="Boxed"/>
+                            </RadioGroup>
+                        </FormControl>
+                        <FormControl component="fieldset" className={classes.formControl}>
+                            <FormLabel component="legend">Theme</FormLabel>
+                            <ThemeSelect value={settings.theme} name="theme" handleChange={this.handleChange}/>
+                        </FormControl>
+                        <FormControl component="fieldset" className={classes.formControl}>
+                            <FormLabel component="legend">Navbar Theme</FormLabel>
+                            <ThemeSelect value={settings.navbarTheme} name="navbarTheme" handleChange={this.handleChange}/>
+                        </FormControl>
+                        <FormControl component="fieldset" className={classes.formControl}>
+                            <FormLabel component="legend">Toolbar Theme</FormLabel>
+                            <ThemeSelect value={settings.toolbarTheme} name="toolbarTheme" handleChange={this.handleChange}/>
+                        </FormControl>
+                        <FormControl component="fieldset" className={classes.formControl}>
+                            <FormLabel component="legend">Footer Theme</FormLabel>
+                            <ThemeSelect value={settings.footerTheme} name="footerTheme" handleChange={this.handleChange}/>
+                        </FormControl>
+                        <FormControl component="fieldset" className={classes.formControl}>
+                            <FormLabel component="legend">Custom Scrollbars</FormLabel>
+                            <Switch
+                                checked={settings.customScrollbars}
+                                onChange={this.handleChange}
+                                aria-label="Custom Scrollbars"
+                                name="customScrollbars"
+                            />
+                        </FormControl>
+                    </FuseScrollbars>
                 </Dialog>
             </div>
         );

@@ -16,9 +16,9 @@ class ContactsHeader extends Component {
     {
         const {classes, setSearchText, searchText, pageLayout} = this.props;
         return (
-            <div className={classNames(classes.root, "flex flex-1 items-center justify-between p-24")}>
+            <div className={classNames(classes.root, "flex flex-1 flex-col sm:flex-row items-center justify-between p-24")}>
 
-                <div className="flex flex-1">
+                <div className="flex flex-1 items-center">
                     <Hidden lgUp>
                         <IconButton
                             onClick={(ev) => pageLayout().toggleLeftSidebar()}

@@ -12,11 +12,14 @@ const styles = theme => ({
         flex   : '1'
     },
     searchWrapper: {
-        width     : '100%',
-        height    : 56,
-        padding   : 18,
-        display   : 'flex',
-        alignItems: 'center'
+        width                         : '100%',
+        height                        : 56,
+        padding                       : 18,
+        [theme.breakpoints.down('md')]: {
+            paddingLeft: 8
+        },
+        display                       : 'flex',
+        alignItems                    : 'center'
     },
     search       : {
         paddingLeft: 16

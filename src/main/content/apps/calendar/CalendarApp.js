@@ -23,6 +23,7 @@ let allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k]);
 const styles = theme => ({
     root     : {
         display                                                                                                        : 'flex',
+        position                                                                                                       : 'relative',
         flexDirection                                                                                                  : 'column',
         flex                                                                                                           : 1,
         '& .rbc-header'                                                                                                : {
@@ -70,7 +71,8 @@ const styles = theme => ({
             },
             '& .rbc-month-row'           : {
                 ...theme.mixins.border(1),
-                borderWidth: '0 1px 1px 1px!important'
+                borderWidth: '0 1px 1px 1px!important',
+                minHeight  : 128
             },
             '& .rbc-header + .rbc-header': {
                 ...theme.mixins.borderLeft(1)

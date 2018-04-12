@@ -38,16 +38,18 @@ class CardedLeftSidebar2TabbedSample extends Component {
                     toolbar: classes.layoutToolbar
                 }}
                 header={
-                    <div className="flex flex-1">
-                        <Hidden lgUp>
-                            <IconButton
-                                onClick={(ev) => this.pageLayout.toggleLeftSidebar()}
-                                aria-label="open left sidebar"
-                            >
-                                <Icon>menu</Icon>
-                            </IconButton>
-                        </Hidden>
-                        <div className="flex-1 py-16"><h4>Header</h4></div>
+                    <div className="flex flex-col flex-1">
+                        <div className="flex items-center py-24">
+                            <Hidden lgUp>
+                                <IconButton
+                                    onClick={(ev) => this.pageLayout.toggleLeftSidebar()}
+                                    aria-label="open left sidebar"
+                                >
+                                    <Icon>menu</Icon>
+                                </IconButton>
+                            </Hidden>
+                            <div className="flex-1"><h4>Header</h4></div>
+                        </div>
                     </div>
                 }
                 contentToolbar={

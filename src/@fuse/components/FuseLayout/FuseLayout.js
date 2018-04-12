@@ -223,40 +223,9 @@ class FuseLayout extends Component {
     };
 
     handleToggleFolded = () => {
-        this.props.setSettings({layout: {navbarFolded: !this.props.settings.layout.navbarFolded}});
+        this.props.setDefaultSettings({layout: {navbarFolded: !this.props.settings.layout.navbarFolded}});
     };
 
-    handleFoldedOpen = () => {
-        if ( !this.props.settings.layout.navbarFolded )
-        {
-            return;
-        }
-        this.props.setSettings({layout: {navbarFoldedOpen: true}});
-    };
-
-    handleFoldedClose = () => {
-        if ( !this.props.settings.layout.navbarFolded )
-        {
-            return;
-        }
-        this.props.setSettings({layout: {navbarFoldedOpen: false}});
-    };
-
-    handlenavbarMobileOpen = () => {
-        if ( this.props.settings.layout.navbarMobileOpen )
-        {
-            return;
-        }
-        this.props.setSettings({layout: {navbarMobileOpen: true}});
-    };
-
-    handleMobileNavbarClose = () => {
-        if ( !this.props.settings.layout.navbarMobileOpen )
-        {
-            return;
-        }
-        this.props.setSettings({layout: {navbarMobileOpen: false}});
-    };
 
     render()
     {
@@ -274,7 +243,7 @@ class FuseLayout extends Component {
                     </IconButton>
                 </Hidden>
                 <Hidden mdUp>
-                    <IconButton onClick={this.handleMobileNavbarClose}>
+                    <IconButton onClick={navbarCloseMobile}>
                         <Icon>menu</Icon>
                     </IconButton>
                 </Hidden>
@@ -425,12 +394,13 @@ class FuseLayout extends Component {
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-        setSettings      : Actions.setSettings,
-        resetSettings    : Actions.resetSettings,
-        navbarOpenFolded : Actions.navbarOpenFolded,
-        navbarCloseFolded: Actions.navbarCloseFolded,
-        navbarOpenMobile : Actions.navbarOpenMobile,
-        navbarCloseMobile: Actions.navbarCloseMobile
+        setSettings       : Actions.setSettings,
+        setDefaultSettings: Actions.setDefaultSettings,
+        resetSettings     : Actions.resetSettings,
+        navbarOpenFolded  : Actions.navbarOpenFolded,
+        navbarCloseFolded : Actions.navbarCloseFolded,
+        navbarOpenMobile  : Actions.navbarOpenMobile,
+        navbarCloseMobile : Actions.navbarCloseMobile
     }, dispatch);
 }
 
