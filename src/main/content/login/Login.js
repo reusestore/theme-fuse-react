@@ -28,6 +28,8 @@ class Login extends Component {
         canSubmit: false
     };
 
+    form = React.createRef();
+
     disableButton = () => {
         this.setState({canSubmit: false});
     };
@@ -40,23 +42,26 @@ class Login extends Component {
         this.props.submitLogin(model);
     };
 
-    componentWillReceiveProps(nextProps)
+    componentDidUpdate(prevProps, prevState)
     {
-        if ( nextProps.login.error.username || nextProps.login.error.password )
+        if ( this.props.login.error && (this.props.login.error.username || this.props.login.error.password) )
         {
             this.form.updateInputsWithError({
-                ...nextProps.login.error
+                ...this.props.login.error
             });
+
+            this.props.login.error = null;
             this.disableButton();
         }
 
-        if ( nextProps.user.data )
+        if ( this.props.user.data )
         {
-            const pathname = this.props.location.state && this.props.location.state.redirectUrl ? this.props.location.state.redirectUrl : '/'
+            const pathname = this.props.location.state && this.props.location.state.redirectUrl ? this.props.location.state.redirectUrl : '/';
             this.props.history.push({
                 pathname
             });
         }
+        return null;
     }
 
     render()

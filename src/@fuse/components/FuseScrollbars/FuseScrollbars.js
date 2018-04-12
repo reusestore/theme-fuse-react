@@ -64,14 +64,9 @@ class FuseScrollbars extends Component {
         this._handlerByEvent = new Map();
     }
 
-    componentDidMount()
+    componentDidUpdate(prevProps, prevState)
     {
-        this.createPs();
-    }
-
-    componentWillReceiveProps(nextProps)
-    {
-        if ( nextProps.customScrollbars )
+        if ( this.props.customScrollbars )
         {
             setTimeout(() => {
                 this.createPs();
@@ -83,11 +78,13 @@ class FuseScrollbars extends Component {
                 this.destroyPs();
             });
         }
+
+        this.updatePs();
     }
 
-    componentDidUpdate()
+    componentDidMount()
     {
-        this.updatePs();
+        this.createPs();
     }
 
     componentWillUnmount()

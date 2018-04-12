@@ -45,11 +45,11 @@ class FuseShortcuts extends Component {
         this.setState({addMenu: null});
     };
 
-    componentWillReceiveProps(nextProps)
+    componentDidUpdate(prevProps, prevState)
     {
-        if ( !_.isEqual(this.props.navigation, nextProps.navigation) )
+        if ( !_.isEqual(this.props.location, prevProps.location) )
         {
-            this.flattenNavigation(nextProps.navigation);
+            this.flattenNavigation(this.props.navigation);
         }
     }
 

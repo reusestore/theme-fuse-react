@@ -34,7 +34,7 @@ export const fuseNavigationConfig = [
                 'title': 'Mail',
                 'type' : 'item',
                 'icon' : 'email',
-                'url'  : '/apps/mail',
+                'url'  : '/apps/mail/inbox',
                 'badge': {
                     'title': 25,
                     'bg'   : '#F44336',
@@ -53,7 +53,7 @@ export const fuseNavigationConfig = [
                 'title': 'Contacts',
                 'type' : 'item',
                 'icon' : 'account_box',
-                'url'  : '/apps/contacts'
+                'url'  : '/apps/contacts/all'
             }
         ]
     },
@@ -628,7 +628,7 @@ export const fuseNavigationConfig = [
                 'type' : 'item',
                 'icon' : 'history',
                 'url'  : '/getting-started/changelog'
-            },
+            }
         ]
     },
     {

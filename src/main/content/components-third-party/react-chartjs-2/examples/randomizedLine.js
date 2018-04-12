@@ -29,10 +29,8 @@ const initialState = {
 };
 
 class Graph extends Component {
-    componentWillMount()
-    {
-        this.setState(initialState);
-    }
+
+    state = initialState;
 
     componentDidMount()
     {

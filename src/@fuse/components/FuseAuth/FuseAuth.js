@@ -8,41 +8,43 @@ import _ from 'lodash';
 let redirect = false;
 
 class FuseAuth extends Component {
-    componentWillMount()
+
+    constructor(props)
     {
-        this.checkAuth(this.props);
+        super(props);
+        this.checkAuth();
     }
 
-    componentWillReceiveProps(nextProps, nextContext)
+    componentDidUpdate(prevProps)
     {
         /**
          * If route is changed
          * Update auths
          */
-        if ( !_.isEqual(nextProps.location.pathname, this.props.location.pathname) )
+        if ( !_.isEqual(this.props.location.pathname, prevProps.location.pathname) )
         {
-            this.checkAuth(nextProps);
+            this.checkAuth();
         }
     }
 
-    checkAuth(props)
+    checkAuth()
     {
-        const matched = matchRoutes(this.props.routes, props.location.pathname)[0];
+        const matched = matchRoutes(this.props.routes, this.props.location.pathname)[0];
         if ( matched && matched.route.auth && matched.route.auth.length > 0 )
         {
-            if ( !matched.route.auth.includes(props.user.role) )
+            if ( !matched.route.auth.includes(this.props.user.role) )
             {
                 redirect = true;
-                if ( props.user.role === 'guest' )
+                if ( this.props.user.role === 'guest' )
                 {
-                    props.history.push({
+                    this.props.history.push({
                         pathname: '/login',
-                        state   : {redirectUrl: props.location.pathname}
+                        state   : {redirectUrl: this.props.location.pathname}
                     });
                 }
                 else
                 {
-                    props.history.push({
+                    this.props.history.push({
                         pathname: '/'
                     });
                 }

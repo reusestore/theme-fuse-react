@@ -29,12 +29,12 @@ const defaultEventState = {
 class EventDialog extends Component {
     state = {...defaultEventState};
 
-    componentWillUpdate(nextProps, nextState)
+    static getDerivedStateFromProps(nextProps, prevState)
     {
         /**
          * After Dialog Open
          */
-        if ( !this.props.eventDialog.props.open && nextProps.eventDialog.props.open )
+        if ( nextProps.eventDialog.props.open )
         {
             /**
              * Dialog type: 'edit'
@@ -42,9 +42,9 @@ class EventDialog extends Component {
              */
             if ( nextProps.eventDialog.type === 'edit' &&
                 nextProps.eventDialog.data &&
-                !_.isEqual(nextProps.eventDialog.data, nextState) )
+                !_.isEqual(nextProps.eventDialog.data, prevState) )
             {
-                this.setState({...nextProps.eventDialog.data});
+                return {...nextProps.eventDialog.data};
             }
 
             /**
@@ -53,9 +53,10 @@ class EventDialog extends Component {
              */
             if ( nextProps.eventDialog.type === 'new' )
             {
-                this.setState({...defaultEventState, ...nextProps.eventDialog.data});
+                return {...defaultEventState, ...nextProps.eventDialog.data};
             }
         }
+        return null;
     }
 
     handleChange = (event) => {

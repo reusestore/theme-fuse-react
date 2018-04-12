@@ -32,12 +32,12 @@ const newContactState = {
 class ContactDialog extends Component {
     state = {...newContactState};
 
-    componentWillUpdate(nextProps, nextState)
+    static getDerivedStateFromProps(nextProps, prevState)
     {
         /**
          * After Dialog Open
          */
-        if ( !this.props.contactDialog.props.open && nextProps.contactDialog.props.open )
+        if ( nextProps.contactDialog.props.open )
         {
             /**
              * Dialog type: 'edit'
@@ -45,9 +45,9 @@ class ContactDialog extends Component {
              */
             if ( nextProps.contactDialog.type === 'edit' &&
                 nextProps.contactDialog.data &&
-                !_.isEqual(nextProps.contactDialog.data, nextState) )
+                !_.isEqual(nextProps.contactDialog.data, prevState) )
             {
-                this.setState({...nextProps.contactDialog.data});
+                return {...nextProps.contactDialog.data};
             }
 
             /**
@@ -55,11 +55,12 @@ class ContactDialog extends Component {
              * Update State
              */
             if ( nextProps.contactDialog.type === 'new' &&
-                !_.isEqual(newContactState, nextState) )
+                !_.isEqual(newContactState, prevState) )
             {
-                this.setState({...newContactState});
+                return {...newContactState};
             }
         }
+        return null;
     }
 
     handleChange = (event) => {

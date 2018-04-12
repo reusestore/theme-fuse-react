@@ -47,13 +47,19 @@ export const defaults = {
     }
 };
 
+export let FuseSelectedTheme;
+
 const themesObj = Object.keys(fuseThemesConfig).length !== 0 ? fuseThemesConfig : defaults;
 
-export let themes = Object.assign({}, ...Object.entries(themesObj).map(([key, value]) => (
-    {
-        [key]: createMuiTheme(_.merge({}, value, mustHaveOptions, {mixins: customMixins(value)}))
+export let themes = Object.assign({}, ...Object.entries(themesObj).map(([key, value]) => {
+
+        const muiTheme = createMuiTheme(_.merge({}, value, mustHaveOptions));
+
+        return {
+            [key]: createMuiTheme(_.merge({}, muiTheme, {mixins: customMixins(muiTheme)}))
+        }
     }
-)));
+));
 
 function customMixins(theme)
 {
@@ -86,49 +92,35 @@ function customMixins(theme)
     }
 }
 
-export let FuseSelectedTheme;
+
+function updateLightDarkThemes(val)
+{
+    const theme = themesObj[val];
+    themes = {
+        ...themes,
+        currentThemeDark : createMuiTheme(_.merge({}, theme, {palette: {type: 'dark'}, ...mustHaveOptions})),
+        currentThemeLight: createMuiTheme(_.merge({}, theme, {palette: {type: 'light'}, ...mustHaveOptions}))
+    }
+}
 
 class FuseTheme extends Component {
-
     state = {
-        theme: themes[this.props.selectedTheme]
+        theme: null
     };
 
-    changeTheme = (val) => {
-        if ( !themes[val] )
-        {
-            return;
-        }
-        this.setState({theme: themes[val]});
-        FuseSelectedTheme = themes[val];
-        this.updateLightDarkThemes(val);
-    };
-
-    updateLightDarkThemes(val)
+    static getDerivedStateFromProps(nextProps, prevState)
     {
-        const theme = themesObj[val];
-        themes = {
-            ...themes,
-            currentThemeDark : createMuiTheme(_.merge({}, theme, {palette: {type: 'dark'}, ...mustHaveOptions})),
-            currentThemeLight: createMuiTheme(_.merge({}, theme, {palette: {type: 'light'}, ...mustHaveOptions}))
-        }
-    }
-
-    componentWillMount()
-    {
-        this.changeTheme(this.props.selectedTheme);
-    }
-
-    componentWillReceiveProps(nextProps)
-    {
-        this.changeTheme(nextProps.selectedTheme);
+        FuseSelectedTheme = themes[nextProps.selectedTheme];
+        updateLightDarkThemes(nextProps.selectedTheme);
+        const selected = themes[nextProps.selectedTheme];
+        return !_.isEqual(prevState.theme, selected) ? {theme: themes[nextProps.selectedTheme]} : null;
     }
 
     render()
     {
-        // console.warn('FuseTheme:: rendered');
         const {children} = this.props;
         const {theme} = this.state;
+        // console.warn('FuseTheme:: rendered', theme);
 
         return (
             <MuiThemeProvider theme={theme}>

@@ -18,8 +18,9 @@ const styles = theme => ({
 
 class FuseHighlight extends PureComponent {
 
-    componentWillMount()
+    constructor(props)
     {
+        super(props);
         this.trimCode();
     }
 

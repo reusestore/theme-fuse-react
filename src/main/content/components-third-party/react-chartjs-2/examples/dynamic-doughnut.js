@@ -31,12 +31,10 @@ const getState = () => ({
 
 class DynamicDoughnutExample extends Component {
 
-    state = {};
+    state = getState();
 
-    componentWillMount()
+    componentDidMount()
     {
-        this.setState(getState());
-
         setInterval(() => {
             this.setState(getState());
         }, 5000);

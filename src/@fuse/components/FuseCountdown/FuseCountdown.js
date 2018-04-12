@@ -28,10 +28,9 @@ class FuseCountdown extends Component {
         }
     };
 
-    componentWillMount()
+    componentDidMount()
     {
         this.tick();
-
         this.interval = setInterval(() => {
             this.tick()
         }, 1000);

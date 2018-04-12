@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {withStyles} from 'material-ui/styles';
 import {withRouter} from 'react-router-dom';
 import {AppBar, Hidden, Icon, IconButton, Toolbar, Drawer, MuiThemeProvider} from 'material-ui';
@@ -6,7 +6,7 @@ import {matchRoutes, renderRoutes} from 'react-router-config'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as Actions from '../../../store/actions/fuse/index';
-import {FuseScrollbars, FuseDefaultSettings} from '@fuse';
+import {FuseScrollbars} from '@fuse';
 import {FuseThemes} from '@fuse/index';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -184,58 +184,44 @@ const styles = theme => ({
     }
 });
 
-class FuseLayout extends React.Component {
-
-    defaultSettings = {...FuseDefaultSettings};
-
+class FuseLayout extends Component {
     state = {
         mobileNavbarOpen: false
     };
 
-    componentWillMount()
+    constructor(props)
     {
-        this.updateLayoutSettings(this.props);
+        super(props);
+        this.routeSettingsCheck();
     }
 
-    componentWillReceiveProps(nextProps, nextContext)
+    componentDidUpdate(prevProps)
     {
-        // console.error(FuseUtils.difference(this.props, nextProps));
-
-        if ( !_.isEqual(nextProps.defaultSettings, this.defaultSettings) )
+        if ( !_.isEqual(this.props.location.pathname, prevProps.location.pathname) )
         {
-            this.defaultSettings = nextProps.defaultSettings;
-        }
-
-        /**
-         * If route is changed
-         * Update settings
-         */
-        if ( !_.isEqual(nextProps.location.pathname, this.props.location.pathname) )
-        {
-            this.updateLayoutSettings(nextProps);
+            this.routeSettingsCheck();
         }
     }
 
-    updateLayoutSettings(props)
-    {
-        const matched = matchRoutes(this.props.routes, props.location.pathname)[0];
+    routeSettingsCheck = () => {
+        const matched = matchRoutes(this.props.routes, this.props.location.pathname)[0];
 
         if ( matched && matched.route.settings )
         {
-            const routeSettings = _.merge({}, this.defaultSettings, props.settings, matched.route.settings);
-            if ( !_.isEqual(props.settings, routeSettings) )
+            const routeSettings = _.merge({}, this.props.defaultSettings, matched.route.settings);
+            if ( !_.isEqual(this.props.settings, routeSettings) )
             {
-                props.setSettings(_.merge({}, props.settings, routeSettings));
+                this.props.setSettings(_.merge({}, routeSettings));
             }
         }
         else
         {
-            if ( !_.isEqual(props.settings, this.defaultSettings) )
+            if ( !_.isEqual(this.props.settings, this.props.defaultSettings) )
             {
-                props.resetSettings();
+                this.props.resetSettings();
             }
         }
-    }
+    };
 
     handleToggleFolded = () => {
         this.props.setSettings({layout: {navigationFolded: !this.props.settings.layout.navigationFolded}});
@@ -268,6 +254,7 @@ class FuseLayout extends React.Component {
     render()
     {
         const {classes, toolbar, footer, navbarHeader, navbarContent, settings} = this.props;
+        // console.warn('FuseLayout:: rendered');
 
         const navbarHeaderTemplate = (
             <div className={classes.navbarHeaderWrapper}>
@@ -439,7 +426,7 @@ function mapDispatchToProps(dispatch)
 function mapStateToProps({fuse})
 {
     return {
-        defaultSettings: fuse.settings.default,
+        defaultSettings: fuse.settings.defaults,
         settings       : fuse.settings.current
     }
 }

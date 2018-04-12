@@ -22,8 +22,10 @@ const styles = theme => ({
 
 class AnalyticsDashboardApp extends Component {
 
-    componentWillMount()
+    constructor(props)
     {
+        super(props);
+
         Chart.pluginService.register({
             afterDatasetsDraw: function (chart, easing) {
                 // Only activate the plugin if it's made available

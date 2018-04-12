@@ -4,7 +4,6 @@ import FuseNavVerticalItem from './FuseNavVerticalItem';
 import {Collapse, Icon, IconButton, ListItem, ListItemText} from 'material-ui';
 import {withStyles} from 'material-ui/styles/index';
 import {withRouter} from 'react-router-dom';
-import _ from 'lodash';
 import classNames from 'classnames';
 import FuseNavBadge from './FuseNavBadge';
 import PropTypes from 'prop-types';
@@ -31,60 +30,52 @@ const styles = theme => ({
     }
 });
 
+function needsToBeOpened(props)
+{
+    return props.location && isUrlInChildren(props.item, props.location.pathname)
+}
+
+function isUrlInChildren(parent, url)
+{
+    if ( !parent.children )
+    {
+        return false;
+    }
+
+    for ( let i = 0; i < parent.children.length; i++ )
+    {
+        if ( parent.children[i].children )
+        {
+            if ( isUrlInChildren(parent.children[i], url) )
+            {
+                return true;
+            }
+        }
+
+        if ( parent.children[i].url === url || url.includes(parent.children[i].url) )
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 class FuseNavVerticalCollapse extends Component {
 
     state = {
         open: false
     };
 
-    componentWillMount()
+    static getDerivedStateFromProps(nextProps, prevState)
     {
-        this.updateOpenState(this.props);
-    }
-
-    updateOpenState(props)
-    {
-        if ( props.location && this.isUrlInChildren(props.item, props.location.pathname) )
+        if ( needsToBeOpened(nextProps) )
         {
-            !this.state.open && this.setState({open: true});
+            return !prevState.open ? {open: true} : null;
         }
         else
         {
-            this.state.open && this.setState({open: false});
-        }
-    }
-
-    isUrlInChildren = (parent, url) => {
-        if ( !parent.children )
-        {
-            return false;
-        }
-
-        for ( let i = 0; i < parent.children.length; i++ )
-        {
-            if ( parent.children[i].children )
-            {
-                if ( this.isUrlInChildren(parent.children[i], url) )
-                {
-                    return true;
-                }
-            }
-
-            if ( parent.children[i].url === url || url.includes(parent.children[i].url) )
-            {
-                return true;
-            }
-        }
-
-        return false;
-    };
-
-    componentWillReceiveProps(nextProps, nextState)
-    {
-        // On Location Change
-        if ( !_.isEqual(nextProps.location.pathname, this.props.location.pathname) )
-        {
-            this.updateOpenState(nextProps);
+            return prevState.open ? {open: false} : null;
         }
     }
 

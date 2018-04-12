@@ -44,11 +44,11 @@ class ContactsApp extends Component {
         this.props.getUserData();
     }
 
-    componentWillReceiveProps(nextProps)
+    componentDidUpdate(prevProps, prevState)
     {
-        if ( !_.isEqual(nextProps.location, this.props.location) )
+        if ( !_.isEqual(this.props.location, prevProps.location) )
         {
-            this.props.getContacts(nextProps.match.params);
+            this.props.getContacts(this.props.match.params);
         }
     }
 

@@ -67,7 +67,7 @@ class FuseSettings extends Component {
     };
 
     handleChange = (event) => {
-        this.props.setSettings(_.set(_.merge({}, this.props.settings), event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value));
+        this.props.setDefaultSettings(_.set(_.merge({}, this.props.settings), event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value));
     };
 
     render()
@@ -229,7 +229,7 @@ class FuseSettings extends Component {
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-        setSettings: Actions.setSettings
+        setDefaultSettings: Actions.setDefaultSettings
     }, dispatch);
 }
 
