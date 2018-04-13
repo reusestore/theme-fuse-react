@@ -48,9 +48,11 @@ function Tables({classes})
                     />
 
                     <Typography className="text-32 mt-32 mb-8" component="h2">Sorting &amp; Selecting</Typography>
-                    <Typography className="mb-16" component="div">This example demonstrates the use <code>Checkbox</code> and clickable rows for selection with
-                        a <code>Toolbar</code>.</Typography>
-                    <Typography className="mb-16" component="div">It uses the <code>TableSortLabel</code> component to help style column headings.</Typography>
+                    <Typography className="mb-16" component="div">This example demonstrates the use of <code>Checkbox</code> and clickable rows for selection, with a
+                        custom <code>Toolbar</code>. It uses the <code>TableSortLabel</code> component to help style column headings.</Typography>
+                    <Typography className="mb-16" component="div">The Table has been given a fixed width to demonstrate horizontal scrolling. In order to prevent the pagination
+                        controls from scrolling, the TablePagination component is used outside of the Table. (The <a href="#custom-table-pagination-action">&#39;Custom Table
+                            Pagination Action&#39; example</a> below shows the pagination within the TableFooter.)</Typography>
                     <FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/tables/EnhancedTable.js').default}

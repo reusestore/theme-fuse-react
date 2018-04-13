@@ -36,7 +36,7 @@ class TimelineTab extends Component {
 
                 <div className="flex flex-col flex-1 md:pr-32">
 
-                    <Card className="w-full">
+                    <Card className="w-full overflow-hidden">
                         <Input
                             className="p-16 w-full"
                             classes={{root: 'text-14'}}
@@ -70,7 +70,7 @@ class TimelineTab extends Component {
 
                     <Divider className="my-32"/>
                     {posts && posts.map((post) => (
-                        <Card className="mb-32" key={post.id}>
+                        <Card className="mb-32 overflow-hidden" key={post.id}>
                             <CardHeader
                                 avatar={
                                     <Avatar aria-label="Recipe" src={post.user.avatar}/>
@@ -173,7 +173,7 @@ class TimelineTab extends Component {
                                     </div>
                                 )}
 
-                                <div className="flex flex-1">
+                                <div className="flex flex-auto">
                                     <Avatar src="assets/images/avatars/profile.jpg"/>
                                     <div className="flex-1 pl-8">
                                         <Paper elevation={0} className="w-full mb-16">
@@ -211,6 +211,7 @@ class TimelineTab extends Component {
                                     <ListItem key={activity.id} className="">
                                         <Avatar alt={activity.user.name} src={activity.user.avatar}/>
                                         <ListItemText
+                                            className="flex-1"
                                             primary={(
                                                 <div className="truncate">
                                                     <Typography className="inline font-medium" color="primary" paragraph={false}>

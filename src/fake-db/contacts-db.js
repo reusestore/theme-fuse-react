@@ -1,4 +1,3 @@
-import './../polyfills';
 import mock from './mock';
 import {FuseUtils} from '@fuse';
 import _ from 'lodash';

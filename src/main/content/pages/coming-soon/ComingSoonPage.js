@@ -39,7 +39,7 @@ class ComingSoonPage extends Component {
         const {email} = this.state;
 
         return (
-            <div className={classNames(classes.root, "flex flex-col flex-1 flex-no-shrink items-center justify-center p-32")}>
+            <div className={classNames(classes.root, "flex flex-col flex-auto flex-no-shrink items-center justify-center p-32")}>
 
                 <div className="flex flex-col items-center justify-center w-full">
 
@@ -48,9 +48,7 @@ class ComingSoonPage extends Component {
 
                             <CardContent className="flex flex-col items-center justify-center p-32 text-center">
 
-                                <div className="w-128 m-32">
-                                    <img src="assets/images/logos/fuse.svg" alt="logo"/>
-                                </div>
+                                <img className="w-128 m-32" src="assets/images/logos/fuse.svg" alt="logo"/>
 
                                 <Typography variant="subheading" className="mb-16">
                                     Hey! Thank you for checking out our app.
@@ -64,7 +62,7 @@ class ComingSoonPage extends Component {
 
                                 <Divider className="w-48"/>
 
-                                <Typography className="font-bold my-32">
+                                <Typography className="font-bold my-32 w-full">
                                     If you would like to be notified when the app is ready, you can subscribe to our e-mail list.
                                 </Typography>
 

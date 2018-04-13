@@ -188,7 +188,7 @@ class PricingStyle1Page extends Component {
 
                             <Typography variant="display1" className="pb-32 font-light">Frequently Asked Questions</Typography>
 
-                            <div className="flex flex-wrap">
+                            <div className="flex flex-wrap w-full">
 
                                 <div className="w-full sm:w-1/2 p-24">
                                     <Typography className="text-20 mb-8">How does free trial work?</Typography>

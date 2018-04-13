@@ -39,7 +39,7 @@ class LockPage extends Component {
         const {password} = this.state;
 
         return (
-            <div className={classNames(classes.root, "flex flex-col flex-1 flex-no-shrink items-center justify-center p-32")}>
+            <div className={classNames(classes.root, "flex flex-col flex-auto flex-no-shrink items-center justify-center p-32")}>
 
                 <div className="flex flex-col items-center justify-center w-full">
 
@@ -48,7 +48,7 @@ class LockPage extends Component {
 
                             <CardContent className="flex flex-col items-center justify-center p-32">
 
-                                <div className="flex flex-col items-center justify-center sm:flex-row sm:justify-start sm:items-center">
+                                <div className="w-full flex flex-col items-center justify-center sm:flex-row sm:justify-start sm:items-center">
 
                                     <div className="relative mr-16">
                                         <Avatar className="w-72 h-72" src="assets/images/avatars/katherine.jpg"/>

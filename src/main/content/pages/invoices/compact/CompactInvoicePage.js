@@ -8,7 +8,7 @@ const styles = theme => ({
     root       : {
         background    : "url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat",
         backgroundSize: 'cover',
-        flex          : 1,
+        flex          : '1 0 auto',
         '@media print': {
             transform      : 'scale(0.9)',
             transformOrigin: 'top'

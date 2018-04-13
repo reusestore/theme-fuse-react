@@ -82,6 +82,7 @@ class FuseSettings extends Component {
         {
             return (
                 <Select
+                    className="w-full"
                     value={value}
                     onChange={handleChange}
                     name={name}

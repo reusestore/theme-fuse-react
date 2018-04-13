@@ -91,6 +91,7 @@ const styles = theme => ({
         width        : navbarWidth,
         minWidth     : navbarWidth,
         height       : '100%',
+        zIndex       : 4,
         transition   : theme.transitions.create(['width', 'min-width'], {
             easing  : theme.transitions.easing.sharp,
             duration: theme.transitions.duration.shorter

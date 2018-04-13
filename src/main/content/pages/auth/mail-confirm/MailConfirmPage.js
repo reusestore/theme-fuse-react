@@ -22,7 +22,7 @@ class MailConfirmPage extends Component {
         const {classes} = this.props;
 
         return (
-            <div className={classNames(classes.root, "flex flex-col flex-1 flex-no-shrink items-center justify-center p-32")}>
+            <div className={classNames(classes.root, "flex flex-col flex-auto flex-no-shrink items-center justify-center p-32")}>
 
                 <div className="flex flex-col items-center justify-center w-full">
 
@@ -37,11 +37,11 @@ class MailConfirmPage extends Component {
 
                                 <Typography variant="headline" className="text-center mb-16">Confirm your email address!</Typography>
 
-                                <Typography className="text-center mb-16" color="textSecondary">
+                                <Typography className="text-center mb-16 w-full" color="textSecondary">
                                     A confirmation e-mail has been sent to <b>example@mymail.com</b>.
                                 </Typography>
 
-                                <Typography className="text-center" color="textSecondary">
+                                <Typography className="text-center w-full" color="textSecondary">
                                     Check your inbox and click on the "Confirm my email" link to confirm your email address.
                                 </Typography>
 

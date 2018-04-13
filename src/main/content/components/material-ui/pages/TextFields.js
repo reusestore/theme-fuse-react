@@ -47,9 +47,10 @@ function TextFields({classes})
                     />
 
                     <Typography className="text-32 mt-32 mb-8" component="h2">Components</Typography>
-                    <Typography className="mb-16" component="div"><code>TextField</code> is composed of smaller components
-                        (<code>FormControl</code>, <code>InputLabel</code>, <code>Input</code>, and <code>FormHelperText</code>) that you can leverage directly to significantly
-                        customize your form inputs.</Typography>
+                    <Typography className="mb-16" component="div"><code>TextField</code> is composed of smaller components (<a
+                        href="/api/form-control"><code>FormControl</code></a>, <a href="/api/input-label"><code>InputLabel</code></a>, <a href="/api/input"><code>Input</code></a>,
+                        and <a href="/api/form-helper-text"><code>FormHelperText</code></a>) that you can leverage directly to significantly customize your form
+                        inputs.</Typography>
                     <Typography className="mb-16" component="div">You might also have noticed that some native HTML input properties are missing from
                         the <code>TextField</code> component.
                         This is on purpose.
@@ -109,6 +110,14 @@ function TextFields({classes})
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/text-fields/CustomizedInputs.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/text-fields/CustomizedInputs.js')}
+                    />
+
+                    <Typography className="text-32 mt-32 mb-8" component="h2">With icon</Typography>
+                    <Typography className="mb-16" component="div">Icons can be specified as prepended or appended.</Typography>
+                    <FuseExample
+                        className="my-24"
+                        component={require('main/content/components/material-ui/material-ui-examples/text-fields/InputWithIcon.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/text-fields/InputWithIcon.js')}
                     />
                 </div>
             }

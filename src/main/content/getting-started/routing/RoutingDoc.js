@@ -51,9 +51,8 @@ class RoutingDoc extends Component {
                             export const MailAppConfig = {
                                 settings: {
                                      layout          : {
-                                        navigation          : 'right', // 'right', 'left', 'top', 'none'
-                                        navbarFolded    : false, // true, false
-                                        navbarFoldedOpen: false,
+                                        navbar              : 'right', // 'right', 'left', 'top', 'none'
+                                        navbarFolded        :  false, // true, false
                                         toolbar             : 'below', // 'above', 'below', 'none'
                                         footer              : 'below', // 'above', 'below', 'none'
                                         mode                : 'fullwidth' // 'boxed', 'fullwidth'

@@ -39,7 +39,7 @@ class ForgotPasswordPage extends Component {
         const {email} = this.state;
 
         return (
-            <div className={classNames(classes.root, "flex flex-col flex-1 flex-no-shrink items-center justify-center p-32")}>
+            <div className={classNames(classes.root, "flex flex-col flex-auto flex-no-shrink items-center justify-center p-32")}>
 
                 <div className="flex flex-col items-center justify-center w-full">
 

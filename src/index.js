@@ -1,17 +1,17 @@
-import history from './history';
-import './polyfills';
+import 'babel-polyfill'
+import 'typeface-roboto';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'typeface-roboto';
+import history from './history';
 import './react-table-defaults';
 import './styles/index.css';
+import './fake-db/fake-db'
 import JssProvider from 'react-jss/lib/JssProvider';
 import {create} from 'jss';
 import {createGenerateClassName, jssPreset} from 'material-ui/styles';
 import registerServiceWorker from './registerServiceWorker';
 import {Provider} from 'react-redux';
 import {Router} from 'react-router-dom';
-import './fake-db/fake-db'
 import {routes} from './fuse-configs/fuseRoutesConfig';
 import {FuseLayout, FuseTheme, FuseSettings, FuseAuth} from '@fuse';
 import MainToolbar from './main/MainToolbar';
