@@ -40,6 +40,7 @@ const styles = theme => ({
         top                           : 160,
         right                         : 0,
         margin                        : 0,
+        maxHeight                     : 'calc(100vh - 160px)',
         [theme.breakpoints.down('md')]: {
             top      : 64,
             maxHeight: 'calc(100vh - 128px)'
