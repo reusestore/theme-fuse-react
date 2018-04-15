@@ -153,7 +153,7 @@ const styles = theme => ({
     navbarHeaderWrapper: {
         display        : 'flex',
         alignItems     : 'center',
-        flex           : '1 0 auto',
+        flex           : '0 1 auto',
         ...theme.mixins.toolbar,
         backgroundColor: 'rgba(255, 255, 255, .05)',
         boxShadow      : theme.shadows[1]
