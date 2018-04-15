@@ -59,7 +59,7 @@ class QuickPanel extends Component {
                         {moment().format('dddd')}
                     </Typography>
                     <div className="flex">
-                        <Typography className="leading-none text-32" color="textSecondary">{moment().format('d')}</Typography>
+                        <Typography className="leading-none text-32" color="textSecondary">{moment().format('DD')}</Typography>
                         <Typography className="leading-none text-16" color="textSecondary">th</Typography>
                         <Typography className="leading-none text-32" color="textSecondary">{moment().format('MMMM')}</Typography>
                     </div>
