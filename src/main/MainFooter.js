@@ -13,7 +13,7 @@ function MainFooter({classes})
         <div className={classNames(classes.root, "flex flex-1 items-center px-16")}>
             <div className="flex flex-1">
                 <Button component="a"
-                        href="http://withinpixels.com"
+                        href="https://themeforest.net/item/fuse-react-react-redux-material-design-admin-template/21769397"
                         target="_blank"
                         rel="noreferrer noopener"
                         role="button"
