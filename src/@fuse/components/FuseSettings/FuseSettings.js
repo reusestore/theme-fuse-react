@@ -122,7 +122,7 @@ class FuseSettings extends Component {
                     <Icon className={classes.buttonIcon}>settings</Icon>
                 </Button>
                 <Dialog
-                    transition={Transition}
+                    TransitionComponent={Transition}
                     aria-labelledby="simple-modal-title"
                     aria-describedby="simple-modal-description"
                     open={this.state.open}

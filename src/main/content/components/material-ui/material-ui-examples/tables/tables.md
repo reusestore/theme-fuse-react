@@ -13,6 +13,8 @@ A data table contains a header row at the top that lists column names, followed 
 
 Checkboxes should accompany each row if the user needs to select or manipulate data.
 
+For accessibility, the first column is set to be a `<th>` element, with a `scope` of `"row"`. This enables screen readers to identify a cell's value by it's row and column name.
+
 ## Simple Table
 
 A simple example with no frills.
@@ -39,7 +41,3 @@ custom actions.
 You can customize the look and feel of the table by overriding the styles of the `TableCell` component.
 
 {{"demo": "pages/demos/tables/CustomizedTable.js"}}
-
-## Advanced use cases
-
-For more advanced use cases you might be able to take advantage of [dx-react-grid-material-ui](https://devexpress.github.io/devextreme-reactive/react/grid/). It's a data grid for Material-UI with paging, sorting, filtering, grouping and editing features.

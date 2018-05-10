@@ -98,6 +98,48 @@ class FuseAuthDoc extends Component {
                                   },
                             `}
                         </FuseHighlight>
+
+                        <Typography className="text-32 mt-32 mb-8" component="h2">On fuseRoutesConfig.js file</Typography>
+
+                        <Typography className="mb-16 mt-32" component="p">
+                            If you don't want to set auth on every page config;
+                            You can group the configs and define authorizationon the fuseRoutesConfig.js file, like that:
+                        </Typography>
+
+                        <FuseHighlight component="pre" className="language-js">
+                            {`
+                                    import {authRoles} from 'auth/auth';
+                                    import _ from 'lodash';
+
+                                    function setAdminAuth(configs)
+                                    {
+                                        return configs.map(config => _.merge({}, config, {auth: authRoles.admin}))
+                                    }
+
+                                    const routeConfigs = [
+                                        ...setAdminAuth([
+                                            ...appsConfigs,
+                                            ...pagesConfigs,
+                                            ...authRoleExamplesConfigs,
+                                            ComponentsConfig,
+                                            ComponentsThirdPartyConfig,
+                                            UserInterfaceConfig,
+                                            GettingStartedConfig
+                                        ]),
+                                        LoginConfig,
+                                        LogoutConfig
+                                    ];
+
+                                    export const routes = [
+                                        ...FuseUtils.generateRoutesFromConfigs(routeConfigs),
+                                        {
+                                            path     : '/',
+                                            component: () => <Redirect to="/apps/dashboards/analytics"/>
+                                        }
+                                    ];
+                            `}
+                        </FuseHighlight>
+
                     </div>
                 }
             />
