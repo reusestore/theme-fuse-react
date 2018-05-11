@@ -40,21 +40,20 @@ class WorkingWithFuseDoc extends Component {
                             While still in your work folder, run the following command in the console application:
                         </Typography>
 
-                        <Typography className="mb-16" component="p">
-                            And that's it. Angular CLI will take care everything and start the Fuse.
-                        </Typography>
-
-                        <Typography className="mb-16" component="p">
-                            You can check out your console application to get further information about the server. By default, it will run on <b>http://localhost:300</b> but it
-                            might
-                            change depending on your setup.
-                        </Typography>
-
                         <FuseHighlight component="pre" className="language-bash my-16">
                             {`
                               yarn start
                             `}
                         </FuseHighlight>
+
+                        <Typography className="mb-16" component="p">
+                            And that's it. create-react-app will take care everything and start the Fuse React.
+                        </Typography>
+
+                        <Typography className="mb-16" component="p">
+                            You can check out your console application to get further information about the server. By default, it will run on <b>http://localhost:300</b> but it
+                            might change depending on your setup.
+                        </Typography>
 
                         <Typography className="text-32 mb-8" component="h2">Production</Typography>
 

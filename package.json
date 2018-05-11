@@ -43,8 +43,8 @@
         "typeface-roboto": "0.0.54"
     },
     "scripts": {
-        "start": "npm run build-css-helpers && cross-env NODE_PATH=src react-scripts start",
-        "build": "npm run build-css-helpers && cross-env NODE_PATH=src react-scripts build",
+        "start": "yarn run build-css-helpers && cross-env NODE_PATH=src react-scripts start",
+        "build": "yarn run build-css-helpers && cross-env NODE_PATH=src react-scripts build",
         "build-css-helpers": "./node_modules/.bin/tailwind build ./src/styles/fuse-helpers.tailwind.css -c ./tailwind.js -o ./src/styles/fuse-helpers.css && postcss --use autoprefixer -o ./src/styles/fuse-helpers.css ./src/styles/fuse-helpers.css",
         "test": "cross-env NODE_PATH=src react-scripts test --env=jsdom",
         "eject": "cross-env NODE_PATH=src react-scripts eject",
