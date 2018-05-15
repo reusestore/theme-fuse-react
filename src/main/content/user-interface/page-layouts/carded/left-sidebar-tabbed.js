@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {withStyles} from 'material-ui/styles';
+import {withStyles} from '@material-ui/core/styles';
 import {FusePageCarded, DemoContent, DemoSidebarContent} from '@fuse';
-import {Tab, Tabs, Hidden, Icon, IconButton} from 'material-ui';
+import {Tab, Tabs, Hidden, Icon, IconButton} from '@material-ui/core';
 
 const styles = theme => ({
     layoutRoot   : {},

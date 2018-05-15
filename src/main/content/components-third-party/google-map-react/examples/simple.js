@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Icon, Tooltip, Typography} from 'material-ui';
+import {Icon, Tooltip, Typography} from '@material-ui/core';
 import GoogleMap from 'google-map-react';
 
 function Marker({text})

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, FormControlLabel, MenuItem, Radio, Typography} from 'material-ui';
+import {Button, FormControlLabel, MenuItem, Radio, Typography} from '@material-ui/core';
 import {TextFieldFormsy, CheckboxFormsy, RadioGroupFormsy, SelectFormsy} from '@fuse';
 import Formsy from 'formsy-react';
 

@@ -1,7 +1,7 @@
 import React from 'react';
                         import {FuseExample, FuseHighlight, FusePageSimple} from '@fuse';
-                        import {Button, Icon, Typography} from 'material-ui';
-                        import {withStyles} from 'material-ui/styles/index';
+                        import {Button, Icon, Typography} from '@material-ui/core';
+                        import {withStyles} from '@material-ui/core/styles/index';
                         /* eslint import/no-webpack-loader-syntax: off */
                         /* eslint no-unused-vars: off */
                         const styles = theme => ({
@@ -32,7 +32,7 @@ import React from 'react';
             content={
                 <div className="p-24 max-w-2xl mx-auto">
                      <Typography className="text-44 mt-32 mb-8" component="h1">Snackbars</Typography>
-<Typography className="mb-16" component="div"><a href="https://material.io/guidelines/components/snackbars-toasts.html">Snackbars</a> provide brief feedback about an operation through a message - typically at the bottom of the screen.</Typography>
+<Typography className="mb-16" component="div"><a href="https://material.io/archive/guidelines/components/snackbars-toasts.html">Snackbars</a> provide brief feedback about an operation through a message - typically at the bottom of the screen.</Typography>
 <Typography className="mb-16" component="div">Snackbars contain a single line of text directly related to the operation performed.
 They may contain a text action, but no icons.</Typography>
 <Typography className="mb-16" component="div">Only one snackbar may be displayed at a time.</Typography>
@@ -86,7 +86,7 @@ They may contain a text action, but no icons.</Typography>
                     />
 
 <Typography className="text-24 mt-32 mb-8" component="h3">Consecutive Snackbars</Typography>
-<Typography className="mb-16" component="div">Per <a href="https://material.io/guidelines/components/snackbars-toasts.html#snackbars-toasts-usage">Google&#39;s guidelines</a>, when a second snackbar is triggered while the first is displayed, the first should start the contraction motion downwards before the second one animates upwards.</Typography>
+<Typography className="mb-16" component="div">Per <a href="https://material.io/archive/guidelines/components/snackbars-toasts.html#snackbars-toasts-usage">Google&#39;s guidelines</a>, when a second snackbar is triggered while the first is displayed, the first should start the contraction motion downwards before the second one animates upwards.</Typography>
 <FuseExample
                     className="my-24"
                     component={require('main/content/components/material-ui/material-ui-examples/snackbars/ConsecutiveSnackbars.js').default} 

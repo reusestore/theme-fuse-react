@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {withStyles} from 'material-ui/styles/index';
+import {withStyles} from '@material-ui/core/styles/index';
 import * as Actions from './store/actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {Avatar, Divider, Grid, Icon, IconButton, Typography} from 'material-ui';
+import {Avatar, Divider, Grid, Icon, IconButton, Typography} from '@material-ui/core';
 import MailChip from './MailChip';
 import _ from 'lodash';
 import classNames from 'classnames';

@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import {withStyles} from 'material-ui/styles/index';
+import {withStyles} from '@material-ui/core/styles/index';
 import {
     Button, Card, CardContent, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Icon, List, ListItem, ListItemIcon, ListItemText,
     Typography
-} from 'material-ui';
+} from '@material-ui/core';
 import classNames from 'classnames';
 import axios from 'axios/index';
-import Slide from 'material-ui/transitions/Slide';
+import Slide from '@material-ui/core/Slide';
 
 function Transition(props)
 {

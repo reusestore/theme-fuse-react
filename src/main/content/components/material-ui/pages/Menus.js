@@ -1,7 +1,7 @@
 import React from 'react';
                         import {FuseExample, FuseHighlight, FusePageSimple} from '@fuse';
-                        import {Button, Icon, Typography} from 'material-ui';
-                        import {withStyles} from 'material-ui/styles/index';
+                        import {Button, Icon, Typography} from '@material-ui/core';
+                        import {withStyles} from '@material-ui/core/styles/index';
                         /* eslint import/no-webpack-loader-syntax: off */
                         /* eslint no-unused-vars: off */
                         const styles = theme => ({
@@ -32,7 +32,7 @@ import React from 'react';
             content={
                 <div className="p-24 max-w-2xl mx-auto">
                      <Typography className="text-44 mt-32 mb-8" component="h1">Menus</Typography>
-<Typography className="mb-16" component="div"><a href="https://material.io/guidelines/components/menus.html">Menus</a> display a list of choices on a transient sheet of material.</Typography>
+<Typography className="mb-16" component="div"><a href="https://material.io/design/components/menus.html">Menus</a> display a list of choices on a transient sheet of material.</Typography>
 <Typography className="mb-16" component="div">Menus appear upon interaction with a button, action, or other control. They display a list of choices, with one choice per line.</Typography>
 <Typography className="mb-16" component="div">Menu items may be disabled if not applicable to a certain context. Contextual menus dynamically change their available menu items based on the current state of the app.</Typography>
 <Typography className="mb-16" component="div">Menus should not be used as a primary method for navigation within an app.</Typography>
@@ -66,7 +66,7 @@ import React from 'react';
 <Typography className="text-32 mt-32 mb-8" component="h2">MenuList composition</Typography>
 <Typography className="mb-16" component="div">The <code>Menu</code> component uses the <code>Popover</code> component internally.
 However, you might want to use a different positioning strategy, or not blocking the scroll.
-For answering those needs, we expose a <code>MenuList</code> component that you can compose, with <a href="https://github.com/souporserious/react-popper">react-popper</a> in this example.</Typography>
+For answering those needs, we expose a <code>MenuList</code> component that you can compose, with <a href="https://github.com/FezVrasta/react-popper">react-popper</a> in this example.</Typography>
 <Typography className="mb-16" component="div">The primary responsibility of the <code>MenuList</code> component is to handle the focus.</Typography>
 <FuseExample
                     className="my-24"

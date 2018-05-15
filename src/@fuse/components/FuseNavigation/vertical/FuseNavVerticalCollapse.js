@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import FuseNavVerticalGroup from './FuseNavVerticalGroup';
 import FuseNavVerticalItem from './FuseNavVerticalItem';
-import {Collapse, Icon, IconButton, ListItem, ListItemText} from 'material-ui';
-import {withStyles} from 'material-ui/styles/index';
+import {Collapse, Icon, IconButton, ListItem, ListItemText} from '@material-ui/core';
+import {withStyles} from '@material-ui/core/styles/index';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
 import FuseNavBadge from './FuseNavBadge';

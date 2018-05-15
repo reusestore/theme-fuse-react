@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import {AppBar, Card, Icon, Tab, Tabs, withStyles} from 'material-ui';
+import {AppBar, Card, Icon, Tab, Tabs, withStyles} from '@material-ui/core';
 import {FuseHighlight} from '@fuse';
 import PropTypes from 'prop-types';
 

@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {withStyles} from 'material-ui/styles';
+import {withStyles} from '@material-ui/core/styles';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import MailListItem from './MailListItem';
 import {FuseUtils} from '@fuse';
-import {List, Typography} from 'material-ui';
+import {List, Typography} from '@material-ui/core';
 
 const styles = theme => ({
     mailList: {

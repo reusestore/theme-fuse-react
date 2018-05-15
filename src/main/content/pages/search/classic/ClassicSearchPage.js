@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {withStyles} from 'material-ui/styles/index';
+import {withStyles} from '@material-ui/core/styles/index';
 import classNames from 'classnames';
 import {FusePageSimple} from '@fuse';
 import axios from 'axios/index';
-import {Button, colors, Icon, IconButton, Input, MuiThemeProvider, Paper, Typography} from 'material-ui';
+import {Button, colors, Icon, IconButton, Input, MuiThemeProvider, Paper, Typography} from '@material-ui/core';
 
 const styles = theme => ({
     layoutRoot: {},

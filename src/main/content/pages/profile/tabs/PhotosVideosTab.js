@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {withStyles} from 'material-ui/styles/index';
+import {withStyles} from '@material-ui/core/styles/index';
 import axios from 'axios/index';
-import {GridList, GridListTile, GridListTileBar, Icon, IconButton, Typography, ListSubheader} from 'material-ui';
+import {GridList, GridListTile, GridListTileBar, Icon, IconButton, Typography, ListSubheader} from '@material-ui/core';
 import classNames from 'classnames';
 
 const styles = theme => ({

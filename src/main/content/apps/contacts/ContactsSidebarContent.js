@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {withStyles} from 'material-ui/styles/index';
-import {Avatar, Divider, Icon, List, ListItem, ListItemText, Paper, Typography} from 'material-ui';
+import {withStyles} from '@material-ui/core/styles/index';
+import {Avatar, Divider, Icon, List, ListItem, ListItemText, Paper, Typography} from '@material-ui/core';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import classNames from 'classnames';

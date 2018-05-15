@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {withStyles} from 'material-ui/styles';
+import {withStyles} from '@material-ui/core/styles';
 import {withRouter} from 'react-router-dom';
-import {Avatar, Typography, Checkbox, ListItem} from 'material-ui';
+import {Avatar, Typography, Checkbox, ListItem} from '@material-ui/core';
 import MailChip from './MailChip';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';

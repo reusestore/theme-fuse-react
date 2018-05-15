@@ -1,7 +1,7 @@
 import React from 'react';
                         import {FuseExample, FuseHighlight, FusePageSimple} from '@fuse';
-                        import {Button, Icon, Typography} from 'material-ui';
-                        import {withStyles} from 'material-ui/styles/index';
+                        import {Button, Icon, Typography} from '@material-ui/core';
+                        import {withStyles} from '@material-ui/core/styles/index';
                         /* eslint import/no-webpack-loader-syntax: off */
                         /* eslint no-unused-vars: off */
                         const styles = theme => ({
@@ -32,7 +32,7 @@ import React from 'react';
             content={
                 <div className="p-24 max-w-2xl mx-auto">
                      <Typography className="text-44 mt-32 mb-8" component="h1">Selection Controls</Typography>
-<Typography className="mb-16" component="div"><a href="https://material.io/guidelines/components/selection-controls.html">Selection controls</a> allow the user to select options.</Typography>
+<Typography className="mb-16" component="div"><a href="https://material.io/design/components/selection-controls.html">Selection controls</a> allow the user to select options.</Typography>
 <Typography className="mb-16" component="div">Three types of selection controls are covered in this section:</Typography>
 <ul>
 <li><strong><a href="#checkboxes">Checkboxes</a></strong> allow the selection of multiple options from a set.</li>

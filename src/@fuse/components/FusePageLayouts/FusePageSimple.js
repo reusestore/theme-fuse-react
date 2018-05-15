@@ -1,11 +1,11 @@
 import React from 'react';
-import {withStyles} from 'material-ui/styles';
-import Drawer from 'material-ui/Drawer';
-import Hidden from 'material-ui/Hidden';
+import {withStyles} from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import Hidden from '@material-ui/core/Hidden';
 import classNames from 'classnames';
 import {FuseScrollbars} from '@fuse';
 import {FuseThemes} from '@fuse/index';
-import {MuiThemeProvider} from 'material-ui';
+import {MuiThemeProvider} from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 const propTypes = {

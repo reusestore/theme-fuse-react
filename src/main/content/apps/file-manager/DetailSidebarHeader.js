@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {withStyles} from 'material-ui/styles';
+import {withStyles} from '@material-ui/core/styles';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {Icon, IconButton, Typography} from 'material-ui';
+import {Icon, IconButton, Typography} from '@material-ui/core';
 import classNames from 'classnames';
 
 const styles = theme => ({

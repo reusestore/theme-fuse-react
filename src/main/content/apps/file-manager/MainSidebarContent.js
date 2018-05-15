@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {withStyles} from 'material-ui/styles';
-import {Icon, List, ListItem, ListItemIcon, ListItemText} from 'material-ui';
+import {withStyles} from '@material-ui/core/styles';
+import {Icon, List, ListItem, ListItemIcon, ListItemText} from '@material-ui/core';
 
 const styles = theme => ({
     root: {}

@@ -1,6 +1,6 @@
 import React from 'react';
-import {Button, Icon, IconButton, Tooltip} from 'material-ui';
-import {withStyles} from 'material-ui/styles/index';
+import {Button, Icon, IconButton, Tooltip} from '@material-ui/core';
+import {withStyles} from '@material-ui/core/styles/index';
 import classNames from 'classnames';
 
 const styles = theme => ({

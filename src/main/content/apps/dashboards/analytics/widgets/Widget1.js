@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {FuseThemes} from '@fuse';
-import {Button, MuiThemeProvider, Typography} from 'material-ui';
+import {Button, MuiThemeProvider, Typography} from '@material-ui/core';
 import {Line} from 'react-chartjs-2';
-import {withStyles} from 'material-ui/styles/index';
+import {withStyles} from '@material-ui/core/styles/index';
 import _ from 'lodash';
 
 const styles = theme => ({

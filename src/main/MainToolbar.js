@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {withStyles} from 'material-ui/styles/index';
+import {withStyles} from '@material-ui/core/styles/index';
 import classNames from 'classnames';
-import {Avatar, Button, Icon, IconButton, ListItemIcon, ListItemText, Menu, MenuItem, Typography} from 'material-ui';
+import {Avatar, Button, Icon, IconButton, ListItemIcon, ListItemText, Menu, MenuItem, Typography} from '@material-ui/core';
 import {connect} from 'react-redux';
 import * as quickPanelActions from 'main/quickPanel/store/actions';
 import * as authActions from 'auth/store/actions';

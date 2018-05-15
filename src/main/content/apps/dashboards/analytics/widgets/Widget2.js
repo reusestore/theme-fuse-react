@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {Card, Icon, Typography} from 'material-ui';
+import {Card, Icon, Typography} from '@material-ui/core';
 import {Bar} from 'react-chartjs-2';
-import {withStyles} from 'material-ui/styles/index';
+import {withStyles} from '@material-ui/core/styles/index';
 import classNames from 'classnames';
 
 const styles = theme => ({

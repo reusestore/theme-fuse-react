@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {withStyles} from 'material-ui/styles';
+import {withStyles} from '@material-ui/core/styles';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom'
 import * as Actions from './store/actions'
 import {bindActionCreators} from 'redux';
-import {Typography} from 'material-ui';
+import {Typography} from '@material-ui/core';
 import {Chart} from 'react-chartjs-2';
 import Widget1 from './widgets/Widget1';
 import Widget2 from './widgets/Widget2';

@@ -1,7 +1,7 @@
 import React from 'react';
                         import {FuseExample, FuseHighlight, FusePageSimple} from '@fuse';
-                        import {Button, Icon, Typography} from 'material-ui';
-                        import {withStyles} from 'material-ui/styles/index';
+                        import {Button, Icon, Typography} from '@material-ui/core';
+                        import {withStyles} from '@material-ui/core/styles/index';
                         /* eslint import/no-webpack-loader-syntax: off */
                         /* eslint no-unused-vars: off */
                         const styles = theme => ({
@@ -32,7 +32,7 @@ import React from 'react';
             content={
                 <div className="p-24 max-w-2xl mx-auto">
                      <Typography className="text-44 mt-32 mb-8" component="h1">Steppers</Typography>
-<Typography className="mb-16" component="div"><a href="https://material.io/guidelines/components/steppers.html">Steppers</a> convey progress through numbered steps.</Typography>
+<Typography className="mb-16" component="div"><a href="https://material.io/archive/guidelines/components/steppers.html">Steppers</a> convey progress through numbered steps.</Typography>
 <blockquote>
 <Typography className="mb-16" component="div">Steppers display progress through a sequence of logical and numbered steps. They may also be used for navigation.</Typography>
 <Typography className="mb-16" component="div">Steppers may display a transient feedback message after a step is saved.</Typography>
@@ -102,7 +102,7 @@ determine when all steps are completed (or even if they need to be completed).</
                     />
 
 <Typography className="text-32 mt-32 mb-8" component="h2">Mobile Stepper</Typography>
-<Typography className="mb-16" component="div">This component implements a compact stepper suitable for a mobile device. See <a href="https://material.io/guidelines/components/steppers.html#steppers-types-of-steps">mobile steps</a> for its inspiration.</Typography>
+<Typography className="mb-16" component="div">This component implements a compact stepper suitable for a mobile device. See <a href="https://material.io/archive/guidelines/components/steppers.html#steppers-types-of-steps">mobile steps</a> for its inspiration.</Typography>
 <Typography className="text-24 mt-32 mb-8" component="h3">Mobile Stepper - Text</Typography>
 <Typography className="mb-16" component="div">This is essentially a back/next button positioned correctly.
 You must implement the textual description yourself, however, an example is provided below for reference.</Typography>

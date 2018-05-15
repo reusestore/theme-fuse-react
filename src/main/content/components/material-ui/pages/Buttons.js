@@ -1,7 +1,7 @@
 import React from 'react';
                         import {FuseExample, FuseHighlight, FusePageSimple} from '@fuse';
-                        import {Button, Icon, Typography} from 'material-ui';
-                        import {withStyles} from 'material-ui/styles/index';
+                        import {Button, Icon, Typography} from '@material-ui/core';
+                        import {withStyles} from '@material-ui/core/styles/index';
                         /* eslint import/no-webpack-loader-syntax: off */
                         /* eslint no-unused-vars: off */
                         const styles = theme => ({
@@ -32,7 +32,7 @@ import React from 'react';
             content={
                 <div className="p-24 max-w-2xl mx-auto">
                      <Typography className="text-44 mt-32 mb-8" component="h1">Buttons</Typography>
-<Typography className="mb-16" component="div"><a href="https://material.io/guidelines/components/buttons.html">Buttons</a> communicate the action that will occur when the user touches them.</Typography>
+<Typography className="mb-16" component="div"><a href="https://material.io/design/components/buttons.html">Buttons</a> communicate the action that will occur when the user touches them.</Typography>
 <Typography className="mb-16" component="div">Material buttons trigger an ink reaction on press.
 They may display text, imagery, or both.
 Flat buttons and raised buttons are the most commonly used types.</Typography>
@@ -44,6 +44,16 @@ They do not lift, but fill with color on press.</Typography>
                     className="my-24"
                     component={require('main/content/components/material-ui/material-ui-examples/buttons/FlatButtons.js').default} 
                     raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/FlatButtons.js')}
+                    />
+
+<Typography className="text-32 mt-32 mb-8" component="h2">Outlined Buttons</Typography>
+<Typography className="mb-16" component="div">Outlined buttons are text-only buttons with medium emphasis.
+They behave like flat buttons but have an outline and are typically used for actions that are important, but
+aren’t the primary action in an app.</Typography>
+<FuseExample
+                    className="my-24"
+                    component={require('main/content/components/material-ui/material-ui-examples/buttons/OutlinedButtons.js').default} 
+                    raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/OutlinedButtons.js')}
                     />
 
 <Typography className="text-32 mt-32 mb-8" component="h2">Raised Buttons</Typography>
@@ -131,7 +141,7 @@ able to take advantage of it everywhere:</Typography>
 <FuseHighlight component="pre" className="language-jsx">
 {` 
 import { Link } from 'react-router-dom'
-import Button from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
 
 <Button component={Link} to="/open-collective">
   Link
@@ -143,7 +153,7 @@ import Button from 'material-ui/Button';
 <FuseHighlight component="pre" className="language-jsx">
 {` 
 import { Link } from 'react-router-dom'
-import Button from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
 
 const MyLink = props => <Link to="/open-collective" {...props} />
 

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Typography, withStyles} from 'material-ui';
+import {Typography, withStyles} from '@material-ui/core';
 import moment from 'moment';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';

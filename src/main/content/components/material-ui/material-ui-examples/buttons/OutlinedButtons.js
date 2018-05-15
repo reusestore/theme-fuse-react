@@ -12,32 +12,34 @@ const styles = theme => ({
   },
 });
 
-function FlatButtons(props) {
+function OutlinedButtons(props) {
   const { classes } = props;
   return (
     <div>
-      <Button className={classes.button}>Default</Button>
-      <Button color="primary" className={classes.button}>
+      <Button variant="outlined" className={classes.button}>
+        Default
+      </Button>
+      <Button variant="outlined" color="primary" className={classes.button}>
         Primary
       </Button>
-      <Button color="secondary" className={classes.button}>
+      <Button variant="outlined" color="secondary" className={classes.button}>
         Secondary
       </Button>
-      <Button disabled className={classes.button}>
+      <Button variant="outlined" disabled className={classes.button}>
         Disabled
       </Button>
-      <Button href="#flat-buttons" className={classes.button}>
+      <Button variant="outlined" href="#outlined-buttons" className={classes.button}>
         Link
       </Button>
       <input
         accept="image/*"
         className={classes.input}
-        id="flat-button-file"
+        id="outlined-button-file"
         multiple
         type="file"
       />
-      <label htmlFor="flat-button-file">
-        <Button component="span" className={classes.button}>
+      <label htmlFor="outlined-button-file">
+        <Button variant="outlined" component="span" className={classes.button}>
           Upload
         </Button>
       </label>
@@ -45,8 +47,8 @@ function FlatButtons(props) {
   );
 }
 
-FlatButtons.propTypes = {
+OutlinedButtons.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(FlatButtons);
+export default withStyles(styles)(OutlinedButtons);

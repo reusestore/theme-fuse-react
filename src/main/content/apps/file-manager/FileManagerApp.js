@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {withStyles} from 'material-ui/styles';
+import {withStyles} from '@material-ui/core/styles';
 import {FusePageSimple} from '@fuse';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
@@ -8,7 +8,7 @@ import * as Actions from './store/actions';
 import FileList from 'main/content/apps/file-manager/FileList';
 import DetailSidebarHeader from 'main/content/apps/file-manager/DetailSidebarHeader';
 import DetailSidebarContent from 'main/content/apps/file-manager/DetailSidebarContent';
-import {Button, Icon, IconButton, Typography} from 'material-ui';
+import {Button, Icon, IconButton, Typography} from '@material-ui/core';
 import MainSidebarHeader from 'main/content/apps/file-manager/MainSidebarHeader';
 import MainSidebarContent from 'main/content/apps/file-manager/MainSidebarContent';
 

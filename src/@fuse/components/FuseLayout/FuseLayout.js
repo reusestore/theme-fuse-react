@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {withStyles} from 'material-ui/styles';
+import {withStyles} from '@material-ui/core/styles';
 import {withRouter} from 'react-router-dom';
-import {AppBar, Hidden, Icon, IconButton, Toolbar, Drawer, MuiThemeProvider} from 'material-ui';
+import {AppBar, Hidden, Icon, IconButton, Toolbar, Drawer, MuiThemeProvider} from '@material-ui/core';
 import {matchRoutes, renderRoutes} from 'react-router-config'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';

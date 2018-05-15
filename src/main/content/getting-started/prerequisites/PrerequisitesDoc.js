@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {withStyles} from 'material-ui/styles/index';
+import {withStyles} from '@material-ui/core/styles/index';
 import {FusePageSimple} from '@fuse/index';
-import {Typography} from 'material-ui';
-import yellow from 'material-ui/colors/yellow';
+import {Typography} from '@material-ui/core';
+import yellow from '@material-ui/core/colors/yellow';
 
 const styles = theme => ({
     layoutRoot: {},

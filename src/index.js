@@ -8,7 +8,7 @@ import './styles/index.css';
 import './fake-db/fake-db'
 import JssProvider from 'react-jss/lib/JssProvider';
 import {create} from 'jss';
-import {createGenerateClassName, jssPreset} from 'material-ui/styles';
+import {createGenerateClassName, jssPreset} from '@material-ui/core/styles';
 import registerServiceWorker from './registerServiceWorker';
 import {Provider} from 'react-redux';
 import {Router} from 'react-router-dom';

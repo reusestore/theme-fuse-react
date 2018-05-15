@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {withStyles} from 'material-ui/styles/index';
+import {withStyles} from '@material-ui/core/styles/index';
 import axios from 'axios/index';
 import {
     AppBar, Avatar, Button, Card, CardActions, CardContent, CardHeader, Divider, Icon, IconButton, Input, List, ListItem, ListItemText, Paper, Toolbar,
     Typography
-} from 'material-ui';
+} from '@material-ui/core';
 import classNames from 'classnames';
 import {Link} from 'react-router-dom';
 

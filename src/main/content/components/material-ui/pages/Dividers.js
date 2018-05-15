@@ -1,7 +1,7 @@
 import React from 'react';
                         import {FuseExample, FuseHighlight, FusePageSimple} from '@fuse';
-                        import {Button, Icon, Typography} from 'material-ui';
-                        import {withStyles} from 'material-ui/styles/index';
+                        import {Button, Icon, Typography} from '@material-ui/core';
+                        import {withStyles} from '@material-ui/core/styles/index';
                         /* eslint import/no-webpack-loader-syntax: off */
                         /* eslint no-unused-vars: off */
                         const styles = theme => ({
@@ -32,7 +32,7 @@ import React from 'react';
             content={
                 <div className="p-24 max-w-2xl mx-auto">
                      <Typography className="text-44 mt-32 mb-8" component="h1">Dividers</Typography>
-<Typography className="mb-16" component="div"><a href="https://material.io/guidelines/components/dividers.html">Dividers</a> group and separate content within lists and page layouts. The divider is a thin rule, lightweight yet sufficient to distinguish content visually and spatially.</Typography>
+<Typography className="mb-16" component="div"><a href="https://material.io/design/components/dividers.html">Dividers</a> group and separate content within lists and page layouts. The divider is a thin rule, lightweight yet sufficient to distinguish content visually and spatially.</Typography>
 <Typography className="text-32 mt-32 mb-8" component="h2">List Dividers</Typography>
 <Typography className="mb-16" component="div">The divider renders as a <code>&lt;hr&gt;</code> by default.
 You can save rendering this DOM element by using the <code>divider</code> property on the <code>ListItem</code> component.</Typography>

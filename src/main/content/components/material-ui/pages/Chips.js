@@ -1,7 +1,7 @@
 import React from 'react';
                         import {FuseExample, FuseHighlight, FusePageSimple} from '@fuse';
-                        import {Button, Icon, Typography} from 'material-ui';
-                        import {withStyles} from 'material-ui/styles/index';
+                        import {Button, Icon, Typography} from '@material-ui/core';
+                        import {withStyles} from '@material-ui/core/styles/index';
                         /* eslint import/no-webpack-loader-syntax: off */
                         /* eslint no-unused-vars: off */
                         const styles = theme => ({
@@ -32,7 +32,7 @@ import React from 'react';
             content={
                 <div className="p-24 max-w-2xl mx-auto">
                      <Typography className="text-44 mt-32 mb-8" component="h1">Chips</Typography>
-<Typography className="mb-16" component="div"><a href="https://www.google.com/design/spec/components/chips.html">Chips</a>
+<Typography className="mb-16" component="div"><a href="https://material.io/design/components/chips.html">Chips</a>
 represent complex entities in small blocks, such as a contact.</Typography>
 <Typography className="mb-16" component="div">While included here as a standalone component, the most common use will
 be in some form of input, so some of the behaviour demonstrated here is

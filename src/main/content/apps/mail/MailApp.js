@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {withStyles} from 'material-ui/styles';
+import {withStyles} from '@material-ui/core/styles';
 import MailList from './MailList';
 import * as Actions from './store/actions';
 import {connect} from 'react-redux';

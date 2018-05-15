@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Dialog, FormControl, FormControlLabel, FormLabel, Icon, IconButton, MenuItem, Radio, RadioGroup, Select, Slide, Switch, withStyles} from 'material-ui';
+import {Button, Dialog, FormControl, FormControlLabel, FormLabel, Icon, IconButton, MenuItem, Radio, RadioGroup, Select, Slide, Switch, withStyles} from '@material-ui/core';
 import _ from 'lodash';
 import * as Actions from 'store/actions';
 import {bindActionCreators} from 'redux';

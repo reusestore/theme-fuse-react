@@ -1,7 +1,7 @@
 import React from 'react';
                         import {FuseExample, FuseHighlight, FusePageSimple} from '@fuse';
-                        import {Button, Icon, Typography} from 'material-ui';
-                        import {withStyles} from 'material-ui/styles/index';
+                        import {Button, Icon, Typography} from '@material-ui/core';
+                        import {withStyles} from '@material-ui/core/styles/index';
                         /* eslint import/no-webpack-loader-syntax: off */
                         /* eslint no-unused-vars: off */
                         const styles = theme => ({
@@ -32,7 +32,7 @@ import React from 'react';
             content={
                 <div className="p-24 max-w-2xl mx-auto">
                      <Typography className="text-44 mt-32 mb-8" component="h1">Cards</Typography>
-<Typography className="mb-16" component="div">A <a href="https://material.io/guidelines/components/cards.html">card</a> is a sheet of material that serves as an entry point to more detailed information.</Typography>
+<Typography className="mb-16" component="div">A <a href="https://material.io/design/components/cards.html">card</a> is a sheet of material that serves as an entry point to more detailed information.</Typography>
 <Typography className="mb-16" component="div">Cards display content composed of different elements whose size or supported actions vary.</Typography>
 <Typography className="mb-16" component="div">Cards are a convenient means of displaying content composed of different elements. They’re also well-suited for showcasing elements whose size or supported actions vary, like photos with captions of variable length.</Typography>
 <Typography className="text-32 mt-32 mb-8" component="h2">Simple Card</Typography>

@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {Divider, Icon, IconButton, Input, ListItemIcon, ListItemText, Menu, MenuItem, Tooltip, Typography, withStyles} from 'material-ui';
+import {Divider, Icon, IconButton, Input, ListItemIcon, ListItemText, Menu, MenuItem, Tooltip, Typography, withStyles} from '@material-ui/core';
 import * as Actions from '../../../store/actions/fuse/index';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {FuseUtils} from '@fuse';
 import {Link} from 'react-router-dom';
-import amber from 'material-ui/es/colors/amber';
+import amber from '@material-ui/core/es/colors/amber';
 import classNames from 'classnames';
 import _ from 'lodash';
 

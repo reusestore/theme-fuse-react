@@ -3,8 +3,8 @@ import {connect} from 'react-redux'
 import * as Actions from 'auth/store/actions/index';
 import {bindActionCreators} from 'redux';
 import {Link, withRouter} from 'react-router-dom';
-import {withStyles} from 'material-ui/styles/index';
-import {Button, Card, CardContent, Divider, Grow, Slide, Typography} from 'material-ui';
+import {withStyles} from '@material-ui/core/styles/index';
+import {Button, Card, CardContent, Divider, Grow, Slide, Typography} from '@material-ui/core';
 import classNames from 'classnames';
 import {TextFieldFormsy} from '@fuse';
 import Formsy from 'formsy-react';

@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import {createMuiTheme, MuiThemeProvider} from 'material-ui';
+import {createMuiTheme, MuiThemeProvider} from '@material-ui/core';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import {fuseThemesConfig} from 'fuse-configs/fuseThemesConfig';
 import _ from 'lodash';
 import {fuseDark} from '@fuse/fuse-colors';
-import lightBlue from 'material-ui/es/colors/lightBlue';
-import red from 'material-ui/es/colors/red';
+import lightBlue from '@material-ui/core/es/colors/lightBlue';
+import red from '@material-ui/core/es/colors/red';
 
 const mustHaveOptions = {
     typography: {

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {withStyles} from 'material-ui/styles/index';
+import {withStyles} from '@material-ui/core/styles/index';
 import {FusePageSimple} from '@fuse';
-import {Typography} from 'material-ui';
+import {Typography} from '@material-ui/core';
 
 const styles = theme => ({
     layoutRoot: {}
@@ -25,6 +25,31 @@ class ChangelogDoc extends Component {
                 }
                 content={
                     <div className="p-24 max-w-2xl mx-auto">
+
+                        <div className="flex items-center mb-32 mt-48">
+                            <Typography className="text-28" component="h2">v1.0.3</Typography>
+                            <Typography className="text-16 ml-8" color="textSecondary" component="h3">(2018-05-12)</Typography>
+                        </div>
+
+                        <div className="mb-24">
+                            <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">NEW:</Typography>
+
+                            <ul>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        <code>Material UI Next</code> updated to v1.0.0-rc.0
+                                    </Typography>
+                                    <Typography className="text-12 mb-8">
+                                        <a href="https://github.com/mui-org/material-ui/releases/tag/v1.0.0-rc.0" target="_blank" rel="noopener noreferrer"> Checkout the breaking changes</a>
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        <code>google-map-react</code> updated.
+                                    </Typography>
+                                </li>
+                            </ul>
+                        </div>
 
                         <div className="flex items-center mb-32 mt-48">
                             <Typography className="text-28" component="h2">v1.0.2</Typography>

@@ -1,7 +1,7 @@
 import React from 'react';
                         import {FuseExample, FuseHighlight, FusePageSimple} from '@fuse';
-                        import {Button, Icon, Typography} from 'material-ui';
-                        import {withStyles} from 'material-ui/styles/index';
+                        import {Button, Icon, Typography} from '@material-ui/core';
+                        import {withStyles} from '@material-ui/core/styles/index';
                         /* eslint import/no-webpack-loader-syntax: off */
                         /* eslint no-unused-vars: off */
                         const styles = theme => ({
@@ -32,7 +32,7 @@ import React from 'react';
             content={
                 <div className="p-24 max-w-2xl mx-auto">
                      <Typography className="text-44 mt-32 mb-8" component="h1">Lists</Typography>
-<Typography className="mb-16" component="div"><a href="https://material.io/guidelines/components/lists.html">Lists</a> present multiple line items vertically as a single continuous element.</Typography>
+<Typography className="mb-16" component="div"><a href="https://material.io/design/components/lists.html">Lists</a> present multiple line items vertically as a single continuous element.</Typography>
 <Typography className="mb-16" component="div">Lists are made up of a continuous column of rows. Each row contains a tile. Primary actions fill the tile, and supplemental actions are represented by icons and text.</Typography>
 <Typography className="mb-16" component="div">Lists are best suited for similar data types.</Typography>
 <Typography className="text-24 mt-32 mb-8" component="h3">Simple List</Typography>

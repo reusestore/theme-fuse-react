@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {withStyles} from 'material-ui/styles/index';
-import {ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, Icon, Input, Paper, Typography} from 'material-ui';
+import {withStyles} from '@material-ui/core/styles/index';
+import {ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, Icon, Input, Paper, Typography} from '@material-ui/core';
 import classNames from 'classnames';
 import axios from 'axios/index';
 import FuseUtils from '@fuse/FuseUtils';

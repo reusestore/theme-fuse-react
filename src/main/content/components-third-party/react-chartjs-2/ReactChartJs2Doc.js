@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {withStyles} from 'material-ui/styles/index';
+import {withStyles} from '@material-ui/core/styles/index';
 import {FuseExample, FusePageSimple} from '@fuse';
-import {Button, Icon, Typography} from 'material-ui';
+import {Button, Icon, Typography} from '@material-ui/core';
 import {Link} from 'react-router-dom';
 /* eslint import/no-webpack-loader-syntax: off */
 const styles = theme => ({

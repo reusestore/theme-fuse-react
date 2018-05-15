@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import {withStyles} from 'material-ui';
+import {withStyles} from '@material-ui/core';
 import * as Prism from 'prismjs';
 import './prism-languages';
 import PropTypes from 'prop-types';

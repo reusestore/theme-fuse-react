@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {withStyles} from 'material-ui/styles';
+import {withStyles} from '@material-ui/core/styles';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import * as Actions from './store/actions';
-import {Hidden, Icon, IconButton, Table, TableBody, TableCell, TableHead, TableRow} from 'material-ui';
+import {Hidden, Icon, IconButton, Table, TableBody, TableCell, TableHead, TableRow} from '@material-ui/core';
 import classNames from 'classnames';
 
 const styles = theme => ({

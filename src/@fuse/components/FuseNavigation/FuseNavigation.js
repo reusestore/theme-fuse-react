@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import FuseNavVerticalGroup from './vertical/FuseNavVerticalGroup';
 import FuseNavVerticalCollapse from './vertical/FuseNavVerticalCollapse';
 import FuseNavVerticalItem from './vertical/FuseNavVerticalItem';
-import {Divider, List} from 'material-ui';
+import {Divider, List} from '@material-ui/core';
 import {withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 

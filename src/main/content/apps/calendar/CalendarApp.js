@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {withStyles} from 'material-ui/styles';
+import {withStyles} from '@material-ui/core/styles';
 import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
@@ -7,7 +7,7 @@ import CalendarHeader from 'main/content/apps/calendar/CalendarHeader';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as Actions from './store/actions';
-import {Button, Icon} from 'material-ui';
+import {Button, Icon} from '@material-ui/core';
 import EventDialog from 'main/content/apps/calendar/EventDialog';
 import {DragDropContext} from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'

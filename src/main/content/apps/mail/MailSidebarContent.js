@@ -1,7 +1,7 @@
 import React from 'react';
-import {withStyles} from 'material-ui/styles/index';
+import {withStyles} from '@material-ui/core/styles/index';
 import {connect} from 'react-redux';
-import {Icon, List, ListItem, ListItemText, ListSubheader} from 'material-ui';
+import {Icon, List, ListItem, ListItemText, ListSubheader} from '@material-ui/core';
 import {NavLink, withRouter} from 'react-router-dom';
 import MailCompose from './MailCompose';
 

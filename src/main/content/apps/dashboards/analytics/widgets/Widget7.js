@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {Select, Button, Card, Divider, FormControl, Icon, MenuItem, Typography} from 'material-ui';
+import {Select, Button, Card, Divider, FormControl, Icon, MenuItem, Typography} from '@material-ui/core';
 import {Doughnut} from 'react-chartjs-2';
-import {withStyles} from 'material-ui/styles/index';
+import {withStyles} from '@material-ui/core/styles/index';
 import classNames from 'classnames';
 import _ from 'lodash';
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import {withStyles} from 'material-ui/styles';
-import {Icon, IconButton, MuiThemeProvider, Tooltip, Typography} from 'material-ui';
+import {withStyles} from '@material-ui/core/styles';
+import {Icon, IconButton, MuiThemeProvider, Tooltip, Typography} from '@material-ui/core';
 import Toolbar from 'react-big-calendar/lib/Toolbar';
 import {navigate} from 'react-big-calendar/lib/utils/constants';
 import classNames from 'classnames';

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import Button from 'material-ui/Button';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
   button: {
@@ -27,6 +27,9 @@ function RaisedButtons(props) {
       </Button>
       <Button variant="raised" color="secondary" disabled className={classes.button}>
         Disabled
+      </Button>
+      <Button variant="raised" href="#raised-buttons" className={classes.button}>
+        Link
       </Button>
       <input
         accept="image/*"

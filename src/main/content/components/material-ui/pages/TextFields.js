@@ -1,7 +1,7 @@
 import React from 'react';
                         import {FuseExample, FuseHighlight, FusePageSimple} from '@fuse';
-                        import {Button, Icon, Typography} from 'material-ui';
-                        import {withStyles} from 'material-ui/styles/index';
+                        import {Button, Icon, Typography} from '@material-ui/core';
+                        import {withStyles} from '@material-ui/core/styles/index';
                         /* eslint import/no-webpack-loader-syntax: off */
                         /* eslint no-unused-vars: off */
                         const styles = theme => ({
@@ -32,7 +32,7 @@ import React from 'react';
             content={
                 <div className="p-24 max-w-2xl mx-auto">
                      <Typography className="text-44 mt-32 mb-8" component="h1">Text Fields</Typography>
-<Typography className="mb-16" component="div"><a href="https://material.io/guidelines/components/text-fields.html">Text fields</a> allow users to input text and usually appear in forms.
+<Typography className="mb-16" component="div"><a href="https://material.io/design/components/text-fields.html">Text fields</a> allow users to input text and usually appear in forms.
 Users may enter text, numbers, or mixed-format types of input.</Typography>
 <Typography className="text-32 mt-32 mb-8" component="h2">TextField</Typography>
 <Typography className="mb-16" component="div">The <code>TextField</code> wrapper component is a complete form control including a label, input and help text.</Typography>
@@ -80,9 +80,9 @@ These can be used to add a prefix, a suffix or an action to an input.</Typograph
                     />
 
 <Typography className="text-32 mt-32 mb-8" component="h2">Formatted inputs</Typography>
-<Typography className="mb-16" component="div">We demonstrate how you could be using third-party libraries to <a href="https://material.io/guidelines/components/text-fields.html#text-fields-input-types">format your input</a>.
-In the following demo, we are using <a href="https://github.com/text-mask/text-mask">react-text-mask</a> and <a href="https://github.com/s-yadav/react-number-format">react-number-format</a> libraries.
+<Typography className="mb-16" component="div">You can use third-party libraries to format an input.
 You have to provide a custom implementation of the <code>&lt;input&gt;</code> element with the <code>inputComponent</code> property.</Typography>
+<Typography className="mb-16" component="div">The following demo uses the <a href="https://github.com/text-mask/text-mask">react-text-mask</a> and <a href="https://github.com/s-yadav/react-number-format">react-number-format</a> libraries.</Typography>
 <FuseExample
                     className="my-24"
                     component={require('main/content/components/material-ui/material-ui-examples/text-fields/FormattedInputs.js').default} 

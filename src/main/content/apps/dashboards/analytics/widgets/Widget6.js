@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {Card, Icon, Tooltip} from 'material-ui';
-import {withStyles} from 'material-ui/styles/index';
+import {Card, Icon, Tooltip} from '@material-ui/core';
+import {withStyles} from '@material-ui/core/styles/index';
 import classNames from 'classnames';
 import GoogleMap from 'google-map-react';
 

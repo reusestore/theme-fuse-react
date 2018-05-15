@@ -1,8 +1,8 @@
 import React from 'react';
-import {withStyles} from 'material-ui/styles/index';
+import {withStyles} from '@material-ui/core/styles/index';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
-import {Typography} from 'material-ui';
+import {Typography} from '@material-ui/core';
 
 const styles = theme => ({
     root    : {

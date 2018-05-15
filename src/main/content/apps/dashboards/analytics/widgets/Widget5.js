@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {Button, Card, Typography} from 'material-ui';
+import {Button, Card, Typography} from '@material-ui/core';
 import {Line} from 'react-chartjs-2';
-import {withStyles} from 'material-ui/styles/index';
+import {withStyles} from '@material-ui/core/styles/index';
 import classNames from 'classnames';
 import _ from 'lodash';
 
