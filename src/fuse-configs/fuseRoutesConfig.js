@@ -9,6 +9,7 @@ import {ComponentsConfig} from 'main/content/components/ComponentsConfig';
 import {ComponentsThirdPartyConfig} from 'main/content/components-third-party/ComponentsThirdPartyConfig';
 import {GettingStartedConfig} from 'main/content/getting-started/GettingStartedConfig';
 import {LoginConfig} from 'main/content/login/LoginConfig';
+import {RegisterConfig} from 'main/content/register/RegisterConfig';
 import {LogoutConfig} from 'main/content/logout/LogoutConfig';
 
 const routeConfigs = [
@@ -20,6 +21,7 @@ const routeConfigs = [
     UserInterfaceConfig,
     GettingStartedConfig,
     LoginConfig,
+    RegisterConfig,
     LogoutConfig
 ];
 

@@ -4,7 +4,7 @@ import * as Actions from 'auth/store/actions/index';
 import {bindActionCreators} from 'redux';
 import {Link, withRouter} from 'react-router-dom';
 import {withStyles} from '@material-ui/core/styles/index';
-import {Button, Card, CardContent, Divider, Grow, Slide, Typography} from '@material-ui/core';
+import {Button, Card, CardContent, Grow, Slide, Typography} from '@material-ui/core';
 import classNames from 'classnames';
 import {TextFieldFormsy} from '@fuse';
 import Formsy from 'formsy-react';
@@ -23,7 +23,8 @@ const styles = theme => ({
     }
 });
 
-class Login extends Component {
+class Register extends Component {
+
     state = {
         canSubmit: false
     };
@@ -39,17 +40,12 @@ class Login extends Component {
     };
 
     onSubmit = (model) => {
-        this.props.submitLogin(model);
-    };
-
-    loginWithFireBase = () => {
-        const model = this.form.getModel();
-        this.props.loginWithFireBase(model);
+        this.props.registerWithFirebase(model);
     };
 
     componentDidUpdate(prevProps, prevState)
     {
-        if ( this.props.login.error && (this.props.login.error.username || this.props.login.error.password) )
+        if ( this.props.login.error && (this.props.login.error.displayName || this.props.login.error.password) )
         {
             this.form.updateInputsWithError({
                 ...this.props.login.error
@@ -105,7 +101,7 @@ class Login extends Component {
 
                         <CardContent className="flex flex-col items-center justify-center p-32 md:p-48 md:pt-128 ">
 
-                            <Typography variant="title" className="md:w-full mb-32">LOGIN TO YOUR ACCOUNT</Typography>
+                            <Typography variant="title" className="md:w-full mb-32">CREATE AN ACCOUNT</Typography>
 
                             <Formsy
                                 onValidSubmit={this.onSubmit}
@@ -117,8 +113,8 @@ class Login extends Component {
                                 <TextFieldFormsy
                                     className="mb-16"
                                     type="text"
-                                    name="username"
-                                    label="Username/Email"
+                                    name="displayName"
+                                    label="Display name"
                                     validations={{
                                         minLength: 4
                                     }}
@@ -130,14 +126,36 @@ class Login extends Component {
 
                                 <TextFieldFormsy
                                     className="mb-16"
+                                    type="text"
+                                    name="email"
+                                    label="Email"
+                                    validations="isEmail"
+                                    validationErrors={{
+                                        isEmail: 'Please enter a valid email'
+                                    }}
+                                    required
+                                />
+
+                                <TextFieldFormsy
+                                    className="mb-16"
                                     type="password"
                                     name="password"
                                     label="Password"
-                                    validations={{
-                                        minLength: 4
-                                    }}
+                                    validations="equalsField:password-confirm"
                                     validationErrors={{
-                                        minLength: 'Min character length is 4'
+                                        equalsField: 'Passwords do not match'
+                                    }}
+                                    required
+                                />
+
+                                <TextFieldFormsy
+                                    className="mb-16"
+                                    type="password"
+                                    name="password-confirm"
+                                    label="Confirm Password"
+                                    validations="equalsField:password"
+                                    validationErrors={{
+                                        equalsField: 'Passwords do not match'
                                     }}
                                     required
                                 />
@@ -147,65 +165,20 @@ class Login extends Component {
                                     variant="raised"
                                     color="primary"
                                     className="w-full mx-auto mt-16 normal-case"
-                                    aria-label="LOG IN"
+                                    aria-label="REGISTER WITH FIREBASE"
                                     disabled={!canSubmit}
-                                    value="legacy"
                                 >
-                                    Login
-                                </Button>
-
-                                <Button
-                                    type="button"
-                                    variant="raised"
-                                    color="secondary"
-                                    className="w-full mx-auto normal-case mt-16"
-                                    aria-label="LOG IN"
-                                    disabled={!canSubmit}
-                                    value="firebase"
-                                    onClick={this.loginWithFireBase}
-                                >
-                                    Log in with Firebase
+                                    Register with Firebase
                                 </Button>
                             </Formsy>
 
-                            <div className="flex flex-col items-center justify-center pt-32">
-                                <span className="font-medium">Don't have an account?</span>
-                                <Link className="font-medium" to="/register">Create an account with Firebase</Link>
+                            <div className="flex flex-col items-center justify-center pt-32 pb-24">
+                                <span className="font-medium">Already have an account?</span>
+                                <Link className="font-medium" to="/login">Login</Link>
                                 <Link className="font-medium mt-8" to="/">Back to Dashboard</Link>
                             </div>
 
-                            <div className="flex flex-col items-center pt-48">
-                                <Typography className="text-16 font-600 py-8">
-                                    Credentials for Regular Login
-                                </Typography>
-
-                                <Divider className="mb-16 w-256"/>
-
-                                <div className="text-center">
-                                    <Typography className="font-500 mb-8">Admin Role Permission</Typography>
-                                    <div className="flex justify-center mb-4">
-                                        <Typography className="mr-8" color="textSecondary">Username:</Typography>
-                                        <Typography>admin</Typography>
-                                    </div>
-                                    <div className="flex justify-center">
-                                        <Typography className="mr-8" color="textSecondary">Password:</Typography>
-                                        <Typography>admin</Typography>
-                                    </div>
-                                </div>
-
-                                <Divider className="my-24 w-32"/>
-
-                                <div className="text-center">
-                                    <Typography className="font-500 mb-8">Staff Role Permission</Typography>
-                                    <div className="flex justify-center mb-4">
-                                        <Typography className="mr-8" color="textSecondary">Username:</Typography>
-                                        <Typography>staff</Typography>
-                                    </div>
-                                    <div className="flex justify-center">
-                                        <Typography className="mr-8" color="textSecondary">Password:</Typography>
-                                        <Typography>staff</Typography>
-                                    </div>
-                                </div>
+                            <div className="flex flex-col items-center">
                             </div>
                         </CardContent>
                     </Card>
@@ -218,8 +191,7 @@ class Login extends Component {
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-        submitLogin      : Actions.submitLogin,
-        loginWithFireBase: Actions.loginWithFireBase
+        registerWithFirebase: Actions.registerWithFirebase
     }, dispatch);
 }
 
@@ -232,4 +204,4 @@ function mapStateToProps({auth})
 }
 
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(Login)));
+export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(Register)));

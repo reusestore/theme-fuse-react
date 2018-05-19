@@ -6,8 +6,7 @@ import {matchRoutes, renderRoutes} from 'react-router-config'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as Actions from 'store/actions';
-import {FuseScrollbars} from '@fuse';
-import {FuseThemes} from '@fuse/index';
+import {FuseScrollbars, FuseMessage, FuseThemes} from '@fuse';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import _ from 'lodash';
@@ -371,6 +370,7 @@ class FuseLayout extends Component {
                         )}
 
                         <FuseScrollbars className={classes.content}>
+                            <FuseMessage/>
                             {renderRoutes(this.props.routes)}
                         </FuseScrollbars>
 

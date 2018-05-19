@@ -4,13 +4,15 @@ import _ from 'lodash';
 let authDB = {
     users: {
         admin: {
+            uuid    : 'XgbuVEXBU5gtSKdbQRP1Zbbby1i1',
+            from    : 'custom-db',
             password: "admin",
             role    : "admin",
             data    : {
-                'name'    : 'Abbott',
-                'lastName': 'Keitch',
-                'avatar'  : 'assets/images/avatars/Abbott.jpg',
-                settings  : {
+                'displayName': 'Abbott Keitch',
+                'photoURL'   : 'assets/images/avatars/Abbott.jpg',
+                'email'      : 'abbott@withinpixels.com',
+                settings     : {
                     layout          : {
                         navbar      : 'left',
                         navbarFolded: true,
@@ -23,17 +25,24 @@ let authDB = {
                     navbarTheme     : 'defaultDark',
                     toolbarTheme    : 'defaultDark',
                     footerTheme     : 'defaultDark'
-                }
+                },
+                shortcuts    : [
+                    'calendar',
+                    'mail',
+                    'contacts'
+                ]
             }
         },
         staff: {
+            uuid    : 'XgbuVEXBU6gtSKdbTYR1Zbbby1i3',
+            from    : 'custom-db',
             password: "staff",
             role    : "staff",
             data    : {
-                'name'    : 'Arnold',
-                'lastName': 'Matlock',
-                'avatar'  : 'assets/images/avatars/Arnold.jpg',
-                settings  : {
+                'displayName': 'Arnold Matlock',
+                'photoURL'   : 'assets/images/avatars/Arnold.jpg',
+                'email'      : 'arnold@withinpixels.com',
+                settings     : {
                     layout          : {
                         navbar      : 'right',
                         navbarFolded: false,
@@ -46,7 +55,13 @@ let authDB = {
                     navbarTheme     : 'currentThemeDark',
                     toolbarTheme    : 'currentThemeDark',
                     footerTheme     : 'currentThemeDark'
-                }
+                },
+                shortcuts    : [
+                    'calendar',
+                    'mail',
+                    'contacts',
+                    'analytics-dashboard'
+                ]
             }
         }
     }

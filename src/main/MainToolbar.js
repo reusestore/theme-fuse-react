@@ -55,32 +55,26 @@ class MainToolbar extends Component {
                         aria-haspopup="true"
                         onClick={this.userMenuClick}
                     >
-                        {user.data ? (
-                            <React.Fragment>
-                                <Avatar className="" alt="Guest" src={user.data.avatar}/>
+                        {user.data.photoURL ?
+                            (
+                                <Avatar className="" alt="user photo" src={user.data.photoURL}/>
+                            )
+                            :
+                            (
+                                <Avatar className="">
+                                    {user.data.displayName[0]}
+                                </Avatar>
+                            )
+                        }
 
-                                <div className="hidden md:flex flex-col ml-12 items-start">
-                                    <Typography component="span" className="normal-case font-500 flex">
-                                        {user.data.name + ' ' + user.data.lastName}
-                                    </Typography>
-                                    <Typography className="text-11 capitalize" color="textSecondary">
-                                        {user.role}
-                                    </Typography>
-                                </div>
-                            </React.Fragment>
-                        ) : (
-                            <React.Fragment>
-                                <Avatar className="" alt="Guest" src="assets/images/avatars/profile.jpg"/>
-                                <div className="hidden md:flex flex-col ml-12 items-start">
-                                    <Typography component="span" className="normal-case font-500 flex">
-                                        John Doe
-                                    </Typography>
-                                    <Typography className="text-11 capitalize" color="textSecondary">
-                                        {user.role}
-                                    </Typography>
-                                </div>
-                            </React.Fragment>
-                        )}
+                        <div className="hidden md:flex flex-col ml-12 items-start">
+                            <Typography component="span" className="normal-case font-500 flex">
+                                {user.data.displayName}
+                            </Typography>
+                            <Typography className="text-11 capitalize" color="textSecondary">
+                                {user.role}
+                            </Typography>
+                        </div>
 
                         <Icon className="text-16 ml-12 hidden sm:flex" variant="action">keyboard_arrow_down</Icon>
                     </Button>
@@ -95,12 +89,17 @@ class MainToolbar extends Component {
                     >
                         {user.role === 'guest' ? (
                             <React.Fragment>
-                                <MenuItem component={Link} to="/login"
-                                >
+                                <MenuItem component={Link} to="/login">
                                     <ListItemIcon>
                                         <Icon>lock</Icon>
                                     </ListItemIcon>
                                     <ListItemText className="pl-0" primary="Login"/>
+                                </MenuItem>
+                                <MenuItem component={Link} to="/register">
+                                    <ListItemIcon>
+                                        <Icon>person_add</Icon>
+                                    </ListItemIcon>
+                                    <ListItemText className="pl-0" primary="Register"/>
                                 </MenuItem>
                             </React.Fragment>
                         ) : (

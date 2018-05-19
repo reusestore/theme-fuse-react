@@ -2,7 +2,17 @@ import * as Actions from '../actions';
 
 const initialState = {
     role: 'guest',
-    data: null
+    data: {
+        'displayName': 'John Doe',
+        'photoURL'   : 'assets/images/avatars/profile.jpg',
+        'email'      : 'johndoe@withinpixels.com',
+        shortcuts    : [
+            'calendar',
+            'mail',
+            'contacts',
+            'analytics-dashboard'
+        ]
+    }
 };
 
 const user = function (state = initialState, action) {

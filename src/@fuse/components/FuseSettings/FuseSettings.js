@@ -5,6 +5,7 @@ import * as Actions from 'store/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {FuseScrollbars, FuseThemes} from '@fuse';
+import * as AuthActions from 'auth/store/actions';
 
 const styles = theme => ({
     root                 : {
@@ -72,7 +73,15 @@ class FuseSettings extends Component {
     };
 
     handleChange = (event) => {
-        this.props.setDefaultSettings(_.set(_.merge({}, this.props.settings), event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value));
+        const newSettings = _.set(_.merge({}, this.props.settings), event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
+        if ( this.props.user.role === 'guest' )
+        {
+            this.props.setDefaultSettings(newSettings);
+        }
+        else
+        {
+            this.props.updateUserSettings(newSettings);
+        }
     };
 
     render()
@@ -240,14 +249,16 @@ class FuseSettings extends Component {
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-        setDefaultSettings: Actions.setDefaultSettings
+        setDefaultSettings: Actions.setDefaultSettings,
+        updateUserSettings: AuthActions.updateUserSettings
     }, dispatch);
 }
 
-function mapStateToProps({fuse})
+function mapStateToProps({fuse, auth})
 {
     return {
-        settings: fuse.settings.current
+        settings: fuse.settings.current,
+        user    : auth.user
     }
 }
 

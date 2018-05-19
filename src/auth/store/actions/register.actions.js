@@ -1,10 +1,11 @@
 import axios from 'axios/index';
 import {auth} from 'firebase-db';
-import {setUserData} from 'auth/store/actions/user.actions';
+import * as UserActions from 'auth/store/actions';
+import {LOGIN_ERROR} from 'auth/store/actions/login.actions';
 import * as Actions from 'store/actions';
 
-export const LOGIN_ERROR = 'LOGIN_ERROR';
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const REGISTER_ERROR = 'REGISTER_ERROR';
+export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 
 export function submitLogin({username, password})
 {
@@ -14,35 +15,46 @@ export function submitLogin({username, password})
             password
         }
     });
+
     return (dispatch) =>
         request.then((response) => {
             if ( !response.data.error )
             {
-                dispatch(setUserData(response.data));
+                dispatch(UserActions.setUserData(response.data));
                 return dispatch({
-                    type: LOGIN_SUCCESS
+                    type: REGISTER_SUCCESS
                 });
             }
             else
             {
                 return dispatch({
-                    type   : LOGIN_ERROR,
+                    type   : REGISTER_ERROR,
                     payload: response.data.error
                 });
             }
         });
 }
 
-export function loginWithFireBase({username, password})
+
+export function registerWithFirebase(model)
 {
+    const {email, password, displayName} = model;
     return (dispatch) =>
-        auth.signInWithEmailAndPassword(username, password)
-            .then(() => {
+        auth.createUserWithEmailAndPassword(email, password)
+            .then(response => {
+
+                dispatch(UserActions.createUserSettings({
+                    ...response.user,
+                    displayName,
+                    email
+                }));
+
                 return dispatch({
-                    type: LOGIN_SUCCESS
+                    type: REGISTER_SUCCESS
                 });
             })
             .catch(error => {
+
                 const usernameErrorCodes = [
                     'auth/email-already-in-use',
                     'auth/invalid-email',

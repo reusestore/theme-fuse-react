@@ -7,7 +7,7 @@ import FuseScrollbarsDoc from 'main/content/components/fuse-scrollbars/FuseScrol
 import FuseHighlightDoc from 'main/content/components/fuse-highlight/FuseHighlightDoc';
 import FuseCountdownDoc from 'main/content/components/fuse-countdown/FuseCountdownDoc';
 import FuseNavigationDoc from 'main/content/components/fuse-navigation/FuseNavigationDoc';
-import FuseAuthDoc from 'main/content/components/fuse-auth/FuseAuthDoc';
+import FuseAuthorizationDoc from 'main/content/components/fuse-authorization/FuseAuthorizationDoc';
 
 export const ComponentsConfig = {
     routes: [
@@ -17,8 +17,8 @@ export const ComponentsConfig = {
             component: FuseThemeDoc
         },
         {
-            path     : '/components/fuse-auth',
-            component: FuseAuthDoc
+            path     : '/components/fuse-authorization',
+            component: FuseAuthorizationDoc
         },
         {
             path     : '/components/fuse-layout',

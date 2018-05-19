@@ -463,10 +463,10 @@ export const fuseNavigationConfig = [
             },
             {
                 'id'   : 'fuse-auth',
-                'title': 'FuseAuth',
+                'title': 'FuseAuthorization',
                 'type' : 'item',
                 'icon' : 'settings_input_component',
-                'url'  : '/components/fuse-auth'
+                'url'  : '/components/fuse-authorization'
             },
             {
                 'id'   : 'fuse-theme',
@@ -648,6 +648,14 @@ export const fuseNavigationConfig = [
                 'url'  : '/login',
                 auth   : authRoles.onlyGuest,
                 'icon' : 'lock'
+            },
+            {
+                'id'   : 'register',
+                'title': 'Register',
+                'type' : 'item',
+                'url'  : '/register',
+                auth   : authRoles.onlyGuest,
+                'icon' : 'person_add'
             },
             {
                 'id'   : 'logout',

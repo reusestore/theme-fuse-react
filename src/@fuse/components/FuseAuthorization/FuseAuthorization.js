@@ -7,7 +7,7 @@ import _ from 'lodash';
 
 let redirect = false;
 
-class FuseAuth extends Component {
+class FuseAuthorization extends Component {
 
     constructor(props)
     {
@@ -89,4 +89,4 @@ function mapStateToProps({fuse, auth})
     }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FuseAuth));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FuseAuthorization));

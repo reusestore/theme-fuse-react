@@ -1,14 +1,14 @@
 import {combineReducers} from 'redux';
 import navigation from './navigation.reducer';
 import settings from './settings.reducer';
-import shortcuts from './shortcuts.reducer';
 import navbar from './navbar.reducer';
+import message from './message.reducer';
 
 const fuseReducers = combineReducers({
     navigation,
     settings,
-    shortcuts,
-    navbar
+    navbar,
+    message
 });
 
 export default fuseReducers;

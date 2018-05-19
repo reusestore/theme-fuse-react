@@ -7,7 +7,7 @@ const styles = theme => ({
     layoutRoot: {}
 });
 
-class FuseAuthDoc extends Component {
+class FuseAuthorizationDoc extends Component {
 
     render()
     {
@@ -20,21 +20,22 @@ class FuseAuthDoc extends Component {
                 }}
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="title">FuseAuth</Typography>
+                        <Typography variant="title">FuseAuthorization</Typography>
                     </div>
                 }
                 content={
                     <div className="p-24 max-w-2xl mx-auto">
 
                         <Typography className="mb-16" component="p">
-                            <code className="language-bash">FuseAuth</code> is authorization component of the Fuse React. It allows to block routes based on user roles. It should
+                            <code className="language-bash">FuseAuthorization</code> is authorization component of the Fuse React. It allows to block routes based on user roles. It
+                            should
                             wraps the FuseTheme component.
                         </Typography>
 
                         <FuseHighlight component="pre" className="language-jsx">
                             {
                                 `
-                               <FuseAuth routes={routes}>
+                               <FuseAuthorization routes={routes}>
                                     <FuseTheme>
                                         <FuseLayout
                                             routes={routes}
@@ -54,7 +55,7 @@ class FuseAuthDoc extends Component {
                                         <FuseSettings/>
                                         <QuickPanel/>
                                     </FuseTheme>
-                                </FuseAuth>
+                                </FuseAuthorization>
                                 `
                             }
                         </FuseHighlight>
@@ -147,4 +148,4 @@ class FuseAuthDoc extends Component {
     }
 }
 
-export default withStyles(styles, {withTheme: true})(FuseAuthDoc);
+export default withStyles(styles, {withTheme: true})(FuseAuthorizationDoc);
