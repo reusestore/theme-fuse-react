@@ -8,6 +8,7 @@ import FuseHighlightDoc from 'main/content/components/fuse-highlight/FuseHighlig
 import FuseCountdownDoc from 'main/content/components/fuse-countdown/FuseCountdownDoc';
 import FuseNavigationDoc from 'main/content/components/fuse-navigation/FuseNavigationDoc';
 import FuseAuthorizationDoc from 'main/content/components/fuse-authorization/FuseAuthorizationDoc';
+import FuseMessageDoc from 'main/content/components/fuse-message/FuseMessageDoc';
 
 export const ComponentsConfig = {
     routes: [
@@ -47,6 +48,10 @@ export const ComponentsConfig = {
         {
             path     : '/components/fuse-navigation',
             component: FuseNavigationDoc
+        },
+        {
+            path     : '/components/fuse-message',
+            component: FuseMessageDoc
         }
     ]
 };

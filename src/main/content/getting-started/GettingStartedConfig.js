@@ -5,6 +5,7 @@ import InstallationDoc from 'main/content/getting-started/installation/Installat
 import WorkingWithFuseDoc from 'main/content/getting-started/working-with-fuse/WorkingWithFuseDoc';
 import ChangelogDoc from 'main/content/getting-started/changelog/ChangelogDoc';
 import RoutingDoc from 'main/content/getting-started/routing/RoutingDoc';
+import FirebaseAuthDoc from 'main/content/getting-started/firebase-auth/FirebaseAuthDoc';
 
 export const GettingStartedConfig = {
     routes: [
@@ -31,6 +32,10 @@ export const GettingStartedConfig = {
         {
             path     : '/getting-started/routing',
             component: RoutingDoc
+        },
+        {
+            path     : '/getting-started/firebase-auth',
+            component: FirebaseAuthDoc
         },
         {
             path     : '/getting-started/changelog',

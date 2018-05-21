@@ -27,6 +27,53 @@ class ChangelogDoc extends Component {
                     <div className="p-24 max-w-2xl mx-auto">
 
                         <div className="flex items-center mb-32 mt-48">
+                            <Typography className="text-28" component="h2">v1.0.4</Typography>
+                            <Typography className="text-16 ml-8" color="textSecondary" component="h3">(2018-05-22)</Typography>
+                        </div>
+
+                        <div className="mb-24">
+                            <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">BREAKING CHANGES:</Typography>
+                            <ul>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        <code>FuseAuth</code> renamed with FuseAuthorization
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Shortcuts data storage moved under the user.data.
+                                    </Typography>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div className="mb-24">
+                            <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">NEW:</Typography>
+                            <ul>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        <code>Material UI Next</code> updated to v1.0.0
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Firebase integration added as an example for authentication (Also saves user data to firebase/db).
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Register Page Created for Firebase.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        FuseMessage Component added to theme layout for easily show snackbar messages via redux action.
+                                    </Typography>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div className="flex items-center mb-32 mt-48">
                             <Typography className="text-28" component="h2">v1.0.3</Typography>
                             <Typography className="text-16 ml-8" color="textSecondary" component="h3">(2018-05-16)</Typography>
                         </div>
@@ -40,7 +87,8 @@ class ChangelogDoc extends Component {
                                         <code>Material UI Next</code> updated to v1.0.0-rc.0
                                     </Typography>
                                     <Typography className="text-12 mb-8">
-                                        <a href="https://github.com/mui-org/material-ui/releases/tag/v1.0.0-rc.0" target="_blank" rel="noopener noreferrer"> Checkout the breaking changes</a>
+                                        <a href="https://github.com/mui-org/material-ui/releases/tag/v1.0.0-rc.0" target="_blank" rel="noopener noreferrer"> Checkout the breaking
+                                            changes</a>
                                     </Typography>
                                 </li>
                                 <li>

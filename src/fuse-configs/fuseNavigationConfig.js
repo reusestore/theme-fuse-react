@@ -529,6 +529,13 @@ export const fuseNavigationConfig = [
                 'type' : 'item',
                 'icon' : 'settings_input_component',
                 'url'  : '/components/fuse-countdown'
+            },
+            {
+                'id'   : 'fuse-message',
+                'title': 'FuseMessage',
+                'type' : 'item',
+                'icon' : 'settings_input_component',
+                'url'  : '/components/fuse-message'
             }
         ]
     },
@@ -621,6 +628,13 @@ export const fuseNavigationConfig = [
                 'type' : 'item',
                 'icon' : 'menu',
                 'url'  : '/getting-started/routing'
+            },
+            {
+                'id'   : 'fuse-firebase-auth',
+                'title': 'Firebase Auth',
+                'type' : 'item',
+                'icon' : 'dns',
+                'url'  : '/getting-started/firebase-auth'
             },
             {
                 'id'   : 'changelog',

@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {FuseUtils} from '@fuse';
 import {Link} from 'react-router-dom';
-import amber from '@material-ui/core/es/colors/amber';
+import amber from '@material-ui/core/colors/amber';
 import classNames from 'classnames';
 import _ from 'lodash';
 
