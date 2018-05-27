@@ -38,27 +38,26 @@ function Avatars({classes})
                     <Typography className="text-32 mt-32 mb-8" component="h2">Image avatars</Typography>
                     <Typography className="mb-16" component="div">Image avatars can be created by passing
                         standard <code>img</code> props <code>src</code> or <code>srcSet</code> into the component.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/avatars/ImageAvatars.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/avatars/ImageAvatars.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Icon avatars</Typography>
                     <Typography className="mb-16" component="div">Icon avatars are created by passing an icon as <code>children</code>.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/avatars/IconAvatars.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/avatars/IconAvatars.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Letter avatars</Typography>
                     <Typography className="mb-16" component="div">Avatars containing simple characters can be created by passing your string as <code>children</code>.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/avatars/LetterAvatars.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/avatars/LetterAvatars.js')}
-                    />
+                    /></Typography>
+
                 </div>
             }
         />

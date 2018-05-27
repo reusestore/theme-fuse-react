@@ -62,12 +62,11 @@ function Steppers({classes})
                         second <code>Step</code> component. Note that it&#39;s up to you to manage when an optional step is skipped. Once you&#39;ve determined this for a
                         particular step you must set <code>completed={false}</code> to signify that even though the active step index has gone beyond the optional step, it&#39;s
                         not actually complete.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/steppers/HorizontalLinearStepper.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/steppers/HorizontalLinearStepper.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Horizontal Non-linear</Typography>
                     <Typography className="mb-16" component="div">Non-linear steppers allow users to enter a multi-step flow at any point.</Typography>
                     <Typography className="mb-16" component="div">This example is similar to the regular horizontal stepper, except steps are no longer automatically set
@@ -76,79 +75,72 @@ function Steppers({classes})
                         the <code>completed</code>
                         flag however because steps can be accessed in a non-linear fashion it&#39;s up to your own implementation to
                         determine when all steps are completed (or even if they need to be completed).</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/steppers/HorizontalNonLinearStepper.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/steppers/HorizontalNonLinearStepper.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Horizontal Linear - Alternative Label</Typography>
                     <Typography className="mb-16" component="div">Labels can be placed below the step icon by setting the <code>alternativeLabel</code> property on
                         the <code>Stepper</code> component.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/steppers/HorizontalLinearAlternativeLabelStepper.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/steppers/HorizontalLinearAlternativeLabelStepper.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Horizontal Non Linear - Alternative Label</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/steppers/HorizontalNonLinearAlternativeLabelStepper.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/steppers/HorizontalNonLinearAlternativeLabelStepper.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Horizontal Non Linear - Error Step</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/steppers/HorizontalNonLinearStepperWithError.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/steppers/HorizontalNonLinearStepperWithError.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Vertical Stepper</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/steppers/VerticalLinearStepper.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/steppers/VerticalLinearStepper.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Mobile Stepper</Typography>
                     <Typography className="mb-16" component="div">This component implements a compact stepper suitable for a mobile device. See <a
                         href="https://material.io/archive/guidelines/components/steppers.html#steppers-types-of-steps">mobile steps</a> for its inspiration.</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Mobile Stepper - Text</Typography>
                     <Typography className="mb-16" component="div">This is essentially a back/next button positioned correctly.
                         You must implement the textual description yourself, however, an example is provided below for reference.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/steppers/TextMobileStepper.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/steppers/TextMobileStepper.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Mobile Stepper - Text with Carousel effect</Typography>
                     <Typography className="mb-16" component="div">This demo is very similar to the previous, the difference is the usage of
                         <a href="https://github.com/oliviertassinari/react-swipeable-views">react-swipeable-views</a> to make the transition of steps.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/steppers/SwipeableTextMobileStepper.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/steppers/SwipeableTextMobileStepper.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Mobile Stepper - Dots</Typography>
                     <Typography className="mb-16" component="div">Use dots when the number of steps isn’t large.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/steppers/DotsMobileStepper.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/steppers/DotsMobileStepper.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Mobile Stepper - Progress</Typography>
                     <Typography className="mb-16" component="div">Use a progress bar when there are many steps, or if there are steps that need to be inserted during the process
                         (based on responses to earlier steps).</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/steppers/ProgressMobileStepper.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/steppers/ProgressMobileStepper.js')}
-                    />
+                    /></Typography>
+
                 </div>
             }
         />

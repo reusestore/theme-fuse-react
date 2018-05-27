@@ -43,100 +43,92 @@ function Buttons({classes})
                     <Typography className="mb-16" component="div">Flat buttons are text-only buttons.
                         They may be used in dialogs, toolbars, or inline.
                         They do not lift, but fill with color on press.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/buttons/FlatButtons.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/FlatButtons.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Outlined Buttons</Typography>
                     <Typography className="mb-16" component="div">Outlined buttons are text-only buttons with medium emphasis.
                         They behave like flat buttons but have an outline and are typically used for actions that are important, but
                         aren’t the primary action in an app.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/buttons/OutlinedButtons.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/OutlinedButtons.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Raised Buttons</Typography>
                     <Typography className="mb-16" component="div">Raised buttons are rectangular-shaped buttons.
                         They may be used inline. They lift and display ink reactions on press.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/buttons/RaisedButtons.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/RaisedButtons.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Floating Action Buttons</Typography>
                     <Typography className="mb-16" component="div">A floating action button represents the primary action in an application.
                         Shaped like a circled icon floating above the UI, it has an ink wash upon focus and lifts upon selection.
                         When pressed, it may contain more related actions.</Typography>
                     <Typography className="mb-16" component="div">Only one floating action button is recommended per screen to represent the most common action.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/buttons/FloatingActionButtons.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/FloatingActionButtons.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="mb-16" component="div">The floating action button animates onto the screen as an expanding piece of material, by default.</Typography>
                     <Typography className="mb-16" component="div">A floating action button that spans multiple lateral screens (such as tabbed screens) should briefly disappear,
                         then reappear if its action changes.</Typography>
                     <Typography className="mb-16" component="div">The Zoom transition can be used to achieve this. Note that since both the exiting and entering
                         animations are triggered at the same time, we use <code>enterDelay</code> to allow the outgoing Floating Action Button&#39;s
                         animation to finish before the new one enters.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/buttons/FloatingActionButtonZoom.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/FloatingActionButtonZoom.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Sizes</Typography>
                     <Typography className="mb-16" component="div">Fancy larger or smaller buttons? Use the <code>size</code> or the <code>mini</code> property.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/buttons/ButtonSizes.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/ButtonSizes.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Icon Buttons</Typography>
                     <Typography className="mb-16" component="div">Icon buttons are commonly found in app bars and toolbars.</Typography>
                     <Typography className="mb-16" component="div">Icons are also appropriate for toggle buttons that allow a single choice to be selected or
                         deselected, such as adding or removing a star to an item.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/buttons/IconButtons.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/IconButtons.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Buttons with icons and label</Typography>
                     <Typography className="mb-16" component="div">Sometimes you might want to have icons for certain button to enhance the UX of the application as we recognize
                         logos more easily than plain text. For example, if you have a delete button you can label it with a dustbin icon.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/buttons/IconLabelButtons.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/IconLabelButtons.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Customized Buttons</Typography>
                     <Typography className="mb-16" component="div">If you have been reading the <a href="/customization/overrides">overrides documentation page</a>
-                        but you are not confident jumping in, here&#39;s an example of how you can change the main color of a Button.</Typography>
-                    <FuseExample
+                        but you are not confident jumping in,
+                        here are examples of how you can change the main color of a Button using classes,
+                        and using a theme; and of a Bootstrap style Button.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/buttons/CustomizedButtons.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/CustomizedButtons.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Complex Buttons</Typography>
                     <Typography className="mb-16" component="div">The Flat Buttons, Raised Buttons, Floating Action Buttons and Icon Buttons are built on top of the same component:
                         the <code>ButtonBase</code>.
                         You can take advantage of this lower level component to build custom interactions.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/buttons/ButtonBases.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/ButtonBases.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Third-party routing library</Typography>
                     <Typography className="mb-16" component="div">One common use case is to use the button to trigger a navigation to a new page.
                         The <code>ButtonBase</code> component provides a property to handle this use case: <code>component</code>.

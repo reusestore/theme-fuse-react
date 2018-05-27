@@ -38,11 +38,12 @@ function Badges({classes})
                     <Typography className="text-32 mt-32 mb-8" component="h2">Simple Badges</Typography>
                     <Typography className="mb-16" component="div">Examples of badges containing text, using primary and secondary colors. The badge is applied to its
                         children.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/badges/SimpleBadge.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/badges/SimpleBadge.js')}
-                    />
+                    /></Typography>
+
                 </div>
             }
         />

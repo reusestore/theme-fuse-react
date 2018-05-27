@@ -38,20 +38,20 @@ function BottomNavigation({classes})
                         explore and switch between top-level views in a single tap.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Bottom Navigation</Typography>
                     <Typography className="mb-16" component="div">When there are only <strong>three</strong> actions, display both icons and text labels at all times.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/bottom-navigation/SimpleBottomNavigation.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/bottom-navigation/SimpleBottomNavigation.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Bottom Navigation with no label</Typography>
                     <Typography className="mb-16" component="div">If there are <strong>four</strong> or <strong>five</strong> actions, display inactive views as icons
                         only.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/bottom-navigation/LabelBottomNavigation.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/bottom-navigation/LabelBottomNavigation.js')}
-                    />
+                    /></Typography>
+
                 </div>
             }
         />

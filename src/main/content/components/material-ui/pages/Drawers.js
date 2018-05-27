@@ -41,23 +41,21 @@ function Drawers({classes})
                         other content until a section is selected.</Typography>
                     <Typography className="mb-16" component="div">The Drawer can be cancelled by clicking the overlay or pressing the Esc key.
                         It closes when an item is selected, handled by controlling the <code>open</code> prop.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/drawers/TemporaryDrawer.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/drawers/TemporaryDrawer.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Swipeable Temporary drawer</Typography>
                     <Typography className="mb-16" component="div">You can make the drawer swipeable with the <code>SwipeableDrawer</code> component.</Typography>
                     <Typography className="mb-16" component="div">This component comes with a 2 kB gzipped payload overhead.
                         Some low-end mobile devices won&#39;t be able to follow the fingers at 60 FPS.
                         You can use the <code>disableBackdropTransition</code> property to help.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/drawers/SwipeableTemporaryDrawer.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/drawers/SwipeableTemporaryDrawer.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="mb-16" component="div">We are using the following set of properties on this documentation website for optimal usability of the
                         component:</Typography>
                     <ul>
@@ -83,20 +81,18 @@ const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
                     <Typography className="mb-16" component="div">Permanent navigation drawers are the <strong>recommended default for desktop</strong>.</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Full-height navigation</Typography>
                     <Typography className="mb-16" component="div">Apps focused on information consumption that use a left-to-right hierarchy.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/drawers/PermanentDrawer.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/drawers/PermanentDrawer.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Clipped under the app bar</Typography>
                     <Typography className="mb-16" component="div">Apps focused on productivity that require balance across the screen.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/drawers/ClippedDrawer.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/drawers/ClippedDrawer.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Persistent drawer</Typography>
                     <Typography className="mb-16" component="div">Persistent navigation drawers can toggle open or closed.
                         The drawer sits on the same surface elevation as the content.
@@ -106,32 +102,31 @@ const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
                         the smaller viewport.</Typography>
                     <Typography className="mb-16" component="div">Persistent navigation drawers are acceptable for all sizes larger than mobile.
                         They are not recommended for apps with multiple levels of hierarchy that require using an up arrow for navigation.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/drawers/PersistentDrawer.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/drawers/PersistentDrawer.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Mini variant drawer</Typography>
                     <Typography className="mb-16" component="div">In this variation, the persistent navigation drawer changes its width.
                         Its resting state is as a mini-drawer at the same elevation as the content, clipped by the app bar.
                         When expanded, it appears as the standard persistent navigation drawer.</Typography>
                     <Typography className="mb-16" component="div">The mini variant is recommended for apps sections that need quick selection access alongside content.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/drawers/MiniDrawer.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/drawers/MiniDrawer.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Responsive drawer</Typography>
                     <Typography className="mb-16" component="div">The <code>Hidden</code> responsive helper component allows showing different types of drawer depending on the
                         screen width.
                         A <code>temporary</code> drawer is shown for small screens while a <code>permanent</code> drawer is shown for wider screens.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/drawers/ResponsiveDrawer.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/drawers/ResponsiveDrawer.js')}
-                    />
+                    /></Typography>
+
                 </div>
             }
         />

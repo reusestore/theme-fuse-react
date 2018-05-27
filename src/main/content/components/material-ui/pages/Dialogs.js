@@ -47,12 +47,11 @@ function Dialogs({classes})
                         <li>Choosing an option immediately commits the option and closes the menu</li>
                         <li>Touching outside of the dialog, or pressing Back, cancels the action and closes the dialog</li>
                     </ul>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/dialogs/SimpleDialog.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/dialogs/SimpleDialog.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Alerts</Typography>
                     <Typography className="mb-16" component="div">Alerts are urgent interruptions, requiring acknowledgement, that inform the user about a situation.</Typography>
                     <Typography className="mb-16" component="div">Most alerts don&#39;t need titles.
@@ -68,56 +67,50 @@ function Dialogs({classes})
                         <li>Use a clear question or statement with an explanation in the content area, such as &quot;Erase USB storage?&quot;.</li>
                         <li>Avoid apologies, ambiguity, or questions, such as “Warning!” or “Are you sure?”</li>
                     </ul>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/dialogs/AlertDialog.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/dialogs/AlertDialog.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="mb-16" component="div">You can also swap out the transition, the next example uses <code>Slide</code>.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/dialogs/AlertDialogSlide.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/dialogs/AlertDialogSlide.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Confirmation dialogs</Typography>
                     <Typography className="mb-16" component="div">Confirmation dialogs require users to explicitly confirm their choice before an option is committed.
                         For example, users can listen to multiple ringtones but only make a final selection upon touching “OK.”</Typography>
                     <Typography className="mb-16" component="div">Touching “Cancel” in a confirmation dialog, or pressing Back, cancels the action, discards any changes, and closes
                         the dialog.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/dialogs/ConfirmationDialog.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/dialogs/ConfirmationDialog.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Full-screen dialogs</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/dialogs/FullScreenDialog.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/dialogs/FullScreenDialog.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Form dialogs</Typography>
                     <Typography className="mb-16" component="div">Form dialogs allow users to fill out form fields within a dialog.
                         For example, if your site prompts for potential subscribers to fill in their email address, they can fill out the email field and
                         touch &#39;Submit&#39;</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/dialogs/FormDialog.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/dialogs/FormDialog.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Responsive full-screen</Typography>
                     <Typography className="mb-16" component="div">You may make a <code>Dialog</code> responsively full screen the dialog using <code>withMobileDialog</code>. By
                         default, <code>withMobileDialog()(Dialog)</code> responsively full screens <em>at or below</em> the <code>sm</code> <a href="/layout/basics">screen size</a>.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/dialogs/ResponsiveDialog.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/dialogs/ResponsiveDialog.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
                     <Typography className="mb-16" component="div">Be sure to add <code>aria-labelledby=&quot;id...&quot;</code>, referencing the modal title, to
                         the <code>Dialog</code>. Additionally, you may give a description of your modal dialog with the <code>aria-describedby=&quot;id...&quot;</code> property on

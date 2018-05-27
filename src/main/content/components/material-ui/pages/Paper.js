@@ -37,11 +37,12 @@ function Paper({classes})
                     <Typography className="mb-16" component="div">In Material Design, the physical properties of paper are translated to the screen.
                         The background of an application resembles the flat, opaque texture of a sheet of paper, and an application’s behavior mimics paper’s ability to be
                         re-sized, shuffled, and bound together in multiple sheets.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/paper/PaperSheet.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/paper/PaperSheet.js')}
-                    />
+                    /></Typography>
+
                 </div>
             }
         />

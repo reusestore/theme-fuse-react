@@ -40,30 +40,29 @@ function Autocomplete({classes})
                     <Typography className="text-32 mt-32 mb-8" component="h2">downshift</Typography>
                     <Typography className="mb-16" component="div">In the following example, we demonstrate how to use <a
                         href="https://github.com/paypal/downshift">downshift</a>.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/autocomplete/IntegrationDownshift.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/autocomplete/IntegrationDownshift.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">react-autosuggest</Typography>
                     <Typography className="mb-16" component="div">In the following example, we demonstrate how to use <a
                         href="https://github.com/moroshko/react-autosuggest">react-autosuggest</a>.
                         It&#39;s also using <a href="https://www.npmjs.com/package/autosuggest-highlight">autosuggest-highlight</a> for the highlighting logic.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/autocomplete/IntegrationAutosuggest.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/autocomplete/IntegrationAutosuggest.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">react-select</Typography>
                     <Typography className="mb-16" component="div">In the following example, we demonstrate how to use <a
                         href="https://github.com/JedWatson/react-select">react-select</a>.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/autocomplete/IntegrationReactSelect.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/autocomplete/IntegrationReactSelect.js')}
-                    />
+                    /></Typography>
+
                 </div>
             }
         />

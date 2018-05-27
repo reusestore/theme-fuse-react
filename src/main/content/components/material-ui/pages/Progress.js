@@ -48,64 +48,56 @@ function Progress({classes})
                         <li><strong>Indeterminate</strong> circular indicators grow and shrink in size while moving along the invisible track.</li>
                     </ul>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Circular Indeterminate</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/progress/CircularIndeterminate.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/progress/CircularIndeterminate.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Interactive Integration</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/progress/CircularIntegration.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/progress/CircularIntegration.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Circular Determinate</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/progress/CircularDeterminate.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/progress/CircularDeterminate.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Circular Static</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/progress/CircularStatic.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/progress/CircularStatic.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Linear</Typography>
                     <Typography className="mb-16" component="div"><a href="https://material.io/design/components/progress-indicators.html#linear-progress-indicators">Linear
                         progress</a> indicators.</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Linear Indeterminate</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/progress/LinearIndeterminate.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/progress/LinearIndeterminate.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Linear Determinate</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/progress/LinearDeterminate.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/progress/LinearDeterminate.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Linear Buffer</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/progress/LinearBuffer.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/progress/LinearBuffer.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Linear Query</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/progress/LinearQuery.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/progress/LinearQuery.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Non-standard ranges</Typography>
                     <Typography className="mb-16" component="div">The progress components accept a value in the range 0 - 100. This simplifies things for screen-reader users, where
                         these are the default min / max values. Sometimes, however, you might be working with a data source where the values fall outside this range. Here&#39;s how
@@ -136,11 +128,12 @@ function Progress(props) {
                         The ripple effect of the <code>ButtonBase</code> component ensures that the user feels that the system is reacting instantaneously.
                         Normally, no special feedback is necessary during delays of more than 0.1 but less than 1.0 second.
                         After 1.0 second, you can display a loader to keep user&#39;s flow of thought uninterrupted.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/progress/DelayingAppearance.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/progress/DelayingAppearance.js')}
-                    />
+                    /></Typography>
+
                 </div>
             }
         />

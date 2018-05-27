@@ -41,62 +41,57 @@ function Snackbars({classes})
                     <Typography className="mb-16" component="div">Only one snackbar may be displayed at a time.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Simple</Typography>
                     <Typography className="mb-16" component="div">A basic snackbar that aims to reproduce Google Keep&#39;s snackbar behavior.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/snackbars/SimpleSnackbar.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/snackbars/SimpleSnackbar.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Message Length</Typography>
                     <Typography className="mb-16" component="div">Some snackbars with varying message length.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/snackbars/LongTextSnackbar.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/snackbars/LongTextSnackbar.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Positioned</Typography>
                     <Typography className="mb-16" component="div">There may be circumstances when the placement of the snackbar needs to be more flexible.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/snackbars/PositionedSnackbar.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/snackbars/PositionedSnackbar.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Transitions</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Control Direction</Typography>
                     <Typography className="mb-16" component="div">Change the direction of the transition. Slide is the default transition.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/snackbars/DirectionSnackbar.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/snackbars/DirectionSnackbar.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Change Transition</Typography>
                     <Typography className="mb-16" component="div">Use a different transition all together.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/snackbars/FadeSnackbar.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/snackbars/FadeSnackbar.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Don&#39;t block the floating action button</Typography>
                     <Typography className="mb-16" component="div">Move the floating action button vertically to accommodate the snackbar height.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/snackbars/FabIntegrationSnackbar.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/snackbars/FabIntegrationSnackbar.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Consecutive Snackbars</Typography>
                     <Typography className="mb-16" component="div">Per <a
                         href="https://material.io/archive/guidelines/components/snackbars-toasts.html#snackbars-toasts-usage">Google&#39;s guidelines</a>, when a second snackbar is
                         triggered while the first is displayed, the first should start the contraction motion downwards before the second one animates upwards.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/snackbars/ConsecutiveSnackbars.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/snackbars/ConsecutiveSnackbars.js')}
-                    />
+                    /></Typography>
+
                 </div>
             }
         />

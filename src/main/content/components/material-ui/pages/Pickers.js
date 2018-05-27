@@ -50,25 +50,24 @@ function Pickers({classes})
                         <li><a href="https://github.com/TeamWertarbyte/material-ui-time-picker">material-ui-time-picker</a></li>
                     </ul>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Date pickers</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/pickers/DatePickers.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/pickers/DatePickers.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Time pickers</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/pickers/TimePickers.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/pickers/TimePickers.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Date &amp; Time pickers</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/pickers/DateAndTimePickers.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/pickers/DateAndTimePickers.js')}
-                    />
+                    /></Typography>
+
                 </div>
             }
         />

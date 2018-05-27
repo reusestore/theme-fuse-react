@@ -43,76 +43,89 @@ function SelectionControls({classes})
                         <li><strong><a href="#switches">Switches</a></strong> allow a selection to be turned on or off.</li>
                     </ul>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Checkboxes</Typography>
-                    <Typography className="mb-16" component="div">Checkboxes allow the user to select multiple options from a set.
-                        If you have multiple options appearing in a list, you can preserve space by using checkboxes instead of on/off switches.If you have a single option, avoid
-                        using a checkbox and use an on/off switch instead.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/selection-controls.html#checkboxes">Checkboxes</a>
+                        allow the user to select one or more items from a set.
+                        Checkboxes can be used to turn an option on or off.</Typography>
+                    <Typography className="mb-16" component="div">If you have multiple options appearing in a list,
+                        you can preserve space by using checkboxes instead of on/off switches.
+                        If you have a single option, avoid using a checkbox and use an on/off switch instead.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/selection-controls/Checkboxes.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/selection-controls/Checkboxes.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="mb-16" component="div"><code>Checkbox</code> can also be used with a label description thanks to
                         the <code>FormControlLabel</code> component.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/selection-controls/CheckboxLabels.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/selection-controls/CheckboxLabels.js')}
-                    />
-
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Checkboxes with FormGroup</Typography>
                     <Typography className="mb-16" component="div"><code>FormGroup</code> is a helpful wrapper used to group selection controls components that provides an easier
                         API.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/selection-controls/CheckboxesGroup.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/selection-controls/CheckboxesGroup.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Radio Buttons</Typography>
-                    <Typography className="mb-16" component="div">Radio buttons allow the user to select one option from a set. Use radio buttons for exclusive selection if you
-                        think that the user needs to see all available options side-by-side;
-                        otherwise, consider a dropdown, which uses less space than displaying all options.</Typography>
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/selection-controls.html#radio-buttons">Radio buttons</a>
+                        allow the user to select one option from a set.
+                        Use radio buttons when the user needs to see all available options.
+                        If available options can be collapsed, consider using a dropdown menu because it uses less space.</Typography>
                     <Typography className="mb-16" component="div">Radio buttons should have the most commonly used option selected by default.</Typography>
                     <Typography className="mb-16" component="div"><code>RadioGroup</code> is a helpful wrapper used to group <code>Radio</code> components that provides an easier
                         API, and proper keyboard accessibility to the group.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/selection-controls/RadioButtonsGroup.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/selection-controls/RadioButtonsGroup.js')}
-                    />
-
+                    /></Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Standalone Radio Buttons</Typography>
                     <Typography className="mb-16" component="div"><code>Radio</code> can also be used standalone, without the wrapper.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/selection-controls/RadioButtons.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/selection-controls/RadioButtons.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Switches</Typography>
-                    <Typography className="mb-16" component="div">On/off switches toggle the state of a single settings option. The option that the switch controls, as well as the
-                        state it’s in, should be made clear from the corresponding inline label.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/selection-controls.html#switches">Switches</a>
+                        toggle the state of a single setting on or off.
+                        They are the preferred way to adjust settings on mobile.</Typography>
+                    <Typography className="mb-16" component="div">The option that the switch controls, as well as the state it’s in,
+                        should be made clear from the corresponding inline label.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/selection-controls/Switches.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/selection-controls/Switches.js')}
-                    />
-
+                    /></Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Switches with FormControlLabel</Typography>
                     <Typography className="mb-16" component="div"><code>Switch</code> can also be used with a label description thanks to
                         the <code>FormControlLabel</code> component.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/selection-controls/SwitchLabels.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/selection-controls/SwitchLabels.js')}
-                    />
-
+                    /></Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Switches with FormGroup</Typography>
                     <Typography className="mb-16" component="div"><code>FormGroup</code> is a helpful wrapper used to group selection controls components that provides an easier
                         API.
                         However, we encourage you to use a <a href="#checkboxes">Checkbox</a> instead.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/selection-controls/SwitchesGroup.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/selection-controls/SwitchesGroup.js')}
-                    />
+                    /></Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Customized Switches</Typography>
+                    <Typography className="mb-16" component="div">If you have been reading the <a href="/customization/overrides">overrides documentation page</a>
+                        but you are not confident jumping in, here&#39;s an example of how you can change the color of a Switch, and an iOS style Switch.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        component={require('main/content/components/material-ui/material-ui-examples/selection-controls/CustomizedSwitches.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/selection-controls/CustomizedSwitches.js')}
+                    /></Typography>
+
                 </div>
             }
         />

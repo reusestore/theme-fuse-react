@@ -44,40 +44,38 @@ function Tables({classes})
                         name.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Simple Table</Typography>
                     <Typography className="mb-16" component="div">A simple example with no frills.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/tables/SimpleTable.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tables/SimpleTable.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Sorting &amp; Selecting</Typography>
                     <Typography className="mb-16" component="div">This example demonstrates the use of <code>Checkbox</code> and clickable rows for selection, with a
                         custom <code>Toolbar</code>. It uses the <code>TableSortLabel</code> component to help style column headings.</Typography>
                     <Typography className="mb-16" component="div">The Table has been given a fixed width to demonstrate horizontal scrolling. In order to prevent the pagination
                         controls from scrolling, the TablePagination component is used outside of the Table. (The <a href="#custom-table-pagination-action">&#39;Custom Table
                             Pagination Action&#39; example</a> below shows the pagination within the TableFooter.)</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/tables/EnhancedTable.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tables/EnhancedTable.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Custom Table Pagination Action</Typography>
                     <Typography className="mb-16" component="div">The <code>Action</code> property of the <code>TablePagination</code> component allows the implementation of
                         custom actions.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/tables/CustomPaginationActionsTable.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tables/CustomPaginationActionsTable.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Customized tables</Typography>
                     <Typography className="mb-16" component="div">You can customize the look and feel of the table by overriding the styles of the <code>TableCell</code> component.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/tables/CustomizedTable.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tables/CustomizedTable.js')}
-                    />
+                    /></Typography>
+
                 </div>
             }
         />

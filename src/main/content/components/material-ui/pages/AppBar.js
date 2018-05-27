@@ -37,25 +37,24 @@ function AppBar({classes})
                     <Typography className="mb-16" component="div">The <a href="https://material.io/design/components/app-bars-top.html">App bar</a>, formerly known as the action
                         bar in Android, is a special kind of toolbar that’s used for branding, navigation, search, and actions.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Simple App bar</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/app-bar/SimpleAppBar.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/app-bar/SimpleAppBar.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">App bar with buttons</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/app-bar/ButtonAppBar.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/app-bar/ButtonAppBar.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">App bar with menu</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/app-bar/MenuAppBar.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/app-bar/MenuAppBar.js')}
-                    />
+                    /></Typography>
+
                 </div>
             }
         />

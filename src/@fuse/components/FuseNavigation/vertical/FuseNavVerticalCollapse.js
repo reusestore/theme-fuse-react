@@ -63,19 +63,22 @@ function isUrlInChildren(parent, url)
 
 class FuseNavVerticalCollapse extends Component {
 
-    state = {
-        open: false
-    };
-
-    static getDerivedStateFromProps(nextProps, prevState)
+    constructor(props)
     {
-        if ( needsToBeOpened(nextProps) )
+        super(props);
+
+        this.state = {open: needsToBeOpened(this.props)};
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot)
+    {
+        if ( needsToBeOpened(this.props) )
         {
-            return !prevState.open ? {open: true} : null;
+            !prevState.open && this.setState({open: true});
         }
         else
         {
-            return prevState.open ? {open: false} : null;
+            prevState.open && this.setState({open: false});
         }
     }
 

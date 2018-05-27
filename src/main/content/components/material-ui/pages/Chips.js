@@ -50,22 +50,22 @@ function Chips({classes})
                             icon which changes appearance on hover.
                         </li>
                     </ul>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/chips/Chips.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/chips/Chips.js')}
-                    />
-
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Chip array</Typography>
                     <Typography className="mb-16" component="div">An example of rendering multiple Chips from an array of values.
                         Deleting a chip removes it from the array. Note that since no
                         <code>onClick</code> property is defined, the Chip can be focused, but does not
                         gain depth while clicked or touched.</Typography>
-                    <FuseExample
+                    <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/chips/ChipsArray.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/chips/ChipsArray.js')}
-                    />
+                    /></Typography>
+
                 </div>
             }
         />
