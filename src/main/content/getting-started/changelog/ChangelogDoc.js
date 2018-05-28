@@ -27,6 +27,43 @@ class ChangelogDoc extends Component {
                     <div className="p-24 max-w-2xl mx-auto">
 
                         <div className="flex items-center mb-32 mt-48">
+                            <Typography className="text-28" component="h2">v1.0.5</Typography>
+                            <Typography className="text-16 ml-8" color="textSecondary" component="h3">(2018-05-29)</Typography>
+                        </div>
+
+                        <div className="mb-24">
+                            <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">NEW:</Typography>
+                            <ul>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        <code>Material UI Next</code> updated to v1.1.0
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Other dependency packages Updated.
+                                    </Typography>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div className="mb-24">
+                            <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">FIX:</Typography>
+                            <ul>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Extra control added if user.data exist in Firebase Db
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Navigation Collapse fixed due to React 16.4.0 bugfix for getDeriveredStateFromProps (https://reactjs.org/blog/2018/05/23/react-v-16-4.html#bugfix-for-getderivedstatefromprops),
+                                    </Typography>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div className="flex items-center mb-32 mt-48">
                             <Typography className="text-28" component="h2">v1.0.4</Typography>
                             <Typography className="text-16 ml-8" color="textSecondary" component="h3">(2018-05-22)</Typography>
                         </div>
