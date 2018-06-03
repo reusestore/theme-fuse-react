@@ -15,7 +15,6 @@ const navigation = function (state = initialState, action) {
         case Actions.SET_NAVIGATION:
         {
             return [
-                ...state,
                 ...action.navigation
             ];
         }
