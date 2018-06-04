@@ -165,7 +165,7 @@ class CardedRightSidebar2TabbedSample extends Component {
                         <DemoSidebarContent/>
                     </div>
                 }
-                singleScroll
+                innerScroll
                 onRef={instance => {
                     this.pageLayout = instance;
                 }}

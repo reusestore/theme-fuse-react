@@ -143,7 +143,7 @@ class CardedFullWidth2TabbedSample extends Component {
                         )}
                     </div>
                 }
-                singleScroll
+                innerScroll
             />
         )
     };

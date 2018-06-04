@@ -5,7 +5,7 @@ import {Collapse, Icon, IconButton, ListItem, ListItemText} from '@material-ui/c
 import {withStyles} from '@material-ui/core/styles/index';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
-import FuseNavBadge from './FuseNavBadge';
+import FuseNavBadge from './../FuseNavBadge';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 

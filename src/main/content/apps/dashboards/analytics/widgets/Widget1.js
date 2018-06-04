@@ -34,7 +34,7 @@ class Widget1 extends Component {
         }));
 
         return (
-            <MuiThemeProvider theme={FuseThemes.currentThemeDark}>
+            <MuiThemeProvider theme={FuseThemes.mainThemeDark}>
                 <div style={{backgroundColor: theme.palette.primary.main}} className={classes.root}>
 
                     <div className="relative p-24 flex flex-row justify-between items-center">

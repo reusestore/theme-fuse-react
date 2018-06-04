@@ -586,6 +586,7 @@ export const fuseNavigationConfig = [
         'id'      : 'getting-started',
         'title'   : 'Getting Started',
         'type'    : 'group',
+        'icon'    : 'star',
         'children': [
             {
                 'id'   : 'introduction',

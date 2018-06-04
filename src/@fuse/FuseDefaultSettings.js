@@ -3,17 +3,34 @@ import FuseSettingsConfig from 'fuse-configs/fuseSettingsConfig';
 
 const defaultSettings = {
     layout          : {
-        navbar      : 'left', // 'right', 'left', 'top', 'none'
-        navbarFolded: false, // true, false
-        toolbar     : 'below', // 'above', 'below', 'none'
-        footer      : 'below', // 'above', 'below', 'none'
-        mode        : 'fullwidth' // 'boxed', 'fullwidth'
+        style : 'layout1',
+        config: {
+            scroll : 'content',
+            navbar : {
+                display : true,
+                folded  : false,
+                position: 'left'
+            },
+            toolbar: {
+                display : true,
+                style   : 'fixed',
+                position: 'below'
+            },
+            footer : {
+                display : true,
+                style   : 'fixed',
+                position: 'below'
+            },
+            mode   : 'fullwidth'
+        }
     },
     customScrollbars: true,
-    theme           : 'default',
-    navbarTheme     : 'default',
-    toolbarTheme    : 'default',
-    footerTheme     : 'default'
+    theme           : {
+        main   : 'default',
+        navbar : 'mainThemeDark',
+        toolbar: 'mainThemeLight',
+        footer : 'mainThemeDark'
+    }
 };
 
 const FuseDefaultSettings = _.merge({}, defaultSettings, FuseSettingsConfig);

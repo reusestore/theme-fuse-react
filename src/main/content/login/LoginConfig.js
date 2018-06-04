@@ -4,12 +4,20 @@ import {authRoles} from 'auth/auth';
 export const LoginConfig = {
     settings: {
         layout: {
-            navbar: 'none',
-            toolbar   : 'none',
-            footer    : 'none'
+            config: {
+                navbar : {
+                    display: false
+                },
+                toolbar: {
+                    display: false
+                },
+                footer : {
+                    display: false
+                }
+            }
         }
     },
-    auth    :  authRoles.onlyGuest,
+    auth    : authRoles.onlyGuest,
     routes  : [
         {
             path     : '/login',

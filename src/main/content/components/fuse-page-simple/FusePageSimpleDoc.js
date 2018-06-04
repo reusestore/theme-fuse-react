@@ -119,7 +119,7 @@ class FusePageSimpleDoc extends Component {
                                         onRef={instance => {
                                             this.pageLayout = instance;
                                         }}
-                                        singleScroll
+                                        innerScroll
                                         sidebarInner
                                     />
                                 `

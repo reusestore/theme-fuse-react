@@ -97,6 +97,7 @@ class MailApp extends Component {
                 onRef={instance => {
                     this.pageLayout = instance;
                 }}
+                innerScroll
             />
         )
     };

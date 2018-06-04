@@ -37,9 +37,7 @@ class RoutingDoc extends Component {
                         </Typography>
 
                         <Typography className="mb-16" component="p">
-                            For example, have a look at <FuseHighlight component="code" className="language-bash">MailAppConfig.js</FuseHighlight> file under <code
-                            className="language-bash">src/main/content/apps/mail</code>. Whenever we navigate to <code className="language-bash">/apps/mail</code>, the navigation
-                            sidebar position will be changed to right.
+                            For example, have a look at the code below <FuseHighlight component="code" className="language-bash">MailAppConfig.js</FuseHighlight>. You can override all settings for a particular route as <code className="language-bash">/apps/mail</code> for this example.
                         </Typography>
 
                         <FuseHighlight component="pre" className="language-jsx my-16">
@@ -50,15 +48,35 @@ class RoutingDoc extends Component {
 
                             export const MailAppConfig = {
                                 settings: {
-                                     layout          : {
-                                        navbar              : 'right', // 'right', 'left', 'top', 'none'
-                                        navbarFolded        :  false, // true, false
-                                        toolbar             : 'below', // 'above', 'below', 'none'
-                                        footer              : 'below', // 'above', 'below', 'none'
-                                        mode                : 'fullwidth' // 'boxed', 'fullwidth'
-                                     },
-                                     customScrollbars: true,
-                                     theme           : 'default'
+                                    layout          : {
+                                        style : 'layout1',
+                                        config: {
+                                            scroll : 'content',
+                                            navbar : {
+                                                display : true,
+                                                folded  : false,
+                                                position: 'left'
+                                            },
+                                            toolbar: {
+                                                display : true,
+                                                style   : 'fixed',
+                                                position: 'below'
+                                            },
+                                            footer : {
+                                                display : true,
+                                                style   : 'fixed',
+                                                position: 'below'
+                                            },
+                                            mode   : 'fullwidth'
+                                        }
+                                    },
+                                    customScrollbars: true,
+                                    theme           : {
+                                        main   : 'default',
+                                        navbar : 'mainThemeDark',
+                                        toolbar: 'mainThemeLight',
+                                        footer : 'mainThemeDark'
+                                    }
                                 },
                                 routes  : [
                                     {

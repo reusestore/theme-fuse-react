@@ -1,7 +1,7 @@
 import React from 'react';
 import {withStyles} from '@material-ui/core/styles/index';
 import {withRouter} from 'react-router-dom';
-import {FuseNavigation} from '@fuse';
+import {FuseNavigation, FuseLayouts} from '@fuse';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
@@ -10,11 +10,12 @@ const styles = theme => ({
 
 });
 
-function MainNavbar({classes, navigation})
+function MainNavbar({classes, navigation, layoutStyle})
 {
+    const navigationLayout = FuseLayouts[layoutStyle].type;
     return (
         <div className={classes.root}>
-            <FuseNavigation navigation={navigation}/>
+            <FuseNavigation navigation={navigation} layout={navigationLayout}/>
         </div>
     );
 }
@@ -27,7 +28,8 @@ function mapDispatchToProps(dispatch)
 function mapStateToProps({fuse})
 {
     return {
-        navigation: fuse.navigation
+        navigation : fuse.navigation,
+        layoutStyle: fuse.settings.current.layout.style
     }
 }
 

@@ -13,7 +13,7 @@ import registerServiceWorker from './registerServiceWorker';
 import {Provider} from 'react-redux';
 import {Router} from 'react-router-dom';
 import {routes} from './fuse-configs/fuseRoutesConfig';
-import {FuseLayout, FuseTheme, FuseSettings, FuseAuthorization} from '@fuse';
+import {FuseLayout, FuseTheme, FuseAuthorization} from '@fuse';
 import MainToolbar from './main/MainToolbar';
 import MainNavbarContent from './main/MainNavbarContent';
 import MainNavbarHeader from './main/MainNavbarHeader';
@@ -22,6 +22,7 @@ import jssExtend from 'jss-extend'
 import QuickPanel from 'main/quickPanel/QuickPanel';
 import FirebaseAuth from 'firebase-db/FirebaseAuth';
 import store from 'store';
+import SettingsPanel from 'main/SettingsPanel';
 
 const jss = create({
     ...jssPreset(),
@@ -53,7 +54,7 @@ ReactDOM.render(
                                     <MainFooter/>
                                 }
                             />
-                            <FuseSettings/>
+                            <SettingsPanel/>
                             <QuickPanel/>
                         </FuseTheme>
                     </FuseAuthorization>

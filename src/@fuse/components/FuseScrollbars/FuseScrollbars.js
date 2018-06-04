@@ -27,7 +27,9 @@ const propTypes = {
 const defaultProps = {
     className    : '',
     enable       : true,
-    option       : undefined,
+    option       : {
+        wheelPropagation: true
+    },
     containerRef : () => {
     },
     onScrollY    : undefined,

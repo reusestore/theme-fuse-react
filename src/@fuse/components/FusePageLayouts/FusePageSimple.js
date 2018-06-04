@@ -19,7 +19,7 @@ const propTypes = {
     content            : PropTypes.node,
     contentToolbar     : PropTypes.node,
     sidebarInner       : PropTypes.bool,
-    singleScroll       : PropTypes.bool
+    innerScroll        : PropTypes.bool
 };
 
 const defaultProps = {};
@@ -32,15 +32,15 @@ const styles = theme => ({
     root                          : {
         display        : 'flex',
         flexDirection  : 'column',
-        height         : '100%',
         minHeight      : '100%',
         position       : 'relative',
-        flex           : '1 1 auto',
+        flex           : '1 0 auto',
+        height         : 'auto',
         backgroundColor: theme.palette.background.default
     },
-    singleScroll                  : {
-        flex  : '1 0 auto',
-        height: 'auto'
+    innerScroll                   : {
+        flex  : '1 1 auto',
+        height: '100%'
     },
     contentWrapper                : {
         display      : 'flex',
@@ -180,14 +180,14 @@ class FusePageSimple extends React.Component {
 
     render()
     {
-        const {classes, leftSidebarHeader, leftSidebarContent, leftSidebarVariant, rightSidebarHeader, rightSidebarContent, rightSidebarVariant, header, content, contentToolbar, sidebarInner, singleScroll} = this.props;
+        const {classes, leftSidebarHeader, leftSidebarContent, leftSidebarVariant, rightSidebarHeader, rightSidebarContent, rightSidebarVariant, header, content, contentToolbar, sidebarInner, innerScroll} = this.props;
         const isRightSidebar = rightSidebarHeader || rightSidebarContent;
         const isLeftSidebar = leftSidebarHeader || leftSidebarContent;
 
         const Sidebar = (header, content, variant) => (
-            <FuseScrollbars enable={!singleScroll}>
+            <FuseScrollbars enable={innerScroll}>
                 {header && (
-                    <MuiThemeProvider theme={FuseThemes['currentThemeDark']}>
+                    <MuiThemeProvider theme={FuseThemes['mainThemeDark']}>
                         <div className={classNames(classes.sidebarHeader, variant, sidebarInner && classes.sidebarHeaderInnerSidebar)}>
                             {header}
                         </div>
@@ -248,7 +248,7 @@ class FusePageSimple extends React.Component {
 
         const headerContent = (
             <div className={classes.header}>
-                <MuiThemeProvider theme={FuseThemes['currentThemeDark']}>
+                <MuiThemeProvider theme={FuseThemes['mainThemeDark']}>
                     {header}
                 </MuiThemeProvider>
             </div>
@@ -256,7 +256,7 @@ class FusePageSimple extends React.Component {
 
         return (
             <div
-                className={classNames(classes.root, singleScroll && classes.singleScroll)}
+                className={classNames(classes.root, innerScroll && classes.innerScroll)}
                 ref={(root) => {
                     this.root = root;
                 }}
@@ -270,9 +270,9 @@ class FusePageSimple extends React.Component {
 
                     <FuseScrollbars
                         className={classNames(classes.contentCardWrapper, sidebarInner && classes.contentCardWrapperInnerSidebar)}
-                        enable={!singleScroll && sidebarInner}
+                        enable={innerScroll && sidebarInner}
                     >
-                        <FuseScrollbars className={classes.contentCard} enable={!singleScroll && !sidebarInner}>
+                        <FuseScrollbars className={classes.contentCard} enable={innerScroll && !sidebarInner}>
 
                             {header && !sidebarInner && headerContent}
 

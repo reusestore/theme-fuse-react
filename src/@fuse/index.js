@@ -10,6 +10,7 @@ export {default as FuseTheme} from './components/FuseTheme/FuseTheme';
 export {themes as FuseThemes} from './components/FuseTheme/FuseTheme';
 export {FuseSelectedTheme} from './components/FuseTheme/FuseTheme';
 export {default as FuseLayout} from './components/FuseLayout/FuseLayout';
+export {default as FuseLayouts} from './components/FuseLayout/FuseLayouts';
 export {default as FuseSettings} from './components/FuseSettings/FuseSettings';
 export {default as FuseCountdown} from './components/FuseCountdown/FuseCountdown';
 export {default as FuseHighlight} from './components/FuseHighlight/FuseHighlight';

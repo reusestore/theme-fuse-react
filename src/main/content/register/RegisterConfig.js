@@ -4,9 +4,17 @@ import Register from './Register';
 export const RegisterConfig = {
     settings: {
         layout: {
-            navbar : 'none',
-            toolbar: 'none',
-            footer : 'none'
+            config: {
+                navbar : {
+                    display: false
+                },
+                toolbar: {
+                    display: false
+                },
+                footer : {
+                    display: false
+                }
+            }
         }
     },
     auth    : authRoles.onlyGuest,

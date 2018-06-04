@@ -29,7 +29,7 @@ class CardedFullWidth2Sample extends Component {
                         <DemoContent/>
                     </div>
                 }
-                singleScroll
+                innerScroll
             />
         )
     };

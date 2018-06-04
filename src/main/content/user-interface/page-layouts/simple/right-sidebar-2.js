@@ -52,7 +52,7 @@ class SimpleRightSidebar2Sample extends Component {
                         <DemoSidebarContent/>
                     </div>
                 }
-                singleScroll
+                innerScroll
                 onRef={instance => {
                     this.pageLayout = instance;
                 }}

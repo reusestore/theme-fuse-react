@@ -42,15 +42,12 @@ const styles = theme => ({
     }
 });
 
-function FuseNavVerticalItem({item, classes, nestedLevel, userRole, navbarCloseMobile})
+function FuseNavHorizontalItem({item, classes, nestedLevel, userRole, navbarCloseMobile})
 {
     if ( item.auth && (!item.auth.includes(userRole) || (userRole !== 'guest' && item.auth.length === 1 && item.auth.includes('guest'))) )
     {
         return null;
     }
-
-    let paddingValue = 40 + (nestedLevel * 16);
-    const listItemPadding = nestedLevel > 0 ? 'pl-' + (paddingValue > 80 ? 80 : paddingValue) : 'pl-24';
 
     return (
         <ListItem
@@ -58,15 +55,15 @@ function FuseNavVerticalItem({item, classes, nestedLevel, userRole, navbarCloseM
             component={NavLink}
             to={item.url}
             activeClassName="active"
-            className={classNames(classes.root, listItemPadding)}
+            className={classNames(classes.root)}
             onClick={navbarCloseMobile}
         >
             {item.icon && (
                 <Icon className="list-item-icon text-16 flex-no-shrink" color="action">{item.icon}</Icon>
             )}
-            <ListItemText className="list-item-text" primary={item.title} classes={{primary: 'text-14 list-item-text-primary'}}/>
+            <ListItemText className="list-item-text pr-0" primary={item.title} classes={{primary: 'text-14 list-item-text-primary'}}/>
             {item.badge && (
-                <FuseNavBadge badge={item.badge}/>
+                <FuseNavBadge className="ml-8" badge={item.badge}/>
             )}
         </ListItem>
     );
@@ -86,9 +83,9 @@ function mapStateToProps({auth, fuse})
     }
 }
 
-FuseNavVerticalItem.propTypes = propTypes;
-FuseNavVerticalItem.defaultProps = defaultProps;
+FuseNavHorizontalItem.propTypes = propTypes;
+FuseNavHorizontalItem.defaultProps = defaultProps;
 
-const NavVerticalItem = withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(FuseNavVerticalItem)));
+const NavHorizontalItem = withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(FuseNavHorizontalItem)));
 
-export default NavVerticalItem;
+export default NavHorizontalItem;

@@ -14,17 +14,34 @@ let authDB = {
                 'email'      : 'abbott@withinpixels.com',
                 settings     : {
                     layout          : {
-                        navbar      : 'left',
-                        navbarFolded: true,
-                        toolbar     : 'below',
-                        footer      : 'below',
-                        mode        : 'fullwidth'
+                        style : 'layout1',
+                        config: {
+                            scroll : 'content',
+                            navbar : {
+                                display : true,
+                                folded  : true,
+                                position: 'left'
+                            },
+                            toolbar: {
+                                display : true,
+                                style   : 'fixed',
+                                position: 'below'
+                            },
+                            footer : {
+                                display : true,
+                                style   : 'fixed',
+                                position: 'below'
+                            },
+                            mode   : 'fullwidth'
+                        }
                     },
                     customScrollbars: true,
-                    theme           : 'defaultDark',
-                    navbarTheme     : 'defaultDark',
-                    toolbarTheme    : 'defaultDark',
-                    footerTheme     : 'defaultDark'
+                    theme           : {
+                        main   : 'defaultDark',
+                        navbar : 'defaultDark',
+                        toolbar: 'defaultDark',
+                        footer : 'defaultDark'
+                    }
                 },
                 shortcuts    : [
                     'calendar',
@@ -44,17 +61,30 @@ let authDB = {
                 'email'      : 'arnold@withinpixels.com',
                 settings     : {
                     layout          : {
-                        navbar      : 'right',
-                        navbarFolded: false,
-                        toolbar     : 'above',
-                        footer      : 'above',
-                        mode        : 'boxed'
+                        style : 'layout2',
+                        config: {
+                            mode   : 'boxed',
+                            scroll : 'content',
+                            navbar : {
+                                display: true
+                            },
+                            toolbar: {
+                                display : true,
+                                position: 'below'
+                            },
+                            footer : {
+                                display: true,
+                                style  : 'fixed'
+                            }
+                        }
                     },
                     customScrollbars: true,
-                    theme           : 'greeny',
-                    navbarTheme     : 'currentThemeDark',
-                    toolbarTheme    : 'currentThemeDark',
-                    footerTheme     : 'currentThemeDark'
+                    theme           : {
+                        main   : 'greeny',
+                        navbar : 'mainThemeDark',
+                        toolbar: 'mainThemeDark',
+                        footer : 'mainThemeDark'
+                    }
                 },
                 shortcuts    : [
                     'calendar',

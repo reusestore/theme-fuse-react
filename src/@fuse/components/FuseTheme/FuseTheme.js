@@ -98,8 +98,8 @@ function updateLightDarkThemes(val)
     const theme = themesObj[val];
     themes = {
         ...themes,
-        currentThemeDark : createMuiTheme(_.merge({}, theme, {palette: {type: 'dark'}, ...mustHaveOptions})),
-        currentThemeLight: createMuiTheme(_.merge({}, theme, {palette: {type: 'light'}, ...mustHaveOptions}))
+        mainThemeDark : createMuiTheme(_.merge({}, theme, {palette: {type: 'dark'}, ...mustHaveOptions})),
+        mainThemeLight: createMuiTheme(_.merge({}, theme, {palette: {type: 'light'}, ...mustHaveOptions}))
     }
 }
 
@@ -133,7 +133,7 @@ class FuseTheme extends Component {
 function mapStateToProps({fuse})
 {
     return {
-        selectedTheme: fuse.settings.current.theme
+        selectedTheme: fuse.settings.current.theme.main
     }
 }
 

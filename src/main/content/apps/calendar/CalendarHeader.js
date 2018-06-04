@@ -140,7 +140,7 @@ class CalendarHeader extends Toolbar {
         const {classes, messages, label, date} = this.props;
 
         return (
-            <MuiThemeProvider theme={FuseThemes['currentThemeDark']}>
+            <MuiThemeProvider theme={FuseThemes['mainThemeDark']}>
 
                 <div className={classNames(classes.root, moment(date).format('MMM'))}>
 

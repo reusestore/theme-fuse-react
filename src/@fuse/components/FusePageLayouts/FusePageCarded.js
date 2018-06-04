@@ -17,7 +17,7 @@ const propTypes = {
     header             : PropTypes.node,
     content            : PropTypes.node,
     contentToolbar     : PropTypes.node,
-    singleScroll       : PropTypes.bool
+    innerScroll        : PropTypes.bool
 };
 
 const defaultProps = {};
@@ -31,15 +31,15 @@ const styles = theme => ({
     root                     : {
         display        : 'flex',
         flexDirection  : 'row',
-        height         : '100%',
         minHeight      : '100%',
         position       : 'relative',
-        flex           : '1 1 auto',
+        flex           : '1 0 auto',
+        height         : 'auto',
         backgroundColor: theme.palette.background.default
     },
-    singleScroll             : {
-        flex  : '1 0 auto',
-        height: 'auto'
+    innerScroll              : {
+        flex  : '1 1 auto',
+        height: '100%'
     },
     topBg                    : {
         position       : 'absolute',
@@ -186,14 +186,14 @@ class FusePageCarded extends React.Component {
 
     render()
     {
-        const {classes, rightSidebarHeader, rightSidebarContent, rightSidebarVariant, leftSidebarHeader, leftSidebarContent, leftSidebarVariant, header, content, contentToolbar, singleScroll} = this.props;
+        const {classes, rightSidebarHeader, rightSidebarContent, rightSidebarVariant, leftSidebarHeader, leftSidebarContent, leftSidebarVariant, header, content, contentToolbar, innerScroll} = this.props;
         const isRightSidebar = rightSidebarHeader || rightSidebarContent;
         const isLeftSidebar = leftSidebarHeader || leftSidebarContent;
 
         const Sidebar = (header, content, variant) => (
             <React.Fragment>
                 {header && (
-                    <MuiThemeProvider theme={FuseThemes['currentThemeDark']}>
+                    <MuiThemeProvider theme={FuseThemes['mainThemeDark']}>
                         <div className={classNames(classes.sidebarHeader, variant)}>
                             {header}
                         </div>
@@ -201,7 +201,7 @@ class FusePageCarded extends React.Component {
                 )}
 
                 {content && (
-                    <FuseScrollbars className={classes.sidebarContent} enable={!singleScroll}>
+                    <FuseScrollbars className={classes.sidebarContent} enable={innerScroll}>
                         {content}
                     </FuseScrollbars>
                 )}
@@ -251,7 +251,7 @@ class FusePageCarded extends React.Component {
         );
 
         return (
-            <div className={classNames(classes.root, singleScroll && classes.singleScroll)}
+            <div className={classNames(classes.root, innerScroll && classes.innerScroll)}
                  ref={(root) => {
                      this.root = root;
                  }}>
@@ -264,12 +264,12 @@ class FusePageCarded extends React.Component {
                     className={classNames(classes.contentWrapper, isLeftSidebar && (leftSidebarVariant === undefined || leftSidebarVariant === 'permanent') && 'lg:pl-0', isRightSidebar && (rightSidebarVariant === undefined || rightSidebarVariant === 'permanent') && 'lg:pr-0')}
                 >
                     <div className={classes.header}>
-                        <MuiThemeProvider theme={FuseThemes['currentThemeDark']}>
+                        <MuiThemeProvider theme={FuseThemes['mainThemeDark']}>
                             {header}
                         </MuiThemeProvider>
                     </div>
 
-                    <div className={classNames(classes.contentCard, singleScroll && 'single-scroll')}>
+                    <div className={classNames(classes.contentCard, innerScroll && 'inner-scroll')}>
 
                         {contentToolbar && (
                             <div className={classes.toolbar}>
@@ -278,7 +278,7 @@ class FusePageCarded extends React.Component {
                         )}
 
                         {content && (
-                            <FuseScrollbars className={classes.content} enable={!singleScroll}>
+                            <FuseScrollbars className={classes.content} enable={innerScroll}>
                                 {content}
                             </FuseScrollbars>
                         )}

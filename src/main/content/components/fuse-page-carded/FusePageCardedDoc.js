@@ -119,7 +119,7 @@ class FusePageCardedDoc extends Component {
                                         onRef={instance => {
                                             this.pageLayout = instance;
                                         }}
-                                        singleScroll
+                                        innerScroll
                                     />
                                 `
                             }
