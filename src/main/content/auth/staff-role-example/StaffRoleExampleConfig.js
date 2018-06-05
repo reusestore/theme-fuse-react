@@ -3,7 +3,9 @@ import StaffRoleExample from 'main/content/auth/staff-role-example/StaffRoleExam
 
 export const StaffRoleExampleConfig = {
     settings: {
-        layout: {}
+        layout: {
+            config: {}
+        }
     },
     auth    : authRoles.staff,//['admin','staff']
     routes  : [

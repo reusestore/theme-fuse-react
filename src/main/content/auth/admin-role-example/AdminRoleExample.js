@@ -50,7 +50,9 @@ class AdminRoleExample extends Component {
 
                             export const AdminRoleExampleConfig = {
                                 settings: {
-                                layout: {}
+                                    layout: {
+                                        config: {}
+                                    }
                                 },
                                 auth    : authRoles.admin,//['admin']
                                 routes  : [

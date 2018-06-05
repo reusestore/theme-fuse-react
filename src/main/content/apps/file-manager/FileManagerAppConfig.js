@@ -2,7 +2,9 @@ import FileManagerApp from './FileManagerApp';
 
 export const FileManagerAppConfig = {
     settings: {
-        layout: {}
+        layout: {
+            config: {}
+        }
     },
     routes  : [
         {

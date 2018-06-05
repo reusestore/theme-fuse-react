@@ -2,7 +2,9 @@ import MailConfirmPage from 'main/content/pages/auth/mail-confirm/MailConfirmPag
 
 export const MailConfirmPageConfig = {
     settings: {
-        layout: {}
+        layout: {
+            config: {}
+        }
     },
     routes  : [
         {

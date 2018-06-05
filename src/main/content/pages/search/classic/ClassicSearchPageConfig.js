@@ -2,7 +2,9 @@ import ClassicSearchPage from 'main/content/pages/search/classic/ClassicSearchPa
 
 export const ClassicSearchPageConfig = {
     settings: {
-        layout: {}
+        layout: {
+            config: {}
+        }
     },
     routes  : [
         {

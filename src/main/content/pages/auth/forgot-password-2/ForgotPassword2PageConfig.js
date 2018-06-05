@@ -2,7 +2,9 @@ import ForgotPassword2Page from 'main/content/pages/auth/forgot-password-2/Forgo
 
 export const ForgotPassword2PageConfig = {
     settings: {
-        layout: {}
+        layout: {
+            config: {}
+        }
     },
     routes  : [
         {

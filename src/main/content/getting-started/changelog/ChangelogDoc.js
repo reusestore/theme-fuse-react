@@ -27,6 +27,86 @@ class ChangelogDoc extends Component {
                     <div className="p-24 max-w-2xl mx-auto">
 
                         <div className="flex items-center mb-32 mt-48">
+                            <Typography className="text-28" component="h2">v1.1.0</Typography>
+                            <Typography className="text-16 ml-8" color="textSecondary" component="h3">(2018-06-06)</Typography>
+                        </div>
+
+                        <div className="mb-24">
+                            <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">NEW:</Typography>
+                            <ul>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Layout system enhanced.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        New Horizontal Layout added (layout-2).
+                                    </Typography>
+                                </li>
+
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        <code>react-poper</code> added as dependency, its used for horizontal navigation
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        <code>Material UI Next</code> updated to v1.2.0
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Other dependency packages Updated.
+                                    </Typography>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div className="mb-24">
+                            <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">FIX:</Typography>
+                            <ul>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Dialog form of Contacts App and Calendar App fixed due to React 16.4.0 bugfix for getDeriveredStateFromProps
+                                    </Typography>
+                                    <Typography className="text-14 mb-8">
+                                        (https://reactjs.org/blog/2018/05/23/react-v-16-4.html#bugfix-for-getderivedstatefromprops).
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Actions and reducers of fuse navigation fixed.
+                                    </Typography>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div className="mb-24">
+                            <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">BREAKING CHANGES:</Typography>
+                            <ul>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Layout and Theme settings data structure changed.
+                                    </Typography>
+                                    <Typography className="text-14 mb-8">
+                                        If you are storing the user data at database, old saved user settings will not work with this version.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Page Layouts default scroll behaviour changed to singleScroll due to new layout mechanism, additional innerScroll attribute also added.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        FuseSettings separated from the settings panel.
+                                    </Typography>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div className="flex items-center mb-32 mt-48">
                             <Typography className="text-28" component="h2">v1.0.5</Typography>
                             <Typography className="text-16 ml-8" color="textSecondary" component="h3">(2018-05-29)</Typography>
                         </div>
@@ -57,7 +137,10 @@ class ChangelogDoc extends Component {
                                 </li>
                                 <li>
                                     <Typography className="text-14 mb-8">
-                                        Navigation Collapse fixed due to React 16.4.0 bugfix for getDeriveredStateFromProps (https://reactjs.org/blog/2018/05/23/react-v-16-4.html#bugfix-for-getderivedstatefromprops),
+                                        Navigation Collapse fixed due to React 16.4.0 bugfix for getDeriveredStateFromProps
+                                    </Typography>
+                                    <Typography className="text-14 mb-8">
+                                        (https://reactjs.org/blog/2018/05/23/react-v-16-4.html#bugfix-for-getderivedstatefromprops).
                                     </Typography>
                                 </li>
                             </ul>

@@ -2,7 +2,9 @@ import KnowledgeBasePage from 'main/content/pages/knowledge-base/KnowledgeBasePa
 
 export const KnowledgeBasePageConfig = {
     settings: {
-        layout: {}
+        layout: {
+            config: {}
+        }
     },
     routes  : [
         {

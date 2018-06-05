@@ -2,7 +2,9 @@ import ResetPassword2Page from 'main/content/pages/auth/reset-password-2/ResetPa
 
 export const ResetPassword2PageConfig = {
     settings: {
-        layout: {}
+        layout: {
+            config: {}
+        }
     },
     routes  : [
         {

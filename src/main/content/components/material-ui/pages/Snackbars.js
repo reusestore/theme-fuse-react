@@ -91,6 +91,15 @@ function Snackbars({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/snackbars/ConsecutiveSnackbars.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/snackbars/ConsecutiveSnackbars.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Customized Snackbars</Typography>
+                    <Typography className="mb-16" component="div">If you have been reading the <a href="/customization/overrides">overrides documentation page</a>
+                        but you are not confident jumping in,
+                        here are examples of how you can change the look of a Snackbar.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        component={require('main/content/components/material-ui/material-ui-examples/snackbars/CustomizedSnackbars.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/snackbars/CustomizedSnackbars.js')}
+                    /></Typography>
 
                 </div>
             }

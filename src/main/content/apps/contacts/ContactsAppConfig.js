@@ -4,7 +4,9 @@ import {Redirect} from 'react-router-dom';
 
 export const ContactsAppConfig = {
     settings: {
-        layout: {}
+        layout: {
+            config: {}
+        }
     },
     routes  : [
         {

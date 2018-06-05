@@ -39,7 +39,9 @@ class GuestRoleExample extends Component {
 
                             export const GuestRoleExampleConfig = {
                                 settings: {
-                                    layout: {}
+                                    layout: {
+                                        config: {}
+                                    }
                                 },
                                 auth    : authRoles.onlyGuest,//['guest']
                                 routes  : [

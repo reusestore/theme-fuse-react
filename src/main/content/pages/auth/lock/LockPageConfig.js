@@ -2,7 +2,9 @@ import LockPage from 'main/content/pages/auth/lock/LockPage';
 
 export const LockPageConfig = {
     settings: {
-        layout: {}
+        layout: {
+            config: {}
+        }
     },
     routes  : [
         {

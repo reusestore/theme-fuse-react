@@ -3,7 +3,9 @@ import AdminRoleExample from 'main/content/auth/admin-role-example/AdminRoleExam
 
 export const AdminRoleExampleConfig = {
     settings: {
-        layout: {}
+        layout: {
+            config: {}
+        }
     },
     auth    : authRoles.admin,//['admin']
     routes  : [

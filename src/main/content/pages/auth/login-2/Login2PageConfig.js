@@ -2,7 +2,9 @@ import Login2Page from 'main/content/pages/auth/login-2/Login2Page';
 
 export const Login2PageConfig = {
     settings: {
-        layout: {}
+        layout: {
+            config: {}
+        }
     },
     routes  : [
         {

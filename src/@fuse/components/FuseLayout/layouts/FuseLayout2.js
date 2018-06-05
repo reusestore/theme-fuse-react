@@ -15,36 +15,21 @@ const navbarWidth = 256;
 
 const styles = theme => ({
     root               : {
-        display           : 'flex',
-        flexDirection     : 'column',
-        width             : '100%',
-        height            : '100%',
-        overflow          : 'hidden',
-        '&.boxed'         : {
+        display      : 'flex',
+        flexDirection: 'column',
+        width        : '100%',
+        height       : '100%',
+        overflow     : 'hidden',
+        '&.boxed'    : {
             maxWidth : 1280,
             margin   : '0 auto',
             boxShadow: theme.shadows[3]
-        },
-        '&.scroll-body'   : {
-            '& $contentWrapper': {},
-            '& $content'       : {}
-        },
-        '&.scroll-content': {
-            '& $contentWrapper': {},
-            '& $content'       : {}
         }
-    },
-    contentWrapper     : {
-        display      : 'flex',
-        flexDirection: 'column',
-        zIndex       : 3,
-        overflow     : 'auto',
-        flex         : '1 1 auto'
     },
     content            : {
         display                     : 'flex',
         overflow                    : 'auto',
-        flex                        : '1 0 auto',
+        flex                        : '1 1 auto',
         flexDirection               : 'column',
         width                       : '100%',
         '-webkit-overflow-scrolling': 'touch'
@@ -146,9 +131,9 @@ class FuseLayout2 extends Component {
         );
 
         const navbarContentTemplate = (
-            <FuseScrollbars className={classes.navbarContent}>
+            <div className={classes.navbarContent}>
                 {navbarContent}
-            </FuseScrollbars>
+            </div>
         );
 
         const navBarTemplate = (
@@ -246,12 +231,9 @@ class FuseLayout2 extends Component {
                     toolbarTemplate
                 )}
 
-                <FuseScrollbars className={classNames(classes.contentWrapper)}>
-
-                    <div className={classes.content}>
-                        <FuseMessage/>
-                        {renderRoutes(this.props.routes)}
-                    </div>
+                <FuseScrollbars className={classes.content}>
+                    <FuseMessage/>
+                    {renderRoutes(this.props.routes)}
 
                     {layoutConfig.footer.display && layoutConfig.footer.style === 'static' && (
                         footerTemplate

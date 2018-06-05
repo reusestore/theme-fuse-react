@@ -3,7 +3,9 @@ import GuestRoleExample from 'main/content/auth/only-guest-role-example/GuestRol
 
 export const GuestRoleExampleConfig = {
     settings: {
-        layout: {}
+        layout: {
+            config: {}
+        }
     },
     auth    : authRoles.onlyGuest,//['guest']
     routes  : [

@@ -2,7 +2,9 @@ import PricingStyle3Page from 'main/content/pages/pricing/style-3/PricingStyle3P
 
 export const PricingStyle3PageConfig = {
     settings: {
-        layout: {}
+        layout: {
+            config: {}
+        }
     },
     routes  : [
         {

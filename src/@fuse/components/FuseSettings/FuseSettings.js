@@ -212,6 +212,11 @@ class FuseSettings extends Component {
                     <LayoutSelect/>
 
                     <LayoutConfig/>
+
+                    <Typography className="my-16 text-12 italic" color="textSecondary">
+                        *Not all option combinations are available
+                    </Typography>
+
                 </div>
 
                 <div className={classNames(classes.formGroup, "pb-16")}>

@@ -2,7 +2,9 @@ import Error500Page from 'main/content/pages/errors/500/Error500Page';
 
 export const Error500PageConfig = {
     settings: {
-        layout: {}
+        layout: {
+            config: {}
+        }
     },
     routes  : [
         {

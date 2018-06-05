@@ -2,7 +2,9 @@ import CalendarApp from 'main/content/apps/calendar/CalendarApp';
 
 export const CalendarAppConfig = {
     settings: {
-        layout: {}
+        layout: {
+            config: {}
+        }
     },
     routes  : [
         {

@@ -2,7 +2,9 @@ import ModernSearchPage from 'main/content/pages/search/modern/ModernSearchPage'
 
 export const ModernSearchPageConfig = {
     settings: {
-        layout: {}
+        layout: {
+            config: {}
+        }
     },
     routes  : [
         {

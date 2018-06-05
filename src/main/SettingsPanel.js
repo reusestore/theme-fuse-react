@@ -1,22 +1,23 @@
 import React, {Component} from 'react';
-import {Button, Paper, Icon, IconButton, Slide, withStyles, ClickAwayListener} from '@material-ui/core';
+import {Button, Typography, Paper, Icon, IconButton, Slide, withStyles, ClickAwayListener} from '@material-ui/core';
 import {FuseScrollbars, FuseSettings} from '@fuse';
 import ownerDocument from 'dom-helpers/ownerDocument';
 import keycode from 'keycode';
+import classNames from 'classnames';
 
 const styles = theme => ({
-    root                 : {
-        position: 'fixed',
-        top     : 160,
-        right   : 0,
-        zIndex  : 999
-    },
     button               : {
-        minWidth: 48,
-        width   : 48,
-        height  : 48,
-        opacity : .75,
-        padding : 0
+        position               : 'fixed',
+        right                  : 0,
+        top                    : 160,
+        minWidth               : 48,
+        width                  : 48,
+        height                 : 48,
+        opacity                : .75,
+        padding                : 0,
+        borderBottomRightRadius: 0,
+        borderTopRightRadius   : 0,
+        zIndex                 : 999
     },
     '@keyframes rotating': {
         from: {
@@ -40,7 +41,8 @@ const styles = theme => ({
         minHeight      : '100%',
         bottom         : 0,
         right          : 0,
-        margin         : 0
+        margin         : 0,
+        zIndex         : 1000
     }
 });
 
@@ -72,28 +74,32 @@ class SettingsPanel extends Component {
     render()
     {
         const {classes} = this.props;
-
         return (
-            <div className={classes.root}>
+            <React.Fragment>
                 <Button className={classes.button} variant="raised" color="secondary" onClick={this.handleOpen}>
                     <Icon className={classes.buttonIcon}>settings</Icon>
                 </Button>
 
                 <ClickAwayListener onClickAway={this.handleClose}>
                     <Slide in={this.state.open} direction="left">
-                        <Paper className={classes.dialogPaper}>
-                            <FuseScrollbars className="p-24 sm:p-32 h-full">
-                                <IconButton className="fixed pin-t pin-r z-10" onClick={this.handleClose}>
-                                    <Icon>close</Icon>
-                                </IconButton>
+                        {(state) => (
+                            <Paper className={classNames(classes.dialogPaper, {"hidden": state === "exited"})}>
+                                <FuseScrollbars className="p-24 sm:p-32 h-full overflow-y-auto">
+                                    <IconButton className="fixed pin-t pin-r z-10" onClick={this.handleClose}>
+                                        <Icon>close</Icon>
+                                    </IconButton>
 
-                                <FuseSettings/>
-                            </FuseScrollbars>
-                        </Paper>
+                                    <Typography className="mb-32" variant="title">Theme Settings</Typography>
+
+                                    <FuseSettings/>
+
+                                </FuseScrollbars>
+                            </Paper>
+                        )}
                     </Slide>
                 </ClickAwayListener>
 
-            </div>
+            </React.Fragment>
         );
     }
 }

@@ -2,7 +2,9 @@ import ForgotPasswordPage from 'main/content/pages/auth/forgot-password/ForgotPa
 
 export const ForgotPasswordPageConfig = {
     settings: {
-        layout: {}
+        layout: {
+            config: {}
+        }
     },
     routes  : [
         {

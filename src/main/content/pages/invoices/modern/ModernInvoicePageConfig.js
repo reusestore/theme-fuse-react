@@ -2,7 +2,9 @@ import ModernInvoicePage from 'main/content/pages/invoices/modern/ModernInvoiceP
 
 export const ModernInvoicePageConfig = {
     settings: {
-        layout: {}
+        layout: {
+            config: {}
+        }
     },
     routes  : [
         {

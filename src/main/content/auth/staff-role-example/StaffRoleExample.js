@@ -50,7 +50,9 @@ class StaffRoleExample extends Component {
 
                             export const StaffRoleExampleConfig = {
                                 settings: {
-                                    layout: {}
+                                    layout: {
+                                        config: {}
+                                    }
                                 },
                                 auth    : authRoles.staff,//['admin',staff']
                                 routes  : [

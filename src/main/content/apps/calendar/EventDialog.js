@@ -29,34 +29,33 @@ const defaultEventState = {
 class EventDialog extends Component {
     state = {...defaultEventState};
 
-    static getDerivedStateFromProps(nextProps, prevState)
+    componentDidUpdate(prevProps, prevState, snapshot)
     {
         /**
          * After Dialog Open
          */
-        if ( nextProps.eventDialog.props.open )
+        if ( !prevProps.eventDialog.props.open && this.props.eventDialog.props.open )
         {
             /**
              * Dialog type: 'edit'
              * Update State
              */
-            if ( nextProps.eventDialog.type === 'edit' &&
-                nextProps.eventDialog.data &&
-                !_.isEqual(nextProps.eventDialog.data, prevState) )
+            if ( this.props.eventDialog.type === 'edit' &&
+                this.props.eventDialog.data &&
+                !_.isEqual(this.props.eventDialog.data, prevState) )
             {
-                return {...nextProps.eventDialog.data};
+                this.setState({...this.props.eventDialog.data});
             }
 
             /**
              * Dialog type: 'new'
              * Update State
              */
-            if ( nextProps.eventDialog.type === 'new' )
+            if ( this.props.eventDialog.type === 'new' )
             {
-                return {...defaultEventState, ...nextProps.eventDialog.data};
+                this.setState({...defaultEventState, ...this.props.eventDialog.data});
             }
         }
-        return null;
     }
 
     handleChange = (event) => {
@@ -92,70 +91,68 @@ class EventDialog extends Component {
                     </Toolbar>
                 </AppBar>
 
-                <DialogContent>
-                    <div className="p-24">
-                        <FormControl className={classes.formControl} required fullWidth>
-                            <InputLabel htmlFor="title">Title</InputLabel>
-                            <Input autoFocus id="title" name="title" value={this.state.title} onChange={this.handleChange}/>
-                        </FormControl>
+                <DialogContent classes={{root: "p-24"}}>
+                    <FormControl className={classes.formControl} required fullWidth>
+                        <InputLabel htmlFor="title">Title</InputLabel>
+                        <Input autoFocus id="title" name="title" value={this.state.title} onChange={this.handleChange}/>
+                    </FormControl>
 
-                        <FormControlLabel
+                    <FormControlLabel
+                        className={classes.formControl}
+                        label="All Day"
+                        control={
+                            <Switch
+                                checked={this.state.allDay}
+                                id="allDay" name="allDay" onChange={this.handleChange}
+                            />
+                        }/>
+
+                    <div className="flex">
+                        <TextField
+                            id="start"
+                            name="start"
+                            label="Start"
+                            type="datetime-local"
                             className={classes.formControl}
-                            label="All Day"
-                            control={
-                                <Switch
-                                    checked={this.state.allDay}
-                                    id="allDay" name="allDay" onChange={this.handleChange}
-                                />
-                            }/>
+                            InputLabelProps={{
+                                shrink: true
+                            }}
+                            inputProps={{
+                                max: end
+                            }}
+                            value={start}
+                            onChange={this.handleChange}
+                        />
+                    </div>
 
-                        <div className="flex">
-                            <TextField
-                                id="start"
-                                name="start"
-                                label="Start"
-                                type="datetime-local"
-                                className={classes.formControl}
-                                InputLabelProps={{
-                                    shrink: true
-                                }}
-                                inputProps={{
-                                    max: end
-                                }}
-                                value={start}
-                                onChange={this.handleChange}
-                            />
-                        </div>
+                    <div className="flex">
+                        <TextField
+                            id="end"
+                            name="end"
+                            label="End"
+                            type="datetime-local"
+                            className={classes.formControl}
+                            InputLabelProps={{
+                                shrink: true
+                            }}
+                            inputProps={{
+                                min: start
+                            }}
+                            value={end}
+                            onChange={this.handleChange}
+                        />
+                    </div>
 
-                        <div className="flex">
-                            <TextField
-                                id="end"
-                                name="end"
-                                label="End"
-                                type="datetime-local"
-                                className={classes.formControl}
-                                InputLabelProps={{
-                                    shrink: true
-                                }}
-                                inputProps={{
-                                    min: start
-                                }}
-                                value={end}
-                                onChange={this.handleChange}
-                            />
-                        </div>
-
-                        <div className="flex">
-                            <TextField
-                                className={classes.formControl}
-                                id="desc" label="Description"
-                                type="text"
-                                name="desc"
-                                value={this.state.desc}
-                                onChange={this.handleChange}
-                                multiline rows={5} fullWidth
-                            />
-                        </div>
+                    <div className="flex">
+                        <TextField
+                            className={classes.formControl}
+                            id="desc" label="Description"
+                            type="text"
+                            name="desc"
+                            value={this.state.desc}
+                            onChange={this.handleChange}
+                            multiline rows={5} fullWidth
+                        />
                     </div>
                 </DialogContent>
 

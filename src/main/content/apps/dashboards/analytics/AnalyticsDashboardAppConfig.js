@@ -2,7 +2,9 @@ import AnalyticsDashboardApp from './AnalyticsDashboardApp';
 
 export const AnalyticsDashboardAppConfig = {
     settings: {
-        layout: {}
+        layout: {
+            config: {}
+        }
     },
     routes  : [
         {

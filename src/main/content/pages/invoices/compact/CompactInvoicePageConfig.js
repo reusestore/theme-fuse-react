@@ -2,7 +2,9 @@ import CompactInvoicePage from 'main/content/pages/invoices/compact/CompactInvoi
 
 export const CompactInvoicePageConfig = {
     settings: {
-        layout: {}
+        layout: {
+            config: {}
+        }
     },
     routes  : [
         {

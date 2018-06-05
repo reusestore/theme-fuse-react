@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles/index';
 import classNames from 'classnames';
-import {Avatar, Button, Icon, IconButton, ListItemIcon, ListItemText, Menu, MenuItem, Typography} from '@material-ui/core';
+import {Avatar, Button, Icon, IconButton, ListItemIcon, ListItemText, Popover, MenuItem, Typography} from '@material-ui/core';
 import {connect} from 'react-redux';
 import * as quickPanelActions from 'main/quickPanel/store/actions';
 import * as authActions from 'auth/store/actions';
@@ -48,13 +48,7 @@ class MainToolbar extends Component {
                 </div>
 
                 <div className="flex">
-
-                    <Button
-                        className="h-64"
-                        aria-owns={userMenu ? 'user-menu' : null}
-                        aria-haspopup="true"
-                        onClick={this.userMenuClick}
-                    >
+                    <Button className="h-64" onClick={this.userMenuClick}>
                         {user.data.photoURL ?
                             (
                                 <Avatar className="" alt="user photo" src={user.data.photoURL}/>
@@ -78,13 +72,21 @@ class MainToolbar extends Component {
 
                         <Icon className="text-16 ml-12 hidden sm:flex" variant="action">keyboard_arrow_down</Icon>
                     </Button>
-                    <Menu
-                        id="user-menu"
-                        anchorEl={userMenu}
+
+                    <Popover
                         open={Boolean(userMenu)}
+                        anchorEl={userMenu}
                         onClose={this.userMenuClose}
+                        anchorOrigin={{
+                            vertical  : 'bottom',
+                            horizontal: 'center'
+                        }}
+                        transformOrigin={{
+                            vertical  : 'top',
+                            horizontal: 'center'
+                        }}
                         classes={{
-                            paper: 'mt-48'
+                            paper: "py-8"
                         }}
                     >
                         {user.role === 'guest' ? (
@@ -129,7 +131,7 @@ class MainToolbar extends Component {
                                 </MenuItem>
                             </React.Fragment>
                         )}
-                    </Menu>
+                    </Popover>
 
                     <div className={classes.seperator}/>
 

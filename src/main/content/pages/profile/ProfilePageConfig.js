@@ -2,7 +2,9 @@ import ProfilePage from 'main/content/pages/profile/ProfilePage';
 
 export const ProfilePageConfig = {
     settings: {
-        layout: {}
+        layout: {
+            config: {}
+        }
     },
     routes  : [
         {

@@ -2,7 +2,9 @@ import ComingSoonPage from 'main/content/pages/coming-soon/ComingSoonPage';
 
 export const ComingSoonPageConfig = {
     settings: {
-        layout: {}
+        layout: {
+            config: {}
+        }
     },
     routes  : [
         {

@@ -38,37 +38,47 @@ function Buttons({classes})
                         when the user touches them.</Typography>
                     <Typography className="mb-16" component="div">Material buttons trigger an ink reaction on press.
                         They may display text, imagery, or both.
-                        Flat buttons and raised buttons are the most commonly used types.</Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Flat Buttons</Typography>
-                    <Typography className="mb-16" component="div">Flat buttons are text-only buttons.
-                        They may be used in dialogs, toolbars, or inline.
-                        They do not lift, but fill with color on press.</Typography>
+                        Text buttons and Contained buttons are the most commonly used types.</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Text Buttons</Typography>
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/buttons.html#text-button">Text buttons</a>
+                        are typically used for less-pronounced actions, including those located:</Typography>
+                    <ul>
+                        <li>In dialogs</li>
+                        <li>In cards</li>
+                    </ul>
+                    <Typography className="mb-16" component="div">In cards, text buttons help maintain an emphasis on card content.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
-                        component={require('main/content/components/material-ui/material-ui-examples/buttons/FlatButtons.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/FlatButtons.js')}
+                        component={require('main/content/components/material-ui/material-ui-examples/buttons/TextButtons.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/TextButtons.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Outlined Buttons</Typography>
-                    <Typography className="mb-16" component="div">Outlined buttons are text-only buttons with medium emphasis.
-                        They behave like flat buttons but have an outline and are typically used for actions that are important, but
-                        aren’t the primary action in an app.</Typography>
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/buttons.html#outlined-button">Outlined buttons</a>
+                        are medium-emphasis buttons. They contain actions that are important,
+                        but aren’t the primary action in an app.</Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Alternatives</Typography>
+                    <Typography className="mb-16" component="div">Outlined buttons are also a lower emphasis alternative to contained buttons,
+                        or a higher emphasis alternative to text buttons.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/buttons/OutlinedButtons.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/OutlinedButtons.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Raised Buttons</Typography>
-                    <Typography className="mb-16" component="div">Raised buttons are rectangular-shaped buttons.
-                        They may be used inline. They lift and display ink reactions on press.</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Contained Buttons</Typography>
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/buttons.html#contained-button">Contained buttons</a>
+                        are high-emphasis, distinguished by their use of elevation and fill.
+                        They contain actions that are primary to your app.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
-                        component={require('main/content/components/material-ui/material-ui-examples/buttons/RaisedButtons.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/RaisedButtons.js')}
+                        component={require('main/content/components/material-ui/material-ui-examples/buttons/ContainedButtons.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/ContainedButtons.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Floating Action Buttons</Typography>
-                    <Typography className="mb-16" component="div">A floating action button represents the primary action in an application.
-                        Shaped like a circled icon floating above the UI, it has an ink wash upon focus and lifts upon selection.
-                        When pressed, it may contain more related actions.</Typography>
+                    <Typography className="mb-16" component="div">A <a href="https://material.io/design/components/buttons-floating-action-button.html">floating action button</a>
+                        (FAB) performs the primary, or most common, action on a screen.
+                        It appears in front of all screen content, typically as a circular shape with an icon in its center.
+                        FABs come in three types: regular, mini, and extended.</Typography>
+                    <Typography className="mb-16" component="div">Only use a FAB if it is the most suitable way to present a screen’s primary action.</Typography>
                     <Typography className="mb-16" component="div">Only one floating action button is recommended per screen to represent the most common action.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -121,8 +131,8 @@ function Buttons({classes})
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/CustomizedButtons.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Complex Buttons</Typography>
-                    <Typography className="mb-16" component="div">The Flat Buttons, Raised Buttons, Floating Action Buttons and Icon Buttons are built on top of the same component:
-                        the <code>ButtonBase</code>.
+                    <Typography className="mb-16" component="div">The Text Buttons, Contained Buttons, Floating Action Buttons and Icon Buttons are built on top of the same
+                        component: the <code>ButtonBase</code>.
                         You can take advantage of this lower level component to build custom interactions.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
