@@ -54,21 +54,25 @@ export function registerWithFirebase(model)
                 });
             })
             .catch(error => {
-
                 const usernameErrorCodes = [
-                    'auth/email-already-in-use',
-                    'auth/invalid-email',
                     'auth/operation-not-allowed',
                     'auth/user-not-found',
                     'auth/user-disabled'
                 ];
+
+                const emailErrorCodes = [
+                    'auth/email-already-in-use',
+                    'auth/invalid-email',
+                ];
+
                 const passwordErrorCodes = [
                     'auth/weak-password',
                     'auth/wrong-password'
                 ];
 
                 const response = {
-                    username: usernameErrorCodes.includes(error.code) ? error.message : null,
+                    email: emailErrorCodes.includes(error.code) ? error.message : null,
+                    displayName: usernameErrorCodes.includes(error.code) ? error.message : null,
                     password: passwordErrorCodes.includes(error.code) ? error.message : null
                 };
 

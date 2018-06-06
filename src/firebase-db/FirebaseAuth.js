@@ -27,10 +27,14 @@ class FirebaseAuth extends Component {
                     .once('value')
                     .then((snapshot) => {
                         const user = snapshot.val();
-                        if ( user && user.data )
+                        if ( user && user.data &&
+                            user.data.settings &&
+                            user.data.settings.theme &&
+                            user.data.settings.layout &&
+                            user.data.settings.layout.style )
                         {
                             // Set user data but do not update
-                            setUserData(snapshot.val(), true);
+                            setUserData(user, true);
                         }
                         else
                         {

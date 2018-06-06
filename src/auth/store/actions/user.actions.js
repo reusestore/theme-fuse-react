@@ -40,6 +40,7 @@ export function createUserSettings(authUser)
 {
     return (dispatch, getState) => {
         const guestUser = getState().auth.user;
+        const fuseDefaultSettings = getState().fuse.settings.defaults;
         const currentUser = firebase.auth().currentUser;
 
         /**
@@ -52,7 +53,8 @@ export function createUserSettings(authUser)
                 role: "admin",
                 data: {
                     displayName: authUser.displayName,
-                    email      : authUser.email
+                    email      : authUser.email,
+                    settings   : {...fuseDefaultSettings}
                 }
             }
         );

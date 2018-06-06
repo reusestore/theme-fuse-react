@@ -45,7 +45,7 @@ class Register extends Component {
 
     componentDidUpdate(prevProps, prevState)
     {
-        if ( this.props.login.error && (this.props.login.error.displayName || this.props.login.error.password) )
+        if ( this.props.login.error && (this.props.login.error.displayName || this.props.login.error.password || this.props.login.error.email) )
         {
             this.form.updateInputsWithError({
                 ...this.props.login.error
