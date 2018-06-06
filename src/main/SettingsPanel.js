@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
-import {Button, Typography, Paper, Icon, IconButton, Slide, withStyles, ClickAwayListener} from '@material-ui/core';
+import {Button, Typography, Dialog, Icon, IconButton, Slide, withStyles} from '@material-ui/core';
 import {FuseScrollbars, FuseSettings} from '@fuse';
 import ownerDocument from 'dom-helpers/ownerDocument';
 import keycode from 'keycode';
-import classNames from 'classnames';
+
+function Transition(props)
+{
+    return <Slide direction="left" {...props} />;
+}
 
 const styles = theme => ({
     button               : {
@@ -80,25 +84,29 @@ class SettingsPanel extends Component {
                     <Icon className={classes.buttonIcon}>settings</Icon>
                 </Button>
 
-                <ClickAwayListener onClickAway={this.handleClose}>
-                    <Slide in={this.state.open} direction="left">
-                        {(state) => (
-                            <Paper className={classNames(classes.dialogPaper, {"hidden": state === "exited"})}>
-                                <FuseScrollbars className="p-24 sm:p-32 h-full overflow-y-auto">
-                                    <IconButton className="fixed pin-t pin-r z-10" onClick={this.handleClose}>
-                                        <Icon>close</Icon>
-                                    </IconButton>
+                <Dialog
+                    TransitionComponent={Transition}
+                    aria-labelledby="simple-modal-title"
+                    aria-describedby="simple-modal-description"
+                    open={this.state.open}
+                    keepMounted
+                    onClose={this.handleClose}
+                    BackdropProps={{invisible: true}}
+                    classes={{
+                        paper: classes.dialogPaper
+                    }}
+                >
+                    <FuseScrollbars className="p-24 sm:p-32">
+                        <IconButton className="fixed pin-t pin-r z-10" onClick={this.handleClose}>
+                            <Icon>close</Icon>
+                        </IconButton>
 
-                                    <Typography className="mb-32" variant="title">Theme Settings</Typography>
+                        <Typography className="mb-32" variant="title">Theme Settings</Typography>
 
-                                    <FuseSettings/>
+                        <FuseSettings/>
 
-                                </FuseScrollbars>
-                            </Paper>
-                        )}
-                    </Slide>
-                </ClickAwayListener>
-
+                    </FuseScrollbars>
+                </Dialog>
             </React.Fragment>
         );
     }
