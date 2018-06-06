@@ -60,6 +60,7 @@ function FuseNavVerticalItem({item, classes, nestedLevel, userRole, navbarCloseM
             activeClassName="active"
             className={classNames(classes.root, listItemPadding)}
             onClick={navbarCloseMobile}
+            exact={item.exact}
         >
             {item.icon && (
                 <Icon className="list-item-icon text-16 flex-no-shrink" color="action">{item.icon}</Icon>
