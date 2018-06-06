@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {Button, Typography, Dialog, Icon, IconButton, Slide, withStyles} from '@material-ui/core';
 import {FuseScrollbars, FuseSettings} from '@fuse';
-import ownerDocument from 'dom-helpers/ownerDocument';
-import keycode from 'keycode';
 
 function Transition(props)
 {
@@ -56,23 +54,11 @@ class SettingsPanel extends Component {
     };
 
     handleOpen = () => {
-        const doc = ownerDocument(this.mountNode);
         this.setState({open: true});
-        doc.addEventListener('keydown', this.handleDocumentKeyDown);
     };
 
     handleClose = () => {
-        const doc = ownerDocument(this.mountNode);
         this.setState({open: false});
-        doc.removeEventListener('keydown', this.handleDocumentKeyDown);
-    };
-
-    handleDocumentKeyDown = (event) => {
-        if ( keycode(event) !== 'esc' )
-        {
-            return;
-        }
-        this.handleClose();
     };
 
     render()
