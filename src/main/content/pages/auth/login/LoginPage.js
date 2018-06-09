@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles/index';
-import {Button, Card, CardContent, Checkbox, Divider, FormControl, FormControlLabel, Grow, Input, InputLabel, Typography} from '@material-ui/core';
+import {Button, Card, CardContent, Checkbox, Divider, FormControl, FormControlLabel, Input, InputLabel, Typography} from '@material-ui/core';
 import classNames from 'classnames';
 import {Link} from 'react-router-dom';
 import _ from 'lodash';
+import {FuseAnimate} from '@fuse';
 
 const styles = theme => ({
     root: {
@@ -44,7 +45,9 @@ class LoginPage extends Component {
             <div className={classNames(classes.root, "flex flex-col flex-auto flex-no-shrink items-center justify-center p-32")}>
 
                 <div className="flex flex-col items-center justify-center w-full">
-                    <Grow in={true}>
+
+                    <FuseAnimate animation="transition.expandIn">
+
                         <Card className={classes.card}>
 
                             <CardContent className="flex flex-col items-center justify-center p-32">
@@ -124,7 +127,7 @@ class LoginPage extends Component {
 
                             </CardContent>
                         </Card>
-                    </Grow>
+                    </FuseAnimate>
                 </div>
             </div>
         );

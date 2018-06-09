@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles';
-import {FusePageSimple} from '@fuse';
+import {FusePageSimple, FuseAnimate} from '@fuse';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
@@ -80,16 +80,25 @@ class FileManagerApp extends Component {
                             >
                                 <Icon>menu</Icon>
                             </IconButton>
-
-                            <IconButton aria-label="search">
-                                <Icon>search</Icon>
-                            </IconButton>
+                            <FuseAnimate animation="transition.expandIn" delay={200}>
+                                <IconButton aria-label="search">
+                                    <Icon>search</Icon>
+                                </IconButton>
+                            </FuseAnimate>
                         </div>
                         <div className="flex flex-1 items-end">
-                            <Button variant="fab" color="secondary" aria-label="add" className={classes.addButton}>
-                                <Icon>add</Icon>
-                            </Button>
-                            {selected && <Breadcrumb className="flex flex-1 pl-72 pb-12"/>}
+                            <FuseAnimate animation="transition.expandIn" delay={600}>
+                                <Button variant="fab" color="secondary" aria-label="add" className={classes.addButton}>
+                                    <Icon>add</Icon>
+                                </Button>
+                            </FuseAnimate>
+                            <FuseAnimate delay={200}>
+                                <div>
+                                    {selected && (
+                                        <Breadcrumb className="flex flex-1 pl-72 pb-12"/>
+                                    )}
+                                </div>
+                            </FuseAnimate>
                         </div>
                     </div>
                 }

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles';
-import {FusePageSimple} from '@fuse';
+import {FusePageSimple, FuseAnimate} from '@fuse';
 import {Avatar, Button, Tab, Tabs, Typography} from '@material-ui/core';
 import TimelineTab from 'main/content/pages/profile/tabs/TimelineTab';
 import PhotosVideosTab from 'main/content/pages/profile/tabs/PhotosVideosTab';
@@ -56,8 +56,12 @@ class ProfilePage extends Component {
                 header={
                     <div className="p-24 flex flex-1 flex-col items-center justify-center md:flex-row md:items-end">
                         <div className="flex flex-1 flex-col items-center justify-center md:flex-row md:items-center md:justify-start">
-                            <Avatar className="w-96 h-96" src="assets/images/avatars/katherine.jpg"/>
-                            <Typography className="md:ml-24" variant="display1" color="inherit">Katherine Wilson</Typography>
+                            <FuseAnimate animation="transition.expandIn" delay={300}>
+                                <Avatar className="w-96 h-96" src="assets/images/avatars/katherine.jpg"/>
+                            </FuseAnimate>
+                            <FuseAnimate animation="transition.slideLeftIn" delay={300}>
+                                <Typography className="md:ml-24" variant="display1" color="inherit">Katherine Wilson</Typography>
+                            </FuseAnimate>
                         </div>
 
                         <div className="flex items-center justify-end">

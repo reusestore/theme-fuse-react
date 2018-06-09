@@ -6,6 +6,7 @@ import {navigate} from 'react-big-calendar/lib/utils/constants';
 import classNames from 'classnames';
 import {FuseThemes} from '@fuse';
 import moment from 'moment';
+import {FuseAnimate} from '@fuse';
 
 const headerHeight = 200;
 
@@ -121,13 +122,15 @@ class CalendarHeader extends Toolbar {
             return viewNames.map(name => (
                     <Tooltip title={viewNamesObj[name].title} key={name}>
                         <div>
-                            <IconButton
-                                aria-label={this.props.messages[name]}
-                                onClick={this.view.bind(null, name)}
-                                disabled={view === name}
-                            >
-                                <Icon>{viewNamesObj[name].icon}</Icon>
-                            </IconButton>
+                            <FuseAnimate animation="transition.expandIn" delay={500}>
+                                <IconButton
+                                    aria-label={this.props.messages[name]}
+                                    onClick={this.view.bind(null, name)}
+                                    disabled={view === name}
+                                >
+                                    <Icon>{viewNamesObj[name].icon}</Icon>
+                                </IconButton>
+                            </FuseAnimate>
                         </div>
                     </Tooltip>
                 )
@@ -148,33 +151,40 @@ class CalendarHeader extends Toolbar {
 
                         <div className="flex flex-col items-center justify-between sm:flex-row">
                             <div className="flex items-center my-16 sm:mb-0">
-                                <Icon className="text-32 mx-12">today</Icon>
-                                <Typography variant="title">Calendar</Typography>
+                                <FuseAnimate animation="transition.expandIn" delay={300}>
+                                    <Icon className="text-32 mx-12">today</Icon>
+                                </FuseAnimate>
+                                <FuseAnimate animation="transition.slideLeftIn" delay={300}>
+                                    <Typography variant="title">Calendar</Typography>
+                                </FuseAnimate>
                             </div>
-
                             <div className="flex items-center">
                                 <Tooltip title="Today">
-                                    <IconButton aria-label="today" onClick={this.navigate.bind(null, navigate.TODAY)}>
-                                        <Icon>today</Icon>
-                                    </IconButton>
+                                    <FuseAnimate animation="transition.expandIn" delay={500}>
+                                        <IconButton aria-label="today" onClick={this.navigate.bind(null, navigate.TODAY)}>
+                                            <Icon>today</Icon>
+                                        </IconButton>
+                                    </FuseAnimate>
                                 </Tooltip>
                                 {this.viewButtons()}
                             </div>
                         </div>
 
-                        <div className="flex items-center justify-center">
-                            <Tooltip title={messages.previous}>
-                                <IconButton aria-label={messages.previous} onClick={this.navigate.bind(null, navigate.PREVIOUS)}>
-                                    <Icon>chevron_left</Icon>
-                                </IconButton>
-                            </Tooltip>
-                            <Typography variant="title">{label}</Typography>
-                            <Tooltip title={messages.next}>
-                                <IconButton aria-label={messages.next} onClick={this.navigate.bind(null, navigate.NEXT)}>
-                                    <Icon>chevron_right</Icon>
-                                </IconButton>
-                            </Tooltip>
-                        </div>
+                        <FuseAnimate delay={500}>
+                            <div className="flex items-center justify-center">
+                                <Tooltip title={messages.previous}>
+                                    <IconButton aria-label={messages.previous} onClick={this.navigate.bind(null, navigate.PREVIOUS)}>
+                                        <Icon>chevron_left</Icon>
+                                    </IconButton>
+                                </Tooltip>
+                                <Typography variant="title">{label}</Typography>
+                                <Tooltip title={messages.next}>
+                                    <IconButton aria-label={messages.next} onClick={this.navigate.bind(null, navigate.NEXT)}>
+                                        <Icon>chevron_right</Icon>
+                                    </IconButton>
+                                </Tooltip>
+                            </div>
+                        </FuseAnimate>
                     </div>
                 </div>
             </MuiThemeProvider>

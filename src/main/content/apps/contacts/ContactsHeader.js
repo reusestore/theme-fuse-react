@@ -5,6 +5,7 @@ import * as Actions from './store/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import classNames from 'classnames';
+import {FuseAnimate} from '@fuse';
 
 const styles = theme => ({
     root: {}
@@ -29,25 +30,33 @@ class ContactsHeader extends Component {
                     </Hidden>
 
                     <div className="flex items-center">
-                        <Icon className="text-32 mr-12">account_box</Icon>
-                        <Typography variant="title">Contacts</Typography>
+                        <FuseAnimate animation="transition.expandIn" delay={300}>
+                            <Icon className="text-32 mr-12">account_box</Icon>
+                        </FuseAnimate>
+                        <FuseAnimate animation="transition.slideLeftIn" delay={300}>
+                            <Typography variant="title">Contacts</Typography>
+                        </FuseAnimate>
                     </div>
                 </div>
 
                 <div className="flex items-center">
 
-                    <Icon color="action">search</Icon>
+                    <FuseAnimate animation="transition.expandIn" delay={300}>
+                        <Icon color="action">search</Icon>
+                    </FuseAnimate>
 
-                    <TextField
-                        placeholder="Search for anything"
-                        className="pl-16"
-                        fullWidth
-                        value={searchText}
-                        inputProps={{
-                            'aria-label': 'Search'
-                        }}
-                        onChange={setSearchText}
-                    />
+                    <FuseAnimate animation="transition.slideLeftIn" delay={300}>
+                        <TextField
+                            placeholder="Search for anything"
+                            className="pl-16"
+                            fullWidth
+                            value={searchText}
+                            inputProps={{
+                                'aria-label': 'Search'
+                            }}
+                            onChange={setSearchText}
+                        />
+                    </FuseAnimate>
                 </div>
             </div>
         )

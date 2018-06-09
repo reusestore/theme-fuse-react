@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import * as quickPanelActions from 'main/quickPanel/store/actions';
 import * as authActions from 'auth/store/actions';
 import {bindActionCreators} from 'redux';
-import {FuseShortcuts} from '@fuse';
+import {FuseShortcuts,FuseAnimate} from '@fuse';
 import {Link} from 'react-router-dom';
 
 const styles = theme => ({
@@ -48,30 +48,32 @@ class MainToolbar extends Component {
                 </div>
 
                 <div className="flex">
-                    <Button className="h-64" onClick={this.userMenuClick}>
-                        {user.data.photoURL ?
-                            (
-                                <Avatar className="" alt="user photo" src={user.data.photoURL}/>
-                            )
-                            :
-                            (
-                                <Avatar className="">
-                                    {user.data.displayName[0]}
-                                </Avatar>
-                            )
-                        }
+                    <FuseAnimate delay={300}>
+                        <Button className="h-64" onClick={this.userMenuClick}>
+                            {user.data.photoURL ?
+                                (
+                                    <Avatar className="" alt="user photo" src={user.data.photoURL}/>
+                                )
+                                :
+                                (
+                                    <Avatar className="">
+                                        {user.data.displayName[0]}
+                                    </Avatar>
+                                )
+                            }
 
-                        <div className="hidden md:flex flex-col ml-12 items-start">
-                            <Typography component="span" className="normal-case font-500 flex">
-                                {user.data.displayName}
-                            </Typography>
-                            <Typography className="text-11 capitalize" color="textSecondary">
-                                {user.role}
-                            </Typography>
-                        </div>
+                            <div className="hidden md:flex flex-col ml-12 items-start">
+                                <Typography component="span" className="normal-case font-500 flex">
+                                    {user.data.displayName}
+                                </Typography>
+                                <Typography className="text-11 capitalize" color="textSecondary">
+                                    {user.role}
+                                </Typography>
+                            </div>
 
-                        <Icon className="text-16 ml-12 hidden sm:flex" variant="action">keyboard_arrow_down</Icon>
-                    </Button>
+                            <Icon className="text-16 ml-12 hidden sm:flex" variant="action">keyboard_arrow_down</Icon>
+                        </Button>
+                    </FuseAnimate>
 
                     <Popover
                         open={Boolean(userMenu)}

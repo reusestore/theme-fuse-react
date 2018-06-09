@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles/index';
 import classNames from 'classnames';
-import {FusePageSimple} from '@fuse';
+import {FusePageSimple, FuseAnimate, FuseAnimateGroup} from '@fuse';
 import axios from 'axios/index';
 import {Button, colors, Icon, IconButton, Input, MuiThemeProvider, Paper, Typography} from '@material-ui/core';
 
@@ -58,15 +58,23 @@ class ModernSearchPage extends Component {
                 content={
                     <div className="p-24 pt-0 max-w-md">
 
-                        <Typography color="textSecondary" className="text-13 ml-16 my-24">{data.length} results</Typography>
+                        <FuseAnimate delay={200}>
+                            <Typography color="textSecondary" className="text-13 ml-16 my-24">{data.length} results</Typography>
+                        </FuseAnimate>
 
-                        {data.map((item) => (
-                            <Paper className="p-16 mb-16" elevation={1} key={item.id}>
-                                <Typography className={classNames(classes.title, "text-18 cursor-pointer")}>{item.title}</Typography>
-                                <Typography className={classNames(classes.url)}>{item.url}</Typography>
-                                <Typography className={classNames(classes.excerpt, "text-13")}>{item.excerpt}</Typography>
-                            </Paper>
-                        ))}
+                        <FuseAnimateGroup
+                            enter={{
+                                animation: "transition.slideUpBigIn"
+                            }}
+                        >
+                            {data.map((item) => (
+                                <Paper className="p-16 mb-16" elevation={1} key={item.id}>
+                                    <Typography className={classNames(classes.title, "text-18 cursor-pointer")}>{item.title}</Typography>
+                                    <Typography className={classNames(classes.url)}>{item.url}</Typography>
+                                    <Typography className={classNames(classes.excerpt, "text-13")}>{item.excerpt}</Typography>
+                                </Paper>
+                            ))}
+                        </FuseAnimateGroup>
                         <div className="flex justify-center mt-48">
                             <Paper elevation={1}>
                                 <IconButton>

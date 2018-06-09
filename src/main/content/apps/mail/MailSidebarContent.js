@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {Icon, List, ListItem, ListItemText, ListSubheader} from '@material-ui/core';
 import {NavLink, withRouter} from 'react-router-dom';
 import MailCompose from './MailCompose';
+import {FuseAnimate} from '@fuse';
 
 const styles = theme => ({
     listWrapper  : {},
@@ -36,68 +37,69 @@ const styles = theme => ({
 function MailSidebarContent({classes, folders, filters, labels})
 {
     return (
-        <div>
+        <FuseAnimate animation="transition.slideUpIn" delay={400}>
+            <div>
+                <MailCompose/>
 
-            <MailCompose/>
+                <div className={classes.listWrapper}>
 
-            <div className={classes.listWrapper}>
+                    <List>
 
-                <List>
+                        <ListSubheader className={classes.listSubheader} disableSticky>FOLDERS</ListSubheader>
 
-                    <ListSubheader className={classes.listSubheader} disableSticky>FOLDERS</ListSubheader>
+                        {folders.length > 0 && folders.map((folder) => (
+                            <ListItem
+                                button
+                                component={NavLink}
+                                to={'/apps/mail/' + folder.handle} key={folder.id}
+                                activeClassName="active"
+                                className={classes.listItem}
+                            >
+                                <Icon className="list-item-icon" color="action">{folder.icon}</Icon>
+                                <ListItemText primary={folder.title} disableTypography={true}/>
+                            </ListItem>
+                        ))}
+                    </List>
 
-                    {folders.length > 0 && folders.map((folder) => (
-                        <ListItem
-                            button
-                            component={NavLink}
-                            to={'/apps/mail/' + folder.handle} key={folder.id}
-                            activeClassName="active"
-                            className={classes.listItem}
-                        >
-                            <Icon className="list-item-icon" color="action">{folder.icon}</Icon>
-                            <ListItemText primary={folder.title} disableTypography={true}/>
-                        </ListItem>
-                    ))}
-                </List>
+                    <List>
 
-                <List>
+                        <ListSubheader className={classes.listSubheader} disableSticky>FILTERS</ListSubheader>
 
-                    <ListSubheader className={classes.listSubheader} disableSticky>FILTERS</ListSubheader>
+                        {filters.length > 0 && filters.map((filter) => (
+                            <ListItem
+                                button
+                                component={NavLink}
+                                to={'/apps/mail/filter/' + filter.handle}
+                                activeClassName="active"
+                                className={classes.listItem}
+                                key={filter.id}
+                            >
+                                <Icon className="list-item-icon" color="action">{filter.icon}</Icon>
+                                <ListItemText primary={filter.title} disableTypography={true}/>
+                            </ListItem>
+                        ))}
+                    </List>
 
-                    {filters.length > 0 && filters.map((filter) => (
-                        <ListItem
-                            button
-                            component={NavLink}
-                            to={'/apps/mail/filter/' + filter.handle}
-                            activeClassName="active"
-                            className={classes.listItem}
-                            key={filter.id}
-                        >
-                            <Icon className="list-item-icon" color="action">{filter.icon}</Icon>
-                            <ListItemText primary={filter.title} disableTypography={true}/>
-                        </ListItem>
-                    ))}
-                </List>
+                    <List>
 
-                <List>
+                        <ListSubheader className={classes.listSubheader} disableSticky>LABELS</ListSubheader>
 
-                    <ListSubheader className={classes.listSubheader} disableSticky>LABELS</ListSubheader>
-
-                    {labels.length > 0 && labels.map((label) => (
-                        <ListItem
-                            button
-                            component={NavLink}
-                            to={'/apps/mail/label/' + label.handle}
-                            key={label.id}
-                            className={classes.listItem}
-                        >
-                            <Icon className="list-item-icon" style={{color: label.color}} color="action">label</Icon>
-                            <ListItemText primary={label.title} disableTypography={true}/>
-                        </ListItem>
-                    ))}
-                </List>
+                        {labels.length > 0 && labels.map((label) => (
+                            <ListItem
+                                button
+                                component={NavLink}
+                                to={'/apps/mail/label/' + label.handle}
+                                key={label.id}
+                                className={classes.listItem}
+                            >
+                                <Icon className="list-item-icon" style={{color: label.color}} color="action">label</Icon>
+                                <ListItemText primary={label.title} disableTypography={true}/>
+                            </ListItem>
+                        ))}
+                    </List>
+                </div>
             </div>
-        </div>
+        </FuseAnimate>
     );
 }
 

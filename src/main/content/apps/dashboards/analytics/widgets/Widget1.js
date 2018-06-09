@@ -4,6 +4,10 @@ import {Button, MuiThemeProvider, Typography} from '@material-ui/core';
 import {Line} from 'react-chartjs-2';
 import {withStyles} from '@material-ui/core/styles/index';
 import _ from 'lodash';
+import {FuseAnimate} from '@fuse';
+
+require('velocity-animate');
+require('velocity-animate/velocity.ui');
 
 const styles = theme => ({
     root: {}
@@ -36,12 +40,15 @@ class Widget1 extends Component {
         return (
             <MuiThemeProvider theme={FuseThemes.mainThemeDark}>
                 <div style={{backgroundColor: theme.palette.primary.main}} className={classes.root}>
-
                     <div className="relative p-24 flex flex-row justify-between items-center">
-                        <div className="flex-col">
-                            <Typography className="h2">Visitors</Typography>
-                            <Typography className="h5" color="textSecondary">Unique visitors by month</Typography>
-                        </div>
+
+                        <FuseAnimate delay={100}>
+                            <div className="flex-col">
+                                <Typography className="h2">Visitors</Typography>
+                                <Typography className="h5" color="textSecondary">Unique visitors by month</Typography>
+                            </div>
+                        </FuseAnimate>
+
                         <div className="flex flex-row items-center">
                             {Object.keys(data.datasets).map((key) => (
                                 <Button

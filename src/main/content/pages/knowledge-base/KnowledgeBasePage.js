@@ -7,6 +7,7 @@ import {
 import classNames from 'classnames';
 import axios from 'axios/index';
 import Slide from '@material-ui/core/Slide';
+import {FuseAnimate, FuseAnimateGroup} from '@fuse';
 
 function Transition(props)
 {
@@ -63,17 +64,28 @@ class KnowledgeBasePage extends Component {
             <div className={classNames(classes.root)}>
 
                 <div className={classNames(classes.header, "flex flex-col items-center justify-center text-center p-24")}>
-                    <Typography variant="display3" color="inherit" className="font-light">
-                        How can we help?
-                    </Typography>
-                    <Typography variant="subheading" color="inherit" className="opacity-75 mt-16 mx-auto max-w-512">
-                        Welcome to our knowledge base
-                    </Typography>
+
+                    <FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
+                        <Typography variant="display3" color="inherit" className="font-light">
+                            How can we help?
+                        </Typography>
+                    </FuseAnimate>
+
+                    <FuseAnimate duration={400} delay={600}>
+                        <Typography variant="subheading" color="inherit" className="opacity-75 mt-16 mx-auto max-w-512">
+                            Welcome to our knowledge base
+                        </Typography>
+                    </FuseAnimate>
                 </div>
 
                 <div className={classNames(classes.content)}>
 
-                    <div className="flex flex-wrap justify-center max-w-xl w-full mx-auto px-24 py-32">
+                    <FuseAnimateGroup
+                        enter={{
+                            animation: "transition.slideUpBigIn"
+                        }}
+                        className="flex flex-wrap justify-center max-w-xl w-full mx-auto px-24 py-32"
+                    >
                         {data.map((category) => (
                             <div className="w-full max-w-512 pb-24 md:w-1/2 md:p-16" key={category.id}>
                                 <Card elevation={4}>
@@ -94,7 +106,7 @@ class KnowledgeBasePage extends Component {
                                 </Card>
                             </div>
                         ))}
-                    </div>
+                    </FuseAnimateGroup>
                 </div>
 
                 <Dialog

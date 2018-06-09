@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles/index';
-import {FusePageSimple} from '@fuse';
+import {FusePageSimple, FuseAnimate} from '@fuse';
 import axios from 'axios/index';
 import {Button, Icon, Input, Typography} from '@material-ui/core';
 
@@ -47,7 +47,11 @@ class IconsUI extends Component {
                 }}
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="title">Icons</Typography>
+
+                        <FuseAnimate>
+                            <Typography variant="title">Icons</Typography>
+                        </FuseAnimate>
+
                         <Button
                             className="normal-case"
                             variant="raised"
@@ -78,14 +82,16 @@ class IconsUI extends Component {
                 }
                 content={
                     <div className="py-24 max-w-2xl mx-auto">
-                        <div className="flex flex-wrap justify-center">
-                            {icons.map((item) => (
-                                <div className="w-128 h-128 p-16 flex flex-col items-center justify-center" key={item.id}>
-                                    <Icon className="text-48" color="action">{item.ligature}</Icon>
-                                    <Typography variant="caption" className="mt-4">{item.ligature}</Typography>
-                                </div>
-                            ))}
-                        </div>
+                        <FuseAnimate animation="transition.slideUpBigIn" delay={300}>
+                            <div className="flex flex-wrap justify-center">
+                                {icons.map((item) => (
+                                    <div className="w-128 h-128 p-16 flex flex-col items-center justify-center" key={item.id}>
+                                        <Icon className="text-48" color="action">{item.ligature}</Icon>
+                                        <Typography variant="caption" className="mt-4">{item.ligature}</Typography>
+                                    </div>
+                                ))}
+                            </div>
+                        </FuseAnimate>
                     </div>
                 }
             />

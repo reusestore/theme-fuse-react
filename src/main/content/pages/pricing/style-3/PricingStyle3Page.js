@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles/index';
 import {Button, Card, CardContent, Typography} from '@material-ui/core';
 import classNames from 'classnames';
+import {FuseAnimate, FuseAnimateGroup} from '@fuse';
 
 const styles = theme => ({
     root   : {
@@ -45,13 +46,19 @@ class PricingStyle3Page extends Component {
                     <div className="container p-24">
 
                         <div className="text-center my-128 mx-24">
-                            <Typography variant="display3" color="inherit" className="font-light">
-                                Simple Pricing!
-                            </Typography>
-                            <Typography variant="subheading" color="inherit" className="opacity-75 mt-16 mx-auto max-w-512">
-                                The most advanced customer support tools with a simple and affordable pricing. And you can always try
-                                for 30 days, free!
-                            </Typography>
+
+                            <FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
+                                <Typography variant="display3" color="inherit" className="font-light">
+                                    Simple Pricing!
+                                </Typography>
+                            </FuseAnimate>
+
+                            <FuseAnimate duration={400} delay={600}>
+                                <Typography variant="subheading" color="inherit" className="opacity-75 mt-16 mx-auto max-w-512">
+                                    The most advanced customer support tools with a simple and affordable pricing. And you can always try
+                                    for 30 days, free!
+                                </Typography>
+                            </FuseAnimate>
                         </div>
                     </div>
                 </div>
@@ -60,8 +67,12 @@ class PricingStyle3Page extends Component {
 
                     <div className="container">
 
-                        <div className="flex items-center justify-center flex-wrap">
-
+                        <FuseAnimateGroup
+                            enter={{
+                                animation: "transition.slideUpBigIn"
+                            }}
+                            className="flex items-center justify-center flex-wrap"
+                        >
                             <div className="w-full max-w-320 sm:w-1/3 p-12">
                                 <Card className={classes.card}>
 
@@ -217,8 +228,7 @@ class PricingStyle3Page extends Component {
                                     </div>
                                 </Card>
                             </div>
-                        </div>
-
+                        </FuseAnimateGroup>
                         <div className="flex flex-col items-center py-96">
 
                             <Typography variant="display1" className="pb-32 font-light">Frequently Asked Questions</Typography>

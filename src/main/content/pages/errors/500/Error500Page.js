@@ -3,6 +3,7 @@ import {withStyles} from '@material-ui/core/styles/index';
 import {Typography} from '@material-ui/core';
 import classNames from 'classnames';
 import {Link} from 'react-router-dom';
+import {FuseAnimate} from '@fuse';
 
 const styles = theme => ({
     root         : {},
@@ -29,17 +30,23 @@ class Error500Page extends Component {
 
                 <div className="max-w-512 text-center">
 
-                    <Typography variant="display4" color="inherit" className="font-medium mb-16">
-                        500
-                    </Typography>
+                    <FuseAnimate animation="transition.expandIn" delay={100}>
+                        <Typography variant="display4" color="inherit" className="font-medium mb-16">
+                            500
+                        </Typography>
+                    </FuseAnimate>
 
-                    <Typography variant="headline" color="textSecondary" className="mb-16">
-                        Well, you broke the internet!
-                    </Typography>
+                    <FuseAnimate delay={500}>
+                        <Typography variant="headline" color="textSecondary" className="mb-16">
+                            Well, you broke the internet!
+                        </Typography>
+                    </FuseAnimate>
 
-                    <Typography variant="subheading" color="textSecondary" className="mb-48">
-                        Just kidding, looks like we have an internal issue, please try again in couple minutes
-                    </Typography>
+                    <FuseAnimate delay={600}>
+                        <Typography variant="subheading" color="textSecondary" className="mb-48">
+                            Just kidding, looks like we have an internal issue, please try again in couple minutes
+                        </Typography>
+                    </FuseAnimate>
 
                     <Link className="font-medium" to="/apps/dashboards/project">Report this problem</Link>
                 </div>

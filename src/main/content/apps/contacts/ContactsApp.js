@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles';
-import {FusePageSimple} from '@fuse';
+import {FusePageSimple, FuseAnimate} from '@fuse';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
@@ -79,18 +79,18 @@ class ContactsApp extends Component {
                         this.pageLayout = instance;
                     }}
                 />
-                <Button
-                    variant="fab"
-                    color="primary"
-                    aria-label="add"
-                    className={classes.addButton}
-                    onClick={openNewContactDialog}
-                >
-                    <Icon>person_add</Icon>
-                </Button>
-
+                <FuseAnimate animation="transition.expandIn" delay={300}>
+                    <Button
+                        variant="fab"
+                        color="primary"
+                        aria-label="add"
+                        className={classes.addButton}
+                        onClick={openNewContactDialog}
+                    >
+                        <Icon>person_add</Icon>
+                    </Button>
+                </FuseAnimate>
                 <ContactDialog/>
-
             </React.Fragment>
         )
     };

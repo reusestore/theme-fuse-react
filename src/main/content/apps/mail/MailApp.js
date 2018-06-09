@@ -6,14 +6,13 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom'
 import MailDetails from './MailDetails';
-import {FusePageCarded} from '@fuse';
+import {FusePageCarded, FuseScrollbars} from '@fuse';
 import classNames from 'classnames';
 import MailToolbar from './MailToolbar';
 import MailHeader from './MailHeader';
 import MailSidebarHeader from './MailSidebarHeader';
 import MailSidebarContent from './MailSidebarContent';
 import _ from 'lodash';
-import {FuseScrollbars} from '@fuse';
 
 const styles = theme => ({
     layoutContent     : {

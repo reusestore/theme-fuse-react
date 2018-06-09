@@ -13,6 +13,7 @@ import {DragDropContext} from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
 import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
+import {FuseAnimate} from '@fuse';
 
 BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment));
 
@@ -214,19 +215,20 @@ class CalendarApp extends Component {
                         end  : slotInfo.end.toLocaleString()
                     })}
                 />
-                <Button
-                    variant="fab"
-                    color="secondary"
-                    aria-label="add"
-                    className={classes.addButton}
-                    onClick={() => openNewEventDialog({
-                        start: new Date(),
-                        end  : new Date()
-                    })}
-                >
-                    <Icon>add</Icon>
-                </Button>
-
+                <FuseAnimate animation="transition.expandIn" delay={500}>
+                    <Button
+                        variant="fab"
+                        color="secondary"
+                        aria-label="add"
+                        className={classes.addButton}
+                        onClick={() => openNewEventDialog({
+                            start: new Date(),
+                            end  : new Date()
+                        })}
+                    >
+                        <Icon>add</Icon>
+                    </Button>
+                </FuseAnimate>
                 <EventDialog/>
             </div>
         )

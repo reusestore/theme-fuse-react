@@ -9,6 +9,8 @@ import FuseCountdownDoc from 'main/content/components/fuse-countdown/FuseCountdo
 import FuseNavigationDoc from 'main/content/components/fuse-navigation/FuseNavigationDoc';
 import FuseAuthorizationDoc from 'main/content/components/fuse-authorization/FuseAuthorizationDoc';
 import FuseMessageDoc from 'main/content/components/fuse-message/FuseMessageDoc';
+import FuseAnimateDoc from 'main/content/components/fuse-animate/FuseAnimateDoc';
+import FuseAnimateGroupDoc from 'main/content/components/fuse-animate-group/FuseAnimateGroupDoc';
 
 export const ComponentsConfig = {
     routes: [
@@ -52,6 +54,14 @@ export const ComponentsConfig = {
         {
             path     : '/components/fuse-message',
             component: FuseMessageDoc
+        },
+        {
+            path     : '/components/fuse-animate',
+            component: FuseAnimateDoc
+        },
+        {
+            path     : '/components/fuse-animate-group',
+            component: FuseAnimateGroupDoc
         }
     ]
 };

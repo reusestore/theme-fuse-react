@@ -4,9 +4,9 @@ import * as Actions from 'auth/store/actions/index';
 import {bindActionCreators} from 'redux';
 import {Link, withRouter} from 'react-router-dom';
 import {withStyles} from '@material-ui/core/styles/index';
-import {Button, Card, CardContent, Divider, Grow, Slide, Typography} from '@material-ui/core';
+import {Button, Card, CardContent, Divider, Typography} from '@material-ui/core';
 import classNames from 'classnames';
-import {TextFieldFormsy} from '@fuse';
+import {TextFieldFormsy, FuseAnimate} from '@fuse';
 import Formsy from 'formsy-react';
 
 const styles = theme => ({
@@ -80,27 +80,26 @@ class Login extends Component {
                 <div
                     className={classNames(classes.intro, "flex flex-col flex-no-grow items-center p-16 text-center md:p-128 md:items-start md:flex-no-shrink md:flex-1 md:text-left")}>
 
-                    <Grow in={true}>
-                        <div className="w-128 mb-32">
-                            <img src="assets/images/logos/fuse.svg" alt="logo"/>
-                        </div>
-                    </Grow>
+                    <FuseAnimate animation="transition.expandIn">
+                        <img className="w-128 mb-32" src="assets/images/logos/fuse.svg" alt="logo"/>
+                    </FuseAnimate>
 
-                    <Grow in={true} timeout={300}>
+                    <FuseAnimate animation="transition.slideUpIn" delay={300}>
                         <Typography variant="display2" color="inherit" className="font-light">
                             Welcome to the FUSE!
                         </Typography>
-                    </Grow>
+                    </FuseAnimate>
 
-                    <Grow in={true} timeout={600}>
+                    <FuseAnimate delay={400}>
                         <Typography variant="subheading" color="inherit" className="max-w-512 mt-16">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ullamcorper nisl erat, vel convallis elit fermentum pellentesque. Sed mollis velit
                             facilisis facilisis.
                         </Typography>
-                    </Grow>
+                    </FuseAnimate>
                 </div>
 
-                <Slide in={true} direction="left">
+                <FuseAnimate animation={{translateX: [0, '100%']}}>
+
                     <Card className={classNames(classes.card, "mx-auto m-16 md:m-0")}>
 
                         <CardContent className="flex flex-col items-center justify-center p-32 md:p-48 md:pt-128 ">
@@ -209,7 +208,7 @@ class Login extends Component {
                             </div>
                         </CardContent>
                     </Card>
-                </Slide>
+                </FuseAnimate>
             </div>
         )
     }

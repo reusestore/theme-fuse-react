@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles/index';
 import {Icon, MenuItem, TextField} from '@material-ui/core';
 import classNames from 'classnames';
+import {FuseAnimate} from '@fuse';
 
 const styles = theme => ({
     root             : {},
@@ -39,31 +40,36 @@ class MailSidebarHeader extends Component {
             <div className={classNames(classes.root, "flex flex-col justify-center h-full p-24")}>
 
                 <div className={classNames(classes.logo, "flex items-center flex-1")}>
-                    <Icon className={classNames(classes.logoIcon, "mr-16")}>mail</Icon>
-                    <span className={classes.logoText}>Mailbox</span>
+                    <FuseAnimate animation="transition.expandIn" delay={300}>
+                        <Icon className={classNames(classes.logoIcon, "mr-16")}>mail</Icon>
+                    </FuseAnimate>
+                    <FuseAnimate animation="transition.slideLeftIn" delay={300}>
+                        <span className={classes.logoText}>Mailbox</span>
+                    </FuseAnimate>
                 </div>
-
-                <TextField
-                    id="account-selection"
-                    select
-                    label={this.state.selectedAccount}
-                    className={classes.accountSelect}
-                    value={this.state.selectedAccount}
-                    onChange={this.onAccountChange}
-                    SelectProps={{
-                        MenuProps: {
-                            className: classes.accountSelectMenu
-                        }
-                    }}
-                    placeholder="Select Account"
-                    margin="normal"
-                >
-                    {Object.keys(this.accounts).map((key, value) => (
-                        <MenuItem key={key} value={key}>
-                            {this.accounts[key]}
-                        </MenuItem>
-                    ))}
-                </TextField>
+                <FuseAnimate animation="transition.slideUpIn" delay={300}>
+                    <TextField
+                        id="account-selection"
+                        select
+                        label={this.state.selectedAccount}
+                        className={classes.accountSelect}
+                        value={this.state.selectedAccount}
+                        onChange={this.onAccountChange}
+                        SelectProps={{
+                            MenuProps: {
+                                className: classes.accountSelectMenu
+                            }
+                        }}
+                        placeholder="Select Account"
+                        margin="normal"
+                    >
+                        {Object.keys(this.accounts).map((key, value) => (
+                            <MenuItem key={key} value={key}>
+                                {this.accounts[key]}
+                            </MenuItem>
+                        ))}
+                    </TextField>
+                </FuseAnimate>
             </div>
         );
     }

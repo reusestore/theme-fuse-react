@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles/index';
-import {Card, CardContent, Grow, Icon, Typography} from '@material-ui/core';
+import {Card, CardContent, Icon, Typography} from '@material-ui/core';
 import classNames from 'classnames';
 import {Link} from 'react-router-dom';
+import {FuseAnimate} from '@fuse';
 
 const styles = theme => ({
     root: {
@@ -26,7 +27,8 @@ class MailConfirmPage extends Component {
 
                 <div className="flex flex-col items-center justify-center w-full">
 
-                    <Grow in={true}>
+                    <FuseAnimate animation="transition.expandIn">
+
                         <Card className={classes.card}>
 
                             <CardContent className="flex flex-col items-center justify-center p-32">
@@ -51,7 +53,7 @@ class MailConfirmPage extends Component {
 
                             </CardContent>
                         </Card>
-                    </Grow>
+                    </FuseAnimate>
                 </div>
             </div>
         );

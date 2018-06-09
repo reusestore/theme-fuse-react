@@ -106,7 +106,25 @@ class FuseNavigationDoc extends Component {
                                 `
                             }
                         </FuseHighlight>
-
+                        <Typography className="text-20 mt-24 mb-8 font-semibold" component="h2">
+                            exact: bool
+                        </Typography>
+                        <Typography className="text-16 mb-8" component="h2">
+                            When true, the active class/style will only be applied if the location is matched exactly.
+                        </Typography>
+                        <FuseHighlight component="pre" className="language-json">
+                            {
+                                `
+                                {
+                                    'id'   : 'project',
+                                    'title': 'Project',
+                                    'type' : 'item',
+                                    'url'  : '/apps/dashboards/project',
+                                    'exact': true
+                                }
+                                `
+                            }
+                        </FuseHighlight>
                         <Typography className="text-24 mt-32 mb-8" component="h2">Divider</Typography>
                         <FuseHighlight component="pre" className="language-json">
                             {

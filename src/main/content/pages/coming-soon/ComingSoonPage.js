@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles/index';
-import {Button, Card, CardContent, Divider, FormControl, Grow, Input, InputLabel, Typography} from '@material-ui/core';
+import {Button, Card, CardContent, Divider, FormControl, Input, InputLabel, Typography} from '@material-ui/core';
 import classNames from 'classnames';
 import _ from 'lodash';
-import {FuseCountdown} from '@fuse';
+import {FuseCountdown, FuseAnimate} from '@fuse';
 
 const styles = theme => ({
     root: {
@@ -43,7 +43,8 @@ class ComingSoonPage extends Component {
 
                 <div className="flex flex-col items-center justify-center w-full">
 
-                    <Grow in={true}>
+                    <FuseAnimate animation="transition.expandIn">
+
                         <Card className={classes.card}>
 
                             <CardContent className="flex flex-col items-center justify-center p-32 text-center">
@@ -90,7 +91,7 @@ class ComingSoonPage extends Component {
                                 </form>
                             </CardContent>
                         </Card>
-                    </Grow>
+                    </FuseAnimate>
                 </div>
             </div>
         );

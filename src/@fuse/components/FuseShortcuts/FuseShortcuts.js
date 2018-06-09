@@ -3,7 +3,7 @@ import {Divider, Icon, IconButton, Input, ListItemIcon, ListItemText, Menu, Menu
 import * as UserActions from 'auth/store/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {FuseUtils} from '@fuse';
+import {FuseUtils,FuseAnimateGroup} from '@fuse';
 import {Link} from 'react-router-dom';
 import amber from '@material-ui/core/colors/amber';
 import classNames from 'classnames';
@@ -109,7 +109,12 @@ class FuseShortcuts extends Component {
         return (
             <div className={classNames(classes.root, "flex flex-1 px-16")}>
 
-                <div className="hidden md:flex md-flex-1">
+                <FuseAnimateGroup
+                    enter={{
+                        animation: "transition.expandIn"
+                    }}
+                    className="hidden md:flex md-flex-1"
+                >
                     {shortcutItems.map(item => item && (
                         <Link to={item.url} key={item.id} className={classes.item}>
                             <Tooltip title={item.title} placement="bottom">
@@ -126,18 +131,18 @@ class FuseShortcuts extends Component {
                             </Tooltip>
                         </Link>
                     ))}
-                </div>
 
-                <Tooltip title="Click to add/remove shortcut" placement="bottom">
-                    <IconButton
-                        className="w-40 h-40"
-                        aria-owns={addMenu ? 'add-menu' : null}
-                        aria-haspopup="true"
-                        onClick={this.addMenuClick}
-                    >
-                        <Icon className={classes.addIcon}>star</Icon>
-                    </IconButton>
-                </Tooltip>
+                    <Tooltip title="Click to add/remove shortcut" placement="bottom">
+                        <IconButton
+                            className="w-40 h-40"
+                            aria-owns={addMenu ? 'add-menu' : null}
+                            aria-haspopup="true"
+                            onClick={this.addMenuClick}
+                        >
+                            <Icon className={classes.addIcon}>star</Icon>
+                        </IconButton>
+                    </Tooltip>
+                </FuseAnimateGroup>
 
                 <Menu
                     id="add-menu"

@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import {FusePageSimple} from '@fuse';
 import axios from 'axios/index';
 import {Button, colors, Icon, IconButton, Input, MuiThemeProvider, Paper, Typography} from '@material-ui/core';
+import {FuseAnimate, FuseAnimateGroup} from '@fuse';
 
 const styles = theme => ({
     layoutRoot: {},
@@ -59,15 +60,23 @@ class ClassicSearchPage extends Component {
                 content={
                     <div className="p-24 pt-0 max-w-md">
 
-                        <Typography color="textSecondary" className="text-13 mt-12 mb-24">{data.length} results</Typography>
+                        <FuseAnimate delay={200}>
+                            <Typography color="textSecondary" className="text-13 mt-12 mb-24">{data.length} results</Typography>
+                        </FuseAnimate>
 
-                        {data.map((item) => (
-                            <div className="mb-28" key={item.id}>
-                                <Typography className={classNames(classes.title, "text-18 cursor-pointer")}>{item.title}</Typography>
-                                <Typography className={classNames(classes.url)}>{item.url}</Typography>
-                                <Typography className={classNames(classes.excerpt, "text-13")}>{item.excerpt}</Typography>
-                            </div>
-                        ))}
+                        <FuseAnimateGroup
+                            enter={{
+                                animation: "transition.slideUpBigIn"
+                            }}
+                        >
+                            {data.map((item) => (
+                                <div className="mb-28" key={item.id}>
+                                    <Typography className={classNames(classes.title, "text-18 cursor-pointer")}>{item.title}</Typography>
+                                    <Typography className={classNames(classes.url)}>{item.url}</Typography>
+                                    <Typography className={classNames(classes.excerpt, "text-13")}>{item.excerpt}</Typography>
+                                </div>
+                            ))}
+                        </FuseAnimateGroup>
                         <div className="flex justify-center mt-32">
                             <div className="flex item-center">
                                 <IconButton className="w-32">

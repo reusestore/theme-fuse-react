@@ -536,6 +536,20 @@ export const fuseNavigationConfig = [
                 'type' : 'item',
                 'icon' : 'settings_input_component',
                 'url'  : '/components/fuse-message'
+            },
+            {
+                'id'   : 'fuse-animate',
+                'title': 'FuseAnimate',
+                'type' : 'item',
+                'icon' : 'settings_input_component',
+                'url'  : '/components/fuse-animate'
+            },
+            {
+                'id'   : 'fuse-animate-group',
+                'title': 'FuseAnimateGroup',
+                'type' : 'item',
+                'icon' : 'settings_input_component',
+                'url'  : '/components/fuse-animate-group'
             }
         ]
     },

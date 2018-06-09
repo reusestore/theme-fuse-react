@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles/index';
-import {Card, CardContent, Slide, Typography} from '@material-ui/core';
+import {Card, CardContent, Typography} from '@material-ui/core';
 import classNames from 'classnames';
 import axios from 'axios/index';
+import {FuseAnimate} from '@fuse';
 
 const styles = theme => ({
     root       : {
@@ -58,7 +59,8 @@ class ModernInvoicePage extends Component {
             <div className={classNames(classes.root, "p-0 sm:p-64  print:p-0")}>
 
                 {invoice && (
-                    <Slide direction="up" in={true} timeout={500}>
+
+                    <FuseAnimate animation={{translateY: [0, '100%']}} duration={600}>
 
                         <Card className={classNames(classes.card, "mx-auto")}>
 
@@ -313,7 +315,7 @@ class ModernInvoicePage extends Component {
                                 </div>
                             </CardContent>
                         </Card>
-                    </Slide>
+                    </FuseAnimate>
                 )}
             </div>
         );

@@ -3,6 +3,7 @@ import {withStyles} from '@material-ui/core/styles/index';
 import {Icon, Input, Paper, Typography} from '@material-ui/core';
 import classNames from 'classnames';
 import {Link} from 'react-router-dom';
+import {FuseAnimate} from '@fuse';
 
 const styles = theme => ({
     root         : {},
@@ -29,13 +30,17 @@ class Error404Page extends Component {
 
                 <div className="max-w-512 text-center">
 
-                    <Typography variant="display4" color="inherit" className="font-medium mb-16">
-                        404
-                    </Typography>
+                    <FuseAnimate animation="transition.expandIn" delay={100}>
+                        <Typography variant="display4" color="inherit" className="font-medium mb-16">
+                            404
+                        </Typography>
+                    </FuseAnimate>
 
-                    <Typography variant="headline" color="textSecondary" className="mb-16">
-                        Sorry but we could not find the page you are looking for
-                    </Typography>
+                    <FuseAnimate delay={500}>
+                        <Typography variant="headline" color="textSecondary" className="mb-16">
+                            Sorry but we could not find the page you are looking for
+                        </Typography>
+                    </FuseAnimate>
 
                     <Paper className={classNames(classes.searchWrapper, "mt-48 mb-16")} elevation={1} square>
                         <Icon color="action">search</Icon>

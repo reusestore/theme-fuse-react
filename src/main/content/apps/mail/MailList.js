@@ -3,7 +3,7 @@ import {withStyles} from '@material-ui/core/styles';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import MailListItem from './MailListItem';
-import {FuseUtils} from '@fuse';
+import {FuseUtils, FuseAnimate, FuseAnimateGroup} from '@fuse';
 import {List, Typography} from '@material-ui/core';
 
 const styles = theme => ({
@@ -37,21 +37,30 @@ class MailList extends Component {
         if ( arr.length === 0 )
         {
             return (
-                <div className="flex items-center justify-center h-full">
-                    <Typography color="textSecondary" variant="headline">
-                        There are no messages!
-                    </Typography>
-                </div>
+                <FuseAnimate delay={100}>
+                    <div className="flex items-center justify-center h-full">
+                        <Typography color="textSecondary" variant="headline">
+                            There are no messages!
+                        </Typography>
+                    </div>
+                </FuseAnimate>
             );
         }
 
         return (
             <List className={classes.mailList}>
-                {
-                    arr.map((mail) => (
-                            <MailListItem mail={mail} key={mail.id}/>
+                <FuseAnimateGroup
+                    enter={{
+                        animation: "transition.slideUpBigIn"
+                    }}
+                >
+                    {
+                        arr.map((mail) => (
+                                <MailListItem mail={mail} key={mail.id}/>
+                            )
                         )
-                    )}
+                    }
+                </FuseAnimateGroup>
             </List>
         );
     }

@@ -6,7 +6,8 @@ import TypographyUI from 'main/content/user-interface/typography/TypographyUI';
 import HelperClassesUI from 'main/content/user-interface/helper-classes/HelperClassesUI';
 
 export const UserInterfaceConfig = {
-    routes: [
+
+    routes  : [
         ...cardedLayoutRoutes,
         ...simpleLayoutRoutes,
         {

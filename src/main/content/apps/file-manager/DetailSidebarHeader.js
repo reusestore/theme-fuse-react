@@ -5,6 +5,7 @@ import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {Icon, IconButton, Typography} from '@material-ui/core';
 import classNames from 'classnames';
+import {FuseAnimate} from '@fuse';
 
 const styles = theme => ({
     root: {}
@@ -26,25 +27,31 @@ class DetailSidebarHeader extends Component {
             <div className={classNames(classes.root, "flex flex-col justify-between h-full p-12")}>
 
                 <div className="toolbar flex align-center justify-end">
-                    <IconButton>
-                        <Icon>delete</Icon>
-                    </IconButton>
-
-                    <IconButton>
-                        <Icon>file_download</Icon>
-                    </IconButton>
-
+                    <FuseAnimate animation="transition.expandIn" delay={200}>
+                        <IconButton>
+                            <Icon>delete</Icon>
+                        </IconButton>
+                    </FuseAnimate>
+                    <FuseAnimate animation="transition.expandIn" delay={200}>
+                        <IconButton>
+                            <Icon>file_download</Icon>
+                        </IconButton>
+                    </FuseAnimate>
                     <IconButton>
                         <Icon>more_vert</Icon>
                     </IconButton>
                 </div>
 
                 <div className="p-12">
-                    <Typography variant="subheading" className="mb-8">{selected.name}</Typography>
-                    <Typography variant="caption" className="">
-                        <span>Edited</span>
-                        <span>: {selected.modified}</span>
-                    </Typography>
+                    <FuseAnimate delay={200}>
+                        <Typography variant="subheading" className="mb-8">{selected.name}</Typography>
+                    </FuseAnimate>
+                    <FuseAnimate delay={300}>
+                        <Typography variant="caption" className="">
+                            <span>Edited</span>
+                            <span>: {selected.modified}</span>
+                        </Typography>
+                    </FuseAnimate>
                 </div>
             </div>
         )
