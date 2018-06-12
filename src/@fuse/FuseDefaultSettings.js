@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import FuseSettingsConfig from 'fuse-configs/fuseSettingsConfig';
-import queryString from 'query-string';
+import qs from 'qs';
 
 const defaultSettings = {
     layout          : {
@@ -34,7 +34,7 @@ const defaultSettings = {
     }
 };
 
-const parsedQueryString = queryString.parse(window.location.search);
+const parsedQueryString = qs.parse(window.location.search, {ignoreQueryPrefix: true});
 let FuseSettingsQuery = {};
 
 if ( parsedQueryString && parsedQueryString.defaultSettings )
@@ -45,11 +45,9 @@ if ( parsedQueryString && parsedQueryString.defaultSettings )
 const FuseDefaultSettings = _.merge({}, defaultSettings, FuseSettingsConfig, FuseSettingsQuery);
 
 // Generating route params from settings
-/*
-const settings = queryString.stringify({
-    defaultSettings: JSON.stringify(defaultSettings)
+/*const settings = qs.stringify({
+    defaultSettings: JSON.stringify(defaultSettings, {strictNullHandling: true})
 });
-console.info(settings);
-*/
+console.info(settings);*/
 
 export default FuseDefaultSettings;
