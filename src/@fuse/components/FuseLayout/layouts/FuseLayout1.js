@@ -395,8 +395,8 @@ class FuseLayout1 extends Component {
                             <div
                                 className={classNames(
                                     classes.contentWrapper,
-                                    layoutConfig.navbar.display && layoutConfig.navbar.folded && layoutConfig.navbar.position === 'left' && 'md:ml-64',
-                                    layoutConfig.navbar.display && layoutConfig.navbar.folded && layoutConfig.navbar.position === 'right' && 'md:mr-64'
+                                    layoutConfig.navbar.display && layoutConfig.navbar.folded && layoutConfig.navbar.position === 'left' && 'lg:ml-64',
+                                    layoutConfig.navbar.display && layoutConfig.navbar.folded && layoutConfig.navbar.position === 'right' && 'lg:mr-64'
                                 )}
                             >
                                 {layoutConfig.toolbar.display && layoutConfig.toolbar.position === 'below' && layoutConfig.toolbar.style === 'fixed' && (
