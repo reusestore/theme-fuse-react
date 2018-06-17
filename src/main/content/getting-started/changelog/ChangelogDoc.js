@@ -126,7 +126,7 @@ class ChangelogDoc extends Component {
                                     </li>
                                     <li>
                                         <Typography className="text-14 mb-8">
-                                            <code>Material UI Next</code> updated to v1.2.0
+                                            <code>Material UI</code> updated to v1.2.0
                                         </Typography>
                                     </li>
                                     <li>
@@ -192,7 +192,7 @@ class ChangelogDoc extends Component {
                                 <ul>
                                     <li>
                                         <Typography className="text-14 mb-8">
-                                            <code>Material UI Next</code> updated to v1.1.0
+                                            <code>Material UI</code> updated to v1.1.0
                                         </Typography>
                                     </li>
                                     <li>
@@ -250,7 +250,7 @@ class ChangelogDoc extends Component {
                                 <ul>
                                     <li>
                                         <Typography className="text-14 mb-8">
-                                            <code>Material UI Next</code> updated to v1.0.0
+                                            <code>Material UI</code> updated to v1.0.0
                                         </Typography>
                                     </li>
                                     <li>
@@ -284,7 +284,7 @@ class ChangelogDoc extends Component {
                                 <ul>
                                     <li>
                                         <Typography className="text-14 mb-8">
-                                            <code>Material UI Next</code> updated to v1.0.0-rc.0
+                                            <code>Material UI</code> updated to v1.0.0-rc.0
                                         </Typography>
                                         <Typography className="text-12 mb-8">
                                             <a href="https://github.com/mui-org/material-ui/releases/tag/v1.0.0-rc.0" target="_blank" rel="noopener noreferrer"> Checkout the
