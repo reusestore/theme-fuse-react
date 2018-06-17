@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {VelocityComponent} from 'velocity-react';
+import 'velocity-animate/velocity.ui';
 
 const FuseAnimate = (props) => {
     const children = React.cloneElement(props.children, {
