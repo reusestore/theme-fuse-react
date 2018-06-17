@@ -28,6 +28,46 @@ class ChangelogDoc extends Component {
 
                         <div>
                             <div className="flex items-center mb-32 mt-48">
+                                <Typography className="text-28" component="h2">v1.1.2</Typography>
+                                <Typography className="text-16 ml-8" color="textSecondary" component="h3">(2018-06-18)</Typography>
+                            </div>
+
+                            <div className="mb-24">
+                                <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">NEW:</Typography>
+                                <ul>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Changing default settings with route params.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Dependency packages updated.
+                                        </Typography>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div className="mb-24">
+                                <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">FIX:</Typography>
+                                <ul>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            FuseAnimate, FuseAnimateGroup inject error.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Folded Navigation extra space fixed between 960px and 1280px of window width.
+                                        </Typography>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <div className="flex items-center mb-32 mt-48">
                                 <Typography className="text-28" component="h2">v1.1.1</Typography>
                                 <Typography className="text-16 ml-8" color="textSecondary" component="h3">(2018-06-10)</Typography>
                             </div>
@@ -52,7 +92,7 @@ class ChangelogDoc extends Component {
                                     </li>
                                     <li>
                                         <Typography className="text-14 mb-8">
-                                            Other dependency packages Updated.
+                                            Dependency packages updated.
                                         </Typography>
                                     </li>
                                 </ul>
@@ -91,7 +131,7 @@ class ChangelogDoc extends Component {
                                     </li>
                                     <li>
                                         <Typography className="text-14 mb-8">
-                                            Other dependency packages Updated.
+                                            Dependency packages updated.
                                         </Typography>
                                     </li>
                                 </ul>
@@ -157,7 +197,7 @@ class ChangelogDoc extends Component {
                                     </li>
                                     <li>
                                         <Typography className="text-14 mb-8">
-                                            Other dependency packages Updated.
+                                            Dependency packages updated.
                                         </Typography>
                                     </li>
                                 </ul>
