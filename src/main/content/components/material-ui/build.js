@@ -19,7 +19,8 @@ const titleRegExp = /# (.*)[\r\n]/;
 const headerKeyValueRegExp = /(.*): (.*)/g;
 const emptyRegExp = /^\s*$/;
 
-marked.Lexer.prototype.lex = function lex(src) {
+marked.Lexer.prototype.lex = function lex(src)
+{
     src = src
         .replace(/\r\n|\r/g, '\n')
         .replace(/\t/g, '    ')
@@ -65,7 +66,8 @@ const BeautifyConfig = {
     }
 };
 
-renderer.heading = (text, level) => {
+renderer.heading = (text, level) =>
+{
     let className = '';
     switch ( level )
     {
@@ -85,12 +87,14 @@ renderer.heading = (text, level) => {
     return `<Typography className="${className}" component="h${level}">${text}</Typography>\n`;
 };
 
-renderer.paragraph = (text) => {
+renderer.paragraph = (text) =>
+{
     let className = 'mb-16';
     return `<Typography className="${className}" component="div">${text}</Typography>\n`;
 };
 
-renderer.code = (code, lang) => {
+renderer.code = (code, lang) =>
+{
     const response = `
 <FuseHighlight component="pre" className="language-${lang}">
 {%% 
@@ -101,7 +105,8 @@ ${code}
     return response.replace(new RegExp('%%', 'g'), '`');
 };
 
-const rmDir = function (dirPath) {
+const rmDir = function (dirPath)
+{
     try
     {
         var files = fs.readdirSync(dirPath);
@@ -122,7 +127,8 @@ const rmDir = function (dirPath) {
     fs.rmdirSync(dirPath);
 };
 
-String.prototype.allReplace = function (obj) {
+String.prototype.allReplace = function (obj)
+{
     let retStr = this;
     for ( let x in obj )
     {
@@ -149,7 +155,8 @@ function getTitle(markdownSource)
 function getHtmlCode(markdownSource)
 {
     let contentsArr = getContents(markdownSource);
-    contentsArr = contentsArr.map((content, index) => {
+    contentsArr = contentsArr.map((content, index) =>
+    {
         const match = content.match(demoRegexp);
         if ( match )
         {
@@ -166,16 +173,18 @@ function getHtmlCode(markdownSource)
         }
         return content;
     });
-    const response = marked(contentsArr.join('')).replace(new RegExp('"{', 'g'), '{').replace(new RegExp('}"', 'g'), '}').replace(new RegExp('p>', 'g'), 'div>').replace(new RegExp('className=', 'g'), "className=");
+    const response = marked(contentsArr.join('')).replace(new RegExp('"{', 'g'), '{').replace(new RegExp('}"', 'g'), '}').replace(new RegExp('(<\\s*\\/?\\s*)p(\\s*([^>]*)?\\s*>)', 'g'), '$1Typography$2').replace(new RegExp('class=', 'g'), 'className=').replace(new RegExp('`normalise`', 'g'), '\'normalise\'').replace(new RegExp('className=', 'g'), "className=");
     return response;
 }
 
 
 function readDir(dir)
 {
-    return new Promise(function (resolve, reject) {
+    return new Promise(function (resolve, reject)
+    {
 
-        fs.readdir(dir, function (err, list) {
+        fs.readdir(dir, function (err, list)
+        {
             if ( err )
             {
                 reject(err);
@@ -191,11 +200,14 @@ function readDir(dir)
 function writePages(dir, list)
 {
     let pages = [];
-    return new Promise(function (resolve, reject) {
-        list.forEach(function (file) {
+    return new Promise(function (resolve, reject)
+    {
+        list.forEach(function (file)
+        {
             file = path.resolve(dir, file);
             pages.push(path.basename(file));
-            fs.stat(file, function (err, stat) {
+            fs.stat(file, function (err, stat)
+            {
                 if ( stat && stat.isDirectory() )
                 {
                     writePage(file);
@@ -250,7 +262,11 @@ function writePage(file)
                         /* eslint import/no-webpack-loader-syntax: off */
                         /* eslint no-unused-vars: off */
                         const styles = theme => ({
-                            layoutRoot: {}
+                            layoutRoot: {
+                                '& .description':{
+                                        marginBottom:16
+                                }
+                            }
                         });
                         function ${fileName}({classes}) {
                           return (
@@ -269,13 +285,15 @@ function writePage(file)
 function writeRouteFile(pages)
 {
     const importPath = 'import %s from \'main/content/components/material-ui/pages/%s\';';
-    const imports = pages.map(page => {
+    const imports = pages.map(page =>
+    {
         const componentName = _.upperFirst(_.camelCase(page));
         return importPath.replace(/%s/g, componentName, componentName);
     });
 
     const routeObject = "{ path     : '/components/material-ui/%s', component: %p }";
-    const routes = pages.map(page => {
+    const routes = pages.map(page =>
+    {
         const componentName = _.upperFirst(_.camelCase(page));
         return routeObject.allReplace({
             '%s': page,
@@ -295,7 +313,8 @@ function writeRouteFile(pages)
 function writeNavigationFile(pages)
 {
     const navigationObject = "{ 'id'   : '%id', 'title': '%title', 'type' : 'item', 'url'  : '/components/material-ui/%url' }";
-    const navigation = pages.map(page => {
+    const navigation = pages.map(page =>
+    {
         const componentName = _.startCase(page);
         return navigationObject.allReplace({
             '%id'   : _.camelCase(page),
@@ -316,8 +335,10 @@ function build(dir)
     rmDir(pagesDirectory);
     fs.mkdirSync(pagesDirectory);
 
-    readDir(examplesDirectory).then(({dir, list}) => {
-        writePages(dir, list).then(pages => {
+    readDir(examplesDirectory).then(({dir, list}) =>
+    {
+        writePages(dir, list).then(pages =>
+        {
             writeRouteFile(pages);
             writeNavigationFile(pages);
         })

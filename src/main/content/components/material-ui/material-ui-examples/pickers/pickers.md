@@ -1,10 +1,11 @@
 ---
+title: Date Picker, Time Picker React component
 components: TextField
 ---
 
 # Pickers
 
-Pickers provide a simple way to select a single value from a pre-determined set.
+<p class="description">Pickers provide a simple way to select a single value from a pre-determined set.</p>
 
 - On mobile, pickers are best suited for display in confirmation dialog.
 - For inline display, such as on a form, consider using compact controls such as segmented dropdown buttons.
@@ -16,6 +17,8 @@ If you are interested in implementing or have implemented a rich Material Design
 Here are some components that are **promising**:
 - [material-ui-pickers](https://github.com/dmtrKovalenko/material-ui-pickers)
 - [material-ui-time-picker](https://github.com/TeamWertarbyte/material-ui-time-picker)
+
+⚠️ Native input controls support by browsers [isn't perfect](https://caniuse.com/#feat=input-datetime).
 
 ## Date pickers
 
