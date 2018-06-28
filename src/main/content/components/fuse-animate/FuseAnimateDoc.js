@@ -135,7 +135,7 @@ class FuseAnimateDoc extends Component {
                                         {
                                             EFFECTS.map((effect) => (
                                                 <MenuItem key={effect} value={effect}>
-                                                    tansition.{effect}In
+                                                    transition.{effect}In
                                                 </MenuItem>
                                             ))
                                         }
