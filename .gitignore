@@ -19,6 +19,8 @@
 /.idea
 /.vscode
 
+/src/styles/fuse-helpers.css
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
