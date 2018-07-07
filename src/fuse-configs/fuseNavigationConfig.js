@@ -42,6 +42,18 @@ export const fuseNavigationConfig = [
                 }
             },
             {
+                'id'   : 'todo',
+                'title': 'To-Do',
+                'type' : 'item',
+                'icon' : 'check_box',
+                'url'  : '/apps/todo/all',
+                'badge': {
+                    'title': 3,
+                    'bg'   : 'rgb(255, 111, 0)',
+                    'fg'   : '#FFFFFF'
+                }
+            },
+            {
                 'id'   : 'file-manager',
                 'title': 'File Manager',
                 'type' : 'item',
