@@ -1,7 +1,7 @@
 import React from 'react';
-import { FuseExample, FuseHighlight, FusePageSimple } from '@fuse';
-import { Button, Icon, Typography } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles/index';
+import {FuseExample, FuseHighlight, FusePageSimple} from '@fuse';
+import {Button, Icon, Typography} from '@material-ui/core';
+import {withStyles} from '@material-ui/core/styles/index';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint no-unused-vars: off */
 const styles = theme => ({
@@ -38,15 +38,11 @@ function AppBar({classes})
             content={
                 <div className="p-24 max-w-2xl mx-auto">
                     <Typography className="text-44 mt-32 mb-8" component="h1">App Bar</Typography>
-                    <Typography className="description">The App Bar displays information and actions relating to the
-                        current screen.</Typography>
+                    <Typography className="description">The App Bar displays information and actions relating to the current screen.</Typography>
 
-                    <Typography className="mb-16" component="div">The <a
-                        href="https://material.io/design/components/app-bars-top.html">top App Bar</a> provides content
-                        and actions related to the current screen. It’s used for branding, screen titles, navigation,
-                        and actions.</Typography>
-                    <Typography className="mb-16" component="div">It can transform into a contextual action
-                        bar.</Typography>
+                    <Typography className="mb-16" component="div">The <a href="https://material.io/design/components/app-bars-top.html">top App Bar</a> provides content and actions
+                        related to the current screen. It’s used for branding, screen titles, navigation, and actions.</Typography>
+                    <Typography className="mb-16" component="div">It can transform into a contextual action bar.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Simple App Bar</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"

@@ -1,7 +1,7 @@
 import React from 'react';
-import { FuseExample, FuseHighlight, FusePageSimple } from '@fuse';
-import { Button, Icon, Typography } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles/index';
+import {FuseExample, FuseHighlight, FusePageSimple} from '@fuse';
+import {Button, Icon, Typography} from '@material-ui/core';
+import {withStyles} from '@material-ui/core/styles/index';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint no-unused-vars: off */
 const styles = theme => ({
@@ -38,11 +38,9 @@ function Tooltips({classes})
             content={
                 <div className="p-24 max-w-2xl mx-auto">
                     <Typography className="text-44 mt-32 mb-8" component="h1">Tooltips</Typography>
-                    <Typography className="description">Tooltips display informative text when users hover over, focus
-                        on, or tap an element.</Typography>
+                    <Typography className="description">Tooltips display informative text when users hover over, focus on, or tap an element.</Typography>
 
-                    <Typography className="mb-16" component="div">When activated, <a
-                        href="https://material.io/design/components/tooltips.html">Tooltips</a> display a text label
+                    <Typography className="mb-16" component="div">When activated, <a href="https://material.io/design/components/tooltips.html">Tooltips</a> display a text label
                         identifying an element, such as a description of its function.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Simple Tooltips</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -52,8 +50,7 @@ function Tooltips({classes})
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Positioned Tooltips</Typography>
                     <Typography className="mb-16" component="div">The <code>Tooltip</code> has 12 placements choice.
-                        They don’t have directional arrows; instead, they rely on motion emanating from the source to
-                        convey direction.</Typography>
+                        They don’t have directional arrows; instead, they rely on motion emanating from the source to convey direction.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/tooltips/PositionedTooltips.js').default}
@@ -66,14 +63,11 @@ function Tooltips({classes})
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tooltips/ControlledTooltips.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Showing and hiding</Typography>
-                    <Typography className="mb-16" component="div">The tooltip is normally shown immediately when the
-                        user&#39;s mouse hovers over the element, and hides immediately when the user&#39;s mouse
-                        leaves. A delay in showing or hiding the tooltip can be added through the
-                        properties <code>enterDelay</code> and <code>leaveDelay</code>, as shown in the Controlled
-                        Tooltips demo above.</Typography>
-                    <Typography className="mb-16" component="div">On mobile, the tooltip is displayed when the user
-                        longpresses the element and hides after a delay of 1500ms. You can disable this feature with
-                        the <code>disableTouchListener</code> property.</Typography>
+                    <Typography className="mb-16" component="div">The tooltip is normally shown immediately when the user&#39;s mouse hovers over the element, and hides immediately
+                        when the user&#39;s mouse leaves. A delay in showing or hiding the tooltip can be added through the
+                        properties <code>enterDelay</code> and <code>leaveDelay</code>, as shown in the Controlled Tooltips demo above.</Typography>
+                    <Typography className="mb-16" component="div">On mobile, the tooltip is displayed when the user longpresses the element and hides after a delay of 1500ms. You
+                        can disable this feature with the <code>disableTouchListener</code> property.</Typography>
 
                 </div>
             }

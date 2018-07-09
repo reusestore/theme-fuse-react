@@ -1,7 +1,7 @@
 import React from 'react';
-import { FuseExample, FuseHighlight, FusePageSimple } from '@fuse';
-import { Button, Icon, Typography } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles/index';
+import {FuseExample, FuseHighlight, FusePageSimple} from '@fuse';
+import {Button, Icon, Typography} from '@material-ui/core';
+import {withStyles} from '@material-ui/core/styles/index';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint no-unused-vars: off */
 const styles = theme => ({
@@ -38,29 +38,21 @@ function Pickers({classes})
             content={
                 <div className="p-24 max-w-2xl mx-auto">
                     <Typography className="text-44 mt-32 mb-8" component="h1">Pickers</Typography>
-                    <Typography className="description">Pickers provide a simple way to select a single value from a
-                        pre-determined set.</Typography>
+                    <Typography className="description">Pickers provide a simple way to select a single value from a pre-determined set.</Typography>
 
                     <ul>
                         <li>On mobile, pickers are best suited for display in confirmation dialog.</li>
-                        <li>For inline display, such as on a form, consider using compact controls such as segmented
-                            dropdown buttons.
-                        </li>
+                        <li>For inline display, such as on a form, consider using compact controls such as segmented dropdown buttons.</li>
                     </ul>
                     <Typography className="text-16 mt-32 mb-8" component="h4">Notice</Typography>
-                    <Typography className="mb-16" component="div">We are currently falling back to <strong>native input
-                        controls</strong>.
-                        If you are interested in implementing or have implemented a rich Material Design Picker with an
-                        awesome UX, please, let us know on <a
-                            href="https://github.com/mui-org/material-ui/issues/4787">#4787</a> and <a
-                            href="https://github.com/mui-org/material-ui/issues/4796">#4796</a>! We could add a link to
-                        or a demo of your project in the documentation.
+                    <Typography className="mb-16" component="div">We are currently falling back to <strong>native input controls</strong>.
+                        If you are interested in implementing or have implemented a rich Material Design Picker with an awesome UX, please, let us know on <a
+                            href="https://github.com/mui-org/material-ui/issues/4787">#4787</a> and <a href="https://github.com/mui-org/material-ui/issues/4796">#4796</a>! We could
+                        add a link to or a demo of your project in the documentation.
                         Here are some components that are <strong>promising</strong>:</Typography>
                     <ul>
                         <li><a href="https://github.com/dmtrKovalenko/material-ui-pickers">material-ui-pickers</a></li>
-                        <li><a
-                            href="https://github.com/TeamWertarbyte/material-ui-time-picker">material-ui-time-picker</a>
-                        </li>
+                        <li><a href="https://github.com/TeamWertarbyte/material-ui-time-picker">material-ui-time-picker</a></li>
                     </ul>
                     <Typography className="mb-16" component="div">
                         <span>⚠</span>

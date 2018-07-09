@@ -71,7 +71,7 @@ The progress components accept a value in the range 0 - 100. This simplifies thi
 // Function to normalise the values (MIN / MAX could be integrated)
 const normalise = value => (value - MIN) * (MAX - MIN);
 
-// Example component that utilizes the 'normalise' function at the point of render.
+// Example component that utilizes the `normalise` function at the point of render.
 function Progress(props) {
   return (
     <React.Fragment>

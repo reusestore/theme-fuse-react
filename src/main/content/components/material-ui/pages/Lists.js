@@ -1,7 +1,7 @@
 import React from 'react';
-import { FuseExample, FuseHighlight, FusePageSimple } from '@fuse';
-import { Button, Icon, Typography } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles/index';
+import {FuseExample, FuseHighlight, FusePageSimple} from '@fuse';
+import {Button, Icon, Typography} from '@material-ui/core';
+import {withStyles} from '@material-ui/core/styles/index';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint no-unused-vars: off */
 const styles = theme => ({
@@ -38,13 +38,10 @@ function Lists({classes})
             content={
                 <div className="p-24 max-w-2xl mx-auto">
                     <Typography className="text-44 mt-32 mb-8" component="h1">Lists</Typography>
-                    <Typography className="description">Lists are continuous, vertical indexes of text or
-                        images.</Typography>
+                    <Typography className="description">Lists are continuous, vertical indexes of text or images.</Typography>
 
-                    <Typography className="mb-16" component="div"><a
-                        href="https://material.io/design/components/lists.html">Lists</a> are a continuous group of text
-                        or images. They are composed of items containing primary and supplemental actions, which are
-                        represented by icons and text.</Typography>
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/lists.html">Lists</a> are a continuous group of text or images.
+                        They are composed of items containing primary and supplemental actions, which are represented by icons and text.</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Simple List</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -70,12 +67,11 @@ function Lists({classes})
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/lists/NestedList.js')}
                     /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Pinned Subheader List</Typography>
-                    <Typography className="mb-16" component="div">Upon scrolling, subheaders remain pinned to the top of
-                        the screen until pushed off screen by the next subheader.</Typography>
+                    <Typography className="mb-16" component="div">Upon scrolling, subheaders remain pinned to the top of the screen until pushed off screen by the next
+                        subheader.</Typography>
                     <Typography className="mb-16" component="div">This feature is relying on the CSS sticky positioning.
-                        Unfortunately it&#39;s <a href="https://caniuse.com/#search=sticky">not implemented</a> by all
-                        the browsers we are supporting. We default to <code>disableSticky</code> when not
-                        supported.</Typography>
+                        Unfortunately it&#39;s <a href="https://caniuse.com/#search=sticky">not implemented</a> by all the browsers we are supporting. We default
+                        to <code>disableSticky</code> when not supported.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/lists/PinnedSubheaderList.js').default}
@@ -83,34 +79,29 @@ function Lists({classes})
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">List Controls</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Checkbox</Typography>
-                    <Typography className="mb-16" component="div">A checkbox can either be a primary action or a
-                        secondary action.</Typography>
-                    <Typography className="mb-16" component="div">The checkbox is the primary action and the state
-                        indicator for the list item. The comment button is a secondary action and a separate
-                        target.</Typography>
+                    <Typography className="mb-16" component="div">A checkbox can either be a primary action or a secondary action.</Typography>
+                    <Typography className="mb-16" component="div">The checkbox is the primary action and the state indicator for the list item. The comment button is a secondary
+                        action and a separate target.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/lists/CheckboxList.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/lists/CheckboxList.js')}
                     /></Typography>
-                    <Typography className="mb-16" component="div">The checkbox is the secondary action for the list item
-                        and a separate target.</Typography>
+                    <Typography className="mb-16" component="div">The checkbox is the secondary action for the list item and a separate target.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/lists/CheckboxListSecondary.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/lists/CheckboxListSecondary.js')}
                     /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Switch</Typography>
-                    <Typography className="mb-16" component="div">The switch is the secondary action and a separate
-                        target.</Typography>
+                    <Typography className="mb-16" component="div">The switch is the secondary action and a separate target.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/lists/SwitchListSecondary.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/lists/SwitchListSecondary.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Interactive</Typography>
-                    <Typography className="mb-16" component="div">Below is an interactive demo that lets you explore the
-                        visual results of the different settings:</Typography>
+                    <Typography className="mb-16" component="div">Below is an interactive demo that lets you explore the visual results of the different settings:</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/lists/InteractiveList.js').default}
