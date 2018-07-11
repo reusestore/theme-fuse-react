@@ -143,7 +143,10 @@ class FuseLayout2 extends Component {
                     <Hidden mdDown>
                         <div
                             className={classNames(classes.navbar)}
-                            style={{backgroundColor: FuseThemes[settings.theme.navbar].palette.background.default}}
+                            style={{
+                                backgroundColor: FuseThemes[settings.theme.navbar].palette.background.default,
+                                color          : FuseThemes[settings.theme.navbar].palette.text.primary
+                            }}
                         >
                             {navbarHeaderTemplate}
                             {navbarContentTemplate}

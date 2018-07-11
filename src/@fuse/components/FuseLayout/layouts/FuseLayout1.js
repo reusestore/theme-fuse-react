@@ -12,7 +12,7 @@ import _ from 'lodash';
 
 const defaultProps = {};
 
-const navbarWidth = 256;
+const navbarWidth = 280;
 
 const styles = theme => ({
     root               : {
@@ -84,8 +84,7 @@ const styles = theme => ({
         '-webkit-overflow-scrolling': 'touch'
     },
     navbarWrapper      : {
-        boxShadow: theme.shadows[3],
-        zIndex   : 4
+        zIndex: 4
     },
     navbarPaperWrapper : {},
     navbar             : {
@@ -99,7 +98,8 @@ const styles = theme => ({
         transition   : theme.transitions.create(['width', 'min-width'], {
             easing  : theme.transitions.easing.sharp,
             duration: theme.transitions.duration.shorter
-        })
+        }),
+        boxShadow    : theme.shadows[3]
     },
     navbarButton       : {
         '&.right': {
@@ -128,7 +128,10 @@ const styles = theme => ({
     },
     navbarFoldedClose  : {
         '& $navbarHeader'                       : {
-            padding         : '0 8px 0 13px',
+            '& .logo-icon'  : {
+                width : 32,
+                height: 32
+            },
             '& .logo-text'  : {
                 opacity: 0
             },
@@ -152,15 +155,29 @@ const styles = theme => ({
         },
         '& .collapse-children'                  : {
             display: 'none'
+        },
+        '& .user'                               : {
+            '& .username, & .email': {
+                opacity: 0
+            },
+            '& .avatar'            : {
+                width  : 40,
+                height : 40,
+                top    : 32,
+                padding: 0
+            }
         }
     },
     navbarHeaderWrapper: {
-        display        : 'flex',
-        alignItems     : 'center',
-        flex           : '0 1 auto',
-        ...theme.mixins.toolbar,
-        backgroundColor: 'rgba(255, 255, 255, .05)',
-        boxShadow      : theme.shadows[1]
+        display      : 'flex',
+        alignItems   : 'center',
+        flex         : '0 1 auto',
+        flexDirection: 'row',
+        height       : 64,
+        minHeight    : 64
+        // ...theme.mixins.toolbar
+        // backgroundColor: 'rgba(255, 255, 255, .05)',
+        // boxShadow      : theme.shadows[1]
     },
     navbarHeader       : {
         display: 'flex',
@@ -170,7 +187,11 @@ const styles = theme => ({
     navbarContent      : {
         overflowX                   : 'hidden',
         overflowY                   : 'auto',
-        '-webkit-overflow-scrolling': 'touch'
+        '-webkit-overflow-scrolling': 'touch',
+        background                  : 'linear-gradient(rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 30%), linear-gradient(rgba(0, 0, 0, 0.25) 0, rgba(0, 0, 0, 0) 40%)',
+        backgroundRepeat            : 'no-repeat',
+        backgroundSize              : '100% 40px, 100% 10px',
+        backgroundAttachment        : 'local, scroll'
     },
     toolbarWrapper     : {
         display : 'flex',
@@ -205,21 +226,26 @@ class FuseLayout1 extends Component {
         const layoutConfig = settings.layout.config;
 
         const navbarHeaderTemplate = (
-            <div className={classes.navbarHeaderWrapper}>
+            <AppBar
+                color="primary"
+                position="static"
+                elevation={0}
+                className={classes.navbarHeaderWrapper}
+            >
                 <div className={classes.navbarHeader}>
                     {navbarHeader}
                 </div>
                 <Hidden mdDown>
-                    <IconButton onClick={this.handleToggleFolded}>
+                    <IconButton onClick={this.handleToggleFolded} color="inherit">
                         <Icon>menu</Icon>
                     </IconButton>
                 </Hidden>
                 <Hidden lgUp>
-                    <IconButton onClick={navbarCloseMobile}>
+                    <IconButton onClick={navbarCloseMobile} color="inherit">
                         <Icon>menu</Icon>
                     </IconButton>
                 </Hidden>
-            </div>
+            </AppBar>
         );
 
         const navbarContentTemplate = (

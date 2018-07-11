@@ -32,7 +32,7 @@ function FuseNavVerticalGroup({item, nestedLevel, userRole})
         <React.Fragment>
 
             <ListSubheader disableSticky={true} className={classNames(listItemPadding, "list-subheader flex items-center")}>
-                <span className="list-subheader-text">
+                <span className="list-subheader-text uppercase text-12">
                     {item.title}
                 </span>
             </ListSubheader>
