@@ -18,6 +18,12 @@ const fuseSettingsConfig = {
                 style   : 'fixed',
                 position: 'below'
             },
+            leftSidePanel : {
+                display : true,
+            },
+            rightSidePanel : {
+                display : true,
+            },
             mode   : 'fullwidth'
         }
     },

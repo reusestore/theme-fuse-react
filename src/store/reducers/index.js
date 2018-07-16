@@ -2,6 +2,7 @@ import {combineReducers} from 'redux';
 import fuse from './fuse';
 import auth from 'auth/store/reducers/index';
 import quickPanel from 'main/quickPanel/store/reducers';
+import chatPanel from 'main/chatPanel/store/reducers';
 import analyticsDashboardApp from 'main/content/apps/dashboards/analytics/store/reducers/index';
 import mailApp from 'main/content/apps/mail/store/reducers/index';
 import todoApp from 'main/content/apps/todo/store/reducers/index';
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
     fileManagerApp,
     contactsApp,
     calendarApp,
-    quickPanel
+    quickPanel,
+    chatPanel
 });
 
 export default rootReducer;

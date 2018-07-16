@@ -12,4 +12,5 @@ import './icons-db';
 import './analytics-dashboard-db';
 import './quick-panel-db';
 import './auth-db';
+import './chat-panel-db';
 

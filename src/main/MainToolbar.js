@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles/index';
 import classNames from 'classnames';
-import {Avatar, Button, Icon, IconButton, ListItemIcon, ListItemText, Popover, MenuItem, Typography} from '@material-ui/core';
+import {Avatar, Button, Icon, IconButton, ListItemIcon, ListItemText, Popover, MenuItem, Typography, Hidden} from '@material-ui/core';
 import {connect} from 'react-redux';
 import * as quickPanelActions from 'main/quickPanel/store/actions';
 import * as authActions from 'auth/store/actions';
+import * as chatPanelActions from 'main/chatPanel/store/actions';
 import {bindActionCreators} from 'redux';
-import {FuseShortcuts,FuseAnimate} from '@fuse';
+import {FuseShortcuts, FuseAnimate} from '@fuse';
 import {Link} from 'react-router-dom';
 
 const styles = theme => ({
@@ -37,7 +38,7 @@ class MainToolbar extends Component {
 
     render()
     {
-        const {classes, toggleQuickPanel, user, logout} = this.props;
+        const {classes, toggleQuickPanel, user, logout, openChatPanel} = this.props;
         const {userMenu} = this.state;
 
         return (
@@ -141,6 +142,14 @@ class MainToolbar extends Component {
                         <Icon>search</Icon>
                     </IconButton>
 
+                    <Hidden lgUp>
+                        <div className={classes.seperator}/>
+
+                        <IconButton className="w-64 h-64" onClick={openChatPanel}>
+                            <Icon>chat</Icon>
+                        </IconButton>
+                    </Hidden>
+
                     <div className={classes.seperator}/>
 
                     <IconButton className="w-64 h-64" onClick={() => toggleQuickPanel(true)}>
@@ -156,7 +165,8 @@ function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
         toggleQuickPanel: quickPanelActions.toggleQuickPanel,
-        logout          : authActions.logoutUser
+        logout          : authActions.logoutUser,
+        openChatPanel   : chatPanelActions.openChatPanel
     }, dispatch);
 }
 

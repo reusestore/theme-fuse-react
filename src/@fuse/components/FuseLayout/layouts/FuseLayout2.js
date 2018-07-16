@@ -5,7 +5,7 @@ import {withStyles} from '@material-ui/core/styles';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as Actions from 'store/actions';
-import {AppBar, Hidden, Icon, IconButton, Toolbar, Drawer, MuiThemeProvider} from '@material-ui/core';
+import {AppBar, Paper, Hidden, Icon, IconButton, Toolbar, Drawer, MuiThemeProvider} from '@material-ui/core';
 import {FuseScrollbars, FuseMessage, FuseThemes} from '@fuse';
 import classNames from 'classnames';
 
@@ -15,8 +15,9 @@ const navbarWidth = 256;
 
 const styles = theme => ({
     root               : {
+        position     : 'relative',
         display      : 'flex',
-        flexDirection: 'column',
+        flexDirection: 'row',
         width        : '100%',
         height       : '100%',
         overflow     : 'hidden',
@@ -41,10 +42,11 @@ const styles = theme => ({
     },
     navbarPaperWrapper : {},
     navbar             : {
-        display : 'flex',
-        overflow: 'hidden',
-        height  : 56,
-        zIndex  : 6
+        display   : 'flex',
+        overflow  : 'hidden',
+        height    : 64,
+        zIndex    : 6,
+        alignItems: 'center'
     },
     navbarMobile       : {
         display      : 'flex',
@@ -71,23 +73,29 @@ const styles = theme => ({
         display                       : 'flex',
         alignItems                    : 'center',
         flex                          : '0 0 auto',
+        width                         : 'auto',
+        height                        : '100%',
+        minWidth                      : 0,
+        flexDirection                 : 'row',
         [theme.breakpoints.down('md')]: {
-            flex           : '0 1 auto',
-            ...theme.mixins.toolbar,
-            backgroundColor: 'rgba(255, 255, 255, .05)',
-            boxShadow      : theme.shadows[1]
+            flex     : '0 1 auto',
+            height   : 64,
+            minHeight: 64
         }
     },
     navbarHeader       : {
         display: 'flex',
         flex   : '1 0 auto',
         padding: '0 8px 0 16px'
-
     },
     navbarContent      : {
         [theme.breakpoints.down('md')]: {
-            overflowX: 'hidden',
-            overflowY: 'auto'
+            overflowX           : 'hidden',
+            overflowY           : 'auto',
+            background          : 'linear-gradient(rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 30%), linear-gradient(rgba(0, 0, 0, 0.25) 0, rgba(0, 0, 0, 0) 40%)',
+            backgroundRepeat    : 'no-repeat',
+            backgroundSize      : '100% 40px, 100% 10px',
+            backgroundAttachment: 'local, scroll'
         },
         '-webkit-overflow-scrolling'  : 'touch'
     },
@@ -114,12 +122,17 @@ class FuseLayout2 extends Component {
 
     render()
     {
-        const {classes, toolbar, footer, navbarHeader, navbarContent, settings, navbar, navbarOpenMobile, navbarCloseMobile} = this.props;
+        const {classes, toolbar, footer, navbarHeader, navbarContent, settings, navbar, navbarOpenMobile, navbarCloseMobile, children, leftSidePanel, rightSidePanel, contentWrapper} = this.props;
         // console.warn('FuseLayout:: rendered');
         const layoutConfig = settings.layout.config;
 
         const navbarHeaderTemplate = (
-            <div className={classes.navbarHeaderWrapper}>
+            <AppBar
+                color="primary"
+                position="static"
+                elevation={0}
+                className={classes.navbarHeaderWrapper}
+            >
                 <div className={classes.navbarHeader}>
                     {navbarHeader}
                 </div>
@@ -128,28 +141,24 @@ class FuseLayout2 extends Component {
                         <Icon>menu</Icon>
                     </IconButton>
                 </Hidden>
-            </div>
-        );
-
-        const navbarContentTemplate = (
-            <div className={classes.navbarContent}>
-                {navbarContent}
-            </div>
+            </AppBar>
         );
 
         const navBarTemplate = (
             <MuiThemeProvider theme={FuseThemes[settings.theme.navbar]}>
-                <div id="fuse-navbar" className={classes.navbarWrapper}>
+                <Paper
+                    id="fuse-navbar"
+                    className={classes.navbarWrapper}
+                    square={true}
+                >
                     <Hidden mdDown>
                         <div
                             className={classNames(classes.navbar)}
-                            style={{
-                                backgroundColor: FuseThemes[settings.theme.navbar].palette.background.default,
-                                color          : FuseThemes[settings.theme.navbar].palette.text.primary
-                            }}
                         >
                             {navbarHeaderTemplate}
-                            {navbarContentTemplate}
+                            <div className={classes.navbarContent}>
+                                {navbarContent}
+                            </div>
                         </div>
                     </Hidden>
 
@@ -167,10 +176,12 @@ class FuseLayout2 extends Component {
                             }}
                         >
                             {navbarHeaderTemplate}
-                            {navbarContentTemplate}
+                            <FuseScrollbars className={classes.navbarContent}>
+                                {navbarContent}
+                            </FuseScrollbars>
                         </Drawer>
                     </Hidden>
-                </div>
+                </Paper>
             </MuiThemeProvider>
         );
 
@@ -223,29 +234,47 @@ class FuseLayout2 extends Component {
         return (
             <div id="fuse-layout" className={classNames(classes.root, layoutConfig.mode)}>
 
-                {layoutConfig.toolbar.display && layoutConfig.toolbar.position === 'above' && (
-                    toolbarTemplate
+                {layoutConfig.leftSidePanel.display && (
+                    leftSidePanel
                 )}
 
-                {layoutConfig.navbar.display && (
-                    navBarTemplate
-                )}
+                <div className="flex flex-1 flex-col overflow-hidden relative">
 
-                {layoutConfig.toolbar.display && layoutConfig.toolbar.position === 'below' && (
-                    toolbarTemplate
-                )}
+                    {layoutConfig.toolbar.display && layoutConfig.toolbar.position === 'above' && (
+                        toolbarTemplate
+                    )}
 
-                <FuseScrollbars className={classes.content}>
-                    <FuseMessage/>
-                    {renderRoutes(this.props.routes)}
+                    {layoutConfig.navbar.display && (
+                        navBarTemplate
+                    )}
 
-                    {layoutConfig.footer.display && layoutConfig.footer.style === 'static' && (
+                    {layoutConfig.toolbar.display && layoutConfig.toolbar.position === 'below' && (
+                        toolbarTemplate
+                    )}
+
+                    <FuseScrollbars className={classes.content}>
+
+                        <FuseMessage/>
+
+                        <div>
+                            {renderRoutes(this.props.routes)}
+                            {children}
+                        </div>
+
+                        {layoutConfig.footer.display && layoutConfig.footer.style === 'static' && (
+                            footerTemplate
+                        )}
+                    </FuseScrollbars>
+
+                    {layoutConfig.footer.display && layoutConfig.footer.style === 'fixed' && (
                         footerTemplate
                     )}
-                </FuseScrollbars>
 
-                {layoutConfig.footer.display && layoutConfig.footer.style === 'fixed' && (
-                    footerTemplate
+                    {contentWrapper}
+                </div>
+
+                {layoutConfig.rightSidePanel.display && (
+                    rightSidePanel
                 )}
             </div>
         );

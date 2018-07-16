@@ -23,6 +23,7 @@ import QuickPanel from 'main/quickPanel/QuickPanel';
 import FirebaseAuth from 'firebase-db/FirebaseAuth';
 import store from 'store';
 import SettingsPanel from 'main/SettingsPanel';
+import ChatPanel from 'main/chatPanel/ChatPanel';
 
 const jss = create({
     ...jssPreset(),
@@ -53,9 +54,17 @@ ReactDOM.render(
                                 footer={
                                     <MainFooter/>
                                 }
-                            />
-                            <SettingsPanel/>
-                            <QuickPanel/>
+                                rightSidePanel={
+                                    <React.Fragment>
+                                        <ChatPanel/>
+                                        <QuickPanel/>
+                                    </React.Fragment>
+                                }
+                                contentWrapper={
+                                    <SettingsPanel/>
+                                }
+                            >
+                            </FuseLayout>
                         </FuseTheme>
                     </FuseAuthorization>
                 </Router>

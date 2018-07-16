@@ -9,7 +9,7 @@ function Transition(props)
 
 const styles = theme => ({
     button               : {
-        position               : 'fixed',
+        position               : 'absolute',
         right                  : 0,
         top                    : 160,
         minWidth               : 48,
@@ -44,7 +44,8 @@ const styles = theme => ({
         bottom         : 0,
         right          : 0,
         margin         : 0,
-        zIndex         : 1000
+        zIndex         : 1000,
+        borderRadius   : 0
     }
 });
 
@@ -72,8 +73,8 @@ class SettingsPanel extends Component {
 
                 <Dialog
                     TransitionComponent={Transition}
-                    aria-labelledby="simple-modal-title"
-                    aria-describedby="simple-modal-description"
+                    aria-labelledby="settings-panel"
+                    aria-describedby="settings"
                     open={this.state.open}
                     keepMounted
                     onClose={this.handleClose}

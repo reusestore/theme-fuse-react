@@ -22,6 +22,12 @@ const defaultSettings = {
                 style   : 'fixed',
                 position: 'below'
             },
+            leftSidePanel : {
+                display : true,
+            },
+            rightSidePanel : {
+                display : true,
+            },
             mode   : 'fullwidth'
         }
     },
