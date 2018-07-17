@@ -49,8 +49,16 @@ class FuseThemeDoc extends Component {
                                         footer={
                                             <MainFooter/>
                                         }
+                                        rightSidePanel={
+                                            <React.Fragment>
+                                                <ChatPanel/>
+                                                <QuickPanel/>
+                                            </React.Fragment>
+                                        }
+                                        contentWrapper={
+                                            <SettingsPanel/>
+                                        }
                                     />
-                                    <FuseSettings/>
                                 </FuseTheme>
                                 `
                             }

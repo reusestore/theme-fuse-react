@@ -8,10 +8,11 @@ import classNames from 'classnames';
 import FuseNavBadge from './../FuseNavBadge';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {Manager, Target, Popper} from 'react-popper';
+import {Manager, Reference, Popper} from 'react-popper';
 import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
 import _ from 'lodash';
+import * as ReactDOM from 'react-dom';
 
 const propTypes = {
     item: PropTypes.shape(
@@ -67,66 +68,76 @@ class FuseNavHorizontalCollapse extends Component {
         return (
             <ul className={classNames(classes.root, "relative pl-0")}>
                 <Manager>
-                    <Target>
-                        <ListItem
-                            button
-                            onClick={this.handleClick}
-                            className={classNames(classes.button, this.state.open && "open")}
-                            onMouseEnter={() => this.handleToggle(true)}
-                            onMouseLeave={() => this.handleToggle(false)}
-                            aria-owns={open ? 'menu-list-grow' : null}
-                            aria-haspopup="true"
+                    <Reference>
+                        {({ref}) => (
+                            <div ref={ref}>
+                                <ListItem
+                                    button
+                                    onClick={this.handleClick}
+                                    className={classNames(classes.button, this.state.open && "open")}
+                                    onMouseEnter={() => this.handleToggle(true)}
+                                    onMouseLeave={() => this.handleToggle(false)}
+                                    aria-owns={open ? 'menu-list-grow' : null}
+                                    aria-haspopup="true"
+                                >
+                                    {item.icon && (
+                                        <Icon color="action" className="text-16 flex-no-shrink">{item.icon}</Icon>
+                                    )}
+                                    <ListItemText className="list-item-text pr-0" primary={item.title} classes={{primary: 'text-14'}}/>
+                                    {item.badge && (
+                                        <FuseNavBadge className="ml-8 mr-4" badge={item.badge}/>
+                                    )}
+                                    <IconButton disableRipple className="w-16 h-16 ml-4">
+                                        <Icon className="text-16 arrow-icon">keyboard_arrow_right</Icon>
+                                    </IconButton>
+                                </ListItem>
+                            </div>
+                        )}
+                    </Reference>
+                    {ReactDOM.createPortal(
+                        <Popper
+                            placement="right"
+                            eventsEnabled={open}
+                            positionFixed
                         >
-                            {item.icon && (
-                                <Icon color="action" className="text-16 flex-no-shrink">{item.icon}</Icon>
+                            {({ref, style, placement, arrowProps}) => (
+                                <div ref={ref} style={style} data-placement={placement} className={classNames(classes.popper, {[classes.popperClose]: !open})}>
+                                    <Grow in={open} id="menu-list-grow" style={{transformOrigin: '0 0 0'}}>
+                                        <Paper
+                                            onMouseEnter={() => this.handleToggle(true)}
+                                            onMouseLeave={() => this.handleToggle(false)}
+                                        >
+                                            {item.children && (
+                                                <ul className={classNames(classes.children, "pl-0")}>
+                                                    {
+                                                        item.children.map((item) => (
+
+                                                            <React.Fragment key={item.id}>
+
+                                                                {item.type === 'group' && (
+                                                                    <FuseNavHorizontalGroup item={item} nestedLevel={nestedLevel + 1}/>
+                                                                )}
+
+                                                                {item.type === 'collapse' && (
+                                                                    <NavHorizontalCollapse item={item} nestedLevel={nestedLevel + 1}/>
+                                                                )}
+
+                                                                {item.type === 'item' && (
+                                                                    <FuseNavHorizontalItem item={item} nestedLevel={nestedLevel + 1}/>
+                                                                )}
+
+                                                            </React.Fragment>
+                                                        ))
+                                                    }
+                                                </ul>
+                                            )}
+                                        </Paper>
+                                    </Grow>
+                                </div>
                             )}
-                            <ListItemText className="list-item-text pr-0" primary={item.title} classes={{primary: 'text-14'}}/>
-                            {item.badge && (
-                                <FuseNavBadge className="ml-8 mr-4" badge={item.badge}/>
-                            )}
-                            <IconButton disableRipple className="w-16 h-16 ml-4">
-                                <Icon className="text-16 arrow-icon">keyboard_arrow_right</Icon>
-                            </IconButton>
-                        </ListItem>
-                    </Target>
-                    <Popper
-                        placement="right"
-                        eventsEnabled={open}
-                        positionFixed
-                        className={classNames(classes.popper, {[classes.popperClose]: !open})}
-                    >
-                        <Grow in={open} id="menu-list-grow" style={{transformOrigin: '0 0 0'}}>
-                            <Paper
-                                onMouseEnter={() => this.handleToggle(true)}
-                                onMouseLeave={() => this.handleToggle(false)}
-                            >
-                                {item.children && (
-                                    <ul className={classNames(classes.children, "pl-0")}>
-                                        {
-                                            item.children.map((item) => (
-
-                                                <React.Fragment key={item.id}>
-
-                                                    {item.type === 'group' && (
-                                                        <FuseNavHorizontalGroup item={item} nestedLevel={nestedLevel + 1}/>
-                                                    )}
-
-                                                    {item.type === 'collapse' && (
-                                                        <NavHorizontalCollapse item={item} nestedLevel={nestedLevel + 1}/>
-                                                    )}
-
-                                                    {item.type === 'item' && (
-                                                        <FuseNavHorizontalItem item={item} nestedLevel={nestedLevel + 1}/>
-                                                    )}
-
-                                                </React.Fragment>
-                                            ))
-                                        }
-                                    </ul>
-                                )}
-                            </Paper>
-                        </Grow>
-                    </Popper>
+                        </Popper>,
+                        document.querySelector('#root')
+                    )}
                 </Manager>
             </ul>
         );

@@ -165,7 +165,7 @@ class FuseScrollbars extends Component {
                 )
                 :
                 (
-                    <div className={this.props.className}>
+                    <div className={this.props.className} ref={this.handleRef}>
                         {this.props.children}
                     </div>
                 )

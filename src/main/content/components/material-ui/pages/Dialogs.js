@@ -42,7 +42,7 @@ function Dialogs({classes})
                         tasks.</Typography>
 
                     <Typography className="mb-16" component="div">A <a href="https://material.io/design/components/dialogs.html">Dialog</a> is a type of <a
-                        href="/utils/modals">modal</a> window that appears in front of app content to provide critical information or ask for a decision. Dialogs disable all app
+                        href="/utils/modal">modal</a> window that appears in front of app content to provide critical information or ask for a decision. Dialogs disable all app
                         functionality when they appear, and remain on screen until confirmed, dismissed, or a required action has been taken.</Typography>
                     <Typography className="mb-16" component="div">Dialogs are purposefully interruptive, so they should be used sparingly.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Simple Dialogs</Typography>

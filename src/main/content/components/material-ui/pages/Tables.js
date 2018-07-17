@@ -81,7 +81,7 @@ function Tables({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/tables/CustomPaginationActionsTable.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tables/CustomPaginationActionsTable.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Customized tables</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Customized Tables</Typography>
                     <Typography className="mb-16" component="div">You can customize the look and feel of the table by overriding the styles of the <code>TableCell</code> component.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"

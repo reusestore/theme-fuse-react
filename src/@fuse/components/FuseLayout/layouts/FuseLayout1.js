@@ -72,6 +72,7 @@ const styles = theme => ({
     contentWrapper     : {
         display      : 'flex',
         flexDirection: 'column',
+        position     : 'relative',
         zIndex       : 3,
         overflow     : 'hidden',
         flex         : '1 1 auto'
@@ -381,15 +382,16 @@ class FuseLayout1 extends Component {
 
                                         <div className={classes.content}>
                                             <FuseMessage/>
-                                            <div>
-                                                {renderRoutes(this.props.routes)}
-                                                {children}
-                                            </div>
+                                            {renderRoutes(this.props.routes)}
+                                            {children}
                                         </div>
 
                                         {layoutConfig.footer.display && layoutConfig.footer.position === 'below' && (
                                             footerTemplate
                                         )}
+
+                                        {contentWrapper}
+
                                     </div>
 
                                     {layoutConfig.navbar.display && layoutConfig.navbar.position === 'right' && (
@@ -406,8 +408,6 @@ class FuseLayout1 extends Component {
                             {layoutConfig.footer.display && layoutConfig.footer.style === 'fixed' && layoutConfig.footer.position === 'above' && (
                                 footerTemplate
                             )}
-
-                            {contentWrapper}
 
                         </div>
 
@@ -457,10 +457,8 @@ class FuseLayout1 extends Component {
 
                                         <FuseMessage/>
 
-                                        <div>
-                                            {renderRoutes(this.props.routes)}
-                                            {children}
-                                        </div>
+                                        {renderRoutes(this.props.routes)}
+                                        {children}
 
                                         {layoutConfig.footer.display && layoutConfig.footer.position === 'below' && layoutConfig.footer.style !== 'fixed' && (
                                             footerTemplate

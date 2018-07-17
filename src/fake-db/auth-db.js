@@ -90,7 +90,7 @@ let authDB = {
                     'calendar',
                     'mail',
                     'contacts',
-                    'analytics-dashboard'
+                    'todo'
                 ]
             }
         }

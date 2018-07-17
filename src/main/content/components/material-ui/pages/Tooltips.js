@@ -49,7 +49,7 @@ function Tooltips({classes})
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tooltips/SimpleTooltips.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Positioned Tooltips</Typography>
-                    <Typography className="mb-16" component="div">The <code>Tooltip</code> has 12 placements choice.
+                    <Typography className="mb-16" component="div">The <code>Tooltip</code> has 12 <strong>placements</strong> choice.
                         They don’t have directional arrows; instead, they rely on motion emanating from the source to convey direction.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -57,10 +57,26 @@ function Tooltips({classes})
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tooltips/PositionedTooltips.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Controlled Tooltips</Typography>
+                    <Typography className="mb-16" component="div">You can use the <code>open</code>, <code>onOpen</code> and <code>onClose</code> properties to control the behavior
+                        of the tooltip.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/tooltips/ControlledTooltips.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tooltips/ControlledTooltips.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Triggers</Typography>
+                    <Typography className="mb-16" component="div">You can define the types of events that cause a tooltip to show.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        component={require('main/content/components/material-ui/material-ui-examples/tooltips/TriggersTooltips.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tooltips/TriggersTooltips.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Transitions</Typography>
+                    <Typography className="mb-16" component="div">Use a different transition.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        component={require('main/content/components/material-ui/material-ui-examples/tooltips/TransitionsTooltips.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tooltips/TransitionsTooltips.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Showing and hiding</Typography>
                     <Typography className="mb-16" component="div">The tooltip is normally shown immediately when the user&#39;s mouse hovers over the element, and hides immediately
@@ -68,6 +84,17 @@ function Tooltips({classes})
                         properties <code>enterDelay</code> and <code>leaveDelay</code>, as shown in the Controlled Tooltips demo above.</Typography>
                     <Typography className="mb-16" component="div">On mobile, the tooltip is displayed when the user longpresses the element and hides after a delay of 1500ms. You
                         can disable this feature with the <code>disableTouchListener</code> property.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        component={require('main/content/components/material-ui/material-ui-examples/tooltips/DelayTooltips.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tooltips/DelayTooltips.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Customized Tooltips</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        component={require('main/content/components/material-ui/material-ui-examples/tooltips/CustomizedTooltips.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tooltips/CustomizedTooltips.js')}
+                    /></Typography>
 
                 </div>
             }

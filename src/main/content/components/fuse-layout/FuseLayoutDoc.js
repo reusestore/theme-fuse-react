@@ -53,6 +53,18 @@ class FuseLayoutDoc extends Component {
                                         footer={
                                             <MainFooter/>
                                         }
+                                        rightSidePanel={
+                                            <React.Fragment>
+                                                <ChatPanel/>
+                                                <QuickPanel/>
+                                            </React.Fragment>
+                                        }
+                                        leftSidePanel={
+                                            <div>Left Side Panel</div>
+                                        }
+                                        contentWrapper={
+                                            <SettingsPanel/>
+                                        }
                                     />
                                 `
                             }

@@ -5,45 +5,44 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Fade from '@material-ui/core/Fade';
 
 class FadeMenu extends React.Component {
-    state = {
-        anchorEl: null
-    };
+  state = {
+    anchorEl: null,
+  };
 
-    handleClick = event => {
-        this.setState({anchorEl: event.currentTarget});
-    };
+  handleClick = event => {
+    this.setState({ anchorEl: event.currentTarget });
+  };
 
-    handleClose = () => {
-        this.setState({anchorEl: null});
-    };
+  handleClose = () => {
+    this.setState({ anchorEl: null });
+  };
 
-    render()
-    {
-        const {anchorEl} = this.state;
+  render() {
+    const { anchorEl } = this.state;
 
-        return (
-            <div>
-                <Button
-                    aria-owns={anchorEl ? 'fade-menu' : null}
-                    aria-haspopup="true"
-                    onClick={this.handleClick}
-                >
-                    Open with fade transition
-                </Button>
-                <Menu
-                    id="fade-menu"
-                    anchorEl={anchorEl}
-                    open={Boolean(anchorEl)}
-                    onClose={this.handleClose}
-                    TransitionComponent={Fade}
-                >
-                    <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={this.handleClose}>My account</MenuItem>
-                    <MenuItem onClick={this.handleClose}>Logout</MenuItem>
-                </Menu>
-            </div>
-        );
-    }
+    return (
+      <div>
+        <Button
+          aria-owns={anchorEl ? 'fade-menu' : null}
+          aria-haspopup="true"
+          onClick={this.handleClick}
+        >
+          Open with fade transition
+        </Button>
+        <Menu
+          id="fade-menu"
+          anchorEl={anchorEl}
+          open={Boolean(anchorEl)}
+          onClose={this.handleClose}
+          TransitionComponent={Fade}
+        >
+          <MenuItem onClick={this.handleClose}>Profile</MenuItem>
+          <MenuItem onClick={this.handleClose}>My account</MenuItem>
+          <MenuItem onClick={this.handleClose}>Logout</MenuItem>
+        </Menu>
+      </div>
+    );
+  }
 }
 
 export default FadeMenu;

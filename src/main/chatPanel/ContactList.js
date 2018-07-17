@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {
+    withStyles,
     Button,
     Avatar,
-    withStyles,
-    Divider
+    Divider,
+    Tooltip
 } from '@material-ui/core';
 import classNames from 'classnames';
 import {FuseScrollbars, FuseAnimateGroup} from '@fuse';
@@ -95,21 +96,23 @@ class ContactList extends Component {
 
         const ContactButton = ({contact}) => {
             return (
-                <Button
-                    onClick={() => this.handleContactClick(contact.id)}
-                    className={classNames(classes.contactButton, {'active': (selectedContactId === contact.id)})}
-                >
-                    {contact.unread && (
-                        <div className={classes.unreadBadge}>{contact.unread}</div>
-                    )}
-                    <div className={classNames(contact.status, classes.status)}/>
-                    <Avatar
-                        src={contact.avatar}
-                        alt={contact.name}
+                <Tooltip title={contact.name} placement="left">
+                    <Button
+                        onClick={() => this.handleContactClick(contact.id)}
+                        className={classNames(classes.contactButton, {'active': (selectedContactId === contact.id)})}
                     >
-                        {!contact.avatar || contact.avatar === '' ? contact.name[0] : ''}
-                    </Avatar>
-                </Button>
+                        {contact.unread && (
+                            <div className={classes.unreadBadge}>{contact.unread}</div>
+                        )}
+                        <div className={classNames(contact.status, classes.status)}/>
+                        <Avatar
+                            src={contact.avatar}
+                            alt={contact.name}
+                        >
+                            {!contact.avatar || contact.avatar === '' ? contact.name[0] : ''}
+                        </Avatar>
+                    </Button>
+                </Tooltip>
             )
         };
 

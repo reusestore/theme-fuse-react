@@ -10,7 +10,7 @@ const initialState = {
             'calendar',
             'mail',
             'contacts',
-            'analytics-dashboard'
+            'todo'
         ]
     }
 };

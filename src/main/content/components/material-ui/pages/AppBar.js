@@ -61,6 +61,12 @@ function AppBar({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/app-bar/MenuAppBar.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/app-bar/MenuAppBar.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Dense (desktop only)</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        component={require('main/content/components/material-ui/material-ui-examples/app-bar/DenseAppBar.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/app-bar/DenseAppBar.js')}
+                    /></Typography>
 
                 </div>
             }

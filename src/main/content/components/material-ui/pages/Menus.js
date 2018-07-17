@@ -74,15 +74,14 @@ function Menus({classes})
                     <Typography className="text-32 mt-32 mb-8" component="h2">MenuList composition</Typography>
                     <Typography className="mb-16" component="div">The <code>Menu</code> component uses the <code>Popover</code> component internally.
                         However, you might want to use a different positioning strategy, or not blocking the scroll.
-                        For answering those needs, we expose a <code>MenuList</code> component that you can compose, with <a
-                            href="https://github.com/FezVrasta/react-popper">react-popper</a> in this example.</Typography>
+                        For answering those needs, we expose a <code>MenuList</code> component that you can compose, with <code>Popper</code> in this example.</Typography>
                     <Typography className="mb-16" component="div">The primary responsibility of the <code>MenuList</code> component is to handle the focus.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/menus/MenuListComposition.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/menus/MenuListComposition.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">MenuItem composition</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Customized MenuItem</Typography>
                     <Typography className="mb-16" component="div">The <code>MenuItem</code> is a wrapper around <code>ListItem</code> with some additional styles.
                         You can use the same list composition features with the <code>MenuItem</code> component:</Typography>
                     <Typography className="mb-16" component="div"><FuseExample

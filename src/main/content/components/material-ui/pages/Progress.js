@@ -117,7 +117,7 @@ function Progress({classes})
 // MAX = Maximium expected value
 
 // Function to normalise the values (MIN / MAX could be integrated)
-const normalise = value => (value - MIN) * (MAX - MIN);
+const normalise = value => (value - MIN) * 100 / (MAX - MIN);
 
 // Example component that utilizes the 'normalise' function at the point of render.
 function Progress(props) {
@@ -141,6 +141,11 @@ function Progress(props) {
                         component={require('main/content/components/material-ui/material-ui-examples/progress/DelayingAppearance.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/progress/DelayingAppearance.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Limitations / Known issues</Typography>
+                    <Typography className="mb-16" component="div">Under heavy load, you might lose the stroke dash animation or see random CircularProgress ring widths.
+                        You should run processor intensive operations in a web worker or by batch in order not to block the main rendering thread.</Typography>
+                    <Typography className="mb-16" component="div">See <a
+                        href="https://github.com/mui-org/material-ui/issues/10327">https://github.com/mui-org/material-ui/issues/10327</a></Typography>
 
                 </div>
             }
