@@ -1,3 +1,4 @@
+import mock from './mock';
 import './mail-db';
 import './todo-db';
 import './file-manager-db';
@@ -13,4 +14,4 @@ import './analytics-dashboard-db';
 import './quick-panel-db';
 import './auth-db';
 import './chat-panel-db';
-
+mock.onAny().passThrough();
