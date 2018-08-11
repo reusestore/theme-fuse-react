@@ -73,4 +73,3 @@ function ExpansionPanels({classes})
 }
 
 export default withStyles(styles, {withTheme: true})(ExpansionPanels);
-                        

@@ -151,4 +151,3 @@ function Steppers({classes})
 }
 
 export default withStyles(styles, {withTheme: true})(Steppers);
-                        

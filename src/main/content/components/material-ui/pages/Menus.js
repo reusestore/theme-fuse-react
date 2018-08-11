@@ -96,6 +96,14 @@ function Menus({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/menus/FadeMenu.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/menus/FadeMenu.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Render Props</Typography>
+                    <Typography className="mb-16" component="div">It is a <a href="https://reactjs.org/docs/render-props.html">render props</a> demo that
+                        keeps track of the local state for a single menu.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        component={require('main/content/components/material-ui/material-ui-examples/menus/RenderPropsMenu.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/menus/RenderPropsMenu.js')}
+                    /></Typography>
 
                 </div>
             }
@@ -105,4 +113,3 @@ function Menus({classes})
 }
 
 export default withStyles(styles, {withTheme: true})(Menus);
-                        

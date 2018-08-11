@@ -71,4 +71,3 @@ function Avatars({classes})
 }
 
 export default withStyles(styles, {withTheme: true})(Avatars);
-                        

@@ -78,6 +78,7 @@ function Buttons({classes})
                     <Typography className="mb-16" component="div"><a href="https://material.io/design/components/buttons.html#contained-button">Contained buttons</a>
                         are high-emphasis, distinguished by their use of elevation and fill.
                         They contain actions that are primary to your app.</Typography>
+                    <Typography className="mb-16" component="div">The last example of this demo show how to use an upload button.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/buttons/ContainedButtons.js').default}
@@ -190,4 +191,3 @@ const MyLink = props => <Link to="/open-collective" {...props} />
 }
 
 export default withStyles(styles, {withTheme: true})(Buttons);
-                        

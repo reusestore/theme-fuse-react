@@ -241,7 +241,7 @@ class FuseLayout2 extends Component {
 
                 <div className="flex flex-1 flex-col overflow-hidden relative">
 
-                    {layoutConfig.toolbar.display && layoutConfig.toolbar.position === 'above' && (
+                    {toolbar && layoutConfig.toolbar.display && layoutConfig.toolbar.position === 'above' && (
                         toolbarTemplate
                     )}
 
@@ -249,7 +249,7 @@ class FuseLayout2 extends Component {
                         navBarTemplate
                     )}
 
-                    {layoutConfig.toolbar.display && layoutConfig.toolbar.position === 'below' && (
+                    {toolbar && layoutConfig.toolbar.display && layoutConfig.toolbar.position === 'below' && (
                         toolbarTemplate
                     )}
 
@@ -257,17 +257,17 @@ class FuseLayout2 extends Component {
 
                         <FuseMessage/>
 
-                        <div>
+                        <div className="flex flex-1">
                             {renderRoutes(this.props.routes)}
                             {children}
                         </div>
 
-                        {layoutConfig.footer.display && layoutConfig.footer.style === 'static' && (
+                        {footer && layoutConfig.footer.display && layoutConfig.footer.style === 'static' && (
                             footerTemplate
                         )}
                     </FuseScrollbars>
 
-                    {layoutConfig.footer.display && layoutConfig.footer.style === 'fixed' && (
+                    {footer && layoutConfig.footer.display && layoutConfig.footer.style === 'fixed' && (
                         footerTemplate
                     )}
 

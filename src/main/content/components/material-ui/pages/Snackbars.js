@@ -44,7 +44,7 @@ function Snackbars({classes})
                         has performed or will perform. They appear temporarily, towards the bottom of the screen. They shouldn’t interrupt the user experience, and they don’t
                         require user input to disappear.</Typography>
                     <Typography className="mb-16" component="div">Snackbars contain a single line of text directly related to the operation performed.
-                        They may contain a text action, but no icons.</Typography>
+                        They may contain a text action, but no icons. You can use them to display notifications.</Typography>
                     <Typography className="text-16 mt-32 mb-8" component="h4">Frequency</Typography>
                     <Typography className="mb-16" component="div">Only one snackbar may be displayed at a time.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Simple</Typography>
@@ -117,4 +117,3 @@ function Snackbars({classes})
 }
 
 export default withStyles(styles, {withTheme: true})(Snackbars);
-                        

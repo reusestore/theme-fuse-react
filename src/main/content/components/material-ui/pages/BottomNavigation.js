@@ -67,4 +67,3 @@ function BottomNavigation({classes})
 }
 
 export default withStyles(styles, {withTheme: true})(BottomNavigation);
-                        

@@ -166,7 +166,14 @@ function getHtmlCode(markdownSource)
         }
         return content;
     });
-    const response = marked(contentsArr.join('')).replace(new RegExp('"{', 'g'), '{').replace(new RegExp('}"', 'g'), '}').replace(new RegExp('(<\\s*\\/?\\s*)p(\\s*([^>]*)?\\s*>)', 'g'), '$1Typography$2').replace(new RegExp('class=', 'g'), 'className=').replace(new RegExp('`normalise`', 'g'), '\'normalise\'').replace(new RegExp('className=', 'g'), "className=");
+    const response = marked(contentsArr.join(''))
+        .replace(new RegExp('"{', 'g'), '{')
+        .replace(new RegExp('}"', 'g'), '}')
+        .replace(new RegExp('(<\\s*\\/?\\s*)p(\\s*([^>]*)?\\s*>)', 'g'), '$1Typography$2')
+        .replace(new RegExp('class=', 'g'), 'className=')
+        .replace(new RegExp('`normalise`', 'g'), '\'normalise\'')
+        .replace(new RegExp('className=', 'g'), "className=")
+        .replace(new RegExp('⚠️', 'g'), "<span role=\"img\" aria-label=\"unicode-symbol\">⚠</span>")
     return response;
 }
 
@@ -315,9 +322,91 @@ function writeNavigationFile(pages)
     fs.writeFileSync(path.resolve(navigationFilePath), content);
 }
 
+
+function walkSync(dir, filelist = [])
+{
+    return new Promise(function (resolve, reject) {
+        fs.readdirSync(dir).forEach(file => {
+            const dirFile = path.join(dir, file);
+            try
+            {
+                filelist = walkSync(dirFile, filelist);
+            }
+            catch ( err )
+            {
+                if ( err.code === 'ENOTDIR' || err.code === 'EBUSY' ) filelist = [...filelist, dirFile];
+                else reject(err);
+            }
+        });
+        resolve({
+            dir,
+            filelist
+        });
+    });
+}
+
+function filewalker(dir, done)
+{
+    let results = [];
+
+    fs.readdir(dir, function (err, list) {
+        if ( err ) return done(err);
+
+        var pending = list.length;
+
+        if ( !pending ) return done(null, results);
+
+        list.forEach(function (file) {
+            file = path.resolve(dir, file);
+
+            fs.stat(file, function (err, stat) {
+                // If directory, execute a recursive call
+                if ( stat && stat.isDirectory() )
+                {
+                    // Add directory to array [comment if you need to remove the directories from the array]
+                    // results.push(file);
+
+                    filewalker(file, function (err, res) {
+                        results = results.concat(res);
+                        if ( !--pending ) done(null, results);
+                    });
+                }
+                else
+                {
+                    results.push(file);
+
+                    if ( !--pending ) done(null, results);
+                }
+            });
+        });
+    });
+}
+
+function replaceInExamples()
+{
+    filewalker(demoDir, function (err, list) {
+        if ( err )
+        {
+            throw err;
+        }
+        list.forEach(function (file) {
+            const fileSource = fs.readFileSync(file, 'utf8');
+            const result = fileSource
+                .replace(new RegExp('@material-ui/docs/MarkdownElement', 'g'), "main/content/components/material-ui/MarkdownElement");
+            fs.writeFileSync(file, result, 'utf8', function (err) {
+                if ( err ) return console.log(err);
+            });
+        });
+    });
+}
+
 function build(dir)
 {
+
+    replaceInExamples();
+
     rmDir(pagesDirectory);
+
     fs.mkdirSync(pagesDirectory);
 
     readDir(examplesDirectory).then(({dir, list}) => {

@@ -6,7 +6,7 @@ export const REMOVE_SELECTED_CONTACT_ID = '[CHAT PANEL] REMOVE SELECTED CONTACT 
 
 export function getContacts()
 {
-    const request = axios.get('/api/chat-panel/contacts');
+    const request = axios.get('/api/chat/contacts');
     return (dispatch) =>
         request.then((response) =>
             dispatch({

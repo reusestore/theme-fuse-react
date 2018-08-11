@@ -77,7 +77,8 @@ function TextFields({classes})
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Input Adornments</Typography>
                     <Typography className="mb-16" component="div"><code>Input</code> allows the provision of <code>InputAdornment</code>.
-                        These can be used to add a prefix, a suffix or an action to an input.</Typography>
+                        These can be used to add a prefix, a suffix or an action to an input.
+                        For instance, you can use an icon button to hide or reveal the password.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/text-fields/InputAdornments.js').default}
@@ -123,4 +124,3 @@ function TextFields({classes})
 }
 
 export default withStyles(styles, {withTheme: true})(TextFields);
-                        

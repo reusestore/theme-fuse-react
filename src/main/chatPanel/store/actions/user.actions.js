@@ -4,7 +4,7 @@ export const GET_USER_DATA = '[CHAT PANEL] GET USER DATA';
 
 export function getUserData()
 {
-    const request = axios.get('/api/chat-panel/user');
+    const request = axios.get('/api/chat/user');
 
     return (dispatch) =>
         request.then((response) =>

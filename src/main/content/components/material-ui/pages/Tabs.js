@@ -137,4 +137,3 @@ function Tabs({classes})
 }
 
 export default withStyles(styles, {withTheme: true})(Tabs);
-                        

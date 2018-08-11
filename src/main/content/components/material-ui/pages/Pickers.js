@@ -51,26 +51,28 @@ function Pickers({classes})
                         add a link to or a demo of your project in the documentation.
                         Here are some components that are <strong>promising</strong>:</Typography>
                     <ul>
-                        <li><a href="https://github.com/dmtrKovalenko/material-ui-pickers">material-ui-pickers</a></li>
-                        <li><a href="https://github.com/TeamWertarbyte/material-ui-time-picker">material-ui-time-picker</a></li>
+                        <li><a href="https://github.com/dmtrKovalenko/material-ui-pickers">material-ui-pickers</a>: date pickers and time pickers.</li>
+                        <li><a href="https://github.com/TeamWertarbyte/material-ui-time-picker">material-ui-time-picker</a>: time pickers.</li>
                     </ul>
                     <Typography className="mb-16" component="div">
-                        <span>⚠</span>
-                        ️ Native input controls support by browsers <a
-                        href="https://caniuse.com/#feat=input-datetime">isn&#39;t perfect</a>.</Typography>
+                        <span role="img" aria-label="unicode-symbol">⚠</span>
+                        Native input controls support by browsers <a href="https://caniuse.com/#feat=input-datetime">isn&#39;t perfect</a>.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Date pickers</Typography>
+                    <Typography className="mb-16" component="div">A native date picker example with <code>type=&quot;date&quot;</code>:</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/pickers/DatePickers.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/pickers/DatePickers.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Time pickers</Typography>
+                    <Typography className="mb-16" component="div">A native time picker example with <code>type=&quot;time&quot;</code>:</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/pickers/TimePickers.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/pickers/TimePickers.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Date &amp; Time pickers</Typography>
+                    <Typography className="mb-16" component="div">A native date &amp; time picker example with <code>type=&quot;datetime-local&quot;</code>:</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/pickers/DateAndTimePickers.js').default}
@@ -85,4 +87,3 @@ function Pickers({classes})
 }
 
 export default withStyles(styles, {withTheme: true})(Pickers);
-                        

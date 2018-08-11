@@ -141,4 +141,3 @@ function SelectionControls({classes})
 }
 
 export default withStyles(styles, {withTheme: true})(SelectionControls);
-                        

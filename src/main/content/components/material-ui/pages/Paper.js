@@ -56,4 +56,3 @@ function Paper({classes})
 }
 
 export default withStyles(styles, {withTheme: true})(Paper);
-                        

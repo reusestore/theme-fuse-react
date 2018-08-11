@@ -155,4 +155,3 @@ function Progress(props) {
 }
 
 export default withStyles(styles, {withTheme: true})(Progress);
-                        

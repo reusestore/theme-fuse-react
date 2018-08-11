@@ -1,7 +1,8 @@
 import mock from './mock';
 import {FuseUtils} from '@fuse';
+import _ from 'lodash';
 
-const chatPanelDB = {
+const chatDb = {
     contacts: [
         {
             'id'    : '5725a680b3249760ea21de52',
@@ -315,7 +316,7 @@ const chatPanelDB = {
             'name'    : 'John Doe',
             'avatar'  : 'assets/images/avatars/profile.jpg',
             'status'  : 'online',
-            'mood'    : '',
+            'mood'    : 'it\'s a status....not your diary...',
             'chatList': [
                 {
                     'chatId'         : '1725a680b3249760ea21de52',
@@ -337,28 +338,39 @@ const chatPanelDB = {
     ]
 };
 
-mock.onGet('/api/chat-panel/contacts').reply((config) => {
-    return [200, chatPanelDB.contacts];
+mock.onGet('/api/chat/contacts').reply((config) => {
+    return [200, chatDb.contacts];
 });
 
-mock.onGet('/api/chat-panel/get-chat').reply((request) => {
+mock.onGet('/api/chat/get-chat').reply((request) => {
     const {contactId, userId} = request;
     let response;
-    const user = chatPanelDB.user.find(_user => _user.id === userId);
+    const user = chatDb.user.find(_user => _user.id === userId);
 
     const chat = user.chatList.find((_chat) => _chat.contactId === contactId);
     const chatId = chat ? chat.chatId : createNewChat(contactId, userId);
-    response = chatPanelDB.chats.find((_chat) => _chat.id === chatId);
-    return [200, response];
+    response = chatDb.chats.find((_chat) => _chat.id === chatId);
+    return [
+        200, {
+            chat        : response,
+            userChatData: user.chatList.find((_chat) => _chat.contactId === contactId)
+        }
+    ];
 });
 
-mock.onGet('/api/chat-panel/user').reply((config) => {
-    return [200, chatPanelDB.user[0]];
+mock.onGet('/api/chat/user').reply((config) => {
+    return [200, chatDb.user[0]];
+});
+
+mock.onPost('/api/chat/user/data').reply((request) => {
+    const data = JSON.parse(request.data);
+    chatDb.user[0] = _.merge({}, chatDb.user[0], data);
+    return [200, chatDb.user[0]];
 });
 
 function createNewChat(contactId, userId)
 {
-    const user = chatPanelDB.user.find(_user => _user.id === userId);
+    const user = chatDb.user.find(_user => _user.id === userId);
     let chatId = FuseUtils.generateGUID();
     user.chatList = [
         {
@@ -366,10 +378,10 @@ function createNewChat(contactId, userId)
             'contactId'      : contactId,
             'lastMessageTime': ''
         },
-        ...chatPanelDB.user[0].chatList
+        ...chatDb.user[0].chatList
     ];
-    chatPanelDB.chats = [
-        ...chatPanelDB.chats,
+    chatDb.chats = [
+        ...chatDb.chats,
         {
             'id'    : chatId,
             'dialog': []
@@ -378,14 +390,20 @@ function createNewChat(contactId, userId)
     return chatId;
 }
 
-mock.onPost('/api/chat-panel/send-message').reply((request) => {
+mock.onPost('/api/chat/send-message').reply((request) => {
     const data = JSON.parse(request.data);
-    const {chatId, message} = data;
-    let chat = chatPanelDB.chats.find(_chat => _chat.id === chatId);
+    const {chatId, message, contactId} = data;
+    let chat = chatDb.chats.find(_chat => _chat.id === chatId);
     chat.dialog = [
         ...chat.dialog,
         message
     ];
-    return [200, message];
+    chatDb.user[0].chatList.find(_contact => _contact.id === contactId).lastMessageTime = message.time;
+    return [
+        200, {
+            message,
+            userChatData: chatDb.user[0].chatList.find(_contact => _contact.id === contactId)
+        }
+    ];
 });
 

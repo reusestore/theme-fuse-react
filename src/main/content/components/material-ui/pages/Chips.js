@@ -61,6 +61,12 @@ function Chips({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/chips/Chips.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/chips/Chips.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Chip Playground</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        component={require('main/content/components/material-ui/material-ui-examples/chips/ChipsPlayground.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/chips/ChipsPlayground.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Chip array</Typography>
                     <Typography className="mb-16" component="div">An example of rendering multiple Chips from an array of values.
                         Deleting a chip removes it from the array. Note that since no
@@ -80,4 +86,3 @@ function Chips({classes})
 }
 
 export default withStyles(styles, {withTheme: true})(Chips);
-                        

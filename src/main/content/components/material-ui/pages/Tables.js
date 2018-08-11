@@ -38,7 +38,7 @@ function Tables({classes})
             content={
                 <div className="p-24 max-w-2xl mx-auto">
                     <Typography className="text-44 mt-32 mb-8" component="h1">Tables</Typography>
-                    <Typography className="description">Data tables display sets of data.</Typography>
+                    <Typography className="description">Data tables display sets of data. They can be fully customized.</Typography>
 
                     <Typography className="mb-16" component="div"><a href="https://material.io/design/components/data-tables.html">Data tables</a> display information in a way
                         that’s easy to scan, so that users can look for patterns and insights. They can be embedded in primary content, such as cards.</Typography>
@@ -97,4 +97,3 @@ function Tables({classes})
 }
 
 export default withStyles(styles, {withTheme: true})(Tables);
-                        

@@ -66,6 +66,18 @@ export const fuseNavigationConfig = [
                 'type' : 'item',
                 'icon' : 'account_box',
                 'url'  : '/apps/contacts/all'
+            },
+            {
+                'id'   : 'chat',
+                'title': 'Chat',
+                'type' : 'item',
+                'icon' : 'chat',
+                'url'  : '/apps/chat',
+                'badge': {
+                    'title': 13,
+                    'bg'   : 'rgb(9, 210, 97)',
+                    'fg'   : '#FFFFFF'
+                }
             }
         ]
     },

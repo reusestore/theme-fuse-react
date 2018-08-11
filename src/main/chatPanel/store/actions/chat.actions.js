@@ -1,6 +1,6 @@
 import axios from 'axios/index';
-import {getUserData} from './user.actions';
 import {setselectedContactId} from './contacts.actions';
+import {closeMobileChatsSidebar} from 'main/content/apps/chat/store/actions/sidebars.actions';
 
 export const GET_CHAT = '[CHAT PANEL] GET CHAT';
 export const REMOVE_CHAT = '[CHAT PANEL] REMOVE CHAT';
@@ -10,7 +10,7 @@ export function getChat(contactId)
 {
     return (dispatch, getState) => {
         const {id: userId} = getState().chatPanel.user;
-        const request = axios.get('/api/chat-panel/get-chat', {
+        const request = axios.get('/api/chat/get-chat', {
             contactId,
             userId
         });
@@ -19,11 +19,12 @@ export function getChat(contactId)
 
             dispatch(setselectedContactId(contactId));
 
-            dispatch(getUserData());
+            dispatch(closeMobileChatsSidebar());
 
             return dispatch({
-                type   : GET_CHAT,
-                payload: response.data
+                type        : GET_CHAT,
+                chat        : response.data.chat,
+                userChatData: response.data.userChatData
             });
         });
     }
@@ -44,16 +45,18 @@ export function sendMessage(messageText, chatId, userId)
         'time'   : new Date()
     };
 
-    const request = axios.post('/api/chat-panel/send-message', {
+    const request = axios.post('/api/chat/send-message', {
         chatId,
         message
     });
 
     return (dispatch) =>
-        request.then((response) =>
-            dispatch({
-                type   : SEND_MESSAGE,
-                payload: response.data
-            })
+        request.then((response) => {
+                return dispatch({
+                    type        : SEND_MESSAGE,
+                    message     : response.data.message,
+                    userChatData: response.data.userChatData
+                })
+            }
         );
 }

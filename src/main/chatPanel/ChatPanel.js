@@ -83,7 +83,8 @@ class ChatPanel extends Component {
         }
     }
 
-    componentWillUnmount(){
+    componentWillUnmount()
+    {
         document.removeEventListener('keydown', this.handleDocumentKeyDown);
     }
 
@@ -102,7 +103,7 @@ class ChatPanel extends Component {
 
         return (
             <div className={classes.root}>
-                <ClickAwayListener onClickAway={closeChatPanel}>
+                <ClickAwayListener onClickAway={() => state && closeChatPanel()}>
                     <div className={classNames(classes.panel, {'opened': state}, "flex flex-col")}>
                         <AppBar position="static">
                             <Toolbar className="pl-12 pr-8">

@@ -150,7 +150,12 @@ class DownshiftMultiple extends React.Component {
     const { inputValue, selectedItem } = this.state;
 
     return (
-      <Downshift inputValue={inputValue} onChange={this.handleChange} selectedItem={selectedItem}>
+      <Downshift
+        id="downshift-multiple"
+        inputValue={inputValue}
+        onChange={this.handleChange}
+        selectedItem={selectedItem}
+      >
         {({
           getInputProps,
           getItemProps,
@@ -176,8 +181,8 @@ class DownshiftMultiple extends React.Component {
                 onChange: this.handleInputChange,
                 onKeyDown: this.handleKeyDown,
                 placeholder: 'Select multiple countries',
-                id: 'integration-downshift-multiple',
               }),
+              label: 'Label',
             })}
             {isOpen ? (
               <Paper className={classes.paper} square>
@@ -225,6 +230,9 @@ const styles = theme => ({
   inputRoot: {
     flexWrap: 'wrap',
   },
+  divider: {
+    height: theme.spacing.unit * 2,
+  },
 });
 
 let popperNode;
@@ -234,7 +242,7 @@ function IntegrationDownshift(props) {
 
   return (
     <div className={classes.root}>
-      <Downshift>
+      <Downshift id="downshift-simple">
         {({ getInputProps, getItemProps, isOpen, inputValue, selectedItem, highlightedIndex }) => (
           <div className={classes.container}>
             {renderInput({
@@ -242,7 +250,6 @@ function IntegrationDownshift(props) {
               classes,
               InputProps: getInputProps({
                 placeholder: 'Search a country (start with a)',
-                id: 'integration-downshift-simple',
               }),
             })}
             {isOpen ? (
@@ -261,8 +268,10 @@ function IntegrationDownshift(props) {
           </div>
         )}
       </Downshift>
+      <div className={classes.divider} />
       <DownshiftMultiple classes={classes} />
-      <Downshift>
+      <div className={classes.divider} />
+      <Downshift id="downshift-popper">
         {({ getInputProps, getItemProps, isOpen, inputValue, selectedItem, highlightedIndex }) => (
           <div className={classes.container}>
             {renderInput({
@@ -270,7 +279,6 @@ function IntegrationDownshift(props) {
               classes,
               InputProps: getInputProps({
                 placeholder: 'With Popper',
-                id: 'integration-downshift-popper',
               }),
               ref: node => {
                 popperNode = node;

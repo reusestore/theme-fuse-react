@@ -142,4 +142,3 @@ function Dialogs({classes})
 }
 
 export default withStyles(styles, {withTheme: true})(Dialogs);
-                        

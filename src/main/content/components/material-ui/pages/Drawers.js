@@ -145,4 +145,3 @@ const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 }
 
 export default withStyles(styles, {withTheme: true})(Drawers);
-                        

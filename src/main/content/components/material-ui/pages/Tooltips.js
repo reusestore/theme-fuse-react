@@ -89,11 +89,26 @@ function Tooltips({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/tooltips/DelayTooltips.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tooltips/DelayTooltips.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Disabled Elements</Typography>
+                    <Typography className="mb-16" component="div">By default disabled elements like <code>Button</code> do not trigger user interactions so
+                        a <code>Tooltip</code> will not activate on normal events like hover. To accomodate disabled elements, add a simple wrapper element like a <code>span</code>.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        component={require('main/content/components/material-ui/material-ui-examples/tooltips/DisabledTooltips.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tooltips/DisabledTooltips.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Customized Tooltips</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/tooltips/CustomizedTooltips.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tooltips/CustomizedTooltips.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Variable Width</Typography>
+                    <Typography className="mb-16" component="div">The <code>Tooltip</code> wraps long text by default to make it readable.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        component={require('main/content/components/material-ui/material-ui-examples/tooltips/VariableWidth.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tooltips/VariableWidth.js')}
                     /></Typography>
 
                 </div>
@@ -104,4 +119,3 @@ function Tooltips({classes})
 }
 
 export default withStyles(styles, {withTheme: true})(Tooltips);
-                        

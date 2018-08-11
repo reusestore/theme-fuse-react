@@ -86,4 +86,3 @@ function GridList({classes})
 }
 
 export default withStyles(styles, {withTheme: true})(GridList);
-                        

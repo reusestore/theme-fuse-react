@@ -68,4 +68,3 @@ function Dividers({classes})
 }
 
 export default withStyles(styles, {withTheme: true})(Dividers);
-                        
