@@ -36,7 +36,12 @@ const styles = theme => ({
 });
 
 class UserSidebar extends Component {
-    state = null;
+
+    constructor(props)
+    {
+        super(props);
+        this.state = this.props.user ? {...this.props.user} : null;
+    }
 
     componentDidUpdate(prevProps, prevState, snapshot)
     {
