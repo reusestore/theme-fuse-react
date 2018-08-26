@@ -45,7 +45,7 @@ class AdminRoleExample extends Component {
 
                         <FuseHighlight component="pre" className="language-js">
                             {`
-                            import {authRoles} from 'auth/auth';
+                            import {authRoles} from 'auth';
                             import AdminRoleExample from 'main/content/auth/admin-role-example/AdminRoleExample';
 
                             export const AdminRoleExampleConfig = {

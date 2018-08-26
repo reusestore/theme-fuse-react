@@ -28,8 +28,7 @@ class FuseAuthorizationDoc extends Component {
 
                         <Typography className="mb-16" component="p">
                             <code className="language-bash">FuseAuthorization</code> is authorization component of the Fuse React. It allows to block routes based on user roles. It
-                            should
-                            wraps the FuseTheme component.
+                            should wraps the FuseTheme component.
                         </Typography>
 
                         <FuseHighlight component="pre" className="language-jsx">
@@ -113,12 +112,13 @@ class FuseAuthorizationDoc extends Component {
 
                         <Typography className="mb-16 mt-32" component="p">
                             If you don't want to set auth on every page config;
-                            You can group the configs and define authorizationon the fuseRoutesConfig.js file, like that:
+                            <br/>You can group the configs and define authorization the fuseRoutesConfig.js file,
+                            <br/>this can also use for making whole app auth protected, like that:
                         </Typography>
 
                         <FuseHighlight component="pre" className="language-js">
                             {`
-                                    import {authRoles} from 'auth/auth';
+                                    import {authRoles} from 'auth';
                                     import _ from 'lodash';
 
                                     function setAdminAuth(configs)

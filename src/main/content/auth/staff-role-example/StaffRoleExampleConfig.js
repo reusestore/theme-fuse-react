@@ -1,4 +1,4 @@
-import {authRoles} from 'auth/auth';
+import {authRoles} from 'auth';
 import StaffRoleExample from 'main/content/auth/staff-role-example/StaffRoleExample';
 
 export const StaffRoleExampleConfig = {

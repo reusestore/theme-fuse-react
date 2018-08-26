@@ -111,7 +111,8 @@ function Dialogs({classes})
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Responsive full-screen</Typography>
                     <Typography className="mb-16" component="div">You may make a <code>Dialog</code> responsively full screen the dialog using <code>withMobileDialog</code>. By
-                        default, <code>withMobileDialog()(Dialog)</code> responsively full screens <em>at or below</em> the <code>sm</code> <a href="/layout/basics">screen size</a>.</Typography>
+                        default, <code>withMobileDialog()(Dialog)</code> responsively full screens <em>at or below</em> the <code>sm</code> <a href="/layout/basics">screen size</a>.
+                    </Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/dialogs/ResponsiveDialog.js').default}

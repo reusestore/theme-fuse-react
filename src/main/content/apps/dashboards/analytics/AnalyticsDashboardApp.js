@@ -18,7 +18,9 @@ import Widget9 from './widgets/Widget9';
 import {FuseAnimate} from '@fuse';
 
 const styles = theme => ({
-    root: {}
+    root: {
+        width: '100%'
+    }
 });
 
 class AnalyticsDashboardApp extends Component {

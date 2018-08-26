@@ -1,5 +1,5 @@
 import {MaterialUINavigation} from 'main/content/components/material-ui/MaterialUINavigation';
-import {authRoles} from 'auth/auth';
+import {authRoles} from 'auth';
 
 export const fuseNavigationConfig = [
     {
@@ -655,6 +655,13 @@ export const fuseNavigationConfig = [
                 'url'  : '/getting-started/working-with-fuse'
             },
             {
+                'id'   : 'project-structure-doc',
+                'title': 'Project Structure',
+                'type' : 'item',
+                'icon' : 'folder',
+                'url'  : '/getting-started/project-structure'
+            },
+            {
                 'id'   : 'settings',
                 'title': 'Settings',
                 'type' : 'item',
@@ -669,11 +676,24 @@ export const fuseNavigationConfig = [
                 'url'  : '/getting-started/routing'
             },
             {
-                'id'   : 'fuse-firebase-auth',
-                'title': 'Firebase Auth',
-                'type' : 'item',
-                'icon' : 'dns',
-                'url'  : '/getting-started/firebase-auth'
+                'id'      : 'authentication',
+                'title'   : 'Authentication',
+                'type'    : 'collapse',
+                'icon'    : 'lock',
+                'children': [
+                    {
+                        'id'   : 'firebase-auth',
+                        'title': 'Firebase',
+                        'type' : 'item',
+                        'url'  : '/getting-started/auth/firebase'
+                    },
+                    {
+                        'id'   : 'auth0-auth',
+                        'title': 'Auth0',
+                        'type' : 'item',
+                        'url'  : '/getting-started/auth/auth0'
+                    }
+                ]
             },
             {
                 'id'   : 'changelog',

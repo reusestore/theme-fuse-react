@@ -43,6 +43,8 @@ function Autocomplete({classes})
                     <Typography className="mb-16" component="div">Material-UI doesn&#39;t provide any high-level API for solving this problem.
                         We encourage people relying on the solutions the React community has built.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">downshift</Typography>
+                    <Typography className="mb-16" component="div"><img src="https://img.shields.io/github/stars/paypal/downshift.svg?style=social&label=Stars" alt="stars"/>
+                        <img src="https://img.shields.io/npm/dm/downshift.svg" alt="npm downloads"/></Typography>
                     <Typography className="mb-16" component="div">In the following example, we demonstrate how to use <a
                         href="https://github.com/paypal/downshift">downshift</a>.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -51,6 +53,9 @@ function Autocomplete({classes})
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/autocomplete/IntegrationDownshift.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">react-autosuggest</Typography>
+                    <Typography className="mb-16" component="div"><img src="https://img.shields.io/github/stars/moroshko/react-autosuggest.svg?style=social&label=Stars"
+                                                                       alt="stars"/>
+                        <img src="https://img.shields.io/npm/dm/react-autosuggest.svg" alt="npm downloads"/></Typography>
                     <Typography className="mb-16" component="div">In the following example, we demonstrate how to use <a
                         href="https://github.com/moroshko/react-autosuggest">react-autosuggest</a>.
                         It&#39;s also using <a href="https://www.npmjs.com/package/autosuggest-highlight">autosuggest-highlight</a> for the highlighting logic.</Typography>
@@ -60,6 +65,8 @@ function Autocomplete({classes})
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/autocomplete/IntegrationAutosuggest.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">react-select</Typography>
+                    <Typography className="mb-16" component="div"><img src="https://img.shields.io/github/stars/JedWatson/react-select.svg?style=social&label=Stars" alt="stars"/>
+                        <img src="https://img.shields.io/npm/dm/react-select.svg" alt="npm downloads"/></Typography>
                     <Typography className="mb-16" component="div">In the following example, we demonstrate how to use <a
                         href="https://github.com/JedWatson/react-select">react-select</a>.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample

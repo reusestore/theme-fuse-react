@@ -1,4 +1,4 @@
-import {authRoles} from 'auth/auth';
+import {authRoles} from 'auth';
 import Register from './Register';
 
 export const RegisterConfig = {
@@ -12,6 +12,12 @@ export const RegisterConfig = {
                     display: false
                 },
                 footer : {
+                    display: false
+                },
+                leftSidePanel : {
+                    display: false
+                },
+                rightSidePanel: {
                     display: false
                 }
             }

@@ -1,4 +1,4 @@
-import {authRoles} from 'auth/auth';
+import {authRoles} from 'auth';
 import GuestRoleExample from 'main/content/auth/only-guest-role-example/GuestRoleExample';
 
 export const GuestRoleExampleConfig = {

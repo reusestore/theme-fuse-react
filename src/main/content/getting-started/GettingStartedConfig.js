@@ -1,11 +1,13 @@
-import SettingsDoc from 'main/content/getting-started/settings/SettingsDoc';
-import IntroductionDoc from 'main/content/getting-started/introduction/IntroductionDoc';
-import PrerequisitesDoc from 'main/content/getting-started/prerequisites/PrerequisitesDoc';
-import InstallationDoc from 'main/content/getting-started/installation/InstallationDoc';
-import WorkingWithFuseDoc from 'main/content/getting-started/working-with-fuse/WorkingWithFuseDoc';
-import ChangelogDoc from 'main/content/getting-started/changelog/ChangelogDoc';
-import RoutingDoc from 'main/content/getting-started/routing/RoutingDoc';
-import FirebaseAuthDoc from 'main/content/getting-started/firebase-auth/FirebaseAuthDoc';
+import SettingsDoc from './settings/SettingsDoc';
+import IntroductionDoc from './introduction/IntroductionDoc';
+import PrerequisitesDoc from './prerequisites/PrerequisitesDoc';
+import InstallationDoc from './installation/InstallationDoc';
+import WorkingWithFuseDoc from './working-with-fuse/WorkingWithFuseDoc';
+import ChangelogDoc from './changelog/ChangelogDoc';
+import RoutingDoc from './routing/RoutingDoc';
+import FirebaseAuthDoc from './firebase-auth/FirebaseAuthDoc';
+import Auth0AuthDoc from './auth0-auth/Auth0AuthDoc';
+import ProjectStructureDoc from './project-structure/ProjectStructureDoc';
 
 export const GettingStartedConfig = {
     routes: [
@@ -26,6 +28,10 @@ export const GettingStartedConfig = {
             component: WorkingWithFuseDoc
         },
         {
+            path     : '/getting-started/project-structure',
+            component: ProjectStructureDoc
+        },
+        {
             path     : '/getting-started/settings',
             component: SettingsDoc
         },
@@ -34,8 +40,12 @@ export const GettingStartedConfig = {
             component: RoutingDoc
         },
         {
-            path     : '/getting-started/firebase-auth',
+            path     : '/getting-started/auth/firebase',
             component: FirebaseAuthDoc
+        },
+        {
+            path     : '/getting-started/auth/auth0',
+            component: Auth0AuthDoc
         },
         {
             path     : '/getting-started/changelog',

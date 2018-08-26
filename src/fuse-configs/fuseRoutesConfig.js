@@ -11,6 +11,7 @@ import {GettingStartedConfig} from 'main/content/getting-started/GettingStartedC
 import {LoginConfig} from 'main/content/login/LoginConfig';
 import {RegisterConfig} from 'main/content/register/RegisterConfig';
 import {LogoutConfig} from 'main/content/logout/LogoutConfig';
+import {CallbackConfig} from 'main/content/callback/CallbackConfig';
 
 const routeConfigs = [
     ...appsConfigs,
@@ -22,13 +23,18 @@ const routeConfigs = [
     GettingStartedConfig,
     LoginConfig,
     RegisterConfig,
-    LogoutConfig
+    LogoutConfig,
+    CallbackConfig
 ];
 
 export const routes = [
     ...FuseUtils.generateRoutesFromConfigs(routeConfigs),
     {
         path     : '/',
+        exact    : true,
         component: () => <Redirect to="/apps/dashboards/analytics"/>
+    },
+    {
+        component: () => <Redirect to="/pages/errors/error-404"/>
     }
 ];

@@ -44,13 +44,13 @@ class FirebaseAuthDoc extends Component {
                         </ul>
 
                         <Typography className="my-24 italic" component="p" color="textSecondary">
-                            Note: Make sure {`<Router>`} component wrapped with {`<FirebaseAuth>`} component in 'index.js'.
+                            Note: Make sure {`<Router>`} component wrapped with {`<Auth>`} component in 'index.js'.
                         </Typography>
 
                         <Typography className="text-32 mt-32 mb-8" component="h2">Configuration</Typography>
 
                         <Typography className="mb-16" component="p">
-                            You need to paste the configuration of your Firebase Project into <code>/firebase-db/index.js</code>
+                            You need to paste the configuration of your Firebase Project into <code>/firebaseService/firebaseServiceConfig.js</code>
                         </Typography>
 
                         <FuseHighlight component="pre" className="language-jsx my-16">

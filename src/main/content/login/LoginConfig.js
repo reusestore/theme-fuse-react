@@ -1,17 +1,23 @@
 import Login from './Login';
-import {authRoles} from 'auth/auth';
+import {authRoles} from 'auth';
 
 export const LoginConfig = {
     settings: {
         layout: {
             config: {
-                navbar : {
+                navbar        : {
                     display: false
                 },
-                toolbar: {
+                toolbar       : {
                     display: false
                 },
-                footer : {
+                footer        : {
+                    display: false
+                },
+                leftSidePanel : {
+                    display: false
+                },
+                rightSidePanel: {
                     display: false
                 }
             }

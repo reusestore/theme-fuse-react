@@ -1,16 +1,16 @@
 import axios from 'axios/index';
-import {auth} from 'firebase-db';
+import firebaseService from 'firebaseService';
 import {setUserData} from 'auth/store/actions/user.actions';
 import * as Actions from 'store/actions';
 
 export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 
-export function submitLogin({username, password})
+export function submitLogin({email, password})
 {
     const request = axios.get('/api/auth', {
         data: {
-            username,
+            email,
             password
         }
     });
@@ -36,7 +36,7 @@ export function submitLogin({username, password})
 export function loginWithFireBase({username, password})
 {
     return (dispatch) =>
-        auth.signInWithEmailAndPassword(username, password)
+        firebaseService.auth.signInWithEmailAndPassword(username, password)
             .then(() => {
                 return dispatch({
                     type: LOGIN_SUCCESS

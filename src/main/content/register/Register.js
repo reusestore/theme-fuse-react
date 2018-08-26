@@ -4,11 +4,12 @@ import * as Actions from 'auth/store/actions/index';
 import {bindActionCreators} from 'redux';
 import {Link, withRouter} from 'react-router-dom';
 import {withStyles} from '@material-ui/core/styles/index';
-import {Button, Card, CardContent, Typography} from '@material-ui/core';
+import {Card, CardContent, Icon, Tab, Tabs, Typography} from '@material-ui/core';
 import classNames from 'classnames';
-import {TextFieldFormsy} from '@fuse';
-import Formsy from 'formsy-react';
 import {FuseAnimate} from '@fuse';
+import FirebaseRegisterTab from './tabs/FirebaseRegisterTab';
+import Auth0RegisterTab from './tabs/Auth0RegisterTab';
+import RegularRegisterTab from './tabs/RegularRegisterTab';
 
 const styles = theme => ({
     root : {
@@ -25,9 +26,12 @@ const styles = theme => ({
 });
 
 class Register extends Component {
-
     state = {
-        canSubmit: false
+        tabValue: 0
+    };
+
+    handleTabChange = (event, value) => {
+        this.setState({tabValue: value});
     };
 
     form = React.createRef();
@@ -69,7 +73,7 @@ class Register extends Component {
     render()
     {
         const {classes} = this.props;
-        const {canSubmit} = this.state;
+        const {tabValue} = this.state;
 
         return (
             <div className={classNames(classes.root, "flex flex-col flex-1 flex-no-shrink p-24 md:flex-row md:p-0")}>
@@ -102,74 +106,32 @@ class Register extends Component {
 
                             <Typography variant="title" className="md:w-full mb-32">CREATE AN ACCOUNT</Typography>
 
-                            <Formsy
-                                onValidSubmit={this.onSubmit}
-                                onValid={this.enableButton}
-                                onInvalid={this.disableButton}
-                                ref={(form) => this.form = form}
-                                className="flex flex-col justify-center w-full"
+                            <Tabs
+                                value={tabValue}
+                                onChange={this.handleTabChange}
+                                fullWidth={true}
+                                className="mb-32"
                             >
-                                <TextFieldFormsy
-                                    className="mb-16"
-                                    type="text"
-                                    name="displayName"
-                                    label="Display name"
-                                    validations={{
-                                        minLength: 4
-                                    }}
-                                    validationErrors={{
-                                        minLength: 'Min character length is 4'
-                                    }}
-                                    required
+                                <Tab
+                                    icon={<img className="h-40" src="assets/images/logos/firebase.svg" alt="firebase"/>}
+                                    className="min-w-0"
+                                    label="Firebase"
                                 />
-
-                                <TextFieldFormsy
-                                    className="mb-16"
-                                    type="text"
-                                    name="email"
-                                    label="Email"
-                                    validations="isEmail"
-                                    validationErrors={{
-                                        isEmail: 'Please enter a valid email'
-                                    }}
-                                    required
+                                <Tab
+                                    icon={<img className="h-40" src="assets/images/logos/auth0.svg" alt="auth0"/>}
+                                    className="min-w-0"
+                                    label="Auth0"
                                 />
-
-                                <TextFieldFormsy
-                                    className="mb-16"
-                                    type="password"
-                                    name="password"
-                                    label="Password"
-                                    validations="equalsField:password-confirm"
-                                    validationErrors={{
-                                        equalsField: 'Passwords do not match'
-                                    }}
-                                    required
+                                <Tab
+                                    icon={<Icon className="h-40 text-40">security</Icon>}
+                                    className="min-w-0"
+                                    label="Regular"
                                 />
+                            </Tabs>
 
-                                <TextFieldFormsy
-                                    className="mb-16"
-                                    type="password"
-                                    name="password-confirm"
-                                    label="Confirm Password"
-                                    validations="equalsField:password"
-                                    validationErrors={{
-                                        equalsField: 'Passwords do not match'
-                                    }}
-                                    required
-                                />
-
-                                <Button
-                                    type="submit"
-                                    variant="raised"
-                                    color="primary"
-                                    className="w-full mx-auto mt-16 normal-case"
-                                    aria-label="REGISTER WITH FIREBASE"
-                                    disabled={!canSubmit}
-                                >
-                                    Register with Firebase
-                                </Button>
-                            </Formsy>
+                            {tabValue === 0 && <FirebaseRegisterTab/>}
+                            {tabValue === 1 && <Auth0RegisterTab/>}
+                            {tabValue === 2 && <RegularRegisterTab/>}
 
                             <div className="flex flex-col items-center justify-center pt-32 pb-24">
                                 <span className="font-medium">Already have an account?</span>

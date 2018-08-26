@@ -28,6 +28,63 @@ class ChangelogDoc extends Component {
 
                         <div>
                             <div className="flex items-center mb-32 mt-48">
+                                <Typography className="text-28" component="h2">v1.1.7</Typography>
+                                <Typography className="text-16 ml-8" color="textSecondary"
+                                            component="h3">(2018-08-27)</Typography>
+                            </div>
+
+                            <div className="mb-24">
+                                <Typography className="text-16 pb-8 inline-block border-b-1 mb-16"
+                                            component="h4">NEW:</Typography>
+                                <ul>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            FuseSplashScreen added.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            <b>firebaseService</b> and <b>auth0Service</b> created, <b>Auth</b> component added as entry point for authentication.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Login, register pages updated due to adding Auth0 authentication.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            404 page redirection added to the routes.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Material UI updated to v1.5.1
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Dependency packages updated.
+                                        </Typography>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div className="mb-24">
+                                <Typography className="text-16 pb-8 inline-block border-b-1 mb-16"
+                                            component="h4">BREAKING CHANGES:</Typography>
+                                <ul>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            FirebaseAuth Component removed, using Auth component instead.
+                                        </Typography>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div className="flex items-center mb-32 mt-48">
                                 <Typography className="text-28" component="h2">v1.1.6</Typography>
                                 <Typography className="text-16 ml-8" color="textSecondary"
                                             component="h3">(2018-08-12)</Typography>
@@ -49,7 +106,7 @@ class ChangelogDoc extends Component {
                                     </li>
                                     <li>
                                         <Typography className="text-14 mb-8">
-                                            Other Dependency packages updated.
+                                            Dependency packages updated.
                                         </Typography>
                                     </li>
                                 </ul>
