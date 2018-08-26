@@ -24,8 +24,8 @@ export function setUserDataAuth0(tokenData)
             displayName: tokenData.username,
             photoURL   : tokenData.picture,
             email      : tokenData.email,
-            settings   : tokenData.user_metadata.settings ? tokenData.user_metadata.settings : {},
-            shortcuts  : tokenData.user_metadata.shortcuts ? tokenData.user_metadata.shortcuts : []
+            settings   : (tokenData.user_metadata && tokenData.user_metadata.settings) ? tokenData.user_metadata.settings : {},
+            shortcuts  : (tokenData.user_metadata && tokenData.user_metadata.shortcuts) ? tokenData.user_metadata.shortcuts : []
         }
     };
 
