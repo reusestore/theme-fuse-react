@@ -89,6 +89,7 @@ const styles = theme => ({
         padding: '0 8px 0 16px'
     },
     navbarContent      : {
+        flex                          : '1 1 auto',
         minWidth                      : 0,
         [theme.breakpoints.down('md')]: {
             overflowX           : 'hidden',
