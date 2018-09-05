@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Button, Typography, Dialog, Icon, IconButton, Slide, withStyles} from '@material-ui/core';
 import {FuseScrollbars, FuseSettings} from '@fuse';
+import {red} from '@material-ui/core/colors';
 
 function Transition(props)
 {
@@ -15,11 +16,17 @@ const styles = theme => ({
         minWidth               : 48,
         width                  : 48,
         height                 : 48,
-        opacity                : .75,
+        opacity                : .9,
         padding                : 0,
         borderBottomRightRadius: 0,
         borderTopRightRadius   : 0,
-        zIndex                 : 999
+        zIndex                 : 999,
+        color                  : theme.palette.getContrastText(red[500]),
+        backgroundColor        : red[500],
+        '&:hover'              : {
+            backgroundColor: red[500],
+            opacity        : 1
+        }
     },
     '@keyframes rotating': {
         from: {
@@ -67,7 +74,7 @@ class SettingsPanel extends Component {
         const {classes} = this.props;
         return (
             <React.Fragment>
-                <Button className={classes.button} variant="raised" color="secondary" onClick={this.handleOpen}>
+                <Button className={classes.button} variant="raised" onClick={this.handleOpen}>
                     <Icon className={classes.buttonIcon}>settings</Icon>
                 </Button>
 
