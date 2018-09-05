@@ -66,6 +66,12 @@ function Lists({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/lists/NestedList.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/lists/NestedList.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Selected ListItem</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        component={require('main/content/components/material-ui/material-ui-examples/lists/SelectedListItem.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/lists/SelectedListItem.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Pinned Subheader List</Typography>
                     <Typography className="mb-16" component="div">Upon scrolling, subheaders remain pinned to the top of the screen until pushed off screen by the next
                         subheader.</Typography>
