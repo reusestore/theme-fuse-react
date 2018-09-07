@@ -52,7 +52,7 @@ function isUrlInChildren(parent, url)
             }
         }
 
-        if ( parent.children[i].url === url || (!parent.children[i].exact && url.includes(parent.children[i].url)) )
+        if ( parent.children[i].url === url || url.includes(parent.children[i].url) )
         {
             return true;
         }
