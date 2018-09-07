@@ -47,7 +47,7 @@ const styles = theme => ({
         right          : 0,
         top            : 0,
         height         : headerHeight,
-        backgroundImage: 'url("../../assets/images/backgrounds/header-bg.png")',
+        // backgroundImage: 'url("../../assets/images/backgrounds/header-bg.png")',
         backgroundColor: theme.palette.primary.dark,
         backgroundSize : 'cover',
         pointerEvents  : 'none'
@@ -264,9 +264,11 @@ class FusePageCarded extends React.Component {
                     className={classNames(classes.contentWrapper, isLeftSidebar && (leftSidebarVariant === undefined || leftSidebarVariant === 'permanent') && 'lg:pl-0', isRightSidebar && (rightSidebarVariant === undefined || rightSidebarVariant === 'permanent') && 'lg:pr-0')}
                 >
                     <div className={classes.header}>
-                        <MuiThemeProvider theme={FuseThemes['mainThemeDark']}>
-                            {header}
-                        </MuiThemeProvider>
+                        {header && (
+                            <MuiThemeProvider theme={FuseThemes['mainThemeDark']}>
+                                {header}
+                            </MuiThemeProvider>
+                        )}
                     </div>
 
                     <div className={classNames(classes.contentCard, innerScroll && 'inner-scroll')}>

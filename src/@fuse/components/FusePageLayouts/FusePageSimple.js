@@ -55,7 +55,7 @@ const styles = theme => ({
         height         : headerHeight,
         minHeight      : headerHeight,
         display        : 'flex',
-        backgroundImage: 'url("../../assets/images/backgrounds/header-bg.png")',
+        // backgroundImage: 'url("../../assets/images/backgrounds/header-bg.png")',
         backgroundColor: theme.palette.primary.dark,
         color          : theme.palette.primary.contrastText,
         backgroundSize : 'cover'
@@ -248,9 +248,11 @@ class FusePageSimple extends React.Component {
 
         const headerContent = (
             <div className={classes.header}>
-                <MuiThemeProvider theme={FuseThemes['mainThemeDark']}>
-                    {header}
-                </MuiThemeProvider>
+                {header && (
+                    <MuiThemeProvider theme={FuseThemes['mainThemeDark']}>
+                        {header}
+                    </MuiThemeProvider>
+                )}
             </div>
         );
 
