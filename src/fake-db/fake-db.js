@@ -14,4 +14,6 @@ import './analytics-dashboard-db';
 import './quick-panel-db';
 import './auth-db';
 import './chat-db';
+import './e-commerce-db';
+
 mock.onAny().passThrough();

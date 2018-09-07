@@ -30,11 +30,48 @@ export const fuseNavigationConfig = [
                 'url'  : '/apps/calendar'
             },
             {
+                'id'      : 'e-commerce',
+                'title'   : 'E-Commerce',
+                'type'    : 'collapse',
+                'icon'    : 'shopping_cart',
+                'url'     : '/apps/e-commerce',
+                'children': [
+                    {
+                        'id'   : 'e-commerce-products',
+                        'title': 'Products',
+                        'type' : 'item',
+                        'url'  : '/apps/e-commerce/products',
+                        'exact': true
+                    },
+                    {
+                        'id'   : 'e-commerce-product-detail',
+                        'title': 'Product Detail',
+                        'type' : 'item',
+                        'url'  : '/apps/e-commerce/products/1/printed-dress',
+                        'exact': true
+                    },
+                    {
+                        'id'   : 'e-commerce-orders',
+                        'title': 'Orders',
+                        'type' : 'item',
+                        'url'  : '/apps/e-commerce/orders',
+                        'exact': true
+                    },
+                    {
+                        'id'   : 'e-commerce-order-detail',
+                        'title': 'Order Detail',
+                        'type' : 'item',
+                        'url'  : '/apps/e-commerce/orders/1',
+                        'exact': true
+                    }
+                ]
+            },
+            {
                 'id'   : 'mail',
                 'title': 'Mail',
                 'type' : 'item',
                 'icon' : 'email',
-                'url'  : '/apps/mail/inbox',
+                'url'  : '/apps/mail',
                 'badge': {
                     'title': 25,
                     'bg'   : '#F44336',
@@ -46,7 +83,7 @@ export const fuseNavigationConfig = [
                 'title': 'To-Do',
                 'type' : 'item',
                 'icon' : 'check_box',
-                'url'  : '/apps/todo/all',
+                'url'  : '/apps/todo',
                 'badge': {
                     'title': 3,
                     'bg'   : 'rgb(255, 111, 0)',

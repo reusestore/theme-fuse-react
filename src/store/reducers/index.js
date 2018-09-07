@@ -10,6 +10,7 @@ import fileManagerApp from 'main/content/apps/file-manager/store/reducers';
 import contactsApp from 'main/content/apps/contacts/store/reducers';
 import calendarApp from 'main/content/apps/calendar/store/reducers';
 import chatApp from "main/content/apps/chat/store/reducers";
+import eCommerceApp from "main/content/apps/e-commerce/store/reducers";
 
 const rootReducer = combineReducers({
     auth,
@@ -22,7 +23,8 @@ const rootReducer = combineReducers({
     calendarApp,
     quickPanel,
     chatPanel,
-    chatApp
+    chatApp,
+    eCommerceApp
 });
 
 export default rootReducer;

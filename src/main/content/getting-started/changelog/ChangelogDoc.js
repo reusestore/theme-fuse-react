@@ -26,7 +26,6 @@ class ChangelogDoc extends Component {
                 content={
                     <div className="p-24 max-w-2xl mx-auto">
 
-
                         <div>
                             <div className="flex items-center mb-32 mt-48">
                                 <Typography className="text-28" component="h2">v1.1.8</Typography>
@@ -38,6 +37,16 @@ class ChangelogDoc extends Component {
                                 <Typography className="text-16 pb-8 inline-block border-b-1 mb-16"
                                             component="h4">NEW:</Typography>
                                 <ul>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            E-commerce App added.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            FuseChipSelect Component added.
+                                        </Typography>
+                                    </li>
                                     <li>
                                         <Typography className="text-14 mb-8">
                                             Material UI updated to v3.0.2

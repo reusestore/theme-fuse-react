@@ -5,6 +5,7 @@ import {ContactsAppConfig} from './contacts/ContactsAppConfig';
 import {FileManagerAppConfig} from './file-manager/FileManagerAppConfig';
 import {CalendarAppConfig} from './calendar/CalendarAppConfig';
 import {ChatAppConfig} from "./chat/ChatAppConfig";
+import {ECommerceAppConfig} from './e-commerce/ECommerceAppConfig';
 
 export const appsConfigs = [
     AnalyticsDashboardAppConfig,
@@ -13,5 +14,6 @@ export const appsConfigs = [
     FileManagerAppConfig,
     ContactsAppConfig,
     CalendarAppConfig,
-    ChatAppConfig
+    ChatAppConfig,
+    ECommerceAppConfig
 ];
