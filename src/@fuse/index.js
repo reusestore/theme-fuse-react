@@ -20,5 +20,6 @@ export {default as FuseMessage} from './components/FuseMessage/FuseMessage';
 export {default as FuseAnimate} from './components/FuseAnimate/FuseAnimate';
 export {default as FuseAnimateGroup} from './components/FuseAnimateGroup/FuseAnimateGroup';
 export {default as FuseSplashScreen} from './components/FuseSplashScreen/FuseSplashScreen';
+export {default as FuseChipSelect} from './components/FuseChipSelect/FuseChipSelect';
 export {default as FuseUtils} from './FuseUtils';
 export * from './components/formsy/index';
