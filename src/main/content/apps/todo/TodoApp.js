@@ -17,11 +17,6 @@ const styles = theme => ({
     layoutRoot   : {
         width: '100%'
     },
-    layoutContent: {
-        overflow     : 'hidden',
-        display      : 'flex',
-        flexDirection: 'column'
-    },
     layoutHeader : {
         alignItems: 'center'
     }
@@ -51,7 +46,6 @@ class TodoApp extends Component {
                 <FusePageCarded
                     classes={{
                         root   : classes.layoutRoot,
-                        content: classes.layoutContent,
                         header : classes.layoutHeader
                     }}
                     header={
