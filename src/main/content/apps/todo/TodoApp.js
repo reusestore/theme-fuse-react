@@ -14,6 +14,9 @@ import TodoDialog from './TodoDialog';
 import _ from 'lodash';
 
 const styles = theme => ({
+    layoutRoot   : {
+        width: '100%'
+    },
     layoutContent: {
         overflow     : 'hidden',
         display      : 'flex',
@@ -47,6 +50,7 @@ class TodoApp extends Component {
             <React.Fragment>
                 <FusePageCarded
                     classes={{
+                        root   : classes.layoutRoot,
                         content: classes.layoutContent,
                         header : classes.layoutHeader
                     }}

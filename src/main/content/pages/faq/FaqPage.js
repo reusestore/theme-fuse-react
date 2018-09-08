@@ -6,7 +6,9 @@ import axios from 'axios/index';
 import {FuseUtils, FuseAnimate, FuseAnimateGroup} from '@fuse';
 
 const styles = theme => ({
-    root      : {},
+    root      : {
+        width: '100%'
+    },
     card      : {},
     cardHeader: {
         backgroundColor: theme.palette.grey[800],

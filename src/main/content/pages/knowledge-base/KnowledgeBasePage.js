@@ -15,7 +15,9 @@ function Transition(props)
 }
 
 const styles = theme => ({
-    root   : {},
+    root   : {
+        width: '100%'
+    },
     header : {
         height        : 360,
         background    : "url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat",
