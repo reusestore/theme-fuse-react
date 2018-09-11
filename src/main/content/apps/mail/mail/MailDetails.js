@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles/index';
-import * as Actions from './store/actions';
+import {Avatar, Divider, Icon, IconButton, Typography} from '@material-ui/core';
+import * as Actions from '../store/actions/index';
+import MailChip from '../MailChip';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {Avatar, Divider, Grid, Icon, IconButton, Typography} from '@material-ui/core';
-import MailChip from './MailChip';
-import _ from 'lodash';
-import classNames from 'classnames';
 import {FuseAnimate} from '@fuse';
+import {withRouter} from 'react-router-dom';
+import classNames from 'classnames';
+import _ from 'lodash';
 
 const styles = theme => ({});
 
@@ -19,28 +20,22 @@ class MailDetails extends Component {
         this.state = {showDetails: false};
     }
 
+    componentDidMount()
+    {
+        this.props.getMail(this.props.match.params);
+    }
+
     render()
     {
-        const {classes, mail, labels, toggleStar, toggleImportant} = this.props;
+        const {classes, mail, labels} = this.props;
 
         if ( !mail )
         {
-            return (
-                <div className="flex flex-col items-center justify-center h-full">
-                    <FuseAnimate animation="transition.expandIn" delay={100}>
-                        <Icon color="action" className="mb-16 text-128">email</Icon>
-                    </FuseAnimate>
-                    <FuseAnimate animation="transition.fadeIn" delay={200}>
-                        <Typography color="textSecondary" variant="headline">
-                            Select a message to read
-                        </Typography>
-                    </FuseAnimate>
-                </div>
-            )
+            return '';
         }
 
         return (
-            <React.Fragment>
+            <div className="p-24">
                 <div className="flex items-center justify-between overflow-hidden">
 
                     <div className="flex flex-col">
@@ -48,7 +43,7 @@ class MailDetails extends Component {
                             <Typography variant="subheading" className="flex">{mail.subject}</Typography>
                         </FuseAnimate>
 
-                        {mail.labels.length > 0 && (
+                        {labels && mail.labels.length > 0 && (
                             <div className="flex flex-wrap mt-8">
                                 {mail.labels.map(label => (
                                     <MailChip className="mt-4 mr-4" title={_.find(labels, {id: label}).title} color={_.find(labels, {id: label}).color} key={label}/>
@@ -57,34 +52,6 @@ class MailDetails extends Component {
                         )}
                     </div>
 
-                    <div className="flex items-center justify-start" aria-label="Toggle star">
-                        <FuseAnimate animation="transition.expandIn" delay={100}>
-                            <IconButton onClick={() => toggleStar(mail)}>
-                                {mail.starred ?
-                                    (
-                                        <Icon>star</Icon>
-                                    )
-                                    :
-                                    (
-                                        <Icon>star_border</Icon>
-                                    )
-                                }
-                            </IconButton>
-                        </FuseAnimate>
-                        <FuseAnimate animation="transition.expandIn" delay={100}>
-                            <IconButton onClick={() => toggleImportant(mail)}>
-                                {mail.important ?
-                                    (
-                                        <Icon>label</Icon>
-                                    )
-                                    :
-                                    (
-                                        <Icon>label_outline</Icon>
-                                    )
-                                }
-                            </IconButton>
-                        </FuseAnimate>
-                    </div>
                 </div>
 
                 <Divider className="my-16"/>
@@ -167,23 +134,23 @@ class MailDetails extends Component {
                                     <span className="ml-4">({mail.attachments.length})</span>
                                 </Typography>
 
-                                <Grid container>
+                                <div className="flex flex-wrap">
                                     {mail.attachments.map(attachment => (
-                                        <Grid item xs={6} sm={4} key={attachment.fileName}>
-                                            <img className="preview" src={attachment.preview} alt={attachment.fileName}/>
+                                        <div className="w-192 pr-16 pb-16" key={attachment.fileName}>
+                                            <img className="w-full" src={attachment.preview} alt={attachment.fileName}/>
                                             <div className="flex flex-col">
                                                 <Typography color="primary" className="underline cursor-pointer" onClick={event => event.preventDefault()}>View</Typography>
                                                 <Typography color="primary" className="underline cursor-pointer" onClick={event => event.preventDefault()}>Download</Typography>
                                                 <Typography>({attachment.size})</Typography>
                                             </div>
-                                        </Grid>
+                                        </div>
                                     ))}
-                                </Grid>
+                                </div>
                             </div>
                         )}
                     </div>
                 </FuseAnimate>
-            </React.Fragment>
+            </div>
         );
     }
 }
@@ -191,17 +158,16 @@ class MailDetails extends Component {
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-        toggleStar     : Actions.toggleStar,
-        toggleImportant: Actions.toggleImportant
+        getMail: Actions.getMail
     }, dispatch);
 }
 
 function mapStateToProps({mailApp})
 {
     return {
-        mail  : mailApp.mails.currentMail,
+        mail  : mailApp.mail,
         labels: mailApp.labels
     }
 }
 
-export default withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(MailDetails));
+export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(MailDetails)));

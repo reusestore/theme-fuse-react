@@ -3,8 +3,6 @@ import _ from 'lodash';
 
 const initialState = {
     entities       : [],
-    currentMail    : null,
-    loadedParams   : {},
     routeParams    : {},
     selectedMailIds: [],
     searchText     : ''
@@ -16,29 +14,11 @@ const mailsReducer = function (state = initialState, action) {
         case Actions.GET_MAILS:
         {
 
-            let loadedParams = {
-                id   : '',
-                value: ''
-            };
-
-            ['labelHandle', 'filterHandle', 'folderHandle'].forEach((param) => {
-                    if ( action.routeParams[param] )
-                    {
-                        loadedParams = {
-                            id   : param,
-                            value: action.routeParams[param]
-                        };
-                    }
-                }
-            );
-
             return {
                 ...state,
-                entities       : _.keyBy(action.payload, 'id'),
-                selectedMailIds: _.isEqual(state.loadedParams, loadedParams) ? [...state.selectedMailIds] : [],
-                searchText     : _.isEqual(state.loadedParams, loadedParams) ? state.searchText : '',
-                routeParams    : action.routeParams,
-                loadedParams
+                entities   : _.keyBy(action.payload, 'id'),
+                searchText : '',
+                routeParams: action.routeParams
             };
         }
         case Actions.UPDATE_MAILS:
@@ -46,29 +26,6 @@ const mailsReducer = function (state = initialState, action) {
             return {
                 ...state,
                 entities: _.keyBy(action.payload, 'id')
-            };
-        }
-        case Actions.SET_CURRENT_MAIL:
-        {
-
-            const currentMail = state.entities[action.payload];
-
-            return {
-                ...state,
-                currentMail: currentMail ? {...currentMail} : null
-            };
-        }
-        case Actions.UPDATE_MAIL:
-        {
-            const mail = action.payload;
-
-            return {
-                ...state,
-                entities   : {
-                    ...state.entities,
-                    [mail.id]: {...mail}
-                },
-                currentMail: state.currentMail.id === mail.id ? {...mail} : state.currentMail
             };
         }
         case Actions.SELECT_ALL_MAILS:

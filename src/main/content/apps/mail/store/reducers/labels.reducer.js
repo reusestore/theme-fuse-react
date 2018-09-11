@@ -1,6 +1,6 @@
 import * as Actions from '../actions';
 
-const labelsReducer = function (state = [], action) {
+const labelsReducer = function (state = null, action) {
     switch ( action.type )
     {
         case Actions.GET_LABELS:

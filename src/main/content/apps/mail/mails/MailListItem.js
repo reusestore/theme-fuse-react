@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles';
 import {withRouter} from 'react-router-dom';
 import {Avatar, Typography, Checkbox, ListItem} from '@material-ui/core';
-import MailChip from './MailChip';
+import MailChip from '../MailChip';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import * as Actions from './store/actions';
+import * as Actions from '../store/actions/index';
 import classNames from 'classnames';
 import _ from 'lodash';
 
@@ -18,21 +18,10 @@ const styles = theme => ({
     mailItem: {
         borderBottom: '1px solid  ' + theme.palette.divider,
 
-        '&.unread'      : {
+        '&.unread'  : {
             background: 'rgba(0,0,0,0.03)'
         },
-        '&.current-mail': {
-            '&::before': {
-                content        : '""',
-                position       : 'absolute',
-                right          : 0,
-                display        : 'block',
-                height         : '100%',
-                width          : 3,
-                backgroundColor: theme.palette.secondary.main
-            }
-        },
-        '&.selected'    : {
+        '&.selected': {
             '&::after': {
                 content        : '""',
                 position       : 'absolute',
@@ -54,7 +43,7 @@ class MailListItem extends Component {
 
     render()
     {
-        const {mail, labels, classes, match, history, selectedMailIds, toggleInSelectedMails, currentMail} = this.props;
+        const {mail, labels, classes, match, history, selectedMailIds, toggleInSelectedMails} = this.props;
         const toPath = pathToRegexp.compile(match.path);
 
         const checked = selectedMailIds.length > 0 && selectedMailIds.find(id => id === mail.id) !== undefined;
@@ -69,7 +58,7 @@ class MailListItem extends Component {
                         mailId: mail.id
                     }
                 ))}
-                className={classNames(classes.mailItem, currentMail && currentMail.id === mail.id && "current-mail", checked && "selected", !mail.read && "unread", "py-16 pl-8 pr-24")}>
+                className={classNames(classes.mailItem, checked && "selected", !mail.read && "unread", "py-16 pl-8 pr-24")}>
 
                 <Checkbox
                     tabIndex={-1}
@@ -79,7 +68,7 @@ class MailListItem extends Component {
                     onClick={(ev) => ev.stopPropagation()}
                 />
 
-                <div className="flex flex-col relative overflow-hidden">
+                <div className="flex flex-1 flex-col relative overflow-hidden">
 
                     <div className="flex items-center justify-between px-16 pb-8">
                         <div className="flex items-center">
@@ -101,7 +90,7 @@ class MailListItem extends Component {
                     </div>
 
                     <div className={classNames(classes.labels, "flex justify-end")}>
-                        {mail.labels.map(label => (
+                        {labels && mail.labels.map(label => (
                             <MailChip className="mr-4" title={_.find(labels, {id: label}).title} color={_.find(labels, {id: label}).color} key={label}/>
                         ))}
                     </div>
@@ -121,7 +110,6 @@ function mapDispatchToProps(dispatch)
 function mapStateToProps({mailApp})
 {
     return {
-        currentMail    : mailApp.mails.currentMail,
         selectedMailIds: mailApp.mails.selectedMailIds,
         labels         : mailApp.labels
     }

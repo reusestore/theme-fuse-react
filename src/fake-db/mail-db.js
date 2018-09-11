@@ -478,6 +478,12 @@ const mailDB = {
     ]
 };
 
+mock.onGet('/api/mail-app/mail').reply((config) => {
+    const params = config.params;
+    const response = mailDB.mails.find((mail) => mail.id === params.mailId);
+    return [200, response];
+});
+
 mock.onGet('/api/mail-app/mails').reply((config) => {
     const params = config.params;
     let response = [];

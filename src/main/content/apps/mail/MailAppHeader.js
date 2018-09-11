@@ -26,7 +26,7 @@ const styles = theme => ({
     }
 });
 
-class MailHeader extends Component {
+class MailAppHeader extends Component {
 
     render()
     {
@@ -78,4 +78,4 @@ function mapStateToProps({mailApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(MailHeader));
+export default withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(MailAppHeader));

@@ -1,8 +1,8 @@
 import React from 'react';
 import {withStyles} from '@material-ui/core/styles/index';
-import {connect} from 'react-redux';
 import {Icon, List, ListItem, ListItemText, ListSubheader} from '@material-ui/core';
 import {NavLink, withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
 import MailCompose from './MailCompose';
 import {FuseAnimate} from '@fuse';
 
@@ -34,7 +34,7 @@ const styles = theme => ({
     }
 });
 
-function MailSidebarContent({classes, folders, filters, labels})
+function MailAppSidebarContent({classes, folders, filters, labels})
 {
     return (
         <FuseAnimate animation="transition.slideUpIn" delay={400}>
@@ -84,7 +84,7 @@ function MailSidebarContent({classes, folders, filters, labels})
 
                         <ListSubheader className={classes.listSubheader} disableSticky>LABELS</ListSubheader>
 
-                        {labels.length > 0 && labels.map((label) => (
+                        {labels && labels.map((label) => (
                             <ListItem
                                 button
                                 component={NavLink}
@@ -112,4 +112,4 @@ function mapStateToProps({mailApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps)(MailSidebarContent)));
+export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps)(MailAppSidebarContent)));

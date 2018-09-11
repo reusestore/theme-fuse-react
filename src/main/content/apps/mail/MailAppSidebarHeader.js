@@ -17,7 +17,7 @@ const styles = theme => ({
     accountSelectMenu: {}
 });
 
-class MailSidebarHeader extends Component {
+class MailAppSidebarHeader extends Component {
 
     state = {
         selectedAccount: 'creapond'
@@ -75,4 +75,4 @@ class MailSidebarHeader extends Component {
     }
 }
 
-export default withStyles(styles, {withTheme: true})(MailSidebarHeader);
+export default withStyles(styles, {withTheme: true})(MailAppSidebarHeader);

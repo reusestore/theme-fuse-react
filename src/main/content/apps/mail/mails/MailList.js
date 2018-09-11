@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
-import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom';
-import MailListItem from './MailListItem';
 import {FuseUtils, FuseAnimate, FuseAnimateGroup} from '@fuse';
+import {withStyles} from '@material-ui/core/styles';
+import * as Actions from '../store/actions';
+import {withRouter} from 'react-router-dom';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 import {List, Typography} from '@material-ui/core';
+import MailListItem from './MailListItem';
+import _ from 'lodash';
 
 const styles = theme => ({
     mailList: {
@@ -18,6 +21,19 @@ const styles = theme => ({
 });
 
 class MailList extends Component {
+
+    componentDidMount()
+    {
+        this.props.getMails(this.props.match.params);
+    }
+
+    componentDidUpdate(prevProps, prevState)
+    {
+        if ( !_.isEqual(this.props.location, prevProps.location) )
+        {
+            this.props.getMails(this.props.match.params);
+        }
+    }
 
     getFilteredArray = (entities, searchText) => {
         const arr = Object.keys(entities).map((id) => entities[id]);
@@ -38,7 +54,7 @@ class MailList extends Component {
         {
             return (
                 <FuseAnimate delay={100}>
-                    <div className="flex items-center justify-center h-full">
+                    <div className="flex flex-1 items-center justify-center h-full">
                         <Typography color="textSecondary" variant="headline">
                             There are no messages!
                         </Typography>
@@ -66,6 +82,13 @@ class MailList extends Component {
     }
 }
 
+function mapDispatchToProps(dispatch)
+{
+    return bindActionCreators({
+        getMails: Actions.getMails
+    }, dispatch);
+}
+
 function mapStateToProps({mailApp})
 {
     return {
@@ -74,4 +97,4 @@ function mapStateToProps({mailApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps)(MailList)));
+export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(MailList)));
