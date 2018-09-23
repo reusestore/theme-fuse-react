@@ -1,5 +1,5 @@
 import 'babel-polyfill'
-import 'typeface-roboto';
+import 'typeface-muli';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import history from './history';

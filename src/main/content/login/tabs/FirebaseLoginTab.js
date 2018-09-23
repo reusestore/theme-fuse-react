@@ -79,6 +79,7 @@ class FirebaseLoginTab extends Component {
                         validationErrors={{
                             minLength: 'Min character length is 4'
                         }}
+                        variant="outlined"
                         required
                     />
 
@@ -93,6 +94,7 @@ class FirebaseLoginTab extends Component {
                         validationErrors={{
                             minLength: 'Min character length is 4'
                         }}
+                        variant="outlined"
                         required
                     />
 

@@ -30,16 +30,21 @@ class IconsUI extends Component {
         const {classes} = this.props;
         const {data, searchText} = this.state;
         const icons = searchText.length > 0 ? data.filter(item => {
-            for ( let keyword of item.keywords )
+
+            if ( item.name.includes(searchText) )
             {
-                if ( keyword.includes(searchText) )
+                return true;
+            }
+
+            for ( let tag of item.tags )
+            {
+                if ( tag.includes(searchText) )
                 {
                     return true;
                 }
             }
             return false;
         }) : data;
-
         return (
             <FusePageSimple
                 classes={{
@@ -86,8 +91,8 @@ class IconsUI extends Component {
                             <div className="flex flex-wrap justify-center">
                                 {icons.map((item) => (
                                     <div className="w-128 h-128 p-16 flex flex-col items-center justify-center" key={item.id}>
-                                        <Icon className="text-48" color="action">{item.ligature}</Icon>
-                                        <Typography variant="caption" className="mt-4">{item.ligature}</Typography>
+                                        <Icon className="text-48" color="action">{item.ligatures}</Icon>
+                                        <Typography variant="caption" className="mt-4">{item.ligatures}</Typography>
                                     </div>
                                 ))}
                             </div>

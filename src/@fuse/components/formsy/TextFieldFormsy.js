@@ -37,7 +37,8 @@ class TextFieldFormsy extends Component {
             'rowsMax',
             'select',
             'SelectProps',
-            'type'
+            'type',
+            'variant'
         ]);
 
         const errorMessage = this.props.getErrorMessage();

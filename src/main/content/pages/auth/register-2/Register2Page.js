@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles/index';
-import {Button, Card, CardContent, Checkbox, FormControl, FormControlLabel, Input, InputLabel, Typography} from '@material-ui/core';
+import {Button, Card, CardContent, Checkbox, FormControl, FormControlLabel, TextField, Typography} from '@material-ui/core';
 import classNames from 'classnames';
 import {Link} from 'react-router-dom';
 import _ from 'lodash';
@@ -84,46 +84,54 @@ class Register2Page extends Component {
 
                             <form name="registerForm" noValidate className="flex flex-col justify-center w-full">
 
-                                <FormControl className="mb-16" fullWidth required>
-                                    <InputLabel>Name</InputLabel>
-                                    <Input
-                                        type="text"
-                                        name="name"
-                                        value={name}
-                                        onChange={this.handleChange}
-                                    />
-                                </FormControl>
+                                <TextField
+                                    className="mb-16"
+                                    label="Name"
+                                    autoFocus
+                                    type="name"
+                                    name="name"
+                                    value={name}
+                                    onChange={this.handleChange}
+                                    variant="outlined"
+                                    required
+                                    fullWidth
+                                />
 
-                                <FormControl className="mb-16" fullWidth required>
-                                    <InputLabel>Email</InputLabel>
-                                    <Input
-                                        type="email"
-                                        name="email"
-                                        value={email}
-                                        onChange={this.handleChange}
-                                    />
-                                </FormControl>
+                                <TextField
+                                    className="mb-16"
+                                    label="Email"
+                                    type="email"
+                                    name="email"
+                                    value={email}
+                                    onChange={this.handleChange}
+                                    variant="outlined"
+                                    required
+                                    fullWidth
+                                />
 
-                                <FormControl className="mb-16" fullWidth required>
-                                    <InputLabel>Password</InputLabel>
-                                    <Input
-                                        type="password"
-                                        name="password"
-                                        value={password}
-                                        onChange={this.handleChange}
-                                    />
-                                </FormControl>
+                                <TextField
+                                    className="mb-16"
+                                    label="Password"
+                                    type="password"
+                                    name="password"
+                                    value={password}
+                                    onChange={this.handleChange}
+                                    variant="outlined"
+                                    required
+                                    fullWidth
+                                />
 
-                                <FormControl className="mb-16" fullWidth required>
-                                    <InputLabel>Password (Confirm)</InputLabel>
-                                    <Input
-                                        type="password"
-                                        name="passwordConfirm"
-                                        value={passwordConfirm}
-                                        onChange={this.handleChange}
-                                    />
-                                </FormControl>
-
+                                <TextField
+                                    className="mb-16"
+                                    label="Password (Confirm)"
+                                    type="password"
+                                    name="passwordConfirm"
+                                    value={passwordConfirm}
+                                    onChange={this.handleChange}
+                                    variant="outlined"
+                                    required
+                                    fullWidth
+                                />
 
                                 <FormControl className="items-center">
                                     <FormControlLabel

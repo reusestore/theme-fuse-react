@@ -60,7 +60,8 @@ const styles = theme => ({
         flexDirection  : 'row',
         backgroundImage: 'url("/assets/images/patterns/rain-grey.png")',
         backgroundColor: theme.palette.background.paper,
-        boxShadow      : theme.shadows[7],
+        boxShadow      : theme.shadows[1],
+        borderRadius   : 8,
         minHeight      : 0,
         overflow       : 'hidden'
     },

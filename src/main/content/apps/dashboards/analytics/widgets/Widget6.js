@@ -5,7 +5,10 @@ import classNames from 'classnames';
 import GoogleMap from 'google-map-react';
 
 const styles = theme => ({
-    root: {}
+    root: {
+        border   : '1px solid ' + theme.palette.divider,
+        boxShadow: 'none'
+    }
 });
 
 function Marker({text})

@@ -12,6 +12,11 @@ const styles = theme => ({
     listItem: {
         color         : 'inherit!important',
         textDecoration: 'none!important',
+        minHeight     : 40,
+        width         : 'calc(100% - 16px)',
+        borderRadius  : '0 20px 20px 0',
+        paddingLeft   : 24,
+        paddingRight  : 12,
         '&.active'    : {
             backgroundColor    : theme.palette.secondary.main,
             color              : theme.palette.secondary.contrastText + '!important',
@@ -31,7 +36,7 @@ class ContactsSidebarContent extends Component {
         return (
             <div className={classNames(classes.root, "lg:p-24 lg:pr-4")}>
                 <FuseAnimate animation="transition.slideLeftIn" delay={200}>
-                    <Paper>
+                    <Paper elevation={1} className="rounded-8">
                         <div className="p-24 flex items-center">
                             <Avatar className="mr-12" alt={user.name} src={user.avatar}/>
                             <Typography>{user.name}</Typography>
@@ -46,7 +51,7 @@ class ContactsSidebarContent extends Component {
                                 className={classes.listItem}
                             >
                                 <Icon className="list-item-icon text-16" color="action">people</Icon>
-                                <ListItemText primary="All contacts" disableTypography={true}/>
+                                <ListItemText className="truncate pr-0" primary="All contacts" disableTypography={true}/>
                             </ListItem>
                             <ListItem
                                 button
@@ -56,7 +61,7 @@ class ContactsSidebarContent extends Component {
                                 className={classes.listItem}
                             >
                                 <Icon className="list-item-icon text-16" color="action">restore</Icon>
-                                <ListItemText primary="Frequently contacted" disableTypography={true}/>
+                                <ListItemText className="truncate pr-0" primary="Frequently contacted" disableTypography={true}/>
                             </ListItem>
                             <ListItem
                                 button
@@ -66,7 +71,7 @@ class ContactsSidebarContent extends Component {
                                 className={classes.listItem}
                             >
                                 <Icon className="list-item-icon text-16" color="action">star</Icon>
-                                <ListItemText primary="Starred contacts" disableTypography={true}/>
+                                <ListItemText className="truncate pr-0" primary="Starred contacts" disableTypography={true}/>
                             </ListItem>
                         </List>
                     </Paper>

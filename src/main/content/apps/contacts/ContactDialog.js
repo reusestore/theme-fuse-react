@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {
-    TextField, Button, Dialog, DialogActions, DialogContent, FormControl, InputLabel, Input, Icon, IconButton, Typography, Toolbar, AppBar, Avatar
+    TextField, Button, Dialog, DialogActions, DialogContent, Icon, IconButton, Typography, Toolbar, AppBar, Avatar
 } from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles/index';
 import {bindActionCreators} from 'redux';
@@ -85,7 +85,7 @@ class ContactDialog extends Component {
         return (
             <Dialog className={classes.root} {...contactDialog.props} onClose={this.closeComposeDialog} fullWidth maxWidth="xs">
 
-                <AppBar position="static">
+                <AppBar position="static" elevation={1}>
                     <Toolbar className="flex w-full">
                         <Typography variant="subheading" color="inherit">
                             {contactDialog.type === 'new' ? 'New Contact' : 'Edit Contact'}
@@ -106,69 +106,114 @@ class ContactDialog extends Component {
                         <div className="min-w-48 pt-20">
                             <Icon color="action">account_circle</Icon>
                         </div>
-                        <FormControl className={classes.formControl} required fullWidth>
-                            <InputLabel htmlFor="name">Name</InputLabel>
-                            <Input autoFocus id="name" name="name" value={this.state.name} onChange={this.handleChange}/>
-                        </FormControl>
+
+                        <TextField
+                            className={classes.formControl}
+                            label="Name"
+                            autoFocus
+                            id="name"
+                            name="name"
+                            value={this.state.name}
+                            onChange={this.handleChange}
+                            variant="outlined"
+                            required
+                            fullWidth
+                        />
                     </div>
 
                     <div className="flex">
                         <div className="min-w-48 pt-20">
                         </div>
-                        <FormControl className={classes.formControl} fullWidth>
-                            <InputLabel htmlFor="lastName">Last name</InputLabel>
-                            <Input id="lastName" name="lastName" value={this.state.lastName} onChange={this.handleChange}/>
-                        </FormControl>
+                        <TextField
+                            className={classes.formControl}
+                            label="Last name"
+                            id="lastName"
+                            name="lastName"
+                            value={this.state.lastName}
+                            onChange={this.handleChange}
+                            variant="outlined"
+                            fullWidth
+                        />
                     </div>
 
                     <div className="flex">
                         <div className="min-w-48 pt-20">
                             <Icon color="action">star</Icon>
                         </div>
-                        <FormControl className={classes.formControl} fullWidth>
-                            <InputLabel htmlFor="nickname">Nickname</InputLabel>
-                            <Input id="nickname" name="nickname" value={this.state.nickname} onChange={this.handleChange}/>
-                        </FormControl>
+                        <TextField
+                            className={classes.formControl}
+                            label="Nickname"
+                            id="nickname"
+                            name="nickname"
+                            value={this.state.nickname}
+                            onChange={this.handleChange}
+                            variant="outlined"
+                            fullWidth
+                        />
                     </div>
 
                     <div className="flex">
                         <div className="min-w-48 pt-20">
                             <Icon color="action">phone</Icon>
                         </div>
-                        <FormControl className={classes.formControl} fullWidth>
-                            <InputLabel htmlFor="phone">Phone</InputLabel>
-                            <Input id="phone" name="phone" value={this.state.phone} onChange={this.handleChange}/>
-                        </FormControl>
+                        <TextField
+                            className={classes.formControl}
+                            label="Phone"
+                            id="phone"
+                            name="phone"
+                            value={this.state.phone}
+                            onChange={this.handleChange}
+                            variant="outlined"
+                            fullWidth
+                        />
                     </div>
 
                     <div className="flex">
                         <div className="min-w-48 pt-20">
                             <Icon color="action">email</Icon>
                         </div>
-                        <FormControl className={classes.formControl} fullWidth>
-                            <InputLabel htmlFor="email">Email</InputLabel>
-                            <Input id="email" name="email" value={this.state.email} onChange={this.handleChange}/>
-                        </FormControl>
+                        <TextField
+                            className={classes.formControl}
+                            label="Email"
+                            id="email"
+                            name="email"
+                            value={this.state.email}
+                            onChange={this.handleChange}
+                            variant="outlined"
+                            fullWidth
+                        />
                     </div>
 
                     <div className="flex">
                         <div className="min-w-48 pt-20">
                             <Icon color="action">domain</Icon>
                         </div>
-                        <FormControl className={classes.formControl} fullWidth>
-                            <InputLabel htmlFor="company">Company</InputLabel>
-                            <Input id="company" name="company" value={this.state.company} onChange={this.handleChange}/>
-                        </FormControl>
+                        <TextField
+                            className={classes.formControl}
+                            label="Company"
+                            id="company"
+                            name="company"
+                            value={this.state.company}
+                            onChange={this.handleChange}
+                            variant="outlined"
+                            fullWidth
+                        />
                     </div>
 
                     <div className="flex">
                         <div className="min-w-48 pt-20">
                             <Icon color="action">work</Icon>
                         </div>
-                        <FormControl className={classes.formControl} fullWidth>
-                            <InputLabel htmlFor="jobTitle">Job title</InputLabel>
-                            <Input id="jobTitle" name="jobTitle" value={this.state.jobTitle} onChange={this.handleChange}/>
-                        </FormControl>
+                        <TextField
+                            className={classes.formControl}
+                            label="Job title"
+                            id="jobTitle"
+                            name="jobTitle"
+                            value={this.state.jobTitle}
+                            onChange={this.handleChange}
+                            variant="outlined"
+                            fullWidth
+                        />
                     </div>
 
                     <div className="flex">
@@ -176,14 +221,17 @@ class ContactDialog extends Component {
                             <Icon color="action">cake</Icon>
                         </div>
                         <TextField
+                            className={classes.formControl}
                             id="birthday"
                             label="Birthday"
                             type="date"
-                            className={classes.formControl}
+                            value={this.state.birthday}
+                            onChange={this.handleChange}
                             InputLabelProps={{
                                 shrink: true
                             }}
-                            value={this.state.birthday}
+                            variant="outlined"
+                            fullWidth
                         />
                     </div>
 
@@ -191,10 +239,16 @@ class ContactDialog extends Component {
                         <div className="min-w-48 pt-20">
                             <Icon color="action">home</Icon>
                         </div>
-                        <FormControl className={classes.formControl} fullWidth>
-                            <InputLabel htmlFor="address">Address</InputLabel>
-                            <Input id="address" value={this.state.address}/>
-                        </FormControl>
+                        <TextField
+                            className={classes.formControl}
+                            label="Address"
+                            id="address"
+                            name="address"
+                            value={this.state.address}
+                            onChange={this.handleChange}
+                            variant="outlined"
+                            fullWidth
+                        />
                     </div>
 
                     <div className="flex">
@@ -203,11 +257,15 @@ class ContactDialog extends Component {
                         </div>
                         <TextField
                             className={classes.formControl}
-                            id="notes"
                             label="Notes"
-                            type="text"
+                            id="notes"
+                            name="notes"
                             value={this.state.notes}
-                            multiline rows={5} fullWidth
+                            onChange={this.handleChange}
+                            variant="outlined"
+                            multiline
+                            rows={5}
+                            fullWidth
                         />
                     </div>
                 </DialogContent>

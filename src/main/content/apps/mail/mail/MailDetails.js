@@ -137,7 +137,7 @@ class MailDetails extends Component {
                                 <div className="flex flex-wrap">
                                     {mail.attachments.map(attachment => (
                                         <div className="w-192 pr-16 pb-16" key={attachment.fileName}>
-                                            <img className="w-full" src={attachment.preview} alt={attachment.fileName}/>
+                                            <img className="w-full rounded-4" src={attachment.preview} alt={attachment.fileName}/>
                                             <div className="flex flex-col">
                                                 <Typography color="primary" className="underline cursor-pointer" onClick={event => event.preventDefault()}>View</Typography>
                                                 <Typography color="primary" className="underline cursor-pointer" onClick={event => event.preventDefault()}>Download</Typography>

@@ -169,7 +169,7 @@ class ChatsSidebar extends Component {
                     <Toolbar className="flex justify-between items-center px-16 pr-4">
 
                         {user && (
-                            <IconButton className="relative w-40 h-40" onClick={openUserSidebar}>
+                            <IconButton className="relative w-40 h-40 p-0" onClick={openUserSidebar}>
 
                                 <Avatar src={user.avatar} alt={user.name} className="w-40 h-40">
                                     {(!user.avatar || user.avatar === '') ? user.name[0] : ''}

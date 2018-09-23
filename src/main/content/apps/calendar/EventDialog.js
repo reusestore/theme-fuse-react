@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {
-    TextField, Button, Dialog, DialogActions, DialogContent, FormControl, InputLabel, Input, Icon, IconButton, Typography, Toolbar, AppBar, FormControlLabel, Switch
+    TextField, Button, Dialog, DialogActions, DialogContent, Icon, IconButton, Typography, Toolbar, AppBar, FormControlLabel, Switch
 } from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles/index';
 import {bindActionCreators} from 'redux';
@@ -92,10 +92,25 @@ class EventDialog extends Component {
                 </AppBar>
 
                 <DialogContent classes={{root: "p-24"}}>
-                    <FormControl className={classes.formControl} required fullWidth>
-                        <InputLabel htmlFor="title">Title</InputLabel>
-                        <Input autoFocus id="title" name="title" value={this.state.title} onChange={this.handleChange}/>
-                    </FormControl>
+
+                    <TextField
+                        id="title"
+                        label="Title"
+                        className={classes.formControl}
+                        InputLabelProps={{
+                            shrink: true
+                        }}
+                        inputProps={{
+                            max: end
+                        }}
+                        name="title"
+                        value={this.state.title}
+                        onChange={this.handleChange}
+                        variant="outlined"
+                        autoFocus
+                        required
+                        fullWidth
+                    />
 
                     <FormControlLabel
                         className={classes.formControl}
@@ -122,6 +137,8 @@ class EventDialog extends Component {
                             }}
                             value={start}
                             onChange={this.handleChange}
+                            variant="outlined"
+                            fullWidth
                         />
                     </div>
 
@@ -140,6 +157,8 @@ class EventDialog extends Component {
                             }}
                             value={end}
                             onChange={this.handleChange}
+                            variant="outlined"
+                            fullWidth
                         />
                     </div>
 
@@ -151,7 +170,9 @@ class EventDialog extends Component {
                             name="desc"
                             value={this.state.desc}
                             onChange={this.handleChange}
-                            multiline rows={5} fullWidth
+                            multiline rows={5}
+                            variant="outlined"
+                            fullWidth
                         />
                     </div>
                 </DialogContent>

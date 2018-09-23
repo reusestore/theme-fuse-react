@@ -34,7 +34,7 @@ class DetailSidebarHeader extends Component {
                     </FuseAnimate>
                     <FuseAnimate animation="transition.expandIn" delay={200}>
                         <IconButton>
-                            <Icon>file_download</Icon>
+                            <Icon>cloud_download</Icon>
                         </IconButton>
                     </FuseAnimate>
                     <IconButton>

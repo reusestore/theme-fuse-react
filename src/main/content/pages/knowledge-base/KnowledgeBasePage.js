@@ -90,7 +90,7 @@ class KnowledgeBasePage extends Component {
                     >
                         {data.map((category) => (
                             <div className="w-full max-w-512 pb-24 md:w-1/2 md:p-16" key={category.id}>
-                                <Card elevation={4}>
+                                <Card elevation={1}>
                                     <CardContent>
                                         <Typography className="font-medium px-16 pt-8" color="textSecondary">{category.title}</Typography>
                                         <List component="nav">

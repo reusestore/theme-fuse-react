@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'material-outline-icons';
+    src: url('./material-outline-icons.ttf?8ot508') format('truetype'),
+    url('./material-outline-icons.woff?8ot508') format('woff'),
+    url('./material-outline-icons.svg?8ot508#material-outline-icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.material-icons {
+    font-family: 'material-outline-icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}

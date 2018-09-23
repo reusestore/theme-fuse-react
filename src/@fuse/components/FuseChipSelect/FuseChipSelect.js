@@ -18,7 +18,8 @@ const styles = theme => ({
         display   : 'flex',
         flexWrap  : 'wrap',
         flex      : 1,
-        alignItems: 'center'
+        alignItems: 'center',
+        padding   : '6px 4px 0 4px'
     },
     chip            : {
         margin: `${theme.spacing.unit}px ${theme.spacing.unit / 4}px`

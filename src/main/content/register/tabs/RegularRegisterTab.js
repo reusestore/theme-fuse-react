@@ -79,6 +79,7 @@ class RegularRegisterTab extends Component {
                         validationErrors={{
                             minLength: 'Min character length is 4'
                         }}
+                        variant="outlined"
                         required
                     />
 
@@ -91,6 +92,7 @@ class RegularRegisterTab extends Component {
                         validationErrors={{
                             isEmail: 'Please enter a valid email'
                         }}
+                        variant="outlined"
                         required
                     />
 
@@ -103,6 +105,7 @@ class RegularRegisterTab extends Component {
                         validationErrors={{
                             equalsField: 'Passwords do not match'
                         }}
+                        variant="outlined"
                         required
                     />
 
@@ -115,6 +118,7 @@ class RegularRegisterTab extends Component {
                         validationErrors={{
                             equalsField: 'Passwords do not match'
                         }}
+                        variant="outlined"
                         required
                     />
 

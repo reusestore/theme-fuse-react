@@ -79,7 +79,7 @@ class FaqPage extends Component {
                         </Typography>
                     </FuseAnimate>
 
-                    <Paper className={"flex items-center h-56 w-full max-w-md mt-32"} elevation={1} square>
+                    <Paper className={"flex items-center h-56 w-full max-w-md mt-32"} elevation={1}>
                         <Icon color="action" className="ml-16">search</Icon>
                         <Input
                             placeholder="Search in faqs..."
@@ -104,7 +104,7 @@ class FaqPage extends Component {
                             }}
                         >
                             {faqs.map((faq) => (
-                                <ExpansionPanel key={faq.id} expanded={expanded === faq.id} onChange={this.toogleExpansion(faq.id)}>
+                                <ExpansionPanel key={faq.id} expanded={expanded === faq.id} onChange={this.toogleExpansion(faq.id)} elevation={1}>
 
                                     <ExpansionPanelSummary expandIcon={<Icon>expand_more</Icon>}>
                                         <div className="flex items-center">

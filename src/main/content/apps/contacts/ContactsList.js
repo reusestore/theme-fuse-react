@@ -64,7 +64,7 @@ class ContactsList extends Component {
         return (
             <FuseAnimate animation="transition.slideUpIn" delay={300}>
                 <ReactTable
-                    className={classNames(classes.root, "-striped -highlight")}
+                    className={classNames(classes.root, "-striped -highlight border-0")}
                     getTrProps={(state, rowInfo, column) => {
                         return {
                             className: "cursor-pointer",

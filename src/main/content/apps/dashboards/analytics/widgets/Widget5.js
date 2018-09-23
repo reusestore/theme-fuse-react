@@ -6,7 +6,10 @@ import classNames from 'classnames';
 import _ from 'lodash';
 
 const styles = theme => ({
-    root: {}
+    root: {
+        border   : '1px solid ' + theme.palette.divider,
+        boxShadow: 'none'
+    }
 });
 
 class Widget5 extends Component {

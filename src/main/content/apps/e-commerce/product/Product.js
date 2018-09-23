@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {withStyles, Button, FormControl, Input, InputLabel, Tab, Tabs, TextField, InputAdornment, FormHelperText, Icon, Typography} from '@material-ui/core';
+import {withStyles, Button, Tab, Tabs, TextField, InputAdornment, Icon, Typography} from '@material-ui/core';
 import {orange} from '@material-ui/core/colors';
 import {FuseAnimate, FusePageCarded, FuseChipSelect} from '@fuse';
 import {Link, withRouter} from 'react-router-dom';
@@ -183,21 +183,20 @@ class Product extends Component {
                             {tabValue === 0 &&
                             (
                                 <div>
-                                    <FormControl
+
+                                    <TextField
                                         className="mb-24"
                                         error={form.name === ''}
                                         required
+                                        label="Name"
+                                        autoFocus
+                                        id="name"
+                                        name="name"
+                                        value={form.name}
+                                        onChange={this.handleChange}
+                                        variant="outlined"
                                         fullWidth
-                                    >
-                                        <InputLabel htmlFor="name">Name</InputLabel>
-                                        <Input
-                                            autoFocus
-                                            id="name"
-                                            name="name"
-                                            value={form.name}
-                                            onChange={this.handleChange}
-                                        />
-                                    </FormControl>
+                                    />
 
                                     <TextField
                                         className="mb-24"
@@ -209,6 +208,7 @@ class Product extends Component {
                                         value={form.description}
                                         multiline
                                         rows={5}
+                                        variant="outlined"
                                         fullWidth
                                     />
 
@@ -226,7 +226,8 @@ class Product extends Component {
                                             label          : 'Categories',
                                             InputLabelProps: {
                                                 shrink: true
-                                            }
+                                            },
+                                            variant        : 'outlined'
                                         }}
                                         isMulti
                                     />
@@ -245,7 +246,8 @@ class Product extends Component {
                                             label          : 'Tags',
                                             InputLabelProps: {
                                                 shrink: true
-                                            }
+                                            },
+                                            variant        : 'outlined'
                                         }}
                                         isMulti
                                     />
@@ -269,139 +271,165 @@ class Product extends Component {
                             )}
                             {tabValue === 2 && (
                                 <div>
-                                    <FormControl fullWidth className="mb-24">
-                                        <InputLabel htmlFor="adornment-amount">Tax Excluded Price</InputLabel>
-                                        <Input
-                                            id="priceTaxExcl"
-                                            name="priceTaxExcl"
-                                            value={form.priceTaxExcl}
-                                            onChange={this.handleChange}
-                                            startAdornment={<InputAdornment position="start">$</InputAdornment>}
-                                            type="number"
-                                        />
-                                    </FormControl>
 
-                                    <FormControl fullWidth className="mb-24">
-                                        <InputLabel htmlFor="priceTaxIncl">Tax Included Price</InputLabel>
-                                        <Input
-                                            id="priceTaxIncl"
-                                            name="priceTaxIncl"
-                                            value={form.priceTaxIncl}
-                                            onChange={this.handleChange}
-                                            startAdornment={<InputAdornment position="start">$</InputAdornment>}
-                                            type="number"
-                                        />
-                                    </FormControl>
+                                    <TextField
+                                        className="mb-24"
+                                        label="Tax Excluded Price"
+                                        id="priceTaxExcl"
+                                        name="priceTaxExcl"
+                                        value={form.priceTaxExcl}
+                                        onChange={this.handleChange}
+                                        InputProps={{
+                                            startAdornment: <InputAdornment position="start">$</InputAdornment>
+                                        }}
+                                        type="number"
+                                        variant="outlined"
+                                        autoFocus
+                                        fullWidth
+                                    />
 
-                                    <FormControl fullWidth className="mb-24">
-                                        <InputLabel htmlFor="taxRate">Tax Rate</InputLabel>
-                                        <Input
-                                            id="taxRate"
-                                            name="taxRate"
-                                            value={form.taxRate}
-                                            onChange={this.handleChange}
-                                            startAdornment={<InputAdornment position="start">$</InputAdornment>}
-                                            type="number"
-                                        />
-                                    </FormControl>
+                                    <TextField
+                                        className="mb-24"
+                                        label="Tax Included Price"
+                                        id="priceTaxIncl"
+                                        name="priceTaxIncl"
+                                        value={form.priceTaxIncl}
+                                        onChange={this.handleChange}
+                                        InputProps={{
+                                            startAdornment: <InputAdornment position="start">$</InputAdornment>
+                                        }}
+                                        type="number"
+                                        variant="outlined"
+                                        fullWidth
+                                    />
 
-                                    <FormControl fullWidth className="mb-24">
-                                        <InputLabel htmlFor="comparedPrice">Compared Price</InputLabel>
-                                        <Input
-                                            id="comparedPrice"
-                                            name="comparedPrice"
-                                            value={form.comparedPrice}
-                                            onChange={this.handleChange}
-                                            startAdornment={<InputAdornment position="start">$</InputAdornment>}
-                                            type="number"
-                                        />
-                                        <FormHelperText>Add a compare price to show next to the real price</FormHelperText>
-                                    </FormControl>
+
+                                    <TextField
+                                        className="mb-24"
+                                        label="Tax Rate"
+                                        id="taxRate"
+                                        name="taxRate"
+                                        value={form.taxRate}
+                                        onChange={this.handleChange}
+                                        InputProps={{
+                                            startAdornment: <InputAdornment position="start">$</InputAdornment>
+                                        }}
+                                        type="number"
+                                        variant="outlined"
+                                        fullWidth
+                                    />
+
+                                    <TextField
+                                        className="mb-24"
+                                        label="Compared Price"
+                                        id="comparedPrice"
+                                        name="comparedPrice"
+                                        value={form.comparedPrice}
+                                        onChange={this.handleChange}
+                                        InputProps={{
+                                            startAdornment: <InputAdornment position="start">$</InputAdornment>
+                                        }}
+                                        type="number"
+                                        variant="outlined"
+                                        fullWidth
+                                        helperText="Add a compare price to show next to the real price"
+                                    />
+
                                 </div>
                             )}
                             {tabValue === 3 && (
                                 <div>
-                                    <FormControl
-                                        className="mb-24"
-                                        error={form.name === ''}
-                                        required
-                                        fullWidth
-                                    >
-                                        <InputLabel htmlFor="sku">SKU</InputLabel>
-                                        <Input
-                                            autoFocus
-                                            id="sku"
-                                            name="sku"
-                                            value={form.sku}
-                                            onChange={this.handleChange}
-                                        />
-                                    </FormControl>
 
-                                    <FormControl fullWidth className="mb-24">
-                                        <InputLabel htmlFor="quantity">Quantity</InputLabel>
-                                        <Input
-                                            id="quantity"
-                                            name="quantity"
-                                            value={form.quantity}
-                                            onChange={this.handleChange}
-                                            type="number"
-                                        />
-                                    </FormControl>
+                                    <TextField
+                                        className="mb-24"
+                                        required
+                                        label="SKU"
+                                        autoFocus
+                                        id="sku"
+                                        name="sku"
+                                        value={form.sku}
+                                        onChange={this.handleChange}
+                                        variant="outlined"
+                                        fullWidth
+                                    />
+
+                                    <TextField
+                                        className="mb-24"
+                                        label="Quantity"
+                                        id="quantity"
+                                        name="quantity"
+                                        value={form.quantity}
+                                        onChange={this.handleChange}
+                                        variant="outlined"
+                                        type="number"
+                                        fullWidth
+                                    />
                                 </div>
                             )}
                             {tabValue === 4 && (
                                 <div>
                                     <div className="flex">
-                                        <FormControl fullWidth className="mb-24 mr-8">
-                                            <InputLabel htmlFor="width">Width</InputLabel>
-                                            <Input
-                                                id="width"
-                                                name="width"
-                                                value={form.width}
-                                                onChange={this.handleChange}
-                                            />
-                                        </FormControl>
-                                        <FormControl fullWidth className="mb-24 mr-8">
-                                            <InputLabel htmlFor="height">Height</InputLabel>
-                                            <Input
-                                                id="height"
-                                                name="height"
-                                                value={form.height}
-                                                onChange={this.handleChange}
-                                            />
-                                        </FormControl>
-                                        <FormControl fullWidth className="mb-24 mr-8">
-                                            <InputLabel htmlFor="depth">Depth</InputLabel>
-                                            <Input
-                                                id="depth"
-                                                name="depth"
-                                                value={form.depth}
-                                                onChange={this.handleChange}
-                                            />
-                                        </FormControl>
+                                        <TextField
+                                            className="mb-24 mr-8"
+                                            label="Width"
+                                            autoFocus
+                                            id="width"
+                                            name="width"
+                                            value={form.width}
+                                            onChange={this.handleChange}
+                                            variant="outlined"
+                                            fullWidth
+                                        />
+
+                                        <TextField
+                                            className="mb-24 mr-8"
+                                            label="Height"
+                                            id="height"
+                                            name="height"
+                                            value={form.height}
+                                            onChange={this.handleChange}
+                                            variant="outlined"
+                                            fullWidth
+                                        />
+
+                                        <TextField
+                                            className="mb-24 mr-8"
+                                            label="Depth"
+                                            id="depth"
+                                            name="depth"
+                                            value={form.depth}
+                                            onChange={this.handleChange}
+                                            variant="outlined"
+                                            fullWidth
+                                        />
+
                                     </div>
 
-                                    <FormControl fullWidth className="mb-24">
-                                        <InputLabel htmlFor="weight">Weight</InputLabel>
-                                        <Input
-                                            id="weight"
-                                            name="weight"
-                                            value={form.weight}
-                                            onChange={this.handleChange}
-                                        />
-                                    </FormControl>
+                                    <TextField
+                                        className="mb-24"
+                                        label="Weight"
+                                        id="weight"
+                                        name="weight"
+                                        value={form.weight}
+                                        onChange={this.handleChange}
+                                        variant="outlined"
+                                        fullWidth
+                                    />
 
-                                    <FormControl fullWidth className="mb-24">
-                                        <InputLabel htmlFor="extraShippingFee">Extra Shipping Fee</InputLabel>
-                                        <Input
-                                            id="extraShippingFee"
-                                            name="extraShippingFee"
-                                            value={form.extraShippingFee}
-                                            onChange={this.handleChange}
-                                            startAdornment={<InputAdornment position="start">$</InputAdornment>}
-                                            type="number"
-                                        />
-                                    </FormControl>
+                                    <TextField
+                                        className="mb-24"
+                                        label="Extra Shipping Fee"
+                                        id="extraShippingFee"
+                                        name="extraShippingFee"
+                                        value={form.extraShippingFee}
+                                        onChange={this.handleChange}
+                                        variant="outlined"
+                                        InputProps={{
+                                            startAdornment: <InputAdornment position="start">$</InputAdornment>
+                                        }}
+                                        fullWidth
+                                    />
+
                                 </div>
                             )}
                         </div>

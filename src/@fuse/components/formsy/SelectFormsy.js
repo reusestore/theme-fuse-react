@@ -27,7 +27,8 @@ class SelectFormsy extends Component {
             'open',
             'renderValue',
             'SelectDisplayProps',
-            'value'
+            'value',
+            'variant'
         ]);
 
         // An error message is returned only if the component is invalid

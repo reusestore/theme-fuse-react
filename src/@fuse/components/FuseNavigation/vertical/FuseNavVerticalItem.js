@@ -22,8 +22,11 @@ const propTypes = {
 const defaultProps = {};
 
 const styles = theme => ({
-    root: {
-        minHeight          : 48,
+    item: {
+        height             : 40,
+        width              : 'calc(100% - 16px)',
+        borderRadius       : '0 20px 20px 0',
+        paddingRight       : 12,
         '&.active'         : {
             backgroundColor            : theme.palette.secondary.main,
             color                      : theme.palette.secondary.contrastText + '!important',
@@ -58,7 +61,7 @@ function FuseNavVerticalItem({item, classes, nestedLevel, userRole, navbarCloseM
             component={NavLink}
             to={item.url}
             activeClassName="active"
-            className={classNames(classes.root, listItemPadding)}
+            className={classNames(classes.item, listItemPadding)}
             onClick={navbarCloseMobile}
             exact={item.exact}
         >

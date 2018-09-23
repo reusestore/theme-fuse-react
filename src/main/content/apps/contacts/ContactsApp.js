@@ -78,6 +78,7 @@ class ContactsApp extends Component {
                     onRef={instance => {
                         this.pageLayout = instance;
                     }}
+                    innerScroll
                 />
                 <FuseAnimate animation="transition.expandIn" delay={300}>
                     <Button

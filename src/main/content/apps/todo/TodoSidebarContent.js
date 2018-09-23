@@ -9,11 +9,13 @@ import * as Actions from './store/actions';
 const styles = theme => ({
     listWrapper  : {},
     listItem     : {
-        paddingRight       : 24,
-        paddingLeft        : 24,
-        minHeight          : 48,
         color              : 'inherit!important',
         textDecoration     : 'none!important',
+        height             : 40,
+        width              : 'calc(100% - 16px)',
+        borderRadius       : '0 20px 20px 0',
+        paddingLeft        : 24,
+        paddingRight       : 12,
         '&.active'         : {
             backgroundColor    : theme.palette.secondary.main,
             color              : theme.palette.secondary.contrastText + '!important',

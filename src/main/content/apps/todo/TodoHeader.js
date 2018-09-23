@@ -33,7 +33,7 @@ class TodoHeader extends Component {
         return (
             <MuiThemeProvider theme={FuseSelectedTheme}>
                 <div className={classes.root}>
-                    <Paper className={classes.searchWrapper} elevation={7} square>
+                    <Paper className={classes.searchWrapper} elevation={1}>
                         <Hidden lgUp>
                             <IconButton
                                 onClick={(ev) => pageLayout().toggleLeftSidebar()}

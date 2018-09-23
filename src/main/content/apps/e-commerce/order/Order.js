@@ -143,6 +143,7 @@ class Order extends Component {
                                             </table>
 
                                             <ExpansionPanel
+                                                elevation={1}
                                                 expanded={this.state.map === 'shipping'}
                                                 onChange={() => this.setState({map: this.state.map !== 'shipping' ? 'shipping' : false})}
                                             >
@@ -170,6 +171,7 @@ class Order extends Component {
                                             </ExpansionPanel>
 
                                             <ExpansionPanel
+                                                elevation={1}
                                                 expanded={this.state.map === 'invoice'}
                                                 onChange={() => this.setState({map: this.state.map !== 'invoice' ? 'invoice' : false})}
                                             >

@@ -1,7 +1,7 @@
 import React from 'react';
 import FuseNavVerticalCollapse from './FuseNavVerticalCollapse';
 import FuseNavVerticalItem from './FuseNavVerticalItem';
-import {ListSubheader} from '@material-ui/core';
+import {ListSubheader, withStyles} from '@material-ui/core';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
@@ -18,7 +18,16 @@ const propTypes = {
 
 const defaultProps = {};
 
-function FuseNavVerticalGroup({item, nestedLevel, userRole})
+const styles = theme => ({
+    item: {
+        height      : 40,
+        width       : 'calc(100% - 16px)',
+        borderRadius: '0 20px 20px 0',
+        paddingRight: 12
+    }
+});
+
+function FuseNavVerticalGroup({classes, item, nestedLevel, userRole})
 {
     if ( item.auth && (!item.auth.includes(userRole) || (userRole !== 'guest' && item.auth.length === 1 && item.auth.includes('guest'))) )
     {
@@ -31,7 +40,7 @@ function FuseNavVerticalGroup({item, nestedLevel, userRole})
     return (
         <React.Fragment>
 
-            <ListSubheader disableSticky={true} className={classNames(listItemPadding, "list-subheader flex items-center")}>
+            <ListSubheader disableSticky={true} className={classNames(classes.item, listItemPadding, "list-subheader flex items-center")}>
                 <span className="list-subheader-text uppercase text-12">
                     {item.title}
                 </span>
@@ -75,6 +84,6 @@ function mapStateToProps({auth})
 FuseNavVerticalGroup.propTypes = propTypes;
 FuseNavVerticalGroup.defaultProps = defaultProps;
 
-const NavVerticalGroup = withRouter(connect(mapStateToProps)(FuseNavVerticalGroup));
+const NavVerticalGroup = withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps)(FuseNavVerticalGroup)));
 
 export default NavVerticalGroup;

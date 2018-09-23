@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {TextField, Button, Dialog, DialogActions, DialogContent, FormControl, InputLabel, Input, Icon, IconButton, Typography, Toolbar, AppBar} from '@material-ui/core';
+import {TextField, Button, Dialog, DialogActions, DialogContent, Icon, IconButton, Typography, Toolbar, AppBar} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles/index';
 import _ from 'lodash';
 
@@ -101,30 +101,65 @@ class MailCompose extends Component {
                     </AppBar>
 
                     <DialogContent classes={{root: "p-24"}}>
-                        <FormControl className={classes.formControl} disabled fullWidth>
-                            <InputLabel htmlFor="from">From</InputLabel>
-                            <Input id="from" name="from" value={this.state.from} onChange={this.handleChange}/>
-                        </FormControl>
 
-                        <FormControl className={classes.formControl} required fullWidth>
-                            <InputLabel htmlFor="to">To</InputLabel>
-                            <Input autoFocus id="to" name="to" value={this.state.to} onChange={this.handleChange}/>
-                        </FormControl>
+                        <TextField
+                            className={classes.formControl}
+                            label="From"
+                            id="from"
+                            name="from"
+                            value={this.state.from}
+                            onChange={this.handleChange}
+                            variant="outlined"
+                            fullWidth
+                            disabled
+                        />
 
-                        <FormControl className={classes.formControl} fullWidth>
-                            <InputLabel htmlFor="cc">Cc</InputLabel>
-                            <Input id="cc" name="cc" value={this.state.cc} onChange={this.handleChange}/>
-                        </FormControl>
+                        <TextField
+                            className={classes.formControl}
+                            label="To"
+                            autoFocus
+                            id="to"
+                            name="to"
+                            value={this.state.to}
+                            onChange={this.handleChange}
+                            variant="outlined"
+                            fullWidth
+                            required
+                        />
 
-                        <FormControl className={classes.formControl} fullWidth>
-                            <InputLabel htmlFor="bcc">Bcc</InputLabel>
-                            <Input id="bcc" name="bcc" value={this.state.bcc} onChange={this.handleChange}/>
-                        </FormControl>
+                        <TextField
+                            className={classes.formControl}
+                            label="Cc"
+                            id="cc"
+                            name="cc"
+                            value={this.state.cc}
+                            onChange={this.handleChange}
+                            variant="outlined"
+                            fullWidth
+                        />
 
-                        <FormControl className={classes.formControl} fullWidth>
-                            <InputLabel htmlFor="subject">Subject</InputLabel>
-                            <Input id="subject" name="subject" value={this.state.subject} onChange={this.handleChange}/>
-                        </FormControl>
+                        <TextField
+                            className={classes.formControl}
+                            label="Bcc"
+                            id="bcc"
+                            name="bcc"
+                            value={this.state.bcc}
+                            onChange={this.handleChange}
+                            variant="outlined"
+                            fullWidth
+                        />
+
+                        <TextField
+                            className={classes.formControl}
+                            label="Subject"
+                            id="subject"
+                            name="subject"
+                            value={this.state.subject}
+                            onChange={this.handleChange}
+                            variant="outlined"
+                            fullWidth
+                        />
+
                         <TextField
                             className={classes.formControl}
                             id="message"
@@ -134,6 +169,7 @@ class MailCompose extends Component {
                             type="text"
                             multiline
                             rows={5}
+                            variant="outlined"
                             fullWidth
                         />
 

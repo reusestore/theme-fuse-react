@@ -279,6 +279,7 @@ class TodoDialog extends Component {
                                 value={form.title}
                                 onChange={this.handleChange}
                                 required
+                                variant="outlined"
                             />
                         </FormControl>
 
@@ -290,6 +291,7 @@ class TodoDialog extends Component {
                                 rows="6"
                                 value={form.notes}
                                 onChange={this.handleChange}
+                                variant="outlined"
                             />
                         </FormControl>
                         <div className="flex">
@@ -306,6 +308,7 @@ class TodoDialog extends Component {
                                 }}
                                 value={startDate}
                                 onChange={this.handleChange}
+                                variant="outlined"
                             />
                             <TextField
                                 name="dueDate"
@@ -320,6 +323,7 @@ class TodoDialog extends Component {
                                 }}
                                 value={dueDate}
                                 onChange={this.handleChange}
+                                variant="outlined"
                             />
                         </div>
                     </div>

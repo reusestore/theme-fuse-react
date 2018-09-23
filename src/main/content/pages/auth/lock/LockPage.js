@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles/index';
-import {Avatar, Button, Card, CardContent, FormControl, Icon, Input, InputLabel, Typography} from '@material-ui/core';
+import {Avatar, Button, Card, CardContent, Icon, TextField, Typography} from '@material-ui/core';
 import classNames from 'classnames';
 import {Link} from 'react-router-dom';
 import _ from 'lodash';
@@ -54,7 +54,7 @@ class LockPage extends Component {
 
                                     <div className="relative mr-16">
                                         <Avatar className="w-72 h-72" src="assets/images/avatars/katherine.jpg"/>
-                                        <Icon className="text-36 absolute pin-r pin-b" color="error">lock</Icon>
+                                        <Icon className="text-32 absolute pin-r pin-b" color="error">lock</Icon>
                                     </div>
 
                                     <div>
@@ -67,25 +67,27 @@ class LockPage extends Component {
 
                                 <form name="lockForm" noValidate className="flex flex-col justify-center w-full mt-32">
 
-                                    <FormControl className="mb-16" fullWidth>
-                                        <InputLabel>Username</InputLabel>
-                                        <Input
-                                            type="email"
-                                            name="email"
-                                            value="Katherine"
-                                            disabled
-                                        />
-                                    </FormControl>
+                                    <TextField
+                                        className="mb-16"
+                                        label="Username"
+                                        name="name"
+                                        value="Katherine"
+                                        variant="outlined"
+                                        fullWidth
+                                        disabled
+                                    />
 
-                                    <FormControl className="mb-16" fullWidth required>
-                                        <InputLabel>Password</InputLabel>
-                                        <Input
-                                            type="password"
-                                            name="password"
-                                            value={password}
-                                            onChange={this.handleChange}
-                                        />
-                                    </FormControl>
+                                    <TextField
+                                        className="mb-16"
+                                        label="Password"
+                                        type="password"
+                                        name="password"
+                                        value={password}
+                                        onChange={this.handleChange}
+                                        variant="outlined"
+                                        required
+                                        fullWidth
+                                    />
 
                                     <Button
                                         variant="raised"

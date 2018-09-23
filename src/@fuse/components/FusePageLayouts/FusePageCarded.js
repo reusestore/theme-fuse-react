@@ -80,8 +80,9 @@ const styles = theme => ({
         flex           : '1 1 100%',
         flexDirection  : 'column',
         backgroundColor: theme.palette.background.paper,
-        boxShadow      : theme.shadows[7],
-        minHeight      : 0
+        boxShadow      : theme.shadows[1],
+        minHeight      : 0,
+        borderRadius   : '8px 8px 0 0'
     },
     toolbar                  : {
         height      : toolbarHeight,
@@ -92,6 +93,7 @@ const styles = theme => ({
     },
     content                  : {
         flex                        : '1 1 auto',
+        height                      : '100%',
         overflow                    : 'auto',
         '-webkit-overflow-scrolling': 'touch'
     },

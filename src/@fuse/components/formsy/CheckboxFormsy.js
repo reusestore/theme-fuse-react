@@ -23,7 +23,8 @@ class CheckboxFormsy extends Component {
             'indeterminateIcon',
             'inputProps',
             'inputRef',
-            'onChange'
+            'onChange',
+            'variant'
         ]);
 
         // An error message is returned only if the component is invalid

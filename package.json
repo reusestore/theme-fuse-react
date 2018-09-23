@@ -46,7 +46,7 @@
         "react-text-mask": "5.4.3",
         "redux": "4.0.0",
         "redux-thunk": "2.3.0",
-        "typeface-roboto": "0.0.54",
+        "typeface-muli": "0.0.54",
         "velocity-react": "1.4.1"
     },
     "scripts": {

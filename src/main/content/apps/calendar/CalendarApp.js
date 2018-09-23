@@ -113,7 +113,7 @@ const styles = theme => ({
             }
         },
         '& .rbc-event'                                                                                                 : {
-            borderRadius            : 0,
+            borderRadius            : 4,
             padding                 : '4px 8px',
             backgroundColor         : theme.palette.primary.dark,
             color                   : theme.palette.primary.contrastText,

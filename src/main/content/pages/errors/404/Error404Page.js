@@ -42,7 +42,7 @@ class Error404Page extends Component {
                         </Typography>
                     </FuseAnimate>
 
-                    <Paper className={classNames(classes.searchWrapper, "mt-48 mb-16")} elevation={1} square>
+                    <Paper className={classNames(classes.searchWrapper, "mt-48 mb-16")} elevation={1}>
                         <Icon color="action">search</Icon>
                         <Input
                             placeholder="Search for anything"

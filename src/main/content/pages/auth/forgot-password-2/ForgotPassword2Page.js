@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles/index';
-import {Button, Card, CardContent, FormControl, Input, InputLabel, Typography} from '@material-ui/core';
+import {Button, Card, CardContent, TextField, Typography} from '@material-ui/core';
 import classNames from 'classnames';
 import {Link} from 'react-router-dom';
 import _ from 'lodash';
@@ -76,15 +76,18 @@ class ForgotPassword2Page extends Component {
 
                             <form name="recoverForm" noValidate className="flex flex-col justify-center w-full">
 
-                                <FormControl className="mb-16" fullWidth required>
-                                    <InputLabel>Email</InputLabel>
-                                    <Input
-                                        type="email"
-                                        name="email"
-                                        value={email}
-                                        onChange={this.handleChange}
-                                    />
-                                </FormControl>
+                                <TextField
+                                    className="mb-16"
+                                    label="Email"
+                                    autoFocus
+                                    type="email"
+                                    name="email"
+                                    value={email}
+                                    onChange={this.handleChange}
+                                    variant="outlined"
+                                    required
+                                    fullWidth
+                                />
 
                                 <Button
                                     variant="raised"

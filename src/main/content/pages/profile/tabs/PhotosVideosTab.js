@@ -48,7 +48,13 @@ class PhotosVideosTab extends Component {
 
                                 <GridList className="" spacing={8} cols={0}>
                                     {period.media.map(media => (
-                                        <GridListTile className="w-1 sm:w-1/2 md:w-1/4" key={media.preview}>
+                                        <GridListTile
+                                            classes={{
+                                                root: "w-1 sm:w-1/2 md:w-1/4",
+                                                tile: "rounded-8"
+                                            }}
+                                            key={media.preview}
+                                        >
                                             <img src={media.preview} alt={media.title}/>
                                             <GridListTileBar
                                                 title={media.title}

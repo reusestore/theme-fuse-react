@@ -6,7 +6,7 @@
 
 html {
     font-size: 62.5%;
-    font-family: Roboto, Helvetica Neue, Arial, sans-serif;
+    font-family: Muli, Roboto, Helvetica Neue, Arial, sans-serif;
     background-color: #262933;
 }
 
@@ -76,6 +76,10 @@ a[role=button] {
 ::-webkit-scrollbar-thumb:active {
     box-shadow: inset 0 0 0 20px rgba(0, 0, 0, 0.37);
     border-radius: 20px;
+}
+
+label[class*="MuiInputLabel-outlined"] {
+    z-index: 99;
 }
 
 @import 'print.css';

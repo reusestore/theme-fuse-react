@@ -42,7 +42,7 @@ class ClassicSearchPage extends Component {
                 header={
                     <div className="flex flex-1 items-center p-24 max-w-md">
                         <MuiThemeProvider theme={this.props.theme}>
-                            <Paper className={"flex items-center h-44 w-full"} elevation={1} square>
+                            <Paper className={"flex items-center h-44 w-full"} elevation={1}>
                                 <Input
                                     placeholder="Search..."
                                     className="pl-16"

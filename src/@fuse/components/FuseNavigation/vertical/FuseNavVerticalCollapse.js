@@ -27,6 +27,12 @@ const styles = theme => ({
         '&.open': {
             backgroundColor: 'rgba(0,0,0,.08)'
         }
+    },
+    item: {
+        height      : 40,
+        width       : 'calc(100% - 16px)',
+        borderRadius: '0 20px 20px 0',
+        paddingRight: 12
     }
 });
 
@@ -100,7 +106,7 @@ class FuseNavVerticalCollapse extends Component {
 
                 <ListItem
                     button
-                    className={listItemPadding}
+                    className={classNames(classes.item, listItemPadding)}
                     onClick={this.handleClick}
                 >
                     {item.icon && (
@@ -110,8 +116,8 @@ class FuseNavVerticalCollapse extends Component {
                     {item.badge && (
                         <FuseNavBadge className="mr-4" badge={item.badge}/>
                     )}
-                    <IconButton disableRipple className="w-16 h-16">
-                        <Icon className="text-16 arrow-icon">
+                    <IconButton disableRipple className="w-16 h-16 p-0">
+                        <Icon className="text-16 arrow-icon" color="inherit">
                             {this.state.open ? 'expand_less' : 'expand_more'}
                         </Icon>
                     </IconButton>

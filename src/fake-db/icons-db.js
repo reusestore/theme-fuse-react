@@ -1,7457 +1,8120 @@
 import mock from './mock';
+// import _ from '@lodash';
 
 const iconsDB = [
     {
-        "id"       : "ic_3d_rotation",
-        "name"     : "3d rotation",
-        "group_id" : "action",
-        "keywords" : ["action", "3d", "rotation"],
-        "ligature" : "3d_rotation",
-        "codepoint": "E84D",
-        "is_new"   : false
+        "order"    : 1732,
+        "id"       : 1012,
+        "name"     : "3d_rotation",
+        "prevSize" : 32,
+        "code"     : 59648,
+        "ligatures": "3d_rotation",
+        "tags"     : ["d_rotation"]
     }, {
-        "id"       : "ic_accessibility",
+        "order"    : 1733,
+        "id"       : 1011,
+        "name"     : "4k",
+        "prevSize" : 32,
+        "code"     : 59649,
+        "ligatures": "4k",
+        "tags"     : ["k"]
+    }, {
+        "order"    : 1734,
+        "id"       : 1010,
+        "name"     : "360",
+        "prevSize" : 32,
+        "code"     : 59650,
+        "ligatures": "360",
+        "tags"     : ["360"]
+    }, {
+        "order"    : 1735,
+        "id"       : 1009,
+        "name"     : "ac_unit",
+        "prevSize" : 32,
+        "code"     : 59651,
+        "ligatures": "ac_unit",
+        "tags"     : ["ac_unit"]
+    }, {
+        "order"    : 1736,
+        "id"       : 1008,
+        "name"     : "access_alarm",
+        "prevSize" : 32,
+        "code"     : 59652,
+        "ligatures": "access_alarm",
+        "tags"     : ["access_alarm"]
+    }, {
+        "order"    : 1737,
+        "id"       : 1007,
+        "name"     : "access_alarms",
+        "prevSize" : 32,
+        "code"     : 59653,
+        "ligatures": "access_alarms",
+        "tags"     : ["access_alarms"]
+    }, {
+        "order"    : 1738,
+        "id"       : 1006,
+        "name"     : "access_time",
+        "prevSize" : 32,
+        "code"     : 59654,
+        "ligatures": "access_time",
+        "tags"     : ["access_time"]
+    }, {
+        "order"    : 1739,
+        "id"       : 1005,
+        "name"     : "accessibility_new",
+        "prevSize" : 32,
+        "code"     : 59655,
+        "ligatures": "accessibility_new",
+        "tags"     : ["accessibility_new"]
+    }, {
+        "order"    : 1740,
+        "id"       : 1004,
         "name"     : "accessibility",
-        "group_id" : "action",
-        "keywords" : ["action", "accessibility"],
-        "ligature" : "accessibility",
-        "codepoint": "E84E",
-        "is_new"   : false
+        "prevSize" : 32,
+        "code"     : 59656,
+        "ligatures": "accessibility",
+        "tags"     : ["accessibility"]
     }, {
-        "id"       : "ic_accessible",
+        "order"    : 1741,
+        "id"       : 1003,
+        "name"     : "accessible_forward",
+        "prevSize" : 32,
+        "code"     : 59657,
+        "ligatures": "accessible_forward",
+        "tags"     : ["accessible_forward"]
+    }, {
+        "order"    : 1742,
+        "id"       : 1002,
         "name"     : "accessible",
-        "group_id" : "action",
-        "keywords" : ["action", "accessible"],
-        "ligature" : "accessible",
-        "codepoint": "E914",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_account_balance",
-        "name"     : "account balance",
-        "group_id" : "action",
-        "keywords" : ["action", "account", "balance"],
-        "ligature" : "account_balance",
-        "codepoint": "E84F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_account_balance_wallet",
-        "name"     : "account balance wallet",
-        "group_id" : "action",
-        "keywords" : ["action", "account", "balance", "wallet"],
-        "ligature" : "account_balance_wallet",
-        "codepoint": "E850",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_account_box",
-        "name"     : "account box",
-        "group_id" : "action",
-        "keywords" : ["action", "account", "box"],
-        "ligature" : "account_box",
-        "codepoint": "E851",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_account_circle",
-        "name"     : "account circle",
-        "group_id" : "action",
-        "keywords" : ["action", "account", "circle"],
-        "ligature" : "account_circle",
-        "codepoint": "E853",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_add_shopping_cart",
-        "name"     : "add shopping cart",
-        "group_id" : "action",
-        "keywords" : ["action", "add", "shopping", "cart"],
-        "ligature" : "add_shopping_cart",
-        "codepoint": "E854",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_alarm",
-        "name"     : "alarm",
-        "group_id" : "action",
-        "keywords" : ["action", "alarm"],
-        "ligature" : "alarm",
-        "codepoint": "E855",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_alarm_add",
-        "name"     : "alarm add",
-        "group_id" : "action",
-        "keywords" : ["action", "alarm", "add"],
-        "ligature" : "alarm_add",
-        "codepoint": "E856",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_alarm_off",
-        "name"     : "alarm off",
-        "group_id" : "action",
-        "keywords" : ["action", "alarm", "off"],
-        "ligature" : "alarm_off",
-        "codepoint": "E857",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_alarm_on",
-        "name"     : "alarm on",
-        "group_id" : "action",
-        "keywords" : ["action", "alarm", "on"],
-        "ligature" : "alarm_on",
-        "codepoint": "E858",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_all_out",
-        "name"     : "all out",
-        "group_id" : "action",
-        "keywords" : ["action", "all", "out"],
-        "ligature" : "all_out",
-        "codepoint": "E90B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_android",
-        "name"     : "android",
-        "group_id" : "action",
-        "keywords" : ["action", "android"],
-        "ligature" : "android",
-        "codepoint": "E859",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_announcement",
-        "name"     : "announcement",
-        "group_id" : "action",
-        "keywords" : ["action", "announcement"],
-        "ligature" : "announcement",
-        "codepoint": "E85A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_aspect_ratio",
-        "name"     : "aspect ratio",
-        "group_id" : "action",
-        "keywords" : ["action", "aspect", "ratio"],
-        "ligature" : "aspect_ratio",
-        "codepoint": "E85B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_assessment",
-        "name"     : "assessment",
-        "group_id" : "action",
-        "keywords" : ["action", "assessment"],
-        "ligature" : "assessment",
-        "codepoint": "E85C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_assignment",
-        "name"     : "assignment",
-        "group_id" : "action",
-        "keywords" : ["action", "assignment"],
-        "ligature" : "assignment",
-        "codepoint": "E85D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_assignment_ind",
-        "name"     : "assignment ind",
-        "group_id" : "action",
-        "keywords" : ["action", "assignment", "ind"],
-        "ligature" : "assignment_ind",
-        "codepoint": "E85E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_assignment_late",
-        "name"     : "assignment late",
-        "group_id" : "action",
-        "keywords" : ["action", "assignment", "late"],
-        "ligature" : "assignment_late",
-        "codepoint": "E85F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_assignment_return",
-        "name"     : "assignment return",
-        "group_id" : "action",
-        "keywords" : ["action", "assignment", "return"],
-        "ligature" : "assignment_return",
-        "codepoint": "E860",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_assignment_returned",
-        "name"     : "assignment returned",
-        "group_id" : "action",
-        "keywords" : ["action", "assignment", "returned"],
-        "ligature" : "assignment_returned",
-        "codepoint": "E861",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_assignment_turned_in",
-        "name"     : "assignment turned in",
-        "group_id" : "action",
-        "keywords" : ["action", "assignment", "turned", "in"],
-        "ligature" : "assignment_turned_in",
-        "codepoint": "E862",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_autorenew",
-        "name"     : "autorenew",
-        "group_id" : "action",
-        "keywords" : ["action", "autorenew"],
-        "ligature" : "autorenew",
-        "codepoint": "E863",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_backup",
-        "name"     : "backup",
-        "group_id" : "action",
-        "keywords" : ["action", "backup"],
-        "ligature" : "backup",
-        "codepoint": "E864",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_book",
-        "name"     : "book",
-        "group_id" : "action",
-        "keywords" : ["action", "book"],
-        "ligature" : "book",
-        "codepoint": "E865",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_bookmark",
-        "name"     : "bookmark",
-        "group_id" : "action",
-        "keywords" : ["action", "bookmark"],
-        "ligature" : "bookmark",
-        "codepoint": "E866",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_bookmark_border",
-        "name"     : "bookmark border",
-        "group_id" : "action",
-        "keywords" : ["action", "bookmark", "border"],
-        "ligature" : "bookmark_border",
-        "codepoint": "E867",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_bug_report",
-        "name"     : "bug report",
-        "group_id" : "action",
-        "keywords" : ["action", "bug", "report"],
-        "ligature" : "bug_report",
-        "codepoint": "E868",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_build",
-        "name"     : "build",
-        "group_id" : "action",
-        "keywords" : ["action", "build"],
-        "ligature" : "build",
-        "codepoint": "E869",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_cached",
-        "name"     : "cached",
-        "group_id" : "action",
-        "keywords" : ["action", "cached"],
-        "ligature" : "cached",
-        "codepoint": "E86A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_camera_enhance",
-        "name"     : "camera enhance",
-        "group_id" : "action",
-        "keywords" : ["action", "camera", "enhance"],
-        "ligature" : "camera_enhance",
-        "codepoint": "E8FC",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_card_giftcard",
-        "name"     : "card giftcard",
-        "group_id" : "action",
-        "keywords" : ["action", "card", "giftcard"],
-        "ligature" : "card_giftcard",
-        "codepoint": "E8F6",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_card_membership",
-        "name"     : "card membership",
-        "group_id" : "action",
-        "keywords" : ["action", "card", "membership"],
-        "ligature" : "card_membership",
-        "codepoint": "E8F7",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_card_travel",
-        "name"     : "card travel",
-        "group_id" : "action",
-        "keywords" : ["action", "card", "travel"],
-        "ligature" : "card_travel",
-        "codepoint": "E8F8",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_change_history",
-        "name"     : "change history",
-        "group_id" : "action",
-        "keywords" : ["action", "change", "history"],
-        "ligature" : "change_history",
-        "codepoint": "E86B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_check_circle",
-        "name"     : "check circle",
-        "group_id" : "action",
-        "keywords" : ["action", "check", "circle"],
-        "ligature" : "check_circle",
-        "codepoint": "E86C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_chrome_reader_mode",
-        "name"     : "chrome reader mode",
-        "group_id" : "action",
-        "keywords" : ["action", "chrome", "reader", "mode"],
-        "ligature" : "chrome_reader_mode",
-        "codepoint": "E86D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_class",
-        "name"     : "class",
-        "group_id" : "action",
-        "keywords" : ["action", "class"],
-        "ligature" : "class",
-        "codepoint": "E86E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_code",
-        "name"     : "code",
-        "group_id" : "action",
-        "keywords" : ["action", "code"],
-        "ligature" : "code",
-        "codepoint": "E86F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_compare_arrows",
-        "name"     : "compare arrows",
-        "group_id" : "action",
-        "keywords" : ["action", "compare", "arrows"],
-        "ligature" : "compare_arrows",
-        "codepoint": "E915",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_copyright",
-        "name"     : "copyright",
-        "group_id" : "action",
-        "keywords" : ["action", "copyright"],
-        "ligature" : "copyright",
-        "codepoint": "E90C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_credit_card",
-        "name"     : "credit card",
-        "group_id" : "action",
-        "keywords" : ["action", "credit", "card"],
-        "ligature" : "credit_card",
-        "codepoint": "E870",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_dashboard",
-        "name"     : "dashboard",
-        "group_id" : "action",
-        "keywords" : ["action", "dashboard"],
-        "ligature" : "dashboard",
-        "codepoint": "E871",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_date_range",
-        "name"     : "date range",
-        "group_id" : "action",
-        "keywords" : ["action", "date", "range"],
-        "ligature" : "date_range",
-        "codepoint": "E916",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_delete",
-        "name"     : "delete",
-        "group_id" : "action",
-        "keywords" : ["action", "delete"],
-        "ligature" : "delete",
-        "codepoint": "E872",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_delete_forever",
-        "name"     : "delete forever",
-        "group_id" : "action",
-        "keywords" : ["action", "delete", "forever"],
-        "ligature" : "delete_forever",
-        "codepoint": "E92B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_description",
-        "name"     : "description",
-        "group_id" : "action",
-        "keywords" : ["action", "description"],
-        "ligature" : "description",
-        "codepoint": "E873",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_dns",
-        "name"     : "dns",
-        "group_id" : "action",
-        "keywords" : ["action", "dns"],
-        "ligature" : "dns",
-        "codepoint": "E875",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_done",
-        "name"     : "done",
-        "group_id" : "action",
-        "keywords" : ["action", "done"],
-        "ligature" : "done",
-        "codepoint": "E876",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_done_all",
-        "name"     : "done all",
-        "group_id" : "action",
-        "keywords" : ["action", "done", "all"],
-        "ligature" : "done_all",
-        "codepoint": "E877",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_donut_large",
-        "name"     : "donut large",
-        "group_id" : "action",
-        "keywords" : ["action", "donut", "large"],
-        "ligature" : "donut_large",
-        "codepoint": "E917",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_donut_small",
-        "name"     : "donut small",
-        "group_id" : "action",
-        "keywords" : ["action", "donut", "small"],
-        "ligature" : "donut_small",
-        "codepoint": "E918",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_eject",
-        "name"     : "eject",
-        "group_id" : "action",
-        "keywords" : ["action", "eject"],
-        "ligature" : "eject",
-        "codepoint": "E8FB",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_euro_symbol",
-        "name"     : "euro symbol",
-        "group_id" : "action",
-        "keywords" : ["action", "euro", "symbol"],
-        "ligature" : "euro_symbol",
-        "codepoint": "E926",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_event",
-        "name"     : "event",
-        "group_id" : "action",
-        "keywords" : ["action", "event"],
-        "ligature" : "event",
-        "codepoint": "E878",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_event_seat",
-        "name"     : "event seat",
-        "group_id" : "action",
-        "keywords" : ["action", "event", "seat"],
-        "ligature" : "event_seat",
-        "codepoint": "E903",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_exit_to_app",
-        "name"     : "exit to app",
-        "group_id" : "action",
-        "keywords" : ["action", "exit", "to", "app"],
-        "ligature" : "exit_to_app",
-        "codepoint": "E879",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_explore",
-        "name"     : "explore",
-        "group_id" : "action",
-        "keywords" : ["action", "explore"],
-        "ligature" : "explore",
-        "codepoint": "E87A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_extension",
-        "name"     : "extension",
-        "group_id" : "action",
-        "keywords" : ["action", "extension"],
-        "ligature" : "extension",
-        "codepoint": "E87B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_face",
-        "name"     : "face",
-        "group_id" : "action",
-        "keywords" : ["action", "face"],
-        "ligature" : "face",
-        "codepoint": "E87C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_favorite",
-        "name"     : "favorite",
-        "group_id" : "action",
-        "keywords" : ["action", "favorite"],
-        "ligature" : "favorite",
-        "codepoint": "E87D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_favorite_border",
-        "name"     : "favorite border",
-        "group_id" : "action",
-        "keywords" : ["action", "favorite", "border"],
-        "ligature" : "favorite_border",
-        "codepoint": "E87E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_feedback",
-        "name"     : "feedback",
-        "group_id" : "action",
-        "keywords" : ["action", "feedback"],
-        "ligature" : "feedback",
-        "codepoint": "E87F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_find_in_page",
-        "name"     : "find in page",
-        "group_id" : "action",
-        "keywords" : ["action", "find", "in", "page"],
-        "ligature" : "find_in_page",
-        "codepoint": "E880",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_find_replace",
-        "name"     : "find replace",
-        "group_id" : "action",
-        "keywords" : ["action", "find", "replace"],
-        "ligature" : "find_replace",
-        "codepoint": "E881",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_fingerprint",
-        "name"     : "fingerprint",
-        "group_id" : "action",
-        "keywords" : ["action", "fingerprint"],
-        "ligature" : "fingerprint",
-        "codepoint": "E90D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_flight_land",
-        "name"     : "flight land",
-        "group_id" : "action",
-        "keywords" : ["action", "flight", "land"],
-        "ligature" : "flight_land",
-        "codepoint": "E904",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_flight_takeoff",
-        "name"     : "flight takeoff",
-        "group_id" : "action",
-        "keywords" : ["action", "flight", "takeoff"],
-        "ligature" : "flight_takeoff",
-        "codepoint": "E905",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_flip_to_back",
-        "name"     : "flip to back",
-        "group_id" : "action",
-        "keywords" : ["action", "flip", "to", "back"],
-        "ligature" : "flip_to_back",
-        "codepoint": "E882",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_flip_to_front",
-        "name"     : "flip to front",
-        "group_id" : "action",
-        "keywords" : ["action", "flip", "to", "front"],
-        "ligature" : "flip_to_front",
-        "codepoint": "E883",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_g_translate",
-        "name"     : "g translate",
-        "group_id" : "action",
-        "keywords" : ["action", "translate"],
-        "ligature" : "g_translate",
-        "codepoint": "E927",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_gavel",
-        "name"     : "gavel",
-        "group_id" : "action",
-        "keywords" : ["action", "gavel"],
-        "ligature" : "gavel",
-        "codepoint": "E90E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_get_app",
-        "name"     : "get app",
-        "group_id" : "action",
-        "keywords" : ["action", "get", "app"],
-        "ligature" : "get_app",
-        "codepoint": "E884",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_gif",
-        "name"     : "gif",
-        "group_id" : "action",
-        "keywords" : ["action", "gif"],
-        "ligature" : "gif",
-        "codepoint": "E908",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_grade",
-        "name"     : "grade",
-        "group_id" : "action",
-        "keywords" : ["action", "grade"],
-        "ligature" : "grade",
-        "codepoint": "E885",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_group_work",
-        "name"     : "group work",
-        "group_id" : "action",
-        "keywords" : ["action", "group", "work"],
-        "ligature" : "group_work",
-        "codepoint": "E886",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_help",
-        "name"     : "help",
-        "group_id" : "action",
-        "keywords" : ["action", "help"],
-        "ligature" : "help",
-        "codepoint": "E887",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_help_outline",
-        "name"     : "help outline",
-        "group_id" : "action",
-        "keywords" : ["action", "help", "outline"],
-        "ligature" : "help_outline",
-        "codepoint": "E8FD",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_highlight_off",
-        "name"     : "highlight off",
-        "group_id" : "action",
-        "keywords" : ["action", "highlight", "off"],
-        "ligature" : "highlight_off",
-        "codepoint": "E888",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_history",
-        "name"     : "history",
-        "group_id" : "action",
-        "keywords" : ["action", "history"],
-        "ligature" : "history",
-        "codepoint": "E889",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_home",
-        "name"     : "home",
-        "group_id" : "action",
-        "keywords" : ["action", "home"],
-        "ligature" : "home",
-        "codepoint": "E88A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_hourglass_empty",
-        "name"     : "hourglass empty",
-        "group_id" : "action",
-        "keywords" : ["action", "hourglass", "empty"],
-        "ligature" : "hourglass_empty",
-        "codepoint": "E88B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_hourglass_full",
-        "name"     : "hourglass full",
-        "group_id" : "action",
-        "keywords" : ["action", "hourglass", "full"],
-        "ligature" : "hourglass_full",
-        "codepoint": "E88C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_http",
-        "name"     : "http",
-        "group_id" : "action",
-        "keywords" : ["action", "http"],
-        "ligature" : "http",
-        "codepoint": "E902",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_https",
-        "name"     : "https",
-        "group_id" : "action",
-        "keywords" : ["action", "https"],
-        "ligature" : "https",
-        "codepoint": "E88D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_important_devices",
-        "name"     : "important devices",
-        "group_id" : "action",
-        "keywords" : ["action", "important", "devices"],
-        "ligature" : "important_devices",
-        "codepoint": "E912",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_info",
-        "name"     : "info",
-        "group_id" : "action",
-        "keywords" : ["action", "info"],
-        "ligature" : "info",
-        "codepoint": "E88E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_info_outline",
-        "name"     : "info outline",
-        "group_id" : "action",
-        "keywords" : ["action", "info", "outline"],
-        "ligature" : "info_outline",
-        "codepoint": "E88F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_input",
-        "name"     : "input",
-        "group_id" : "action",
-        "keywords" : ["action", "input"],
-        "ligature" : "input",
-        "codepoint": "E890",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_invert_colors",
-        "name"     : "invert colors",
-        "group_id" : "action",
-        "keywords" : ["action", "invert", "colors"],
-        "ligature" : "invert_colors",
-        "codepoint": "E891",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_label",
-        "name"     : "label",
-        "group_id" : "action",
-        "keywords" : ["action", "label"],
-        "ligature" : "label",
-        "codepoint": "E892",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_label_outline",
-        "name"     : "label outline",
-        "group_id" : "action",
-        "keywords" : ["action", "label", "outline"],
-        "ligature" : "label_outline",
-        "codepoint": "E893",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_language",
-        "name"     : "language",
-        "group_id" : "action",
-        "keywords" : ["action", "language"],
-        "ligature" : "language",
-        "codepoint": "E894",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_launch",
-        "name"     : "launch",
-        "group_id" : "action",
-        "keywords" : ["action", "launch"],
-        "ligature" : "launch",
-        "codepoint": "E895",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_lightbulb_outline",
-        "name"     : "lightbulb outline",
-        "group_id" : "action",
-        "keywords" : ["action", "lightbulb", "outline"],
-        "ligature" : "lightbulb_outline",
-        "codepoint": "E90F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_line_style",
-        "name"     : "line style",
-        "group_id" : "action",
-        "keywords" : ["action", "line", "style"],
-        "ligature" : "line_style",
-        "codepoint": "E919",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_line_weight",
-        "name"     : "line weight",
-        "group_id" : "action",
-        "keywords" : ["action", "line", "weight"],
-        "ligature" : "line_weight",
-        "codepoint": "E91A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_list",
-        "name"     : "list",
-        "group_id" : "action",
-        "keywords" : ["action", "list"],
-        "ligature" : "list",
-        "codepoint": "E896",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_lock",
-        "name"     : "lock",
-        "group_id" : "action",
-        "keywords" : ["action", "lock"],
-        "ligature" : "lock",
-        "codepoint": "E897",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_lock_open",
-        "name"     : "lock open",
-        "group_id" : "action",
-        "keywords" : ["action", "lock", "open"],
-        "ligature" : "lock_open",
-        "codepoint": "E898",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_lock_outline",
-        "name"     : "lock outline",
-        "group_id" : "action",
-        "keywords" : ["action", "lock", "outline"],
-        "ligature" : "lock_outline",
-        "codepoint": "E899",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_loyalty",
-        "name"     : "loyalty",
-        "group_id" : "action",
-        "keywords" : ["action", "loyalty"],
-        "ligature" : "loyalty",
-        "codepoint": "E89A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_markunread_mailbox",
-        "name"     : "markunread mailbox",
-        "group_id" : "action",
-        "keywords" : ["action", "markunread", "mailbox"],
-        "ligature" : "markunread_mailbox",
-        "codepoint": "E89B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_motorcycle",
-        "name"     : "motorcycle",
-        "group_id" : "action",
-        "keywords" : ["action", "motorcycle"],
-        "ligature" : "motorcycle",
-        "codepoint": "E91B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_note_add",
-        "name"     : "note add",
-        "group_id" : "action",
-        "keywords" : ["action", "note", "add"],
-        "ligature" : "note_add",
-        "codepoint": "E89C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_offline_pin",
-        "name"     : "offline pin",
-        "group_id" : "action",
-        "keywords" : ["action", "offline", "pin"],
-        "ligature" : "offline_pin",
-        "codepoint": "E90A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_opacity",
-        "name"     : "opacity",
-        "group_id" : "action",
-        "keywords" : ["action", "opacity"],
-        "ligature" : "opacity",
-        "codepoint": "E91C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_open_in_browser",
-        "name"     : "open in browser",
-        "group_id" : "action",
-        "keywords" : ["action", "open", "in", "browser"],
-        "ligature" : "open_in_browser",
-        "codepoint": "E89D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_open_in_new",
-        "name"     : "open in new",
-        "group_id" : "action",
-        "keywords" : ["action", "open", "in", "new"],
-        "ligature" : "open_in_new",
-        "codepoint": "E89E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_open_with",
-        "name"     : "open with",
-        "group_id" : "action",
-        "keywords" : ["action", "open", "with"],
-        "ligature" : "open_with",
-        "codepoint": "E89F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_pageview",
-        "name"     : "pageview",
-        "group_id" : "action",
-        "keywords" : ["action", "pageview"],
-        "ligature" : "pageview",
-        "codepoint": "E8A0",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_pan_tool",
-        "name"     : "pan tool",
-        "group_id" : "action",
-        "keywords" : ["action", "pan", "tool"],
-        "ligature" : "pan_tool",
-        "codepoint": "E925",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_payment",
-        "name"     : "payment",
-        "group_id" : "action",
-        "keywords" : ["action", "payment"],
-        "ligature" : "payment",
-        "codepoint": "E8A1",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_perm_camera_mic",
-        "name"     : "perm camera mic",
-        "group_id" : "action",
-        "keywords" : ["action", "perm", "camera", "mic"],
-        "ligature" : "perm_camera_mic",
-        "codepoint": "E8A2",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_perm_contact_calendar",
-        "name"     : "perm contact calendar",
-        "group_id" : "action",
-        "keywords" : ["action", "perm", "contact", "calendar"],
-        "ligature" : "perm_contact_calendar",
-        "codepoint": "E8A3",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_perm_data_setting",
-        "name"     : "perm data setting",
-        "group_id" : "action",
-        "keywords" : ["action", "perm", "data", "setting"],
-        "ligature" : "perm_data_setting",
-        "codepoint": "E8A4",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_perm_device_information",
-        "name"     : "perm device information",
-        "group_id" : "action",
-        "keywords" : ["action", "perm", "device", "information"],
-        "ligature" : "perm_device_information",
-        "codepoint": "E8A5",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_perm_identity",
-        "name"     : "perm identity",
-        "group_id" : "action",
-        "keywords" : ["action", "perm", "identity"],
-        "ligature" : "perm_identity",
-        "codepoint": "E8A6",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_perm_media",
-        "name"     : "perm media",
-        "group_id" : "action",
-        "keywords" : ["action", "perm", "media"],
-        "ligature" : "perm_media",
-        "codepoint": "E8A7",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_perm_phone_msg",
-        "name"     : "perm phone msg",
-        "group_id" : "action",
-        "keywords" : ["action", "perm", "phone", "msg"],
-        "ligature" : "perm_phone_msg",
-        "codepoint": "E8A8",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_perm_scan_wifi",
-        "name"     : "perm scan wifi",
-        "group_id" : "action",
-        "keywords" : ["action", "perm", "scan", "wifi"],
-        "ligature" : "perm_scan_wifi",
-        "codepoint": "E8A9",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_pets",
-        "name"     : "pets",
-        "group_id" : "action",
-        "keywords" : ["action", "pets"],
-        "ligature" : "pets",
-        "codepoint": "E91D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_picture_in_picture",
-        "name"     : "picture in picture",
-        "group_id" : "action",
-        "keywords" : ["action", "picture", "in", "picture"],
-        "ligature" : "picture_in_picture",
-        "codepoint": "E8AA",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_picture_in_picture_alt",
-        "name"     : "picture in picture alt",
-        "group_id" : "action",
-        "keywords" : ["action", "picture", "in", "picture", "alt"],
-        "ligature" : "picture_in_picture_alt",
-        "codepoint": "E911",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_play_for_work",
-        "name"     : "play for work",
-        "group_id" : "action",
-        "keywords" : ["action", "play", "work"],
-        "ligature" : "play_for_work",
-        "codepoint": "E906",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_polymer",
-        "name"     : "polymer",
-        "group_id" : "action",
-        "keywords" : ["action", "polymer"],
-        "ligature" : "polymer",
-        "codepoint": "E8AB",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_power_settings_new",
-        "name"     : "power settings new",
-        "group_id" : "action",
-        "keywords" : ["action", "power", "settings", "new"],
-        "ligature" : "power_settings_new",
-        "codepoint": "E8AC",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_pregnant_woman",
-        "name"     : "pregnant woman",
-        "group_id" : "action",
-        "keywords" : ["action", "pregnant", "woman"],
-        "ligature" : "pregnant_woman",
-        "codepoint": "E91E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_print",
-        "name"     : "print",
-        "group_id" : "action",
-        "keywords" : ["action", "print"],
-        "ligature" : "print",
-        "codepoint": "E8AD",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_query_builder",
-        "name"     : "query builder",
-        "group_id" : "action",
-        "keywords" : ["action", "query", "builder"],
-        "ligature" : "query_builder",
-        "codepoint": "E8AE",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_question_answer",
-        "name"     : "question answer",
-        "group_id" : "action",
-        "keywords" : ["action", "question", "answer"],
-        "ligature" : "question_answer",
-        "codepoint": "E8AF",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_receipt",
-        "name"     : "receipt",
-        "group_id" : "action",
-        "keywords" : ["action", "receipt"],
-        "ligature" : "receipt",
-        "codepoint": "E8B0",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_record_voice_over",
-        "name"     : "record voice over",
-        "group_id" : "action",
-        "keywords" : ["action", "record", "voice", "over"],
-        "ligature" : "record_voice_over",
-        "codepoint": "E91F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_redeem",
-        "name"     : "redeem",
-        "group_id" : "action",
-        "keywords" : ["action", "redeem"],
-        "ligature" : "redeem",
-        "codepoint": "E8B1",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_remove_shopping_cart",
-        "name"     : "remove shopping cart",
-        "group_id" : "action",
-        "keywords" : ["action", "remove", "shopping", "cart"],
-        "ligature" : "remove_shopping_cart",
-        "codepoint": "E928",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_reorder",
-        "name"     : "reorder",
-        "group_id" : "action",
-        "keywords" : ["action", "reorder"],
-        "ligature" : "reorder",
-        "codepoint": "E8FE",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_report_problem",
-        "name"     : "report problem",
-        "group_id" : "action",
-        "keywords" : ["action", "report", "problem"],
-        "ligature" : "report_problem",
-        "codepoint": "E8B2",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_restore",
-        "name"     : "restore",
-        "group_id" : "action",
-        "keywords" : ["action", "restore"],
-        "ligature" : "restore",
-        "codepoint": "E8B3",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_restore_page",
-        "name"     : "restore page",
-        "group_id" : "action",
-        "keywords" : ["action", "restore", "page"],
-        "ligature" : "restore_page",
-        "codepoint": "E929",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_room",
-        "name"     : "room",
-        "group_id" : "action",
-        "keywords" : ["action", "room"],
-        "ligature" : "room",
-        "codepoint": "E8B4",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_rounded_corner",
-        "name"     : "rounded corner",
-        "group_id" : "action",
-        "keywords" : ["action", "rounded", "corner"],
-        "ligature" : "rounded_corner",
-        "codepoint": "E920",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_rowing",
-        "name"     : "rowing",
-        "group_id" : "action",
-        "keywords" : ["action", "rowing"],
-        "ligature" : "rowing",
-        "codepoint": "E921",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_schedule",
-        "name"     : "schedule",
-        "group_id" : "action",
-        "keywords" : ["action", "schedule"],
-        "ligature" : "schedule",
-        "codepoint": "E8B5",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_search",
-        "name"     : "search",
-        "group_id" : "action",
-        "keywords" : ["action", "search"],
-        "ligature" : "search",
-        "codepoint": "E8B6",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_settings",
-        "name"     : "settings",
-        "group_id" : "action",
-        "keywords" : ["action", "settings"],
-        "ligature" : "settings",
-        "codepoint": "E8B8",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_settings_applications",
-        "name"     : "settings applications",
-        "group_id" : "action",
-        "keywords" : ["action", "settings", "applications"],
-        "ligature" : "settings_applications",
-        "codepoint": "E8B9",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_settings_backup_restore",
-        "name"     : "settings backup restore",
-        "group_id" : "action",
-        "keywords" : ["action", "settings", "backup", "restore"],
-        "ligature" : "settings_backup_restore",
-        "codepoint": "E8BA",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_settings_bluetooth",
-        "name"     : "settings bluetooth",
-        "group_id" : "action",
-        "keywords" : ["action", "settings", "bluetooth"],
-        "ligature" : "settings_bluetooth",
-        "codepoint": "E8BB",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_settings_brightness",
-        "name"     : "settings brightness",
-        "group_id" : "action",
-        "keywords" : ["action", "settings", "brightness"],
-        "ligature" : "settings_brightness",
-        "codepoint": "E8BD",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_settings_cell",
-        "name"     : "settings cell",
-        "group_id" : "action",
-        "keywords" : ["action", "settings", "cell"],
-        "ligature" : "settings_cell",
-        "codepoint": "E8BC",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_settings_ethernet",
-        "name"     : "settings ethernet",
-        "group_id" : "action",
-        "keywords" : ["action", "settings", "ethernet"],
-        "ligature" : "settings_ethernet",
-        "codepoint": "E8BE",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_settings_input_antenna",
-        "name"     : "settings input antenna",
-        "group_id" : "action",
-        "keywords" : ["action", "settings", "input", "antenna"],
-        "ligature" : "settings_input_antenna",
-        "codepoint": "E8BF",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_settings_input_component",
-        "name"     : "settings input component",
-        "group_id" : "action",
-        "keywords" : ["action", "settings", "input", "component"],
-        "ligature" : "settings_input_component",
-        "codepoint": "E8C0",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_settings_input_composite",
-        "name"     : "settings input composite",
-        "group_id" : "action",
-        "keywords" : ["action", "settings", "input", "composite"],
-        "ligature" : "settings_input_composite",
-        "codepoint": "E8C1",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_settings_input_hdmi",
-        "name"     : "settings input hdmi",
-        "group_id" : "action",
-        "keywords" : ["action", "settings", "input", "hdmi"],
-        "ligature" : "settings_input_hdmi",
-        "codepoint": "E8C2",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_settings_input_svideo",
-        "name"     : "settings input svideo",
-        "group_id" : "action",
-        "keywords" : ["action", "settings", "input", "svideo"],
-        "ligature" : "settings_input_svideo",
-        "codepoint": "E8C3",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_settings_overscan",
-        "name"     : "settings overscan",
-        "group_id" : "action",
-        "keywords" : ["action", "settings", "overscan"],
-        "ligature" : "settings_overscan",
-        "codepoint": "E8C4",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_settings_phone",
-        "name"     : "settings phone",
-        "group_id" : "action",
-        "keywords" : ["action", "settings", "phone"],
-        "ligature" : "settings_phone",
-        "codepoint": "E8C5",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_settings_power",
-        "name"     : "settings power",
-        "group_id" : "action",
-        "keywords" : ["action", "settings", "power"],
-        "ligature" : "settings_power",
-        "codepoint": "E8C6",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_settings_remote",
-        "name"     : "settings remote",
-        "group_id" : "action",
-        "keywords" : ["action", "settings", "remote"],
-        "ligature" : "settings_remote",
-        "codepoint": "E8C7",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_settings_voice",
-        "name"     : "settings voice",
-        "group_id" : "action",
-        "keywords" : ["action", "settings", "voice"],
-        "ligature" : "settings_voice",
-        "codepoint": "E8C8",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_shop",
-        "name"     : "shop",
-        "group_id" : "action",
-        "keywords" : ["action", "shop"],
-        "ligature" : "shop",
-        "codepoint": "E8C9",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_shop_two",
-        "name"     : "shop two",
-        "group_id" : "action",
-        "keywords" : ["action", "shop", "two"],
-        "ligature" : "shop_two",
-        "codepoint": "E8CA",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_shopping_basket",
-        "name"     : "shopping basket",
-        "group_id" : "action",
-        "keywords" : ["action", "shopping", "basket"],
-        "ligature" : "shopping_basket",
-        "codepoint": "E8CB",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_shopping_cart",
-        "name"     : "shopping cart",
-        "group_id" : "action",
-        "keywords" : ["action", "shopping", "cart"],
-        "ligature" : "shopping_cart",
-        "codepoint": "E8CC",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_speaker_notes",
-        "name"     : "speaker notes",
-        "group_id" : "action",
-        "keywords" : ["action", "speaker", "notes"],
-        "ligature" : "speaker_notes",
-        "codepoint": "E8CD",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_speaker_notes_off",
-        "name"     : "speaker notes off",
-        "group_id" : "action",
-        "keywords" : ["action", "speaker", "notes", "off"],
-        "ligature" : "speaker_notes_off",
-        "codepoint": "E92A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_spellcheck",
-        "name"     : "spellcheck",
-        "group_id" : "action",
-        "keywords" : ["action", "spellcheck"],
-        "ligature" : "spellcheck",
-        "codepoint": "E8CE",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_star_rate",
-        "name"     : "star rate",
-        "group_id" : "action",
-        "keywords" : ["action", "star", "rate"],
-        "ligature" : "star_rate",
-        "codepoint": "E8CF",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_stars",
-        "name"     : "stars",
-        "group_id" : "action",
-        "keywords" : ["action", "stars"],
-        "ligature" : "stars",
-        "codepoint": "E8D0",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_store",
-        "name"     : "store",
-        "group_id" : "action",
-        "keywords" : ["action", "store"],
-        "ligature" : "store",
-        "codepoint": "E8D1",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_subject",
-        "name"     : "subject",
-        "group_id" : "action",
-        "keywords" : ["action", "subject"],
-        "ligature" : "subject",
-        "codepoint": "E8D2",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_supervisor_account",
-        "name"     : "supervisor account",
-        "group_id" : "action",
-        "keywords" : ["action", "supervisor", "account"],
-        "ligature" : "supervisor_account",
-        "codepoint": "E8D3",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_swap_horiz",
-        "name"     : "swap horiz",
-        "group_id" : "action",
-        "keywords" : ["action", "swap", "horiz"],
-        "ligature" : "swap_horiz",
-        "codepoint": "E8D4",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_swap_vert",
-        "name"     : "swap vert",
-        "group_id" : "action",
-        "keywords" : ["action", "swap", "vert"],
-        "ligature" : "swap_vert",
-        "codepoint": "E8D5",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_swap_vertical_circle",
-        "name"     : "swap vertical circle",
-        "group_id" : "action",
-        "keywords" : ["action", "swap", "vertical", "circle"],
-        "ligature" : "swap_vertical_circle",
-        "codepoint": "E8D6",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_system_update_alt",
-        "name"     : "system update alt",
-        "group_id" : "action",
-        "keywords" : ["action", "system", "update", "alt"],
-        "ligature" : "system_update_alt",
-        "codepoint": "E8D7",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_tab",
-        "name"     : "tab",
-        "group_id" : "action",
-        "keywords" : ["action", "tab"],
-        "ligature" : "tab",
-        "codepoint": "E8D8",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_tab_unselected",
-        "name"     : "tab unselected",
-        "group_id" : "action",
-        "keywords" : ["action", "tab", "unselected"],
-        "ligature" : "tab_unselected",
-        "codepoint": "E8D9",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_theaters",
-        "name"     : "theaters",
-        "group_id" : "action",
-        "keywords" : ["action", "theaters"],
-        "ligature" : "theaters",
-        "codepoint": "E8DA",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_thumb_down",
-        "name"     : "thumb down",
-        "group_id" : "action",
-        "keywords" : ["action", "thumb", "down"],
-        "ligature" : "thumb_down",
-        "codepoint": "E8DB",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_thumb_up",
-        "name"     : "thumb up",
-        "group_id" : "action",
-        "keywords" : ["action", "thumb", "up"],
-        "ligature" : "thumb_up",
-        "codepoint": "E8DC",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_thumbs_up_down",
-        "name"     : "thumbs up down",
-        "group_id" : "action",
-        "keywords" : ["action", "thumbs", "up", "down"],
-        "ligature" : "thumbs_up_down",
-        "codepoint": "E8DD",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_timeline",
-        "name"     : "timeline",
-        "group_id" : "action",
-        "keywords" : ["action", "timeline"],
-        "ligature" : "timeline",
-        "codepoint": "E922",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_toc",
-        "name"     : "toc",
-        "group_id" : "action",
-        "keywords" : ["action", "toc"],
-        "ligature" : "toc",
-        "codepoint": "E8DE",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_today",
-        "name"     : "today",
-        "group_id" : "action",
-        "keywords" : ["action", "today"],
-        "ligature" : "today",
-        "codepoint": "E8DF",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_toll",
-        "name"     : "toll",
-        "group_id" : "action",
-        "keywords" : ["action", "toll"],
-        "ligature" : "toll",
-        "codepoint": "E8E0",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_touch_app",
-        "name"     : "touch app",
-        "group_id" : "action",
-        "keywords" : ["action", "touch", "app"],
-        "ligature" : "touch_app",
-        "codepoint": "E913",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_track_changes",
-        "name"     : "track changes",
-        "group_id" : "action",
-        "keywords" : ["action", "track", "changes"],
-        "ligature" : "track_changes",
-        "codepoint": "E8E1",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_translate",
-        "name"     : "translate",
-        "group_id" : "action",
-        "keywords" : ["action", "translate"],
-        "ligature" : "translate",
-        "codepoint": "E8E2",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_trending_down",
-        "name"     : "trending down",
-        "group_id" : "action",
-        "keywords" : ["action", "trending", "down"],
-        "ligature" : "trending_down",
-        "codepoint": "E8E3",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_trending_flat",
-        "name"     : "trending flat",
-        "group_id" : "action",
-        "keywords" : ["action", "trending", "flat"],
-        "ligature" : "trending_flat",
-        "codepoint": "E8E4",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_trending_up",
-        "name"     : "trending up",
-        "group_id" : "action",
-        "keywords" : ["action", "trending", "up"],
-        "ligature" : "trending_up",
-        "codepoint": "E8E5",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_turned_in",
-        "name"     : "turned in",
-        "group_id" : "action",
-        "keywords" : ["action", "turned", "in"],
-        "ligature" : "turned_in",
-        "codepoint": "E8E6",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_turned_in_not",
-        "name"     : "turned in not",
-        "group_id" : "action",
-        "keywords" : ["action", "turned", "in", "not"],
-        "ligature" : "turned_in_not",
-        "codepoint": "E8E7",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_update",
-        "name"     : "update",
-        "group_id" : "action",
-        "keywords" : ["action", "update"],
-        "ligature" : "update",
-        "codepoint": "E923",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_verified_user",
-        "name"     : "verified user",
-        "group_id" : "action",
-        "keywords" : ["action", "verified", "user"],
-        "ligature" : "verified_user",
-        "codepoint": "E8E8",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_view_agenda",
-        "name"     : "view agenda",
-        "group_id" : "action",
-        "keywords" : ["action", "view", "agenda"],
-        "ligature" : "view_agenda",
-        "codepoint": "E8E9",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_view_array",
-        "name"     : "view array",
-        "group_id" : "action",
-        "keywords" : ["action", "view", "array"],
-        "ligature" : "view_array",
-        "codepoint": "E8EA",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_view_carousel",
-        "name"     : "view carousel",
-        "group_id" : "action",
-        "keywords" : ["action", "view", "carousel"],
-        "ligature" : "view_carousel",
-        "codepoint": "E8EB",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_view_column",
-        "name"     : "view column",
-        "group_id" : "action",
-        "keywords" : ["action", "view", "column"],
-        "ligature" : "view_column",
-        "codepoint": "E8EC",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_view_day",
-        "name"     : "view day",
-        "group_id" : "action",
-        "keywords" : ["action", "view", "day"],
-        "ligature" : "view_day",
-        "codepoint": "E8ED",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_view_headline",
-        "name"     : "view headline",
-        "group_id" : "action",
-        "keywords" : ["action", "view", "headline"],
-        "ligature" : "view_headline",
-        "codepoint": "E8EE",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_view_list",
-        "name"     : "view list",
-        "group_id" : "action",
-        "keywords" : ["action", "view", "list"],
-        "ligature" : "view_list",
-        "codepoint": "E8EF",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_view_module",
-        "name"     : "view module",
-        "group_id" : "action",
-        "keywords" : ["action", "view", "module"],
-        "ligature" : "view_module",
-        "codepoint": "E8F0",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_view_quilt",
-        "name"     : "view quilt",
-        "group_id" : "action",
-        "keywords" : ["action", "view", "quilt"],
-        "ligature" : "view_quilt",
-        "codepoint": "E8F1",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_view_stream",
-        "name"     : "view stream",
-        "group_id" : "action",
-        "keywords" : ["action", "view", "stream"],
-        "ligature" : "view_stream",
-        "codepoint": "E8F2",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_view_week",
-        "name"     : "view week",
-        "group_id" : "action",
-        "keywords" : ["action", "view", "week"],
-        "ligature" : "view_week",
-        "codepoint": "E8F3",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_visibility",
-        "name"     : "visibility",
-        "group_id" : "action",
-        "keywords" : ["action", "visibility"],
-        "ligature" : "visibility",
-        "codepoint": "E8F4",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_visibility_off",
-        "name"     : "visibility off",
-        "group_id" : "action",
-        "keywords" : ["action", "visibility", "off"],
-        "ligature" : "visibility_off",
-        "codepoint": "E8F5",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_watch_later",
-        "name"     : "watch later",
-        "group_id" : "action",
-        "keywords" : ["action", "watch", "later"],
-        "ligature" : "watch_later",
-        "codepoint": "E924",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_work",
-        "name"     : "work",
-        "group_id" : "action",
-        "keywords" : ["action", "work"],
-        "ligature" : "work",
-        "codepoint": "E8F9",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_youtube_searched_for",
-        "name"     : "youtube searched for",
-        "group_id" : "action",
-        "keywords" : ["action", "youtube", "searched"],
-        "ligature" : "youtube_searched_for",
-        "codepoint": "E8FA",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_zoom_in",
-        "name"     : "zoom in",
-        "group_id" : "action",
-        "keywords" : ["action", "zoom", "in"],
-        "ligature" : "zoom_in",
-        "codepoint": "E8FF",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_zoom_out",
-        "name"     : "zoom out",
-        "group_id" : "action",
-        "keywords" : ["action", "zoom", "out"],
-        "ligature" : "zoom_out",
-        "codepoint": "E900",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_add_alert",
-        "name"     : "add alert",
-        "group_id" : "alert",
-        "keywords" : ["alert", "add", "alert"],
-        "ligature" : "add_alert",
-        "codepoint": "E003",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_error",
-        "name"     : "error",
-        "group_id" : "alert",
-        "keywords" : ["alert", "error"],
-        "ligature" : "error",
-        "codepoint": "E000",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_error_outline",
-        "name"     : "error outline",
-        "group_id" : "alert",
-        "keywords" : ["alert", "error", "outline"],
-        "ligature" : "error_outline",
-        "codepoint": "E001",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_warning",
-        "name"     : "warning",
-        "group_id" : "alert",
-        "keywords" : ["alert", "warning"],
-        "ligature" : "warning",
-        "codepoint": "E002",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_add_to_queue",
-        "name"     : "add to queue",
-        "group_id" : "av",
-        "keywords" : ["av", "add", "to", "queue"],
-        "ligature" : "add_to_queue",
-        "codepoint": "E05C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_airplay",
-        "name"     : "airplay",
-        "group_id" : "av",
-        "keywords" : ["av", "airplay"],
-        "ligature" : "airplay",
-        "codepoint": "E055",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_album",
-        "name"     : "album",
-        "group_id" : "av",
-        "keywords" : ["av", "album"],
-        "ligature" : "album",
-        "codepoint": "E019",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_art_track",
-        "name"     : "art track",
-        "group_id" : "av",
-        "keywords" : ["av", "art", "track"],
-        "ligature" : "art_track",
-        "codepoint": "E060",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_av_timer",
-        "name"     : "av timer",
-        "group_id" : "av",
-        "keywords" : ["av", "av", "timer"],
-        "ligature" : "av_timer",
-        "codepoint": "E01B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_branding_watermark",
-        "name"     : "branding watermark",
-        "group_id" : "av",
-        "keywords" : ["av", "branding", "watermark"],
-        "ligature" : "branding_watermark",
-        "codepoint": "E06B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_call_to_action",
-        "name"     : "call to action",
-        "group_id" : "av",
-        "keywords" : ["av", "call", "to", "action"],
-        "ligature" : "call_to_action",
-        "codepoint": "E06C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_closed_caption",
-        "name"     : "closed caption",
-        "group_id" : "av",
-        "keywords" : ["av", "closed", "caption"],
-        "ligature" : "closed_caption",
-        "codepoint": "E01C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_equalizer",
-        "name"     : "equalizer",
-        "group_id" : "av",
-        "keywords" : ["av", "equalizer"],
-        "ligature" : "equalizer",
-        "codepoint": "E01D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_explicit",
-        "name"     : "explicit",
-        "group_id" : "av",
-        "keywords" : ["av", "explicit"],
-        "ligature" : "explicit",
-        "codepoint": "E01E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_fast_forward",
-        "name"     : "fast forward",
-        "group_id" : "av",
-        "keywords" : ["av", "fast", "forward"],
-        "ligature" : "fast_forward",
-        "codepoint": "E01F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_fast_rewind",
-        "name"     : "fast rewind",
-        "group_id" : "av",
-        "keywords" : ["av", "fast", "rewind"],
-        "ligature" : "fast_rewind",
-        "codepoint": "E020",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_featured_play_list",
-        "name"     : "featured play list",
-        "group_id" : "av",
-        "keywords" : ["av", "featured", "play", "list"],
-        "ligature" : "featured_play_list",
-        "codepoint": "E06D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_featured_video",
-        "name"     : "featured video",
-        "group_id" : "av",
-        "keywords" : ["av", "featured", "video"],
-        "ligature" : "featured_video",
-        "codepoint": "E06E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_fiber_dvr",
-        "name"     : "fiber dvr",
-        "group_id" : "av",
-        "keywords" : ["av", "fiber", "dvr"],
-        "ligature" : "fiber_dvr",
-        "codepoint": "E05D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_fiber_manual_record",
-        "name"     : "fiber manual record",
-        "group_id" : "av",
-        "keywords" : ["av", "fiber", "manual", "record"],
-        "ligature" : "fiber_manual_record",
-        "codepoint": "E061",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_fiber_new",
-        "name"     : "fiber new",
-        "group_id" : "av",
-        "keywords" : ["av", "fiber", "new"],
-        "ligature" : "fiber_new",
-        "codepoint": "E05E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_fiber_pin",
-        "name"     : "fiber pin",
-        "group_id" : "av",
-        "keywords" : ["av", "fiber", "pin"],
-        "ligature" : "fiber_pin",
-        "codepoint": "E06A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_fiber_smart_record",
-        "name"     : "fiber smart record",
-        "group_id" : "av",
-        "keywords" : ["av", "fiber", "smart", "record"],
-        "ligature" : "fiber_smart_record",
-        "codepoint": "E062",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_forward_10",
-        "name"     : "forward 10",
-        "group_id" : "av",
-        "keywords" : ["av", "forward", "10"],
-        "ligature" : "forward_10",
-        "codepoint": "E056",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_forward_30",
-        "name"     : "forward 30",
-        "group_id" : "av",
-        "keywords" : ["av", "forward", "30"],
-        "ligature" : "forward_30",
-        "codepoint": "E057",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_forward_5",
-        "name"     : "forward 5",
-        "group_id" : "av",
-        "keywords" : ["av", "forward"],
-        "ligature" : "forward_5",
-        "codepoint": "E058",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_games",
-        "name"     : "games",
-        "group_id" : "av",
-        "keywords" : ["av", "games"],
-        "ligature" : "games",
-        "codepoint": "E021",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_hd",
-        "name"     : "hd",
-        "group_id" : "av",
-        "keywords" : ["av", "hd"],
-        "ligature" : "hd",
-        "codepoint": "E052",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_hearing",
-        "name"     : "hearing",
-        "group_id" : "av",
-        "keywords" : ["av", "hearing"],
-        "ligature" : "hearing",
-        "codepoint": "E023",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_high_quality",
-        "name"     : "high quality",
-        "group_id" : "av",
-        "keywords" : ["av", "high", "quality"],
-        "ligature" : "high_quality",
-        "codepoint": "E024",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_library_add",
-        "name"     : "library add",
-        "group_id" : "av",
-        "keywords" : ["av", "library", "add"],
-        "ligature" : "library_add",
-        "codepoint": "E02E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_library_books",
-        "name"     : "library books",
-        "group_id" : "av",
-        "keywords" : ["av", "library", "books"],
-        "ligature" : "library_books",
-        "codepoint": "E02F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_library_music",
-        "name"     : "library music",
-        "group_id" : "av",
-        "keywords" : ["av", "library", "music"],
-        "ligature" : "library_music",
-        "codepoint": "E030",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_loop",
-        "name"     : "loop",
-        "group_id" : "av",
-        "keywords" : ["av", "loop"],
-        "ligature" : "loop",
-        "codepoint": "E028",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_mic",
-        "name"     : "mic",
-        "group_id" : "av",
-        "keywords" : ["av", "mic"],
-        "ligature" : "mic",
-        "codepoint": "E029",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_mic_none",
-        "name"     : "mic none",
-        "group_id" : "av",
-        "keywords" : ["av", "mic", "none"],
-        "ligature" : "mic_none",
-        "codepoint": "E02A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_mic_off",
-        "name"     : "mic off",
-        "group_id" : "av",
-        "keywords" : ["av", "mic", "off"],
-        "ligature" : "mic_off",
-        "codepoint": "E02B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_movie",
-        "name"     : "movie",
-        "group_id" : "av",
-        "keywords" : ["av", "movie"],
-        "ligature" : "movie",
-        "codepoint": "E02C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_music_video",
-        "name"     : "music video",
-        "group_id" : "av",
-        "keywords" : ["av", "music", "video"],
-        "ligature" : "music_video",
-        "codepoint": "E063",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_new_releases",
-        "name"     : "new releases",
-        "group_id" : "av",
-        "keywords" : ["av", "new", "releases"],
-        "ligature" : "new_releases",
-        "codepoint": "E031",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_not_interested",
-        "name"     : "not interested",
-        "group_id" : "av",
-        "keywords" : ["av", "not", "interested"],
-        "ligature" : "not_interested",
-        "codepoint": "E033",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_note",
-        "name"     : "note",
-        "group_id" : "av",
-        "keywords" : ["av", "note"],
-        "ligature" : "note",
-        "codepoint": "E06F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_pause",
-        "name"     : "pause",
-        "group_id" : "av",
-        "keywords" : ["av", "pause"],
-        "ligature" : "pause",
-        "codepoint": "E034",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_pause_circle_filled",
-        "name"     : "pause circle filled",
-        "group_id" : "av",
-        "keywords" : ["av", "pause", "circle", "filled"],
-        "ligature" : "pause_circle_filled",
-        "codepoint": "E035",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_pause_circle_outline",
-        "name"     : "pause circle outline",
-        "group_id" : "av",
-        "keywords" : ["av", "pause", "circle", "outline"],
-        "ligature" : "pause_circle_outline",
-        "codepoint": "E036",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_play_arrow",
-        "name"     : "play arrow",
-        "group_id" : "av",
-        "keywords" : ["av", "play", "arrow"],
-        "ligature" : "play_arrow",
-        "codepoint": "E037",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_play_circle_filled",
-        "name"     : "play circle filled",
-        "group_id" : "av",
-        "keywords" : ["av", "play", "circle", "filled"],
-        "ligature" : "play_circle_filled",
-        "codepoint": "E038",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_play_circle_outline",
-        "name"     : "play circle outline",
-        "group_id" : "av",
-        "keywords" : ["av", "play", "circle", "outline"],
-        "ligature" : "play_circle_outline",
-        "codepoint": "E039",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_playlist_add",
-        "name"     : "playlist add",
-        "group_id" : "av",
-        "keywords" : ["av", "playlist", "add"],
-        "ligature" : "playlist_add",
-        "codepoint": "E03B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_playlist_add_check",
-        "name"     : "playlist add check",
-        "group_id" : "av",
-        "keywords" : ["av", "playlist", "add", "check"],
-        "ligature" : "playlist_add_check",
-        "codepoint": "E065",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_playlist_play",
-        "name"     : "playlist play",
-        "group_id" : "av",
-        "keywords" : ["av", "playlist", "play"],
-        "ligature" : "playlist_play",
-        "codepoint": "E05F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_queue",
-        "name"     : "queue",
-        "group_id" : "av",
-        "keywords" : ["av", "queue"],
-        "ligature" : "queue",
-        "codepoint": "E03C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_queue_music",
-        "name"     : "queue music",
-        "group_id" : "av",
-        "keywords" : ["av", "queue", "music"],
-        "ligature" : "queue_music",
-        "codepoint": "E03D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_queue_play_next",
-        "name"     : "queue play next",
-        "group_id" : "av",
-        "keywords" : ["av", "queue", "play", "next"],
-        "ligature" : "queue_play_next",
-        "codepoint": "E066",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_radio",
-        "name"     : "radio",
-        "group_id" : "av",
-        "keywords" : ["av", "radio"],
-        "ligature" : "radio",
-        "codepoint": "E03E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_recent_actors",
-        "name"     : "recent actors",
-        "group_id" : "av",
-        "keywords" : ["av", "recent", "actors"],
-        "ligature" : "recent_actors",
-        "codepoint": "E03F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_remove_from_queue",
-        "name"     : "remove from queue",
-        "group_id" : "av",
-        "keywords" : ["av", "remove", "from", "queue"],
-        "ligature" : "remove_from_queue",
-        "codepoint": "E067",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_repeat",
-        "name"     : "repeat",
-        "group_id" : "av",
-        "keywords" : ["av", "repeat"],
-        "ligature" : "repeat",
-        "codepoint": "E040",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_repeat_one",
-        "name"     : "repeat one",
-        "group_id" : "av",
-        "keywords" : ["av", "repeat", "one"],
-        "ligature" : "repeat_one",
-        "codepoint": "E041",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_replay",
-        "name"     : "replay",
-        "group_id" : "av",
-        "keywords" : ["av", "replay"],
-        "ligature" : "replay",
-        "codepoint": "E042",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_replay_10",
-        "name"     : "replay 10",
-        "group_id" : "av",
-        "keywords" : ["av", "replay", "10"],
-        "ligature" : "replay_10",
-        "codepoint": "E059",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_replay_30",
-        "name"     : "replay 30",
-        "group_id" : "av",
-        "keywords" : ["av", "replay", "30"],
-        "ligature" : "replay_30",
-        "codepoint": "E05A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_replay_5",
-        "name"     : "replay 5",
-        "group_id" : "av",
-        "keywords" : ["av", "replay"],
-        "ligature" : "replay_5",
-        "codepoint": "E05B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_shuffle",
-        "name"     : "shuffle",
-        "group_id" : "av",
-        "keywords" : ["av", "shuffle"],
-        "ligature" : "shuffle",
-        "codepoint": "E043",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_skip_next",
-        "name"     : "skip next",
-        "group_id" : "av",
-        "keywords" : ["av", "skip", "next"],
-        "ligature" : "skip_next",
-        "codepoint": "E044",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_skip_previous",
-        "name"     : "skip previous",
-        "group_id" : "av",
-        "keywords" : ["av", "skip", "previous"],
-        "ligature" : "skip_previous",
-        "codepoint": "E045",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_slow_motion_video",
-        "name"     : "slow motion video",
-        "group_id" : "av",
-        "keywords" : ["av", "slow", "motion", "video"],
-        "ligature" : "slow_motion_video",
-        "codepoint": "E068",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_snooze",
-        "name"     : "snooze",
-        "group_id" : "av",
-        "keywords" : ["av", "snooze"],
-        "ligature" : "snooze",
-        "codepoint": "E046",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_sort_by_alpha",
-        "name"     : "sort by alpha",
-        "group_id" : "av",
-        "keywords" : ["av", "sort", "by", "alpha"],
-        "ligature" : "sort_by_alpha",
-        "codepoint": "E053",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_stop",
-        "name"     : "stop",
-        "group_id" : "av",
-        "keywords" : ["av", "stop"],
-        "ligature" : "stop",
-        "codepoint": "E047",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_subscriptions",
-        "name"     : "subscriptions",
-        "group_id" : "av",
-        "keywords" : ["av", "subscriptions"],
-        "ligature" : "subscriptions",
-        "codepoint": "E064",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_subtitles",
-        "name"     : "subtitles",
-        "group_id" : "av",
-        "keywords" : ["av", "subtitles"],
-        "ligature" : "subtitles",
-        "codepoint": "E048",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_surround_sound",
-        "name"     : "surround sound",
-        "group_id" : "av",
-        "keywords" : ["av", "surround", "sound"],
-        "ligature" : "surround_sound",
-        "codepoint": "E049",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_video_call",
-        "name"     : "video call",
-        "group_id" : "av",
-        "keywords" : ["av", "video", "call"],
-        "ligature" : "video_call",
-        "codepoint": "E070",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_video_label",
-        "name"     : "video label",
-        "group_id" : "av",
-        "keywords" : ["av", "video", "label"],
-        "ligature" : "video_label",
-        "codepoint": "E071",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_video_library",
-        "name"     : "video library",
-        "group_id" : "av",
-        "keywords" : ["av", "video", "library"],
-        "ligature" : "video_library",
-        "codepoint": "E04A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_videocam",
-        "name"     : "videocam",
-        "group_id" : "av",
-        "keywords" : ["av", "videocam"],
-        "ligature" : "videocam",
-        "codepoint": "E04B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_videocam_off",
-        "name"     : "videocam off",
-        "group_id" : "av",
-        "keywords" : ["av", "videocam", "off"],
-        "ligature" : "videocam_off",
-        "codepoint": "E04C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_volume_down",
-        "name"     : "volume down",
-        "group_id" : "av",
-        "keywords" : ["av", "volume", "down"],
-        "ligature" : "volume_down",
-        "codepoint": "E04D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_volume_mute",
-        "name"     : "volume mute",
-        "group_id" : "av",
-        "keywords" : ["av", "volume", "mute"],
-        "ligature" : "volume_mute",
-        "codepoint": "E04E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_volume_off",
-        "name"     : "volume off",
-        "group_id" : "av",
-        "keywords" : ["av", "volume", "off"],
-        "ligature" : "volume_off",
-        "codepoint": "E04F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_volume_up",
-        "name"     : "volume up",
-        "group_id" : "av",
-        "keywords" : ["av", "volume", "up"],
-        "ligature" : "volume_up",
-        "codepoint": "E050",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_web",
-        "name"     : "web",
-        "group_id" : "av",
-        "keywords" : ["av", "web"],
-        "ligature" : "web",
-        "codepoint": "E051",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_web_asset",
-        "name"     : "web asset",
-        "group_id" : "av",
-        "keywords" : ["av", "web", "asset"],
-        "ligature" : "web_asset",
-        "codepoint": "E069",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_business",
-        "name"     : "business",
-        "group_id" : "communication",
-        "keywords" : ["communication", "business"],
-        "ligature" : "business",
-        "codepoint": "E0AF",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_call",
-        "name"     : "call",
-        "group_id" : "communication",
-        "keywords" : ["communication", "call"],
-        "ligature" : "call",
-        "codepoint": "E0B0",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_call_end",
-        "name"     : "call end",
-        "group_id" : "communication",
-        "keywords" : ["communication", "call", "end"],
-        "ligature" : "call_end",
-        "codepoint": "E0B1",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_call_made",
-        "name"     : "call made",
-        "group_id" : "communication",
-        "keywords" : ["communication", "call", "made"],
-        "ligature" : "call_made",
-        "codepoint": "E0B2",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_call_merge",
-        "name"     : "call merge",
-        "group_id" : "communication",
-        "keywords" : ["communication", "call", "merge"],
-        "ligature" : "call_merge",
-        "codepoint": "E0B3",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_call_missed",
-        "name"     : "call missed",
-        "group_id" : "communication",
-        "keywords" : ["communication", "call", "missed"],
-        "ligature" : "call_missed",
-        "codepoint": "E0B4",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_call_missed_outgoing",
-        "name"     : "call missed outgoing",
-        "group_id" : "communication",
-        "keywords" : ["communication", "call", "missed", "outgoing"],
-        "ligature" : "call_missed_outgoing",
-        "codepoint": "E0E4",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_call_received",
-        "name"     : "call received",
-        "group_id" : "communication",
-        "keywords" : ["communication", "call", "received"],
-        "ligature" : "call_received",
-        "codepoint": "E0B5",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_call_split",
-        "name"     : "call split",
-        "group_id" : "communication",
-        "keywords" : ["communication", "call", "split"],
-        "ligature" : "call_split",
-        "codepoint": "E0B6",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_chat",
-        "name"     : "chat",
-        "group_id" : "communication",
-        "keywords" : ["communication", "chat"],
-        "ligature" : "chat",
-        "codepoint": "E0B7",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_chat_bubble",
-        "name"     : "chat bubble",
-        "group_id" : "communication",
-        "keywords" : ["communication", "chat", "bubble"],
-        "ligature" : "chat_bubble",
-        "codepoint": "E0CA",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_chat_bubble_outline",
-        "name"     : "chat bubble outline",
-        "group_id" : "communication",
-        "keywords" : ["communication", "chat", "bubble", "outline"],
-        "ligature" : "chat_bubble_outline",
-        "codepoint": "E0CB",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_clear_all",
-        "name"     : "clear all",
-        "group_id" : "communication",
-        "keywords" : ["communication", "clear", "all"],
-        "ligature" : "clear_all",
-        "codepoint": "E0B8",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_comment",
-        "name"     : "comment",
-        "group_id" : "communication",
-        "keywords" : ["communication", "comment"],
-        "ligature" : "comment",
-        "codepoint": "E0B9",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_contact_mail",
-        "name"     : "contact mail",
-        "group_id" : "communication",
-        "keywords" : ["communication", "contact", "mail"],
-        "ligature" : "contact_mail",
-        "codepoint": "E0D0",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_contact_phone",
-        "name"     : "contact phone",
-        "group_id" : "communication",
-        "keywords" : ["communication", "contact", "phone"],
-        "ligature" : "contact_phone",
-        "codepoint": "E0CF",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_contacts",
-        "name"     : "contacts",
-        "group_id" : "communication",
-        "keywords" : ["communication", "contacts"],
-        "ligature" : "contacts",
-        "codepoint": "E0BA",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_dialer_sip",
-        "name"     : "dialer sip",
-        "group_id" : "communication",
-        "keywords" : ["communication", "dialer", "sip"],
-        "ligature" : "dialer_sip",
-        "codepoint": "E0BB",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_dialpad",
-        "name"     : "dialpad",
-        "group_id" : "communication",
-        "keywords" : ["communication", "dialpad"],
-        "ligature" : "dialpad",
-        "codepoint": "E0BC",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_email",
-        "name"     : "email",
-        "group_id" : "communication",
-        "keywords" : ["communication", "email"],
-        "ligature" : "email",
-        "codepoint": "E0BE",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_forum",
-        "name"     : "forum",
-        "group_id" : "communication",
-        "keywords" : ["communication", "forum"],
-        "ligature" : "forum",
-        "codepoint": "E0BF",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_import_contacts",
-        "name"     : "import contacts",
-        "group_id" : "communication",
-        "keywords" : ["communication", "import", "contacts"],
-        "ligature" : "import_contacts",
-        "codepoint": "E0E0",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_import_export",
-        "name"     : "import export",
-        "group_id" : "communication",
-        "keywords" : ["communication", "import", "export"],
-        "ligature" : "import_export",
-        "codepoint": "E0C3",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_invert_colors_off",
-        "name"     : "invert colors off",
-        "group_id" : "communication",
-        "keywords" : ["communication", "invert", "colors", "off"],
-        "ligature" : "invert_colors_off",
-        "codepoint": "E0C4",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_live_help",
-        "name"     : "live help",
-        "group_id" : "communication",
-        "keywords" : ["communication", "live", "help"],
-        "ligature" : "live_help",
-        "codepoint": "E0C6",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_location_off",
-        "name"     : "location off",
-        "group_id" : "communication",
-        "keywords" : ["communication", "location", "off"],
-        "ligature" : "location_off",
-        "codepoint": "E0C7",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_location_on",
-        "name"     : "location on",
-        "group_id" : "communication",
-        "keywords" : ["communication", "location", "on"],
-        "ligature" : "location_on",
-        "codepoint": "E0C8",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_mail_outline",
-        "name"     : "mail outline",
-        "group_id" : "communication",
-        "keywords" : ["communication", "mail", "outline"],
-        "ligature" : "mail_outline",
-        "codepoint": "E0E1",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_message",
-        "name"     : "message",
-        "group_id" : "communication",
-        "keywords" : ["communication", "message"],
-        "ligature" : "message",
-        "codepoint": "E0C9",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_no_sim",
-        "name"     : "no sim",
-        "group_id" : "communication",
-        "keywords" : ["communication", "no", "sim"],
-        "ligature" : "no_sim",
-        "codepoint": "E0CC",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_phone",
-        "name"     : "phone",
-        "group_id" : "communication",
-        "keywords" : ["communication", "phone"],
-        "ligature" : "phone",
-        "codepoint": "E0CD",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_phonelink_erase",
-        "name"     : "phonelink erase",
-        "group_id" : "communication",
-        "keywords" : ["communication", "phonelink", "erase"],
-        "ligature" : "phonelink_erase",
-        "codepoint": "E0DB",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_phonelink_lock",
-        "name"     : "phonelink lock",
-        "group_id" : "communication",
-        "keywords" : ["communication", "phonelink", "lock"],
-        "ligature" : "phonelink_lock",
-        "codepoint": "E0DC",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_phonelink_ring",
-        "name"     : "phonelink ring",
-        "group_id" : "communication",
-        "keywords" : ["communication", "phonelink", "ring"],
-        "ligature" : "phonelink_ring",
-        "codepoint": "E0DD",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_phonelink_setup",
-        "name"     : "phonelink setup",
-        "group_id" : "communication",
-        "keywords" : ["communication", "phonelink", "setup"],
-        "ligature" : "phonelink_setup",
-        "codepoint": "E0DE",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_portable_wifi_off",
-        "name"     : "portable wifi off",
-        "group_id" : "communication",
-        "keywords" : ["communication", "portable", "wifi", "off"],
-        "ligature" : "portable_wifi_off",
-        "codepoint": "E0CE",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_present_to_all",
-        "name"     : "present to all",
-        "group_id" : "communication",
-        "keywords" : ["communication", "present", "to", "all"],
-        "ligature" : "present_to_all",
-        "codepoint": "E0DF",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_ring_volume",
-        "name"     : "ring volume",
-        "group_id" : "communication",
-        "keywords" : ["communication", "ring", "volume"],
-        "ligature" : "ring_volume",
-        "codepoint": "E0D1",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_rss_feed",
-        "name"     : "rss feed",
-        "group_id" : "communication",
-        "keywords" : ["communication", "rss", "feed"],
-        "ligature" : "rss_feed",
-        "codepoint": "E0E5",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_screen_share",
-        "name"     : "screen share",
-        "group_id" : "communication",
-        "keywords" : ["communication", "screen", "share"],
-        "ligature" : "screen_share",
-        "codepoint": "E0E2",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_speaker_phone",
-        "name"     : "speaker phone",
-        "group_id" : "communication",
-        "keywords" : ["communication", "speaker", "phone"],
-        "ligature" : "speaker_phone",
-        "codepoint": "E0D2",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_stay_current_landscape",
-        "name"     : "stay current landscape",
-        "group_id" : "communication",
-        "keywords" : ["communication", "stay", "current", "landscape"],
-        "ligature" : "stay_current_landscape",
-        "codepoint": "E0D3",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_stay_current_portrait",
-        "name"     : "stay current portrait",
-        "group_id" : "communication",
-        "keywords" : ["communication", "stay", "current", "portrait"],
-        "ligature" : "stay_current_portrait",
-        "codepoint": "E0D4",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_stay_primary_landscape",
-        "name"     : "stay primary landscape",
-        "group_id" : "communication",
-        "keywords" : ["communication", "stay", "primary", "landscape"],
-        "ligature" : "stay_primary_landscape",
-        "codepoint": "E0D5",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_stay_primary_portrait",
-        "name"     : "stay primary portrait",
-        "group_id" : "communication",
-        "keywords" : ["communication", "stay", "primary", "portrait"],
-        "ligature" : "stay_primary_portrait",
-        "codepoint": "E0D6",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_stop_screen_share",
-        "name"     : "stop screen share",
-        "group_id" : "communication",
-        "keywords" : ["communication", "stop", "screen", "share"],
-        "ligature" : "stop_screen_share",
-        "codepoint": "E0E3",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_swap_calls",
-        "name"     : "swap calls",
-        "group_id" : "communication",
-        "keywords" : ["communication", "swap", "calls"],
-        "ligature" : "swap_calls",
-        "codepoint": "E0D7",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_textsms",
-        "name"     : "textsms",
-        "group_id" : "communication",
-        "keywords" : ["communication", "textsms"],
-        "ligature" : "textsms",
-        "codepoint": "E0D8",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_voicemail",
-        "name"     : "voicemail",
-        "group_id" : "communication",
-        "keywords" : ["communication", "voicemail"],
-        "ligature" : "voicemail",
-        "codepoint": "E0D9",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_vpn_key",
-        "name"     : "vpn key",
-        "group_id" : "communication",
-        "keywords" : ["communication", "vpn", "key"],
-        "ligature" : "vpn_key",
-        "codepoint": "E0DA",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_add",
-        "name"     : "add",
-        "group_id" : "content",
-        "keywords" : ["content", "add"],
-        "ligature" : "add",
-        "codepoint": "E145",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_add_box",
-        "name"     : "add box",
-        "group_id" : "content",
-        "keywords" : ["content", "add", "box"],
-        "ligature" : "add_box",
-        "codepoint": "E146",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_add_circle",
-        "name"     : "add circle",
-        "group_id" : "content",
-        "keywords" : ["content", "add", "circle"],
-        "ligature" : "add_circle",
-        "codepoint": "E147",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_add_circle_outline",
-        "name"     : "add circle outline",
-        "group_id" : "content",
-        "keywords" : ["content", "add", "circle", "outline"],
-        "ligature" : "add_circle_outline",
-        "codepoint": "E148",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_archive",
-        "name"     : "archive",
-        "group_id" : "content",
-        "keywords" : ["content", "archive"],
-        "ligature" : "archive",
-        "codepoint": "E149",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_backspace",
-        "name"     : "backspace",
-        "group_id" : "content",
-        "keywords" : ["content", "backspace"],
-        "ligature" : "backspace",
-        "codepoint": "E14A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_block",
-        "name"     : "block",
-        "group_id" : "content",
-        "keywords" : ["content", "block"],
-        "ligature" : "block",
-        "codepoint": "E14B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_clear",
-        "name"     : "clear",
-        "group_id" : "content",
-        "keywords" : ["content", "clear"],
-        "ligature" : "clear",
-        "codepoint": "E14C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_content_copy",
-        "name"     : "content copy",
-        "group_id" : "content",
-        "keywords" : ["content", "content", "copy"],
-        "ligature" : "content_copy",
-        "codepoint": "E14D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_content_cut",
-        "name"     : "content cut",
-        "group_id" : "content",
-        "keywords" : ["content", "content", "cut"],
-        "ligature" : "content_cut",
-        "codepoint": "E14E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_content_paste",
-        "name"     : "content paste",
-        "group_id" : "content",
-        "keywords" : ["content", "content", "paste"],
-        "ligature" : "content_paste",
-        "codepoint": "E14F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_create",
-        "name"     : "create",
-        "group_id" : "content",
-        "keywords" : ["content", "create"],
-        "ligature" : "create",
-        "codepoint": "E150",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_delete_sweep",
-        "name"     : "delete sweep",
-        "group_id" : "content",
-        "keywords" : ["content", "delete", "sweep"],
-        "ligature" : "delete_sweep",
-        "codepoint": "E16C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_drafts",
-        "name"     : "drafts",
-        "group_id" : "content",
-        "keywords" : ["content", "drafts"],
-        "ligature" : "drafts",
-        "codepoint": "E151",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_filter_list",
-        "name"     : "filter list",
-        "group_id" : "content",
-        "keywords" : ["content", "filter", "list"],
-        "ligature" : "filter_list",
-        "codepoint": "E152",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_flag",
-        "name"     : "flag",
-        "group_id" : "content",
-        "keywords" : ["content", "flag"],
-        "ligature" : "flag",
-        "codepoint": "E153",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_font_download",
-        "name"     : "font download",
-        "group_id" : "content",
-        "keywords" : ["content", "font", "download"],
-        "ligature" : "font_download",
-        "codepoint": "E167",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_forward",
-        "name"     : "forward",
-        "group_id" : "content",
-        "keywords" : ["content", "forward"],
-        "ligature" : "forward",
-        "codepoint": "E154",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_gesture",
-        "name"     : "gesture",
-        "group_id" : "content",
-        "keywords" : ["content", "gesture"],
-        "ligature" : "gesture",
-        "codepoint": "E155",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_inbox",
-        "name"     : "inbox",
-        "group_id" : "content",
-        "keywords" : ["content", "inbox"],
-        "ligature" : "inbox",
-        "codepoint": "E156",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_link",
-        "name"     : "link",
-        "group_id" : "content",
-        "keywords" : ["content", "link"],
-        "ligature" : "link",
-        "codepoint": "E157",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_low_priority",
-        "name"     : "low priority",
-        "group_id" : "content",
-        "keywords" : ["content", "low", "priority"],
-        "ligature" : "low_priority",
-        "codepoint": "E16D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_mail",
-        "name"     : "mail",
-        "group_id" : "content",
-        "keywords" : ["content", "mail"],
-        "ligature" : "mail",
-        "codepoint": "E158",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_markunread",
-        "name"     : "markunread",
-        "group_id" : "content",
-        "keywords" : ["content", "markunread"],
-        "ligature" : "markunread",
-        "codepoint": "E159",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_move_to_inbox",
-        "name"     : "move to inbox",
-        "group_id" : "content",
-        "keywords" : ["content", "move", "to", "inbox"],
-        "ligature" : "move_to_inbox",
-        "codepoint": "E168",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_next_week",
-        "name"     : "next week",
-        "group_id" : "content",
-        "keywords" : ["content", "next", "week"],
-        "ligature" : "next_week",
-        "codepoint": "E16A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_redo",
-        "name"     : "redo",
-        "group_id" : "content",
-        "keywords" : ["content", "redo"],
-        "ligature" : "redo",
-        "codepoint": "E15A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_remove",
-        "name"     : "remove",
-        "group_id" : "content",
-        "keywords" : ["content", "remove"],
-        "ligature" : "remove",
-        "codepoint": "E15B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_remove_circle",
-        "name"     : "remove circle",
-        "group_id" : "content",
-        "keywords" : ["content", "remove", "circle"],
-        "ligature" : "remove_circle",
-        "codepoint": "E15C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_remove_circle_outline",
-        "name"     : "remove circle outline",
-        "group_id" : "content",
-        "keywords" : ["content", "remove", "circle", "outline"],
-        "ligature" : "remove_circle_outline",
-        "codepoint": "E15D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_reply",
-        "name"     : "reply",
-        "group_id" : "content",
-        "keywords" : ["content", "reply"],
-        "ligature" : "reply",
-        "codepoint": "E15E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_reply_all",
-        "name"     : "reply all",
-        "group_id" : "content",
-        "keywords" : ["content", "reply", "all"],
-        "ligature" : "reply_all",
-        "codepoint": "E15F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_report",
-        "name"     : "report",
-        "group_id" : "content",
-        "keywords" : ["content", "report"],
-        "ligature" : "report",
-        "codepoint": "E160",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_save",
-        "name"     : "save",
-        "group_id" : "content",
-        "keywords" : ["content", "save"],
-        "ligature" : "save",
-        "codepoint": "E161",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_select_all",
-        "name"     : "select all",
-        "group_id" : "content",
-        "keywords" : ["content", "select", "all"],
-        "ligature" : "select_all",
-        "codepoint": "E162",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_send",
-        "name"     : "send",
-        "group_id" : "content",
-        "keywords" : ["content", "send"],
-        "ligature" : "send",
-        "codepoint": "E163",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_sort",
-        "name"     : "sort",
-        "group_id" : "content",
-        "keywords" : ["content", "sort"],
-        "ligature" : "sort",
-        "codepoint": "E164",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_text_format",
-        "name"     : "text format",
-        "group_id" : "content",
-        "keywords" : ["content", "text", "format"],
-        "ligature" : "text_format",
-        "codepoint": "E165",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_unarchive",
-        "name"     : "unarchive",
-        "group_id" : "content",
-        "keywords" : ["content", "unarchive"],
-        "ligature" : "unarchive",
-        "codepoint": "E169",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_undo",
-        "name"     : "undo",
-        "group_id" : "content",
-        "keywords" : ["content", "undo"],
-        "ligature" : "undo",
-        "codepoint": "E166",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_weekend",
-        "name"     : "weekend",
-        "group_id" : "content",
-        "keywords" : ["content", "weekend"],
-        "ligature" : "weekend",
-        "codepoint": "E16B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_access_alarm",
-        "name"     : "access alarm",
-        "group_id" : "device",
-        "keywords" : ["device", "access", "alarm"],
-        "ligature" : "access_alarm",
-        "codepoint": "E190",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_access_alarms",
-        "name"     : "access alarms",
-        "group_id" : "device",
-        "keywords" : ["device", "access", "alarms"],
-        "ligature" : "access_alarms",
-        "codepoint": "E191",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_access_time",
-        "name"     : "access time",
-        "group_id" : "device",
-        "keywords" : ["device", "access", "time"],
-        "ligature" : "access_time",
-        "codepoint": "E192",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_add_alarm",
-        "name"     : "add alarm",
-        "group_id" : "device",
-        "keywords" : ["device", "add", "alarm"],
-        "ligature" : "add_alarm",
-        "codepoint": "E193",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_airplanemode_active",
-        "name"     : "airplanemode active",
-        "group_id" : "device",
-        "keywords" : ["device", "airplanemode", "active"],
-        "ligature" : "airplanemode_active",
-        "codepoint": "E195",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_airplanemode_inactive",
-        "name"     : "airplanemode inactive",
-        "group_id" : "device",
-        "keywords" : ["device", "airplanemode", "inactive"],
-        "ligature" : "airplanemode_inactive",
-        "codepoint": "E194",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_battery_alert",
-        "name"     : "battery alert",
-        "group_id" : "device",
-        "keywords" : ["device", "battery", "alert"],
-        "ligature" : "battery_alert",
-        "codepoint": "E19C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_battery_charging_full",
-        "name"     : "battery charging full",
-        "group_id" : "device",
-        "keywords" : ["device", "battery", "charging", "full"],
-        "ligature" : "battery_charging_full",
-        "codepoint": "E1A3",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_battery_full",
-        "name"     : "battery full",
-        "group_id" : "device",
-        "keywords" : ["device", "battery", "full"],
-        "ligature" : "battery_full",
-        "codepoint": "E1A4",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_battery_std",
-        "name"     : "battery std",
-        "group_id" : "device",
-        "keywords" : ["device", "battery", "std"],
-        "ligature" : "battery_std",
-        "codepoint": "E1A5",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_battery_unknown",
-        "name"     : "battery unknown",
-        "group_id" : "device",
-        "keywords" : ["device", "battery", "unknown"],
-        "ligature" : "battery_unknown",
-        "codepoint": "E1A6",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_bluetooth",
-        "name"     : "bluetooth",
-        "group_id" : "device",
-        "keywords" : ["device", "bluetooth"],
-        "ligature" : "bluetooth",
-        "codepoint": "E1A7",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_bluetooth_connected",
-        "name"     : "bluetooth connected",
-        "group_id" : "device",
-        "keywords" : ["device", "bluetooth", "connected"],
-        "ligature" : "bluetooth_connected",
-        "codepoint": "E1A8",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_bluetooth_disabled",
-        "name"     : "bluetooth disabled",
-        "group_id" : "device",
-        "keywords" : ["device", "bluetooth", "disabled"],
-        "ligature" : "bluetooth_disabled",
-        "codepoint": "E1A9",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_bluetooth_searching",
-        "name"     : "bluetooth searching",
-        "group_id" : "device",
-        "keywords" : ["device", "bluetooth", "searching"],
-        "ligature" : "bluetooth_searching",
-        "codepoint": "E1AA",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_brightness_auto",
-        "name"     : "brightness auto",
-        "group_id" : "device",
-        "keywords" : ["device", "brightness", "auto"],
-        "ligature" : "brightness_auto",
-        "codepoint": "E1AB",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_brightness_high",
-        "name"     : "brightness high",
-        "group_id" : "device",
-        "keywords" : ["device", "brightness", "high"],
-        "ligature" : "brightness_high",
-        "codepoint": "E1AC",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_brightness_low",
-        "name"     : "brightness low",
-        "group_id" : "device",
-        "keywords" : ["device", "brightness", "low"],
-        "ligature" : "brightness_low",
-        "codepoint": "E1AD",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_brightness_medium",
-        "name"     : "brightness medium",
-        "group_id" : "device",
-        "keywords" : ["device", "brightness", "medium"],
-        "ligature" : "brightness_medium",
-        "codepoint": "E1AE",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_data_usage",
-        "name"     : "data usage",
-        "group_id" : "device",
-        "keywords" : ["device", "data", "usage"],
-        "ligature" : "data_usage",
-        "codepoint": "E1AF",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_developer_mode",
-        "name"     : "developer mode",
-        "group_id" : "device",
-        "keywords" : ["device", "developer", "mode"],
-        "ligature" : "developer_mode",
-        "codepoint": "E1B0",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_devices",
-        "name"     : "devices",
-        "group_id" : "device",
-        "keywords" : ["device", "devices"],
-        "ligature" : "devices",
-        "codepoint": "E1B1",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_dvr",
-        "name"     : "dvr",
-        "group_id" : "device",
-        "keywords" : ["device", "dvr"],
-        "ligature" : "dvr",
-        "codepoint": "E1B2",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_gps_fixed",
-        "name"     : "gps fixed",
-        "group_id" : "device",
-        "keywords" : ["device", "gps", "fixed"],
-        "ligature" : "gps_fixed",
-        "codepoint": "E1B3",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_gps_not_fixed",
-        "name"     : "gps not fixed",
-        "group_id" : "device",
-        "keywords" : ["device", "gps", "not", "fixed"],
-        "ligature" : "gps_not_fixed",
-        "codepoint": "E1B4",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_gps_off",
-        "name"     : "gps off",
-        "group_id" : "device",
-        "keywords" : ["device", "gps", "off"],
-        "ligature" : "gps_off",
-        "codepoint": "E1B5",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_graphic_eq",
-        "name"     : "graphic eq",
-        "group_id" : "device",
-        "keywords" : ["device", "graphic", "eq"],
-        "ligature" : "graphic_eq",
-        "codepoint": "E1B8",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_location_disabled",
-        "name"     : "location disabled",
-        "group_id" : "device",
-        "keywords" : ["device", "location", "disabled"],
-        "ligature" : "location_disabled",
-        "codepoint": "E1B6",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_location_searching",
-        "name"     : "location searching",
-        "group_id" : "device",
-        "keywords" : ["device", "location", "searching"],
-        "ligature" : "location_searching",
-        "codepoint": "E1B7",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_network_cell",
-        "name"     : "network cell",
-        "group_id" : "device",
-        "keywords" : ["device", "network", "cell"],
-        "ligature" : "network_cell",
-        "codepoint": "E1B9",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_network_wifi",
-        "name"     : "network wifi",
-        "group_id" : "device",
-        "keywords" : ["device", "network", "wifi"],
-        "ligature" : "network_wifi",
-        "codepoint": "E1BA",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_nfc",
-        "name"     : "nfc",
-        "group_id" : "device",
-        "keywords" : ["device", "nfc"],
-        "ligature" : "nfc",
-        "codepoint": "E1BB",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_screen_lock_landscape",
-        "name"     : "screen lock landscape",
-        "group_id" : "device",
-        "keywords" : ["device", "screen", "lock", "landscape"],
-        "ligature" : "screen_lock_landscape",
-        "codepoint": "E1BE",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_screen_lock_portrait",
-        "name"     : "screen lock portrait",
-        "group_id" : "device",
-        "keywords" : ["device", "screen", "lock", "portrait"],
-        "ligature" : "screen_lock_portrait",
-        "codepoint": "E1BF",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_screen_lock_rotation",
-        "name"     : "screen lock rotation",
-        "group_id" : "device",
-        "keywords" : ["device", "screen", "lock", "rotation"],
-        "ligature" : "screen_lock_rotation",
-        "codepoint": "E1C0",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_screen_rotation",
-        "name"     : "screen rotation",
-        "group_id" : "device",
-        "keywords" : ["device", "screen", "rotation"],
-        "ligature" : "screen_rotation",
-        "codepoint": "E1C1",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_sd_storage",
-        "name"     : "sd storage",
-        "group_id" : "device",
-        "keywords" : ["device", "sd", "storage"],
-        "ligature" : "sd_storage",
-        "codepoint": "E1C2",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_settings_system_daydream",
-        "name"     : "settings system daydream",
-        "group_id" : "device",
-        "keywords" : ["device", "settings", "system", "daydream"],
-        "ligature" : "settings_system_daydream",
-        "codepoint": "E1C3",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_signal_cellular_4_bar",
-        "name"     : "signal cellular 4 bar",
-        "group_id" : "device",
-        "keywords" : ["device", "signal", "cellular", "bar"],
-        "ligature" : "signal_cellular_4_bar",
-        "codepoint": "E1C8",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_signal_cellular_connected_no_internet_4_bar",
-        "name"     : "signal cellular connected no internet 4 bar",
-        "group_id" : "device",
-        "keywords" : ["device", "signal", "cellular", "connected", "no", "internet", "bar"],
-        "ligature" : "signal_cellular_connected_no_internet_4_bar",
-        "codepoint": "E1CD",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_signal_cellular_no_sim",
-        "name"     : "signal cellular no sim",
-        "group_id" : "device",
-        "keywords" : ["device", "signal", "cellular", "no", "sim"],
-        "ligature" : "signal_cellular_no_sim",
-        "codepoint": "E1CE",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_signal_cellular_null",
-        "name"     : "signal cellular null",
-        "group_id" : "device",
-        "keywords" : ["device", "signal", "cellular", "null"],
-        "ligature" : "signal_cellular_null",
-        "codepoint": "E1CF",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_signal_cellular_off",
-        "name"     : "signal cellular off",
-        "group_id" : "device",
-        "keywords" : ["device", "signal", "cellular", "off"],
-        "ligature" : "signal_cellular_off",
-        "codepoint": "E1D0",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_signal_wifi_4_bar",
-        "name"     : "signal wifi 4 bar",
-        "group_id" : "device",
-        "keywords" : ["device", "signal", "wifi", "bar"],
-        "ligature" : "signal_wifi_4_bar",
-        "codepoint": "E1D8",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_signal_wifi_4_bar_lock",
-        "name"     : "signal wifi 4 bar lock",
-        "group_id" : "device",
-        "keywords" : ["device", "signal", "wifi", "bar", "lock"],
-        "ligature" : "signal_wifi_4_bar_lock",
-        "codepoint": "E1D9",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_signal_wifi_off",
-        "name"     : "signal wifi off",
-        "group_id" : "device",
-        "keywords" : ["device", "signal", "wifi", "off"],
-        "ligature" : "signal_wifi_off",
-        "codepoint": "E1DA",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_storage",
-        "name"     : "storage",
-        "group_id" : "device",
-        "keywords" : ["device", "storage"],
-        "ligature" : "storage",
-        "codepoint": "E1DB",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_usb",
-        "name"     : "usb",
-        "group_id" : "device",
-        "keywords" : ["device", "usb"],
-        "ligature" : "usb",
-        "codepoint": "E1E0",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_wallpaper",
-        "name"     : "wallpaper",
-        "group_id" : "device",
-        "keywords" : ["device", "wallpaper"],
-        "ligature" : "wallpaper",
-        "codepoint": "E1BC",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_widgets",
-        "name"     : "widgets",
-        "group_id" : "device",
-        "keywords" : ["device", "widgets"],
-        "ligature" : "widgets",
-        "codepoint": "E1BD",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_wifi_lock",
-        "name"     : "wifi lock",
-        "group_id" : "device",
-        "keywords" : ["device", "wifi", "lock"],
-        "ligature" : "wifi_lock",
-        "codepoint": "E1E1",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_wifi_tethering",
-        "name"     : "wifi tethering",
-        "group_id" : "device",
-        "keywords" : ["device", "wifi", "tethering"],
-        "ligature" : "wifi_tethering",
-        "codepoint": "E1E2",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_attach_file",
-        "name"     : "attach file",
-        "group_id" : "editor",
-        "keywords" : ["editor", "attach", "file"],
-        "ligature" : "attach_file",
-        "codepoint": "E226",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_attach_money",
-        "name"     : "attach money",
-        "group_id" : "editor",
-        "keywords" : ["editor", "attach", "money"],
-        "ligature" : "attach_money",
-        "codepoint": "E227",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_border_all",
-        "name"     : "border all",
-        "group_id" : "editor",
-        "keywords" : ["editor", "border", "all"],
-        "ligature" : "border_all",
-        "codepoint": "E228",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_border_bottom",
-        "name"     : "border bottom",
-        "group_id" : "editor",
-        "keywords" : ["editor", "border", "bottom"],
-        "ligature" : "border_bottom",
-        "codepoint": "E229",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_border_clear",
-        "name"     : "border clear",
-        "group_id" : "editor",
-        "keywords" : ["editor", "border", "clear"],
-        "ligature" : "border_clear",
-        "codepoint": "E22A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_border_color",
-        "name"     : "border color",
-        "group_id" : "editor",
-        "keywords" : ["editor", "border", "color"],
-        "ligature" : "border_color",
-        "codepoint": "E22B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_border_horizontal",
-        "name"     : "border horizontal",
-        "group_id" : "editor",
-        "keywords" : ["editor", "border", "horizontal"],
-        "ligature" : "border_horizontal",
-        "codepoint": "E22C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_border_inner",
-        "name"     : "border inner",
-        "group_id" : "editor",
-        "keywords" : ["editor", "border", "inner"],
-        "ligature" : "border_inner",
-        "codepoint": "E22D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_border_left",
-        "name"     : "border left",
-        "group_id" : "editor",
-        "keywords" : ["editor", "border", "left"],
-        "ligature" : "border_left",
-        "codepoint": "E22E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_border_outer",
-        "name"     : "border outer",
-        "group_id" : "editor",
-        "keywords" : ["editor", "border", "outer"],
-        "ligature" : "border_outer",
-        "codepoint": "E22F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_border_right",
-        "name"     : "border right",
-        "group_id" : "editor",
-        "keywords" : ["editor", "border", "right"],
-        "ligature" : "border_right",
-        "codepoint": "E230",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_border_style",
-        "name"     : "border style",
-        "group_id" : "editor",
-        "keywords" : ["editor", "border", "style"],
-        "ligature" : "border_style",
-        "codepoint": "E231",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_border_top",
-        "name"     : "border top",
-        "group_id" : "editor",
-        "keywords" : ["editor", "border", "top"],
-        "ligature" : "border_top",
-        "codepoint": "E232",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_border_vertical",
-        "name"     : "border vertical",
-        "group_id" : "editor",
-        "keywords" : ["editor", "border", "vertical"],
-        "ligature" : "border_vertical",
-        "codepoint": "E233",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_bubble_chart",
-        "name"     : "bubble chart",
-        "group_id" : "editor",
-        "keywords" : ["editor", "bubble", "chart"],
-        "ligature" : "bubble_chart",
-        "codepoint": "E6DD",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_drag_handle",
-        "name"     : "drag handle",
-        "group_id" : "editor",
-        "keywords" : ["editor", "drag", "handle"],
-        "ligature" : "drag_handle",
-        "codepoint": "E25D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_format_align_center",
-        "name"     : "format align center",
-        "group_id" : "editor",
-        "keywords" : ["editor", "format", "align", "center"],
-        "ligature" : "format_align_center",
-        "codepoint": "E234",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_format_align_justify",
-        "name"     : "format align justify",
-        "group_id" : "editor",
-        "keywords" : ["editor", "format", "align", "justify"],
-        "ligature" : "format_align_justify",
-        "codepoint": "E235",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_format_align_left",
-        "name"     : "format align left",
-        "group_id" : "editor",
-        "keywords" : ["editor", "format", "align", "left"],
-        "ligature" : "format_align_left",
-        "codepoint": "E236",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_format_align_right",
-        "name"     : "format align right",
-        "group_id" : "editor",
-        "keywords" : ["editor", "format", "align", "right"],
-        "ligature" : "format_align_right",
-        "codepoint": "E237",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_format_bold",
-        "name"     : "format bold",
-        "group_id" : "editor",
-        "keywords" : ["editor", "format", "bold"],
-        "ligature" : "format_bold",
-        "codepoint": "E238",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_format_clear",
-        "name"     : "format clear",
-        "group_id" : "editor",
-        "keywords" : ["editor", "format", "clear"],
-        "ligature" : "format_clear",
-        "codepoint": "E239",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_format_color_fill",
-        "name"     : "format color fill",
-        "group_id" : "editor",
-        "keywords" : ["editor", "format", "color", "fill"],
-        "ligature" : "format_color_fill",
-        "codepoint": "E23A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_format_color_reset",
-        "name"     : "format color reset",
-        "group_id" : "editor",
-        "keywords" : ["editor", "format", "color", "reset"],
-        "ligature" : "format_color_reset",
-        "codepoint": "E23B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_format_color_text",
-        "name"     : "format color text",
-        "group_id" : "editor",
-        "keywords" : ["editor", "format", "color", "text"],
-        "ligature" : "format_color_text",
-        "codepoint": "E23C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_format_indent_decrease",
-        "name"     : "format indent decrease",
-        "group_id" : "editor",
-        "keywords" : ["editor", "format", "indent", "decrease"],
-        "ligature" : "format_indent_decrease",
-        "codepoint": "E23D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_format_indent_increase",
-        "name"     : "format indent increase",
-        "group_id" : "editor",
-        "keywords" : ["editor", "format", "indent", "increase"],
-        "ligature" : "format_indent_increase",
-        "codepoint": "E23E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_format_italic",
-        "name"     : "format italic",
-        "group_id" : "editor",
-        "keywords" : ["editor", "format", "italic"],
-        "ligature" : "format_italic",
-        "codepoint": "E23F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_format_line_spacing",
-        "name"     : "format line spacing",
-        "group_id" : "editor",
-        "keywords" : ["editor", "format", "line", "spacing"],
-        "ligature" : "format_line_spacing",
-        "codepoint": "E240",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_format_list_bulleted",
-        "name"     : "format list bulleted",
-        "group_id" : "editor",
-        "keywords" : ["editor", "format", "list", "bulleted"],
-        "ligature" : "format_list_bulleted",
-        "codepoint": "E241",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_format_list_numbered",
-        "name"     : "format list numbered",
-        "group_id" : "editor",
-        "keywords" : ["editor", "format", "list", "numbered"],
-        "ligature" : "format_list_numbered",
-        "codepoint": "E242",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_format_paint",
-        "name"     : "format paint",
-        "group_id" : "editor",
-        "keywords" : ["editor", "format", "paint"],
-        "ligature" : "format_paint",
-        "codepoint": "E243",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_format_quote",
-        "name"     : "format quote",
-        "group_id" : "editor",
-        "keywords" : ["editor", "format", "quote"],
-        "ligature" : "format_quote",
-        "codepoint": "E244",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_format_shapes",
-        "name"     : "format shapes",
-        "group_id" : "editor",
-        "keywords" : ["editor", "format", "shapes"],
-        "ligature" : "format_shapes",
-        "codepoint": "E25E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_format_size",
-        "name"     : "format size",
-        "group_id" : "editor",
-        "keywords" : ["editor", "format", "size"],
-        "ligature" : "format_size",
-        "codepoint": "E245",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_format_strikethrough",
-        "name"     : "format strikethrough",
-        "group_id" : "editor",
-        "keywords" : ["editor", "format", "strikethrough"],
-        "ligature" : "format_strikethrough",
-        "codepoint": "E246",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_format_textdirection_l_to_r",
-        "name"     : "format textdirection l to r",
-        "group_id" : "editor",
-        "keywords" : ["editor", "format", "textdirection", "to"],
-        "ligature" : "format_textdirection_l_to_r",
-        "codepoint": "E247",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_format_textdirection_r_to_l",
-        "name"     : "format textdirection r to l",
-        "group_id" : "editor",
-        "keywords" : ["editor", "format", "textdirection", "to"],
-        "ligature" : "format_textdirection_r_to_l",
-        "codepoint": "E248",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_format_underlined",
-        "name"     : "format underlined",
-        "group_id" : "editor",
-        "keywords" : ["editor", "format", "underlined"],
-        "ligature" : "format_underlined",
-        "codepoint": "E249",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_functions",
-        "name"     : "functions",
-        "group_id" : "editor",
-        "keywords" : ["editor", "functions"],
-        "ligature" : "functions",
-        "codepoint": "E24A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_highlight",
-        "name"     : "highlight",
-        "group_id" : "editor",
-        "keywords" : ["editor", "highlight"],
-        "ligature" : "highlight",
-        "codepoint": "E25F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_insert_chart",
-        "name"     : "insert chart",
-        "group_id" : "editor",
-        "keywords" : ["editor", "insert", "chart"],
-        "ligature" : "insert_chart",
-        "codepoint": "E24B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_insert_comment",
-        "name"     : "insert comment",
-        "group_id" : "editor",
-        "keywords" : ["editor", "insert", "comment"],
-        "ligature" : "insert_comment",
-        "codepoint": "E24C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_insert_drive_file",
-        "name"     : "insert drive file",
-        "group_id" : "editor",
-        "keywords" : ["editor", "insert", "drive", "file"],
-        "ligature" : "insert_drive_file",
-        "codepoint": "E24D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_insert_emoticon",
-        "name"     : "insert emoticon",
-        "group_id" : "editor",
-        "keywords" : ["editor", "insert", "emoticon"],
-        "ligature" : "insert_emoticon",
-        "codepoint": "E24E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_insert_invitation",
-        "name"     : "insert invitation",
-        "group_id" : "editor",
-        "keywords" : ["editor", "insert", "invitation"],
-        "ligature" : "insert_invitation",
-        "codepoint": "E24F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_insert_link",
-        "name"     : "insert link",
-        "group_id" : "editor",
-        "keywords" : ["editor", "insert", "link"],
-        "ligature" : "insert_link",
-        "codepoint": "E250",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_insert_photo",
-        "name"     : "insert photo",
-        "group_id" : "editor",
-        "keywords" : ["editor", "insert", "photo"],
-        "ligature" : "insert_photo",
-        "codepoint": "E251",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_linear_scale",
-        "name"     : "linear scale",
-        "group_id" : "editor",
-        "keywords" : ["editor", "linear", "scale"],
-        "ligature" : "linear_scale",
-        "codepoint": "E260",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_merge_type",
-        "name"     : "merge type",
-        "group_id" : "editor",
-        "keywords" : ["editor", "merge", "type"],
-        "ligature" : "merge_type",
-        "codepoint": "E252",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_mode_comment",
-        "name"     : "mode comment",
-        "group_id" : "editor",
-        "keywords" : ["editor", "mode", "comment"],
-        "ligature" : "mode_comment",
-        "codepoint": "E253",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_mode_edit",
-        "name"     : "mode edit",
-        "group_id" : "editor",
-        "keywords" : ["editor", "mode", "edit"],
-        "ligature" : "mode_edit",
-        "codepoint": "E254",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_monetization_on",
-        "name"     : "monetization on",
-        "group_id" : "editor",
-        "keywords" : ["editor", "monetization", "on"],
-        "ligature" : "monetization_on",
-        "codepoint": "E263",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_money_off",
-        "name"     : "money off",
-        "group_id" : "editor",
-        "keywords" : ["editor", "money", "off"],
-        "ligature" : "money_off",
-        "codepoint": "E25C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_multiline_chart",
-        "name"     : "multiline chart",
-        "group_id" : "editor",
-        "keywords" : ["editor", "multiline", "chart"],
-        "ligature" : "multiline_chart",
-        "codepoint": "E6DF",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_pie_chart",
-        "name"     : "pie chart",
-        "group_id" : "editor",
-        "keywords" : ["editor", "pie", "chart"],
-        "ligature" : "pie_chart",
-        "codepoint": "E6C4",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_pie_chart_outlined",
-        "name"     : "pie chart outlined",
-        "group_id" : "editor",
-        "keywords" : ["editor", "pie", "chart", "outlined"],
-        "ligature" : "pie_chart_outlined",
-        "codepoint": "E6C5",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_publish",
-        "name"     : "publish",
-        "group_id" : "editor",
-        "keywords" : ["editor", "publish"],
-        "ligature" : "publish",
-        "codepoint": "E255",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_short_text",
-        "name"     : "short text",
-        "group_id" : "editor",
-        "keywords" : ["editor", "short", "text"],
-        "ligature" : "short_text",
-        "codepoint": "E261",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_show_chart",
-        "name"     : "show chart",
-        "group_id" : "editor",
-        "keywords" : ["editor", "show", "chart"],
-        "ligature" : "show_chart",
-        "codepoint": "E6E1",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_space_bar",
-        "name"     : "space bar",
-        "group_id" : "editor",
-        "keywords" : ["editor", "space", "bar"],
-        "ligature" : "space_bar",
-        "codepoint": "E256",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_strikethrough_s",
-        "name"     : "strikethrough s",
-        "group_id" : "editor",
-        "keywords" : ["editor", "strikethrough"],
-        "ligature" : "strikethrough_s",
-        "codepoint": "E257",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_text_fields",
-        "name"     : "text fields",
-        "group_id" : "editor",
-        "keywords" : ["editor", "text", "fields"],
-        "ligature" : "text_fields",
-        "codepoint": "E262",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_title",
-        "name"     : "title",
-        "group_id" : "editor",
-        "keywords" : ["editor", "title"],
-        "ligature" : "title",
-        "codepoint": "E264",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_vertical_align_bottom",
-        "name"     : "vertical align bottom",
-        "group_id" : "editor",
-        "keywords" : ["editor", "vertical", "align", "bottom"],
-        "ligature" : "vertical_align_bottom",
-        "codepoint": "E258",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_vertical_align_center",
-        "name"     : "vertical align center",
-        "group_id" : "editor",
-        "keywords" : ["editor", "vertical", "align", "center"],
-        "ligature" : "vertical_align_center",
-        "codepoint": "E259",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_vertical_align_top",
-        "name"     : "vertical align top",
-        "group_id" : "editor",
-        "keywords" : ["editor", "vertical", "align", "top"],
-        "ligature" : "vertical_align_top",
-        "codepoint": "E25A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_wrap_text",
-        "name"     : "wrap text",
-        "group_id" : "editor",
-        "keywords" : ["editor", "wrap", "text"],
-        "ligature" : "wrap_text",
-        "codepoint": "E25B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_attachment",
-        "name"     : "attachment",
-        "group_id" : "file",
-        "keywords" : ["file", "attachment"],
-        "ligature" : "attachment",
-        "codepoint": "E2BC",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_cloud",
-        "name"     : "cloud",
-        "group_id" : "file",
-        "keywords" : ["file", "cloud"],
-        "ligature" : "cloud",
-        "codepoint": "E2BD",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_cloud_circle",
-        "name"     : "cloud circle",
-        "group_id" : "file",
-        "keywords" : ["file", "cloud", "circle"],
-        "ligature" : "cloud_circle",
-        "codepoint": "E2BE",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_cloud_done",
-        "name"     : "cloud done",
-        "group_id" : "file",
-        "keywords" : ["file", "cloud", "done"],
-        "ligature" : "cloud_done",
-        "codepoint": "E2BF",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_cloud_download",
-        "name"     : "cloud download",
-        "group_id" : "file",
-        "keywords" : ["file", "cloud", "download"],
-        "ligature" : "cloud_download",
-        "codepoint": "E2C0",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_cloud_off",
-        "name"     : "cloud off",
-        "group_id" : "file",
-        "keywords" : ["file", "cloud", "off"],
-        "ligature" : "cloud_off",
-        "codepoint": "E2C1",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_cloud_queue",
-        "name"     : "cloud queue",
-        "group_id" : "file",
-        "keywords" : ["file", "cloud", "queue"],
-        "ligature" : "cloud_queue",
-        "codepoint": "E2C2",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_cloud_upload",
-        "name"     : "cloud upload",
-        "group_id" : "file",
-        "keywords" : ["file", "cloud", "upload"],
-        "ligature" : "cloud_upload",
-        "codepoint": "E2C3",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_create_new_folder",
-        "name"     : "create new folder",
-        "group_id" : "file",
-        "keywords" : ["file", "create", "new", "folder"],
-        "ligature" : "create_new_folder",
-        "codepoint": "E2CC",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_file_download",
-        "name"     : "file download",
-        "group_id" : "file",
-        "keywords" : ["file", "file", "download"],
-        "ligature" : "file_download",
-        "codepoint": "E2C4",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_file_upload",
-        "name"     : "file upload",
-        "group_id" : "file",
-        "keywords" : ["file", "file", "upload"],
-        "ligature" : "file_upload",
-        "codepoint": "E2C6",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_folder",
-        "name"     : "folder",
-        "group_id" : "file",
-        "keywords" : ["file", "folder"],
-        "ligature" : "folder",
-        "codepoint": "E2C7",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_folder_open",
-        "name"     : "folder open",
-        "group_id" : "file",
-        "keywords" : ["file", "folder", "open"],
-        "ligature" : "folder_open",
-        "codepoint": "E2C8",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_folder_shared",
-        "name"     : "folder shared",
-        "group_id" : "file",
-        "keywords" : ["file", "folder", "shared"],
-        "ligature" : "folder_shared",
-        "codepoint": "E2C9",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_cast",
-        "name"     : "cast",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "cast"],
-        "ligature" : "cast",
-        "codepoint": "E307",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_cast_connected",
-        "name"     : "cast connected",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "cast", "connected"],
-        "ligature" : "cast_connected",
-        "codepoint": "E308",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_computer",
-        "name"     : "computer",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "computer"],
-        "ligature" : "computer",
-        "codepoint": "E30A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_desktop_mac",
-        "name"     : "desktop mac",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "desktop", "mac"],
-        "ligature" : "desktop_mac",
-        "codepoint": "E30B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_desktop_windows",
-        "name"     : "desktop windows",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "desktop", "windows"],
-        "ligature" : "desktop_windows",
-        "codepoint": "E30C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_developer_board",
-        "name"     : "developer board",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "developer", "board"],
-        "ligature" : "developer_board",
-        "codepoint": "E30D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_device_hub",
-        "name"     : "device hub",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "device", "hub"],
-        "ligature" : "device_hub",
-        "codepoint": "E335",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_devices_other",
-        "name"     : "devices other",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "devices", "other"],
-        "ligature" : "devices_other",
-        "codepoint": "E337",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_dock",
-        "name"     : "dock",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "dock"],
-        "ligature" : "dock",
-        "codepoint": "E30E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_gamepad",
-        "name"     : "gamepad",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "gamepad"],
-        "ligature" : "gamepad",
-        "codepoint": "E30F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_headset",
-        "name"     : "headset",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "headset"],
-        "ligature" : "headset",
-        "codepoint": "E310",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_headset_mic",
-        "name"     : "headset mic",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "headset", "mic"],
-        "ligature" : "headset_mic",
-        "codepoint": "E311",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_keyboard",
-        "name"     : "keyboard",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "keyboard"],
-        "ligature" : "keyboard",
-        "codepoint": "E312",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_keyboard_arrow_down",
-        "name"     : "keyboard arrow down",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "keyboard", "arrow", "down"],
-        "ligature" : "keyboard_arrow_down",
-        "codepoint": "E313",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_keyboard_arrow_left",
-        "name"     : "keyboard arrow left",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "keyboard", "arrow", "left"],
-        "ligature" : "keyboard_arrow_left",
-        "codepoint": "E314",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_keyboard_arrow_right",
-        "name"     : "keyboard arrow right",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "keyboard", "arrow", "right"],
-        "ligature" : "keyboard_arrow_right",
-        "codepoint": "E315",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_keyboard_arrow_up",
-        "name"     : "keyboard arrow up",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "keyboard", "arrow", "up"],
-        "ligature" : "keyboard_arrow_up",
-        "codepoint": "E316",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_keyboard_backspace",
-        "name"     : "keyboard backspace",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "keyboard", "backspace"],
-        "ligature" : "keyboard_backspace",
-        "codepoint": "E317",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_keyboard_capslock",
-        "name"     : "keyboard capslock",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "keyboard", "capslock"],
-        "ligature" : "keyboard_capslock",
-        "codepoint": "E318",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_keyboard_hide",
-        "name"     : "keyboard hide",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "keyboard", "hide"],
-        "ligature" : "keyboard_hide",
-        "codepoint": "E31A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_keyboard_return",
-        "name"     : "keyboard return",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "keyboard", "return"],
-        "ligature" : "keyboard_return",
-        "codepoint": "E31B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_keyboard_tab",
-        "name"     : "keyboard tab",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "keyboard", "tab"],
-        "ligature" : "keyboard_tab",
-        "codepoint": "E31C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_keyboard_voice",
-        "name"     : "keyboard voice",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "keyboard", "voice"],
-        "ligature" : "keyboard_voice",
-        "codepoint": "E31D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_laptop",
-        "name"     : "laptop",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "laptop"],
-        "ligature" : "laptop",
-        "codepoint": "E31E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_laptop_chromebook",
-        "name"     : "laptop chromebook",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "laptop", "chromebook"],
-        "ligature" : "laptop_chromebook",
-        "codepoint": "E31F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_laptop_mac",
-        "name"     : "laptop mac",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "laptop", "mac"],
-        "ligature" : "laptop_mac",
-        "codepoint": "E320",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_laptop_windows",
-        "name"     : "laptop windows",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "laptop", "windows"],
-        "ligature" : "laptop_windows",
-        "codepoint": "E321",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_memory",
-        "name"     : "memory",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "memory"],
-        "ligature" : "memory",
-        "codepoint": "E322",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_mouse",
-        "name"     : "mouse",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "mouse"],
-        "ligature" : "mouse",
-        "codepoint": "E323",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_phone_android",
-        "name"     : "phone android",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "phone", "android"],
-        "ligature" : "phone_android",
-        "codepoint": "E324",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_phone_iphone",
-        "name"     : "phone iphone",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "phone", "iphone"],
-        "ligature" : "phone_iphone",
-        "codepoint": "E325",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_phonelink",
-        "name"     : "phonelink",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "phonelink"],
-        "ligature" : "phonelink",
-        "codepoint": "E326",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_phonelink_off",
-        "name"     : "phonelink off",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "phonelink", "off"],
-        "ligature" : "phonelink_off",
-        "codepoint": "E327",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_power_input",
-        "name"     : "power input",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "power", "input"],
-        "ligature" : "power_input",
-        "codepoint": "E336",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_router",
-        "name"     : "router",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "router"],
-        "ligature" : "router",
-        "codepoint": "E328",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_scanner",
-        "name"     : "scanner",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "scanner"],
-        "ligature" : "scanner",
-        "codepoint": "E329",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_security",
-        "name"     : "security",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "security"],
-        "ligature" : "security",
-        "codepoint": "E32A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_sim_card",
-        "name"     : "sim card",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "sim", "card"],
-        "ligature" : "sim_card",
-        "codepoint": "E32B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_smartphone",
-        "name"     : "smartphone",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "smartphone"],
-        "ligature" : "smartphone",
-        "codepoint": "E32C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_speaker",
-        "name"     : "speaker",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "speaker"],
-        "ligature" : "speaker",
-        "codepoint": "E32D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_speaker_group",
-        "name"     : "speaker group",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "speaker", "group"],
-        "ligature" : "speaker_group",
-        "codepoint": "E32E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_tablet",
-        "name"     : "tablet",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "tablet"],
-        "ligature" : "tablet",
-        "codepoint": "E32F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_tablet_android",
-        "name"     : "tablet android",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "tablet", "android"],
-        "ligature" : "tablet_android",
-        "codepoint": "E330",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_tablet_mac",
-        "name"     : "tablet mac",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "tablet", "mac"],
-        "ligature" : "tablet_mac",
-        "codepoint": "E331",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_toys",
-        "name"     : "toys",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "toys"],
-        "ligature" : "toys",
-        "codepoint": "E332",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_tv",
-        "name"     : "tv",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "tv"],
-        "ligature" : "tv",
-        "codepoint": "E333",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_videogame_asset",
-        "name"     : "videogame asset",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "videogame", "asset"],
-        "ligature" : "videogame_asset",
-        "codepoint": "E338",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_watch",
-        "name"     : "watch",
-        "group_id" : "hardware",
-        "keywords" : ["hardware", "watch"],
-        "ligature" : "watch",
-        "codepoint": "E334",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_add_a_photo",
-        "name"     : "add a photo",
-        "group_id" : "image",
-        "keywords" : ["image", "add", "photo"],
-        "ligature" : "add_a_photo",
-        "codepoint": "E439",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_add_to_photos",
-        "name"     : "add to photos",
-        "group_id" : "image",
-        "keywords" : ["image", "add", "to", "photos"],
-        "ligature" : "add_to_photos",
-        "codepoint": "E39D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_adjust",
-        "name"     : "adjust",
-        "group_id" : "image",
-        "keywords" : ["image", "adjust"],
-        "ligature" : "adjust",
-        "codepoint": "E39E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_assistant",
-        "name"     : "assistant",
-        "group_id" : "image",
-        "keywords" : ["image", "assistant"],
-        "ligature" : "assistant",
-        "codepoint": "E39F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_assistant_photo",
-        "name"     : "assistant photo",
-        "group_id" : "image",
-        "keywords" : ["image", "assistant", "photo"],
-        "ligature" : "assistant_photo",
-        "codepoint": "E3A0",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_audiotrack",
-        "name"     : "audiotrack",
-        "group_id" : "image",
-        "keywords" : ["image", "audiotrack"],
-        "ligature" : "audiotrack",
-        "codepoint": "E3A1",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_blur_circular",
-        "name"     : "blur circular",
-        "group_id" : "image",
-        "keywords" : ["image", "blur", "circular"],
-        "ligature" : "blur_circular",
-        "codepoint": "E3A2",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_blur_linear",
-        "name"     : "blur linear",
-        "group_id" : "image",
-        "keywords" : ["image", "blur", "linear"],
-        "ligature" : "blur_linear",
-        "codepoint": "E3A3",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_blur_off",
-        "name"     : "blur off",
-        "group_id" : "image",
-        "keywords" : ["image", "blur", "off"],
-        "ligature" : "blur_off",
-        "codepoint": "E3A4",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_blur_on",
-        "name"     : "blur on",
-        "group_id" : "image",
-        "keywords" : ["image", "blur", "on"],
-        "ligature" : "blur_on",
-        "codepoint": "E3A5",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_brightness_1",
-        "name"     : "brightness 1",
-        "group_id" : "image",
-        "keywords" : ["image", "brightness"],
-        "ligature" : "brightness_1",
-        "codepoint": "E3A6",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_brightness_2",
-        "name"     : "brightness 2",
-        "group_id" : "image",
-        "keywords" : ["image", "brightness"],
-        "ligature" : "brightness_2",
-        "codepoint": "E3A7",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_brightness_3",
-        "name"     : "brightness 3",
-        "group_id" : "image",
-        "keywords" : ["image", "brightness"],
-        "ligature" : "brightness_3",
-        "codepoint": "E3A8",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_brightness_4",
-        "name"     : "brightness 4",
-        "group_id" : "image",
-        "keywords" : ["image", "brightness"],
-        "ligature" : "brightness_4",
-        "codepoint": "E3A9",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_brightness_5",
-        "name"     : "brightness 5",
-        "group_id" : "image",
-        "keywords" : ["image", "brightness"],
-        "ligature" : "brightness_5",
-        "codepoint": "E3AA",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_brightness_6",
-        "name"     : "brightness 6",
-        "group_id" : "image",
-        "keywords" : ["image", "brightness"],
-        "ligature" : "brightness_6",
-        "codepoint": "E3AB",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_brightness_7",
-        "name"     : "brightness 7",
-        "group_id" : "image",
-        "keywords" : ["image", "brightness"],
-        "ligature" : "brightness_7",
-        "codepoint": "E3AC",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_broken_image",
-        "name"     : "broken image",
-        "group_id" : "image",
-        "keywords" : ["image", "broken", "image"],
-        "ligature" : "broken_image",
-        "codepoint": "E3AD",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_brush",
-        "name"     : "brush",
-        "group_id" : "image",
-        "keywords" : ["image", "brush"],
-        "ligature" : "brush",
-        "codepoint": "E3AE",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_burst_mode",
-        "name"     : "burst mode",
-        "group_id" : "image",
-        "keywords" : ["image", "burst", "mode"],
-        "ligature" : "burst_mode",
-        "codepoint": "E43C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_camera",
-        "name"     : "camera",
-        "group_id" : "image",
-        "keywords" : ["image", "camera"],
-        "ligature" : "camera",
-        "codepoint": "E3AF",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_camera_alt",
-        "name"     : "camera alt",
-        "group_id" : "image",
-        "keywords" : ["image", "camera", "alt"],
-        "ligature" : "camera_alt",
-        "codepoint": "E3B0",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_camera_front",
-        "name"     : "camera front",
-        "group_id" : "image",
-        "keywords" : ["image", "camera", "front"],
-        "ligature" : "camera_front",
-        "codepoint": "E3B1",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_camera_rear",
-        "name"     : "camera rear",
-        "group_id" : "image",
-        "keywords" : ["image", "camera", "rear"],
-        "ligature" : "camera_rear",
-        "codepoint": "E3B2",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_camera_roll",
-        "name"     : "camera roll",
-        "group_id" : "image",
-        "keywords" : ["image", "camera", "roll"],
-        "ligature" : "camera_roll",
-        "codepoint": "E3B3",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_center_focus_strong",
-        "name"     : "center focus strong",
-        "group_id" : "image",
-        "keywords" : ["image", "center", "focus", "strong"],
-        "ligature" : "center_focus_strong",
-        "codepoint": "E3B4",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_center_focus_weak",
-        "name"     : "center focus weak",
-        "group_id" : "image",
-        "keywords" : ["image", "center", "focus", "weak"],
-        "ligature" : "center_focus_weak",
-        "codepoint": "E3B5",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_collections",
-        "name"     : "collections",
-        "group_id" : "image",
-        "keywords" : ["image", "collections"],
-        "ligature" : "collections",
-        "codepoint": "E3B6",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_collections_bookmark",
-        "name"     : "collections bookmark",
-        "group_id" : "image",
-        "keywords" : ["image", "collections", "bookmark"],
-        "ligature" : "collections_bookmark",
-        "codepoint": "E431",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_color_lens",
-        "name"     : "color lens",
-        "group_id" : "image",
-        "keywords" : ["image", "color", "lens"],
-        "ligature" : "color_lens",
-        "codepoint": "E3B7",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_colorize",
-        "name"     : "colorize",
-        "group_id" : "image",
-        "keywords" : ["image", "colorize"],
-        "ligature" : "colorize",
-        "codepoint": "E3B8",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_compare",
-        "name"     : "compare",
-        "group_id" : "image",
-        "keywords" : ["image", "compare"],
-        "ligature" : "compare",
-        "codepoint": "E3B9",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_control_point",
-        "name"     : "control point",
-        "group_id" : "image",
-        "keywords" : ["image", "control", "point"],
-        "ligature" : "control_point",
-        "codepoint": "E3BA",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_control_point_duplicate",
-        "name"     : "control point duplicate",
-        "group_id" : "image",
-        "keywords" : ["image", "control", "point", "duplicate"],
-        "ligature" : "control_point_duplicate",
-        "codepoint": "E3BB",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_crop",
-        "name"     : "crop",
-        "group_id" : "image",
-        "keywords" : ["image", "crop"],
-        "ligature" : "crop",
-        "codepoint": "E3BE",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_crop_16_9",
-        "name"     : "crop 16 9",
-        "group_id" : "image",
-        "keywords" : ["image", "crop", "16"],
-        "ligature" : "crop_16_9",
-        "codepoint": "E3BC",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_crop_3_2",
-        "name"     : "crop 3 2",
-        "group_id" : "image",
-        "keywords" : ["image", "crop"],
-        "ligature" : "crop_3_2",
-        "codepoint": "E3BD",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_crop_5_4",
-        "name"     : "crop 5 4",
-        "group_id" : "image",
-        "keywords" : ["image", "crop"],
-        "ligature" : "crop_5_4",
-        "codepoint": "E3BF",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_crop_7_5",
-        "name"     : "crop 7 5",
-        "group_id" : "image",
-        "keywords" : ["image", "crop"],
-        "ligature" : "crop_7_5",
-        "codepoint": "E3C0",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_crop_din",
-        "name"     : "crop din",
-        "group_id" : "image",
-        "keywords" : ["image", "crop", "din"],
-        "ligature" : "crop_din",
-        "codepoint": "E3C1",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_crop_free",
-        "name"     : "crop free",
-        "group_id" : "image",
-        "keywords" : ["image", "crop", "free"],
-        "ligature" : "crop_free",
-        "codepoint": "E3C2",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_crop_landscape",
-        "name"     : "crop landscape",
-        "group_id" : "image",
-        "keywords" : ["image", "crop", "landscape"],
-        "ligature" : "crop_landscape",
-        "codepoint": "E3C3",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_crop_original",
-        "name"     : "crop original",
-        "group_id" : "image",
-        "keywords" : ["image", "crop", "original"],
-        "ligature" : "crop_original",
-        "codepoint": "E3C4",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_crop_portrait",
-        "name"     : "crop portrait",
-        "group_id" : "image",
-        "keywords" : ["image", "crop", "portrait"],
-        "ligature" : "crop_portrait",
-        "codepoint": "E3C5",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_crop_rotate",
-        "name"     : "crop rotate",
-        "group_id" : "image",
-        "keywords" : ["image", "crop", "rotate"],
-        "ligature" : "crop_rotate",
-        "codepoint": "E437",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_crop_square",
-        "name"     : "crop square",
-        "group_id" : "image",
-        "keywords" : ["image", "crop", "square"],
-        "ligature" : "crop_square",
-        "codepoint": "E3C6",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_dehaze",
-        "name"     : "dehaze",
-        "group_id" : "image",
-        "keywords" : ["image", "dehaze"],
-        "ligature" : "dehaze",
-        "codepoint": "E3C7",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_details",
-        "name"     : "details",
-        "group_id" : "image",
-        "keywords" : ["image", "details"],
-        "ligature" : "details",
-        "codepoint": "E3C8",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_edit",
-        "name"     : "edit",
-        "group_id" : "image",
-        "keywords" : ["image", "edit"],
-        "ligature" : "edit",
-        "codepoint": "E3C9",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_exposure",
-        "name"     : "exposure",
-        "group_id" : "image",
-        "keywords" : ["image", "exposure"],
-        "ligature" : "exposure",
-        "codepoint": "E3CA",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_exposure_neg_1",
-        "name"     : "exposure neg 1",
-        "group_id" : "image",
-        "keywords" : ["image", "exposure", "neg"],
-        "ligature" : "exposure_neg_1",
-        "codepoint": "E3CB",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_exposure_neg_2",
-        "name"     : "exposure neg 2",
-        "group_id" : "image",
-        "keywords" : ["image", "exposure", "neg"],
-        "ligature" : "exposure_neg_2",
-        "codepoint": "E3CC",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_exposure_plus_1",
-        "name"     : "exposure plus 1",
-        "group_id" : "image",
-        "keywords" : ["image", "exposure", "plus"],
-        "ligature" : "exposure_plus_1",
-        "codepoint": "E3CD",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_exposure_plus_2",
-        "name"     : "exposure plus 2",
-        "group_id" : "image",
-        "keywords" : ["image", "exposure", "plus"],
-        "ligature" : "exposure_plus_2",
-        "codepoint": "E3CE",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_exposure_zero",
-        "name"     : "exposure zero",
-        "group_id" : "image",
-        "keywords" : ["image", "exposure", "zero"],
-        "ligature" : "exposure_zero",
-        "codepoint": "E3CF",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_filter",
-        "name"     : "filter",
-        "group_id" : "image",
-        "keywords" : ["image", "filter"],
-        "ligature" : "filter",
-        "codepoint": "E3D3",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_filter_1",
-        "name"     : "filter 1",
-        "group_id" : "image",
-        "keywords" : ["image", "filter"],
-        "ligature" : "filter_1",
-        "codepoint": "E3D0",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_filter_2",
-        "name"     : "filter 2",
-        "group_id" : "image",
-        "keywords" : ["image", "filter"],
-        "ligature" : "filter_2",
-        "codepoint": "E3D1",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_filter_3",
-        "name"     : "filter 3",
-        "group_id" : "image",
-        "keywords" : ["image", "filter"],
-        "ligature" : "filter_3",
-        "codepoint": "E3D2",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_filter_4",
-        "name"     : "filter 4",
-        "group_id" : "image",
-        "keywords" : ["image", "filter"],
-        "ligature" : "filter_4",
-        "codepoint": "E3D4",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_filter_5",
-        "name"     : "filter 5",
-        "group_id" : "image",
-        "keywords" : ["image", "filter"],
-        "ligature" : "filter_5",
-        "codepoint": "E3D5",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_filter_6",
-        "name"     : "filter 6",
-        "group_id" : "image",
-        "keywords" : ["image", "filter"],
-        "ligature" : "filter_6",
-        "codepoint": "E3D6",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_filter_7",
-        "name"     : "filter 7",
-        "group_id" : "image",
-        "keywords" : ["image", "filter"],
-        "ligature" : "filter_7",
-        "codepoint": "E3D7",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_filter_8",
-        "name"     : "filter 8",
-        "group_id" : "image",
-        "keywords" : ["image", "filter"],
-        "ligature" : "filter_8",
-        "codepoint": "E3D8",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_filter_9",
-        "name"     : "filter 9",
-        "group_id" : "image",
-        "keywords" : ["image", "filter"],
-        "ligature" : "filter_9",
-        "codepoint": "E3D9",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_filter_9_plus",
-        "name"     : "filter 9 plus",
-        "group_id" : "image",
-        "keywords" : ["image", "filter", "plus"],
-        "ligature" : "filter_9_plus",
-        "codepoint": "E3DA",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_filter_b_and_w",
-        "name"     : "filter b and w",
-        "group_id" : "image",
-        "keywords" : ["image", "filter"],
-        "ligature" : "filter_b_and_w",
-        "codepoint": "E3DB",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_filter_center_focus",
-        "name"     : "filter center focus",
-        "group_id" : "image",
-        "keywords" : ["image", "filter", "center", "focus"],
-        "ligature" : "filter_center_focus",
-        "codepoint": "E3DC",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_filter_drama",
-        "name"     : "filter drama",
-        "group_id" : "image",
-        "keywords" : ["image", "filter", "drama"],
-        "ligature" : "filter_drama",
-        "codepoint": "E3DD",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_filter_frames",
-        "name"     : "filter frames",
-        "group_id" : "image",
-        "keywords" : ["image", "filter", "frames"],
-        "ligature" : "filter_frames",
-        "codepoint": "E3DE",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_filter_hdr",
-        "name"     : "filter hdr",
-        "group_id" : "image",
-        "keywords" : ["image", "filter", "hdr"],
-        "ligature" : "filter_hdr",
-        "codepoint": "E3DF",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_filter_none",
-        "name"     : "filter none",
-        "group_id" : "image",
-        "keywords" : ["image", "filter", "none"],
-        "ligature" : "filter_none",
-        "codepoint": "E3E0",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_filter_tilt_shift",
-        "name"     : "filter tilt shift",
-        "group_id" : "image",
-        "keywords" : ["image", "filter", "tilt", "shift"],
-        "ligature" : "filter_tilt_shift",
-        "codepoint": "E3E2",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_filter_vintage",
-        "name"     : "filter vintage",
-        "group_id" : "image",
-        "keywords" : ["image", "filter", "vintage"],
-        "ligature" : "filter_vintage",
-        "codepoint": "E3E3",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_flare",
-        "name"     : "flare",
-        "group_id" : "image",
-        "keywords" : ["image", "flare"],
-        "ligature" : "flare",
-        "codepoint": "E3E4",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_flash_auto",
-        "name"     : "flash auto",
-        "group_id" : "image",
-        "keywords" : ["image", "flash", "auto"],
-        "ligature" : "flash_auto",
-        "codepoint": "E3E5",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_flash_off",
-        "name"     : "flash off",
-        "group_id" : "image",
-        "keywords" : ["image", "flash", "off"],
-        "ligature" : "flash_off",
-        "codepoint": "E3E6",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_flash_on",
-        "name"     : "flash on",
-        "group_id" : "image",
-        "keywords" : ["image", "flash", "on"],
-        "ligature" : "flash_on",
-        "codepoint": "E3E7",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_flip",
-        "name"     : "flip",
-        "group_id" : "image",
-        "keywords" : ["image", "flip"],
-        "ligature" : "flip",
-        "codepoint": "E3E8",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_gradient",
-        "name"     : "gradient",
-        "group_id" : "image",
-        "keywords" : ["image", "gradient"],
-        "ligature" : "gradient",
-        "codepoint": "E3E9",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_grain",
-        "name"     : "grain",
-        "group_id" : "image",
-        "keywords" : ["image", "grain"],
-        "ligature" : "grain",
-        "codepoint": "E3EA",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_grid_off",
-        "name"     : "grid off",
-        "group_id" : "image",
-        "keywords" : ["image", "grid", "off"],
-        "ligature" : "grid_off",
-        "codepoint": "E3EB",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_grid_on",
-        "name"     : "grid on",
-        "group_id" : "image",
-        "keywords" : ["image", "grid", "on"],
-        "ligature" : "grid_on",
-        "codepoint": "E3EC",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_hdr_off",
-        "name"     : "hdr off",
-        "group_id" : "image",
-        "keywords" : ["image", "hdr", "off"],
-        "ligature" : "hdr_off",
-        "codepoint": "E3ED",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_hdr_on",
-        "name"     : "hdr on",
-        "group_id" : "image",
-        "keywords" : ["image", "hdr", "on"],
-        "ligature" : "hdr_on",
-        "codepoint": "E3EE",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_hdr_strong",
-        "name"     : "hdr strong",
-        "group_id" : "image",
-        "keywords" : ["image", "hdr", "strong"],
-        "ligature" : "hdr_strong",
-        "codepoint": "E3F1",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_hdr_weak",
-        "name"     : "hdr weak",
-        "group_id" : "image",
-        "keywords" : ["image", "hdr", "weak"],
-        "ligature" : "hdr_weak",
-        "codepoint": "E3F2",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_healing",
-        "name"     : "healing",
-        "group_id" : "image",
-        "keywords" : ["image", "healing"],
-        "ligature" : "healing",
-        "codepoint": "E3F3",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_image",
-        "name"     : "image",
-        "group_id" : "image",
-        "keywords" : ["image", "image"],
-        "ligature" : "image",
-        "codepoint": "E3F4",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_image_aspect_ratio",
-        "name"     : "image aspect ratio",
-        "group_id" : "image",
-        "keywords" : ["image", "image", "aspect", "ratio"],
-        "ligature" : "image_aspect_ratio",
-        "codepoint": "E3F5",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_iso",
-        "name"     : "iso",
-        "group_id" : "image",
-        "keywords" : ["image", "iso"],
-        "ligature" : "iso",
-        "codepoint": "E3F6",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_landscape",
-        "name"     : "landscape",
-        "group_id" : "image",
-        "keywords" : ["image", "landscape"],
-        "ligature" : "landscape",
-        "codepoint": "E3F7",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_leak_add",
-        "name"     : "leak add",
-        "group_id" : "image",
-        "keywords" : ["image", "leak", "add"],
-        "ligature" : "leak_add",
-        "codepoint": "E3F8",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_leak_remove",
-        "name"     : "leak remove",
-        "group_id" : "image",
-        "keywords" : ["image", "leak", "remove"],
-        "ligature" : "leak_remove",
-        "codepoint": "E3F9",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_lens",
-        "name"     : "lens",
-        "group_id" : "image",
-        "keywords" : ["image", "lens"],
-        "ligature" : "lens",
-        "codepoint": "E3FA",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_linked_camera",
-        "name"     : "linked camera",
-        "group_id" : "image",
-        "keywords" : ["image", "linked", "camera"],
-        "ligature" : "linked_camera",
-        "codepoint": "E438",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_looks",
-        "name"     : "looks",
-        "group_id" : "image",
-        "keywords" : ["image", "looks"],
-        "ligature" : "looks",
-        "codepoint": "E3FC",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_looks_3",
-        "name"     : "looks 3",
-        "group_id" : "image",
-        "keywords" : ["image", "looks"],
-        "ligature" : "looks_3",
-        "codepoint": "E3FB",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_looks_4",
-        "name"     : "looks 4",
-        "group_id" : "image",
-        "keywords" : ["image", "looks"],
-        "ligature" : "looks_4",
-        "codepoint": "E3FD",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_looks_5",
-        "name"     : "looks 5",
-        "group_id" : "image",
-        "keywords" : ["image", "looks"],
-        "ligature" : "looks_5",
-        "codepoint": "E3FE",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_looks_6",
-        "name"     : "looks 6",
-        "group_id" : "image",
-        "keywords" : ["image", "looks"],
-        "ligature" : "looks_6",
-        "codepoint": "E3FF",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_looks_one",
-        "name"     : "looks one",
-        "group_id" : "image",
-        "keywords" : ["image", "looks", "one"],
-        "ligature" : "looks_one",
-        "codepoint": "E400",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_looks_two",
-        "name"     : "looks two",
-        "group_id" : "image",
-        "keywords" : ["image", "looks", "two"],
-        "ligature" : "looks_two",
-        "codepoint": "E401",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_loupe",
-        "name"     : "loupe",
-        "group_id" : "image",
-        "keywords" : ["image", "loupe"],
-        "ligature" : "loupe",
-        "codepoint": "E402",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_monochrome_photos",
-        "name"     : "monochrome photos",
-        "group_id" : "image",
-        "keywords" : ["image", "monochrome", "photos"],
-        "ligature" : "monochrome_photos",
-        "codepoint": "E403",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_movie_creation",
-        "name"     : "movie creation",
-        "group_id" : "image",
-        "keywords" : ["image", "movie", "creation"],
-        "ligature" : "movie_creation",
-        "codepoint": "E404",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_movie_filter",
-        "name"     : "movie filter",
-        "group_id" : "image",
-        "keywords" : ["image", "movie", "filter"],
-        "ligature" : "movie_filter",
-        "codepoint": "E43A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_music_note",
-        "name"     : "music note",
-        "group_id" : "image",
-        "keywords" : ["image", "music", "note"],
-        "ligature" : "music_note",
-        "codepoint": "E405",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_nature",
-        "name"     : "nature",
-        "group_id" : "image",
-        "keywords" : ["image", "nature"],
-        "ligature" : "nature",
-        "codepoint": "E406",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_nature_people",
-        "name"     : "nature people",
-        "group_id" : "image",
-        "keywords" : ["image", "nature", "people"],
-        "ligature" : "nature_people",
-        "codepoint": "E407",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_navigate_before",
-        "name"     : "navigate before",
-        "group_id" : "image",
-        "keywords" : ["image", "navigate", "before"],
-        "ligature" : "navigate_before",
-        "codepoint": "E408",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_navigate_next",
-        "name"     : "navigate next",
-        "group_id" : "image",
-        "keywords" : ["image", "navigate", "next"],
-        "ligature" : "navigate_next",
-        "codepoint": "E409",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_palette",
-        "name"     : "palette",
-        "group_id" : "image",
-        "keywords" : ["image", "palette"],
-        "ligature" : "palette",
-        "codepoint": "E40A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_panorama",
-        "name"     : "panorama",
-        "group_id" : "image",
-        "keywords" : ["image", "panorama"],
-        "ligature" : "panorama",
-        "codepoint": "E40B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_panorama_fish_eye",
-        "name"     : "panorama fish eye",
-        "group_id" : "image",
-        "keywords" : ["image", "panorama", "fish", "eye"],
-        "ligature" : "panorama_fish_eye",
-        "codepoint": "E40C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_panorama_horizontal",
-        "name"     : "panorama horizontal",
-        "group_id" : "image",
-        "keywords" : ["image", "panorama", "horizontal"],
-        "ligature" : "panorama_horizontal",
-        "codepoint": "E40D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_panorama_vertical",
-        "name"     : "panorama vertical",
-        "group_id" : "image",
-        "keywords" : ["image", "panorama", "vertical"],
-        "ligature" : "panorama_vertical",
-        "codepoint": "E40E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_panorama_wide_angle",
-        "name"     : "panorama wide angle",
-        "group_id" : "image",
-        "keywords" : ["image", "panorama", "wide", "angle"],
-        "ligature" : "panorama_wide_angle",
-        "codepoint": "E40F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_photo",
-        "name"     : "photo",
-        "group_id" : "image",
-        "keywords" : ["image", "photo"],
-        "ligature" : "photo",
-        "codepoint": "E410",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_photo_album",
-        "name"     : "photo album",
-        "group_id" : "image",
-        "keywords" : ["image", "photo", "album"],
-        "ligature" : "photo_album",
-        "codepoint": "E411",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_photo_camera",
-        "name"     : "photo camera",
-        "group_id" : "image",
-        "keywords" : ["image", "photo", "camera"],
-        "ligature" : "photo_camera",
-        "codepoint": "E412",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_photo_filter",
-        "name"     : "photo filter",
-        "group_id" : "image",
-        "keywords" : ["image", "photo", "filter"],
-        "ligature" : "photo_filter",
-        "codepoint": "E43B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_photo_library",
-        "name"     : "photo library",
-        "group_id" : "image",
-        "keywords" : ["image", "photo", "library"],
-        "ligature" : "photo_library",
-        "codepoint": "E413",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_photo_size_select_actual",
-        "name"     : "photo size select actual",
-        "group_id" : "image",
-        "keywords" : ["image", "photo", "size", "select", "actual"],
-        "ligature" : "photo_size_select_actual",
-        "codepoint": "E432",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_photo_size_select_large",
-        "name"     : "photo size select large",
-        "group_id" : "image",
-        "keywords" : ["image", "photo", "size", "select", "large"],
-        "ligature" : "photo_size_select_large",
-        "codepoint": "E433",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_photo_size_select_small",
-        "name"     : "photo size select small",
-        "group_id" : "image",
-        "keywords" : ["image", "photo", "size", "select", "small"],
-        "ligature" : "photo_size_select_small",
-        "codepoint": "E434",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_picture_as_pdf",
-        "name"     : "picture as pdf",
-        "group_id" : "image",
-        "keywords" : ["image", "picture", "as", "pdf"],
-        "ligature" : "picture_as_pdf",
-        "codepoint": "E415",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_portrait",
-        "name"     : "portrait",
-        "group_id" : "image",
-        "keywords" : ["image", "portrait"],
-        "ligature" : "portrait",
-        "codepoint": "E416",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_remove_red_eye",
-        "name"     : "remove red eye",
-        "group_id" : "image",
-        "keywords" : ["image", "remove", "red", "eye"],
-        "ligature" : "remove_red_eye",
-        "codepoint": "E417",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_rotate_90_degrees_ccw",
-        "name"     : "rotate 90 degrees ccw",
-        "group_id" : "image",
-        "keywords" : ["image", "rotate", "90", "degrees", "ccw"],
-        "ligature" : "rotate_90_degrees_ccw",
-        "codepoint": "E418",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_rotate_left",
-        "name"     : "rotate left",
-        "group_id" : "image",
-        "keywords" : ["image", "rotate", "left"],
-        "ligature" : "rotate_left",
-        "codepoint": "E419",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_rotate_right",
-        "name"     : "rotate right",
-        "group_id" : "image",
-        "keywords" : ["image", "rotate", "right"],
-        "ligature" : "rotate_right",
-        "codepoint": "E41A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_slideshow",
-        "name"     : "slideshow",
-        "group_id" : "image",
-        "keywords" : ["image", "slideshow"],
-        "ligature" : "slideshow",
-        "codepoint": "E41B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_straighten",
-        "name"     : "straighten",
-        "group_id" : "image",
-        "keywords" : ["image", "straighten"],
-        "ligature" : "straighten",
-        "codepoint": "E41C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_style",
-        "name"     : "style",
-        "group_id" : "image",
-        "keywords" : ["image", "style"],
-        "ligature" : "style",
-        "codepoint": "E41D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_switch_camera",
-        "name"     : "switch camera",
-        "group_id" : "image",
-        "keywords" : ["image", "switch", "camera"],
-        "ligature" : "switch_camera",
-        "codepoint": "E41E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_switch_video",
-        "name"     : "switch video",
-        "group_id" : "image",
-        "keywords" : ["image", "switch", "video"],
-        "ligature" : "switch_video",
-        "codepoint": "E41F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_tag_faces",
-        "name"     : "tag faces",
-        "group_id" : "image",
-        "keywords" : ["image", "tag", "faces"],
-        "ligature" : "tag_faces",
-        "codepoint": "E420",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_texture",
-        "name"     : "texture",
-        "group_id" : "image",
-        "keywords" : ["image", "texture"],
-        "ligature" : "texture",
-        "codepoint": "E421",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_timelapse",
-        "name"     : "timelapse",
-        "group_id" : "image",
-        "keywords" : ["image", "timelapse"],
-        "ligature" : "timelapse",
-        "codepoint": "E422",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_timer",
-        "name"     : "timer",
-        "group_id" : "image",
-        "keywords" : ["image", "timer"],
-        "ligature" : "timer",
-        "codepoint": "E425",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_timer_10",
-        "name"     : "timer 10",
-        "group_id" : "image",
-        "keywords" : ["image", "timer", "10"],
-        "ligature" : "timer_10",
-        "codepoint": "E423",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_timer_3",
-        "name"     : "timer 3",
-        "group_id" : "image",
-        "keywords" : ["image", "timer"],
-        "ligature" : "timer_3",
-        "codepoint": "E424",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_timer_off",
-        "name"     : "timer off",
-        "group_id" : "image",
-        "keywords" : ["image", "timer", "off"],
-        "ligature" : "timer_off",
-        "codepoint": "E426",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_tonality",
-        "name"     : "tonality",
-        "group_id" : "image",
-        "keywords" : ["image", "tonality"],
-        "ligature" : "tonality",
-        "codepoint": "E427",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_transform",
-        "name"     : "transform",
-        "group_id" : "image",
-        "keywords" : ["image", "transform"],
-        "ligature" : "transform",
-        "codepoint": "E428",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_tune",
-        "name"     : "tune",
-        "group_id" : "image",
-        "keywords" : ["image", "tune"],
-        "ligature" : "tune",
-        "codepoint": "E429",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_view_comfy",
-        "name"     : "view comfy",
-        "group_id" : "image",
-        "keywords" : ["image", "view", "comfy"],
-        "ligature" : "view_comfy",
-        "codepoint": "E42A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_view_compact",
-        "name"     : "view compact",
-        "group_id" : "image",
-        "keywords" : ["image", "view", "compact"],
-        "ligature" : "view_compact",
-        "codepoint": "E42B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_vignette",
-        "name"     : "vignette",
-        "group_id" : "image",
-        "keywords" : ["image", "vignette"],
-        "ligature" : "vignette",
-        "codepoint": "E435",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_wb_auto",
-        "name"     : "wb auto",
-        "group_id" : "image",
-        "keywords" : ["image", "wb", "auto"],
-        "ligature" : "wb_auto",
-        "codepoint": "E42C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_wb_cloudy",
-        "name"     : "wb cloudy",
-        "group_id" : "image",
-        "keywords" : ["image", "wb", "cloudy"],
-        "ligature" : "wb_cloudy",
-        "codepoint": "E42D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_wb_incandescent",
-        "name"     : "wb incandescent",
-        "group_id" : "image",
-        "keywords" : ["image", "wb", "incandescent"],
-        "ligature" : "wb_incandescent",
-        "codepoint": "E42E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_wb_iridescent",
-        "name"     : "wb iridescent",
-        "group_id" : "image",
-        "keywords" : ["image", "wb", "iridescent"],
-        "ligature" : "wb_iridescent",
-        "codepoint": "E436",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_wb_sunny",
-        "name"     : "wb sunny",
-        "group_id" : "image",
-        "keywords" : ["image", "wb", "sunny"],
-        "ligature" : "wb_sunny",
-        "codepoint": "E430",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_add_location",
-        "name"     : "add location",
-        "group_id" : "maps",
-        "keywords" : ["maps", "add", "location"],
-        "ligature" : "add_location",
-        "codepoint": "E567",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_beenhere",
-        "name"     : "beenhere",
-        "group_id" : "maps",
-        "keywords" : ["maps", "beenhere"],
-        "ligature" : "beenhere",
-        "codepoint": "E52D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_directions",
-        "name"     : "directions",
-        "group_id" : "maps",
-        "keywords" : ["maps", "directions"],
-        "ligature" : "directions",
-        "codepoint": "E52E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_directions_bike",
-        "name"     : "directions bike",
-        "group_id" : "maps",
-        "keywords" : ["maps", "directions", "bike"],
-        "ligature" : "directions_bike",
-        "codepoint": "E52F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_directions_boat",
-        "name"     : "directions boat",
-        "group_id" : "maps",
-        "keywords" : ["maps", "directions", "boat"],
-        "ligature" : "directions_boat",
-        "codepoint": "E532",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_directions_bus",
-        "name"     : "directions bus",
-        "group_id" : "maps",
-        "keywords" : ["maps", "directions", "bus"],
-        "ligature" : "directions_bus",
-        "codepoint": "E530",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_directions_car",
-        "name"     : "directions car",
-        "group_id" : "maps",
-        "keywords" : ["maps", "directions", "car"],
-        "ligature" : "directions_car",
-        "codepoint": "E531",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_directions_railway",
-        "name"     : "directions railway",
-        "group_id" : "maps",
-        "keywords" : ["maps", "directions", "railway"],
-        "ligature" : "directions_railway",
-        "codepoint": "E534",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_directions_run",
-        "name"     : "directions run",
-        "group_id" : "maps",
-        "keywords" : ["maps", "directions", "run"],
-        "ligature" : "directions_run",
-        "codepoint": "E566",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_directions_subway",
-        "name"     : "directions subway",
-        "group_id" : "maps",
-        "keywords" : ["maps", "directions", "subway"],
-        "ligature" : "directions_subway",
-        "codepoint": "E533",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_directions_transit",
-        "name"     : "directions transit",
-        "group_id" : "maps",
-        "keywords" : ["maps", "directions", "transit"],
-        "ligature" : "directions_transit",
-        "codepoint": "E535",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_directions_walk",
-        "name"     : "directions walk",
-        "group_id" : "maps",
-        "keywords" : ["maps", "directions", "walk"],
-        "ligature" : "directions_walk",
-        "codepoint": "E536",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_edit_location",
-        "name"     : "edit location",
-        "group_id" : "maps",
-        "keywords" : ["maps", "edit", "location"],
-        "ligature" : "edit_location",
-        "codepoint": "E568",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_ev_station",
-        "name"     : "ev station",
-        "group_id" : "maps",
-        "keywords" : ["maps", "ev", "station"],
-        "ligature" : "ev_station",
-        "codepoint": "E56D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_flight",
-        "name"     : "flight",
-        "group_id" : "maps",
-        "keywords" : ["maps", "flight"],
-        "ligature" : "flight",
-        "codepoint": "E539",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_hotel",
-        "name"     : "hotel",
-        "group_id" : "maps",
-        "keywords" : ["maps", "hotel"],
-        "ligature" : "hotel",
-        "codepoint": "E53A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_layers",
-        "name"     : "layers",
-        "group_id" : "maps",
-        "keywords" : ["maps", "layers"],
-        "ligature" : "layers",
-        "codepoint": "E53B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_layers_clear",
-        "name"     : "layers clear",
-        "group_id" : "maps",
-        "keywords" : ["maps", "layers", "clear"],
-        "ligature" : "layers_clear",
-        "codepoint": "E53C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_activity",
-        "name"     : "local activity",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "activity"],
-        "ligature" : "local_activity",
-        "codepoint": "E53F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_airport",
-        "name"     : "local airport",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "airport"],
-        "ligature" : "local_airport",
-        "codepoint": "E53D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_atm",
-        "name"     : "local atm",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "atm"],
-        "ligature" : "local_atm",
-        "codepoint": "E53E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_bar",
-        "name"     : "local bar",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "bar"],
-        "ligature" : "local_bar",
-        "codepoint": "E540",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_cafe",
-        "name"     : "local cafe",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "cafe"],
-        "ligature" : "local_cafe",
-        "codepoint": "E541",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_car_wash",
-        "name"     : "local car wash",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "car", "wash"],
-        "ligature" : "local_car_wash",
-        "codepoint": "E542",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_convenience_store",
-        "name"     : "local convenience store",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "convenience", "store"],
-        "ligature" : "local_convenience_store",
-        "codepoint": "E543",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_dining",
-        "name"     : "local dining",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "dining"],
-        "ligature" : "local_dining",
-        "codepoint": "E556",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_drink",
-        "name"     : "local drink",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "drink"],
-        "ligature" : "local_drink",
-        "codepoint": "E544",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_florist",
-        "name"     : "local florist",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "florist"],
-        "ligature" : "local_florist",
-        "codepoint": "E545",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_gas_station",
-        "name"     : "local gas station",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "gas", "station"],
-        "ligature" : "local_gas_station",
-        "codepoint": "E546",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_grocery_store",
-        "name"     : "local grocery store",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "grocery", "store"],
-        "ligature" : "local_grocery_store",
-        "codepoint": "E547",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_hospital",
-        "name"     : "local hospital",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "hospital"],
-        "ligature" : "local_hospital",
-        "codepoint": "E548",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_hotel",
-        "name"     : "local hotel",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "hotel"],
-        "ligature" : "local_hotel",
-        "codepoint": "E549",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_laundry_service",
-        "name"     : "local laundry service",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "laundry", "service"],
-        "ligature" : "local_laundry_service",
-        "codepoint": "E54A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_library",
-        "name"     : "local library",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "library"],
-        "ligature" : "local_library",
-        "codepoint": "E54B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_mall",
-        "name"     : "local mall",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "mall"],
-        "ligature" : "local_mall",
-        "codepoint": "E54C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_movies",
-        "name"     : "local movies",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "movies"],
-        "ligature" : "local_movies",
-        "codepoint": "E54D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_offer",
-        "name"     : "local offer",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "offer"],
-        "ligature" : "local_offer",
-        "codepoint": "E54E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_parking",
-        "name"     : "local parking",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "parking"],
-        "ligature" : "local_parking",
-        "codepoint": "E54F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_pharmacy",
-        "name"     : "local pharmacy",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "pharmacy"],
-        "ligature" : "local_pharmacy",
-        "codepoint": "E550",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_phone",
-        "name"     : "local phone",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "phone"],
-        "ligature" : "local_phone",
-        "codepoint": "E551",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_pizza",
-        "name"     : "local pizza",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "pizza"],
-        "ligature" : "local_pizza",
-        "codepoint": "E552",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_play",
-        "name"     : "local play",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "play"],
-        "ligature" : "local_play",
-        "codepoint": "E553",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_post_office",
-        "name"     : "local post office",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "post", "office"],
-        "ligature" : "local_post_office",
-        "codepoint": "E554",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_printshop",
-        "name"     : "local printshop",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "printshop"],
-        "ligature" : "local_printshop",
-        "codepoint": "E555",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_see",
-        "name"     : "local see",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "see"],
-        "ligature" : "local_see",
-        "codepoint": "E557",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_shipping",
-        "name"     : "local shipping",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "shipping"],
-        "ligature" : "local_shipping",
-        "codepoint": "E558",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_local_taxi",
-        "name"     : "local taxi",
-        "group_id" : "maps",
-        "keywords" : ["maps", "local", "taxi"],
-        "ligature" : "local_taxi",
-        "codepoint": "E559",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_map",
-        "name"     : "map",
-        "group_id" : "maps",
-        "keywords" : ["maps", "map"],
-        "ligature" : "map",
-        "codepoint": "E55B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_my_location",
-        "name"     : "my location",
-        "group_id" : "maps",
-        "keywords" : ["maps", "my", "location"],
-        "ligature" : "my_location",
-        "codepoint": "E55C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_navigation",
-        "name"     : "navigation",
-        "group_id" : "maps",
-        "keywords" : ["maps", "navigation"],
-        "ligature" : "navigation",
-        "codepoint": "E55D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_near_me",
-        "name"     : "near me",
-        "group_id" : "maps",
-        "keywords" : ["maps", "near", "me"],
-        "ligature" : "near_me",
-        "codepoint": "E569",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_person_pin",
-        "name"     : "person pin",
-        "group_id" : "maps",
-        "keywords" : ["maps", "person", "pin"],
-        "ligature" : "person_pin",
-        "codepoint": "E55A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_person_pin_circle",
-        "name"     : "person pin circle",
-        "group_id" : "maps",
-        "keywords" : ["maps", "person", "pin", "circle"],
-        "ligature" : "person_pin_circle",
-        "codepoint": "E56A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_pin_drop",
-        "name"     : "pin drop",
-        "group_id" : "maps",
-        "keywords" : ["maps", "pin", "drop"],
-        "ligature" : "pin_drop",
-        "codepoint": "E55E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_place",
-        "name"     : "place",
-        "group_id" : "maps",
-        "keywords" : ["maps", "place"],
-        "ligature" : "place",
-        "codepoint": "E55F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_rate_review",
-        "name"     : "rate review",
-        "group_id" : "maps",
-        "keywords" : ["maps", "rate", "review"],
-        "ligature" : "rate_review",
-        "codepoint": "E560",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_restaurant",
-        "name"     : "restaurant",
-        "group_id" : "maps",
-        "keywords" : ["maps", "restaurant"],
-        "ligature" : "restaurant",
-        "codepoint": "E56C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_restaurant_menu",
-        "name"     : "restaurant menu",
-        "group_id" : "maps",
-        "keywords" : ["maps", "restaurant", "menu"],
-        "ligature" : "restaurant_menu",
-        "codepoint": "E561",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_satellite",
-        "name"     : "satellite",
-        "group_id" : "maps",
-        "keywords" : ["maps", "satellite"],
-        "ligature" : "satellite",
-        "codepoint": "E562",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_store_mall_directory",
-        "name"     : "store mall directory",
-        "group_id" : "maps",
-        "keywords" : ["maps", "store", "mall", "directory"],
-        "ligature" : "store_mall_directory",
-        "codepoint": "E563",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_streetview",
-        "name"     : "streetview",
-        "group_id" : "maps",
-        "keywords" : ["maps", "streetview"],
-        "ligature" : "streetview",
-        "codepoint": "E56E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_subway",
-        "name"     : "subway",
-        "group_id" : "maps",
-        "keywords" : ["maps", "subway"],
-        "ligature" : "subway",
-        "codepoint": "E56F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_terrain",
-        "name"     : "terrain",
-        "group_id" : "maps",
-        "keywords" : ["maps", "terrain"],
-        "ligature" : "terrain",
-        "codepoint": "E564",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_traffic",
-        "name"     : "traffic",
-        "group_id" : "maps",
-        "keywords" : ["maps", "traffic"],
-        "ligature" : "traffic",
-        "codepoint": "E565",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_train",
-        "name"     : "train",
-        "group_id" : "maps",
-        "keywords" : ["maps", "train"],
-        "ligature" : "train",
-        "codepoint": "E570",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_tram",
-        "name"     : "tram",
-        "group_id" : "maps",
-        "keywords" : ["maps", "tram"],
-        "ligature" : "tram",
-        "codepoint": "E571",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_transfer_within_a_station",
-        "name"     : "transfer within a station",
-        "group_id" : "maps",
-        "keywords" : ["maps", "transfer", "within", "station"],
-        "ligature" : "transfer_within_a_station",
-        "codepoint": "E572",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_zoom_out_map",
-        "name"     : "zoom out map",
-        "group_id" : "maps",
-        "keywords" : ["maps", "zoom", "out", "map"],
-        "ligature" : "zoom_out_map",
-        "codepoint": "E56B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_apps",
-        "name"     : "apps",
-        "group_id" : "navigation",
-        "keywords" : ["navigation", "apps"],
-        "ligature" : "apps",
-        "codepoint": "E5C3",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_arrow_back",
-        "name"     : "arrow back",
-        "group_id" : "navigation",
-        "keywords" : ["navigation", "arrow", "back"],
-        "ligature" : "arrow_back",
-        "codepoint": "E5C4",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_arrow_downward",
-        "name"     : "arrow downward",
-        "group_id" : "navigation",
-        "keywords" : ["navigation", "arrow", "downward"],
-        "ligature" : "arrow_downward",
-        "codepoint": "E5DB",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_arrow_drop_down",
-        "name"     : "arrow drop down",
-        "group_id" : "navigation",
-        "keywords" : ["navigation", "arrow", "drop", "down"],
-        "ligature" : "arrow_drop_down",
-        "codepoint": "E5C5",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_arrow_drop_down_circle",
-        "name"     : "arrow drop down circle",
-        "group_id" : "navigation",
-        "keywords" : ["navigation", "arrow", "drop", "down", "circle"],
-        "ligature" : "arrow_drop_down_circle",
-        "codepoint": "E5C6",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_arrow_drop_up",
-        "name"     : "arrow drop up",
-        "group_id" : "navigation",
-        "keywords" : ["navigation", "arrow", "drop", "up"],
-        "ligature" : "arrow_drop_up",
-        "codepoint": "E5C7",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_arrow_forward",
-        "name"     : "arrow forward",
-        "group_id" : "navigation",
-        "keywords" : ["navigation", "arrow", "forward"],
-        "ligature" : "arrow_forward",
-        "codepoint": "E5C8",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_arrow_upward",
-        "name"     : "arrow upward",
-        "group_id" : "navigation",
-        "keywords" : ["navigation", "arrow", "upward"],
-        "ligature" : "arrow_upward",
-        "codepoint": "E5D8",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_cancel",
-        "name"     : "cancel",
-        "group_id" : "navigation",
-        "keywords" : ["navigation", "cancel"],
-        "ligature" : "cancel",
-        "codepoint": "E5C9",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_check",
-        "name"     : "check",
-        "group_id" : "navigation",
-        "keywords" : ["navigation", "check"],
-        "ligature" : "check",
-        "codepoint": "E5CA",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_chevron_left",
-        "name"     : "chevron left",
-        "group_id" : "navigation",
-        "keywords" : ["navigation", "chevron", "left"],
-        "ligature" : "chevron_left",
-        "codepoint": "E5CB",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_chevron_right",
-        "name"     : "chevron right",
-        "group_id" : "navigation",
-        "keywords" : ["navigation", "chevron", "right"],
-        "ligature" : "chevron_right",
-        "codepoint": "E5CC",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_close",
-        "name"     : "close",
-        "group_id" : "navigation",
-        "keywords" : ["navigation", "close"],
-        "ligature" : "close",
-        "codepoint": "E5CD",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_expand_less",
-        "name"     : "expand less",
-        "group_id" : "navigation",
-        "keywords" : ["navigation", "expand", "less"],
-        "ligature" : "expand_less",
-        "codepoint": "E5CE",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_expand_more",
-        "name"     : "expand more",
-        "group_id" : "navigation",
-        "keywords" : ["navigation", "expand", "more"],
-        "ligature" : "expand_more",
-        "codepoint": "E5CF",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_first_page",
-        "name"     : "first page",
-        "group_id" : "navigation",
-        "keywords" : ["navigation", "first", "page"],
-        "ligature" : "first_page",
-        "codepoint": "E5DC",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_fullscreen",
-        "name"     : "fullscreen",
-        "group_id" : "navigation",
-        "keywords" : ["navigation", "fullscreen"],
-        "ligature" : "fullscreen",
-        "codepoint": "E5D0",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_fullscreen_exit",
-        "name"     : "fullscreen exit",
-        "group_id" : "navigation",
-        "keywords" : ["navigation", "fullscreen", "exit"],
-        "ligature" : "fullscreen_exit",
-        "codepoint": "E5D1",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_last_page",
-        "name"     : "last page",
-        "group_id" : "navigation",
-        "keywords" : ["navigation", "last", "page"],
-        "ligature" : "last_page",
-        "codepoint": "E5DD",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_menu",
-        "name"     : "menu",
-        "group_id" : "navigation",
-        "keywords" : ["navigation", "menu"],
-        "ligature" : "menu",
-        "codepoint": "E5D2",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_more_horiz",
-        "name"     : "more horiz",
-        "group_id" : "navigation",
-        "keywords" : ["navigation", "more", "horiz"],
-        "ligature" : "more_horiz",
-        "codepoint": "E5D3",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_more_vert",
-        "name"     : "more vert",
-        "group_id" : "navigation",
-        "keywords" : ["navigation", "more", "vert"],
-        "ligature" : "more_vert",
-        "codepoint": "E5D4",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_refresh",
-        "name"     : "refresh",
-        "group_id" : "navigation",
-        "keywords" : ["navigation", "refresh"],
-        "ligature" : "refresh",
-        "codepoint": "E5D5",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_subdirectory_arrow_left",
-        "name"     : "subdirectory arrow left",
-        "group_id" : "navigation",
-        "keywords" : ["navigation", "subdirectory", "arrow", "left"],
-        "ligature" : "subdirectory_arrow_left",
-        "codepoint": "E5D9",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_subdirectory_arrow_right",
-        "name"     : "subdirectory arrow right",
-        "group_id" : "navigation",
-        "keywords" : ["navigation", "subdirectory", "arrow", "right"],
-        "ligature" : "subdirectory_arrow_right",
-        "codepoint": "E5DA",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_adb",
+        "prevSize" : 32,
+        "code"     : 59658,
+        "ligatures": "accessible",
+        "tags"     : ["accessible"]
+    }, {
+        "order"    : 1743,
+        "id"       : 1001,
+        "name"     : "account_balance_wallet",
+        "prevSize" : 32,
+        "code"     : 59659,
+        "ligatures": "account_balance_wallet",
+        "tags"     : ["account_balance_wallet"]
+    }, {
+        "order"    : 1744,
+        "id"       : 1000,
+        "name"     : "account_balance",
+        "prevSize" : 32,
+        "code"     : 59660,
+        "ligatures": "account_balance",
+        "tags"     : ["account_balance"]
+    }, {
+        "order"    : 1745,
+        "id"       : 999,
+        "name"     : "account_box",
+        "prevSize" : 32,
+        "code"     : 59661,
+        "ligatures": "account_box",
+        "tags"     : ["account_box"]
+    }, {
+        "order"    : 1746,
+        "id"       : 998,
+        "name"     : "account_circle",
+        "prevSize" : 32,
+        "code"     : 59662,
+        "ligatures": "account_circle",
+        "tags"     : ["account_circle"]
+    }, {
+        "order"    : 1747,
+        "id"       : 997,
         "name"     : "adb",
-        "group_id" : "notification",
-        "keywords" : ["notification", "adb"],
-        "ligature" : "adb",
-        "codepoint": "E60E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_airline_seat_flat",
-        "name"     : "airline seat flat",
-        "group_id" : "notification",
-        "keywords" : ["notification", "airline", "seat", "flat"],
-        "ligature" : "airline_seat_flat",
-        "codepoint": "E630",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_airline_seat_flat_angled",
-        "name"     : "airline seat flat angled",
-        "group_id" : "notification",
-        "keywords" : ["notification", "airline", "seat", "flat", "angled"],
-        "ligature" : "airline_seat_flat_angled",
-        "codepoint": "E631",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_airline_seat_individual_suite",
-        "name"     : "airline seat individual suite",
-        "group_id" : "notification",
-        "keywords" : ["notification", "airline", "seat", "individual", "suite"],
-        "ligature" : "airline_seat_individual_suite",
-        "codepoint": "E632",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_airline_seat_legroom_extra",
-        "name"     : "airline seat legroom extra",
-        "group_id" : "notification",
-        "keywords" : ["notification", "airline", "seat", "legroom", "extra"],
-        "ligature" : "airline_seat_legroom_extra",
-        "codepoint": "E633",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_airline_seat_legroom_normal",
-        "name"     : "airline seat legroom normal",
-        "group_id" : "notification",
-        "keywords" : ["notification", "airline", "seat", "legroom", "normal"],
-        "ligature" : "airline_seat_legroom_normal",
-        "codepoint": "E634",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_airline_seat_legroom_reduced",
-        "name"     : "airline seat legroom reduced",
-        "group_id" : "notification",
-        "keywords" : ["notification", "airline", "seat", "legroom", "reduced"],
-        "ligature" : "airline_seat_legroom_reduced",
-        "codepoint": "E635",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_airline_seat_recline_extra",
-        "name"     : "airline seat recline extra",
-        "group_id" : "notification",
-        "keywords" : ["notification", "airline", "seat", "recline", "extra"],
-        "ligature" : "airline_seat_recline_extra",
-        "codepoint": "E636",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_airline_seat_recline_normal",
-        "name"     : "airline seat recline normal",
-        "group_id" : "notification",
-        "keywords" : ["notification", "airline", "seat", "recline", "normal"],
-        "ligature" : "airline_seat_recline_normal",
-        "codepoint": "E637",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_bluetooth_audio",
-        "name"     : "bluetooth audio",
-        "group_id" : "notification",
-        "keywords" : ["notification", "bluetooth", "audio"],
-        "ligature" : "bluetooth_audio",
-        "codepoint": "E60F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_confirmation_number",
-        "name"     : "confirmation number",
-        "group_id" : "notification",
-        "keywords" : ["notification", "confirmation", "number"],
-        "ligature" : "confirmation_number",
-        "codepoint": "E638",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_disc_full",
-        "name"     : "disc full",
-        "group_id" : "notification",
-        "keywords" : ["notification", "disc", "full"],
-        "ligature" : "disc_full",
-        "codepoint": "E610",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_do_not_disturb",
-        "name"     : "do not disturb",
-        "group_id" : "notification",
-        "keywords" : ["notification", "do", "not", "disturb"],
-        "ligature" : "do_not_disturb",
-        "codepoint": "E612",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_do_not_disturb_alt",
-        "name"     : "do not disturb alt",
-        "group_id" : "notification",
-        "keywords" : ["notification", "do", "not", "disturb", "alt"],
-        "ligature" : "do_not_disturb_alt",
-        "codepoint": "E611",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_do_not_disturb_off",
-        "name"     : "do not disturb off",
-        "group_id" : "notification",
-        "keywords" : ["notification", "do", "not", "disturb", "off"],
-        "ligature" : "do_not_disturb_off",
-        "codepoint": "E643",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_do_not_disturb_on",
-        "name"     : "do not disturb on",
-        "group_id" : "notification",
-        "keywords" : ["notification", "do", "not", "disturb", "on"],
-        "ligature" : "do_not_disturb_on",
-        "codepoint": "E644",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_drive_eta",
-        "name"     : "drive eta",
-        "group_id" : "notification",
-        "keywords" : ["notification", "drive", "eta"],
-        "ligature" : "drive_eta",
-        "codepoint": "E613",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_enhanced_encryption",
-        "name"     : "enhanced encryption",
-        "group_id" : "notification",
-        "keywords" : ["notification", "enhanced", "encryption"],
-        "ligature" : "enhanced_encryption",
-        "codepoint": "E63F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_event_available",
-        "name"     : "event available",
-        "group_id" : "notification",
-        "keywords" : ["notification", "event", "available"],
-        "ligature" : "event_available",
-        "codepoint": "E614",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_event_busy",
-        "name"     : "event busy",
-        "group_id" : "notification",
-        "keywords" : ["notification", "event", "busy"],
-        "ligature" : "event_busy",
-        "codepoint": "E615",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_event_note",
-        "name"     : "event note",
-        "group_id" : "notification",
-        "keywords" : ["notification", "event", "note"],
-        "ligature" : "event_note",
-        "codepoint": "E616",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_folder_special",
-        "name"     : "folder special",
-        "group_id" : "notification",
-        "keywords" : ["notification", "folder", "special"],
-        "ligature" : "folder_special",
-        "codepoint": "E617",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_live_tv",
-        "name"     : "live tv",
-        "group_id" : "notification",
-        "keywords" : ["notification", "live", "tv"],
-        "ligature" : "live_tv",
-        "codepoint": "E639",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_mms",
-        "name"     : "mms",
-        "group_id" : "notification",
-        "keywords" : ["notification", "mms"],
-        "ligature" : "mms",
-        "codepoint": "E618",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_more",
-        "name"     : "more",
-        "group_id" : "notification",
-        "keywords" : ["notification", "more"],
-        "ligature" : "more",
-        "codepoint": "E619",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_network_check",
-        "name"     : "network check",
-        "group_id" : "notification",
-        "keywords" : ["notification", "network", "check"],
-        "ligature" : "network_check",
-        "codepoint": "E640",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_network_locked",
-        "name"     : "network locked",
-        "group_id" : "notification",
-        "keywords" : ["notification", "network", "locked"],
-        "ligature" : "network_locked",
-        "codepoint": "E61A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_no_encryption",
-        "name"     : "no encryption",
-        "group_id" : "notification",
-        "keywords" : ["notification", "no", "encryption"],
-        "ligature" : "no_encryption",
-        "codepoint": "E641",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_ondemand_video",
-        "name"     : "ondemand video",
-        "group_id" : "notification",
-        "keywords" : ["notification", "ondemand", "video"],
-        "ligature" : "ondemand_video",
-        "codepoint": "E63A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_personal_video",
-        "name"     : "personal video",
-        "group_id" : "notification",
-        "keywords" : ["notification", "personal", "video"],
-        "ligature" : "personal_video",
-        "codepoint": "E63B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_phone_bluetooth_speaker",
-        "name"     : "phone bluetooth speaker",
-        "group_id" : "notification",
-        "keywords" : ["notification", "phone", "bluetooth", "speaker"],
-        "ligature" : "phone_bluetooth_speaker",
-        "codepoint": "E61B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_phone_forwarded",
-        "name"     : "phone forwarded",
-        "group_id" : "notification",
-        "keywords" : ["notification", "phone", "forwarded"],
-        "ligature" : "phone_forwarded",
-        "codepoint": "E61C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_phone_in_talk",
-        "name"     : "phone in talk",
-        "group_id" : "notification",
-        "keywords" : ["notification", "phone", "in", "talk"],
-        "ligature" : "phone_in_talk",
-        "codepoint": "E61D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_phone_locked",
-        "name"     : "phone locked",
-        "group_id" : "notification",
-        "keywords" : ["notification", "phone", "locked"],
-        "ligature" : "phone_locked",
-        "codepoint": "E61E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_phone_missed",
-        "name"     : "phone missed",
-        "group_id" : "notification",
-        "keywords" : ["notification", "phone", "missed"],
-        "ligature" : "phone_missed",
-        "codepoint": "E61F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_phone_paused",
-        "name"     : "phone paused",
-        "group_id" : "notification",
-        "keywords" : ["notification", "phone", "paused"],
-        "ligature" : "phone_paused",
-        "codepoint": "E620",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_power",
-        "name"     : "power",
-        "group_id" : "notification",
-        "keywords" : ["notification", "power"],
-        "ligature" : "power",
-        "codepoint": "E63C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_priority_high",
-        "name"     : "priority high",
-        "group_id" : "notification",
-        "keywords" : ["notification", "priority", "high"],
-        "ligature" : "priority_high",
-        "codepoint": "E645",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_sd_card",
-        "name"     : "sd card",
-        "group_id" : "notification",
-        "keywords" : ["notification", "sd", "card"],
-        "ligature" : "sd_card",
-        "codepoint": "E623",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_sim_card_alert",
-        "name"     : "sim card alert",
-        "group_id" : "notification",
-        "keywords" : ["notification", "sim", "card", "alert"],
-        "ligature" : "sim_card_alert",
-        "codepoint": "E624",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_sms",
-        "name"     : "sms",
-        "group_id" : "notification",
-        "keywords" : ["notification", "sms"],
-        "ligature" : "sms",
-        "codepoint": "E625",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_sms_failed",
-        "name"     : "sms failed",
-        "group_id" : "notification",
-        "keywords" : ["notification", "sms", "failed"],
-        "ligature" : "sms_failed",
-        "codepoint": "E626",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_sync",
-        "name"     : "sync",
-        "group_id" : "notification",
-        "keywords" : ["notification", "sync"],
-        "ligature" : "sync",
-        "codepoint": "E627",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_sync_disabled",
-        "name"     : "sync disabled",
-        "group_id" : "notification",
-        "keywords" : ["notification", "sync", "disabled"],
-        "ligature" : "sync_disabled",
-        "codepoint": "E628",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_sync_problem",
-        "name"     : "sync problem",
-        "group_id" : "notification",
-        "keywords" : ["notification", "sync", "problem"],
-        "ligature" : "sync_problem",
-        "codepoint": "E629",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_system_update",
-        "name"     : "system update",
-        "group_id" : "notification",
-        "keywords" : ["notification", "system", "update"],
-        "ligature" : "system_update",
-        "codepoint": "E62A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_tap_and_play",
-        "name"     : "tap and play",
-        "group_id" : "notification",
-        "keywords" : ["notification", "tap", "play"],
-        "ligature" : "tap_and_play",
-        "codepoint": "E62B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_time_to_leave",
-        "name"     : "time to leave",
-        "group_id" : "notification",
-        "keywords" : ["notification", "time", "to", "leave"],
-        "ligature" : "time_to_leave",
-        "codepoint": "E62C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_vibration",
-        "name"     : "vibration",
-        "group_id" : "notification",
-        "keywords" : ["notification", "vibration"],
-        "ligature" : "vibration",
-        "codepoint": "E62D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_voice_chat",
-        "name"     : "voice chat",
-        "group_id" : "notification",
-        "keywords" : ["notification", "voice", "chat"],
-        "ligature" : "voice_chat",
-        "codepoint": "E62E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_vpn_lock",
-        "name"     : "vpn lock",
-        "group_id" : "notification",
-        "keywords" : ["notification", "vpn", "lock"],
-        "ligature" : "vpn_lock",
-        "codepoint": "E62F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_wc",
-        "name"     : "wc",
-        "group_id" : "notification",
-        "keywords" : ["notification", "wc"],
-        "ligature" : "wc",
-        "codepoint": "E63D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_wifi",
-        "name"     : "wifi",
-        "group_id" : "notification",
-        "keywords" : ["notification", "wifi"],
-        "ligature" : "wifi",
-        "codepoint": "E63E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_ac_unit",
-        "name"     : "ac unit",
-        "group_id" : "places",
-        "keywords" : ["places", "ac", "unit"],
-        "ligature" : "ac_unit",
-        "codepoint": "EB3B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_airport_shuttle",
-        "name"     : "airport shuttle",
-        "group_id" : "places",
-        "keywords" : ["places", "airport", "shuttle"],
-        "ligature" : "airport_shuttle",
-        "codepoint": "EB3C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_all_inclusive",
-        "name"     : "all inclusive",
-        "group_id" : "places",
-        "keywords" : ["places", "all", "inclusive"],
-        "ligature" : "all_inclusive",
-        "codepoint": "EB3D",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_beach_access",
-        "name"     : "beach access",
-        "group_id" : "places",
-        "keywords" : ["places", "beach", "access"],
-        "ligature" : "beach_access",
-        "codepoint": "EB3E",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_business_center",
-        "name"     : "business center",
-        "group_id" : "places",
-        "keywords" : ["places", "business", "center"],
-        "ligature" : "business_center",
-        "codepoint": "EB3F",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_casino",
-        "name"     : "casino",
-        "group_id" : "places",
-        "keywords" : ["places", "casino"],
-        "ligature" : "casino",
-        "codepoint": "EB40",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_child_care",
-        "name"     : "child care",
-        "group_id" : "places",
-        "keywords" : ["places", "child", "care"],
-        "ligature" : "child_care",
-        "codepoint": "EB41",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_child_friendly",
-        "name"     : "child friendly",
-        "group_id" : "places",
-        "keywords" : ["places", "child", "friendly"],
-        "ligature" : "child_friendly",
-        "codepoint": "EB42",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_fitness_center",
-        "name"     : "fitness center",
-        "group_id" : "places",
-        "keywords" : ["places", "fitness", "center"],
-        "ligature" : "fitness_center",
-        "codepoint": "EB43",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_free_breakfast",
-        "name"     : "free breakfast",
-        "group_id" : "places",
-        "keywords" : ["places", "free", "breakfast"],
-        "ligature" : "free_breakfast",
-        "codepoint": "EB44",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_golf_course",
-        "name"     : "golf course",
-        "group_id" : "places",
-        "keywords" : ["places", "golf", "course"],
-        "ligature" : "golf_course",
-        "codepoint": "EB45",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_hot_tub",
-        "name"     : "hot tub",
-        "group_id" : "places",
-        "keywords" : ["places", "hot", "tub"],
-        "ligature" : "hot_tub",
-        "codepoint": "EB46",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_kitchen",
-        "name"     : "kitchen",
-        "group_id" : "places",
-        "keywords" : ["places", "kitchen"],
-        "ligature" : "kitchen",
-        "codepoint": "EB47",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_pool",
-        "name"     : "pool",
-        "group_id" : "places",
-        "keywords" : ["places", "pool"],
-        "ligature" : "pool",
-        "codepoint": "EB48",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_room_service",
-        "name"     : "room service",
-        "group_id" : "places",
-        "keywords" : ["places", "room", "service"],
-        "ligature" : "room_service",
-        "codepoint": "EB49",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_rv_hookup",
-        "name"     : "rv hookup",
-        "group_id" : "places",
-        "keywords" : ["places", "rv", "hookup"],
-        "ligature" : "rv_hookup",
-        "codepoint": "E642",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_smoke_free",
-        "name"     : "smoke free",
-        "group_id" : "places",
-        "keywords" : ["places", "smoke", "free"],
-        "ligature" : "smoke_free",
-        "codepoint": "EB4A",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_smoking_rooms",
-        "name"     : "smoking rooms",
-        "group_id" : "places",
-        "keywords" : ["places", "smoking", "rooms"],
-        "ligature" : "smoking_rooms",
-        "codepoint": "EB4B",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_spa",
-        "name"     : "spa",
-        "group_id" : "places",
-        "keywords" : ["places", "spa"],
-        "ligature" : "spa",
-        "codepoint": "EB4C",
-        "is_new"   : false
-    }, {
-        "id"       : "ic_cake",
+        "prevSize" : 32,
+        "code"     : 59663,
+        "ligatures": "adb",
+        "tags"     : ["adb"]
+    }, {
+        "order"    : 1748,
+        "id"       : 996,
+        "name"     : "add_a_photo",
+        "prevSize" : 32,
+        "code"     : 59664,
+        "ligatures": "add_a_photo",
+        "tags"     : ["add_a_photo"]
+    }, {
+        "order"    : 1749,
+        "id"       : 995,
+        "name"     : "add_alarm",
+        "prevSize" : 32,
+        "code"     : 59665,
+        "ligatures": "add_alarm",
+        "tags"     : ["add_alarm"]
+    }, {
+        "order"    : 1750,
+        "id"       : 994,
+        "name"     : "add_alert",
+        "prevSize" : 32,
+        "code"     : 59666,
+        "ligatures": "add_alert",
+        "tags"     : ["add_alert"]
+    }, {
+        "order"    : 1751,
+        "id"       : 993,
+        "name"     : "add_box",
+        "prevSize" : 32,
+        "code"     : 59667,
+        "ligatures": "add_box",
+        "tags"     : ["add_box"]
+    }, {
+        "order"    : 1752,
+        "id"       : 992,
+        "name"     : "add_circle_outline",
+        "prevSize" : 32,
+        "code"     : 59668,
+        "ligatures": "add_circle_outline",
+        "tags"     : ["add_circle_outline"]
+    }, {
+        "order"    : 1753,
+        "id"       : 991,
+        "name"     : "add_circle",
+        "prevSize" : 32,
+        "code"     : 59669,
+        "ligatures": "add_circle",
+        "tags"     : ["add_circle"]
+    }, {
+        "order"    : 1754,
+        "id"       : 990,
+        "name"     : "add_comment",
+        "prevSize" : 32,
+        "code"     : 59670,
+        "ligatures": "add_comment",
+        "tags"     : ["add_comment"]
+    }, {
+        "order"    : 1755,
+        "id"       : 989,
+        "name"     : "add_location",
+        "prevSize" : 32,
+        "code"     : 59671,
+        "ligatures": "add_location",
+        "tags"     : ["add_location"]
+    }, {
+        "order"    : 1756,
+        "id"       : 988,
+        "name"     : "add_photo_alternate",
+        "prevSize" : 32,
+        "code"     : 59672,
+        "ligatures": "add_photo_alternate",
+        "tags"     : ["add_photo_alternate"]
+    }, {
+        "order"    : 1757,
+        "id"       : 987,
+        "name"     : "add_shopping_cart",
+        "prevSize" : 32,
+        "code"     : 59673,
+        "ligatures": "add_shopping_cart",
+        "tags"     : ["add_shopping_cart"]
+    }, {
+        "order"    : 1758,
+        "id"       : 986,
+        "name"     : "add_to_home_screen",
+        "prevSize" : 32,
+        "code"     : 59674,
+        "ligatures": "add_to_home_screen",
+        "tags"     : ["add_to_home_screen"]
+    }, {
+        "order"    : 1759,
+        "id"       : 985,
+        "name"     : "add_to_photos",
+        "prevSize" : 32,
+        "code"     : 59675,
+        "ligatures": "add_to_photos",
+        "tags"     : ["add_to_photos"]
+    }, {
+        "order"    : 1760,
+        "id"       : 984,
+        "name"     : "add_to_queue",
+        "prevSize" : 32,
+        "code"     : 59676,
+        "ligatures": "add_to_queue",
+        "tags"     : ["add_to_queue"]
+    }, {
+        "order"    : 1761,
+        "id"       : 983,
+        "name"     : "add",
+        "prevSize" : 32,
+        "code"     : 59677,
+        "ligatures": "add",
+        "tags"     : ["add"]
+    }, {
+        "order"    : 1762,
+        "id"       : 982,
+        "name"     : "adjust",
+        "prevSize" : 32,
+        "code"     : 59678,
+        "ligatures": "adjust",
+        "tags"     : ["adjust"]
+    }, {
+        "order"    : 1763,
+        "id"       : 981,
+        "name"     : "airline_seat_flat_angled",
+        "prevSize" : 32,
+        "code"     : 59679,
+        "ligatures": "airline_seat_flat_angled",
+        "tags"     : ["airline_seat_flat_angled"]
+    }, {
+        "order"    : 1764,
+        "id"       : 980,
+        "name"     : "airline_seat_flat",
+        "prevSize" : 32,
+        "code"     : 59680,
+        "ligatures": "airline_seat_flat",
+        "tags"     : ["airline_seat_flat"]
+    }, {
+        "order"    : 1765,
+        "id"       : 979,
+        "name"     : "airline_seat_individual_suite",
+        "prevSize" : 32,
+        "code"     : 59681,
+        "ligatures": "airline_seat_individual_suite",
+        "tags"     : ["airline_seat_individual_suite"]
+    }, {
+        "order"    : 1766,
+        "id"       : 978,
+        "name"     : "airline_seat_legroom_extra",
+        "prevSize" : 32,
+        "code"     : 59682,
+        "ligatures": "airline_seat_legroom_extra",
+        "tags"     : ["airline_seat_legroom_extra"]
+    }, {
+        "order"    : 1767,
+        "id"       : 977,
+        "name"     : "airline_seat_legroom_normal",
+        "prevSize" : 32,
+        "code"     : 59683,
+        "ligatures": "airline_seat_legroom_normal",
+        "tags"     : ["airline_seat_legroom_normal"]
+    }, {
+        "order"    : 1768,
+        "id"       : 976,
+        "name"     : "airline_seat_legroom_reduced",
+        "prevSize" : 32,
+        "code"     : 59684,
+        "ligatures": "airline_seat_legroom_reduced",
+        "tags"     : ["airline_seat_legroom_reduced"]
+    }, {
+        "order"    : 1769,
+        "id"       : 975,
+        "name"     : "airline_seat_recline_extra",
+        "prevSize" : 32,
+        "code"     : 59685,
+        "ligatures": "airline_seat_recline_extra",
+        "tags"     : ["airline_seat_recline_extra"]
+    }, {
+        "order"    : 1770,
+        "id"       : 974,
+        "name"     : "airline_seat_recline_normal",
+        "prevSize" : 32,
+        "code"     : 59686,
+        "ligatures": "airline_seat_recline_normal",
+        "tags"     : ["airline_seat_recline_normal"]
+    }, {
+        "order"    : 1771,
+        "id"       : 973,
+        "name"     : "airplanemode_active",
+        "prevSize" : 32,
+        "code"     : 59687,
+        "ligatures": "airplanemode_active",
+        "tags"     : ["airplanemode_active"]
+    }, {
+        "order"    : 1772,
+        "id"       : 972,
+        "name"     : "airplanemode_inactive",
+        "prevSize" : 32,
+        "code"     : 59688,
+        "ligatures": "airplanemode_inactive",
+        "tags"     : ["airplanemode_inactive"]
+    }, {
+        "order"    : 1773,
+        "id"       : 971,
+        "name"     : "airplay",
+        "prevSize" : 32,
+        "code"     : 59689,
+        "ligatures": "airplay",
+        "tags"     : ["airplay"]
+    }, {
+        "order"    : 1774,
+        "id"       : 970,
+        "name"     : "airport_shuttle",
+        "prevSize" : 32,
+        "code"     : 59690,
+        "ligatures": "airport_shuttle",
+        "tags"     : ["airport_shuttle"]
+    }, {
+        "order"    : 1775,
+        "id"       : 969,
+        "name"     : "alarm_add",
+        "prevSize" : 32,
+        "code"     : 59691,
+        "ligatures": "alarm_add",
+        "tags"     : ["alarm_add"]
+    }, {
+        "order"    : 1776,
+        "id"       : 968,
+        "name"     : "alarm_off",
+        "prevSize" : 32,
+        "code"     : 59692,
+        "ligatures": "alarm_off",
+        "tags"     : ["alarm_off"]
+    }, {
+        "order"    : 1777,
+        "id"       : 967,
+        "name"     : "alarm_on",
+        "prevSize" : 32,
+        "code"     : 59693,
+        "ligatures": "alarm_on",
+        "tags"     : ["alarm_on"]
+    }, {
+        "order"    : 1778,
+        "id"       : 966,
+        "name"     : "alarm",
+        "prevSize" : 32,
+        "code"     : 59694,
+        "ligatures": "alarm",
+        "tags"     : ["alarm"]
+    }, {
+        "order"    : 1779,
+        "id"       : 965,
+        "name"     : "album",
+        "prevSize" : 32,
+        "code"     : 59695,
+        "ligatures": "album",
+        "tags"     : ["album"]
+    }, {
+        "order"    : 1780,
+        "id"       : 964,
+        "name"     : "all_inbox",
+        "prevSize" : 32,
+        "code"     : 59696,
+        "ligatures": "all_inbox",
+        "tags"     : ["all_inbox"]
+    }, {
+        "order"    : 1781,
+        "id"       : 963,
+        "name"     : "all_inclusive",
+        "prevSize" : 32,
+        "code"     : 59697,
+        "ligatures": "all_inclusive",
+        "tags"     : ["all_inclusive"]
+    }, {
+        "order"    : 1782,
+        "id"       : 962,
+        "name"     : "all_out",
+        "prevSize" : 32,
+        "code"     : 59698,
+        "ligatures": "all_out",
+        "tags"     : ["all_out"]
+    }, {
+        "order"    : 1783,
+        "id"       : 961,
+        "name"     : "alternate_email",
+        "prevSize" : 32,
+        "code"     : 59699,
+        "ligatures": "alternate_email",
+        "tags"     : ["alternate_email"]
+    }, {
+        "order"    : 1784,
+        "id"       : 960,
+        "name"     : "android",
+        "prevSize" : 32,
+        "code"     : 59700,
+        "ligatures": "android",
+        "tags"     : ["android"]
+    }, {
+        "order"    : 1785,
+        "id"       : 959,
+        "name"     : "announcement",
+        "prevSize" : 32,
+        "code"     : 59701,
+        "ligatures": "announcement",
+        "tags"     : ["announcement"]
+    }, {
+        "order"    : 1786,
+        "id"       : 958,
+        "name"     : "apps",
+        "prevSize" : 32,
+        "code"     : 59702,
+        "ligatures": "apps",
+        "tags"     : ["apps"]
+    }, {
+        "order"    : 1787,
+        "id"       : 957,
+        "name"     : "archive",
+        "prevSize" : 32,
+        "code"     : 59703,
+        "ligatures": "archive",
+        "tags"     : ["archive"]
+    }, {
+        "order"    : 1788,
+        "id"       : 956,
+        "name"     : "arrow_back_ios",
+        "prevSize" : 32,
+        "code"     : 59704,
+        "ligatures": "arrow_back_ios",
+        "tags"     : ["arrow_back_ios"]
+    }, {
+        "order"    : 1789,
+        "id"       : 955,
+        "name"     : "arrow_back",
+        "prevSize" : 32,
+        "code"     : 59705,
+        "ligatures": "arrow_back",
+        "tags"     : ["arrow_back"]
+    }, {
+        "order"    : 1790,
+        "id"       : 954,
+        "name"     : "arrow_downward",
+        "prevSize" : 32,
+        "code"     : 59706,
+        "ligatures": "arrow_downward",
+        "tags"     : ["arrow_downward"]
+    }, {
+        "order"    : 1791,
+        "id"       : 953,
+        "name"     : "arrow_drop_down_circle",
+        "prevSize" : 32,
+        "code"     : 59707,
+        "ligatures": "arrow_drop_down_circle",
+        "tags"     : ["arrow_drop_down_circle"]
+    }, {
+        "order"    : 1792,
+        "id"       : 952,
+        "name"     : "arrow_drop_down",
+        "prevSize" : 32,
+        "code"     : 59708,
+        "ligatures": "arrow_drop_down",
+        "tags"     : ["arrow_drop_down"]
+    }, {
+        "order"    : 1793,
+        "id"       : 951,
+        "name"     : "arrow_drop_up",
+        "prevSize" : 32,
+        "code"     : 59709,
+        "ligatures": "arrow_drop_up",
+        "tags"     : ["arrow_drop_up"]
+    }, {
+        "order"    : 1794,
+        "id"       : 950,
+        "name"     : "arrow_forward_ios",
+        "prevSize" : 32,
+        "code"     : 59710,
+        "ligatures": "arrow_forward_ios",
+        "tags"     : ["arrow_forward_ios"]
+    }, {
+        "order"    : 1795,
+        "id"       : 949,
+        "name"     : "arrow_forward",
+        "prevSize" : 32,
+        "code"     : 59711,
+        "ligatures": "arrow_forward",
+        "tags"     : ["arrow_forward"]
+    }, {
+        "order"    : 1796,
+        "id"       : 948,
+        "name"     : "arrow_left",
+        "prevSize" : 32,
+        "code"     : 59712,
+        "ligatures": "arrow_left",
+        "tags"     : ["arrow_left"]
+    }, {
+        "order"    : 1797,
+        "id"       : 947,
+        "name"     : "arrow_right_alt",
+        "prevSize" : 32,
+        "code"     : 59713,
+        "ligatures": "arrow_right_alt",
+        "tags"     : ["arrow_right_alt"]
+    }, {
+        "order"    : 1798,
+        "id"       : 946,
+        "name"     : "arrow_right",
+        "prevSize" : 32,
+        "code"     : 59714,
+        "ligatures": "arrow_right",
+        "tags"     : ["arrow_right"]
+    }, {
+        "order"    : 1799,
+        "id"       : 945,
+        "name"     : "arrow_upward",
+        "prevSize" : 32,
+        "code"     : 59715,
+        "ligatures": "arrow_upward",
+        "tags"     : ["arrow_upward"]
+    }, {
+        "order"    : 1800,
+        "id"       : 944,
+        "name"     : "art_track",
+        "prevSize" : 32,
+        "code"     : 59716,
+        "ligatures": "art_track",
+        "tags"     : ["art_track"]
+    }, {
+        "order"    : 1801,
+        "id"       : 943,
+        "name"     : "aspect_ratio",
+        "prevSize" : 32,
+        "code"     : 59717,
+        "ligatures": "aspect_ratio",
+        "tags"     : ["aspect_ratio"]
+    }, {
+        "order"    : 1802,
+        "id"       : 942,
+        "name"     : "assessment",
+        "prevSize" : 32,
+        "code"     : 59718,
+        "ligatures": "assessment",
+        "tags"     : ["assessment"]
+    }, {
+        "order"    : 1803,
+        "id"       : 941,
+        "name"     : "assignment_ind",
+        "prevSize" : 32,
+        "code"     : 59719,
+        "ligatures": "assignment_ind",
+        "tags"     : ["assignment_ind"]
+    }, {
+        "order"    : 1804,
+        "id"       : 940,
+        "name"     : "assignment_late",
+        "prevSize" : 32,
+        "code"     : 59720,
+        "ligatures": "assignment_late",
+        "tags"     : ["assignment_late"]
+    }, {
+        "order"    : 1805,
+        "id"       : 939,
+        "name"     : "assignment_return",
+        "prevSize" : 32,
+        "code"     : 59721,
+        "ligatures": "assignment_return",
+        "tags"     : ["assignment_return"]
+    }, {
+        "order"    : 1806,
+        "id"       : 938,
+        "name"     : "assignment_returned",
+        "prevSize" : 32,
+        "code"     : 59722,
+        "ligatures": "assignment_returned",
+        "tags"     : ["assignment_returned"]
+    }, {
+        "order"    : 1807,
+        "id"       : 937,
+        "name"     : "assignment_turned_in",
+        "prevSize" : 32,
+        "code"     : 59723,
+        "ligatures": "assignment_turned_in",
+        "tags"     : ["assignment_turned_in"]
+    }, {
+        "order"    : 1808,
+        "id"       : 936,
+        "name"     : "assignment",
+        "prevSize" : 32,
+        "code"     : 59724,
+        "ligatures": "assignment",
+        "tags"     : ["assignment"]
+    }, {
+        "order"    : 1809,
+        "id"       : 935,
+        "name"     : "assistant_photo",
+        "prevSize" : 32,
+        "code"     : 59725,
+        "ligatures": "assistant_photo",
+        "tags"     : ["assistant_photo"]
+    }, {
+        "order"    : 1810,
+        "id"       : 934,
+        "name"     : "assistant",
+        "prevSize" : 32,
+        "code"     : 59726,
+        "ligatures": "assistant",
+        "tags"     : ["assistant"]
+    }, {
+        "order"    : 1811,
+        "id"       : 933,
+        "name"     : "atm",
+        "prevSize" : 32,
+        "code"     : 59727,
+        "ligatures": "atm",
+        "tags"     : ["atm"]
+    }, {
+        "order"    : 1812,
+        "id"       : 932,
+        "name"     : "attach_file",
+        "prevSize" : 32,
+        "code"     : 59728,
+        "ligatures": "attach_file",
+        "tags"     : ["attach_file"]
+    }, {
+        "order"    : 1813,
+        "id"       : 931,
+        "name"     : "attach_money",
+        "prevSize" : 32,
+        "code"     : 59729,
+        "ligatures": "attach_money",
+        "tags"     : ["attach_money"]
+    }, {
+        "order"    : 1814,
+        "id"       : 930,
+        "name"     : "attachment",
+        "prevSize" : 32,
+        "code"     : 59730,
+        "ligatures": "attachment",
+        "tags"     : ["attachment"]
+    }, {
+        "order"    : 1815,
+        "id"       : 929,
+        "name"     : "audiotrack",
+        "prevSize" : 32,
+        "code"     : 59731,
+        "ligatures": "audiotrack",
+        "tags"     : ["audiotrack"]
+    }, {
+        "order"    : 1816,
+        "id"       : 928,
+        "name"     : "autorenew",
+        "prevSize" : 32,
+        "code"     : 59732,
+        "ligatures": "autorenew",
+        "tags"     : ["autorenew"]
+    }, {
+        "order"    : 1817,
+        "id"       : 927,
+        "name"     : "av_timer",
+        "prevSize" : 32,
+        "code"     : 59733,
+        "ligatures": "av_timer",
+        "tags"     : ["av_timer"]
+    }, {
+        "order"    : 1818,
+        "id"       : 926,
+        "name"     : "backspace",
+        "prevSize" : 32,
+        "code"     : 59734,
+        "ligatures": "backspace",
+        "tags"     : ["backspace"]
+    }, {
+        "order"    : 1819,
+        "id"       : 925,
+        "name"     : "backup",
+        "prevSize" : 32,
+        "code"     : 59735,
+        "ligatures": "backup",
+        "tags"     : ["backup"]
+    }, {
+        "order"    : 1820,
+        "id"       : 924,
+        "name"     : "ballot",
+        "prevSize" : 32,
+        "code"     : 59736,
+        "ligatures": "ballot",
+        "tags"     : ["ballot"]
+    }, {
+        "order"    : 1821,
+        "id"       : 923,
+        "name"     : "bar_chart",
+        "prevSize" : 32,
+        "code"     : 59737,
+        "ligatures": "bar_chart",
+        "tags"     : ["bar_chart"]
+    }, {
+        "order"    : 1822,
+        "id"       : 922,
+        "name"     : "battery_alert",
+        "prevSize" : 32,
+        "code"     : 59738,
+        "ligatures": "battery_alert",
+        "tags"     : ["battery_alert"]
+    }, {
+        "order"    : 1823,
+        "id"       : 921,
+        "name"     : "battery_charging_full",
+        "prevSize" : 32,
+        "code"     : 59739,
+        "ligatures": "battery_charging_full",
+        "tags"     : ["battery_charging_full"]
+    }, {
+        "order"    : 1824,
+        "id"       : 920,
+        "name"     : "battery_full",
+        "prevSize" : 32,
+        "code"     : 59740,
+        "ligatures": "battery_full",
+        "tags"     : ["battery_full"]
+    }, {
+        "order"    : 1825,
+        "id"       : 919,
+        "name"     : "battery_std",
+        "prevSize" : 32,
+        "code"     : 59741,
+        "ligatures": "battery_std",
+        "tags"     : ["battery_std"]
+    }, {
+        "order"    : 1826,
+        "id"       : 918,
+        "name"     : "battery_unknown",
+        "prevSize" : 32,
+        "code"     : 59742,
+        "ligatures": "battery_unknown",
+        "tags"     : ["battery_unknown"]
+    }, {
+        "order"    : 1827,
+        "id"       : 917,
+        "name"     : "beach_access",
+        "prevSize" : 32,
+        "code"     : 59743,
+        "ligatures": "beach_access",
+        "tags"     : ["beach_access"]
+    }, {
+        "order"    : 1828,
+        "id"       : 916,
+        "name"     : "beenhere",
+        "prevSize" : 32,
+        "code"     : 59744,
+        "ligatures": "beenhere",
+        "tags"     : ["beenhere"]
+    }, {
+        "order"    : 1829,
+        "id"       : 915,
+        "name"     : "block",
+        "prevSize" : 32,
+        "code"     : 59745,
+        "ligatures": "block",
+        "tags"     : ["block"]
+    }, {
+        "order"    : 1830,
+        "id"       : 914,
+        "name"     : "bluetooth_audio",
+        "prevSize" : 32,
+        "code"     : 59746,
+        "ligatures": "bluetooth_audio",
+        "tags"     : ["bluetooth_audio"]
+    }, {
+        "order"    : 1831,
+        "id"       : 913,
+        "name"     : "bluetooth_connected",
+        "prevSize" : 32,
+        "code"     : 59747,
+        "ligatures": "bluetooth_connected",
+        "tags"     : ["bluetooth_connected"]
+    }, {
+        "order"    : 1832,
+        "id"       : 912,
+        "name"     : "bluetooth_disabled",
+        "prevSize" : 32,
+        "code"     : 59748,
+        "ligatures": "bluetooth_disabled",
+        "tags"     : ["bluetooth_disabled"]
+    }, {
+        "order"    : 1833,
+        "id"       : 911,
+        "name"     : "bluetooth_searching",
+        "prevSize" : 32,
+        "code"     : 59749,
+        "ligatures": "bluetooth_searching",
+        "tags"     : ["bluetooth_searching"]
+    }, {
+        "order"    : 1834,
+        "id"       : 910,
+        "name"     : "bluetooth",
+        "prevSize" : 32,
+        "code"     : 59750,
+        "ligatures": "bluetooth",
+        "tags"     : ["bluetooth"]
+    }, {
+        "order"    : 1835,
+        "id"       : 909,
+        "name"     : "blur_circular",
+        "prevSize" : 32,
+        "code"     : 59751,
+        "ligatures": "blur_circular",
+        "tags"     : ["blur_circular"]
+    }, {
+        "order"    : 1836,
+        "id"       : 908,
+        "name"     : "blur_linear",
+        "prevSize" : 32,
+        "code"     : 59752,
+        "ligatures": "blur_linear",
+        "tags"     : ["blur_linear"]
+    }, {
+        "order"    : 1837,
+        "id"       : 907,
+        "name"     : "blur_off",
+        "prevSize" : 32,
+        "code"     : 59753,
+        "ligatures": "blur_off",
+        "tags"     : ["blur_off"]
+    }, {
+        "order"    : 1838,
+        "id"       : 906,
+        "name"     : "blur_on",
+        "prevSize" : 32,
+        "code"     : 59754,
+        "ligatures": "blur_on",
+        "tags"     : ["blur_on"]
+    }, {
+        "order"    : 1839,
+        "id"       : 905,
+        "name"     : "book",
+        "prevSize" : 32,
+        "code"     : 59755,
+        "ligatures": "book",
+        "tags"     : ["book"]
+    }, {
+        "order"    : 1840,
+        "id"       : 904,
+        "name"     : "bookmark_border",
+        "prevSize" : 32,
+        "code"     : 59756,
+        "ligatures": "bookmark_border",
+        "tags"     : ["bookmark_border"]
+    }, {
+        "order"    : 1841,
+        "id"       : 903,
+        "name"     : "bookmark",
+        "prevSize" : 32,
+        "code"     : 59757,
+        "ligatures": "bookmark",
+        "tags"     : ["bookmark"]
+    }, {
+        "order"    : 1842,
+        "id"       : 902,
+        "name"     : "bookmarks",
+        "prevSize" : 32,
+        "code"     : 59758,
+        "ligatures": "bookmarks",
+        "tags"     : ["bookmarks"]
+    }, {
+        "order"    : 1843,
+        "id"       : 901,
+        "name"     : "border_all",
+        "prevSize" : 32,
+        "code"     : 59759,
+        "ligatures": "border_all",
+        "tags"     : ["border_all"]
+    }, {
+        "order"    : 1844,
+        "id"       : 900,
+        "name"     : "border_bottom",
+        "prevSize" : 32,
+        "code"     : 59760,
+        "ligatures": "border_bottom",
+        "tags"     : ["border_bottom"]
+    }, {
+        "order"    : 1845,
+        "id"       : 899,
+        "name"     : "border_clear",
+        "prevSize" : 32,
+        "code"     : 59761,
+        "ligatures": "border_clear",
+        "tags"     : ["border_clear"]
+    }, {
+        "order"    : 1846,
+        "id"       : 898,
+        "name"     : "border_horizontal",
+        "prevSize" : 32,
+        "code"     : 59762,
+        "ligatures": "border_horizontal",
+        "tags"     : ["border_horizontal"]
+    }, {
+        "order"    : 1847,
+        "id"       : 897,
+        "name"     : "border_inner",
+        "prevSize" : 32,
+        "code"     : 59763,
+        "ligatures": "border_inner",
+        "tags"     : ["border_inner"]
+    }, {
+        "order"    : 1848,
+        "id"       : 896,
+        "name"     : "border_left",
+        "prevSize" : 32,
+        "code"     : 59764,
+        "ligatures": "border_left",
+        "tags"     : ["border_left"]
+    }, {
+        "order"    : 1849,
+        "id"       : 895,
+        "name"     : "border_outer",
+        "prevSize" : 32,
+        "code"     : 59765,
+        "ligatures": "border_outer",
+        "tags"     : ["border_outer"]
+    }, {
+        "order"    : 1850,
+        "id"       : 894,
+        "name"     : "border_right",
+        "prevSize" : 32,
+        "code"     : 59766,
+        "ligatures": "border_right",
+        "tags"     : ["border_right"]
+    }, {
+        "order"    : 1851,
+        "id"       : 893,
+        "name"     : "border_style",
+        "prevSize" : 32,
+        "code"     : 59767,
+        "ligatures": "border_style",
+        "tags"     : ["border_style"]
+    }, {
+        "order"    : 1852,
+        "id"       : 892,
+        "name"     : "border_top",
+        "prevSize" : 32,
+        "code"     : 59768,
+        "ligatures": "border_top",
+        "tags"     : ["border_top"]
+    }, {
+        "order"    : 1853,
+        "id"       : 891,
+        "name"     : "border_vertical",
+        "prevSize" : 32,
+        "code"     : 59769,
+        "ligatures": "border_vertical",
+        "tags"     : ["border_vertical"]
+    }, {
+        "order"    : 1854,
+        "id"       : 890,
+        "name"     : "branding_watermark",
+        "prevSize" : 32,
+        "code"     : 59770,
+        "ligatures": "branding_watermark",
+        "tags"     : ["branding_watermark"]
+    }, {
+        "order"    : 1855,
+        "id"       : 889,
+        "name"     : "brightness_1",
+        "prevSize" : 32,
+        "code"     : 59771,
+        "ligatures": "brightness_1",
+        "tags"     : ["brightness_1"]
+    }, {
+        "order"    : 1856,
+        "id"       : 888,
+        "name"     : "brightness_2",
+        "prevSize" : 32,
+        "code"     : 59772,
+        "ligatures": "brightness_2",
+        "tags"     : ["brightness_2"]
+    }, {
+        "order"    : 1857,
+        "id"       : 887,
+        "name"     : "brightness_3",
+        "prevSize" : 32,
+        "code"     : 59773,
+        "ligatures": "brightness_3",
+        "tags"     : ["brightness_3"]
+    }, {
+        "order"    : 1858,
+        "id"       : 886,
+        "name"     : "brightness_4",
+        "prevSize" : 32,
+        "code"     : 59774,
+        "ligatures": "brightness_4",
+        "tags"     : ["brightness_4"]
+    }, {
+        "order"    : 1859,
+        "id"       : 885,
+        "name"     : "brightness_5",
+        "prevSize" : 32,
+        "code"     : 59775,
+        "ligatures": "brightness_5",
+        "tags"     : ["brightness_5"]
+    }, {
+        "order"    : 1860,
+        "id"       : 884,
+        "name"     : "brightness_6",
+        "prevSize" : 32,
+        "code"     : 59776,
+        "ligatures": "brightness_6",
+        "tags"     : ["brightness_6"]
+    }, {
+        "order"    : 1861,
+        "id"       : 883,
+        "name"     : "brightness_7",
+        "prevSize" : 32,
+        "code"     : 59777,
+        "ligatures": "brightness_7",
+        "tags"     : ["brightness_7"]
+    }, {
+        "order"    : 1862,
+        "id"       : 882,
+        "name"     : "brightness_auto",
+        "prevSize" : 32,
+        "code"     : 59778,
+        "ligatures": "brightness_auto",
+        "tags"     : ["brightness_auto"]
+    }, {
+        "order"    : 1863,
+        "id"       : 881,
+        "name"     : "brightness_high",
+        "prevSize" : 32,
+        "code"     : 59779,
+        "ligatures": "brightness_high",
+        "tags"     : ["brightness_high"]
+    }, {
+        "order"    : 1864,
+        "id"       : 880,
+        "name"     : "brightness_low",
+        "prevSize" : 32,
+        "code"     : 59780,
+        "ligatures": "brightness_low",
+        "tags"     : ["brightness_low"]
+    }, {
+        "order"    : 1865,
+        "id"       : 879,
+        "name"     : "brightness_medium",
+        "prevSize" : 32,
+        "code"     : 59781,
+        "ligatures": "brightness_medium",
+        "tags"     : ["brightness_medium"]
+    }, {
+        "order"    : 1866,
+        "id"       : 878,
+        "name"     : "broken_image",
+        "prevSize" : 32,
+        "code"     : 59782,
+        "ligatures": "broken_image",
+        "tags"     : ["broken_image"]
+    }, {
+        "order"    : 1867,
+        "id"       : 877,
+        "name"     : "brush",
+        "prevSize" : 32,
+        "code"     : 59783,
+        "ligatures": "brush",
+        "tags"     : ["brush"]
+    }, {
+        "order"    : 1868,
+        "id"       : 876,
+        "name"     : "bubble_chart",
+        "prevSize" : 32,
+        "code"     : 59784,
+        "ligatures": "bubble_chart",
+        "tags"     : ["bubble_chart"]
+    }, {
+        "order"    : 1869,
+        "id"       : 875,
+        "name"     : "bug_report",
+        "prevSize" : 32,
+        "code"     : 59785,
+        "ligatures": "bug_report",
+        "tags"     : ["bug_report"]
+    }, {
+        "order"    : 1870,
+        "id"       : 874,
+        "name"     : "build",
+        "prevSize" : 32,
+        "code"     : 59786,
+        "ligatures": "build",
+        "tags"     : ["build"]
+    }, {
+        "order"    : 1871,
+        "id"       : 873,
+        "name"     : "burst_mode",
+        "prevSize" : 32,
+        "code"     : 59787,
+        "ligatures": "burst_mode",
+        "tags"     : ["burst_mode"]
+    }, {
+        "order"    : 1872,
+        "id"       : 872,
+        "name"     : "business_center",
+        "prevSize" : 32,
+        "code"     : 59788,
+        "ligatures": "business_center",
+        "tags"     : ["business_center"]
+    }, {
+        "order"    : 1873,
+        "id"       : 871,
+        "name"     : "business",
+        "prevSize" : 32,
+        "code"     : 59789,
+        "ligatures": "business",
+        "tags"     : ["business"]
+    }, {
+        "order"    : 1874,
+        "id"       : 870,
+        "name"     : "cached",
+        "prevSize" : 32,
+        "code"     : 59790,
+        "ligatures": "cached",
+        "tags"     : ["cached"]
+    }, {
+        "order"    : 1875,
+        "id"       : 869,
         "name"     : "cake",
-        "group_id" : "social",
-        "keywords" : ["social", "cake"],
-        "ligature" : "cake",
-        "codepoint": "E7E9",
-        "is_new"   : false
+        "prevSize" : 32,
+        "code"     : 59791,
+        "ligatures": "cake",
+        "tags"     : ["cake"]
     }, {
-        "id"       : "ic_domain",
+        "order"    : 1876,
+        "id"       : 868,
+        "name"     : "calendar_today",
+        "prevSize" : 32,
+        "code"     : 59792,
+        "ligatures": "calendar_today",
+        "tags"     : ["calendar_today"]
+    }, {
+        "order"    : 1877,
+        "id"       : 867,
+        "name"     : "calendar_view_day",
+        "prevSize" : 32,
+        "code"     : 59793,
+        "ligatures": "calendar_view_day",
+        "tags"     : ["calendar_view_day"]
+    }, {
+        "order"    : 1878,
+        "id"       : 866,
+        "name"     : "call_end",
+        "prevSize" : 32,
+        "code"     : 59794,
+        "ligatures": "call_end",
+        "tags"     : ["call_end"]
+    }, {
+        "order"    : 1879,
+        "id"       : 865,
+        "name"     : "call_made",
+        "prevSize" : 32,
+        "code"     : 59795,
+        "ligatures": "call_made",
+        "tags"     : ["call_made"]
+    }, {
+        "order"    : 1880,
+        "id"       : 864,
+        "name"     : "call_merge",
+        "prevSize" : 32,
+        "code"     : 59796,
+        "ligatures": "call_merge",
+        "tags"     : ["call_merge"]
+    }, {
+        "order"    : 1881,
+        "id"       : 863,
+        "name"     : "call_missed_outgoing",
+        "prevSize" : 32,
+        "code"     : 59797,
+        "ligatures": "call_missed_outgoing",
+        "tags"     : ["call_missed_outgoing"]
+    }, {
+        "order"    : 1882,
+        "id"       : 862,
+        "name"     : "call_missed",
+        "prevSize" : 32,
+        "code"     : 59798,
+        "ligatures": "call_missed",
+        "tags"     : ["call_missed"]
+    }, {
+        "order"    : 1883,
+        "id"       : 861,
+        "name"     : "call_received",
+        "prevSize" : 32,
+        "code"     : 59799,
+        "ligatures": "call_received",
+        "tags"     : ["call_received"]
+    }, {
+        "order"    : 1884,
+        "id"       : 860,
+        "name"     : "call_split",
+        "prevSize" : 32,
+        "code"     : 59800,
+        "ligatures": "call_split",
+        "tags"     : ["call_split"]
+    }, {
+        "order"    : 1885,
+        "id"       : 859,
+        "name"     : "call_to_action",
+        "prevSize" : 32,
+        "code"     : 59801,
+        "ligatures": "call_to_action",
+        "tags"     : ["call_to_action"]
+    }, {
+        "order"    : 1886,
+        "id"       : 858,
+        "name"     : "call",
+        "prevSize" : 32,
+        "code"     : 59802,
+        "ligatures": "call",
+        "tags"     : ["call"]
+    }, {
+        "order"    : 1887,
+        "id"       : 857,
+        "name"     : "camera_alt",
+        "prevSize" : 32,
+        "code"     : 59803,
+        "ligatures": "camera_alt",
+        "tags"     : ["camera_alt"]
+    }, {
+        "order"    : 1888,
+        "id"       : 856,
+        "name"     : "camera_enhance",
+        "prevSize" : 32,
+        "code"     : 59804,
+        "ligatures": "camera_enhance",
+        "tags"     : ["camera_enhance"]
+    }, {
+        "order"    : 1889,
+        "id"       : 855,
+        "name"     : "camera_front",
+        "prevSize" : 32,
+        "code"     : 59805,
+        "ligatures": "camera_front",
+        "tags"     : ["camera_front"]
+    }, {
+        "order"    : 1890,
+        "id"       : 854,
+        "name"     : "camera_rear",
+        "prevSize" : 32,
+        "code"     : 59806,
+        "ligatures": "camera_rear",
+        "tags"     : ["camera_rear"]
+    }, {
+        "order"    : 1891,
+        "id"       : 853,
+        "name"     : "camera_roll",
+        "prevSize" : 32,
+        "code"     : 59807,
+        "ligatures": "camera_roll",
+        "tags"     : ["camera_roll"]
+    }, {
+        "order"    : 1892,
+        "id"       : 852,
+        "name"     : "camera",
+        "prevSize" : 32,
+        "code"     : 59808,
+        "ligatures": "camera",
+        "tags"     : ["camera"]
+    }, {
+        "order"    : 1893,
+        "id"       : 851,
+        "name"     : "cancel_presentation",
+        "prevSize" : 32,
+        "code"     : 59809,
+        "ligatures": "cancel_presentation",
+        "tags"     : ["cancel_presentation"]
+    }, {
+        "order"    : 1894,
+        "id"       : 850,
+        "name"     : "cancel",
+        "prevSize" : 32,
+        "code"     : 59810,
+        "ligatures": "cancel",
+        "tags"     : ["cancel"]
+    }, {
+        "order"    : 1895,
+        "id"       : 849,
+        "name"     : "card_giftcard",
+        "prevSize" : 32,
+        "code"     : 59811,
+        "ligatures": "card_giftcard",
+        "tags"     : ["card_giftcard"]
+    }, {
+        "order"    : 1896,
+        "id"       : 848,
+        "name"     : "card_membership",
+        "prevSize" : 32,
+        "code"     : 59812,
+        "ligatures": "card_membership",
+        "tags"     : ["card_membership"]
+    }, {
+        "order"    : 1897,
+        "id"       : 847,
+        "name"     : "card_travel",
+        "prevSize" : 32,
+        "code"     : 59813,
+        "ligatures": "card_travel",
+        "tags"     : ["card_travel"]
+    }, {
+        "order"    : 1898,
+        "id"       : 846,
+        "name"     : "casino",
+        "prevSize" : 32,
+        "code"     : 59814,
+        "ligatures": "casino",
+        "tags"     : ["casino"]
+    }, {
+        "order"    : 1899,
+        "id"       : 845,
+        "name"     : "cast_connected",
+        "prevSize" : 32,
+        "code"     : 59815,
+        "ligatures": "cast_connected",
+        "tags"     : ["cast_connected"]
+    }, {
+        "order"    : 1900,
+        "id"       : 844,
+        "name"     : "cast_for_education",
+        "prevSize" : 32,
+        "code"     : 59816,
+        "ligatures": "cast_for_education",
+        "tags"     : ["cast_for_education"]
+    }, {
+        "order"    : 1901,
+        "id"       : 843,
+        "name"     : "cast",
+        "prevSize" : 32,
+        "code"     : 59817,
+        "ligatures": "cast",
+        "tags"     : ["cast"]
+    }, {
+        "order"    : 1902,
+        "id"       : 842,
+        "name"     : "category",
+        "prevSize" : 32,
+        "code"     : 59818,
+        "ligatures": "category",
+        "tags"     : ["category"]
+    }, {
+        "order"    : 1903,
+        "id"       : 841,
+        "name"     : "center_focus_strong",
+        "prevSize" : 32,
+        "code"     : 59819,
+        "ligatures": "center_focus_strong",
+        "tags"     : ["center_focus_strong"]
+    }, {
+        "order"    : 1904,
+        "id"       : 840,
+        "name"     : "center_focus_weak",
+        "prevSize" : 32,
+        "code"     : 59820,
+        "ligatures": "center_focus_weak",
+        "tags"     : ["center_focus_weak"]
+    }, {
+        "order"    : 1905,
+        "id"       : 839,
+        "name"     : "change_history",
+        "prevSize" : 32,
+        "code"     : 59821,
+        "ligatures": "change_history",
+        "tags"     : ["change_history"]
+    }, {
+        "order"    : 1906,
+        "id"       : 838,
+        "name"     : "chat_bubble_outline",
+        "prevSize" : 32,
+        "code"     : 59822,
+        "ligatures": "chat_bubble_outline",
+        "tags"     : ["chat_bubble_outline"]
+    }, {
+        "order"    : 1907,
+        "id"       : 837,
+        "name"     : "chat_bubble",
+        "prevSize" : 32,
+        "code"     : 59823,
+        "ligatures": "chat_bubble",
+        "tags"     : ["chat_bubble"]
+    }, {
+        "order"    : 1908,
+        "id"       : 836,
+        "name"     : "chat",
+        "prevSize" : 32,
+        "code"     : 59824,
+        "ligatures": "chat",
+        "tags"     : ["chat"]
+    }, {
+        "order"    : 1909,
+        "id"       : 835,
+        "name"     : "check_box_outline_blank",
+        "prevSize" : 32,
+        "code"     : 59825,
+        "ligatures": "check_box_outline_blank",
+        "tags"     : ["check_box_outline_blank"]
+    }, {
+        "order"    : 1910,
+        "id"       : 834,
+        "name"     : "check_box",
+        "prevSize" : 32,
+        "code"     : 59826,
+        "ligatures": "check_box",
+        "tags"     : ["check_box"]
+    }, {
+        "order"    : 1911,
+        "id"       : 833,
+        "name"     : "check_circle_outline",
+        "prevSize" : 32,
+        "code"     : 59827,
+        "ligatures": "check_circle_outline",
+        "tags"     : ["check_circle_outline"]
+    }, {
+        "order"    : 1912,
+        "id"       : 832,
+        "name"     : "check_circle",
+        "prevSize" : 32,
+        "code"     : 59828,
+        "ligatures": "check_circle",
+        "tags"     : ["check_circle"]
+    }, {
+        "order"    : 1913,
+        "id"       : 831,
+        "name"     : "check",
+        "prevSize" : 32,
+        "code"     : 59829,
+        "ligatures": "check",
+        "tags"     : ["check"]
+    }, {
+        "order"    : 1914,
+        "id"       : 830,
+        "name"     : "chevron_left",
+        "prevSize" : 32,
+        "code"     : 59830,
+        "ligatures": "chevron_left",
+        "tags"     : ["chevron_left"]
+    }, {
+        "order"    : 1915,
+        "id"       : 829,
+        "name"     : "chevron_right",
+        "prevSize" : 32,
+        "code"     : 59831,
+        "ligatures": "chevron_right",
+        "tags"     : ["chevron_right"]
+    }, {
+        "order"    : 1916,
+        "id"       : 828,
+        "name"     : "child_care",
+        "prevSize" : 32,
+        "code"     : 59832,
+        "ligatures": "child_care",
+        "tags"     : ["child_care"]
+    }, {
+        "order"    : 1917,
+        "id"       : 827,
+        "name"     : "child_friendly",
+        "prevSize" : 32,
+        "code"     : 59833,
+        "ligatures": "child_friendly",
+        "tags"     : ["child_friendly"]
+    }, {
+        "order"    : 1918,
+        "id"       : 826,
+        "name"     : "chrome_reader_mode",
+        "prevSize" : 32,
+        "code"     : 59834,
+        "ligatures": "chrome_reader_mode",
+        "tags"     : ["chrome_reader_mode"]
+    }, {
+        "order"    : 1919,
+        "id"       : 825,
+        "name"     : "class",
+        "prevSize" : 32,
+        "code"     : 59835,
+        "ligatures": "class",
+        "tags"     : ["class"]
+    }, {
+        "order"    : 1920,
+        "id"       : 824,
+        "name"     : "clear_all",
+        "prevSize" : 32,
+        "code"     : 59836,
+        "ligatures": "clear_all",
+        "tags"     : ["clear_all"]
+    }, {
+        "order"    : 1921,
+        "id"       : 823,
+        "name"     : "clear",
+        "prevSize" : 32,
+        "code"     : 59837,
+        "ligatures": "clear",
+        "tags"     : ["clear"]
+    }, {
+        "order"    : 1922,
+        "id"       : 822,
+        "name"     : "close",
+        "prevSize" : 32,
+        "code"     : 59838,
+        "ligatures": "close",
+        "tags"     : ["close"]
+    }, {
+        "order"    : 1923,
+        "id"       : 821,
+        "name"     : "closed_caption",
+        "prevSize" : 32,
+        "code"     : 59839,
+        "ligatures": "closed_caption",
+        "tags"     : ["closed_caption"]
+    }, {
+        "order"    : 1924,
+        "id"       : 820,
+        "name"     : "cloud_circle",
+        "prevSize" : 32,
+        "code"     : 59840,
+        "ligatures": "cloud_circle",
+        "tags"     : ["cloud_circle"]
+    }, {
+        "order"    : 1925,
+        "id"       : 819,
+        "name"     : "cloud_done",
+        "prevSize" : 32,
+        "code"     : 59841,
+        "ligatures": "cloud_done",
+        "tags"     : ["cloud_done"]
+    }, {
+        "order"    : 1926,
+        "id"       : 818,
+        "name"     : "cloud_download",
+        "prevSize" : 32,
+        "code"     : 59842,
+        "ligatures": "cloud_download",
+        "tags"     : ["cloud_download"]
+    }, {
+        "order"    : 1927,
+        "id"       : 817,
+        "name"     : "cloud_off",
+        "prevSize" : 32,
+        "code"     : 59843,
+        "ligatures": "cloud_off",
+        "tags"     : ["cloud_off"]
+    }, {
+        "order"    : 1928,
+        "id"       : 816,
+        "name"     : "cloud_queue",
+        "prevSize" : 32,
+        "code"     : 59844,
+        "ligatures": "cloud_queue",
+        "tags"     : ["cloud_queue"]
+    }, {
+        "order"    : 1929,
+        "id"       : 815,
+        "name"     : "cloud_upload",
+        "prevSize" : 32,
+        "code"     : 59845,
+        "ligatures": "cloud_upload",
+        "tags"     : ["cloud_upload"]
+    }, {
+        "order"    : 1930,
+        "id"       : 814,
+        "name"     : "cloud",
+        "prevSize" : 32,
+        "code"     : 59846,
+        "ligatures": "cloud",
+        "tags"     : ["cloud"]
+    }, {
+        "order"    : 1931,
+        "id"       : 813,
+        "name"     : "code",
+        "prevSize" : 32,
+        "code"     : 59847,
+        "ligatures": "code",
+        "tags"     : ["code"]
+    }, {
+        "order"    : 1932,
+        "id"       : 812,
+        "name"     : "collections_bookmark",
+        "prevSize" : 32,
+        "code"     : 59848,
+        "ligatures": "collections_bookmark",
+        "tags"     : ["collections_bookmark"]
+    }, {
+        "order"    : 1933,
+        "id"       : 811,
+        "name"     : "collections",
+        "prevSize" : 32,
+        "code"     : 59849,
+        "ligatures": "collections",
+        "tags"     : ["collections"]
+    }, {
+        "order"    : 1934,
+        "id"       : 810,
+        "name"     : "color_lens",
+        "prevSize" : 32,
+        "code"     : 59850,
+        "ligatures": "color_lens",
+        "tags"     : ["color_lens"]
+    }, {
+        "order"    : 1935,
+        "id"       : 809,
+        "name"     : "colorize",
+        "prevSize" : 32,
+        "code"     : 59851,
+        "ligatures": "colorize",
+        "tags"     : ["colorize"]
+    }, {
+        "order"    : 1936,
+        "id"       : 808,
+        "name"     : "comment",
+        "prevSize" : 32,
+        "code"     : 59852,
+        "ligatures": "comment",
+        "tags"     : ["comment"]
+    }, {
+        "order"    : 1937,
+        "id"       : 807,
+        "name"     : "commute",
+        "prevSize" : 32,
+        "code"     : 59853,
+        "ligatures": "commute",
+        "tags"     : ["commute"]
+    }, {
+        "order"    : 1938,
+        "id"       : 806,
+        "name"     : "compare_arrows",
+        "prevSize" : 32,
+        "code"     : 59854,
+        "ligatures": "compare_arrows",
+        "tags"     : ["compare_arrows"]
+    }, {
+        "order"    : 1939,
+        "id"       : 805,
+        "name"     : "compare",
+        "prevSize" : 32,
+        "code"     : 59855,
+        "ligatures": "compare",
+        "tags"     : ["compare"]
+    }, {
+        "order"    : 1940,
+        "id"       : 804,
+        "name"     : "compass_calibration",
+        "prevSize" : 32,
+        "code"     : 59856,
+        "ligatures": "compass_calibration",
+        "tags"     : ["compass_calibration"]
+    }, {
+        "order"    : 1941,
+        "id"       : 803,
+        "name"     : "computer",
+        "prevSize" : 32,
+        "code"     : 59857,
+        "ligatures": "computer",
+        "tags"     : ["computer"]
+    }, {
+        "order"    : 1942,
+        "id"       : 802,
+        "name"     : "confirmation_number",
+        "prevSize" : 32,
+        "code"     : 59858,
+        "ligatures": "confirmation_number",
+        "tags"     : ["confirmation_number"]
+    }, {
+        "order"    : 1943,
+        "id"       : 801,
+        "name"     : "contact_mail",
+        "prevSize" : 32,
+        "code"     : 59859,
+        "ligatures": "contact_mail",
+        "tags"     : ["contact_mail"]
+    }, {
+        "order"    : 1944,
+        "id"       : 800,
+        "name"     : "contact_phone",
+        "prevSize" : 32,
+        "code"     : 59860,
+        "ligatures": "contact_phone",
+        "tags"     : ["contact_phone"]
+    }, {
+        "order"    : 1945,
+        "id"       : 799,
+        "name"     : "contact_support",
+        "prevSize" : 32,
+        "code"     : 59861,
+        "ligatures": "contact_support",
+        "tags"     : ["contact_support"]
+    }, {
+        "order"    : 1946,
+        "id"       : 798,
+        "name"     : "contacts",
+        "prevSize" : 32,
+        "code"     : 59862,
+        "ligatures": "contacts",
+        "tags"     : ["contacts"]
+    }, {
+        "order"    : 1947,
+        "id"       : 797,
+        "name"     : "control_camera",
+        "prevSize" : 32,
+        "code"     : 59863,
+        "ligatures": "control_camera",
+        "tags"     : ["control_camera"]
+    }, {
+        "order"    : 1948,
+        "id"       : 796,
+        "name"     : "control_point_duplicate",
+        "prevSize" : 32,
+        "code"     : 59864,
+        "ligatures": "control_point_duplicate",
+        "tags"     : ["control_point_duplicate"]
+    }, {
+        "order"    : 1949,
+        "id"       : 795,
+        "name"     : "control_point",
+        "prevSize" : 32,
+        "code"     : 59865,
+        "ligatures": "control_point",
+        "tags"     : ["control_point"]
+    }, {
+        "order"    : 1950,
+        "id"       : 794,
+        "name"     : "copyright",
+        "prevSize" : 32,
+        "code"     : 59866,
+        "ligatures": "copyright",
+        "tags"     : ["copyright"]
+    }, {
+        "order"    : 1951,
+        "id"       : 793,
+        "name"     : "create_new_folder",
+        "prevSize" : 32,
+        "code"     : 59867,
+        "ligatures": "create_new_folder",
+        "tags"     : ["create_new_folder"]
+    }, {
+        "order"    : 1952,
+        "id"       : 792,
+        "name"     : "create",
+        "prevSize" : 32,
+        "code"     : 59868,
+        "ligatures": "create",
+        "tags"     : ["create"]
+    }, {
+        "order"    : 1953,
+        "id"       : 791,
+        "name"     : "credit_card",
+        "prevSize" : 32,
+        "code"     : 59869,
+        "ligatures": "credit_card",
+        "tags"     : ["credit_card"]
+    }, {
+        "order"    : 1954,
+        "id"       : 790,
+        "name"     : "crop_3_2",
+        "prevSize" : 32,
+        "code"     : 59870,
+        "ligatures": "crop_3_2",
+        "tags"     : ["crop_3_2"]
+    }, {
+        "order"    : 1955,
+        "id"       : 789,
+        "name"     : "crop_5_4",
+        "prevSize" : 32,
+        "code"     : 59871,
+        "ligatures": "crop_5_4",
+        "tags"     : ["crop_5_4"]
+    }, {
+        "order"    : 1956,
+        "id"       : 788,
+        "name"     : "crop_7_5",
+        "prevSize" : 32,
+        "code"     : 59872,
+        "ligatures": "crop_7_5",
+        "tags"     : ["crop_7_5"]
+    }, {
+        "order"    : 1957,
+        "id"       : 787,
+        "name"     : "crop_16_9",
+        "prevSize" : 32,
+        "code"     : 59873,
+        "ligatures": "crop_16_9",
+        "tags"     : ["crop_16_9"]
+    }, {
+        "order"    : 1958,
+        "id"       : 786,
+        "name"     : "crop_din",
+        "prevSize" : 32,
+        "code"     : 59874,
+        "ligatures": "crop_din",
+        "tags"     : ["crop_din"]
+    }, {
+        "order"    : 1959,
+        "id"       : 785,
+        "name"     : "crop_free",
+        "prevSize" : 32,
+        "code"     : 59875,
+        "ligatures": "crop_free",
+        "tags"     : ["crop_free"]
+    }, {
+        "order"    : 1960,
+        "id"       : 784,
+        "name"     : "crop_landscape",
+        "prevSize" : 32,
+        "code"     : 59876,
+        "ligatures": "crop_landscape",
+        "tags"     : ["crop_landscape"]
+    }, {
+        "order"    : 1961,
+        "id"       : 783,
+        "name"     : "crop_original",
+        "prevSize" : 32,
+        "code"     : 59877,
+        "ligatures": "crop_original",
+        "tags"     : ["crop_original"]
+    }, {
+        "order"    : 1962,
+        "id"       : 782,
+        "name"     : "crop_portrait",
+        "prevSize" : 32,
+        "code"     : 59878,
+        "ligatures": "crop_portrait",
+        "tags"     : ["crop_portrait"]
+    }, {
+        "order"    : 1963,
+        "id"       : 781,
+        "name"     : "crop_rotate",
+        "prevSize" : 32,
+        "code"     : 59879,
+        "ligatures": "crop_rotate",
+        "tags"     : ["crop_rotate"]
+    }, {
+        "order"    : 1964,
+        "id"       : 780,
+        "name"     : "crop_square",
+        "prevSize" : 32,
+        "code"     : 59880,
+        "ligatures": "crop_square",
+        "tags"     : ["crop_square"]
+    }, {
+        "order"    : 1965,
+        "id"       : 779,
+        "name"     : "crop",
+        "prevSize" : 32,
+        "code"     : 59881,
+        "ligatures": "crop",
+        "tags"     : ["crop"]
+    }, {
+        "order"    : 1966,
+        "id"       : 778,
+        "name"     : "dashboard",
+        "prevSize" : 32,
+        "code"     : 59882,
+        "ligatures": "dashboard",
+        "tags"     : ["dashboard"]
+    }, {
+        "order"    : 1967,
+        "id"       : 777,
+        "name"     : "data_usage",
+        "prevSize" : 32,
+        "code"     : 59883,
+        "ligatures": "data_usage",
+        "tags"     : ["data_usage"]
+    }, {
+        "order"    : 1968,
+        "id"       : 776,
+        "name"     : "date_range",
+        "prevSize" : 32,
+        "code"     : 59884,
+        "ligatures": "date_range",
+        "tags"     : ["date_range"]
+    }, {
+        "order"    : 1969,
+        "id"       : 775,
+        "name"     : "dehaze",
+        "prevSize" : 32,
+        "code"     : 59885,
+        "ligatures": "dehaze",
+        "tags"     : ["dehaze"]
+    }, {
+        "order"    : 1970,
+        "id"       : 774,
+        "name"     : "delete_forever",
+        "prevSize" : 32,
+        "code"     : 59886,
+        "ligatures": "delete_forever",
+        "tags"     : ["delete_forever"]
+    }, {
+        "order"    : 1971,
+        "id"       : 773,
+        "name"     : "delete_outline",
+        "prevSize" : 32,
+        "code"     : 59887,
+        "ligatures": "delete_outline",
+        "tags"     : ["delete_outline"]
+    }, {
+        "order"    : 1972,
+        "id"       : 772,
+        "name"     : "delete_sweep",
+        "prevSize" : 32,
+        "code"     : 59888,
+        "ligatures": "delete_sweep",
+        "tags"     : ["delete_sweep"]
+    }, {
+        "order"    : 1973,
+        "id"       : 771,
+        "name"     : "delete",
+        "prevSize" : 32,
+        "code"     : 59889,
+        "ligatures": "delete",
+        "tags"     : ["delete"]
+    }, {
+        "order"    : 1974,
+        "id"       : 770,
+        "name"     : "departure_board",
+        "prevSize" : 32,
+        "code"     : 59890,
+        "ligatures": "departure_board",
+        "tags"     : ["departure_board"]
+    }, {
+        "order"    : 1975,
+        "id"       : 769,
+        "name"     : "description",
+        "prevSize" : 32,
+        "code"     : 59891,
+        "ligatures": "description",
+        "tags"     : ["description"]
+    }, {
+        "order"    : 1976,
+        "id"       : 768,
+        "name"     : "desktop_access_disabled",
+        "prevSize" : 32,
+        "code"     : 59892,
+        "ligatures": "desktop_access_disabled",
+        "tags"     : ["desktop_access_disabled"]
+    }, {
+        "order"    : 1977,
+        "id"       : 767,
+        "name"     : "desktop_mac",
+        "prevSize" : 32,
+        "code"     : 59893,
+        "ligatures": "desktop_mac",
+        "tags"     : ["desktop_mac"]
+    }, {
+        "order"    : 1978,
+        "id"       : 766,
+        "name"     : "desktop_windows",
+        "prevSize" : 32,
+        "code"     : 59894,
+        "ligatures": "desktop_windows",
+        "tags"     : ["desktop_windows"]
+    }, {
+        "order"    : 1979,
+        "id"       : 765,
+        "name"     : "details",
+        "prevSize" : 32,
+        "code"     : 59895,
+        "ligatures": "details",
+        "tags"     : ["details"]
+    }, {
+        "order"    : 1980,
+        "id"       : 764,
+        "name"     : "developer_board",
+        "prevSize" : 32,
+        "code"     : 59896,
+        "ligatures": "developer_board",
+        "tags"     : ["developer_board"]
+    }, {
+        "order"    : 1981,
+        "id"       : 763,
+        "name"     : "developer_mode",
+        "prevSize" : 32,
+        "code"     : 59897,
+        "ligatures": "developer_mode",
+        "tags"     : ["developer_mode"]
+    }, {
+        "order"    : 1982,
+        "id"       : 762,
+        "name"     : "device_hub",
+        "prevSize" : 32,
+        "code"     : 59898,
+        "ligatures": "device_hub",
+        "tags"     : ["device_hub"]
+    }, {
+        "order"    : 1983,
+        "id"       : 761,
+        "name"     : "device_unknown",
+        "prevSize" : 32,
+        "code"     : 59899,
+        "ligatures": "device_unknown",
+        "tags"     : ["device_unknown"]
+    }, {
+        "order"    : 1984,
+        "id"       : 760,
+        "name"     : "devices_other",
+        "prevSize" : 32,
+        "code"     : 59900,
+        "ligatures": "devices_other",
+        "tags"     : ["devices_other"]
+    }, {
+        "order"    : 1985,
+        "id"       : 759,
+        "name"     : "devices",
+        "prevSize" : 32,
+        "code"     : 59901,
+        "ligatures": "devices",
+        "tags"     : ["devices"]
+    }, {
+        "order"    : 1986,
+        "id"       : 758,
+        "name"     : "dialer_sip",
+        "prevSize" : 32,
+        "code"     : 59902,
+        "ligatures": "dialer_sip",
+        "tags"     : ["dialer_sip"]
+    }, {
+        "order"    : 1987,
+        "id"       : 757,
+        "name"     : "dialpad",
+        "prevSize" : 32,
+        "code"     : 59903,
+        "ligatures": "dialpad",
+        "tags"     : ["dialpad"]
+    }, {
+        "order"    : 1988,
+        "id"       : 756,
+        "name"     : "directions_bike",
+        "prevSize" : 32,
+        "code"     : 59904,
+        "ligatures": "directions_bike",
+        "tags"     : ["directions_bike"]
+    }, {
+        "order"    : 1989,
+        "id"       : 755,
+        "name"     : "directions_boat",
+        "prevSize" : 32,
+        "code"     : 59905,
+        "ligatures": "directions_boat",
+        "tags"     : ["directions_boat"]
+    }, {
+        "order"    : 1990,
+        "id"       : 754,
+        "name"     : "directions_bus",
+        "prevSize" : 32,
+        "code"     : 59906,
+        "ligatures": "directions_bus",
+        "tags"     : ["directions_bus"]
+    }, {
+        "order"    : 1991,
+        "id"       : 753,
+        "name"     : "directions_car",
+        "prevSize" : 32,
+        "code"     : 59907,
+        "ligatures": "directions_car",
+        "tags"     : ["directions_car"]
+    }, {
+        "order"    : 1992,
+        "id"       : 752,
+        "name"     : "directions_railway",
+        "prevSize" : 32,
+        "code"     : 59908,
+        "ligatures": "directions_railway",
+        "tags"     : ["directions_railway"]
+    }, {
+        "order"    : 1993,
+        "id"       : 751,
+        "name"     : "directions_run",
+        "prevSize" : 32,
+        "code"     : 59909,
+        "ligatures": "directions_run",
+        "tags"     : ["directions_run"]
+    }, {
+        "order"    : 1994,
+        "id"       : 750,
+        "name"     : "directions_subway",
+        "prevSize" : 32,
+        "code"     : 59910,
+        "ligatures": "directions_subway",
+        "tags"     : ["directions_subway"]
+    }, {
+        "order"    : 1995,
+        "id"       : 749,
+        "name"     : "directions_transit",
+        "prevSize" : 32,
+        "code"     : 59911,
+        "ligatures": "directions_transit",
+        "tags"     : ["directions_transit"]
+    }, {
+        "order"    : 1996,
+        "id"       : 748,
+        "name"     : "directions_walk",
+        "prevSize" : 32,
+        "code"     : 59912,
+        "ligatures": "directions_walk",
+        "tags"     : ["directions_walk"]
+    }, {
+        "order"    : 1997,
+        "id"       : 747,
+        "name"     : "directions",
+        "prevSize" : 32,
+        "code"     : 59913,
+        "ligatures": "directions",
+        "tags"     : ["directions"]
+    }, {
+        "order"    : 1998,
+        "id"       : 746,
+        "name"     : "disc_full",
+        "prevSize" : 32,
+        "code"     : 59914,
+        "ligatures": "disc_full",
+        "tags"     : ["disc_full"]
+    }, {
+        "order"    : 1999,
+        "id"       : 745,
+        "name"     : "dns",
+        "prevSize" : 32,
+        "code"     : 59915,
+        "ligatures": "dns",
+        "tags"     : ["dns"]
+    }, {
+        "order"    : 2000,
+        "id"       : 744,
+        "name"     : "dock",
+        "prevSize" : 32,
+        "code"     : 59916,
+        "ligatures": "dock",
+        "tags"     : ["dock"]
+    }, {
+        "order"    : 2001,
+        "id"       : 743,
+        "name"     : "domain_disabled",
+        "prevSize" : 32,
+        "code"     : 59917,
+        "ligatures": "domain_disabled",
+        "tags"     : ["domain_disabled"]
+    }, {
+        "order"    : 2002,
+        "id"       : 742,
         "name"     : "domain",
-        "group_id" : "social",
-        "keywords" : ["social", "domain"],
-        "ligature" : "domain",
-        "codepoint": "E7EE",
-        "is_new"   : false
+        "prevSize" : 32,
+        "code"     : 59918,
+        "ligatures": "domain",
+        "tags"     : ["domain"]
     }, {
-        "id"       : "ic_group",
+        "order"    : 2003,
+        "id"       : 741,
+        "name"     : "done_all",
+        "prevSize" : 32,
+        "code"     : 59919,
+        "ligatures": "done_all",
+        "tags"     : ["done_all"]
+    }, {
+        "order"    : 2004,
+        "id"       : 740,
+        "name"     : "done_outline",
+        "prevSize" : 32,
+        "code"     : 59920,
+        "ligatures": "done_outline",
+        "tags"     : ["done_outline"]
+    }, {
+        "order"    : 2005,
+        "id"       : 739,
+        "name"     : "done",
+        "prevSize" : 32,
+        "code"     : 59921,
+        "ligatures": "done",
+        "tags"     : ["done"]
+    }, {
+        "order"    : 2006,
+        "id"       : 738,
+        "name"     : "donut_large",
+        "prevSize" : 32,
+        "code"     : 59922,
+        "ligatures": "donut_large",
+        "tags"     : ["donut_large"]
+    }, {
+        "order"    : 2007,
+        "id"       : 737,
+        "name"     : "donut_small",
+        "prevSize" : 32,
+        "code"     : 59923,
+        "ligatures": "donut_small",
+        "tags"     : ["donut_small"]
+    }, {
+        "order"    : 2008,
+        "id"       : 736,
+        "name"     : "drafts",
+        "prevSize" : 32,
+        "code"     : 59924,
+        "ligatures": "drafts",
+        "tags"     : ["drafts"]
+    }, {
+        "order"    : 2009,
+        "id"       : 735,
+        "name"     : "drag_handle",
+        "prevSize" : 32,
+        "code"     : 59925,
+        "ligatures": "drag_handle",
+        "tags"     : ["drag_handle"]
+    }, {
+        "order"    : 2010,
+        "id"       : 734,
+        "name"     : "drag_indicator",
+        "prevSize" : 32,
+        "code"     : 59926,
+        "ligatures": "drag_indicator",
+        "tags"     : ["drag_indicator"]
+    }, {
+        "order"    : 2011,
+        "id"       : 733,
+        "name"     : "drive_eta",
+        "prevSize" : 32,
+        "code"     : 59927,
+        "ligatures": "drive_eta",
+        "tags"     : ["drive_eta"]
+    }, {
+        "order"    : 2012,
+        "id"       : 732,
+        "name"     : "duo",
+        "prevSize" : 32,
+        "code"     : 59928,
+        "ligatures": "duo",
+        "tags"     : ["duo"]
+    }, {
+        "order"    : 2013,
+        "id"       : 731,
+        "name"     : "dvr",
+        "prevSize" : 32,
+        "code"     : 59929,
+        "ligatures": "dvr",
+        "tags"     : ["dvr"]
+    }, {
+        "order"    : 2014,
+        "id"       : 730,
+        "name"     : "edit_attributes",
+        "prevSize" : 32,
+        "code"     : 59930,
+        "ligatures": "edit_attributes",
+        "tags"     : ["edit_attributes"]
+    }, {
+        "order"    : 2015,
+        "id"       : 729,
+        "name"     : "edit_location",
+        "prevSize" : 32,
+        "code"     : 59931,
+        "ligatures": "edit_location",
+        "tags"     : ["edit_location"]
+    }, {
+        "order"    : 2016,
+        "id"       : 728,
+        "name"     : "edit",
+        "prevSize" : 32,
+        "code"     : 59932,
+        "ligatures": "edit",
+        "tags"     : ["edit"]
+    }, {
+        "order"    : 2017,
+        "id"       : 727,
+        "name"     : "eject",
+        "prevSize" : 32,
+        "code"     : 59933,
+        "ligatures": "eject",
+        "tags"     : ["eject"]
+    }, {
+        "order"    : 2018,
+        "id"       : 726,
+        "name"     : "email",
+        "prevSize" : 32,
+        "code"     : 59934,
+        "ligatures": "email",
+        "tags"     : ["email"]
+    }, {
+        "order"    : 2019,
+        "id"       : 725,
+        "name"     : "enhanced_encryption",
+        "prevSize" : 32,
+        "code"     : 59935,
+        "ligatures": "enhanced_encryption",
+        "tags"     : ["enhanced_encryption"]
+    }, {
+        "order"    : 2020,
+        "id"       : 724,
+        "name"     : "equalizer",
+        "prevSize" : 32,
+        "code"     : 59936,
+        "ligatures": "equalizer",
+        "tags"     : ["equalizer"]
+    }, {
+        "order"    : 2021,
+        "id"       : 723,
+        "name"     : "error_outline",
+        "prevSize" : 32,
+        "code"     : 59937,
+        "ligatures": "error_outline",
+        "tags"     : ["error_outline"]
+    }, {
+        "order"    : 2022,
+        "id"       : 722,
+        "name"     : "error",
+        "prevSize" : 32,
+        "code"     : 59938,
+        "ligatures": "error",
+        "tags"     : ["error"]
+    }, {
+        "order"    : 2023,
+        "id"       : 721,
+        "name"     : "euro_symbol",
+        "prevSize" : 32,
+        "code"     : 59939,
+        "ligatures": "euro_symbol",
+        "tags"     : ["euro_symbol"]
+    }, {
+        "order"    : 2024,
+        "id"       : 720,
+        "name"     : "ev_station",
+        "prevSize" : 32,
+        "code"     : 59940,
+        "ligatures": "ev_station",
+        "tags"     : ["ev_station"]
+    }, {
+        "order"    : 2025,
+        "id"       : 719,
+        "name"     : "event_available",
+        "prevSize" : 32,
+        "code"     : 59941,
+        "ligatures": "event_available",
+        "tags"     : ["event_available"]
+    }, {
+        "order"    : 2026,
+        "id"       : 718,
+        "name"     : "event_busy",
+        "prevSize" : 32,
+        "code"     : 59942,
+        "ligatures": "event_busy",
+        "tags"     : ["event_busy"]
+    }, {
+        "order"    : 2027,
+        "id"       : 717,
+        "name"     : "event_note",
+        "prevSize" : 32,
+        "code"     : 59943,
+        "ligatures": "event_note",
+        "tags"     : ["event_note"]
+    }, {
+        "order"    : 2028,
+        "id"       : 716,
+        "name"     : "event_seat",
+        "prevSize" : 32,
+        "code"     : 59944,
+        "ligatures": "event_seat",
+        "tags"     : ["event_seat"]
+    }, {
+        "order"    : 2029,
+        "id"       : 715,
+        "name"     : "event",
+        "prevSize" : 32,
+        "code"     : 59945,
+        "ligatures": "event",
+        "tags"     : ["event"]
+    }, {
+        "order"    : 2030,
+        "id"       : 714,
+        "name"     : "exit_to_app",
+        "prevSize" : 32,
+        "code"     : 59946,
+        "ligatures": "exit_to_app",
+        "tags"     : ["exit_to_app"]
+    }, {
+        "order"    : 2031,
+        "id"       : 713,
+        "name"     : "expand_less",
+        "prevSize" : 32,
+        "code"     : 59947,
+        "ligatures": "expand_less",
+        "tags"     : ["expand_less"]
+    }, {
+        "order"    : 2032,
+        "id"       : 712,
+        "name"     : "expand_more",
+        "prevSize" : 32,
+        "code"     : 59948,
+        "ligatures": "expand_more",
+        "tags"     : ["expand_more"]
+    }, {
+        "order"    : 2033,
+        "id"       : 711,
+        "name"     : "explicit",
+        "prevSize" : 32,
+        "code"     : 59949,
+        "ligatures": "explicit",
+        "tags"     : ["explicit"]
+    }, {
+        "order"    : 2034,
+        "id"       : 710,
+        "name"     : "explore_off",
+        "prevSize" : 32,
+        "code"     : 59950,
+        "ligatures": "explore_off",
+        "tags"     : ["explore_off"]
+    }, {
+        "order"    : 2035,
+        "id"       : 709,
+        "name"     : "explore",
+        "prevSize" : 32,
+        "code"     : 59951,
+        "ligatures": "explore",
+        "tags"     : ["explore"]
+    }, {
+        "order"    : 2036,
+        "id"       : 708,
+        "name"     : "exposure_neg_1",
+        "prevSize" : 32,
+        "code"     : 59952,
+        "ligatures": "exposure_neg_1",
+        "tags"     : ["exposure_neg_1"]
+    }, {
+        "order"    : 2037,
+        "id"       : 707,
+        "name"     : "exposure_neg_2",
+        "prevSize" : 32,
+        "code"     : 59953,
+        "ligatures": "exposure_neg_2",
+        "tags"     : ["exposure_neg_2"]
+    }, {
+        "order"    : 2038,
+        "id"       : 706,
+        "name"     : "exposure_plus_1",
+        "prevSize" : 32,
+        "code"     : 59954,
+        "ligatures": "exposure_plus_1",
+        "tags"     : ["exposure_plus_1"]
+    }, {
+        "order"    : 2039,
+        "id"       : 705,
+        "name"     : "exposure_plus_2",
+        "prevSize" : 32,
+        "code"     : 59955,
+        "ligatures": "exposure_plus_2",
+        "tags"     : ["exposure_plus_2"]
+    }, {
+        "order"    : 2040,
+        "id"       : 704,
+        "name"     : "exposure_zero",
+        "prevSize" : 32,
+        "code"     : 59956,
+        "ligatures": "exposure_zero",
+        "tags"     : ["exposure_zero"]
+    }, {
+        "order"    : 2041,
+        "id"       : 703,
+        "name"     : "exposure",
+        "prevSize" : 32,
+        "code"     : 59957,
+        "ligatures": "exposure",
+        "tags"     : ["exposure"]
+    }, {
+        "order"    : 2042,
+        "id"       : 702,
+        "name"     : "extension",
+        "prevSize" : 32,
+        "code"     : 59958,
+        "ligatures": "extension",
+        "tags"     : ["extension"]
+    }, {
+        "order"    : 2043,
+        "id"       : 701,
+        "name"     : "face",
+        "prevSize" : 32,
+        "code"     : 59959,
+        "ligatures": "face",
+        "tags"     : ["face"]
+    }, {
+        "order"    : 2044,
+        "id"       : 700,
+        "name"     : "fast_forward",
+        "prevSize" : 32,
+        "code"     : 59960,
+        "ligatures": "fast_forward",
+        "tags"     : ["fast_forward"]
+    }, {
+        "order"    : 2045,
+        "id"       : 699,
+        "name"     : "fast_rewind",
+        "prevSize" : 32,
+        "code"     : 59961,
+        "ligatures": "fast_rewind",
+        "tags"     : ["fast_rewind"]
+    }, {
+        "order"    : 2046,
+        "id"       : 698,
+        "name"     : "fastfood",
+        "prevSize" : 32,
+        "code"     : 59962,
+        "ligatures": "fastfood",
+        "tags"     : ["fastfood"]
+    }, {
+        "order"    : 2047,
+        "id"       : 697,
+        "name"     : "favorite_border",
+        "prevSize" : 32,
+        "code"     : 59963,
+        "ligatures": "favorite_border",
+        "tags"     : ["favorite_border"]
+    }, {
+        "order"    : 2048,
+        "id"       : 696,
+        "name"     : "favorite",
+        "prevSize" : 32,
+        "code"     : 59964,
+        "ligatures": "favorite",
+        "tags"     : ["favorite"]
+    }, {
+        "order"    : 2049,
+        "id"       : 695,
+        "name"     : "featured_play_list",
+        "prevSize" : 32,
+        "code"     : 59965,
+        "ligatures": "featured_play_list",
+        "tags"     : ["featured_play_list"]
+    }, {
+        "order"    : 2050,
+        "id"       : 694,
+        "name"     : "featured_video",
+        "prevSize" : 32,
+        "code"     : 59966,
+        "ligatures": "featured_video",
+        "tags"     : ["featured_video"]
+    }, {
+        "order"    : 2051,
+        "id"       : 693,
+        "name"     : "feedback",
+        "prevSize" : 32,
+        "code"     : 59967,
+        "ligatures": "feedback",
+        "tags"     : ["feedback"]
+    }, {
+        "order"    : 2052,
+        "id"       : 692,
+        "name"     : "fiber_dvr",
+        "prevSize" : 32,
+        "code"     : 59968,
+        "ligatures": "fiber_dvr",
+        "tags"     : ["fiber_dvr"]
+    }, {
+        "order"    : 2053,
+        "id"       : 691,
+        "name"     : "fiber_manual_record",
+        "prevSize" : 32,
+        "code"     : 59969,
+        "ligatures": "fiber_manual_record",
+        "tags"     : ["fiber_manual_record"]
+    }, {
+        "order"    : 2054,
+        "id"       : 690,
+        "name"     : "fiber_new",
+        "prevSize" : 32,
+        "code"     : 59970,
+        "ligatures": "fiber_new",
+        "tags"     : ["fiber_new"]
+    }, {
+        "order"    : 2055,
+        "id"       : 689,
+        "name"     : "fiber_pin",
+        "prevSize" : 32,
+        "code"     : 59971,
+        "ligatures": "fiber_pin",
+        "tags"     : ["fiber_pin"]
+    }, {
+        "order"    : 2056,
+        "id"       : 688,
+        "name"     : "fiber_smart_record",
+        "prevSize" : 32,
+        "code"     : 59972,
+        "ligatures": "fiber_smart_record",
+        "tags"     : ["fiber_smart_record"]
+    }, {
+        "order"    : 2057,
+        "id"       : 687,
+        "name"     : "file_copy",
+        "prevSize" : 32,
+        "code"     : 59973,
+        "ligatures": "file_copy",
+        "tags"     : ["file_copy"]
+    }, {
+        "order"    : 2058,
+        "id"       : 686,
+        "name"     : "filter_1",
+        "prevSize" : 32,
+        "code"     : 59974,
+        "ligatures": "filter_1",
+        "tags"     : ["filter_1"]
+    }, {
+        "order"    : 2059,
+        "id"       : 685,
+        "name"     : "filter_2",
+        "prevSize" : 32,
+        "code"     : 59975,
+        "ligatures": "filter_2",
+        "tags"     : ["filter_2"]
+    }, {
+        "order"    : 2060,
+        "id"       : 684,
+        "name"     : "filter_3",
+        "prevSize" : 32,
+        "code"     : 59976,
+        "ligatures": "filter_3",
+        "tags"     : ["filter_3"]
+    }, {
+        "order"    : 2061,
+        "id"       : 683,
+        "name"     : "filter_4",
+        "prevSize" : 32,
+        "code"     : 59977,
+        "ligatures": "filter_4",
+        "tags"     : ["filter_4"]
+    }, {
+        "order"    : 2062,
+        "id"       : 682,
+        "name"     : "filter_5",
+        "prevSize" : 32,
+        "code"     : 59978,
+        "ligatures": "filter_5",
+        "tags"     : ["filter_5"]
+    }, {
+        "order"    : 2063,
+        "id"       : 681,
+        "name"     : "filter_6",
+        "prevSize" : 32,
+        "code"     : 59979,
+        "ligatures": "filter_6",
+        "tags"     : ["filter_6"]
+    }, {
+        "order"    : 2064,
+        "id"       : 680,
+        "name"     : "filter_7",
+        "prevSize" : 32,
+        "code"     : 59980,
+        "ligatures": "filter_7",
+        "tags"     : ["filter_7"]
+    }, {
+        "order"    : 2065,
+        "id"       : 679,
+        "name"     : "filter_8",
+        "prevSize" : 32,
+        "code"     : 59981,
+        "ligatures": "filter_8",
+        "tags"     : ["filter_8"]
+    }, {
+        "order"    : 2066,
+        "id"       : 678,
+        "name"     : "filter_9_plus",
+        "prevSize" : 32,
+        "code"     : 59982,
+        "ligatures": "filter_9_plus",
+        "tags"     : ["filter_9_plus"]
+    }, {
+        "order"    : 2067,
+        "id"       : 677,
+        "name"     : "filter_9",
+        "prevSize" : 32,
+        "code"     : 59983,
+        "ligatures": "filter_9",
+        "tags"     : ["filter_9"]
+    }, {
+        "order"    : 2068,
+        "id"       : 676,
+        "name"     : "filter_b_and_w",
+        "prevSize" : 32,
+        "code"     : 59984,
+        "ligatures": "filter_b_and_w",
+        "tags"     : ["filter_b_and_w"]
+    }, {
+        "order"    : 2069,
+        "id"       : 675,
+        "name"     : "filter_center_focus",
+        "prevSize" : 32,
+        "code"     : 59985,
+        "ligatures": "filter_center_focus",
+        "tags"     : ["filter_center_focus"]
+    }, {
+        "order"    : 2070,
+        "id"       : 674,
+        "name"     : "filter_drama",
+        "prevSize" : 32,
+        "code"     : 59986,
+        "ligatures": "filter_drama",
+        "tags"     : ["filter_drama"]
+    }, {
+        "order"    : 2071,
+        "id"       : 673,
+        "name"     : "filter_frames",
+        "prevSize" : 32,
+        "code"     : 59987,
+        "ligatures": "filter_frames",
+        "tags"     : ["filter_frames"]
+    }, {
+        "order"    : 2072,
+        "id"       : 672,
+        "name"     : "filter_hdr",
+        "prevSize" : 32,
+        "code"     : 59988,
+        "ligatures": "filter_hdr",
+        "tags"     : ["filter_hdr"]
+    }, {
+        "order"    : 2073,
+        "id"       : 671,
+        "name"     : "filter_list",
+        "prevSize" : 32,
+        "code"     : 59989,
+        "ligatures": "filter_list",
+        "tags"     : ["filter_list"]
+    }, {
+        "order"    : 2074,
+        "id"       : 670,
+        "name"     : "filter_none",
+        "prevSize" : 32,
+        "code"     : 59990,
+        "ligatures": "filter_none",
+        "tags"     : ["filter_none"]
+    }, {
+        "order"    : 2075,
+        "id"       : 669,
+        "name"     : "filter_tilt_shift",
+        "prevSize" : 32,
+        "code"     : 59991,
+        "ligatures": "filter_tilt_shift",
+        "tags"     : ["filter_tilt_shift"]
+    }, {
+        "order"    : 2076,
+        "id"       : 668,
+        "name"     : "filter_vintage",
+        "prevSize" : 32,
+        "code"     : 59992,
+        "ligatures": "filter_vintage",
+        "tags"     : ["filter_vintage"]
+    }, {
+        "order"    : 2077,
+        "id"       : 667,
+        "name"     : "filter",
+        "prevSize" : 32,
+        "code"     : 59993,
+        "ligatures": "filter",
+        "tags"     : ["filter"]
+    }, {
+        "order"    : 2078,
+        "id"       : 666,
+        "name"     : "find_in_page",
+        "prevSize" : 32,
+        "code"     : 59994,
+        "ligatures": "find_in_page",
+        "tags"     : ["find_in_page"]
+    }, {
+        "order"    : 2079,
+        "id"       : 665,
+        "name"     : "find_replace",
+        "prevSize" : 32,
+        "code"     : 59995,
+        "ligatures": "find_replace",
+        "tags"     : ["find_replace"]
+    }, {
+        "order"    : 2080,
+        "id"       : 664,
+        "name"     : "fingerprint",
+        "prevSize" : 32,
+        "code"     : 59996,
+        "ligatures": "fingerprint",
+        "tags"     : ["fingerprint"]
+    }, {
+        "order"    : 2081,
+        "id"       : 663,
+        "name"     : "first_page",
+        "prevSize" : 32,
+        "code"     : 59997,
+        "ligatures": "first_page",
+        "tags"     : ["first_page"]
+    }, {
+        "order"    : 2082,
+        "id"       : 662,
+        "name"     : "fitness_center",
+        "prevSize" : 32,
+        "code"     : 59998,
+        "ligatures": "fitness_center",
+        "tags"     : ["fitness_center"]
+    }, {
+        "order"    : 2083,
+        "id"       : 661,
+        "name"     : "flag",
+        "prevSize" : 32,
+        "code"     : 59999,
+        "ligatures": "flag",
+        "tags"     : ["flag"]
+    }, {
+        "order"    : 2084,
+        "id"       : 660,
+        "name"     : "flare",
+        "prevSize" : 32,
+        "code"     : 60000,
+        "ligatures": "flare",
+        "tags"     : ["flare"]
+    }, {
+        "order"    : 2085,
+        "id"       : 659,
+        "name"     : "flash_auto",
+        "prevSize" : 32,
+        "code"     : 60001,
+        "ligatures": "flash_auto",
+        "tags"     : ["flash_auto"]
+    }, {
+        "order"    : 2086,
+        "id"       : 658,
+        "name"     : "flash_off",
+        "prevSize" : 32,
+        "code"     : 60002,
+        "ligatures": "flash_off",
+        "tags"     : ["flash_off"]
+    }, {
+        "order"    : 2087,
+        "id"       : 657,
+        "name"     : "flash_on",
+        "prevSize" : 32,
+        "code"     : 60003,
+        "ligatures": "flash_on",
+        "tags"     : ["flash_on"]
+    }, {
+        "order"    : 2088,
+        "id"       : 656,
+        "name"     : "flight_land",
+        "prevSize" : 32,
+        "code"     : 60004,
+        "ligatures": "flight_land",
+        "tags"     : ["flight_land"]
+    }, {
+        "order"    : 2089,
+        "id"       : 655,
+        "name"     : "flight_takeoff",
+        "prevSize" : 32,
+        "code"     : 60005,
+        "ligatures": "flight_takeoff",
+        "tags"     : ["flight_takeoff"]
+    }, {
+        "order"    : 2090,
+        "id"       : 654,
+        "name"     : "flight",
+        "prevSize" : 32,
+        "code"     : 60006,
+        "ligatures": "flight",
+        "tags"     : ["flight"]
+    }, {
+        "order"    : 2091,
+        "id"       : 653,
+        "name"     : "flip_to_back",
+        "prevSize" : 32,
+        "code"     : 60007,
+        "ligatures": "flip_to_back",
+        "tags"     : ["flip_to_back"]
+    }, {
+        "order"    : 2092,
+        "id"       : 652,
+        "name"     : "flip_to_front",
+        "prevSize" : 32,
+        "code"     : 60008,
+        "ligatures": "flip_to_front",
+        "tags"     : ["flip_to_front"]
+    }, {
+        "order"    : 2093,
+        "id"       : 651,
+        "name"     : "flip",
+        "prevSize" : 32,
+        "code"     : 60009,
+        "ligatures": "flip",
+        "tags"     : ["flip"]
+    }, {
+        "order"    : 2094,
+        "id"       : 650,
+        "name"     : "folder_open",
+        "prevSize" : 32,
+        "code"     : 60010,
+        "ligatures": "folder_open",
+        "tags"     : ["folder_open"]
+    }, {
+        "order"    : 2095,
+        "id"       : 649,
+        "name"     : "folder_shared",
+        "prevSize" : 32,
+        "code"     : 60011,
+        "ligatures": "folder_shared",
+        "tags"     : ["folder_shared"]
+    }, {
+        "order"    : 2096,
+        "id"       : 648,
+        "name"     : "folder_special",
+        "prevSize" : 32,
+        "code"     : 60012,
+        "ligatures": "folder_special",
+        "tags"     : ["folder_special"]
+    }, {
+        "order"    : 2097,
+        "id"       : 647,
+        "name"     : "folder",
+        "prevSize" : 32,
+        "code"     : 60013,
+        "ligatures": "folder",
+        "tags"     : ["folder"]
+    }, {
+        "order"    : 2098,
+        "id"       : 646,
+        "name"     : "font_download",
+        "prevSize" : 32,
+        "code"     : 60014,
+        "ligatures": "font_download",
+        "tags"     : ["font_download"]
+    }, {
+        "order"    : 2099,
+        "id"       : 645,
+        "name"     : "format_align_center",
+        "prevSize" : 32,
+        "code"     : 60015,
+        "ligatures": "format_align_center",
+        "tags"     : ["format_align_center"]
+    }, {
+        "order"    : 2100,
+        "id"       : 644,
+        "name"     : "format_align_justify",
+        "prevSize" : 32,
+        "code"     : 60016,
+        "ligatures": "format_align_justify",
+        "tags"     : ["format_align_justify"]
+    }, {
+        "order"    : 2101,
+        "id"       : 643,
+        "name"     : "format_align_left",
+        "prevSize" : 32,
+        "code"     : 60017,
+        "ligatures": "format_align_left",
+        "tags"     : ["format_align_left"]
+    }, {
+        "order"    : 2102,
+        "id"       : 642,
+        "name"     : "format_align_right",
+        "prevSize" : 32,
+        "code"     : 60018,
+        "ligatures": "format_align_right",
+        "tags"     : ["format_align_right"]
+    }, {
+        "order"    : 2103,
+        "id"       : 641,
+        "name"     : "format_bold",
+        "prevSize" : 32,
+        "code"     : 60019,
+        "ligatures": "format_bold",
+        "tags"     : ["format_bold"]
+    }, {
+        "order"    : 2104,
+        "id"       : 640,
+        "name"     : "format_clear",
+        "prevSize" : 32,
+        "code"     : 60020,
+        "ligatures": "format_clear",
+        "tags"     : ["format_clear"]
+    }, {
+        "order"    : 2105,
+        "id"       : 639,
+        "name"     : "format_color_reset",
+        "prevSize" : 32,
+        "code"     : 60021,
+        "ligatures": "format_color_reset",
+        "tags"     : ["format_color_reset"]
+    }, {
+        "order"    : 2106,
+        "id"       : 638,
+        "name"     : "format_indent_decrease",
+        "prevSize" : 32,
+        "code"     : 60022,
+        "ligatures": "format_indent_decrease",
+        "tags"     : ["format_indent_decrease"]
+    }, {
+        "order"    : 2107,
+        "id"       : 637,
+        "name"     : "format_indent_increase",
+        "prevSize" : 32,
+        "code"     : 60023,
+        "ligatures": "format_indent_increase",
+        "tags"     : ["format_indent_increase"]
+    }, {
+        "order"    : 2108,
+        "id"       : 636,
+        "name"     : "format_italic",
+        "prevSize" : 32,
+        "code"     : 60024,
+        "ligatures": "format_italic",
+        "tags"     : ["format_italic"]
+    }, {
+        "order"    : 2109,
+        "id"       : 635,
+        "name"     : "format_line_spacing",
+        "prevSize" : 32,
+        "code"     : 60025,
+        "ligatures": "format_line_spacing",
+        "tags"     : ["format_line_spacing"]
+    }, {
+        "order"    : 2110,
+        "id"       : 634,
+        "name"     : "format_list_bulleted",
+        "prevSize" : 32,
+        "code"     : 60026,
+        "ligatures": "format_list_bulleted",
+        "tags"     : ["format_list_bulleted"]
+    }, {
+        "order"    : 2111,
+        "id"       : 633,
+        "name"     : "format_list_numbered_rtl",
+        "prevSize" : 32,
+        "code"     : 60027,
+        "ligatures": "format_list_numbered_rtl",
+        "tags"     : ["format_list_numbered_rtl"]
+    }, {
+        "order"    : 2112,
+        "id"       : 632,
+        "name"     : "format_list_numbered",
+        "prevSize" : 32,
+        "code"     : 60028,
+        "ligatures": "format_list_numbered",
+        "tags"     : ["format_list_numbered"]
+    }, {
+        "order"    : 2113,
+        "id"       : 631,
+        "name"     : "format_paint",
+        "prevSize" : 32,
+        "code"     : 60029,
+        "ligatures": "format_paint",
+        "tags"     : ["format_paint"]
+    }, {
+        "order"    : 2114,
+        "id"       : 630,
+        "name"     : "format_quote",
+        "prevSize" : 32,
+        "code"     : 60030,
+        "ligatures": "format_quote",
+        "tags"     : ["format_quote"]
+    }, {
+        "order"    : 2115,
+        "id"       : 629,
+        "name"     : "format_shapes",
+        "prevSize" : 32,
+        "code"     : 60031,
+        "ligatures": "format_shapes",
+        "tags"     : ["format_shapes"]
+    }, {
+        "order"    : 2116,
+        "id"       : 628,
+        "name"     : "format_size",
+        "prevSize" : 32,
+        "code"     : 60032,
+        "ligatures": "format_size",
+        "tags"     : ["format_size"]
+    }, {
+        "order"    : 2117,
+        "id"       : 627,
+        "name"     : "format_strikethrough",
+        "prevSize" : 32,
+        "code"     : 60033,
+        "ligatures": "format_strikethrough",
+        "tags"     : ["format_strikethrough"]
+    }, {
+        "order"    : 2118,
+        "id"       : 626,
+        "name"     : "format_textdirection_l_to_r",
+        "prevSize" : 32,
+        "code"     : 60034,
+        "ligatures": "format_textdirection_l_to_r",
+        "tags"     : ["format_textdirection_l_to_r"]
+    }, {
+        "order"    : 2119,
+        "id"       : 625,
+        "name"     : "format_textdirection_r_to_l",
+        "prevSize" : 32,
+        "code"     : 60035,
+        "ligatures": "format_textdirection_r_to_l",
+        "tags"     : ["format_textdirection_r_to_l"]
+    }, {
+        "order"    : 2120,
+        "id"       : 624,
+        "name"     : "format_underlined",
+        "prevSize" : 32,
+        "code"     : 60036,
+        "ligatures": "format_underlined",
+        "tags"     : ["format_underlined"]
+    }, {
+        "order"    : 2121,
+        "id"       : 623,
+        "name"     : "forum",
+        "prevSize" : 32,
+        "code"     : 60037,
+        "ligatures": "forum",
+        "tags"     : ["forum"]
+    }, {
+        "order"    : 2122,
+        "id"       : 622,
+        "name"     : "forward_5",
+        "prevSize" : 32,
+        "code"     : 60038,
+        "ligatures": "forward_5",
+        "tags"     : ["forward_5"]
+    }, {
+        "order"    : 2123,
+        "id"       : 621,
+        "name"     : "forward_10",
+        "prevSize" : 32,
+        "code"     : 60039,
+        "ligatures": "forward_10",
+        "tags"     : ["forward_10"]
+    }, {
+        "order"    : 2124,
+        "id"       : 620,
+        "name"     : "forward_30",
+        "prevSize" : 32,
+        "code"     : 60040,
+        "ligatures": "forward_30",
+        "tags"     : ["forward_30"]
+    }, {
+        "order"    : 2125,
+        "id"       : 619,
+        "name"     : "forward",
+        "prevSize" : 32,
+        "code"     : 60041,
+        "ligatures": "forward",
+        "tags"     : ["forward"]
+    }, {
+        "order"    : 2126,
+        "id"       : 618,
+        "name"     : "free_breakfast",
+        "prevSize" : 32,
+        "code"     : 60042,
+        "ligatures": "free_breakfast",
+        "tags"     : ["free_breakfast"]
+    }, {
+        "order"    : 2127,
+        "id"       : 617,
+        "name"     : "fullscreen_exit",
+        "prevSize" : 32,
+        "code"     : 60043,
+        "ligatures": "fullscreen_exit",
+        "tags"     : ["fullscreen_exit"]
+    }, {
+        "order"    : 2128,
+        "id"       : 616,
+        "name"     : "fullscreen",
+        "prevSize" : 32,
+        "code"     : 60044,
+        "ligatures": "fullscreen",
+        "tags"     : ["fullscreen"]
+    }, {
+        "order"    : 2129,
+        "id"       : 615,
+        "name"     : "functions",
+        "prevSize" : 32,
+        "code"     : 60045,
+        "ligatures": "functions",
+        "tags"     : ["functions"]
+    }, {
+        "order"    : 2130,
+        "id"       : 614,
+        "name"     : "g_translate",
+        "prevSize" : 32,
+        "code"     : 60046,
+        "ligatures": "g_translate",
+        "tags"     : ["g_translate"]
+    }, {
+        "order"    : 2131,
+        "id"       : 613,
+        "name"     : "gamepad",
+        "prevSize" : 32,
+        "code"     : 60047,
+        "ligatures": "gamepad",
+        "tags"     : ["gamepad"]
+    }, {
+        "order"    : 2132,
+        "id"       : 612,
+        "name"     : "games",
+        "prevSize" : 32,
+        "code"     : 60048,
+        "ligatures": "games",
+        "tags"     : ["games"]
+    }, {
+        "order"    : 2133,
+        "id"       : 611,
+        "name"     : "gavel",
+        "prevSize" : 32,
+        "code"     : 60049,
+        "ligatures": "gavel",
+        "tags"     : ["gavel"]
+    }, {
+        "order"    : 2134,
+        "id"       : 610,
+        "name"     : "gesture",
+        "prevSize" : 32,
+        "code"     : 60050,
+        "ligatures": "gesture",
+        "tags"     : ["gesture"]
+    }, {
+        "order"    : 2135,
+        "id"       : 609,
+        "name"     : "get_app",
+        "prevSize" : 32,
+        "code"     : 60051,
+        "ligatures": "get_app",
+        "tags"     : ["get_app"]
+    }, {
+        "order"    : 2136,
+        "id"       : 608,
+        "name"     : "gif",
+        "prevSize" : 32,
+        "code"     : 60052,
+        "ligatures": "gif",
+        "tags"     : ["gif"]
+    }, {
+        "order"    : 2137,
+        "id"       : 607,
+        "name"     : "golf_course",
+        "prevSize" : 32,
+        "code"     : 60053,
+        "ligatures": "golf_course",
+        "tags"     : ["golf_course"]
+    }, {
+        "order"    : 2138,
+        "id"       : 606,
+        "name"     : "gps_fixed",
+        "prevSize" : 32,
+        "code"     : 60054,
+        "ligatures": "gps_fixed",
+        "tags"     : ["gps_fixed"]
+    }, {
+        "order"    : 2139,
+        "id"       : 605,
+        "name"     : "gps_not_fixed",
+        "prevSize" : 32,
+        "code"     : 60055,
+        "ligatures": "gps_not_fixed",
+        "tags"     : ["gps_not_fixed"]
+    }, {
+        "order"    : 2140,
+        "id"       : 604,
+        "name"     : "gps_off",
+        "prevSize" : 32,
+        "code"     : 60056,
+        "ligatures": "gps_off",
+        "tags"     : ["gps_off"]
+    }, {
+        "order"    : 2141,
+        "id"       : 603,
+        "name"     : "grade",
+        "prevSize" : 32,
+        "code"     : 60057,
+        "ligatures": "grade",
+        "tags"     : ["grade"]
+    }, {
+        "order"    : 2142,
+        "id"       : 602,
+        "name"     : "gradient",
+        "prevSize" : 32,
+        "code"     : 60058,
+        "ligatures": "gradient",
+        "tags"     : ["gradient"]
+    }, {
+        "order"    : 2143,
+        "id"       : 601,
+        "name"     : "grain",
+        "prevSize" : 32,
+        "code"     : 60059,
+        "ligatures": "grain",
+        "tags"     : ["grain"]
+    }, {
+        "order"    : 2144,
+        "id"       : 600,
+        "name"     : "graphic_eq",
+        "prevSize" : 32,
+        "code"     : 60060,
+        "ligatures": "graphic_eq",
+        "tags"     : ["graphic_eq"]
+    }, {
+        "order"    : 2145,
+        "id"       : 599,
+        "name"     : "grid_off",
+        "prevSize" : 32,
+        "code"     : 60061,
+        "ligatures": "grid_off",
+        "tags"     : ["grid_off"]
+    }, {
+        "order"    : 2146,
+        "id"       : 598,
+        "name"     : "grid_on",
+        "prevSize" : 32,
+        "code"     : 60062,
+        "ligatures": "grid_on",
+        "tags"     : ["grid_on"]
+    }, {
+        "order"    : 2147,
+        "id"       : 597,
+        "name"     : "group_add",
+        "prevSize" : 32,
+        "code"     : 60063,
+        "ligatures": "group_add",
+        "tags"     : ["group_add"]
+    }, {
+        "order"    : 2148,
+        "id"       : 596,
+        "name"     : "group_work",
+        "prevSize" : 32,
+        "code"     : 60064,
+        "ligatures": "group_work",
+        "tags"     : ["group_work"]
+    }, {
+        "order"    : 2149,
+        "id"       : 595,
         "name"     : "group",
-        "group_id" : "social",
-        "keywords" : ["social", "group"],
-        "ligature" : "group",
-        "codepoint": "E7EF",
-        "is_new"   : false
+        "prevSize" : 32,
+        "code"     : 60065,
+        "ligatures": "group",
+        "tags"     : ["group"]
     }, {
-        "id"       : "ic_group_add",
-        "name"     : "group add",
-        "group_id" : "social",
-        "keywords" : ["social", "group", "add"],
-        "ligature" : "group_add",
-        "codepoint": "E7F0",
-        "is_new"   : false
+        "order"    : 2150,
+        "id"       : 594,
+        "name"     : "hd",
+        "prevSize" : 32,
+        "code"     : 60066,
+        "ligatures": "hd",
+        "tags"     : ["hd"]
     }, {
-        "id"       : "ic_location_city",
-        "name"     : "location city",
-        "group_id" : "social",
-        "keywords" : ["social", "location", "city"],
-        "ligature" : "location_city",
-        "codepoint": "E7F1",
-        "is_new"   : false
+        "order"    : 2151,
+        "id"       : 593,
+        "name"     : "hdr_off",
+        "prevSize" : 32,
+        "code"     : 60067,
+        "ligatures": "hdr_off",
+        "tags"     : ["hdr_off"]
     }, {
-        "id"       : "ic_mood",
+        "order"    : 2152,
+        "id"       : 592,
+        "name"     : "hdr_on",
+        "prevSize" : 32,
+        "code"     : 60068,
+        "ligatures": "hdr_on",
+        "tags"     : ["hdr_on"]
+    }, {
+        "order"    : 2153,
+        "id"       : 591,
+        "name"     : "hdr_strong",
+        "prevSize" : 32,
+        "code"     : 60069,
+        "ligatures": "hdr_strong",
+        "tags"     : ["hdr_strong"]
+    }, {
+        "order"    : 2154,
+        "id"       : 590,
+        "name"     : "hdr_weak",
+        "prevSize" : 32,
+        "code"     : 60070,
+        "ligatures": "hdr_weak",
+        "tags"     : ["hdr_weak"]
+    }, {
+        "order"    : 2155,
+        "id"       : 589,
+        "name"     : "headset_mic",
+        "prevSize" : 32,
+        "code"     : 60071,
+        "ligatures": "headset_mic",
+        "tags"     : ["headset_mic"]
+    }, {
+        "order"    : 2156,
+        "id"       : 588,
+        "name"     : "headset",
+        "prevSize" : 32,
+        "code"     : 60072,
+        "ligatures": "headset",
+        "tags"     : ["headset"]
+    }, {
+        "order"    : 2157,
+        "id"       : 587,
+        "name"     : "healing",
+        "prevSize" : 32,
+        "code"     : 60073,
+        "ligatures": "healing",
+        "tags"     : ["healing"]
+    }, {
+        "order"    : 2158,
+        "id"       : 586,
+        "name"     : "hearing",
+        "prevSize" : 32,
+        "code"     : 60074,
+        "ligatures": "hearing",
+        "tags"     : ["hearing"]
+    }, {
+        "order"    : 2159,
+        "id"       : 585,
+        "name"     : "help_outline",
+        "prevSize" : 32,
+        "code"     : 60075,
+        "ligatures": "help_outline",
+        "tags"     : ["help_outline"]
+    }, {
+        "order"    : 2160,
+        "id"       : 584,
+        "name"     : "help",
+        "prevSize" : 32,
+        "code"     : 60076,
+        "ligatures": "help",
+        "tags"     : ["help"]
+    }, {
+        "order"    : 2161,
+        "id"       : 583,
+        "name"     : "high_quality",
+        "prevSize" : 32,
+        "code"     : 60077,
+        "ligatures": "high_quality",
+        "tags"     : ["high_quality"]
+    }, {
+        "order"    : 2162,
+        "id"       : 582,
+        "name"     : "highlight_off",
+        "prevSize" : 32,
+        "code"     : 60078,
+        "ligatures": "highlight_off",
+        "tags"     : ["highlight_off"]
+    }, {
+        "order"    : 2163,
+        "id"       : 581,
+        "name"     : "highlight",
+        "prevSize" : 32,
+        "code"     : 60079,
+        "ligatures": "highlight",
+        "tags"     : ["highlight"]
+    }, {
+        "order"    : 2164,
+        "id"       : 580,
+        "name"     : "history",
+        "prevSize" : 32,
+        "code"     : 60080,
+        "ligatures": "history",
+        "tags"     : ["history"]
+    }, {
+        "order"    : 2165,
+        "id"       : 579,
+        "name"     : "home",
+        "prevSize" : 32,
+        "code"     : 60081,
+        "ligatures": "home",
+        "tags"     : ["home"]
+    }, {
+        "order"    : 2166,
+        "id"       : 578,
+        "name"     : "horizontal_split",
+        "prevSize" : 32,
+        "code"     : 60082,
+        "ligatures": "horizontal_split",
+        "tags"     : ["horizontal_split"]
+    }, {
+        "order"    : 2167,
+        "id"       : 577,
+        "name"     : "hot_tub",
+        "prevSize" : 32,
+        "code"     : 60083,
+        "ligatures": "hot_tub",
+        "tags"     : ["hot_tub"]
+    }, {
+        "order"    : 2168,
+        "id"       : 576,
+        "name"     : "hotel",
+        "prevSize" : 32,
+        "code"     : 60084,
+        "ligatures": "hotel",
+        "tags"     : ["hotel"]
+    }, {
+        "order"    : 2169,
+        "id"       : 575,
+        "name"     : "hourglass_empty",
+        "prevSize" : 32,
+        "code"     : 60085,
+        "ligatures": "hourglass_empty",
+        "tags"     : ["hourglass_empty"]
+    }, {
+        "order"    : 2170,
+        "id"       : 574,
+        "name"     : "hourglass_full",
+        "prevSize" : 32,
+        "code"     : 60086,
+        "ligatures": "hourglass_full",
+        "tags"     : ["hourglass_full"]
+    }, {
+        "order"    : 2171,
+        "id"       : 573,
+        "name"     : "how_to_reg",
+        "prevSize" : 32,
+        "code"     : 60087,
+        "ligatures": "how_to_reg",
+        "tags"     : ["how_to_reg"]
+    }, {
+        "order"    : 2172,
+        "id"       : 572,
+        "name"     : "how_to_vote",
+        "prevSize" : 32,
+        "code"     : 60088,
+        "ligatures": "how_to_vote",
+        "tags"     : ["how_to_vote"]
+    }, {
+        "order"    : 2173,
+        "id"       : 571,
+        "name"     : "http",
+        "prevSize" : 32,
+        "code"     : 60089,
+        "ligatures": "http",
+        "tags"     : ["http"]
+    }, {
+        "order"    : 2174,
+        "id"       : 570,
+        "name"     : "https",
+        "prevSize" : 32,
+        "code"     : 60090,
+        "ligatures": "https",
+        "tags"     : ["https"]
+    }, {
+        "order"    : 2175,
+        "id"       : 569,
+        "name"     : "image_aspect_ratio",
+        "prevSize" : 32,
+        "code"     : 60091,
+        "ligatures": "image_aspect_ratio",
+        "tags"     : ["image_aspect_ratio"]
+    }, {
+        "order"    : 2176,
+        "id"       : 568,
+        "name"     : "image_search",
+        "prevSize" : 32,
+        "code"     : 60092,
+        "ligatures": "image_search",
+        "tags"     : ["image_search"]
+    }, {
+        "order"    : 2177,
+        "id"       : 567,
+        "name"     : "image",
+        "prevSize" : 32,
+        "code"     : 60093,
+        "ligatures": "image",
+        "tags"     : ["image"]
+    }, {
+        "order"    : 2178,
+        "id"       : 566,
+        "name"     : "import_contacts",
+        "prevSize" : 32,
+        "code"     : 60094,
+        "ligatures": "import_contacts",
+        "tags"     : ["import_contacts"]
+    }, {
+        "order"    : 2179,
+        "id"       : 565,
+        "name"     : "import_export",
+        "prevSize" : 32,
+        "code"     : 60095,
+        "ligatures": "import_export",
+        "tags"     : ["import_export"]
+    }, {
+        "order"    : 2180,
+        "id"       : 564,
+        "name"     : "important_devices",
+        "prevSize" : 32,
+        "code"     : 60096,
+        "ligatures": "important_devices",
+        "tags"     : ["important_devices"]
+    }, {
+        "order"    : 2181,
+        "id"       : 563,
+        "name"     : "inbox",
+        "prevSize" : 32,
+        "code"     : 60097,
+        "ligatures": "inbox",
+        "tags"     : ["inbox"]
+    }, {
+        "order"    : 2182,
+        "id"       : 562,
+        "name"     : "indeterminate_check_box",
+        "prevSize" : 32,
+        "code"     : 60098,
+        "ligatures": "indeterminate_check_box",
+        "tags"     : ["indeterminate_check_box"]
+    }, {
+        "order"    : 2183,
+        "id"       : 561,
+        "name"     : "info",
+        "prevSize" : 32,
+        "code"     : 60099,
+        "ligatures": "info",
+        "tags"     : ["info"]
+    }, {
+        "order"    : 2184,
+        "id"       : 560,
+        "name"     : "input",
+        "prevSize" : 32,
+        "code"     : 60100,
+        "ligatures": "input",
+        "tags"     : ["input"]
+    }, {
+        "order"    : 2185,
+        "id"       : 559,
+        "name"     : "insert_chart_outlined",
+        "prevSize" : 32,
+        "code"     : 60101,
+        "ligatures": "insert_chart_outlined",
+        "tags"     : ["insert_chart_outlined"]
+    }, {
+        "order"    : 2186,
+        "id"       : 558,
+        "name"     : "insert_chart",
+        "prevSize" : 32,
+        "code"     : 60102,
+        "ligatures": "insert_chart",
+        "tags"     : ["insert_chart"]
+    }, {
+        "order"    : 2187,
+        "id"       : 557,
+        "name"     : "insert_comment",
+        "prevSize" : 32,
+        "code"     : 60103,
+        "ligatures": "insert_comment",
+        "tags"     : ["insert_comment"]
+    }, {
+        "order"    : 2188,
+        "id"       : 556,
+        "name"     : "insert_drive_file",
+        "prevSize" : 32,
+        "code"     : 60104,
+        "ligatures": "insert_drive_file",
+        "tags"     : ["insert_drive_file"]
+    }, {
+        "order"    : 2189,
+        "id"       : 555,
+        "name"     : "insert_emoticon",
+        "prevSize" : 32,
+        "code"     : 60105,
+        "ligatures": "insert_emoticon",
+        "tags"     : ["insert_emoticon"]
+    }, {
+        "order"    : 2190,
+        "id"       : 554,
+        "name"     : "insert_invitation",
+        "prevSize" : 32,
+        "code"     : 60106,
+        "ligatures": "insert_invitation",
+        "tags"     : ["insert_invitation"]
+    }, {
+        "order"    : 2191,
+        "id"       : 553,
+        "name"     : "insert_link",
+        "prevSize" : 32,
+        "code"     : 60107,
+        "ligatures": "insert_link",
+        "tags"     : ["insert_link"]
+    }, {
+        "order"    : 2192,
+        "id"       : 552,
+        "name"     : "insert_photo",
+        "prevSize" : 32,
+        "code"     : 60108,
+        "ligatures": "insert_photo",
+        "tags"     : ["insert_photo"]
+    }, {
+        "order"    : 2193,
+        "id"       : 551,
+        "name"     : "invert_colors_off",
+        "prevSize" : 32,
+        "code"     : 60109,
+        "ligatures": "invert_colors_off",
+        "tags"     : ["invert_colors_off"]
+    }, {
+        "order"    : 2194,
+        "id"       : 550,
+        "name"     : "invert_colors",
+        "prevSize" : 32,
+        "code"     : 60110,
+        "ligatures": "invert_colors",
+        "tags"     : ["invert_colors"]
+    }, {
+        "order"    : 2195,
+        "id"       : 549,
+        "name"     : "iso",
+        "prevSize" : 32,
+        "code"     : 60111,
+        "ligatures": "iso",
+        "tags"     : ["iso"]
+    }, {
+        "order"    : 2196,
+        "id"       : 548,
+        "name"     : "keyboard_arrow_down",
+        "prevSize" : 32,
+        "code"     : 60112,
+        "ligatures": "keyboard_arrow_down",
+        "tags"     : ["keyboard_arrow_down"]
+    }, {
+        "order"    : 2197,
+        "id"       : 547,
+        "name"     : "keyboard_arrow_left",
+        "prevSize" : 32,
+        "code"     : 60113,
+        "ligatures": "keyboard_arrow_left",
+        "tags"     : ["keyboard_arrow_left"]
+    }, {
+        "order"    : 2198,
+        "id"       : 546,
+        "name"     : "keyboard_arrow_right",
+        "prevSize" : 32,
+        "code"     : 60114,
+        "ligatures": "keyboard_arrow_right",
+        "tags"     : ["keyboard_arrow_right"]
+    }, {
+        "order"    : 2199,
+        "id"       : 545,
+        "name"     : "keyboard_arrow_up",
+        "prevSize" : 32,
+        "code"     : 60115,
+        "ligatures": "keyboard_arrow_up",
+        "tags"     : ["keyboard_arrow_up"]
+    }, {
+        "order"    : 2200,
+        "id"       : 544,
+        "name"     : "keyboard_backspace",
+        "prevSize" : 32,
+        "code"     : 60116,
+        "ligatures": "keyboard_backspace",
+        "tags"     : ["keyboard_backspace"]
+    }, {
+        "order"    : 2201,
+        "id"       : 543,
+        "name"     : "keyboard_capslock",
+        "prevSize" : 32,
+        "code"     : 60117,
+        "ligatures": "keyboard_capslock",
+        "tags"     : ["keyboard_capslock"]
+    }, {
+        "order"    : 2202,
+        "id"       : 542,
+        "name"     : "keyboard_hide",
+        "prevSize" : 32,
+        "code"     : 60118,
+        "ligatures": "keyboard_hide",
+        "tags"     : ["keyboard_hide"]
+    }, {
+        "order"    : 2203,
+        "id"       : 541,
+        "name"     : "keyboard_return",
+        "prevSize" : 32,
+        "code"     : 60119,
+        "ligatures": "keyboard_return",
+        "tags"     : ["keyboard_return"]
+    }, {
+        "order"    : 2204,
+        "id"       : 540,
+        "name"     : "keyboard_tab",
+        "prevSize" : 32,
+        "code"     : 60120,
+        "ligatures": "keyboard_tab",
+        "tags"     : ["keyboard_tab"]
+    }, {
+        "order"    : 2205,
+        "id"       : 539,
+        "name"     : "keyboard_voice",
+        "prevSize" : 32,
+        "code"     : 60121,
+        "ligatures": "keyboard_voice",
+        "tags"     : ["keyboard_voice"]
+    }, {
+        "order"    : 2206,
+        "id"       : 538,
+        "name"     : "keyboard",
+        "prevSize" : 32,
+        "code"     : 60122,
+        "ligatures": "keyboard",
+        "tags"     : ["keyboard"]
+    }, {
+        "order"    : 2207,
+        "id"       : 537,
+        "name"     : "kitchen",
+        "prevSize" : 32,
+        "code"     : 60123,
+        "ligatures": "kitchen",
+        "tags"     : ["kitchen"]
+    }, {
+        "order"    : 2208,
+        "id"       : 536,
+        "name"     : "label_important",
+        "prevSize" : 32,
+        "code"     : 60124,
+        "ligatures": "label_important",
+        "tags"     : ["label_important"]
+    }, {
+        "order"    : 2209,
+        "id"       : 535,
+        "name"     : "label_off",
+        "prevSize" : 32,
+        "code"     : 60125,
+        "ligatures": "label_off",
+        "tags"     : ["label_off"]
+    }, {
+        "order"    : 2210,
+        "id"       : 534,
+        "name"     : "label",
+        "prevSize" : 32,
+        "code"     : 60126,
+        "ligatures": "label",
+        "tags"     : ["label"]
+    }, {
+        "order"    : 2211,
+        "id"       : 533,
+        "name"     : "landscape",
+        "prevSize" : 32,
+        "code"     : 60127,
+        "ligatures": "landscape",
+        "tags"     : ["landscape"]
+    }, {
+        "order"    : 2212,
+        "id"       : 532,
+        "name"     : "language",
+        "prevSize" : 32,
+        "code"     : 60128,
+        "ligatures": "language",
+        "tags"     : ["language"]
+    }, {
+        "order"    : 2213,
+        "id"       : 531,
+        "name"     : "laptop_chromebook",
+        "prevSize" : 32,
+        "code"     : 60129,
+        "ligatures": "laptop_chromebook",
+        "tags"     : ["laptop_chromebook"]
+    }, {
+        "order"    : 2214,
+        "id"       : 530,
+        "name"     : "laptop_mac",
+        "prevSize" : 32,
+        "code"     : 60130,
+        "ligatures": "laptop_mac",
+        "tags"     : ["laptop_mac"]
+    }, {
+        "order"    : 2215,
+        "id"       : 529,
+        "name"     : "laptop_windows",
+        "prevSize" : 32,
+        "code"     : 60131,
+        "ligatures": "laptop_windows",
+        "tags"     : ["laptop_windows"]
+    }, {
+        "order"    : 2216,
+        "id"       : 528,
+        "name"     : "laptop",
+        "prevSize" : 32,
+        "code"     : 60132,
+        "ligatures": "laptop",
+        "tags"     : ["laptop"]
+    }, {
+        "order"    : 2217,
+        "id"       : 527,
+        "name"     : "last_page",
+        "prevSize" : 32,
+        "code"     : 60133,
+        "ligatures": "last_page",
+        "tags"     : ["last_page"]
+    }, {
+        "order"    : 2218,
+        "id"       : 526,
+        "name"     : "launch",
+        "prevSize" : 32,
+        "code"     : 60134,
+        "ligatures": "launch",
+        "tags"     : ["launch"]
+    }, {
+        "order"    : 2219,
+        "id"       : 525,
+        "name"     : "layers_clear",
+        "prevSize" : 32,
+        "code"     : 60135,
+        "ligatures": "layers_clear",
+        "tags"     : ["layers_clear"]
+    }, {
+        "order"    : 2220,
+        "id"       : 524,
+        "name"     : "layers",
+        "prevSize" : 32,
+        "code"     : 60136,
+        "ligatures": "layers",
+        "tags"     : ["layers"]
+    }, {
+        "order"    : 2221,
+        "id"       : 523,
+        "name"     : "leak_add",
+        "prevSize" : 32,
+        "code"     : 60137,
+        "ligatures": "leak_add",
+        "tags"     : ["leak_add"]
+    }, {
+        "order"    : 2222,
+        "id"       : 522,
+        "name"     : "leak_remove",
+        "prevSize" : 32,
+        "code"     : 60138,
+        "ligatures": "leak_remove",
+        "tags"     : ["leak_remove"]
+    }, {
+        "order"    : 2223,
+        "id"       : 521,
+        "name"     : "lens",
+        "prevSize" : 32,
+        "code"     : 60139,
+        "ligatures": "lens",
+        "tags"     : ["lens"]
+    }, {
+        "order"    : 2224,
+        "id"       : 520,
+        "name"     : "library_add",
+        "prevSize" : 32,
+        "code"     : 60140,
+        "ligatures": "library_add",
+        "tags"     : ["library_add"]
+    }, {
+        "order"    : 2225,
+        "id"       : 519,
+        "name"     : "library_books",
+        "prevSize" : 32,
+        "code"     : 60141,
+        "ligatures": "library_books",
+        "tags"     : ["library_books"]
+    }, {
+        "order"    : 2226,
+        "id"       : 518,
+        "name"     : "library_music",
+        "prevSize" : 32,
+        "code"     : 60142,
+        "ligatures": "library_music",
+        "tags"     : ["library_music"]
+    }, {
+        "order"    : 2227,
+        "id"       : 517,
+        "name"     : "line_style",
+        "prevSize" : 32,
+        "code"     : 60143,
+        "ligatures": "line_style",
+        "tags"     : ["line_style"]
+    }, {
+        "order"    : 2228,
+        "id"       : 516,
+        "name"     : "line_weight",
+        "prevSize" : 32,
+        "code"     : 60144,
+        "ligatures": "line_weight",
+        "tags"     : ["line_weight"]
+    }, {
+        "order"    : 2229,
+        "id"       : 515,
+        "name"     : "linear_scale",
+        "prevSize" : 32,
+        "code"     : 60145,
+        "ligatures": "linear_scale",
+        "tags"     : ["linear_scale"]
+    }, {
+        "order"    : 2230,
+        "id"       : 514,
+        "name"     : "link_off",
+        "prevSize" : 32,
+        "code"     : 60146,
+        "ligatures": "link_off",
+        "tags"     : ["link_off"]
+    }, {
+        "order"    : 2231,
+        "id"       : 513,
+        "name"     : "link",
+        "prevSize" : 32,
+        "code"     : 60147,
+        "ligatures": "link",
+        "tags"     : ["link"]
+    }, {
+        "order"    : 2232,
+        "id"       : 512,
+        "name"     : "linked_camera",
+        "prevSize" : 32,
+        "code"     : 60148,
+        "ligatures": "linked_camera",
+        "tags"     : ["linked_camera"]
+    }, {
+        "order"    : 2233,
+        "id"       : 511,
+        "name"     : "list_alt",
+        "prevSize" : 32,
+        "code"     : 60149,
+        "ligatures": "list_alt",
+        "tags"     : ["list_alt"]
+    }, {
+        "order"    : 2234,
+        "id"       : 510,
+        "name"     : "list",
+        "prevSize" : 32,
+        "code"     : 60150,
+        "ligatures": "list",
+        "tags"     : ["list"]
+    }, {
+        "order"    : 2235,
+        "id"       : 509,
+        "name"     : "live_help",
+        "prevSize" : 32,
+        "code"     : 60151,
+        "ligatures": "live_help",
+        "tags"     : ["live_help"]
+    }, {
+        "order"    : 2236,
+        "id"       : 508,
+        "name"     : "live_tv",
+        "prevSize" : 32,
+        "code"     : 60152,
+        "ligatures": "live_tv",
+        "tags"     : ["live_tv"]
+    }, {
+        "order"    : 2237,
+        "id"       : 507,
+        "name"     : "local_activity",
+        "prevSize" : 32,
+        "code"     : 60153,
+        "ligatures": "local_activity",
+        "tags"     : ["local_activity"]
+    }, {
+        "order"    : 2238,
+        "id"       : 506,
+        "name"     : "local_airport",
+        "prevSize" : 32,
+        "code"     : 60154,
+        "ligatures": "local_airport",
+        "tags"     : ["local_airport"]
+    }, {
+        "order"    : 2239,
+        "id"       : 505,
+        "name"     : "local_atm",
+        "prevSize" : 32,
+        "code"     : 60155,
+        "ligatures": "local_atm",
+        "tags"     : ["local_atm"]
+    }, {
+        "order"    : 2240,
+        "id"       : 504,
+        "name"     : "local_bar",
+        "prevSize" : 32,
+        "code"     : 60156,
+        "ligatures": "local_bar",
+        "tags"     : ["local_bar"]
+    }, {
+        "order"    : 2241,
+        "id"       : 503,
+        "name"     : "local_cafe",
+        "prevSize" : 32,
+        "code"     : 60157,
+        "ligatures": "local_cafe",
+        "tags"     : ["local_cafe"]
+    }, {
+        "order"    : 2242,
+        "id"       : 502,
+        "name"     : "local_car_wash",
+        "prevSize" : 32,
+        "code"     : 60158,
+        "ligatures": "local_car_wash",
+        "tags"     : ["local_car_wash"]
+    }, {
+        "order"    : 2243,
+        "id"       : 501,
+        "name"     : "local_convenience_store",
+        "prevSize" : 32,
+        "code"     : 60159,
+        "ligatures": "local_convenience_store",
+        "tags"     : ["local_convenience_store"]
+    }, {
+        "order"    : 2244,
+        "id"       : 500,
+        "name"     : "local_dining",
+        "prevSize" : 32,
+        "code"     : 60160,
+        "ligatures": "local_dining",
+        "tags"     : ["local_dining"]
+    }, {
+        "order"    : 2245,
+        "id"       : 499,
+        "name"     : "local_drink",
+        "prevSize" : 32,
+        "code"     : 60161,
+        "ligatures": "local_drink",
+        "tags"     : ["local_drink"]
+    }, {
+        "order"    : 2246,
+        "id"       : 498,
+        "name"     : "local_florist",
+        "prevSize" : 32,
+        "code"     : 60162,
+        "ligatures": "local_florist",
+        "tags"     : ["local_florist"]
+    }, {
+        "order"    : 2247,
+        "id"       : 497,
+        "name"     : "local_gas_station",
+        "prevSize" : 32,
+        "code"     : 60163,
+        "ligatures": "local_gas_station",
+        "tags"     : ["local_gas_station"]
+    }, {
+        "order"    : 2248,
+        "id"       : 496,
+        "name"     : "local_grocery_store",
+        "prevSize" : 32,
+        "code"     : 60164,
+        "ligatures": "local_grocery_store",
+        "tags"     : ["local_grocery_store"]
+    }, {
+        "order"    : 2249,
+        "id"       : 495,
+        "name"     : "local_hospital",
+        "prevSize" : 32,
+        "code"     : 60165,
+        "ligatures": "local_hospital",
+        "tags"     : ["local_hospital"]
+    }, {
+        "order"    : 2250,
+        "id"       : 494,
+        "name"     : "local_hotel",
+        "prevSize" : 32,
+        "code"     : 60166,
+        "ligatures": "local_hotel",
+        "tags"     : ["local_hotel"]
+    }, {
+        "order"    : 2251,
+        "id"       : 493,
+        "name"     : "local_laundry_service",
+        "prevSize" : 32,
+        "code"     : 60167,
+        "ligatures": "local_laundry_service",
+        "tags"     : ["local_laundry_service"]
+    }, {
+        "order"    : 2252,
+        "id"       : 492,
+        "name"     : "local_library",
+        "prevSize" : 32,
+        "code"     : 60168,
+        "ligatures": "local_library",
+        "tags"     : ["local_library"]
+    }, {
+        "order"    : 2253,
+        "id"       : 491,
+        "name"     : "local_mall",
+        "prevSize" : 32,
+        "code"     : 60169,
+        "ligatures": "local_mall",
+        "tags"     : ["local_mall"]
+    }, {
+        "order"    : 2254,
+        "id"       : 490,
+        "name"     : "local_movies",
+        "prevSize" : 32,
+        "code"     : 60170,
+        "ligatures": "local_movies",
+        "tags"     : ["local_movies"]
+    }, {
+        "order"    : 2255,
+        "id"       : 489,
+        "name"     : "local_offer",
+        "prevSize" : 32,
+        "code"     : 60171,
+        "ligatures": "local_offer",
+        "tags"     : ["local_offer"]
+    }, {
+        "order"    : 2256,
+        "id"       : 488,
+        "name"     : "local_parking",
+        "prevSize" : 32,
+        "code"     : 60172,
+        "ligatures": "local_parking",
+        "tags"     : ["local_parking"]
+    }, {
+        "order"    : 2257,
+        "id"       : 487,
+        "name"     : "local_pharmacy",
+        "prevSize" : 32,
+        "code"     : 60173,
+        "ligatures": "local_pharmacy",
+        "tags"     : ["local_pharmacy"]
+    }, {
+        "order"    : 2258,
+        "id"       : 486,
+        "name"     : "local_phone",
+        "prevSize" : 32,
+        "code"     : 60174,
+        "ligatures": "local_phone",
+        "tags"     : ["local_phone"]
+    }, {
+        "order"    : 2259,
+        "id"       : 485,
+        "name"     : "local_pizza",
+        "prevSize" : 32,
+        "code"     : 60175,
+        "ligatures": "local_pizza",
+        "tags"     : ["local_pizza"]
+    }, {
+        "order"    : 2260,
+        "id"       : 484,
+        "name"     : "local_play",
+        "prevSize" : 32,
+        "code"     : 60176,
+        "ligatures": "local_play",
+        "tags"     : ["local_play"]
+    }, {
+        "order"    : 2261,
+        "id"       : 483,
+        "name"     : "local_post_office",
+        "prevSize" : 32,
+        "code"     : 60177,
+        "ligatures": "local_post_office",
+        "tags"     : ["local_post_office"]
+    }, {
+        "order"    : 2262,
+        "id"       : 482,
+        "name"     : "local_printshop",
+        "prevSize" : 32,
+        "code"     : 60178,
+        "ligatures": "local_printshop",
+        "tags"     : ["local_printshop"]
+    }, {
+        "order"    : 2263,
+        "id"       : 481,
+        "name"     : "local_see",
+        "prevSize" : 32,
+        "code"     : 60179,
+        "ligatures": "local_see",
+        "tags"     : ["local_see"]
+    }, {
+        "order"    : 2264,
+        "id"       : 480,
+        "name"     : "local_shipping",
+        "prevSize" : 32,
+        "code"     : 60180,
+        "ligatures": "local_shipping",
+        "tags"     : ["local_shipping"]
+    }, {
+        "order"    : 2265,
+        "id"       : 479,
+        "name"     : "local_taxi",
+        "prevSize" : 32,
+        "code"     : 60181,
+        "ligatures": "local_taxi",
+        "tags"     : ["local_taxi"]
+    }, {
+        "order"    : 2266,
+        "id"       : 478,
+        "name"     : "location_city",
+        "prevSize" : 32,
+        "code"     : 60182,
+        "ligatures": "location_city",
+        "tags"     : ["location_city"]
+    }, {
+        "order"    : 2267,
+        "id"       : 477,
+        "name"     : "location_disabled",
+        "prevSize" : 32,
+        "code"     : 60183,
+        "ligatures": "location_disabled",
+        "tags"     : ["location_disabled"]
+    }, {
+        "order"    : 2268,
+        "id"       : 476,
+        "name"     : "location_off",
+        "prevSize" : 32,
+        "code"     : 60184,
+        "ligatures": "location_off",
+        "tags"     : ["location_off"]
+    }, {
+        "order"    : 2269,
+        "id"       : 475,
+        "name"     : "location_on",
+        "prevSize" : 32,
+        "code"     : 60185,
+        "ligatures": "location_on",
+        "tags"     : ["location_on"]
+    }, {
+        "order"    : 2270,
+        "id"       : 474,
+        "name"     : "location_searching",
+        "prevSize" : 32,
+        "code"     : 60186,
+        "ligatures": "location_searching",
+        "tags"     : ["location_searching"]
+    }, {
+        "order"    : 2271,
+        "id"       : 473,
+        "name"     : "lock_open",
+        "prevSize" : 32,
+        "code"     : 60187,
+        "ligatures": "lock_open",
+        "tags"     : ["lock_open"]
+    }, {
+        "order"    : 2272,
+        "id"       : 472,
+        "name"     : "lock",
+        "prevSize" : 32,
+        "code"     : 60188,
+        "ligatures": "lock",
+        "tags"     : ["lock"]
+    }, {
+        "order"    : 2273,
+        "id"       : 471,
+        "name"     : "looks_3",
+        "prevSize" : 32,
+        "code"     : 60189,
+        "ligatures": "looks_3",
+        "tags"     : ["looks_3"]
+    }, {
+        "order"    : 2274,
+        "id"       : 470,
+        "name"     : "looks_4",
+        "prevSize" : 32,
+        "code"     : 60190,
+        "ligatures": "looks_4",
+        "tags"     : ["looks_4"]
+    }, {
+        "order"    : 2275,
+        "id"       : 469,
+        "name"     : "looks_5",
+        "prevSize" : 32,
+        "code"     : 60191,
+        "ligatures": "looks_5",
+        "tags"     : ["looks_5"]
+    }, {
+        "order"    : 2276,
+        "id"       : 468,
+        "name"     : "looks_6",
+        "prevSize" : 32,
+        "code"     : 60192,
+        "ligatures": "looks_6",
+        "tags"     : ["looks_6"]
+    }, {
+        "order"    : 2277,
+        "id"       : 467,
+        "name"     : "looks_one",
+        "prevSize" : 32,
+        "code"     : 60193,
+        "ligatures": "looks_one",
+        "tags"     : ["looks_one"]
+    }, {
+        "order"    : 2278,
+        "id"       : 466,
+        "name"     : "looks_two",
+        "prevSize" : 32,
+        "code"     : 60194,
+        "ligatures": "looks_two",
+        "tags"     : ["looks_two"]
+    }, {
+        "order"    : 2279,
+        "id"       : 465,
+        "name"     : "looks",
+        "prevSize" : 32,
+        "code"     : 60195,
+        "ligatures": "looks",
+        "tags"     : ["looks"]
+    }, {
+        "order"    : 2280,
+        "id"       : 464,
+        "name"     : "loop",
+        "prevSize" : 32,
+        "code"     : 60196,
+        "ligatures": "loop",
+        "tags"     : ["loop"]
+    }, {
+        "order"    : 2281,
+        "id"       : 463,
+        "name"     : "loupe",
+        "prevSize" : 32,
+        "code"     : 60197,
+        "ligatures": "loupe",
+        "tags"     : ["loupe"]
+    }, {
+        "order"    : 2282,
+        "id"       : 462,
+        "name"     : "low_priority",
+        "prevSize" : 32,
+        "code"     : 60198,
+        "ligatures": "low_priority",
+        "tags"     : ["low_priority"]
+    }, {
+        "order"    : 2283,
+        "id"       : 461,
+        "name"     : "loyalty",
+        "prevSize" : 32,
+        "code"     : 60199,
+        "ligatures": "loyalty",
+        "tags"     : ["loyalty"]
+    }, {
+        "order"    : 2284,
+        "id"       : 460,
+        "name"     : "mail_outline",
+        "prevSize" : 32,
+        "code"     : 60200,
+        "ligatures": "mail_outline",
+        "tags"     : ["mail_outline"]
+    }, {
+        "order"    : 2285,
+        "id"       : 459,
+        "name"     : "mail",
+        "prevSize" : 32,
+        "code"     : 60201,
+        "ligatures": "mail",
+        "tags"     : ["mail"]
+    }, {
+        "order"    : 2286,
+        "id"       : 458,
+        "name"     : "map",
+        "prevSize" : 32,
+        "code"     : 60202,
+        "ligatures": "map",
+        "tags"     : ["map"]
+    }, {
+        "order"    : 2287,
+        "id"       : 457,
+        "name"     : "markunread_mailbox",
+        "prevSize" : 32,
+        "code"     : 60203,
+        "ligatures": "markunread_mailbox",
+        "tags"     : ["markunread_mailbox"]
+    }, {
+        "order"    : 2288,
+        "id"       : 456,
+        "name"     : "markunread",
+        "prevSize" : 32,
+        "code"     : 60204,
+        "ligatures": "markunread",
+        "tags"     : ["markunread"]
+    }, {
+        "order"    : 2289,
+        "id"       : 455,
+        "name"     : "maximize",
+        "prevSize" : 32,
+        "code"     : 60205,
+        "ligatures": "maximize",
+        "tags"     : ["maximize"]
+    }, {
+        "order"    : 2290,
+        "id"       : 454,
+        "name"     : "meeting_room",
+        "prevSize" : 32,
+        "code"     : 60206,
+        "ligatures": "meeting_room",
+        "tags"     : ["meeting_room"]
+    }, {
+        "order"    : 2291,
+        "id"       : 453,
+        "name"     : "memory",
+        "prevSize" : 32,
+        "code"     : 60207,
+        "ligatures": "memory",
+        "tags"     : ["memory"]
+    }, {
+        "order"    : 2292,
+        "id"       : 452,
+        "name"     : "menu",
+        "prevSize" : 32,
+        "code"     : 60208,
+        "ligatures": "menu",
+        "tags"     : ["menu"]
+    }, {
+        "order"    : 2293,
+        "id"       : 451,
+        "name"     : "merge_type",
+        "prevSize" : 32,
+        "code"     : 60209,
+        "ligatures": "merge_type",
+        "tags"     : ["merge_type"]
+    }, {
+        "order"    : 2294,
+        "id"       : 450,
+        "name"     : "message",
+        "prevSize" : 32,
+        "code"     : 60210,
+        "ligatures": "message",
+        "tags"     : ["message"]
+    }, {
+        "order"    : 2295,
+        "id"       : 449,
+        "name"     : "mic_none",
+        "prevSize" : 32,
+        "code"     : 60211,
+        "ligatures": "mic_none",
+        "tags"     : ["mic_none"]
+    }, {
+        "order"    : 2296,
+        "id"       : 448,
+        "name"     : "mic_off",
+        "prevSize" : 32,
+        "code"     : 60212,
+        "ligatures": "mic_off",
+        "tags"     : ["mic_off"]
+    }, {
+        "order"    : 2297,
+        "id"       : 447,
+        "name"     : "mic",
+        "prevSize" : 32,
+        "code"     : 60213,
+        "ligatures": "mic",
+        "tags"     : ["mic"]
+    }, {
+        "order"    : 2298,
+        "id"       : 446,
+        "name"     : "minimize",
+        "prevSize" : 32,
+        "code"     : 60214,
+        "ligatures": "minimize",
+        "tags"     : ["minimize"]
+    }, {
+        "order"    : 2299,
+        "id"       : 445,
+        "name"     : "missed_video_call",
+        "prevSize" : 32,
+        "code"     : 60215,
+        "ligatures": "missed_video_call",
+        "tags"     : ["missed_video_call"]
+    }, {
+        "order"    : 2300,
+        "id"       : 444,
+        "name"     : "mms",
+        "prevSize" : 32,
+        "code"     : 60216,
+        "ligatures": "mms",
+        "tags"     : ["mms"]
+    }, {
+        "order"    : 2301,
+        "id"       : 443,
+        "name"     : "mobile_friendly",
+        "prevSize" : 32,
+        "code"     : 60217,
+        "ligatures": "mobile_friendly",
+        "tags"     : ["mobile_friendly"]
+    }, {
+        "order"    : 2302,
+        "id"       : 442,
+        "name"     : "mobile_off",
+        "prevSize" : 32,
+        "code"     : 60218,
+        "ligatures": "mobile_off",
+        "tags"     : ["mobile_off"]
+    }, {
+        "order"    : 2303,
+        "id"       : 441,
+        "name"     : "mobile_screen_share",
+        "prevSize" : 32,
+        "code"     : 60219,
+        "ligatures": "mobile_screen_share",
+        "tags"     : ["mobile_screen_share"]
+    }, {
+        "order"    : 2304,
+        "id"       : 440,
+        "name"     : "mode_comment",
+        "prevSize" : 32,
+        "code"     : 60220,
+        "ligatures": "mode_comment",
+        "tags"     : ["mode_comment"]
+    }, {
+        "order"    : 2305,
+        "id"       : 439,
+        "name"     : "monetization_on",
+        "prevSize" : 32,
+        "code"     : 60221,
+        "ligatures": "monetization_on",
+        "tags"     : ["monetization_on"]
+    }, {
+        "order"    : 2306,
+        "id"       : 438,
+        "name"     : "money_off",
+        "prevSize" : 32,
+        "code"     : 60222,
+        "ligatures": "money_off",
+        "tags"     : ["money_off"]
+    }, {
+        "order"    : 2307,
+        "id"       : 437,
+        "name"     : "money",
+        "prevSize" : 32,
+        "code"     : 60223,
+        "ligatures": "money",
+        "tags"     : ["money"]
+    }, {
+        "order"    : 2308,
+        "id"       : 436,
+        "name"     : "monochrome_photos",
+        "prevSize" : 32,
+        "code"     : 60224,
+        "ligatures": "monochrome_photos",
+        "tags"     : ["monochrome_photos"]
+    }, {
+        "order"    : 2309,
+        "id"       : 435,
+        "name"     : "mood_bad",
+        "prevSize" : 32,
+        "code"     : 60225,
+        "ligatures": "mood_bad",
+        "tags"     : ["mood_bad"]
+    }, {
+        "order"    : 2310,
+        "id"       : 434,
         "name"     : "mood",
-        "group_id" : "social",
-        "keywords" : ["social", "mood"],
-        "ligature" : "mood",
-        "codepoint": "E7F2",
-        "is_new"   : false
+        "prevSize" : 32,
+        "code"     : 60226,
+        "ligatures": "mood",
+        "tags"     : ["mood"]
     }, {
-        "id"       : "ic_mood_bad",
-        "name"     : "mood bad",
-        "group_id" : "social",
-        "keywords" : ["social", "mood", "bad"],
-        "ligature" : "mood_bad",
-        "codepoint": "E7F3",
-        "is_new"   : false
+        "order"    : 2311,
+        "id"       : 433,
+        "name"     : "more_horiz",
+        "prevSize" : 32,
+        "code"     : 60227,
+        "ligatures": "more_horiz",
+        "tags"     : ["more_horiz"]
     }, {
-        "id"       : "ic_notifications",
+        "order"    : 2312,
+        "id"       : 432,
+        "name"     : "more_vert",
+        "prevSize" : 32,
+        "code"     : 60228,
+        "ligatures": "more_vert",
+        "tags"     : ["more_vert"]
+    }, {
+        "order"    : 2313,
+        "id"       : 431,
+        "name"     : "more",
+        "prevSize" : 32,
+        "code"     : 60229,
+        "ligatures": "more",
+        "tags"     : ["more"]
+    }, {
+        "order"    : 2314,
+        "id"       : 430,
+        "name"     : "motorcycle",
+        "prevSize" : 32,
+        "code"     : 60230,
+        "ligatures": "motorcycle",
+        "tags"     : ["motorcycle"]
+    }, {
+        "order"    : 2315,
+        "id"       : 429,
+        "name"     : "mouse",
+        "prevSize" : 32,
+        "code"     : 60231,
+        "ligatures": "mouse",
+        "tags"     : ["mouse"]
+    }, {
+        "order"    : 2316,
+        "id"       : 428,
+        "name"     : "move_to_inbox",
+        "prevSize" : 32,
+        "code"     : 60232,
+        "ligatures": "move_to_inbox",
+        "tags"     : ["move_to_inbox"]
+    }, {
+        "order"    : 2317,
+        "id"       : 427,
+        "name"     : "movie_creation",
+        "prevSize" : 32,
+        "code"     : 60233,
+        "ligatures": "movie_creation",
+        "tags"     : ["movie_creation"]
+    }, {
+        "order"    : 2318,
+        "id"       : 426,
+        "name"     : "movie_filter",
+        "prevSize" : 32,
+        "code"     : 60234,
+        "ligatures": "movie_filter",
+        "tags"     : ["movie_filter"]
+    }, {
+        "order"    : 2319,
+        "id"       : 425,
+        "name"     : "movie",
+        "prevSize" : 32,
+        "code"     : 60235,
+        "ligatures": "movie",
+        "tags"     : ["movie"]
+    }, {
+        "order"    : 2320,
+        "id"       : 424,
+        "name"     : "multiline_chart",
+        "prevSize" : 32,
+        "code"     : 60236,
+        "ligatures": "multiline_chart",
+        "tags"     : ["multiline_chart"]
+    }, {
+        "order"    : 2321,
+        "id"       : 423,
+        "name"     : "music_note",
+        "prevSize" : 32,
+        "code"     : 60237,
+        "ligatures": "music_note",
+        "tags"     : ["music_note"]
+    }, {
+        "order"    : 2322,
+        "id"       : 422,
+        "name"     : "music_off",
+        "prevSize" : 32,
+        "code"     : 60238,
+        "ligatures": "music_off",
+        "tags"     : ["music_off"]
+    }, {
+        "order"    : 2323,
+        "id"       : 421,
+        "name"     : "music_video",
+        "prevSize" : 32,
+        "code"     : 60239,
+        "ligatures": "music_video",
+        "tags"     : ["music_video"]
+    }, {
+        "order"    : 2324,
+        "id"       : 420,
+        "name"     : "my_location",
+        "prevSize" : 32,
+        "code"     : 60240,
+        "ligatures": "my_location",
+        "tags"     : ["my_location"]
+    }, {
+        "order"    : 2325,
+        "id"       : 419,
+        "name"     : "nature_people",
+        "prevSize" : 32,
+        "code"     : 60241,
+        "ligatures": "nature_people",
+        "tags"     : ["nature_people"]
+    }, {
+        "order"    : 2326,
+        "id"       : 418,
+        "name"     : "nature",
+        "prevSize" : 32,
+        "code"     : 60242,
+        "ligatures": "nature",
+        "tags"     : ["nature"]
+    }, {
+        "order"    : 2327,
+        "id"       : 417,
+        "name"     : "navigate_before",
+        "prevSize" : 32,
+        "code"     : 60243,
+        "ligatures": "navigate_before",
+        "tags"     : ["navigate_before"]
+    }, {
+        "order"    : 2328,
+        "id"       : 416,
+        "name"     : "navigate_next",
+        "prevSize" : 32,
+        "code"     : 60244,
+        "ligatures": "navigate_next",
+        "tags"     : ["navigate_next"]
+    }, {
+        "order"    : 2329,
+        "id"       : 415,
+        "name"     : "navigation",
+        "prevSize" : 32,
+        "code"     : 60245,
+        "ligatures": "navigation",
+        "tags"     : ["navigation"]
+    }, {
+        "order"    : 2330,
+        "id"       : 414,
+        "name"     : "near_me",
+        "prevSize" : 32,
+        "code"     : 60246,
+        "ligatures": "near_me",
+        "tags"     : ["near_me"]
+    }, {
+        "order"    : 2331,
+        "id"       : 413,
+        "name"     : "network_check",
+        "prevSize" : 32,
+        "code"     : 60247,
+        "ligatures": "network_check",
+        "tags"     : ["network_check"]
+    }, {
+        "order"    : 2332,
+        "id"       : 412,
+        "name"     : "network_locked",
+        "prevSize" : 32,
+        "code"     : 60248,
+        "ligatures": "network_locked",
+        "tags"     : ["network_locked"]
+    }, {
+        "order"    : 2333,
+        "id"       : 411,
+        "name"     : "new_releases",
+        "prevSize" : 32,
+        "code"     : 60249,
+        "ligatures": "new_releases",
+        "tags"     : ["new_releases"]
+    }, {
+        "order"    : 2334,
+        "id"       : 410,
+        "name"     : "next_week",
+        "prevSize" : 32,
+        "code"     : 60250,
+        "ligatures": "next_week",
+        "tags"     : ["next_week"]
+    }, {
+        "order"    : 2335,
+        "id"       : 409,
+        "name"     : "nfc",
+        "prevSize" : 32,
+        "code"     : 60251,
+        "ligatures": "nfc",
+        "tags"     : ["nfc"]
+    }, {
+        "order"    : 2336,
+        "id"       : 408,
+        "name"     : "no_encryption",
+        "prevSize" : 32,
+        "code"     : 60252,
+        "ligatures": "no_encryption",
+        "tags"     : ["no_encryption"]
+    }, {
+        "order"    : 2337,
+        "id"       : 407,
+        "name"     : "no_meeting_room",
+        "prevSize" : 32,
+        "code"     : 60253,
+        "ligatures": "no_meeting_room",
+        "tags"     : ["no_meeting_room"]
+    }, {
+        "order"    : 2338,
+        "id"       : 406,
+        "name"     : "no_sim",
+        "prevSize" : 32,
+        "code"     : 60254,
+        "ligatures": "no_sim",
+        "tags"     : ["no_sim"]
+    }, {
+        "order"    : 2339,
+        "id"       : 405,
+        "name"     : "not_interested",
+        "prevSize" : 32,
+        "code"     : 60255,
+        "ligatures": "not_interested",
+        "tags"     : ["not_interested"]
+    }, {
+        "order"    : 2340,
+        "id"       : 404,
+        "name"     : "not_listed_location",
+        "prevSize" : 32,
+        "code"     : 60256,
+        "ligatures": "not_listed_location",
+        "tags"     : ["not_listed_location"]
+    }, {
+        "order"    : 2341,
+        "id"       : 403,
+        "name"     : "note_add",
+        "prevSize" : 32,
+        "code"     : 60257,
+        "ligatures": "note_add",
+        "tags"     : ["note_add"]
+    }, {
+        "order"    : 2342,
+        "id"       : 402,
+        "name"     : "note",
+        "prevSize" : 32,
+        "code"     : 60258,
+        "ligatures": "note",
+        "tags"     : ["note"]
+    }, {
+        "order"    : 2343,
+        "id"       : 401,
+        "name"     : "notes",
+        "prevSize" : 32,
+        "code"     : 60259,
+        "ligatures": "notes",
+        "tags"     : ["notes"]
+    }, {
+        "order"    : 2344,
+        "id"       : 400,
+        "name"     : "notification_important",
+        "prevSize" : 32,
+        "code"     : 60260,
+        "ligatures": "notification_important",
+        "tags"     : ["notification_important"]
+    }, {
+        "order"    : 2345,
+        "id"       : 399,
+        "name"     : "notifications_active",
+        "prevSize" : 32,
+        "code"     : 60261,
+        "ligatures": "notifications_active",
+        "tags"     : ["notifications_active"]
+    }, {
+        "order"    : 2346,
+        "id"       : 398,
+        "name"     : "notifications_none",
+        "prevSize" : 32,
+        "code"     : 60262,
+        "ligatures": "notifications_none",
+        "tags"     : ["notifications_none"]
+    }, {
+        "order"    : 2347,
+        "id"       : 397,
+        "name"     : "notifications_off",
+        "prevSize" : 32,
+        "code"     : 60263,
+        "ligatures": "notifications_off",
+        "tags"     : ["notifications_off"]
+    }, {
+        "order"    : 2348,
+        "id"       : 396,
+        "name"     : "notifications_paused",
+        "prevSize" : 32,
+        "code"     : 60264,
+        "ligatures": "notifications_paused",
+        "tags"     : ["notifications_paused"]
+    }, {
+        "order"    : 2349,
+        "id"       : 395,
         "name"     : "notifications",
-        "group_id" : "social",
-        "keywords" : ["social", "notifications"],
-        "ligature" : "notifications",
-        "codepoint": "E7F4",
-        "is_new"   : false
+        "prevSize" : 32,
+        "code"     : 60265,
+        "ligatures": "notifications",
+        "tags"     : ["notifications"]
     }, {
-        "id"       : "ic_notifications_active",
-        "name"     : "notifications active",
-        "group_id" : "social",
-        "keywords" : ["social", "notifications", "active"],
-        "ligature" : "notifications_active",
-        "codepoint": "E7F7",
-        "is_new"   : false
+        "order"    : 2350,
+        "id"       : 394,
+        "name"     : "offline_bolt",
+        "prevSize" : 32,
+        "code"     : 60266,
+        "ligatures": "offline_bolt",
+        "tags"     : ["offline_bolt"]
     }, {
-        "id"       : "ic_notifications_none",
-        "name"     : "notifications none",
-        "group_id" : "social",
-        "keywords" : ["social", "notifications", "none"],
-        "ligature" : "notifications_none",
-        "codepoint": "E7F5",
-        "is_new"   : false
+        "order"    : 2351,
+        "id"       : 393,
+        "name"     : "offline_pin",
+        "prevSize" : 32,
+        "code"     : 60267,
+        "ligatures": "offline_pin",
+        "tags"     : ["offline_pin"]
     }, {
-        "id"       : "ic_notifications_off",
-        "name"     : "notifications off",
-        "group_id" : "social",
-        "keywords" : ["social", "notifications", "off"],
-        "ligature" : "notifications_off",
-        "codepoint": "E7F6",
-        "is_new"   : false
+        "order"    : 2352,
+        "id"       : 392,
+        "name"     : "ondemand_video",
+        "prevSize" : 32,
+        "code"     : 60268,
+        "ligatures": "ondemand_video",
+        "tags"     : ["ondemand_video"]
     }, {
-        "id"       : "ic_notifications_paused",
-        "name"     : "notifications paused",
-        "group_id" : "social",
-        "keywords" : ["social", "notifications", "paused"],
-        "ligature" : "notifications_paused",
-        "codepoint": "E7F8",
-        "is_new"   : false
+        "order"    : 2353,
+        "id"       : 391,
+        "name"     : "opacity",
+        "prevSize" : 32,
+        "code"     : 60269,
+        "ligatures": "opacity",
+        "tags"     : ["opacity"]
     }, {
-        "id"       : "ic_pages",
+        "order"    : 2354,
+        "id"       : 390,
+        "name"     : "open_in_browser",
+        "prevSize" : 32,
+        "code"     : 60270,
+        "ligatures": "open_in_browser",
+        "tags"     : ["open_in_browser"]
+    }, {
+        "order"    : 2355,
+        "id"       : 389,
+        "name"     : "open_in_new",
+        "prevSize" : 32,
+        "code"     : 60271,
+        "ligatures": "open_in_new",
+        "tags"     : ["open_in_new"]
+    }, {
+        "order"    : 2356,
+        "id"       : 388,
+        "name"     : "open_with",
+        "prevSize" : 32,
+        "code"     : 60272,
+        "ligatures": "open_with",
+        "tags"     : ["open_with"]
+    }, {
+        "order"    : 2357,
+        "id"       : 387,
+        "name"     : "outlined_flag",
+        "prevSize" : 32,
+        "code"     : 60273,
+        "ligatures": "outlined_flag",
+        "tags"     : ["outlined_flag"]
+    }, {
+        "order"    : 2358,
+        "id"       : 386,
         "name"     : "pages",
-        "group_id" : "social",
-        "keywords" : ["social", "pages"],
-        "ligature" : "pages",
-        "codepoint": "E7F9",
-        "is_new"   : false
+        "prevSize" : 32,
+        "code"     : 60274,
+        "ligatures": "pages",
+        "tags"     : ["pages"]
     }, {
-        "id"       : "ic_party_mode",
-        "name"     : "party mode",
-        "group_id" : "social",
-        "keywords" : ["social", "party", "mode"],
-        "ligature" : "party_mode",
-        "codepoint": "E7FA",
-        "is_new"   : false
+        "order"    : 2359,
+        "id"       : 385,
+        "name"     : "pageview",
+        "prevSize" : 32,
+        "code"     : 60275,
+        "ligatures": "pageview",
+        "tags"     : ["pageview"]
     }, {
-        "id"       : "ic_people",
+        "order"    : 2360,
+        "id"       : 384,
+        "name"     : "palette",
+        "prevSize" : 32,
+        "code"     : 60276,
+        "ligatures": "palette",
+        "tags"     : ["palette"]
+    }, {
+        "order"    : 2361,
+        "id"       : 383,
+        "name"     : "pan_tool",
+        "prevSize" : 32,
+        "code"     : 60277,
+        "ligatures": "pan_tool",
+        "tags"     : ["pan_tool"]
+    }, {
+        "order"    : 2362,
+        "id"       : 382,
+        "name"     : "panorama_fish_eye",
+        "prevSize" : 32,
+        "code"     : 60278,
+        "ligatures": "panorama_fish_eye",
+        "tags"     : ["panorama_fish_eye"]
+    }, {
+        "order"    : 2363,
+        "id"       : 381,
+        "name"     : "panorama_horizontal",
+        "prevSize" : 32,
+        "code"     : 60279,
+        "ligatures": "panorama_horizontal",
+        "tags"     : ["panorama_horizontal"]
+    }, {
+        "order"    : 2364,
+        "id"       : 380,
+        "name"     : "panorama_vertical",
+        "prevSize" : 32,
+        "code"     : 60280,
+        "ligatures": "panorama_vertical",
+        "tags"     : ["panorama_vertical"]
+    }, {
+        "order"    : 2365,
+        "id"       : 379,
+        "name"     : "panorama_wide_angle",
+        "prevSize" : 32,
+        "code"     : 60281,
+        "ligatures": "panorama_wide_angle",
+        "tags"     : ["panorama_wide_angle"]
+    }, {
+        "order"    : 2366,
+        "id"       : 378,
+        "name"     : "panorama",
+        "prevSize" : 32,
+        "code"     : 60282,
+        "ligatures": "panorama",
+        "tags"     : ["panorama"]
+    }, {
+        "order"    : 2367,
+        "id"       : 377,
+        "name"     : "party_mode",
+        "prevSize" : 32,
+        "code"     : 60283,
+        "ligatures": "party_mode",
+        "tags"     : ["party_mode"]
+    }, {
+        "order"    : 2368,
+        "id"       : 376,
+        "name"     : "pause_circle_filled",
+        "prevSize" : 32,
+        "code"     : 60284,
+        "ligatures": "pause_circle_filled",
+        "tags"     : ["pause_circle_filled"]
+    }, {
+        "order"    : 2369,
+        "id"       : 375,
+        "name"     : "pause_circle_outline",
+        "prevSize" : 32,
+        "code"     : 60285,
+        "ligatures": "pause_circle_outline",
+        "tags"     : ["pause_circle_outline"]
+    }, {
+        "order"    : 2370,
+        "id"       : 374,
+        "name"     : "pause_presentation",
+        "prevSize" : 32,
+        "code"     : 60286,
+        "ligatures": "pause_presentation",
+        "tags"     : ["pause_presentation"]
+    }, {
+        "order"    : 2371,
+        "id"       : 373,
+        "name"     : "pause",
+        "prevSize" : 32,
+        "code"     : 60287,
+        "ligatures": "pause",
+        "tags"     : ["pause"]
+    }, {
+        "order"    : 2372,
+        "id"       : 372,
+        "name"     : "payment",
+        "prevSize" : 32,
+        "code"     : 60288,
+        "ligatures": "payment",
+        "tags"     : ["payment"]
+    }, {
+        "order"    : 2373,
+        "id"       : 371,
+        "name"     : "people_outline",
+        "prevSize" : 32,
+        "code"     : 60289,
+        "ligatures": "people_outline",
+        "tags"     : ["people_outline"]
+    }, {
+        "order"    : 2374,
+        "id"       : 370,
         "name"     : "people",
-        "group_id" : "social",
-        "keywords" : ["social", "people"],
-        "ligature" : "people",
-        "codepoint": "E7FB",
-        "is_new"   : false
+        "prevSize" : 32,
+        "code"     : 60290,
+        "ligatures": "people",
+        "tags"     : ["people"]
     }, {
-        "id"       : "ic_people_outline",
-        "name"     : "people outline",
-        "group_id" : "social",
-        "keywords" : ["social", "people", "outline"],
-        "ligature" : "people_outline",
-        "codepoint": "E7FC",
-        "is_new"   : false
+        "order"    : 2375,
+        "id"       : 369,
+        "name"     : "perm_camera_mic",
+        "prevSize" : 32,
+        "code"     : 60291,
+        "ligatures": "perm_camera_mic",
+        "tags"     : ["perm_camera_mic"]
     }, {
-        "id"       : "ic_person",
+        "order"    : 2376,
+        "id"       : 368,
+        "name"     : "perm_contact_calendar",
+        "prevSize" : 32,
+        "code"     : 60292,
+        "ligatures": "perm_contact_calendar",
+        "tags"     : ["perm_contact_calendar"]
+    }, {
+        "order"    : 2377,
+        "id"       : 367,
+        "name"     : "perm_data_setting",
+        "prevSize" : 32,
+        "code"     : 60293,
+        "ligatures": "perm_data_setting",
+        "tags"     : ["perm_data_setting"]
+    }, {
+        "order"    : 2378,
+        "id"       : 366,
+        "name"     : "perm_device_information",
+        "prevSize" : 32,
+        "code"     : 60294,
+        "ligatures": "perm_device_information",
+        "tags"     : ["perm_device_information"]
+    }, {
+        "order"    : 2379,
+        "id"       : 365,
+        "name"     : "perm_identity",
+        "prevSize" : 32,
+        "code"     : 60295,
+        "ligatures": "perm_identity",
+        "tags"     : ["perm_identity"]
+    }, {
+        "order"    : 2380,
+        "id"       : 364,
+        "name"     : "perm_media",
+        "prevSize" : 32,
+        "code"     : 60296,
+        "ligatures": "perm_media",
+        "tags"     : ["perm_media"]
+    }, {
+        "order"    : 2381,
+        "id"       : 363,
+        "name"     : "perm_phone_msg",
+        "prevSize" : 32,
+        "code"     : 60297,
+        "ligatures": "perm_phone_msg",
+        "tags"     : ["perm_phone_msg"]
+    }, {
+        "order"    : 2382,
+        "id"       : 362,
+        "name"     : "perm_scan_wifi",
+        "prevSize" : 32,
+        "code"     : 60298,
+        "ligatures": "perm_scan_wifi",
+        "tags"     : ["perm_scan_wifi"]
+    }, {
+        "order"    : 2383,
+        "id"       : 361,
+        "name"     : "person_add_disabled",
+        "prevSize" : 32,
+        "code"     : 60299,
+        "ligatures": "person_add_disabled",
+        "tags"     : ["person_add_disabled"]
+    }, {
+        "order"    : 2384,
+        "id"       : 360,
+        "name"     : "person_add",
+        "prevSize" : 32,
+        "code"     : 60300,
+        "ligatures": "person_add",
+        "tags"     : ["person_add"]
+    }, {
+        "order"    : 2385,
+        "id"       : 359,
+        "name"     : "person_outline",
+        "prevSize" : 32,
+        "code"     : 60301,
+        "ligatures": "person_outline",
+        "tags"     : ["person_outline"]
+    }, {
+        "order"    : 2386,
+        "id"       : 358,
+        "name"     : "person_pin_circle",
+        "prevSize" : 32,
+        "code"     : 60302,
+        "ligatures": "person_pin_circle",
+        "tags"     : ["person_pin_circle"]
+    }, {
+        "order"    : 2387,
+        "id"       : 357,
+        "name"     : "person_pin",
+        "prevSize" : 32,
+        "code"     : 60303,
+        "ligatures": "person_pin",
+        "tags"     : ["person_pin"]
+    }, {
+        "order"    : 2388,
+        "id"       : 356,
         "name"     : "person",
-        "group_id" : "social",
-        "keywords" : ["social", "person"],
-        "ligature" : "person",
-        "codepoint": "E7FD",
-        "is_new"   : false
+        "prevSize" : 32,
+        "code"     : 60304,
+        "ligatures": "person",
+        "tags"     : ["person"]
     }, {
-        "id"       : "ic_person_add",
-        "name"     : "person add",
-        "group_id" : "social",
-        "keywords" : ["social", "person", "add"],
-        "ligature" : "person_add",
-        "codepoint": "E7FE",
-        "is_new"   : false
+        "order"    : 2389,
+        "id"       : 355,
+        "name"     : "personal_video",
+        "prevSize" : 32,
+        "code"     : 60305,
+        "ligatures": "personal_video",
+        "tags"     : ["personal_video"]
     }, {
-        "id"       : "ic_person_outline",
-        "name"     : "person outline",
-        "group_id" : "social",
-        "keywords" : ["social", "person", "outline"],
-        "ligature" : "person_outline",
-        "codepoint": "E7FF",
-        "is_new"   : false
+        "order"    : 2390,
+        "id"       : 354,
+        "name"     : "pets",
+        "prevSize" : 32,
+        "code"     : 60306,
+        "ligatures": "pets",
+        "tags"     : ["pets"]
     }, {
-        "id"       : "ic_plus_one",
-        "name"     : "plus one",
-        "group_id" : "social",
-        "keywords" : ["social", "plus", "one"],
-        "ligature" : "plus_one",
-        "codepoint": "E800",
-        "is_new"   : false
+        "order"    : 2391,
+        "id"       : 353,
+        "name"     : "phone_android",
+        "prevSize" : 32,
+        "code"     : 60307,
+        "ligatures": "phone_android",
+        "tags"     : ["phone_android"]
     }, {
-        "id"       : "ic_poll",
+        "order"    : 2392,
+        "id"       : 352,
+        "name"     : "phone_bluetooth_speaker",
+        "prevSize" : 32,
+        "code"     : 60308,
+        "ligatures": "phone_bluetooth_speaker",
+        "tags"     : ["phone_bluetooth_speaker"]
+    }, {
+        "order"    : 2393,
+        "id"       : 351,
+        "name"     : "phone_callback",
+        "prevSize" : 32,
+        "code"     : 60309,
+        "ligatures": "phone_callback",
+        "tags"     : ["phone_callback"]
+    }, {
+        "order"    : 2394,
+        "id"       : 350,
+        "name"     : "phone_forwarded",
+        "prevSize" : 32,
+        "code"     : 60310,
+        "ligatures": "phone_forwarded",
+        "tags"     : ["phone_forwarded"]
+    }, {
+        "order"    : 2395,
+        "id"       : 349,
+        "name"     : "phone_in_talk",
+        "prevSize" : 32,
+        "code"     : 60311,
+        "ligatures": "phone_in_talk",
+        "tags"     : ["phone_in_talk"]
+    }, {
+        "order"    : 2396,
+        "id"       : 348,
+        "name"     : "phone_iphone",
+        "prevSize" : 32,
+        "code"     : 60312,
+        "ligatures": "phone_iphone",
+        "tags"     : ["phone_iphone"]
+    }, {
+        "order"    : 2397,
+        "id"       : 347,
+        "name"     : "phone_locked",
+        "prevSize" : 32,
+        "code"     : 60313,
+        "ligatures": "phone_locked",
+        "tags"     : ["phone_locked"]
+    }, {
+        "order"    : 2398,
+        "id"       : 346,
+        "name"     : "phone_missed",
+        "prevSize" : 32,
+        "code"     : 60314,
+        "ligatures": "phone_missed",
+        "tags"     : ["phone_missed"]
+    }, {
+        "order"    : 2399,
+        "id"       : 345,
+        "name"     : "phone_paused",
+        "prevSize" : 32,
+        "code"     : 60315,
+        "ligatures": "phone_paused",
+        "tags"     : ["phone_paused"]
+    }, {
+        "order"    : 2400,
+        "id"       : 344,
+        "name"     : "phone",
+        "prevSize" : 32,
+        "code"     : 60316,
+        "ligatures": "phone",
+        "tags"     : ["phone"]
+    }, {
+        "order"    : 2401,
+        "id"       : 343,
+        "name"     : "phonelink_erase",
+        "prevSize" : 32,
+        "code"     : 60317,
+        "ligatures": "phonelink_erase",
+        "tags"     : ["phonelink_erase"]
+    }, {
+        "order"    : 2402,
+        "id"       : 342,
+        "name"     : "phonelink_lock",
+        "prevSize" : 32,
+        "code"     : 60318,
+        "ligatures": "phonelink_lock",
+        "tags"     : ["phonelink_lock"]
+    }, {
+        "order"    : 2403,
+        "id"       : 341,
+        "name"     : "phonelink_off",
+        "prevSize" : 32,
+        "code"     : 60319,
+        "ligatures": "phonelink_off",
+        "tags"     : ["phonelink_off"]
+    }, {
+        "order"    : 2404,
+        "id"       : 340,
+        "name"     : "phonelink_ring",
+        "prevSize" : 32,
+        "code"     : 60320,
+        "ligatures": "phonelink_ring",
+        "tags"     : ["phonelink_ring"]
+    }, {
+        "order"    : 2405,
+        "id"       : 339,
+        "name"     : "phonelink_setup",
+        "prevSize" : 32,
+        "code"     : 60321,
+        "ligatures": "phonelink_setup",
+        "tags"     : ["phonelink_setup"]
+    }, {
+        "order"    : 2406,
+        "id"       : 338,
+        "name"     : "phonelink",
+        "prevSize" : 32,
+        "code"     : 60322,
+        "ligatures": "phonelink",
+        "tags"     : ["phonelink"]
+    }, {
+        "order"    : 2407,
+        "id"       : 337,
+        "name"     : "photo_album",
+        "prevSize" : 32,
+        "code"     : 60323,
+        "ligatures": "photo_album",
+        "tags"     : ["photo_album"]
+    }, {
+        "order"    : 2408,
+        "id"       : 336,
+        "name"     : "photo_camera",
+        "prevSize" : 32,
+        "code"     : 60324,
+        "ligatures": "photo_camera",
+        "tags"     : ["photo_camera"]
+    }, {
+        "order"    : 2409,
+        "id"       : 335,
+        "name"     : "photo_filter",
+        "prevSize" : 32,
+        "code"     : 60325,
+        "ligatures": "photo_filter",
+        "tags"     : ["photo_filter"]
+    }, {
+        "order"    : 2410,
+        "id"       : 334,
+        "name"     : "photo_library",
+        "prevSize" : 32,
+        "code"     : 60326,
+        "ligatures": "photo_library",
+        "tags"     : ["photo_library"]
+    }, {
+        "order"    : 2411,
+        "id"       : 333,
+        "name"     : "photo_size_select_actual",
+        "prevSize" : 32,
+        "code"     : 60327,
+        "ligatures": "photo_size_select_actual",
+        "tags"     : ["photo_size_select_actual"]
+    }, {
+        "order"    : 2412,
+        "id"       : 332,
+        "name"     : "photo_size_select_large",
+        "prevSize" : 32,
+        "code"     : 60328,
+        "ligatures": "photo_size_select_large",
+        "tags"     : ["photo_size_select_large"]
+    }, {
+        "order"    : 2413,
+        "id"       : 331,
+        "name"     : "photo_size_select_small",
+        "prevSize" : 32,
+        "code"     : 60329,
+        "ligatures": "photo_size_select_small",
+        "tags"     : ["photo_size_select_small"]
+    }, {
+        "order"    : 2414,
+        "id"       : 330,
+        "name"     : "photo",
+        "prevSize" : 32,
+        "code"     : 60330,
+        "ligatures": "photo",
+        "tags"     : ["photo"]
+    }, {
+        "order"    : 2415,
+        "id"       : 329,
+        "name"     : "picture_as_pdf",
+        "prevSize" : 32,
+        "code"     : 60331,
+        "ligatures": "picture_as_pdf",
+        "tags"     : ["picture_as_pdf"]
+    }, {
+        "order"    : 2416,
+        "id"       : 328,
+        "name"     : "picture_in_picture_alt",
+        "prevSize" : 32,
+        "code"     : 60332,
+        "ligatures": "picture_in_picture_alt",
+        "tags"     : ["picture_in_picture_alt"]
+    }, {
+        "order"    : 2417,
+        "id"       : 327,
+        "name"     : "picture_in_picture",
+        "prevSize" : 32,
+        "code"     : 60333,
+        "ligatures": "picture_in_picture",
+        "tags"     : ["picture_in_picture"]
+    }, {
+        "order"    : 2418,
+        "id"       : 326,
+        "name"     : "pie_chart",
+        "prevSize" : 32,
+        "code"     : 60334,
+        "ligatures": "pie_chart",
+        "tags"     : ["pie_chart"]
+    }, {
+        "order"    : 2419,
+        "id"       : 325,
+        "name"     : "pin_drop",
+        "prevSize" : 32,
+        "code"     : 60335,
+        "ligatures": "pin_drop",
+        "tags"     : ["pin_drop"]
+    }, {
+        "order"    : 2420,
+        "id"       : 324,
+        "name"     : "place",
+        "prevSize" : 32,
+        "code"     : 60336,
+        "ligatures": "place",
+        "tags"     : ["place"]
+    }, {
+        "order"    : 2421,
+        "id"       : 323,
+        "name"     : "play_arrow",
+        "prevSize" : 32,
+        "code"     : 60337,
+        "ligatures": "play_arrow",
+        "tags"     : ["play_arrow"]
+    }, {
+        "order"    : 2422,
+        "id"       : 322,
+        "name"     : "play_circle_filled_white",
+        "prevSize" : 32,
+        "code"     : 60338,
+        "ligatures": "play_circle_filled_white",
+        "tags"     : ["play_circle_filled_white"]
+    }, {
+        "order"    : 2423,
+        "id"       : 321,
+        "name"     : "play_circle_filled",
+        "prevSize" : 32,
+        "code"     : 60339,
+        "ligatures": "play_circle_filled",
+        "tags"     : ["play_circle_filled"]
+    }, {
+        "order"    : 2424,
+        "id"       : 320,
+        "name"     : "play_circle_outline",
+        "prevSize" : 32,
+        "code"     : 60340,
+        "ligatures": "play_circle_outline",
+        "tags"     : ["play_circle_outline"]
+    }, {
+        "order"    : 2425,
+        "id"       : 319,
+        "name"     : "play_for_work",
+        "prevSize" : 32,
+        "code"     : 60341,
+        "ligatures": "play_for_work",
+        "tags"     : ["play_for_work"]
+    }, {
+        "order"    : 2426,
+        "id"       : 318,
+        "name"     : "playlist_add_check",
+        "prevSize" : 32,
+        "code"     : 60342,
+        "ligatures": "playlist_add_check",
+        "tags"     : ["playlist_add_check"]
+    }, {
+        "order"    : 2427,
+        "id"       : 317,
+        "name"     : "playlist_add",
+        "prevSize" : 32,
+        "code"     : 60343,
+        "ligatures": "playlist_add",
+        "tags"     : ["playlist_add"]
+    }, {
+        "order"    : 2428,
+        "id"       : 316,
+        "name"     : "playlist_play",
+        "prevSize" : 32,
+        "code"     : 60344,
+        "ligatures": "playlist_play",
+        "tags"     : ["playlist_play"]
+    }, {
+        "order"    : 2429,
+        "id"       : 315,
+        "name"     : "plus_one",
+        "prevSize" : 32,
+        "code"     : 60345,
+        "ligatures": "plus_one",
+        "tags"     : ["plus_one"]
+    }, {
+        "order"    : 2430,
+        "id"       : 314,
         "name"     : "poll",
-        "group_id" : "social",
-        "keywords" : ["social", "poll"],
-        "ligature" : "poll",
-        "codepoint": "E801",
-        "is_new"   : false
+        "prevSize" : 32,
+        "code"     : 60346,
+        "ligatures": "poll",
+        "tags"     : ["poll"]
     }, {
-        "id"       : "ic_public",
+        "order"    : 2431,
+        "id"       : 313,
+        "name"     : "polymer",
+        "prevSize" : 32,
+        "code"     : 60347,
+        "ligatures": "polymer",
+        "tags"     : ["polymer"]
+    }, {
+        "order"    : 2432,
+        "id"       : 312,
+        "name"     : "pool",
+        "prevSize" : 32,
+        "code"     : 60348,
+        "ligatures": "pool",
+        "tags"     : ["pool"]
+    }, {
+        "order"    : 2433,
+        "id"       : 311,
+        "name"     : "portable_wifi_off",
+        "prevSize" : 32,
+        "code"     : 60349,
+        "ligatures": "portable_wifi_off",
+        "tags"     : ["portable_wifi_off"]
+    }, {
+        "order"    : 2434,
+        "id"       : 310,
+        "name"     : "portrait",
+        "prevSize" : 32,
+        "code"     : 60350,
+        "ligatures": "portrait",
+        "tags"     : ["portrait"]
+    }, {
+        "order"    : 2435,
+        "id"       : 309,
+        "name"     : "power_input",
+        "prevSize" : 32,
+        "code"     : 60351,
+        "ligatures": "power_input",
+        "tags"     : ["power_input"]
+    }, {
+        "order"    : 2436,
+        "id"       : 308,
+        "name"     : "power_off",
+        "prevSize" : 32,
+        "code"     : 60352,
+        "ligatures": "power_off",
+        "tags"     : ["power_off"]
+    }, {
+        "order"    : 2437,
+        "id"       : 307,
+        "name"     : "power_settings_new",
+        "prevSize" : 32,
+        "code"     : 60353,
+        "ligatures": "power_settings_new",
+        "tags"     : ["power_settings_new"]
+    }, {
+        "order"    : 2438,
+        "id"       : 306,
+        "name"     : "power",
+        "prevSize" : 32,
+        "code"     : 60354,
+        "ligatures": "power",
+        "tags"     : ["power"]
+    }, {
+        "order"    : 2439,
+        "id"       : 305,
+        "name"     : "pregnant_woman",
+        "prevSize" : 32,
+        "code"     : 60355,
+        "ligatures": "pregnant_woman",
+        "tags"     : ["pregnant_woman"]
+    }, {
+        "order"    : 2440,
+        "id"       : 304,
+        "name"     : "present_to_all",
+        "prevSize" : 32,
+        "code"     : 60356,
+        "ligatures": "present_to_all",
+        "tags"     : ["present_to_all"]
+    }, {
+        "order"    : 2441,
+        "id"       : 303,
+        "name"     : "print_disabled",
+        "prevSize" : 32,
+        "code"     : 60357,
+        "ligatures": "print_disabled",
+        "tags"     : ["print_disabled"]
+    }, {
+        "order"    : 2442,
+        "id"       : 302,
+        "name"     : "print",
+        "prevSize" : 32,
+        "code"     : 60358,
+        "ligatures": "print",
+        "tags"     : ["print"]
+    }, {
+        "order"    : 2443,
+        "id"       : 301,
+        "name"     : "priority_high",
+        "prevSize" : 32,
+        "code"     : 60359,
+        "ligatures": "priority_high",
+        "tags"     : ["priority_high"]
+    }, {
+        "order"    : 2444,
+        "id"       : 300,
         "name"     : "public",
-        "group_id" : "social",
-        "keywords" : ["social", "public"],
-        "ligature" : "public",
-        "codepoint": "E80B",
-        "is_new"   : false
+        "prevSize" : 32,
+        "code"     : 60360,
+        "ligatures": "public",
+        "tags"     : ["public"]
     }, {
-        "id"       : "ic_school",
+        "order"    : 2445,
+        "id"       : 299,
+        "name"     : "publish",
+        "prevSize" : 32,
+        "code"     : 60361,
+        "ligatures": "publish",
+        "tags"     : ["publish"]
+    }, {
+        "order"    : 2446,
+        "id"       : 298,
+        "name"     : "query_builder",
+        "prevSize" : 32,
+        "code"     : 60362,
+        "ligatures": "query_builder",
+        "tags"     : ["query_builder"]
+    }, {
+        "order"    : 2447,
+        "id"       : 297,
+        "name"     : "question_answer",
+        "prevSize" : 32,
+        "code"     : 60363,
+        "ligatures": "question_answer",
+        "tags"     : ["question_answer"]
+    }, {
+        "order"    : 2448,
+        "id"       : 296,
+        "name"     : "queue_music",
+        "prevSize" : 32,
+        "code"     : 60364,
+        "ligatures": "queue_music",
+        "tags"     : ["queue_music"]
+    }, {
+        "order"    : 2449,
+        "id"       : 295,
+        "name"     : "queue_play_next",
+        "prevSize" : 32,
+        "code"     : 60365,
+        "ligatures": "queue_play_next",
+        "tags"     : ["queue_play_next"]
+    }, {
+        "order"    : 2450,
+        "id"       : 294,
+        "name"     : "queue",
+        "prevSize" : 32,
+        "code"     : 60366,
+        "ligatures": "queue",
+        "tags"     : ["queue"]
+    }, {
+        "order"    : 2451,
+        "id"       : 293,
+        "name"     : "radio_button_checked",
+        "prevSize" : 32,
+        "code"     : 60367,
+        "ligatures": "radio_button_checked",
+        "tags"     : ["radio_button_checked"]
+    }, {
+        "order"    : 2452,
+        "id"       : 292,
+        "name"     : "radio_button_unchecked",
+        "prevSize" : 32,
+        "code"     : 60368,
+        "ligatures": "radio_button_unchecked",
+        "tags"     : ["radio_button_unchecked"]
+    }, {
+        "order"    : 2453,
+        "id"       : 291,
+        "name"     : "radio",
+        "prevSize" : 32,
+        "code"     : 60369,
+        "ligatures": "radio",
+        "tags"     : ["radio"]
+    }, {
+        "order"    : 2454,
+        "id"       : 290,
+        "name"     : "rate_review",
+        "prevSize" : 32,
+        "code"     : 60370,
+        "ligatures": "rate_review",
+        "tags"     : ["rate_review"]
+    }, {
+        "order"    : 2455,
+        "id"       : 289,
+        "name"     : "receipt",
+        "prevSize" : 32,
+        "code"     : 60371,
+        "ligatures": "receipt",
+        "tags"     : ["receipt"]
+    }, {
+        "order"    : 2456,
+        "id"       : 288,
+        "name"     : "recent_actors",
+        "prevSize" : 32,
+        "code"     : 60372,
+        "ligatures": "recent_actors",
+        "tags"     : ["recent_actors"]
+    }, {
+        "order"    : 2457,
+        "id"       : 287,
+        "name"     : "record_voice_over",
+        "prevSize" : 32,
+        "code"     : 60373,
+        "ligatures": "record_voice_over",
+        "tags"     : ["record_voice_over"]
+    }, {
+        "order"    : 2458,
+        "id"       : 286,
+        "name"     : "redeem",
+        "prevSize" : 32,
+        "code"     : 60374,
+        "ligatures": "redeem",
+        "tags"     : ["redeem"]
+    }, {
+        "order"    : 2459,
+        "id"       : 285,
+        "name"     : "redo",
+        "prevSize" : 32,
+        "code"     : 60375,
+        "ligatures": "redo",
+        "tags"     : ["redo"]
+    }, {
+        "order"    : 2460,
+        "id"       : 284,
+        "name"     : "refresh",
+        "prevSize" : 32,
+        "code"     : 60376,
+        "ligatures": "refresh",
+        "tags"     : ["refresh"]
+    }, {
+        "order"    : 2461,
+        "id"       : 283,
+        "name"     : "remove_circle_outline",
+        "prevSize" : 32,
+        "code"     : 60377,
+        "ligatures": "remove_circle_outline",
+        "tags"     : ["remove_circle_outline"]
+    }, {
+        "order"    : 2462,
+        "id"       : 282,
+        "name"     : "remove_circle",
+        "prevSize" : 32,
+        "code"     : 60378,
+        "ligatures": "remove_circle",
+        "tags"     : ["remove_circle"]
+    }, {
+        "order"    : 2463,
+        "id"       : 281,
+        "name"     : "remove_from_queue",
+        "prevSize" : 32,
+        "code"     : 60379,
+        "ligatures": "remove_from_queue",
+        "tags"     : ["remove_from_queue"]
+    }, {
+        "order"    : 2464,
+        "id"       : 280,
+        "name"     : "remove_red_eye",
+        "prevSize" : 32,
+        "code"     : 60380,
+        "ligatures": "remove_red_eye",
+        "tags"     : ["remove_red_eye"]
+    }, {
+        "order"    : 2465,
+        "id"       : 279,
+        "name"     : "remove_shopping_cart",
+        "prevSize" : 32,
+        "code"     : 60381,
+        "ligatures": "remove_shopping_cart",
+        "tags"     : ["remove_shopping_cart"]
+    }, {
+        "order"    : 2466,
+        "id"       : 278,
+        "name"     : "remove",
+        "prevSize" : 32,
+        "code"     : 60382,
+        "ligatures": "remove",
+        "tags"     : ["remove"]
+    }, {
+        "order"    : 2467,
+        "id"       : 277,
+        "name"     : "reorder",
+        "prevSize" : 32,
+        "code"     : 60383,
+        "ligatures": "reorder",
+        "tags"     : ["reorder"]
+    }, {
+        "order"    : 2468,
+        "id"       : 276,
+        "name"     : "repeat_one",
+        "prevSize" : 32,
+        "code"     : 60384,
+        "ligatures": "repeat_one",
+        "tags"     : ["repeat_one"]
+    }, {
+        "order"    : 2469,
+        "id"       : 275,
+        "name"     : "repeat",
+        "prevSize" : 32,
+        "code"     : 60385,
+        "ligatures": "repeat",
+        "tags"     : ["repeat"]
+    }, {
+        "order"    : 2470,
+        "id"       : 274,
+        "name"     : "replay_5",
+        "prevSize" : 32,
+        "code"     : 60386,
+        "ligatures": "replay_5",
+        "tags"     : ["replay_5"]
+    }, {
+        "order"    : 2471,
+        "id"       : 273,
+        "name"     : "replay_10",
+        "prevSize" : 32,
+        "code"     : 60387,
+        "ligatures": "replay_10",
+        "tags"     : ["replay_10"]
+    }, {
+        "order"    : 2472,
+        "id"       : 272,
+        "name"     : "replay_30",
+        "prevSize" : 32,
+        "code"     : 60388,
+        "ligatures": "replay_30",
+        "tags"     : ["replay_30"]
+    }, {
+        "order"    : 2473,
+        "id"       : 271,
+        "name"     : "replay",
+        "prevSize" : 32,
+        "code"     : 60389,
+        "ligatures": "replay",
+        "tags"     : ["replay"]
+    }, {
+        "order"    : 2474,
+        "id"       : 270,
+        "name"     : "reply_all",
+        "prevSize" : 32,
+        "code"     : 60390,
+        "ligatures": "reply_all",
+        "tags"     : ["reply_all"]
+    }, {
+        "order"    : 2475,
+        "id"       : 269,
+        "name"     : "reply",
+        "prevSize" : 32,
+        "code"     : 60391,
+        "ligatures": "reply",
+        "tags"     : ["reply"]
+    }, {
+        "order"    : 2476,
+        "id"       : 268,
+        "name"     : "report_off",
+        "prevSize" : 32,
+        "code"     : 60392,
+        "ligatures": "report_off",
+        "tags"     : ["report_off"]
+    }, {
+        "order"    : 2477,
+        "id"       : 267,
+        "name"     : "report_problem",
+        "prevSize" : 32,
+        "code"     : 60393,
+        "ligatures": "report_problem",
+        "tags"     : ["report_problem"]
+    }, {
+        "order"    : 2478,
+        "id"       : 266,
+        "name"     : "report",
+        "prevSize" : 32,
+        "code"     : 60394,
+        "ligatures": "report",
+        "tags"     : ["report"]
+    }, {
+        "order"    : 2479,
+        "id"       : 265,
+        "name"     : "restaurant_menu",
+        "prevSize" : 32,
+        "code"     : 60395,
+        "ligatures": "restaurant_menu",
+        "tags"     : ["restaurant_menu"]
+    }, {
+        "order"    : 2480,
+        "id"       : 264,
+        "name"     : "restaurant",
+        "prevSize" : 32,
+        "code"     : 60396,
+        "ligatures": "restaurant",
+        "tags"     : ["restaurant"]
+    }, {
+        "order"    : 2481,
+        "id"       : 263,
+        "name"     : "restore_from_trash",
+        "prevSize" : 32,
+        "code"     : 60397,
+        "ligatures": "restore_from_trash",
+        "tags"     : ["restore_from_trash"]
+    }, {
+        "order"    : 2482,
+        "id"       : 262,
+        "name"     : "restore_page",
+        "prevSize" : 32,
+        "code"     : 60398,
+        "ligatures": "restore_page",
+        "tags"     : ["restore_page"]
+    }, {
+        "order"    : 2483,
+        "id"       : 261,
+        "name"     : "restore",
+        "prevSize" : 32,
+        "code"     : 60399,
+        "ligatures": "restore",
+        "tags"     : ["restore"]
+    }, {
+        "order"    : 2484,
+        "id"       : 260,
+        "name"     : "ring_volume",
+        "prevSize" : 32,
+        "code"     : 60400,
+        "ligatures": "ring_volume",
+        "tags"     : ["ring_volume"]
+    }, {
+        "order"    : 2485,
+        "id"       : 259,
+        "name"     : "room_service",
+        "prevSize" : 32,
+        "code"     : 60401,
+        "ligatures": "room_service",
+        "tags"     : ["room_service"]
+    }, {
+        "order"    : 2486,
+        "id"       : 258,
+        "name"     : "room",
+        "prevSize" : 32,
+        "code"     : 60402,
+        "ligatures": "room",
+        "tags"     : ["room"]
+    }, {
+        "order"    : 2487,
+        "id"       : 257,
+        "name"     : "rotate_90_degrees_ccw",
+        "prevSize" : 32,
+        "code"     : 60403,
+        "ligatures": "rotate_90_degrees_ccw",
+        "tags"     : ["rotate_90_degrees_ccw"]
+    }, {
+        "order"    : 2488,
+        "id"       : 256,
+        "name"     : "rotate_left",
+        "prevSize" : 32,
+        "code"     : 60404,
+        "ligatures": "rotate_left",
+        "tags"     : ["rotate_left"]
+    }, {
+        "order"    : 2489,
+        "id"       : 255,
+        "name"     : "rotate_right",
+        "prevSize" : 32,
+        "code"     : 60405,
+        "ligatures": "rotate_right",
+        "tags"     : ["rotate_right"]
+    }, {
+        "order"    : 2490,
+        "id"       : 254,
+        "name"     : "rounded_corner",
+        "prevSize" : 32,
+        "code"     : 60406,
+        "ligatures": "rounded_corner",
+        "tags"     : ["rounded_corner"]
+    }, {
+        "order"    : 2491,
+        "id"       : 253,
+        "name"     : "router",
+        "prevSize" : 32,
+        "code"     : 60407,
+        "ligatures": "router",
+        "tags"     : ["router"]
+    }, {
+        "order"    : 2492,
+        "id"       : 252,
+        "name"     : "rowing",
+        "prevSize" : 32,
+        "code"     : 60408,
+        "ligatures": "rowing",
+        "tags"     : ["rowing"]
+    }, {
+        "order"    : 2493,
+        "id"       : 251,
+        "name"     : "rss_feed",
+        "prevSize" : 32,
+        "code"     : 60409,
+        "ligatures": "rss_feed",
+        "tags"     : ["rss_feed"]
+    }, {
+        "order"    : 2494,
+        "id"       : 250,
+        "name"     : "rv_hookup",
+        "prevSize" : 32,
+        "code"     : 60410,
+        "ligatures": "rv_hookup",
+        "tags"     : ["rv_hookup"]
+    }, {
+        "order"    : 2495,
+        "id"       : 249,
+        "name"     : "satellite",
+        "prevSize" : 32,
+        "code"     : 60411,
+        "ligatures": "satellite",
+        "tags"     : ["satellite"]
+    }, {
+        "order"    : 2496,
+        "id"       : 248,
+        "name"     : "save_alt",
+        "prevSize" : 32,
+        "code"     : 60412,
+        "ligatures": "save_alt",
+        "tags"     : ["save_alt"]
+    }, {
+        "order"    : 2497,
+        "id"       : 247,
+        "name"     : "save",
+        "prevSize" : 32,
+        "code"     : 60413,
+        "ligatures": "save",
+        "tags"     : ["save"]
+    }, {
+        "order"    : 2498,
+        "id"       : 246,
+        "name"     : "scanner",
+        "prevSize" : 32,
+        "code"     : 60414,
+        "ligatures": "scanner",
+        "tags"     : ["scanner"]
+    }, {
+        "order"    : 2499,
+        "id"       : 245,
+        "name"     : "scatter_plot",
+        "prevSize" : 32,
+        "code"     : 60415,
+        "ligatures": "scatter_plot",
+        "tags"     : ["scatter_plot"]
+    }, {
+        "order"    : 2500,
+        "id"       : 244,
+        "name"     : "schedule",
+        "prevSize" : 32,
+        "code"     : 60416,
+        "ligatures": "schedule",
+        "tags"     : ["schedule"]
+    }, {
+        "order"    : 2501,
+        "id"       : 243,
         "name"     : "school",
-        "group_id" : "social",
-        "keywords" : ["social", "school"],
-        "ligature" : "school",
-        "codepoint": "E80C",
-        "is_new"   : false
+        "prevSize" : 32,
+        "code"     : 60417,
+        "ligatures": "school",
+        "tags"     : ["school"]
     }, {
-        "id"       : "ic_sentiment_dissatisfied",
-        "name"     : "sentiment dissatisfied",
-        "group_id" : "social",
-        "keywords" : ["social", "sentiment", "dissatisfied"],
-        "ligature" : "sentiment_dissatisfied",
-        "codepoint": "E811",
-        "is_new"   : false
+        "order"    : 2502,
+        "id"       : 242,
+        "name"     : "score",
+        "prevSize" : 32,
+        "code"     : 60418,
+        "ligatures": "score",
+        "tags"     : ["score"]
     }, {
-        "id"       : "ic_sentiment_neutral",
-        "name"     : "sentiment neutral",
-        "group_id" : "social",
-        "keywords" : ["social", "sentiment", "neutral"],
-        "ligature" : "sentiment_neutral",
-        "codepoint": "E812",
-        "is_new"   : false
+        "order"    : 2503,
+        "id"       : 241,
+        "name"     : "screen_lock_landscape",
+        "prevSize" : 32,
+        "code"     : 60419,
+        "ligatures": "screen_lock_landscape",
+        "tags"     : ["screen_lock_landscape"]
     }, {
-        "id"       : "ic_sentiment_satisfied",
-        "name"     : "sentiment satisfied",
-        "group_id" : "social",
-        "keywords" : ["social", "sentiment", "satisfied"],
-        "ligature" : "sentiment_satisfied",
-        "codepoint": "E813",
-        "is_new"   : false
+        "order"    : 2504,
+        "id"       : 240,
+        "name"     : "screen_lock_portrait",
+        "prevSize" : 32,
+        "code"     : 60420,
+        "ligatures": "screen_lock_portrait",
+        "tags"     : ["screen_lock_portrait"]
     }, {
-        "id"       : "ic_sentiment_very_dissatisfied",
-        "name"     : "sentiment very dissatisfied",
-        "group_id" : "social",
-        "keywords" : ["social", "sentiment", "very", "dissatisfied"],
-        "ligature" : "sentiment_very_dissatisfied",
-        "codepoint": "E814",
-        "is_new"   : false
+        "order"    : 2505,
+        "id"       : 239,
+        "name"     : "screen_lock_rotation",
+        "prevSize" : 32,
+        "code"     : 60421,
+        "ligatures": "screen_lock_rotation",
+        "tags"     : ["screen_lock_rotation"]
     }, {
-        "id"       : "ic_sentiment_very_satisfied",
-        "name"     : "sentiment very satisfied",
-        "group_id" : "social",
-        "keywords" : ["social", "sentiment", "very", "satisfied"],
-        "ligature" : "sentiment_very_satisfied",
-        "codepoint": "E815",
-        "is_new"   : false
+        "order"    : 2506,
+        "id"       : 238,
+        "name"     : "screen_rotation",
+        "prevSize" : 32,
+        "code"     : 60422,
+        "ligatures": "screen_rotation",
+        "tags"     : ["screen_rotation"]
     }, {
-        "id"       : "ic_share",
+        "order"    : 2507,
+        "id"       : 237,
+        "name"     : "screen_share",
+        "prevSize" : 32,
+        "code"     : 60423,
+        "ligatures": "screen_share",
+        "tags"     : ["screen_share"]
+    }, {
+        "order"    : 2508,
+        "id"       : 236,
+        "name"     : "sd_card",
+        "prevSize" : 32,
+        "code"     : 60424,
+        "ligatures": "sd_card",
+        "tags"     : ["sd_card"]
+    }, {
+        "order"    : 2509,
+        "id"       : 235,
+        "name"     : "sd_storage",
+        "prevSize" : 32,
+        "code"     : 60425,
+        "ligatures": "sd_storage",
+        "tags"     : ["sd_storage"]
+    }, {
+        "order"    : 2510,
+        "id"       : 234,
+        "name"     : "search",
+        "prevSize" : 32,
+        "code"     : 60426,
+        "ligatures": "search",
+        "tags"     : ["search"]
+    }, {
+        "order"    : 2511,
+        "id"       : 233,
+        "name"     : "security",
+        "prevSize" : 32,
+        "code"     : 60427,
+        "ligatures": "security",
+        "tags"     : ["security"]
+    }, {
+        "order"    : 2512,
+        "id"       : 232,
+        "name"     : "select_all",
+        "prevSize" : 32,
+        "code"     : 60428,
+        "ligatures": "select_all",
+        "tags"     : ["select_all"]
+    }, {
+        "order"    : 2513,
+        "id"       : 231,
+        "name"     : "send",
+        "prevSize" : 32,
+        "code"     : 60429,
+        "ligatures": "send",
+        "tags"     : ["send"]
+    }, {
+        "order"    : 2514,
+        "id"       : 230,
+        "name"     : "sentiment_dissatisfied",
+        "prevSize" : 32,
+        "code"     : 60430,
+        "ligatures": "sentiment_dissatisfied",
+        "tags"     : ["sentiment_dissatisfied"]
+    }, {
+        "order"    : 2515,
+        "id"       : 229,
+        "name"     : "sentiment_satisfied_alt",
+        "prevSize" : 32,
+        "code"     : 60431,
+        "ligatures": "sentiment_satisfied_alt",
+        "tags"     : ["sentiment_satisfied_alt"]
+    }, {
+        "order"    : 2516,
+        "id"       : 228,
+        "name"     : "sentiment_satisfied",
+        "prevSize" : 32,
+        "code"     : 60432,
+        "ligatures": "sentiment_satisfied",
+        "tags"     : ["sentiment_satisfied"]
+    }, {
+        "order"    : 2517,
+        "id"       : 227,
+        "name"     : "sentiment_very_dissatisfied",
+        "prevSize" : 32,
+        "code"     : 60433,
+        "ligatures": "sentiment_very_dissatisfied",
+        "tags"     : ["sentiment_very_dissatisfied"]
+    }, {
+        "order"    : 2518,
+        "id"       : 226,
+        "name"     : "sentiment_very_satisfied",
+        "prevSize" : 32,
+        "code"     : 60434,
+        "ligatures": "sentiment_very_satisfied",
+        "tags"     : ["sentiment_very_satisfied"]
+    }, {
+        "order"    : 2519,
+        "id"       : 225,
+        "name"     : "settings_applications",
+        "prevSize" : 32,
+        "code"     : 60435,
+        "ligatures": "settings_applications",
+        "tags"     : ["settings_applications"]
+    }, {
+        "order"    : 2520,
+        "id"       : 224,
+        "name"     : "settings_backup_restore",
+        "prevSize" : 32,
+        "code"     : 60436,
+        "ligatures": "settings_backup_restore",
+        "tags"     : ["settings_backup_restore"]
+    }, {
+        "order"    : 2521,
+        "id"       : 223,
+        "name"     : "settings_bluetooth",
+        "prevSize" : 32,
+        "code"     : 60437,
+        "ligatures": "settings_bluetooth",
+        "tags"     : ["settings_bluetooth"]
+    }, {
+        "order"    : 2522,
+        "id"       : 222,
+        "name"     : "settings_brightness",
+        "prevSize" : 32,
+        "code"     : 60438,
+        "ligatures": "settings_brightness",
+        "tags"     : ["settings_brightness"]
+    }, {
+        "order"    : 2523,
+        "id"       : 221,
+        "name"     : "settings_cell",
+        "prevSize" : 32,
+        "code"     : 60439,
+        "ligatures": "settings_cell",
+        "tags"     : ["settings_cell"]
+    }, {
+        "order"    : 2524,
+        "id"       : 220,
+        "name"     : "settings_ethernet",
+        "prevSize" : 32,
+        "code"     : 60440,
+        "ligatures": "settings_ethernet",
+        "tags"     : ["settings_ethernet"]
+    }, {
+        "order"    : 2525,
+        "id"       : 219,
+        "name"     : "settings_input_antenna",
+        "prevSize" : 32,
+        "code"     : 60441,
+        "ligatures": "settings_input_antenna",
+        "tags"     : ["settings_input_antenna"]
+    }, {
+        "order"    : 2526,
+        "id"       : 218,
+        "name"     : "settings_input_component",
+        "prevSize" : 32,
+        "code"     : 60442,
+        "ligatures": "settings_input_component",
+        "tags"     : ["settings_input_component"]
+    }, {
+        "order"    : 2527,
+        "id"       : 217,
+        "name"     : "settings_input_composite",
+        "prevSize" : 32,
+        "code"     : 60443,
+        "ligatures": "settings_input_composite",
+        "tags"     : ["settings_input_composite"]
+    }, {
+        "order"    : 2528,
+        "id"       : 216,
+        "name"     : "settings_input_hdmi",
+        "prevSize" : 32,
+        "code"     : 60444,
+        "ligatures": "settings_input_hdmi",
+        "tags"     : ["settings_input_hdmi"]
+    }, {
+        "order"    : 2529,
+        "id"       : 215,
+        "name"     : "settings_input_svideo",
+        "prevSize" : 32,
+        "code"     : 60445,
+        "ligatures": "settings_input_svideo",
+        "tags"     : ["settings_input_svideo"]
+    }, {
+        "order"    : 2530,
+        "id"       : 214,
+        "name"     : "settings_overscan",
+        "prevSize" : 32,
+        "code"     : 60446,
+        "ligatures": "settings_overscan",
+        "tags"     : ["settings_overscan"]
+    }, {
+        "order"    : 2531,
+        "id"       : 213,
+        "name"     : "settings_phone",
+        "prevSize" : 32,
+        "code"     : 60447,
+        "ligatures": "settings_phone",
+        "tags"     : ["settings_phone"]
+    }, {
+        "order"    : 2532,
+        "id"       : 212,
+        "name"     : "settings_power",
+        "prevSize" : 32,
+        "code"     : 60448,
+        "ligatures": "settings_power",
+        "tags"     : ["settings_power"]
+    }, {
+        "order"    : 2533,
+        "id"       : 211,
+        "name"     : "settings_remote",
+        "prevSize" : 32,
+        "code"     : 60449,
+        "ligatures": "settings_remote",
+        "tags"     : ["settings_remote"]
+    }, {
+        "order"    : 2534,
+        "id"       : 210,
+        "name"     : "settings_system_daydream",
+        "prevSize" : 32,
+        "code"     : 60450,
+        "ligatures": "settings_system_daydream",
+        "tags"     : ["settings_system_daydream"]
+    }, {
+        "order"    : 2535,
+        "id"       : 209,
+        "name"     : "settings_voice",
+        "prevSize" : 32,
+        "code"     : 60451,
+        "ligatures": "settings_voice",
+        "tags"     : ["settings_voice"]
+    }, {
+        "order"    : 2536,
+        "id"       : 208,
+        "name"     : "settings",
+        "prevSize" : 32,
+        "code"     : 60452,
+        "ligatures": "settings",
+        "tags"     : ["settings"]
+    }, {
+        "order"    : 2537,
+        "id"       : 207,
         "name"     : "share",
-        "group_id" : "social",
-        "keywords" : ["social", "share"],
-        "ligature" : "share",
-        "codepoint": "E80D",
-        "is_new"   : false
+        "prevSize" : 32,
+        "code"     : 60453,
+        "ligatures": "share",
+        "tags"     : ["share"]
     }, {
-        "id"       : "ic_whatshot",
-        "name"     : "whatshot",
-        "group_id" : "social",
-        "keywords" : ["social", "whatshot"],
-        "ligature" : "whatshot",
-        "codepoint": "E80E",
-        "is_new"   : false
+        "order"    : 2538,
+        "id"       : 206,
+        "name"     : "shop_two",
+        "prevSize" : 32,
+        "code"     : 60454,
+        "ligatures": "shop_two",
+        "tags"     : ["shop_two"]
     }, {
-        "id"       : "ic_check_box",
-        "name"     : "check box",
-        "group_id" : "toggle",
-        "keywords" : ["toggle", "check", "box"],
-        "ligature" : "check_box",
-        "codepoint": "E834",
-        "is_new"   : false
+        "order"    : 2539,
+        "id"       : 205,
+        "name"     : "shop",
+        "prevSize" : 32,
+        "code"     : 60455,
+        "ligatures": "shop",
+        "tags"     : ["shop"]
     }, {
-        "id"       : "ic_check_box_outline_blank",
-        "name"     : "check box outline blank",
-        "group_id" : "toggle",
-        "keywords" : ["toggle", "check", "box", "outline", "blank"],
-        "ligature" : "check_box_outline_blank",
-        "codepoint": "E835",
-        "is_new"   : false
+        "order"    : 2540,
+        "id"       : 204,
+        "name"     : "shopping_basket",
+        "prevSize" : 32,
+        "code"     : 60456,
+        "ligatures": "shopping_basket",
+        "tags"     : ["shopping_basket"]
     }, {
-        "id"       : "ic_indeterminate_check_box",
-        "name"     : "indeterminate check box",
-        "group_id" : "toggle",
-        "keywords" : ["toggle", "indeterminate", "check", "box"],
-        "ligature" : "indeterminate_check_box",
-        "codepoint": "E909",
-        "is_new"   : false
+        "order"    : 2541,
+        "id"       : 203,
+        "name"     : "shopping_cart",
+        "prevSize" : 32,
+        "code"     : 60457,
+        "ligatures": "shopping_cart",
+        "tags"     : ["shopping_cart"]
     }, {
-        "id"       : "ic_radio_button_checked",
-        "name"     : "radio button checked",
-        "group_id" : "toggle",
-        "keywords" : ["toggle", "radio", "button", "checked"],
-        "ligature" : "radio_button_checked",
-        "codepoint": "E837",
-        "is_new"   : false
+        "order"    : 2542,
+        "id"       : 202,
+        "name"     : "short_text",
+        "prevSize" : 32,
+        "code"     : 60458,
+        "ligatures": "short_text",
+        "tags"     : ["short_text"]
     }, {
-        "id"       : "ic_radio_button_unchecked",
-        "name"     : "radio button unchecked",
-        "group_id" : "toggle",
-        "keywords" : ["toggle", "radio", "button", "unchecked"],
-        "ligature" : "radio_button_unchecked",
-        "codepoint": "E836",
-        "is_new"   : false
+        "order"    : 2543,
+        "id"       : 201,
+        "name"     : "show_chart",
+        "prevSize" : 32,
+        "code"     : 60459,
+        "ligatures": "show_chart",
+        "tags"     : ["show_chart"]
     }, {
-        "id"       : "ic_star",
+        "order"    : 2544,
+        "id"       : 200,
+        "name"     : "shuffle",
+        "prevSize" : 32,
+        "code"     : 60460,
+        "ligatures": "shuffle",
+        "tags"     : ["shuffle"]
+    }, {
+        "order"    : 2545,
+        "id"       : 199,
+        "name"     : "shutter_speed",
+        "prevSize" : 32,
+        "code"     : 60461,
+        "ligatures": "shutter_speed",
+        "tags"     : ["shutter_speed"]
+    }, {
+        "order"    : 2546,
+        "id"       : 198,
+        "name"     : "signal_cellular_0_bar",
+        "prevSize" : 32,
+        "code"     : 60462,
+        "ligatures": "signal_cellular_0_bar",
+        "tags"     : ["signal_cellular_0_bar"]
+    }, {
+        "order"    : 2547,
+        "id"       : 197,
+        "name"     : "signal_cellular_4_bar",
+        "prevSize" : 32,
+        "code"     : 60463,
+        "ligatures": "signal_cellular_4_bar",
+        "tags"     : ["signal_cellular_4_bar"]
+    }, {
+        "order"    : 2548,
+        "id"       : 196,
+        "name"     : "signal_cellular_alt",
+        "prevSize" : 32,
+        "code"     : 60464,
+        "ligatures": "signal_cellular_alt",
+        "tags"     : ["signal_cellular_alt"]
+    }, {
+        "order"    : 2549,
+        "id"       : 195,
+        "name"     : "signal_cellular_connected_no_internet_4_bar",
+        "prevSize" : 32,
+        "code"     : 60465,
+        "ligatures": "signal_cellular_connected_no_internet_4_bar",
+        "tags"     : ["signal_cellular_connected_no_internet_4_bar"]
+    }, {
+        "order"    : 2550,
+        "id"       : 194,
+        "name"     : "signal_cellular_no_sim",
+        "prevSize" : 32,
+        "code"     : 60466,
+        "ligatures": "signal_cellular_no_sim",
+        "tags"     : ["signal_cellular_no_sim"]
+    }, {
+        "order"    : 2551,
+        "id"       : 193,
+        "name"     : "signal_cellular_null",
+        "prevSize" : 32,
+        "code"     : 60467,
+        "ligatures": "signal_cellular_null",
+        "tags"     : ["signal_cellular_null"]
+    }, {
+        "order"    : 2552,
+        "id"       : 192,
+        "name"     : "signal_cellular_off",
+        "prevSize" : 32,
+        "code"     : 60468,
+        "ligatures": "signal_cellular_off",
+        "tags"     : ["signal_cellular_off"]
+    }, {
+        "order"    : 2553,
+        "id"       : 191,
+        "name"     : "signal_wifi_0_bar",
+        "prevSize" : 32,
+        "code"     : 60469,
+        "ligatures": "signal_wifi_0_bar",
+        "tags"     : ["signal_wifi_0_bar"]
+    }, {
+        "order"    : 2554,
+        "id"       : 190,
+        "name"     : "signal_wifi_4_bar_lock",
+        "prevSize" : 32,
+        "code"     : 60470,
+        "ligatures": "signal_wifi_4_bar_lock",
+        "tags"     : ["signal_wifi_4_bar_lock"]
+    }, {
+        "order"    : 2555,
+        "id"       : 189,
+        "name"     : "signal_wifi_4_bar",
+        "prevSize" : 32,
+        "code"     : 60471,
+        "ligatures": "signal_wifi_4_bar",
+        "tags"     : ["signal_wifi_4_bar"]
+    }, {
+        "order"    : 2556,
+        "id"       : 188,
+        "name"     : "signal_wifi_off",
+        "prevSize" : 32,
+        "code"     : 60472,
+        "ligatures": "signal_wifi_off",
+        "tags"     : ["signal_wifi_off"]
+    }, {
+        "order"    : 2557,
+        "id"       : 187,
+        "name"     : "sim_card",
+        "prevSize" : 32,
+        "code"     : 60473,
+        "ligatures": "sim_card",
+        "tags"     : ["sim_card"]
+    }, {
+        "order"    : 2558,
+        "id"       : 186,
+        "name"     : "skip_next",
+        "prevSize" : 32,
+        "code"     : 60474,
+        "ligatures": "skip_next",
+        "tags"     : ["skip_next"]
+    }, {
+        "order"    : 2559,
+        "id"       : 185,
+        "name"     : "skip_previous",
+        "prevSize" : 32,
+        "code"     : 60475,
+        "ligatures": "skip_previous",
+        "tags"     : ["skip_previous"]
+    }, {
+        "order"    : 2560,
+        "id"       : 184,
+        "name"     : "slideshow",
+        "prevSize" : 32,
+        "code"     : 60476,
+        "ligatures": "slideshow",
+        "tags"     : ["slideshow"]
+    }, {
+        "order"    : 2561,
+        "id"       : 183,
+        "name"     : "slow_motion_video",
+        "prevSize" : 32,
+        "code"     : 60477,
+        "ligatures": "slow_motion_video",
+        "tags"     : ["slow_motion_video"]
+    }, {
+        "order"    : 2562,
+        "id"       : 182,
+        "name"     : "smartphone",
+        "prevSize" : 32,
+        "code"     : 60478,
+        "ligatures": "smartphone",
+        "tags"     : ["smartphone"]
+    }, {
+        "order"    : 2563,
+        "id"       : 181,
+        "name"     : "smoke_free",
+        "prevSize" : 32,
+        "code"     : 60479,
+        "ligatures": "smoke_free",
+        "tags"     : ["smoke_free"]
+    }, {
+        "order"    : 2564,
+        "id"       : 180,
+        "name"     : "smoking_rooms",
+        "prevSize" : 32,
+        "code"     : 60480,
+        "ligatures": "smoking_rooms",
+        "tags"     : ["smoking_rooms"]
+    }, {
+        "order"    : 2565,
+        "id"       : 179,
+        "name"     : "sms_failed",
+        "prevSize" : 32,
+        "code"     : 60481,
+        "ligatures": "sms_failed",
+        "tags"     : ["sms_failed"]
+    }, {
+        "order"    : 2566,
+        "id"       : 178,
+        "name"     : "sms",
+        "prevSize" : 32,
+        "code"     : 60482,
+        "ligatures": "sms",
+        "tags"     : ["sms"]
+    }, {
+        "order"    : 2567,
+        "id"       : 177,
+        "name"     : "snooze",
+        "prevSize" : 32,
+        "code"     : 60483,
+        "ligatures": "snooze",
+        "tags"     : ["snooze"]
+    }, {
+        "order"    : 2568,
+        "id"       : 176,
+        "name"     : "sort_by_alpha",
+        "prevSize" : 32,
+        "code"     : 60484,
+        "ligatures": "sort_by_alpha",
+        "tags"     : ["sort_by_alpha"]
+    }, {
+        "order"    : 2569,
+        "id"       : 175,
+        "name"     : "sort",
+        "prevSize" : 32,
+        "code"     : 60485,
+        "ligatures": "sort",
+        "tags"     : ["sort"]
+    }, {
+        "order"    : 2570,
+        "id"       : 174,
+        "name"     : "spa",
+        "prevSize" : 32,
+        "code"     : 60486,
+        "ligatures": "spa",
+        "tags"     : ["spa"]
+    }, {
+        "order"    : 2571,
+        "id"       : 173,
+        "name"     : "space_bar",
+        "prevSize" : 32,
+        "code"     : 60487,
+        "ligatures": "space_bar",
+        "tags"     : ["space_bar"]
+    }, {
+        "order"    : 2572,
+        "id"       : 172,
+        "name"     : "speaker_group",
+        "prevSize" : 32,
+        "code"     : 60488,
+        "ligatures": "speaker_group",
+        "tags"     : ["speaker_group"]
+    }, {
+        "order"    : 2573,
+        "id"       : 171,
+        "name"     : "speaker_notes_off",
+        "prevSize" : 32,
+        "code"     : 60489,
+        "ligatures": "speaker_notes_off",
+        "tags"     : ["speaker_notes_off"]
+    }, {
+        "order"    : 2574,
+        "id"       : 170,
+        "name"     : "speaker_notes",
+        "prevSize" : 32,
+        "code"     : 60490,
+        "ligatures": "speaker_notes",
+        "tags"     : ["speaker_notes"]
+    }, {
+        "order"    : 2575,
+        "id"       : 169,
+        "name"     : "speaker_phone",
+        "prevSize" : 32,
+        "code"     : 60491,
+        "ligatures": "speaker_phone",
+        "tags"     : ["speaker_phone"]
+    }, {
+        "order"    : 2576,
+        "id"       : 168,
+        "name"     : "speaker",
+        "prevSize" : 32,
+        "code"     : 60492,
+        "ligatures": "speaker",
+        "tags"     : ["speaker"]
+    }, {
+        "order"    : 2577,
+        "id"       : 167,
+        "name"     : "spellcheck",
+        "prevSize" : 32,
+        "code"     : 60493,
+        "ligatures": "spellcheck",
+        "tags"     : ["spellcheck"]
+    }, {
+        "order"    : 2578,
+        "id"       : 166,
+        "name"     : "star_border",
+        "prevSize" : 32,
+        "code"     : 60494,
+        "ligatures": "star_border",
+        "tags"     : ["star_border"]
+    }, {
+        "order"    : 2579,
+        "id"       : 165,
+        "name"     : "star_half",
+        "prevSize" : 32,
+        "code"     : 60495,
+        "ligatures": "star_half",
+        "tags"     : ["star_half"]
+    }, {
+        "order"    : 2580,
+        "id"       : 164,
+        "name"     : "star_rate",
+        "prevSize" : 32,
+        "code"     : 60496,
+        "ligatures": "star_rate",
+        "tags"     : ["star_rate"]
+    }, {
+        "order"    : 2581,
+        "id"       : 163,
         "name"     : "star",
-        "group_id" : "toggle",
-        "keywords" : ["toggle", "star"],
-        "ligature" : "star",
-        "codepoint": "E838",
-        "is_new"   : false
+        "prevSize" : 32,
+        "code"     : 60497,
+        "ligatures": "star",
+        "tags"     : ["star"]
     }, {
-        "id"       : "ic_star_border",
-        "name"     : "star border",
-        "group_id" : "toggle",
-        "keywords" : ["toggle", "star", "border"],
-        "ligature" : "star_border",
-        "codepoint": "E83A",
-        "is_new"   : false
+        "order"    : 2582,
+        "id"       : 162,
+        "name"     : "stars",
+        "prevSize" : 32,
+        "code"     : 60498,
+        "ligatures": "stars",
+        "tags"     : ["stars"]
     }, {
-        "id"       : "ic_star_half",
-        "name"     : "star half",
-        "group_id" : "toggle",
-        "keywords" : ["toggle", "star", "half"],
-        "ligature" : "star_half",
-        "codepoint": "E839",
-        "is_new"   : false
+        "order"    : 2583,
+        "id"       : 161,
+        "name"     : "stay_current_landscape",
+        "prevSize" : 32,
+        "code"     : 60499,
+        "ligatures": "stay_current_landscape",
+        "tags"     : ["stay_current_landscape"]
+    }, {
+        "order"    : 2584,
+        "id"       : 160,
+        "name"     : "stay_current_portrait",
+        "prevSize" : 32,
+        "code"     : 60500,
+        "ligatures": "stay_current_portrait",
+        "tags"     : ["stay_current_portrait"]
+    }, {
+        "order"    : 2585,
+        "id"       : 159,
+        "name"     : "stay_primary_landscape",
+        "prevSize" : 32,
+        "code"     : 60501,
+        "ligatures": "stay_primary_landscape",
+        "tags"     : ["stay_primary_landscape"]
+    }, {
+        "order"    : 2586,
+        "id"       : 158,
+        "name"     : "stay_primary_portrait",
+        "prevSize" : 32,
+        "code"     : 60502,
+        "ligatures": "stay_primary_portrait",
+        "tags"     : ["stay_primary_portrait"]
+    }, {
+        "order"    : 2587,
+        "id"       : 157,
+        "name"     : "stop_screen_share",
+        "prevSize" : 32,
+        "code"     : 60503,
+        "ligatures": "stop_screen_share",
+        "tags"     : ["stop_screen_share"]
+    }, {
+        "order"    : 2588,
+        "id"       : 156,
+        "name"     : "stop",
+        "prevSize" : 32,
+        "code"     : 60504,
+        "ligatures": "stop",
+        "tags"     : ["stop"]
+    }, {
+        "order"    : 2589,
+        "id"       : 155,
+        "name"     : "storage",
+        "prevSize" : 32,
+        "code"     : 60505,
+        "ligatures": "storage",
+        "tags"     : ["storage"]
+    }, {
+        "order"    : 2590,
+        "id"       : 154,
+        "name"     : "store_mall_directory",
+        "prevSize" : 32,
+        "code"     : 60506,
+        "ligatures": "store_mall_directory",
+        "tags"     : ["store_mall_directory"]
+    }, {
+        "order"    : 2591,
+        "id"       : 153,
+        "name"     : "store",
+        "prevSize" : 32,
+        "code"     : 60507,
+        "ligatures": "store",
+        "tags"     : ["store"]
+    }, {
+        "order"    : 2592,
+        "id"       : 152,
+        "name"     : "straighten",
+        "prevSize" : 32,
+        "code"     : 60508,
+        "ligatures": "straighten",
+        "tags"     : ["straighten"]
+    }, {
+        "order"    : 2593,
+        "id"       : 151,
+        "name"     : "streetview",
+        "prevSize" : 32,
+        "code"     : 60509,
+        "ligatures": "streetview",
+        "tags"     : ["streetview"]
+    }, {
+        "order"    : 2594,
+        "id"       : 150,
+        "name"     : "strikethrough_s",
+        "prevSize" : 32,
+        "code"     : 60510,
+        "ligatures": "strikethrough_s",
+        "tags"     : ["strikethrough_s"]
+    }, {
+        "order"    : 2595,
+        "id"       : 149,
+        "name"     : "style",
+        "prevSize" : 32,
+        "code"     : 60511,
+        "ligatures": "style",
+        "tags"     : ["style"]
+    }, {
+        "order"    : 2596,
+        "id"       : 148,
+        "name"     : "subdirectory_arrow_left",
+        "prevSize" : 32,
+        "code"     : 60512,
+        "ligatures": "subdirectory_arrow_left",
+        "tags"     : ["subdirectory_arrow_left"]
+    }, {
+        "order"    : 2597,
+        "id"       : 147,
+        "name"     : "subdirectory_arrow_right",
+        "prevSize" : 32,
+        "code"     : 60513,
+        "ligatures": "subdirectory_arrow_right",
+        "tags"     : ["subdirectory_arrow_right"]
+    }, {
+        "order"    : 2598,
+        "id"       : 146,
+        "name"     : "subject",
+        "prevSize" : 32,
+        "code"     : 60514,
+        "ligatures": "subject",
+        "tags"     : ["subject"]
+    }, {
+        "order"    : 2599,
+        "id"       : 145,
+        "name"     : "subscriptions",
+        "prevSize" : 32,
+        "code"     : 60515,
+        "ligatures": "subscriptions",
+        "tags"     : ["subscriptions"]
+    }, {
+        "order"    : 2600,
+        "id"       : 144,
+        "name"     : "subtitles",
+        "prevSize" : 32,
+        "code"     : 60516,
+        "ligatures": "subtitles",
+        "tags"     : ["subtitles"]
+    }, {
+        "order"    : 2601,
+        "id"       : 143,
+        "name"     : "subway",
+        "prevSize" : 32,
+        "code"     : 60517,
+        "ligatures": "subway",
+        "tags"     : ["subway"]
+    }, {
+        "order"    : 2602,
+        "id"       : 142,
+        "name"     : "supervised_user_circle",
+        "prevSize" : 32,
+        "code"     : 60518,
+        "ligatures": "supervised_user_circle",
+        "tags"     : ["supervised_user_circle"]
+    }, {
+        "order"    : 2603,
+        "id"       : 141,
+        "name"     : "supervisor_account",
+        "prevSize" : 32,
+        "code"     : 60519,
+        "ligatures": "supervisor_account",
+        "tags"     : ["supervisor_account"]
+    }, {
+        "order"    : 2604,
+        "id"       : 140,
+        "name"     : "surround_sound",
+        "prevSize" : 32,
+        "code"     : 60520,
+        "ligatures": "surround_sound",
+        "tags"     : ["surround_sound"]
+    }, {
+        "order"    : 2605,
+        "id"       : 139,
+        "name"     : "swap_calls",
+        "prevSize" : 32,
+        "code"     : 60521,
+        "ligatures": "swap_calls",
+        "tags"     : ["swap_calls"]
+    }, {
+        "order"    : 2606,
+        "id"       : 138,
+        "name"     : "swap_horiz",
+        "prevSize" : 32,
+        "code"     : 60522,
+        "ligatures": "swap_horiz",
+        "tags"     : ["swap_horiz"]
+    }, {
+        "order"    : 2607,
+        "id"       : 137,
+        "name"     : "swap_horizontal_circle",
+        "prevSize" : 32,
+        "code"     : 60523,
+        "ligatures": "swap_horizontal_circle",
+        "tags"     : ["swap_horizontal_circle"]
+    }, {
+        "order"    : 2608,
+        "id"       : 136,
+        "name"     : "swap_vert",
+        "prevSize" : 32,
+        "code"     : 60524,
+        "ligatures": "swap_vert",
+        "tags"     : ["swap_vert"]
+    }, {
+        "order"    : 2609,
+        "id"       : 135,
+        "name"     : "swap_vertical_circle",
+        "prevSize" : 32,
+        "code"     : 60525,
+        "ligatures": "swap_vertical_circle",
+        "tags"     : ["swap_vertical_circle"]
+    }, {
+        "order"    : 2610,
+        "id"       : 134,
+        "name"     : "switch_camera",
+        "prevSize" : 32,
+        "code"     : 60526,
+        "ligatures": "switch_camera",
+        "tags"     : ["switch_camera"]
+    }, {
+        "order"    : 2611,
+        "id"       : 133,
+        "name"     : "switch_video",
+        "prevSize" : 32,
+        "code"     : 60527,
+        "ligatures": "switch_video",
+        "tags"     : ["switch_video"]
+    }, {
+        "order"    : 2612,
+        "id"       : 132,
+        "name"     : "sync_disabled",
+        "prevSize" : 32,
+        "code"     : 60528,
+        "ligatures": "sync_disabled",
+        "tags"     : ["sync_disabled"]
+    }, {
+        "order"    : 2613,
+        "id"       : 131,
+        "name"     : "sync_problem",
+        "prevSize" : 32,
+        "code"     : 60529,
+        "ligatures": "sync_problem",
+        "tags"     : ["sync_problem"]
+    }, {
+        "order"    : 2614,
+        "id"       : 130,
+        "name"     : "sync",
+        "prevSize" : 32,
+        "code"     : 60530,
+        "ligatures": "sync",
+        "tags"     : ["sync"]
+    }, {
+        "order"    : 2615,
+        "id"       : 129,
+        "name"     : "system_update",
+        "prevSize" : 32,
+        "code"     : 60531,
+        "ligatures": "system_update",
+        "tags"     : ["system_update"]
+    }, {
+        "order"    : 2616,
+        "id"       : 128,
+        "name"     : "tab_unselected",
+        "prevSize" : 32,
+        "code"     : 60532,
+        "ligatures": "tab_unselected",
+        "tags"     : ["tab_unselected"]
+    }, {
+        "order"    : 2617,
+        "id"       : 127,
+        "name"     : "tab",
+        "prevSize" : 32,
+        "code"     : 60533,
+        "ligatures": "tab",
+        "tags"     : ["tab"]
+    }, {
+        "order"    : 2618,
+        "id"       : 126,
+        "name"     : "table_chart",
+        "prevSize" : 32,
+        "code"     : 60534,
+        "ligatures": "table_chart",
+        "tags"     : ["table_chart"]
+    }, {
+        "order"    : 2619,
+        "id"       : 125,
+        "name"     : "tablet_android",
+        "prevSize" : 32,
+        "code"     : 60535,
+        "ligatures": "tablet_android",
+        "tags"     : ["tablet_android"]
+    }, {
+        "order"    : 2620,
+        "id"       : 124,
+        "name"     : "tablet_mac",
+        "prevSize" : 32,
+        "code"     : 60536,
+        "ligatures": "tablet_mac",
+        "tags"     : ["tablet_mac"]
+    }, {
+        "order"    : 2621,
+        "id"       : 123,
+        "name"     : "tablet",
+        "prevSize" : 32,
+        "code"     : 60537,
+        "ligatures": "tablet",
+        "tags"     : ["tablet"]
+    }, {
+        "order"    : 2622,
+        "id"       : 122,
+        "name"     : "tag_faces",
+        "prevSize" : 32,
+        "code"     : 60538,
+        "ligatures": "tag_faces",
+        "tags"     : ["tag_faces"]
+    }, {
+        "order"    : 2623,
+        "id"       : 121,
+        "name"     : "tap_and_play",
+        "prevSize" : 32,
+        "code"     : 60539,
+        "ligatures": "tap_and_play",
+        "tags"     : ["tap_and_play"]
+    }, {
+        "order"    : 2624,
+        "id"       : 120,
+        "name"     : "terrain",
+        "prevSize" : 32,
+        "code"     : 60540,
+        "ligatures": "terrain",
+        "tags"     : ["terrain"]
+    }, {
+        "order"    : 2625,
+        "id"       : 119,
+        "name"     : "text_fields",
+        "prevSize" : 32,
+        "code"     : 60541,
+        "ligatures": "text_fields",
+        "tags"     : ["text_fields"]
+    }, {
+        "order"    : 2626,
+        "id"       : 118,
+        "name"     : "text_format",
+        "prevSize" : 32,
+        "code"     : 60542,
+        "ligatures": "text_format",
+        "tags"     : ["text_format"]
+    }, {
+        "order"    : 2627,
+        "id"       : 117,
+        "name"     : "text_rotate_up",
+        "prevSize" : 32,
+        "code"     : 60543,
+        "ligatures": "text_rotate_up",
+        "tags"     : ["text_rotate_up"]
+    }, {
+        "order"    : 2628,
+        "id"       : 116,
+        "name"     : "text_rotate_vertical",
+        "prevSize" : 32,
+        "code"     : 60544,
+        "ligatures": "text_rotate_vertical",
+        "tags"     : ["text_rotate_vertical"]
+    }, {
+        "order"    : 2629,
+        "id"       : 115,
+        "name"     : "text_rotation_down",
+        "prevSize" : 32,
+        "code"     : 60545,
+        "ligatures": "text_rotation_down",
+        "tags"     : ["text_rotation_down"]
+    }, {
+        "order"    : 2630,
+        "id"       : 114,
+        "name"     : "text_rotation_none",
+        "prevSize" : 32,
+        "code"     : 60546,
+        "ligatures": "text_rotation_none",
+        "tags"     : ["text_rotation_none"]
+    }, {
+        "order"    : 2631,
+        "id"       : 113,
+        "name"     : "textsms",
+        "prevSize" : 32,
+        "code"     : 60547,
+        "ligatures": "textsms",
+        "tags"     : ["textsms"]
+    }, {
+        "order"    : 2632,
+        "id"       : 112,
+        "name"     : "texture",
+        "prevSize" : 32,
+        "code"     : 60548,
+        "ligatures": "texture",
+        "tags"     : ["texture"]
+    }, {
+        "order"    : 2633,
+        "id"       : 111,
+        "name"     : "theaters",
+        "prevSize" : 32,
+        "code"     : 60549,
+        "ligatures": "theaters",
+        "tags"     : ["theaters"]
+    }, {
+        "order"    : 2634,
+        "id"       : 110,
+        "name"     : "thumb_down_alt",
+        "prevSize" : 32,
+        "code"     : 60550,
+        "ligatures": "thumb_down_alt",
+        "tags"     : ["thumb_down_alt"]
+    }, {
+        "order"    : 2635,
+        "id"       : 109,
+        "name"     : "thumb_down",
+        "prevSize" : 32,
+        "code"     : 60551,
+        "ligatures": "thumb_down",
+        "tags"     : ["thumb_down"]
+    }, {
+        "order"    : 2636,
+        "id"       : 108,
+        "name"     : "thumb_up_alt",
+        "prevSize" : 32,
+        "code"     : 60552,
+        "ligatures": "thumb_up_alt",
+        "tags"     : ["thumb_up_alt"]
+    }, {
+        "order"    : 2637,
+        "id"       : 107,
+        "name"     : "thumb_up",
+        "prevSize" : 32,
+        "code"     : 60553,
+        "ligatures": "thumb_up",
+        "tags"     : ["thumb_up"]
+    }, {
+        "order"    : 2638,
+        "id"       : 106,
+        "name"     : "thumbs_up_down",
+        "prevSize" : 32,
+        "code"     : 60554,
+        "ligatures": "thumbs_up_down",
+        "tags"     : ["thumbs_up_down"]
+    }, {
+        "order"    : 2639,
+        "id"       : 105,
+        "name"     : "time_to_leave",
+        "prevSize" : 32,
+        "code"     : 60555,
+        "ligatures": "time_to_leave",
+        "tags"     : ["time_to_leave"]
+    }, {
+        "order"    : 2640,
+        "id"       : 104,
+        "name"     : "timelapse",
+        "prevSize" : 32,
+        "code"     : 60556,
+        "ligatures": "timelapse",
+        "tags"     : ["timelapse"]
+    }, {
+        "order"    : 2641,
+        "id"       : 103,
+        "name"     : "timeline",
+        "prevSize" : 32,
+        "code"     : 60557,
+        "ligatures": "timeline",
+        "tags"     : ["timeline"]
+    }, {
+        "order"    : 2642,
+        "id"       : 102,
+        "name"     : "timer_3",
+        "prevSize" : 32,
+        "code"     : 60558,
+        "ligatures": "timer_3",
+        "tags"     : ["timer_3"]
+    }, {
+        "order"    : 2643,
+        "id"       : 101,
+        "name"     : "timer_10",
+        "prevSize" : 32,
+        "code"     : 60559,
+        "ligatures": "timer_10",
+        "tags"     : ["timer_10"]
+    }, {
+        "order"    : 2644,
+        "id"       : 100,
+        "name"     : "timer_off",
+        "prevSize" : 32,
+        "code"     : 60560,
+        "ligatures": "timer_off",
+        "tags"     : ["timer_off"]
+    }, {
+        "order"    : 2645,
+        "id"       : 99,
+        "name"     : "timer",
+        "prevSize" : 32,
+        "code"     : 60561,
+        "ligatures": "timer",
+        "tags"     : ["timer"]
+    }, {
+        "order"    : 2646,
+        "id"       : 98,
+        "name"     : "title",
+        "prevSize" : 32,
+        "code"     : 60562,
+        "ligatures": "title",
+        "tags"     : ["title"]
+    }, {
+        "order"    : 2647,
+        "id"       : 97,
+        "name"     : "toc",
+        "prevSize" : 32,
+        "code"     : 60563,
+        "ligatures": "toc",
+        "tags"     : ["toc"]
+    }, {
+        "order"    : 2648,
+        "id"       : 96,
+        "name"     : "today",
+        "prevSize" : 32,
+        "code"     : 60564,
+        "ligatures": "today",
+        "tags"     : ["today"]
+    }, {
+        "order"    : 2649,
+        "id"       : 95,
+        "name"     : "toggle_off",
+        "prevSize" : 32,
+        "code"     : 60565,
+        "ligatures": "toggle_off",
+        "tags"     : ["toggle_off"]
+    }, {
+        "order"    : 2650,
+        "id"       : 94,
+        "name"     : "toggle_on",
+        "prevSize" : 32,
+        "code"     : 60566,
+        "ligatures": "toggle_on",
+        "tags"     : ["toggle_on"]
+    }, {
+        "order"    : 2651,
+        "id"       : 93,
+        "name"     : "toll",
+        "prevSize" : 32,
+        "code"     : 60567,
+        "ligatures": "toll",
+        "tags"     : ["toll"]
+    }, {
+        "order"    : 2652,
+        "id"       : 92,
+        "name"     : "tonality",
+        "prevSize" : 32,
+        "code"     : 60568,
+        "ligatures": "tonality",
+        "tags"     : ["tonality"]
+    }, {
+        "order"    : 2653,
+        "id"       : 91,
+        "name"     : "touch_app",
+        "prevSize" : 32,
+        "code"     : 60569,
+        "ligatures": "touch_app",
+        "tags"     : ["touch_app"]
+    }, {
+        "order"    : 2654,
+        "id"       : 90,
+        "name"     : "toys",
+        "prevSize" : 32,
+        "code"     : 60570,
+        "ligatures": "toys",
+        "tags"     : ["toys"]
+    }, {
+        "order"    : 2655,
+        "id"       : 89,
+        "name"     : "track_changes",
+        "prevSize" : 32,
+        "code"     : 60571,
+        "ligatures": "track_changes",
+        "tags"     : ["track_changes"]
+    }, {
+        "order"    : 2656,
+        "id"       : 88,
+        "name"     : "traffic",
+        "prevSize" : 32,
+        "code"     : 60572,
+        "ligatures": "traffic",
+        "tags"     : ["traffic"]
+    }, {
+        "order"    : 2657,
+        "id"       : 87,
+        "name"     : "train",
+        "prevSize" : 32,
+        "code"     : 60573,
+        "ligatures": "train",
+        "tags"     : ["train"]
+    }, {
+        "order"    : 2658,
+        "id"       : 86,
+        "name"     : "tram",
+        "prevSize" : 32,
+        "code"     : 60574,
+        "ligatures": "tram",
+        "tags"     : ["tram"]
+    }, {
+        "order"    : 2659,
+        "id"       : 85,
+        "name"     : "transfer_within_a_station",
+        "prevSize" : 32,
+        "code"     : 60575,
+        "ligatures": "transfer_within_a_station",
+        "tags"     : ["transfer_within_a_station"]
+    }, {
+        "order"    : 2660,
+        "id"       : 84,
+        "name"     : "transform",
+        "prevSize" : 32,
+        "code"     : 60576,
+        "ligatures": "transform",
+        "tags"     : ["transform"]
+    }, {
+        "order"    : 2661,
+        "id"       : 83,
+        "name"     : "transit_enterexit",
+        "prevSize" : 32,
+        "code"     : 60577,
+        "ligatures": "transit_enterexit",
+        "tags"     : ["transit_enterexit"]
+    }, {
+        "order"    : 2662,
+        "id"       : 82,
+        "name"     : "translate",
+        "prevSize" : 32,
+        "code"     : 60578,
+        "ligatures": "translate",
+        "tags"     : ["translate"]
+    }, {
+        "order"    : 2663,
+        "id"       : 81,
+        "name"     : "trending_down",
+        "prevSize" : 32,
+        "code"     : 60579,
+        "ligatures": "trending_down",
+        "tags"     : ["trending_down"]
+    }, {
+        "order"    : 2664,
+        "id"       : 80,
+        "name"     : "trending_flat",
+        "prevSize" : 32,
+        "code"     : 60580,
+        "ligatures": "trending_flat",
+        "tags"     : ["trending_flat"]
+    }, {
+        "order"    : 2665,
+        "id"       : 79,
+        "name"     : "trending_up",
+        "prevSize" : 32,
+        "code"     : 60581,
+        "ligatures": "trending_up",
+        "tags"     : ["trending_up"]
+    }, {
+        "order"    : 2666,
+        "id"       : 78,
+        "name"     : "trip_origin",
+        "prevSize" : 32,
+        "code"     : 60582,
+        "ligatures": "trip_origin",
+        "tags"     : ["trip_origin"]
+    }, {
+        "order"    : 2667,
+        "id"       : 77,
+        "name"     : "tune",
+        "prevSize" : 32,
+        "code"     : 60583,
+        "ligatures": "tune",
+        "tags"     : ["tune"]
+    }, {
+        "order"    : 2668,
+        "id"       : 76,
+        "name"     : "turned_in_not",
+        "prevSize" : 32,
+        "code"     : 60584,
+        "ligatures": "turned_in_not",
+        "tags"     : ["turned_in_not"]
+    }, {
+        "order"    : 2669,
+        "id"       : 75,
+        "name"     : "turned_in",
+        "prevSize" : 32,
+        "code"     : 60585,
+        "ligatures": "turned_in",
+        "tags"     : ["turned_in"]
+    }, {
+        "order"    : 2670,
+        "id"       : 74,
+        "name"     : "tv_off",
+        "prevSize" : 32,
+        "code"     : 60586,
+        "ligatures": "tv_off",
+        "tags"     : ["tv_off"]
+    }, {
+        "order"    : 2671,
+        "id"       : 73,
+        "name"     : "tv",
+        "prevSize" : 32,
+        "code"     : 60587,
+        "ligatures": "tv",
+        "tags"     : ["tv"]
+    }, {
+        "order"    : 2672,
+        "id"       : 72,
+        "name"     : "unarchive",
+        "prevSize" : 32,
+        "code"     : 60588,
+        "ligatures": "unarchive",
+        "tags"     : ["unarchive"]
+    }, {
+        "order"    : 2673,
+        "id"       : 71,
+        "name"     : "undo",
+        "prevSize" : 32,
+        "code"     : 60589,
+        "ligatures": "undo",
+        "tags"     : ["undo"]
+    }, {
+        "order"    : 2674,
+        "id"       : 70,
+        "name"     : "unfold_less",
+        "prevSize" : 32,
+        "code"     : 60590,
+        "ligatures": "unfold_less",
+        "tags"     : ["unfold_less"]
+    }, {
+        "order"    : 2675,
+        "id"       : 69,
+        "name"     : "unfold_more",
+        "prevSize" : 32,
+        "code"     : 60591,
+        "ligatures": "unfold_more",
+        "tags"     : ["unfold_more"]
+    }, {
+        "order"    : 2676,
+        "id"       : 68,
+        "name"     : "unsubscribe",
+        "prevSize" : 32,
+        "code"     : 60592,
+        "ligatures": "unsubscribe",
+        "tags"     : ["unsubscribe"]
+    }, {
+        "order"    : 2677,
+        "id"       : 67,
+        "name"     : "update",
+        "prevSize" : 32,
+        "code"     : 60593,
+        "ligatures": "update",
+        "tags"     : ["update"]
+    }, {
+        "order"    : 2678,
+        "id"       : 66,
+        "name"     : "usb",
+        "prevSize" : 32,
+        "code"     : 60594,
+        "ligatures": "usb",
+        "tags"     : ["usb"]
+    }, {
+        "order"    : 2679,
+        "id"       : 65,
+        "name"     : "verified_user",
+        "prevSize" : 32,
+        "code"     : 60595,
+        "ligatures": "verified_user",
+        "tags"     : ["verified_user"]
+    }, {
+        "order"    : 2680,
+        "id"       : 64,
+        "name"     : "vertical_align_bottom",
+        "prevSize" : 32,
+        "code"     : 60596,
+        "ligatures": "vertical_align_bottom",
+        "tags"     : ["vertical_align_bottom"]
+    }, {
+        "order"    : 2681,
+        "id"       : 63,
+        "name"     : "vertical_align_center",
+        "prevSize" : 32,
+        "code"     : 60597,
+        "ligatures": "vertical_align_center",
+        "tags"     : ["vertical_align_center"]
+    }, {
+        "order"    : 2682,
+        "id"       : 62,
+        "name"     : "vertical_align_top",
+        "prevSize" : 32,
+        "code"     : 60598,
+        "ligatures": "vertical_align_top",
+        "tags"     : ["vertical_align_top"]
+    }, {
+        "order"    : 2683,
+        "id"       : 61,
+        "name"     : "vertical_split",
+        "prevSize" : 32,
+        "code"     : 60599,
+        "ligatures": "vertical_split",
+        "tags"     : ["vertical_split"]
+    }, {
+        "order"    : 2684,
+        "id"       : 60,
+        "name"     : "vibration",
+        "prevSize" : 32,
+        "code"     : 60600,
+        "ligatures": "vibration",
+        "tags"     : ["vibration"]
+    }, {
+        "order"    : 2685,
+        "id"       : 59,
+        "name"     : "video_call",
+        "prevSize" : 32,
+        "code"     : 60601,
+        "ligatures": "video_call",
+        "tags"     : ["video_call"]
+    }, {
+        "order"    : 2686,
+        "id"       : 58,
+        "name"     : "video_label",
+        "prevSize" : 32,
+        "code"     : 60602,
+        "ligatures": "video_label",
+        "tags"     : ["video_label"]
+    }, {
+        "order"    : 2687,
+        "id"       : 57,
+        "name"     : "video_library",
+        "prevSize" : 32,
+        "code"     : 60603,
+        "ligatures": "video_library",
+        "tags"     : ["video_library"]
+    }, {
+        "order"    : 2688,
+        "id"       : 56,
+        "name"     : "videocam_off",
+        "prevSize" : 32,
+        "code"     : 60604,
+        "ligatures": "videocam_off",
+        "tags"     : ["videocam_off"]
+    }, {
+        "order"    : 2689,
+        "id"       : 55,
+        "name"     : "videocam",
+        "prevSize" : 32,
+        "code"     : 60605,
+        "ligatures": "videocam",
+        "tags"     : ["videocam"]
+    }, {
+        "order"    : 2690,
+        "id"       : 54,
+        "name"     : "videogame_asset",
+        "prevSize" : 32,
+        "code"     : 60606,
+        "ligatures": "videogame_asset",
+        "tags"     : ["videogame_asset"]
+    }, {
+        "order"    : 2691,
+        "id"       : 53,
+        "name"     : "view_agenda",
+        "prevSize" : 32,
+        "code"     : 60607,
+        "ligatures": "view_agenda",
+        "tags"     : ["view_agenda"]
+    }, {
+        "order"    : 2692,
+        "id"       : 52,
+        "name"     : "view_array",
+        "prevSize" : 32,
+        "code"     : 60608,
+        "ligatures": "view_array",
+        "tags"     : ["view_array"]
+    }, {
+        "order"    : 2693,
+        "id"       : 51,
+        "name"     : "view_carousel",
+        "prevSize" : 32,
+        "code"     : 60609,
+        "ligatures": "view_carousel",
+        "tags"     : ["view_carousel"]
+    }, {
+        "order"    : 2694,
+        "id"       : 50,
+        "name"     : "view_column",
+        "prevSize" : 32,
+        "code"     : 60610,
+        "ligatures": "view_column",
+        "tags"     : ["view_column"]
+    }, {
+        "order"    : 2695,
+        "id"       : 49,
+        "name"     : "view_comfy",
+        "prevSize" : 32,
+        "code"     : 60611,
+        "ligatures": "view_comfy",
+        "tags"     : ["view_comfy"]
+    }, {
+        "order"    : 2696,
+        "id"       : 48,
+        "name"     : "view_compact",
+        "prevSize" : 32,
+        "code"     : 60612,
+        "ligatures": "view_compact",
+        "tags"     : ["view_compact"]
+    }, {
+        "order"    : 2697,
+        "id"       : 47,
+        "name"     : "view_day",
+        "prevSize" : 32,
+        "code"     : 60613,
+        "ligatures": "view_day",
+        "tags"     : ["view_day"]
+    }, {
+        "order"    : 2698,
+        "id"       : 46,
+        "name"     : "view_headline",
+        "prevSize" : 32,
+        "code"     : 60614,
+        "ligatures": "view_headline",
+        "tags"     : ["view_headline"]
+    }, {
+        "order"    : 2699,
+        "id"       : 45,
+        "name"     : "view_list",
+        "prevSize" : 32,
+        "code"     : 60615,
+        "ligatures": "view_list",
+        "tags"     : ["view_list"]
+    }, {
+        "order"    : 2700,
+        "id"       : 44,
+        "name"     : "view_module",
+        "prevSize" : 32,
+        "code"     : 60616,
+        "ligatures": "view_module",
+        "tags"     : ["view_module"]
+    }, {
+        "order"    : 2701,
+        "id"       : 43,
+        "name"     : "view_quilt",
+        "prevSize" : 32,
+        "code"     : 60617,
+        "ligatures": "view_quilt",
+        "tags"     : ["view_quilt"]
+    }, {
+        "order"    : 2702,
+        "id"       : 42,
+        "name"     : "view_stream",
+        "prevSize" : 32,
+        "code"     : 60618,
+        "ligatures": "view_stream",
+        "tags"     : ["view_stream"]
+    }, {
+        "order"    : 2703,
+        "id"       : 41,
+        "name"     : "view_week",
+        "prevSize" : 32,
+        "code"     : 60619,
+        "ligatures": "view_week",
+        "tags"     : ["view_week"]
+    }, {
+        "order"    : 2704,
+        "id"       : 40,
+        "name"     : "vignette",
+        "prevSize" : 32,
+        "code"     : 60620,
+        "ligatures": "vignette",
+        "tags"     : ["vignette"]
+    }, {
+        "order"    : 2705,
+        "id"       : 39,
+        "name"     : "visibility_off",
+        "prevSize" : 32,
+        "code"     : 60621,
+        "ligatures": "visibility_off",
+        "tags"     : ["visibility_off"]
+    }, {
+        "order"    : 2706,
+        "id"       : 38,
+        "name"     : "visibility",
+        "prevSize" : 32,
+        "code"     : 60622,
+        "ligatures": "visibility",
+        "tags"     : ["visibility"]
+    }, {
+        "order"    : 2707,
+        "id"       : 37,
+        "name"     : "voice_chat",
+        "prevSize" : 32,
+        "code"     : 60623,
+        "ligatures": "voice_chat",
+        "tags"     : ["voice_chat"]
+    }, {
+        "order"    : 2708,
+        "id"       : 36,
+        "name"     : "voice_over_off",
+        "prevSize" : 32,
+        "code"     : 60624,
+        "ligatures": "voice_over_off",
+        "tags"     : ["voice_over_off"]
+    }, {
+        "order"    : 2709,
+        "id"       : 35,
+        "name"     : "voicemail",
+        "prevSize" : 32,
+        "code"     : 60625,
+        "ligatures": "voicemail",
+        "tags"     : ["voicemail"]
+    }, {
+        "order"    : 2710,
+        "id"       : 34,
+        "name"     : "volume_down",
+        "prevSize" : 32,
+        "code"     : 60626,
+        "ligatures": "volume_down",
+        "tags"     : ["volume_down"]
+    }, {
+        "order"    : 2711,
+        "id"       : 33,
+        "name"     : "volume_mute",
+        "prevSize" : 32,
+        "code"     : 60627,
+        "ligatures": "volume_mute",
+        "tags"     : ["volume_mute"]
+    }, {
+        "order"    : 2712,
+        "id"       : 32,
+        "name"     : "volume_off",
+        "prevSize" : 32,
+        "code"     : 60628,
+        "ligatures": "volume_off",
+        "tags"     : ["volume_off"]
+    }, {
+        "order"    : 2713,
+        "id"       : 31,
+        "name"     : "volume_up",
+        "prevSize" : 32,
+        "code"     : 60629,
+        "ligatures": "volume_up",
+        "tags"     : ["volume_up"]
+    }, {
+        "order"    : 2714,
+        "id"       : 30,
+        "name"     : "vpn_key",
+        "prevSize" : 32,
+        "code"     : 60630,
+        "ligatures": "vpn_key",
+        "tags"     : ["vpn_key"]
+    }, {
+        "order"    : 2715,
+        "id"       : 29,
+        "name"     : "vpn_lock",
+        "prevSize" : 32,
+        "code"     : 60631,
+        "ligatures": "vpn_lock",
+        "tags"     : ["vpn_lock"]
+    }, {
+        "order"    : 2716,
+        "id"       : 28,
+        "name"     : "wallpaper",
+        "prevSize" : 32,
+        "code"     : 60632,
+        "ligatures": "wallpaper",
+        "tags"     : ["wallpaper"]
+    }, {
+        "order"    : 2717,
+        "id"       : 27,
+        "name"     : "warning",
+        "prevSize" : 32,
+        "code"     : 60633,
+        "ligatures": "warning",
+        "tags"     : ["warning"]
+    }, {
+        "order"    : 2718,
+        "id"       : 26,
+        "name"     : "watch_later",
+        "prevSize" : 32,
+        "code"     : 60634,
+        "ligatures": "watch_later",
+        "tags"     : ["watch_later"]
+    }, {
+        "order"    : 2719,
+        "id"       : 25,
+        "name"     : "watch",
+        "prevSize" : 32,
+        "code"     : 60635,
+        "ligatures": "watch",
+        "tags"     : ["watch"]
+    }, {
+        "order"    : 2720,
+        "id"       : 24,
+        "name"     : "waves",
+        "prevSize" : 32,
+        "code"     : 60636,
+        "ligatures": "waves",
+        "tags"     : ["waves"]
+    }, {
+        "order"    : 2721,
+        "id"       : 23,
+        "name"     : "wb_auto",
+        "prevSize" : 32,
+        "code"     : 60637,
+        "ligatures": "wb_auto",
+        "tags"     : ["wb_auto"]
+    }, {
+        "order"    : 2722,
+        "id"       : 22,
+        "name"     : "wb_cloudy",
+        "prevSize" : 32,
+        "code"     : 60638,
+        "ligatures": "wb_cloudy",
+        "tags"     : ["wb_cloudy"]
+    }, {
+        "order"    : 2723,
+        "id"       : 21,
+        "name"     : "wb_incandescent",
+        "prevSize" : 32,
+        "code"     : 60639,
+        "ligatures": "wb_incandescent",
+        "tags"     : ["wb_incandescent"]
+    }, {
+        "order"    : 2724,
+        "id"       : 20,
+        "name"     : "wb_iridescent",
+        "prevSize" : 32,
+        "code"     : 60640,
+        "ligatures": "wb_iridescent",
+        "tags"     : ["wb_iridescent"]
+    }, {
+        "order"    : 2725,
+        "id"       : 19,
+        "name"     : "wb_sunny",
+        "prevSize" : 32,
+        "code"     : 60641,
+        "ligatures": "wb_sunny",
+        "tags"     : ["wb_sunny"]
+    }, {
+        "order"    : 2726,
+        "id"       : 18,
+        "name"     : "wc",
+        "prevSize" : 32,
+        "code"     : 60642,
+        "ligatures": "wc",
+        "tags"     : ["wc"]
+    }, {
+        "order"    : 2727,
+        "id"       : 17,
+        "name"     : "web_asset",
+        "prevSize" : 32,
+        "code"     : 60643,
+        "ligatures": "web_asset",
+        "tags"     : ["web_asset"]
+    }, {
+        "order"    : 2728,
+        "id"       : 16,
+        "name"     : "web",
+        "prevSize" : 32,
+        "code"     : 60644,
+        "ligatures": "web",
+        "tags"     : ["web"]
+    }, {
+        "order"    : 2729,
+        "id"       : 15,
+        "name"     : "weekend",
+        "prevSize" : 32,
+        "code"     : 60645,
+        "ligatures": "weekend",
+        "tags"     : ["weekend"]
+    }, {
+        "order"    : 2730,
+        "id"       : 14,
+        "name"     : "whatshot",
+        "prevSize" : 32,
+        "code"     : 60646,
+        "ligatures": "whatshot",
+        "tags"     : ["whatshot"]
+    }, {
+        "order"    : 2731,
+        "id"       : 13,
+        "name"     : "where_to_vote",
+        "prevSize" : 32,
+        "code"     : 60647,
+        "ligatures": "where_to_vote",
+        "tags"     : ["where_to_vote"]
+    }, {
+        "order"    : 2732,
+        "id"       : 12,
+        "name"     : "widgets",
+        "prevSize" : 32,
+        "code"     : 60648,
+        "ligatures": "widgets",
+        "tags"     : ["widgets"]
+    }, {
+        "order"    : 2733,
+        "id"       : 11,
+        "name"     : "wifi_lock",
+        "prevSize" : 32,
+        "code"     : 60649,
+        "ligatures": "wifi_lock",
+        "tags"     : ["wifi_lock"]
+    }, {
+        "order"    : 2734,
+        "id"       : 10,
+        "name"     : "wifi_off",
+        "prevSize" : 32,
+        "code"     : 60650,
+        "ligatures": "wifi_off",
+        "tags"     : ["wifi_off"]
+    }, {
+        "order"    : 2735,
+        "id"       : 9,
+        "name"     : "wifi_tethering",
+        "prevSize" : 32,
+        "code"     : 60651,
+        "ligatures": "wifi_tethering",
+        "tags"     : ["wifi_tethering"]
+    }, {
+        "order"    : 2736,
+        "id"       : 8,
+        "name"     : "wifi",
+        "prevSize" : 32,
+        "code"     : 60652,
+        "ligatures": "wifi",
+        "tags"     : ["wifi"]
+    }, {
+        "order"    : 2737,
+        "id"       : 7,
+        "name"     : "work_off",
+        "prevSize" : 32,
+        "code"     : 60653,
+        "ligatures": "work_off",
+        "tags"     : ["work_off"]
+    }, {
+        "order"    : 2738,
+        "id"       : 6,
+        "name"     : "work_outline",
+        "prevSize" : 32,
+        "code"     : 60654,
+        "ligatures": "work_outline",
+        "tags"     : ["work_outline"]
+    }, {
+        "order"    : 2739,
+        "id"       : 5,
+        "name"     : "work",
+        "prevSize" : 32,
+        "code"     : 60655,
+        "ligatures": "work",
+        "tags"     : ["work"]
+    }, {
+        "order"    : 2740,
+        "id"       : 4,
+        "name"     : "wrap_text",
+        "prevSize" : 32,
+        "code"     : 60656,
+        "ligatures": "wrap_text",
+        "tags"     : ["wrap_text"]
+    }, {
+        "order"    : 2741,
+        "id"       : 3,
+        "name"     : "youtube_searched_for",
+        "prevSize" : 32,
+        "code"     : 60657,
+        "ligatures": "youtube_searched_for",
+        "tags"     : ["youtube_searched_for"]
+    }, {
+        "order"    : 2742,
+        "id"       : 2,
+        "name"     : "zoom_in",
+        "prevSize" : 32,
+        "code"     : 60658,
+        "ligatures": "zoom_in",
+        "tags"     : ["zoom_in"]
+    }, {
+        "order"    : 2743,
+        "id"       : 1,
+        "name"     : "zoom_out_map",
+        "prevSize" : 32,
+        "code"     : 60659,
+        "ligatures": "zoom_out_map",
+        "tags"     : ["zoom_out_map"]
+    }, {
+        "order"    : 2744,
+        "id"       : 0,
+        "name"     : "zoom_out",
+        "prevSize" : 32,
+        "code"     : 60660,
+        "ligatures": "zoom_out",
+        "tags"     : ["zoom_out"]
     }
 ];
 
 mock.onGet('/api/icons').reply((config) => {
+    /*
+    For Reduce the icons object
+    let data = _.map(iconsDB, (item) => _.pick(item, ['properties', 'icon.tags']));
+    data = _.map(data, (item) => ({...item.properties, ...item.icon}));
+    return [200, data];
+    */
     return [200, iconsDB];
 });
