@@ -36,7 +36,7 @@ export function submitLogin({email, password})
 export function loginWithFireBase({username, password})
 {
     return (dispatch) =>
-        firebaseService.auth.signInWithEmailAndPassword(username, password)
+        firebaseService.auth && firebaseService.auth.signInWithEmailAndPassword(username, password)
             .then(() => {
                 return dispatch({
                     type: LOGIN_SUCCESS

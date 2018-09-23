@@ -9,8 +9,6 @@ import {connect} from 'react-redux';
 import * as Actions from './store/actions';
 import {Button, Icon} from '@material-ui/core';
 import EventDialog from 'main/content/apps/calendar/EventDialog';
-import {DragDropContext} from 'react-dnd'
-import HTML5Backend from 'react-dnd-html5-backend'
 import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
 import {FuseAnimate} from '@fuse';
@@ -252,4 +250,4 @@ function mapStateToProps({calendarApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(DragDropContext(HTML5Backend)(CalendarApp)));
+export default withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(CalendarApp));

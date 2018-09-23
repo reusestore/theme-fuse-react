@@ -99,6 +99,7 @@ const styles = theme => ({
         position       : 'absolute',
         backgroundColor: 'transparent',
         zIndex         : 5,
+        overflow       : 'hidden',
         '&.permanent'  : {
             [theme.breakpoints.up('lg')]: {
                 zIndex  : 1,

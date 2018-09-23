@@ -5,24 +5,18 @@ import 'firebase/database';
 
 class firebaseService {
 
-    constructor()
+    init()
     {
-        if ( firebaseService.instance )
-        {
-            return firebaseService.instance;
-        }
-
-        if ( !firebase.apps.length )
-        {
-            firebase.initializeApp(config);
-            this.db = firebase.database();
-            this.auth = firebase.auth();
-        }
-
-        firebaseService.instance = this;
+        firebase.initializeApp(config);
+        this.db = firebase.database();
+        this.auth = firebase.auth();
     }
 
     getUserData = (userId) => {
+        if ( !firebase.apps.length )
+        {
+            return;
+        }
         return new Promise((resolve, reject) => {
             this.db.ref(`users/${userId}`)
                 .once('value')
@@ -34,14 +28,31 @@ class firebaseService {
     };
 
     updateUserData = (user) => {
+        if ( !firebase.apps.length )
+        {
+            return;
+        }
         return this.db.ref(`users/${user.uid}`)
             .set(user);
+    };
+
+    onAuthStateChanged = (callback) => {
+        if ( !this.auth )
+        {
+            return;
+        }
+        this.auth.onAuthStateChanged(callback);
+    };
+
+    signOut = () => {
+        if ( !this.auth )
+        {
+            return;
+        }
+        this.auth.signOut();
     }
 }
 
 const instance = new firebaseService();
-
-// prevents new properties from being added to the object
-Object.freeze(instance);
 
 export default instance;

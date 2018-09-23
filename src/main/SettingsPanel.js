@@ -20,7 +20,7 @@ const styles = theme => ({
         padding                : 0,
         borderBottomRightRadius: 0,
         borderTopRightRadius   : 0,
-        zIndex                 : 999,
+        zIndex                 : 9999,
         color                  : theme.palette.getContrastText(red[500]),
         backgroundColor        : red[500],
         '&:hover'              : {

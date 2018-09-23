@@ -8,6 +8,21 @@ import auth0Service from 'auth0Service';
 
 class Auth extends Component {
 
+    constructor(props)
+    {
+        super(props);
+
+        /**
+         * Comment the line if you do not use Auth0
+         */
+        auth0Service.init();
+
+        /**
+         * Comment the line if you do not use Firebase
+         */
+        firebaseService.init();
+    }
+
     componentDidMount()
     {
         /**
@@ -40,12 +55,7 @@ class Auth extends Component {
     };
 
     firebaseCheck = () => {
-        if ( !firebaseService.auth )
-        {
-            return;
-        }
-
-        firebaseService.auth.onAuthStateChanged(authUser => {
+        firebaseService.onAuthStateChanged(authUser => {
             if ( authUser )
             {
                 this.props.showMessage({message: 'Logging in with Firebase'});

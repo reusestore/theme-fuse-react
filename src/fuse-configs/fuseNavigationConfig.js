@@ -115,6 +115,13 @@ export const fuseNavigationConfig = [
                     'bg'   : 'rgb(9, 210, 97)',
                     'fg'   : '#FFFFFF'
                 }
+            },
+            {
+                'id'   : 'scrumboard',
+                'title': 'Scrumboard',
+                'type' : 'item',
+                'icon' : 'assessment',
+                'url'  : '/apps/scrumboard'
             }
         ]
     },

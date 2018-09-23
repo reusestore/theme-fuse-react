@@ -10,7 +10,7 @@ import {withRouter} from 'react-router-dom';
 class Callback extends Component {
     componentDidMount()
     {
-        auth0Service.lock.on('authenticated', () => {
+        auth0Service.onAuthenticated(() => {
             this.props.showMessage({message: 'Logging in with Auth0'});
 
             /**

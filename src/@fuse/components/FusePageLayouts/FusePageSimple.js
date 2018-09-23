@@ -100,6 +100,7 @@ const styles = theme => ({
         flex: '1 0 auto'
     },
     sidebarWrapper                : {
+        overflow       : 'hidden',
         backgroundColor: 'transparent',
         position       : 'absolute',
         '&.permanent'  : {

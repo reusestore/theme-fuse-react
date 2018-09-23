@@ -23,7 +23,8 @@ class Auth0LoginTab extends Component {
     {
         this.showDialog();
 
-        auth0Service.lock.on('authenticated', () => {
+        auth0Service.onAuthenticated(() => {
+
             this.props.showMessage({message: 'Logging in with Auth0'});
 
             auth0Service.getUserData().then(tokenData => {

@@ -84,8 +84,8 @@ class Order extends Component {
                     <Tabs
                         value={tabValue}
                         onChange={this.handleChangeTab}
-                        indicatorColor="primary"
-                        textColor="primary"
+                        indicatorColor="secondary"
+                        textColor="secondary"
                         scrollable
                         scrollButtons="auto"
                         classes={{root: "w-full h-64"}}

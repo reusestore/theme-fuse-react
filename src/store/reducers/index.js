@@ -11,6 +11,7 @@ import contactsApp from 'main/content/apps/contacts/store/reducers';
 import calendarApp from 'main/content/apps/calendar/store/reducers';
 import chatApp from "main/content/apps/chat/store/reducers";
 import eCommerceApp from "main/content/apps/e-commerce/store/reducers";
+import scrumboardApp from "main/content/apps/scrumboard/store/reducers";
 
 const rootReducer = combineReducers({
     auth,
@@ -24,7 +25,8 @@ const rootReducer = combineReducers({
     quickPanel,
     chatPanel,
     chatApp,
-    eCommerceApp
+    eCommerceApp,
+    scrumboardApp
 });
 
 export default rootReducer;

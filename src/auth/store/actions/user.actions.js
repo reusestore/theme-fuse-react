@@ -172,7 +172,7 @@ export function logoutUser()
             {
                 case 'firebase':
                 {
-                    firebaseService.auth.signOut();
+                    firebaseService.signOut();
                     break;
                 }
                 case 'auth0':
@@ -219,16 +219,18 @@ function updateUserData(user)
         }
         case 'auth0':
         {
-            auth0Service.updateUserData({
-                settings : user.data.settings,
-                shortcuts: user.data.shortcuts
-            })
-                .then(() => {
-                    store.dispatch(Actions.showMessage({message: "User data saved to auth0"}));
+            auth0Service(() => {
+                updateUserData({
+                    settings : user.data.settings,
+                    shortcuts: user.data.shortcuts
                 })
-                .catch(error => {
-                    store.dispatch(Actions.showMessage({message: error.message}));
-                });
+                    .then(() => {
+                        store.dispatch(Actions.showMessage({message: "User data saved to auth0"}));
+                    })
+                    .catch(error => {
+                        store.dispatch(Actions.showMessage({message: error.message}));
+                    });
+            })
             break;
         }
         default:

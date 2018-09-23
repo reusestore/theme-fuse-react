@@ -38,7 +38,7 @@ export function registerWithFirebase(model)
 {
     const {email, password, displayName} = model;
     return (dispatch) =>
-        firebaseService.auth.createUserWithEmailAndPassword(email, password)
+        firebaseService.auth && firebaseService.auth.createUserWithEmailAndPassword(email, password)
             .then(response => {
 
                 dispatch(UserActions.createUserSettingsFirebase({

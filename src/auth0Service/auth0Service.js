@@ -6,52 +6,68 @@ import {AUTH_CONFIG} from './auth0ServiceConfig';
 class auth0Service {
     sdk = {auth0Manage: null};
 
-    lock = new Auth0Lock(
-        AUTH_CONFIG.clientId,
-        AUTH_CONFIG.domain,
-        {
-            autoclose        : true,
-            socialButtonStyle: "big",
-            auth             : {
-                // redirect: false,
-                redirectUrl : AUTH_CONFIG.callbackUrl,
-                responseType: 'token id_token',
-                audience    : `https://${AUTH_CONFIG.domain}/api/v2/`,
-                params      : {
-                    scope: 'openid profile email user_metadata app_metadata picture update:current_user_metadata create:current_user_metadata read:current_user'
+    init()
+    {
+        this.lock = new Auth0Lock(
+            AUTH_CONFIG.clientId,
+            AUTH_CONFIG.domain,
+            {
+                autoclose        : true,
+                socialButtonStyle: "big",
+                auth             : {
+                    // redirect: false,
+                    redirectUrl : AUTH_CONFIG.callbackUrl,
+                    responseType: 'token id_token',
+                    audience    : `https://${AUTH_CONFIG.domain}/api/v2/`,
+                    params      : {
+                        scope: 'openid profile email user_metadata app_metadata picture update:current_user_metadata create:current_user_metadata read:current_user'
+                    }
                 }
             }
-        }
-    );
-
-    constructor()
-    {
-        if ( auth0Service.instance )
-        {
-            return auth0Service.instance;
-        }
+        );
         this.handleAuthentication();
-        auth0Service.instance = this;
     }
 
     login = () => {
+        if ( !this.lock )
+        {
+            return false;
+        }
         // Call the show method to display the widget.
         this.lock.show();
     };
 
     register = () => {
+        if ( !this.lock )
+        {
+            return false;
+        }
+
         this.lock.show({
             initialScreen: 'signUp'
         });
     };
 
     handleAuthentication = () => {
+        if ( !this.lock )
+        {
+            return false;
+        }
+
         // Add a callback for Lock's `authenticated` event
         this.lock.on('authenticated', this.setSession);
         // Add a callback for Lock's `authorization_error` event
         this.lock.on('authorization_error', (err) => {
             console.warn(`Error: ${err.error}. Check the console for further details.`);
         });
+    };
+
+    onAuthenticated = (callback) => {
+        if ( !this.lock )
+        {
+            return false;
+        }
+        this.lock.on('authenticated', callback);
     };
 
     setSession = (authResult) => {
@@ -75,6 +91,10 @@ class auth0Service {
     };
 
     isAuthenticated = () => {
+        if ( !this.lock )
+        {
+            return false;
+        }
         // Check whether the current time is past the
         // access token's expiry time
         let expiresAt = JSON.parse(localStorage.getItem('expires_at'));
@@ -148,8 +168,5 @@ class auth0Service {
 }
 
 const instance = new auth0Service();
-
-// prevents new properties from being added to the object
-Object.freeze(instance);
 
 export default instance;
