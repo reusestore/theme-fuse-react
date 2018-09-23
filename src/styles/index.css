@@ -78,7 +78,7 @@ a[role=button] {
     border-radius: 20px;
 }
 
-label[class*="MuiInputLabel-outlined"] {
+form label {
     z-index: 99;
 }
 
