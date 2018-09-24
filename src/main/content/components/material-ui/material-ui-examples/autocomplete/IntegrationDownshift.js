@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import deburr from 'lodash/deburr';
 import keycode from 'keycode';
 import Downshift from 'downshift';
 import { withStyles } from '@material-ui/core/styles';
@@ -75,7 +74,7 @@ function renderSuggestion({ suggestion, index, itemProps, highlightedIndex, sele
       selected={isHighlighted}
       component="div"
       style={{
-        fontWeight: isSelected ? 600 : 400,
+        fontWeight: isSelected ? 500 : 400,
       }}
     >
       {suggestion.label}
@@ -90,23 +89,20 @@ renderSuggestion.propTypes = {
   suggestion: PropTypes.shape({ label: PropTypes.string }).isRequired,
 };
 
-function getSuggestions(value) {
-  const inputValue = deburr(value.trim()).toLowerCase();
-  const inputLength = inputValue.length;
+function getSuggestions(inputValue) {
   let count = 0;
 
-  return inputLength === 0
-    ? []
-    : suggestions.filter(suggestion => {
-        const keep =
-          count < 5 && suggestion.label.slice(0, inputLength).toLowerCase() === inputValue;
+  return suggestions.filter(suggestion => {
+    const keep =
+      (!inputValue || suggestion.label.toLowerCase().indexOf(inputValue.toLowerCase()) !== -1) &&
+      count < 5;
 
-        if (keep) {
-          count += 1;
-        }
+    if (keep) {
+      count += 1;
+    }
 
-        return keep;
-      });
+    return keep;
+  });
 }
 
 class DownshiftMultiple extends React.Component {
@@ -247,15 +243,7 @@ function IntegrationDownshift(props) {
   return (
     <div className={classes.root}>
       <Downshift id="downshift-simple">
-        {({
-          getInputProps,
-          getItemProps,
-          getMenuProps,
-          highlightedIndex,
-          inputValue,
-          isOpen,
-          selectedItem,
-        }) => (
+        {({ getInputProps, getItemProps, isOpen, inputValue, selectedItem, highlightedIndex }) => (
           <div className={classes.container}>
             {renderInput({
               fullWidth: true,
@@ -264,21 +252,19 @@ function IntegrationDownshift(props) {
                 placeholder: 'Search a country (start with a)',
               }),
             })}
-            <div {...getMenuProps()}>
-              {isOpen ? (
-                <Paper className={classes.paper} square>
-                  {getSuggestions(inputValue).map((suggestion, index) =>
-                    renderSuggestion({
-                      suggestion,
-                      index,
-                      itemProps: getItemProps({ item: suggestion.label }),
-                      highlightedIndex,
-                      selectedItem,
-                    }),
-                  )}
-                </Paper>
-              ) : null}
-            </div>
+            {isOpen ? (
+              <Paper className={classes.paper} square>
+                {getSuggestions(inputValue).map((suggestion, index) =>
+                  renderSuggestion({
+                    suggestion,
+                    index,
+                    itemProps: getItemProps({ item: suggestion.label }),
+                    highlightedIndex,
+                    selectedItem,
+                  }),
+                )}
+              </Paper>
+            ) : null}
           </div>
         )}
       </Downshift>
@@ -286,15 +272,7 @@ function IntegrationDownshift(props) {
       <DownshiftMultiple classes={classes} />
       <div className={classes.divider} />
       <Downshift id="downshift-popper">
-        {({
-          getInputProps,
-          getItemProps,
-          getMenuProps,
-          highlightedIndex,
-          inputValue,
-          isOpen,
-          selectedItem,
-        }) => (
+        {({ getInputProps, getItemProps, isOpen, inputValue, selectedItem, highlightedIndex }) => (
           <div className={classes.container}>
             {renderInput({
               fullWidth: true,
@@ -306,21 +284,19 @@ function IntegrationDownshift(props) {
                 popperNode = node;
               },
             })}
-            <div {...getMenuProps()}>
-              <Popper disablePortal open={isOpen} anchorEl={popperNode}>
-                <Paper square style={{ width: popperNode ? popperNode.clientWidth : null }}>
-                  {getSuggestions(inputValue).map((suggestion, index) =>
-                    renderSuggestion({
-                      suggestion,
-                      index,
-                      itemProps: getItemProps({ item: suggestion.label }),
-                      highlightedIndex,
-                      selectedItem,
-                    }),
-                  )}
-                </Paper>
-              </Popper>
-            </div>
+            <Popper open={isOpen} anchorEl={popperNode}>
+              <Paper square style={{ width: popperNode ? popperNode.clientWidth : null }}>
+                {getSuggestions(inputValue).map((suggestion, index) =>
+                  renderSuggestion({
+                    suggestion,
+                    index,
+                    itemProps: getItemProps({ item: suggestion.label }),
+                    highlightedIndex,
+                    selectedItem,
+                  }),
+                )}
+              </Paper>
+            </Popper>
           </div>
         )}
       </Downshift>

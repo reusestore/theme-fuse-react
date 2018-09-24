@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import Avatar from '@material-ui/core/Avatar';
 import Chip from '@material-ui/core/Chip';
 import Paper from '@material-ui/core/Paper';
 import TagFacesIcon from '@material-ui/icons/TagFaces';
@@ -48,16 +49,20 @@ class ChipsArray extends React.Component {
     return (
       <Paper className={classes.root}>
         {this.state.chipData.map(data => {
-          let icon = null;
+          let avatar = null;
 
           if (data.label === 'React') {
-            icon = <TagFacesIcon />;
+            avatar = (
+              <Avatar>
+                <TagFacesIcon className={classes.svgIcon} />
+              </Avatar>
+            );
           }
 
           return (
             <Chip
               key={data.key}
-              icon={icon}
+              avatar={avatar}
               label={data.label}
               onDelete={this.handleDelete(data)}
               className={classes.chip}

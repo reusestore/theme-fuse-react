@@ -56,8 +56,7 @@ function Menus({classes})
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Selected menus</Typography>
                     <Typography className="mb-16" component="div">If used for item selection, when opened, simple menus attempt to vertically align the currently selected menu item
-                        with the anchor element.
-                        The currently selected menu item is set using the <code>selected</code> property (from <a href="/api/list-item">ListItem</a>).</Typography>
+                        with the anchor element. The currently selected menu item is set using the <code>selected</code> prop.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/menus/SimpleListMenu.js').default}

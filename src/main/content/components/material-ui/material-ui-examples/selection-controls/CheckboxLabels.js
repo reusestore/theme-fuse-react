@@ -18,6 +18,13 @@ const styles = {
     },
   },
   checked: {},
+  size: {
+    width: 40,
+    height: 40,
+  },
+  sizeIcon: {
+    fontSize: 20,
+  },
 };
 
 class CheckboxLabels extends React.Component {
@@ -99,8 +106,9 @@ class CheckboxLabels extends React.Component {
         <FormControlLabel
           control={
             <Checkbox
-              icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
-              checkedIcon={<CheckBoxIcon fontSize="small" />}
+              className={classes.size}
+              icon={<CheckBoxOutlineBlankIcon className={classes.sizeIcon} />}
+              checkedIcon={<CheckBoxIcon className={classes.sizeIcon} />}
               value="checkedI"
             />
           }

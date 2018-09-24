@@ -107,6 +107,13 @@ function Buttons({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/buttons/FloatingActionButtonZoom.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/FloatingActionButtonZoom.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Sizes</Typography>
+                    <Typography className="mb-16" component="div">Fancy larger or smaller buttons? Use the <code>size</code> or the <code>mini</code> property.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        component={require('main/content/components/material-ui/material-ui-examples/buttons/ButtonSizes.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/ButtonSizes.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Icon Buttons</Typography>
                     <Typography className="mb-16" component="div">Icon buttons are commonly found in app bars and toolbars.</Typography>
                     <Typography className="mb-16" component="div">Icons are also appropriate for toggle buttons that allow a single choice to be selected or
@@ -115,13 +122,6 @@ function Buttons({classes})
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/buttons/IconButtons.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/IconButtons.js')}
-                    /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Sizes</Typography>
-                    <Typography className="mb-16" component="div">Fancy larger or smaller buttons? Use the <code>size</code> or the <code>mini</code> property.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        component={require('main/content/components/material-ui/material-ui-examples/buttons/ButtonSizes.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/ButtonSizes.js')}
                     /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Buttons with icons and label</Typography>
                     <Typography className="mb-16" component="div">Sometimes you might want to have icons for certain button to enhance the UX of the application as we recognize

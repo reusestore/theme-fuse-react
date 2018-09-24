@@ -28,6 +28,78 @@ class ChangelogDoc extends Component {
 
                         <div>
                             <div className="flex items-center mb-32 mt-48">
+                                <Typography className="text-28" component="h2">v1.2.0</Typography>
+                                <Typography className="text-16 ml-8" color="textSecondary"
+                                            component="h3">(2018-09-25)</Typography>
+                            </div>
+                            <div className="mb-24">
+                                <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">
+                                    NEW:
+                                </Typography>
+                                <ul>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            The design is modernized with Google Material Design's new specs.<br/>
+                                            + Icons replaced with outlined material icons,<br/>
+                                            + Main Font Family changed to Muli<br/>
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Scrumboard App added.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Material UI updated to v3.1.1
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            FuseChipSelect: "variant" attr added for to choose creatable or fixed multi selection.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Dependency packages updated.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            @lodash path created to use lodash's mixins.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Webkit scrollbar styles added.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Auth Services(Auth0, Firebase) are revised for to easily disable.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Various mobile device refinements applied.
+                                        </Typography>
+                                    </li>
+                                </ul>
+                                <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">
+                                    FIXES:
+                                </Typography>
+                                <ul>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Cleaner approach for Mail App.
+                                        </Typography>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div className="flex items-center mb-32 mt-48">
                                 <Typography className="text-28" component="h2">v1.1.8</Typography>
                                 <Typography className="text-16 ml-8" color="textSecondary"
                                             component="h3">(2018-09-08)</Typography>

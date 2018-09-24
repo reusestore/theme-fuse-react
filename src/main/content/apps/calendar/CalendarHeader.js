@@ -108,10 +108,6 @@ const viewNamesObj = {
 
 class CalendarHeader extends Toolbar {
 
-    view = view => {
-        this.props.onViewChange(view)
-    };
-
     viewButtons()
     {
         let viewNames = this.props.views;
@@ -124,8 +120,8 @@ class CalendarHeader extends Toolbar {
                         <div>
                             <FuseAnimate animation="transition.expandIn" delay={500}>
                                 <IconButton
-                                    aria-label={this.props.messages[name]}
-                                    onClick={this.view.bind(null, name)}
+                                    aria-label={name}
+                                    onClick={() => this.props.onView(name)}
                                     disabled={view === name}
                                 >
                                     <Icon>{viewNamesObj[name].icon}</Icon>
@@ -140,7 +136,7 @@ class CalendarHeader extends Toolbar {
 
     render()
     {
-        const {classes, messages, label, date} = this.props;
+        const {classes, label, date} = this.props;
 
         return (
             <MuiThemeProvider theme={FuseThemes['mainThemeDark']}>
@@ -172,14 +168,14 @@ class CalendarHeader extends Toolbar {
 
                         <FuseAnimate delay={500}>
                             <div className="flex items-center justify-center">
-                                <Tooltip title={messages.previous}>
-                                    <IconButton aria-label={messages.previous} onClick={this.navigate.bind(null, navigate.PREVIOUS)}>
+                                <Tooltip title="Previous">
+                                    <IconButton aria-label="Previous" onClick={this.navigate.bind(null, navigate.PREVIOUS)}>
                                         <Icon>chevron_left</Icon>
                                     </IconButton>
                                 </Tooltip>
                                 <Typography variant="title">{label}</Typography>
-                                <Tooltip title={messages.next}>
-                                    <IconButton aria-label={messages.next} onClick={this.navigate.bind(null, navigate.NEXT)}>
+                                <Tooltip title="Next">
+                                    <IconButton aria-label="Next" onClick={this.navigate.bind(null, navigate.NEXT)}>
                                         <Icon>chevron_right</Icon>
                                     </IconButton>
                                 </Tooltip>

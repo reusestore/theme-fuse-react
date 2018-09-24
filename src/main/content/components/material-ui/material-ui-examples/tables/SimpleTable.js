@@ -25,7 +25,7 @@ function createData(name, calories, fat, carbs, protein) {
   return { id, name, calories, fat, carbs, protein };
 }
 
-const rows = [
+const data = [
   createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
   createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
   createData('Eclair', 262, 16.0, 24, 6.0),
@@ -49,16 +49,16 @@ function SimpleTable(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => {
+          {data.map(n => {
             return (
-              <TableRow key={row.id}>
+              <TableRow key={n.id}>
                 <TableCell component="th" scope="row">
-                  {row.name}
+                  {n.name}
                 </TableCell>
-                <TableCell numeric>{row.calories}</TableCell>
-                <TableCell numeric>{row.fat}</TableCell>
-                <TableCell numeric>{row.carbs}</TableCell>
-                <TableCell numeric>{row.protein}</TableCell>
+                <TableCell numeric>{n.calories}</TableCell>
+                <TableCell numeric>{n.fat}</TableCell>
+                <TableCell numeric>{n.carbs}</TableCell>
+                <TableCell numeric>{n.protein}</TableCell>
               </TableRow>
             );
           })}

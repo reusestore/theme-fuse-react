@@ -42,37 +42,31 @@ function Lists({classes})
 
                     <Typography className="mb-16" component="div"><a href="https://material.io/design/components/lists.html">Lists</a> are a continuous group of text or images.
                         They are composed of items containing primary and supplemental actions, which are represented by icons and text.</Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Simple List</Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Simple List</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/lists/SimpleList.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/lists/SimpleList.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Folder List</Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Folder List</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/lists/FolderList.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/lists/FolderList.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Inset List</Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Inset List</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/lists/InsetList.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/lists/InsetList.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Nested List</Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Nested List</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/lists/NestedList.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/lists/NestedList.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Selected ListItem</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        component={require('main/content/components/material-ui/material-ui-examples/lists/SelectedListItem.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/lists/SelectedListItem.js')}
-                    /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Pinned Subheader List</Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Pinned Subheader List</Typography>
                     <Typography className="mb-16" component="div">Upon scrolling, subheaders remain pinned to the top of the screen until pushed off screen by the next
                         subheader.</Typography>
                     <Typography className="mb-16" component="div">This feature is relying on the CSS sticky positioning.

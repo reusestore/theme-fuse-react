@@ -91,11 +91,9 @@ After 1.0 second, you can display a loader to keep user's flow of thought uninte
 
 {{"demo": "pages/demos/progress/DelayingAppearance.js"}}
 
-## Limitations
+## Limitations / Known issues
 
 Under heavy load, you might lose the stroke dash animation or see random CircularProgress ring widths.
 You should run processor intensive operations in a web worker or by batch in order not to block the main rendering thread.
-
-![heavy load](/static/images/progress/heavy-load.gif)
 
 See https://github.com/mui-org/material-ui/issues/10327

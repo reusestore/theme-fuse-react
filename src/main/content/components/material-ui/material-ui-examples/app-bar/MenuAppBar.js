@@ -17,7 +17,7 @@ const styles = {
   root: {
     flexGrow: 1,
   },
-  grow: {
+  flex: {
     flexGrow: 1,
   },
   menuButton: {
@@ -32,8 +32,8 @@ class MenuAppBar extends React.Component {
     anchorEl: null,
   };
 
-  handleChange = event => {
-    this.setState({ auth: event.target.checked });
+  handleChange = (event, checked) => {
+    this.setState({ auth: checked });
   };
 
   handleMenu = event => {
@@ -64,7 +64,7 @@ class MenuAppBar extends React.Component {
             <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
               <MenuIcon />
             </IconButton>
-            <Typography variant="title" color="inherit" className={classes.grow}>
+            <Typography variant="title" color="inherit" className={classes.flex}>
               Photos
             </Typography>
             {auth && (

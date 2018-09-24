@@ -13,7 +13,7 @@ import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
 import {FuseAnimate} from '@fuse';
 
-BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment));
+const localizer = BigCalendar.momentLocalizer(moment);
 
 const DragAndDropCalendar = withDragAndDrop(BigCalendar);
 
@@ -178,7 +178,7 @@ class CalendarApp extends Component {
         });
     };
 
-    resizeEvent = (resizeType, {event, start, end}) => {
+    resizeEvent = ({event, start, end}) => {
         delete event.type;
         this.props.updateEvent({
             ...event,
@@ -194,16 +194,20 @@ class CalendarApp extends Component {
         return (
             <div className={classes.root}>
                 <DragAndDropCalendar
+                    className="flex flex-1"
                     selectable
+                    localizer={localizer}
+                    events={events}
                     onEventDrop={this.moveEvent}
                     resizable
                     onEventResize={this.resizeEvent}
-                    className="flex flex-1"
-                    events={events}
+                    defaultView={BigCalendar.Views.MONTH}
+                    defaultDate={new Date(2018, 3, 1)}
+                    startAccessor="start"
+                    endAccessor="end"
                     views={allViews}
                     step={60}
                     showMultiDayTimes
-                    defaultDate={new Date(2018, 3, 1)}
                     components={{
                         toolbar: CalendarHeader
                     }}

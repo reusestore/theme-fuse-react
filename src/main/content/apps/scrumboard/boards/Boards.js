@@ -68,7 +68,7 @@ class Boards extends Component {
                         }}
                     >
                         {boards.map(board => (
-                            <div className="w-208 h-208 p-16" key={board.id}>
+                            <div className="w-224 h-224 p-16" key={board.id}>
                                 <Link
                                     to={'/apps/scrumboard/boards/' + board.id + '/' + board.uri}
                                     className={classNames(classes.board, "flex flex-col items-center justify-center w-full h-full rounded py-24")}
@@ -79,7 +79,7 @@ class Boards extends Component {
                                 </Link>
                             </div>
                         ))}
-                        <div className="w-208 h-208 p-16">
+                        <div className="w-224 h-224 p-16">
                             <div
                                 className={classNames(classes.board, classes.newBoard, "flex flex-col items-center justify-center w-full h-full rounded py-24")}
                                 onClick={() => newBoard()}

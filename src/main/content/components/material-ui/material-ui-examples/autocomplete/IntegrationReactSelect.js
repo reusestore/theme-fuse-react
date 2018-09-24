@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types, react/jsx-handler-names */
+/* eslint-disable react/prop-types */
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -11,7 +11,6 @@ import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Chip from '@material-ui/core/Chip';
 import MenuItem from '@material-ui/core/MenuItem';
-import CancelIcon from '@material-ui/icons/Cancel';
 import { emphasize } from '@material-ui/core/styles/colorManipulator';
 
 const suggestions = [
@@ -90,11 +89,7 @@ const styles = theme => ({
     fontSize: 16,
   },
   paper: {
-    position: 'absolute',
-    zIndex: 1,
     marginTop: theme.spacing.unit,
-    left: 0,
-    right: 0,
   },
   divider: {
     height: theme.spacing.unit * 2,
@@ -142,7 +137,7 @@ function Option(props) {
       selected={props.isFocused}
       component="div"
       style={{
-        fontWeight: props.isSelected ? 600 : 400,
+        fontWeight: props.isSelected ? 500 : 400,
       }}
       {...props.innerProps}
     >
@@ -183,8 +178,10 @@ function MultiValue(props) {
       className={classNames(props.selectProps.classes.chip, {
         [props.selectProps.classes.chipFocused]: props.isFocused,
       })}
-      onDelete={props.removeProps.onClick}
-      deleteIcon={<CancelIcon {...props.removeProps} />}
+      onDelete={event => {
+        props.removeProps.onClick();
+        props.removeProps.onMouseDown(event);
+      }}
     />
   );
 }
@@ -198,14 +195,14 @@ function Menu(props) {
 }
 
 const components = {
-  Control,
-  Menu,
-  MultiValue,
-  NoOptionsMessage,
   Option,
+  Control,
+  NoOptionsMessage,
   Placeholder,
   SingleValue,
+  MultiValue,
   ValueContainer,
+  Menu,
 };
 
 class IntegrationReactSelect extends React.Component {
@@ -227,9 +224,6 @@ class IntegrationReactSelect extends React.Component {
       input: base => ({
         ...base,
         color: theme.palette.text.primary,
-        '& input': {
-          font: 'inherit',
-        },
       }),
     };
 

@@ -36,8 +36,9 @@ class ConfirmationDialogRaw extends React.Component {
   radioGroupRef = null;
 
   constructor(props) {
-    super();
-    this.state.value = props.value;
+    super(props);
+
+    this.state.value = this.props.value;
   }
 
   state = {};

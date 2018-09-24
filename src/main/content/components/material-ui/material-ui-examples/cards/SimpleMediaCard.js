@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -14,15 +13,16 @@ const styles = {
     maxWidth: 345,
   },
   media: {
-    height: 140,
+    height: 0,
+    paddingTop: '56.25%', // 16:9
   },
 };
 
-function MediaCard(props) {
+function SimpleMediaCard(props) {
   const { classes } = props;
   return (
-    <Card className={classes.card}>
-      <CardActionArea>
+    <div>
+      <Card className={classes.card}>
         <CardMedia
           className={classes.media}
           image="/static/images/cards/contemplative-reptile.jpg"
@@ -37,21 +37,21 @@ function MediaCard(props) {
             across all continents except Antarctica
           </Typography>
         </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
-    </Card>
+        <CardActions>
+          <Button size="small" color="primary">
+            Share
+          </Button>
+          <Button size="small" color="primary">
+            Learn More
+          </Button>
+        </CardActions>
+      </Card>
+    </div>
   );
 }
 
-MediaCard.propTypes = {
+SimpleMediaCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(MediaCard);
+export default withStyles(styles)(SimpleMediaCard);

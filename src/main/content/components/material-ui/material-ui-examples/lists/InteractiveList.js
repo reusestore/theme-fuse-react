@@ -55,7 +55,7 @@ class InteractiveList extends React.Component {
             control={
               <Checkbox
                 checked={dense}
-                onChange={event => this.setState({ dense: event.target.checked })}
+                onChange={(event, checked) => this.setState({ dense: checked })}
                 value="dense"
               />
             }
@@ -65,7 +65,7 @@ class InteractiveList extends React.Component {
             control={
               <Checkbox
                 checked={secondary}
-                onChange={event => this.setState({ secondary: event.target.checked })}
+                onChange={(event, checked) => this.setState({ secondary: checked })}
                 value="secondary"
               />
             }

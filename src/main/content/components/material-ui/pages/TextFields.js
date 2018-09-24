@@ -50,20 +50,6 @@ function TextFields({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/text-fields/TextFields.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/text-fields/TextFields.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Filled</Typography>
-                    <Typography className="mb-16" component="div"><code>TextField</code> supports filled styling.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        component={require('main/content/components/material-ui/material-ui-examples/text-fields/FilledTextFields.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/text-fields/FilledTextFields.js')}
-                    /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Outlined</Typography>
-                    <Typography className="mb-16" component="div"><code>TextField</code> supports outlined styling.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        component={require('main/content/components/material-ui/material-ui-examples/text-fields/OutlinedTextFields.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/text-fields/OutlinedTextFields.js')}
-                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Components</Typography>
                     <Typography className="mb-16" component="div"><code>TextField</code> is composed of smaller components (<a
                         href="/api/form-control"><code>FormControl</code></a>, <a href="/api/input-label"><code>InputLabel</code></a>, <a href="/api/input"><code>Input</code></a>,
@@ -78,12 +64,6 @@ function TextFields({classes})
                         className="my-24"
                         component={require('main/content/components/material-ui/material-ui-examples/text-fields/ComposedTextField.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/text-fields/ComposedTextField.js')}
-                    /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Inputs</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        component={require('main/content/components/material-ui/material-ui-examples/text-fields/Inputs.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/text-fields/Inputs.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Layout</Typography>
                     <Typography className="mb-16" component="div"><code>TextField</code>, <code>FormControl</code> allow the specification of <code>margin</code> to alter the
@@ -104,17 +84,11 @@ function TextFields({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/text-fields/InputAdornments.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/text-fields/InputAdornments.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Filled Input Adornments</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Inputs</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
-                        component={require('main/content/components/material-ui/material-ui-examples/text-fields/FilledInputAdornments.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/text-fields/FilledInputAdornments.js')}
-                    /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Outlined Input Adornments</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        component={require('main/content/components/material-ui/material-ui-examples/text-fields/OutlinedInputAdornments.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/text-fields/OutlinedInputAdornments.js')}
+                        component={require('main/content/components/material-ui/material-ui-examples/text-fields/Inputs.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/text-fields/Inputs.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Formatted inputs</Typography>
                     <Typography className="mb-16" component="div">You can use third-party libraries to format an input.
@@ -141,26 +115,6 @@ function TextFields({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/text-fields/InputWithIcon.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/text-fields/InputWithIcon.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Limitations</Typography>
-                    <Typography className="mb-16" component="div">The input label &quot;shrink&quot; state isn&#39;t always correct.
-                        The input label is supposed to shrink as soon as the input is displaying something.
-                        In some circumstances, we can&#39;t determine the &quot;shrink&quot; state (number input, datetime input, Stripe input). You might notice an
-                        overlap.</Typography>
-                    <Typography className="mb-16" component="div"><img src="/static/images/text-fields/shrink.png" alt="shrink"/></Typography>
-                    <Typography className="mb-16" component="div">To workaround the issue, you can force the &quot;shrink&quot; state of the label.</Typography>
-
-                    <FuseHighlight component="pre" className="language-jsx">
-                        {`
-<TextField InputLabelProps={{ shrink: true }} />
-`}
-                    </FuseHighlight>
-                    <Typography className="mb-16" component="div">or</Typography>
-
-                    <FuseHighlight component="pre" className="language-jsx">
-                        {`
-<InputLabel shrink>Count</InputLabel>
-`}
-                    </FuseHighlight>
 
                 </div>
             }

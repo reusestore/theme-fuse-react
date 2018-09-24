@@ -74,8 +74,8 @@ class ProfilePage extends Component {
                     <Tabs
                         value={value}
                         onChange={this.handleChange}
-                        indicatorColor="primary"
-                        textColor="primary"
+                        indicatorColor="secondary"
+                        textColor="secondary"
                         scrollable
                         scrollButtons="auto"
                         classes={{

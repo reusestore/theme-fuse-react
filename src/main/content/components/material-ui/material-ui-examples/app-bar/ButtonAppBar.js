@@ -12,7 +12,7 @@ const styles = {
   root: {
     flexGrow: 1,
   },
-  grow: {
+  flex: {
     flexGrow: 1,
   },
   menuButton: {
@@ -30,7 +30,7 @@ function ButtonAppBar(props) {
           <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
             <MenuIcon />
           </IconButton>
-          <Typography variant="title" color="inherit" className={classes.grow}>
+          <Typography variant="title" color="inherit" className={classes.flex}>
             News
           </Typography>
           <Button color="inherit">Login</Button>
