@@ -31,9 +31,7 @@ const styles = theme => ({
             backgroundColor            : theme.palette.secondary.main,
             color                      : theme.palette.secondary.contrastText + '!important',
             pointerEvents              : 'none',
-            transitionProperty         : 'border-radius',
-            transitionDuration         : theme.transitions.duration.shortest,
-            transitionTimingFunction   : theme.transitions.easing.sharp,
+            transition                 : 'border-radius .15s cubic-bezier(0.4,0.0,0.2,1)',
             '& .list-item-text-primary': {
                 color: 'inherit'
             },
