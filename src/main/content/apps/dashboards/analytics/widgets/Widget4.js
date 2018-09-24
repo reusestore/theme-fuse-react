@@ -7,7 +7,8 @@ import classNames from 'classnames';
 const styles = theme => ({
     root: {
         border   : '1px solid ' + theme.palette.divider,
-        boxShadow: 'none'
+        boxShadow: 'none',
+        borderRadius: 8
     }
 });
 

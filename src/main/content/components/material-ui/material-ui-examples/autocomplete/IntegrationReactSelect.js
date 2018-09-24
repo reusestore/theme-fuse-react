@@ -142,7 +142,7 @@ function Option(props) {
       selected={props.isFocused}
       component="div"
       style={{
-        fontWeight: props.isSelected ? 500 : 400,
+        fontWeight: props.isSelected ? 600 : 400,
       }}
       {...props.innerProps}
     >

@@ -59,16 +59,16 @@ class BoardCardDialog extends Component {
             <Dialog
                 classes={{
                     root : classes.root,
-                    paper: classNames(classes.paper, "max-w-lg w-full")
+                    paper: classNames(classes.paper, "max-w-lg w-full m-24")
                 }}
                 onClose={closeCardDialog}
                 open={Boolean(card)}
             >
 
                 {card && (
-                    <DialogTitle className="p-0">
-                        <AppBar position="static">
-                            <Toolbar className="flex w-full">
+                    <DialogTitle component="div" className="p-0">
+                        <AppBar position="static" elevation={1}>
+                            <Toolbar className="flex w-full overflow-x-auto px-8 sm:px-16">
                                 <div className="flex flex-1">
 
                                     <DueMenu
@@ -111,7 +111,7 @@ class BoardCardDialog extends Component {
                 )}
 
                 {card && (
-                    <DialogContent className="p-24">
+                    <DialogContent className="p-16 sm:p-24">
 
                         <div className="flex flex-col sm:flex-row sm:justify-between justify-center items-center mb-24">
                             <div className="mb-16 sm:mb-0 flex items-center">
@@ -184,7 +184,7 @@ class BoardCardDialog extends Component {
                                 <div className="flex-1 mb-24">
                                     <div className="flex items-center mt-16 mb-12">
                                         <Icon className="text-20 mr-8" color="inherit">label</Icon>
-                                        <Typography className="font-500 text-16">Labels</Typography>
+                                        <Typography className="font-600 text-16">Labels</Typography>
                                     </div>
                                     <FuseChipSelect
                                         className={card.idMembers.length > 0 && 'sm:mr-8'}
@@ -228,7 +228,7 @@ class BoardCardDialog extends Component {
                                 <div className="flex-1 mb-24">
                                     <div className="flex items-center mt-16 mb-12">
                                         <Icon className="text-20 mr-8" color="inherit">supervisor_account</Icon>
-                                        <Typography className="font-500 text-16">Members</Typography>
+                                        <Typography className="font-600 text-16">Members</Typography>
                                     </div>
                                     <FuseChipSelect
                                         className={card.idLabels.length > 0 && 'sm:ml-8'}
@@ -263,7 +263,7 @@ class BoardCardDialog extends Component {
                             <div className="mb-24">
                                 <div className="flex items-center mt-16 mb-12">
                                     <Icon className="text-20 mr-8" color="inherit">attachment</Icon>
-                                    <Typography className="font-500 text-16">Attachments</Typography>
+                                    <Typography className="font-600 text-16">Attachments</Typography>
                                 </div>
                                 <div className="flex flex-col sm:flex-row flex-wrap">
                                     {card.attachments.map(item => (
@@ -293,7 +293,7 @@ class BoardCardDialog extends Component {
                         <div className="mb-24">
                             <div className="flex items-center mt-16 mb-12">
                                 <Icon className="text-20 mr-8" color="inherit">comment</Icon>
-                                <Typography className="font-500 text-16">Comment</Typography>
+                                <Typography className="font-600 text-16">Comment</Typography>
                             </div>
                             <div>
                                 <CardComment
@@ -307,7 +307,7 @@ class BoardCardDialog extends Component {
                             <div className="mb-24">
                                 <div className="flex items-center mt-16">
                                     <Icon className="text-20 mr-8" color="inherit">list</Icon>
-                                    <Typography className="font-500 text-16">Activity</Typography>
+                                    <Typography className="font-600 text-16">Activity</Typography>
                                 </div>
                                 <List className="">
                                     {card.activities.map(item => (

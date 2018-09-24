@@ -4,7 +4,7 @@ import {withRouter} from 'react-router-dom';
 import {withStyles, List, Typography} from '@material-ui/core';
 import {FuseUtils, FuseAnimate, FuseAnimateGroup} from '@fuse';
 import TodoListItem from './TodoListItem';
-import _ from 'lodash';
+import _ from '@lodash';
 
 const styles = theme => ({
     todoList: {

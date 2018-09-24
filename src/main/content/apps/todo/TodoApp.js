@@ -11,7 +11,7 @@ import TodoHeader from './TodoHeader';
 import TodoSidebarHeader from './TodoSidebarHeader';
 import TodoSidebarContent from './TodoSidebarContent';
 import TodoDialog from './TodoDialog';
-import _ from 'lodash';
+import _ from '@lodash';
 
 const styles = theme => ({
     layoutRoot   : {

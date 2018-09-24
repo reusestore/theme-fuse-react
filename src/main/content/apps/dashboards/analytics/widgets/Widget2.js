@@ -6,8 +6,9 @@ import classNames from 'classnames';
 
 const styles = theme => ({
     root: {
-        border   : '1px solid ' + theme.palette.divider,
-        boxShadow: 'none'
+        border      : '1px solid ' + theme.palette.divider,
+        boxShadow   : 'none',
+        borderRadius: 8
     }
 });
 
@@ -21,7 +22,7 @@ class Widget2 extends Component {
             backgroundColor: theme.palette.secondary.main
         }));
         return (
-            <Card className={classNames(classes.root, "w-full")}>
+            <Card className={classNames(classes.root, "w-full")} elevation={1}>
 
                 <div className="p-16 pb-0 flex flex-row flex-wrap items-end">
 

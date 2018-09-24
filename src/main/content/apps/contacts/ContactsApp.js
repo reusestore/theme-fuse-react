@@ -8,7 +8,7 @@ import * as Actions from './store/actions';
 import ContactsList from 'main/content/apps/contacts/ContactsList';
 import ContactsHeader from 'main/content/apps/contacts/ContactsHeader';
 import ContactsSidebarContent from 'main/content/apps/contacts/ContactsSidebarContent';
-import _ from 'lodash';
+import _ from '@lodash';
 import {Button, Icon} from '@material-ui/core';
 import ContactDialog from 'main/content/apps/contacts/ContactDialog';
 

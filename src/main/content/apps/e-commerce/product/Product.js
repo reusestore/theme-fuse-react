@@ -7,7 +7,7 @@ import {bindActionCreators} from 'redux';
 import connect from 'react-redux/es/connect/connect';
 import * as Actions from '../store/actions';
 import classNames from 'classnames';
-import _ from 'lodash';
+import _ from '@lodash';
 
 const styles = theme => ({
     productImageFeaturedStar: {
@@ -179,13 +179,13 @@ class Product extends Component {
                 }
                 content={
                     form && (
-                        <div className="p-24 max-w-2xl">
+                        <div className="p-16 sm:p-24 max-w-2xl">
                             {tabValue === 0 &&
                             (
                                 <div>
 
                                     <TextField
-                                        className="mb-24"
+                                        className="mt-8 mb-16"
                                         error={form.name === ''}
                                         required
                                         label="Name"
@@ -199,7 +199,7 @@ class Product extends Component {
                                     />
 
                                     <TextField
-                                        className="mb-24"
+                                        className="mt-8 mb-16"
                                         id="description"
                                         name="description"
                                         onChange={this.handleChange}
@@ -213,7 +213,7 @@ class Product extends Component {
                                     />
 
                                     <FuseChipSelect
-                                        className="mb-24"
+                                        className="mt-8 mb-24"
                                         value={
                                             form.categories.map(item => ({
                                                 value: item,
@@ -233,7 +233,7 @@ class Product extends Component {
                                     />
 
                                     <FuseChipSelect
-                                        className="mb-24"
+                                        className="mt-8 mb-16"
                                         value={
                                             form.tags.map(item => ({
                                                 value: item,
@@ -273,7 +273,7 @@ class Product extends Component {
                                 <div>
 
                                     <TextField
-                                        className="mb-24"
+                                        className="mt-8 mb-16"
                                         label="Tax Excluded Price"
                                         id="priceTaxExcl"
                                         name="priceTaxExcl"
@@ -289,7 +289,7 @@ class Product extends Component {
                                     />
 
                                     <TextField
-                                        className="mb-24"
+                                        className="mt-8 mb-16"
                                         label="Tax Included Price"
                                         id="priceTaxIncl"
                                         name="priceTaxIncl"
@@ -305,7 +305,7 @@ class Product extends Component {
 
 
                                     <TextField
-                                        className="mb-24"
+                                        className="mt-8 mb-16"
                                         label="Tax Rate"
                                         id="taxRate"
                                         name="taxRate"
@@ -320,7 +320,7 @@ class Product extends Component {
                                     />
 
                                     <TextField
-                                        className="mb-24"
+                                        className="mt-8 mb-16"
                                         label="Compared Price"
                                         id="comparedPrice"
                                         name="comparedPrice"
@@ -341,7 +341,7 @@ class Product extends Component {
                                 <div>
 
                                     <TextField
-                                        className="mb-24"
+                                        className="mt-8 mb-16"
                                         required
                                         label="SKU"
                                         autoFocus
@@ -354,7 +354,7 @@ class Product extends Component {
                                     />
 
                                     <TextField
-                                        className="mb-24"
+                                        className="mt-8 mb-16"
                                         label="Quantity"
                                         id="quantity"
                                         name="quantity"
@@ -370,7 +370,7 @@ class Product extends Component {
                                 <div>
                                     <div className="flex">
                                         <TextField
-                                            className="mb-24 mr-8"
+                                            className="mt-8 mb-16 mr-8"
                                             label="Width"
                                             autoFocus
                                             id="width"
@@ -382,7 +382,7 @@ class Product extends Component {
                                         />
 
                                         <TextField
-                                            className="mb-24 mr-8"
+                                            className="mt-8 mb-16 mr-8"
                                             label="Height"
                                             id="height"
                                             name="height"
@@ -393,7 +393,7 @@ class Product extends Component {
                                         />
 
                                         <TextField
-                                            className="mb-24 mr-8"
+                                            className="mt-8 mb-16 mr-8"
                                             label="Depth"
                                             id="depth"
                                             name="depth"
@@ -406,7 +406,7 @@ class Product extends Component {
                                     </div>
 
                                     <TextField
-                                        className="mb-24"
+                                        className="mt-8 mb-16"
                                         label="Weight"
                                         id="weight"
                                         name="weight"
@@ -417,7 +417,7 @@ class Product extends Component {
                                     />
 
                                     <TextField
-                                        className="mb-24"
+                                        className="mt-8 mb-16"
                                         label="Extra Shipping Fee"
                                         id="extraShippingFee"
                                         name="extraShippingFee"

@@ -86,7 +86,7 @@ class BoardListHeader extends Component {
                             </ClickAwayListener>
                         ) : (
                             <Typography
-                                className="text-16 font-500 cursor-pointer"
+                                className="text-16 font-600 cursor-pointer"
                                 onClick={() => this.renameFormToggle(true)}
                             >
                                 {list.name}

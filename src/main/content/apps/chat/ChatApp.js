@@ -202,7 +202,7 @@ class ChatApp extends React.Component {
                                                             {!selectedContact.avatar || selectedContact.avatar === '' ? selectedContact.name[0] : ''}
                                                         </Avatar>
                                                     </div>
-                                                    <Typography color="inherit" className="text-18 font-500">{selectedContact.name}</Typography>
+                                                    <Typography color="inherit" className="text-18 font-600">{selectedContact.name}</Typography>
                                                 </div>
                                             </Toolbar>
                                         </AppBar>

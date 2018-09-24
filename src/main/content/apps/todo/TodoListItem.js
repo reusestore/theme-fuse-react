@@ -7,7 +7,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as Actions from './store/actions';
 import classNames from 'classnames';
-import _ from 'lodash';
+import _ from '@lodash';
 import red from '@material-ui/core/colors/red';
 import amber from '@material-ui/core/colors/amber';
 
@@ -43,7 +43,7 @@ class TodoListItem extends Component {
                 }}
                 dense
                 button
-                className={classNames(classes.todoItem, {"completed": todo.completed}, "py-16 px-8")}
+                className={classNames(classes.todoItem, {"completed": todo.completed}, "py-16  px-0 sm:px-8")}
             >
 
                 <Checkbox

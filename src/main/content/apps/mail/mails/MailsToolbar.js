@@ -62,7 +62,7 @@ class MailToolbar extends Component {
         const {foldersMenu, selectMenu, labelsMenu} = this.state;
 
         return (
-            <div className={classNames(classes.mailListActions, "flex flex-1 items-center px-8")}>
+            <div className={classNames(classes.mailListActions, "flex flex-1 items-center sm:px-8")}>
 
                 <Checkbox
                     onChange={this.handleChange()}

@@ -32,7 +32,7 @@ class CardAttachment extends Component {
                         </div>
                         <div className="flex flex-auto flex-col justify-center items-start min-w-0">
                             <div className="flex items-center w-full">
-                                <Typography className="text-16 font-500 truncate flex-shrink">{item.name}</Typography>
+                                <Typography className="text-16 font-600 truncate flex-shrink">{item.name}</Typography>
                                 {card.idAttachmentCover === item.id && (
                                     <Icon className="text-orange-light text-20 ml-4">star</Icon>
                                 )}
@@ -91,10 +91,10 @@ class CardAttachment extends Component {
                 return (
                     <div className="flex w-full sm:w-1/2 mb-16" key={item.id}>
                         <Paper className="min-w-128 w-128 h-128 mr-16 flex items-center justify-center rounded-4 overflow-hidden" elevation={1}>
-                            <Typography className="font-500">LINK</Typography>
+                            <Typography className="font-600">LINK</Typography>
                         </Paper>
                         <div className="flex flex-auto flex-col justify-center items-start min-w-0">
-                            <Typography className="text-16 font-500 truncate w-full">{item.url}</Typography>
+                            <Typography className="text-16 font-600 truncate w-full">{item.url}</Typography>
                             <Typography className="truncate w-full mb-12" color="textSecondary">{item.time}</Typography>
                             <Button
                                 aria-owns={anchorEl ? 'actions-menu' : null}

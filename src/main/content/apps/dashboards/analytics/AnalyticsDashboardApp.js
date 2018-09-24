@@ -103,8 +103,10 @@ class AnalyticsDashboardApp extends Component {
             <div className={classes.root}>
 
                 <Widget1 data={widgets.widget1}/>
+
                 <FuseAnimate animation="transition.slideUpIn" delay={200}>
-                    <div className="flex flex-col md:flex-row p-16">
+
+                    <div className="flex flex-col md:flex-row sm:p-16">
 
                         <div className="flex flex-1 flex-col min-w-0">
 

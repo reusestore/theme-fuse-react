@@ -1,5 +1,5 @@
 import * as Actions from '../actions';
-import _ from 'lodash';
+import _ from '@lodash';
 
 const filesReducer = function (state = {}, action) {
     switch ( action.type )

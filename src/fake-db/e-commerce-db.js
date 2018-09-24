@@ -1,5 +1,5 @@
 import mock from './mock';
-import _ from 'lodash';
+import _ from '@lodash';
 
 const eCommerceDB = {
     products: [

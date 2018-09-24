@@ -1,5 +1,5 @@
 import * as Actions from '../../actions/fuse/index';
-import _ from 'lodash';
+import _ from '@lodash';
 import {FuseDefaultSettings, FuseLayouts} from '@fuse';
 
 const initialState = {

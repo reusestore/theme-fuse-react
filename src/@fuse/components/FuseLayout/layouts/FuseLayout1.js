@@ -8,7 +8,7 @@ import * as Actions from 'store/actions';
 import {AppBar, Hidden, Icon, IconButton, Toolbar, Drawer, MuiThemeProvider} from '@material-ui/core';
 import {FuseScrollbars, FuseMessage, FuseThemes} from '@fuse';
 import classNames from 'classnames';
-import _ from 'lodash';
+import _ from '@lodash';
 
 const defaultProps = {};
 

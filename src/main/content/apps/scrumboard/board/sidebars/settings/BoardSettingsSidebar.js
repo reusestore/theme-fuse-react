@@ -54,7 +54,7 @@ class BoardSettingsSidebar extends Component {
 
                     <ListItem button onClick={() => copyBoard(board)}>
                         <ListItemIcon>
-                            <Icon>content_copy</Icon>
+                            <Icon>file_copy</Icon>
                         </ListItemIcon>
                         <ListItemText primary="Copy Board"/>
                     </ListItem>

@@ -3,12 +3,13 @@ import {Button, Card, Typography} from '@material-ui/core';
 import {Line} from 'react-chartjs-2';
 import {withStyles} from '@material-ui/core/styles/index';
 import classNames from 'classnames';
-import _ from 'lodash';
+import _ from '@lodash';
 
 const styles = theme => ({
     root: {
         border   : '1px solid ' + theme.palette.divider,
-        boxShadow: 'none'
+        boxShadow: 'none',
+        borderRadius: 8
     }
 });
 

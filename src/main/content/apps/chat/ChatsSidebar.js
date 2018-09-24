@@ -222,7 +222,7 @@ class ChatsSidebar extends Component {
                         </div>
                     </Toolbar>
                     <Toolbar className="px-16">
-                        <Paper className="flex p-4 items-center w-full px-8 py-4" elevation={1}>
+                        <Paper className="flex p-4 items-center w-full px-8 py-4 rounded-8" elevation={1}>
 
                             <Icon className="mr-8" color="action">search</Icon>
 

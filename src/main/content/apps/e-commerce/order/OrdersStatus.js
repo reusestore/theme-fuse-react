@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import _ from 'lodash';
+import _ from '@lodash';
 
 export const orderStatuses = [
     {

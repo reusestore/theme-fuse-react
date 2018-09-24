@@ -98,7 +98,7 @@ class ProfilePage extends Component {
                     </Tabs>
                 }
                 content={
-                    <div className="p-24">
+                    <div className="p-16 sm:p-24">
                         {value === 0 &&
                         (
                             <TimelineTab/>

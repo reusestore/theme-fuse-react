@@ -110,7 +110,7 @@ class OrdersTableHead extends React.Component {
         return (
             <TableHead>
                 <TableRow className="h-64">
-                    <TableCell padding="checkbox" className="relative">
+                    <TableCell padding="checkbox" className="relative pl-4 sm:pl-12">
                         <Checkbox
                             indeterminate={numSelected > 0 && numSelected < rowCount}
                             checked={numSelected === rowCount}

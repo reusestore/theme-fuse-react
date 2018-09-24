@@ -7,7 +7,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {List, Typography} from '@material-ui/core';
 import MailListItem from './MailListItem';
-import _ from 'lodash';
+import _ from '@lodash';
 
 const styles = theme => ({
     mailList: {

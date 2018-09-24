@@ -64,7 +64,7 @@ class Order extends Component {
                                 <div className="flex flex-col min-w-0 items-center sm:items-start">
 
                                     <FuseAnimate animation="transition.slideLeftIn" delay={300}>
-                                        <Typography variant="title" className="truncate">
+                                        <Typography variant="title" className="truncate mb-8 sm:mb-0">
                                             {'Order ' + order.reference}
                                         </Typography>
                                     </FuseAnimate>
@@ -97,7 +97,7 @@ class Order extends Component {
                 }
                 content={
                     order && (
-                        <div className="p-24 max-w-2xl w-full">
+                        <div className="p-16 sm:p-24 max-w-2xl w-full">
                             {/*Order Details*/}
                             {tabValue === 0 &&
                             (
@@ -110,37 +110,40 @@ class Order extends Component {
                                         </div>
 
                                         <div className="mb-24">
-                                            <table className="simple mb-16">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Name</th>
-                                                        <th>Email</th>
-                                                        <th>Phone</th>
-                                                        <th>Company</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div className="flex items-center">
-                                                                <Avatar className="mr-8" src={order.customer.avatar}/>
-                                                                <Typography className="truncate">
-                                                                    {order.customer.firstName + ' ' + order.customer.lastName}
-                                                                </Typography>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <Typography className="truncate">{order.customer.email}</Typography>
-                                                        </td>
-                                                        <td>
-                                                            <Typography className="truncate">{order.customer.phone}</Typography>
-                                                        </td>
-                                                        <td>
-                                                            <span className="truncate">{order.customer.company}</span>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+
+                                            <div className="table-responsive mb-16">
+                                                <table className="simple">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Email</th>
+                                                            <th>Phone</th>
+                                                            <th>Company</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <div className="flex items-center">
+                                                                    <Avatar className="mr-8" src={order.customer.avatar}/>
+                                                                    <Typography className="truncate">
+                                                                        {order.customer.firstName + ' ' + order.customer.lastName}
+                                                                    </Typography>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <Typography className="truncate">{order.customer.email}</Typography>
+                                                            </td>
+                                                            <td>
+                                                                <Typography className="truncate">{order.customer.phone}</Typography>
+                                                            </td>
+                                                            <td>
+                                                                <span className="truncate">{order.customer.company}</span>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
 
                                             <ExpansionPanel
                                                 elevation={1}
@@ -148,7 +151,7 @@ class Order extends Component {
                                                 onChange={() => this.setState({map: this.state.map !== 'shipping' ? 'shipping' : false})}
                                             >
                                                 <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
-                                                    <Typography className="font-500">Shipping Address</Typography>
+                                                    <Typography className="font-600">Shipping Address</Typography>
                                                 </ExpansionPanelSummary>
                                                 <ExpansionPanelDetails className="flex flex-col md:flex-row">
                                                     <Typography className="w-full md:max-w-256 mb-16 md:mb-0">{order.customer.shippingAddress.address}</Typography>
@@ -176,7 +179,7 @@ class Order extends Component {
                                                 onChange={() => this.setState({map: this.state.map !== 'invoice' ? 'invoice' : false})}
                                             >
                                                 <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
-                                                    <Typography className="font-500">Invoice Address</Typography>
+                                                    <Typography className="font-600">Invoice Address</Typography>
                                                 </ExpansionPanelSummary>
                                                 <ExpansionPanelDetails className="flex flex-col md:flex-row">
                                                     <Typography className="w-full md:max-w-256 mb-16 md:mb-0">{order.customer.invoiceAddress.address}</Typography>
@@ -207,26 +210,28 @@ class Order extends Component {
                                             <Typography className="h2" color="textSecondary">Order Status</Typography>
                                         </div>
 
-                                        <table className="simple">
-                                            <thead>
-                                                <tr>
-                                                    <th>Status</th>
-                                                    <th>Updated On</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {order.status.map(status => (
-                                                    <tr key={status.id}>
-                                                        <td>
-                                                            <OrdersStatus name={status.name}/>
-                                                        </td>
-                                                        <td>
-                                                            {status.date}
-                                                        </td>
+                                        <div className="table-responsive">
+                                            <table className="simple">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Status</th>
+                                                        <th>Updated On</th>
                                                     </tr>
-                                                ))}
-                                            </tbody>
-                                        </table>
+                                                </thead>
+                                                <tbody>
+                                                    {order.status.map(status => (
+                                                        <tr key={status.id}>
+                                                            <td>
+                                                                <OrdersStatus name={status.name}/>
+                                                            </td>
+                                                            <td>
+                                                                {status.date}
+                                                            </td>
+                                                        </tr>
+                                                    ))}
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
 
                                     <div className="pb-48">
@@ -236,40 +241,42 @@ class Order extends Component {
                                             <Typography className="h2" color="textSecondary">Payment</Typography>
                                         </div>
 
-                                        <table className="simple">
-                                            <thead>
-                                                <tr>
-                                                    <th>TransactionID</th>
-                                                    <th>Payment Method</th>
-                                                    <th>Amount</th>
-                                                    <th>Date</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <span className="truncate">
-                                                            {order.payment.transactionId}
-                                                        </span>
-                                                    </td>
-                                                    <td>
-                                                        <span className="truncate">
-                                                            {order.payment.method}
-                                                        </span>
-                                                    </td>
-                                                    <td>
-                                                        <span className="truncate">
-                                                            {order.payment.amount}
-                                                        </span>
-                                                    </td>
-                                                    <td>
-                                                        <span className="truncate">
-                                                            {order.payment.date}
-                                                        </span>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                        <div className="table-responsive">
+                                            <table className="simple">
+                                                <thead>
+                                                    <tr>
+                                                        <th>TransactionID</th>
+                                                        <th>Payment Method</th>
+                                                        <th>Amount</th>
+                                                        <th>Date</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <span className="truncate">
+                                                                {order.payment.transactionId}
+                                                            </span>
+                                                        </td>
+                                                        <td>
+                                                            <span className="truncate">
+                                                                {order.payment.method}
+                                                            </span>
+                                                        </td>
+                                                        <td>
+                                                            <span className="truncate">
+                                                                {order.payment.amount}
+                                                            </span>
+                                                        </td>
+                                                        <td>
+                                                            <span className="truncate">
+                                                                {order.payment.date}
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
 
                                     <div className="pb-48">
@@ -279,100 +286,104 @@ class Order extends Component {
                                             <Typography className="h2" color="textSecondary">Shipping</Typography>
                                         </div>
 
-                                        <table className="simple">
-                                            <thead>
-                                                <tr>
-                                                    <th>Tracking Code</th>
-                                                    <th>Carrier</th>
-                                                    <th>Weight</th>
-                                                    <th>Fee</th>
-                                                    <th>Date</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {order.shippingDetails.map(shipping => (
-                                                    <tr key={shipping.date}>
-                                                        <td>
-                                                            <span className="truncate">
-                                                                {shipping.tracking}
-                                                            </span>
-                                                        </td>
-                                                        <td>
-                                                            <span className="truncate">
-                                                                {shipping.carrier}
-                                                            </span>
-                                                        </td>
-                                                        <td>
-                                                            <span className="truncate">
-                                                                {shipping.weight}
-                                                            </span>
-                                                        </td>
-                                                        <td>
-                                                            <span className="truncate">
-                                                                {shipping.fee}
-                                                            </span>
-                                                        </td>
-                                                        <td>
-                                                            <span className="truncate">
-                                                                {shipping.date}
-                                                            </span>
-                                                        </td>
+                                        <div className="table-responsive">
+                                            <table className="simple">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Tracking Code</th>
+                                                        <th>Carrier</th>
+                                                        <th>Weight</th>
+                                                        <th>Fee</th>
+                                                        <th>Date</th>
                                                     </tr>
-                                                ))}
-                                            </tbody>
-                                        </table>
+                                                </thead>
+                                                <tbody>
+                                                    {order.shippingDetails.map(shipping => (
+                                                        <tr key={shipping.date}>
+                                                            <td>
+                                                                <span className="truncate">
+                                                                    {shipping.tracking}
+                                                                </span>
+                                                            </td>
+                                                            <td>
+                                                                <span className="truncate">
+                                                                    {shipping.carrier}
+                                                                </span>
+                                                            </td>
+                                                            <td>
+                                                                <span className="truncate">
+                                                                    {shipping.weight}
+                                                                </span>
+                                                            </td>
+                                                            <td>
+                                                                <span className="truncate">
+                                                                    {shipping.fee}
+                                                                </span>
+                                                            </td>
+                                                            <td>
+                                                                <span className="truncate">
+                                                                    {shipping.date}
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                    ))}
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             )}
                             {/*Products*/}
                             {tabValue === 1 &&
                             (
-                                <table className="simple">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Image</th>
-                                            <th>Name</th>
-                                            <th>Price</th>
-                                            <th>Quantity</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {order.products.map(product => (
-                                            <tr key={product.id}>
-                                                <td className="w-64">
-                                                    {product.id}
-                                                </td>
-                                                <td className="w-80">
-                                                    <img className="product-image" src={product.image} alt="product"/>
-                                                </td>
-                                                <td>
-                                                    <Typography
-                                                        component={Link}
-                                                        to={'/apps/e-commerce/products/' + product.id}
-                                                        className="truncate"
-                                                        style={{
-                                                            color         : 'inherit',
-                                                            textDecoration: 'underline'
-                                                        }}
-                                                    >
-                                                        {product.name}
-                                                    </Typography>
-                                                </td>
-                                                <td className="w-64 text-right">
-                                                    <span className="truncate">
-                                                        ${product.priceTaxIncl}
-                                                    </span>
-                                                </td>
-                                                <td className="w-64 text-right">
-                                                    <span className="truncate">
-                                                        {product.quantity}
-                                                    </span>
-                                                </td>
+                                <div className="table-responsive">
+                                    <table className="simple">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Image</th>
+                                                <th>Name</th>
+                                                <th>Price</th>
+                                                <th>Quantity</th>
                                             </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            {order.products.map(product => (
+                                                <tr key={product.id}>
+                                                    <td className="w-64">
+                                                        {product.id}
+                                                    </td>
+                                                    <td className="w-80">
+                                                        <img className="product-image" src={product.image} alt="product"/>
+                                                    </td>
+                                                    <td>
+                                                        <Typography
+                                                            component={Link}
+                                                            to={'/apps/e-commerce/products/' + product.id}
+                                                            className="truncate"
+                                                            style={{
+                                                                color         : 'inherit',
+                                                                textDecoration: 'underline'
+                                                            }}
+                                                        >
+                                                            {product.name}
+                                                        </Typography>
+                                                    </td>
+                                                    <td className="w-64 text-right">
+                                                        <span className="truncate">
+                                                            ${product.priceTaxIncl}
+                                                        </span>
+                                                    </td>
+                                                    <td className="w-64 text-right">
+                                                        <span className="truncate">
+                                                            {product.quantity}
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
                             )}
                             {/*Invoice*/}
                             {tabValue === 2 &&

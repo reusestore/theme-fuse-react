@@ -12,7 +12,7 @@ const styles = theme => ({
     listItem: {
         color         : 'inherit!important',
         textDecoration: 'none!important',
-        minHeight     : 40,
+        height     : 40,
         width         : 'calc(100% - 16px)',
         borderRadius  : '0 20px 20px 0',
         paddingLeft   : 24,

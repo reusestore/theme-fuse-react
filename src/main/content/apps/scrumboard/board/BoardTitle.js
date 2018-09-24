@@ -78,7 +78,7 @@ class BoardListHeader extends Component {
                             <Icon className="text-16 mr-8">remove_red_eye</Icon>
                         )}
                         <Typography
-                            className="text-16 font-500 cursor-pointer"
+                            className="text-16 font-600 cursor-pointer"
                             onClick={() => this.renameFormToggle(true)}
                             color="inherit"
                         >

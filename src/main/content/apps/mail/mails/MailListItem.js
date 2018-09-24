@@ -7,7 +7,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as Actions from '../store/actions/index';
 import classNames from 'classnames';
-import _ from 'lodash';
+import _ from '@lodash';
 
 const pathToRegexp = require('path-to-regexp');
 
@@ -58,7 +58,7 @@ class MailListItem extends Component {
                         mailId: mail.id
                     }
                 ))}
-                className={classNames(classes.mailItem, checked && "selected", !mail.read && "unread", "py-16 pl-8 pr-24")}>
+                className={classNames(classes.mailItem, checked && "selected", !mail.read && "unread", "py-16 pl-0 pr-8 sm:pl-8 sm:pr-24")}>
 
                 <Checkbox
                     tabIndex={-1}

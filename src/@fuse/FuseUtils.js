@@ -1,5 +1,5 @@
 import * as colors from '@material-ui/core/colors';
-import _ from 'lodash';
+import _ from '@lodash';
 
 class FuseUtils {
 

@@ -8,7 +8,7 @@ import {bindActionCreators} from 'redux';
 import {FuseAnimate} from '@fuse';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
-import _ from 'lodash';
+import _ from '@lodash';
 
 const styles = theme => ({});
 
@@ -35,7 +35,7 @@ class MailDetails extends Component {
         }
 
         return (
-            <div className="p-24">
+            <div className="p-16 sm:p-24">
                 <div className="flex items-center justify-between overflow-hidden">
 
                     <div className="flex flex-col">

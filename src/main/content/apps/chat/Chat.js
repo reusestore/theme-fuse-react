@@ -6,7 +6,7 @@ import moment from 'moment/moment';
 import * as Actions from './store/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import _ from 'lodash';
+import _ from '@lodash';
 
 const styles = theme => ({
     messageRow  : {
@@ -234,7 +234,7 @@ class Chat extends Component {
                 </FuseScrollbars>
                 {chat && (
                     <form onSubmit={this.onMessageSubmit} className={classNames(classes.bottom, "py-16 px-8")}>
-                        <Paper className={classNames(classes.inputWrapper, "flex items-center relative")}>
+                        <Paper className={classNames(classes.inputWrapper, "flex items-center relative")} elevation={1}>
                             <TextField
                                 autoFocus={false}
                                 id="message-input"

@@ -6,7 +6,7 @@ import {withStyles} from '@material-ui/core/styles/index';
 import {bindActionCreators} from 'redux';
 import * as Actions from './store/actions';
 import {connect} from 'react-redux';
-import _ from 'lodash';
+import _ from '@lodash';
 
 const styles = theme => ({
     root       : {},
@@ -83,7 +83,17 @@ class ContactDialog extends Component {
         const {classes, contactDialog, addContact, updateContact, removeContact} = this.props;
 
         return (
-            <Dialog className={classes.root} {...contactDialog.props} onClose={this.closeComposeDialog} fullWidth maxWidth="xs">
+            <Dialog
+                classes={{
+                    root : classes.root,
+                    paper: "m-24"
+                }}
+                className={classes.root}
+                {...contactDialog.props}
+                onClose={this.closeComposeDialog}
+                fullWidth
+                maxWidth="xs"
+            >
 
                 <AppBar position="static" elevation={1}>
                     <Toolbar className="flex w-full">

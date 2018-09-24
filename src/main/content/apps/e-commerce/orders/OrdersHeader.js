@@ -18,7 +18,7 @@ class OrdersHeader extends Component {
         return (
             <div className={classNames(classes.root, "flex flex-1 flex-col w-full sm:flex-row items-center justify-between p-8 md:p-24")}>
 
-                <div className="flex items-center">
+                <div className="flex flex-1 sm:flex-no-grow items-center">
                     <FuseAnimate animation="transition.expandIn" delay={300}>
                         <Icon className="text-32 mr-12">shopping_basket</Icon>
                     </FuseAnimate>
@@ -31,7 +31,7 @@ class OrdersHeader extends Component {
 
                     <MuiThemeProvider theme={FuseSelectedTheme}>
                         <FuseAnimate animation="transition.slideDownIn" delay={300}>
-                            <Paper className="flex p-4 items-center w-full max-w-512 px-8 py-4" elevation={1}>
+                            <Paper className="flex p-4 items-center w-full max-w-512 px-8 py-4 rounded-8" elevation={1}>
 
                                 <Icon className="mr-8" color="action">search</Icon>
 

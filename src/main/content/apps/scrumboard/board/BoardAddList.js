@@ -101,7 +101,7 @@ class BoardAddList extends Component {
                         <Button
                             onClick={this.handleOpenForm}
                             classes={{
-                                root : "normal-case font-500 w-full rounded-none h-64",
+                                root : "normal-case font-600 w-full rounded-none h-64",
                                 label: "justify-start"
                             }}
                         >

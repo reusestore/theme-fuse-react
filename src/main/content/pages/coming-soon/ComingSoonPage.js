@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles/index';
 import {Button, Card, CardContent, Divider, TextField, Typography} from '@material-ui/core';
 import classNames from 'classnames';
-import _ from 'lodash';
+import _ from '@lodash';
 import {FuseCountdown, FuseAnimate} from '@fuse';
 
 const styles = theme => ({

@@ -229,7 +229,7 @@ class PricingStyle3Page extends Component {
                                 </Card>
                             </div>
                         </FuseAnimateGroup>
-                        <div className="flex flex-col items-center py-96">
+                        <div className="flex flex-col items-center py-96 text-center sm:text-left">
 
                             <Typography variant="display1" className="pb-32 font-light">Frequently Asked Questions</Typography>
 

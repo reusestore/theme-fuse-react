@@ -107,7 +107,7 @@ class CardChecklist extends Component {
                             </ClickAwayListener>
                         ) : (
                             <Typography
-                                className="text-16 font-500"
+                                className="text-16 font-600"
                                 onClick={() => this.renameFormToggle(true)}
                             >
                                 {checklist.name}
@@ -149,7 +149,7 @@ class CardChecklist extends Component {
 
                 <div className="">
                     <div className="flex items-center pl-16">
-                        <Typography className="flex font-500 mr-12">
+                        <Typography className="flex font-600 mr-12">
                             {this.checkItemsChecked() + ' / ' + checklist.checkItems.length}
                         </Typography>
                         <LinearProgress

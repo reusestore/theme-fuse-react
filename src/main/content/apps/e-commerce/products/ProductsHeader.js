@@ -32,7 +32,7 @@ class ProductsHeader extends Component {
 
                     <MuiThemeProvider theme={FuseSelectedTheme}>
                         <FuseAnimate animation="transition.slideDownIn" delay={300}>
-                            <Paper className="flex p-4 items-center w-full max-w-512 px-8 py-4" elevation={1}>
+                            <Paper className="flex p-4 items-center w-full max-w-512 px-8 py-4 rounded-8" elevation={1}>
 
                                 <Icon className="mr-8" color="action">search</Icon>
 

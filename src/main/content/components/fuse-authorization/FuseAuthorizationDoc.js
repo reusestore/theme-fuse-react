@@ -131,7 +131,7 @@ class FuseAuthorizationDoc extends Component {
                                     import {LoginConfig} from 'main/content/login/LoginConfig';
                                     import {RegisterConfig} from 'main/content/register/RegisterConfig';
                                     import {CallbackConfig} from 'main/content/callback/CallbackConfig';
-                                    import _ from 'lodash';
+                                    import _ from '@lodash';
                                     import {authRoles} from 'auth';
 
                                     function setAdminAuth(configs)

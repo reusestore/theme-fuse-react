@@ -7,7 +7,7 @@ import connect from 'react-redux/es/connect/connect';
 import * as Actions from 'main/content/apps/e-commerce/store/actions';
 import ProductsTableHead from './ProductsTableHead';
 import classNames from 'classnames';
-import _ from 'lodash';
+import _ from '@lodash';
 
 const styles = theme => ({
     root: {}
@@ -161,7 +161,7 @@ class ProductsTable extends Component {
                                             selected={isSelected}
                                             onClick={event => this.handleClick(n)}
                                         >
-                                            <TableCell className="w-48" padding="checkbox">
+                                            <TableCell className="w-48 pl-4 sm:pl-12" padding="checkbox">
                                                 <Checkbox
                                                     checked={isSelected}
                                                     onClick={event => event.stopPropagation()}

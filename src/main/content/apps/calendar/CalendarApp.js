@@ -27,7 +27,7 @@ const styles = theme => ({
         flex                                                                                                           : 1,
         '& .rbc-header'                                                                                                : {
             padding   : '12px 6px',
-            fontWeight: 500,
+            fontWeight: 600,
             fontSize  : 14
         },
         '& .rbc-label'                                                                                                 : {
@@ -40,7 +40,10 @@ const styles = theme => ({
             borderBottom: '2px solid ' + theme.palette.secondary.main + '!important'
         },
         '& .rbc-month-view, & .rbc-time-view, & .rbc-agenda-view'                                                      : {
-            padding: 24,
+            padding                       : 24,
+            [theme.breakpoints.down('sm')]: {
+                padding: 16
+            },
             ...theme.mixins.border(0)
         },
         '& .rbc-agenda-view table'                                                                                     : {

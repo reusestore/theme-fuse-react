@@ -31,7 +31,7 @@ class MailToolbar extends Component {
         }
 
         return (
-            <div className={classNames(classes.root, "flex flex-1 items-center justify-between overflow-hidden px-16")}>
+            <div className={classNames(classes.root, "flex flex-1 items-center justify-between overflow-hidden sm:px-16")}>
                 <IconButton onClick={() => history.push(deselectUrl)}>
                     <Icon>arrow_back</Icon>
                 </IconButton>

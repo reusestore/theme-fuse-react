@@ -1,35 +1,36 @@
 import React, {Component} from 'react';
 import {TextField, Button, Dialog, DialogActions, DialogContent, Icon, IconButton, Typography, Toolbar, AppBar} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles/index';
-import _ from 'lodash';
+import _ from '@lodash';
 
 const styles = theme => ({
     composeButton     : {
         width: '100%'
     },
     formControl       : {
+        marginTop   : 8,
         marginBottom: 16
     },
     attachmentList    : {
-        paddingTop: 16
+        paddingTop: 8
     },
     attachment        : {
         fontSize       : 13,
         backgroundColor: 'rgba(0, 0, 0, 0.08)',
         border         : '1px solid rgba(0, 0, 0, 0.16)',
         paddingLeft    : 16,
-        marginTop      : 8,
+        marginBottom   : 8,
         borderRadius   : 2,
         display        : 'flex',
         justifyContent : 'space-between',
         alignItems     : 'center'
     },
     attachmentFilename: {
-        fontWeight: '500'
+        fontWeight: 600
     },
     attachmentSize    : {
         marginLeft: 8,
-        fontWeight: '300'
+        fontWeight: 300
     }
 });
 
@@ -100,7 +101,7 @@ class MailCompose extends Component {
                         </Toolbar>
                     </AppBar>
 
-                    <DialogContent classes={{root: "p-24"}}>
+                    <DialogContent classes={{root: "p-16 pb-0 sm:p-24 sm:pb-0"}}>
 
                         <TextField
                             className={classes.formControl}
@@ -179,7 +180,7 @@ class MailCompose extends Component {
                         </div>
                     </DialogContent>
 
-                    <DialogActions className="justify-between pl-16">
+                    <DialogActions className="justify-between pl-8 sm:pl-16">
                         <div>
                             <Button variant="raised" color="primary" onClick={this.closeComposeDialog}>
                                 Send

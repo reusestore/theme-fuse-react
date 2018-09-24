@@ -3,7 +3,7 @@ import {FuseThemes} from '@fuse';
 import {Button, MuiThemeProvider, Typography} from '@material-ui/core';
 import {Line} from 'react-chartjs-2';
 import {withStyles} from '@material-ui/core/styles/index';
-import _ from 'lodash';
+import _ from '@lodash';
 import {FuseAnimate} from '@fuse';
 
 require('velocity-animate');
@@ -40,7 +40,7 @@ class Widget1 extends Component {
         return (
             <MuiThemeProvider theme={FuseThemes.mainThemeDark}>
                 <div style={{backgroundColor: theme.palette.primary.main}} className={classes.root}>
-                    <div className="relative p-24 flex flex-row justify-between items-center">
+                    <div className="relative p-16 sm:p-24 flex flex-row justify-between items-center">
 
                         <FuseAnimate delay={100}>
                             <div className="flex-col">

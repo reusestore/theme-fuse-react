@@ -33,7 +33,7 @@ const styles = theme => ({
         position                      : 'absolute',
         width                         : 360,
         backgroundColor               : theme.palette.background.paper,
-        boxShadow                     : theme.shadows[5],
+        boxShadow                     : theme.shadows[3],
         top                           : 0,
         height                        : '100%',
         minHeight                     : '100%',
@@ -105,7 +105,7 @@ class ChatPanel extends Component {
             <div className={classes.root}>
                 <ClickAwayListener onClickAway={() => state && closeChatPanel()}>
                     <div className={classNames(classes.panel, {'opened': state}, "flex flex-col")}>
-                        <AppBar position="static">
+                        <AppBar position="static" elevation={1}>
                             <Toolbar className="pl-12 pr-8">
                                 <div className="flex flex-1 items-center">
                                     {(!state || !selectedContactId) && (

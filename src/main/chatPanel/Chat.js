@@ -6,7 +6,7 @@ import moment from 'moment/moment';
 import * as Actions from './store/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import _ from 'lodash';
+import _ from '@lodash';
 
 const styles = theme => ({
     messageRow  : {

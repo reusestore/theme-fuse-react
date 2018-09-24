@@ -88,7 +88,7 @@ class BoardCard extends Component {
                                     </div>
                                 )}
 
-                                <Typography className="font-500 mb-12">{card.name}</Typography>
+                                <Typography className="font-600 mb-12">{card.name}</Typography>
 
                                 {(card.due || checkItems > 0) && (
                                     <div className="flex items-center mb-12">

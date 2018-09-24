@@ -99,7 +99,7 @@ class BoardAddCard extends Component {
                     <Button
                         onClick={this.handleOpenForm}
                         classes={{
-                            root : "normal-case font-500 w-full rounded-none h-48",
+                            root : "normal-case font-600 w-full rounded-none h-48",
                             label: "justify-start"
                         }}
                     >

@@ -18,7 +18,7 @@ const styles = theme => ({
     root: {
         padding        : '0 7px',
         fontSize       : 11,
-        fontWeight     : 500,
+        fontWeight     : 600,
         height         : 20,
         minWidth       : 20,
         borderRadius   : 20,

@@ -65,10 +65,10 @@ class KnowledgeBasePage extends Component {
         return (
             <div className={classNames(classes.root)}>
 
-                <div className={classNames(classes.header, "flex flex-col items-center justify-center text-center p-24")}>
+                <div className={classNames(classes.header, "flex flex-col items-center justify-center text-center p-16 sm:p-24")}>
 
                     <FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
-                        <Typography variant="display3" color="inherit" className="font-light">
+                        <Typography color="inherit" className="text-36 sm:text-56 font-light">
                             How can we help?
                         </Typography>
                     </FuseAnimate>
@@ -86,7 +86,7 @@ class KnowledgeBasePage extends Component {
                         enter={{
                             animation: "transition.slideUpBigIn"
                         }}
-                        className="flex flex-wrap justify-center max-w-xl w-full mx-auto px-24 py-32"
+                        className="flex flex-wrap justify-center max-w-xl w-full mx-auto px-16 sm:px-24 py-32"
                     >
                         {data.map((category) => (
                             <div className="w-full max-w-512 pb-24 md:w-1/2 md:p-16" key={category.id}>

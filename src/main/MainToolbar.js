@@ -64,7 +64,7 @@ class MainToolbar extends Component {
                             }
 
                             <div className="hidden md:flex flex-col ml-12 items-start">
-                                <Typography component="span" className="normal-case font-500 flex">
+                                <Typography component="span" className="normal-case font-600 flex">
                                     {user.data.displayName}
                                 </Typography>
                                 <Typography className="text-11 capitalize" color="textSecondary">

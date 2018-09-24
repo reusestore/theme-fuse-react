@@ -3,7 +3,7 @@ import {matchRoutes} from 'react-router-config';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import _ from 'lodash';
+import _ from '@lodash';
 
 let redirect = false;
 

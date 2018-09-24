@@ -65,10 +65,10 @@ class FaqPage extends Component {
         return (
             <div className={classNames(classes.root, "")}>
 
-                <div className={classNames(classes.header, "flex flex-col items-center justify-center text-center p-24")}>
+                <div className={classNames(classes.header, "flex flex-col items-center justify-center text-center p-16 sm:p-24")}>
 
                     <FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
-                        <Typography variant="display3" color="inherit" className="font-light">
+                        <Typography color="inherit" className="text-36 sm:text-56 font-light">
                             We're here to help
                         </Typography>
                     </FuseAnimate>
@@ -97,7 +97,7 @@ class FaqPage extends Component {
 
                 <div className={classNames(classes.content, "")}>
 
-                    <div className="max-w-xl w-full mx-auto px-24 py-32">
+                    <div className="max-w-xl w-full mx-auto px-16 sm:px-24 py-32">
                         <FuseAnimateGroup
                             enter={{
                                 animation: "transition.slideUpBigIn"

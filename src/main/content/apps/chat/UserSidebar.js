@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 import * as Actions from './store/actions';
 import connect from 'react-redux/es/connect/connect';
 import StatusIcon from './StatusIcon';
-import _ from 'lodash';
+import _ from '@lodash';
 
 const statusArr = [
     {

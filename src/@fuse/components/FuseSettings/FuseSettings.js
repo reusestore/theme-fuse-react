@@ -6,7 +6,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {FuseThemes, FuseLayouts} from '@fuse';
 import classNames from 'classnames';
-import _ from 'lodash';
+import _ from '@lodash';
 
 const styles = theme => ({
     root          : {},
@@ -22,7 +22,7 @@ const styles = theme => ({
         position       : 'absolute',
         top            : -10,
         left           : 8,
-        fontWeight     : 500,
+        fontWeight     : 600,
         padding        : '0 4px',
         backgroundColor: theme.palette.background.paper
     },

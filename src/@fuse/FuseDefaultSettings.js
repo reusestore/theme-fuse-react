@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _ from '@lodash';
 import FuseSettingsConfig from 'fuse-configs/fuseSettingsConfig';
 import qs from 'qs';
 

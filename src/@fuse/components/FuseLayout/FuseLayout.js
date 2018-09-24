@@ -5,7 +5,7 @@ import {matchRoutes} from 'react-router-config'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as Actions from 'store/actions';
-import _ from 'lodash';
+import _ from '@lodash';
 import FuseLayouts from './FuseLayouts';
 
 const styles = theme => ({

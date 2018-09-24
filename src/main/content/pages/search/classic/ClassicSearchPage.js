@@ -40,7 +40,7 @@ class ClassicSearchPage extends Component {
                     root: classes.layoutRoot
                 }}
                 header={
-                    <div className="flex flex-1 items-center p-24 max-w-md">
+                    <div className="flex flex-1 items-center p-16 sm:p-24 max-w-md">
                         <MuiThemeProvider theme={this.props.theme}>
                             <Paper className={"flex items-center h-44 w-full"} elevation={1}>
                                 <Input
@@ -58,7 +58,7 @@ class ClassicSearchPage extends Component {
                     </div>
                 }
                 content={
-                    <div className="p-24 pt-0 max-w-md">
+                    <div className="p-16 pt-0 sm:p-24 sm:pt-0 max-w-md">
 
                         <FuseAnimate delay={200}>
                             <Typography color="textSecondary" className="text-13 mt-12 mb-24">{data.length} results</Typography>

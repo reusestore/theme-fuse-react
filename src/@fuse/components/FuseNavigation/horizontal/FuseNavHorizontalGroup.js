@@ -10,7 +10,7 @@ import {withStyles} from '@material-ui/core/styles/index';
 import {Manager, Reference, Popper} from 'react-popper';
 import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
-import _ from 'lodash';
+import _ from '@lodash';
 import * as ReactDOM from 'react-dom';
 
 const propTypes = {

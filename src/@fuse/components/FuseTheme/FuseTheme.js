@@ -3,20 +3,23 @@ import {createMuiTheme, MuiThemeProvider} from '@material-ui/core';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import {fuseThemesConfig} from 'fuse-configs/fuseThemesConfig';
-import _ from 'lodash';
+import _ from '@lodash';
 import {fuseDark} from '@fuse/fuse-colors';
 import lightBlue from '@material-ui/core/colors/lightBlue';
 import red from '@material-ui/core/colors/red';
 
 const defaultOptions = {
     typography: {
-        fontFamily: [
+        fontFamily       : [
             'Muli',
             'Roboto',
             '"Helvetica"',
             'Arial',
             'sans-serif'
-        ].join(',')
+        ].join(','),
+        fontWeightLight  : 300,
+        fontWeightRegular: 400,
+        fontWeightMedium : 600
     }
 };
 

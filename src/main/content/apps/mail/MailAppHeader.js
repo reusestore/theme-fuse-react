@@ -15,8 +15,9 @@ const styles = theme => ({
         width                         : '100%',
         height                        : 56,
         padding                       : 18,
+        borderRadius                  : 8,
         [theme.breakpoints.down('md')]: {
-            paddingLeft: 8
+            paddingLeft: 4
         },
         display                       : 'flex',
         alignItems                    : 'center'
