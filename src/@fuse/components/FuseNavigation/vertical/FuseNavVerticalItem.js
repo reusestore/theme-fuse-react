@@ -31,6 +31,9 @@ const styles = theme => ({
             backgroundColor            : theme.palette.secondary.main,
             color                      : theme.palette.secondary.contrastText + '!important',
             pointerEvents              : 'none',
+            transitionProperty         : 'border-radius',
+            transitionDuration         : theme.transitions.duration.shortest,
+            transitionTimingFunction   : theme.transitions.easing.sharp,
             '& .list-item-text-primary': {
                 color: 'inherit'
             },
@@ -61,7 +64,7 @@ function FuseNavVerticalItem({item, classes, nestedLevel, userRole, navbarCloseM
             component={NavLink}
             to={item.url}
             activeClassName="active"
-            className={classNames(classes.item, listItemPadding)}
+            className={classNames(classes.item, listItemPadding, 'list-item')}
             onClick={navbarCloseMobile}
             exact={item.exact}
         >

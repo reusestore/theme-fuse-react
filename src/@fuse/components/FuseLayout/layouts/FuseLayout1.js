@@ -168,6 +168,12 @@ const styles = theme => ({
                 top    : 32,
                 padding: 0
             }
+        },
+        '& .list-item.active'                   : {
+            marginLeft  : 12,
+            width       : 40,
+            padding     : 12,
+            borderRadius: 20
         }
     },
     navbarHeaderWrapper: {
