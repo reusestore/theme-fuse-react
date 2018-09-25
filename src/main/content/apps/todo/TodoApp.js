@@ -13,15 +13,6 @@ import TodoSidebarContent from './TodoSidebarContent';
 import TodoDialog from './TodoDialog';
 import _ from '@lodash';
 
-const styles = theme => ({
-    layoutRoot   : {
-        width: '100%'
-    },
-    layoutHeader : {
-        alignItems: 'center'
-    }
-});
-
 class TodoApp extends Component {
 
     componentDidMount()
@@ -39,14 +30,12 @@ class TodoApp extends Component {
 
     render()
     {
-        const {classes} = this.props;
-
         return (
             <React.Fragment>
                 <FusePageCarded
                     classes={{
-                        root   : classes.layoutRoot,
-                        header : classes.layoutHeader
+                        root  : "w-full",
+                        header : "items-center min-h-72 h-72 sm:h-136 sm:min-h-136"
                     }}
                     header={
                         <TodoHeader pageLayout={() => this.pageLayout}/>
@@ -87,4 +76,4 @@ function mapStateToProps({todoApp})
     return {}
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(TodoApp)));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TodoApp));

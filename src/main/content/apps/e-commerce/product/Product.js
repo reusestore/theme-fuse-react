@@ -113,15 +113,18 @@ class Product extends Component {
 
         return (
             <FusePageCarded
-                classes={{toolbar: "p-0"}}
+                classes={{
+                    toolbar: "p-0",
+                    header : "min-h-72 h-72 sm:h-136 sm:min-h-136"
+                }}
                 header={
                     form && (
-                        <div className="flex flex-1 flex-col w-full sm:flex-row items-center justify-between p-8 md:p-24">
+                        <div className="flex flex-1 w-full items-center justify-between">
 
-                            <div className="flex flex-col items-center sm:items-start max-w-full">
+                            <div className="flex flex-col items-start max-w-full">
 
                                 <FuseAnimate animation="transition.slideRightIn" delay={300}>
-                                    <Typography className="normal-case flex items-center mb-12" component={Link} role="button" to="/apps/e-commerce/products">
+                                    <Typography className="normal-case flex items-center sm:mb-12" component={Link} role="button" to="/apps/e-commerce/products">
                                         <Icon className="mr-4 text-20">arrow_back</Icon>
                                         Products
                                     </Typography>
@@ -130,14 +133,14 @@ class Product extends Component {
                                 <div className="flex items-center max-w-full">
                                     <FuseAnimate animation="transition.expandIn" delay={300}>
                                         {form.images.length > 0 ? (
-                                            <img className="w-48 mr-16 rounded" src={_.find(form.images, {id: form.featuredImage}).url} alt={form.name}/>
+                                            <img className="w-32 sm:w-48 mr-8 sm:mr-16 rounded" src={_.find(form.images, {id: form.featuredImage}).url} alt={form.name}/>
                                         ) : (
-                                            <img className="w-48 mr-16 rounded" src="assets/images/ecommerce/product-image-placeholder.png" alt={form.name}/>
+                                            <img className="w-32 sm:w-48 mr-8 sm:mr-16 rounded" src="assets/images/ecommerce/product-image-placeholder.png" alt={form.name}/>
                                         )}
                                     </FuseAnimate>
                                     <div className="flex flex-col min-w-0">
                                         <FuseAnimate animation="transition.slideLeftIn" delay={300}>
-                                            <Typography variant="title" className="truncate">
+                                            <Typography className="text-16 sm:text-20 truncate">
                                                 {form.name ? form.name : 'New Product'}
                                             </Typography>
                                         </FuseAnimate>
@@ -255,7 +258,7 @@ class Product extends Component {
                             )}
                             {tabValue === 1 && (
                                 <div>
-                                    <div className="flex flex-wrap">
+                                    <div className="flex justify-center sm:justify-start flex-wrap">
                                         {form.images.map(media => (
                                             <div
                                                 onClick={() => this.setFeaturedImage(media.id)}

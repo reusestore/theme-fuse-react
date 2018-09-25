@@ -17,9 +17,9 @@ class ContactsHeader extends Component {
     {
         const {classes, setSearchText, searchText, pageLayout} = this.props;
         return (
-            <div className={classNames(classes.root, "flex flex-1 flex-col sm:flex-row items-center justify-between p-16 sm:p-24")}>
+            <div className={classNames(classes.root, "flex flex-1 items-center justify-between p-8 sm:p-24")}>
 
-                <div className="flex flex-no-shrink items-center w-224">
+                <div className="flex flex-shrink items-center sm:w-224">
                     <Hidden lgUp>
                         <IconButton
                             onClick={(ev) => pageLayout().toggleLeftSidebar()}
@@ -34,12 +34,12 @@ class ContactsHeader extends Component {
                             <Icon className="text-32 mr-12">account_box</Icon>
                         </FuseAnimate>
                         <FuseAnimate animation="transition.slideLeftIn" delay={300}>
-                            <Typography variant="title">Contacts</Typography>
+                            <Typography variant="title" className="hidden sm:flex">Contacts</Typography>
                         </FuseAnimate>
                     </div>
                 </div>
 
-                <div className="flex flex-1 items-center justify-center px-24">
+                <div className="flex flex-1 items-center justify-center pr-8 sm:px-12">
 
                     <MuiThemeProvider theme={FuseSelectedTheme}>
                         <FuseAnimate animation="transition.slideLeftIn" delay={300}>

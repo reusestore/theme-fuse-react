@@ -38,7 +38,7 @@ class BoardList extends Component {
                         {...provided.draggableProps}
                     >
                         <Card
-                            className={classNames(classes.list, "w-320 mr-24 max-h-full flex flex-col")}
+                            className={classNames(classes.list, "w-256 sm:w-320 mr-16 sm:mr-24 max-h-full flex flex-col")}
                             square={true}
                             elevation={snapshot.isDragging ? 3 : 1}
                         >

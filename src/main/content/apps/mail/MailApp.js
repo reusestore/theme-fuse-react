@@ -12,18 +12,7 @@ import MailAppHeader from './MailAppHeader';
 import MailAppSidebarHeader from './MailAppSidebarHeader';
 import MailAppSidebarContent from './MailAppSidebarContent';
 
-const styles = theme => ({
-    layoutRoot   : {
-        width: '100%'
-    },
-    layoutContent: {
-        display      : 'flex',
-        flexDirection: 'column'
-    },
-    layoutHeader : {
-        alignItems: 'center'
-    }
-});
+const styles = theme => ({});
 
 class MailApp extends Component {
 
@@ -36,15 +25,15 @@ class MailApp extends Component {
 
     render()
     {
-        const {classes, match} = this.props;
+        const {match} = this.props;
         const {params} = match;
 
         return (
             <FusePageCarded
                 classes={{
-                    root   : classes.layoutRoot,
-                    content: classes.layoutContent,
-                    header : classes.layoutHeader
+                    root   : "w-full",
+                    content: "flex flex-col",
+                    header : "items-center min-h-72 h-72 sm:h-136 sm:min-h-136"
                 }}
                 header={
                     <MailAppHeader pageLayout={() => this.pageLayout}/>

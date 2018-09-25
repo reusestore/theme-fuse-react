@@ -79,7 +79,7 @@ const styles = theme => ({
         '&.ps'                      : {
             overflow: 'hidden!important'
         },
-        '& $contentCard'              : {
+        '& $contentCard'            : {
             borderRadius: 8
         }
     },
@@ -89,7 +89,8 @@ const styles = theme => ({
         flex                        : '1 1 auto',
         boxShadow                   : theme.shadows[1],
         overflow                    : 'auto',
-        '-webkit-overflow-scrolling': 'touch'
+        '-webkit-overflow-scrolling': 'touch',
+        zIndex                      : 9999
     },
     toolbar                       : {
         height         : toolbarHeight,

@@ -12,23 +12,8 @@ import _ from '@lodash';
 import {Button, Icon} from '@material-ui/core';
 import ContactDialog from 'main/content/apps/contacts/ContactDialog';
 
-const headerHeight = 160;
-
 const styles = theme => ({
-    root                    : {},
-    avatar                  : {},
-    layoutHeader            : {
-        height   : headerHeight,
-        minHeight: headerHeight
-    },
-    layoutContentCardWrapper: {
-        padding      : 24,
-        paddingBottom: 80
-    },
-    layoutLeftSidebar       : {
-        width: 246
-    },
-    addButton               : {
+    addButton: {
         position: 'absolute',
         right   : 12,
         bottom  : 12,
@@ -59,11 +44,10 @@ class ContactsApp extends Component {
         return (
             <React.Fragment>
                 <FusePageSimple
-                    className={classes.root}
                     classes={{
-                        root              : classes.layoutRoot,
-                        contentCardWrapper: classes.layoutContentCardWrapper,
-                        leftSidebar       : classes.layoutLeftSidebar
+                        contentCardWrapper: "p-16 sm:p-24 pb-80",
+                        leftSidebar       : "w-256",
+                        header            : "min-h-72 h-72 sm:h-136 sm:min-h-136"
                     }}
                     header={
                         <ContactsHeader pageLayout={() => this.pageLayout}/>

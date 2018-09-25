@@ -44,7 +44,7 @@ class Widget5 extends Component {
             <Card className={classNames(classes.root, "w-full")}>
                 <div className="relative p-24 flex flex-row items-center justify-between">
                     <div className="flex flex-col">
-                        <Typography className="h2">Visitors & Page views</Typography>
+                        <Typography className="h3 sm:h2">Visitors & Page views</Typography>
                     </div>
                     <div className="flex flex-row items-center">
                         {Object.keys(data.datasets).map((key) => (
@@ -61,7 +61,7 @@ class Widget5 extends Component {
                     </div>
                 </div>
 
-                <Typography className="relative h-320 pb-16">
+                <Typography className="relative h-200 sm:h-320 sm:pb-16">
                     <Line
                         data={{
                             labels  : data.labels,

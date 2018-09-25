@@ -3,16 +3,14 @@ import {withStyles} from '@material-ui/core/styles/index';
 import {Avatar, Divider, Icon, List, ListItem, ListItemText, Paper, Typography} from '@material-ui/core';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import classNames from 'classnames';
 import {NavLink, withRouter} from 'react-router-dom';
 import {FuseAnimate} from '@fuse';
 
 const styles = theme => ({
-    root    : {},
     listItem: {
         color         : 'inherit!important',
         textDecoration: 'none!important',
-        height     : 40,
+        height        : 40,
         width         : 'calc(100% - 16px)',
         borderRadius  : '0 20px 20px 0',
         paddingLeft   : 24,
@@ -34,7 +32,7 @@ class ContactsSidebarContent extends Component {
     {
         const {classes, user} = this.props;
         return (
-            <div className={classNames(classes.root, "lg:p-24 lg:pr-4")}>
+            <div className="p-16 lg:p-24 lg:pr-4">
                 <FuseAnimate animation="transition.slideLeftIn" delay={200}>
                     <Paper elevation={1} className="rounded-8">
                         <div className="p-24 flex items-center">

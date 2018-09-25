@@ -56,7 +56,7 @@ class Boards extends Component {
             <div className={classNames(classes.root, "flex flex-grow flex-no-shrink flex-col items-center")}>
 
                 <FuseAnimate>
-                    <Typography className="mt-44 md:mt-88 py-24 text-40 font-300" color="inherit">Scrumboard App</Typography>
+                    <Typography className="mt-44 sm:mt-88 sm:py-24 text-32 sm:text-40 font-300" color="inherit">Scrumboard App</Typography>
                 </FuseAnimate>
 
                 <div>

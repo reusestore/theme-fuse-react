@@ -1,7 +1,19 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles/index';
 import {
-    Button, Card, CardContent, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Icon, List, ListItem, ListItemIcon, ListItemText,
+    Button,
+    Card,
+    CardContent,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    DialogTitle,
+    Icon,
+    List,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
     Typography
 } from '@material-ui/core';
 import classNames from 'classnames';
@@ -19,7 +31,6 @@ const styles = theme => ({
         width: '100%'
     },
     header : {
-        height        : 360,
         background    : "url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat",
         backgroundSize: 'cover',
         color         : '#fff'
@@ -65,7 +76,7 @@ class KnowledgeBasePage extends Component {
         return (
             <div className={classNames(classes.root)}>
 
-                <div className={classNames(classes.header, "flex flex-col items-center justify-center text-center p-16 sm:p-24")}>
+                <div className={classNames(classes.header, "flex flex-col items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-360")}>
 
                     <FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
                         <Typography color="inherit" className="text-36 sm:text-56 font-light">

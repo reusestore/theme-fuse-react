@@ -46,9 +46,9 @@ class DetailSidebarContent extends Component {
         return (
             <FuseAnimate animation="transition.slideUpIn" delay={200}>
 
-                <div className="file-details p-24">
+                <div className="file-details p-16 sm:p-24">
 
-                    <div className="preview h-256 file-icon flex items-center justify-center">
+                    <div className="preview h-128 sm:h-256 file-icon flex items-center justify-center">
                         <FuseAnimate animation="transition.expandIn" delay={300}>
                             <Icon className={classNames(classes.typeIcon, selected.type, "text-48")}/>
                         </FuseAnimate>

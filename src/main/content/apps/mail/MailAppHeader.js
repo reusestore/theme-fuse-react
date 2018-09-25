@@ -1,41 +1,19 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles/index';
 import {Hidden, Icon, IconButton, Input, MuiThemeProvider, Paper} from '@material-ui/core';
 import * as Actions from './store/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {FuseSelectedTheme} from '@fuse';
 
-const styles = theme => ({
-    root         : {
-        display: 'flex',
-        flex   : '1'
-    },
-    searchWrapper: {
-        width                         : '100%',
-        height                        : 56,
-        padding                       : 18,
-        borderRadius                  : 8,
-        [theme.breakpoints.down('md')]: {
-            paddingLeft: 4
-        },
-        display                       : 'flex',
-        alignItems                    : 'center'
-    },
-    search       : {
-        paddingLeft: 16
-    }
-});
-
 class MailAppHeader extends Component {
 
     render()
     {
-        const {classes, setSearchText, searchText, pageLayout} = this.props;
+        const {setSearchText, searchText, pageLayout} = this.props;
         return (
             <MuiThemeProvider theme={FuseSelectedTheme}>
-                <div className={classes.root}>
-                    <Paper className={classes.searchWrapper} elevation={1}>
+                <div className="flex flex-1">
+                    <Paper className="flex items-center w-full h-48 sm:h-56 p-16 pl-4 md:pl-16 rounded-8 " elevation={1}>
                         <Hidden lgUp>
                             <IconButton
                                 onClick={(ev) => pageLayout().toggleLeftSidebar()}
@@ -49,7 +27,7 @@ class MailAppHeader extends Component {
 
                         <Input
                             placeholder="Search"
-                            className={classes.search}
+                            className="pl-16"
                             disableUnderline
                             fullWidth
                             value={searchText}
@@ -79,4 +57,4 @@ function mapStateToProps({mailApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(MailAppHeader));
+export default connect(mapStateToProps, mapDispatchToProps)(MailAppHeader);

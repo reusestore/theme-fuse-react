@@ -78,6 +78,7 @@ const styles = theme => ({
         flex         : '1 1 auto'
     },
     content            : {
+        position                    : 'relative',
         display                     : 'flex',
         overflow                    : 'auto',
         flex                        : '1 1 auto',

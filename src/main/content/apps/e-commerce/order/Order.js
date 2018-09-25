@@ -46,16 +46,17 @@ class Order extends Component {
         return (
             <FusePageCarded
                 classes={{
-                    content: "flex"
+                    content: "flex",
+                    header : "min-h-72 h-72 sm:h-136 sm:min-h-136"
                 }}
                 header={
                     order && (
-                        <div className="flex flex-1 flex-col w-full sm:flex-row items-center justify-between p-24">
+                        <div className="flex flex-1 w-full items-center justify-between">
 
-                            <div className="flex flex-col items-center sm:items-start max-w-full">
+                            <div className="flex flex-1 flex-col items-center sm:items-start">
 
                                 <FuseAnimate animation="transition.slideRightIn" delay={300}>
-                                    <Typography className="normal-case flex items-center mb-12" component={Link} role="button" to="/apps/e-commerce/orders">
+                                    <Typography className="normal-case flex items-center sm:mb-12" component={Link} role="button" to="/apps/e-commerce/orders">
                                         <Icon className="mr-4 text-20">arrow_back</Icon>
                                         Orders
                                     </Typography>
@@ -64,7 +65,7 @@ class Order extends Component {
                                 <div className="flex flex-col min-w-0 items-center sm:items-start">
 
                                     <FuseAnimate animation="transition.slideLeftIn" delay={300}>
-                                        <Typography variant="title" className="truncate mb-8 sm:mb-0">
+                                        <Typography className="text-16 sm:text-20 truncate">
                                             {'Order ' + order.reference}
                                         </Typography>
                                     </FuseAnimate>

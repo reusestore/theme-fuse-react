@@ -15,12 +15,24 @@ const styles = theme => ({
         color          : theme.palette.getContrastText(theme.palette.grey[800])
     },
     header    : {
-        height        : 360,
         background    : "url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat",
         backgroundSize: 'cover',
         color         : '#fff'
     },
-    content   : {}
+    content   : {},
+    panel     : {
+        margin         : 0,
+        borderWidth    : '1px 1px 0 1px',
+        borderStyle    : 'solid',
+        borderColor    : theme.palette.divider,
+        '&:first-child': {
+            borderRadius: '16px 16px 0 0'
+        },
+        '&:last-child' : {
+            borderRadius: '0 0 16px 16px',
+            borderWidth : '0 1px 1px 1px'
+        }
+    }
 
 });
 
@@ -65,7 +77,7 @@ class FaqPage extends Component {
         return (
             <div className={classNames(classes.root, "")}>
 
-                <div className={classNames(classes.header, "flex flex-col items-center justify-center text-center p-16 sm:p-24")}>
+                <div className={classNames(classes.header, "flex flex-col items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-360")}>
 
                     <FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
                         <Typography color="inherit" className="text-36 sm:text-56 font-light">
@@ -74,12 +86,12 @@ class FaqPage extends Component {
                     </FuseAnimate>
 
                     <FuseAnimate duration={400} delay={600}>
-                        <Typography variant="subheading" color="inherit" className="opacity-75 mt-16 mx-auto max-w-512">
+                        <Typography variant="subheading" color="inherit" className="opacity-75 mt-8 sm:mt-16 mx-auto max-w-512">
                             Frequently asked questions
                         </Typography>
                     </FuseAnimate>
 
-                    <Paper className={"flex items-center h-56 w-full max-w-md mt-32"} elevation={1}>
+                    <Paper className={"flex items-center h-56 w-full max-w-md mt-16 sm:mt-32"} elevation={1}>
                         <Icon color="action" className="ml-16">search</Icon>
                         <Input
                             placeholder="Search in faqs..."
@@ -95,16 +107,16 @@ class FaqPage extends Component {
                     </Paper>
                 </div>
 
-                <div className={classNames(classes.content, "")}>
+                <div className={classNames(classes.content)}>
 
-                    <div className="max-w-xl w-full mx-auto px-16 sm:px-24 py-32">
+                    <div className="max-w-xl w-full mx-auto px-16 sm:px-24 py-24 sm:py-32">
                         <FuseAnimateGroup
                             enter={{
                                 animation: "transition.slideUpBigIn"
                             }}
                         >
                             {faqs.map((faq) => (
-                                <ExpansionPanel key={faq.id} expanded={expanded === faq.id} onChange={this.toogleExpansion(faq.id)} elevation={1}>
+                                <ExpansionPanel className={classes.panel} key={faq.id} expanded={expanded === faq.id} onChange={this.toogleExpansion(faq.id)} elevation={0}>
 
                                     <ExpansionPanelSummary expandIcon={<Icon>expand_more</Icon>}>
                                         <div className="flex items-center">

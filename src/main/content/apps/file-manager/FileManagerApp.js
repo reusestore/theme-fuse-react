@@ -52,7 +52,7 @@ class FileManagerApp extends Component {
         {
             const arr = selected.location.split('>');
             return (
-                <Typography variant="headline" className={className}>
+                <Typography className={className}>
                     {arr.map((path, i) => (
                         <span key={i} className="flex items-center">
                             <span>{path}</span>
@@ -67,12 +67,12 @@ class FileManagerApp extends Component {
         return (
             <FusePageSimple
                 classes={{
-                    header       : classes.layoutHeader,
+                    header       : "h-96 min-h-96 sm:h-160 sm:min-h-160",
                     sidebarHeader: classes.layoutSidebarHeader,
                     rightSidebar : classes.layoutRightSidebar
                 }}
                 header={
-                    <div className="flex flex-col flex-1 p-12 relative">
+                    <div className="flex flex-col flex-1 p-8 sm:p-12 relative">
                         <div className="flex items-center justify-between">
                             <IconButton
                                 onClick={(ev) => this.pageLayout.toggleLeftSidebar()}
@@ -95,7 +95,7 @@ class FileManagerApp extends Component {
                             <FuseAnimate delay={200}>
                                 <div>
                                     {selected && (
-                                        <Breadcrumb className="flex flex-1 pl-72 pb-12"/>
+                                        <Breadcrumb className="flex flex-1 pl-72 pb-12 text-16 sm:text-24"/>
                                     )}
                                 </div>
                             </FuseAnimate>

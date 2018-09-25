@@ -10,18 +10,6 @@ import BoardList from './BoardList';
 import BoardAddList from './BoardAddList';
 import BoardCardDialog from './dialogs/card/BoardCardDialog';
 import BoardSettingsSidebar from './sidebars/settings/BoardSettingsSidebar';
-import classNames from 'classnames';
-
-const styles = theme => ({
-    root: {},
-    list: {
-        width      : 344,
-        minWidth   : 344,
-        maxWidth   : 344,
-        marginRight: 24,
-        height     : '100%'
-    }
-});
 
 class Board extends Component {
 
@@ -80,40 +68,41 @@ class Board extends Component {
 
     render()
     {
-        const {classes, board} = this.props;
+        const {board} = this.props;
         if ( !board )
         {
             return '';
         }
         return (
             <div
-                className={classNames(classes.root, "flex flex-1 flex-col w-full h-full relative")}
+                className="flex flex-1 flex-col w-full h-full relative"
                 ref={(root) => {
                     this.root = root;
                 }}
             >
                 <AppBar position="static" color="primary">
-                    <Toolbar className="flex items-center justify-between px-16 md:px-24 h-64 sm:h-96">
-                        <Button to="/apps/scrumboard/boards/" component={Link} variant="contained">
-                            <Icon className="mr-8">assessment</Icon>
-                            Boards
-                        </Button>
-
+                    <Toolbar className="flex items-center justify-between px-4 sm:px-24 h-64 sm:h-96">
                         <Hidden xsDown>
-                            <div className="flex flex-1 justify-center items-center">
-                                <BoardTitle/>
-                            </div>
+                            <Button to="/apps/scrumboard/boards/" component={Link} variant="contained">
+                                <Icon className="mr-8">assessment</Icon>
+                                Boards
+                            </Button>
                         </Hidden>
+
+                        <Hidden smUp>
+                            <IconButton color="inherit" to="/apps/scrumboard/boards/" component={Link}>
+                                <Icon>assessment</Icon>
+                            </IconButton>
+                        </Hidden>
+
+                        <div className="flex flex-1 justify-center items-center">
+                            <BoardTitle/>
+                        </div>
 
                         <IconButton color="inherit" onClick={() => this.toggleSettingsDrawer(true)}>
                             <Icon>settings</Icon>
                         </IconButton>
                     </Toolbar>
-                    <Hidden smUp>
-                        <Toolbar className="flex items-center justify-center px-16 h-72">
-                            <BoardTitle/>
-                        </Toolbar>
-                    </Hidden>
                 </AppBar>
 
                 <div className="flex flex-1 p-16 md:p-24 overflow-x-auto overflow-y-hidden">
@@ -188,4 +177,4 @@ function mapStateToProps({scrumboardApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(Board)));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Board));

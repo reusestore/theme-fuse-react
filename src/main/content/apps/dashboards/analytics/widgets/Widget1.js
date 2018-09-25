@@ -63,7 +63,7 @@ class Widget1 extends Component {
                             ))}
                         </div>
                     </div>
-                    <div className="relative h-256 pb-16">
+                    <div className="relative h-200 sm:h-256 pb-16">
                         <Line
                             data={{
                                 labels  : data.labels,
