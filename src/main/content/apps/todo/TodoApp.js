@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
 import TodoList from './TodoList';
 import * as Actions from './store/actions';
 import {connect} from 'react-redux';

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Icon, IconButton, AppBar, Toolbar, withStyles, Drawer, Hidden} from '@material-ui/core';
+import {Button, Icon, IconButton, AppBar, Toolbar, Drawer, Hidden} from '@material-ui/core';
 import {Link, withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import * as Actions from 'main/content/apps/scrumboard/store/actions';

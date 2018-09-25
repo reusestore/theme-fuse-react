@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {withStyles, Hidden, Icon, IconButton, Input, MuiThemeProvider, Paper} from '@material-ui/core';
+import {Hidden, Icon, IconButton, Input, MuiThemeProvider, Paper} from '@material-ui/core';
 import * as Actions from './store/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
