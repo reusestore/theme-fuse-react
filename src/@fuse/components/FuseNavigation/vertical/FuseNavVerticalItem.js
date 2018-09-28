@@ -23,11 +23,11 @@ const defaultProps = {};
 
 const styles = theme => ({
     item: {
-        height             : 40,
-        width              : 'calc(100% - 16px)',
-        borderRadius       : '0 20px 20px 0',
-        paddingRight       : 12,
-        '&.active'         : {
+        height                     : 40,
+        width                      : 'calc(100% - 16px)',
+        borderRadius               : '0 20px 20px 0',
+        paddingRight               : 12,
+        '&.active'                 : {
             backgroundColor            : theme.palette.secondary.main,
             color                      : theme.palette.secondary.contrastText + '!important',
             pointerEvents              : 'none',
@@ -39,14 +39,18 @@ const styles = theme => ({
                 color: 'inherit'
             }
         },
-        '& .list-item-icon': {},
-        '& .list-item-text': {},
-        color              : 'inherit!important',
-        textDecoration     : 'none!important'
+        '&.square, &.active.square': {
+            width       : '100%',
+            borderRadius: '0'
+        },
+        '& .list-item-icon'        : {},
+        '& .list-item-text'        : {},
+        color                      : 'inherit!important',
+        textDecoration             : 'none!important'
     }
 });
 
-function FuseNavVerticalItem({item, classes, nestedLevel, userRole, navbarCloseMobile})
+function FuseNavVerticalItem({item, classes, nestedLevel, userRole, navbarCloseMobile, active})
 {
     if ( item.auth && (!item.auth.includes(userRole) || (userRole !== 'guest' && item.auth.length === 1 && item.auth.includes('guest'))) )
     {
@@ -62,7 +66,7 @@ function FuseNavVerticalItem({item, classes, nestedLevel, userRole, navbarCloseM
             component={NavLink}
             to={item.url}
             activeClassName="active"
-            className={classNames(classes.item, listItemPadding, 'list-item')}
+            className={classNames(classes.item, listItemPadding, 'list-item', active)}
             onClick={navbarCloseMobile}
             exact={item.exact}
         >

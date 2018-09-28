@@ -48,6 +48,20 @@ class FuseNavigationDoc extends Component {
                             Collapse, Item. and Divider. These items can be mixed and matched to create unique and complex navigation layouts.
                         </Typography>
 
+                        <Typography className="text-24 mt-32 mb-8" component="h2">[active]</Typography>
+
+                        <Typography className="mb-16" component="p">
+                            Square active item style usage instead of rounded/circle:
+                        </Typography>
+
+                        <FuseHighlight component="pre" className="language-jsx">
+                            {
+                                `
+                                    <FuseNavigation navigation={navigation} active="square"/>
+                                `
+                            }
+                        </FuseHighlight>
+
                         <Typography className="text-24 mt-32 mb-8" component="h2">Group</Typography>
                         <FuseHighlight component="pre" className="language-json">
                             {

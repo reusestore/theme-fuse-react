@@ -174,7 +174,13 @@ const styles = theme => ({
             marginLeft  : 12,
             width       : 40,
             padding     : 12,
-            borderRadius: 20
+            borderRadius: 20,
+            '&.square'  : {
+                borderRadius: 0,
+                marginLeft  : 0,
+                paddingLeft : 24,
+                width       : '100%'
+            }
         }
     },
     navbarHeaderWrapper: {

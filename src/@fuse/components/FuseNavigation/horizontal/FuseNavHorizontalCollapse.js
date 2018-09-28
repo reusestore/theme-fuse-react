@@ -87,7 +87,7 @@ class FuseNavHorizontalCollapse extends Component {
                                     {item.badge && (
                                         <FuseNavBadge className="ml-8 mr-4" badge={item.badge}/>
                                     )}
-                                    <IconButton disableRipple className="w-16 h-16 ml-4">
+                                    <IconButton disableRipple className="w-16 h-16 ml-4 p-0">
                                         <Icon className="text-16 arrow-icon">keyboard_arrow_right</Icon>
                                     </IconButton>
                                 </ListItem>

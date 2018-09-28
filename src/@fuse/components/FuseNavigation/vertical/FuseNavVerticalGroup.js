@@ -27,7 +27,7 @@ const styles = theme => ({
     }
 });
 
-function FuseNavVerticalGroup({classes, item, nestedLevel, userRole})
+function FuseNavVerticalGroup({classes, item, nestedLevel, userRole, active})
 {
     if ( item.auth && (!item.auth.includes(userRole) || (userRole !== 'guest' && item.auth.length === 1 && item.auth.includes('guest'))) )
     {
@@ -54,15 +54,15 @@ function FuseNavVerticalGroup({classes, item, nestedLevel, userRole})
                             <React.Fragment key={item.id}>
 
                                 {item.type === 'group' && (
-                                    <NavVerticalGroup item={item} nestedLevel={nestedLevel}/>
+                                    <NavVerticalGroup item={item} nestedLevel={nestedLevel} active={active}/>
                                 )}
 
                                 {item.type === 'collapse' && (
-                                    <FuseNavVerticalCollapse item={item} nestedLevel={nestedLevel}/>
+                                    <FuseNavVerticalCollapse item={item} nestedLevel={nestedLevel} active={active}/>
                                 )}
 
                                 {item.type === 'item' && (
-                                    <FuseNavVerticalItem item={item} nestedLevel={nestedLevel}/>
+                                    <FuseNavVerticalItem item={item} nestedLevel={nestedLevel} active={active}/>
                                 )}
 
                             </React.Fragment>

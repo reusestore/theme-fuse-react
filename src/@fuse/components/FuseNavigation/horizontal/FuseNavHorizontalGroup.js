@@ -80,7 +80,7 @@ class FuseNavHorizontalGroup extends Component {
                                 )}
                                 <ListItemText className="list-item-text pr-0" primary={item.title} classes={{primary: 'text-14'}}/>
                                 {nestedLevel > 0 && (
-                                    <IconButton disableRipple className="w-16 h-16 ml-4">
+                                    <IconButton disableRipple className="w-16 h-16 ml-4 p-0">
                                         <Icon className="text-16 arrow-icon">keyboard_arrow_right</Icon>
                                     </IconButton>
                                 )}

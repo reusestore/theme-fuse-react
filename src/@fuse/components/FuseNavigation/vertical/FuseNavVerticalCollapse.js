@@ -32,7 +32,11 @@ const styles = theme => ({
         height      : 40,
         width       : 'calc(100% - 16px)',
         borderRadius: '0 20px 20px 0',
-        paddingRight: 12
+        paddingRight: 12,
+        '&.square'  : {
+            width       : '100%',
+            borderRadius: '0'
+        }
     }
 });
 
@@ -94,7 +98,7 @@ class FuseNavVerticalCollapse extends Component {
 
     render()
     {
-        const {item, nestedLevel, classes, userRole} = this.props;
+        const {item, nestedLevel, classes, userRole, active} = this.props;
         if ( item.auth && (!item.auth.includes(userRole) || (userRole !== 'guest' && item.auth.length === 1 && item.auth.includes('guest'))) )
         {
             return null;
@@ -106,7 +110,7 @@ class FuseNavVerticalCollapse extends Component {
 
                 <ListItem
                     button
-                    className={classNames(classes.item, listItemPadding)}
+                    className={classNames(classes.item, listItemPadding, 'list-item', active)}
                     onClick={this.handleClick}
                 >
                     {item.icon && (
@@ -131,15 +135,15 @@ class FuseNavVerticalCollapse extends Component {
                                 <React.Fragment key={item.id}>
 
                                     {item.type === 'group' && (
-                                        <FuseNavVerticalGroup item={item} nestedLevel={nestedLevel + 1}/>
+                                        <FuseNavVerticalGroup item={item} nestedLevel={nestedLevel + 1} active={active}/>
                                     )}
 
                                     {item.type === 'collapse' && (
-                                        <NavVerticalCollapse item={item} nestedLevel={nestedLevel + 1}/>
+                                        <NavVerticalCollapse item={item} nestedLevel={nestedLevel + 1} active={active}/>
                                     )}
 
                                     {item.type === 'item' && (
-                                        <FuseNavVerticalItem item={item} nestedLevel={nestedLevel + 1}/>
+                                        <FuseNavVerticalItem item={item} nestedLevel={nestedLevel + 1} active={active}/>
                                     )}
 
                                 </React.Fragment>

@@ -20,7 +20,7 @@ const defaultProps = {
 class FuseNavigation extends Component {
     render()
     {
-        const {navigation, layout} = this.props;
+        const {navigation, layout, active} = this.props;
 
         const verticalNav = (
             <List className="whitespace-no-wrap">
@@ -30,15 +30,15 @@ class FuseNavigation extends Component {
                         <React.Fragment key={item.id}>
 
                             {item.type === 'group' && (
-                                <FuseNavVerticalGroup item={item} nestedLevel={0}/>
+                                <FuseNavVerticalGroup item={item} nestedLevel={0} active={active}/>
                             )}
 
                             {item.type === 'collapse' && (
-                                <FuseNavVerticalCollapse item={item} nestedLevel={0}/>
+                                <FuseNavVerticalCollapse item={item} nestedLevel={0} active={active}/>
                             )}
 
                             {item.type === 'item' && (
-                                <FuseNavVerticalItem item={item} nestedLevel={0}/>
+                                <FuseNavVerticalItem item={item} nestedLevel={0} active={active}/>
                             )}
 
                             {item.type === 'divider' && (
