@@ -6,7 +6,11 @@ import _ from '@lodash';
 class CheckboxFormsy extends Component {
 
     changeValue = (event) => {
-        this.props.setValue(event.target.checked)
+        this.props.setValue(event.target.checked);
+        if ( this.props.onChange )
+        {
+            this.props.onChange(event);
+        }
     };
 
     render()

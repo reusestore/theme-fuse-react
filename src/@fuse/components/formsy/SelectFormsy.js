@@ -7,6 +7,10 @@ class SelectFormsy extends Component {
 
     changeValue = (event) => {
         this.props.setValue(event.target.value);
+        if ( this.props.onChange )
+        {
+            this.props.onChange(event);
+        }
     };
 
     render()

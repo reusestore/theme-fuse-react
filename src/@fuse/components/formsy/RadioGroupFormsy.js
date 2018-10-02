@@ -7,6 +7,10 @@ class RadioGroupFormsy extends Component {
 
     changeValue = (event, value) => {
         this.props.setValue(value);
+        if ( this.props.onChange )
+        {
+            this.props.onChange(event);
+        }
     };
 
     render()
