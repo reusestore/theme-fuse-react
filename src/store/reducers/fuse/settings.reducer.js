@@ -1,6 +1,7 @@
 import * as Actions from '../../actions/fuse/index';
 import _ from '@lodash';
-import {FuseDefaultSettings, FuseLayouts} from '@fuse';
+import FuseDefaultSettings from '@fuse/FuseDefaultSettings';
+import FuseLayouts from '@fuse/components/FuseLayout/FuseLayouts';
 
 const initialState = {
     defaults: _.merge({}, FuseDefaultSettings),
