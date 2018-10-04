@@ -28,6 +28,52 @@ class ChangelogDoc extends Component {
 
                         <div>
                             <div className="flex items-center mb-32 mt-48">
+                                <Typography className="text-28" component="h2">v1.2.1</Typography>
+                                <Typography className="text-16 ml-8" color="textSecondary"
+                                            component="h3">(2018-10-04)</Typography>
+                            </div>
+                            <div className="mb-24">
+                                <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">
+                                    NEW:
+                                </Typography>
+                                <ul>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            create-react-app updated to v2
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Material UI updated to v3.1.2
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Navigation active item style option added for to use square highlighting(old style).
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Dependency packages updated.
+                                        </Typography>
+                                    </li>
+                                </ul>
+                                <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">
+                                    FIXES:
+                                </Typography>
+                                <ul>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Synthetically trigger event onChange for higher-order components of formsy.
+                                        </Typography>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <div>
+                            <div className="flex items-center mb-32 mt-48">
                                 <Typography className="text-28" component="h2">v1.2.0</Typography>
                                 <Typography className="text-16 ml-8" color="textSecondary"
                                             component="h3">(2018-09-25)</Typography>

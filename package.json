@@ -1,6 +1,6 @@
 {
     "name": "fuse-react-app",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "private": true,
     "dependencies": {
         "@material-ui/core": "3.1.2",
