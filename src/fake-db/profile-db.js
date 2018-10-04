@@ -90,7 +90,7 @@ const profileDB = {
                 'share'   : 21,
                 'media'   : {
                     'type'   : 'image',
-                    'preview': 'assets/images/etc/early-sunrise.jpg'
+                    'preview': 'assets/images/profile/morain-lake.jpg'
                 },
                 'comments': [
                     {
@@ -116,12 +116,12 @@ const profileDB = {
                 'like'    : 98,
                 'share'   : 6,
                 'article' : {
-                    'title'   : 'The Fallout 4 Pip-Boy Edition Is Back In Stock Now',
-                    'subtitle': 'Kotaku',
-                    'excerpt' : 'The Fallout 4 Pip-Boy edition is back in stock at Gamestop, for all 3 platforms. Additionally, Walmart also has it in stock for the PS4 and Xbox One as of this writing, as does Best Buy.',
+                    'title'   : 'Never stop changing!',
+                    'subtitle': 'John Westrock',
+                    'excerpt' : 'John Westrock\'s new photo album called \'Never stop changing\' is published! It features more than 200 photos that will take you right in.',
                     'media'   : {
                         'type'   : 'image',
-                        'preview': 'assets/images/etc/fallout.jpg'
+                        'preview': 'assets/images/profile/never-stop-changing.jpg'
                     }
                 },
                 'comments': [
@@ -153,107 +153,142 @@ const profileDB = {
     photosVideos: [
         {
             'id'   : '1',
-            'name' : 'June 2015',
+            'name' : 'June 2018',
             'info' : '5 Photos',
             'media': [
                 {
                     'type'   : 'photo',
-                    'title'  : 'Mountain Sunset',
-                    'preview': 'assets/images/etc/mountain-sunset.jpg'
+                    'title'  : 'A Walk Amongst Friends',
+                    'preview': 'assets/images/profile/a-walk-amongst-friends-small.jpg'
                 },
                 {
                     'type'   : 'photo',
-                    'title'  : 'Mountain Lake',
-                    'preview': 'assets/images/etc/mountain-lake.jpg'
+                    'title'  : 'Braies Lake',
+                    'preview': 'assets/images/profile/braies-lake-small.jpg'
                 },
                 {
                     'type'   : 'photo',
-                    'title'  : 'Hot air balloons',
-                    'preview': 'assets/images/etc/air-balloons.jpg'
+                    'title'  : 'Fall Glow',
+                    'preview': 'assets/images/profile/fall-glow-small.jpg'
                 },
                 {
                     'type'   : 'photo',
-                    'title'  : 'Cactus',
-                    'preview': 'assets/images/etc/cactus.jpg'
+                    'title'  : 'First Snow',
+                    'preview': 'assets/images/profile/first-snow-small.jpg'
                 },
                 {
                     'type'   : 'photo',
-                    'title'  : 'Road Trip',
-                    'preview': 'assets/images/etc/road-trip.jpg'
+                    'title'  : 'Lago di Braies',
+                    'preview': 'assets/images/profile/lago-di-braies-small.jpg'
                 }
             ]
         },
         {
             'id'   : '2',
-            'name' : 'May 2015',
+            'name' : 'May 2018',
             'info' : '7 Photos, 3 Videos',
             'media': [
                 {
                     'type'   : 'photo',
-                    'title'  : 'Mountain Sunset',
-                    'preview': 'assets/images/etc/mountain-sunset.jpg'
+                    'title'  : 'Lago di Sorapis',
+                    'preview': 'assets/images/profile/lago-di-sorapis-small.jpg'
                 },
                 {
                     'type'   : 'photo',
-                    'title'  : 'Mountain Lake',
-                    'preview': 'assets/images/etc/mountain-lake.jpg'
+                    'title'  : 'Morain Lake',
+                    'preview': 'assets/images/profile/morain-lake-small.jpg'
                 },
                 {
                     'type'   : 'photo',
-                    'title'  : 'Hot air balloons',
-                    'preview': 'assets/images/etc/air-balloons.jpg'
+                    'title'  : 'Never Stop Changing',
+                    'preview': 'assets/images/profile/never-stop-changing-small.jpg'
                 },
                 {
                     'type'   : 'photo',
-                    'title'  : 'Cactus',
-                    'preview': 'assets/images/etc/cactus.jpg'
+                    'title'  : 'Reaching',
+                    'preview': 'assets/images/profile/reaching-small.jpg'
                 },
                 {
                     'type'   : 'photo',
-                    'title'  : 'Road Trip',
-                    'preview': 'assets/images/etc/road-trip.jpg'
+                    'title'  : 'Yosemite',
+                    'preview': 'assets/images/profile/yosemite-small.jpg'
+                },
+                {
+                    'type'   : 'photo',
+                    'title'  : 'A Walk Amongst Friends',
+                    'preview': 'assets/images/profile/a-walk-amongst-friends-small.jpg'
+                },
+                {
+                    'type'   : 'photo',
+                    'title'  : 'Braies Lake',
+                    'preview': 'assets/images/profile/braies-lake-small.jpg'
+                },
+                {
+                    'type'   : 'photo',
+                    'title'  : 'Fall Glow',
+                    'preview': 'assets/images/profile/fall-glow-small.jpg'
+                },
+                {
+                    'type'   : 'photo',
+                    'title'  : 'First Snow',
+                    'preview': 'assets/images/profile/first-snow-small.jpg'
+                },
+                {
+                    'type'   : 'photo',
+                    'title'  : 'Lago di Braies',
+                    'preview': 'assets/images/profile/lago-di-braies-small.jpg'
                 }
             ]
         },
         {
             'id'   : '3',
-            'name' : 'April 2015',
-            'info' : '5 Photos',
+            'name' : 'April 2018',
+            'info' : '7 Photos',
             'media': [
                 {
                     'type'   : 'photo',
-                    'title'  : 'Mountain Sunset',
-                    'preview': 'assets/images/etc/mountain-sunset.jpg'
+                    'title'  : 'Lago di Sorapis',
+                    'preview': 'assets/images/profile/lago-di-sorapis-small.jpg'
                 },
                 {
                     'type'   : 'photo',
-                    'title'  : 'Mountain Lake',
-                    'preview': 'assets/images/etc/mountain-lake.jpg'
+                    'title'  : 'Morain Lake',
+                    'preview': 'assets/images/profile/morain-lake-small.jpg'
                 },
                 {
                     'type'   : 'photo',
-                    'title'  : 'Hot air balloons',
-                    'preview': 'assets/images/etc/air-balloons.jpg'
+                    'title'  : 'Never Stop Changing',
+                    'preview': 'assets/images/profile/never-stop-changing-small.jpg'
                 },
                 {
                     'type'   : 'photo',
-                    'title'  : 'Cactus',
-                    'preview': 'assets/images/etc/cactus.jpg'
+                    'title'  : 'Reaching',
+                    'preview': 'assets/images/profile/reaching-small.jpg'
                 },
                 {
                     'type'   : 'photo',
-                    'title'  : 'Road Trip',
-                    'preview': 'assets/images/etc/road-trip.jpg'
+                    'title'  : 'Yosemite',
+                    'preview': 'assets/images/profile/yosemite-small.jpg'
+                },
+                {
+                    'type'   : 'photo',
+                    'title'  : 'A Walk Amongst Friends',
+                    'preview': 'assets/images/profile/a-walk-amongst-friends-small.jpg'
+                },
+                {
+                    'type'   : 'photo',
+                    'title'  : 'Braies Lake',
+                    'preview': 'assets/images/profile/braies-lake-small.jpg'
                 }
             ]
         }
     ],
     about       : {
         'general': {
-            'gender'   : 'Female',
-            'birthday' : 'May 8th, 1988',
+            'gender'   : 'Male',
+            'birthday' : 'February 30th, 1974',
             'locations': [
-                'Istanbul, Turkey',
+                'London, UK',
                 'New York, USA'
             ],
             'about'    : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget pharetra felis, sed ullamcorper dui. Sed et elementum neque. Vestibulum pellente viverra ultrices. Etiam justo augue, vehicula ac gravida a, interdum sit amet nisl. Integer vitae nisi id nibh dictum mollis in vitae tortor.'
@@ -289,21 +324,18 @@ const profileDB = {
         'groups' : [
             {
                 'id'      : '1',
-                'logo'    : 'assets/images/logos/android.png',
                 'name'    : 'Android',
                 'category': 'Technology',
                 'members' : '1.856.546'
             },
             {
                 'id'      : '2',
-                'logo'    : 'assets/images/logos/google.png',
                 'name'    : 'Google',
                 'category': 'Web',
                 'members' : '1.226.121'
             },
             {
                 'id'      : '3',
-                'logo'    : 'assets/images/logos/fallout.png',
                 'name'    : 'Fallout',
                 'category': 'Games',
                 'members' : '526.142'

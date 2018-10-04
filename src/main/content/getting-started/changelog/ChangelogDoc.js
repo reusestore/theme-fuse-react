@@ -57,6 +57,11 @@ class ChangelogDoc extends Component {
                                             Dependency packages updated.
                                         </Typography>
                                     </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            E-commerce App data/assets updated.
+                                        </Typography>
+                                    </li>
                                 </ul>
                                 <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">
                                     FIXES:
@@ -65,6 +70,11 @@ class ChangelogDoc extends Component {
                                     <li>
                                         <Typography className="text-14 mb-8">
                                             Synthetically trigger event onChange for higher-order components of formsy.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Edge, Ie font icon ligature fix.
                                         </Typography>
                                     </li>
                                 </ul>

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles/index';
 import axios from 'axios/index';
-import {AppBar, Button, Card, CardContent, Icon, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, Toolbar, Typography} from '@material-ui/core';
+import {Avatar, AppBar, Button, Card, CardContent, Icon, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, Toolbar, Typography} from '@material-ui/core';
 import classNames from 'classnames';
 import {FuseAnimateGroup} from '@fuse';
 
@@ -212,7 +212,7 @@ class AboutTab extends Component {
                                 <List className="p-0">
                                     {groups && groups.map((group) => (
                                         <ListItem key={group.id}>
-                                            <img className="w-64 border-1" alt={group.name} src={group.logo}/>
+                                            <Avatar alt={group.name}>{group.name[0]}</Avatar>
                                             <ListItemText
                                                 primary={(
                                                     <div className="">

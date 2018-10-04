@@ -57,10 +57,10 @@ class ProfilePage extends Component {
                     <div className="p-24 flex flex-1 flex-col items-center justify-center md:flex-row md:items-end">
                         <div className="flex flex-1 flex-col items-center justify-center md:flex-row md:items-center md:justify-start">
                             <FuseAnimate animation="transition.expandIn" delay={300}>
-                                <Avatar className="w-96 h-96" src="assets/images/avatars/katherine.jpg"/>
+                                <Avatar className="w-96 h-96" src="assets/images/avatars/Velazquez.jpg"/>
                             </FuseAnimate>
                             <FuseAnimate animation="transition.slideLeftIn" delay={300}>
-                                <Typography className="md:ml-24" variant="display1" color="inherit">Katherine Wilson</Typography>
+                                <Typography className="md:ml-24" variant="display1" color="inherit">John Doe</Typography>
                             </FuseAnimate>
                         </div>
 
