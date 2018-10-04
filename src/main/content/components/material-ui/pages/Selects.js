@@ -76,7 +76,7 @@ function Selects({classes})
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Text Fields</Typography>
                     <Typography className="mb-16" component="div">The <code>TextField</code> wrapper component is a complete form control including a label, input and help text.
-                        You can find an example with the select mode <a href="/demos/text-fields#textfield">in this section</a>.</Typography>
+                        You can find an example with the select mode <a href="/demos/text-fields/#textfield">in this section</a>.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Controlled open Select</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"

@@ -1,64 +1,6 @@
 import React, {Component} from 'react';
 import ReactTable from "react-table";
 
-class SimpleExample extends Component {
-    state = {
-        data: data
-    };
-
-    render()
-    {
-        const {data} = this.state;
-        return (
-            <div>
-                <ReactTable
-                    data={data}
-                    columns={[
-                        {
-                            Header : "Name",
-                            columns: [
-                                {
-                                    Header  : "First Name",
-                                    accessor: "firstName"
-                                },
-                                {
-                                    Header  : "Last Name",
-                                    id      : "lastName",
-                                    accessor: d => d.lastName
-                                }
-                            ]
-                        },
-                        {
-                            Header : "Info",
-                            columns: [
-                                {
-                                    Header  : "Age",
-                                    accessor: "age"
-                                },
-                                {
-                                    Header  : "Status",
-                                    accessor: "status"
-                                }
-                            ]
-                        },
-                        {
-                            Header : 'Stats',
-                            columns: [
-                                {
-                                    Header  : "Visits",
-                                    accessor: "visits"
-                                }
-                            ]
-                        }
-                    ]}
-                    defaultPageSize={10}
-                    className="-striped -highlight"
-                />
-            </div>
-        );
-    }
-}
-
 const data = [
     {
         "firstName": "sympathy",
@@ -1662,5 +1604,63 @@ const data = [
         ]
     }
 ];
+
+class SimpleExample extends Component {
+    state = {
+        data: data
+    };
+
+    render()
+    {
+        const {data} = this.state;
+        return (
+            <div>
+                <ReactTable
+                    data={data}
+                    columns={[
+                        {
+                            Header : "Name",
+                            columns: [
+                                {
+                                    Header  : "First Name",
+                                    accessor: "firstName"
+                                },
+                                {
+                                    Header  : "Last Name",
+                                    id      : "lastName",
+                                    accessor: d => d.lastName
+                                }
+                            ]
+                        },
+                        {
+                            Header : "Info",
+                            columns: [
+                                {
+                                    Header  : "Age",
+                                    accessor: "age"
+                                },
+                                {
+                                    Header  : "Status",
+                                    accessor: "status"
+                                }
+                            ]
+                        },
+                        {
+                            Header : 'Stats',
+                            columns: [
+                                {
+                                    Header  : "Visits",
+                                    accessor: "visits"
+                                }
+                            ]
+                        }
+                    ]}
+                    defaultPageSize={10}
+                    className="-striped -highlight"
+                />
+            </div>
+        );
+    }
+}
 
 export default SimpleExample;
