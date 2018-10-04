@@ -56,8 +56,16 @@ function Cards({classes})
                     <Typography className="mb-16" component="div">Example of a card using an image to reinforce the content.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
-                        component={require('main/content/components/material-ui/material-ui-examples/cards/SimpleMediaCard.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/cards/SimpleMediaCard.js')}
+                        component={require('main/content/components/material-ui/material-ui-examples/cards/MediaCard.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/cards/MediaCard.js')}
+                    /></Typography>
+                    <Typography className="mb-16" component="div">By default, we use the combination of a <code>&lt;div&gt;</code> element and a <em>background image</em> to
+                        display the media. It can be problematic in some situations. For instance, you might want to display a video or a responsive image. Use
+                        the <code>component</code> property for these use cases:</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        component={require('main/content/components/material-ui/material-ui-examples/cards/ImgMediaCard.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/cards/ImgMediaCard.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">UI Controls</Typography>
                     <Typography className="mb-16" component="div">Supplemental actions within the card are explicitly called out using icons, text, and UI controls, typically

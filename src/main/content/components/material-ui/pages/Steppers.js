@@ -108,6 +108,14 @@ function Steppers({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/steppers/VerticalLinearStepper.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/steppers/VerticalLinearStepper.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Customized Stepper</Typography>
+                    <Typography className="mb-16" component="div">This component uses a customized <code>StepConnector</code> element that changes border color based on
+                        the <code>active</code> and <code>completed</code> state.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        component={require('main/content/components/material-ui/material-ui-examples/steppers/CustomizedStepper.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/steppers/CustomizedStepper.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Mobile Stepper</Typography>
                     <Typography className="mb-16" component="div">This component implements a compact stepper suitable for a mobile device. See <a
                         href="https://material.io/archive/guidelines/components/steppers.html#steppers-types-of-steps">mobile steps</a> for its inspiration.</Typography>

@@ -3,11 +3,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Visibility from '@material-ui/icons/Visibility';
@@ -20,9 +16,6 @@ const styles = theme => ({
   },
   margin: {
     margin: theme.spacing.unit,
-  },
-  withoutLabel: {
-    marginTop: theme.spacing.unit * 3,
   },
   textField: {
     flexBasis: 200,
@@ -44,7 +37,7 @@ const ranges = [
   },
 ];
 
-class InputAdornments extends React.Component {
+class OutlinedInputAdornments extends React.Component {
   state = {
     amount: '',
     password: '',
@@ -67,17 +60,19 @@ class InputAdornments extends React.Component {
     return (
       <div className={classes.root}>
         <TextField
-          label="With normal TextField"
-          id="simple-start-adornment"
+          id="outlined-simple-start-adornment"
           className={classNames(classes.margin, classes.textField)}
+          variant="outlined"
+          label="With outlined TextField"
           InputProps={{
             startAdornment: <InputAdornment position="start">Kg</InputAdornment>,
           }}
         />
         <TextField
           select
-          label="With Select"
           className={classNames(classes.margin, classes.textField)}
+          variant="outlined"
+          label="With Select"
           value={this.state.weightRange}
           onChange={this.handleChange('weightRange')}
           InputProps={{
@@ -90,38 +85,39 @@ class InputAdornments extends React.Component {
             </MenuItem>
           ))}
         </TextField>
-        <FormControl fullWidth className={classes.margin}>
-          <InputLabel htmlFor="adornment-amount">Amount</InputLabel>
-          <Input
-            id="adornment-amount"
-            value={this.state.amount}
-            onChange={this.handleChange('amount')}
-            startAdornment={<InputAdornment position="start">$</InputAdornment>}
-          />
-        </FormControl>
-        <FormControl
-          className={classNames(classes.margin, classes.withoutLabel, classes.textField)}
-          aria-describedby="weight-helper-text"
-        >
-          <Input
-            id="adornment-weight"
-            value={this.state.weight}
-            onChange={this.handleChange('weight')}
-            endAdornment={<InputAdornment position="end">Kg</InputAdornment>}
-            inputProps={{
-              'aria-label': 'Weight',
-            }}
-          />
-          <FormHelperText id="weight-helper-text">Weight</FormHelperText>
-        </FormControl>
-        <FormControl className={classNames(classes.margin, classes.textField)}>
-          <InputLabel htmlFor="adornment-password">Password</InputLabel>
-          <Input
-            id="adornment-password"
-            type={this.state.showPassword ? 'text' : 'password'}
-            value={this.state.password}
-            onChange={this.handleChange('password')}
-            endAdornment={
+        <TextField
+          id="outlined-adornment-amount"
+          className={classNames(classes.margin, classes.textField)}
+          variant="outlined"
+          label="Amount"
+          value={this.state.amount}
+          onChange={this.handleChange('amount')}
+          InputProps={{
+            startAdornment: <InputAdornment position="start">$</InputAdornment>,
+          }}
+        />
+        <TextField
+          id="outlined-adornment-weight"
+          className={classNames(classes.margin, classes.textField)}
+          variant="outlined"
+          label="Weight"
+          value={this.state.weight}
+          onChange={this.handleChange('weight')}
+          helperText="Weight"
+          InputProps={{
+            endAdornment: <InputAdornment position="end">Kg</InputAdornment>,
+          }}
+        />
+        <TextField
+          id="outlined-adornment-password"
+          className={classNames(classes.margin, classes.textField)}
+          variant="outlined"
+          type={this.state.showPassword ? 'text' : 'password'}
+          label="Password"
+          value={this.state.password}
+          onChange={this.handleChange('password')}
+          InputProps={{
+            endAdornment: (
               <InputAdornment position="end">
                 <IconButton
                   aria-label="Toggle password visibility"
@@ -130,16 +126,16 @@ class InputAdornments extends React.Component {
                   {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
                 </IconButton>
               </InputAdornment>
-            }
-          />
-        </FormControl>
+            ),
+          }}
+        />
       </div>
     );
   }
 }
 
-InputAdornments.propTypes = {
+OutlinedInputAdornments.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(InputAdornments);
+export default withStyles(styles)(OutlinedInputAdornments);
