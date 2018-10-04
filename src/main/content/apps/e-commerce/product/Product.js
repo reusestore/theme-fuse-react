@@ -94,7 +94,7 @@ class Product extends Component {
     };
 
     setFeaturedImage = (id) => {
-        this.setState({form: _.set({...this.state.form}, 'featuredImage', id)});
+        this.setState({form: _.set({...this.state.form}, 'featuredImageId', id)});
     };
 
     canBeSubmitted()
@@ -133,7 +133,7 @@ class Product extends Component {
                                 <div className="flex items-center max-w-full">
                                     <FuseAnimate animation="transition.expandIn" delay={300}>
                                         {form.images.length > 0 ? (
-                                            <img className="w-32 sm:w-48 mr-8 sm:mr-16 rounded" src={_.find(form.images, {id: form.featuredImage}).url} alt={form.name}/>
+                                            <img className="w-32 sm:w-48 mr-8 sm:mr-16 rounded" src={_.find(form.images, {id: form.featuredImageId}).url} alt={form.name}/>
                                         ) : (
                                             <img className="w-32 sm:w-48 mr-8 sm:mr-16 rounded" src="assets/images/ecommerce/product-image-placeholder.png" alt={form.name}/>
                                         )}
@@ -262,7 +262,7 @@ class Product extends Component {
                                         {form.images.map(media => (
                                             <div
                                                 onClick={() => this.setFeaturedImage(media.id)}
-                                                className={classNames(classes.productImageItem, (media.id === form.featuredImage) && 'featured')}
+                                                className={classNames(classes.productImageItem, (media.id === form.featuredImageId) && 'featured')}
                                                 key={media.id}
                                             >
                                                 <Icon className={classes.productImageFeaturedStar}>star</Icon>

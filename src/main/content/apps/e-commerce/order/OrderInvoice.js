@@ -161,13 +161,13 @@ class OrderInvoice extends Component {
                                                     <Typography variant="subheading">{product.name}</Typography>
                                                 </td>
                                                 <td className="text-right">
-                                                    {formatter.format(product.priceTaxExcl)}
+                                                    {formatter.format(product.price)}
                                                 </td>
                                                 <td className="text-right">
                                                     {product.quantity}
                                                 </td>
                                                 <td className="text-right">
-                                                    {formatter.format(product.priceTaxExcl * product.quantity)}
+                                                    {formatter.format(product.price * product.quantity)}
                                                 </td>
                                             </tr>
                                         ))}

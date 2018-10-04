@@ -171,7 +171,7 @@ class ProductsTable extends Component {
 
                                             <TableCell className="w-52" component="th" scope="row" padding="none">
                                                 {n.images.length > 0 ? (
-                                                    <img className="w-full block rounded" src={_.find(n.images, {id: n.featuredImage}).url} alt={n.name}/>
+                                                    <img className="w-full block rounded" src={_.find(n.images, {id: n.featuredImageId}).url} alt={n.name}/>
                                                 ) : (
                                                     <img className="w-full block rounded" src="assets/images/ecommerce/product-image-placeholder.png" alt={n.name}/>
                                                 )}

@@ -372,7 +372,7 @@ class Order extends Component {
                                                     </td>
                                                     <td className="w-64 text-right">
                                                         <span className="truncate">
-                                                            ${product.priceTaxIncl}
+                                                            ${product.price}
                                                         </span>
                                                     </td>
                                                     <td className="w-64 text-right">
