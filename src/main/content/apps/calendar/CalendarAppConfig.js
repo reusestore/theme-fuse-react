@@ -1,4 +1,4 @@
-import CalendarApp from 'main/content/apps/calendar/CalendarApp';
+import {FuseLoadable} from '@fuse';
 
 export const CalendarAppConfig = {
     settings: {
@@ -9,7 +9,9 @@ export const CalendarAppConfig = {
     routes  : [
         {
             path     : '/apps/calendar',
-            component: CalendarApp
+            component: FuseLoadable({
+                loader: () => import('./CalendarApp')
+            })
         }
     ]
 };

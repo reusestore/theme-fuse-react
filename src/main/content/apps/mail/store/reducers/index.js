@@ -5,7 +5,7 @@ import folders from './folders.reducer';
 import labels from './labels.reducer';
 import filters from './filters.reducer';
 
-const mailAppReducers = combineReducers({
+const reducer = combineReducers({
     mails,
     mail,
     folders,
@@ -13,4 +13,4 @@ const mailAppReducers = combineReducers({
     filters
 });
 
-export default mailAppReducers;
+export default reducer;

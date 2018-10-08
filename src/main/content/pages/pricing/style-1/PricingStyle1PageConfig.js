@@ -1,4 +1,4 @@
-import PricingStyle1Page from 'main/content/pages/pricing/style-1/PricingStyle1Page';
+import {FuseLoadable} from '@fuse';
 
 export const PricingStyle1PageConfig = {
     settings: {
@@ -9,7 +9,9 @@ export const PricingStyle1PageConfig = {
     routes  : [
         {
             path     : '/pages/pricing/style-1',
-            component: PricingStyle1Page
+            component: FuseLoadable({
+                loader: () => import('./PricingStyle1Page')
+            })
         }
     ]
 };

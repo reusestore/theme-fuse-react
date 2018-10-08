@@ -1,5 +1,5 @@
 import quickPanel from './quickPanel.reducer';
 
-const quickPanelReducers = quickPanel;
+const reducer = quickPanel;
 
-export default quickPanelReducers;
+export default reducer;

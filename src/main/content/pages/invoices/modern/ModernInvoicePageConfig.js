@@ -1,4 +1,4 @@
-import ModernInvoicePage from 'main/content/pages/invoices/modern/ModernInvoicePage';
+import {FuseLoadable} from '@fuse';
 
 export const ModernInvoicePageConfig = {
     settings: {
@@ -9,7 +9,9 @@ export const ModernInvoicePageConfig = {
     routes  : [
         {
             path     : '/pages/invoices/modern',
-            component: ModernInvoicePage
+            component: FuseLoadable({
+                loader: () => import('./ModernInvoicePage')
+            })
         }
     ]
 };

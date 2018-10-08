@@ -1,4 +1,4 @@
-import ChatApp from './ChatApp';
+import {FuseLoadable} from '@fuse';
 
 export const ChatAppConfig = {
     settings: {
@@ -9,7 +9,9 @@ export const ChatAppConfig = {
     routes  : [
         {
             path     : '/apps/chat',
-            component: ChatApp
+            component: FuseLoadable({
+                loader: () => import('./ChatApp')
+            })
         }
     ]
 };

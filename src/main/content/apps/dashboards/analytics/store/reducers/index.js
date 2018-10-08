@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
 import widgets from './widgets.reducer';
 
-const analyticsDashboardAppReducers = combineReducers({
+const reducer = combineReducers({
     widgets
 });
 
-export default analyticsDashboardAppReducers;
+export default reducer;

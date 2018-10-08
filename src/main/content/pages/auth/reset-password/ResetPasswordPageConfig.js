@@ -1,4 +1,4 @@
-import ResetPasswordPage from 'main/content/pages/auth/reset-password/ResetPasswordPage';
+import {FuseLoadable} from '@fuse';
 
 export const ResetPasswordPageConfig = {
     settings: {
@@ -9,7 +9,9 @@ export const ResetPasswordPageConfig = {
     routes  : [
         {
             path     : '/pages/auth/reset-password',
-            component: ResetPasswordPage
+            component: FuseLoadable({
+                loader: () => import('./ResetPasswordPage')
+            })
         }
     ]
 };

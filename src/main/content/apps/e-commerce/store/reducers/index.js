@@ -4,11 +4,11 @@ import product from './product.reducer';
 import orders from './orders.reducer';
 import order from './order.reducer';
 
-const eCommerceAppReducers = combineReducers({
+const reducer = combineReducers({
     products,
     product,
     orders,
     order
 });
 
-export default eCommerceAppReducers;
+export default reducer;

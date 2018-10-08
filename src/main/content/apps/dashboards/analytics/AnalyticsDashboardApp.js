@@ -16,6 +16,8 @@ import Widget7 from './widgets/Widget7';
 import Widget8 from './widgets/Widget8';
 import Widget9 from './widgets/Widget9';
 import {FuseAnimate} from '@fuse';
+import withReducer from 'store/withReducer';
+import reducer from './store/reducers';
 
 const styles = theme => ({
     root: {
@@ -211,4 +213,4 @@ function mapStateToProps({analyticsDashboardApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(AnalyticsDashboardApp)));
+export default withReducer('analyticsDashboardApp', reducer)(withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(AnalyticsDashboardApp))));

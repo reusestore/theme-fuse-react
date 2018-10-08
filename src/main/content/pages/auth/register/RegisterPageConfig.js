@@ -1,4 +1,4 @@
-import RegisterPage from 'main/content/pages/auth/register/RegisterPage';
+import {FuseLoadable} from '@fuse';
 
 export const RegisterPageConfig = {
     settings: {
@@ -9,7 +9,9 @@ export const RegisterPageConfig = {
     routes  : [
         {
             path     : '/pages/auth/register',
-            component: RegisterPage
+            component: FuseLoadable({
+                loader: () => import('./RegisterPage')
+            })
         }
     ]
 };

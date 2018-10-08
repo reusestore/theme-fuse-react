@@ -7,6 +7,8 @@ import {connect} from 'react-redux';
 import classNames from 'classnames';
 import {fade} from '@material-ui/core/styles/colorManipulator';
 import {FuseAnimateGroup, FuseAnimate} from '@fuse';
+import withReducer from 'store/withReducer';
+import reducer from './../store/reducers';
 
 const styles = theme => ({
     root    : {
@@ -112,4 +114,4 @@ function mapStateToProps({scrumboardApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(Boards)));
+export default withReducer('scrumboardApp', reducer)(withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(Boards))));

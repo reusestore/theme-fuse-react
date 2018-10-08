@@ -6,6 +6,8 @@ import {connect} from 'react-redux';
 import * as Actions from './store/actions/index'
 import {FuseScrollbars} from '@fuse';
 import moment from 'moment';
+import withReducer from 'store/withReducer';
+import reducer from './store/reducers';
 
 const styles = theme => ({
     root: {
@@ -155,4 +157,4 @@ function mapStateToProps({quickPanel})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(QuickPanel));
+export default withReducer('quickPanel', reducer)(withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(QuickPanel)));

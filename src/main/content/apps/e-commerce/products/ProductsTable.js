@@ -16,7 +16,7 @@ const styles = theme => ({
 class ProductsTable extends Component {
     state = {
         order      : 'asc',
-        orderBy    : 'name',
+        orderBy    : null,
         selected   : [],
         data       : this.props.products,
         page       : 0,

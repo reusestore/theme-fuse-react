@@ -1,15 +1,5 @@
 import React, {Component} from 'react';
-import {
-    AppBar,
-    Toolbar,
-    Icon,
-    IconButton,
-    ClickAwayListener,
-    Paper,
-    Avatar,
-    Typography,
-    withStyles
-} from '@material-ui/core';
+import {AppBar, Toolbar, Icon, IconButton, ClickAwayListener, Paper, Avatar, Typography, withStyles} from '@material-ui/core';
 import keycode from 'keycode';
 import * as Actions from './store/actions';
 import {bindActionCreators} from 'redux';
@@ -17,6 +7,8 @@ import {connect} from 'react-redux';
 import ContactList from './ContactList';
 import Chat from './Chat';
 import classNames from 'classnames';
+import withReducer from 'store/withReducer';
+import reducer from './store/reducers';
 
 const styles = theme => ({
     root : {
@@ -160,4 +152,4 @@ function mapStateToProps({chatPanel})
     }
 }
 
-export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(ChatPanel));
+export default withReducer('chatPanel', reducer)(withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(ChatPanel)));

@@ -1,25 +1,30 @@
-import ReactChartJs2Doc from 'main/content/components-third-party/react-chartjs-2/ReactChartJs2Doc';
-import GoogleMapReactDoc from 'main/content/components-third-party/google-map-react/GoogleMapReactDoc';
-import ReactTableDoc from 'main/content/components-third-party/datatables/react-table/ReactTableDoc';
-import FormsyDoc from 'main/content/components-third-party/formsy/FormsyDoc';
+import {FuseLoadable} from '@fuse';
 
 export const ComponentsThirdPartyConfig = {
     routes: [
         {
             path     : '/components-third-party/formsy',
-            component: FormsyDoc
+            component: FuseLoadable({
+                loader: () => import('./formsy/FormsyDoc')
+            })
         },
         {
             path     : '/components-third-party/datatables/react-table',
-            component: ReactTableDoc
+            component: FuseLoadable({
+                loader: () => import('./datatables/react-table/ReactTableDoc')
+            })
         },
         {
             path     : '/components-third-party/google-map-react',
-            component: GoogleMapReactDoc
+            component: FuseLoadable({
+                loader: () => import('./google-map-react/GoogleMapReactDoc')
+            })
         },
         {
             path     : '/components-third-party/react-chartjs-2',
-            component: ReactChartJs2Doc
+            component: FuseLoadable({
+                loader: () => import('./react-chartjs-2/ReactChartJs2Doc')
+            })
         }
 
     ]

@@ -1,63 +1,76 @@
-import CardedLeftSidebarTabbedSample from './left-sidebar-tabbed';
-import CardedRightSidebarSample from './right-sidebar';
-import CardedRightSidebarTabbedSample from './right-sidebar-tabbed';
-import CardedLeftSidebar2Sample from './left-sidebar-2';
-import CardedRightSidebar2TabbedSample from './right-sidebar-2-tabbed';
-import CardedFullWidthSample from './full-width';
-import CardedLeftSidebar2TabbedSample from './left-sidebar-2-tabbed';
-import CardedLeftSidebarSample from './left-sidebar';
-import CardedFullWidthTabbedSample from './full-width-tabbed';
-import CardedFullWidth2TabbedSample from './full-width-2-tabbed';
-import CardedRightSidebar2Sample from './right-sidebar-2';
-import CardedFullWidth2Sample from './full-width-2';
+import {FuseLoadable} from '@fuse';
 
 export const cardedLayoutRoutes = [
     {
         path     : '/ui/page-layouts/carded/full-width',
-        component: CardedFullWidthSample
+        component: FuseLoadable({
+            loader: () => import('./full-width')
+        })
     },
     {
         path     : '/ui/page-layouts/carded/full-width-tabbed',
-        component: CardedFullWidthTabbedSample
+        component: FuseLoadable({
+            loader: () => import('./full-width-tabbed')
+        })
     },
     {
         path     : '/ui/page-layouts/carded/full-width-2',
-        component: CardedFullWidth2Sample
+        component: FuseLoadable({
+            loader: () => import('./full-width-2')
+        })
     },
     {
         path     : '/ui/page-layouts/carded/full-width-2-tabbed',
-        component: CardedFullWidth2TabbedSample
+        component: FuseLoadable({
+            loader: () => import('./full-width-2-tabbed')
+        })
     },
     {
         path     : '/ui/page-layouts/carded/left-sidebar',
-        component: CardedLeftSidebarSample
+        component: FuseLoadable({
+            loader: () => import('./left-sidebar')
+        })
     },
     {
         path     : '/ui/page-layouts/carded/left-sidebar-tabbed',
-        component: CardedLeftSidebarTabbedSample
+        component: FuseLoadable({
+            loader: () => import('./left-sidebar-tabbed')
+        })
     },
     {
         path     : '/ui/page-layouts/carded/left-sidebar-2',
-        component: CardedLeftSidebar2Sample
+        component: FuseLoadable({
+            loader: () => import('./left-sidebar-2')
+        })
     },
     {
         path     : '/ui/page-layouts/carded/left-sidebar-2-tabbed',
-        component: CardedLeftSidebar2TabbedSample
+        component: FuseLoadable({
+            loader: () => import('./left-sidebar-2-tabbed')
+        })
     },
     {
         path     : '/ui/page-layouts/carded/right-sidebar',
-        component: CardedRightSidebarSample
+        component: FuseLoadable({
+            loader: () => import('./right-sidebar')
+        })
     },
     {
         path     : '/ui/page-layouts/carded/right-sidebar-tabbed',
-        component: CardedRightSidebarTabbedSample
+        component: FuseLoadable({
+            loader: () => import('./right-sidebar-tabbed')
+        })
     },
     {
         path     : '/ui/page-layouts/carded/right-sidebar-2',
-        component: CardedRightSidebar2Sample
+        component: FuseLoadable({
+            loader: () => import('./right-sidebar-2')
+        })
     },
     {
         path     : '/ui/page-layouts/carded/right-sidebar-2-tabbed',
-        component: CardedRightSidebar2TabbedSample
+        component: FuseLoadable({
+            loader: () => import('./right-sidebar-2-tabbed')
+        })
     }
 ];

@@ -10,6 +10,8 @@ import ChatsSidebar from "./ChatsSidebar";
 import StatusIcon from "./StatusIcon";
 import ContactSidebar from './ContactSidebar';
 import UserSidebar from './UserSidebar';
+import withReducer from 'store/withReducer';
+import reducer from './store/reducers';
 
 const drawerWidth = 400;
 const headerHeight = 200;
@@ -269,4 +271,4 @@ function mapStateToProps({chatApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(ChatApp));
+export default withReducer('chatApp', reducer)(withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(ChatApp)));

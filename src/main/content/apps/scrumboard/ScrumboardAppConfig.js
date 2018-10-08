@@ -1,7 +1,6 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
-import Boards from './boards/Boards';
-import Board from './board/Board';
+import {FuseLoadable} from '@fuse';
 
 export const ScrumboardAppConfig = {
     settings: {
@@ -10,11 +9,15 @@ export const ScrumboardAppConfig = {
     routes  : [
         {
             path     : '/apps/scrumboard/boards/:boardId/:boardUri?',
-            component: Board
+            component: FuseLoadable({
+                loader: () => import('./board/Board')
+            })
         },
         {
             path     : '/apps/scrumboard/boards',
-            component: Boards
+            component: FuseLoadable({
+                loader: () => import('./boards/Boards')
+            })
         },
         {
             path     : '/apps/scrumboard',

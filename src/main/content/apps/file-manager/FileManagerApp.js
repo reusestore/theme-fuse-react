@@ -11,6 +11,8 @@ import DetailSidebarContent from 'main/content/apps/file-manager/DetailSidebarCo
 import {Button, Icon, IconButton, Typography} from '@material-ui/core';
 import MainSidebarHeader from 'main/content/apps/file-manager/MainSidebarHeader';
 import MainSidebarContent from 'main/content/apps/file-manager/MainSidebarContent';
+import withReducer from 'store/withReducer';
+import reducer from './store/reducers';
 
 const headerHeight = 160;
 
@@ -141,4 +143,4 @@ function mapStateToProps({fileManagerApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(FileManagerApp)));
+export default withReducer('fileManagerApp', reducer)(withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(FileManagerApp))));

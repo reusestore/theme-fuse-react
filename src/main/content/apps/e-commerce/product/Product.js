@@ -8,6 +8,8 @@ import connect from 'react-redux/es/connect/connect';
 import * as Actions from '../store/actions';
 import classNames from 'classnames';
 import _ from '@lodash';
+import withReducer from 'store/withReducer';
+import reducer from './../store/reducers';
 
 const styles = theme => ({
     productImageFeaturedStar: {
@@ -460,4 +462,4 @@ function mapStateToProps({eCommerceApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(Product)));
+export default withReducer('eCommerceApp', reducer)(withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(Product))));

@@ -1,24 +1,29 @@
-import MailApp from './MailApp';
 import React from 'react';
 import {Redirect} from 'react-router-dom';
+import {FuseLoadable} from '@fuse';
 
 export const MailAppConfig = {
     settings: {
-        layout: {
-        }
+        layout: {}
     },
     routes  : [
         {
             path     : '/apps/mail/label/:labelHandle/:mailId?',
-            component: MailApp
+            component: FuseLoadable({
+                loader: () => import('./MailApp')
+            })
         },
         {
             path     : '/apps/mail/filter/:filterHandle/:mailId?',
-            component: MailApp
+            component: FuseLoadable({
+                loader: () => import('./MailApp')
+            })
         },
         {
             path     : '/apps/mail/:folderHandle/:mailId?',
-            component: MailApp
+            component: FuseLoadable({
+                loader: () => import('./MailApp')
+            })
         },
         {
             path     : '/apps/mail',

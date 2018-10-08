@@ -1,5 +1,5 @@
 import {applyMiddleware, compose, createStore} from 'redux';
-import reducers from 'store/reducers';
+import createReducer from 'store/reducers';
 import thunk from 'redux-thunk';
 
 const composeEnhancers =
@@ -11,6 +11,18 @@ const enhancer = composeEnhancers(
     applyMiddleware(thunk)
 );
 
-const store = createStore(reducers, enhancer);
+const store = createStore(createReducer(), enhancer);
+
+store.asyncReducers = {};
+
+export const injectReducer = (key, reducer) => {
+    if ( store.asyncReducers[key] )
+    {
+        return;
+    }
+    store.asyncReducers[key] = reducer;
+    store.replaceReducer(createReducer(store.asyncReducers));
+    return store;
+};
 
 export default store;

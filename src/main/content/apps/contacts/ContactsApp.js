@@ -11,6 +11,8 @@ import ContactsSidebarContent from 'main/content/apps/contacts/ContactsSidebarCo
 import _ from '@lodash';
 import {Button, Icon} from '@material-ui/core';
 import ContactDialog from 'main/content/apps/contacts/ContactDialog';
+import withReducer from 'store/withReducer';
+import reducer from './store/reducers';
 
 const styles = theme => ({
     addButton: {
@@ -100,4 +102,4 @@ function mapStateToProps({contactsApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(ContactsApp)));
+export default withReducer('contactsApp', reducer)(withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(ContactsApp))));

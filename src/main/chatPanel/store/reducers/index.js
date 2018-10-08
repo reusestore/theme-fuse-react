@@ -4,11 +4,11 @@ import contacts from './contacts.reducer';
 import chat from './chat.reducer';
 import {combineReducers} from 'redux';
 
-const chatPanelReducers = combineReducers({
+const reducer = combineReducers({
     state,
     user,
     contacts,
     chat
 });
 
-export default chatPanelReducers;
+export default reducer;

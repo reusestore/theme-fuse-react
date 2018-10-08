@@ -1,4 +1,4 @@
-import LockPage from 'main/content/pages/auth/lock/LockPage';
+import {FuseLoadable} from '@fuse';
 
 export const LockPageConfig = {
     settings: {
@@ -9,7 +9,9 @@ export const LockPageConfig = {
     routes  : [
         {
             path     : '/pages/auth/lock',
-            component: LockPage
+            component: FuseLoadable({
+                loader: () => import('./LockPage')
+            })
         }
     ]
 };

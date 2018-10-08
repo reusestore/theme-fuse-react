@@ -1,4 +1,4 @@
-import KnowledgeBasePage from 'main/content/pages/knowledge-base/KnowledgeBasePage';
+import {FuseLoadable} from '@fuse';
 
 export const KnowledgeBasePageConfig = {
     settings: {
@@ -9,7 +9,9 @@ export const KnowledgeBasePageConfig = {
     routes  : [
         {
             path     : '/pages/knowledge-base',
-            component: KnowledgeBasePage
+            component: FuseLoadable({
+                loader: () => import('./KnowledgeBasePage')
+            })
         }
     ]
 };

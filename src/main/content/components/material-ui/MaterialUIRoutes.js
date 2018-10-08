@@ -1,106 +1,161 @@
-import AppBar from 'main/content/components/material-ui/pages/AppBar';
-import Autocomplete from 'main/content/components/material-ui/pages/Autocomplete';
-import Avatars from 'main/content/components/material-ui/pages/Avatars';
-import Badges from 'main/content/components/material-ui/pages/Badges';
-import BottomNavigation from 'main/content/components/material-ui/pages/BottomNavigation';
-import Buttons from 'main/content/components/material-ui/pages/Buttons';
-import Cards from 'main/content/components/material-ui/pages/Cards';
-import Chips from 'main/content/components/material-ui/pages/Chips';
-import Dialogs from 'main/content/components/material-ui/pages/Dialogs';
-import Dividers from 'main/content/components/material-ui/pages/Dividers';
-import Drawers from 'main/content/components/material-ui/pages/Drawers';
-import ExpansionPanels from 'main/content/components/material-ui/pages/ExpansionPanels';
-import GridList from 'main/content/components/material-ui/pages/GridList';
-import Lists from 'main/content/components/material-ui/pages/Lists';
-import Menus from 'main/content/components/material-ui/pages/Menus';
-import Paper from 'main/content/components/material-ui/pages/Paper';
-import Pickers from 'main/content/components/material-ui/pages/Pickers';
-import Progress from 'main/content/components/material-ui/pages/Progress';
-import SelectionControls from 'main/content/components/material-ui/pages/SelectionControls';
-import Selects from 'main/content/components/material-ui/pages/Selects';
-import Snackbars from 'main/content/components/material-ui/pages/Snackbars';
-import Steppers from 'main/content/components/material-ui/pages/Steppers';
-import Tables from 'main/content/components/material-ui/pages/Tables';
-import Tabs from 'main/content/components/material-ui/pages/Tabs';
-import TextFields from 'main/content/components/material-ui/pages/TextFields';
-import Tooltips from 'main/content/components/material-ui/pages/Tooltips';
+import {
+    FuseLoadable
+} from '@fuse';
 
 export const MaterialUIRoutes = [{
     path: '/components/material-ui/app-bar',
-    component: AppBar
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/AppBar')
+    })
 }, {
     path: '/components/material-ui/autocomplete',
-    component: Autocomplete
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/Autocomplete')
+    })
 }, {
     path: '/components/material-ui/avatars',
-    component: Avatars
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/Avatars')
+    })
 }, {
     path: '/components/material-ui/badges',
-    component: Badges
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/Badges')
+    })
 }, {
     path: '/components/material-ui/bottom-navigation',
-    component: BottomNavigation
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/BottomNavigation')
+    })
 }, {
     path: '/components/material-ui/buttons',
-    component: Buttons
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/Buttons')
+    })
 }, {
     path: '/components/material-ui/cards',
-    component: Cards
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/Cards')
+    })
 }, {
     path: '/components/material-ui/chips',
-    component: Chips
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/Chips')
+    })
 }, {
     path: '/components/material-ui/dialogs',
-    component: Dialogs
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/Dialogs')
+    })
 }, {
     path: '/components/material-ui/dividers',
-    component: Dividers
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/Dividers')
+    })
 }, {
     path: '/components/material-ui/drawers',
-    component: Drawers
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/Drawers')
+    })
 }, {
     path: '/components/material-ui/expansion-panels',
-    component: ExpansionPanels
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/ExpansionPanels')
+    })
 }, {
     path: '/components/material-ui/grid-list',
-    component: GridList
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/GridList')
+    })
 }, {
     path: '/components/material-ui/lists',
-    component: Lists
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/Lists')
+    })
 }, {
     path: '/components/material-ui/menus',
-    component: Menus
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/Menus')
+    })
 }, {
     path: '/components/material-ui/paper',
-    component: Paper
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/Paper')
+    })
 }, {
     path: '/components/material-ui/pickers',
-    component: Pickers
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/Pickers')
+    })
 }, {
     path: '/components/material-ui/progress',
-    component: Progress
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/Progress')
+    })
 }, {
     path: '/components/material-ui/selection-controls',
-    component: SelectionControls
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/SelectionControls')
+    })
 }, {
     path: '/components/material-ui/selects',
-    component: Selects
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/Selects')
+    })
 }, {
     path: '/components/material-ui/snackbars',
-    component: Snackbars
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/Snackbars')
+    })
 }, {
     path: '/components/material-ui/steppers',
-    component: Steppers
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/Steppers')
+    })
 }, {
     path: '/components/material-ui/tables',
-    component: Tables
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/Tables')
+    })
 }, {
     path: '/components/material-ui/tabs',
-    component: Tabs
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/Tabs')
+    })
 }, {
     path: '/components/material-ui/text-fields',
-    component: TextFields
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/TextFields')
+    })
 }, {
     path: '/components/material-ui/tooltips',
-    component: Tooltips
+    component: FuseLoadable({
+        loader: () =>
+            import('main/content/components/material-ui/pages/Tooltips')
+    })
 }];

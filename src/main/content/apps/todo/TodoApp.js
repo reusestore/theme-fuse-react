@@ -11,6 +11,8 @@ import TodoSidebarHeader from './TodoSidebarHeader';
 import TodoSidebarContent from './TodoSidebarContent';
 import TodoDialog from './TodoDialog';
 import _ from '@lodash';
+import withReducer from 'store/withReducer';
+import reducer from './store/reducers';
 
 class TodoApp extends Component {
 
@@ -34,7 +36,7 @@ class TodoApp extends Component {
                 <FusePageCarded
                     classes={{
                         root  : "w-full",
-                        header : "items-center min-h-72 h-72 sm:h-136 sm:min-h-136"
+                        header: "items-center min-h-72 h-72 sm:h-136 sm:min-h-136"
                     }}
                     header={
                         <TodoHeader pageLayout={() => this.pageLayout}/>
@@ -75,4 +77,4 @@ function mapStateToProps({todoApp})
     return {}
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TodoApp));
+export default withReducer('todoApp', reducer)(withRouter(connect(mapStateToProps, mapDispatchToProps)(TodoApp)));

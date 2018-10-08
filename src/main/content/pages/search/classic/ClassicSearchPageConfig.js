@@ -1,4 +1,4 @@
-import ClassicSearchPage from 'main/content/pages/search/classic/ClassicSearchPage';
+import {FuseLoadable} from '@fuse';
 
 export const ClassicSearchPageConfig = {
     settings: {
@@ -9,7 +9,9 @@ export const ClassicSearchPageConfig = {
     routes  : [
         {
             path     : '/pages/search/classic',
-            component: ClassicSearchPage
+            component: FuseLoadable({
+                loader: () => import('./ClassicSearchPage')
+            })
         }
     ]
 };

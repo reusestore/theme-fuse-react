@@ -10,6 +10,8 @@ import BoardList from './BoardList';
 import BoardAddList from './BoardAddList';
 import BoardCardDialog from './dialogs/card/BoardCardDialog';
 import BoardSettingsSidebar from './sidebars/settings/BoardSettingsSidebar';
+import withReducer from 'store/withReducer';
+import reducer from './../store/reducers';
 
 class Board extends Component {
 
@@ -177,4 +179,4 @@ function mapStateToProps({scrumboardApp})
     }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Board));
+export default withReducer('scrumboardApp', reducer)(withRouter(connect(mapStateToProps, mapDispatchToProps)(Board)));

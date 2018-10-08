@@ -1,4 +1,4 @@
-import CompactInvoicePage from 'main/content/pages/invoices/compact/CompactInvoicePage';
+import {FuseLoadable} from '@fuse';
 
 export const CompactInvoicePageConfig = {
     settings: {
@@ -9,7 +9,9 @@ export const CompactInvoicePageConfig = {
     routes  : [
         {
             path     : '/pages/invoices/compact',
-            component: CompactInvoicePage
+            component: FuseLoadable({
+                loader: () => import('./CompactInvoicePage')
+            })
         }
     ]
 };

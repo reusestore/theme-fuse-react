@@ -1,6 +1,6 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
-import TodoApp from './TodoApp';
+import {FuseLoadable} from '@fuse';
 
 export const TodoAppConfig = {
     settings: {
@@ -9,15 +9,21 @@ export const TodoAppConfig = {
     routes  : [
         {
             path     : '/apps/todo/label/:labelHandle/:todoId?',
-            component: TodoApp
+            component: FuseLoadable({
+                loader: () => import('./TodoApp')
+            })
         },
         {
             path     : '/apps/todo/filter/:filterHandle/:todoId?',
-            component: TodoApp
+            component: FuseLoadable({
+                loader: () => import('./TodoApp')
+            })
         },
         {
             path     : '/apps/todo/:folderHandle/:todoId?',
-            component: TodoApp
+            component: FuseLoadable({
+                loader: () => import('./TodoApp')
+            })
         },
         {
             path     : '/apps/todo',

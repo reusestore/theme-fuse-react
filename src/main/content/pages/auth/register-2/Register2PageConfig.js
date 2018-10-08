@@ -1,4 +1,4 @@
-import Register2Page from 'main/content/pages/auth/register-2/Register2Page';
+import {FuseLoadable} from '@fuse';
 
 export const Register2PageConfig = {
     settings: {
@@ -9,7 +9,9 @@ export const Register2PageConfig = {
     routes  : [
         {
             path     : '/pages/auth/register-2',
-            component: Register2Page
+            component: FuseLoadable({
+                loader: () => import('./Register2Page')
+            })
         }
     ]
 };

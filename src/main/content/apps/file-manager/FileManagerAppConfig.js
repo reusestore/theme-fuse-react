@@ -1,4 +1,4 @@
-import FileManagerApp from './FileManagerApp';
+import {FuseLoadable} from '@fuse';
 
 export const FileManagerAppConfig = {
     settings: {
@@ -9,7 +9,9 @@ export const FileManagerAppConfig = {
     routes  : [
         {
             path     : '/apps/file-manager',
-            component: FileManagerApp
+            component: FuseLoadable({
+                loader: () => import('./FileManagerApp')
+            })
         }
     ]
 };

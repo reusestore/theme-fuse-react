@@ -1,4 +1,4 @@
-import ModernSearchPage from 'main/content/pages/search/modern/ModernSearchPage';
+import {FuseLoadable} from '@fuse';
 
 export const ModernSearchPageConfig = {
     settings: {
@@ -9,7 +9,9 @@ export const ModernSearchPageConfig = {
     routes  : [
         {
             path     : '/pages/search/modern',
-            component: ModernSearchPage
+            component: FuseLoadable({
+                loader: () => import('./ModernSearchPage')
+            })
         }
     ]
 };

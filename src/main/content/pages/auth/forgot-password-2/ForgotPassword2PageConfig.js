@@ -1,4 +1,4 @@
-import ForgotPassword2Page from 'main/content/pages/auth/forgot-password-2/ForgotPassword2Page';
+import {FuseLoadable} from '@fuse';
 
 export const ForgotPassword2PageConfig = {
     settings: {
@@ -9,7 +9,9 @@ export const ForgotPassword2PageConfig = {
     routes  : [
         {
             path     : '/pages/auth/forgot-password-2',
-            component: ForgotPassword2Page
+            component: FuseLoadable({
+                loader: () => import('./ForgotPassword2Page')
+            })
         }
     ]
 };

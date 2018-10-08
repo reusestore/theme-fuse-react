@@ -1,6 +1,6 @@
-import ContactsApp from 'main/content/apps/contacts/ContactsApp';
 import React from 'react';
 import {Redirect} from 'react-router-dom';
+import {FuseLoadable} from '@fuse';
 
 export const ContactsAppConfig = {
     settings: {
@@ -11,7 +11,9 @@ export const ContactsAppConfig = {
     routes  : [
         {
             path     : '/apps/contacts/:id',
-            component: ContactsApp
+            component: FuseLoadable({
+                loader: () => import('./ContactsApp')
+            })
         },
         {
             path     : '/apps/contacts',

@@ -10,6 +10,8 @@ import {bindActionCreators} from 'redux';
 import GoogleMap from 'google-map-react';
 import OrdersStatus from './OrdersStatus';
 import OrderInvoice from './OrderInvoice';
+import withReducer from 'store/withReducer';
+import reducer from './../store/reducers';
 
 const styles = theme => ({});
 
@@ -415,4 +417,4 @@ function mapStateToProps({eCommerceApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(Order)));
+export default withReducer('eCommerceApp', reducer)(withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(Order))));

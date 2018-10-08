@@ -11,6 +11,8 @@ import MailToolbar from './mail/MailToolbar';
 import MailAppHeader from './MailAppHeader';
 import MailAppSidebarHeader from './MailAppSidebarHeader';
 import MailAppSidebarContent from './MailAppSidebarContent';
+import withReducer from 'store/withReducer';
+import reducer from './store/reducers';
 
 const styles = theme => ({});
 
@@ -76,4 +78,4 @@ function mapDispatchToProps(dispatch)
     }, dispatch);
 }
 
-export default withStyles(styles, {withTheme: true})(connect(null, mapDispatchToProps)(MailApp));
+export default withReducer('mailApp', reducer)(withStyles(styles, {withTheme: true})(connect(null, mapDispatchToProps)(MailApp)));

@@ -1,9 +1,6 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
-import Product from './product/Product';
-import Products from './products/Products';
-import Order from './order/Order';
-import Orders from './orders/Orders';
+import {FuseLoadable} from '@fuse';
 
 export const ECommerceAppConfig = {
     settings: {
@@ -12,19 +9,27 @@ export const ECommerceAppConfig = {
     routes  : [
         {
             path     : '/apps/e-commerce/products/:productId/:productHandle?',
-            component: Product
+            component: FuseLoadable({
+                loader: () => import('./product/Product')
+            })
         },
         {
             path     : '/apps/e-commerce/products',
-            component: Products
+            component: FuseLoadable({
+                loader: () => import('./products/Products')
+            })
         },
         {
             path     : '/apps/e-commerce/orders/:orderId',
-            component: Order
+            component: FuseLoadable({
+                loader: () => import('./order/Order')
+            })
         },
         {
             path     : '/apps/e-commerce/orders',
-            component: Orders
+            component: FuseLoadable({
+                loader: () => import('./orders/Orders')
+            })
         },
         {
             path     : '/apps/e-commerce',

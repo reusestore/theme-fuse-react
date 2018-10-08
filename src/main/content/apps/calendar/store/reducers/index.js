@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
 import events from './events.reducer';
 
-const calendarAppReducers = combineReducers({
+const reducer = combineReducers({
     events
 });
 
-export default calendarAppReducers;
+export default reducer;

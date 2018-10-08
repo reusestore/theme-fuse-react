@@ -1,4 +1,4 @@
-import Login2Page from 'main/content/pages/auth/login-2/Login2Page';
+import {FuseLoadable} from '@fuse';
 
 export const Login2PageConfig = {
     settings: {
@@ -9,7 +9,9 @@ export const Login2PageConfig = {
     routes  : [
         {
             path     : '/pages/auth/login-2',
-            component: Login2Page
+            component: FuseLoadable({
+                loader: () => import('./Login2Page')
+            })
         }
     ]
 };

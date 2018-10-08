@@ -3,6 +3,8 @@ import {withStyles} from '@material-ui/core/styles';
 import {FusePageCarded} from '@fuse';
 import ProductsTable from './ProductsTable';
 import ProductsHeader from './ProductsHeader';
+import withReducer from 'store/withReducer';
+import reducer from './../store/reducers';
 
 const styles = theme => ({});
 
@@ -28,4 +30,4 @@ class Products extends Component {
     };
 }
 
-export default withStyles(styles)(Products);
+export default withReducer('eCommerceApp', reducer)(withStyles(styles)(Products));

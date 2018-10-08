@@ -4,11 +4,11 @@ import folders from './folders.reducer';
 import labels from './labels.reducer';
 import filters from './filters.reducer';
 
-const todoAppReducers = combineReducers({
+const reducer = combineReducers({
     todos,
     folders,
     labels,
     filters
 });
 
-export default todoAppReducers;
+export default reducer;

@@ -4,11 +4,11 @@ import contacts from './contacts.reducer';
 import chat from './chat.reducer';
 import {combineReducers} from 'redux';
 
-const chatAppReducers = combineReducers({
+const reducer = combineReducers({
     sidebars,
     user,
     contacts,
     chat
 });
 
-export default chatAppReducers;
+export default reducer;
