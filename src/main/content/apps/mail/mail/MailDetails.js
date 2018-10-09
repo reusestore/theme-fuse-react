@@ -76,7 +76,7 @@ class MailDetails extends Component {
 
                                 <div className="flex flex-col">
                                     <span>{mail.from.name}</span>
-                                    <Typography color="textSecondary" variant="body1" className="flex items-center justify-start">
+                                    <Typography component="div" color="textSecondary" variant="body1" className="flex items-center justify-start">
                                         <div>to</div>
                                         <div className="ml-4">{mail.to[0].name}</div>
                                     </Typography>
