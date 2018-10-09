@@ -108,7 +108,7 @@ class ModernInvoicePage extends Component {
 
                                         <div className="flex items-center">
                                             <div className="flex justify-end items-center w-160 print:w-60">
-                                                <Typography variant="headline" className="font-light" color="textSecondary">CLIENT</Typography>
+                                                <Typography variant="h5" className="font-light" color="textSecondary">CLIENT</Typography>
                                             </div>
 
                                             <div className={classNames(classes.divider, "mx-48 print:mx-16")}/>
@@ -148,12 +148,12 @@ class ModernInvoicePage extends Component {
                                         <tbody>
                                             <tr>
                                                 <td className="pr-16 pb-32">
-                                                    <Typography className="font-light" variant="display1" color="textSecondary">
+                                                    <Typography className="font-light" variant="h4" color="textSecondary">
                                                         INVOICE
                                                     </Typography>
                                                 </td>
                                                 <td className="pb-32">
-                                                    <Typography className="font-light" variant="display1" color="inherit">
+                                                    <Typography className="font-light" variant="h4" color="inherit">
                                                         {invoice.number}
                                                     </Typography>
                                                 </td>
@@ -227,7 +227,7 @@ class ModernInvoicePage extends Component {
                                             {invoice.services.map((service) => (
                                                 <tr key={service.id}>
                                                     <td>
-                                                        <Typography className="mb-8" variant="subheading">{service.title}</Typography>
+                                                        <Typography className="mb-8" variant="subtitle1">{service.title}</Typography>
                                                         <Typography variant="caption">{service.detail}</Typography>
                                                     </td>
                                                     <td>
@@ -251,40 +251,40 @@ class ModernInvoicePage extends Component {
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <Typography className="font-medium" variant="subheading" color="textSecondary">SUBTOTAL</Typography>
+                                                    <Typography className="font-medium" variant="subtitle1" color="textSecondary">SUBTOTAL</Typography>
                                                 </td>
                                                 <td className="text-right">
-                                                    <Typography className="font-medium" variant="subheading" color="textSecondary">
+                                                    <Typography className="font-medium" variant="subtitle1" color="textSecondary">
                                                         {formatter.format(invoice.subtotal)}
                                                     </Typography>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <Typography className="font-medium" variant="subheading" color="textSecondary">TAX</Typography>
+                                                    <Typography className="font-medium" variant="subtitle1" color="textSecondary">TAX</Typography>
                                                 </td>
                                                 <td className="text-right">
-                                                    <Typography className="font-medium" variant="subheading" color="textSecondary">
+                                                    <Typography className="font-medium" variant="subtitle1" color="textSecondary">
                                                         {formatter.format(invoice.tax)}
                                                     </Typography>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <Typography className="font-medium" variant="subheading" color="textSecondary">DISCOUNT</Typography>
+                                                    <Typography className="font-medium" variant="subtitle1" color="textSecondary">DISCOUNT</Typography>
                                                 </td>
                                                 <td className="text-right">
-                                                    <Typography className="font-medium" variant="subheading" color="textSecondary">
+                                                    <Typography className="font-medium" variant="subtitle1" color="textSecondary">
                                                         {formatter.format(invoice.discount)}
                                                     </Typography>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <Typography className="font-light" variant="display1" color="textSecondary">TOTAL</Typography>
+                                                    <Typography className="font-light" variant="h4" color="textSecondary">TOTAL</Typography>
                                                 </td>
                                                 <td className="text-right">
-                                                    <Typography className="font-light" variant="display1" color="textSecondary">
+                                                    <Typography className="font-light" variant="h4" color="textSecondary">
                                                         {formatter.format(invoice.total)}
                                                     </Typography>
                                                 </td>
@@ -296,7 +296,7 @@ class ModernInvoicePage extends Component {
 
                                 <div className="mt-96 print:mt-0">
 
-                                    <Typography className="mb-24 print:mb-12" variant="body2">Please pay within 15 days. Thank you for your business.</Typography>
+                                    <Typography className="mb-24 print:mb-12" variant="body1">Please pay within 15 days. Thank you for your business.</Typography>
 
                                     <div className="flex">
 

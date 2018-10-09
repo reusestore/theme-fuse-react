@@ -28,7 +28,7 @@ class InstallationDoc extends Component {
                 }}
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="title">Installation</Typography>
+                        <Typography variant="h6">Installation</Typography>
                     </div>
                 }
                 content={

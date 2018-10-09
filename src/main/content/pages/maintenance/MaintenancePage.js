@@ -32,7 +32,7 @@ class MaintenancePage extends Component {
 
                                 <img className="w-128 m-32" src="assets/images/logos/fuse.svg" alt="logo"/>
 
-                                <Typography variant="subheading" className="mb-16">
+                                <Typography variant="subtitle1" className="mb-16">
                                     Closed for scheduled maintenance!
                                 </Typography>
 

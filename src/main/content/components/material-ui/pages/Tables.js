@@ -22,10 +22,10 @@ function Tables({classes})
             }}
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="title">Tables</Typography>
+                    <Typography variant="h6">Tables</Typography>
                     <Button
                         className="normal-case"
-                        variant="raised"
+                        variant="contained"
                         component="a"
                         href="https://material-ui-next.com/demos/tables"
                         target="_blank"
@@ -88,6 +88,18 @@ function Tables({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/tables/CustomizedTable.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tables/CustomizedTable.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Advanced use cases</Typography>
+                    <Typography className="mb-16" component="div">For more advanced use cases you might be able to take advantage of:</Typography>
+                    <ul>
+                        <li><a href="https://devexpress.github.io/devextreme-reactive/react/grid/">dx-react-grid-material-ui</a> A data grid for Material-UI with paging, sorting,
+                            filtering, grouping and editing features (<a href="https://js.devexpress.com/licensing/">custom license</a>).
+                        </li>
+                        <li><a href="https://github.com/gregnb/mui-datatables">mui-datatables</a> Responsive data tables for Material-UI with filtering, sorting, search and more.
+                        </li>
+                        <li><a href="https://github.com/mbrn/material-table">material-table</a> DataTable based on table component with additional features like search, filtering,
+                            sorting and much more.
+                        </li>
+                    </ul>
 
                 </div>
             }

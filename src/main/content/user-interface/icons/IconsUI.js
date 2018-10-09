@@ -54,12 +54,12 @@ class IconsUI extends Component {
                     <div className="flex flex-1 items-center justify-between p-24">
 
                         <FuseAnimate>
-                            <Typography variant="title">Icons</Typography>
+                            <Typography variant="h6">Icons</Typography>
                         </FuseAnimate>
 
                         <Button
                             className="normal-case"
-                            variant="raised"
+                            variant="contained"
                             component="a"
                             href="https://material.io/icons/"
                             target="_blank"

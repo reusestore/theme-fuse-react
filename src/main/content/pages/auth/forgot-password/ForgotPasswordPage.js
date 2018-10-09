@@ -54,7 +54,7 @@ class ForgotPasswordPage extends Component {
                                     <img src="assets/images/logos/fuse.svg" alt="logo"/>
                                 </div>
 
-                                <Typography variant="title" className="mt-16 mb-32">RECOVER YOUR PASSWORD</Typography>
+                                <Typography variant="h6" className="mt-16 mb-32">RECOVER YOUR PASSWORD</Typography>
 
                                 <form name="recoverForm" noValidate className="flex flex-col justify-center w-full">
 
@@ -72,7 +72,7 @@ class ForgotPasswordPage extends Component {
                                     />
 
                                     <Button
-                                        variant="raised"
+                                        variant="contained"
                                         color="primary"
                                         className="w-224 mx-auto mt-16"
                                         aria-label="Reset"

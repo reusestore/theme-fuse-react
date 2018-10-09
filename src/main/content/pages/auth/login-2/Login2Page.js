@@ -55,13 +55,13 @@ class Login2Page extends Component {
                     </FuseAnimate>
 
                     <FuseAnimate animation="transition.slideUpIn" delay={300}>
-                        <Typography variant="display2" color="inherit" className="font-light">
+                        <Typography variant="h3" color="inherit" className="font-light">
                             Welcome to the FUSE!
                         </Typography>
                     </FuseAnimate>
 
                     <FuseAnimate delay={400}>
-                        <Typography variant="subheading" color="inherit" className="max-w-512 mt-16">
+                        <Typography variant="subtitle1" color="inherit" className="max-w-512 mt-16">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ullamcorper nisl erat, vel convallis elit fermentum pellentesque. Sed mollis velit
                             facilisis facilisis.
                         </Typography>
@@ -74,7 +74,7 @@ class Login2Page extends Component {
 
                         <CardContent className="flex flex-col items-center justify-center p-32 md:p-48 md:pt-128 ">
 
-                            <Typography variant="title" className="md:w-full mb-32">LOGIN TO YOUR ACCOUNT</Typography>
+                            <Typography variant="h6" className="md:w-full mb-32">LOGIN TO YOUR ACCOUNT</Typography>
 
                             <form name="loginForm" noValidate className="flex flex-col justify-center w-full">
 
@@ -123,7 +123,7 @@ class Login2Page extends Component {
                                 </div>
 
                                 <Button
-                                    variant="raised"
+                                    variant="contained"
                                     color="primary"
                                     className="w-full mx-auto mt-16"
                                     aria-label="LOG IN"
@@ -140,12 +140,12 @@ class Login2Page extends Component {
                                 <Divider className="w-32"/>
                             </div>
 
-                            <Button variant="raised" color="secondary" size="small"
+                            <Button variant="contained" color="secondary" size="small"
                                     className="normal-case w-192 mb-8">
                                 Log in with Google
                             </Button>
 
-                            <Button variant="raised" color="primary" size="small"
+                            <Button variant="contained" color="primary" size="small"
                                     className="normal-case w-192">
                                 Log in with Facebook
                             </Button>

@@ -23,6 +23,13 @@ class FuseMessage extends Component {
                 classes={{
                     root: classes.root
                 }}
+                ContentProps={{
+                    variant        : 'body2',
+                    headlineMapping: {
+                        body1: 'div',
+                        body2: 'div'
+                    }
+                }}
                 action={[
                     <IconButton
                         key="close"

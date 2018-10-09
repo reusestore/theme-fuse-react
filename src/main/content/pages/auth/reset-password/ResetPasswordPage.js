@@ -58,7 +58,7 @@ class ResetPasswordPage extends Component {
 
                                 <img className="w-128 m-32" src="assets/images/logos/fuse.svg" alt="logo"/>
 
-                                <Typography variant="title" className="mt-16 mb-32">RESET YOUR PASSWORD</Typography>
+                                <Typography variant="h6" className="mt-16 mb-32">RESET YOUR PASSWORD</Typography>
 
                                 <form name="resetForm" noValidate className="flex flex-col justify-center w-full">
 
@@ -100,7 +100,7 @@ class ResetPasswordPage extends Component {
                                     />
 
                                     <Button
-                                        variant="raised"
+                                        variant="contained"
                                         color="primary"
                                         className="w-224 mx-auto mt-16"
                                         aria-label="Reset"

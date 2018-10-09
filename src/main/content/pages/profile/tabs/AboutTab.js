@@ -44,7 +44,7 @@ class AboutTab extends Component {
                             <Card className="w-full mb-16">
                                 <AppBar position="static" elevation={0}>
                                     <Toolbar className="pl-16 pr-8">
-                                        <Typography variant="subheading" color="inherit" className="flex-1">
+                                        <Typography variant="subtitle1" color="inherit" className="flex-1">
                                             General Information
                                         </Typography>
                                     </Toolbar>
@@ -85,7 +85,7 @@ class AboutTab extends Component {
                             <Card className="w-full mb-16">
                                 <AppBar position="static" elevation={0}>
                                     <Toolbar className="pl-16 pr-8">
-                                        <Typography variant="subheading" color="inherit" className="flex-1">
+                                        <Typography variant="subtitle1" color="inherit" className="flex-1">
                                             Work
                                         </Typography>
                                     </Toolbar>
@@ -127,7 +127,7 @@ class AboutTab extends Component {
                             <Card className="w-full mb-16">
                                 <AppBar position="static" elevation={0}>
                                     <Toolbar className="pl-16 pr-8">
-                                        <Typography variant="subheading" color="inherit" className="flex-1">
+                                        <Typography variant="subtitle1" color="inherit" className="flex-1">
                                             Contact
                                         </Typography>
                                     </Toolbar>
@@ -184,7 +184,7 @@ class AboutTab extends Component {
                         <Card className="w-full mb-16">
                             <AppBar position="static" elevation={0}>
                                 <Toolbar className="pl-16 pr-8">
-                                    <Typography variant="subheading" color="inherit" className="flex-1">
+                                    <Typography variant="subtitle1" color="inherit" className="flex-1">
                                         Friends
                                     </Typography>
                                     <Button className="normal-case" color="inherit" size="small">See 454 more</Button>
@@ -202,7 +202,7 @@ class AboutTab extends Component {
                         <Card className="w-full mb-16">
                             <AppBar position="static" elevation={0}>
                                 <Toolbar className="pl-16 pr-8">
-                                    <Typography variant="subheading" color="inherit" className="flex-1">
+                                    <Typography variant="subtitle1" color="inherit" className="flex-1">
                                         Joined Groups
                                     </Typography>
                                     <Button className="normal-case" color="inherit" size="small">See 6 more</Button>

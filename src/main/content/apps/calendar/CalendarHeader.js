@@ -151,7 +151,7 @@ class CalendarHeader extends Toolbar {
                                     <Icon className="text-32 mx-12">today</Icon>
                                 </FuseAnimate>
                                 <FuseAnimate animation="transition.slideLeftIn" delay={300}>
-                                    <Typography variant="title">Calendar</Typography>
+                                    <Typography variant="h6">Calendar</Typography>
                                 </FuseAnimate>
                             </div>
                             <div className="flex items-center">
@@ -173,7 +173,7 @@ class CalendarHeader extends Toolbar {
                                         <Icon>chevron_left</Icon>
                                     </IconButton>
                                 </Tooltip>
-                                <Typography variant="title">{label}</Typography>
+                                <Typography variant="h6">{label}</Typography>
                                 <Tooltip title="Next">
                                     <IconButton aria-label="Next" onClick={this.navigate.bind(null, navigate.NEXT)}>
                                         <Icon>chevron_right</Icon>

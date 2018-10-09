@@ -22,10 +22,10 @@ function Selects({classes})
             }}
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="title">Selects</Typography>
+                    <Typography variant="h6">Selects</Typography>
                     <Button
                         className="normal-case"
-                        variant="raised"
+                        variant="contained"
                         component="a"
                         href="https://material-ui-next.com/demos/selects"
                         target="_blank"

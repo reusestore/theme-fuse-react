@@ -65,7 +65,7 @@ class DetailSidebarContent extends Component {
                         label="Available Offline"
                     />
 
-                    <Typography variant="subheading" className="py-16">Info</Typography>
+                    <Typography variant="subtitle1" className="py-16">Info</Typography>
 
                     <table className={classes.table}>
 

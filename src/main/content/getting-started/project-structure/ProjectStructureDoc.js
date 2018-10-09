@@ -27,7 +27,7 @@ class ProjectStructureDoc extends Component {
                 }}
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="title">Project Structure</Typography>
+                        <Typography variant="h6">Project Structure</Typography>
                     </div>
                 }
                 content={

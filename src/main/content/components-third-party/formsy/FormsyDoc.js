@@ -21,10 +21,10 @@ class FormsyDoc extends Component {
                 }}
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="title">Formsy</Typography>
+                        <Typography variant="h6">Formsy</Typography>
                         <Button
                             className="normal-case"
-                            variant="raised"
+                            variant="contained"
                             component="a"
                             href="https://github.com/formsy/formsy-react"
                             target="_blank"

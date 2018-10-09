@@ -23,7 +23,7 @@ class OrdersHeader extends Component {
                         <Icon className="text-32 mr-0 sm:mr-12">shopping_basket</Icon>
                     </FuseAnimate>
                     <FuseAnimate animation="transition.slideLeftIn" delay={300}>
-                        <Typography className="hidden sm:flex" variant="title">Orders</Typography>
+                        <Typography className="hidden sm:flex" variant="h6">Orders</Typography>
                     </FuseAnimate>
                 </div>
 

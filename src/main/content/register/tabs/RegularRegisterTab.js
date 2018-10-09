@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Formsy from 'formsy-react';
 import {TextFieldFormsy} from '@fuse';
-import {withStyles, Button} from '@material-ui/core';
+import {withStyles, Button, InputAdornment, Icon} from '@material-ui/core';
 import {bindActionCreators} from 'redux';
 import * as Actions from 'auth/store/actions';
 import {withRouter} from 'react-router-dom';
@@ -79,6 +79,9 @@ class RegularRegisterTab extends Component {
                         validationErrors={{
                             minLength: 'Min character length is 4'
                         }}
+                        InputProps={{
+                            endAdornment: <InputAdornment position="end"><Icon className="text-20" color="action">person</Icon></InputAdornment>
+                        }}
                         variant="outlined"
                         required
                     />
@@ -91,6 +94,9 @@ class RegularRegisterTab extends Component {
                         validations="isEmail"
                         validationErrors={{
                             isEmail: 'Please enter a valid email'
+                        }}
+                        InputProps={{
+                            endAdornment: <InputAdornment position="end"><Icon className="text-20" color="action">email</Icon></InputAdornment>
                         }}
                         variant="outlined"
                         required
@@ -105,6 +111,9 @@ class RegularRegisterTab extends Component {
                         validationErrors={{
                             equalsField: 'Passwords do not match'
                         }}
+                        InputProps={{
+                            endAdornment: <InputAdornment position="end"><Icon className="text-20" color="action">vpn_key</Icon></InputAdornment>
+                        }}
                         variant="outlined"
                         required
                     />
@@ -118,13 +127,16 @@ class RegularRegisterTab extends Component {
                         validationErrors={{
                             equalsField: 'Passwords do not match'
                         }}
+                        InputProps={{
+                            endAdornment: <InputAdornment position="end"><Icon className="text-20" color="action">vpn_key</Icon></InputAdornment>
+                        }}
                         variant="outlined"
                         required
                     />
 
                     <Button
                         type="submit"
-                        variant="raised"
+                        variant="contained"
                         color="primary"
                         className="w-full mx-auto mt-16 normal-case"
                         aria-label="REGISTER"

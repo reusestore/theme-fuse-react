@@ -57,7 +57,7 @@ class TodoListItem extends Component {
                 <div className="flex flex-1 flex-col relative overflow-hidden pl-8">
 
                     <Typography
-                        variant="subheading"
+                        variant="subtitle1"
                         className={classNames(classes.todoTitle, "truncate")}
                         color={todo.completed ? "textSecondary" : "default"}
                     >

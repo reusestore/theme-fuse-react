@@ -21,10 +21,10 @@ class GoogleMapReactDoc extends Component {
                 }}
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="title">Google Map React</Typography>
+                        <Typography variant="h6">Google Map React</Typography>
                         <Button
                             className="normal-case"
-                            variant="raised"
+                            variant="contained"
                             component="a"
                             href="https://github.com/google-map-react/google-map-react"
                             target="_blank"

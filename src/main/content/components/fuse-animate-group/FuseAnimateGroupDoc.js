@@ -66,7 +66,7 @@ class FuseAnimateGroupDoc extends Component {
                 }}
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="title">FuseAnimateGroup</Typography>
+                        <Typography variant="h6">FuseAnimateGroup</Typography>
                     </div>
                 }
                 content={

@@ -31,19 +31,19 @@ class Error500Page extends Component {
                 <div className="max-w-512 text-center">
 
                     <FuseAnimate animation="transition.expandIn" delay={100}>
-                        <Typography variant="display4" color="inherit" className="font-medium mb-16">
+                        <Typography variant="h1" color="inherit" className="font-medium mb-16">
                             500
                         </Typography>
                     </FuseAnimate>
 
                     <FuseAnimate delay={500}>
-                        <Typography variant="headline" color="textSecondary" className="mb-16">
+                        <Typography variant="h5" color="textSecondary" className="mb-16">
                             Well, you broke the internet!
                         </Typography>
                     </FuseAnimate>
 
                     <FuseAnimate delay={600}>
-                        <Typography variant="subheading" color="textSecondary" className="mb-48">
+                        <Typography variant="subtitle1" color="textSecondary" className="mb-48">
                             Just kidding, looks like we have an internal issue, please try again in couple minutes
                         </Typography>
                     </FuseAnimate>

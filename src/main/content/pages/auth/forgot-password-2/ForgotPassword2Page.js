@@ -53,13 +53,13 @@ class ForgotPassword2Page extends Component {
                     </FuseAnimate>
 
                     <FuseAnimate animation="transition.slideUpIn" delay={300}>
-                        <Typography variant="display2" color="inherit" className="font-light">
+                        <Typography variant="h3" color="inherit" className="font-light">
                             Welcome to the FUSE!
                         </Typography>
                     </FuseAnimate>
 
                     <FuseAnimate delay={400}>
-                        <Typography variant="subheading" color="inherit" className="max-w-512 mt-16">
+                        <Typography variant="subtitle1" color="inherit" className="max-w-512 mt-16">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ullamcorper nisl erat, vel convallis elit fermentum pellentesque. Sed mollis velit
                             facilisis facilisis.
                         </Typography>
@@ -72,7 +72,7 @@ class ForgotPassword2Page extends Component {
 
                         <CardContent className="flex flex-col items-center justify-center p-32 md:p-48 md:pt-128 ">
 
-                            <Typography variant="title" className="md:w-full mb-32">RECOVER YOUR PASSWORD</Typography>
+                            <Typography variant="h6" className="md:w-full mb-32">RECOVER YOUR PASSWORD</Typography>
 
                             <form name="recoverForm" noValidate className="flex flex-col justify-center w-full">
 
@@ -90,7 +90,7 @@ class ForgotPassword2Page extends Component {
                                 />
 
                                 <Button
-                                    variant="raised"
+                                    variant="contained"
                                     color="primary"
                                     className="w-224 mx-auto mt-16"
                                     aria-label="Reset"

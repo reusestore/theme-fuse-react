@@ -22,10 +22,10 @@ function Badges({classes})
             }}
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="title">Badge</Typography>
+                    <Typography variant="h6">Badge</Typography>
                     <Button
                         className="normal-case"
-                        variant="raised"
+                        variant="contained"
                         component="a"
                         href="https://material-ui-next.com/demos/badges"
                         target="_blank"

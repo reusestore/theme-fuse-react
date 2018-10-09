@@ -80,7 +80,7 @@ class MailCompose extends Component {
             <div className="p-24">
 
                 <Button
-                    variant="raised"
+                    variant="contained"
                     color="primary"
                     className={classes.composeButton}
                     onClick={this.openComposeDialog}
@@ -95,7 +95,7 @@ class MailCompose extends Component {
                 >
                     <AppBar position="static">
                         <Toolbar className="flex w-full">
-                            <Typography variant="subheading" color="inherit">
+                            <Typography variant="subtitle1" color="inherit">
                                 New Message
                             </Typography>
                         </Toolbar>
@@ -182,7 +182,7 @@ class MailCompose extends Component {
 
                     <DialogActions className="justify-between pl-8 sm:pl-16">
                         <div>
-                            <Button variant="raised" color="primary" onClick={this.closeComposeDialog}>
+                            <Button variant="contained" color="primary" onClick={this.closeComposeDialog}>
                                 Send
                             </Button>
                             <IconButton>

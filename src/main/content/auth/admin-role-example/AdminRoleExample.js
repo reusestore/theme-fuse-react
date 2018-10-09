@@ -25,7 +25,7 @@ class AdminRoleExample extends Component {
                         <Typography className="h2">Admin: Auth role example page</Typography>
                         <Button
                             className="normal-case"
-                            variant="raised"
+                            variant="contained"
                             onClick={logout}
                         >
                             <Icon className="mr-4">exit_to_app</Icon>

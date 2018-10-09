@@ -19,7 +19,7 @@ function MainFooter({classes})
                         rel="noreferrer noopener"
                         role="button"
                         className="normal-case"
-                        variant="raised"
+                        variant="contained"
                         color="secondary">
                     <Icon className="text-16 mr-4">shopping_cart</Icon>
                     <span>Purchase FUSE React</span>

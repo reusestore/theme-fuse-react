@@ -76,12 +76,12 @@ class OrderInvoice extends Component {
                                         <tbody>
                                             <tr>
                                                 <td className="pr-16 pb-4">
-                                                    <Typography className="font-light" variant="title" color="textSecondary">
+                                                    <Typography className="font-light" variant="h6" color="textSecondary">
                                                         INVOICE
                                                     </Typography>
                                                 </td>
                                                 <td className="pb-4">
-                                                    <Typography className="font-light" variant="title" color="inherit">
+                                                    <Typography className="font-light" variant="h6" color="inherit">
                                                         {order.reference}
                                                     </Typography>
                                                 </td>
@@ -158,7 +158,7 @@ class OrderInvoice extends Component {
                                         {order.products.map((product) => (
                                             <tr key={product.id}>
                                                 <td>
-                                                    <Typography variant="subheading">{product.name}</Typography>
+                                                    <Typography variant="subtitle1">{product.name}</Typography>
                                                 </td>
                                                 <td className="text-right">
                                                     {formatter.format(product.price)}
@@ -178,40 +178,40 @@ class OrderInvoice extends Component {
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <Typography className="font-medium" variant="subheading" color="textSecondary">SUBTOTAL</Typography>
+                                                <Typography className="font-medium" variant="subtitle1" color="textSecondary">SUBTOTAL</Typography>
                                             </td>
                                             <td className="text-right">
-                                                <Typography className="font-medium" variant="subheading" color="textSecondary">
+                                                <Typography className="font-medium" variant="subtitle1" color="textSecondary">
                                                     {formatter.format(order.subtotal)}
                                                 </Typography>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <Typography className="font-medium" variant="subheading" color="textSecondary">TAX</Typography>
+                                                <Typography className="font-medium" variant="subtitle1" color="textSecondary">TAX</Typography>
                                             </td>
                                             <td className="text-right">
-                                                <Typography className="font-medium" variant="subheading" color="textSecondary">
+                                                <Typography className="font-medium" variant="subtitle1" color="textSecondary">
                                                     {formatter.format(order.tax)}
                                                 </Typography>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <Typography className="font-medium" variant="subheading" color="textSecondary">DISCOUNT</Typography>
+                                                <Typography className="font-medium" variant="subtitle1" color="textSecondary">DISCOUNT</Typography>
                                             </td>
                                             <td className="text-right">
-                                                <Typography className="font-medium" variant="subheading" color="textSecondary">
+                                                <Typography className="font-medium" variant="subtitle1" color="textSecondary">
                                                     {formatter.format(order.discount)}
                                                 </Typography>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <Typography className="font-light" variant="display1" color="textSecondary">TOTAL</Typography>
+                                                <Typography className="font-light" variant="h4" color="textSecondary">TOTAL</Typography>
                                             </td>
                                             <td className="text-right">
-                                                <Typography className="font-light" variant="display1" color="textSecondary">
+                                                <Typography className="font-light" variant="h4" color="textSecondary">
                                                     {formatter.format(order.total)}
                                                 </Typography>
                                             </td>
@@ -223,7 +223,7 @@ class OrderInvoice extends Component {
 
                             <div className="mt-96">
 
-                                <Typography className="mb-24 print:mb-12" variant="body2">Please pay within 15 days. Thank you for your business.</Typography>
+                                <Typography className="mb-24 print:mb-12" variant="body1">Please pay within 15 days. Thank you for your business.</Typography>
 
                                 <div className="flex">
 

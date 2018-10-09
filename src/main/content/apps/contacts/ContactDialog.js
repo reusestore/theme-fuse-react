@@ -97,14 +97,14 @@ class ContactDialog extends Component {
 
                 <AppBar position="static" elevation={1}>
                     <Toolbar className="flex w-full">
-                        <Typography variant="subheading" color="inherit">
+                        <Typography variant="subtitle1" color="inherit">
                             {contactDialog.type === 'new' ? 'New Contact' : 'Edit Contact'}
                         </Typography>
                     </Toolbar>
                     <div className="flex flex-col items-center justify-center pb-24">
                         <Avatar className="w-96 h-96" alt="contact avatar" src={this.state.avatar}/>
                         {contactDialog.type === 'edit' && (
-                            <Typography variant="title" color="inherit" className="pt-8">
+                            <Typography variant="h6" color="inherit" className="pt-8">
                                 {this.state.name}
                             </Typography>
                         )}
@@ -283,7 +283,7 @@ class ContactDialog extends Component {
                 {contactDialog.type === 'new' ? (
                     <DialogActions className="justify-between pl-16">
                         <Button
-                            variant="raised"
+                            variant="contained"
                             color="primary"
                             onClick={() => {
                                 addContact(this.state);
@@ -297,7 +297,7 @@ class ContactDialog extends Component {
                 ) : (
                     <DialogActions className="justify-between pl-16">
                         <Button
-                            variant="raised"
+                            variant="contained"
                             color="primary"
                             onClick={() => {
                                 updateContact(this.state);

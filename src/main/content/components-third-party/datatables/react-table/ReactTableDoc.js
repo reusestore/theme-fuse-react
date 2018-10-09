@@ -21,10 +21,10 @@ class ReactTableDoc extends Component {
                 }}
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="title">React Table</Typography>
+                        <Typography variant="h6">React Table</Typography>
                         <Button
                             className="normal-case"
-                            variant="raised"
+                            variant="contained"
                             component="a"
                             href="https://github.com/react-tools/react-table"
                             target="_blank"

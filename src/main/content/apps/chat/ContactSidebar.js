@@ -24,7 +24,7 @@ const ContactSidebar = ({classes, contacts, closeContactSidebar, selectedContact
                 elevation={1}
             >
                 <Toolbar className="flex justify-between items-center px-16 pr-4">
-                    <Typography color="inherit" variant="subheading">Contact Info</Typography>
+                    <Typography color="inherit" variant="subtitle1">Contact Info</Typography>
                     <IconButton onClick={closeContactSidebar} color="inherit">
                         <Icon>close</Icon>
                     </IconButton>
@@ -33,7 +33,7 @@ const ContactSidebar = ({classes, contacts, closeContactSidebar, selectedContact
                     <Avatar src={contact.avatar} alt={contact.name} className="w-96 h-96">
                         {!contact.avatar || contact.avatar === '' ? contact.name[0] : ''}
                     </Avatar>
-                    <Typography color="inherit" className="mt-16" variant="title">{contact.name}</Typography>
+                    <Typography color="inherit" className="mt-16" variant="h6">{contact.name}</Typography>
                 </Toolbar>
             </AppBar>
             <FuseScrollbars className="overflow-y-auto flex-1 p-24">

@@ -21,7 +21,7 @@ class FirebaseAuthDoc extends Component {
                 }}
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="title">Firebase Authentication</Typography>
+                        <Typography variant="h6">Firebase Authentication</Typography>
                     </div>
                 }
                 content={

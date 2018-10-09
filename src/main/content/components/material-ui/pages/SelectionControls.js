@@ -22,10 +22,10 @@ function SelectionControls({classes})
             }}
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="title">Selection Controls</Typography>
+                    <Typography variant="h6">Selection Controls</Typography>
                     <Button
                         className="normal-case"
-                        variant="raised"
+                        variant="contained"
                         component="a"
                         href="https://material-ui-next.com/demos/selection-controls"
                         target="_blank"
@@ -125,7 +125,7 @@ function SelectionControls({classes})
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/selection-controls/SwitchesGroup.js')}
                     /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Customized Switches</Typography>
-                    <Typography className="mb-16" component="div">If you have been reading the <a href="/customization/overrides">overrides documentation page</a>
+                    <Typography className="mb-16" component="div">If you have been reading the <a href="/customization/overrides/">overrides documentation page</a>
                         but you are not confident jumping in, here&#39;s an example of how you can change the color of a Switch, and an iOS style Switch.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"

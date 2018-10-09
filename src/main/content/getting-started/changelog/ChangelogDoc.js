@@ -20,11 +20,56 @@ class ChangelogDoc extends Component {
                 }}
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="title">Changelog</Typography>
+                        <Typography variant="h6">Changelog</Typography>
                     </div>
                 }
                 content={
                     <div className="p-24 max-w-2xl mx-auto">
+
+                        <div>
+                            <div className="flex items-center mb-32 mt-48">
+                                <Typography className="text-28" component="h2">v1.2.2</Typography>
+                                <Typography className="text-16 ml-8" color="textSecondary"
+                                            component="h3">(2018-10-10)</Typography>
+                            </div>
+                            <div className="mb-24">
+                                <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">
+                                    NEW:
+                                </Typography>
+                                <ul>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Initial loading time reduced with code splitting (lazy loading) components and also reducers
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            redux-loadable library added
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            FuseLoadable component created for to avoid repetition
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            webpack-bundle-analyzer package added to devDependencies for to analyze build
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Material UI updated to v3.2.0
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Dependency packages updated.
+                                        </Typography>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
 
                         <div>
                             <div className="flex items-center mb-32 mt-48">
@@ -80,7 +125,6 @@ class ChangelogDoc extends Component {
                                 </ul>
                             </div>
                         </div>
-
 
                         <div>
                             <div className="flex items-center mb-32 mt-48">

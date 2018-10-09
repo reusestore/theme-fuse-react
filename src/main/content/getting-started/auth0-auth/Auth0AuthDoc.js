@@ -21,7 +21,7 @@ class Auth0AuthDoc extends Component {
                 }}
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="title">Auth0 Authentication</Typography>
+                        <Typography variant="h6">Auth0 Authentication</Typography>
                     </div>
                 }
                 content={

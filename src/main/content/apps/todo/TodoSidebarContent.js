@@ -47,7 +47,7 @@ function TodoSidebarContent({classes, folders, filters, labels, openNewTodoDialo
                         onClick={() => {
                             openNewTodoDialog();
                         }}
-                        variant="raised"
+                        variant="contained"
                         color="primary"
                         className="w-full"
                     >

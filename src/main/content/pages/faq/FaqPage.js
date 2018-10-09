@@ -86,7 +86,7 @@ class FaqPage extends Component {
                     </FuseAnimate>
 
                     <FuseAnimate duration={400} delay={600}>
-                        <Typography variant="subheading" color="inherit" className="opacity-75 mt-8 sm:mt-16 mx-auto max-w-512">
+                        <Typography variant="subtitle1" color="inherit" className="opacity-75 mt-8 sm:mt-16 mx-auto max-w-512">
                             Frequently asked questions
                         </Typography>
                     </FuseAnimate>

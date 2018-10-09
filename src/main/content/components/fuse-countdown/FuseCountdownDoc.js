@@ -21,7 +21,7 @@ class FuseCountdownDoc extends Component {
                 }}
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="title">FuseCountdown</Typography>
+                        <Typography variant="h6">FuseCountdown</Typography>
                     </div>
                 }
                 content={

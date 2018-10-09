@@ -174,7 +174,7 @@ class ChatApp extends React.Component {
                                         <Paper className="rounded-full p-48">
                                             <Icon className="block text-64" color="secondary">chat</Icon>
                                         </Paper>
-                                        <Typography variant="title" className="my-24">Chat App</Typography>
+                                        <Typography variant="h6" className="my-24">Chat App</Typography>
                                         <Typography className="hidden md:flex px-16 pb-24 mt-24 text-center" color="textSecondary">
                                             Select a contact to start a conversation!..
                                         </Typography>

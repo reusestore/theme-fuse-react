@@ -22,10 +22,10 @@ function Chips({classes})
             }}
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="title">Chips</Typography>
+                    <Typography variant="h6">Chips</Typography>
                     <Button
                         className="normal-case"
-                        variant="raised"
+                        variant="contained"
                         component="a"
                         href="https://material-ui-next.com/demos/chips"
                         target="_blank"

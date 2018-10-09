@@ -60,13 +60,13 @@ class ProfilePage extends Component {
                                 <Avatar className="w-96 h-96" src="assets/images/avatars/Velazquez.jpg"/>
                             </FuseAnimate>
                             <FuseAnimate animation="transition.slideLeftIn" delay={300}>
-                                <Typography className="md:ml-24" variant="display1" color="inherit">John Doe</Typography>
+                                <Typography className="md:ml-24" variant="h4" color="inherit">John Doe</Typography>
                             </FuseAnimate>
                         </div>
 
                         <div className="flex items-center justify-end">
-                            <Button className="mr-8 normal-case" variant="raised" color="secondary" aria-label="Follow">Follow</Button>
-                            <Button className="normal-case" variant="raised" color="primary" aria-label="Send Message">Send Message</Button>
+                            <Button className="mr-8 normal-case" variant="contained" color="secondary" aria-label="Follow">Follow</Button>
+                            <Button className="normal-case" variant="contained" color="primary" aria-label="Send Message">Send Message</Button>
                         </div>
                     </div>
                 }

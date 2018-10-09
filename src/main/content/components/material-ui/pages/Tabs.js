@@ -22,10 +22,10 @@ function Tabs({classes})
             }}
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="title">Tabs</Typography>
+                    <Typography variant="h6">Tabs</Typography>
                     <Button
                         className="normal-case"
-                        variant="raised"
+                        variant="contained"
                         component="a"
                         href="https://material-ui-next.com/demos/tabs"
                         target="_blank"
@@ -120,7 +120,7 @@ function Tabs({classes})
                             raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tabs/IconLabelTabs.js')}
                         /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Customized Tabs</Typography>
-                    <Typography className="mb-16" component="div">If you have read the <a href="/customization/overrides">overrides documentation page</a>
+                    <Typography className="mb-16" component="div">If you have read the <a href="/customization/overrides/">overrides documentation page</a>
                         but aren&#39;t confident jumping in, here&#39;s an example of how you can change the main color of the Tabs. The following demo matches the <a
                             href="https://ant.design/components/tabs/">Ant Design UI</a>.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample

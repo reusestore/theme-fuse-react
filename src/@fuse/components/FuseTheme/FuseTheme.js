@@ -10,16 +10,18 @@ import red from '@material-ui/core/colors/red';
 
 const defaultOptions = {
     typography: {
-        fontFamily       : [
+        fontFamily                 : [
             'Muli',
             'Roboto',
             '"Helvetica"',
             'Arial',
             'sans-serif'
         ].join(','),
-        fontWeightLight  : 300,
-        fontWeightRegular: 400,
-        fontWeightMedium : 600
+        fontWeightLight            : 300,
+        fontWeightRegular          : 400,
+        fontWeightMedium           : 600,
+        useNextVariants            : true,
+        suppressDeprecationWarnings: true
     }
 };
 
@@ -67,16 +69,16 @@ export let FuseSelectedTheme;
 const themesObj = Object.keys(fuseThemesConfig).length !== 0 ? fuseThemesConfig : defaults;
 
 export let themes = Object.assign({}, ...Object.entries(themesObj).map(([key, value]) => {
-        const muiTheme = createMuiTheme(_.merge({}, defaultOptions, value, mustHaveOptions));
-
+        const muiTheme = _.merge({}, defaultOptions, value, mustHaveOptions);
         return {
             [key]: createMuiTheme(_.merge({}, muiTheme, {mixins: customMixins(muiTheme)}))
         }
     }
 ));
 
-function customMixins(theme)
+function customMixins(obj)
 {
+    const theme = createMuiTheme(obj);
     return {
         border      : (width = 1) => ({
             borderWidth: width,

@@ -36,7 +36,7 @@ class TodoList extends Component {
             return (
                 <FuseAnimate delay={100}>
                     <div className="flex flex-1 items-center justify-center h-full">
-                        <Typography color="textSecondary" variant="headline">
+                        <Typography color="textSecondary" variant="h5">
                             There are no todos!
                         </Typography>
                     </div>

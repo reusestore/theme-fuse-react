@@ -20,7 +20,7 @@ class RoutingDoc extends Component {
                 }}
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="title">Fuse Routing</Typography>
+                        <Typography variant="h6">Fuse Routing</Typography>
                     </div>
                 }
                 content={

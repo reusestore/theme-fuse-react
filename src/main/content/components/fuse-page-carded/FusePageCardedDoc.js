@@ -72,7 +72,7 @@ class FusePageCardedDoc extends Component {
                 }}
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="title">FusePageCarded</Typography>
+                        <Typography variant="h6">FusePageCarded</Typography>
                     </div>
                 }
                 content={

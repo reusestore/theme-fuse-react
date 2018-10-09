@@ -76,7 +76,7 @@ class UserSidebar extends Component {
                     elevation={1}
                 >
                     <Toolbar className="flex justify-between items-center px-16 pr-4">
-                        <Typography color="inherit" variant="subheading">User Info</Typography>
+                        <Typography color="inherit" variant="subtitle1">User Info</Typography>
                         <IconButton onClick={closeUserSidebar} color="inherit">
                             <Icon>close</Icon>
                         </IconButton>
@@ -85,7 +85,7 @@ class UserSidebar extends Component {
                         <Avatar src={user.avatar} alt={user.name} className="w-96 h-96">
                             {(!user.avatar || user.avatar === '') ? user.name[0] : ''}
                         </Avatar>
-                        <Typography color="inherit" className="mt-16" variant="title">{user.name}</Typography>
+                        <Typography color="inherit" className="mt-16" variant="h6">{user.name}</Typography>
                     </Toolbar>
                 </AppBar>
                 <FuseScrollbars className="overflow-y-auto flex-1 p-24">

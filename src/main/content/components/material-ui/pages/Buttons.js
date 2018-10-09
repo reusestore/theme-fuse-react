@@ -22,10 +22,10 @@ function Buttons({classes})
             }}
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="title">Buttons</Typography>
+                    <Typography variant="h6">Buttons</Typography>
                     <Button
                         className="normal-case"
-                        variant="raised"
+                        variant="contained"
                         component="a"
                         href="https://material-ui-next.com/demos/buttons"
                         target="_blank"
@@ -132,7 +132,7 @@ function Buttons({classes})
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/IconLabelButtons.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Customized Buttons</Typography>
-                    <Typography className="mb-16" component="div">If you have been reading the <a href="/customization/overrides">overrides documentation page</a>
+                    <Typography className="mb-16" component="div">If you have been reading the <a href="/customization/overrides/">overrides documentation page</a>
                         but you are not confident jumping in,
                         here are examples of how you can change the main color of a Button using classes,
                         and using a theme; and of a Bootstrap style Button.</Typography>
@@ -181,7 +181,7 @@ const MyLink = props => <Link to="/open-collective" {...props} />
 `}
                     </FuseHighlight>
                     <Typography className="mb-16" component="div"><em>Note: Creating <code>MyLink</code> is necessary to prevent unexpected unmounting. You can read more about
-                        it <a href="/guides/composition#component-property">here</a>.</em></Typography>
+                        it <a href="/guides/composition/#component-property">here</a>.</em></Typography>
 
                 </div>
             }

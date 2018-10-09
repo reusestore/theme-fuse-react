@@ -54,7 +54,7 @@ class ContactsList extends Component {
         {
             return (
                 <div className="flex items-center justify-center h-full">
-                    <Typography color="textSecondary" variant="headline">
+                    <Typography color="textSecondary" variant="h5">
                         There are no contacts!
                     </Typography>
                 </div>

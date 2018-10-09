@@ -22,10 +22,10 @@ function Menus({classes})
             }}
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="title">Menus</Typography>
+                    <Typography variant="h6">Menus</Typography>
                     <Button
                         className="normal-case"
-                        variant="raised"
+                        variant="contained"
                         component="a"
                         href="https://material-ui-next.com/demos/menus"
                         target="_blank"

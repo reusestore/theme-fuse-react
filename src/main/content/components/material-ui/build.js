@@ -227,10 +227,10 @@ function writePage(file)
             }}
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="title">${title}</Typography>
+                    <Typography variant="h6">${title}</Typography>
                     <Button 
                         className="normal-case"
-                        variant="raised" 
+                        variant="contained" 
                         component="a" 
                         href="https://material-ui-next.com/demos/${path.basename(file)}" 
                         target="_blank"

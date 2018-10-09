@@ -85,7 +85,7 @@ class KnowledgeBasePage extends Component {
                     </FuseAnimate>
 
                     <FuseAnimate duration={400} delay={600}>
-                        <Typography variant="subheading" color="inherit" className="opacity-75 mt-16 mx-auto max-w-512">
+                        <Typography variant="subtitle1" color="inherit" className="opacity-75 mt-16 mx-auto max-w-512">
                             Welcome to our knowledge base
                         </Typography>
                     </FuseAnimate>

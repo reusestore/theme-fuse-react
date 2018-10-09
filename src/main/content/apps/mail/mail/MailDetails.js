@@ -40,7 +40,7 @@ class MailDetails extends Component {
 
                     <div className="flex flex-col">
                         <FuseAnimate delay={100}>
-                            <Typography variant="subheading" className="flex">{mail.subject}</Typography>
+                            <Typography variant="subtitle1" className="flex">{mail.subject}</Typography>
                         </FuseAnimate>
 
                         {labels && mail.labels.length > 0 && (
@@ -76,7 +76,7 @@ class MailDetails extends Component {
 
                                 <div className="flex flex-col">
                                     <span>{mail.from.name}</span>
-                                    <Typography color="textSecondary" variant="body2" className="flex items-center justify-start">
+                                    <Typography color="textSecondary" variant="body1" className="flex items-center justify-start">
                                         <div>to</div>
                                         <div className="ml-4">{mail.to[0].name}</div>
                                     </Typography>
@@ -108,13 +108,13 @@ class MailDetails extends Component {
 
                             {this.state.showDetails && (
                                 <div className="flex">
-                                    <Typography variant="body1" className="flex flex-col">
+                                    <Typography variant="body2" className="flex flex-col">
                                         <span>From:</span>
                                         <span>To:</span>
                                         <span>Date:</span>
                                     </Typography>
 
-                                    <Typography variant="body1" color="textSecondary" className="pl-4 flex flex-col">
+                                    <Typography variant="body2" color="textSecondary" className="pl-4 flex flex-col">
                                         <span>{mail.from.email}</span>
                                         <span>{mail.to[0].email}</span>
                                         <span>{mail.time}</span>
@@ -123,13 +123,13 @@ class MailDetails extends Component {
                             )}
                         </div>
 
-                        <Typography variant="body1" dangerouslySetInnerHTML={{__html: mail.message}}/>
+                        <Typography variant="body2" dangerouslySetInnerHTML={{__html: mail.message}}/>
 
                         <Divider className="my-16"/>
 
                         {mail.attachments && (
                             <div>
-                                <Typography variant="subheading" className="mb-16">
+                                <Typography variant="subtitle1" className="mb-16">
                                     <span>Attachments</span>
                                     <span className="ml-4">({mail.attachments.length})</span>
                                 </Typography>

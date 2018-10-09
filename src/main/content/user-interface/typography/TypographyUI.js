@@ -21,11 +21,11 @@ class TypographyUI extends Component {
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
                         <FuseAnimate>
-                            <Typography variant="title">Typography</Typography>
+                            <Typography variant="h6">Typography</Typography>
                         </FuseAnimate>
                         <Button
                             className="normal-case"
-                            variant="raised"
+                            variant="contained"
                             component="a"
                             href="https://material-ui-next.com/style/typography/"
                             target="_blank"
@@ -42,118 +42,118 @@ class TypographyUI extends Component {
                                 <CardContent>
                                     <div className="flex flex-wrap justify-center mb-16">
                                         <div className="flex w-1 sm:w-1/2">
-                                            <Typography variant="display4">
+                                            <Typography variant="h1">
                                                 Display 4
                                             </Typography>
                                         </div>
                                         <div className="flex w-full sm:w-1/2">
                                             <FuseHighlight component="pre" className="language-html w-full">
                                                 {`
-                                           <Typography variant="display4">Display 4</Typography>
+                                           <Typography variant="h1">Display 4</Typography>
                                         `}
                                             </FuseHighlight>
                                         </div>
                                     </div>
                                     <div className="flex flex-wrap justify-center mb-16">
                                         <div className="flex w-1 sm:w-1/2">
-                                            <Typography variant="display3">
+                                            <Typography variant="h2">
                                                 Display 3
                                             </Typography>
                                         </div>
                                         <div className="flex w-full sm:w-1/2">
                                             <FuseHighlight component="pre" className="language-html w-full">
                                                 {`
-                                           <Typography variant="display3">Display 3</Typography>
+                                           <Typography variant="h2">Display 3</Typography>
                                         `}
                                             </FuseHighlight>
                                         </div>
                                     </div>
                                     <div className="flex flex-wrap justify-center mb-16">
                                         <div className="flex w-1 sm:w-1/2">
-                                            <Typography variant="display2">
+                                            <Typography variant="h3">
                                                 Display 2
                                             </Typography>
                                         </div>
                                         <div className="flex w-full sm:w-1/2">
                                             <FuseHighlight component="pre" className="language-html w-full">
                                                 {`
-                                           <Typography variant="display2">Display 2</Typography>
+                                           <Typography variant="h3">Display 2</Typography>
                                         `}
                                             </FuseHighlight>
                                         </div>
                                     </div>
                                     <div className="flex flex-wrap justify-center mb-16">
                                         <div className="flex w-1 sm:w-1/2">
-                                            <Typography variant="display1">
+                                            <Typography variant="h4">
                                                 Display 1
                                             </Typography>
                                         </div>
                                         <div className="flex w-full sm:w-1/2">
                                             <FuseHighlight component="pre" className="language-html w-full">
                                                 {`
-                                           <Typography variant="display1">Display 1</Typography>
+                                           <Typography variant="h4">Display 1</Typography>
                                         `}
                                             </FuseHighlight>
                                         </div>
                                     </div>
                                     <div className="flex flex-wrap justify-center mb-16">
                                         <div className="flex w-1 sm:w-1/2">
-                                            <Typography variant="headline">
+                                            <Typography variant="h5">
                                                 Headline
                                             </Typography>
                                         </div>
                                         <div className="flex w-full sm:w-1/2">
                                             <FuseHighlight component="pre" className="language-html w-full">
                                                 {`
-                                          <Typography variant="headline">Headline</Typography>
+                                          <Typography variant="h5">Headline</Typography>
                                         `}
                                             </FuseHighlight>
                                         </div>
                                     </div>
                                     <div className="flex flex-wrap justify-center mb-16">
                                         <div className="flex w-1 sm:w-1/2">
-                                            <Typography variant="title">Title</Typography>
+                                            <Typography variant="h6">Title</Typography>
                                         </div>
                                         <div className="flex w-full sm:w-1/2">
                                             <FuseHighlight component="pre" className="language-html w-full">
                                                 {`
-                                           <Typography variant="title">Title</Typography>
+                                           <Typography variant="h6">Title</Typography>
                                         `}
                                             </FuseHighlight>
                                         </div>
                                     </div>
                                     <div className="flex flex-wrap justify-center mb-16">
                                         <div className="flex w-1 sm:w-1/2">
-                                            <Typography variant="subheading">Subheading</Typography>
+                                            <Typography variant="subtitle1">Subheading</Typography>
                                         </div>
                                         <div className="flex w-full sm:w-1/2">
                                             <FuseHighlight component="pre" className="language-html w-full">
                                                 {`
-                                             <Typography variant="subheading">Subheading</Typography>
+                                             <Typography variant="subtitle1">Subheading</Typography>
                                         `}
                                             </FuseHighlight>
                                         </div>
                                     </div>
                                     <div className="flex flex-wrap justify-center mb-16">
                                         <div className="flex w-1 sm:w-1/2">
-                                            <Typography variant="body2">Body 2</Typography>
+                                            <Typography variant="body1">Body 2</Typography>
                                         </div>
                                         <div className="flex w-full sm:w-1/2">
                                             <FuseHighlight component="pre" className="language-html w-full">
                                                 {`
-                                            <Typography variant="body2">Body 2</Typography>
+                                            <Typography variant="body1">Body 2</Typography>
                                         `}
                                             </FuseHighlight>
                                         </div>
                                     </div>
                                     <div className="flex flex-wrap justify-center mb-16">
                                         <div className="flex w-1 sm:w-1/2">
-                                            <Typography variant="body1">Body 1</Typography>
+                                            <Typography variant="body2">Body 1</Typography>
                                         </div>
                                         <div className="flex w-full sm:w-1/2">
                                             <FuseHighlight component="pre" className="language-html w-full">
                                                 {`
-                                            <Typography variant="body1">Body 1</Typography>
+                                            <Typography variant="body2">Body 1</Typography>
                                         `}
                                             </FuseHighlight>
                                         </div>

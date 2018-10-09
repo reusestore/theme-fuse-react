@@ -24,7 +24,7 @@ class FuseMessageDoc extends Component {
                 }}
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="title">FuseMessage</Typography>
+                        <Typography variant="h6">FuseMessage</Typography>
                     </div>
                 }
                 content={

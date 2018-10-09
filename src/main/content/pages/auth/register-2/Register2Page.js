@@ -61,13 +61,13 @@ class Register2Page extends Component {
                     </FuseAnimate>
 
                     <FuseAnimate animation="transition.slideUpIn" delay={300}>
-                        <Typography variant="display2" color="inherit" className="font-light">
+                        <Typography variant="h3" color="inherit" className="font-light">
                             Welcome to the FUSE!
                         </Typography>
                     </FuseAnimate>
 
                     <FuseAnimate delay={400}>
-                        <Typography variant="subheading" color="inherit" className="max-w-512 mt-16">
+                        <Typography variant="subtitle1" color="inherit" className="max-w-512 mt-16">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ullamcorper nisl erat, vel convallis elit fermentum pellentesque. Sed mollis velit
                             facilisis facilisis.
                         </Typography>
@@ -80,7 +80,7 @@ class Register2Page extends Component {
 
                         <CardContent className="flex flex-col items-center justify-center p-32 md:p-48 md:pt-128 ">
 
-                            <Typography variant="title" className="md:w-full mb-32">CREATE AN ACCOUNT</Typography>
+                            <Typography variant="h6" className="md:w-full mb-32">CREATE AN ACCOUNT</Typography>
 
                             <form name="registerForm" noValidate className="flex flex-col justify-center w-full">
 
@@ -146,7 +146,7 @@ class Register2Page extends Component {
                                 </FormControl>
 
 
-                                <Button variant="raised" color="primary" className="w-full mx-auto mt-16" aria-label="Register"
+                                <Button variant="contained" color="primary" className="w-full mx-auto mt-16" aria-label="Register"
                                         disabled={!this.canBeSubmitted()}>
                                     CREATE AN ACCOUNT
                                 </Button>

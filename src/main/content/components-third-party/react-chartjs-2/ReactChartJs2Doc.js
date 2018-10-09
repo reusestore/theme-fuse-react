@@ -21,10 +21,10 @@ class ReactChartJs2Doc extends Component {
                 }}
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="title">React ChartJs 2</Typography>
+                        <Typography variant="h6">React ChartJs 2</Typography>
                         <Button
                             className="normal-case"
-                            variant="raised"
+                            variant="contained"
                             component="a"
                             href="https://github.com/jerairrest/react-chartjs-2"
                             target="_blank"

@@ -22,10 +22,10 @@ function Drawers({classes})
             }}
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="title">Drawer</Typography>
+                    <Typography variant="h6">Drawer</Typography>
                     <Button
                         className="normal-case"
-                        variant="raised"
+                        variant="contained"
                         component="a"
                         href="https://material-ui-next.com/demos/drawers"
                         target="_blank"

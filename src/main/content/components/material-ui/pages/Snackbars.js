@@ -22,10 +22,10 @@ function Snackbars({classes})
             }}
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="title">Snackbars</Typography>
+                    <Typography variant="h6">Snackbars</Typography>
                     <Button
                         className="normal-case"
-                        variant="raised"
+                        variant="contained"
                         component="a"
                         href="https://material-ui-next.com/demos/snackbars"
                         target="_blank"
@@ -100,7 +100,7 @@ function Snackbars({classes})
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/snackbars/ConsecutiveSnackbars.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Customized Snackbars</Typography>
-                    <Typography className="mb-16" component="div">If you have been reading the <a href="/customization/overrides">overrides documentation page</a>
+                    <Typography className="mb-16" component="div">If you have been reading the <a href="/customization/overrides/">overrides documentation page</a>
                         but you are not confident jumping in,
                         here are examples of how you can change the look of a Snackbar.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -108,6 +108,12 @@ function Snackbars({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/snackbars/CustomizedSnackbars.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/snackbars/CustomizedSnackbars.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Advanced use cases</Typography>
+                    <Typography className="mb-16" component="div">For more advanced use cases you might be able to take advantage of:</Typography>
+                    <ul>
+                        <li><a href="https://github.com/iamhosseindhv/notistack">notistack</a> Highly customisable notification snackbars that can be stacked on top of each other
+                        </li>
+                    </ul>
 
                 </div>
             }

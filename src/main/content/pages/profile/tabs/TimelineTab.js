@@ -67,7 +67,7 @@ class TimelineTab extends Component {
                                     </div>
 
                                     <div className="p-8">
-                                        <Button variant="raised" color="primary" size="small" aria-label="post">
+                                        <Button variant="contained" color="primary" size="small" aria-label="post">
                                             POST
                                         </Button>
                                     </div>
@@ -121,7 +121,7 @@ class TimelineTab extends Component {
                                             <div className="border-1">
                                                 <img className="w-full border-b-1" src={post.article.media.preview} alt="article"/>
                                                 <div className="p-16">
-                                                    <Typography variant="subheading">{post.article.title}</Typography>
+                                                    <Typography variant="subtitle1">{post.article.title}</Typography>
                                                     <Typography variant="caption">{post.article.subtitle}</Typography>
                                                     <Typography className="mt-16">{post.article.excerpt}</Typography>
                                                 </div>
@@ -196,7 +196,7 @@ class TimelineTab extends Component {
                                                         disableUnderline
                                                     />
                                                 </Paper>
-                                                <Button className="normal-case" variant="raised" color="primary" size="small">Post Comment</Button>
+                                                <Button className="normal-case" variant="contained" color="primary" size="small">Post Comment</Button>
                                             </div>
                                         </div>
                                     </AppBar>
@@ -217,7 +217,7 @@ class TimelineTab extends Component {
                         <Card className="w-full">
                             <AppBar position="static" elevation={0}>
                                 <Toolbar className="pl-16 pr-8">
-                                    <Typography variant="subheading" color="inherit" className="flex-1">
+                                    <Typography variant="subtitle1" color="inherit" className="flex-1">
                                         Latest Activity
                                     </Typography>
                                     <Button color="inherit" size="small">See All</Button>

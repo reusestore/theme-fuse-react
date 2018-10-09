@@ -60,7 +60,7 @@ class RegisterPage extends Component {
 
                                 <img className="w-128 m-32" src="assets/images/logos/fuse.svg" alt="logo"/>
 
-                                <Typography variant="title" className="mt-16 mb-32">CREATE AN ACCOUNT</Typography>
+                                <Typography variant="h6" className="mt-16 mb-32">CREATE AN ACCOUNT</Typography>
 
                                 <form name="registerForm" noValidate className="flex flex-col justify-center w-full">
 
@@ -126,7 +126,7 @@ class RegisterPage extends Component {
                                     </FormControl>
 
 
-                                    <Button variant="raised" color="primary" className="w-224 mx-auto mt-16" aria-label="Register"
+                                    <Button variant="contained" color="primary" className="w-224 mx-auto mt-16" aria-label="Register"
                                             disabled={!this.canBeSubmitted()}>
                                         CREATE AN ACCOUNT
                                     </Button>

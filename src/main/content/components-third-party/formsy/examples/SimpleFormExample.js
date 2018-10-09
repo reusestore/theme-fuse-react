@@ -104,7 +104,7 @@ class SimpleFormExample extends Component {
 
                     <Button
                         type="submit"
-                        variant="raised"
+                        variant="contained"
                         color="primary"
                         className="mx-auto mt-16"
                         aria-label="LOG IN"

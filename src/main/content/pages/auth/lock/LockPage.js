@@ -58,7 +58,7 @@ class LockPage extends Component {
                                     </div>
 
                                     <div>
-                                        <Typography variant="title" className="mb-8">YOUR SESSION IS LOCKED</Typography>
+                                        <Typography variant="h6" className="mb-8">YOUR SESSION IS LOCKED</Typography>
                                         <Typography color="textSecondary">
                                             Due to inactivity, your session is locked. Enter your password to continue.
                                         </Typography>
@@ -90,7 +90,7 @@ class LockPage extends Component {
                                     />
 
                                     <Button
-                                        variant="raised"
+                                        variant="contained"
                                         color="primary"
                                         className="w-224 mx-auto mt-16"
                                         aria-label="Reset"

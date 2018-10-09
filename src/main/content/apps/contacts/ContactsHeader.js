@@ -34,7 +34,7 @@ class ContactsHeader extends Component {
                             <Icon className="text-32 mr-12">account_box</Icon>
                         </FuseAnimate>
                         <FuseAnimate animation="transition.slideLeftIn" delay={300}>
-                            <Typography variant="title" className="hidden sm:flex">Contacts</Typography>
+                            <Typography variant="h6" className="hidden sm:flex">Contacts</Typography>
                         </FuseAnimate>
                     </div>
                 </div>

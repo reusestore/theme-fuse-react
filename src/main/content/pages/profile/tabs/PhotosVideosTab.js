@@ -42,8 +42,8 @@ class PhotosVideosTab extends Component {
                             <div key={period.id} className="mb-48">
 
                                 <ListSubheader component="div" className="flex items-center pl-0 mb-24">
-                                    <Typography className="mr-16" variant="title">{period.name}</Typography>
-                                    <Typography variant="subheading" color="textSecondary">{period.info}</Typography>
+                                    <Typography className="mr-16" variant="h6">{period.name}</Typography>
+                                    <Typography variant="subtitle1" color="textSecondary">{period.info}</Typography>
                                 </ListSubheader>
 
                                 <GridList className="" spacing={8} cols={0}>

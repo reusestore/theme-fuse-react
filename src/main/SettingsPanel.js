@@ -74,7 +74,7 @@ class SettingsPanel extends Component {
         const {classes} = this.props;
         return (
             <React.Fragment>
-                <Button className={classes.button} variant="raised" onClick={this.handleOpen}>
+                <Button className={classes.button} variant="contained" onClick={this.handleOpen}>
                     <Icon className={classes.buttonIcon}>settings</Icon>
                 </Button>
 
@@ -95,7 +95,7 @@ class SettingsPanel extends Component {
                             <Icon>close</Icon>
                         </IconButton>
 
-                        <Typography className="mb-32" variant="title">Theme Settings</Typography>
+                        <Typography className="mb-32" variant="h6">Theme Settings</Typography>
 
                         <FuseSettings/>
 

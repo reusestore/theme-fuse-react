@@ -48,13 +48,13 @@ class PricingStyle3Page extends Component {
                         <div className="text-center my-128 mx-24">
 
                             <FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
-                                <Typography variant="display3" color="inherit" className="font-light">
+                                <Typography variant="h2" color="inherit" className="font-light">
                                     Simple Pricing!
                                 </Typography>
                             </FuseAnimate>
 
                             <FuseAnimate duration={400} delay={600}>
-                                <Typography variant="subheading" color="inherit" className="opacity-75 mt-16 mx-auto max-w-512">
+                                <Typography variant="subtitle1" color="inherit" className="opacity-75 mt-16 mx-auto max-w-512">
                                     The most advanced customer support tools with a simple and affordable pricing. And you can always try
                                     for 30 days, free!
                                 </Typography>
@@ -114,7 +114,7 @@ class PricingStyle3Page extends Component {
                                     </CardContent>
 
                                     <div className="flex flex-col items-center justify-center pb-32 px-32">
-                                        <Button variant="raised" color="secondary" className="w-full">GET STARTED FREE</Button>
+                                        <Button variant="contained" color="secondary" className="w-full">GET STARTED FREE</Button>
                                         <Typography color="textSecondary" className="mt-16">
                                             7 day free trial to start
                                         </Typography>
@@ -172,7 +172,7 @@ class PricingStyle3Page extends Component {
                                     </CardContent>
 
                                     <div className="flex flex-col items-center justify-center pb-32 px-32">
-                                        <Button variant="raised" color="secondary" className="w-full">GET STARTED FREE</Button>
+                                        <Button variant="contained" color="secondary" className="w-full">GET STARTED FREE</Button>
                                         <Typography color="textSecondary" className="mt-16">
                                             30 day free trial to start
                                         </Typography>
@@ -221,7 +221,7 @@ class PricingStyle3Page extends Component {
                                     </CardContent>
 
                                     <div className="flex flex-col items-center justify-center pb-32 px-32">
-                                        <Button variant="raised" color="secondary" className="w-full">CALL US</Button>
+                                        <Button variant="contained" color="secondary" className="w-full">CALL US</Button>
                                         <Typography color="textSecondary" className="mt-16">
                                             90 day free trial to start
                                         </Typography>
@@ -231,7 +231,7 @@ class PricingStyle3Page extends Component {
                         </FuseAnimateGroup>
                         <div className="flex flex-col items-center py-96 text-center sm:text-left">
 
-                            <Typography variant="display1" className="pb-32 font-light">Frequently Asked Questions</Typography>
+                            <Typography variant="h4" className="pb-32 font-light">Frequently Asked Questions</Typography>
 
                             <div className="flex flex-wrap w-full">
 

@@ -54,7 +54,7 @@ class LoginPage extends Component {
 
                                 <img className="w-128 m-32" src="assets/images/logos/fuse.svg" alt="logo"/>
 
-                                <Typography variant="title" className="mt-16 mb-32">LOGIN TO YOUR ACCOUNT</Typography>
+                                <Typography variant="h6" className="mt-16 mb-32">LOGIN TO YOUR ACCOUNT</Typography>
 
                                 <form name="loginForm" noValidate className="flex flex-col justify-center w-full">
 
@@ -102,7 +102,7 @@ class LoginPage extends Component {
                                         </Link>
                                     </div>
 
-                                    <Button variant="raised" color="primary" className="w-224 mx-auto mt-16" aria-label="LOG IN"
+                                    <Button variant="contained" color="primary" className="w-224 mx-auto mt-16" aria-label="LOG IN"
                                             disabled={!this.canBeSubmitted()}>
                                         LOGIN
                                     </Button>
@@ -115,12 +115,12 @@ class LoginPage extends Component {
                                     <Divider className="w-32"/>
                                 </div>
 
-                                <Button variant="raised" color="secondary" size="small"
+                                <Button variant="contained" color="secondary" size="small"
                                         className="normal-case w-192 mb-8">
                                     Log in with Google
                                 </Button>
 
-                                <Button variant="raised" color="primary" size="small"
+                                <Button variant="contained" color="primary" size="small"
                                         className="normal-case w-192">
                                     Log in with Facebook
                                 </Button>

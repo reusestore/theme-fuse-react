@@ -3,9 +3,9 @@ import {injectReducer} from 'store';
 
 const withReducer = (key, reducer) => WrappedComponent =>
     class extends React.PureComponent {
-        constructor()
+        constructor(props)
         {
-            super();
+            super(props);
             injectReducer(key, reducer);
         };
 

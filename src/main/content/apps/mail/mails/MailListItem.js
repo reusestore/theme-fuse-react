@@ -79,9 +79,9 @@ class MailListItem extends Component {
                                     {mail.from.name[0]}
                                 </Avatar>
                             )}
-                            <Typography variant="subheading">{mail.from.name}</Typography>
+                            <Typography variant="subtitle1">{mail.from.name}</Typography>
                         </div>
-                        <Typography variant="subheading">{mail.time}</Typography>
+                        <Typography variant="subtitle1">{mail.time}</Typography>
                     </div>
 
                     <div className="flex flex-col px-16 py-0">

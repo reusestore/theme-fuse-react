@@ -21,7 +21,7 @@ class HelperClassesUI extends Component {
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
                         <FuseAnimate>
-                            <Typography variant="title">Helper Classes</Typography>
+                            <Typography variant="h6">Helper Classes</Typography>
                         </FuseAnimate>
                     </div>
                 }

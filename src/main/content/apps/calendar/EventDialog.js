@@ -86,7 +86,7 @@ class EventDialog extends Component {
 
                 <AppBar position="static">
                     <Toolbar className="flex w-full">
-                        <Typography variant="subheading" color="inherit">
+                        <Typography variant="subtitle1" color="inherit">
                             {eventDialog.type === 'new' ? 'New Event' : 'Edit Event'}
                         </Typography>
                     </Toolbar>
@@ -175,7 +175,7 @@ class EventDialog extends Component {
                 {eventDialog.type === 'new' ? (
                     <DialogActions className="justify-between pl-8 sm:pl-16">
                         <Button
-                            variant="raised"
+                            variant="contained"
                             color="primary"
                             onClick={() => {
                                 addEvent(this.state);
@@ -189,7 +189,7 @@ class EventDialog extends Component {
                 ) : (
                     <DialogActions className="justify-between pl-8 sm:pl-16">
                         <Button
-                            variant="raised"
+                            variant="contained"
                             color="primary"
                             onClick={() => {
                                 updateEvent(this.state);

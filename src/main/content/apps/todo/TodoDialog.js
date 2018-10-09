@@ -172,7 +172,7 @@ class TodoDialog extends Component {
 
                 <AppBar position="static" elevation={1}>
                     <Toolbar className="flex w-full">
-                        <Typography variant="subheading" color="inherit">
+                        <Typography variant="subtitle1" color="inherit">
                             {todoDialog.type === 'new' ? 'New Todo' : 'Edit Todo'}
                         </Typography>
                     </Toolbar>
@@ -332,7 +332,7 @@ class TodoDialog extends Component {
                 {todoDialog.type === 'new' ? (
                     <DialogActions className="justify-between pl-8 sm:pl-16">
                         <Button
-                            variant="raised"
+                            variant="contained"
                             color="primary"
                             onClick={() => {
                                 addTodo(this.state.form);
@@ -346,7 +346,7 @@ class TodoDialog extends Component {
                 ) : (
                     <DialogActions className="justify-between pl-8 sm:pl-16">
                         <Button
-                            variant="raised"
+                            variant="contained"
                             color="primary"
                             onClick={() => {
                                 updateTodo(this.state.form);

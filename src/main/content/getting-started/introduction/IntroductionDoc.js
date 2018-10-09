@@ -20,7 +20,7 @@ class IntroductionDoc extends Component {
                 }}
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="title">Introduction</Typography>
+                        <Typography variant="h6">Introduction</Typography>
                     </div>
                 }
                 content={

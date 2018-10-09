@@ -22,10 +22,10 @@ function Lists({classes})
             }}
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="title">Lists</Typography>
+                    <Typography variant="h6">Lists</Typography>
                     <Button
                         className="normal-case"
-                        variant="raised"
+                        variant="contained"
                         component="a"
                         href="https://material-ui-next.com/demos/lists"
                         target="_blank"

@@ -37,7 +37,7 @@ class MailConfirmPage extends Component {
                                     <Icon className="text-96" color="action">email</Icon>
                                 </div>
 
-                                <Typography variant="headline" className="text-center mb-16">Confirm your email address!</Typography>
+                                <Typography variant="h5" className="text-center mb-16">Confirm your email address!</Typography>
 
                                 <Typography className="text-center mb-16 w-full" color="textSecondary">
                                     A confirmation e-mail has been sent to <b>example@mymail.com</b>.

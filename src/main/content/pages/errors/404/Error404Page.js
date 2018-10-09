@@ -31,13 +31,13 @@ class Error404Page extends Component {
                 <div className="max-w-512 text-center">
 
                     <FuseAnimate animation="transition.expandIn" delay={100}>
-                        <Typography variant="display4" color="inherit" className="font-medium mb-16">
+                        <Typography variant="h1" color="inherit" className="font-medium mb-16">
                             404
                         </Typography>
                     </FuseAnimate>
 
                     <FuseAnimate delay={500}>
-                        <Typography variant="headline" color="textSecondary" className="mb-16">
+                        <Typography variant="h5" color="textSecondary" className="mb-16">
                             Sorry but we could not find the page you are looking for
                         </Typography>
                     </FuseAnimate>

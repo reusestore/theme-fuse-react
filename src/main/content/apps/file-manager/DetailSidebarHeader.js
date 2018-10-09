@@ -44,7 +44,7 @@ class DetailSidebarHeader extends Component {
 
                 <div className="p-12">
                     <FuseAnimate delay={200}>
-                        <Typography variant="subheading" className="mb-8">{selected.name}</Typography>
+                        <Typography variant="subtitle1" className="mb-8">{selected.name}</Typography>
                     </FuseAnimate>
                     <FuseAnimate delay={300}>
                         <Typography variant="caption" className="">

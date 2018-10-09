@@ -20,7 +20,7 @@ class FuseScrollbarsDoc extends Component {
                 }}
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="title">FuseScrollbars</Typography>
+                        <Typography variant="h6">FuseScrollbars</Typography>
                     </div>
                 }
                 content={

@@ -51,7 +51,7 @@ class ComingSoonPage extends Component {
 
                                 <img className="w-128 m-32" src="assets/images/logos/fuse.svg" alt="logo"/>
 
-                                <Typography variant="subheading" className="mb-16">
+                                <Typography variant="subtitle1" className="mb-16">
                                     Hey! Thank you for checking out our app.
                                 </Typography>
 
@@ -83,7 +83,7 @@ class ComingSoonPage extends Component {
                                     />
 
                                     <Button
-                                        variant="raised"
+                                        variant="contained"
                                         color="primary"
                                         className="w-224 mx-auto my-16"
                                         aria-label="Subscribe"
