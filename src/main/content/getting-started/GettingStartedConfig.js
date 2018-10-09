@@ -45,6 +45,12 @@ export const GettingStartedConfig = {
             })
         },
         {
+            path     : '/getting-started/code-splitting',
+            component: FuseLoadable({
+                loader: () => import('./code-splitting/CodeSplittingDoc')
+            })
+        },
+        {
             path     : '/getting-started/auth/firebase',
             component: FuseLoadable({
                 loader: () => import('./firebase-auth/FirebaseAuthDoc')

@@ -30,7 +30,7 @@ class ChangelogDoc extends Component {
                             <div className="flex items-center mb-32 mt-48">
                                 <Typography className="text-28" component="h2">v1.2.2</Typography>
                                 <Typography className="text-16 ml-8" color="textSecondary"
-                                            component="h3">(2018-10-10)</Typography>
+                                            component="h3">(2018-10-09)</Typography>
                             </div>
                             <div className="mb-24">
                                 <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">

@@ -720,6 +720,13 @@ export const fuseNavigationConfig = [
                 'url'  : '/getting-started/routing'
             },
             {
+                'id'   : 'fuse-react-code-splitting',
+                'title': 'Code Splitting',
+                'type' : 'item',
+                'icon' : 'call_split',
+                'url'  : '/getting-started/code-splitting'
+            },
+            {
                 'id'      : 'authentication',
                 'title'   : 'Authentication',
                 'type'    : 'collapse',
