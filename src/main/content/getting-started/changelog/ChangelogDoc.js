@@ -28,6 +28,41 @@ class ChangelogDoc extends Component {
 
                         <div>
                             <div className="flex items-center mb-32 mt-48">
+                                <Typography className="text-28" component="h2">v1.2.3</Typography>
+                                <Typography className="text-16 ml-8" color="textSecondary"
+                                            component="h3">(2018-10-14)</Typography>
+                            </div>
+                            <div className="mb-24">
+                                <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">
+                                    NEW:
+                                </Typography>
+                                <ul>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Dependency packages updated (Redux etc).
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Redux developer tools disabled on production.
+                                        </Typography>
+                                    </li>
+                                </ul>
+                                <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">
+                                    FIX:
+                                </Typography>
+                                <ul>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Redux Developer Tools Extension fix: problem occurs if the extension is enabled on Firefox
+                                        </Typography>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div className="flex items-center mb-32 mt-48">
                                 <Typography className="text-28" component="h2">v1.2.2</Typography>
                                 <Typography className="text-16 ml-8" color="textSecondary"
                                             component="h3">(2018-10-09)</Typography>
