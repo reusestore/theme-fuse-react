@@ -155,10 +155,12 @@ function getHtmlCode(markdownSource)
         {
             const demoOptions = JSON.parse(`{${content}}`);
             const name = demoOptions.demo;
+            const iframe = demoOptions.iframe ? true : false;
             const path = name.replace('pages/demos/', 'main/content/components/material-ui/material-ui-examples/');
             return (
                 `\n<FuseExample
                     className="my-24"
+                    iframe={${iframe}}
                     component="{require('${path}').default}" 
                     raw="{require('!raw-loader!${path}')}"
                     />`
@@ -173,6 +175,8 @@ function getHtmlCode(markdownSource)
         .replace(new RegExp('class=', 'g'), 'className=')
         .replace(new RegExp('`normalise`', 'g'), '\'normalise\'')
         .replace(new RegExp('className=', 'g'), "className=")
+        .replace(new RegExp('{breakpoint: &#39;xs&#39;}', 'g'), "{\"{breakpoint: 'xs'}\"}")
+        .replace(new RegExp('(<img("[^"]*"|[^>])+)(?<!\\/)>', 'g'),'$1/>')
         .replace(new RegExp('⚠️', 'g'), "<span role=\"img\" aria-label=\"unicode-symbol\">⚠</span>")
     return response;
 }

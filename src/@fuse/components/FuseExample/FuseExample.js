@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import {AppBar, Card, Icon, Tab, Tabs, withStyles} from '@material-ui/core';
 import {FuseHighlight} from '@fuse';
 import PropTypes from 'prop-types';
+import DemoFrame from './DemoFrame';
 
 const propTypes = {
     component      : PropTypes.func,
@@ -28,7 +29,7 @@ class FuseExample extends PureComponent {
 
     render()
     {
-        const {className, component: Component, raw} = this.props;
+        const {className, component: Component, raw, iframe} = this.props;
         const {value} = this.state;
         return (
             <Card className={className}>
@@ -50,19 +51,29 @@ class FuseExample extends PureComponent {
                         )}
                     </Tabs>
                 </AppBar>
-                <div>
-                    {value === 0 && Component && (
-                        <div className="p-24">
-                            <Component/>
-                        </div>
-                    )}
-                    {value === 1 && raw && (
-                        <div>
-                            <FuseHighlight component="pre" className="language-javascript">
-                                {raw}
-                            </FuseHighlight>
-                        </div>
-                    )}
+                <div className="flex justify-center">
+                    <div className={value === 0 ? 'flex flex-1' : 'hidden'}>
+                        {Component && (
+                            iframe ? (
+                                <DemoFrame>
+                                    <Component/>
+                                </DemoFrame>
+                            ) : (
+                                <div className="p-24 flex flex-1 justify-center">
+                                    <Component/>
+                                </div>
+                            )
+                        )}
+                    </div>
+                    <div className={value === 1 ? 'flex flex-1' : 'hidden'}>
+                        {raw && (
+                            <div className="flex flex-1">
+                                <FuseHighlight component="pre" className="language-javascript w-full">
+                                    {raw}
+                                </FuseHighlight>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </Card>
         )
