@@ -7,6 +7,10 @@ class firebaseService {
 
     init()
     {
+        if ( firebase.apps.length )
+        {
+            return;
+        }
         firebase.initializeApp(config);
         this.db = firebase.database();
         this.auth = firebase.auth();
