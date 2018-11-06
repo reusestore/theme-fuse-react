@@ -20,19 +20,24 @@ const styles = theme => ({
 class ChipsArray extends React.Component {
     state = {
         chipData: [
-            {key     : 0,
+            {
+                key  : 0,
                 label: 'Angular'
             },
-            {key     : 1,
+            {
+                key  : 1,
                 label: 'jQuery'
             },
-            {key     : 2,
+            {
+                key  : 2,
                 label: 'Polymer'
             },
-            {key     : 3,
+            {
+                key  : 3,
                 label: 'React'
             },
-            {key     : 4,
+            {
+                key  : 4,
                 label: 'Vue.js'
             }
         ]

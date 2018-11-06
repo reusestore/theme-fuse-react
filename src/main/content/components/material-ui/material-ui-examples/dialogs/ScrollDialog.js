@@ -8,7 +8,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 class ScrollDialog extends React.Component {
     state = {
-        open: false,
+        open  : false,
         scroll: 'paper'
     };
 

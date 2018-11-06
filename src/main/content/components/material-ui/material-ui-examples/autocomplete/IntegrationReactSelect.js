@@ -67,7 +67,8 @@ const styles = theme => ({
         display   : 'flex',
         flexWrap  : 'wrap',
         flex      : 1,
-        alignItems: 'center'
+        alignItems: 'center',
+        overflow  : 'hidden'
     },
     chip            : {
         margin: `${theme.spacing.unit / 2}px ${theme.spacing.unit / 4}px`

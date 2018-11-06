@@ -25,7 +25,7 @@ function TransitionDown(props)
 
 class DirectionSnackbar extends React.Component {
     state = {
-        open: false,
+        open      : false,
         Transition: null
     };
 

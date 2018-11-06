@@ -22,17 +22,17 @@ import MailIcon from '@material-ui/icons/Mail';
 const drawerWidth = 240;
 
 const styles = theme => ({
-    root            : {
+    root       : {
         display: 'flex'
     },
-    appBar          : {
+    appBar     : {
         zIndex    : theme.zIndex.drawer + 1,
         transition: theme.transitions.create(['width', 'margin'], {
             easing  : theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen
         })
     },
-    appBarShift     : {
+    appBarShift: {
         marginLeft: drawerWidth,
         width     : `calc(100% - ${drawerWidth}px)`,
         transition: theme.transitions.create(['width', 'margin'], {
@@ -40,41 +40,44 @@ const styles = theme => ({
             duration: theme.transitions.duration.enteringScreen
         })
     },
-    menuButton      : {
+    menuButton : {
         marginLeft : 12,
         marginRight: 36
     },
-    hide            : {
+    hide       : {
         display: 'none'
     },
-    drawerPaper     : {
-        position  : 'relative',
-        whiteSpace: 'nowrap',
+    drawer     : {
+        width     : drawerWidth,
+        flexShrink: 0,
+        whiteSpace: 'nowrap'
+    },
+    drawerOpen : {
         width     : drawerWidth,
         transition: theme.transitions.create('width', {
             easing  : theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen
         })
     },
-    drawerPaperClose: {
-        overflowX                   : 'hidden',
+    drawerClose: {
         transition                  : theme.transitions.create('width', {
             easing  : theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen
         }),
-        width                       : theme.spacing.unit * 7,
+        overflowX                   : 'hidden',
+        width                       : theme.spacing.unit * 7 + 1,
         [theme.breakpoints.up('sm')]: {
-            width: theme.spacing.unit * 9
+            width: theme.spacing.unit * 9 + 1
         }
     },
-    toolbar         : {
+    toolbar    : {
         display       : 'flex',
         alignItems    : 'center',
         justifyContent: 'flex-end',
         padding       : '0 8px',
         ...theme.mixins.toolbar
     },
-    content         : {
+    content    : {
         flexGrow: 1,
         padding : theme.spacing.unit * 3
     }
@@ -124,8 +127,15 @@ class MiniDrawer extends React.Component {
                 </AppBar>
                 <Drawer
                     variant="permanent"
+                    className={classNames(classes.drawer, {
+                        [classes.drawerOpen] : this.state.open,
+                        [classes.drawerClose]: !this.state.open
+                    })}
                     classes={{
-                        paper: classNames(classes.drawerPaper, !this.state.open && classes.drawerPaperClose)
+                        paper: classNames({
+                            [classes.drawerOpen] : this.state.open,
+                            [classes.drawerClose]: !this.state.open
+                        })
                     }}
                     open={this.state.open}
                 >

@@ -457,7 +457,7 @@ module.exports = {
     |
     */
 
-    borderColors: Object.assign({default: colors['grey-light']}, colors),
+    borderColors: global.Object.assign({default: colors['grey-light']}, colors),
 
 
     /*
@@ -1182,6 +1182,7 @@ module.exports = {
     |   - responsive
     |   - hover
     |   - focus
+    |   - focus-within
     |   - active
     |   - group-hover
     |
@@ -1216,6 +1217,8 @@ module.exports = {
         minHeight           : ['responsive'],
         minWidth            : ['responsive'],
         negativeMargin      : ['responsive'],
+        objectFit           : false,
+        objectPosition      : false,
         opacity             : ['responsive'],
         outline             : ['focus'],
         overflow            : ['responsive'],
@@ -1273,4 +1276,4 @@ module.exports = {
         separator: ':'
     }
 
-}
+};

@@ -105,8 +105,7 @@ const rmDir = function (dirPath) {
     try
     {
         var files = fs.readdirSync(dirPath);
-    }
-    catch ( e )
+    } catch ( e )
     {
         return;
     }
@@ -176,7 +175,7 @@ function getHtmlCode(markdownSource)
         .replace(new RegExp('`normalise`', 'g'), '\'normalise\'')
         .replace(new RegExp('className=', 'g'), "className=")
         .replace(new RegExp('{breakpoint: &#39;xs&#39;}', 'g'), "{\"{breakpoint: 'xs'}\"}")
-        .replace(new RegExp('(<img("[^"]*"|[^>])+)(?<!\\/)>', 'g'),'$1/>')
+        .replace(new RegExp('(<img("[^"]*"|[^>])+)(?<!\\/)>', 'g'), '$1/>')
         .replace(new RegExp('⚠️', 'g'), "<span role=\"img\" aria-label=\"unicode-symbol\">⚠</span>")
     return response;
 }
@@ -335,8 +334,7 @@ function walkSync(dir, filelist = [])
             try
             {
                 filelist = walkSync(dirFile, filelist);
-            }
-            catch ( err )
+            } catch ( err )
             {
                 if ( err.code === 'ENOTDIR' || err.code === 'EBUSY' ) filelist = [...filelist, dirFile];
                 else reject(err);
