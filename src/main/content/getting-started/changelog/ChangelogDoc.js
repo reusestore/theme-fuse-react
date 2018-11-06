@@ -39,6 +39,11 @@ class ChangelogDoc extends Component {
                                 <ul>
                                     <li>
                                         <Typography className="text-14 mb-8">
+                                            FuseDialog Component added to theme layout for easily show dialog messages via redux action.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
                                             Dependency packages updated (Material-ui, react-redux etc).
                                         </Typography>
                                     </li>

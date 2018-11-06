@@ -31,14 +31,14 @@ class FuseMessageDoc extends Component {
                     <div className="p-24 max-w-2xl mx-auto">
 
                         <Typography className="mb-16" component="p">
-                            <code className="language-bash">FuseMessage</code> is a simple snackbar trigger for easily showing messages via redux action. It is located in the <code
-                            className="language-bash">FuseLayout</code>.
+                            <code className="language-bash">FuseMessage</code> is a simple snackbar trigger for easily showing messages via redux action. It is located in the
+                            <code className="language-bash">FuseLayout</code>.
                         </Typography>
 
                         <Typography className="text-32 mt-32 mb-8" component="h2">Usage</Typography>
 
                         <Typography className="mb-16" component="p">
-                            You can show messages anywhere with dispatching the action showMessage, its using Materia-UI's snackbar so you can pass the props in the object:
+                            You can show messages anywhere with dispatching the action showMessage, its using Material-UI's snackbar so you can pass the props in the object:
                         </Typography>
 
                         <FuseHighlight component="pre" className="language-js">

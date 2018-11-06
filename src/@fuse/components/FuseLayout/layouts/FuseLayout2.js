@@ -6,7 +6,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as Actions from 'store/actions';
 import {AppBar, Paper, Hidden, Icon, IconButton, Toolbar, Drawer, MuiThemeProvider} from '@material-ui/core';
-import {FuseScrollbars, FuseMessage, FuseThemes} from '@fuse';
+import {FuseScrollbars, FuseMessage, FuseDialog, FuseThemes} from '@fuse';
 import classNames from 'classnames';
 
 const defaultProps = {};
@@ -257,6 +257,7 @@ class FuseLayout2 extends Component {
                     <FuseScrollbars className={classes.content}>
 
                         <FuseMessage/>
+                        <FuseDialog/>
 
                         <div className="flex flex-1 flex-col relative">
                             {renderRoutes(this.props.routes)}

@@ -65,6 +65,12 @@ export const ComponentsConfig = {
             })
         },
         {
+            path     : '/components/fuse-dialog',
+            component: FuseLoadable({
+                loader: () => import('./fuse-dialog/FuseDialogDoc')
+            })
+        },
+        {
             path     : '/components/fuse-animate',
             component: FuseLoadable({
                 loader: () => import('./fuse-animate/FuseAnimateDoc')

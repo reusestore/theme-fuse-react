@@ -606,6 +606,13 @@ export const fuseNavigationConfig = [
                 'url'  : '/components/fuse-message'
             },
             {
+                'id'   : 'fuse-dialog',
+                'title': 'FuseDialog',
+                'type' : 'item',
+                'icon' : 'settings_input_component',
+                'url'  : '/components/fuse-dialog'
+            },
+            {
                 'id'   : 'fuse-animate',
                 'title': 'FuseAnimate',
                 'type' : 'item',
