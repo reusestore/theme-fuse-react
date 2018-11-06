@@ -87,9 +87,11 @@ const styles = theme => ({
         '-webkit-overflow-scrolling': 'touch'
     },
     navbarWrapper      : {
-        width   : navbarWidth,
-        minWidth: navbarWidth,
-        zIndex  : 4
+        zIndex                        : 4,
+        [theme.breakpoints.up('lg')]: {
+            width   : navbarWidth,
+            minWidth: navbarWidth
+        }
     },
     navbarPaperWrapper : {},
     navbar             : {
