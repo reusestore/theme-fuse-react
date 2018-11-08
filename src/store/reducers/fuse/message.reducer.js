@@ -8,7 +8,8 @@ const initialState = {
             horizontal: 'center'
         },
         autoHideDuration: 6000,
-        message         : "Hi"
+        message         : "Hi",
+        variant         : null
     }
 };
 
@@ -18,10 +19,9 @@ const message = function (state = initialState, action) {
         case Actions.SHOW_MESSAGE:
         {
             return {
-                ...state,
                 state  : true,
                 options: {
-                    ...state.options,
+                    ...initialState.options,
                     ...action.options
                 }
             };

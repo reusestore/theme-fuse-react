@@ -44,11 +44,13 @@ class FuseMessageDoc extends Component {
                         <FuseHighlight component="pre" className="language-js">
                             {`
                                     <Button onClick={() => this.props.showMessage({
-                                        message     : 'Hi, how are you?',
+                                        message     : 'Hi, how are you?',//text or html
+                                        autoHideDuration: 6000,//ms
                                         anchorOrigin: {
-                                            vertical  : 'top',
-                                            horizontal: 'right'
-                                        }
+                                            vertical  : 'top',//top bottom
+                                            horizontal: 'right'//left center right
+                                        },
+                                        variant: 'success'//success error info warning null
                                     })}>
                                         Top - Right
                                     </Button>
@@ -57,60 +59,99 @@ class FuseMessageDoc extends Component {
 
                         <Typography className="text-32 mt-32 mb-8" component="h2">Example</Typography>
 
-                        <Button onClick={() => this.props.showMessage({
-                            message     : 'Hi, how are you?',
-                            anchorOrigin: {
-                                vertical  : 'top',
-                                horizontal: 'right'
-                            }
-                        })}>
-                            Top - Right
-                        </Button>
-                        <Button onClick={() => this.props.showMessage({
-                            message     : 'Hi, how are you?',
-                            anchorOrigin: {
-                                vertical  : 'top',
-                                horizontal: 'center'
-                            }
-                        })}>
-                            Top-Center
-                        </Button>
-                        <Button onClick={() => this.props.showMessage({
-                            message     : 'Hi, how are you?',
-                            anchorOrigin: {
-                                vertical  : 'top',
-                                horizontal: 'left'
-                            }
-                        })}>
-                            Top-Left
-                        </Button>
-                        <Button onClick={() => this.props.showMessage({
-                            message     : 'Hi, how are you?',
-                            anchorOrigin: {
-                                vertical  : 'bottom',
-                                horizontal: 'right'
-                            }
-                        })}>
-                            Bottom-Right
-                        </Button>
-                        <Button onClick={() => this.props.showMessage({
-                            message     : 'Hi, how are you?',
-                            anchorOrigin: {
-                                vertical  : 'bottom',
-                                horizontal: 'center'
-                            }
-                        })}>
-                            Bottom-Center
-                        </Button>
-                        <Button onClick={() => this.props.showMessage({
-                            message     : 'Hi, how are you?',
-                            anchorOrigin: {
-                                vertical  : 'bottom',
-                                horizontal: 'left'
-                            }
-                        })}>
-                            Bottom-Left
-                        </Button>
+                        <Typography className="text-24 mt-32 mb-8" component="h2">Position</Typography>
+
+                        <div>
+
+                            <Button onClick={() => this.props.showMessage({
+                                message     : 'Hi, how are you?',
+                                anchorOrigin: {
+                                    vertical  : 'top',
+                                    horizontal: 'right'
+                                }
+                            })}>
+                                Top - Right
+                            </Button>
+                            <Button onClick={() => this.props.showMessage({
+                                message     : 'Hi, how are you?',
+                                anchorOrigin: {
+                                    vertical  : 'top',
+                                    horizontal: 'center'
+                                }
+                            })}>
+                                Top-Center
+                            </Button>
+                            <Button onClick={() => this.props.showMessage({
+                                message     : 'Hi, how are you?',
+                                anchorOrigin: {
+                                    vertical  : 'top',
+                                    horizontal: 'left'
+                                }
+                            })}>
+                                Top-Left
+                            </Button>
+                            <Button onClick={() => this.props.showMessage({
+                                message     : 'Hi, how are you?',
+                                anchorOrigin: {
+                                    vertical  : 'bottom',
+                                    horizontal: 'right'
+                                }
+                            })}>
+                                Bottom-Right
+                            </Button>
+                            <Button onClick={() => this.props.showMessage({
+                                message     : 'Hi, how are you?',
+                                anchorOrigin: {
+                                    vertical  : 'bottom',
+                                    horizontal: 'center'
+                                }
+                            })}>
+                                Bottom-Center
+                            </Button>
+                            <Button onClick={() => this.props.showMessage({
+                                message     : 'Hi, how are you?',
+                                anchorOrigin: {
+                                    vertical  : 'bottom',
+                                    horizontal: 'left'
+                                }
+                            })}>
+                                Bottom-Left
+                            </Button>
+                        </div>
+
+                        <Typography className="text-24 mt-32 mb-8" component="h2">Variants</Typography>
+
+                        <div>
+                            <Button onClick={() => this.props.showMessage({
+                                message: 'Hi, how are you?'
+                            })}>
+                                Default
+                            </Button>
+                            <Button onClick={() => this.props.showMessage({
+                                message: 'Hi, how are you?',
+                                variant: 'success'
+                            })}>
+                                Success
+                            </Button>
+                            <Button onClick={() => this.props.showMessage({
+                                message: 'Hi, how are you?',
+                                variant: 'warning'
+                            })}>
+                                Warning
+                            </Button>
+                            <Button onClick={() => this.props.showMessage({
+                                message: 'Hi, how are you?',
+                                variant: 'error'
+                            })}>
+                                Error
+                            </Button>
+                            <Button onClick={() => this.props.showMessage({
+                                message: 'Hi, how are you?',
+                                variant: 'info'
+                            })}>
+                                Info
+                            </Button>
+                        </div>
                     </div>
                 }
             />

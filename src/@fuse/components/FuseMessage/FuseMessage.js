@@ -1,21 +1,45 @@
 import React, {Component} from 'react';
-import {Snackbar, IconButton, withStyles, Icon} from '@material-ui/core';
+import {Snackbar, IconButton, withStyles, Icon, SnackbarContent} from '@material-ui/core';
+import {green, amber, blue, red} from '@material-ui/core/colors';
 import * as Actions from 'store/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import classNames from 'classnames';
 
 const styles = theme => ({
-    root : {},
-    close: {}
+    root   : {},
+    success: {
+        backgroundColor: green[600],
+        color          : '#ffffff'
+    },
+    error  : {
+        backgroundColor: theme.palette.error.dark,
+        color          : theme.palette.getContrastText(theme.palette.error.dark)
+    },
+    info   : {
+        backgroundColor: blue[600],
+        color          : '#ffffff'
+    },
+    warning: {
+        backgroundColor: amber[600],
+        color          : '#ffffff'
+    }
 });
+
+const variantIcon = {
+    success: "check_circle",
+    warning: "warning",
+    error  : "error_outline",
+    info   : "info"
+};
 
 class FuseMessage extends Component {
     render()
     {
-        const {classes} = this.props;
+        const {classes, options} = this.props;
         return (
             <Snackbar
-                {...this.props.options}
+                {...options}
                 open={this.props.state}
                 onClose={this.props.hideMessage}
                 classes={{
@@ -28,18 +52,29 @@ class FuseMessage extends Component {
                         body2: 'div'
                     }
                 }}
-                action={[
-                    <IconButton
-                        key="close"
-                        aria-label="Close"
-                        color="inherit"
-                        className={classes.close}
-                        onClick={this.props.hideMessage}
-                    >
-                        <Icon>close</Icon>
-                    </IconButton>
-                ]}
-            />
+            >
+                <SnackbarContent
+                    className={classNames(classes[options.variant])}
+                    message={
+                        <div className="flex items-center">
+                            {variantIcon[options.variant] && (
+                                <Icon className="mr-8" color="inherit">{variantIcon[options.variant]}</Icon>
+                            )}
+                            {options.message}
+                        </div>
+                    }
+                    action={[
+                        <IconButton
+                            key="close"
+                            aria-label="Close"
+                            color="inherit"
+                            onClick={this.props.hideMessage}
+                        >
+                            <Icon>close</Icon>
+                        </IconButton>
+                    ]}
+                />
+            </Snackbar>
         );
     }
 }
