@@ -256,7 +256,6 @@ class FuseLayout2 extends Component {
 
                     <FuseScrollbars className={classes.content}>
 
-                        <FuseMessage/>
                         <FuseDialog/>
 
                         <div className="flex flex-1 flex-col relative">
@@ -279,6 +278,8 @@ class FuseLayout2 extends Component {
                 {layoutConfig.rightSidePanel.display && (
                     rightSidePanel
                 )}
+
+                <FuseMessage/>
             </div>
         );
     }

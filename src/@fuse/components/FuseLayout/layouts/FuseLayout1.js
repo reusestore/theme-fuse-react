@@ -400,7 +400,6 @@ class FuseLayout1 extends Component {
                                         )}
 
                                         <div className={classes.content}>
-                                            <FuseMessage/>
                                             <FuseDialog/>
                                             {renderRoutes(this.props.routes)}
                                             {children}
@@ -434,6 +433,8 @@ class FuseLayout1 extends Component {
                         {layoutConfig.rightSidePanel.display && (
                             rightSidePanel
                         )}
+
+                        <FuseMessage/>
                     </div>
                 );
             }
@@ -469,7 +470,6 @@ class FuseLayout1 extends Component {
                                             toolbarTemplate
                                         )}
 
-                                        <FuseMessage/>
                                         <FuseDialog/>
 
                                         {renderRoutes(this.props.routes)}
@@ -500,6 +500,8 @@ class FuseLayout1 extends Component {
                         {layoutConfig.rightSidePanel.display && (
                             rightSidePanel
                         )}
+
+                        <FuseMessage/>
                     </div>
                 );
             }

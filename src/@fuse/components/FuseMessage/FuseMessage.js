@@ -5,9 +5,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 const styles = theme => ({
-    root : {
-        position: 'absolute'
-    },
+    root : {},
     close: {}
 });
 
