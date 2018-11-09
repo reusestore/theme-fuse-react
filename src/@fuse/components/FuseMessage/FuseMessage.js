@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Snackbar, IconButton, withStyles, Icon, SnackbarContent} from '@material-ui/core';
-import {green, amber, blue, red} from '@material-ui/core/colors';
+import {green, amber, blue} from '@material-ui/core/colors';
 import * as Actions from 'store/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
