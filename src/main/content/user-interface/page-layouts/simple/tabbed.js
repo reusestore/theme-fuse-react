@@ -10,7 +10,8 @@ const styles = theme => ({
         padding: 0
     },
     tabsRoot     : {
-        height: 64
+        height: 64,
+        width : '100%'
     },
     tabRoot      : {
         height: 64
