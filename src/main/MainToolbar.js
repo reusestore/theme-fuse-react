@@ -16,7 +16,7 @@ const styles = theme => ({
         alignItems: 'center',
         width     : '100%'
     },
-    seperator: {
+    separator: {
         width          : 1,
         height         : 64,
         backgroundColor: theme.palette.divider
@@ -136,21 +136,21 @@ class MainToolbar extends Component {
                         )}
                     </Popover>
 
-                    <div className={classes.seperator}/>
+                    <div className={classes.separator}/>
 
                     <IconButton className="w-64 h-64">
                         <Icon>search</Icon>
                     </IconButton>
 
                     <Hidden lgUp>
-                        <div className={classes.seperator}/>
+                        <div className={classes.separator}/>
 
                         <IconButton className="w-64 h-64" onClick={openChatPanel}>
                             <Icon>chat</Icon>
                         </IconButton>
                     </Hidden>
 
-                    <div className={classes.seperator}/>
+                    <div className={classes.separator}/>
 
                     <IconButton className="w-64 h-64" onClick={() => toggleQuickPanel(true)}>
                         <Icon>format_list_bulleted</Icon>

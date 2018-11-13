@@ -14,7 +14,7 @@ const styles = theme => ({
     selectMenuButton  : {
         width: 24
     },
-    toolbarSeperator  : {
+    toolbarSeparator  : {
         height     : 48,
         width      : 1,
         borderRight: '1px solid ' + theme.palette.divider,
@@ -155,7 +155,7 @@ class MailToolbar extends Component {
                 {selectedMailIds.length > 0 && (
                     <React.Fragment>
 
-                        <div className={classes.toolbarSeperator}/>
+                        <div className={classes.toolbarSeparator}/>
 
                         <IconButton
                             onClick={(ev) => setFolderOnSelectedMails(4)}
