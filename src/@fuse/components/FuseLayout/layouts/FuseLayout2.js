@@ -191,7 +191,7 @@ class FuseLayout2 extends Component {
             <MuiThemeProvider theme={FuseThemes[settings.theme.toolbar]}>
                 <AppBar id="fuse-toolbar" className={classNames(classes.toolbarWrapper)} color="default">
                     <Toolbar className="p-0">
-                        {layoutConfig.navbar.position === 'left' && (
+                        {layoutConfig.navbar.display && layoutConfig.navbar.position === 'left' && (
                             <Hidden lgUp>
                                 <IconButton
                                     className={classNames(classes.navbarButton, 'w-64 h-64 rounded-none', layoutConfig.navbar.position)}
@@ -205,7 +205,7 @@ class FuseLayout2 extends Component {
                         <div className={classes.toolbar}>
                             {toolbar}
                         </div>
-                        {layoutConfig.navbar.position === 'right' && (
+                        {layoutConfig.navbar.display && layoutConfig.navbar.position === 'right' && (
                             <Hidden lgUp>
                                 <IconButton
                                     className={classNames(classes.navbarButton, 'w-64 h-64 rounded-none', layoutConfig.navbar.position)}
