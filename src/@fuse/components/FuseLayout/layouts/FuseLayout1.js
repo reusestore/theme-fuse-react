@@ -87,7 +87,7 @@ const styles = theme => ({
         '-webkit-overflow-scrolling': 'touch'
     },
     navbarWrapper      : {
-        zIndex                        : 4,
+        zIndex                      : 4,
         [theme.breakpoints.up('lg')]: {
             width   : navbarWidth,
             minWidth: navbarWidth
@@ -123,8 +123,10 @@ const styles = theme => ({
         right: 0
     },
     navbarWrapperFolded: {
-        width   : 64,
-        minWidth: 64
+        [theme.breakpoints.up('lg')]: {
+            width   : 64,
+            minWidth: 64
+        }
     },
     navbarFolded       : {
         position: 'absolute',
