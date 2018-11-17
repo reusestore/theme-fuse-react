@@ -13,7 +13,7 @@ const styles = theme => ({
     }
 });
 
-class RegularLoginTab extends Component {
+class JWTLoginTab extends Component {
     state = {
         canSubmit: false
     };
@@ -169,4 +169,4 @@ function mapStateToProps({auth})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(RegularLoginTab)));
+export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(JWTLoginTab)));

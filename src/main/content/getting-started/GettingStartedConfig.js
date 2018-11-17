@@ -51,6 +51,12 @@ export const GettingStartedConfig = {
             })
         },
         {
+            path     : '/getting-started/auth/jwt',
+            component: FuseLoadable({
+                loader: () => import('./jwt-auth/jwtAuthDoc')
+            })
+        },
+        {
             path     : '/getting-started/auth/firebase',
             component: FuseLoadable({
                 loader: () => import('./firebase-auth/FirebaseAuthDoc')

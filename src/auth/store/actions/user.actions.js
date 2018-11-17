@@ -7,6 +7,7 @@ import * as Actions from 'store/actions';
 import firebase from 'firebase/app';
 import firebaseService from 'firebaseService';
 import auth0Service from 'auth0Service';
+import jwtService from 'jwtService';
 
 export const SET_USER_DATA = '[USER] SET DATA';
 export const REMOVE_USER_DATA = '[USER] REMOVE DATA';
@@ -158,31 +159,35 @@ export function removeUserData()
  */
 export function logoutUser()
 {
-    history.push({
-        pathname: '/'
-    });
 
     return (dispatch, getState) => {
 
         const user = getState().auth.user;
 
-        if ( user.role !== 'guest' )
+        if ( user.role === 'guest' )
         {
-            switch ( user.from )
+            return null;
+        }
+
+        history.push({
+            pathname: '/'
+        });
+
+        switch ( user.from )
+        {
+            case 'firebase':
             {
-                case 'firebase':
-                {
-                    firebaseService.signOut();
-                    break;
-                }
-                case 'auth0':
-                {
-                    auth0Service.logout();
-                    break;
-                }
-                default:
-                {
-                }
+                firebaseService.signOut();
+                break;
+            }
+            case 'auth0':
+            {
+                auth0Service.logout();
+                break;
+            }
+            default:
+            {
+                jwtService.logout();
             }
         }
 
@@ -230,11 +235,19 @@ function updateUserData(user)
                     .catch(error => {
                         store.dispatch(Actions.showMessage({message: error.message}));
                     });
-            })
+            });
             break;
         }
         default:
         {
+            jwtService.updateUserData(user)
+                .then(() => {
+                    store.dispatch(Actions.showMessage({message: "User data saved with api"}));
+                })
+                .catch(error => {
+                    store.dispatch(Actions.showMessage({message: error.message}));
+                });
+            break;
         }
     }
 }

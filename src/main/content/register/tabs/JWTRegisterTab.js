@@ -13,7 +13,7 @@ const styles = theme => ({
     }
 });
 
-class RegularRegisterTab extends Component {
+class JWTRegisterTab extends Component {
     state = {
         canSubmit: false
     };
@@ -168,4 +168,4 @@ function mapStateToProps({auth})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(RegularRegisterTab)));
+export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(JWTRegisterTab)));

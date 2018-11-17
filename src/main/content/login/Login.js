@@ -4,7 +4,7 @@ import {withStyles} from '@material-ui/core/styles/index';
 import {Card, CardContent, Typography, Icon, Tabs, Tab} from '@material-ui/core';
 import classNames from 'classnames';
 import {FuseAnimate} from '@fuse';
-import RegularLoginTab from './tabs/RegularLoginTab';
+import JWTLoginTab from './tabs/JWTLoginTab';
 import FirebaseLoginTab from './tabs/FirebaseLoginTab';
 import Auth0LoginTab from './tabs/Auth0LoginTab';
 
@@ -75,6 +75,11 @@ class Login extends Component {
                                 className="mb-32"
                             >
                                 <Tab
+                                    icon={<img className="h-40 p-4 bg-black rounded-12" src="assets/images/logos/jwt.svg" alt="firebase"/>}
+                                    className="min-w-0"
+                                    label="JWT"
+                                />
+                                <Tab
                                     icon={<img className="h-40" src="assets/images/logos/firebase.svg" alt="firebase"/>}
                                     className="min-w-0"
                                     label="Firebase"
@@ -84,16 +89,11 @@ class Login extends Component {
                                     className="min-w-0"
                                     label="Auth0"
                                 />
-                                <Tab
-                                    icon={<Icon className="h-40 text-40">security</Icon>}
-                                    className="min-w-0"
-                                    label="Regular"
-                                />
                             </Tabs>
 
-                            {tabValue === 0 && <FirebaseLoginTab/>}
-                            {tabValue === 1 && <Auth0LoginTab/>}
-                            {tabValue === 2 && <RegularLoginTab/>}
+                            {tabValue === 0 && <JWTLoginTab/>}
+                            {tabValue === 1 && <FirebaseLoginTab/>}
+                            {tabValue === 2 && <Auth0LoginTab/>}
 
                             <div className="flex flex-col items-center justify-center pt-32">
                                 <span className="font-medium">Don't have an account?</span>

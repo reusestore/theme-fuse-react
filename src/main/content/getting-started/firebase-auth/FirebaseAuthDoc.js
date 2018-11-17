@@ -43,6 +43,10 @@ class FirebaseAuthDoc extends Component {
                             </li>
                         </ul>
 
+                        <Typography className="mt-32 mb-16" component="p">
+                            Related Service folder is located at <code>/src/firebaseService</code>
+                        </Typography>
+
                         <Typography className="my-24 italic" component="p" color="textSecondary">
                             Note: Make sure {`<Router>`} component wrapped with {`<Auth>`} component in 'index.js'.
                         </Typography>

@@ -740,6 +740,12 @@ export const fuseNavigationConfig = [
                 'icon'    : 'lock',
                 'children': [
                     {
+                        'id'   : 'jwt-auth',
+                        'title': 'JWT',
+                        'type' : 'item',
+                        'url'  : '/getting-started/auth/jwt'
+                    },
+                    {
                         'id'   : 'firebase-auth',
                         'title': 'Firebase',
                         'type' : 'item',

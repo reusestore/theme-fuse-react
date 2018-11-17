@@ -1,6 +1,12 @@
 import mock from './mock';
 import _ from '@lodash';
 import {FuseUtils} from '@fuse';
+import jwt from 'jsonwebtoken';
+
+const jwtConfig = {
+    "secret"   : "some-secret-code-goes-here",
+    "expiresIn": "2 days" // A numeric value is interpreted as a seconds count. If you use a string be sure you provide the time units (days, hours, etc)
+};
 
 let authDB = {
     users: [
@@ -101,7 +107,9 @@ let authDB = {
 mock.onGet('/api/auth').reply((config) => {
     const data = JSON.parse(config.data);
     const {email, password} = data;
-    const user = authDB.users.find(_user => _user.data.email === email);
+
+    const user = _.cloneDeep(authDB.users.find(_user => _user.data.email === email));
+
     const error = {
         email   : user ? null : 'Check your username/email',
         password: user && user.password === password ? null : 'Check your password'
@@ -109,8 +117,15 @@ mock.onGet('/api/auth').reply((config) => {
 
     if ( !error.email && !error.password && !error.displayName )
     {
-        const response = _.cloneDeep(user);
-        delete response['password'];
+        delete user['password'];
+
+        const access_token = jwt.sign({id: user.uuid}, jwtConfig.secret, {expiresIn: jwtConfig.expiresIn});
+
+        const response = {
+            "user"        : user,
+            "access_token": access_token
+        };
+
         return [200, response];
     }
     else
@@ -119,8 +134,34 @@ mock.onGet('/api/auth').reply((config) => {
     }
 });
 
-mock.onPost('/api/auth/register').reply((config) => {
+mock.onGet('/api/auth/access-token').reply((config) => {
     const data = JSON.parse(config.data);
+    const {access_token} = data;
+
+    try
+    {
+        const {id} = jwt.verify(access_token, jwtConfig.secret);
+
+        const user = _.cloneDeep(authDB.users.find(_user => _user.uuid === id));
+        delete user['password'];
+
+        const updatedAccessToken = jwt.sign({id: user.uuid}, jwtConfig.secret, {expiresIn: jwtConfig.expiresIn});
+
+        const response = {
+            "user"        : user,
+            "access_token": updatedAccessToken
+        };
+
+        return [200, response];
+    } catch ( e )
+    {
+        const error = "Invalid access token detected";
+        return [401, {error}];
+    }
+});
+
+mock.onPost('/api/auth/register').reply((request) => {
+    const data = JSON.parse(request.data);
     const {displayName, password, email} = data;
     const isEmailExists = authDB.users.find(_user => _user.data.email === email);
     const error = {
@@ -149,11 +190,35 @@ mock.onPost('/api/auth/register').reply((config) => {
             newUser
         ];
 
-        const response = newUser;
+        const user = _.cloneDeep(newUser);
+        delete user['password'];
+
+        const access_token = jwt.sign({id: user.uuid}, jwtConfig.secret, {expiresIn: jwtConfig.expiresIn});
+
+        const response = {
+            "user"        : user,
+            "access_token": access_token
+        };
+
         return [200, response];
     }
     else
     {
         return [200, {error}];
     }
+});
+
+mock.onPost('/api/auth/user/update').reply((config) => {
+    const data = JSON.parse(config.data);
+    const {user} = data;
+
+    authDB.users = authDB.users.map((_user) => {
+        if ( user.uuid === user.id )
+        {
+            return _.merge(_user, user);
+        }
+        return _user
+    });
+
+    return [200, user];
 });

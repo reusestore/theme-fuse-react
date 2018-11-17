@@ -51,7 +51,8 @@
         "redux": "4.0.1",
         "redux-thunk": "2.3.0",
         "typeface-muli": "0.0.54",
-        "velocity-react": "1.4.1"
+        "velocity-react": "1.4.1",
+        "jsonwebtoken": "8.3.0"
     },
     "scripts": {
         "start": "yarn run build-css-helpers && cross-env NODE_PATH=src react-scripts start",

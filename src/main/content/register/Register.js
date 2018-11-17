@@ -9,7 +9,7 @@ import classNames from 'classnames';
 import {FuseAnimate} from '@fuse';
 import FirebaseRegisterTab from './tabs/FirebaseRegisterTab';
 import Auth0RegisterTab from './tabs/Auth0RegisterTab';
-import RegularRegisterTab from './tabs/RegularRegisterTab';
+import JWTRegisterTab from './tabs/JWTRegisterTab';
 
 const styles = theme => ({
     root : {
@@ -113,6 +113,11 @@ class Register extends Component {
                                 className="mb-32"
                             >
                                 <Tab
+                                    icon={<img className="h-40 p-4 bg-black rounded-12" src="assets/images/logos/jwt.svg" alt="firebase"/>}
+                                    className="min-w-0"
+                                    label="JWT"
+                                />
+                                <Tab
                                     icon={<img className="h-40" src="assets/images/logos/firebase.svg" alt="firebase"/>}
                                     className="min-w-0"
                                     label="Firebase"
@@ -122,16 +127,11 @@ class Register extends Component {
                                     className="min-w-0"
                                     label="Auth0"
                                 />
-                                <Tab
-                                    icon={<Icon className="h-40 text-40">security</Icon>}
-                                    className="min-w-0"
-                                    label="Regular"
-                                />
                             </Tabs>
 
-                            {tabValue === 0 && <FirebaseRegisterTab/>}
-                            {tabValue === 1 && <Auth0RegisterTab/>}
-                            {tabValue === 2 && <RegularRegisterTab/>}
+                            {tabValue === 0 && <JWTRegisterTab/>}
+                            {tabValue === 1 && <FirebaseRegisterTab/>}
+                            {tabValue === 2 && <Auth0RegisterTab/>}
 
                             <div className="flex flex-col items-center justify-center pt-32 pb-24">
                                 <span className="font-medium">Already have an account?</span>

@@ -29,7 +29,7 @@ class FirebaseLoginTab extends Component {
     };
 
     onSubmit = (model) => {
-        this.props.loginWithFireBase(model);
+        this.props.submitLoginWithFireBase(model);
     };
 
     componentDidUpdate(prevProps, prevState)
@@ -126,7 +126,7 @@ class FirebaseLoginTab extends Component {
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-        loginWithFireBase: Actions.loginWithFireBase
+        submitLoginWithFireBase: Actions.submitLoginWithFireBase
     }, dispatch);
 }
 
