@@ -141,7 +141,7 @@ function SelectionControls({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/selection-controls/CustomizedSwitches.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/selection-controls/CustomizedSwitches.js')}
                     /></Typography>
-                    {/*    <Typography className="text-32 mt-32 mb-8" component="h2">Label placement</Typography>
+                    {/*  <Typography className="text-32 mt-32 mb-8" component="h2">Label placement</Typography>
                     <Typography className="mb-16" component="div">You can change the placement of the label:</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"

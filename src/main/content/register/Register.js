@@ -4,7 +4,7 @@ import * as Actions from 'auth/store/actions/index';
 import {bindActionCreators} from 'redux';
 import {Link, withRouter} from 'react-router-dom';
 import {withStyles} from '@material-ui/core/styles/index';
-import {Card, CardContent, Icon, Tab, Tabs, Typography} from '@material-ui/core';
+import {Card, CardContent, Tab, Tabs, Typography} from '@material-ui/core';
 import classNames from 'classnames';
 import {FuseAnimate} from '@fuse';
 import FirebaseRegisterTab from './tabs/FirebaseRegisterTab';

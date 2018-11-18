@@ -28,6 +28,68 @@ class ChangelogDoc extends Component {
 
                         <div>
                             <div className="flex items-center mb-32 mt-48">
+                                <Typography className="text-28" component="h2">v1.2.7</Typography>
+                                <Typography className="text-16 ml-8" color="textSecondary"
+                                            component="h3">(2018-11-18)</Typography>
+                            </div>
+                            <div className="mb-24">
+                                <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">
+                                    NEW:
+                                </Typography>
+                                <ul>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            JWT support added to Regular Authentication.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            FuseMessage variations added (error, success, alert, info).
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Dependency packages updated (Material-ui etc).
+                                        </Typography>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="mb-24">
+                                <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">
+                                    FIX:
+                                </Typography>
+                                <ul>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            FuseMessage relocated (position changed absolute to fixed).
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Hide navbar button when navbar display set to false on mobile.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Layout-1 folded navigation mobile fix.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            react-router-config react-router-dom versions matched.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            tabs style fix for tabbed page layouts.
+                                        </Typography>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div className="flex items-center mb-32 mt-48">
                                 <Typography className="text-28" component="h2">v1.2.6</Typography>
                                 <Typography className="text-16 ml-8" color="textSecondary"
                                             component="h3">(2018-11-07)</Typography>

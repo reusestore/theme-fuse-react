@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Link, withRouter} from 'react-router-dom';
 import {withStyles} from '@material-ui/core/styles/index';
-import {Card, CardContent, Typography, Icon, Tabs, Tab} from '@material-ui/core';
+import {Card, CardContent, Typography, Tabs, Tab} from '@material-ui/core';
 import classNames from 'classnames';
 import {FuseAnimate} from '@fuse';
 import JWTLoginTab from './tabs/JWTLoginTab';

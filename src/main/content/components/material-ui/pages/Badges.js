@@ -49,6 +49,14 @@ function Badges({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/badges/SimpleBadge.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/badges/SimpleBadge.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Badge visibility</Typography>
+                    <Typography className="mb-16" component="div">The visibility of badges can be controlled using the <code>invisible</code> property.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/badges/BadgeVisibility.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/badges/BadgeVisibility.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Customized Badge</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"

@@ -17,7 +17,7 @@ class SimpleExample extends Component {
     render()
     {
         return (
-            <div>
+            <div className="w-full">
                 <Typography className="h2 mb-16">Simple Map Example</Typography>
                 <div className="w-full h-512">
                     <GoogleMap
