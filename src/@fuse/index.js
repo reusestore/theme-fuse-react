@@ -16,6 +16,7 @@ export {default as FuseCountdown} from './components/FuseCountdown/FuseCountdown
 export {default as FuseHighlight} from './components/FuseHighlight/FuseHighlight';
 export {default as FuseExample} from './components/FuseExample/FuseExample';
 export {default as FuseShortcuts} from './components/FuseShortcuts/FuseShortcuts';
+export {default as FuseSearch} from './components/FuseSearch/FuseSearch';
 export {default as FuseMessage} from './components/FuseMessage/FuseMessage';
 export {default as FuseDialog} from './components/FuseDialog/FuseDialog';
 export {default as FuseAnimate} from './components/FuseAnimate/FuseAnimate';

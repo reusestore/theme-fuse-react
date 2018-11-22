@@ -7,7 +7,7 @@ import * as quickPanelActions from 'main/quickPanel/store/actions';
 import * as authActions from 'auth/store/actions';
 import * as chatPanelActions from 'main/chatPanel/store/actions';
 import {bindActionCreators} from 'redux';
-import {FuseShortcuts, FuseAnimate} from '@fuse';
+import {FuseShortcuts, FuseAnimate, FuseSearch} from '@fuse';
 import {Link} from 'react-router-dom';
 
 const styles = theme => ({
@@ -138,9 +138,7 @@ class MainToolbar extends Component {
 
                     <div className={classes.separator}/>
 
-                    <IconButton className="w-64 h-64">
-                        <Icon>search</Icon>
-                    </IconButton>
+                    <FuseSearch/>
 
                     <Hidden lgUp>
                         <div className={classes.separator}/>
