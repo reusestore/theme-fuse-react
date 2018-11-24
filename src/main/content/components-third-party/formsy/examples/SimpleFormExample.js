@@ -36,7 +36,7 @@ class SimpleFormExample extends Component {
                 >
 
                     <TextFieldFormsy
-                        className="mb-24"
+                        className="mb-16"
                         type="text"
                         name="name"
                         label="Name"
@@ -50,7 +50,7 @@ class SimpleFormExample extends Component {
                     />
 
                     <TextFieldFormsy
-                        className="my-24"
+                        className="my-16"
                         type="text"
                         name="email"
                         label="Email"
@@ -59,8 +59,60 @@ class SimpleFormExample extends Component {
                         required
                     />
 
+                    <TextFieldFormsy
+                        className="my-16"
+                        type="text"
+                        name="name"
+                        label="Name (Outlined)"
+                        validations={{
+                            minLength: 4
+                        }}
+                        validationErrors={{
+                            minLength: 'Min character length is 4'
+                        }}
+                        required
+                        variant="outlined"
+                    />
+
+                    <TextFieldFormsy
+                        className="my-16"
+                        type="text"
+                        name="email"
+                        label="Email (Outlined)"
+                        validations="isEmail"
+                        validationError="This is not a valid email"
+                        required
+                        variant="outlined"
+                    />
+
+                    <TextFieldFormsy
+                        className="my-16"
+                        type="text"
+                        name="name"
+                        label="Name (Filled)"
+                        validations={{
+                            minLength: 4
+                        }}
+                        validationErrors={{
+                            minLength: 'Min character length is 4'
+                        }}
+                        required
+                        variant="filled"
+                    />
+
+                    <TextFieldFormsy
+                        className="my-16"
+                        type="text"
+                        name="email"
+                        label="Email (Filled)"
+                        validations="isEmail"
+                        validationError="This is not a valid email"
+                        required
+                        variant="filled"
+                    />
+
                     <RadioGroupFormsy
-                        className="my-24"
+                        className="my-16"
                         name="gender"
                         label="Gender"
                         validations="equals:female"
@@ -79,7 +131,7 @@ class SimpleFormExample extends Component {
                     </RadioGroupFormsy>
 
                     <SelectFormsy
-                        className="my-24"
+                        className="my-16"
                         name="related"
                         label="Related with"
                         value="none"
@@ -94,8 +146,42 @@ class SimpleFormExample extends Component {
                         <MenuItem value="kevin">Kevin</MenuItem>
                     </SelectFormsy>
 
+                    <SelectFormsy
+                        className="my-16"
+                        name="related"
+                        label="Related with (Outlined)"
+                        value="none"
+                        validations="equals:none"
+                        validationError="Must be None"
+                        variant="outlined"
+                    >
+                        <MenuItem value="none">
+                            <em>None</em>
+                        </MenuItem>
+                        <MenuItem value="hai">Hai</MenuItem>
+                        <MenuItem value="olivier">Olivier</MenuItem>
+                        <MenuItem value="kevin">Kevin</MenuItem>
+                    </SelectFormsy>
+
+                    <SelectFormsy
+                        className="my-16"
+                        name="related"
+                        label="Related with (Filled)"
+                        value="none"
+                        validations="equals:none"
+                        validationError="Must be None"
+                        variant="filled"
+                    >
+                        <MenuItem value="none">
+                            <em>None</em>
+                        </MenuItem>
+                        <MenuItem value="hai">Hai</MenuItem>
+                        <MenuItem value="olivier">Olivier</MenuItem>
+                        <MenuItem value="kevin">Kevin</MenuItem>
+                    </SelectFormsy>
+
                     <CheckboxFormsy
-                        className=""
+                        className="my-16"
                         name="accept"
                         label="Accept"
                         validations="equals:true"
@@ -106,7 +192,7 @@ class SimpleFormExample extends Component {
                         type="submit"
                         variant="contained"
                         color="primary"
-                        className="mx-auto mt-16"
+                        className="mx-auto my-16"
                         aria-label="LOG IN"
                         disabled={!canSubmit}
                     >
