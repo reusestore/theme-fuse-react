@@ -81,6 +81,12 @@ export const ComponentsConfig = {
             component: FuseLoadable({
                 loader: () => import('./fuse-animate-group/FuseAnimateGroupDoc')
             })
+        },
+        {
+            path     : '/components/fuse-chip-select',
+            component: FuseLoadable({
+                loader: () => import('./fuse-chip-select/FuseChipSelectDoc')
+            })
         }
     ]
 };

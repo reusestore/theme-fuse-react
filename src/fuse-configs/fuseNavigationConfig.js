@@ -47,7 +47,7 @@ export const fuseNavigationConfig = [
                         'id'   : 'e-commerce-product-detail',
                         'title': 'Product Detail',
                         'type' : 'item',
-                        'url'  : '/apps/e-commerce/products/1/printed-dress',
+                        'url'  : '/apps/e-commerce/products/1/a-walk-amongst-friends-canvas-print',
                         'exact': true
                     },
                     {
@@ -625,6 +625,13 @@ export const fuseNavigationConfig = [
                 'type' : 'item',
                 'icon' : 'settings_input_component',
                 'url'  : '/components/fuse-animate-group'
+            },
+            {
+                'id'   : 'fuse-chip-select',
+                'title': 'FuseChipSelect',
+                'type' : 'item',
+                'icon' : 'settings_input_component',
+                'url'  : '/components/fuse-chip-select'
             }
         ]
     },

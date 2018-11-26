@@ -7,22 +7,52 @@ import classNames from 'classnames';
 
 const styles = theme => ({
     root            : {
-        flexGrow: 1,
-        height  : 250
+        '& .fuse-chip-select__input': {
+            color: theme.palette.text.primary
+        },
+        '&.standard'                : {
+            '& $placeholder'   : {},
+            '& $valueContainer': {
+                paddingTop: 4
+            }
+        },
+        '&.filled'                  : {
+            '& $placeholder'   : {
+                left: 12
+            },
+            '& $valueContainer': {
+                paddingTop : 24,
+                paddingLeft: 12
+            },
+            '& $chip'          : {
+                border: "1px solid rgba(0, 0, 0, 0.12)"
+            }
+        },
+        '&.outlined'                : {
+            '& $placeholder'   : {
+                left: 12
+            },
+            '& $valueContainer': {
+                paddingLeft: 12,
+                paddingTop : 12
+            }
+        }
     },
     input           : {
         display: 'flex',
         padding: 0
     },
     valueContainer  : {
-        display   : 'flex',
-        flexWrap  : 'wrap',
-        flex      : 1,
-        alignItems: 'center',
-        padding   : '6px 4px 0 4px'
+        display      : 'flex',
+        flexWrap     : 'wrap',
+        flex         : 1,
+        alignItems   : 'center',
+        paddingBottom: 4,
+        paddingTop   : 12,
+        minHeight    : 40
     },
     chip            : {
-        margin: `${theme.spacing.unit}px ${theme.spacing.unit / 4}px`
+        margin: "4px 4px 4px 0"
     },
     chipFocused     : {
         backgroundColor: emphasize(
@@ -38,12 +68,13 @@ const styles = theme => ({
     },
     placeholder     : {
         position: 'absolute',
-        left    : 2,
-        fontSize: 16
+        left    : 0,
+        fontSize: 16,
+        margin  : 0
     },
     paper           : {
         position : 'absolute',
-        zIndex   : 1,
+        zIndex   : 2,
         marginTop: theme.spacing.unit,
         left     : 0,
         right    : 0
@@ -76,6 +107,7 @@ function Control(props)
     return (
         <TextField
             fullWidth
+            className={classNames(props.selectProps.classes.root, props.selectProps.textFieldProps.variant)}
             InputProps={{
                 inputComponent,
                 inputProps: {
@@ -178,11 +210,13 @@ class FuseChipSelect extends Component {
         return (
             this.props.variant === 'fixed' ? (
                 <Select
+                    classNamePrefix="fuse-chip-select"
                     {...this.props}
                     components={components}
                 />
             ) : (
                 <CreatableSelect
+                    classNamePrefix="fuse-chip-select"
                     {...this.props}
                     components={components}
                 />
