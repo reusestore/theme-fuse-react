@@ -62,6 +62,30 @@ class Product extends Component {
 
     componentDidMount()
     {
+        this.updateProductState();
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot)
+    {
+        if ( !_.isEqual(this.props.location, prevProps.location) )
+        {
+            this.updateProductState();
+        }
+
+        if (
+            this.props.product.data && !this.state.form ||
+            (this.props.product.data && this.state.form && this.props.product.data.id !== this.state.form.id)
+        )
+        {
+            this.updateFormState();
+        }
+    }
+
+    updateFormState = () => {
+        this.setState({form: this.props.product.data})
+    };
+
+    updateProductState = () => {
         const params = this.props.match.params;
         const {productId} = params;
 
@@ -73,15 +97,7 @@ class Product extends Component {
         {
             this.props.getProduct(this.props.match.params);
         }
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot)
-    {
-        if ( this.props.product.data && !this.state.form )
-        {
-            this.setState({form: this.props.product.data})
-        }
-    }
+    };
 
     handleChangeTab = (event, tabValue) => {
         this.setState({tabValue});

@@ -1,7 +1,7 @@
 import * as Actions from '../actions';
 
 const initialState = {
-    data: []
+    data: null
 };
 
 const productReducer = function (state = initialState, action) {

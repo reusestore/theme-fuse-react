@@ -51,6 +51,13 @@ export const fuseNavigationConfig = [
                         'exact': true
                     },
                     {
+                        'id'   : 'e-commerce-new-product',
+                        'title': 'New Product',
+                        'type' : 'item',
+                        'url'  : '/apps/e-commerce/products/new',
+                        'exact': true
+                    },
+                    {
                         'id'   : 'e-commerce-orders',
                         'title': 'Orders',
                         'type' : 'item',
