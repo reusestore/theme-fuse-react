@@ -53,6 +53,17 @@ function Autocomplete({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/autocomplete/IntegrationDownshift.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/autocomplete/IntegrationDownshift.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">react-select</Typography>
+                    <Typography className="mb-16" component="div"><img src="https://img.shields.io/github/stars/JedWatson/react-select.svg?style=social&label=Stars" alt="stars"/>
+                        <img src="https://img.shields.io/npm/dm/react-select.svg" alt="npm downloads"/></Typography>
+                    <Typography className="mb-16" component="div">In the following example, we demonstrate how to use <a
+                        href="https://github.com/JedWatson/react-select">react-select</a>.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/autocomplete/IntegrationReactSelect.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/autocomplete/IntegrationReactSelect.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">react-autosuggest</Typography>
                     <Typography className="mb-16" component="div"><img src="https://img.shields.io/github/stars/moroshko/react-autosuggest.svg?style=social&label=Stars"
                                                                        alt="stars"/>
@@ -65,17 +76,6 @@ function Autocomplete({classes})
                         iframe={false}
                         component={require('main/content/components/material-ui/material-ui-examples/autocomplete/IntegrationAutosuggest.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/autocomplete/IntegrationAutosuggest.js')}
-                    /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">react-select</Typography>
-                    <Typography className="mb-16" component="div"><img src="https://img.shields.io/github/stars/JedWatson/react-select.svg?style=social&label=Stars" alt="stars"/>
-                        <img src="https://img.shields.io/npm/dm/react-select.svg" alt="npm downloads"/></Typography>
-                    <Typography className="mb-16" component="div">In the following example, we demonstrate how to use <a
-                        href="https://github.com/JedWatson/react-select">react-select</a>.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/autocomplete/IntegrationReactSelect.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/autocomplete/IntegrationReactSelect.js')}
                     /></Typography>
 
                 </div>

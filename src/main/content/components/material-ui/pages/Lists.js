@@ -66,6 +66,13 @@ function ListItemLink(props) {
                     </FuseHighlight>
                     <Typography className="mb-16" component="div">You can find a <a href="/guides/composition/#react-router">demo with React Router following this section</a> of
                         the documentation.</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Nested List</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/lists/NestedList.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/lists/NestedList.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Folder List</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -73,19 +80,13 @@ function ListItemLink(props) {
                         component={require('main/content/components/material-ui/material-ui-examples/lists/FolderList.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/lists/FolderList.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Inset List</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Interactive</Typography>
+                    <Typography className="mb-16" component="div">Below is an interactive demo that lets you explore the visual results of the different settings:</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/lists/InsetList.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/lists/InsetList.js')}
-                    /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Nested List</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/lists/NestedList.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/lists/NestedList.js')}
+                        component={require('main/content/components/material-ui/material-ui-examples/lists/InteractiveList.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/lists/InteractiveList.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Selected ListItem</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -94,17 +95,14 @@ function ListItemLink(props) {
                         component={require('main/content/components/material-ui/material-ui-examples/lists/SelectedListItem.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/lists/SelectedListItem.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Pinned Subheader List</Typography>
-                    <Typography className="mb-16" component="div">Upon scrolling, subheaders remain pinned to the top of the screen until pushed off screen by the next
-                        subheader.</Typography>
-                    <Typography className="mb-16" component="div">This feature is relying on the CSS sticky positioning.
-                        Unfortunately it&#39;s <a href="https://caniuse.com/#search=sticky">not implemented</a> by all the browsers we are supporting. We default
-                        to <code>disableSticky</code> when not supported.</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Align list items</Typography>
+                    <Typography className="mb-16" component="div">You should change the list item alignment when displaying 3 lines or more, set
+                        the <code>alignItems=&quot;flex-start&quot;</code> property.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/lists/PinnedSubheaderList.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/lists/PinnedSubheaderList.js')}
+                        component={require('main/content/components/material-ui/material-ui-examples/lists/AlignItemsList.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/lists/AlignItemsList.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">List Controls</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Checkbox</Typography>
@@ -132,13 +130,24 @@ function ListItemLink(props) {
                         component={require('main/content/components/material-ui/material-ui-examples/lists/SwitchListSecondary.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/lists/SwitchListSecondary.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Interactive</Typography>
-                    <Typography className="mb-16" component="div">Below is an interactive demo that lets you explore the visual results of the different settings:</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Pinned Subheader List</Typography>
+                    <Typography className="mb-16" component="div">Upon scrolling, subheaders remain pinned to the top of the screen until pushed off screen by the next
+                        subheader.</Typography>
+                    <Typography className="mb-16" component="div">This feature is relying on the CSS sticky positioning.
+                        Unfortunately it&#39;s <a href="https://caniuse.com/#search=sticky">not implemented</a> by all the browsers we are supporting. We default
+                        to <code>disableSticky</code> when not supported.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/lists/InteractiveList.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/lists/InteractiveList.js')}
+                        component={require('main/content/components/material-ui/material-ui-examples/lists/PinnedSubheaderList.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/lists/PinnedSubheaderList.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Inset List</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/lists/InsetList.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/lists/InsetList.js')}
                     /></Typography>
 
                 </div>

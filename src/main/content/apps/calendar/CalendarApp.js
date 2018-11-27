@@ -7,7 +7,7 @@ import CalendarHeader from 'main/content/apps/calendar/CalendarHeader';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as Actions from './store/actions';
-import {Button, Icon} from '@material-ui/core';
+import {Fab, Icon} from '@material-ui/core';
 import EventDialog from 'main/content/apps/calendar/EventDialog';
 import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
@@ -223,8 +223,7 @@ class CalendarApp extends Component {
                     })}
                 />
                 <FuseAnimate animation="transition.expandIn" delay={500}>
-                    <Button
-                        variant="fab"
+                    <Fab
                         color="secondary"
                         aria-label="add"
                         className={classes.addButton}
@@ -234,7 +233,7 @@ class CalendarApp extends Component {
                         })}
                     >
                         <Icon>add</Icon>
-                    </Button>
+                    </Fab>
                 </FuseAnimate>
                 <EventDialog/>
             </div>

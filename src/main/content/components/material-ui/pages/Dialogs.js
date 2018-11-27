@@ -87,24 +87,6 @@ function Dialogs({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/dialogs/AlertDialogSlide.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/dialogs/AlertDialogSlide.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Confirmation dialogs</Typography>
-                    <Typography className="mb-16" component="div">Confirmation dialogs require users to explicitly confirm their choice before an option is committed.
-                        For example, users can listen to multiple ringtones but only make a final selection upon touching “OK.”</Typography>
-                    <Typography className="mb-16" component="div">Touching “Cancel” in a confirmation dialog, or pressing Back, cancels the action, discards any changes, and closes
-                        the dialog.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/dialogs/ConfirmationDialog.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/dialogs/ConfirmationDialog.js')}
-                    /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Full-screen dialogs</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/dialogs/FullScreenDialog.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/dialogs/FullScreenDialog.js')}
-                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Form dialogs</Typography>
                     <Typography className="mb-16" component="div">Form dialogs allow users to fill out form fields within a dialog.
                         For example, if your site prompts for potential subscribers to fill in their email address, they can fill out the email field and
@@ -115,8 +97,25 @@ function Dialogs({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/dialogs/FormDialog.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/dialogs/FormDialog.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Full-screen dialogs</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/dialogs/FullScreenDialog.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/dialogs/FullScreenDialog.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Optional sizes</Typography>
+                    <Typography className="mb-16" component="div">You can set a dialog maximum width by using the <code>maxWidth</code> enumerable in combination with
+                        the <code>fullWidth</code> boolean.
+                        When the <code>fullWidth</code> property is true, the dialog will adapt based on the <code>maxWidth</code> value.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/dialogs/MaxWidthDialog.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/dialogs/MaxWidthDialog.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Responsive full-screen</Typography>
-                    <Typography className="mb-16" component="div">You may make a <code>Dialog</code> responsively full screen the dialog using <code>withMobileDialog</code>. By
+                    <Typography className="mb-16" component="div">You may make a dialog responsively full screen the dialog using <code>withMobileDialog</code>. By
                         default, <code>withMobileDialog()(Dialog)</code> responsively full screens <em>at or below</em> the <code>sm</code> <a href="/layout/basics/">screen
                             size</a>. You can choose your own breakpoint for example <code>xs</code> by passing
                         the <code>breakpoint</code> argument: <code>withMobileDialog({"{breakpoint: 'xs'}"})(Dialog)</code>.</Typography>
@@ -125,6 +124,17 @@ function Dialogs({classes})
                         iframe={false}
                         component={require('main/content/components/material-ui/material-ui-examples/dialogs/ResponsiveDialog.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/dialogs/ResponsiveDialog.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Confirmation dialogs</Typography>
+                    <Typography className="mb-16" component="div">Confirmation dialogs require users to explicitly confirm their choice before an option is committed.
+                        For example, users can listen to multiple ringtones but only make a final selection upon touching “OK.”</Typography>
+                    <Typography className="mb-16" component="div">Touching “Cancel” in a confirmation dialog, or pressing Back, cancels the action, discards any changes, and closes
+                        the dialog.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/dialogs/ConfirmationDialog.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/dialogs/ConfirmationDialog.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
                     <Typography className="mb-16" component="div">Be sure to add <code>aria-labelledby=&quot;id...&quot;</code>, referencing the modal title, to

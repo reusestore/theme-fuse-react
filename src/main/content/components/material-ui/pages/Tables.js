@@ -75,13 +75,13 @@ function Tables({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/tables/EnhancedTable.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tables/EnhancedTable.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Spanning Table</Typography>
-                    <Typography className="mb-16" component="div">A simple example with spanning rows &amp; columns.</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Customized Tables</Typography>
+                    <Typography className="mb-16" component="div">You can customize the look and feel of the table by overriding the styles of the <code>TableCell</code> component.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/tables/SpanningTable.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tables/SpanningTable.js')}
+                        component={require('main/content/components/material-ui/material-ui-examples/tables/CustomizedTable.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tables/CustomizedTable.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Custom Table Pagination Action</Typography>
                     <Typography className="mb-16" component="div">The <code>Action</code> property of the <code>TablePagination</code> component allows the implementation of
@@ -92,13 +92,13 @@ function Tables({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/tables/CustomPaginationActionsTable.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tables/CustomPaginationActionsTable.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Customized Tables</Typography>
-                    <Typography className="mb-16" component="div">You can customize the look and feel of the table by overriding the styles of the <code>TableCell</code> component.</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Spanning Table</Typography>
+                    <Typography className="mb-16" component="div">A simple example with spanning rows &amp; columns.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/tables/CustomizedTable.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tables/CustomizedTable.js')}
+                        component={require('main/content/components/material-ui/material-ui-examples/tables/SpanningTable.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tables/SpanningTable.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Complementary projects</Typography>
                     <Typography className="mb-16" component="div">For more advanced use cases you might be able to take advantage of:</Typography>

@@ -49,6 +49,17 @@ function Buttons({classes})
                         <li>Cards</li>
                         <li>Toolbars</li>
                     </ul>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Contained Buttons</Typography>
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/buttons.html#contained-button">Contained buttons</a>
+                        are high-emphasis, distinguished by their use of elevation and fill.
+                        They contain actions that are primary to your app.</Typography>
+                    <Typography className="mb-16" component="div">The last example of this demo show how to use an upload button.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/buttons/ContainedButtons.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/ContainedButtons.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Text Buttons</Typography>
                     <Typography className="mb-16" component="div"><a href="https://material.io/design/components/buttons.html#text-button">Text buttons</a>
                         are typically used for less-pronounced actions, including those located:</Typography>
@@ -76,22 +87,11 @@ function Buttons({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/buttons/OutlinedButtons.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/OutlinedButtons.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Contained Buttons</Typography>
-                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/buttons.html#contained-button">Contained buttons</a>
-                        are high-emphasis, distinguished by their use of elevation and fill.
-                        They contain actions that are primary to your app.</Typography>
-                    <Typography className="mb-16" component="div">The last example of this demo show how to use an upload button.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/buttons/ContainedButtons.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/ContainedButtons.js')}
-                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Floating Action Buttons</Typography>
                     <Typography className="mb-16" component="div">A <a href="https://material.io/design/components/buttons-floating-action-button.html">floating action button</a>
                         (FAB) performs the primary, or most common, action on a screen.
                         It appears in front of all screen content, typically as a circular shape with an icon in its center.
-                        FABs come in three types: regular, mini, and extended.</Typography>
+                        FABs come in two types: regular, and extended.</Typography>
                     <Typography className="mb-16" component="div">Only use a FAB if it is the most suitable way to present a screen’s primary action.</Typography>
                     <Typography className="mb-16" component="div">Only one floating action button is recommended per screen to represent the most common action.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -112,6 +112,23 @@ function Buttons({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/buttons/FloatingActionButtonZoom.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/FloatingActionButtonZoom.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Sizes</Typography>
+                    <Typography className="mb-16" component="div">Fancy larger or smaller buttons? Use the <code>size</code> property.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/buttons/ButtonSizes.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/ButtonSizes.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Buttons with icons and label</Typography>
+                    <Typography className="mb-16" component="div">Sometimes you might want to have icons for certain button to enhance the UX of the application as we recognize
+                        logos more easily than plain text. For example, if you have a delete button you can label it with a dustbin icon.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/buttons/IconLabelButtons.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/IconLabelButtons.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Icon Buttons</Typography>
                     <Typography className="mb-16" component="div">Icon buttons are commonly found in app bars and toolbars.</Typography>
                     <Typography className="mb-16" component="div">Icons are also appropriate for toggle buttons that allow a single choice to be selected or
@@ -121,23 +138,6 @@ function Buttons({classes})
                         iframe={false}
                         component={require('main/content/components/material-ui/material-ui-examples/buttons/IconButtons.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/IconButtons.js')}
-                    /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Sizes</Typography>
-                    <Typography className="mb-16" component="div">Fancy larger or smaller buttons? Use the <code>size</code> or the <code>mini</code> property.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/buttons/ButtonSizes.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/ButtonSizes.js')}
-                    /></Typography>
-                    <Typography className="text-24 mt-32 mb-8" component="h3">Buttons with icons and label</Typography>
-                    <Typography className="mb-16" component="div">Sometimes you might want to have icons for certain button to enhance the UX of the application as we recognize
-                        logos more easily than plain text. For example, if you have a delete button you can label it with a dustbin icon.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/buttons/IconLabelButtons.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/buttons/IconLabelButtons.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Customized Buttons</Typography>
                     <Typography className="mb-16" component="div">If you have been reading the <a href="/customization/overrides/">overrides documentation page</a>

@@ -9,7 +9,7 @@ import ContactsList from 'main/content/apps/contacts/ContactsList';
 import ContactsHeader from 'main/content/apps/contacts/ContactsHeader';
 import ContactsSidebarContent from 'main/content/apps/contacts/ContactsSidebarContent';
 import _ from '@lodash';
-import {Button, Icon} from '@material-ui/core';
+import {Fab, Icon} from '@material-ui/core';
 import ContactDialog from 'main/content/apps/contacts/ContactDialog';
 import withReducer from 'store/withReducer';
 import reducer from './store/reducers';
@@ -67,15 +67,14 @@ class ContactsApp extends Component {
                     innerScroll
                 />
                 <FuseAnimate animation="transition.expandIn" delay={300}>
-                    <Button
-                        variant="fab"
+                    <Fab
                         color="primary"
                         aria-label="add"
                         className={classes.addButton}
                         onClick={openNewContactDialog}
                     >
                         <Icon>person_add</Icon>
-                    </Button>
+                    </Fab>
                 </FuseAnimate>
                 <ContactDialog/>
             </React.Fragment>

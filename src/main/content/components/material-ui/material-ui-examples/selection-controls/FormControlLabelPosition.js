@@ -33,10 +33,10 @@ class FormControlLabelPosition extends React.Component {
                         labelPlacement="top"
                     />
                     <FormControlLabel
-                        value="left"
+                        value="start"
                         control={<Radio color="primary"/>}
-                        label="Left"
-                        labelPlacement="left"
+                        label="Start"
+                        labelPlacement="start"
                     />
                     <FormControlLabel
                         value="bottom"
@@ -45,10 +45,10 @@ class FormControlLabelPosition extends React.Component {
                         labelPlacement="bottom"
                     />
                     <FormControlLabel
-                        value="right"
+                        value="end"
                         control={<Radio color="primary"/>}
-                        label="Right"
-                        labelPlacement="right"
+                        label="End"
+                        labelPlacement="end"
                     />
                 </RadioGroup>
             </FormControl>

@@ -115,6 +115,25 @@ function Tabs({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/tabs/ScrollableTabsButtonPrevent.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tabs/ScrollableTabsButtonPrevent.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Customized Tabs</Typography>
+                    <Typography className="mb-16" component="div">If you have read the <a href="/customization/overrides/">overrides documentation page</a>
+                        but aren&#39;t confident jumping in, here&#39;s an example of how you can change the main color of the Tabs. The following demo matches the <a
+                            href="https://ant.design/components/tabs/">Ant Design UI</a>.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/tabs/CustomizedTabs.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tabs/CustomizedTabs.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Nav Tabs</Typography>
+                    <Typography className="mb-16" component="div">By default tabs use a <code>button</code> element, but you can provide your own custom tag or component.
+                        Here&#39;s an example of implementing tabbed navigation:</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/tabs/NavTabs.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tabs/NavTabs.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Icon Tabs</Typography>
                     <Typography className="mb-16" component="div">Tab labels may be either all icons or all text.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -129,25 +148,6 @@ function Tabs({classes})
                             component={require('main/content/components/material-ui/material-ui-examples/tabs/IconLabelTabs.js').default}
                             raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tabs/IconLabelTabs.js')}
                         /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Nav Tabs</Typography>
-                    <Typography className="mb-16" component="div">By default tabs use a <code>button</code> element, but you can provide your own custom tag or component.
-                        Here&#39;s an example of implementing tabbed navigation:</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/tabs/NavTabs.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tabs/NavTabs.js')}
-                    /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Customized Tabs</Typography>
-                    <Typography className="mb-16" component="div">If you have read the <a href="/customization/overrides/">overrides documentation page</a>
-                        but aren&#39;t confident jumping in, here&#39;s an example of how you can change the main color of the Tabs. The following demo matches the <a
-                            href="https://ant.design/components/tabs/">Ant Design UI</a>.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/tabs/CustomizedTabs.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tabs/CustomizedTabs.js')}
-                    /></Typography>
 
                 </div>
             }

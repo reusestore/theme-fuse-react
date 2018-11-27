@@ -97,32 +97,6 @@ const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
                         component={require('main/content/components/material-ui/material-ui-examples/drawers/ResponsiveDrawer.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/drawers/ResponsiveDrawer.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Permanent drawer</Typography>
-                    <Typography className="mb-16" component="div">Permanent navigation drawers are always visible and pinned to the left edge, at the same elevation as the content
-                        or background. They cannot be closed.</Typography>
-                    <Typography className="mb-16" component="div">Permanent navigation drawers are the <strong>recommended default for desktop</strong>.</Typography>
-                    <Typography className="text-24 mt-32 mb-8" component="h3">Full-height navigation</Typography>
-                    <Typography className="mb-16" component="div">Apps focused on information consumption that use a left-to-right hierarchy.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={true}
-                        component={require('main/content/components/material-ui/material-ui-examples/drawers/PermanentDrawerLeft.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/drawers/PermanentDrawerLeft.js')}
-                    />
-                        <FuseExample
-                            className="my-24"
-                            iframe={true}
-                            component={require('main/content/components/material-ui/material-ui-examples/drawers/PermanentDrawerRight.js').default}
-                            raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/drawers/PermanentDrawerRight.js')}
-                        /></Typography>
-                    <Typography className="text-24 mt-32 mb-8" component="h3">Clipped under the app bar</Typography>
-                    <Typography className="mb-16" component="div">Apps focused on productivity that require balance across the screen.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={true}
-                        component={require('main/content/components/material-ui/material-ui-examples/drawers/ClippedDrawer.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/drawers/ClippedDrawer.js')}
-                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Persistent drawer</Typography>
                     <Typography className="mb-16" component="div">Persistent navigation drawers can toggle open or closed.
                         The drawer sits on the same surface elevation as the content.
@@ -154,6 +128,32 @@ const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
                         iframe={true}
                         component={require('main/content/components/material-ui/material-ui-examples/drawers/MiniDrawer.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/drawers/MiniDrawer.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Permanent drawer</Typography>
+                    <Typography className="mb-16" component="div">Permanent navigation drawers are always visible and pinned to the left edge, at the same elevation as the content
+                        or background. They cannot be closed.</Typography>
+                    <Typography className="mb-16" component="div">Permanent navigation drawers are the <strong>recommended default for desktop</strong>.</Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Full-height navigation</Typography>
+                    <Typography className="mb-16" component="div">Apps focused on information consumption that use a left-to-right hierarchy.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={true}
+                        component={require('main/content/components/material-ui/material-ui-examples/drawers/PermanentDrawerLeft.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/drawers/PermanentDrawerLeft.js')}
+                    />
+                        <FuseExample
+                            className="my-24"
+                            iframe={true}
+                            component={require('main/content/components/material-ui/material-ui-examples/drawers/PermanentDrawerRight.js').default}
+                            raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/drawers/PermanentDrawerRight.js')}
+                        /></Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Clipped under the app bar</Typography>
+                    <Typography className="mb-16" component="div">Apps focused on productivity that require balance across the screen.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={true}
+                        component={require('main/content/components/material-ui/material-ui-examples/drawers/ClippedDrawer.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/drawers/ClippedDrawer.js')}
                     /></Typography>
 
                 </div>

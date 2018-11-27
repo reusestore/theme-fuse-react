@@ -8,7 +8,7 @@ import * as Actions from './store/actions';
 import FileList from 'main/content/apps/file-manager/FileList';
 import DetailSidebarHeader from 'main/content/apps/file-manager/DetailSidebarHeader';
 import DetailSidebarContent from 'main/content/apps/file-manager/DetailSidebarContent';
-import {Button, Icon, IconButton, Typography} from '@material-ui/core';
+import {Fab, Icon, IconButton, Typography} from '@material-ui/core';
 import MainSidebarHeader from 'main/content/apps/file-manager/MainSidebarHeader';
 import MainSidebarContent from 'main/content/apps/file-manager/MainSidebarContent';
 import withReducer from 'store/withReducer';
@@ -90,9 +90,9 @@ class FileManagerApp extends Component {
                         </div>
                         <div className="flex flex-1 items-end">
                             <FuseAnimate animation="transition.expandIn" delay={600}>
-                                <Button variant="fab" color="secondary" aria-label="add" className={classes.addButton}>
+                                <Fab color="secondary" aria-label="add" className={classes.addButton}>
                                     <Icon>add</Icon>
-                                </Button>
+                                </Fab>
                             </FuseAnimate>
                             <FuseAnimate delay={200}>
                                 <div>

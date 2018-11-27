@@ -69,6 +69,13 @@ function Selects({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/selects/MultipleSelect.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/selects/MultipleSelect.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Controlled open Select</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/selects/ControlledOpenSelect.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/selects/ControlledOpenSelect.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">With a Dialog</Typography>
                     <Typography className="mb-16" component="div">While it&#39;s discouraged by the Material Design specification, you can use a select inside a
                         dialog.</Typography>
@@ -81,13 +88,6 @@ function Selects({classes})
                     <Typography className="text-32 mt-32 mb-8" component="h2">Text Fields</Typography>
                     <Typography className="mb-16" component="div">The <code>TextField</code> wrapper component is a complete form control including a label, input and help text.
                         You can find an example with the select mode <a href="/demos/text-fields/#textfield">in this section</a>.</Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Controlled open Select</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/selects/ControlledOpenSelect.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/selects/ControlledOpenSelect.js')}
-                    /></Typography>
 
                 </div>
             }

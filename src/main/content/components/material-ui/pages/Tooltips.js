@@ -58,6 +58,21 @@ function Tooltips({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/tooltips/PositionedTooltips.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tooltips/PositionedTooltips.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Customized Tooltips</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/tooltips/CustomizedTooltips.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tooltips/CustomizedTooltips.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Triggers</Typography>
+                    <Typography className="mb-16" component="div">You can define the types of events that cause a tooltip to show.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/tooltips/TriggersTooltips.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tooltips/TriggersTooltips.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Controlled Tooltips</Typography>
                     <Typography className="mb-16" component="div">You can use the <code>open</code>, <code>onOpen</code> and <code>onClose</code> properties to control the behavior
                         of the tooltip.</Typography>
@@ -67,13 +82,31 @@ function Tooltips({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/tooltips/ControlledTooltips.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tooltips/ControlledTooltips.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Triggers</Typography>
-                    <Typography className="mb-16" component="div">You can define the types of events that cause a tooltip to show.</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Variable Width</Typography>
+                    <Typography className="mb-16" component="div">The <code>Tooltip</code> wraps long text by default to make it readable.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/tooltips/TriggersTooltips.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tooltips/TriggersTooltips.js')}
+                        component={require('main/content/components/material-ui/material-ui-examples/tooltips/VariableWidth.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tooltips/VariableWidth.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Interactive</Typography>
+                    <Typography className="mb-16" component="div">A tooltip can be interactive. It won&#39;t close when the user hovers over the tooltip before
+                        the <code>leaveDelay</code> is expired.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/tooltips/InteractiveTooltips.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tooltips/InteractiveTooltips.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Disabled Elements</Typography>
+                    <Typography className="mb-16" component="div">By default disabled elements like <code>Button</code> do not trigger user interactions so
+                        a <code>Tooltip</code> will not activate on normal events like hover. To accomodate disabled elements, add a simple wrapper element like a <code>span</code>.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/tooltips/DisabledTooltips.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tooltips/DisabledTooltips.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Transitions</Typography>
                     <Typography className="mb-16" component="div">Use a different transition.</Typography>
@@ -94,39 +127,6 @@ function Tooltips({classes})
                         iframe={false}
                         component={require('main/content/components/material-ui/material-ui-examples/tooltips/DelayTooltips.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tooltips/DelayTooltips.js')}
-                    /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Disabled Elements</Typography>
-                    <Typography className="mb-16" component="div">By default disabled elements like <code>Button</code> do not trigger user interactions so
-                        a <code>Tooltip</code> will not activate on normal events like hover. To accomodate disabled elements, add a simple wrapper element like a <code>span</code>.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/tooltips/DisabledTooltips.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tooltips/DisabledTooltips.js')}
-                    /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Customized Tooltips</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/tooltips/CustomizedTooltips.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tooltips/CustomizedTooltips.js')}
-                    /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Variable Width</Typography>
-                    <Typography className="mb-16" component="div">The <code>Tooltip</code> wraps long text by default to make it readable.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/tooltips/VariableWidth.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tooltips/VariableWidth.js')}
-                    /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Interactive</Typography>
-                    <Typography className="mb-16" component="div">A tooltip can be interactive. It won&#39;t close when the user hovers over the tooltip before
-                        the <code>leaveDelay</code> is expired.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/tooltips/InteractiveTooltips.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/tooltips/InteractiveTooltips.js')}
                     /></Typography>
 
                 </div>

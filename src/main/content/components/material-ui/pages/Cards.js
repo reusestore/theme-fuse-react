@@ -53,6 +53,14 @@ function Cards({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/cards/SimpleCard.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/cards/SimpleCard.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Complex Interaction</Typography>
+                    <Typography className="mb-16" component="div">On desktop, card content can expand.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/cards/RecipeReviewCard.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/cards/RecipeReviewCard.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Media</Typography>
                     <Typography className="mb-16" component="div">Example of a card using an image to reinforce the content.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -79,14 +87,6 @@ function Cards({classes})
                         iframe={false}
                         component={require('main/content/components/material-ui/material-ui-examples/cards/MediaControlCard.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/cards/MediaControlCard.js')}
-                    /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Complex Interaction</Typography>
-                    <Typography className="mb-16" component="div">On desktop, card content can expand.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/cards/RecipeReviewCard.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/cards/RecipeReviewCard.js')}
                     /></Typography>
 
                 </div>

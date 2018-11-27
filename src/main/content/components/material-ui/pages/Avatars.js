@@ -49,14 +49,6 @@ function Avatars({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/avatars/ImageAvatars.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/avatars/ImageAvatars.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Icon avatars</Typography>
-                    <Typography className="mb-16" component="div">Icon avatars are created by passing an icon as <code>children</code>.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/avatars/IconAvatars.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/avatars/IconAvatars.js')}
-                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Letter avatars</Typography>
                     <Typography className="mb-16" component="div">Avatars containing simple characters can be created by passing your string as <code>children</code>.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -64,6 +56,14 @@ function Avatars({classes})
                         iframe={false}
                         component={require('main/content/components/material-ui/material-ui-examples/avatars/LetterAvatars.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/avatars/LetterAvatars.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Icon avatars</Typography>
+                    <Typography className="mb-16" component="div">Icon avatars are created by passing an icon as <code>children</code>.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/avatars/IconAvatars.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/avatars/IconAvatars.js')}
                     /></Typography>
 
                 </div>

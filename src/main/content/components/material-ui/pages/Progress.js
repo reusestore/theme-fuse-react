@@ -137,6 +137,14 @@ function Progress(props) {
 }
 `}
                     </FuseHighlight>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Customized Progress</Typography>
+                    <Typography className="mb-16" component="div">The last demo demonstrates how you can build a Facebook like spinner.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/progress/CustomizedProgress.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/progress/CustomizedProgress.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Delaying appearance</Typography>
                     <Typography className="mb-16" component="div">There are <a href="https://www.nngroup.com/articles/response-times-3-important-limits/">3 important limits</a> to
                         know around response time.
@@ -148,14 +156,6 @@ function Progress(props) {
                         iframe={false}
                         component={require('main/content/components/material-ui/material-ui-examples/progress/DelayingAppearance.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/progress/DelayingAppearance.js')}
-                    /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Customized Progress</Typography>
-                    <Typography className="mb-16" component="div">The last demo demonstrates how you can build a Facebook like spinner.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/progress/CustomizedProgress.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/progress/CustomizedProgress.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Limitations</Typography>
                     <Typography className="mb-16" component="div">Under heavy load, you might lose the stroke dash animation or see random CircularProgress ring widths.

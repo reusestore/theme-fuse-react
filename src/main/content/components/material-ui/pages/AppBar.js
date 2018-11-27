@@ -43,6 +43,13 @@ function AppBar({classes})
                     <Typography className="mb-16" component="div">The <a href="https://material.io/design/components/app-bars-top.html">top App Bar</a> provides content and actions
                         related to the current screen. It’s used for branding, screen titles, navigation, and actions.</Typography>
                     <Typography className="mb-16" component="div">It can transform into a contextual action bar or used as a navbar.</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">App Bar with buttons</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/app-bar/ButtonAppBar.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/app-bar/ButtonAppBar.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Simple App Bar</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -50,12 +57,13 @@ function AppBar({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/app-bar/SimpleAppBar.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/app-bar/SimpleAppBar.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">App Bar with buttons</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">App Bar with a primary search field</Typography>
+                    <Typography className="mb-16" component="div">A primary searchbar.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/app-bar/ButtonAppBar.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/app-bar/ButtonAppBar.js')}
+                        component={require('main/content/components/material-ui/material-ui-examples/app-bar/PrimarySearchAppBar.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/app-bar/PrimarySearchAppBar.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">App Bar with menu</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -71,14 +79,6 @@ function AppBar({classes})
                         iframe={false}
                         component={require('main/content/components/material-ui/material-ui-examples/app-bar/SearchAppBar.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/app-bar/SearchAppBar.js')}
-                    /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">App Bar with a primary search field</Typography>
-                    <Typography className="mb-16" component="div">A primary searchbar.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/app-bar/PrimarySearchAppBar.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/app-bar/PrimarySearchAppBar.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Dense (desktop only)</Typography>
                     <Typography className="mb-16" component="div"><FuseExample

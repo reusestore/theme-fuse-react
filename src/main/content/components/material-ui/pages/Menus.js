@@ -65,16 +65,6 @@ function Menus({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/menus/SimpleListMenu.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/menus/SimpleListMenu.js')}
                     /></Typography>
-                    <Typography className="mb-16" component="div">If text in a simple menu wraps to a second line, use a simple dialog instead. Simple dialogs can have rows with
-                        varying heights.</Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Max height menus</Typography>
-                    <Typography className="mb-16" component="div">If the height of a menu prevents all menu items from being displayed, the menu can scroll internally.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/menus/LongMenu.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/menus/LongMenu.js')}
-                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">MenuList composition</Typography>
                     <Typography className="mb-16" component="div">The <code>Menu</code> component uses the <code>Popover</code> component internally.
                         However, you might want to use a different positioning strategy, or not blocking the scroll.
@@ -95,13 +85,15 @@ function Menus({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/menus/ListItemComposition.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/menus/ListItemComposition.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Change Transition</Typography>
-                    <Typography className="mb-16" component="div">Use a different transition altogether.</Typography>
+                    <Typography className="mb-16" component="div">If text in a simple menu wraps to a second line, use a simple dialog instead. Simple dialogs can have rows with
+                        varying heights.</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Max height menus</Typography>
+                    <Typography className="mb-16" component="div">If the height of a menu prevents all menu items from being displayed, the menu can scroll internally.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/menus/FadeMenu.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/menus/FadeMenu.js')}
+                        component={require('main/content/components/material-ui/material-ui-examples/menus/LongMenu.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/menus/LongMenu.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Render Props</Typography>
                     <Typography className="mb-16" component="div">It is a <a href="https://reactjs.org/docs/render-props.html">render props</a> demo that
@@ -121,6 +113,14 @@ function Menus({classes})
                         iframe={false}
                         component={require('main/content/components/material-ui/material-ui-examples/menus/TypographyMenu.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/menus/TypographyMenu.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Change Transition</Typography>
+                    <Typography className="mb-16" component="div">Use a different transition altogether.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/menus/FadeMenu.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/menus/FadeMenu.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Complementary projects</Typography>
                     <Typography className="mb-16" component="div">For more advanced use cases you might be able to take advantage of:</Typography>

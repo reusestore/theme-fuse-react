@@ -51,15 +51,30 @@ function Dividers({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/dividers/ListDividers.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/dividers/ListDividers.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">HTML5 Specification</Typography>
+                    <Typography className="mb-16" component="div">We need to make sure the <code>Divider</code> is rendered as a <code>li</code> to match the HTML5 specification.
+                        The examples below show two ways of achieving this.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Inset Dividers</Typography>
-                    <Typography className="mb-16" component="div">The following example demonstrates the <code>inset</code> property.
-                        We need to make sure the <code>Divider</code> is rendered as a <code>li</code> to match the HTML5 specification.
-                        The example shows two ways of achieving this.</Typography>
+                    <Typography className="mb-16" component="div">The <code>inset</code> property has now been deprecated. You should now use <code>variant=&quot;inset&quot;</code></Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
                         component={require('main/content/components/material-ui/material-ui-examples/dividers/InsetDividers.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/dividers/InsetDividers.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Subheader Dividers</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/dividers/SubheaderDividers.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/dividers/SubheaderDividers.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Middle Dividers</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/dividers/MiddleDividers.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/dividers/MiddleDividers.js')}
                     /></Typography>
 
                 </div>

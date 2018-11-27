@@ -60,6 +60,16 @@ function GridList({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/grid-list/TitlebarGridList.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/grid-list/TitlebarGridList.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Single line Grid list</Typography>
+                    <Typography className="mb-16" component="div">This example demonstrates a horizontal scrollable single-line grid list of images.
+                        Horizontally scrolling grid lists are discouraged because the scrolling interferes with typical reading patterns, affecting comprehension.
+                        One notable exception is a horizontally-scrolling, single-line grid list of images, such as a gallery.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/grid-list/SingleLineGridList.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/grid-list/SingleLineGridList.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Advanced Grid list</Typography>
                     <Typography className="mb-16" component="div">This example demonstrates &quot;featured&quot; tiles, using the <code>rows</code> and <code>cols</code> props to
                         adjust the size of the tile, and the <code>padding</code> prop to adjust the spacing.
@@ -70,16 +80,6 @@ function GridList({classes})
                         iframe={false}
                         component={require('main/content/components/material-ui/material-ui-examples/grid-list/AdvancedGridList.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/grid-list/AdvancedGridList.js')}
-                    /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Single line Grid list</Typography>
-                    <Typography className="mb-16" component="div">This example demonstrates a horizontal scrollable single-line grid list of images.
-                        Horizontally scrolling grid lists are discouraged because the scrolling interferes with typical reading patterns, affecting comprehension.
-                        One notable exception is a horizontally-scrolling, single-line grid list of images, such as a gallery.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/grid-list/SingleLineGridList.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/grid-list/SingleLineGridList.js')}
                     /></Typography>
 
                 </div>

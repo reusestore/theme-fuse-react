@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Icon, ListItem, TextField, Button} from '@material-ui/core';
+import {Icon, ListItem, TextField, Fab} from '@material-ui/core';
 import ChecklistItemModel from 'main/content/apps/scrumboard/model/ChecklistItemModel';
 import _ from '@lodash';
 
@@ -39,16 +39,15 @@ class CardAddChecklistItem extends Component {
                         variant="outlined"
                         placeholder="Add an item"
                     />
-                    <Button
+                    <Fab
                         className="ml-16"
                         aria-label="Add"
-                        variant="fab"
-                        mini
+                        size="small"
                         color="secondary"
                         type="submit"
                     >
                         <Icon>add</Icon>
-                    </Button>
+                    </Fab>
                 </ListItem>
             </form>
         );

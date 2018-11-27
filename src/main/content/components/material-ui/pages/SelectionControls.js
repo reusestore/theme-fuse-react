@@ -45,10 +45,32 @@ function SelectionControls({classes})
                         users to make decisions or declare preferences such as settings or dialogs.</Typography>
                     <Typography className="mb-16" component="div">Three types of selection controls are covered in this section:</Typography>
                     <ul>
-                        <li><strong><a href="#checkboxes">Checkboxes</a></strong> allow the selection of multiple options from a set.</li>
                         <li><strong><a href="#radio-buttons">Radio Buttons</a></strong> allow the selection of a single option from a set.</li>
+                        <li><strong><a href="#checkboxes">Checkboxes</a></strong> allow the selection of multiple options from a set.</li>
                         <li><strong><a href="#switches">Switches</a></strong> allow a selection to be turned on or off.</li>
                     </ul>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Radio Buttons</Typography>
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/selection-controls.html#radio-buttons">Radio buttons</a>
+                        allow the user to select one option from a set.
+                        Use radio buttons when the user needs to see all available options.
+                        If available options can be collapsed, consider using a dropdown menu because it uses less space.</Typography>
+                    <Typography className="mb-16" component="div">Radio buttons should have the most commonly used option selected by default.</Typography>
+                    <Typography className="mb-16" component="div"><code>RadioGroup</code> is a helpful wrapper used to group <code>Radio</code> components that provides an easier
+                        API, and proper keyboard accessibility to the group.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/selection-controls/RadioButtonsGroup.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/selection-controls/RadioButtonsGroup.js')}
+                    /></Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Standalone Radio Buttons</Typography>
+                    <Typography className="mb-16" component="div"><code>Radio</code> can also be used standalone, without the wrapper.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('main/content/components/material-ui/material-ui-examples/selection-controls/RadioButtons.js').default}
+                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/selection-controls/RadioButtons.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Checkboxes</Typography>
                     <Typography className="mb-16" component="div"><a href="https://material.io/design/components/selection-controls.html#checkboxes">Checkboxes</a>
                         allow the user to select one or more items from a set.
@@ -78,28 +100,6 @@ function SelectionControls({classes})
                         iframe={false}
                         component={require('main/content/components/material-ui/material-ui-examples/selection-controls/CheckboxesGroup.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/selection-controls/CheckboxesGroup.js')}
-                    /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Radio Buttons</Typography>
-                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/selection-controls.html#radio-buttons">Radio buttons</a>
-                        allow the user to select one option from a set.
-                        Use radio buttons when the user needs to see all available options.
-                        If available options can be collapsed, consider using a dropdown menu because it uses less space.</Typography>
-                    <Typography className="mb-16" component="div">Radio buttons should have the most commonly used option selected by default.</Typography>
-                    <Typography className="mb-16" component="div"><code>RadioGroup</code> is a helpful wrapper used to group <code>Radio</code> components that provides an easier
-                        API, and proper keyboard accessibility to the group.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/selection-controls/RadioButtonsGroup.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/selection-controls/RadioButtonsGroup.js')}
-                    /></Typography>
-                    <Typography className="text-24 mt-32 mb-8" component="h3">Standalone Radio Buttons</Typography>
-                    <Typography className="mb-16" component="div"><code>Radio</code> can also be used standalone, without the wrapper.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('main/content/components/material-ui/material-ui-examples/selection-controls/RadioButtons.js').default}
-                        raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/selection-controls/RadioButtons.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Switches</Typography>
                     <Typography className="mb-16" component="div"><a href="https://material.io/design/components/selection-controls.html#switches">Switches</a>
@@ -141,14 +141,14 @@ function SelectionControls({classes})
                         component={require('main/content/components/material-ui/material-ui-examples/selection-controls/CustomizedSwitches.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/selection-controls/CustomizedSwitches.js')}
                     /></Typography>
-                    {/*  <Typography className="text-32 mt-32 mb-8" component="h2">Label placement</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Label placement</Typography>
                     <Typography className="mb-16" component="div">You can change the placement of the label:</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
                         component={require('main/content/components/material-ui/material-ui-examples/selection-controls/FormControlLabelPosition.js').default}
                         raw={require('!raw-loader!main/content/components/material-ui/material-ui-examples/selection-controls/FormControlLabelPosition.js')}
-                    /></Typography>*/}
+                    /></Typography>
 
                 </div>
             }
