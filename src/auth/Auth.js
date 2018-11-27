@@ -9,46 +9,27 @@ import jwtService from 'jwtService';
 
 class Auth extends Component {
 
-    componentDidMount()
-    {
-        /**
-         * Comment the line if you do not use JWt
-         */
-        jwtService.init();
-
-        /**
-         * Comment the line if you do not use Auth0
-         */
-        auth0Service.init();
-
-        /**
-         * Comment the line if you do not use Firebase
-         */
-        firebaseService.init();
-    }
-
     constructor(props)
     {
         super(props);
 
         /**
-         * Login with JWT
+         * Comment the line if you do not use JWt
          */
         this.jwtCheck();
 
         /**
-         * Login with Auth0
+         * Comment the line if you do not use Auth0
          */
         this.auth0Check();
 
         /**
-         * Login with Firebase
+         * Comment the line if you do not use Firebase
          */
         this.firebaseCheck();
     }
 
     jwtCheck = () => {
-
         jwtService.on('onAutoLogin', () => {
 
             this.props.showMessage({message: 'Logging in with JWT'});
@@ -74,9 +55,13 @@ class Auth extends Component {
             }
             this.props.logout();
         });
+
+        jwtService.init();
     };
 
     auth0Check = () => {
+
+        auth0Service.init();
 
         if ( auth0Service.isAuthenticated() )
         {
@@ -95,6 +80,9 @@ class Auth extends Component {
     };
 
     firebaseCheck = () => {
+
+        firebaseService.init();
+
         firebaseService.onAuthStateChanged(authUser => {
             if ( authUser )
             {

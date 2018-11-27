@@ -39,7 +39,7 @@ class ChangelogDoc extends Component {
                                 <ul>
                                     <li>
                                         <Typography className="text-14 mb-8">
-                                           Academy App added.
+                                            Academy App added.
                                         </Typography>
                                     </li>
                                     <li>
@@ -82,6 +82,11 @@ class ChangelogDoc extends Component {
                                     <li>
                                         <Typography className="text-14 mb-8">
                                             E-Commerce App, navigating product to new product didn't update the form state.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography className="text-14 mb-8">
+                                            Authentication timing issues fixed.
                                         </Typography>
                                     </li>
                                 </ul>
