@@ -74,6 +74,13 @@ export const fuseNavigationConfig = [
                 ]
             },
             {
+                'id'   : 'academy',
+                'title': 'Academy',
+                'type' : 'item',
+                'icon' : 'school',
+                'url'  : '/apps/academy'
+            },
+            {
                 'id'   : 'mail',
                 'title': 'Mail',
                 'type' : 'item',

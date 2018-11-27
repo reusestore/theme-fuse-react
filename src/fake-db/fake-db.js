@@ -16,5 +16,6 @@ import './auth-db';
 import './chat-db';
 import './e-commerce-db';
 import './scrumboard-db';
+import './academy-db';
 
 mock.onAny().passThrough();

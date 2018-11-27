@@ -9,10 +9,16 @@ import _ from '@lodash';
 import FuseLayouts from './FuseLayouts';
 
 const styles = theme => ({
-    root:{
-        backgroundColor             : theme.palette.background.default,
-        color                       : theme.palette.text.primary,
-
+    root: {
+        backgroundColor: theme.palette.background.default,
+        color          : theme.palette.text.primary,
+        '& code:not([class*="language-"])'    : {
+            color          : theme.palette.secondary.dark,
+            backgroundColor: "#f5f5f5",
+            padding        : "2px 3px",
+            borderRadius   : 2,
+            lineHeight     : 1.7
+        },
         '& table.simple tbody tr td': {
             borderColor: theme.palette.divider
         },
@@ -31,7 +37,7 @@ const styles = theme => ({
         },
         '& [class*="border-"]'      : {
             borderColor: theme.palette.divider
-        },
+        }
     }
 });
 
