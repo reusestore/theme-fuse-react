@@ -20,7 +20,8 @@ const styles = theme => ({
     layoutContent: {
         display      : "flex",
         flex         : "1 1 auto",
-        flexDirection: "column"
+        flexDirection: "column",
+        overflow     : "hidden"
     },
     stepper      : {
         background: "transparent"
@@ -82,32 +83,30 @@ class Course extends Component {
                     header : classes.layoutHeader
                 }}
                 header={
-                    <div className="flex flex-col flex-1">
-                        <div className="flex items-center pl-12 lg:pl-24 p-24">
-                            <Hidden lgUp>
-                                <IconButton
-                                    onClick={(ev) => this.pageLayout.toggleLeftSidebar()}
-                                    aria-label="open left sidebar"
-                                >
-                                    <Icon>menu</Icon>
-                                </IconButton>
-                            </Hidden>
+                    <div className="flex flex-1 items-center">
+                        <Hidden lgUp>
                             <IconButton
-                                className="mr-16"
-                                to="/apps/academy/courses"
-                                component={Link}
+                                onClick={(ev) => this.pageLayout.toggleLeftSidebar()}
+                                aria-label="open left sidebar"
                             >
-                                <Icon>arrow_back</Icon>
+                                <Icon>menu</Icon>
                             </IconButton>
-                            {course && (
-                                <Typography className="flex-1 text-20">{course.title}</Typography>
-                            )}
-                        </div>
+                        </Hidden>
+                        <IconButton
+                            className="mr-16"
+                            to="/apps/academy/courses"
+                            component={Link}
+                        >
+                            <Icon>arrow_back</Icon>
+                        </IconButton>
+                        {course && (
+                            <Typography className="flex-1 text-20">{course.title}</Typography>
+                        )}
                     </div>
                 }
                 content={
                     course && (
-                        <div className="flex flex-1 relative">
+                        <div className="flex flex-1 relative overflow-hidden">
                             <FuseScrollbars className="w-full overflow-auto">
                                 <SwipeableViews className="overflow-hidden" index={activeStep - 1} enableMouseEvents={true}>
                                     {course.steps.map((step, index) => (
@@ -120,7 +119,7 @@ class Course extends Component {
                                 </SwipeableViews>
                             </FuseScrollbars>
 
-                            <div className="flex justify-center w-full absolute pin-b pb-16 md:pb-32">
+                            <div className="flex justify-center w-full absolute pin-l pin-r pin-b pb-16 md:pb-32">
                                 <div className="flex justify-between w-full max-w-xl px-8">
                                     <div>
                                         {activeStep !== 1 && (
