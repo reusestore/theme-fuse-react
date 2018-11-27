@@ -8,7 +8,7 @@ import auth0Service from 'auth0Service';
 import jwtService from 'jwtService';
 
 class Auth extends Component {
-
+    /*eslint-disable-next-line no-useless-constructor*/
     constructor(props)
     {
         super(props);
