@@ -72,7 +72,7 @@ class RandomizedDataLineExample extends Component {
     render()
     {
         return (
-            <div>
+            <div className="flex flex-col items-center w-full max-w-md">
                 <h2>Random Animated Line Example</h2>
                 <Graph/>
             </div>

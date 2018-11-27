@@ -54,7 +54,7 @@ class LegendExample extends Component {
     render()
     {
         return (
-            <div>
+            <div className="flex flex-col items-center w-full max-w-md">
                 <h2>Legend Handlers Example</h2>
                 <p>Hover over label and click</p>
                 <Pie data={data} legend={this.state.legend}/>

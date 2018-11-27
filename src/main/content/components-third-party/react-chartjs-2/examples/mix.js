@@ -95,7 +95,7 @@ class MixExample extends Component {
     render()
     {
         return (
-            <div>
+            <div className="flex flex-col items-center w-full max-w-md">
                 <h2>Mixed data Example</h2>
                 <Bar
                     data={data}

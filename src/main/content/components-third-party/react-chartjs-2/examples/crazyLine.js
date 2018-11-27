@@ -67,7 +67,7 @@ class CrazyDataLineExample extends Component {
     render()
     {
         return (
-            <div>
+            <div className="flex flex-col items-center w-full max-w-md">
                 <h2>You can even make crazy graphs like this!</h2>
                 <Graph/>
             </div>

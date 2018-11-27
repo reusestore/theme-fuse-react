@@ -28,7 +28,7 @@ class DoughnutExample extends Component {
     render()
     {
         return (
-            <div>
+            <div className="flex flex-col items-center w-full max-w-md">
                 <h2>Doughnut Example</h2>
                 <Doughnut data={data}/>
             </div>

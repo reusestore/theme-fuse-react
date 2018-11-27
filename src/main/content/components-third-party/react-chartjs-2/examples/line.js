@@ -33,7 +33,7 @@ class LineExample extends Component {
     render()
     {
         return (
-            <div>
+            <div className="flex flex-col items-center w-full max-w-md">
                 <h2>Line Example</h2>
                 <Line data={data}/>
             </div>

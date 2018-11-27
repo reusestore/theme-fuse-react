@@ -43,7 +43,7 @@ class DynamicDoughnutExample extends Component {
     render()
     {
         return (
-            <div>
+            <div className="flex flex-col items-center w-full max-w-md">
                 <h2>Dynamicly refreshed Doughnut Example</h2>
                 <Doughnut data={this.state}/>
             </div>
