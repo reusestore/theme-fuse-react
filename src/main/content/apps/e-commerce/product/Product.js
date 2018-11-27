@@ -73,7 +73,7 @@ class Product extends Component {
         }
 
         if (
-            this.props.product.data && !this.state.form ||
+            (this.props.product.data && !this.state.form) ||
             (this.props.product.data && this.state.form && this.props.product.data.id !== this.state.form.id)
         )
         {
