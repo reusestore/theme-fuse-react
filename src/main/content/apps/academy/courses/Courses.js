@@ -173,6 +173,14 @@ class Courses extends Component {
                         }}
                         className="flex flex-wrap py-24"
                     >
+                        {data.length === 0 && (
+                            <div className="flex flex-1 items-center justify-center">
+                                <Typography color="textSecondary" className="text-24 my-24">
+                                    No courses found!
+                                </Typography>
+                            </div>
+                        )}
+
                         {data.map((course) => {
                             const category = categories.find(_cat => _cat.value === course.category);
                             return (
