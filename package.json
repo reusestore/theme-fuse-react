@@ -67,7 +67,7 @@
     },
     "scripts": {
         "start": "yarn run build-css-helpers && cross-env NODE_PATH=src react-scripts start",
-        "build": "yarn run build-css-helpers && cross-env NODE_PATH=src react-scripts build",
+        "build": "yarn run build-css-helpers && cross-env NODE_PATH=src GENERATE_SOURCEMAP=false react-scripts build",
         "build-css-helpers": "./node_modules/.bin/tailwind build ./src/styles/fuse-helpers.tailwind.css -c ./tailwind.js -o ./src/styles/fuse-helpers.css && postcss --use autoprefixer -o ./src/styles/fuse-helpers.css ./src/styles/fuse-helpers.css",
         "test": "cross-env NODE_PATH=src react-scripts test --env=node",
         "eject": "cross-env NODE_PATH=src react-scripts eject",
