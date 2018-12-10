@@ -52,7 +52,7 @@ class QuickPanel extends Component {
                 classes={{paper: classes.root}}
                 open={state}
                 anchor="right"
-                onClose={() => toggleQuickPanel(false)}
+                onClose={toggleQuickPanel}
             >
                 <FuseScrollbars>
 

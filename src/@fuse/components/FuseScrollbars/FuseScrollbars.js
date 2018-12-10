@@ -147,12 +147,13 @@ class FuseScrollbars extends Component {
 
     render()
     {
-        const {children, className, customScrollbars, enable} = this.props;
+        const {children, className, customScrollbars, enable, id} = this.props;
 
         return (
             customScrollbars && enable && !isMobile ?
                 (
                     <div
+                        id={id}
                         className={className}
                         style={{
                             position: 'relative',
@@ -165,7 +166,7 @@ class FuseScrollbars extends Component {
                 )
                 :
                 (
-                    <div className={this.props.className} ref={this.handleRef}>
+                    <div id={id} className={this.props.className} ref={this.handleRef}>
                         {this.props.children}
                     </div>
                 )

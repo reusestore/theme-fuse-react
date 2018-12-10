@@ -1,35 +1,12 @@
 import _ from '@lodash';
-import FuseSettingsConfig from 'fuse-configs/fuseSettingsConfig';
 import qs from 'qs';
+import FuseSettingsConfig from 'fuse-configs/fuseSettingsConfig';
+import FuseLayoutConfigs from 'fuse-layouts/FuseLayoutConfigs';
 
 const defaultSettings = {
     layout          : {
         style : 'layout1',
-        config: {
-            scroll : 'content',
-            navbar : {
-                display : true,
-                folded  : false,
-                position: 'left'
-            },
-            toolbar: {
-                display : true,
-                style   : 'fixed',
-                position: 'below'
-            },
-            footer : {
-                display : true,
-                style   : 'fixed',
-                position: 'below'
-            },
-            leftSidePanel : {
-                display : true,
-            },
-            rightSidePanel : {
-                display : true,
-            },
-            mode   : 'fullwidth'
-        }
+        config: FuseLayoutConfigs.layout1.defaults
     },
     customScrollbars: true,
     theme           : {

@@ -5,37 +5,38 @@ import {matchRoutes} from 'react-router-config'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as Actions from 'store/actions';
+import {FuseLayouts} from '@fuse';
 import _ from '@lodash';
-import FuseLayouts from './FuseLayouts';
+import AppContext from 'AppContext';
 
 const styles = theme => ({
     root: {
-        backgroundColor: theme.palette.background.default,
-        color          : theme.palette.text.primary,
-        '& code:not([class*="language-"])'    : {
+        backgroundColor                   : theme.palette.background.default,
+        color                             : theme.palette.text.primary,
+        '& code:not([class*="language-"])': {
             color          : theme.palette.secondary.dark,
             backgroundColor: "#f5f5f5",
             padding        : "2px 3px",
             borderRadius   : 2,
             lineHeight     : 1.7
         },
-        '& table.simple tbody tr td': {
+        '& table.simple tbody tr td'      : {
             borderColor: theme.palette.divider
         },
-        '& table.simple thead tr th': {
+        '& table.simple thead tr th'      : {
             borderColor: theme.palette.divider
         },
-        '& a:not([role=button])'    : {
+        '& a:not([role=button])'          : {
             color         : theme.palette.secondary.main,
             textDecoration: 'none',
             '&:hover'     : {
                 textDecoration: 'underline'
             }
         },
-        '& [class^="border-"]'      : {
+        '& [class^="border-"]'            : {
             borderColor: theme.palette.divider
         },
-        '& [class*="border-"]'      : {
+        '& [class*="border-"]'            : {
             borderColor: theme.palette.divider
         }
     }
@@ -43,9 +44,10 @@ const styles = theme => ({
 
 class FuseLayout extends Component {
 
-    constructor(props)
+    constructor(props, context)
     {
         super(props);
+        this.appContext = context;
         this.routeSettingsCheck();
     }
 
@@ -58,7 +60,9 @@ class FuseLayout extends Component {
     }
 
     routeSettingsCheck = () => {
-        const matched = matchRoutes(this.props.routes, this.props.location.pathname)[0];
+        let {routes} = this.appContext;
+
+        const matched = matchRoutes(routes, this.props.location.pathname)[0];
 
         if ( matched && matched.route.settings )
         {
@@ -72,6 +76,7 @@ class FuseLayout extends Component {
         {
             if ( !_.isEqual(this.props.settings, this.props.defaultSettings) )
             {
+                console.info('RESET SETTINGS');
                 this.props.resetSettings();
             }
         }
@@ -81,7 +86,8 @@ class FuseLayout extends Component {
     {
         const {settings, classes} = this.props;
         // console.warn('FuseLayout:: rendered');
-        const Layout = FuseLayouts[settings.layout.style].component;
+
+        const Layout = FuseLayouts[settings.layout.style];
         return (
             <Layout className={classes.root} {...this.props}/>
         );
@@ -109,5 +115,7 @@ function mapStateToProps({fuse})
         navbar         : fuse.navbar
     }
 }
+
+FuseLayout.contextType = AppContext;
 
 export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(FuseLayout)));

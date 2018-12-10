@@ -4,14 +4,16 @@ import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import _ from '@lodash';
+import AppContext from 'AppContext';
 
 let redirect = false;
 
 class FuseAuthorization extends Component {
 
-    constructor(props)
+    constructor(props, context)
     {
         super(props);
+        this.appContext = context;
         this.checkAuth();
     }
 
@@ -29,7 +31,9 @@ class FuseAuthorization extends Component {
 
     checkAuth()
     {
-        const matched = matchRoutes(this.props.routes, this.props.location.pathname)[0];
+        let {routes} = this.appContext;
+
+        const matched = matchRoutes(routes, this.props.location.pathname)[0];
         if ( matched && matched.route.auth && matched.route.auth.length > 0 )
         {
             if ( !matched.route.auth.includes(this.props.user.role) )
@@ -68,6 +72,7 @@ class FuseAuthorization extends Component {
     render()
     {
         const {children} = this.props;
+        // console.warn('FuseAuthorization:: rendered');
 
         return (
             <React.Fragment>
@@ -89,4 +94,5 @@ function mapStateToProps({fuse, auth})
     }
 }
 
+FuseAuthorization.contextType = AppContext;
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FuseAuthorization));

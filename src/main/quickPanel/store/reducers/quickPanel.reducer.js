@@ -19,7 +19,7 @@ const quickPanel = function (state = initialState, action) {
         {
             return {
                 ...state,
-                state: action.payload
+                state: !state.state
             };
         }
         default:

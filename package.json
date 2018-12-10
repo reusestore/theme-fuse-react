@@ -54,16 +54,6 @@
         "velocity-react": "1.4.1",
         "jsonwebtoken": "8.4.0"
     },
-    "scripts": {
-        "start": "yarn run build-css-helpers && cross-env NODE_PATH=src react-scripts start",
-        "build": "yarn run build-css-helpers && cross-env NODE_PATH=src react-scripts build",
-        "build-css-helpers": "./node_modules/.bin/tailwind build ./src/styles/fuse-helpers.tailwind.css -c ./tailwind.js -o ./src/styles/fuse-helpers.css && postcss --use autoprefixer -o ./src/styles/fuse-helpers.css ./src/styles/fuse-helpers.css",
-        "test": "cross-env NODE_PATH=src react-scripts test --env=node",
-        "eject": "cross-env NODE_PATH=src react-scripts eject",
-        "build-docs": "babel-node src/main/content/components/material-ui/build.js",
-        "build-stats": "yarn run build -- --stats",
-        "bundle-report": "yarn run build-stats && webpack-bundle-analyzer build/bundle-stats.json"
-    },
     "devDependencies": {
         "@babel/core": "7.0.0-rc.1",
         "@babel/preset-env": "7.0.0-rc.1",
@@ -74,6 +64,19 @@
         "postcss-cli": "6.0.1",
         "tailwindcss": "0.7.2",
         "webpack-bundle-analyzer": "3.0.3"
+    },
+    "scripts": {
+        "start": "yarn run build-css-helpers && cross-env NODE_PATH=src react-scripts start",
+        "build": "yarn run build-css-helpers && cross-env NODE_PATH=src react-scripts build",
+        "build-css-helpers": "./node_modules/.bin/tailwind build ./src/styles/fuse-helpers.tailwind.css -c ./tailwind.js -o ./src/styles/fuse-helpers.css && postcss --use autoprefixer -o ./src/styles/fuse-helpers.css ./src/styles/fuse-helpers.css",
+        "test": "cross-env NODE_PATH=src react-scripts test --env=node",
+        "eject": "cross-env NODE_PATH=src react-scripts eject",
+        "build-docs": "babel-node src/main/content/components/material-ui/build.js",
+        "build-stats": "yarn run build -- --stats",
+        "bundle-report": "yarn run build-stats && webpack-bundle-analyzer build/bundle-stats.json"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
     },
     "browserslist": [
         ">0.2%",

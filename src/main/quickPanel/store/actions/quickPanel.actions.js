@@ -15,10 +15,9 @@ export function getQuickPanelData()
         );
 }
 
-export function toggleQuickPanel(value)
+export function toggleQuickPanel()
 {
     return {
-        type   : TOGGLE_QUICK_PANEL,
-        payload: value
+        type   : TOGGLE_QUICK_PANEL
     }
 }

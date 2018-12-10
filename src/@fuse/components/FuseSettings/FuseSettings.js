@@ -4,7 +4,7 @@ import * as Actions from 'store/actions';
 import * as AuthActions from 'auth/store/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {FuseThemes, FuseLayouts} from '@fuse';
+import {FuseThemes, FuseLayoutConfigs} from '@fuse';
 import classNames from 'classnames';
 import _ from '@lodash';
 
@@ -117,7 +117,7 @@ class FuseSettings extends Component {
                         value={settings.layout.style}
                         onChange={this.handleChange}
                     >
-                        {Object.entries(FuseLayouts).map(([key, layout]) => (
+                        {Object.entries(FuseLayoutConfigs).map(([key, layout]) => (
                                 <FormControlLabel key={key} value={key} control={<Radio/>} label={layout.title}/>
                             )
                         )}
@@ -196,7 +196,7 @@ class FuseSettings extends Component {
         };
 
         const LayoutConfig = () => {
-            const form = FuseLayouts[settings.layout.style].form;
+            const form = FuseLayoutConfigs[settings.layout.style].form;
             return getForm(form);
         };
 
