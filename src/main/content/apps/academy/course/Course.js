@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 import {FusePageSimple, FuseScrollbars} from '@fuse';
-import {withStyles, Hidden, Icon, IconButton, Fab, Typography, Stepper, Step, StepLabel} from '@material-ui/core';
+import {withStyles, Paper, Hidden, Icon, IconButton, Fab, Typography, Stepper, Step, StepLabel} from '@material-ui/core';
 import withReducer from 'store/withReducer';
 import {bindActionCreators} from 'redux';
 import reducer from '../store/reducers';
 import * as Actions from '../store/actions';
 import connect from 'react-redux/es/connect/connect';
-import Paper from '@material-ui/core/Paper/Paper';
 import SwipeableViews from 'react-swipeable-views';
 import {green} from '@material-ui/core/colors';
 import {Link} from 'react-router-dom';
@@ -108,7 +107,12 @@ class Course extends Component {
                     course && (
                         <div className="flex flex-1 relative overflow-hidden">
                             <FuseScrollbars className="w-full overflow-auto">
-                                <SwipeableViews className="overflow-hidden" index={activeStep - 1} enableMouseEvents={true}>
+                                <SwipeableViews
+                                    className="overflow-hidden"
+                                    index={activeStep - 1}
+                                    enableMouseEvents={true}
+                                    onChangeIndex={this.handleChangeActiveStep}
+                                >
                                     {course.steps.map((step, index) => (
                                         <div className="flex justify-center p-16 pb-64 sm:p-24 sm:pb-64 md:p-48 md:pb-64" key={step.id}>
                                             <Paper className="w-full max-w-lg rounded-8 p-16 md:p-24" elevation={1}>

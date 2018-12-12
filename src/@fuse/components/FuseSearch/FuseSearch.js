@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
-import {ClickAwayListener, Icon, IconButton, ListItemIcon, ListItemText, Tooltip, withStyles} from '@material-ui/core';
+import {ClickAwayListener, Icon, IconButton, ListItemIcon, ListItemText, Paper, TextField, Tooltip, Typography, withStyles} from '@material-ui/core';
 import {connect} from 'react-redux';
 import {FuseUtils} from '@fuse';
 import classNames from 'classnames';
-import Paper from '@material-ui/core/Paper/Paper';
-import TextField from '@material-ui/core/TextField/TextField';
 import match from 'autosuggest-highlight/match';
 import parse from 'autosuggest-highlight/parse';
 import {withRouter} from 'react-router-dom';
@@ -136,7 +134,8 @@ class FuseSearch extends Component {
         search        : false,
         flatNavigation: null,
         popper        : '',
-        suggestions   : []
+        suggestions   : [],
+        noSuggestions : false
     };
 
     componentDidMount()
@@ -170,8 +169,13 @@ class FuseSearch extends Component {
     }
 
     handleSuggestionsFetchRequested = ({value}) => {
+        const suggestions = getSuggestions(value, this.state.flatNavigation);
+        const isInputBlank = value.trim() === '';
+        const noSuggestions = !isInputBlank && suggestions.length === 0;
+
         this.setState({
-            suggestions: getSuggestions(value, this.state.flatNavigation)
+            suggestions,
+            noSuggestions
         });
     };
 
@@ -188,7 +192,8 @@ class FuseSearch extends Component {
 
     handleSuggestionsClearRequested = () => {
         this.setState({
-            suggestions: []
+            suggestions  : [],
+            noSuggestions: false
         });
     };
 
@@ -262,7 +267,7 @@ class FuseSearch extends Component {
                                     renderSuggestionsContainer={options => (
                                         <Popper
                                             anchorEl={this.popperNode}
-                                            open={Boolean(options.children)}
+                                            open={Boolean(options.children) || this.state.noSuggestions}
                                             popperOptions={{positionFixed: true}}
                                             className="z-9999"
                                         >
@@ -274,6 +279,11 @@ class FuseSearch extends Component {
                                                     style={{width: this.popperNode ? this.popperNode.clientWidth : null}}
                                                 >
                                                     {options.children}
+                                                    {this.state.noSuggestions && (
+                                                        <Typography className="px-16 py-12">
+                                                            No results..
+                                                        </Typography>
+                                                    )}
                                                 </Paper>
                                             </div>
                                         </Popper>
