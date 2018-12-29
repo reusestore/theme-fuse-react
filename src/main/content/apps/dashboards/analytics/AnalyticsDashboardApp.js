@@ -108,7 +108,7 @@ class AnalyticsDashboardApp extends Component {
 
                 <FuseAnimate animation="transition.slideUpIn" delay={200}>
 
-                    <div className="flex flex-col md:flex-row sm:p-16">
+                    <div className="flex flex-col md:flex-row sm:p-8 container">
 
                         <div className="flex flex-1 flex-col min-w-0">
 

@@ -1,14 +1,14 @@
 const config = {
-    title   : 'Layout 2 - Horizontal',
+    title   : 'Layout 3 - Horizontal',
     defaults: {
-        mode   : 'fullwidth',
+        mode   : 'container',
         scroll : 'content',
         navbar : {
             display: true
         },
         toolbar: {
             display : true,
-            position: 'below'
+            position: 'above'
         },
         footer : {
             display: true,

@@ -143,7 +143,7 @@ class CalendarHeader extends Toolbar {
 
                 <div className={classNames(classes.root, moment(date).format('MMM'))}>
 
-                    <div className="flex flex-1 flex-col p-12 justify-between z-10">
+                    <div className="flex flex-1 flex-col p-12 justify-between z-10 container">
 
                         <div className="flex flex-col items-center justify-between sm:flex-row">
                             <div className="flex items-center my-16 sm:mb-0">

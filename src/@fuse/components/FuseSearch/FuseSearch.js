@@ -1,39 +1,51 @@
 import React, {Component} from 'react';
-import {ClickAwayListener, Icon, IconButton, ListItemIcon, ListItemText, Paper, TextField, Tooltip, Typography, withStyles} from '@material-ui/core';
+import {ClickAwayListener, MenuItem, Icon, IconButton, ListItemIcon, ListItemText, Paper, TextField, Tooltip, Typography, withStyles} from '@material-ui/core';
 import {connect} from 'react-redux';
 import {FuseUtils} from '@fuse';
 import classNames from 'classnames';
 import match from 'autosuggest-highlight/match';
 import parse from 'autosuggest-highlight/parse';
 import {withRouter} from 'react-router-dom';
-import MenuItem from '@material-ui/core/MenuItem/MenuItem';
 import deburr from 'lodash/deburr';
 import Popper from '@material-ui/core/Popper/Popper';
 import Autosuggest from 'react-autosuggest';
 
+const propTypes = {};
+
+const defaultProps = {
+    trigger: (<IconButton className="w-64 h-64"><Icon>search</Icon></IconButton>),
+    variant: 'full'// basic, full
+};
+
 function renderInputComponent(inputProps)
 {
     const {
+        variant,
         classes, inputRef = () => {
         }, ref, ...other
     } = inputProps;
-
     return (
-        <TextField
-            autoFocus
-            fullWidth
-            InputProps={{
-                disableUnderline: true,
-                inputRef        : node => {
-                    ref(node);
-                    inputRef(node);
-                },
-                classes         : {
-                    input: classNames(classes.input, "py-0 px-16 h-64")
-                }
-            }}
-            {...other}
-        />
+        <div className="w-full relative">
+            <TextField
+                fullWidth
+                InputProps={{
+                    disableUnderline: true,
+                    inputRef        : node => {
+                        ref(node);
+                        inputRef(node);
+                    },
+                    classes         : {
+                        input         : classNames(classes.input, "py-0 px-16", variant === "basic" ? "h-48 pr-48" : "h-64"),
+                        notchedOutline: variant === "basic" ? "rounded-8" : null
+                    }
+                }}
+                variant={variant === "basic" ? "outlined" : "standard"}
+                {...other}
+            />
+            {variant === "basic" && (
+                <Icon className="absolute pin-t pin-r h-48 w-48 p-12 pointer-events-none" color="action">search</Icon>
+            )}
+        </div>
     );
 }
 
@@ -101,12 +113,6 @@ function getSuggestionValue(suggestion)
     return suggestion.title;
 }
 
-const propTypes = {};
-
-const defaultProps = {
-    trigger: (<IconButton className="w-64 h-64"><Icon>search</Icon></IconButton>)
-};
-
 const styles = theme => ({
     root                    : {},
     container               : {
@@ -126,7 +132,17 @@ const styles = theme => ({
         margin       : 0,
         padding      : 0,
         listStyleType: 'none'
+    },
+    input                   : {
+        transition: theme.transitions.create(['background-color'], {
+            easing  : theme.transitions.easing.easeInOut,
+            duration: theme.transitions.duration.short
+        }),
+        '&:focus' : {
+            backgroundColor: theme.palette.background.paper
+        }
     }
+
 });
 
 class FuseSearch extends Component {
@@ -220,7 +236,7 @@ class FuseSearch extends Component {
 
     render()
     {
-        const {classes} = this.props;
+        const {classes, variant, className} = this.props;
         const autosuggestProps = {
             renderInputComponent,
             highlightFirstSuggestion   : true,
@@ -231,73 +247,136 @@ class FuseSearch extends Component {
             getSuggestionValue,
             renderSuggestion
         };
-        return (
-            <div className={classNames(classes.root, "flex")}>
 
-                <Tooltip title="Click to search" placement="bottom">
-                    <div onClick={this.showSearch}>
-                        {this.props.trigger}
-                    </div>
-                </Tooltip>
-
-                {this.state.search && (
-                    <ClickAwayListener onClickAway={this.handleClickAway}>
-                        <Paper
-                            ref={(node) => this.paper = node}
-                            className="absolute pin-l pin-r h-full z-9999"
-                            square={true}
-                        >
-                            <div className="flex items-center w-full" ref={this.handleRef}>
-                                <Autosuggest
-                                    {...autosuggestProps}
-                                    inputProps={{
-                                        classes,
-                                        placeholder    : 'Search',
-                                        value          : this.state.popper,
-                                        onChange       : this.handleChange('popper'),
-                                        InputLabelProps: {
-                                            shrink: true
-                                        }
-                                    }}
-                                    theme={{
-                                        container      : "flex flex-1 w-full",
-                                        suggestionsList: classes.suggestionsList,
-                                        suggestion     : classes.suggestion
-                                    }}
-                                    renderSuggestionsContainer={options => (
-                                        <Popper
-                                            anchorEl={this.popperNode}
-                                            open={Boolean(options.children) || this.state.noSuggestions}
-                                            popperOptions={{positionFixed: true}}
-                                            className="z-9999"
+        switch ( variant )
+        {
+            case 'basic':
+            {
+                return (
+                    <div className={classNames("flex items-center w-full", className)} ref={this.handleRef}>
+                        <Autosuggest
+                            {...autosuggestProps}
+                            inputProps={{
+                                variant,
+                                classes,
+                                placeholder    : 'Search',
+                                value          : this.state.popper,
+                                onChange       : this.handleChange('popper'),
+                                onFocus        : this.showSearch,
+                                InputLabelProps: {
+                                    shrink: true
+                                },
+                                autoFocus      : false
+                            }}
+                            theme={{
+                                container      : "flex flex-1 w-full",
+                                suggestionsList: classes.suggestionsList,
+                                suggestion     : classes.suggestion
+                            }}
+                            renderSuggestionsContainer={options => (
+                                <Popper
+                                    anchorEl={this.popperNode}
+                                    open={Boolean(options.children) || this.state.noSuggestions}
+                                    popperOptions={{positionFixed: true}}
+                                    className="z-9999"
+                                >
+                                    <div ref={this.handleSuggestionsRef}>
+                                        <Paper
+                                            elevation={1}
+                                            square
+                                            {...options.containerProps}
+                                            style={{width: this.popperNode ? this.popperNode.clientWidth : null}}
                                         >
-                                            <div ref={this.handleSuggestionsRef}>
-                                                <Paper
-                                                    elevation={1}
-                                                    square
-                                                    {...options.containerProps}
-                                                    style={{width: this.popperNode ? this.popperNode.clientWidth : null}}
-                                                >
-                                                    {options.children}
-                                                    {this.state.noSuggestions && (
-                                                        <Typography className="px-16 py-12">
-                                                            No results..
-                                                        </Typography>
-                                                    )}
-                                                </Paper>
-                                            </div>
-                                        </Popper>
-                                    )}
-                                />
-                                <IconButton onClick={this.hideSearch} className="mx-8">
-                                    <Icon>close</Icon>
-                                </IconButton>
+                                            {options.children}
+                                            {this.state.noSuggestions && (
+                                                <Typography className="px-16 py-12">
+                                                    No results..
+                                                </Typography>
+                                            )}
+                                        </Paper>
+                                    </div>
+                                </Popper>
+                            )}
+                        />
+                    </div>
+                )
+            }
+            case 'full':
+            {
+                return (
+                    <div className={classNames(classes.root, "flex", className)}>
+
+                        <Tooltip title="Click to search" placement="bottom">
+                            <div onClick={this.showSearch}>
+                                {this.props.trigger}
                             </div>
-                        </Paper>
-                    </ClickAwayListener>
-                )}
-            </div>
-        );
+                        </Tooltip>
+
+                        {this.state.search && (
+                            <ClickAwayListener onClickAway={this.handleClickAway}>
+                                <Paper
+                                    ref={(node) => this.paper = node}
+                                    className="absolute pin-l pin-r h-full z-9999"
+                                    square={true}
+                                >
+                                    <div className="flex items-center w-full" ref={this.handleRef}>
+                                        <Autosuggest
+                                            {...autosuggestProps}
+                                            inputProps={{
+                                                classes,
+                                                placeholder    : 'Search',
+                                                value          : this.state.popper,
+                                                onChange       : this.handleChange('popper'),
+                                                InputLabelProps: {
+                                                    shrink: true
+                                                },
+                                                autoFocus      : true
+                                            }}
+                                            theme={{
+                                                container      : "flex flex-1 w-full",
+                                                suggestionsList: classes.suggestionsList,
+                                                suggestion     : classes.suggestion
+                                            }}
+                                            renderSuggestionsContainer={options => (
+                                                <Popper
+                                                    anchorEl={this.popperNode}
+                                                    open={Boolean(options.children) || this.state.noSuggestions}
+                                                    popperOptions={{positionFixed: true}}
+                                                    className="z-9999"
+                                                >
+                                                    <div ref={this.handleSuggestionsRef}>
+                                                        <Paper
+                                                            elevation={1}
+                                                            square
+                                                            {...options.containerProps}
+                                                            style={{width: this.popperNode ? this.popperNode.clientWidth : null}}
+                                                        >
+                                                            {options.children}
+                                                            {this.state.noSuggestions && (
+                                                                <Typography className="px-16 py-12">
+                                                                    No results..
+                                                                </Typography>
+                                                            )}
+                                                        </Paper>
+                                                    </div>
+                                                </Popper>
+                                            )}
+                                        />
+                                        <IconButton onClick={this.hideSearch} className="mx-8">
+                                            <Icon>close</Icon>
+                                        </IconButton>
+                                    </div>
+                                </Paper>
+                            </ClickAwayListener>
+                        )}
+                    </div>
+                )
+            }
+            default :
+            {
+                return null;
+            }
+        }
     }
 }
 

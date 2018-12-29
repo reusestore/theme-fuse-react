@@ -27,11 +27,22 @@ const propTypes = {
 const defaultProps = {};
 
 const styles = theme => ({
-    root       : {},
+    root       : {
+        '& .list-item-text': {
+            padding: '0 0 0 16px'
+        }
+    },
     button     : {
         minHeight: 48,
         '&.open' : {
             backgroundColor: 'rgba(0,0,0,.08)'
+        },
+        '&.dense': {
+            padding            : '8px 12px 8px 12px',
+            minHeight          : 40,
+            '& .list-item-text': {
+                padding: '0 0 0 8px'
+            }
         }
     },
     popper     : {
@@ -57,7 +68,7 @@ class FuseNavHorizontalCollapse extends Component {
 
     render()
     {
-        const {item, nestedLevel, classes, userRole} = this.props;
+        const {item, nestedLevel, classes, userRole, dense} = this.props;
         const {open} = this.state;
 
         if ( item.auth && (!item.auth.includes(userRole) || (userRole !== 'guest' && item.auth.length === 1 && item.auth.includes('guest'))) )
@@ -74,7 +85,7 @@ class FuseNavHorizontalCollapse extends Component {
                                 <ListItem
                                     button
                                     onClick={this.handleClick}
-                                    className={classNames(classes.button, this.state.open && "open")}
+                                    className={classNames("list-item", classes.button, this.state.open && "open", dense && "dense")}
                                     onMouseEnter={() => this.handleToggle(true)}
                                     onMouseLeave={() => this.handleToggle(false)}
                                     aria-owns={open ? 'menu-list-grow' : null}
@@ -83,7 +94,7 @@ class FuseNavHorizontalCollapse extends Component {
                                     {item.icon && (
                                         <Icon color="action" className="text-16 flex-no-shrink">{item.icon}</Icon>
                                     )}
-                                    <ListItemText className="list-item-text pr-0" primary={item.title} classes={{primary: 'text-14'}}/>
+                                    <ListItemText className="list-item-text" primary={item.title} classes={{primary: 'text-14'}}/>
                                     {item.badge && (
                                         <FuseNavBadge className="ml-8 mr-4" badge={item.badge}/>
                                     )}
@@ -101,7 +112,15 @@ class FuseNavHorizontalCollapse extends Component {
                             positionFixed
                         >
                             {({ref, style, placement, arrowProps}) => (
-                                <div ref={ref} style={style} data-placement={placement} className={classNames(classes.popper, {[classes.popperClose]: !open})}>
+                                <div
+                                    ref={ref}
+                                    style={{
+                                        ...style,
+                                        zIndex: 999 + nestedLevel + 1
+                                    }}
+                                    data-placement={placement}
+                                    className={classNames(classes.popper, {[classes.popperClose]: !open})}
+                                >
                                     <Grow in={open} id="menu-list-grow" style={{transformOrigin: '0 0 0'}}>
                                         <Paper
                                             onMouseEnter={() => this.handleToggle(true)}
@@ -115,15 +134,15 @@ class FuseNavHorizontalCollapse extends Component {
                                                             <React.Fragment key={item.id}>
 
                                                                 {item.type === 'group' && (
-                                                                    <FuseNavHorizontalGroup item={item} nestedLevel={nestedLevel + 1}/>
+                                                                    <FuseNavHorizontalGroup item={item} nestedLevel={nestedLevel + 1} dense={dense}/>
                                                                 )}
 
                                                                 {item.type === 'collapse' && (
-                                                                    <NavHorizontalCollapse item={item} nestedLevel={nestedLevel + 1}/>
+                                                                    <NavHorizontalCollapse item={item} nestedLevel={nestedLevel + 1} dense={dense}/>
                                                                 )}
 
                                                                 {item.type === 'item' && (
-                                                                    <FuseNavHorizontalItem item={item} nestedLevel={nestedLevel + 1}/>
+                                                                    <FuseNavHorizontalItem item={item} nestedLevel={nestedLevel + 1} dense={dense}/>
                                                                 )}
 
                                                             </React.Fragment>

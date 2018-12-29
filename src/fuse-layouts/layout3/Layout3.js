@@ -24,7 +24,7 @@ const styles = theme => ({
         height       : '100%',
         overflow     : 'hidden',
         '&.boxed'    : {
-            maxWidth : 1280,
+            maxWidth : 1120,
             margin   : '0 auto',
             boxShadow: theme.shadows[3]
         },
@@ -34,7 +34,8 @@ const styles = theme => ({
                 width   : '100%',
                 margin  : '0 auto'
             },
-            '& .navigation': {}
+            '& .navigation': {
+            }
         }
     },
     content       : {
@@ -65,7 +66,7 @@ const styles = theme => ({
     }
 });
 
-class Layout2 extends Component {
+class Layout3 extends Component {
 
     render()
     {
@@ -96,7 +97,7 @@ class Layout2 extends Component {
                                 <ToolbarPartial/>
                             )}
 
-                            <FuseScrollbars className={classes.content}>
+                            <FuseScrollbars className={classNames(classes.content)}>
 
                                 <FuseDialog/>
 
@@ -151,4 +152,4 @@ function mapStateToProps({fuse})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(Layout2)));
+export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(Layout3)));

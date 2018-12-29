@@ -10,7 +10,9 @@ require('velocity-animate');
 require('velocity-animate/velocity.ui');
 
 const styles = theme => ({
-    root: {}
+    root: {
+        backgroundColor: theme.palette.primary.main
+    }
 });
 
 class Widget1 extends Component {
@@ -39,8 +41,8 @@ class Widget1 extends Component {
 
         return (
             <MuiThemeProvider theme={FuseThemes.mainThemeDark}>
-                <div style={{backgroundColor: theme.palette.primary.main}} className={classes.root}>
-                    <div className="relative p-16 sm:p-24 flex flex-row justify-between items-center">
+                <div className={classes.root}>
+                    <div className="container relative p-16 sm:p-24 flex flex-row justify-between items-center">
 
                         <FuseAnimate delay={100}>
                             <div className="flex-col">
@@ -63,7 +65,7 @@ class Widget1 extends Component {
                             ))}
                         </div>
                     </div>
-                    <div className="relative h-200 sm:h-256 pb-16">
+                    <div className="container relative h-200 sm:h-256 pb-16">
                         <Line
                             data={{
                                 labels  : data.labels,

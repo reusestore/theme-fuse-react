@@ -39,7 +39,7 @@ const styles = theme => ({
     },
     contentCardWrapper: {
         position                      : 'relative',
-        padding                       : 32,
+        padding                       : 24,
         maxWidth                      : 1400,
         display                       : 'flex',
         flexDirection                 : 'column',
@@ -49,7 +49,7 @@ const styles = theme => ({
         maxHeight                     : '100%',
         margin                        : '0 auto',
         [theme.breakpoints.down('sm')]: {
-            padding: 24
+            padding: 16
         },
         [theme.breakpoints.down('xs')]: {
             padding: 12
@@ -107,7 +107,8 @@ class ChatApp extends React.Component {
 
                 <div className={classes.topBg}/>
 
-                <div className={classes.contentCardWrapper}>
+                <div className={classNames(classes.contentCardWrapper,'container')}>
+
                     <div className={classes.contentCard}>
 
                         <Hidden mdUp>

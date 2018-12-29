@@ -48,7 +48,7 @@ class CardedFullWidth2TabbedSample extends Component {
                         indicatorColor="primary"
                         textColor="primary"
                         scrollable
-                        scrollButtons="auto"
+                        scrollButtons="off"
                         classes={{
                             root: classes.tabsRoot
                         }}

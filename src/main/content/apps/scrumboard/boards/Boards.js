@@ -57,41 +57,44 @@ class Boards extends Component {
         return (
             <div className={classNames(classes.root, "flex flex-grow flex-no-shrink flex-col items-center")}>
 
-                <FuseAnimate>
-                    <Typography className="mt-44 sm:mt-88 sm:py-24 text-32 sm:text-40 font-300" color="inherit">Scrumboard App</Typography>
-                </FuseAnimate>
+                <div className="flex flex-grow flex-no-shrink flex-col items-center container px-16 md:px-24">
 
-                <div>
-                    <FuseAnimateGroup
-                        className="flex flex-wrap w-full justify-center py-32 px-16"
-                        enter={{
-                            animation: "transition.slideUpBigIn",
-                            duration : 300
-                        }}
-                    >
-                        {boards.map(board => (
-                            <div className="w-224 h-224 p-16" key={board.id}>
-                                <Link
-                                    to={'/apps/scrumboard/boards/' + board.id + '/' + board.uri}
-                                    className={classNames(classes.board, "flex flex-col items-center justify-center w-full h-full rounded py-24")}
-                                    role="button"
+                    <FuseAnimate>
+                        <Typography className="mt-44 sm:mt-88 sm:py-24 text-32 sm:text-40 font-300" color="inherit">Scrumboard App</Typography>
+                    </FuseAnimate>
+
+                    <div>
+                        <FuseAnimateGroup
+                            className="flex flex-wrap w-full justify-center py-32 px-16"
+                            enter={{
+                                animation: "transition.slideUpBigIn",
+                                duration : 300
+                            }}
+                        >
+                            {boards.map(board => (
+                                <div className="w-224 h-224 p-16" key={board.id}>
+                                    <Link
+                                        to={'/apps/scrumboard/boards/' + board.id + '/' + board.uri}
+                                        className={classNames(classes.board, "flex flex-col items-center justify-center w-full h-full rounded py-24")}
+                                        role="button"
+                                    >
+                                        <Icon className="text-56">assessment</Icon>
+                                        <Typography className="text-16 font-300 text-center pt-16 px-32" color="inherit">{board.name}</Typography>
+                                    </Link>
+                                </div>
+                            ))}
+                            <div className="w-224 h-224 p-16">
+                                <div
+                                    className={classNames(classes.board, classes.newBoard, "flex flex-col items-center justify-center w-full h-full rounded py-24")}
+                                    onClick={() => newBoard()}
                                 >
-                                    <Icon className="text-56">assessment</Icon>
-                                    <Typography className="text-16 font-300 text-center pt-16 px-32" color="inherit">{board.name}</Typography>
-                                </Link>
+                                    <Icon className="text-56">add_circle</Icon>
+                                    <Typography className="text-16 font-300 text-center pt-16 px-32" color="inherit">Add new board</Typography>
+                                </div>
                             </div>
-                        ))}
-                        <div className="w-224 h-224 p-16">
-                            <div
-                                className={classNames(classes.board, classes.newBoard, "flex flex-col items-center justify-center w-full h-full rounded py-24")}
-                                onClick={() => newBoard()}
-                            >
-                                <Icon className="text-56">add_circle</Icon>
-                                <Typography className="text-16 font-300 text-center pt-16 px-32" color="inherit">Add new board</Typography>
-                            </div>
-                        </div>
-                    </FuseAnimateGroup>
+                        </FuseAnimateGroup>
 
+                    </div>
                 </div>
             </div>
         );

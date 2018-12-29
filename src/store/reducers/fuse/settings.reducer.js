@@ -21,10 +21,11 @@ const settings = function (state = initialState, action) {
         }
         case Actions.SET_DEFAULT_SETTINGS:
         {
+            const newSettings = _.merge({}, state.defaults, action.value && action.value.layout && action.value.layout.style ? {layout: {config: FuseLayoutConfigs[action.value.layout.style].defaults}} : {}, action.value);
             return {
                 ...state,
-                defaults: _.merge({}, state.defaults, action.value),
-                current : _.merge({}, state.defaults, action.value && action.value.layout && action.value.layout.style ? {layout: {config: FuseLayoutConfigs[action.value.layout.style].defaults}} : {}, action.value)
+                defaults: _.merge({}, newSettings),
+                current : _.merge({}, newSettings)
             };
         }
         case Actions.RESET_DEFAULT_SETTINGS:

@@ -8,6 +8,7 @@ import FuseNavHorizontalItem from './horizontal/FuseNavHorizontalItem';
 import {Divider, List, Hidden} from '@material-ui/core';
 import {withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 const propTypes = {
     navigation: PropTypes.array.isRequired
@@ -20,25 +21,25 @@ const defaultProps = {
 class FuseNavigation extends Component {
     render()
     {
-        const {navigation, layout, active} = this.props;
+        const {navigation, layout, active, dense, className} = this.props;
 
         const verticalNav = (
-            <List className="whitespace-no-wrap">
+            <List className={classNames("navigation whitespace-no-wrap", className)}>
                 {
                     navigation.map((item) => (
 
                         <React.Fragment key={item.id}>
 
                             {item.type === 'group' && (
-                                <FuseNavVerticalGroup item={item} nestedLevel={0} active={active}/>
+                                <FuseNavVerticalGroup item={item} nestedLevel={0} active={active} dense={dense}/>
                             )}
 
                             {item.type === 'collapse' && (
-                                <FuseNavVerticalCollapse item={item} nestedLevel={0} active={active}/>
+                                <FuseNavVerticalCollapse item={item} nestedLevel={0} active={active} dense={dense}/>
                             )}
 
                             {item.type === 'item' && (
-                                <FuseNavVerticalItem item={item} nestedLevel={0} active={active}/>
+                                <FuseNavVerticalItem item={item} nestedLevel={0} active={active} dense={dense}/>
                             )}
 
                             {item.type === 'divider' && (
@@ -51,22 +52,22 @@ class FuseNavigation extends Component {
         );
 
         const horizontalNav = (
-            <List className="whitespace-no-wrap flex p-0">
+            <List className={classNames("navigation whitespace-no-wrap flex p-0", className)}>
                 {
                     navigation.map((item) => (
 
                         <React.Fragment key={item.id}>
 
                             {item.type === 'group' && (
-                                <FuseNavHorizontalGroup item={item} nestedLevel={0}/>
+                                <FuseNavHorizontalGroup item={item} nestedLevel={0} dense={dense}/>
                             )}
 
                             {item.type === 'collapse' && (
-                                <FuseNavHorizontalCollapse item={item} nestedLevel={0}/>
+                                <FuseNavHorizontalCollapse item={item} nestedLevel={0} dense={dense}/>
                             )}
 
                             {item.type === 'item' && (
-                                <FuseNavHorizontalItem item={item} nestedLevel={0}/>
+                                <FuseNavHorizontalItem item={item} nestedLevel={0} dense={dense}/>
                             )}
 
                             {item.type === 'divider' && (
@@ -77,7 +78,6 @@ class FuseNavigation extends Component {
                 }
             </List>
         );
-
 
         if ( navigation.length > 0 )
         {

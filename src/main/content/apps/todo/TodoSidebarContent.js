@@ -7,6 +7,10 @@ import {FuseAnimate} from '@fuse';
 import * as Actions from './store/actions';
 
 const styles = theme => ({
+    root         : {
+        flex      : '1 1 auto',
+        borderLeft: '1px solid ' + theme.palette.divider
+    },
     listWrapper  : {},
     listItem     : {
         color              : 'inherit!important',
@@ -41,7 +45,9 @@ function TodoSidebarContent({classes, folders, filters, labels, openNewTodoDialo
 
     return (
         <FuseAnimate animation="transition.slideUpIn" delay={400}>
-            <div>
+
+            <div className={classes.root}>
+
                 <div className="p-24">
                     <Button
                         onClick={() => {

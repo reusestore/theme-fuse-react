@@ -137,6 +137,9 @@ const styles = theme => ({
         }
     },
     sidebarContent           : {
+        display                     : 'flex',
+        flex                        : '1 1 auto',
+        flexDirection               : 'column',
         backgroundColor             : theme.palette.background.default,
         color                       : theme.palette.text.primary,
         [theme.breakpoints.up('lg')]: {
@@ -261,37 +264,38 @@ class FusePageCarded extends React.Component {
 
                 <div className={classes.topBg}/>
 
-                {isLeftSidebar && SidebarWrapper(leftSidebarHeader, leftSidebarContent, 'leftSidebar', leftSidebarVariant || 'permanent')}
+                <div className="flex container w-full">
+                    {isLeftSidebar && SidebarWrapper(leftSidebarHeader, leftSidebarContent, 'leftSidebar', leftSidebarVariant || 'permanent')}
 
-                <div
-                    className={classNames(classes.contentWrapper, isLeftSidebar && (leftSidebarVariant === undefined || leftSidebarVariant === 'permanent') && 'lg:pl-0', isRightSidebar && (rightSidebarVariant === undefined || rightSidebarVariant === 'permanent') && 'lg:pr-0')}
-                >
-                    <div className={classes.header}>
-                        {header && (
-                            <MuiThemeProvider theme={FuseThemes['mainThemeDark']}>
-                                {header}
-                            </MuiThemeProvider>
-                        )}
+                    <div
+                        className={classNames(classes.contentWrapper, isLeftSidebar && (leftSidebarVariant === undefined || leftSidebarVariant === 'permanent') && 'lg:pl-0', isRightSidebar && (rightSidebarVariant === undefined || rightSidebarVariant === 'permanent') && 'lg:pr-0')}
+                    >
+                        <div className={classes.header}>
+                            {header && (
+                                <MuiThemeProvider theme={FuseThemes['mainThemeDark']}>
+                                    {header}
+                                </MuiThemeProvider>
+                            )}
+                        </div>
+
+                        <div className={classNames(classes.contentCard, innerScroll && 'inner-scroll')}>
+
+                            {contentToolbar && (
+                                <div className={classes.toolbar}>
+                                    {contentToolbar}
+                                </div>
+                            )}
+
+                            {content && (
+                                <FuseScrollbars className={classes.content} enable={innerScroll}>
+                                    {content}
+                                </FuseScrollbars>
+                            )}
+                        </div>
                     </div>
 
-                    <div className={classNames(classes.contentCard, innerScroll && 'inner-scroll')}>
-
-                        {contentToolbar && (
-                            <div className={classes.toolbar}>
-                                {contentToolbar}
-                            </div>
-                        )}
-
-                        {content && (
-                            <FuseScrollbars className={classes.content} enable={innerScroll}>
-                                {content}
-                            </FuseScrollbars>
-                        )}
-                    </div>
+                    {isRightSidebar && SidebarWrapper(rightSidebarHeader, rightSidebarContent, 'rightSidebar', rightSidebarVariant || 'permanent')}
                 </div>
-
-                {isRightSidebar && SidebarWrapper(rightSidebarHeader, rightSidebarContent, 'rightSidebar', rightSidebarVariant || 'permanent')}
-
             </div>
         );
     }

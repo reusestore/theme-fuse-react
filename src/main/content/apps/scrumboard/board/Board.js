@@ -12,6 +12,7 @@ import BoardCardDialog from './dialogs/card/BoardCardDialog';
 import BoardSettingsSidebar from './sidebars/settings/BoardSettingsSidebar';
 import withReducer from 'store/withReducer';
 import reducer from './../store/reducers';
+import classNames from 'classnames';
 
 class Board extends Component {
 
@@ -83,7 +84,7 @@ class Board extends Component {
                 }}
             >
                 <AppBar position="static" color="primary">
-                    <Toolbar className="flex items-center justify-between px-4 sm:px-24 h-64 sm:h-96">
+                    <Toolbar className="flex items-center justify-between px-4 sm:px-24 h-64 sm:h-96 container">
                         <Hidden xsDown>
                             <Button to="/apps/scrumboard/boards/" component={Link} variant="contained">
                                 <Icon className="mr-8">assessment</Icon>
@@ -107,7 +108,7 @@ class Board extends Component {
                     </Toolbar>
                 </AppBar>
 
-                <div className="flex flex-1 p-16 md:p-24 overflow-x-auto overflow-y-hidden">
+                <div className={classNames("flex flex-1 overflow-x-auto overflow-y-hidden")}>
 
                     <DragDropContext onDragEnd={this.onDragEnd}>
                         <Droppable
@@ -117,7 +118,7 @@ class Board extends Component {
                             ignoreContainerClipping={800}
                         >
                             {(provided) => (
-                                <div ref={provided.innerRef} className="flex">
+                                <div ref={provided.innerRef} className="flex container p-16 md:p-24">
                                     {board.lists.map((list, index) => (
                                         <BoardList
                                             key={list.id}

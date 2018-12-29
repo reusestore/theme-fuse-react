@@ -7,14 +7,14 @@ const styles = theme => ({});
 
 const NavbarPartial = ({classes, navigation}) => {
     return (
-        <div className="flex flex-1 w-full">
+        <div className="flex flex-1 w-full container p-0 lg:px-24">
 
             <div className="flex flex-no-shrink items-center pl-8 pr-16">
                 <Logo/>
             </div>
 
-            <div className="flex flex-1">
-                <Navigation layout="horizontal"/>
+            <div className="flex flex-1 justify-end">
+                <Navigation layout="horizontal" dense/>
             </div>
         </div>
     );

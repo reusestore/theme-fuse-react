@@ -6,16 +6,6 @@ import {Tab, Tabs} from '@material-ui/core';
 
 const styles = theme => ({
     layoutRoot   : {},
-    layoutToolbar: {
-        padding: 0
-    },
-    tabsRoot     : {
-        height: 64,
-        width : '100%'
-    },
-    tabRoot      : {
-        height: 64
-    }
 });
 
 class SimpleTabbedSample extends Component {
@@ -37,7 +27,7 @@ class SimpleTabbedSample extends Component {
             <FusePageSimple
                 classes={{
                     root   : classes.layoutRoot,
-                    toolbar: classes.layoutToolbar
+                    toolbar: "px-16 sm:px-24"
                 }}
                 header={
                     <div className="p-24"><h4>Header</h4></div>
@@ -49,50 +39,50 @@ class SimpleTabbedSample extends Component {
                         indicatorColor="primary"
                         textColor="primary"
                         scrollable
-                        scrollButtons="auto"
+                        scrollButtons="off"
                         classes={{
-                            root: classes.tabsRoot
+                            root: "h-64 border-b-1"
                         }}
                     >
                         <Tab
                             classes={{
-                                root: classes.tabRoot
+                                root: "h-64"
                             }}
                             label="Item One"
                         />
                         <Tab
                             classes={{
-                                root: classes.tabRoot
+                                root: "h-64"
                             }}
                             label="Item Two"
                         />
                         <Tab
                             classes={{
-                                root: classes.tabRoot
+                                root: "h-64"
                             }}
                             label="Item Three"
                         />
                         <Tab
                             classes={{
-                                root: classes.tabRoot
+                                root: "h-64"
                             }}
                             label="Item Four"
                         />
                         <Tab
                             classes={{
-                                root: classes.tabRoot
+                                root: "h-64"
                             }}
                             label="Item Five"
                         />
                         <Tab
                             classes={{
-                                root: classes.tabRoot
+                                root: "h-64"
                             }}
                             label="Item Six"
                         />
                         <Tab
                             classes={{
-                                root: classes.tabRoot
+                                root: "h-64"
                             }}
                             label="Item Seven"
                         />

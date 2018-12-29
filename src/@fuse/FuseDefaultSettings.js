@@ -3,10 +3,12 @@ import qs from 'qs';
 import FuseSettingsConfig from 'fuse-configs/fuseSettingsConfig';
 import FuseLayoutConfigs from 'fuse-layouts/FuseLayoutConfigs';
 
+const defaultLayoutStyle = (FuseSettingsConfig.layout && FuseSettingsConfig.layout.style) ? FuseSettingsConfig.layout.style : "layout1";
+
 const defaultSettings = {
     layout          : {
-        style : 'layout1',
-        config: FuseLayoutConfigs.layout1.defaults
+        style : defaultLayoutStyle,
+        config: FuseLayoutConfigs[defaultLayoutStyle].defaults
     },
     customScrollbars: true,
     theme           : {

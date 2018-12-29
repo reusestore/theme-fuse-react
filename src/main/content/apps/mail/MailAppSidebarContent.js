@@ -7,6 +7,10 @@ import MailCompose from './MailCompose';
 import {FuseAnimate} from '@fuse';
 
 const styles = theme => ({
+    root         : {
+        flex      : '1 1 auto',
+        borderLeft: '1px solid ' + theme.palette.divider
+    },
     listWrapper  : {},
     listItem     : {
         color              : 'inherit!important',
@@ -40,7 +44,9 @@ function MailAppSidebarContent({classes, folders, filters, labels})
 {
     return (
         <FuseAnimate animation="transition.slideUpIn" delay={400}>
-            <div>
+
+            <div className={classes.root}>
+
                 <MailCompose/>
 
                 <div className={classes.listWrapper}>

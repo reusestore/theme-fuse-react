@@ -126,7 +126,7 @@ class Courses extends Component {
                     <Icon className={classes.headerIcon}>school</Icon>
                 </div>
 
-                <div className={classNames(classes.content, "max-w-2xl w-full mx-auto px-16 sm:px-24 py-24")}>
+                <div className={classNames(classes.content, "max-w-2xl w-full mx-auto px-8 sm:px-16 py-24")}>
                     <div className="flex flex-col sm:flex-row items-center justify-between py-24">
                         <TextField
                             label="Search for a course"

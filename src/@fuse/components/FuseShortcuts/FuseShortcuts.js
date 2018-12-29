@@ -11,10 +11,17 @@ import _ from '@lodash';
 
 const propTypes = {};
 
-const defaultProps = {};
+const defaultProps = {
+    variant: "horizontal"
+};
 
 const styles = theme => ({
-    root   : {},
+    root   : {
+        '&.horizontal': {},
+        '&.vertical'  : {
+            flexDirection: 'column'
+        }
+    },
     item   : {
         textDecoration: 'none!important'
     },
@@ -78,7 +85,7 @@ class FuseShortcuts extends Component {
 
     render()
     {
-        const {classes, shortcuts, navigation} = this.props;
+        const {classes, shortcuts, navigation, variant, className} = this.props;
         const {addMenu, searchText, searchResults} = this.state;
         const shortcutItems = shortcuts ? shortcuts.map(id => FuseUtils.findById(navigation, id)) : [];
 
@@ -113,17 +120,17 @@ class FuseShortcuts extends Component {
         }
 
         return (
-            <div className={classNames(classes.root, "flex flex-1 px-16")}>
+            <div className={classNames(classes.root, variant, "flex flex-1", variant === "vertical" && "flex-no-grow flex-shrink", className)}>
 
                 <FuseAnimateGroup
                     enter={{
                         animation: "transition.expandIn"
                     }}
-                    className="hidden md:flex md-flex-1"
+                    className={classNames("flex flex-1", variant === "vertical" && "flex-col")}
                 >
                     {shortcutItems.map(item => item && (
                         <Link to={item.url} key={item.id} className={classes.item}>
-                            <Tooltip title={item.title} placement="bottom">
+                            <Tooltip title={item.title} placement={variant === "horizontal" ? "bottom" : "left"}>
                                 <IconButton className="w-40 h-40 p-0">
                                     {item.icon ?
                                         (
@@ -138,7 +145,7 @@ class FuseShortcuts extends Component {
                         </Link>
                     ))}
 
-                    <Tooltip title="Click to add/remove shortcut" placement="bottom">
+                    <Tooltip title="Click to add/remove shortcut" placement={variant === "horizontal" ? "bottom" : "left"}>
                         <IconButton
                             className="w-40 h-40 p-0"
                             aria-owns={addMenu ? 'add-menu' : null}

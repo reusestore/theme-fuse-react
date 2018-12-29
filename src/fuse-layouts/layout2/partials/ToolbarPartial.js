@@ -23,16 +23,19 @@ const ToolbarPartial = ({classes, settings}) => {
     return (
         <MuiThemeProvider theme={FuseThemes[settings.theme.toolbar]}>
             <AppBar id="fuse-toolbar" className="flex relative z-10" color="default">
-                <Toolbar className="p-0">
+                <Toolbar className="container p-0 lg:px-24">
 
-                    {layoutConfig.navbar.display && layoutConfig.navbar.position === 'left' && (
+                    {layoutConfig.navbar.display && (
                         <Hidden lgUp>
                             <NavbarMobileToggleButton/>
+                            <div className={classes.separator}/>
                         </Hidden>
                     )}
 
                     <div className="flex flex-1">
-                        <FuseShortcuts/>
+                        <Hidden mdDown>
+                            <FuseShortcuts/>
+                        </Hidden>
                     </div>
 
                     <div className="flex">
@@ -55,11 +58,6 @@ const ToolbarPartial = ({classes, settings}) => {
                         <QuickPanelToggleButton/>
                     </div>
 
-                    {layoutConfig.navbar.display && layoutConfig.navbar.position === 'right' && (
-                        <Hidden lgUp>
-                            <NavbarMobileToggleButton/>
-                        </Hidden>
-                    )}
                 </Toolbar>
             </AppBar>
         </MuiThemeProvider>

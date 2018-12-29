@@ -14,21 +14,8 @@ import MainSidebarContent from 'main/content/apps/file-manager/MainSidebarConten
 import withReducer from 'store/withReducer';
 import reducer from './store/reducers';
 
-const headerHeight = 160;
-
 const styles = theme => ({
-    layoutHeader       : {
-        height   : headerHeight,
-        minHeight: headerHeight
-    },
-    layoutRightSidebar : {
-        width: 320
-    },
-    layoutSidebarHeader: {
-        height   : headerHeight,
-        minHeight: headerHeight
-    },
-    addButton          : {
+    addButton         : {
         position: 'absolute',
         bottom  : -28,
         left    : 16,
@@ -70,8 +57,8 @@ class FileManagerApp extends Component {
             <FusePageSimple
                 classes={{
                     header       : "h-96 min-h-96 sm:h-160 sm:min-h-160",
-                    sidebarHeader: classes.layoutSidebarHeader,
-                    rightSidebar : classes.layoutRightSidebar
+                    sidebarHeader: "h-96 min-h-96 sm:h-160 sm:min-h-160",
+                    rightSidebar : "w-320"
                 }}
                 header={
                     <div className="flex flex-col flex-1 p-8 sm:p-12 relative">

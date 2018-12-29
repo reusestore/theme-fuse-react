@@ -6,7 +6,7 @@ import connect from 'react-redux/es/connect/connect';
 
 const NavbarMobileToggleButton = ({navbarToggleMobile, children}) => {
     return (
-        <IconButton onClick={navbarToggleMobile} color="inherit">
+        <IconButton className="w-64 h-64" onClick={navbarToggleMobile} color="inherit">
             {children}
         </IconButton>
     );

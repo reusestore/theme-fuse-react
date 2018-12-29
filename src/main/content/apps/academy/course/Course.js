@@ -82,7 +82,7 @@ class Course extends Component {
                     header : classes.layoutHeader
                 }}
                 header={
-                    <div className="flex flex-1 items-center">
+                    <div className="flex flex-1 items-center px-16 lg:px-24">
                         <Hidden lgUp>
                             <IconButton
                                 onClick={(ev) => this.pageLayout.toggleLeftSidebar()}

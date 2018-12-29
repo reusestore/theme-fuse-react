@@ -192,11 +192,13 @@ class CalendarApp extends Component {
     render()
     {
         const {classes, events, openNewEventDialog, openEditEventDialog} = this.props;
-
         return (
             <div className={classes.root}>
+                {this.toolbarProps && (
+                    <CalendarHeader {...this.toolbarProps}/>
+                )}
                 <DragAndDropCalendar
-                    className="flex flex-1"
+                    className="flex flex-1 container"
                     selectable
                     localizer={localizer}
                     events={events}
@@ -211,7 +213,10 @@ class CalendarApp extends Component {
                     step={60}
                     showMultiDayTimes
                     components={{
-                        toolbar: CalendarHeader
+                        toolbar: (props) => {
+                            this.toolbarProps = props;
+                            return null;
+                        }
                     }}
                     // onNavigate={this.handleNavigate}
                     onSelectEvent={event => {

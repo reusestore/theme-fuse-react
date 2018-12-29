@@ -36,13 +36,22 @@ const styles = theme => ({
             }
         },
         '& .list-item-icon': {},
-        '& .list-item-text': {},
+        '& .list-item-text': {
+            padding: '0 0 0 16px'
+        },
         color              : 'inherit!important',
-        textDecoration     : 'none!important'
+        textDecoration     : 'none!important',
+        '&.dense'      : {
+            padding  : '8px 12px 8px 12px',
+            minHeight: 40,
+            '& .list-item-text': {
+                padding: '0 0 0 8px'
+            },
+        }
     }
 });
 
-function FuseNavHorizontalItem({item, classes, nestedLevel, userRole, navbarCloseMobile})
+function FuseNavHorizontalItem({item, classes, nestedLevel, userRole, navbarCloseMobile, dense})
 {
     if ( item.auth && (!item.auth.includes(userRole) || (userRole !== 'guest' && item.auth.length === 1 && item.auth.includes('guest'))) )
     {
@@ -55,14 +64,14 @@ function FuseNavHorizontalItem({item, classes, nestedLevel, userRole, navbarClos
             component={NavLink}
             to={item.url}
             activeClassName="active"
-            className={classNames(classes.root)}
+            className={classNames("list-item", classes.root, dense && "dense")}
             onClick={navbarCloseMobile}
             exact={item.exact}
         >
             {item.icon && (
                 <Icon className="list-item-icon text-16 flex-no-shrink" color="action">{item.icon}</Icon>
             )}
-            <ListItemText className="list-item-text pr-0" primary={item.title} classes={{primary: 'text-14 list-item-text-primary'}}/>
+            <ListItemText className="list-item-text" primary={item.title} classes={{primary: 'text-14 list-item-text-primary'}}/>
             {item.badge && (
                 <FuseNavBadge className="ml-8" badge={item.badge}/>
             )}

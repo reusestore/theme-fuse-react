@@ -21,13 +21,6 @@ const styles = theme => ({
             height   : 240,
             minHeight: 240
         }
-    },
-    tabsRoot     : {
-        height: 64,
-        width : '100%'
-    },
-    tabRoot      : {
-        height: 64
     }
 });
 
@@ -51,7 +44,7 @@ class ProfilePage extends Component {
                 classes={{
                     root   : classes.layoutRoot,
                     header : classes.layoutHeader,
-                    toolbar: classes.layoutToolbar
+                    toolbar: "px-16 sm:px-24"
                 }}
                 header={
                     <div className="p-24 flex flex-1 flex-col items-center justify-center md:flex-row md:items-end">
@@ -77,23 +70,23 @@ class ProfilePage extends Component {
                         indicatorColor="secondary"
                         textColor="secondary"
                         scrollable
-                        scrollButtons="auto"
+                        scrollButtons="off"
                         classes={{
-                            root: classes.tabsRoot
+                            root: "h-64 w-full border-b-1"
                         }}
                     >
                         <Tab
                             classes={{
-                                root: classes.tabRoot
+                                root: "h-64"
                             }}
                             label="Timeline"/>
                         <Tab
                             classes={{
-                                root: classes.tabRoot
+                                root: "h-64"
                             }} label="About"/>
                         <Tab
                             classes={{
-                                root: classes.tabRoot
+                                root: "h-64"
                             }} label="Photos & Videos"/>
                     </Tabs>
                 }

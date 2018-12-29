@@ -2,10 +2,11 @@ import React from 'react';
 import connect from 'react-redux/es/connect/connect';
 import {FuseNavigation} from '@fuse';
 import {withRouter} from 'react-router-dom';
+import classNames from 'classnames';
 
-const Navigation = ({navigation, layout}) => {
+const Navigation = ({navigation, layout, dense, className}) => {
     return (
-        <FuseNavigation navigation={navigation} layout={layout}/>
+        <FuseNavigation className={classNames("navigation", className)} navigation={navigation} layout={layout} dense={dense}/>
     );
 };
 

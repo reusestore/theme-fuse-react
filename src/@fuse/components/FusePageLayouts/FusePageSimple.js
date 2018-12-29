@@ -55,10 +55,18 @@ const styles = theme => ({
         height         : headerHeight,
         minHeight      : headerHeight,
         display        : 'flex',
-        // backgroundImage: 'url("../../assets/images/backgrounds/header-bg.png")',
         backgroundColor: theme.palette.primary.dark,
-        color          : theme.palette.primary.contrastText,
-        backgroundSize : 'cover'
+        backgroundSize : 'cover',
+        color          : theme.palette.primary.contrastText
+    },
+    topBg                         : {
+        position     : 'absolute',
+        left         : 0,
+        right        : 0,
+        top          : 0,
+        height       : headerHeight,
+        // backgroundImage: 'url("../../assets/images/backgrounds/header-bg.png")',
+        pointerEvents: 'none'
     },
     headerSidebarToggleButton     : {
         color: theme.palette.primary.contrastText
@@ -87,18 +95,18 @@ const styles = theme => ({
         display                     : 'flex',
         flexDirection               : 'column',
         flex                        : '1 1 auto',
-        boxShadow                   : theme.shadows[1],
+        // boxShadow                   : theme.shadows[1],
         overflow                    : 'auto',
         '-webkit-overflow-scrolling': 'touch',
         zIndex                      : 9999
     },
     toolbar                       : {
-        height         : toolbarHeight,
-        minHeight      : toolbarHeight,
-        display        : 'flex',
-        alignItems     : 'center',
-        borderBottom   : '1px solid rgba(0,0,0,0.12)',
-        backgroundColor: theme.palette.background.paper
+        height      : toolbarHeight,
+        minHeight   : toolbarHeight,
+        display     : 'flex',
+        alignItems  : 'center',
+        // borderBottom: '1px solid ' + theme.palette.divider
+        // backgroundColor: theme.palette.background.paper
     },
     content                       : {
         flex: '1 0 auto'
@@ -117,16 +125,28 @@ const styles = theme => ({
         position     : 'absolute',
         '&.permanent': {
             [theme.breakpoints.up('lg')]: {
-                backgroundColor: 'transparent',
-                position       : 'relative',
-                border         : 'none'
+                backgroundColor: theme.palette.background.default,
+                color          : theme.palette.text.primary,
+                position       : 'relative'
+                // border         : 'none'
             }
         },
         width        : drawerWidth,
         height       : '100%'
     },
-    leftSidebar                   : {},
-    rightSidebar                  : {},
+    leftSidebar                   : {
+        [theme.breakpoints.up('lg')]: {
+            borderRight: '1px solid ' + theme.palette.divider,
+            borderLeft : 0
+        }
+    },
+    rightSidebar                  : {
+        [theme.breakpoints.up('lg')]: {
+
+            borderLeft : '1px solid ' + theme.palette.divider,
+            borderRight: 0
+        }
+    },
     sidebarHeader                 : {
         height         : headerHeight,
         minHeight      : headerHeight,
@@ -268,37 +288,41 @@ class FusePageSimple extends React.Component {
                     this.root = root;
                 }}
             >
+                <div className={classNames(classes.header, classes.topBg)}/>
 
-                {header && sidebarInner && headerContent}
+                <div className="container z-10">
 
-                <div className={classes.contentWrapper}>
+                    {header && sidebarInner && headerContent}
 
-                    {isLeftSidebar && SidebarWrapper(leftSidebarHeader, leftSidebarContent, 'leftSidebar', leftSidebarVariant || 'permanent')}
+                    <div className={classes.contentWrapper}>
 
-                    <FuseScrollbars
-                        className={classNames(classes.contentCardWrapper, sidebarInner && classes.contentCardWrapperInnerSidebar)}
-                        enable={innerScroll && sidebarInner}
-                    >
-                        <FuseScrollbars className={classes.contentCard} enable={innerScroll && !sidebarInner}>
+                        {isLeftSidebar && SidebarWrapper(leftSidebarHeader, leftSidebarContent, 'leftSidebar', leftSidebarVariant || 'permanent')}
 
-                            {header && !sidebarInner && headerContent}
+                        <FuseScrollbars
+                            className={classNames(classes.contentCardWrapper, sidebarInner && classes.contentCardWrapperInnerSidebar)}
+                            enable={innerScroll && sidebarInner}
+                        >
+                            <FuseScrollbars className={classes.contentCard} enable={innerScroll && !sidebarInner}>
 
-                            {contentToolbar && (
-                                <div className={classes.toolbar}>
-                                    {contentToolbar}
-                                </div>
-                            )}
+                                {header && !sidebarInner && headerContent}
 
-                            {content && (
-                                <div className={classes.content}>
-                                    {content}
-                                </div>
-                            )}
+                                {contentToolbar && (
+                                    <div className={classes.toolbar}>
+                                        {contentToolbar}
+                                    </div>
+                                )}
+
+                                {content && (
+                                    <div className={classes.content}>
+                                        {content}
+                                    </div>
+                                )}
+                            </FuseScrollbars>
                         </FuseScrollbars>
-                    </FuseScrollbars>
 
-                    {isRightSidebar && SidebarWrapper(rightSidebarHeader, rightSidebarContent, 'rightSidebar', rightSidebarVariant || 'permanent')}
+                        {isRightSidebar && SidebarWrapper(rightSidebarHeader, rightSidebarContent, 'rightSidebar', rightSidebarVariant || 'permanent')}
 
+                    </div>
                 </div>
             </div>
         );
