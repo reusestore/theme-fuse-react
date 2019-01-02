@@ -4,9 +4,9 @@ import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import classNames from 'classnames';
 import {FuseScrollbars} from '@fuse';
-import {FuseThemes} from '@fuse/index';
 import {MuiThemeProvider} from '@material-ui/core';
 import PropTypes from 'prop-types';
+import connect from 'react-redux/es/connect/connect';
 
 const propTypes = {
     leftSidebarHeader  : PropTypes.node,
@@ -101,10 +101,10 @@ const styles = theme => ({
         zIndex                      : 9999
     },
     toolbar                       : {
-        height      : toolbarHeight,
-        minHeight   : toolbarHeight,
-        display     : 'flex',
-        alignItems  : 'center',
+        height    : toolbarHeight,
+        minHeight : toolbarHeight,
+        display   : 'flex',
+        alignItems: 'center'
         // borderBottom: '1px solid ' + theme.palette.divider
         // backgroundColor: theme.palette.background.paper
     },
@@ -205,14 +205,14 @@ class FusePageSimple extends React.Component {
 
     render()
     {
-        const {classes, leftSidebarHeader, leftSidebarContent, leftSidebarVariant, rightSidebarHeader, rightSidebarContent, rightSidebarVariant, header, content, contentToolbar, sidebarInner, innerScroll} = this.props;
+        const {classes, mainThemeDark, leftSidebarHeader, leftSidebarContent, leftSidebarVariant, rightSidebarHeader, rightSidebarContent, rightSidebarVariant, header, content, contentToolbar, sidebarInner, innerScroll} = this.props;
         const isRightSidebar = rightSidebarHeader || rightSidebarContent;
         const isLeftSidebar = leftSidebarHeader || leftSidebarContent;
 
         const Sidebar = (header, content, variant) => (
             <FuseScrollbars enable={innerScroll}>
                 {header && (
-                    <MuiThemeProvider theme={FuseThemes['mainThemeDark']}>
+                    <MuiThemeProvider theme={mainThemeDark}>
                         <div className={classNames(classes.sidebarHeader, variant, sidebarInner && classes.sidebarHeaderInnerSidebar)}>
                             {header}
                         </div>
@@ -274,7 +274,7 @@ class FusePageSimple extends React.Component {
         const headerContent = (
             <div className={classes.header}>
                 {header && (
-                    <MuiThemeProvider theme={FuseThemes['mainThemeDark']}>
+                    <MuiThemeProvider theme={mainThemeDark}>
                         {header}
                     </MuiThemeProvider>
                 )}
@@ -332,4 +332,11 @@ class FusePageSimple extends React.Component {
 FusePageSimple.propTypes = propTypes;
 FusePageSimple.defaultProps = defaultProps;
 
-export default withStyles(styles, {withTheme: true})(FusePageSimple);
+function mapStateToProps({fuse})
+{
+    return {
+        mainThemeDark: fuse.settings.mainThemeDark
+    }
+}
+
+export default withStyles(styles, {withTheme: true})(connect(mapStateToProps)(FusePageSimple));

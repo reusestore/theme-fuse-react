@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Divider, Icon, IconButton, Input, ListItemIcon, ListItemText, Menu, MenuItem, Tooltip, Typography, withStyles} from '@material-ui/core';
-import * as UserActions from 'auth/store/actions';
+import * as UserActions from 'app/auth/store/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {FuseUtils, FuseAnimateGroup} from '@fuse';

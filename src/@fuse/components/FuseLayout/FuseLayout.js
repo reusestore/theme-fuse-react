@@ -4,10 +4,10 @@ import {withRouter} from 'react-router-dom';
 import {matchRoutes} from 'react-router-config'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import * as Actions from 'store/actions';
+import * as Actions from 'app/store/actions';
 import {FuseLayouts} from '@fuse';
 import _ from '@lodash';
-import AppContext from 'AppContext';
+import AppContext from 'app/AppContext';
 
 const styles = theme => ({
     root: {
@@ -60,7 +60,7 @@ class FuseLayout extends Component {
     }
 
     routeSettingsCheck = () => {
-        let {routes} = this.appContext;
+        const {routes} = this.appContext;
 
         const matched = matchRoutes(routes, this.props.location.pathname)[0];
 
@@ -76,7 +76,6 @@ class FuseLayout extends Component {
         {
             if ( !_.isEqual(this.props.settings, this.props.defaultSettings) )
             {
-                console.info('RESET SETTINGS');
                 this.props.resetSettings();
             }
         }
@@ -98,7 +97,6 @@ function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
         setSettings       : Actions.setSettings,
-        setDefaultSettings: Actions.setDefaultSettings,
         resetSettings     : Actions.resetSettings,
         navbarOpenFolded  : Actions.navbarOpenFolded,
         navbarCloseFolded : Actions.navbarCloseFolded,

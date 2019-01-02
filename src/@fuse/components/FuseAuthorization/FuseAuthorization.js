@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import _ from '@lodash';
-import AppContext from 'AppContext';
+import AppContext from 'app/AppContext';
 
 let redirect = false;
 
@@ -31,7 +31,7 @@ class FuseAuthorization extends Component {
 
     checkAuth()
     {
-        let {routes} = this.appContext;
+        const {routes} = this.appContext;
 
         const matched = matchRoutes(routes, this.props.location.pathname)[0];
         if ( matched && matched.route.auth && matched.route.auth.length > 0 )

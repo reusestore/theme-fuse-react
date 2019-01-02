@@ -4,8 +4,9 @@ import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import {MuiThemeProvider} from '@material-ui/core';
 import classNames from 'classnames';
-import {FuseScrollbars, FuseThemes} from '@fuse';
+import {FuseScrollbars} from '@fuse';
 import PropTypes from 'prop-types';
+import connect from 'react-redux/es/connect/connect';
 
 const propTypes = {
     rightSidebarHeader : PropTypes.node,
@@ -192,14 +193,14 @@ class FusePageCarded extends React.Component {
 
     render()
     {
-        const {classes, rightSidebarHeader, rightSidebarContent, rightSidebarVariant, leftSidebarHeader, leftSidebarContent, leftSidebarVariant, header, content, contentToolbar, innerScroll} = this.props;
+        const {classes, mainThemeDark, rightSidebarHeader, rightSidebarContent, rightSidebarVariant, leftSidebarHeader, leftSidebarContent, leftSidebarVariant, header, content, contentToolbar, innerScroll} = this.props;
         const isRightSidebar = rightSidebarHeader || rightSidebarContent;
         const isLeftSidebar = leftSidebarHeader || leftSidebarContent;
 
         const Sidebar = (header, content, variant) => (
             <React.Fragment>
                 {header && (
-                    <MuiThemeProvider theme={FuseThemes['mainThemeDark']}>
+                    <MuiThemeProvider theme={mainThemeDark}>
                         <div className={classNames(classes.sidebarHeader, variant)}>
                             {header}
                         </div>
@@ -272,7 +273,7 @@ class FusePageCarded extends React.Component {
                     >
                         <div className={classes.header}>
                             {header && (
-                                <MuiThemeProvider theme={FuseThemes['mainThemeDark']}>
+                                <MuiThemeProvider theme={mainThemeDark}>
                                     {header}
                                 </MuiThemeProvider>
                             )}
@@ -304,4 +305,12 @@ class FusePageCarded extends React.Component {
 FusePageCarded.propTypes = propTypes;
 FusePageCarded.defaultProps = defaultProps;
 
-export default withStyles(styles, {withTheme: true})(FusePageCarded);
+
+function mapStateToProps({fuse})
+{
+    return {
+        mainThemeDark: fuse.settings.mainThemeDark
+    }
+}
+
+export default withStyles(styles, {withTheme: true})(connect(mapStateToProps)(FusePageCarded));

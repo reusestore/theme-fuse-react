@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Dialog, withStyles} from '@material-ui/core';
-import * as Actions from 'store/actions';
+import * as Actions from 'app/store/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 

@@ -7,7 +7,7 @@ import FuseNavBadge from './../FuseNavBadge';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as Actions from 'store/actions';
+import * as Actions from 'app/store/actions';
 
 const propTypes = {
     item: PropTypes.shape(

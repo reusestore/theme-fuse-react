@@ -2,11 +2,10 @@ import 'babel-polyfill'
 import 'typeface-muli';
 import './react-table-defaults';
 import './styles/index.css';
-import './fake-db/fake-db'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
-import App from 'App';
+import App from 'app/App';
 
 ReactDOM.render(<App/>, document.getElementById('root'));
 
