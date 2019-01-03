@@ -7,7 +7,7 @@ const styles = theme => ({});
 
 const NavbarLayout3 = ({classes, navigation}) => {
     return (
-        <div className="flex flex-1 items-center w-full h-full container px-16 lg:px-24">
+        <div className="flex flex-auto items-center w-full h-full container px-16 lg:px-24">
             <FuseScrollbars className="flex h-full items-center">
                 <Navigation className="w-full -ml-12" layout="horizontal" dense/>
             </FuseScrollbars>

@@ -185,9 +185,9 @@ class Courses extends Component {
                             const category = categories.find(_cat => _cat.value === course.category);
                             return (
                                 <div className="w-full pb-24 sm:w-1/2 lg:w-1/3 sm:p-16" key={course.id}>
-                                    <Card elevation={1} className="flex flex-col min-h-256">
+                                    <Card elevation={1} className="flex flex-col h-256">
                                         <div
-                                            className="flex items-center justify-between px-24 h-64"
+                                            className="flex flex-no-shrink items-center justify-between px-24 h-64"
                                             style={{
                                                 background: category.color,
                                                 color     : theme.palette.getContrastText(category.color)
@@ -199,7 +199,7 @@ class Courses extends Component {
                                                 <div className="text-16 whitespace-no-wrap">{course.length} min</div>
                                             </div>
                                         </div>
-                                        <CardContent className="flex flex-col flex-1 items-center justify-center">
+                                        <CardContent className="flex flex-col flex-auto items-center justify-center">
                                             <Typography className="text-center text-16 font-400">{course.title}</Typography>
                                             <Typography className="text-center text-13 font-600 mt-4" color="textSecondary">{course.updated}</Typography>
                                         </CardContent>

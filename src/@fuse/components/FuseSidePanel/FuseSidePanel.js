@@ -12,7 +12,8 @@ const defaultProps = {
 
 const styles = theme => ({
     paper        : {
-        width: 56
+        display: 'flex',
+        width  : 56
     },
     root         : {
         transition   : theme.transitions.create(['transform', 'width', 'min-width'], {
