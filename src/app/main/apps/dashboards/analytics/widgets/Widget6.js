@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
-import {Card, Icon, Tooltip} from '@material-ui/core';
-import {withStyles} from '@material-ui/core/styles/index';
+import {withStyles, Card, Icon, Tooltip} from '@material-ui/core';
 import classNames from 'classnames';
 import GoogleMap from 'google-map-react';
 
 const styles = theme => ({
     root: {
-        border   : '1px solid ' + theme.palette.divider,
-        boxShadow: 'none',
+        border      : '1px solid ' + theme.palette.divider,
+        boxShadow   : 'none',
         borderRadius: 8
     }
 });

@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
+import {withStyles, Card, Icon, Typography} from '@material-ui/core';
 import {connect} from 'react-redux';
-import {Card, Icon, Typography} from '@material-ui/core';
 import {Line} from 'react-chartjs-2';
 import {bindActionCreators} from 'redux';
-import {withStyles} from '@material-ui/core/styles/index';
 import classNames from 'classnames';
 
 const styles = theme => ({
     root: {
-        border   : '1px solid ' + theme.palette.divider,
-        boxShadow: 'none',
+        border      : '1px solid ' + theme.palette.divider,
+        boxShadow   : 'none',
         borderRadius: 8
     }
 });

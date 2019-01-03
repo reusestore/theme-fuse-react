@@ -1,4 +1,4 @@
-import axios from 'axios/index';
+import axios from 'axios';
 
 export const GET_CONTACTS = '[CHAT PANEL] GET CONTACTS';
 export const SET_SELECTED_CONTACT_ID = '[CHAT PANEL] SET SELECTED CONTACT ID';

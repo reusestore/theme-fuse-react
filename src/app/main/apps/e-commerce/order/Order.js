@@ -1,17 +1,16 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import {withStyles, Avatar, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Icon, Tab, Tabs, Tooltip, Typography} from '@material-ui/core';
 import {FuseAnimate, FusePageCarded} from '@fuse';
-import {Avatar, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Icon, Tab, Tabs, Tooltip, Typography} from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {Link, withRouter} from 'react-router-dom';
-import * as Actions from 'app/main/apps/e-commerce/store/actions';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import connect from 'react-redux/es/connect/connect';
 import {bindActionCreators} from 'redux';
 import GoogleMap from 'google-map-react';
+import withReducer from 'app/store/withReducer';
 import OrdersStatus from './OrdersStatus';
 import OrderInvoice from './OrderInvoice';
-import withReducer from 'app/store/withReducer';
-import reducer from './../store/reducers';
+import * as Actions from '../store/actions';
+import reducer from '../store/reducers';
 
 const styles = theme => ({});
 

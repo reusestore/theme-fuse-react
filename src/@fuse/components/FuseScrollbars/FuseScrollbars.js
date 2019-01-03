@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
+import {withStyles} from '@material-ui/core';
 import PerfectScrollbar from 'perfect-scrollbar';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
 import {bindActionCreators} from 'redux';
-import {withStyles} from '@material-ui/core/styles/index';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';

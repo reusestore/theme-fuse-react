@@ -1,4 +1,4 @@
-import axios from 'axios/index';
+import axios from 'axios';
 import {getFilters} from './filters.actions';
 import {getFolders} from './folders.actions';
 import {getLabels} from './labels.actions';

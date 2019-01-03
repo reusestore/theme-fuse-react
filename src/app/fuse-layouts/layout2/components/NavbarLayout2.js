@@ -1,8 +1,8 @@
 import React from 'react';
 import {withStyles} from '@material-ui/core';
+import {FuseScrollbars} from '@fuse';
 import Logo from 'app/fuse-layouts/shared-components/Logo';
 import Navigation from 'app/fuse-layouts/shared-components/Navigation';
-import {FuseScrollbars} from '@fuse';
 
 const styles = theme => ({});
 

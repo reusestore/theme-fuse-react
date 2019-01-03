@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core';
 import {FusePageCarded} from '@fuse';
+import withReducer from 'app/store/withReducer';
 import OrdersHeader from './OrdersHeader';
 import OrdersTable from './OrdersTable';
-import withReducer from 'app/store/withReducer';
-import reducer from './../store/reducers';
+import reducer from '../store/reducers';
 
 const styles = theme => ({});
 

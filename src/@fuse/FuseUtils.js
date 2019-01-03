@@ -294,8 +294,6 @@ class FuseUtils {
     }
 
     static EventEmitter = EventEmitter;
-
 }
-
 
 export default FuseUtils;

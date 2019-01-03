@@ -1,6 +1,6 @@
 import React from 'react';
-import _ from '@lodash';
 import {Icon, IconButton} from '@material-ui/core';
+import _ from '@lodash';
 import {bindActionCreators} from 'redux';
 import * as Actions from 'app/store/actions';
 import connect from 'react-redux/es/connect/connect';

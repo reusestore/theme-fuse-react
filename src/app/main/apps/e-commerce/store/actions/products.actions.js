@@ -1,4 +1,4 @@
-import axios from 'axios/index';
+import axios from 'axios';
 
 export const GET_PRODUCTS = '[E-COMMERCE APP] GET PRODUCTS';
 export const SET_PRODUCTS_SEARCH_TEXT = '[E-COMMERCE APP] SET PRODUCTS SEARCH TEXT';

@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import {withStyles, Avatar, Typography, Checkbox, ListItem} from '@material-ui/core';
 import {withRouter} from 'react-router-dom';
-import {Avatar, Typography, Checkbox, ListItem} from '@material-ui/core';
-import MailChip from '../MailChip';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import * as Actions from '../store/actions/index';
 import classNames from 'classnames';
 import _ from '@lodash';
+import * as Actions from '../store/actions/index';
+import MailChip from '../MailChip';
 
 const pathToRegexp = require('path-to-regexp');
 

@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 import {withStyles, Button, Tab, Tabs, TextField, InputAdornment, Icon, Typography} from '@material-ui/core';
-import {orange} from '@material-ui/core/colors';
 import {FuseAnimate, FusePageCarded, FuseChipSelect} from '@fuse';
+import {orange} from '@material-ui/core/colors';
 import {Link, withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import connect from 'react-redux/es/connect/connect';
-import * as Actions from '../store/actions';
 import classNames from 'classnames';
 import _ from '@lodash';
 import withReducer from 'app/store/withReducer';
-import reducer from './../store/reducers';
+import * as Actions from '../store/actions';
+import reducer from '../store/reducers';
 
 const styles = theme => ({
     productImageFeaturedStar: {

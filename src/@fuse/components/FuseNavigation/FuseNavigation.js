@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
+import {Divider, List, Hidden} from '@material-ui/core';
+import {withRouter} from 'react-router-dom';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import FuseNavVerticalGroup from './vertical/FuseNavVerticalGroup';
 import FuseNavVerticalCollapse from './vertical/FuseNavVerticalCollapse';
 import FuseNavVerticalItem from './vertical/FuseNavVerticalItem';
 import FuseNavHorizontalGroup from './horizontal/FuseNavHorizontalGroup';
 import FuseNavHorizontalCollapse from './horizontal/FuseNavHorizontalCollapse';
 import FuseNavHorizontalItem from './horizontal/FuseNavHorizontalItem';
-import {Divider, List, Hidden} from '@material-ui/core';
-import {withRouter} from 'react-router-dom';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
 
 const propTypes = {
     navigation: PropTypes.array.isRequired

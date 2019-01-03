@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
 import {renderRoutes} from 'react-router-config'
-import {withStyles} from '@material-ui/core/styles';
-import {connect} from 'react-redux';
+import {withStyles} from '@material-ui/core';
 import {FuseScrollbars, FuseMessage, FuseDialog} from '@fuse';
+import {connect} from 'react-redux';
 import ToolbarLayout1 from './components/ToolbarLayout1';
 import FooterLayout1 from './components/FooterLayout1';
 import LeftSideLayout1 from './components/LeftSideLayout1';
@@ -230,7 +230,6 @@ class Layout1 extends Component {
         }
     }
 }
-
 
 function mapStateToProps({fuse})
 {

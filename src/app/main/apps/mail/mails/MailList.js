@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
+import {withStyles, List, Typography} from '@material-ui/core';
 import {FuseUtils, FuseAnimate, FuseAnimateGroup} from '@fuse';
-import {withStyles} from '@material-ui/core/styles';
-import * as Actions from '../store/actions';
 import {withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {List, Typography} from '@material-ui/core';
-import MailListItem from './MailListItem';
 import _ from '@lodash';
+import * as Actions from '../store/actions';
+import MailListItem from './MailListItem';
 
 const styles = theme => ({
     mailList: {

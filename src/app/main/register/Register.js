@@ -1,12 +1,11 @@
 import React, {Component} from 'react'
+import {withStyles, Card, CardContent, Tab, Tabs, Typography} from '@material-ui/core';
+import {FuseAnimate} from '@fuse';
 import {connect} from 'react-redux'
-import * as Actions from 'app/auth/store/actions';
 import {bindActionCreators} from 'redux';
 import {Link, withRouter} from 'react-router-dom';
-import {withStyles} from '@material-ui/core/styles/index';
-import {Card, CardContent, Tab, Tabs, Typography} from '@material-ui/core';
 import classNames from 'classnames';
-import {FuseAnimate} from '@fuse';
+import * as Actions from 'app/auth/store/actions';
 import FirebaseRegisterTab from './tabs/FirebaseRegisterTab';
 import Auth0RegisterTab from './tabs/Auth0RegisterTab';
 import JWTRegisterTab from './tabs/JWTRegisterTab';

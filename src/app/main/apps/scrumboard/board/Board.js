@@ -2,17 +2,17 @@ import React, {Component} from 'react';
 import {Button, Icon, IconButton, AppBar, Toolbar, Drawer, Hidden} from '@material-ui/core';
 import {Link, withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
-import * as Actions from 'app/main/apps/scrumboard/store/actions';
 import connect from 'react-redux/es/connect/connect';
 import {DragDropContext, Droppable} from 'react-beautiful-dnd';
+import withReducer from 'app/store/withReducer';
+import classNames from 'classnames';
 import BoardTitle from './BoardTitle';
 import BoardList from './BoardList';
 import BoardAddList from './BoardAddList';
 import BoardCardDialog from './dialogs/card/BoardCardDialog';
 import BoardSettingsSidebar from './sidebars/settings/BoardSettingsSidebar';
-import withReducer from 'app/store/withReducer';
-import reducer from './../store/reducers';
-import classNames from 'classnames';
+import * as Actions from '../store/actions';
+import reducer from '../store/reducers';
 
 class Board extends Component {
 

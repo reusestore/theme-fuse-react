@@ -1,4 +1,4 @@
-import axios from 'axios/index';
+import axios from 'axios';
 
 export const GET_COURSES = '[ACADEMY APP] GET COURSES';
 export const GET_CATEGORIES = '[ACADEMY APP] GET CATEGORIES';
@@ -42,7 +42,7 @@ export function setCoursesSearchText(event)
 export function setCategoryFilter(event)
 {
     return {
-        type      : SET_COURSES_CATEGORY_FILTER,
+        type    : SET_COURSES_CATEGORY_FILTER,
         category: event.target.value
     }
 }

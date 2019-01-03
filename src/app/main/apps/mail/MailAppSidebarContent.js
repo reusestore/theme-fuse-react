@@ -1,10 +1,9 @@
 import React from 'react';
-import {withStyles} from '@material-ui/core/styles/index';
-import {Icon, List, ListItem, ListItemText, ListSubheader} from '@material-ui/core';
+import {withStyles, Icon, List, ListItem, ListItemText, ListSubheader} from '@material-ui/core';
+import {FuseAnimate} from '@fuse';
 import {NavLink, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import MailCompose from './MailCompose';
-import {FuseAnimate} from '@fuse';
 
 const styles = theme => ({
     root         : {

@@ -1,14 +1,14 @@
 import React from 'react';
 import {AppBar, Hidden, MuiThemeProvider, Toolbar, withStyles} from '@material-ui/core';
-import connect from 'react-redux/es/connect/connect';
 import {FuseSearch} from '@fuse';
+import connect from 'react-redux/es/connect/connect';
 import {withRouter} from 'react-router-dom';
+import classNames from 'classnames';
 import NavbarMobileToggleButton from 'app/fuse-layouts/shared-components/NavbarMobileToggleButton';
-import QuickPanelToggleButton from 'app/fuse-layouts/shared-components/QuickPanelToggleButton';
-import ChatPanelToggleButton from 'app/fuse-layouts/shared-components/ChatPanelToggleButton';
+import QuickPanelToggleButton from 'app/fuse-layouts/shared-components/quickPanel/QuickPanelToggleButton';
+import ChatPanelToggleButton from 'app/fuse-layouts/shared-components/chatPanel/ChatPanelToggleButton';
 import UserMenu from 'app/fuse-layouts/shared-components/UserMenu';
 import Logo from 'app/fuse-layouts/shared-components/Logo';
-import classNames from 'classnames';
 
 const styles = theme => ({
     separator: {

@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import {withStyles, Avatar, Button, Tab, Tabs, Typography} from '@material-ui/core';
 import {FusePageSimple, FuseAnimate} from '@fuse';
-import {Avatar, Button, Tab, Tabs, Typography} from '@material-ui/core';
-import TimelineTab from 'app/main/pages/profile/tabs/TimelineTab';
-import PhotosVideosTab from 'app/main/pages/profile/tabs/PhotosVideosTab';
-import AboutTab from 'app/main/pages/profile/tabs/AboutTab';
+import TimelineTab from './tabs/TimelineTab';
+import PhotosVideosTab from './tabs/PhotosVideosTab';
+import AboutTab from './tabs/AboutTab';
 
 const styles = theme => ({
     layoutRoot   : {},

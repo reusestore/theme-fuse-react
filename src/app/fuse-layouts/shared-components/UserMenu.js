@@ -5,7 +5,6 @@ import * as authActions from 'app/auth/store/actions';
 import {bindActionCreators} from 'redux';
 import {Link} from 'react-router-dom';
 
-
 class UserMenu extends Component {
     state = {
         userMenu: null
@@ -122,7 +121,6 @@ function mapDispatchToProps(dispatch)
         logout: authActions.logoutUser
     }, dispatch);
 }
-
 
 function mapStateToProps({auth})
 {

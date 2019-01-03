@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Paper, Drawer, Icon, IconButton, Fab, withStyles, Hidden, Tooltip} from '@material-ui/core';
+import {withStyles, Paper, Drawer, Icon, IconButton, Fab, Hidden, Tooltip} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
 import classNames from 'classnames';
 

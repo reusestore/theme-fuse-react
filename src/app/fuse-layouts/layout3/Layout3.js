@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
+import {withStyles} from '@material-ui/core';
+import {FuseScrollbars, FuseMessage, FuseDialog} from '@fuse';
 import {withRouter} from 'react-router-dom';
 import {renderRoutes} from 'react-router-config'
-import {withStyles} from '@material-ui/core/styles';
 import {connect} from 'react-redux';
-import {FuseScrollbars, FuseMessage, FuseDialog} from '@fuse';
+import classNames from 'classnames';
+import AppContext from 'app/AppContext';
 import LeftSideLayout3 from './components/LeftSideLayout3';
 import ToolbarLayout3 from './components/ToolbarLayout3';
 import NavbarWrapperLayout3 from './components/NavbarWrapperLayout3';
 import FooterLayout3 from './components/FooterLayout3';
 import RightSideLayout3 from './components/RightSideLayout3';
 import SettingsPanel from 'app/fuse-layouts/shared-components/SettingsPanel';
-import classNames from 'classnames';
-import AppContext from 'app/AppContext';
 
 const styles = theme => ({
     root          : {

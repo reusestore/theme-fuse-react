@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Dialog, withStyles} from '@material-ui/core';
-import * as Actions from 'app/store/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import * as Actions from 'app/store/actions';
 
 const styles = theme => ({
     root: {}

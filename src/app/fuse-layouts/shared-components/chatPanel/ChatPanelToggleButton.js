@@ -2,7 +2,7 @@ import React from 'react';
 import {Icon, IconButton} from '@material-ui/core';
 import {bindActionCreators} from 'redux';
 import connect from 'react-redux/es/connect/connect';
-import * as chatPanelActions from 'app/fuse-layouts/shared-components/chatPanel/store/actions';
+import * as chatPanelActions from './store/actions';
 
 const ChatPanelToggleButton = ({toggleChatPanel, children}) => {
     return (

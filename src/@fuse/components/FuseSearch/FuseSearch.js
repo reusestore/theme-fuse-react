@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {ClickAwayListener, MenuItem, Icon, IconButton, ListItemIcon, ListItemText, Paper, TextField, Tooltip, Typography, withStyles} from '@material-ui/core';
+import {withStyles, Popper, ClickAwayListener, MenuItem, Icon, IconButton, ListItemIcon, ListItemText, Paper, TextField, Tooltip, Typography} from '@material-ui/core';
 import {connect} from 'react-redux';
 import {FuseUtils} from '@fuse';
 import classNames from 'classnames';
@@ -7,7 +7,6 @@ import match from 'autosuggest-highlight/match';
 import parse from 'autosuggest-highlight/parse';
 import {withRouter} from 'react-router-dom';
 import deburr from 'lodash/deburr';
-import Popper from '@material-ui/core/Popper/Popper';
 import Autosuggest from 'react-autosuggest';
 
 const propTypes = {};
@@ -142,7 +141,6 @@ const styles = theme => ({
             backgroundColor: theme.palette.background.paper
         }
     }
-
 });
 
 class FuseSearch extends Component {

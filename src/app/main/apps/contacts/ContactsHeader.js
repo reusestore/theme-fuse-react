@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-import {MuiThemeProvider, withStyles} from '@material-ui/core/styles/index';
-import {Hidden, Icon, IconButton, Input, Paper, Typography} from '@material-ui/core';
-import * as Actions from './store/actions';
+import {MuiThemeProvider, withStyles, Hidden, Icon, IconButton, Input, Paper, Typography} from '@material-ui/core';
+import {FuseAnimate} from '@fuse';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import classNames from 'classnames';
-import {FuseAnimate} from '@fuse';
+import * as Actions from './store/actions';
 
 const styles = theme => ({
     root: {}

@@ -1,6 +1,6 @@
-import axios from 'axios/index';
+import axios from 'axios';
 import history from 'history.js';
-import BoardModel from 'app/main/apps/scrumboard/model/BoardModel';
+import BoardModel from '../../model/BoardModel';
 
 export const GET_BOARDS = '[SCRUMBOARD APP] GET BOARDS';
 export const RESET_BOARDS = '[SCRUMBOARD APP] RESET BOARDS';

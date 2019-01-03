@@ -1,4 +1,4 @@
-import axios from 'axios/index';
+import axios from 'axios';
 
 export const GET_MAILS = '[MAIL APP] GET MAILS';
 export const GET_MAIL = '[MAIL APP] GET MAIL';

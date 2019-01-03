@@ -1,6 +1,6 @@
 import React from 'react';
-import {FuseAnimateGroup} from '@fuse';
 import {IconButton, Tooltip} from '@material-ui/core';
+import {FuseAnimateGroup} from '@fuse';
 
 const PoweredByLinks = () => {
     return (

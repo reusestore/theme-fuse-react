@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Card, Divider, Icon, IconButton, Typography} from '@material-ui/core';
-import {withStyles} from '@material-ui/core/styles/index';
+import {withStyles, Button, Card, Divider, Icon, IconButton, Typography} from '@material-ui/core';
 import classNames from 'classnames';
 
 const styles = theme => ({

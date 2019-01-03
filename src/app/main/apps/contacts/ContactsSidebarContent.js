@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles/index';
-import {Avatar, Divider, Icon, List, ListItem, ListItemText, Paper, Typography} from '@material-ui/core';
+import {withStyles, Avatar, Divider, Icon, List, ListItem, ListItemText, Paper, Typography} from '@material-ui/core';
+import {FuseAnimate} from '@fuse';
+import {NavLink, withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {NavLink, withRouter} from 'react-router-dom';
-import {FuseAnimate} from '@fuse';
 
 const styles = theme => ({
     listItem: {

@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core';
 import {FusePageSimple, DemoContent} from '@fuse';
 
 import {Tab, Tabs} from '@material-ui/core';
 
 const styles = theme => ({
-    layoutRoot   : {},
+    layoutRoot: {}
 });
 
 class SimpleTabbedSample extends Component {

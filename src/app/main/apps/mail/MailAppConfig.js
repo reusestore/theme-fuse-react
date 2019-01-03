@@ -1,6 +1,6 @@
 import React from 'react';
-import {Redirect} from 'react-router-dom';
 import {FuseLoadable} from '@fuse';
+import {Redirect} from 'react-router-dom';
 
 export const MailAppConfig = {
     settings: {

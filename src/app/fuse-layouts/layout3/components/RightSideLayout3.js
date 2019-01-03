@@ -13,5 +13,4 @@ const RightSideLayout3 = () => {
     );
 };
 
-
 export default RightSideLayout3;

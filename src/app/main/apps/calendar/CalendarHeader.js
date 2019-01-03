@@ -1,12 +1,11 @@
 import React from 'react';
-import {withStyles} from '@material-ui/core/styles';
-import {Icon, IconButton, MuiThemeProvider, Tooltip, Typography} from '@material-ui/core';
+import {withStyles, Icon, IconButton, MuiThemeProvider, Tooltip, Typography} from '@material-ui/core';
+import {FuseAnimate} from '@fuse';
 import Toolbar from 'react-big-calendar/lib/Toolbar';
 import {navigate} from 'react-big-calendar/lib/utils/constants';
+import connect from 'react-redux/es/connect/connect';
 import classNames from 'classnames';
 import moment from 'moment';
-import {FuseAnimate} from '@fuse';
-import connect from 'react-redux/es/connect/connect';
 
 const headerHeight = 200;
 

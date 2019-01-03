@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {Avatar, Paper, Typography, withStyles, TextField, IconButton, Icon} from '@material-ui/core';
-import classNames from 'classnames';
 import {FuseScrollbars} from '@fuse';
+import classNames from 'classnames';
 import moment from 'moment/moment';
-import * as Actions from './store/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import _ from '@lodash';
+import * as Actions from './store/actions';
 
 const styles = theme => ({
     messageRow  : {

@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles/index';
-import {Typography} from '@material-ui/core';
+import {withStyles, Typography} from '@material-ui/core';
+import {FuseAnimate} from '@fuse';
 import classNames from 'classnames';
 import {Link} from 'react-router-dom';
-import {FuseAnimate} from '@fuse';
 
 const styles = theme => ({
     root         : {},

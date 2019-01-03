@@ -10,10 +10,7 @@ const FuseAnimate = (props) => {
             visibility: 'hidden'
         }
     });
-    return (
-        <VelocityComponent {...props} children={children}/>
-    )
-
+    return <VelocityComponent {...props} children={children}/>
 };
 
 FuseAnimate.propTypes = {

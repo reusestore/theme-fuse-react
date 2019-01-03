@@ -1,13 +1,7 @@
 import React, {Component} from 'react';
-import {
-    withStyles,
-    Button,
-    Avatar,
-    Divider,
-    Tooltip
-} from '@material-ui/core';
-import classNames from 'classnames';
+import {withStyles, Button, Avatar, Divider, Tooltip} from '@material-ui/core';
 import {FuseScrollbars, FuseAnimateGroup} from '@fuse';
+import classNames from 'classnames';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as Actions from './store/actions';
@@ -150,7 +144,6 @@ class ContactList extends Component {
         );
     };
 }
-
 
 function mapDispatchToProps(dispatch)
 {

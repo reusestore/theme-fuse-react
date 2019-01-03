@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {TextField, Button, Dialog, DialogActions, DialogContent, Icon, IconButton, Typography, Toolbar, AppBar} from '@material-ui/core';
-import {withStyles} from '@material-ui/core/styles/index';
+import {withStyles, TextField, Button, Dialog, DialogActions, DialogContent, Icon, IconButton, Typography, Toolbar, AppBar} from '@material-ui/core';
 import _ from '@lodash';
 
 const styles = theme => ({

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import Select from 'react-select';
-import CreatableSelect from 'react-select/lib/Creatable';
 import {withStyles, Paper, Chip, Typography, TextField, MenuItem} from '@material-ui/core';
 import {emphasize} from '@material-ui/core/styles/colorManipulator';
+import CreatableSelect from 'react-select/lib/Creatable';
+import Select from 'react-select';
 import classNames from 'classnames';
 
 const styles = theme => ({

@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles/index';
-import {Checkbox, Icon, IconButton, Menu, MenuItem} from '@material-ui/core';
-import * as Actions from '../store/actions/index';
+import {withStyles, Checkbox, Icon, IconButton, Menu, MenuItem} from '@material-ui/core';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import classNames from 'classnames';
 import {withRouter} from 'react-router-dom';
+import * as Actions from '../store/actions/index';
 
 const styles = theme => ({
     root              : {

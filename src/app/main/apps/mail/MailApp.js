@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
-import MailList from './mails/MailList';
-import * as Actions from './store/actions';
+import {withStyles} from '@material-ui/core';
+import {FusePageCarded} from '@fuse';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import withReducer from 'app/store/withReducer';
+import MailList from './mails/MailList';
 import MailDetails from './mail/MailDetails';
-import {FusePageCarded} from '@fuse';
 import MailsToolbar from './mails/MailsToolbar';
 import MailToolbar from './mail/MailToolbar';
 import MailAppHeader from './MailAppHeader';
 import MailAppSidebarHeader from './MailAppSidebarHeader';
 import MailAppSidebarContent from './MailAppSidebarContent';
-import withReducer from 'app/store/withReducer';
+import * as Actions from './store/actions';
 import reducer from './store/reducers';
 
 const styles = theme => ({});

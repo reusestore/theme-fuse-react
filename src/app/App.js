@@ -1,10 +1,10 @@
 import './fake-db/fake-db'
 import React, {Component} from 'react';
+import {createGenerateClassName, jssPreset} from '@material-ui/core';
+import {FuseAuthorization, FuseLayout, FuseTheme} from '@fuse';
 import JssProvider from 'react-jss/lib/JssProvider';
 import Provider from 'react-redux/es/components/Provider';
 import {Router} from 'react-router-dom';
-import {FuseAuthorization, FuseLayout, FuseTheme} from '@fuse';
-import {createGenerateClassName, jssPreset} from '@material-ui/core';
 import {create} from 'jss';
 import jssExtend from 'jss-extend';
 import history from '../history';

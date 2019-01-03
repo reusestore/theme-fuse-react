@@ -1,7 +1,7 @@
 import React from 'react';
 import {withStyles} from '@material-ui/core';
-import Navigation from 'app/fuse-layouts/shared-components/Navigation';
 import {FuseScrollbars} from '@fuse';
+import Navigation from 'app/fuse-layouts/shared-components/Navigation';
 
 const styles = theme => ({});
 

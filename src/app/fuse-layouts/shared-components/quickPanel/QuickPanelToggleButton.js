@@ -2,7 +2,7 @@ import React from 'react';
 import {Icon, IconButton} from '@material-ui/core';
 import {bindActionCreators} from 'redux';
 import connect from 'react-redux/es/connect/connect';
-import * as quickPanelActions from 'app/fuse-layouts/shared-components/quickPanel/store/actions';
+import * as quickPanelActions from './store/actions';
 
 const QuickPanelToggleButton = ({toggleQuickPanel, children}) => {
     return (

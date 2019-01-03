@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles/index';
-import {Button, Card, CardContent, Divider, Typography} from '@material-ui/core';
-import classNames from 'classnames';
+import {withStyles, Button, Card, CardContent, Divider, Typography} from '@material-ui/core';
 import {FuseAnimate, FuseAnimateGroup} from '@fuse';
+import classNames from 'classnames';
 
 const styles = theme => ({
     root      : {

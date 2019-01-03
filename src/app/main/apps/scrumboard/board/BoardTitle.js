@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {Paper, ClickAwayListener, Icon, IconButton, InputAdornment, TextField, Typography} from '@material-ui/core';
 import {bindActionCreators} from 'redux';
-import * as Actions from 'app/main/apps/scrumboard/store/actions';
 import {withRouter} from 'react-router-dom';
 import connect from 'react-redux/es/connect/connect';
+import * as Actions from '../store/actions';
 
 class BoardListHeader extends Component {
     state = {

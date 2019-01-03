@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles/index';
-import {Avatar, Button, Card, CardContent, Icon, TextField, Typography} from '@material-ui/core';
+import {withStyles, Avatar, Button, Card, CardContent, Icon, TextField, Typography} from '@material-ui/core';
+import {FuseAnimate} from '@fuse';
 import classNames from 'classnames';
 import {Link} from 'react-router-dom';
 import _ from '@lodash';
-import {FuseAnimate} from '@fuse';
 
 const styles = theme => ({
     root: {

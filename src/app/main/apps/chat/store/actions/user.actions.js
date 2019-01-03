@@ -1,4 +1,4 @@
-import axios from 'axios/index';
+import axios from 'axios';
 
 export const GET_USER_DATA = '[CHAT APP] GET USER DATA';
 export const UPDATE_USER_DATA = '[CHAT APP] UPDATE USER DATA';

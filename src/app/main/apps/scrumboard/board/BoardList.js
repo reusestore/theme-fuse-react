@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {Draggable, Droppable} from 'react-beautiful-dnd';
 import {Card, CardContent, CardActions, withStyles} from '@material-ui/core';
-import BoardCard from './BoardCard';
-import classNames from 'classnames';
 import {darken} from '@material-ui/core/styles/colorManipulator';
+import {Draggable, Droppable} from 'react-beautiful-dnd';
+import classNames from 'classnames';
+import BoardCard from './BoardCard';
 import BoardAddCard from './BoardAddCard';
 import BoardListHeader from './BoardListHeader';
 

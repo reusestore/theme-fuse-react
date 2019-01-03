@@ -1,9 +1,9 @@
-import {withStyles, Icon, List, ListItem, ListItemText, ListSubheader, Button} from '@material-ui/core';
-import {NavLink, withRouter} from 'react-router-dom';
 import React from 'react';
+import {withStyles, Icon, List, ListItem, ListItemText, ListSubheader, Button} from '@material-ui/core';
+import {FuseAnimate} from '@fuse';
+import {NavLink, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {FuseAnimate} from '@fuse';
 import * as Actions from './store/actions';
 
 const styles = theme => ({

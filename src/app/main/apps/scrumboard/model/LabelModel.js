@@ -1,4 +1,4 @@
-import {FuseUtils} from '@fuse/index';
+import {FuseUtils} from '@fuse';
 
 class LabelModel {
     /**

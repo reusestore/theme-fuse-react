@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles/index';
-import axios from 'axios/index';
-import {GridList, GridListTile, GridListTileBar, Icon, IconButton, Typography, ListSubheader} from '@material-ui/core';
-import classNames from 'classnames';
+import {withStyles, GridList, GridListTile, GridListTileBar, Icon, IconButton, Typography, ListSubheader} from '@material-ui/core';
 import {FuseAnimateGroup} from '@fuse';
+import axios from 'axios';
+import classNames from 'classnames';
 
 const styles = theme => ({
     root: {},

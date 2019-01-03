@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import {Button, IconButton, Icon, withStyles, TextField, ClickAwayListener, InputAdornment} from '@material-ui/core';
 import classNames from 'classnames';
 import {bindActionCreators} from 'redux';
-import * as Actions from 'app/main/apps/scrumboard/store/actions';
 import {withRouter} from 'react-router-dom';
 import connect from 'react-redux/es/connect/connect';
+import * as Actions from '../store/actions';
 
 const styles = theme => ({
     root: {

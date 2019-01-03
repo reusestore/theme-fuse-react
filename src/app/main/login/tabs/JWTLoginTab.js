@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import Formsy from 'formsy-react';
-import {TextFieldFormsy} from '@fuse';
 import {withStyles, Button, Divider, Typography, InputAdornment, Icon} from '@material-ui/core';
+import {TextFieldFormsy} from '@fuse';
+import Formsy from 'formsy-react';
 import {bindActionCreators} from 'redux';
-import * as Actions from 'app/auth/store/actions';
 import {withRouter} from 'react-router-dom';
 import connect from 'react-redux/es/connect/connect';
+import * as Actions from 'app/auth/store/actions';
 
 const styles = theme => ({
     root: {

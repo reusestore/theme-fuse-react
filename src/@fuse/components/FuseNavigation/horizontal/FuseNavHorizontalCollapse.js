@@ -1,18 +1,15 @@
 import React, {Component} from 'react';
-import FuseNavHorizontalGroup from './FuseNavHorizontalGroup';
-import FuseNavHorizontalItem from './FuseNavHorizontalItem';
-import {Icon, IconButton, ListItem, ListItemText} from '@material-ui/core';
-import {withStyles} from '@material-ui/core/styles/index';
+import {withStyles, Grow, Paper, Icon, IconButton, ListItem, ListItemText} from '@material-ui/core';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
-import FuseNavBadge from './../FuseNavBadge';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Manager, Reference, Popper} from 'react-popper';
-import Grow from '@material-ui/core/Grow';
-import Paper from '@material-ui/core/Paper';
 import _ from '@lodash';
 import * as ReactDOM from 'react-dom';
+import FuseNavHorizontalGroup from './FuseNavHorizontalGroup';
+import FuseNavHorizontalItem from './FuseNavHorizontalItem';
+import FuseNavBadge from './../FuseNavBadge';
 
 const propTypes = {
     item: PropTypes.shape(

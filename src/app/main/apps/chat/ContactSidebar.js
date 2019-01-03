@@ -2,8 +2,8 @@ import React from 'react';
 import {withStyles, IconButton, TextField, AppBar, Icon, Toolbar, Typography, Avatar} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
 import {bindActionCreators} from 'redux';
-import * as Actions from './store/actions';
 import connect from 'react-redux/es/connect/connect';
+import * as Actions from './store/actions';
 
 const styles = theme => ({
     root: {

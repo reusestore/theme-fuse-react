@@ -1,17 +1,16 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import {withStyles, Fab, Icon} from '@material-ui/core';
 import {FusePageSimple, FuseAnimate} from '@fuse';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import * as Actions from './store/actions';
-import ContactsList from 'app/main/apps/contacts/ContactsList';
-import ContactsHeader from 'app/main/apps/contacts/ContactsHeader';
-import ContactsSidebarContent from 'app/main/apps/contacts/ContactsSidebarContent';
-import _ from '@lodash';
-import {Fab, Icon} from '@material-ui/core';
-import ContactDialog from 'app/main/apps/contacts/ContactDialog';
 import withReducer from 'app/store/withReducer';
+import _ from '@lodash';
+import ContactsList from './ContactsList';
+import ContactsHeader from './ContactsHeader';
+import ContactsSidebarContent from './ContactsSidebarContent';
+import ContactDialog from './ContactDialog';
+import * as Actions from './store/actions';
 import reducer from './store/reducers';
 
 const styles = theme => ({

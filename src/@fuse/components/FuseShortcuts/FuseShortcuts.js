@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Divider, Icon, IconButton, Input, ListItemIcon, ListItemText, Menu, MenuItem, Tooltip, Typography, withStyles} from '@material-ui/core';
+import {withStyles, Divider, Icon, IconButton, Input, ListItemIcon, ListItemText, Menu, MenuItem, Tooltip, Typography} from '@material-ui/core';
 import * as UserActions from 'app/auth/store/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';

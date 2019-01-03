@@ -1,4 +1,4 @@
-import axios from 'axios/index';
+import axios from 'axios';
 
 export const GET_WIDGETS = '[ANALYTICS DASHBOARD APP] GET WIDGETS';
 

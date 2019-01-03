@@ -1,4 +1,4 @@
-import axios from 'axios/index';
+import axios from 'axios';
 import {FuseUtils} from '@fuse';
 import {showMessage} from 'app/store/actions/fuse';
 

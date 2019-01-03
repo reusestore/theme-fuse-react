@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles/index';
+import {withStyles, Button, Card, CardContent, Icon, Typography} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple, FuseAnimate} from '@fuse';
-import {Button, Card, CardContent, Icon, Typography} from '@material-ui/core';
 
 const styles = theme => ({
     layoutRoot: {}

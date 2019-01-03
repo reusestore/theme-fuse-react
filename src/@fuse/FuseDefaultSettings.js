@@ -1,8 +1,8 @@
+import {createMuiTheme} from '@material-ui/core';
 import {fuseDark} from '@fuse/fuse-colors';
 import lightBlue from '@material-ui/core/colors/lightBlue';
 import red from '@material-ui/core/colors/red';
 import qs from 'qs';
-import {createMuiTheme} from '@material-ui/core';
 import _ from '@lodash';
 
 /**

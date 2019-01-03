@@ -1,11 +1,11 @@
 import React from 'react';
 import {Paper, Drawer, Hidden, MuiThemeProvider, withStyles} from '@material-ui/core';
-import NavbarLayout3 from './NavbarLayout3';
 import {bindActionCreators} from 'redux';
 import * as Actions from 'app/store/actions';
 import connect from 'react-redux/es/connect/connect';
-import NavbarMobileLayout3 from 'app/fuse-layouts/layout3/components/NavbarMobileLayout3';
 import classNames from 'classnames';
+import NavbarMobileLayout3 from 'app/fuse-layouts/layout3/components/NavbarMobileLayout3';
+import NavbarLayout3 from './NavbarLayout3';
 
 const navbarWidth = 280;
 

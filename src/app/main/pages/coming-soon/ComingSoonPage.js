@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles/index';
-import {Button, Card, CardContent, Divider, TextField, Typography} from '@material-ui/core';
+import {withStyles, Button, Card, CardContent, Divider, TextField, Typography} from '@material-ui/core';
+import {FuseCountdown, FuseAnimate} from '@fuse';
 import classNames from 'classnames';
 import _ from '@lodash';
-import {FuseCountdown, FuseAnimate} from '@fuse';
 
 const styles = theme => ({
     root: {

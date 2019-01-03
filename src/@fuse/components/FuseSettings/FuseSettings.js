@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {Typography, FormControl, FormControlLabel, FormLabel, MenuItem, Radio, RadioGroup, Select, Switch, withStyles} from '@material-ui/core';
+import {withStyles, Typography, FormControl, FormControlLabel, FormLabel, MenuItem, Radio, RadioGroup, Select, Switch} from '@material-ui/core';
 import * as Actions from 'app/store/actions';
 import * as AuthActions from 'app/auth/store/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import { FuseLayoutConfigs} from '@fuse';
+import {FuseLayoutConfigs} from '@fuse';
 import classNames from 'classnames';
 import _ from '@lodash';
 

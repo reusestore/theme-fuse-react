@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {Button, IconButton, Icon, withStyles, ClickAwayListener, Card, TextField, InputAdornment} from '@material-ui/core';
+import {darken} from '@material-ui/core/styles/colorManipulator';
 import {withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import connect from 'react-redux/es/connect/connect';
-import * as Actions from 'app/main/apps/scrumboard/store/actions';
-import {darken} from '@material-ui/core/styles/colorManipulator';
 import classNames from 'classnames';
+import * as Actions from '../store/actions';
 
 const styles = theme => ({
     root: {},

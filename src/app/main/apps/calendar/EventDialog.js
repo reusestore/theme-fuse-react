@@ -1,14 +1,11 @@
 import React, {Component} from 'react';
-import {
-    TextField, Button, Dialog, DialogActions, DialogContent, Icon, IconButton, Typography, Toolbar, AppBar, FormControlLabel, Switch
-} from '@material-ui/core';
-import {withStyles} from '@material-ui/core/styles/index';
+import {withStyles, TextField, Button, Dialog, DialogActions, DialogContent, Icon, IconButton, Typography, Toolbar, AppBar, FormControlLabel, Switch} from '@material-ui/core';
+import FuseUtils from '@fuse/FuseUtils';
 import {bindActionCreators} from 'redux';
-import * as Actions from './store/actions';
 import {connect} from 'react-redux';
 import _ from '@lodash';
 import moment from 'moment';
-import FuseUtils from '@fuse/FuseUtils';
+import * as Actions from './store/actions';
 
 const styles = theme => ({
     root       : {},

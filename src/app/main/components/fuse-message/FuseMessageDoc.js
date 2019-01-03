@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles/index';
+import {withStyles, Typography, Button} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
-import {Typography} from '@material-ui/core';
-import Button from '@material-ui/core/Button/Button';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as Actions from 'app/store/actions';

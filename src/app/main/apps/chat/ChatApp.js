@@ -4,13 +4,13 @@ import {fade} from '@material-ui/core/styles/colorManipulator';
 import classNames from 'classnames';
 import {bindActionCreators} from "redux";
 import connect from "react-redux/es/connect/connect";
+import withReducer from 'app/store/withReducer';
 import * as Actions from "./store/actions";
 import Chat from "./Chat";
 import ChatsSidebar from "./ChatsSidebar";
 import StatusIcon from "./StatusIcon";
 import ContactSidebar from './ContactSidebar';
 import UserSidebar from './UserSidebar';
-import withReducer from 'app/store/withReducer';
 import reducer from './store/reducers';
 
 const drawerWidth = 400;
@@ -107,7 +107,7 @@ class ChatApp extends React.Component {
 
                 <div className={classes.topBg}/>
 
-                <div className={classNames(classes.contentCardWrapper,'container')}>
+                <div className={classNames(classes.contentCardWrapper, 'container')}>
 
                     <div className={classes.contentCard}>
 

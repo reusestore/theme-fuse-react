@@ -5,9 +5,9 @@ import classNames from 'classnames';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
 import connect from 'react-redux/es/connect/connect';
-import * as Actions from 'app/main/apps/scrumboard/store/actions';
 import moment from 'moment';
 import _ from '@lodash';
+import * as Actions from '../store/actions';
 
 const styles = theme => ({
     root       : {},

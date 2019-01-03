@@ -21,15 +21,15 @@ import {
     ListItemText,
     Divider
 } from '@material-ui/core';
-import {bindActionCreators} from 'redux';
-import * as Actions from './store/actions';
-import {connect} from 'react-redux';
 import amber from '@material-ui/core/colors/amber';
 import red from '@material-ui/core/colors/red';
+import {FuseUtils} from '@fuse';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 import moment from 'moment/moment';
 import classNames from 'classnames';
-import {FuseUtils} from '@fuse';
 import _ from '@lodash';
+import * as Actions from './store/actions';
 
 const styles = theme => ({
     root       : {},

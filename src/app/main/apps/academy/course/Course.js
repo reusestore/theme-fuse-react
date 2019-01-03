@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
-import {FusePageSimple, FuseScrollbars} from '@fuse';
 import {withStyles, Paper, Hidden, Icon, IconButton, Fab, Typography, Stepper, Step, StepLabel} from '@material-ui/core';
+import {FusePageSimple, FuseScrollbars} from '@fuse';
 import withReducer from 'app/store/withReducer';
-import {bindActionCreators} from 'redux';
-import reducer from '../store/reducers';
-import * as Actions from '../store/actions';
 import connect from 'react-redux/es/connect/connect';
 import SwipeableViews from 'react-swipeable-views';
 import {green} from '@material-ui/core/colors';
 import {Link} from 'react-router-dom';
+import {bindActionCreators} from 'redux';
+import reducer from '../store/reducers';
+import * as Actions from '../store/actions';
 
 const styles = theme => ({
     layoutRoot   : {},

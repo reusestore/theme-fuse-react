@@ -1,5 +1,5 @@
 import React from 'react';
-import {FuseShortcuts,FuseSidePanel} from '@fuse';
+import {FuseShortcuts, FuseSidePanel} from '@fuse';
 
 const LeftSideLayout3 = () => {
     return (

@@ -1,16 +1,16 @@
 const config = {
     title   : 'Layout 2 - Horizontal',
     defaults: {
-        mode   : 'fullwidth',
-        scroll : 'content',
-        navbar : {
+        mode          : 'fullwidth',
+        scroll        : 'content',
+        navbar        : {
             display: true
         },
-        toolbar: {
+        toolbar       : {
             display : true,
             position: 'below'
         },
-        footer : {
+        footer        : {
             display: true,
             style  : 'fixed'
         },

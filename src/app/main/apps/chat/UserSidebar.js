@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import {Radio, FormControlLabel, RadioGroup, FormLabel, FormControl, IconButton, TextField, AppBar, Icon, Toolbar, withStyles, Typography, Avatar} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
 import {bindActionCreators} from 'redux';
-import * as Actions from './store/actions';
 import connect from 'react-redux/es/connect/connect';
-import StatusIcon from './StatusIcon';
 import _ from '@lodash';
+import * as Actions from './store/actions';
+import StatusIcon from './StatusIcon';
 
 const statusArr = [
     {

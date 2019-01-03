@@ -20,4 +20,4 @@ function mapStateToProps({fuse})
     }
 }
 
-export default withRouter(connect(mapStateToProps, null)(FuseTheme));
+export default withRouter(connect(mapStateToProps)(FuseTheme));

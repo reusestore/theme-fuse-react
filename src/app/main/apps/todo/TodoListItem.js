@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
-import {withRouter} from 'react-router-dom';
-import {IconButton, Icon, Typography, Checkbox, ListItem} from '@material-ui/core';
-import TodoChip from './TodoChip';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-import * as Actions from './store/actions';
-import classNames from 'classnames';
-import _ from '@lodash';
+import {withStyles, IconButton, Icon, Typography, Checkbox, ListItem} from '@material-ui/core';
 import red from '@material-ui/core/colors/red';
 import amber from '@material-ui/core/colors/amber';
+import {withRouter} from 'react-router-dom';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import classNames from 'classnames';
+import _ from '@lodash';
+import * as Actions from './store/actions';
+import TodoChip from './TodoChip';
 
 const styles = theme => ({
     todoList : {

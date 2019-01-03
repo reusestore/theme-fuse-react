@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import {withStyles, Typography} from '@material-ui/core';
+import {FuseAnimate} from '@fuse';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom'
-import * as Actions from './store/actions'
 import {bindActionCreators} from 'redux';
-import {Typography} from '@material-ui/core';
 import {Chart} from 'react-chartjs-2';
 import Widget1 from './widgets/Widget1';
 import Widget2 from './widgets/Widget2';
@@ -15,8 +14,8 @@ import Widget6 from './widgets/Widget6';
 import Widget7 from './widgets/Widget7';
 import Widget8 from './widgets/Widget8';
 import Widget9 from './widgets/Widget9';
-import {FuseAnimate} from '@fuse';
 import withReducer from 'app/store/withReducer';
+import * as Actions from './store/actions'
 import reducer from './store/reducers';
 
 const styles = theme => ({

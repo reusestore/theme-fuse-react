@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
-import TodoList from './TodoList';
-import * as Actions from './store/actions';
+import {FusePageCarded} from '@fuse';
+import _ from '@lodash';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom'
-import {FusePageCarded} from '@fuse';
+import withReducer from 'app/store/withReducer';
+import TodoList from './TodoList';
 import TodoToolbar from './TodoToolbar';
 import TodoHeader from './TodoHeader';
 import TodoSidebarHeader from './TodoSidebarHeader';
 import TodoSidebarContent from './TodoSidebarContent';
 import TodoDialog from './TodoDialog';
-import _ from '@lodash';
-import withReducer from 'app/store/withReducer';
+import * as Actions from './store/actions';
 import reducer from './store/reducers';
 
 class TodoApp extends Component {

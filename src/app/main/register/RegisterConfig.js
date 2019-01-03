@@ -5,13 +5,13 @@ export const RegisterConfig = {
     settings: {
         layout: {
             config: {
-                navbar : {
+                navbar        : {
                     display: false
                 },
-                toolbar: {
+                toolbar       : {
                     display: false
                 },
-                footer : {
+                footer        : {
                     display: false
                 },
                 leftSidePanel : {

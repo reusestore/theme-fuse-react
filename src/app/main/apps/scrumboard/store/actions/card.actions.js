@@ -1,4 +1,4 @@
-import axios from 'axios/index';
+import axios from 'axios';
 import {showMessage} from 'app/store/actions/fuse';
 
 export const OPEN_CARD_DIALOG = '[SCRUMBOARD APP] OPEN CARD DIALOG';

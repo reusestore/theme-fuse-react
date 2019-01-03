@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
-import {Select, Button, Card, Divider, FormControl, Icon, MenuItem, Typography} from '@material-ui/core';
+import {withStyles, Select, Button, Card, Divider, FormControl, Icon, MenuItem, Typography} from '@material-ui/core';
 import {Doughnut} from 'react-chartjs-2';
-import {withStyles} from '@material-ui/core/styles/index';
 import classNames from 'classnames';
 import _ from '@lodash';
 
 const styles = theme => ({
     root: {
-        border   : '1px solid ' + theme.palette.divider,
-        boxShadow: 'none',
+        border      : '1px solid ' + theme.palette.divider,
+        boxShadow   : 'none',
         borderRadius: 8
     }
 });

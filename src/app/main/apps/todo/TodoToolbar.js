@@ -3,8 +3,8 @@ import {withStyles, Icon, IconButton, MenuItem, FormControl, Select} from '@mate
 import {withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import * as Actions from './store/actions';
 import classNames from 'classnames';
+import * as Actions from './store/actions';
 
 const styles = theme => ({
     root: {

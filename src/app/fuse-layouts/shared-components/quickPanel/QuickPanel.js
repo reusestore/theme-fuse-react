@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-import {Divider, Drawer, Icon, List, ListItem, ListItemIcon, ListItemSecondaryAction, ListItemText, ListSubheader, Switch, Typography} from '@material-ui/core';
-import {withStyles} from '@material-ui/core/styles/index';
+import {withStyles, Divider, Drawer, Icon, List, ListItem, ListItemIcon, ListItemSecondaryAction, ListItemText, ListSubheader, Switch, Typography} from '@material-ui/core';
+import {FuseScrollbars} from '@fuse';
+import moment from 'moment';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as Actions from './store/actions/index'
-import {FuseScrollbars} from '@fuse';
-import moment from 'moment';
 import withReducer from 'app/store/withReducer';
 import reducer from './store/reducers';
 

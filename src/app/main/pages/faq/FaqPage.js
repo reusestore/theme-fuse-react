@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles/index';
-import {ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, Icon, Input, Paper, Typography} from '@material-ui/core';
-import classNames from 'classnames';
-import axios from 'axios/index';
+import {withStyles, ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, Icon, Input, Paper, Typography} from '@material-ui/core';
 import {FuseUtils, FuseAnimate, FuseAnimateGroup} from '@fuse';
+import classNames from 'classnames';
+import axios from 'axios';
 
 const styles = theme => ({
     root      : {

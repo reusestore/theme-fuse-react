@@ -1,17 +1,14 @@
 import React, {Component} from 'react';
-import FuseNavHorizontalCollapse from './FuseNavHorizontalCollapse';
-import FuseNavHorizontalItem from './FuseNavHorizontalItem';
-import {ListItemText, ListItem, Icon, IconButton} from '@material-ui/core';
+import {withStyles, Grow, Paper, Icon, IconButton, ListItem, ListItemText} from '@material-ui/core';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {withStyles} from '@material-ui/core/styles/index';
 import {Manager, Reference, Popper} from 'react-popper';
-import Grow from '@material-ui/core/Grow';
-import Paper from '@material-ui/core/Paper';
 import _ from '@lodash';
 import * as ReactDOM from 'react-dom';
+import FuseNavHorizontalCollapse from './FuseNavHorizontalCollapse';
+import FuseNavHorizontalItem from './FuseNavHorizontalItem';
 
 const propTypes = {
     item: PropTypes.shape(
@@ -29,19 +26,19 @@ const styles = theme => ({
         '& .list-item-text': {
             padding: '0 0 0 16px'
         },
-        '&.level-0': {
+        '&.level-0'        : {
             height      : 48,
             borderRadius: 4
         },
-        '&.dense'  : {
-            padding    : '8px 12px 8px 12px',
-            minHeight  : 40,
-            '&.level-0': {
+        '&.dense'          : {
+            padding            : '8px 12px 8px 12px',
+            minHeight          : 40,
+            '&.level-0'        : {
                 height: 44
             },
             '& .list-item-text': {
                 padding: '0 0 0 8px'
-            },
+            }
         }
     },
     children   : {},

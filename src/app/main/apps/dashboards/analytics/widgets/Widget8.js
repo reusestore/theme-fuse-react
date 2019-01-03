@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
-import {AppBar, Card, Icon, IconButton, Tab, Tabs, Typography} from '@material-ui/core';
+import {withStyles, AppBar, Card, Icon, IconButton, Tab, Tabs, Typography} from '@material-ui/core';
 import {Line} from 'react-chartjs-2';
-import {withStyles} from '@material-ui/core/styles/index';
 import classNames from 'classnames';
 
 const styles = theme => ({
     root: {
-        border   : '1px solid ' + theme.palette.divider,
-        boxShadow: 'none',
+        border      : '1px solid ' + theme.palette.divider,
+        boxShadow   : 'none',
         borderRadius: 8
     }
 });

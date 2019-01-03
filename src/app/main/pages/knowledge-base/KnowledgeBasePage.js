@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles/index';
 import {
+    withStyles,
     Button,
     Card,
     CardContent,
@@ -14,12 +14,12 @@ import {
     ListItem,
     ListItemIcon,
     ListItemText,
-    Typography
+    Typography,
+    Slide
 } from '@material-ui/core';
-import classNames from 'classnames';
-import axios from 'axios/index';
-import Slide from '@material-ui/core/Slide';
 import {FuseAnimate, FuseAnimateGroup} from '@fuse';
+import classNames from 'classnames';
+import axios from 'axios';
 
 function Transition(props)
 {

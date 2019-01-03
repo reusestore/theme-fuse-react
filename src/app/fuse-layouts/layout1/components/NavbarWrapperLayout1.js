@@ -1,10 +1,10 @@
 import React from 'react';
 import {Drawer, Hidden, MuiThemeProvider, withStyles} from '@material-ui/core';
-import NavbarLayout1 from './NavbarLayout1';
 import classNames from 'classnames';
 import {bindActionCreators} from 'redux';
 import * as Actions from 'app/store/actions';
 import connect from 'react-redux/es/connect/connect';
+import NavbarLayout1 from './NavbarLayout1';
 
 const navbarWidth = 280;
 

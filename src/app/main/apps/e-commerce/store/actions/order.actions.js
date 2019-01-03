@@ -1,4 +1,4 @@
-import axios from 'axios/index';
+import axios from 'axios';
 import {showMessage} from 'app/store/actions/fuse';
 
 export const GET_ORDER = '[E-COMMERCE APP] GET ORDER';

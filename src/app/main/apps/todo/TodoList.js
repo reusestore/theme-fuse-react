@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom';
 import {withStyles, List, Typography} from '@material-ui/core';
 import {FuseUtils, FuseAnimate, FuseAnimateGroup} from '@fuse';
-import TodoListItem from './TodoListItem';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 import _ from '@lodash';
+import TodoListItem from './TodoListItem';
 
 const styles = theme => ({
     todoList: {

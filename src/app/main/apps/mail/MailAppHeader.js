@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Hidden, Icon, IconButton, Input, MuiThemeProvider, Paper} from '@material-ui/core';
-import * as Actions from './store/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import * as Actions from './store/actions';
 
 class MailAppHeader extends Component {
 

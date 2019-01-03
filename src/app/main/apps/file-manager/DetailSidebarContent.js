@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import {withStyles, FormControlLabel, Icon, Switch, Typography} from '@material-ui/core';
+import {FuseAnimate} from '@fuse';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {FormControlLabel, Icon, Switch, Typography} from '@material-ui/core';
 import classNames from 'classnames';
-import {FuseAnimate} from '@fuse';
 
 const styles = theme => ({
     table   : {

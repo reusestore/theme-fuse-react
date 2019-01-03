@@ -1,9 +1,23 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles/index';
-import axios from 'axios/index';
-import {Avatar, AppBar, Button, Card, CardContent, Icon, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, Toolbar, Typography} from '@material-ui/core';
-import classNames from 'classnames';
+import {
+    withStyles,
+    Avatar,
+    AppBar,
+    Button,
+    Card,
+    CardContent,
+    Icon,
+    IconButton,
+    List,
+    ListItem,
+    ListItemSecondaryAction,
+    ListItemText,
+    Toolbar,
+    Typography
+} from '@material-ui/core';
 import {FuseAnimateGroup} from '@fuse';
+import axios from 'axios';
+import classNames from 'classnames';
 
 const styles = theme => ({
     root: {}

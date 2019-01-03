@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
-import {Link, withRouter} from 'react-router-dom';
-import {withStyles} from '@material-ui/core/styles/index';
-import {Card, CardContent, Typography, Tabs, Tab} from '@material-ui/core';
-import classNames from 'classnames';
+import {withStyles, Card, CardContent, Typography, Tabs, Tab} from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
+import {Link, withRouter} from 'react-router-dom';
+import classNames from 'classnames';
 import JWTLoginTab from './tabs/JWTLoginTab';
 import FirebaseLoginTab from './tabs/FirebaseLoginTab';
 import Auth0LoginTab from './tabs/Auth0LoginTab';

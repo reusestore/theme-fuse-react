@@ -1,16 +1,16 @@
 const config = {
     title   : 'Layout 3 - Horizontal',
     defaults: {
-        mode   : 'container',
-        scroll : 'content',
-        navbar : {
+        mode          : 'container',
+        scroll        : 'content',
+        navbar        : {
             display: true
         },
-        toolbar: {
+        toolbar       : {
             display : true,
             position: 'above'
         },
-        footer : {
+        footer        : {
             display: true,
             style  : 'fixed'
         },

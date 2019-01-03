@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles/index';
-import {Avatar, Divider, Icon, IconButton, Typography} from '@material-ui/core';
-import * as Actions from '../store/actions/index';
-import MailChip from '../MailChip';
+import {withStyles, Avatar, Divider, Icon, IconButton, Typography} from '@material-ui/core';
+import {FuseAnimate} from '@fuse';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {FuseAnimate} from '@fuse';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
 import _ from '@lodash';
+import * as Actions from '../store/actions/index';
+import MailChip from '../MailChip';
 
 const styles = theme => ({});
 

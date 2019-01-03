@@ -18,13 +18,13 @@ import {
 } from '@material-ui/core';
 import {FuseAnimate, FuseAnimateGroup} from '@fuse';
 import withReducer from 'app/store/withReducer';
-import reducer from '../store/reducers';
 import {bindActionCreators} from 'redux';
-import * as Actions from '../store/actions';
 import connect from 'react-redux/es/connect/connect';
 import classNames from 'classnames';
 import _ from '@lodash';
 import {Link} from 'react-router-dom';
+import * as Actions from '../store/actions';
+import reducer from '../store/reducers';
 
 const styles = theme => ({
     root      : {

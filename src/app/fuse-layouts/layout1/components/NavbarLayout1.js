@@ -1,8 +1,8 @@
 import React from 'react';
 import {AppBar, Hidden, Icon, withStyles} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
-import UserNavbarHeader from 'app/fuse-layouts/shared-components/UserNavbarHeader';
 import classNames from 'classnames';
+import UserNavbarHeader from 'app/fuse-layouts/shared-components/UserNavbarHeader';
 import Logo from 'app/fuse-layouts/shared-components/Logo';
 import NavbarFoldedToggleButton from 'app/fuse-layouts/shared-components/NavbarFoldedToggleButton';
 import NavbarMobileToggleButton from 'app/fuse-layouts/shared-components/NavbarMobileToggleButton';

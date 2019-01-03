@@ -1,5 +1,5 @@
 import {authRoles} from 'app/auth';
-import AdminRoleExample from 'app/main/auth/admin-role-example/AdminRoleExample';
+import AdminRoleExample from './AdminRoleExample';
 
 export const AdminRoleExampleConfig = {
     settings: {

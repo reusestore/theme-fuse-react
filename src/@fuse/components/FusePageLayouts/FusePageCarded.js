@@ -1,8 +1,5 @@
 import React from 'react';
-import {withStyles} from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import Hidden from '@material-ui/core/Hidden';
-import {MuiThemeProvider} from '@material-ui/core';
+import {withStyles, Drawer, Hidden, MuiThemeProvider} from '@material-ui/core';
 import classNames from 'classnames';
 import {FuseScrollbars} from '@fuse';
 import PropTypes from 'prop-types';

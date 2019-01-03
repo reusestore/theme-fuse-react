@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {FuseSplashScreen} from '@fuse';
-import auth0Service from 'app/services/auth0Service';
 import {bindActionCreators} from 'redux';
-import * as userActions from 'app/auth/store/actions';
-import * as Actions from 'app/store/actions';
 import connect from 'react-redux/es/connect/connect';
 import {withRouter} from 'react-router-dom';
+import auth0Service from 'app/services/auth0Service';
+import * as userActions from 'app/auth/store/actions';
+import * as Actions from 'app/store/actions';
 
 class Callback extends Component {
     componentDidMount()

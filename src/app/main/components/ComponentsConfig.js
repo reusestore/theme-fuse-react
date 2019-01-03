@@ -1,4 +1,4 @@
-import {MaterialUIRoutes} from 'app/main/components/material-ui/MaterialUIRoutes';
+import {MaterialUIRoutes} from './material-ui/MaterialUIRoutes';
 import {FuseLoadable} from '@fuse';
 
 export const ComponentsConfig = {

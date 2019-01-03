@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import {withStyles, Icon, Table, TableBody, TableCell, TablePagination, TableRow, Checkbox} from '@material-ui/core';
-import {withRouter} from 'react-router-dom';
 import {FuseScrollbars} from '@fuse';
+import {withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import connect from 'react-redux/es/connect/connect';
-import * as Actions from 'app/main/apps/e-commerce/store/actions';
-import ProductsTableHead from './ProductsTableHead';
 import classNames from 'classnames';
 import _ from '@lodash';
+import ProductsTableHead from './ProductsTableHead';
+import * as Actions from '../store/actions';
 
 const styles = theme => ({
     root: {}

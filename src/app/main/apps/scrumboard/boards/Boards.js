@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
-import {bindActionCreators} from 'redux';
-import * as Actions from '../store/actions';
 import {withStyles, Typography, Icon} from '@material-ui/core';
+import {fade} from '@material-ui/core/styles/colorManipulator';
+import {FuseAnimateGroup, FuseAnimate} from '@fuse';
+import {bindActionCreators} from 'redux';
 import {Link, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import classNames from 'classnames';
-import {fade} from '@material-ui/core/styles/colorManipulator';
-import {FuseAnimateGroup, FuseAnimate} from '@fuse';
 import withReducer from 'app/store/withReducer';
-import reducer from './../store/reducers';
+import * as Actions from '../store/actions';
+import reducer from '../store/reducers';
 
 const styles = theme => ({
     root    : {

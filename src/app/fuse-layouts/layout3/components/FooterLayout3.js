@@ -27,7 +27,7 @@ const FooterLayout3 = ({classes, footerTheme}) => {
 function mapStateToProps({fuse})
 {
     return {
-        footerTheme  : fuse.settings.footerTheme
+        footerTheme: fuse.settings.footerTheme
     }
 }
 

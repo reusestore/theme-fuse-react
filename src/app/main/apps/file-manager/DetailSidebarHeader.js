@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import {withStyles, Icon, IconButton, Typography} from '@material-ui/core';
+import {FuseAnimate} from '@fuse';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {Icon, IconButton, Typography} from '@material-ui/core';
 import classNames from 'classnames';
-import {FuseAnimate} from '@fuse';
 
 const styles = theme => ({
     root: {}

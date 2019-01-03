@@ -1,21 +1,20 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import {withStyles, Fab, Icon, IconButton, Typography} from '@material-ui/core';
 import {FusePageSimple, FuseAnimate} from '@fuse';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import * as Actions from './store/actions';
-import FileList from 'app/main/apps/file-manager/FileList';
-import DetailSidebarHeader from 'app/main/apps/file-manager/DetailSidebarHeader';
-import DetailSidebarContent from 'app/main/apps/file-manager/DetailSidebarContent';
-import {Fab, Icon, IconButton, Typography} from '@material-ui/core';
-import MainSidebarHeader from 'app/main/apps/file-manager/MainSidebarHeader';
-import MainSidebarContent from 'app/main/apps/file-manager/MainSidebarContent';
 import withReducer from 'app/store/withReducer';
+import FileList from './FileList';
+import DetailSidebarHeader from './DetailSidebarHeader';
+import DetailSidebarContent from './DetailSidebarContent';
+import MainSidebarHeader from './MainSidebarHeader';
+import MainSidebarContent from './MainSidebarContent';
+import * as Actions from './store/actions';
 import reducer from './store/reducers';
 
 const styles = theme => ({
-    addButton         : {
+    addButton: {
         position: 'absolute',
         bottom  : -28,
         left    : 16,

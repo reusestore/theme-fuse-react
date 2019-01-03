@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import {Button, MuiThemeProvider, Typography} from '@material-ui/core';
-import {Line} from 'react-chartjs-2';
-import {withStyles} from '@material-ui/core/styles/index';
-import _ from '@lodash';
+import {withStyles, Button, MuiThemeProvider, Typography} from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
+import {Line} from 'react-chartjs-2';
+import _ from '@lodash';
 import connect from 'react-redux/es/connect/connect';
 
 require('velocity-animate');

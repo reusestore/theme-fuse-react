@@ -49,7 +49,6 @@ const UserNavbarHeader = ({user, classes}) => {
     );
 };
 
-
 function mapStateToProps({fuse, auth})
 {
     return {

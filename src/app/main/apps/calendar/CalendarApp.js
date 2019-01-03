@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
+import {withStyles, Fab, Icon} from '@material-ui/core';
+import {FuseAnimate} from '@fuse';
 import BigCalendar from 'react-big-calendar'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
+import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
 import moment from 'moment'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import * as Actions from './store/actions';
-import {withStyles, Fab, Icon} from '@material-ui/core';
-import {FuseAnimate} from '@fuse';
 import withReducer from 'app/store/withReducer';
+import * as Actions from './store/actions';
 import reducer from './store/reducers';
-import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
 import EventDialog from './EventDialog';
 import CalendarHeader from './CalendarHeader';
 

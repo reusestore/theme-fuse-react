@@ -1,4 +1,4 @@
-import axios from 'axios/index';
+import axios from 'axios';
 import {setselectedContactId} from './contacts.actions';
 import {closeMobileChatsSidebar} from './sidebars.actions';
 

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles/index';
+import {withStyles, Typography} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
-import {Typography} from '@material-ui/core';
 
 const styles = theme => ({
     layoutRoot: {}
@@ -37,7 +36,8 @@ class RoutingDoc extends Component {
                         </Typography>
 
                         <Typography className="mb-16" component="p">
-                            For example, have a look at the code below <FuseHighlight component="code" className="language-bash">MailAppConfig.js</FuseHighlight>. You can override all settings for a particular route as <code className="language-bash">/apps/mail</code> for this example.
+                            For example, have a look at the code below <FuseHighlight component="code" className="language-bash">MailAppConfig.js</FuseHighlight>. You can override
+                            all settings for a particular route as <code className="language-bash">/apps/mail</code> for this example.
                         </Typography>
 
                         <FuseHighlight component="pre" className="language-jsx my-16">

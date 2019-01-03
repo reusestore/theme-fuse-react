@@ -1,6 +1,6 @@
 import React from 'react';
-import connect from 'react-redux/es/connect/connect';
 import {FuseNavigation} from '@fuse';
+import connect from 'react-redux/es/connect/connect';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
 

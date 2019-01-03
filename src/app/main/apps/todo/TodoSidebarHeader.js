@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {withStyles, Icon, MenuItem, TextField} from '@material-ui/core';
-import classNames from 'classnames';
 import {FuseAnimate} from '@fuse';
+import classNames from 'classnames';
 
 const styles = theme => ({
     root             : {},

@@ -1,12 +1,12 @@
-import axios from 'axios/index';
-import reorder, {reorderQuoteMap} from './reorder';
-import {showMessage} from 'app/store/actions/fuse';
-import ListModel from '../../model/ListModel';
-import CardModel from '../../model/CardModel';
+import axios from 'axios';
+import {FuseUtils} from '@fuse';
 import history from 'history.js';
 import _ from '@lodash';
+import {showMessage} from 'app/store/actions/fuse';
+import reorder, {reorderQuoteMap} from './reorder';
 import * as Actions from './index';
-import {FuseUtils} from '@fuse';
+import ListModel from '../../model/ListModel';
+import CardModel from '../../model/CardModel';
 
 export const GET_BOARD = '[SCRUMBOARD APP] GET BOARD';
 export const DELETE_BOARD = '[SCRUMBOARD APP] DELETE BOARD';

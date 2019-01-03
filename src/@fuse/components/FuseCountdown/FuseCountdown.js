@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Typography, withStyles} from '@material-ui/core';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 
 const propTypes = {
     endDate   : PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
