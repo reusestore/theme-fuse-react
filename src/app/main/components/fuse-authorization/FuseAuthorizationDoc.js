@@ -1,38 +1,26 @@
-import React, {Component} from 'react';
-import {withStyles, Typography} from '@material-ui/core';
+import React from 'react';
+import {Typography} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
 
-const styles = theme => ({
-    layoutRoot: {}
-});
+const FuseAuthorizationDoc = () => {
+    return (
+        <FusePageSimple
+            header={
+                <div className="flex flex-1 items-center justify-between p-24">
+                    <Typography variant="h6">FuseAuthorization</Typography>
+                </div>
+            }
+            content={
+                <div className="p-24 max-w-2xl mx-auto">
 
-class FuseAuthorizationDoc extends Component {
+                    <Typography className="mb-16" component="p">
+                        <code className="language-bash">FuseAuthorization</code> is authorization component of the Fuse React. It allows to block routes based on user roles. It
+                        should wraps the FuseTheme component.
+                    </Typography>
 
-    render()
-    {
-        const {classes} = this.props;
-
-        return (
-            <FusePageSimple
-                classes={{
-                    root: classes.layoutRoot
-                }}
-                header={
-                    <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="h6">FuseAuthorization</Typography>
-                    </div>
-                }
-                content={
-                    <div className="p-24 max-w-2xl mx-auto">
-
-                        <Typography className="mb-16" component="p">
-                            <code className="language-bash">FuseAuthorization</code> is authorization component of the Fuse React. It allows to block routes based on user roles. It
-                            should wraps the FuseTheme component.
-                        </Typography>
-
-                        <FuseHighlight component="pre" className="language-jsx">
-                            {
-                                `
+                    <FuseHighlight component="pre" className="language-jsx">
+                        {
+                            `
                                <FuseAuthorization routes={routes}>
                                     <FuseTheme>
                                         <FuseLayout
@@ -62,17 +50,17 @@ class FuseAuthorizationDoc extends Component {
                                     </FuseTheme>
                                 </FuseAuthorization>
                                 `
-                            }
-                        </FuseHighlight>
+                        }
+                    </FuseHighlight>
 
-                        <Typography className="text-32 mt-32 mb-8" component="h2">Configuration</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Configuration</Typography>
 
-                        <Typography className="mb-16" component="p">
-                            You can define authorization roles in route config files.
-                        </Typography>
+                    <Typography className="mb-16" component="p">
+                        You can define authorization roles in route config files.
+                    </Typography>
 
-                        <FuseHighlight component="pre" className="language-js">
-                            {`
+                    <FuseHighlight component="pre" className="language-js">
+                        {`
                                 export const AdminRoleExampleConfig = {
                                     settings: {
                                         layout: {
@@ -88,14 +76,14 @@ class FuseAuthorizationDoc extends Component {
                                     ]
                                 };
                             `}
-                        </FuseHighlight>
+                    </FuseHighlight>
 
-                        <Typography className="mb-16 mt-32" component="p">
-                            You can also hide navigation item/group/collapse by adding auth property in <code className="language-bash">fuse-configs/fuseNavigationConfig.js</code>.
-                        </Typography>
+                    <Typography className="mb-16 mt-32" component="p">
+                        You can also hide navigation item/group/collapse by adding auth property in <code className="language-bash">fuse-configs/fuseNavigationConfig.js</code>.
+                    </Typography>
 
-                        <FuseHighlight component="pre" className="language-js">
-                            {`
+                    <FuseHighlight component="pre" className="language-js">
+                        {`
                                   {
                                     'id'   : 'only-admin-navigation-item',
                                     'title': 'Nav item only for Admin',
@@ -105,18 +93,18 @@ class FuseAuthorizationDoc extends Component {
                                     'icon' : 'verified_user'
                                   },
                             `}
-                        </FuseHighlight>
+                    </FuseHighlight>
 
-                        <Typography className="text-32 mt-32 mb-8" component="h2">On fuseRoutesConfig.js file</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">On fuseRoutesConfig.js file</Typography>
 
-                        <Typography className="mb-16 mt-32" component="p">
-                            If you don't want to set auth on every page config;
-                            <br/>You can group the configs and define authorization the fuseRoutesConfig.js file,
-                            <br/>With this configuration below makes <b>whole app</b> auth protected:
-                        </Typography>
+                    <Typography className="mb-16 mt-32" component="p">
+                        If you don't want to set auth on every page config;
+                        <br/>You can group the configs and define authorization the fuseRoutesConfig.js file,
+                        <br/>With this configuration below makes <b>whole app</b> auth protected:
+                    </Typography>
 
-                        <FuseHighlight component="pre" className="language-js">
-                            {`
+                    <FuseHighlight component="pre" className="language-js">
+                        {`
                                     import React from 'react';
                                     import {Redirect} from 'react-router-dom';
                                     import {FuseUtils} from '@fuse/index';
@@ -165,13 +153,12 @@ class FuseAuthorizationDoc extends Component {
                                         }
                                     ];
                             `}
-                        </FuseHighlight>
+                    </FuseHighlight>
 
-                    </div>
-                }
-            />
-        );
-    }
-}
+                </div>
+            }
+        />
+    );
+};
 
-export default withStyles(styles, {withTheme: true})(FuseAuthorizationDoc);
+export default FuseAuthorizationDoc;

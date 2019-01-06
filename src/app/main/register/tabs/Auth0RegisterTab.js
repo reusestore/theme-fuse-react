@@ -1,17 +1,11 @@
 import React, {Component} from 'react';
-import {withStyles, Button} from '@material-ui/core';
+import {Button} from '@material-ui/core';
 import {withRouter} from 'react-router-dom';
 import auth0Service from 'app/services/auth0Service';
 import {bindActionCreators} from 'redux';
 import connect from 'react-redux/es/connect/connect';
 import * as Actions from 'app/store/actions';
 import * as userActions from 'app/auth/store/actions';
-
-const styles = theme => ({
-    root: {
-        width: '100%'
-    }
-});
 
 class Auth0RegisterTab extends Component {
 
@@ -42,10 +36,8 @@ class Auth0RegisterTab extends Component {
 
     render()
     {
-        const {classes} = this.props;
-
         return (
-            <div className={classes.root}>
+            <div className="w-full">
                 <Button
                     className="w-full my-48"
                     color="primary"
@@ -69,4 +61,4 @@ function mapDispatchToProps(dispatch)
         dispatch);
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(null, mapDispatchToProps)(Auth0RegisterTab)));
+export default withRouter(connect(null, mapDispatchToProps)(Auth0RegisterTab));

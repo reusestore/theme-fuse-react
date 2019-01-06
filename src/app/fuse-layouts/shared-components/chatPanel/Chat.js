@@ -131,6 +131,7 @@ const styles = theme => ({
 });
 
 class Chat extends Component {
+
     state = {
         messageText: ''
     };

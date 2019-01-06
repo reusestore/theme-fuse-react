@@ -19,6 +19,7 @@ const styles = theme => ({
 });
 
 class BadgeVisibility extends Component {
+
     state = {
         invisible: false
     };

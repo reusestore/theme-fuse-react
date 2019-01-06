@@ -31,7 +31,6 @@ const styles = theme => ({
 
 function FuseNavBadge({classes, className, badge})
 {
-
     return (
         <div
             className={classNames(classes.root, className)}

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {
-    withStyles,
     TextField,
     Button,
     Dialog,
@@ -27,17 +26,8 @@ import {FuseUtils} from '@fuse';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import moment from 'moment/moment';
-import classNames from 'classnames';
 import _ from '@lodash';
 import * as Actions from './store/actions';
-
-const styles = theme => ({
-    root       : {},
-    formControl: {
-        marginTop   : 8,
-        marginBottom: 16
-    }
-});
 
 const newTodoState = {
     'id'       : '',
@@ -53,6 +43,7 @@ const newTodoState = {
 };
 
 class TodoDialog extends Component {
+
     state = {
         form       : {...newTodoState},
         labelMenuEl: null
@@ -157,7 +148,7 @@ class TodoDialog extends Component {
 
     render()
     {
-        const {classes, todoDialog, addTodo, updateTodo, removeTodo, labels} = this.props;
+        const {todoDialog, addTodo, updateTodo, removeTodo, labels} = this.props;
         const {form, labelMenuEl} = this.state;
         let startDate, dueDate;
 
@@ -168,7 +159,7 @@ class TodoDialog extends Component {
         }
 
         return (
-            <Dialog className={classes.root} {...todoDialog.props} onClose={this.closeTodoDialog} fullWidth maxWidth="sm">
+            <Dialog {...todoDialog.props} onClose={this.closeTodoDialog} fullWidth maxWidth="sm">
 
                 <AppBar position="static" elevation={1}>
                     <Toolbar className="flex w-full">
@@ -270,7 +261,7 @@ class TodoDialog extends Component {
                     )}
 
                     <div className="px-16 sm:px-24">
-                        <FormControl className={classes.formControl} required fullWidth>
+                        <FormControl className="mt-8 mb-16" required fullWidth>
                             <TextField
                                 label="Title"
                                 autoFocus
@@ -282,7 +273,7 @@ class TodoDialog extends Component {
                             />
                         </FormControl>
 
-                        <FormControl className={classes.formControl} required fullWidth>
+                        <FormControl className="mt-8 mb-16" required fullWidth>
                             <TextField
                                 label="Notes"
                                 name="notes"
@@ -298,7 +289,7 @@ class TodoDialog extends Component {
                                 name="startDate"
                                 label="Start Date"
                                 type="datetime-local"
-                                className={classNames(classes.formControl, "mr-8")}
+                                className="mt-8 mb-16 mr-8"
                                 InputLabelProps={{
                                     shrink: true
                                 }}
@@ -313,7 +304,7 @@ class TodoDialog extends Component {
                                 name="dueDate"
                                 label="Due Date"
                                 type="datetime-local"
-                                className={classNames(classes.formControl, "ml-8")}
+                                className="mt-8 mb-16 ml-8"
                                 InputLabelProps={{
                                     shrink: true
                                 }}
@@ -372,7 +363,6 @@ class TodoDialog extends Component {
     }
 }
 
-
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
@@ -392,5 +382,4 @@ function mapStateToProps({todoApp})
     }
 }
 
-
-export default withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(TodoDialog));
+export default connect(mapStateToProps, mapDispatchToProps)(TodoDialog);

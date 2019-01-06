@@ -45,6 +45,7 @@ const EFFECTS = [
 ];
 
 class FuseAnimateDoc extends Component {
+
     state = {
         intervalId     : null,
         selectedEffect : 'fade',

@@ -4,6 +4,7 @@ import ToolbarMenu from './ToolbarMenu';
 import ChecklistModel from 'app/main/apps/scrumboard/model/ChecklistModel';
 
 class CheckListMenu extends Component {
+
     state = {
         anchorEl : null,
         name     : '',

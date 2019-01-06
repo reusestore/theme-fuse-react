@@ -33,6 +33,7 @@ const styles = theme => ({
 });
 
 class NavTabs extends React.Component {
+
     state = {
         value: 0
     };

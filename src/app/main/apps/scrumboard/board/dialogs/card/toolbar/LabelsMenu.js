@@ -3,6 +3,7 @@ import {Checkbox, Icon, IconButton, ListItemIcon, ListItemText, MenuItem} from '
 import ToolbarMenu from './ToolbarMenu';
 
 class LabelsMenu extends Component {
+
     state = {
         anchorEl: null
     };

@@ -1,47 +1,27 @@
-import React, {Component} from 'react';
-import {withStyles, Typography} from '@material-ui/core';
+import React from 'react';
+import {Typography} from '@material-ui/core';
 import {FusePageSimple} from '@fuse/index';
-import yellow from '@material-ui/core/colors/yellow';
 
-const styles = theme => ({
-    layoutRoot: {},
-    note      : {
-        border         : '1px solid ' + yellow[500],
-        backgroundColor: yellow[200],
-        color          : theme.palette.getContrastText(yellow[200]),
-        padding        : 16
-    }
-});
+const ProjectStructureDoc = () => {
+    return (
+        <FusePageSimple
+            header={
+                <div className="flex flex-1 items-center justify-between p-24">
+                    <Typography variant="h6">Project Structure</Typography>
+                </div>
+            }
+            content={
+                <div className="p-24 max-w-2xl mx-auto">
 
-class ProjectStructureDoc extends Component {
+                    <Typography className="mb-16" component="p">
+                        Here’s the project structure of the Fuse React:
+                    </Typography>
 
-    render()
-    {
-        const {classes} = this.props;
+                    <img src="assets/images/etc/fuse-react-project-structure.png" alt="fuse react project structure"/>
+                </div>
+            }
+        />
+    );
+};
 
-        return (
-            <FusePageSimple
-                classes={{
-                    root: classes.layoutRoot
-                }}
-                header={
-                    <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="h6">Project Structure</Typography>
-                    </div>
-                }
-                content={
-                    <div className="p-24 max-w-2xl mx-auto">
-
-                        <Typography className="mb-16" component="p">
-                            Here’s the project structure of the Fuse React:
-                        </Typography>
-
-                        <img src="assets/images/etc/fuse-react-project-structure.png" alt="fuse react project structure"/>
-                    </div>
-                }
-            />
-        );
-    }
-}
-
-export default withStyles(styles, {withTheme: true})(ProjectStructureDoc);
+export default ProjectStructureDoc;

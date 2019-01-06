@@ -8,7 +8,6 @@ import classNames from 'classnames';
 import * as Actions from '../store/actions';
 
 const styles = theme => ({
-    root: {},
     card: {
         backgroundColor: darken(theme.palette.background.default, theme.palette.type === 'light' ? 0.02 : .4)
     }
@@ -20,6 +19,7 @@ const initialState = {
 };
 
 class BoardAddList extends Component {
+
     state = initialState;
 
     handleOpenForm = () => {
@@ -54,7 +54,7 @@ class BoardAddList extends Component {
         const {formOpen} = this.state;
 
         return (
-            <div className={classes.root}>
+            <div>
                 <Card
                     className={classNames(classes.card, "w-320 mr-24")}
                     square={true}

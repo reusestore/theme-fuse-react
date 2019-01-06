@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {withStyles, IconButton, Icon, Typography, Checkbox, ListItem} from '@material-ui/core';
 import red from '@material-ui/core/colors/red';
 import amber from '@material-ui/core/colors/amber';
@@ -11,105 +11,92 @@ import * as Actions from './store/actions';
 import TodoChip from './TodoChip';
 
 const styles = theme => ({
-    todoList : {
-        padding: 0
-    },
-    todoItem : {
-        borderBottom : '1px solid  ' + theme.palette.divider,
+    todoItem: {
         '&.completed': {
-            background                  : 'rgba(0,0,0,0.03)',
-            '& $todoTitle, & $todoNotes': {
+            background                    : 'rgba(0,0,0,0.03)',
+            '& .todo-title, & .todo-notes': {
                 textDecoration: 'line-through'
             }
         }
-    },
-    todoTitle: {},
-    todoNotes: {},
-    labels   : {}
+    }
 });
 
-class TodoListItem extends Component {
+const TodoListItem = ({todo, labels, classes, openEditTodoDialog, toggleImportant, toggleStarred, toggleCompleted}) => {
+    return (
+        <ListItem
+            onClick={(ev) => {
+                ev.preventDefault();
+                openEditTodoDialog(todo);
+            }}
+            dense
+            button
+            className={classNames(classes.todoItem, {"completed": todo.completed}, "border-solid border-b-1 py-16  px-0 sm:px-8")}
+        >
 
-    render()
-    {
-        const {todo, labels, classes, openEditTodoDialog, toggleImportant, toggleStarred, toggleCompleted} = this.props;
+            <Checkbox
+                tabIndex={-1}
+                disableRipple
+                checked={todo.completed}
+                onChange={() => toggleCompleted(todo)}
+                onClick={(ev) => ev.stopPropagation()}
+            />
 
-        return (
-            <ListItem
-                onClick={(ev) => {
+            <div className="flex flex-1 flex-col relative overflow-hidden pl-8">
+
+                <Typography
+                    variant="subtitle1"
+                    className="todo-title truncate"
+                    color={todo.completed ? "textSecondary" : "default"}
+                >
+                    {todo.title}
+                </Typography>
+
+                <Typography
+                    color="textSecondary"
+                    className="todo-notes truncate"
+                >
+                    {_.truncate(todo.notes.replace(/<(?:.|\n)*?>/gm, ''), {'length': 180})}
+                </Typography>
+
+                <div className={classNames(classes.labels, "flex mt-8")}>
+                    {todo.labels.map(label => (
+                        <TodoChip
+                            className="mr-4"
+                            title={_.find(labels, {id: label}).title}
+                            color={_.find(labels, {id: label}).color}
+                            key={label}
+                        />
+                    ))}
+                </div>
+            </div>
+
+            <div className="px-8">
+                <IconButton onClick={(ev) => {
                     ev.preventDefault();
-                    openEditTodoDialog(todo);
-                }}
-                dense
-                button
-                className={classNames(classes.todoItem, {"completed": todo.completed}, "py-16  px-0 sm:px-8")}
-            >
-
-                <Checkbox
-                    tabIndex={-1}
-                    disableRipple
-                    checked={todo.completed}
-                    onChange={() => toggleCompleted(todo)}
-                    onClick={(ev) => ev.stopPropagation()}
-                />
-
-                <div className="flex flex-1 flex-col relative overflow-hidden pl-8">
-
-                    <Typography
-                        variant="subtitle1"
-                        className={classNames(classes.todoTitle, "truncate")}
-                        color={todo.completed ? "textSecondary" : "default"}
-                    >
-                        {todo.title}
-                    </Typography>
-
-                    <Typography
-                        color="textSecondary"
-                        className={classNames(classes.todoNotes, "truncate")}
-                    >
-                        {_.truncate(todo.notes.replace(/<(?:.|\n)*?>/gm, ''), {'length': 180})}
-                    </Typography>
-
-                    <div className={classNames(classes.labels, "flex mt-8")}>
-                        {todo.labels.map(label => (
-                            <TodoChip
-                                className="mr-4"
-                                title={_.find(labels, {id: label}).title}
-                                color={_.find(labels, {id: label}).color}
-                                key={label}
-                            />
-                        ))}
-                    </div>
-                </div>
-
-                <div className="px-8">
-                    <IconButton onClick={(ev) => {
-                        ev.preventDefault();
-                        ev.stopPropagation();
-                        toggleImportant(todo)
-                    }}>
-                        {todo.important ? (
-                            <Icon style={{color: red[500]}}>error</Icon>
-                        ) : (
-                            <Icon>error_outline</Icon>
-                        )}
-                    </IconButton>
-                    <IconButton onClick={(ev) => {
-                        ev.preventDefault();
-                        ev.stopPropagation();
-                        toggleStarred(todo)
-                    }}>
-                        {todo.starred ? (
-                            <Icon style={{color: amber[500]}}>star</Icon>
-                        ) : (
-                            <Icon>star_outline</Icon>
-                        )}
-                    </IconButton>
-                </div>
-            </ListItem>
-        );
-    }
-}
+                    ev.stopPropagation();
+                    toggleImportant(todo)
+                }}>
+                    {todo.important ? (
+                        <Icon style={{color: red[500]}}>error</Icon>
+                    ) : (
+                        <Icon>error_outline</Icon>
+                    )}
+                </IconButton>
+                <IconButton onClick={(ev) => {
+                    ev.preventDefault();
+                    ev.stopPropagation();
+                    toggleStarred(todo)
+                }}>
+                    {todo.starred ? (
+                        <Icon style={{color: amber[500]}}>star</Icon>
+                    ) : (
+                        <Icon>star_outline</Icon>
+                    )}
+                </IconButton>
+            </div>
+        </ListItem>
+    );
+};
 
 function mapDispatchToProps(dispatch)
 {

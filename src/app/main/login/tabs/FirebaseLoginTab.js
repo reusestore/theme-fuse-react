@@ -14,6 +14,7 @@ const styles = theme => ({
 });
 
 class FirebaseLoginTab extends Component {
+
     state = {
         canSubmit: false
     };

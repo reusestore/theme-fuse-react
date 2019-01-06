@@ -20,21 +20,9 @@ const styles = theme => ({
         opacity : 0
     },
     productImageItem        : {
-        width                   : 128,
-        height                  : 128,
-        display                 : 'flex',
-        alignItems              : 'center',
-        justifyItems            : 'center',
-        position                : 'relative',
-        borderRadius            : 4,
-        marginRight             : 16,
-        marginBottom            : 16,
-        overflow                : 'hidden',
-        boxShadow               : theme.shadows[0],
         transitionProperty      : 'box-shadow',
         transitionDuration      : theme.transitions.duration.short,
         transitionTimingFunction: theme.transitions.easing.easeInOut,
-        cursor                  : 'pointer',
         '&:hover'               : {
             boxShadow                    : theme.shadows[5],
             '& $productImageFeaturedStar': {
@@ -55,6 +43,7 @@ const styles = theme => ({
 });
 
 class Product extends Component {
+
     state = {
         tabValue: 0,
         form    : null
@@ -280,7 +269,12 @@ class Product extends Component {
                                         {form.images.map(media => (
                                             <div
                                                 onClick={() => this.setFeaturedImage(media.id)}
-                                                className={classNames(classes.productImageItem, (media.id === form.featuredImageId) && 'featured')}
+                                                className={
+                                                    classNames(
+                                                        classes.productImageItem,
+                                                        "flex items-center justify-center relative w-128 h-128 rounded-4 mr-16 mb-16 overflow-hidden cursor-pointer",
+                                                        (media.id === form.featuredImageId) && 'featured')
+                                                }
                                                 key={media.id}
                                             >
                                                 <Icon className={classes.productImageFeaturedStar}>star</Icon>

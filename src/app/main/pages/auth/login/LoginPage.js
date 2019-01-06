@@ -9,14 +9,11 @@ const styles = theme => ({
     root: {
         background    : "url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat",
         backgroundSize: 'cover'
-    },
-    card: {
-        width   : '100%',
-        maxWidth: 384
     }
 });
 
 class LoginPage extends Component {
+
     state = {
         email   : '',
         password: '',
@@ -47,7 +44,7 @@ class LoginPage extends Component {
 
                     <FuseAnimate animation="transition.expandIn">
 
-                        <Card className={classes.card}>
+                        <Card className="w-full max-w-384">
 
                             <CardContent className="flex flex-col items-center justify-center p-32">
 

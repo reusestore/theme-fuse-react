@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {
-    withStyles,
     AppBar,
     Avatar,
     Button,
@@ -21,12 +20,7 @@ import {
 } from '@material-ui/core';
 import {FuseAnimateGroup} from '@fuse';
 import axios from 'axios';
-import classNames from 'classnames';
 import {Link} from 'react-router-dom';
-
-const styles = theme => ({
-    root: {}
-});
 
 class TimelineTab extends Component {
 
@@ -44,11 +38,10 @@ class TimelineTab extends Component {
 
     render()
     {
-        const {classes} = this.props;
         const {activities, posts} = this.state;
 
         return (
-            <div className={classNames(classes.root, "md:flex max-w-2xl")}>
+            <div className="md:flex max-w-2xl">
 
                 <div className="flex flex-col flex-1 md:pr-32">
 
@@ -270,4 +263,4 @@ class TimelineTab extends Component {
     }
 }
 
-export default withStyles(styles, {withTheme: true})(TimelineTab);
+export default TimelineTab;

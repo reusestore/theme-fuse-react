@@ -1,43 +1,31 @@
-import React, {Component} from 'react';
-import {withStyles, Typography} from '@material-ui/core';
+import React from 'react';
+import {Typography} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
 
-const styles = theme => ({
-    layoutRoot: {}
-});
+const FuseLayoutDoc = () => {
+    return (
+        <FusePageSimple
+            header={
+                <div className="flex flex-1 items-center justify-between p-24">
+                    <Typography variant="h6">FuseLayout</Typography>
+                </div>
+            }
+            content={
+                <div className="p-24 max-w-2xl mx-auto">
 
-class FuseLayoutDoc extends Component {
+                    <Typography className="mb-16" component="p">
+                        <code className="language-bash">FuseLayout</code> is the main layout component of the Fuse React.
+                    </Typography>
+                    <Typography className="mb-16" component="p">
+                        The component has layout areas to easily enter the contents of the app.
+                    </Typography>
+                    <Typography className="mb-16" component="p">
+                        Routes should be assigned. It makes changing layout with route configuration possible.
+                    </Typography>
 
-    render()
-    {
-        const {classes} = this.props;
-
-        return (
-            <FusePageSimple
-                classes={{
-                    root: classes.layoutRoot
-                }}
-                header={
-                    <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="h6">FuseLayout</Typography>
-                    </div>
-                }
-                content={
-                    <div className="p-24 max-w-2xl mx-auto">
-
-                        <Typography className="mb-16" component="p">
-                            <code className="language-bash">FuseLayout</code> is the main layout component of the Fuse React.
-                        </Typography>
-                        <Typography className="mb-16" component="p">
-                            The component has layout areas to easily enter the contents of the app.
-                        </Typography>
-                        <Typography className="mb-16" component="p">
-                            Routes should be assigned. It makes changing layout with route configuration possible.
-                        </Typography>
-
-                        <FuseHighlight component="pre" className="language-jsx">
-                            {
-                                `
+                    <FuseHighlight component="pre" className="language-jsx">
+                        {
+                            `
                                     <FuseLayout
                                         routes={routes}
                                         toolbar={
@@ -66,14 +54,13 @@ class FuseLayoutDoc extends Component {
                                         }
                                     />
                                 `
-                            }
-                        </FuseHighlight>
+                        }
+                    </FuseHighlight>
 
-                    </div>
-                }
-            />
-        );
-    }
-}
+                </div>
+            }
+        />
+    );
+};
 
-export default withStyles(styles, {withTheme: true})(FuseLayoutDoc);
+export default FuseLayoutDoc;

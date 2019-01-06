@@ -1,24 +1,11 @@
 import React, {Component} from 'react';
-import {withStyles, Avatar, Checkbox, Icon, IconButton, ListItemIcon, ListItemText, Menu, MenuItem, MenuList, Typography} from '@material-ui/core';
+import {Avatar, Checkbox, Icon, IconButton, ListItemIcon, ListItemText, Menu, MenuItem, MenuList, Typography} from '@material-ui/core';
 import {FuseUtils, FuseAnimate} from '@fuse';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import ReactTable from "react-table";
-import classNames from 'classnames';
 import * as Actions from './store/actions';
-
-const styles = theme => ({
-    mailList: {
-        padding: 0
-    },
-    mailItem: {},
-    avatar  : {
-        backgroundColor: theme.palette.primary[500]
-    },
-    labels  : {}
-
-});
 
 class ContactsList extends Component {
 
@@ -45,7 +32,7 @@ class ContactsList extends Component {
 
     render()
     {
-        const {classes, contacts, user, searchText, selectedContactIds, selectAllContacts, deSelectAllContacts, toggleInSelectedContacts, openEditContactDialog, removeContacts, removeContact, toggleStarredContact, setContactsUnstarred, setContactsStarred} = this.props;
+        const { contacts, user, searchText, selectedContactIds, selectAllContacts, deSelectAllContacts, toggleInSelectedContacts, openEditContactDialog, removeContacts, removeContact, toggleStarredContact, setContactsUnstarred, setContactsStarred} = this.props;
         const data = this.getFilteredArray(contacts, searchText);
         const {selectedContactsMenu} = this.state;
 
@@ -63,7 +50,7 @@ class ContactsList extends Component {
         return (
             <FuseAnimate animation="transition.slideUpIn" delay={300}>
                 <ReactTable
-                    className={classNames(classes.root, "-striped -highlight border-0")}
+                    className="-striped -highlight border-0"
                     getTrProps={(state, rowInfo, column) => {
                         return {
                             className: "cursor-pointer",
@@ -129,7 +116,7 @@ class ContactsList extends Component {
                                                         this.closeSelectedContactsMenu();
                                                     }}
                                                 >
-                                                    <ListItemIcon className={classes.icon}>
+                                                    <ListItemIcon>
                                                         <Icon>delete</Icon>
                                                     </ListItemIcon>
                                                     <ListItemText inset primary="Remove"/>
@@ -140,7 +127,7 @@ class ContactsList extends Component {
                                                         this.closeSelectedContactsMenu();
                                                     }}
                                                 >
-                                                    <ListItemIcon className={classes.icon}>
+                                                    <ListItemIcon>
                                                         <Icon>star</Icon>
                                                     </ListItemIcon>
                                                     <ListItemText inset primary="Starred"/>
@@ -151,7 +138,7 @@ class ContactsList extends Component {
                                                         this.closeSelectedContactsMenu();
                                                     }}
                                                 >
-                                                    <ListItemIcon className={classes.icon}>
+                                                    <ListItemIcon>
                                                         <Icon>star_border</Icon>
                                                     </ListItemIcon>
                                                     <ListItemText inset primary="Unstarred"/>
@@ -267,4 +254,4 @@ function mapStateToProps({contactsApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(ContactsList)));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ContactsList));

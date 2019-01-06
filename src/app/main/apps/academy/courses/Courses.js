@@ -27,27 +27,24 @@ import * as Actions from '../store/actions';
 import reducer from '../store/reducers';
 
 const styles = theme => ({
-    root      : {
-        width: '100%'
-    },
     header    : {
-        background: "linear-gradient(to right, " + theme.palette.primary.dark + " 0%, " + theme.palette.primary.main + " 100%)",
+        background: 'linear-gradient(to right, ' + theme.palette.primary.dark + ' 0%, ' + theme.palette.primary.main + ' 100%)',
         color     : theme.palette.getContrastText(theme.palette.primary.main)
     },
     headerIcon: {
-        position     : "absolute",
+        position     : 'absolute',
         top          : -64,
         left         : 0,
         opacity      : .04,
         fontSize     : 512,
         width        : 512,
         height       : 512,
-        pointerEvents: "none"
-    },
-    content   : {}
+        pointerEvents: 'none'
+    }
 });
 
 class Courses extends Component {
+
     state = {
         data: this.props.courses
     };
@@ -104,7 +101,7 @@ class Courses extends Component {
         const {data} = this.state;
 
         return (
-            <div className={classNames(classes.root)}>
+            <div className="w-full">
 
                 <div className={classNames(classes.header, "relative overflow-hidden flex flex-col items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-288")}>
 
@@ -126,7 +123,7 @@ class Courses extends Component {
                     <Icon className={classes.headerIcon}>school</Icon>
                 </div>
 
-                <div className={classNames(classes.content, "max-w-2xl w-full mx-auto px-8 sm:px-16 py-24")}>
+                <div className="max-w-2xl w-full mx-auto px-8 sm:px-16 py-24">
                     <div className="flex flex-col sm:flex-row items-center justify-between py-24">
                         <TextField
                             label="Search for a course"

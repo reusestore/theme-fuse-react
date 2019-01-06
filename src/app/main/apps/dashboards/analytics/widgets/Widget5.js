@@ -1,16 +1,7 @@
 import React, {Component} from 'react';
 import {withStyles, Button, Card, Typography} from '@material-ui/core';
 import {Line} from 'react-chartjs-2';
-import classNames from 'classnames';
 import _ from '@lodash';
-
-const styles = theme => ({
-    root: {
-        border      : '1px solid ' + theme.palette.divider,
-        boxShadow   : 'none',
-        borderRadius: 8
-    }
-});
 
 class Widget5 extends Component {
 
@@ -24,7 +15,7 @@ class Widget5 extends Component {
 
     render()
     {
-        const {classes, data: dataRaw, theme} = this.props;
+        const {data: dataRaw, theme} = this.props;
         const {dataset} = this.state;
         const data = _.merge({}, dataRaw);
         const dataWithColors = data.datasets[dataset].map((obj, index) => {
@@ -39,12 +30,16 @@ class Widget5 extends Component {
                 pointHoverBorderColor    : palette.contrastText
             }
         });
+
         return (
-            <Card className={classNames(classes.root, "w-full")}>
+            <Card className="w-full rounded-8 shadow-none border-1">
+
                 <div className="relative p-24 flex flex-row items-center justify-between">
+
                     <div className="flex flex-col">
                         <Typography className="h3 sm:h2">Visitors & Page views</Typography>
                     </div>
+
                     <div className="flex flex-row items-center">
                         {Object.keys(data.datasets).map((key) => (
                             <Button
@@ -74,4 +69,4 @@ class Widget5 extends Component {
     }
 }
 
-export default withStyles(styles, {withTheme: true})(Widget5);
+export default withStyles(null, {withTheme: true})(Widget5);

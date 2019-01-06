@@ -11,27 +11,12 @@ import reducer from '../store/reducers';
 import * as Actions from '../store/actions';
 
 const styles = theme => ({
-    layoutRoot   : {},
-    layoutHeader : {
-        height   : 72,
-        minHeight: 72
+    stepLabel : {
+        cursor: 'pointer!important'
     },
-    layoutContent: {
-        display      : "flex",
-        flex         : "1 1 auto",
-        flexDirection: "column",
-        overflow     : "hidden"
-    },
-    stepper      : {
-        background: "transparent"
-    },
-    step         : {},
-    stepLabel    : {
-        cursor: "pointer!important"
-    },
-    successFab   : {
-        background: green[500] + "!important",
-        color     : "white!important"
+    successFab: {
+        background: green[500] + '!important',
+        color     : 'white!important'
     }
 });
 
@@ -77,9 +62,8 @@ class Course extends Component {
         return (
             <FusePageSimple
                 classes={{
-                    root   : classes.layoutRoot,
-                    content: classes.layoutContent,
-                    header : classes.layoutHeader
+                    content: "flex flex-col flex-auto overflow-hidden",
+                    header : "h-72 min-h-72"
                 }}
                 header={
                     <div className="flex flex-1 items-center px-16 lg:px-24">
@@ -156,14 +140,13 @@ class Course extends Component {
                 leftSidebarContent={
                     course && (
                         <Stepper
-                            classes={{root: classes.stepper}}
+                            classes={{root: "bg-transparent"}}
                             activeStep={activeStep - 1}
                             orientation="vertical"
                         >
                             {course.steps.map((step, index) => {
                                 return (
                                     <Step
-                                        classes={{root: classes.step}}
                                         key={step.id}
                                         onClick={() => this.handleChangeActiveStep(index)}
                                     >

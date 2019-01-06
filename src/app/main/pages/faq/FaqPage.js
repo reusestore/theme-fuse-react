@@ -5,21 +5,12 @@ import classNames from 'classnames';
 import axios from 'axios';
 
 const styles = theme => ({
-    root      : {
-        width: '100%'
-    },
-    card      : {},
-    cardHeader: {
-        backgroundColor: theme.palette.grey[800],
-        color          : theme.palette.getContrastText(theme.palette.grey[800])
-    },
-    header    : {
+    header: {
         background    : "url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat",
         backgroundSize: 'cover',
         color         : '#fff'
     },
-    content   : {},
-    panel     : {
+    panel : {
         margin         : 0,
         borderWidth    : '1px 1px 0 1px',
         borderStyle    : 'solid',
@@ -32,10 +23,10 @@ const styles = theme => ({
             borderWidth : '0 1px 1px 1px'
         }
     }
-
 });
 
 class FaqPage extends Component {
+
     state = {
         data      : [],
         expanded  : null,
@@ -74,7 +65,7 @@ class FaqPage extends Component {
         const faqs = this.getFilteredArray(data, searchText);
 
         return (
-            <div className={classNames(classes.root, "")}>
+            <div className="w-full">
 
                 <div className={classNames(classes.header, "flex flex-col items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-360")}>
 
@@ -106,31 +97,28 @@ class FaqPage extends Component {
                     </Paper>
                 </div>
 
-                <div className={classNames(classes.content)}>
+                <div className="max-w-xl w-full mx-auto px-16 sm:px-24 py-24 sm:py-32">
+                    <FuseAnimateGroup
+                        enter={{
+                            animation: "transition.slideUpBigIn"
+                        }}
+                    >
+                        {faqs.map((faq) => (
+                            <ExpansionPanel className={classes.panel} key={faq.id} expanded={expanded === faq.id} onChange={this.toogleExpansion(faq.id)} elevation={0}>
 
-                    <div className="max-w-xl w-full mx-auto px-16 sm:px-24 py-24 sm:py-32">
-                        <FuseAnimateGroup
-                            enter={{
-                                animation: "transition.slideUpBigIn"
-                            }}
-                        >
-                            {faqs.map((faq) => (
-                                <ExpansionPanel className={classes.panel} key={faq.id} expanded={expanded === faq.id} onChange={this.toogleExpansion(faq.id)} elevation={0}>
+                                <ExpansionPanelSummary expandIcon={<Icon>expand_more</Icon>}>
+                                    <div className="flex items-center">
+                                        <Icon className="mr-8" color="action">help_outline</Icon>
+                                        <Typography className="">{faq.question}</Typography>
+                                    </div>
+                                </ExpansionPanelSummary>
 
-                                    <ExpansionPanelSummary expandIcon={<Icon>expand_more</Icon>}>
-                                        <div className="flex items-center">
-                                            <Icon className="mr-8" color="action">help_outline</Icon>
-                                            <Typography className="">{faq.question}</Typography>
-                                        </div>
-                                    </ExpansionPanelSummary>
-
-                                    <ExpansionPanelDetails>
-                                        <Typography className="">{faq.answer}</Typography>
-                                    </ExpansionPanelDetails>
-                                </ExpansionPanel>
-                            ))}
-                        </FuseAnimateGroup>
-                    </div>
+                                <ExpansionPanelDetails>
+                                    <Typography className="">{faq.answer}</Typography>
+                                </ExpansionPanelDetails>
+                            </ExpansionPanel>
+                        ))}
+                    </FuseAnimateGroup>
                 </div>
             </div>
         );

@@ -1,39 +1,10 @@
 import React, {Component} from 'react';
-import {withStyles, TextField, Button, Dialog, DialogActions, DialogContent, Icon, IconButton, Typography, Toolbar, AppBar} from '@material-ui/core';
+import {TextField, Button, Dialog, DialogActions, DialogContent, Icon, IconButton, Typography, Toolbar, AppBar} from '@material-ui/core';
 import _ from '@lodash';
-
-const styles = theme => ({
-    composeButton     : {
-        width: '100%'
-    },
-    formControl       : {
-        marginTop   : 8,
-        marginBottom: 16
-    },
-    attachmentList    : {
-        paddingTop: 8
-    },
-    attachment        : {
-        fontSize       : 13,
-        backgroundColor: 'rgba(0, 0, 0, 0.08)',
-        border         : '1px solid rgba(0, 0, 0, 0.16)',
-        paddingLeft    : 16,
-        marginBottom   : 8,
-        borderRadius   : 2,
-        display        : 'flex',
-        justifyContent : 'space-between',
-        alignItems     : 'center'
-    },
-    attachmentFilename: {
-        fontWeight: 600
-    },
-    attachmentSize    : {
-        marginLeft: 8,
-        fontWeight: 300
-    }
-});
+import MailAttachment from './MailAttachment';
 
 class MailCompose extends Component {
+
     state = {
         composeDialog: false,
         from         : 'johndoe@creapond.com',
@@ -58,30 +29,13 @@ class MailCompose extends Component {
 
     render()
     {
-        const {classes} = this.props;
-
-        function Attachment({fileName, size})
-        {
-            return (
-                <div className={classes.attachment}>
-                    <div className="flex">
-                        <Typography variant="caption" className={classes.attachmentFilename}>{fileName}</Typography>
-                        <Typography variant="caption" className={classes.attachmentSize}>({size})</Typography>
-                    </div>
-                    <IconButton>
-                        <Icon className="text-16">close</Icon>
-                    </IconButton>
-                </div>
-            );
-        }
-
         return (
             <div className="p-24">
 
                 <Button
                     variant="contained"
                     color="primary"
-                    className={classes.composeButton}
+                    className="w-full"
                     onClick={this.openComposeDialog}
                 >
                     COMPOSE
@@ -103,7 +57,7 @@ class MailCompose extends Component {
                     <DialogContent classes={{root: "p-16 pb-0 sm:p-24 sm:pb-0"}}>
 
                         <TextField
-                            className={classes.formControl}
+                            className="mt-8 mb-16"
                             label="From"
                             id="from"
                             name="from"
@@ -115,7 +69,7 @@ class MailCompose extends Component {
                         />
 
                         <TextField
-                            className={classes.formControl}
+                            className="mt-8 mb-16"
                             label="To"
                             autoFocus
                             id="to"
@@ -128,7 +82,7 @@ class MailCompose extends Component {
                         />
 
                         <TextField
-                            className={classes.formControl}
+                            className="mt-8 mb-16"
                             label="Cc"
                             id="cc"
                             name="cc"
@@ -139,7 +93,7 @@ class MailCompose extends Component {
                         />
 
                         <TextField
-                            className={classes.formControl}
+                            className="mt-8 mb-16"
                             label="Bcc"
                             id="bcc"
                             name="bcc"
@@ -150,7 +104,7 @@ class MailCompose extends Component {
                         />
 
                         <TextField
-                            className={classes.formControl}
+                            className="mt-8 mb-16"
                             label="Subject"
                             id="subject"
                             name="subject"
@@ -161,7 +115,7 @@ class MailCompose extends Component {
                         />
 
                         <TextField
-                            className={classes.formControl}
+                            className="mt-8 mb-16"
                             id="message"
                             name="message"
                             onChange={this.handleChange}
@@ -173,9 +127,9 @@ class MailCompose extends Component {
                             fullWidth
                         />
 
-                        <div className={classes.attachmentList}>
-                            <Attachment fileName="attachment-2.doc" size="12 kb"/>
-                            <Attachment fileName="attachment-1.jpg" size="350 kb"/>
+                        <div className="pt-8">
+                            <MailAttachment fileName="attachment-2.doc" size="12 kb"/>
+                            <MailAttachment fileName="attachment-1.jpg" size="350 kb"/>
                         </div>
                     </DialogContent>
 
@@ -198,5 +152,4 @@ class MailCompose extends Component {
     }
 }
 
-
-export default withStyles(styles, {withTheme: true})(MailCompose);
+export default MailCompose;

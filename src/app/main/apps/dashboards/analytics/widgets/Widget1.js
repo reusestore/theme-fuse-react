@@ -5,9 +5,6 @@ import {Line} from 'react-chartjs-2';
 import _ from '@lodash';
 import connect from 'react-redux/es/connect/connect';
 
-require('velocity-animate');
-require('velocity-animate/velocity.ui');
-
 const styles = theme => ({
     root: {
         backgroundColor: theme.palette.primary.main
@@ -15,6 +12,7 @@ const styles = theme => ({
 });
 
 class Widget1 extends Component {
+
     state = {
         dataset: '2017'
     };

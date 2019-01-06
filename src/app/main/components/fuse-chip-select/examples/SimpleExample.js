@@ -14,6 +14,7 @@ const suggestions = [
 }));
 
 class SimpleExample extends Component {
+
     state = {
         tags: [
             {

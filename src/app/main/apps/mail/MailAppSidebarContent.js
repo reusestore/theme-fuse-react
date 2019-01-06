@@ -6,12 +6,7 @@ import {connect} from 'react-redux';
 import MailCompose from './MailCompose';
 
 const styles = theme => ({
-    root         : {
-        flex      : '1 1 auto',
-        borderLeft: '1px solid ' + theme.palette.divider
-    },
-    listWrapper  : {},
-    listItem     : {
+    listItem: {
         color              : 'inherit!important',
         textDecoration     : 'none!important',
         height             : 40,
@@ -32,10 +27,6 @@ const styles = theme => ({
             width   : 16,
             height  : 16
         }
-    },
-    listSubheader: {
-        paddingRight: 24,
-        paddingLeft : 24
     }
 });
 
@@ -44,14 +35,13 @@ function MailAppSidebarContent({classes, folders, filters, labels})
     return (
         <FuseAnimate animation="transition.slideUpIn" delay={400}>
 
-            <div className={classes.root}>
+            <div className="flex-auto border-l-1">
 
                 <MailCompose/>
 
-                <div className={classes.listWrapper}>
+                <div>
 
                     <List>
-
                         <ListSubheader className={classes.listSubheader} disableSticky>FOLDERS</ListSubheader>
 
                         {folders.length > 0 && folders.map((folder) => (
@@ -89,7 +79,7 @@ function MailAppSidebarContent({classes, folders, filters, labels})
 
                     <List>
 
-                        <ListSubheader className={classes.listSubheader} disableSticky>LABELS</ListSubheader>
+                        <ListSubheader className="pr-24 pl-24" disableSticky>LABELS</ListSubheader>
 
                         {labels && labels.map((label) => (
                             <ListItem

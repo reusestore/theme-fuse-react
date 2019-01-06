@@ -47,9 +47,6 @@ const sampleMembers = [
 ];
 
 class BoardModel {
-    /**
-     * Constructor
-     */
     constructor(data)
     {
         const board = data ? data : {};

@@ -51,6 +51,7 @@ const styles = theme => ({
 });
 
 class FuseNavHorizontalGroup extends Component {
+
     state = {
         open: false
     };

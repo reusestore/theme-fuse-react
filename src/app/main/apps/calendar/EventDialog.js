@@ -1,19 +1,11 @@
 import React, {Component} from 'react';
-import {withStyles, TextField, Button, Dialog, DialogActions, DialogContent, Icon, IconButton, Typography, Toolbar, AppBar, FormControlLabel, Switch} from '@material-ui/core';
+import {TextField, Button, Dialog, DialogActions, DialogContent, Icon, IconButton, Typography, Toolbar, AppBar, FormControlLabel, Switch} from '@material-ui/core';
 import FuseUtils from '@fuse/FuseUtils';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import _ from '@lodash';
 import moment from 'moment';
 import * as Actions from './store/actions';
-
-const styles = theme => ({
-    root       : {},
-    formControl: {
-        marginTop   : 8,
-        marginBottom: 16
-    }
-});
 
 const defaultEventState = {
     id    : FuseUtils.generateGUID(),
@@ -25,6 +17,7 @@ const defaultEventState = {
 };
 
 class EventDialog extends Component {
+
     state = {...defaultEventState};
 
     componentDidUpdate(prevProps, prevState, snapshot)
@@ -74,12 +67,12 @@ class EventDialog extends Component {
 
     render()
     {
-        const {classes, eventDialog, addEvent, updateEvent, removeEvent} = this.props;
+        const {eventDialog, addEvent, updateEvent, removeEvent} = this.props;
         const start = moment(this.state.start).format(moment.HTML5_FMT.DATETIME_LOCAL_SECONDS);
         const end = moment(this.state.end).format(moment.HTML5_FMT.DATETIME_LOCAL_SECONDS);
 
         return (
-            <Dialog className={classes.root} {...eventDialog.props} onClose={this.closeComposeDialog} fullWidth maxWidth="xs">
+            <Dialog {...eventDialog.props} onClose={this.closeComposeDialog} fullWidth maxWidth="xs">
 
                 <AppBar position="static">
                     <Toolbar className="flex w-full">
@@ -94,7 +87,7 @@ class EventDialog extends Component {
                     <TextField
                         id="title"
                         label="Title"
-                        className={classes.formControl}
+                        className="mt-8 mb-16"
                         InputLabelProps={{
                             shrink: true
                         }}
@@ -111,7 +104,7 @@ class EventDialog extends Component {
                     />
 
                     <FormControlLabel
-                        className={classes.formControl}
+                        className="mt-8 mb-16"
                         label="All Day"
                         control={
                             <Switch
@@ -125,7 +118,7 @@ class EventDialog extends Component {
                         name="start"
                         label="Start"
                         type="datetime-local"
-                        className={classes.formControl}
+                        className="mt-8 mb-16"
                         InputLabelProps={{
                             shrink: true
                         }}
@@ -143,7 +136,7 @@ class EventDialog extends Component {
                         name="end"
                         label="End"
                         type="datetime-local"
-                        className={classes.formControl}
+                        className="mt-8 mb-16"
                         InputLabelProps={{
                             shrink: true
                         }}
@@ -157,7 +150,7 @@ class EventDialog extends Component {
                     />
 
                     <TextField
-                        className={classes.formControl}
+                        className="mt-8 mb-16"
                         id="desc" label="Description"
                         type="text"
                         name="desc"
@@ -230,4 +223,4 @@ function mapStateToProps({calendarApp})
 }
 
 
-export default withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(EventDialog));
+export default connect(mapStateToProps, mapDispatchToProps)(EventDialog);

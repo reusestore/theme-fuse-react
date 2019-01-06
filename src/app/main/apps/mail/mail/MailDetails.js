@@ -1,23 +1,16 @@
 import React, {Component} from 'react';
-import {withStyles, Avatar, Divider, Icon, IconButton, Typography} from '@material-ui/core';
+import {Avatar, Divider, Icon, IconButton, Typography} from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
-import classNames from 'classnames';
 import _ from '@lodash';
 import * as Actions from '../store/actions/index';
 import MailChip from '../MailChip';
 
-const styles = theme => ({});
-
 class MailDetails extends Component {
 
-    constructor(props)
-    {
-        super(props);
-        this.state = {showDetails: false};
-    }
+    state = {showDetails: false};
 
     componentDidMount()
     {
@@ -26,7 +19,7 @@ class MailDetails extends Component {
 
     render()
     {
-        const {classes, mail, labels} = this.props;
+        const {mail, labels} = this.props;
 
         if ( !mail )
         {
@@ -67,7 +60,7 @@ class MailDetails extends Component {
                                     )
                                     :
                                     (
-                                        <Avatar className={classNames(classes.avatar, "mr-8")}>
+                                        <Avatar className="mr-8">
                                             {mail.from.name[0]}
                                         </Avatar>
                                     )
@@ -169,4 +162,4 @@ function mapStateToProps({mailApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(MailDetails)));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MailDetails));

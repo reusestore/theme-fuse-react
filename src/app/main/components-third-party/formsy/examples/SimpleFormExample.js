@@ -4,6 +4,7 @@ import {TextFieldFormsy, CheckboxFormsy, RadioGroupFormsy, SelectFormsy} from '@
 import Formsy from 'formsy-react';
 
 class SimpleFormExample extends Component {
+
     state = {
         canSubmit: false
     };

@@ -2,9 +2,6 @@ import {FuseUtils} from '@fuse';
 import moment from 'moment';
 
 class CommentModel {
-    /**
-     * Constructor
-     */
     constructor(data)
     {
         const item = data ? data : {};

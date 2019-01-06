@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Radio, FormControlLabel, RadioGroup, FormLabel, FormControl, IconButton, TextField, AppBar, Icon, Toolbar, withStyles, Typography, Avatar} from '@material-ui/core';
+import {Radio, FormControlLabel, RadioGroup, FormLabel, FormControl, IconButton, TextField, AppBar, Icon, Toolbar, Typography, Avatar} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
 import {bindActionCreators} from 'redux';
 import connect from 'react-redux/es/connect/connect';
@@ -25,15 +25,6 @@ const statusArr = [
         value: 'offline'
     }
 ];
-
-const styles = theme => ({
-    root: {
-        display      : 'flex',
-        flex         : '1 1 auto',
-        flexDirection: 'column',
-        height       : '100%'
-    }
-});
 
 class UserSidebar extends Component {
 
@@ -66,11 +57,10 @@ class UserSidebar extends Component {
 
     render()
     {
-        const {classes, user, closeUserSidebar} = this.props;
+        const {user, closeUserSidebar} = this.props;
         return this.state ? (
-            <div className={classes.root}>
+            <div className="flex flex-col flex-auto h-full">
                 <AppBar
-                    className={classes.contentToolbar}
                     position="static"
                     color="primary"
                     elevation={1}
@@ -147,4 +137,4 @@ function mapStateToProps({chatApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(UserSidebar));
+export default connect(mapStateToProps, mapDispatchToProps)(UserSidebar);

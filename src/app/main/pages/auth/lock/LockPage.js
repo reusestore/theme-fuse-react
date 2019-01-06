@@ -9,14 +9,11 @@ const styles = theme => ({
     root: {
         background    : "url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat",
         backgroundSize: 'cover'
-    },
-    card: {
-        width   : '100%',
-        maxWidth: 420
     }
 });
 
 class LockPage extends Component {
+    
     state = {
         password: ''
     };
@@ -45,7 +42,7 @@ class LockPage extends Component {
 
                     <FuseAnimate animation="transition.expandIn">
 
-                        <Card className={classes.card}>
+                        <Card className="w-full max-w-sm">
 
                             <CardContent className="flex flex-col items-center justify-center p-32">
 

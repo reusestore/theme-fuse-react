@@ -40,13 +40,14 @@ const styles = theme => ({
         height: '100%'
     },
     contentWrapper                : {
-        display      : 'flex',
-        flexDirection: 'row',
-        flex         : '1 1 auto',
-        zIndex       : 2,
-        maxWidth     : '100%',
-        minWidth     : 0,
-        height       : '100%'
+        display        : 'flex',
+        flexDirection  : 'row',
+        flex           : '1 1 auto',
+        zIndex         : 2,
+        maxWidth       : '100%',
+        minWidth       : 0,
+        height         : '100%',
+        backgroundColor: theme.palette.background.default
     },
     header                        : {
         height         : headerHeight,
@@ -62,7 +63,6 @@ const styles = theme => ({
         right        : 0,
         top          : 0,
         height       : headerHeight,
-        // backgroundImage: 'url("../../assets/images/backgrounds/header-bg.png")',
         pointerEvents: 'none'
     },
     headerSidebarToggleButton     : {
@@ -92,7 +92,6 @@ const styles = theme => ({
         display                     : 'flex',
         flexDirection               : 'column',
         flex                        : '1 1 auto',
-        // boxShadow                   : theme.shadows[1],
         overflow                    : 'auto',
         '-webkit-overflow-scrolling': 'touch',
         zIndex                      : 9999
@@ -102,8 +101,6 @@ const styles = theme => ({
         minHeight : toolbarHeight,
         display   : 'flex',
         alignItems: 'center'
-        // borderBottom: '1px solid ' + theme.palette.divider
-        // backgroundColor: theme.palette.background.paper
     },
     content                       : {
         flex: '1 0 auto'
@@ -125,7 +122,6 @@ const styles = theme => ({
                 backgroundColor: theme.palette.background.default,
                 color          : theme.palette.text.primary,
                 position       : 'relative'
-                // border         : 'none'
             }
         },
         width        : drawerWidth,
@@ -139,7 +135,6 @@ const styles = theme => ({
     },
     rightSidebar                  : {
         [theme.breakpoints.up('lg')]: {
-
             borderLeft : '1px solid ' + theme.palette.divider,
             borderRight: 0
         }
@@ -163,6 +158,7 @@ const styles = theme => ({
 });
 
 class FusePageSimple extends React.Component {
+
     state = {
         leftSidebar : false,
         rightSidebar: false
@@ -287,7 +283,7 @@ class FusePageSimple extends React.Component {
             >
                 <div className={classNames(classes.header, classes.topBg)}/>
 
-                <div className="container z-10">
+                <div className="flex flex-col container z-10">
 
                     {header && sidebarInner && headerContent}
 

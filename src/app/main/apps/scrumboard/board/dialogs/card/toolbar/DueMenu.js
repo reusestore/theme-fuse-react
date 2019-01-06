@@ -4,6 +4,7 @@ import ToolbarMenu from 'app/main/apps/scrumboard/board/dialogs/card/toolbar/Too
 import moment from 'moment';
 
 class DueMenu extends Component {
+
     state = {
         anchorEl: null
     };

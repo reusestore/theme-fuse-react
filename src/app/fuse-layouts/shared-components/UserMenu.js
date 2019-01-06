@@ -6,6 +6,7 @@ import {bindActionCreators} from 'redux';
 import {Link} from 'react-router-dom';
 
 class UserMenu extends Component {
+
     state = {
         userMenu: null
     };

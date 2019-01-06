@@ -7,20 +7,14 @@ import connect from 'react-redux/es/connect/connect';
 import classNames from 'classnames';
 import moment from 'moment';
 
-const headerHeight = 200;
-
 const styles = theme => ({
     root: {
-        height            : headerHeight,
-        minHeight         : headerHeight,
-        display           : 'flex',
         backgroundImage   : 'url("../../assets/images/backgrounds/header-bg.png")',
         backgroundColor   : '#FAFAFA',
         color             : '#FFFFFF',
         backgroundSize    : 'cover',
         backgroundPosition: '0 50%',
         backgroundRepeat  : 'no-repeat',
-        position          : 'relative',
         '&:before'        : {
             content   : "''",
             position  : 'absolute',
@@ -140,7 +134,7 @@ class CalendarHeader extends Toolbar {
         return (
             <MuiThemeProvider theme={mainThemeDark}>
 
-                <div className={classNames(classes.root, moment(date).format('MMM'))}>
+                <div className={classNames(classes.root, "flex h-200 min-h-200 relative", moment(date).format('MMM'))}>
 
                     <div className="flex flex-1 flex-col p-12 justify-between z-10 container">
 

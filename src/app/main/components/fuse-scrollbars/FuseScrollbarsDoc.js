@@ -1,55 +1,43 @@
-import React, {Component} from 'react';
-import {withStyles, Typography} from '@material-ui/core';
+import React from 'react';
+import {Typography} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
 
-const styles = theme => ({
-    layoutRoot: {}
-});
+const FuseScrollbarsDoc = () => {
+    return (
+        <FusePageSimple
+            header={
+                <div className="flex flex-1 items-center justify-between p-24">
+                    <Typography variant="h6">FuseScrollbars</Typography>
+                </div>
+            }
+            content={
+                <div className="p-24 max-w-2xl mx-auto">
 
-class FuseScrollbarsDoc extends Component {
+                    <Typography className="mb-16" component="p">
+                        <code className="language-bash">FuseScrollbars</code> is a simple <a href="http://utatti.github.io/perfect-scrollbar/" target="_blank"
+                                                                                             rel="noreferrer noopener" className="font-bold">perfect-scrollbar</a> component for
+                        react.
+                    </Typography>
 
-    render()
-    {
-        const {classes} = this.props;
+                    <Typography className="mb-16" component="p">
+                        It can be disabled globally by Fuse Settings.
+                    </Typography>
 
-        return (
-            <FusePageSimple
-                classes={{
-                    root: classes.layoutRoot
-                }}
-                header={
-                    <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="h6">FuseScrollbars</Typography>
-                    </div>
-                }
-                content={
-                    <div className="p-24 max-w-2xl mx-auto">
-
-                        <Typography className="mb-16" component="p">
-                            <code className="language-bash">FuseScrollbars</code> is a simple <a href="http://utatti.github.io/perfect-scrollbar/" target="_blank"
-                                                                                                 rel="noreferrer noopener" className="font-bold">perfect-scrollbar</a> component for
-                            react.
-                        </Typography>
-
-                        <Typography className="mb-16" component="p">
-                            It can be disabled globally by Fuse Settings.
-                        </Typography>
-
-                        <FuseHighlight component="pre" className="language-jsx">
-                            {
-                                `
+                    <FuseHighlight component="pre" className="language-jsx">
+                        {
+                            `
                                 <FuseScrollbars className={classes.content}>
                                     Content
                                 </FuseScrollbars>
                                 `
-                            }
-                        </FuseHighlight>
+                        }
+                    </FuseHighlight>
 
-                        <Typography className="text-32 mt-32 mb-8" component="h2">Props</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Props</Typography>
 
-                        <FuseHighlight component="pre" className="language-js">
-                            {
-                                `
+                    <FuseHighlight component="pre" className="language-js">
+                        {
+                            `
                                 FuseScrollbars.defaultProps = {
                                     className    : '',
                                     enable       : true,
@@ -68,14 +56,13 @@ class FuseScrollbarsDoc extends Component {
                                     onXReachEnd  : undefined
                                 };
                                 `
-                            }
-                        </FuseHighlight>
+                        }
+                    </FuseHighlight>
 
-                    </div>
-                }
-            />
-        );
-    }
-}
+                </div>
+            }
+        />
+    );
+};
 
-export default withStyles(styles, {withTheme: true})(FuseScrollbarsDoc);
+export default FuseScrollbarsDoc;

@@ -1,71 +1,59 @@
-import React, {Component} from 'react';
-import {withStyles, Button, Icon, Typography} from '@material-ui/core';
+import React from 'react';
+import {Button, Icon, Typography} from '@material-ui/core';
 import {FuseExample, FusePageSimple} from '@fuse';
 import {Link} from 'react-router-dom';
 /* eslint import/no-webpack-loader-syntax: off */
-const styles = theme => ({
-    layoutRoot: {}
-});
 
-class FormsyDoc extends Component {
+const FormsyDoc = () => {
+    return (
+        <FusePageSimple
+            header={
+                <div className="flex flex-1 items-center justify-between p-24">
+                    <Typography variant="h6">Formsy</Typography>
+                    <Button
+                        className="normal-case"
+                        variant="contained"
+                        component="a"
+                        href="https://github.com/formsy/formsy-react"
+                        target="_blank"
+                    >
+                        <Icon className="mr-4">link</Icon>
+                        Reference
+                    </Button>
+                </div>
+            }
+            content={
+                <div className="p-24 max-w-2xl mx-auto">
 
-    render()
-    {
-        const {classes} = this.props;
+                    <Typography className="mb-16" component="p">
+                        <code className="language-bash">formsy-react</code> is a form input builder and validator for React.
+                    </Typography>
 
-        return (
-            <FusePageSimple
-                classes={{
-                    root: classes.layoutRoot
-                }}
-                header={
-                    <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="h6">Formsy</Typography>
-                        <Button
-                            className="normal-case"
-                            variant="contained"
-                            component="a"
-                            href="https://github.com/formsy/formsy-react"
-                            target="_blank"
-                        >
-                            <Icon className="mr-4">link</Icon>
-                            Reference
-                        </Button>
-                    </div>
-                }
-                content={
-                    <div className="p-24 max-w-2xl mx-auto">
+                    <Typography className="mb-16" component="p">
+                        HOCs are needed for formsy to work. We created for TextField, Select, RadioGroup, Checkbox under @fuse.
+                    </Typography>
 
-                        <Typography className="mb-16" component="p">
-                            <code className="language-bash">formsy-react</code> is a form input builder and validator for React.
-                        </Typography>
+                    <hr/>
 
-                        <Typography className="mb-16" component="p">
-                            HOCs are needed for formsy to work. We created for TextField, Select, RadioGroup, Checkbox under @fuse.
-                        </Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Example Usages</Typography>
 
-                        <hr/>
+                    <FuseExample
+                        className="mb-64"
+                        component={require('./examples/SimpleFormExample.js').default}
+                        raw={require('!raw-loader!./examples/SimpleFormExample.js')}
+                    />
 
-                        <Typography className="text-32 mt-32 mb-8" component="h2">Example Usages</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Demos</Typography>
 
-                        <FuseExample
-                            className="mb-64"
-                            component={require('./examples/SimpleFormExample.js').default}
-                            raw={require('!raw-loader!./examples/SimpleFormExample.js')}
-                        />
+                    <ul>
+                        <li className="mb-8">
+                            <Link to="/login">Login page</Link>
+                        </li>
+                    </ul>
+                </div>
+            }
+        />
+    );
+};
 
-                        <Typography className="text-32 mt-32 mb-8" component="h2">Demos</Typography>
-
-                        <ul>
-                            <li className="mb-8">
-                                <Link to="/login">Login page</Link>
-                            </li>
-                        </ul>
-                    </div>
-                }
-            />
-        );
-    }
-}
-
-export default withStyles(styles, {withTheme: true})(FormsyDoc);
+export default FormsyDoc;

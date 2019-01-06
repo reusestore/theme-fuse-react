@@ -1,15 +1,7 @@
 import React, {Component} from 'react';
-import {withStyles, GridList, GridListTile, GridListTileBar, Icon, IconButton, Typography, ListSubheader} from '@material-ui/core';
+import {GridList, GridListTile, GridListTileBar, Icon, IconButton, Typography, ListSubheader} from '@material-ui/core';
 import {FuseAnimateGroup} from '@fuse';
 import axios from 'axios';
-import classNames from 'classnames';
-
-const styles = theme => ({
-    root: {},
-    icon: {
-        color: 'rgba(255, 255, 255, 0.54)'
-    }
-});
 
 class PhotosVideosTab extends Component {
 
@@ -26,11 +18,10 @@ class PhotosVideosTab extends Component {
 
     render()
     {
-        const {classes} = this.props;
         const {photosVideos} = this.state;
 
         return (
-            <div className={classNames(classes.root, "md:flex max-w-2xl")}>
+            <div className="md:flex max-w-2xl">
                 <div className="flex flex-col flex-1 md:pr-32">
                     <FuseAnimateGroup
                         enter={{
@@ -58,8 +49,8 @@ class PhotosVideosTab extends Component {
                                             <GridListTileBar
                                                 title={media.title}
                                                 actionIcon={
-                                                    <IconButton className="" color="inherit">
-                                                        <Icon className={classes.icon}>info</Icon>
+                                                    <IconButton>
+                                                        <Icon className="text-white opacity-75">info</Icon>
                                                     </IconButton>
                                                 }
                                             />
@@ -75,4 +66,4 @@ class PhotosVideosTab extends Component {
     }
 }
 
-export default withStyles(styles, {withTheme: true})(PhotosVideosTab);
+export default PhotosVideosTab;

@@ -1,9 +1,6 @@
 import {FuseUtils} from '@fuse';
 
 class ListModel {
-    /**
-     * Constructor
-     */
     constructor(data)
     {
         const list = data ? data : {};

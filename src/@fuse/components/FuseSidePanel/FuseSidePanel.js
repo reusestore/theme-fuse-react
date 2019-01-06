@@ -29,7 +29,7 @@ const styles = theme => ({
                 right: 'auto'
             },
             '& $buttonIcon'   : {
-                transform: "rotate(0deg)"
+                transform: 'rotate(0deg)'
             }
         },
         '&.right'    : {
@@ -38,7 +38,7 @@ const styles = theme => ({
                 left : 'auto'
             },
             '& $buttonIcon'   : {
-                transform: "rotate(-180deg)"
+                transform: 'rotate(-180deg)'
             }
         },
         '&.closed'   : {
@@ -55,7 +55,7 @@ const styles = theme => ({
                     paddingLeft           : 4
                 },
                 '& $buttonIcon'   : {
-                    transform: "rotate(-180deg)"
+                    transform: 'rotate(-180deg)'
                 }
             },
             '&.right'                   : {
@@ -68,7 +68,7 @@ const styles = theme => ({
                     paddingRight           : 4
                 },
                 '& $buttonIcon'   : {
-                    transform: "rotate(0deg)"
+                    transform: 'rotate(0deg)'
                 }
             },
             '& $buttonWrapper'          : {
@@ -154,13 +154,14 @@ const styles = theme => ({
             paddingRight           : 4,
             right                  : 0,
             '& $buttonIcon'        : {
-                transform: "rotate(-180deg)"
+                transform: 'rotate(-180deg)'
             }
         }
     }
 });
 
 class FuseSidePanel extends Component {
+
     state = {
         opened    : this.props.opened,
         mobileOpen: false

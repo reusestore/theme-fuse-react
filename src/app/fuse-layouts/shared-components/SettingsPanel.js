@@ -57,6 +57,7 @@ const styles = theme => ({
 });
 
 class SettingsPanel extends Component {
+
     state = {
         open: false
     };
@@ -74,7 +75,7 @@ class SettingsPanel extends Component {
         const {classes} = this.props;
         return (
             <React.Fragment>
-                <Button className={classes.button} variant="contained" onClick={this.handleOpen}>
+                <Button id="fuse-settings" className={classes.button} variant="contained" onClick={this.handleOpen}>
                     <Icon className={classes.buttonIcon}>settings</Icon>
                 </Button>
 

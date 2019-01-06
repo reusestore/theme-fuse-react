@@ -5,6 +5,7 @@ import CommentModel from 'app/main/apps/scrumboard/model/CommentModel';
 import _ from '@lodash';
 
 class CardComment extends Component {
+
     state = {
         idMember: '36027j1930450d8bf7b10158',
         message : ''

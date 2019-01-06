@@ -122,6 +122,6 @@ function getThemeOptions(themes, settings)
         navbarTheme : themes[settings.theme.navbar],
         toolbarTheme: themes[settings.theme.toolbar],
         footerTheme : themes[settings.theme.footer],
-        ...updateMainThemeVariations(themes[settings.theme.main])
+        ...updateMainThemeVariations(settings.theme.main)
     }
 }

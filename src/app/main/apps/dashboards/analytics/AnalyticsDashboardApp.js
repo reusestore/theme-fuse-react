@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {withStyles, Typography} from '@material-ui/core';
+import {Typography} from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom'
@@ -17,12 +17,6 @@ import Widget9 from './widgets/Widget9';
 import withReducer from 'app/store/withReducer';
 import * as Actions from './store/actions'
 import reducer from './store/reducers';
-
-const styles = theme => ({
-    root: {
-        width: '100%'
-    }
-});
 
 class AnalyticsDashboardApp extends Component {
 
@@ -95,13 +89,13 @@ class AnalyticsDashboardApp extends Component {
 
     render()
     {
-        const {widgets, classes} = this.props;
+        const {widgets} = this.props;
         if ( !widgets )
         {
             return 'Loading..';
         }
         return (
-            <div className={classes.root}>
+            <div className="w-full">
 
                 <Widget1 data={widgets.widget1}/>
 
@@ -212,4 +206,4 @@ function mapStateToProps({analyticsDashboardApp})
     }
 }
 
-export default withReducer('analyticsDashboardApp', reducer)(withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(AnalyticsDashboardApp))));
+export default withReducer('analyticsDashboardApp', reducer)(withRouter(connect(mapStateToProps, mapDispatchToProps)(AnalyticsDashboardApp)));

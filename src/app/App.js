@@ -1,5 +1,5 @@
 import './fake-db/fake-db'
-import React, {Component} from 'react';
+import React from 'react';
 import {createGenerateClassName, jssPreset} from '@material-ui/core';
 import {FuseAuthorization, FuseLayout, FuseTheme} from '@fuse';
 import JssProvider from 'react-jss/lib/JssProvider';
@@ -21,31 +21,28 @@ const jss = create({
 jss.options.insertionPoint = document.getElementById('jss-insertion-point');
 const generateClassName = createGenerateClassName();
 
-class App extends Component {
-    render()
-    {
-        return (
-            <AppContext.Provider
-                value={{
-                    routes
-                }}
-            >
-                <JssProvider jss={jss} generateClassName={generateClassName}>
-                    <Provider store={store}>
-                        <Auth>
-                            <Router history={history}>
-                                <FuseAuthorization>
-                                    <FuseTheme>
-                                        <FuseLayout/>
-                                    </FuseTheme>
-                                </FuseAuthorization>
-                            </Router>
-                        </Auth>
-                    </Provider>
-                </JssProvider>
-            </AppContext.Provider>
-        );
-    }
-}
+const App = () => {
+    return (
+        <AppContext.Provider
+            value={{
+                routes
+            }}
+        >
+            <JssProvider jss={jss} generateClassName={generateClassName}>
+                <Provider store={store}>
+                    <Auth>
+                        <Router history={history}>
+                            <FuseAuthorization>
+                                <FuseTheme>
+                                    <FuseLayout/>
+                                </FuseTheme>
+                            </FuseAuthorization>
+                        </Router>
+                    </Auth>
+                </Provider>
+            </JssProvider>
+        </AppContext.Provider>
+    );
+};
 
 export default App;

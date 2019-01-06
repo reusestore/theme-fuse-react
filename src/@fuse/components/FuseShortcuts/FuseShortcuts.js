@@ -31,6 +31,7 @@ const styles = theme => ({
 });
 
 class FuseShortcuts extends Component {
+
     state = {
         addMenu       : null,
         searchText    : '',

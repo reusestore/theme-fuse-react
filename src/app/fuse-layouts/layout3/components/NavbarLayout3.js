@@ -1,11 +1,8 @@
 import React from 'react';
-import {withStyles} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
 import Navigation from 'app/fuse-layouts/shared-components/Navigation';
 
-const styles = theme => ({});
-
-const NavbarLayout3 = ({classes, navigation}) => {
+const NavbarLayout3 = () => {
     return (
         <div className="flex flex-auto items-center w-full h-full container px-16 lg:px-24">
             <FuseScrollbars className="flex h-full items-center">
@@ -15,6 +12,6 @@ const NavbarLayout3 = ({classes, navigation}) => {
     );
 };
 
-export default withStyles(styles, {withTheme: true})(NavbarLayout3);
+export default NavbarLayout3;
 
 

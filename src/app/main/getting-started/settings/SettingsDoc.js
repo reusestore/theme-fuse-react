@@ -1,38 +1,26 @@
-import React, {Component} from 'react';
-import {withStyles, Typography} from '@material-ui/core';
+import React from 'react';
+import {Typography} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
 
-const styles = theme => ({
-    layoutRoot: {}
-});
+const SettingsDoc = () => {
+    return (
+        <FusePageSimple
+            header={
+                <div className="flex flex-1 items-center justify-between p-24">
+                    <Typography variant="h6">Fuse Settings</Typography>
+                </div>
+            }
+            content={
+                <div className="p-24 max-w-2xl mx-auto">
 
-class SettingsDoc extends Component {
+                    <Typography className="text-32 mb-8" component="h2">Default Settings</Typography>
 
-    render()
-    {
-        const {classes} = this.props;
+                    <Typography className="mb-16" component="p">
+                        You can set default settings of your app at <code className="language-bash">fuse-configs/FuseSettings.js</code>
+                    </Typography>
 
-        return (
-            <FusePageSimple
-                classes={{
-                    root: classes.layoutRoot
-                }}
-                header={
-                    <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="h6">Fuse Settings</Typography>
-                    </div>
-                }
-                content={
-                    <div className="p-24 max-w-2xl mx-auto">
-
-                        <Typography className="text-32 mb-8" component="h2">Default Settings</Typography>
-
-                        <Typography className="mb-16" component="p">
-                            You can set default settings of your app at <code className="language-bash">fuse-configs/FuseSettings.js</code>
-                        </Typography>
-
-                        <FuseHighlight component="pre" className="language-js">
-                            {`
+                    <FuseHighlight component="pre" className="language-js">
+                        {`
                             const fuseSettingsConfig = {
                                 layout          : {
                                     style : 'layout1',
@@ -67,12 +55,11 @@ class SettingsDoc extends Component {
 
                             export default fuseSettingsConfig;
                             `}
-                        </FuseHighlight>
-                    </div>
-                }
-            />
-        );
-    }
-}
+                    </FuseHighlight>
+                </div>
+            }
+        />
+    );
+};
 
-export default withStyles(styles, {withTheme: true})(SettingsDoc);
+export default SettingsDoc;

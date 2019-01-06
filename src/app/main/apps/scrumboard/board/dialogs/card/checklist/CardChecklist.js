@@ -5,6 +5,7 @@ import CardAddChecklistItem from './CardAddChecklistItem';
 import _ from '@lodash';
 
 class CardChecklist extends Component {
+
     state = {
         anchorEl   : null,
         renameForm : false,

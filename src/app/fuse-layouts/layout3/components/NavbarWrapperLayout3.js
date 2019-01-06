@@ -36,7 +36,6 @@ const styles = theme => ({
 });
 
 const NavbarWrapperLayout3 = ({classes, navbarTheme, children, navbar, navbarOpenFolded, navbarCloseFolded, navbarCloseMobile}) => {
-
     return (
         <MuiThemeProvider theme={navbarTheme}>
 

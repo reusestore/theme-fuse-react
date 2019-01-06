@@ -1,13 +1,10 @@
 import React, {Component} from 'react';
-import {withStyles, Button, Icon, Input, Typography} from '@material-ui/core';
+import {Button, Icon, Input, Typography} from '@material-ui/core';
 import {FusePageSimple, FuseAnimate} from '@fuse';
 import axios from 'axios';
 
-const styles = theme => ({
-    layoutRoot: {}
-});
-
 class IconsUI extends Component {
+
     state = {
         data      : [],
         searchText: ''
@@ -26,7 +23,6 @@ class IconsUI extends Component {
 
     render()
     {
-        const {classes} = this.props;
         const {data, searchText} = this.state;
         const icons = searchText.length > 0 ? data.filter(item => {
 
@@ -46,9 +42,6 @@ class IconsUI extends Component {
         }) : data;
         return (
             <FusePageSimple
-                classes={{
-                    root: classes.layoutRoot
-                }}
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
 
@@ -103,4 +96,4 @@ class IconsUI extends Component {
     }
 }
 
-export default withStyles(styles, {withTheme: true})(IconsUI);
+export default IconsUI;

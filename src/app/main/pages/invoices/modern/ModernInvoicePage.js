@@ -5,31 +5,17 @@ import classNames from 'classnames';
 import axios from 'axios';
 
 const styles = theme => ({
-    root       : {
+    root   : {
         background    : "url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat",
-        backgroundSize: 'cover',
-        flex          : '1 0 auto',
-        '@media print': {
-            transform      : 'scale(0.9)',
-            transformOrigin: 'top'
-        }
+        backgroundSize: 'cover'
     },
-    card       : {
-        width         : 1020,
-        '@media print': {
-            width    : '100%!important',
-            boxShadow: 'none'
-        }
-    },
-    cardContent: {},
-    divider    : {
-        width          : 1,
-        backgroundColor: theme.palette.divider,
-        height         : 144
+    divider: {
+        backgroundColor: theme.palette.divider
     }
 });
 
 class ModernInvoicePage extends Component {
+
     state = {
         invoice: null
     };
@@ -55,15 +41,15 @@ class ModernInvoicePage extends Component {
             });
 
         return (
-            <div className={classNames(classes.root, "p-0 sm:p-64  print:p-0")}>
+            <div className={classNames(classes.root, "flex-grow flex-no-shrink p-0 sm:p-64 print:p-0")}>
 
                 {invoice && (
 
                     <FuseAnimate animation={{translateY: [0, '100%']}} duration={600}>
 
-                        <Card className={classNames(classes.card, "mx-auto")}>
+                        <Card className="mx-auto w-xl print:w-full print:shadow-none">
 
-                            <CardContent className={classNames(classes.cardContent, "p-88 print:p-0")}>
+                            <CardContent className="p-88 print:p-0">
 
                                 <div className="flex flex-row justify-between items-start">
 
@@ -73,7 +59,7 @@ class ModernInvoicePage extends Component {
 
                                             <img className="w-160 print:w-60" src="assets/images/logos/fuse.svg" alt="logo"/>
 
-                                            <div className={classNames(classes.divider, "mx-48 print:mx-16")}/>
+                                            <div className={classNames(classes.divider, "mx-48 w-px h-128 print:mx-16")}/>
 
                                             <div className="max-w-160">
 
@@ -107,10 +93,10 @@ class ModernInvoicePage extends Component {
 
                                         <div className="flex items-center">
                                             <div className="flex justify-end items-center w-160 print:w-60">
-                                                <Typography variant="h5" className="font-light" color="textSecondary">CLIENT</Typography>
+                                                <Typography variant="h5" className="font-light print:text-16" color="textSecondary">CLIENT</Typography>
                                             </div>
 
-                                            <div className={classNames(classes.divider, "mx-48 print:mx-16")}/>
+                                            <div className={classNames(classes.divider, "mx-48 w-px h-128 print:mx-16")}/>
 
                                             <div className="max-w-160">
 
@@ -293,7 +279,7 @@ class ModernInvoicePage extends Component {
 
                                 </div>
 
-                                <div className="mt-96 print:mt-0">
+                                <div className="mt-96 print:mt-0 print:px-16">
 
                                     <Typography className="mb-24 print:mb-12" variant="body1">Please pay within 15 days. Thank you for your business.</Typography>
 

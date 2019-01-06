@@ -1,18 +1,9 @@
 import React, {Component} from 'react';
-import {Button, IconButton, Icon, withStyles, TextField, ClickAwayListener, InputAdornment} from '@material-ui/core';
-import classNames from 'classnames';
+import {Button, IconButton, Icon, TextField, ClickAwayListener, InputAdornment} from '@material-ui/core';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
 import connect from 'react-redux/es/connect/connect';
 import * as Actions from '../store/actions';
-
-const styles = theme => ({
-    root: {
-        borderTopWidth: 1,
-        borderTopStyle: 'solid',
-        borderTopColor: theme.palette.divider
-    }
-});
 
 const initialState = {
     formOpen : false,
@@ -20,6 +11,7 @@ const initialState = {
 };
 
 class BoardAddCard extends Component {
+
     state = initialState;
 
     handleOpenForm = () => {
@@ -52,11 +44,10 @@ class BoardAddCard extends Component {
 
     render()
     {
-        const {classes} = this.props;
         const {formOpen} = this.state;
 
         return (
-            <div className={classNames(classes.root, "w-full")}>
+            <div className="w-full border-t-1">
                 {formOpen ? (
                     <ClickAwayListener onClickAway={this.handleCloseForm}>
                         <form className="p-16" onSubmit={this.onSubmit}>
@@ -126,4 +117,4 @@ function mapStateToProps({scrumboardApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(BoardAddCard)));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BoardAddCard));

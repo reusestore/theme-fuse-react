@@ -144,6 +144,7 @@ const styles = theme => ({
 });
 
 class FuseSearch extends Component {
+
     state = {
         search        : false,
         flatNavigation: null,

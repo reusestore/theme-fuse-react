@@ -1,16 +1,9 @@
 import React, {Component} from 'react';
-import {withStyles, Icon, IconButton, MenuItem, FormControl, Select} from '@material-ui/core';
+import {Icon, IconButton, MenuItem, FormControl, Select} from '@material-ui/core';
 import {withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import classNames from 'classnames';
 import * as Actions from './store/actions';
-
-const styles = theme => ({
-    root: {
-        display: 'flex'
-    }
-});
 
 class TodoToolbar extends Component {
 
@@ -20,10 +13,10 @@ class TodoToolbar extends Component {
 
     render()
     {
-        const {classes, orderBy, orderDescending, toggleOrderDescending} = this.props;
+        const {orderBy, orderDescending, toggleOrderDescending} = this.props;
 
         return (
-            <div className={classNames(classes.root, "flex justify-between w-full")}>
+            <div className="flex justify-between w-full">
                 <div className="flex"/>
                 <div className="flex items-center">
                     <FormControl className="">
@@ -69,4 +62,4 @@ function mapStateToProps({todoApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(TodoToolbar)));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TodoToolbar));

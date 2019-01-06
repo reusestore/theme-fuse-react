@@ -6,6 +6,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
 import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
 import moment from 'moment'
+import classNames from 'classnames';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import withReducer from 'app/store/withReducer';
@@ -22,10 +23,6 @@ let allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k]);
 
 const styles = theme => ({
     root     : {
-        display                                                                                                        : 'flex',
-        position                                                                                                       : 'relative',
-        flexDirection                                                                                                  : 'column',
-        flex                                                                                                           : 1,
         '& .rbc-header'                                                                                                : {
             padding   : '12px 6px',
             fontWeight: 600,
@@ -192,7 +189,7 @@ class CalendarApp extends Component {
     {
         const {classes, events, openNewEventDialog, openEditEventDialog} = this.props;
         return (
-            <div className={classes.root}>
+            <div className={classNames(classes.root, "flex flex-col flex-auto relative")}>
                 {this.toolbarProps && (
                     <CalendarHeader {...this.toolbarProps}/>
                 )}

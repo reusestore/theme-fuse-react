@@ -6,6 +6,7 @@ import connect from 'react-redux/es/connect/connect';
 import * as Actions from '../store/actions';
 
 class BoardListHeader extends Component {
+
     state = {
         anchorEl   : null,
         renameForm : false,

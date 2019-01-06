@@ -18,6 +18,7 @@ const styles = theme => ({
 });
 
 class FuseCountdown extends Component {
+
     state = {
         endDate  : moment.isMoment(this.props.endDate) ? this.props.endDate : moment(this.props.endDate),
         countdown: {

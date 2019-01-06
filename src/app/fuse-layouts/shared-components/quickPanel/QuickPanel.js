@@ -15,6 +15,7 @@ const styles = theme => ({
 });
 
 class QuickPanel extends Component {
+
     state = {
         checked: ['notifications']
     };

@@ -7,12 +7,7 @@ import {bindActionCreators} from 'redux';
 import * as Actions from './store/actions';
 
 const styles = theme => ({
-    root         : {
-        flex      : '1 1 auto',
-        borderLeft: '1px solid ' + theme.palette.divider
-    },
-    listWrapper  : {},
-    listItem     : {
+    listItem: {
         color              : 'inherit!important',
         textDecoration     : 'none!important',
         height             : 40,
@@ -33,10 +28,6 @@ const styles = theme => ({
             width   : 16,
             height  : 16
         }
-    },
-    listSubheader: {
-        paddingRight: 24,
-        paddingLeft : 24
     }
 });
 
@@ -46,7 +37,7 @@ function TodoSidebarContent({classes, folders, filters, labels, openNewTodoDialo
     return (
         <FuseAnimate animation="transition.slideUpIn" delay={400}>
 
-            <div className={classes.root}>
+            <div className="flex-auto border-l-1 border-solid">
 
                 <div className="p-24">
                     <Button
@@ -98,7 +89,7 @@ function TodoSidebarContent({classes, folders, filters, labels, openNewTodoDialo
 
                     <List>
 
-                        <ListSubheader className={classes.listSubheader} disableSticky>LABELS</ListSubheader>
+                        <ListSubheader className="pr-24 pl-24" disableSticky>LABELS</ListSubheader>
 
                         {labels.length > 0 && labels.map((label) => (
                             <ListItem

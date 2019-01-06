@@ -30,6 +30,7 @@ class ContactsSidebarContent extends Component {
     render()
     {
         const {classes, user} = this.props;
+
         return (
             <div className="p-16 lg:p-24 lg:pr-4">
                 <FuseAnimate animation="transition.slideLeftIn" delay={200}>

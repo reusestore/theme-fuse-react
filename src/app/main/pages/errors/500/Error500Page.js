@@ -1,57 +1,36 @@
-import React, {Component} from 'react';
-import {withStyles, Typography} from '@material-ui/core';
+import React from 'react';
+import {Typography} from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
-import classNames from 'classnames';
 import {Link} from 'react-router-dom';
 
-const styles = theme => ({
-    root         : {},
-    searchWrapper: {
-        width     : '100%',
-        height    : 56,
-        padding   : 18,
-        display   : 'flex',
-        alignItems: 'center'
-    },
-    search       : {
-        paddingLeft: 16
-    }
-});
+const Error500Page = () => {
+    return (
+        <div className="flex flex-col flex-1 items-center justify-center p-16">
 
-class Error500Page extends Component {
+            <div className="max-w-512 text-center">
 
-    render()
-    {
-        const {classes} = this.props;
+                <FuseAnimate animation="transition.expandIn" delay={100}>
+                    <Typography variant="h1" color="inherit" className="font-medium mb-16">
+                        500
+                    </Typography>
+                </FuseAnimate>
 
-        return (
-            <div className={classNames(classes.root, "flex flex-col flex-1 items-center justify-center p-16")}>
+                <FuseAnimate delay={500}>
+                    <Typography variant="h5" color="textSecondary" className="mb-16">
+                        Well, you broke the internet!
+                    </Typography>
+                </FuseAnimate>
 
-                <div className="max-w-512 text-center">
+                <FuseAnimate delay={600}>
+                    <Typography variant="subtitle1" color="textSecondary" className="mb-48">
+                        Just kidding, looks like we have an internal issue, please try again in couple minutes
+                    </Typography>
+                </FuseAnimate>
 
-                    <FuseAnimate animation="transition.expandIn" delay={100}>
-                        <Typography variant="h1" color="inherit" className="font-medium mb-16">
-                            500
-                        </Typography>
-                    </FuseAnimate>
-
-                    <FuseAnimate delay={500}>
-                        <Typography variant="h5" color="textSecondary" className="mb-16">
-                            Well, you broke the internet!
-                        </Typography>
-                    </FuseAnimate>
-
-                    <FuseAnimate delay={600}>
-                        <Typography variant="subtitle1" color="textSecondary" className="mb-48">
-                            Just kidding, looks like we have an internal issue, please try again in couple minutes
-                        </Typography>
-                    </FuseAnimate>
-
-                    <Link className="font-medium" to="/apps/dashboards/project">Report this problem</Link>
-                </div>
+                <Link className="font-medium" to="/apps/dashboards/project">Report this problem</Link>
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
 
-export default withStyles(styles, {withTheme: true})(Error500Page);
+export default Error500Page;

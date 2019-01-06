@@ -1,75 +1,70 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {AppBar, Toolbar, List, ListItem, ListItemIcon, Icon, ListItemText, ListItemSecondaryAction, Switch} from '@material-ui/core';
 import {bindActionCreators} from 'redux';
 import * as Actions from 'app/main/apps/scrumboard/store/actions';
 import connect from 'react-redux/es/connect/connect';
 import {withRouter} from 'react-router-dom';
 
-class BoardSettingsSidebar extends Component {
-    render()
-    {
-        const {board, changeBoardSettings, deleteBoard, copyBoard} = this.props;
+const BoardSettingsSidebar = ({board, changeBoardSettings, deleteBoard, copyBoard}) => {
+    return (
+        <div>
+            <AppBar position="static">
+                <Toolbar className="flex w-full justify-center">
+                    Settings
+                </Toolbar>
+            </AppBar>
 
-        return (
-            <div>
-                <AppBar position="static">
-                    <Toolbar className="flex w-full justify-center">
-                        Settings
-                    </Toolbar>
-                </AppBar>
+            <List className="py-16" dense>
 
-                <List className="py-16" dense>
+                <ListItem
+                    button
+                    onClick={() => changeBoardSettings({cardCoverImages: !board.settings.cardCoverImages})}
+                >
+                    <ListItemIcon>
+                        <Icon>photo</Icon>
+                    </ListItemIcon>
+                    <ListItemText primary="Card Cover Images"/>
+                    <ListItemSecondaryAction>
+                        <Switch
+                            onChange={() => changeBoardSettings({cardCoverImages: !board.settings.cardCoverImages})}
+                            checked={board.settings.cardCoverImages}
+                        />
+                    </ListItemSecondaryAction>
+                </ListItem>
 
-                    <ListItem
-                        button
-                        onClick={() => changeBoardSettings({cardCoverImages: !board.settings.cardCoverImages})}
-                    >
-                        <ListItemIcon>
-                            <Icon>photo</Icon>
-                        </ListItemIcon>
-                        <ListItemText primary="Card Cover Images"/>
-                        <ListItemSecondaryAction>
-                            <Switch
-                                onChange={() => changeBoardSettings({cardCoverImages: !board.settings.cardCoverImages})}
-                                checked={board.settings.cardCoverImages}
-                            />
-                        </ListItemSecondaryAction>
-                    </ListItem>
+                <ListItem
+                    button
+                    onClick={() => changeBoardSettings({subscribed: !board.settings.subscribed})}
+                >
+                    <ListItemIcon>
+                        <Icon>remove_red_eye</Icon>
+                    </ListItemIcon>
+                    <ListItemText primary="Subscribe"/>
+                    <ListItemSecondaryAction>
+                        <Switch
+                            onChange={() => changeBoardSettings({subscribed: !board.settings.subscribed})}
+                            checked={board.settings.subscribed}
+                        />
+                    </ListItemSecondaryAction>
+                </ListItem>
 
-                    <ListItem
-                        button
-                        onClick={() => changeBoardSettings({subscribed: !board.settings.subscribed})}
-                    >
-                        <ListItemIcon>
-                            <Icon>remove_red_eye</Icon>
-                        </ListItemIcon>
-                        <ListItemText primary="Subscribe"/>
-                        <ListItemSecondaryAction>
-                            <Switch
-                                onChange={() => changeBoardSettings({subscribed: !board.settings.subscribed})}
-                                checked={board.settings.subscribed}
-                            />
-                        </ListItemSecondaryAction>
-                    </ListItem>
+                <ListItem button onClick={() => copyBoard(board)}>
+                    <ListItemIcon>
+                        <Icon>file_copy</Icon>
+                    </ListItemIcon>
+                    <ListItemText primary="Copy Board"/>
+                </ListItem>
 
-                    <ListItem button onClick={() => copyBoard(board)}>
-                        <ListItemIcon>
-                            <Icon>file_copy</Icon>
-                        </ListItemIcon>
-                        <ListItemText primary="Copy Board"/>
-                    </ListItem>
-
-                    <ListItem button onClick={() => deleteBoard(board.id)}>
-                        <ListItemIcon>
-                            <Icon>delete</Icon>
-                        </ListItemIcon>
-                        <ListItemText primary="Delete Board"/>
-                    </ListItem>
-                </List>
-            </div>
-        );
-    }
-}
+                <ListItem button onClick={() => deleteBoard(board.id)}>
+                    <ListItemIcon>
+                        <Icon>delete</Icon>
+                    </ListItemIcon>
+                    <ListItemText primary="Delete Board"/>
+                </ListItem>
+            </List>
+        </div>
+    );
+};
 
 function mapDispatchToProps(dispatch)
 {

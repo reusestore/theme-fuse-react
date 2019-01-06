@@ -27,6 +27,7 @@ const styles = theme => ({
 });
 
 class ChipsPlayground extends React.Component {
+
     state = {
         color   : 'default',
         onDelete: 'none',

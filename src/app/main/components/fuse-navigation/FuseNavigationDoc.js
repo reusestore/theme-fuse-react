@@ -1,70 +1,58 @@
-import React, {Component} from 'react';
-import {withStyles, Typography} from '@material-ui/core';
+import React from 'react';
+import {Typography} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
 
-const styles = theme => ({
-    layoutRoot: {}
-});
+const FuseNavigationDoc = () => {
+    return (
+        <FusePageSimple
+            header={
+                <div className="flex flex-1 items-center justify-between p-24">
+                    <Typography variant="h6">FuseNavigation</Typography>
+                </div>
+            }
+            content={
+                <div className="p-24 max-w-2xl mx-auto">
 
-class FuseNavigationDoc extends Component {
+                    <Typography className="mb-16" component="p">
+                        <code className="language-bash">FuseNavigation</code> is a custom built Fuse component allows you to create a multi-level collapsable navigation.
+                    </Typography>
 
-    render()
-    {
-        const {classes} = this.props;
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Usage</Typography>
 
-        return (
-            <FusePageSimple
-                classes={{
-                    root: classes.layoutRoot
-                }}
-                header={
-                    <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="h6">FuseNavigation</Typography>
-                    </div>
-                }
-                content={
-                    <div className="p-24 max-w-2xl mx-auto">
-
-                        <Typography className="mb-16" component="p">
-                            <code className="language-bash">FuseNavigation</code> is a custom built Fuse component allows you to create a multi-level collapsable navigation.
-                        </Typography>
-
-                        <Typography className="text-32 mt-32 mb-8" component="h2">Usage</Typography>
-
-                        <FuseHighlight component="pre" className="language-jsx">
-                            {
-                                `
+                    <FuseHighlight component="pre" className="language-jsx">
+                        {
+                            `
                                     <FuseNavigation navigation={navigation}/>
                                 `
-                            }
-                        </FuseHighlight>
+                        }
+                    </FuseHighlight>
 
-                        <Typography className="text-24 mt-32 mb-8" component="h2">[navigation]</Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h2">[navigation]</Typography>
 
-                        <Typography className="mb-16" component="p">
-                            <code className="language-bash">FuseNavigation</code> uses a array to populate the entire navigation. It supports four different navigation items;
-                            Group,
-                            Collapse, Item. and Divider. These items can be mixed and matched to create unique and complex navigation layouts.
-                        </Typography>
+                    <Typography className="mb-16" component="p">
+                        <code className="language-bash">FuseNavigation</code> uses a array to populate the entire navigation. It supports four different navigation items;
+                        Group,
+                        Collapse, Item. and Divider. These items can be mixed and matched to create unique and complex navigation layouts.
+                    </Typography>
 
-                        <Typography className="text-24 mt-32 mb-8" component="h2">[active]</Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h2">[active]</Typography>
 
-                        <Typography className="mb-16" component="p">
-                            Square active item style usage instead of rounded/circle:
-                        </Typography>
+                    <Typography className="mb-16" component="p">
+                        Square active item style usage instead of rounded/circle:
+                    </Typography>
 
-                        <FuseHighlight component="pre" className="language-jsx">
-                            {
-                                `
+                    <FuseHighlight component="pre" className="language-jsx">
+                        {
+                            `
                                     <FuseNavigation navigation={navigation} active="square"/>
                                 `
-                            }
-                        </FuseHighlight>
+                        }
+                    </FuseHighlight>
 
-                        <Typography className="text-24 mt-32 mb-8" component="h2">Group</Typography>
-                        <FuseHighlight component="pre" className="language-json">
-                            {
-                                `
+                    <Typography className="text-24 mt-32 mb-8" component="h2">Group</Typography>
+                    <FuseHighlight component="pre" className="language-json">
+                        {
+                            `
                                      {
                                         'id'       : 'applications',
                                         'title'    : 'Applications',
@@ -81,13 +69,13 @@ class FuseNavigationDoc extends Component {
                                         ]
                                      }
                                 `
-                            }
-                        </FuseHighlight>
+                        }
+                    </FuseHighlight>
 
-                        <Typography className="text-24 mt-32 mb-8" component="h2">Collapse</Typography>
-                        <FuseHighlight component="pre" className="language-json">
-                            {
-                                `
+                    <Typography className="text-24 mt-32 mb-8" component="h2">Collapse</Typography>
+                    <FuseHighlight component="pre" className="language-json">
+                        {
+                            `
                                      {
                                         'id'       : 'dashboards',
                                         'title'    : 'Dashboards',
@@ -103,13 +91,13 @@ class FuseNavigationDoc extends Component {
                                         ]
                                       }
                                 `
-                            }
-                        </FuseHighlight>
+                        }
+                    </FuseHighlight>
 
-                        <Typography className="text-24 mt-32 mb-8" component="h2">Item</Typography>
-                        <FuseHighlight component="pre" className="language-json">
-                            {
-                                `
+                    <Typography className="text-24 mt-32 mb-8" component="h2">Item</Typography>
+                    <FuseHighlight component="pre" className="language-json">
+                        {
+                            `
                                 {
                                     'id'   : 'project',
                                     'title': 'Project',
@@ -117,17 +105,17 @@ class FuseNavigationDoc extends Component {
                                     'url'  : '/apps/dashboards/project'
                                 }
                                 `
-                            }
-                        </FuseHighlight>
-                        <Typography className="text-20 mt-24 mb-8 font-semibold" component="h2">
-                            exact: bool
-                        </Typography>
-                        <Typography className="text-16 mb-8" component="h2">
-                            When true, the active class/style will only be applied if the location is matched exactly.
-                        </Typography>
-                        <FuseHighlight component="pre" className="language-json">
-                            {
-                                `
+                        }
+                    </FuseHighlight>
+                    <Typography className="text-20 mt-24 mb-8 font-semibold" component="h2">
+                        exact: bool
+                    </Typography>
+                    <Typography className="text-16 mb-8" component="h2">
+                        When true, the active class/style will only be applied if the location is matched exactly.
+                    </Typography>
+                    <FuseHighlight component="pre" className="language-json">
+                        {
+                            `
                                 {
                                     'id'   : 'project',
                                     'title': 'Project',
@@ -136,12 +124,12 @@ class FuseNavigationDoc extends Component {
                                     'exact': true
                                 }
                                 `
-                            }
-                        </FuseHighlight>
-                        <Typography className="text-24 mt-32 mb-8" component="h2">Divider</Typography>
-                        <FuseHighlight component="pre" className="language-json">
-                            {
-                                `
+                        }
+                    </FuseHighlight>
+                    <Typography className="text-24 mt-32 mb-8" component="h2">Divider</Typography>
+                    <FuseHighlight component="pre" className="language-json">
+                        {
+                            `
                                 {
                                     'id'   : 'project',
                                     'title': 'Project',
@@ -158,13 +146,12 @@ class FuseNavigationDoc extends Component {
                                     'url'  : '/apps/dashboards/project'
                                 }
                                 `
-                            }
-                        </FuseHighlight>
-                    </div>
-                }
-            />
-        );
-    }
-}
+                        }
+                    </FuseHighlight>
+                </div>
+            }
+        />
+    );
+};
 
-export default withStyles(styles, {withTheme: true})(FuseNavigationDoc);
+export default FuseNavigationDoc;

@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import _ from '@lodash';
 
 const styles = theme => ({
-    root         : {},
     commentBubble: {
         borderRadius: '5px 20px 20px 5px',
         border      : '1px solid ' + theme.palette.divider

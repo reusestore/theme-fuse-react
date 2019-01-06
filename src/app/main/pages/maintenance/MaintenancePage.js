@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {withStyles, Card, CardContent, Grow, Typography} from '@material-ui/core';
 import classNames from 'classnames';
 
@@ -6,46 +6,36 @@ const styles = theme => ({
     root: {
         background    : "url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat",
         backgroundSize: 'cover'
-    },
-    card: {
-        width   : '100%',
-        maxWidth: 384
     }
 });
 
-class MaintenancePage extends Component {
+const MaintenancePage = ({classes}) => {
+    return (
+        <div className={classNames(classes.root, "flex flex-col flex-auto flex-no-shrink items-center justify-center p-32")}>
 
-    render()
-    {
-        const {classes} = this.props;
+            <div className="flex flex-col items-center justify-center w-full">
 
-        return (
-            <div className={classNames(classes.root, "flex flex-col flex-auto flex-no-shrink items-center justify-center p-32")}>
+                <Grow in={true}>
+                    <Card className="w-full max-w-384">
 
-                <div className="flex flex-col items-center justify-center w-full">
+                        <CardContent className="flex flex-col items-center justify-center text-center p-48">
 
-                    <Grow in={true}>
-                        <Card className={classes.card}>
+                            <img className="w-128 m-32" src="assets/images/logos/fuse.svg" alt="logo"/>
 
-                            <CardContent className="flex flex-col items-center justify-center text-center p-48">
+                            <Typography variant="subtitle1" className="mb-16">
+                                Closed for scheduled maintenance!
+                            </Typography>
 
-                                <img className="w-128 m-32" src="assets/images/logos/fuse.svg" alt="logo"/>
+                            <Typography color="textSecondary" className="mb-40">
+                                We're sorry for the inconvenience. <br/> Please check back later.
+                            </Typography>
 
-                                <Typography variant="subtitle1" className="mb-16">
-                                    Closed for scheduled maintenance!
-                                </Typography>
-
-                                <Typography color="textSecondary" className="mb-40">
-                                    We're sorry for the inconvenience. <br/> Please check back later.
-                                </Typography>
-
-                            </CardContent>
-                        </Card>
-                    </Grow>
-                </div>
+                        </CardContent>
+                    </Card>
+                </Grow>
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
 
 export default withStyles(styles, {withTheme: true})(MaintenancePage);

@@ -1,19 +1,14 @@
 import React, {Component} from 'react';
 import Formsy from 'formsy-react';
 import {TextFieldFormsy} from '@fuse';
-import {withStyles, Button, InputAdornment, Icon} from '@material-ui/core';
+import {Button, InputAdornment, Icon} from '@material-ui/core';
 import {bindActionCreators} from 'redux';
 import * as Actions from 'app/auth/store/actions';
 import {withRouter} from 'react-router-dom';
 import connect from 'react-redux/es/connect/connect';
 
-const styles = theme => ({
-    root: {
-        width: '100%'
-    }
-});
-
 class JWTRegisterTab extends Component {
+
     state = {
         canSubmit: false
     };
@@ -56,11 +51,10 @@ class JWTRegisterTab extends Component {
 
     render()
     {
-        const {classes} = this.props;
         const {canSubmit} = this.state;
 
         return (
-            <div className={classes.root}>
+            <div className="w-full">
                 <Formsy
                     onValidSubmit={this.onSubmit}
                     onValid={this.enableButton}
@@ -168,4 +162,4 @@ function mapStateToProps({auth})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(JWTRegisterTab)));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(JWTRegisterTab));

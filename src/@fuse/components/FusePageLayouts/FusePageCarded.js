@@ -151,6 +151,7 @@ const styles = theme => ({
 });
 
 class FusePageCarded extends React.Component {
+
     state = {
         leftSidebar : false,
         rightSidebar: false

@@ -1,46 +1,34 @@
-import React, {Component} from 'react';
-import {withStyles, Typography, Button} from '@material-ui/core';
+import React from 'react';
+import {Typography, Button} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as Actions from 'app/store/actions';
 
-const styles = theme => ({
-    layoutRoot: {}
-});
+const FuseMessageDoc = () => {
+    return (
+        <FusePageSimple
+            header={
+                <div className="flex flex-1 items-center justify-between p-24">
+                    <Typography variant="h6">FuseMessage</Typography>
+                </div>
+            }
+            content={
+                <div className="p-24 max-w-2xl mx-auto">
 
-class FuseMessageDoc extends Component {
+                    <Typography className="mb-16" component="p">
+                        <code className="language-bash">FuseMessage</code> is a simple snackbar trigger for easily showing messages via redux action. It is located in the
+                        <code className="language-bash">FuseLayout</code>.
+                    </Typography>
 
-    render()
-    {
-        const {classes} = this.props;
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Usage</Typography>
 
-        return (
-            <FusePageSimple
-                classes={{
-                    root: classes.layoutRoot
-                }}
-                header={
-                    <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="h6">FuseMessage</Typography>
-                    </div>
-                }
-                content={
-                    <div className="p-24 max-w-2xl mx-auto">
+                    <Typography className="mb-16" component="p">
+                        You can show messages anywhere with dispatching the action showMessage, its using Material-UI's snackbar so you can pass the props in the object:
+                    </Typography>
 
-                        <Typography className="mb-16" component="p">
-                            <code className="language-bash">FuseMessage</code> is a simple snackbar trigger for easily showing messages via redux action. It is located in the
-                            <code className="language-bash">FuseLayout</code>.
-                        </Typography>
-
-                        <Typography className="text-32 mt-32 mb-8" component="h2">Usage</Typography>
-
-                        <Typography className="mb-16" component="p">
-                            You can show messages anywhere with dispatching the action showMessage, its using Material-UI's snackbar so you can pass the props in the object:
-                        </Typography>
-
-                        <FuseHighlight component="pre" className="language-js">
-                            {`
+                    <FuseHighlight component="pre" className="language-js">
+                        {`
                                     <Button onClick={() => this.props.showMessage({
                                         message     : 'Hi, how are you?',//text or html
                                         autoHideDuration: 6000,//ms
@@ -53,109 +41,108 @@ class FuseMessageDoc extends Component {
                                         Top - Right
                                     </Button>
                             `}
-                        </FuseHighlight>
+                    </FuseHighlight>
 
-                        <Typography className="text-32 mt-32 mb-8" component="h2">Example</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Example</Typography>
 
-                        <Typography className="text-24 mt-32 mb-8" component="h2">Position</Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h2">Position</Typography>
 
-                        <div>
+                    <div>
 
-                            <Button onClick={() => this.props.showMessage({
-                                message     : 'Hi, how are you?',
-                                anchorOrigin: {
-                                    vertical  : 'top',
-                                    horizontal: 'right'
-                                }
-                            })}>
-                                Top - Right
-                            </Button>
-                            <Button onClick={() => this.props.showMessage({
-                                message     : 'Hi, how are you?',
-                                anchorOrigin: {
-                                    vertical  : 'top',
-                                    horizontal: 'center'
-                                }
-                            })}>
-                                Top-Center
-                            </Button>
-                            <Button onClick={() => this.props.showMessage({
-                                message     : 'Hi, how are you?',
-                                anchorOrigin: {
-                                    vertical  : 'top',
-                                    horizontal: 'left'
-                                }
-                            })}>
-                                Top-Left
-                            </Button>
-                            <Button onClick={() => this.props.showMessage({
-                                message     : 'Hi, how are you?',
-                                anchorOrigin: {
-                                    vertical  : 'bottom',
-                                    horizontal: 'right'
-                                }
-                            })}>
-                                Bottom-Right
-                            </Button>
-                            <Button onClick={() => this.props.showMessage({
-                                message     : 'Hi, how are you?',
-                                anchorOrigin: {
-                                    vertical  : 'bottom',
-                                    horizontal: 'center'
-                                }
-                            })}>
-                                Bottom-Center
-                            </Button>
-                            <Button onClick={() => this.props.showMessage({
-                                message     : 'Hi, how are you?',
-                                anchorOrigin: {
-                                    vertical  : 'bottom',
-                                    horizontal: 'left'
-                                }
-                            })}>
-                                Bottom-Left
-                            </Button>
-                        </div>
-
-                        <Typography className="text-24 mt-32 mb-8" component="h2">Variants</Typography>
-
-                        <div>
-                            <Button onClick={() => this.props.showMessage({
-                                message: 'Hi, how are you?'
-                            })}>
-                                Default
-                            </Button>
-                            <Button onClick={() => this.props.showMessage({
-                                message: 'Hi, how are you?',
-                                variant: 'success'
-                            })}>
-                                Success
-                            </Button>
-                            <Button onClick={() => this.props.showMessage({
-                                message: 'Hi, how are you?',
-                                variant: 'warning'
-                            })}>
-                                Warning
-                            </Button>
-                            <Button onClick={() => this.props.showMessage({
-                                message: 'Hi, how are you?',
-                                variant: 'error'
-                            })}>
-                                Error
-                            </Button>
-                            <Button onClick={() => this.props.showMessage({
-                                message: 'Hi, how are you?',
-                                variant: 'info'
-                            })}>
-                                Info
-                            </Button>
-                        </div>
+                        <Button onClick={() => this.props.showMessage({
+                            message     : 'Hi, how are you?',
+                            anchorOrigin: {
+                                vertical  : 'top',
+                                horizontal: 'right'
+                            }
+                        })}>
+                            Top - Right
+                        </Button>
+                        <Button onClick={() => this.props.showMessage({
+                            message     : 'Hi, how are you?',
+                            anchorOrigin: {
+                                vertical  : 'top',
+                                horizontal: 'center'
+                            }
+                        })}>
+                            Top-Center
+                        </Button>
+                        <Button onClick={() => this.props.showMessage({
+                            message     : 'Hi, how are you?',
+                            anchorOrigin: {
+                                vertical  : 'top',
+                                horizontal: 'left'
+                            }
+                        })}>
+                            Top-Left
+                        </Button>
+                        <Button onClick={() => this.props.showMessage({
+                            message     : 'Hi, how are you?',
+                            anchorOrigin: {
+                                vertical  : 'bottom',
+                                horizontal: 'right'
+                            }
+                        })}>
+                            Bottom-Right
+                        </Button>
+                        <Button onClick={() => this.props.showMessage({
+                            message     : 'Hi, how are you?',
+                            anchorOrigin: {
+                                vertical  : 'bottom',
+                                horizontal: 'center'
+                            }
+                        })}>
+                            Bottom-Center
+                        </Button>
+                        <Button onClick={() => this.props.showMessage({
+                            message     : 'Hi, how are you?',
+                            anchorOrigin: {
+                                vertical  : 'bottom',
+                                horizontal: 'left'
+                            }
+                        })}>
+                            Bottom-Left
+                        </Button>
                     </div>
-                }
-            />
-        );
-    }
-}
+
+                    <Typography className="text-24 mt-32 mb-8" component="h2">Variants</Typography>
+
+                    <div>
+                        <Button onClick={() => this.props.showMessage({
+                            message: 'Hi, how are you?'
+                        })}>
+                            Default
+                        </Button>
+                        <Button onClick={() => this.props.showMessage({
+                            message: 'Hi, how are you?',
+                            variant: 'success'
+                        })}>
+                            Success
+                        </Button>
+                        <Button onClick={() => this.props.showMessage({
+                            message: 'Hi, how are you?',
+                            variant: 'warning'
+                        })}>
+                            Warning
+                        </Button>
+                        <Button onClick={() => this.props.showMessage({
+                            message: 'Hi, how are you?',
+                            variant: 'error'
+                        })}>
+                            Error
+                        </Button>
+                        <Button onClick={() => this.props.showMessage({
+                            message: 'Hi, how are you?',
+                            variant: 'info'
+                        })}>
+                            Info
+                        </Button>
+                    </div>
+                </div>
+            }
+        />
+    );
+};
 
 function mapDispatchToProps(dispatch)
 {
@@ -166,4 +153,4 @@ function mapDispatchToProps(dispatch)
         dispatch);
 }
 
-export default withStyles(styles, {withTheme: true})(connect(null, mapDispatchToProps)(FuseMessageDoc));
+export default connect(null, mapDispatchToProps)(FuseMessageDoc);

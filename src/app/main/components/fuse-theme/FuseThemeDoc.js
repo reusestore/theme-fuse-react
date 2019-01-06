@@ -1,38 +1,26 @@
-import React, {Component} from 'react';
-import {withStyles, Typography} from '@material-ui/core';
+import React from 'react';
+import {Typography} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
 
-const styles = theme => ({
-    layoutRoot: {}
-});
+const FuseThemeDoc = () => {
+    return (
+        <FusePageSimple
+            header={
+                <div className="flex flex-1 items-center justify-between p-24">
+                    <Typography variant="h6">FuseTheme</Typography>
+                </div>
+            }
+            content={
+                <div className="p-24 max-w-2xl mx-auto">
 
-class FuseThemeDoc extends Component {
+                    <Typography className="mb-16" component="p">
+                        <code className="language-bash">FuseTheme</code> is theming component of the Fuse React. It allows to change predefined Material UI themes. It should
+                        wraps the FuseLayout component.
+                    </Typography>
 
-    render()
-    {
-        const {classes} = this.props;
-
-        return (
-            <FusePageSimple
-                classes={{
-                    root: classes.layoutRoot
-                }}
-                header={
-                    <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="h6">FuseTheme</Typography>
-                    </div>
-                }
-                content={
-                    <div className="p-24 max-w-2xl mx-auto">
-
-                        <Typography className="mb-16" component="p">
-                            <code className="language-bash">FuseTheme</code> is theming component of the Fuse React. It allows to change predefined Material UI themes. It should
-                            wraps the FuseLayout component.
-                        </Typography>
-
-                        <FuseHighlight component="pre" className="language-jsx">
-                            {
-                                `
+                    <FuseHighlight component="pre" className="language-jsx">
+                        {
+                            `
                                 <FuseTheme>
                                     <FuseLayout
                                         routes={routes}
@@ -60,19 +48,19 @@ class FuseThemeDoc extends Component {
                                     />
                                 </FuseTheme>
                                 `
-                            }
-                        </FuseHighlight>
+                        }
+                    </FuseHighlight>
 
-                        <Typography className="text-32 mt-32 mb-8" component="h2">Configuration</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Configuration</Typography>
 
-                        <Typography className="mb-16" component="p">
-                            You can define the material ui themes under <code className="language-bash">fuse-configs/fuseThemesConfig.js</code> <a
-                            href="https://material-ui-next.com/customization/themes/" target="_blank" rel="noopener noreferrer" className="font-bold">
-                            Checkout</a> the Material UI's theme configuration options.
-                        </Typography>
+                    <Typography className="mb-16" component="p">
+                        You can define the material ui themes under <code className="language-bash">fuse-configs/fuseThemesConfig.js</code> <a
+                        href="https://material-ui-next.com/customization/themes/" target="_blank" rel="noopener noreferrer" className="font-bold">
+                        Checkout</a> the Material UI's theme configuration options.
+                    </Typography>
 
-                        <FuseHighlight component="pre" className="language-js">
-                            {`
+                    <FuseHighlight component="pre" className="language-js">
+                        {`
                             export const fuseThemes = {
                                 default: {
                                     status: {
@@ -87,12 +75,11 @@ class FuseThemeDoc extends Component {
                                 }
                             };
                             `}
-                        </FuseHighlight>
-                    </div>
-                }
-            />
-        );
-    }
-}
+                    </FuseHighlight>
+                </div>
+            }
+        />
+    );
+};
 
-export default withStyles(styles, {withTheme: true})(FuseThemeDoc);
+export default FuseThemeDoc;

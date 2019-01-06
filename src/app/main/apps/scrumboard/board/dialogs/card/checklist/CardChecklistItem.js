@@ -4,6 +4,7 @@ import React from 'react';
 import _ from '@lodash';
 
 class CardChecklistItem extends Component {
+
     state = this.props.item;
 
     componentDidUpdate(prevProps, prevState, snapshot)

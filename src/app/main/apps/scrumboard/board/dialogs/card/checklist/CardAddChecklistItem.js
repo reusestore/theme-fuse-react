@@ -4,8 +4,9 @@ import ChecklistItemModel from 'app/main/apps/scrumboard/model/ChecklistItemMode
 import _ from '@lodash';
 
 class CardAddChecklistItem extends Component {
+
     state = {
-        name: ''
+        name: ""
     };
 
     handleChange = (event) => {

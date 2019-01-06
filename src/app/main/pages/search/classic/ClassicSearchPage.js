@@ -5,17 +5,16 @@ import classNames from 'classnames';
 import axios from 'axios';
 
 const styles = theme => ({
-    layoutRoot: {},
     title     : {
         color: colors.blue[800]
     },
     url       : {
         color: colors.green[800]
-    },
-    excerpt   : {}
+    }
 });
 
 class ClassicSearchPage extends Component {
+
     state = {
         data: []
     };
@@ -34,9 +33,6 @@ class ClassicSearchPage extends Component {
 
         return (
             <FusePageSimple
-                classes={{
-                    root: classes.layoutRoot
-                }}
                 header={
                     <div className="flex flex-1 items-center p-16 sm:p-24 max-w-md">
                         <MuiThemeProvider theme={this.props.theme}>
@@ -71,7 +67,7 @@ class ClassicSearchPage extends Component {
                                 <div className="mb-28" key={item.id}>
                                     <Typography className={classNames(classes.title, "text-18 cursor-pointer")}>{item.title}</Typography>
                                     <Typography className={classNames(classes.url)}>{item.url}</Typography>
-                                    <Typography className={classNames(classes.excerpt, "text-13")}>{item.excerpt}</Typography>
+                                    <Typography className="text-13">{item.excerpt}</Typography>
                                 </div>
                             ))}
                         </FuseAnimateGroup>

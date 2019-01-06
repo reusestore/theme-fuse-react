@@ -8,6 +8,7 @@ import * as userActions from 'app/auth/store/actions';
 import * as Actions from 'app/store/actions';
 
 class Callback extends Component {
+
     componentDidMount()
     {
         auth0Service.onAuthenticated(() => {

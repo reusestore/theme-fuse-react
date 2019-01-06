@@ -47,6 +47,7 @@ const styles = theme => ({
 });
 
 class RecipeReviewCard extends React.Component {
+
     state = {expanded: false};
 
     handleExpandClick = () => {

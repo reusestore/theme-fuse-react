@@ -9,14 +9,9 @@ import * as Actions from '../store/actions';
 import MailListItem from './MailListItem';
 
 const styles = theme => ({
-    mailList: {
-        padding: 0
-    },
-    mailItem: {},
-    avatar  : {
+    avatar: {
         backgroundColor: theme.palette.primary[500]
-    },
-    labels  : {}
+    }
 });
 
 class MailList extends Component {
@@ -45,7 +40,7 @@ class MailList extends Component {
 
     render()
     {
-        const {mails, classes, searchText} = this.props;
+        const {mails, searchText} = this.props;
 
         const arr = this.getFilteredArray(mails, searchText);
 
@@ -63,7 +58,7 @@ class MailList extends Component {
         }
 
         return (
-            <List className={classes.mailList}>
+            <List className="p-0">
                 <FuseAnimateGroup
                     enter={{
                         animation: "transition.slideUpBigIn"

@@ -6,10 +6,12 @@ import connect from 'react-redux/es/connect/connect';
 import * as Actions from '../store/actions';
 
 class BoardListHeader extends Component {
+
     state = {
         renameForm : false,
         renameTitle: this.props.board.name
     };
+
     renameFormToggle = (state) => {
         this.setState({
             renameForm : state,
@@ -90,7 +92,6 @@ class BoardListHeader extends Component {
         );
     }
 }
-
 
 function mapDispatchToProps(dispatch)
 {

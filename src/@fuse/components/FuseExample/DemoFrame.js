@@ -21,6 +21,7 @@ const generateClassName = createGenerateClassName({
 });
 
 class DemoFrame extends React.Component {
+
     state = {
         ready: false
     };

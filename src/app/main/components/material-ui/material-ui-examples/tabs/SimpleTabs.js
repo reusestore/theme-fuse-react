@@ -27,6 +27,7 @@ const styles = theme => ({
 });
 
 class SimpleTabs extends React.Component {
+
     state = {
         value: 0
     };

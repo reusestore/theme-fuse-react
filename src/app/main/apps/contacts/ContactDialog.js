@@ -1,16 +1,10 @@
 import React, {Component} from 'react';
-import {withStyles, TextField, Button, Dialog, DialogActions, DialogContent, Icon, IconButton, Typography, Toolbar, AppBar, Avatar} from '@material-ui/core';
+import {TextField, Button, Dialog, DialogActions, DialogContent, Icon, IconButton, Typography, Toolbar, AppBar, Avatar} from '@material-ui/core';
 import {bindActionCreators} from 'redux';
 import * as Actions from './store/actions';
 import {connect} from 'react-redux';
 import _ from '@lodash';
 
-const styles = theme => ({
-    root       : {},
-    formControl: {
-        marginBottom: 24
-    }
-});
 const newContactState = {
     id      : '',
     name    : '',
@@ -27,6 +21,7 @@ const newContactState = {
 };
 
 class ContactDialog extends Component {
+
     state = {...newContactState};
 
     componentDidUpdate(prevProps, prevState, snapshot)
@@ -77,15 +72,13 @@ class ContactDialog extends Component {
 
     render()
     {
-        const {classes, contactDialog, addContact, updateContact, removeContact} = this.props;
+        const {contactDialog, addContact, updateContact, removeContact} = this.props;
 
         return (
             <Dialog
                 classes={{
-                    root : classes.root,
                     paper: "m-24"
                 }}
-                className={classes.root}
                 {...contactDialog.props}
                 onClose={this.closeComposeDialog}
                 fullWidth
@@ -115,7 +108,7 @@ class ContactDialog extends Component {
                         </div>
 
                         <TextField
-                            className={classes.formControl}
+                            className="mb-24"
                             label="Name"
                             autoFocus
                             id="name"
@@ -132,7 +125,7 @@ class ContactDialog extends Component {
                         <div className="min-w-48 pt-20">
                         </div>
                         <TextField
-                            className={classes.formControl}
+                            className="mb-24"
                             label="Last name"
                             id="lastName"
                             name="lastName"
@@ -148,7 +141,7 @@ class ContactDialog extends Component {
                             <Icon color="action">star</Icon>
                         </div>
                         <TextField
-                            className={classes.formControl}
+                            className="mb-24"
                             label="Nickname"
                             id="nickname"
                             name="nickname"
@@ -164,7 +157,7 @@ class ContactDialog extends Component {
                             <Icon color="action">phone</Icon>
                         </div>
                         <TextField
-                            className={classes.formControl}
+                            className="mb-24"
                             label="Phone"
                             id="phone"
                             name="phone"
@@ -180,7 +173,7 @@ class ContactDialog extends Component {
                             <Icon color="action">email</Icon>
                         </div>
                         <TextField
-                            className={classes.formControl}
+                            className="mb-24"
                             label="Email"
                             id="email"
                             name="email"
@@ -196,7 +189,7 @@ class ContactDialog extends Component {
                             <Icon color="action">domain</Icon>
                         </div>
                         <TextField
-                            className={classes.formControl}
+                            className="mb-24"
                             label="Company"
                             id="company"
                             name="company"
@@ -212,7 +205,7 @@ class ContactDialog extends Component {
                             <Icon color="action">work</Icon>
                         </div>
                         <TextField
-                            className={classes.formControl}
+                            className="mb-24"
                             label="Job title"
                             id="jobTitle"
                             name="jobTitle"
@@ -228,7 +221,7 @@ class ContactDialog extends Component {
                             <Icon color="action">cake</Icon>
                         </div>
                         <TextField
-                            className={classes.formControl}
+                            className="mb-24"
                             id="birthday"
                             label="Birthday"
                             type="date"
@@ -247,7 +240,7 @@ class ContactDialog extends Component {
                             <Icon color="action">home</Icon>
                         </div>
                         <TextField
-                            className={classes.formControl}
+                            className="mb-24"
                             label="Address"
                             id="address"
                             name="address"
@@ -263,7 +256,7 @@ class ContactDialog extends Component {
                             <Icon color="action">note</Icon>
                         </div>
                         <TextField
-                            className={classes.formControl}
+                            className="mb-24"
                             label="Notes"
                             id="notes"
                             name="notes"
@@ -339,4 +332,4 @@ function mapStateToProps({contactsApp})
 }
 
 
-export default withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(ContactDialog));
+export default connect(mapStateToProps, mapDispatchToProps)(ContactDialog);

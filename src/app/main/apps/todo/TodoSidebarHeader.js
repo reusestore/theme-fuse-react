@@ -1,20 +1,6 @@
 import React, {Component} from 'react';
-import {withStyles, Icon, MenuItem, TextField} from '@material-ui/core';
+import {Icon, MenuItem, TextField} from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
-import classNames from 'classnames';
-
-const styles = theme => ({
-    root             : {},
-    logo             : {},
-    logoIcon         : {
-        fontSize: '32px!important'
-    },
-    logoText         : {
-        fontSize: 24
-    },
-    accountSelect    : {},
-    accountSelectMenu: {}
-});
 
 class TodoSidebarHeader extends Component {
 
@@ -33,17 +19,15 @@ class TodoSidebarHeader extends Component {
 
     render()
     {
-        const {classes} = this.props;
-
         return (
-            <div className={classNames(classes.root, "flex flex-col justify-center h-full p-24")}>
+            <div className="flex flex-col justify-center h-full p-24">
 
-                <div className={classNames(classes.logo, "flex items-center flex-1")}>
+                <div className="flex items-center flex-1">
                     <FuseAnimate animation="transition.expandIn" delay={300}>
-                        <Icon className={classNames(classes.logoIcon, "mr-16")}>check_box</Icon>
+                        <Icon className="text-32 mr-16">check_box</Icon>
                     </FuseAnimate>
                     <FuseAnimate animation="transition.slideLeftIn" delay={300}>
-                        <span className={classes.logoText}>To-Do</span>
+                        <span className="text-24">To-Do</span>
                     </FuseAnimate>
                 </div>
 
@@ -52,14 +36,8 @@ class TodoSidebarHeader extends Component {
                         id="account-selection"
                         select
                         label={this.state.selectedAccount}
-                        className={classes.accountSelect}
                         value={this.state.selectedAccount}
                         onChange={this.onAccountChange}
-                        SelectProps={{
-                            MenuProps: {
-                                className: classes.accountSelectMenu
-                            }
-                        }}
                         placeholder="Select Account"
                         margin="normal"
                     >
@@ -75,4 +53,4 @@ class TodoSidebarHeader extends Component {
     }
 }
 
-export default withStyles(styles, {withTheme: true})(TodoSidebarHeader);
+export default TodoSidebarHeader;

@@ -8,21 +8,16 @@ import BoardAddCard from './BoardAddCard';
 import BoardListHeader from './BoardListHeader';
 
 const styles = theme => ({
-    root      : {},
-    list      : {
+    list: {
         backgroundColor         : darken(theme.palette.background.default, theme.palette.type === 'light' ? 0.02 : .4),
         transitionProperty      : 'box-shadow',
         transitionDuration      : theme.transitions.duration.short,
         transitionTimingFunction: theme.transitions.easing.easeInOut
-    },
-    listHeader: {
-        borderBottomWidth: 1,
-        borderBottomStyle: 'solid',
-        borderBottomColor: theme.palette.divider
     }
 });
 
 class BoardList extends Component {
+
     handleCardAdded = () => {
         this.contentScrollEl.scrollTop = this.contentScrollEl.scrollHeight;
     };
@@ -45,7 +40,7 @@ class BoardList extends Component {
 
                             <BoardListHeader
                                 list={list}
-                                className={classNames(classes.listHeader)}
+                                className="border-b-1"
                                 handleProps={provided.dragHandleProps}
                             />
 

@@ -28,27 +28,13 @@ const statusArr = [
 ];
 
 const styles = theme => ({
-    root           : {
-        display      : 'flex',
-        flex         : '1 1 auto',
-        flexDirection: 'column',
-        height       : '100%'
-    },
     contactListItem: {
-        padding     : '12px 16px',
         borderBottom: '1px solid ' + theme.palette.divider,
-        minHeight   : 90,
         '&.active'  : {
             backgroundColor: theme.palette.background.paper
         }
     },
     unreadBadge    : {
-        minWidth       : 24,
-        height         : 24,
-        lineHeight     : '24px',
-        borderRadius   : '50%',
-        fontSize       : 14,
-        textAlign      : 'center',
         backgroundColor: theme.palette.secondary.main,
         color          : theme.palette.secondary.contrastText
     }
@@ -118,7 +104,7 @@ class ChatsSidebar extends Component {
             return (
                 <ListItem
                     button
-                    className={classNames(classes.contactListItem, {'active': (selectedContactId === contact.id)})}
+                    className={classNames(classes.contactListItem, "px-16 py-12 min-h-92", {'active': (selectedContactId === contact.id)})}
                     onClick={() => this.handleContactClick(contact.id)}
                 >
                     <div className="relative">
@@ -149,7 +135,8 @@ class ChatsSidebar extends Component {
                                 </Typography>
                             )}
                             {contact.unread && (
-                                <div className={classes.unreadBadge}>{contact.unread}</div>
+                                <div
+                                    className={classNames(classes.unreadBadge, "flex items-center justify-center min-w-24 h-24 rounded-full text-14 text-center")}>{contact.unread}</div>
                             )}
                         </div>
                     )}
@@ -158,7 +145,7 @@ class ChatsSidebar extends Component {
         };
 
         return (
-            <div className={classes.root}>
+            <div className="flex flex-col flex-auto h-full">
                 <AppBar
                     className={classes.contentToolbar}
                     position="static"

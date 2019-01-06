@@ -10,21 +10,10 @@ import _ from '@lodash';
 import * as Actions from '../store/actions';
 
 const styles = theme => ({
-    root       : {},
-    card       : {
+    card: {
         transitionProperty      : 'box-shadow',
         transitionDuration      : theme.transitions.duration.short,
-        transitionTimingFunction: theme.transitions.easing.easeInOut,
-        borderWidth             : 1,
-        borderStyle             : 'solid',
-        borderColor             : theme.palette.divider
-    },
-    cardContent: {},
-    cardFooter : {
-        height        : 48,
-        borderTopWidth: 1,
-        borderTopStyle: 'solid',
-        borderTopColor: theme.palette.divider
+        transitionTimingFunction: theme.transitions.easing.easeInOut
     }
 });
 
@@ -64,7 +53,7 @@ class BoardCard extends Component {
                         {...provided.dragHandleProps}
                     >
                         <Card
-                            className={classNames(classes.card, "w-full mb-16 rounded-4 cursor-pointer")}
+                            className={classNames(classes.card, "w-full mb-16 rounded-4 cursor-pointer border-1")}
                             elevation={snapshot.isDragging ? 3 : 0}
                             onClick={(ev) => this.handleCardClick(ev, card)}
                         >
@@ -73,7 +62,7 @@ class BoardCard extends Component {
                                 <img className="block" src={_.find(card.attachments, {id: card.idAttachmentCover}).src} alt="card cover"/>
                             )}
 
-                            <div className={classNames(classes.cardContent, "p-16 pb-0")}>
+                            <div className="p-16 pb-0">
 
                                 {card.idLabels.length > 0 && (
                                     <div className="flex flex-wrap mb-8">
@@ -131,7 +120,7 @@ class BoardCard extends Component {
 
                             </div>
 
-                            <div className={classNames(classes.cardFooter, "px-16 flex justify-between")}>
+                            <div className="flex justify-between h-48 px-16 border-t-1">
                                 <div className="flex items-center">
                                     {card.subscribed && (
                                         <Icon className="text-18 mr-12" color="action">remove_red_eye</Icon>

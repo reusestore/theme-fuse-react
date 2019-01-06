@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {
     TableHead,
     TableSortLabel,
@@ -15,6 +15,7 @@ import {
     ListItemText,
     withStyles
 } from '@material-ui/core';
+import classNames from 'classnames';
 
 const rows = [
     {
@@ -69,22 +70,13 @@ const rows = [
 ];
 
 const styles = theme => ({
-    root                : {},
     actionsButtonWrapper: {
-        position      : 'absolute',
-        top           : 0,
-        left          : 64,
-        width         : 64,
-        height        : 63,
-        zIndex        : 10,
-        background    : theme.palette.background.paper,
-        alignItems    : 'center',
-        display       : 'flex',
-        justifyContent: 'center'
+        background: theme.palette.background.paper
     }
 });
 
-class OrdersTableHead extends React.Component {
+class OrdersTableHead extends Component {
+
     state = {
         selectedOrdersMenu: null
     };
@@ -117,7 +109,7 @@ class OrdersTableHead extends React.Component {
                             onChange={onSelectAllClick}
                         />
                         {numSelected > 0 && (
-                            <div className={classes.actionsButtonWrapper}>
+                            <div className={classNames("flex items-center justify-center absolute w-64 pin-t pin-l ml-68 h-64 z-10", classes.actionsButtonWrapper)}>
                                 <IconButton
                                     aria-owns={selectedOrdersMenu ? 'selectedOrdersMenu' : null}
                                     aria-haspopup="true"

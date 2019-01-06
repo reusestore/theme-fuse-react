@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {withStyles, Avatar, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Icon, Tab, Tabs, Tooltip, Typography} from '@material-ui/core';
+import {Avatar, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Icon, Tab, Tabs, Tooltip, Typography} from '@material-ui/core';
 import {FuseAnimate, FusePageCarded} from '@fuse';
 import {Link, withRouter} from 'react-router-dom';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -12,8 +12,6 @@ import OrderInvoice from './OrderInvoice';
 import * as Actions from '../store/actions';
 import reducer from '../store/reducers';
 
-const styles = theme => ({});
-
 function Marker({text})
 {
     return (
@@ -24,6 +22,7 @@ function Marker({text})
 }
 
 class Order extends Component {
+
     state = {
         tabValue: 0,
         form    : null,
@@ -416,4 +415,4 @@ function mapStateToProps({eCommerceApp})
     }
 }
 
-export default withReducer('eCommerceApp', reducer)(withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(Order))));
+export default withReducer('eCommerceApp', reducer)(withRouter(connect(mapStateToProps, mapDispatchToProps)(Order)));

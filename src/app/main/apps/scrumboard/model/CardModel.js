@@ -1,9 +1,6 @@
 import {FuseUtils} from '@fuse';
 
 class CardModel {
-    /**
-     * Constructor
-     */
     constructor(data)
     {
         const card = data ? data : {};

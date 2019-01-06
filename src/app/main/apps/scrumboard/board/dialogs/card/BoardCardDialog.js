@@ -19,12 +19,8 @@ import _ from '@lodash';
 import moment from 'moment';
 
 const styles = theme => ({
-    root       : {},
-    paper      : {
+    paper: {
         color: theme.palette.text.primary
-    },
-    formControl: {
-        marginBottom: 24
     }
 });
 
@@ -58,7 +54,6 @@ class BoardCardDialog extends Component {
         return (
             <Dialog
                 classes={{
-                    root : classes.root,
                     paper: classNames(classes.paper, "max-w-lg w-full m-24")
                 }}
                 onClose={closeCardDialog}

@@ -1,18 +1,10 @@
 import React, {Component} from 'react';
 import {withStyles, Select, Button, Card, Divider, FormControl, Icon, MenuItem, Typography} from '@material-ui/core';
 import {Doughnut} from 'react-chartjs-2';
-import classNames from 'classnames';
 import _ from '@lodash';
 
-const styles = theme => ({
-    root: {
-        border      : '1px solid ' + theme.palette.divider,
-        boxShadow   : 'none',
-        borderRadius: 8
-    }
-});
-
 class Widget7 extends Component {
+
     state = {
         dataset: 'Today'
     };
@@ -23,7 +15,7 @@ class Widget7 extends Component {
 
     render()
     {
-        const {classes, data: dataRaw, theme} = this.props;
+        const {data: dataRaw, theme} = this.props;
         const {dataset} = this.state;
         const data = _.merge({}, dataRaw);
         const dataWithColors = data.datasets[dataset].map(obj => ({
@@ -41,7 +33,7 @@ class Widget7 extends Component {
             ]
         }));
         return (
-            <Card className={classNames(classes.root, "w-full")}>
+            <Card className="w-full rounded-8 shadow-none border-1">
 
                 <div className="p-16">
                     <Typography className="h1 font-300">Sessions by device</Typography>
@@ -104,4 +96,4 @@ class Widget7 extends Component {
     }
 }
 
-export default withStyles(styles, {withTheme: true})(Widget7);
+export default withStyles(null, {withTheme: true})(Widget7);

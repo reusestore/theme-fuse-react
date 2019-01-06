@@ -5,7 +5,7 @@ import {withRouter} from 'react-router-dom';
 
 function FuseTheme({children, mainTheme})
 {
-    // console.warn('FuseTheme:: rendered');
+    // console.warn('FuseTheme:: rendered',mainTheme);
     return (
         <MuiThemeProvider theme={mainTheme}>
             {children}

@@ -40,52 +40,15 @@ class SimpleTabbedSample extends Component {
                         textColor="primary"
                         scrollable
                         scrollButtons="off"
-                        classes={{
-                            root: "h-64 border-b-1"
-                        }}
+                        className="w-full h-64 border-b-1"
                     >
-                        <Tab
-                            classes={{
-                                root: "h-64"
-                            }}
-                            label="Item One"
-                        />
-                        <Tab
-                            classes={{
-                                root: "h-64"
-                            }}
-                            label="Item Two"
-                        />
-                        <Tab
-                            classes={{
-                                root: "h-64"
-                            }}
-                            label="Item Three"
-                        />
-                        <Tab
-                            classes={{
-                                root: "h-64"
-                            }}
-                            label="Item Four"
-                        />
-                        <Tab
-                            classes={{
-                                root: "h-64"
-                            }}
-                            label="Item Five"
-                        />
-                        <Tab
-                            classes={{
-                                root: "h-64"
-                            }}
-                            label="Item Six"
-                        />
-                        <Tab
-                            classes={{
-                                root: "h-64"
-                            }}
-                            label="Item Seven"
-                        />
+                        <Tab className="h-64" label="Item One"/>
+                        <Tab className="h-64" label="Item Two"/>
+                        <Tab className="h-64" label="Item Three"/>
+                        <Tab className="h-64" label="Item Four"/>
+                        <Tab className="h-64" label="Item Five"/>
+                        <Tab className="h-64" label="Item Six"/>
+                        <Tab className="h-64" label="Item Seven"/>
                     </Tabs>
                 }
                 content={

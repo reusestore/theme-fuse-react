@@ -1,15 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles, AppBar, Card, Icon, IconButton, Tab, Tabs, Typography} from '@material-ui/core';
 import {Line} from 'react-chartjs-2';
-import classNames from 'classnames';
-
-const styles = theme => ({
-    root: {
-        border      : '1px solid ' + theme.palette.divider,
-        boxShadow   : 'none',
-        borderRadius: 8
-    }
-});
 
 class Widget8 extends Component {
 
@@ -27,15 +18,17 @@ class Widget8 extends Component {
 
     render()
     {
-        const {data, classes, theme} = this.props;
+        const {data, theme} = this.props;
         const {tabIndex} = this.state;
         const dataWithColors = data.datasets[tabIndex].map(obj => ({
             ...obj,
             borderColor: theme.palette.secondary.main
         }));
         return (
-            <Card className={classNames(classes.root, "w-full")}>
+            <Card className="w-full rounded-8 shadow-none border-1">
+
                 <AppBar position="static">
+
                     <div className="p-16 pr-4 flex flex-row items-center justify-between">
 
                         <div className="pr-16">
@@ -86,4 +79,4 @@ class Widget8 extends Component {
     }
 }
 
-export default withStyles(styles, {withTheme: true})(Widget8);
+export default withStyles(null, {withTheme: true})(Widget8);

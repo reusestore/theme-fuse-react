@@ -18,7 +18,9 @@ const styles = theme => ({
         color          : '#61dafb'
     }
 });
-const Logo = ({classes}) => {
+
+function Logo({classes})
+{
     return (
         <div className={classNames(classes.root, "flex items-center")}>
             <img className="logo-icon" src="assets/images/logos/fuse.svg" alt="logo"/>
@@ -34,6 +36,6 @@ const Logo = ({classes}) => {
             </div>
         </div>
     );
-};
+}
 
 export default withStyles(styles, {withTheme: true})(Logo);

@@ -1,64 +1,43 @@
-import React, {Component} from 'react';
-import {withStyles, Icon, Input, Paper, Typography} from '@material-ui/core';
+import React from 'react';
+import {Icon, Input, Paper, Typography} from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
-import classNames from 'classnames';
 import {Link} from 'react-router-dom';
 
-const styles = theme => ({
-    root         : {},
-    searchWrapper: {
-        width     : '100%',
-        height    : 56,
-        padding   : 18,
-        display   : 'flex',
-        alignItems: 'center'
-    },
-    search       : {
-        paddingLeft: 16
-    }
-});
+const Error404Page = () => {
+    return (
+        <div className="flex flex-col flex-1 items-center justify-center p-16">
 
-class Error404Page extends Component {
+            <div className="max-w-512 text-center">
 
-    render()
-    {
-        const {classes} = this.props;
+                <FuseAnimate animation="transition.expandIn" delay={100}>
+                    <Typography variant="h1" color="inherit" className="font-medium mb-16">
+                        404
+                    </Typography>
+                </FuseAnimate>
 
-        return (
-            <div className={classNames(classes.root, "flex flex-col flex-1 items-center justify-center p-16")}>
+                <FuseAnimate delay={500}>
+                    <Typography variant="h5" color="textSecondary" className="mb-16">
+                        Sorry but we could not find the page you are looking for
+                    </Typography>
+                </FuseAnimate>
 
-                <div className="max-w-512 text-center">
+                <Paper className="flex items-center w-full h-56 p-16 mt-48 mb-16" elevation={1}>
+                    <Icon color="action">search</Icon>
+                    <Input
+                        placeholder="Search for anything"
+                        className="pl-16"
+                        disableUnderline
+                        fullWidth
+                        inputProps={{
+                            'aria-label': 'Search'
+                        }}
+                    />
+                </Paper>
 
-                    <FuseAnimate animation="transition.expandIn" delay={100}>
-                        <Typography variant="h1" color="inherit" className="font-medium mb-16">
-                            404
-                        </Typography>
-                    </FuseAnimate>
-
-                    <FuseAnimate delay={500}>
-                        <Typography variant="h5" color="textSecondary" className="mb-16">
-                            Sorry but we could not find the page you are looking for
-                        </Typography>
-                    </FuseAnimate>
-
-                    <Paper className={classNames(classes.searchWrapper, "mt-48 mb-16")} elevation={1}>
-                        <Icon color="action">search</Icon>
-                        <Input
-                            placeholder="Search for anything"
-                            className={classes.search}
-                            disableUnderline
-                            fullWidth
-                            inputProps={{
-                                'aria-label': 'Search'
-                            }}
-                        />
-                    </Paper>
-
-                    <Link className="font-medium" to="/apps/dashboards/project">Go back to dashboard</Link>
-                </div>
+                <Link className="font-medium" to="/apps/dashboards/project">Go back to dashboard</Link>
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
 
-export default withStyles(styles, {withTheme: true})(Error404Page);
+export default Error404Page;

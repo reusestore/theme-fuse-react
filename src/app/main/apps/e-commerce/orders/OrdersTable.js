@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {withStyles, Table, TableBody, TableCell, TablePagination, TableRow, Checkbox} from '@material-ui/core';
+import {Table, TableBody, TableCell, TablePagination, TableRow, Checkbox} from '@material-ui/core';
 import {FuseScrollbars, FuseUtils} from '@fuse';
 import {withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
@@ -9,11 +9,8 @@ import OrdersTableHead from './OrdersTableHead';
 import OrdersStatus from '../order/OrdersStatus';
 import * as Actions from '../store/actions';
 
-const styles = theme => ({
-    root: {}
-});
-
 class OrdersTable extends Component {
+
     state = {
         order      : 'asc',
         orderBy    : 'id',
@@ -252,4 +249,4 @@ function mapStateToProps({eCommerceApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(OrdersTable)));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OrdersTable));

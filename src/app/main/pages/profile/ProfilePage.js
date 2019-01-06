@@ -6,10 +6,6 @@ import PhotosVideosTab from './tabs/PhotosVideosTab';
 import AboutTab from './tabs/AboutTab';
 
 const styles = theme => ({
-    layoutRoot   : {},
-    layoutToolbar: {
-        padding: 0
-    },
     layoutHeader : {
         height                        : 320,
         minHeight                     : 320,
@@ -41,7 +37,6 @@ class ProfilePage extends Component {
         return (
             <FusePageSimple
                 classes={{
-                    root   : classes.layoutRoot,
                     header : classes.layoutHeader,
                     toolbar: "px-16 sm:px-24"
                 }}

@@ -5,7 +5,6 @@ import PurchaseButton from 'app/fuse-layouts/shared-components/PurchaseButton';
 import PoweredByLinks from 'app/fuse-layouts/shared-components/PoweredByLinks';
 
 const FooterLayout2 = ({classes, footerTheme}) => {
-
     return (
         <MuiThemeProvider theme={footerTheme}>
             <AppBar id="fuse-footer" className="relative z-10" color="default">

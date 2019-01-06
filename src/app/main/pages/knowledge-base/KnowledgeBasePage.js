@@ -27,18 +27,15 @@ function Transition(props)
 }
 
 const styles = theme => ({
-    root   : {
-        width: '100%'
-    },
-    header : {
+    header: {
         background    : "url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat",
         backgroundSize: 'cover',
         color         : '#fff'
-    },
-    content: {}
+    }
 });
 
 class KnowledgeBasePage extends Component {
+
     state = {
         data      : [],
         openDialog: false,
@@ -74,7 +71,7 @@ class KnowledgeBasePage extends Component {
         const {data, openDialog, dialogData} = this.state;
 
         return (
-            <div className={classNames(classes.root)}>
+            <div className="w-full">
 
                 <div className={classNames(classes.header, "flex flex-col items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-360")}>
 
@@ -91,7 +88,7 @@ class KnowledgeBasePage extends Component {
                     </FuseAnimate>
                 </div>
 
-                <div className={classNames(classes.content)}>
+                <div>
 
                     <FuseAnimateGroup
                         enter={{

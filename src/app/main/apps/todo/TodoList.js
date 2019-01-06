@@ -1,67 +1,55 @@
-import React, {Component} from 'react';
-import {withStyles, List, Typography} from '@material-ui/core';
+import React from 'react';
+import {List, Typography} from '@material-ui/core';
 import {FuseUtils, FuseAnimate, FuseAnimateGroup} from '@fuse';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import _ from '@lodash';
 import TodoListItem from './TodoListItem';
 
-const styles = theme => ({
-    todoList: {
-        padding: 0
-    },
-    todoItem: {},
-    labels  : {}
-});
-
-class TodoList extends Component {
-
-    getFilteredArray = (entities, searchText) => {
-        const arr = Object.keys(entities).map((id) => entities[id]);
-        if ( searchText.length === 0 )
-        {
-            return arr;
-        }
-        return FuseUtils.filterArrayByString(arr, searchText);
-    };
-
-    render()
+function getFilteredArray(entities, searchText)
+{
+    const arr = Object.keys(entities).map((id) => entities[id]);
+    if ( searchText.length === 0 )
     {
-        const {todos, classes, searchText, orderBy, orderDescending} = this.props;
+        return arr;
+    }
+    return FuseUtils.filterArrayByString(arr, searchText);
+}
 
-        const arr = _.orderBy(this.getFilteredArray(todos, searchText), [orderBy], [orderDescending ? 'desc' : 'asc']);
+const TodoList = ({todos, searchText, orderBy, orderDescending}) => {
 
-        if ( arr.length === 0 )
-        {
-            return (
-                <FuseAnimate delay={100}>
-                    <div className="flex flex-1 items-center justify-center h-full">
-                        <Typography color="textSecondary" variant="h5">
-                            There are no todos!
-                        </Typography>
-                    </div>
-                </FuseAnimate>
-            );
-        }
+    const arr = _.orderBy(getFilteredArray(todos, searchText), [orderBy], [orderDescending ? 'desc' : 'asc']);
 
+    if ( arr.length === 0 )
+    {
         return (
-            <List className={classes.todoList}>
-                <FuseAnimateGroup
-                    enter={{
-                        animation: "transition.slideUpBigIn"
-                    }}
-                >
-                    {
-                        arr.map((todo) => (
-                                <TodoListItem todo={todo} key={todo.id}/>
-                            )
-                        )
-                    }
-                </FuseAnimateGroup>
-            </List>
+            <FuseAnimate delay={100}>
+                <div className="flex flex-1 items-center justify-center h-full">
+                    <Typography color="textSecondary" variant="h5">
+                        There are no todos!
+                    </Typography>
+                </div>
+            </FuseAnimate>
         );
     }
-}
+
+    return (
+        <List className="p-0">
+            <FuseAnimateGroup
+                enter={{
+                    animation: "transition.slideUpBigIn"
+                }}
+            >
+                {
+                    arr.map((todo) => (
+                            <TodoListItem todo={todo} key={todo.id}/>
+                        )
+                    )
+                }
+            </FuseAnimateGroup>
+        </List>
+    );
+};
 
 function mapStateToProps({todoApp})
 {
@@ -73,4 +61,4 @@ function mapStateToProps({todoApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps)(TodoList)));
+export default withRouter(connect(mapStateToProps)(TodoList));

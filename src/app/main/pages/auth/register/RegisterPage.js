@@ -9,14 +9,11 @@ const styles = theme => ({
     root: {
         background    : "url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat",
         backgroundSize: 'cover'
-    },
-    card: {
-        width   : '100%',
-        maxWidth: 384
     }
 });
 
 class RegisterPage extends Component {
+
     state = {
         name                 : '',
         email                : '',
@@ -53,9 +50,9 @@ class RegisterPage extends Component {
 
                     <FuseAnimate animation="transition.expandIn">
 
-                        <Card className={classes.card}>
+                        <Card className="w-full max-w-384">
 
-                            <CardContent className="flex flex-col items-center justify-center p-32">
+                        <CardContent className="flex flex-col items-center justify-center p-32">
 
                                 <img className="w-128 m-32" src="assets/images/logos/fuse.svg" alt="logo"/>
 

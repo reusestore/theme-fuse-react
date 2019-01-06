@@ -1,9 +1,6 @@
 import {FuseUtils} from '@fuse';
 
 class LabelModel {
-    /**
-     * Constructor
-     */
     constructor(data)
     {
         const label = data ? data : {};

@@ -9,46 +9,41 @@ import _ from '@lodash';
 import * as Actions from './store/actions';
 
 const styles = theme => ({
-    messageRow  : {
-        position                          : 'relative',
-        display                           : 'flex',
-        flexDirection                     : 'column',
-        alignItems                        : 'flex-start',
-        justifyContent                    : 'flex-end',
-        padding                           : '0 16px 4px 16px',
-        flex                              : '0 0 auto',
+    messageRow: {
         '&.contact'                       : {
-            '& $bubble'       : {
+            '& .bubble'       : {
                 backgroundColor        : theme.palette.primary.main,
                 color                  : theme.palette.primary.contrastText,
                 borderTopLeftRadius    : 5,
                 borderBottomLeftRadius : 5,
                 borderTopRightRadius   : 20,
                 borderBottomRightRadius: 20,
-                '& $time'              : {
+                '& .time'              : {
                     marginLeft: 12
                 }
             },
             '&.first-of-group': {
-                '& $bubble': {
+                '& .bubble': {
                     borderTopLeftRadius: 20
                 }
             },
             '&.last-of-group' : {
-                '& $bubble': {
+                '& .bubble': {
                     borderBottomLeftRadius: 20
                 }
+            },
+            '&:last-of-type'  : {
+                paddingBottom: 100
             }
         },
         '&.me'                            : {
             paddingLeft: 40,
 
-            '& $avatar': {
+            '& .avatar'       : {
                 order : 2,
                 margin: '0 0 0 16px'
             },
-
-            '& $bubble'       : {
+            '& .bubble'       : {
                 marginLeft             : 'auto',
                 backgroundColor        : theme.palette.grey[300],
                 color                  : theme.palette.getContrastText(theme.palette.grey[300]),
@@ -56,20 +51,20 @@ const styles = theme => ({
                 borderBottomLeftRadius : 20,
                 borderTopRightRadius   : 5,
                 borderBottomRightRadius: 5,
-                '& $time'              : {
+                '& .time'              : {
                     justifyContent: 'flex-end',
                     right         : 0,
                     marginRight   : 12
                 }
             },
             '&.first-of-group': {
-                '& $bubble': {
+                '& .bubble': {
                     borderTopRightRadius: 20
                 }
             },
 
             '&.last-of-group': {
-                '& $bubble': {
+                '& .bubble': {
                     borderBottomRightRadius: 20
                 }
             }
@@ -79,58 +74,25 @@ const styles = theme => ({
             marginTop : 20
         },
         '&.first-of-group'                : {
-            '& $bubble': {
+            '& .bubble': {
                 borderTopLeftRadius: 20,
                 paddingTop         : 13
             }
         },
         '&.last-of-group'                 : {
-            '& $bubble': {
+            '& .bubble': {
                 borderBottomLeftRadius: 20,
                 paddingBottom         : 13,
-                '& $time'             : {
+                '& .time'             : {
                     display: 'flex'
                 }
             }
         }
-    },
-    avatar      : {
-        position: 'absolute',
-        left    : -32,
-        margin  : 0
-    },
-    bubble      : {
-        position      : 'relative',
-        display       : 'flex',
-        alignItems    : 'center',
-        justifyContent: 'center',
-        padding       : 12,
-        maxWidth      : '100%'
-    },
-    message     : {
-        whiteSpace: 'pre-wrap',
-        lineHeight: 1.2
-    },
-    time        : {
-        position  : 'absolute',
-        display   : 'none',
-        width     : '100%',
-        fontSize  : 11,
-        marginTop : 8,
-        top       : '100%',
-        left      : 0,
-        whiteSpace: 'nowrap'
-    },
-    bottom      : {
-        background: theme.palette.background.default,
-        borderTop : '1px solid rgba(0, 0, 0, 0.13)'
-    },
-    inputWrapper: {
-        borderRadius: 24
     }
 });
 
 class Chat extends Component {
+
     state = {
         messageText: ''
     };
@@ -184,7 +146,7 @@ class Chat extends Component {
         const {classes, chat, contacts, user, className} = this.props;
         const {messageText} = this.state;
         return (
-            <div className={classNames("flex flex-col", className)}>
+            <div className={classNames("flex flex-col relative", className)}>
                 <FuseScrollbars
                     containerRef={(ref) => {
                         this.chatScroll = ref
@@ -201,6 +163,7 @@ class Chat extends Component {
                                             key={item.time}
                                             className={classNames(
                                                 classes.messageRow,
+                                                "flex flex-col flex-no-grow flex-no-shrink items-start justify-end relative pr-16 pb-4 pl-16",
                                                 {'me': item.who === user.id},
                                                 {'contact': item.who !== user.id},
                                                 {'first-of-group': this.isFirstMessageOfGroup(item, i)},
@@ -208,11 +171,11 @@ class Chat extends Component {
                                             )}
                                         >
                                             {this.shouldShowContactAvatar(item, i) && (
-                                                <Avatar className={classes.avatar} src={contact.avatar}/>
+                                                <Avatar className="avatar absolute pin-l m-0 -ml-32" src={contact.avatar}/>
                                             )}
-                                            <div className={classes.bubble}>
-                                                <div className={classes.message}>{item.message}</div>
-                                                <Typography className={classes.time}
+                                            <div className="bubble flex relative items-center justify-center p-12 max-w-full">
+                                                <div className="leading-tight whitespace-pre-wrap">{item.message}</div>
+                                                <Typography className="time absolute hidden w-full text-11 mt-8 -mb-24 pin-l pin-b whitespace-no-wrap"
                                                             color="textSecondary">{moment(item.time).format('MMMM Do YYYY, h:mm:ss a')}</Typography>
                                             </div>
                                         </div>
@@ -233,8 +196,8 @@ class Chat extends Component {
 
                 </FuseScrollbars>
                 {chat && (
-                    <form onSubmit={this.onMessageSubmit} className={classNames(classes.bottom, "py-16 px-8")}>
-                        <Paper className={classNames(classes.inputWrapper, "flex items-center relative")} elevation={1}>
+                    <form onSubmit={this.onMessageSubmit} className="absolute pin-b pin-r pin-l py-16 px-8">
+                        <Paper className="flex items-center relative rounded-24" elevation={1}>
                             <TextField
                                 autoFocus={false}
                                 id="message-input"

@@ -1606,8 +1606,9 @@ const data = [
 ];
 
 class SimpleExample extends Component {
+
     state = {
-        data: data
+        data
     };
 
     render()

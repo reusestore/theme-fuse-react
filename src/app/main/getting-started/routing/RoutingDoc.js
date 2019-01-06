@@ -1,47 +1,35 @@
-import React, {Component} from 'react';
-import {withStyles, Typography} from '@material-ui/core';
+import React from 'react';
+import {Typography} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
 
-const styles = theme => ({
-    layoutRoot: {}
-});
+const RoutingDoc = () => {
+    return (
+        <FusePageSimple
+            header={
+                <div className="flex flex-1 items-center justify-between p-24">
+                    <Typography variant="h6">Fuse Routing</Typography>
+                </div>
+            }
+            content={
+                <div className="p-24 max-w-2xl mx-auto">
 
-class RoutingDoc extends Component {
+                    <Typography className="mb-16" component="p">
+                        Fuse React routing system based on <a href="https://reacttraining.com/react-router/" target="_blank" rel="noopener noreferrer" className="font-bold">
+                        react-router</a> and its package <a href="https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config" target="_blank"
+                                                            rel="noopener noreferrer" className="font-bold">react-router-config</a>
+                    </Typography>
 
-    render()
-    {
-        const {classes} = this.props;
+                    <Typography className="mb-16" component="p">
+                        For the modular approach and route based Fuse settings, we are using config files and generate routes from that files.
+                    </Typography>
 
-        return (
-            <FusePageSimple
-                classes={{
-                    root: classes.layoutRoot
-                }}
-                header={
-                    <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="h6">Fuse Routing</Typography>
-                    </div>
-                }
-                content={
-                    <div className="p-24 max-w-2xl mx-auto">
+                    <Typography className="mb-16" component="p">
+                        For example, have a look at the code below <FuseHighlight component="code" className="language-bash">MailAppConfig.js</FuseHighlight>. You can override
+                        all settings for a particular route as <code className="language-bash">/apps/mail</code> for this example.
+                    </Typography>
 
-                        <Typography className="mb-16" component="p">
-                            Fuse React routing system based on <a href="https://reacttraining.com/react-router/" target="_blank" rel="noopener noreferrer" className="font-bold">
-                            react-router</a> and its package <a href="https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config" target="_blank"
-                                                                rel="noopener noreferrer" className="font-bold">react-router-config</a>
-                        </Typography>
-
-                        <Typography className="mb-16" component="p">
-                            For the modular approach and route based Fuse settings, we are using config files and generate routes from that files.
-                        </Typography>
-
-                        <Typography className="mb-16" component="p">
-                            For example, have a look at the code below <FuseHighlight component="code" className="language-bash">MailAppConfig.js</FuseHighlight>. You can override
-                            all settings for a particular route as <code className="language-bash">/apps/mail</code> for this example.
-                        </Typography>
-
-                        <FuseHighlight component="pre" className="language-jsx my-16">
-                            {`
+                    <FuseHighlight component="pre" className="language-jsx my-16">
+                        {`
                             import MailApp from './MailApp';
                             import React from 'react';
                             import {Redirect} from 'react-router-dom';
@@ -98,14 +86,14 @@ class RoutingDoc extends Component {
                                 ]
                             };
                             `}
-                        </FuseHighlight>
+                    </FuseHighlight>
 
-                        <Typography className="mb-16" component="p">
-                            Then we import and generate routes from that file in <code className="language-bash">fuse-configs/fuseRoutes</code>
-                        </Typography>
+                    <Typography className="mb-16" component="p">
+                        Then we import and generate routes from that file in <code className="language-bash">fuse-configs/fuseRoutes</code>
+                    </Typography>
 
-                        <FuseHighlight component="pre" className="language-jsx my-16">
-                            {`
+                    <FuseHighlight component="pre" className="language-jsx my-16">
+                        {`
                                 import {appsRoutes} from 'app/main/apps/mail/MailAppConfig.js';
                                 import {FuseUtils} from '@fuse/index';
                                 import {Redirect} from 'react-router-dom';
@@ -123,12 +111,11 @@ class RoutingDoc extends Component {
                                     }
                                 ];
                             `}
-                        </FuseHighlight>
-                    </div>
-                }
-            />
-        );
-    }
-}
+                    </FuseHighlight>
+                </div>
+            }
+        />
+    );
+};
 
-export default withStyles(styles, {withTheme: true})(RoutingDoc);
+export default RoutingDoc;

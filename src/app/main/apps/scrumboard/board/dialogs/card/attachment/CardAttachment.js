@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Icon, Typography, Paper, Button, Menu, MenuItem} from '@material-ui/core';
 
 class CardAttachment extends Component {
+
     state = {
         anchorEl: null
     };

@@ -9,13 +9,6 @@ import NavbarMobileToggleButton from 'app/fuse-layouts/shared-components/NavbarM
 import Navigation from 'app/fuse-layouts/shared-components/Navigation';
 
 const styles = theme => ({
-    root   : {
-        display      : 'flex',
-        overflow     : 'hidden',
-        flexDirection: 'column',
-        height       : '100%'
-    },
-    header : {},
     content: {
         overflowX                   : 'hidden',
         overflowY                   : 'auto',
@@ -29,12 +22,12 @@ const styles = theme => ({
 
 const NavbarLayout1 = ({classes, navigation, className}) => {
     return (
-        <div className={classNames(classes.root, className)}>
+        <div className={classNames("flex flex-col overflow-hidden h-full", className)}>
             <AppBar
                 color="primary"
                 position="static"
                 elevation={0}
-                className={classNames(classes.header, "flex flex-row items-center flex-shrink h-64 min-h-64")}
+                className="flex flex-row items-center flex-shrink h-64 min-h-64"
             >
                 <div className="flex flex-1 pr-8 pl-16">
                     <Logo/>

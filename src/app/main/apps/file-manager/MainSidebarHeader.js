@@ -1,24 +1,13 @@
-import React, {Component} from 'react';
-import {withStyles, Icon, Typography} from '@material-ui/core';
-import classNames from 'classnames';
+import React from 'react';
+import {Icon, Typography} from '@material-ui/core';
 
-const styles = theme => ({
-    root: {}
-});
+const MainSidebarHeader = () => {
+    return (
+        <div className="flex items-center h-full p-12">
+            <Icon>folder</Icon>
+            <Typography variant="h6" className="ml-12">File Manager</Typography>
+        </div>
+    );
+};
 
-class MainSidebarHeader extends Component {
-
-    render()
-    {
-        const {classes} = this.props;
-
-        return (
-            <div className={classNames(classes.root, "flex items-center h-full p-12")}>
-                <Icon>folder</Icon>
-                <Typography variant="h6" className="ml-12">File Manager</Typography>
-            </div>
-        )
-    };
-}
-
-export default withStyles(styles, {withTheme: true})(MainSidebarHeader);
+export default MainSidebarHeader;

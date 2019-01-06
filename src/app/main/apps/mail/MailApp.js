@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core';
 import {FusePageCarded} from '@fuse';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -13,8 +12,6 @@ import MailAppSidebarHeader from './MailAppSidebarHeader';
 import MailAppSidebarContent from './MailAppSidebarContent';
 import * as Actions from './store/actions';
 import reducer from './store/reducers';
-
-const styles = theme => ({});
 
 class MailApp extends Component {
 
@@ -78,4 +75,4 @@ function mapDispatchToProps(dispatch)
     }, dispatch);
 }
 
-export default withReducer('mailApp', reducer)(withStyles(styles, {withTheme: true})(connect(null, mapDispatchToProps)(MailApp)));
+export default withReducer('mailApp', reducer)(connect(null, mapDispatchToProps)(MailApp));

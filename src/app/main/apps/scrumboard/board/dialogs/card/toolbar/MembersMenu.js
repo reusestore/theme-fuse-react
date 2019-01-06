@@ -3,6 +3,7 @@ import {Avatar, Checkbox, Icon, IconButton, ListItemText, MenuItem} from '@mater
 import ToolbarMenu from './ToolbarMenu';
 
 class MembersMenu extends Component {
+
     state = {
         anchorEl: null
     };

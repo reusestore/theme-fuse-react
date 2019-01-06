@@ -1,12 +1,9 @@
 import React from 'react';
-import {withStyles} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
 import Logo from 'app/fuse-layouts/shared-components/Logo';
 import Navigation from 'app/fuse-layouts/shared-components/Navigation';
 
-const styles = theme => ({});
-
-const NavbarLayout2 = ({classes, navigation}) => {
+const NavbarLayout2 = () => {
     return (
         <div className="flex flex-auto justify-between items-center w-full h-full container p-0 lg:px-24">
 
@@ -21,6 +18,6 @@ const NavbarLayout2 = ({classes, navigation}) => {
     );
 };
 
-export default withStyles(styles, {withTheme: true})(NavbarLayout2);
+export default NavbarLayout2;
 
 

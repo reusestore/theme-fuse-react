@@ -3,17 +3,7 @@ import {withStyles, Tab, Tabs} from '@material-ui/core';
 import {FusePageCarded, DemoContent} from '@fuse';
 
 const styles = theme => ({
-    layoutRoot   : {},
-    layoutToolbar: {
-        padding: 0
-    },
-    tabsRoot     : {
-        height: 64,
-        width : '100%'
-    },
-    tabRoot      : {
-        height: 64
-    }
+    layoutRoot: {}
 });
 
 class CardedFullWidth2TabbedSample extends Component {
@@ -35,7 +25,7 @@ class CardedFullWidth2TabbedSample extends Component {
             <FusePageCarded
                 classes={{
                     root   : classes.layoutRoot,
-                    toolbar: classes.layoutToolbar
+                    toolbar: "p-0"
                 }}
                 header={
                     <div className="py-24"><h4>Header</h4></div>
@@ -48,52 +38,15 @@ class CardedFullWidth2TabbedSample extends Component {
                         textColor="primary"
                         scrollable
                         scrollButtons="off"
-                        classes={{
-                            root: classes.tabsRoot
-                        }}
+                        className="w-full h-64"
                     >
-                        <Tab
-                            classes={{
-                                root: classes.tabRoot
-                            }}
-                            label="Item One"
-                        />
-                        <Tab
-                            classes={{
-                                root: classes.tabRoot
-                            }}
-                            label="Item Two"
-                        />
-                        <Tab
-                            classes={{
-                                root: classes.tabRoot
-                            }}
-                            label="Item Three"
-                        />
-                        <Tab
-                            classes={{
-                                root: classes.tabRoot
-                            }}
-                            label="Item Four"
-                        />
-                        <Tab
-                            classes={{
-                                root: classes.tabRoot
-                            }}
-                            label="Item Five"
-                        />
-                        <Tab
-                            classes={{
-                                root: classes.tabRoot
-                            }}
-                            label="Item Six"
-                        />
-                        <Tab
-                            classes={{
-                                root: classes.tabRoot
-                            }}
-                            label="Item Seven"
-                        />
+                        <Tab className="h-64" label="Item One"/>
+                        <Tab className="h-64" label="Item Two"/>
+                        <Tab className="h-64" label="Item Three"/>
+                        <Tab className="h-64" label="Item Four"/>
+                        <Tab className="h-64" label="Item Five"/>
+                        <Tab className="h-64" label="Item Six"/>
+                        <Tab className="h-64" label="Item Seven"/>
                     </Tabs>
                 }
                 content={

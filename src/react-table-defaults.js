@@ -27,6 +27,7 @@ const filterTypes = [
 ];
 
 class FilterComponent extends Component {
+
     state = {
         filterType  : 'contains',
         filterValue : '',

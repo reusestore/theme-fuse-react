@@ -5,50 +5,24 @@ import classNames from 'classnames';
 import axios from 'axios';
 
 const styles = theme => ({
-    root       : {
+    root   : {
         background    : "url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat",
-        backgroundSize: 'cover',
-        flex          : '1 0 auto',
-        '@media print': {
-            transform      : 'scale(0.9)',
-            transformOrigin: 'top'
-        },
-        '& table '    : {
-            '& th:first-child, & td:first-child': {
-                paddingLeft: 0 + '!important'
-            },
-            '& th:last-child, & td:last-child'  : {
-                paddingRight: 0 + '!important'
-            }
-        }
+        backgroundSize: 'cover'
     },
-    card       : {
-        width         : 1020,
-        '@media print': {
-            width    : '100%!important',
-            boxShadow: 'none'
-        }
+    divider: {
+        backgroundColor: theme.palette.getContrastText(theme.palette.primary.dark)
     },
-    cardContent: {},
-    divider    : {
-        width          : 1,
-        backgroundColor: theme.palette.divider,
-        height         : 144
-    },
-    seller     : {
+    seller : {
         backgroundColor: theme.palette.primary.dark,
         color          : theme.palette.getContrastText(theme.palette.primary.dark),
         marginRight    : -88,
         paddingRight   : 66,
-        width          : 480,
-        '& .divider'   : {
-            backgroundColor: theme.palette.getContrastText(theme.palette.primary.dark),
-            opacity        : .5
-        }
+        width          : 480
     }
 });
 
 class CompactInvoicePage extends Component {
+
     state = {
         invoice: null
     };
@@ -74,14 +48,14 @@ class CompactInvoicePage extends Component {
             });
 
         return (
-            <div className={classNames(classes.root, "p-0 sm:p-64  print:p-0")}>
+            <div className={classNames(classes.root, "flex-grow flex-no-shrink p-0 sm:p-64 print:p-0")}>
 
                 {invoice && (
                     <FuseAnimate animation={{translateY: [0, '100%']}} duration={600}>
 
-                        <Card className={classNames(classes.card, "mx-auto")}>
+                        <Card className="mx-auto w-xl print:w-full print:p-8 print:shadow-none">
 
-                            <CardContent className={classNames(classes.cardContent, "p-88 print:p-0")}>
+                            <CardContent className="p-88 print:p-0">
 
                                 <Typography color="textSecondary" className="mb-32">
                                     {invoice.date}
@@ -161,7 +135,7 @@ class CompactInvoicePage extends Component {
 
                                         <img className="w-80" src="assets/images/logos/fuse.svg" alt="logo"/>
 
-                                        <div className={classNames(classes.divider, "divider ml-8 mr-16 h-96")}/>
+                                        <div className={classNames(classes.divider, "w-px ml-8 mr-16 h-96 opacity-50")}/>
 
                                         <div>
                                             <Typography color="inherit">{invoice.from.title}</Typography>

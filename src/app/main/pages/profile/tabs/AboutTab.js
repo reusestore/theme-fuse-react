@@ -1,27 +1,7 @@
 import React, {Component} from 'react';
-import {
-    withStyles,
-    Avatar,
-    AppBar,
-    Button,
-    Card,
-    CardContent,
-    Icon,
-    IconButton,
-    List,
-    ListItem,
-    ListItemSecondaryAction,
-    ListItemText,
-    Toolbar,
-    Typography
-} from '@material-ui/core';
+import {Avatar, AppBar, Button, Card, CardContent, Icon, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, Toolbar, Typography} from '@material-ui/core';
 import {FuseAnimateGroup} from '@fuse';
 import axios from 'axios';
-import classNames from 'classnames';
-
-const styles = theme => ({
-    root: {}
-});
 
 class AboutTab extends Component {
 
@@ -42,11 +22,10 @@ class AboutTab extends Component {
 
     render()
     {
-        const {classes} = this.props;
         const {general, work, contact, groups, friends} = this.state;
 
         return (
-            <div className={classNames(classes.root, "md:flex max-w-2xl")}>
+            <div className="md:flex max-w-2xl">
 
                 <div className="flex flex-col flex-1 md:pr-32">
                     <FuseAnimateGroup
@@ -258,4 +237,4 @@ class AboutTab extends Component {
     }
 }
 
-export default withStyles(styles, {withTheme: true})(AboutTab);
+export default AboutTab;

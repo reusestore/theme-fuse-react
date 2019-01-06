@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {withStyles, Fab, Icon, IconButton, Typography} from '@material-ui/core';
+import {Fab, Icon, IconButton, Typography} from '@material-ui/core';
 import {FusePageSimple, FuseAnimate} from '@fuse';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
@@ -13,18 +13,7 @@ import MainSidebarContent from './MainSidebarContent';
 import * as Actions from './store/actions';
 import reducer from './store/reducers';
 
-const styles = theme => ({
-    addButton: {
-        position: 'absolute',
-        bottom  : -28,
-        left    : 16,
-        zIndex  : 999
-    }
-});
-
 class FileManagerApp extends Component {
-    toggleLeftSidebar = () => {
-    };
 
     componentDidMount()
     {
@@ -33,7 +22,7 @@ class FileManagerApp extends Component {
 
     render()
     {
-        const {classes, selectedItem, files} = this.props;
+        const {selectedItem, files} = this.props;
         const selected = files[selectedItem];
 
         function Breadcrumb({className})
@@ -76,7 +65,7 @@ class FileManagerApp extends Component {
                         </div>
                         <div className="flex flex-1 items-end">
                             <FuseAnimate animation="transition.expandIn" delay={600}>
-                                <Fab color="secondary" aria-label="add" className={classes.addButton}>
+                                <Fab color="secondary" aria-label="add" className="absolute pin-b pin-l ml-16 -mb-28 z-999">
                                     <Icon>add</Icon>
                                 </Fab>
                             </FuseAnimate>
@@ -109,6 +98,7 @@ class FileManagerApp extends Component {
                 onRef={instance => {
                     this.pageLayout = instance;
                 }}
+                innerScroll
             />
         )
     };
@@ -129,4 +119,4 @@ function mapStateToProps({fileManagerApp})
     }
 }
 
-export default withReducer('fileManagerApp', reducer)(withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(FileManagerApp))));
+export default withReducer('fileManagerApp', reducer)(withRouter(connect(mapStateToProps, mapDispatchToProps)(FileManagerApp)));

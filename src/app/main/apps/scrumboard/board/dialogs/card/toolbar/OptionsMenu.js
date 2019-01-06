@@ -3,6 +3,7 @@ import {Icon, IconButton, MenuItem} from '@material-ui/core';
 import ToolbarMenu from './ToolbarMenu';
 
 class OptionsMenu extends Component {
+
     state = {
         anchorEl: null
     };

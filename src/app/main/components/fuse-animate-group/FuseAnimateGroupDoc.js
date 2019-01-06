@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
-import {withStyles, Typography, List, ListItem} from '@material-ui/core';
+import {Typography, List, ListItem} from '@material-ui/core';
 import {FuseAnimateGroup, FuseHighlight, FusePageSimple} from '@fuse';
-
-const styles = theme => ({
-    layoutRoot: {}
-});
 
 const list = [
     'List Item 1',
@@ -25,6 +21,7 @@ const list = [
 ];
 
 class FuseAnimateGroupDoc extends Component {
+
     state = {
         intervalId     : null,
         list           : list,
@@ -56,13 +53,8 @@ class FuseAnimateGroupDoc extends Component {
 
     render()
     {
-        const {classes} = this.props;
-
         return (
             <FusePageSimple
-                classes={{
-                    root: classes.layoutRoot
-                }}
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
                         <Typography variant="h6">FuseAnimateGroup</Typography>
@@ -141,4 +133,4 @@ class FuseAnimateGroupDoc extends Component {
     }
 }
 
-export default withStyles(styles, {withTheme: true})(FuseAnimateGroupDoc);
+export default FuseAnimateGroupDoc;

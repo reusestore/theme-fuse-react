@@ -15,8 +15,8 @@ const styles = theme => ({
         color                             : theme.palette.text.primary,
         '& code:not([class*="language-"])': {
             color          : theme.palette.secondary.dark,
-            backgroundColor: "#f5f5f5",
-            padding        : "2px 3px",
+            backgroundColor: '#f5f5f5',
+            padding        : '2px 3px',
             borderRadius   : 2,
             lineHeight     : 1.7
         },

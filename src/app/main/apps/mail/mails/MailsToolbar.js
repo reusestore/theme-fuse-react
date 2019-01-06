@@ -1,42 +1,12 @@
 import React, {Component} from 'react';
-import {withStyles, Checkbox, Icon, IconButton, Menu, MenuItem} from '@material-ui/core';
+import {Checkbox, Icon, IconButton, Menu, MenuItem} from '@material-ui/core';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import classNames from 'classnames';
 import {withRouter} from 'react-router-dom';
 import * as Actions from '../store/actions/index';
 
-const styles = theme => ({
-    root              : {
-        display: 'flex'
-    },
-    selectMenuButton  : {
-        width: 24
-    },
-    toolbarSeparator  : {
-        height     : 48,
-        width      : 1,
-        borderRight: '1px solid ' + theme.palette.divider,
-        margin     : '0 12px'
-    },
-    mailListActions   : {
-        [theme.breakpoints.down('sm')]: {
-            '&.mail-selected': {
-                display: 'none'
-            }
-        }
-    },
-    deselectMailButton: {
-        display                       : 'none',
-        [theme.breakpoints.down('sm')]: {
-            '&.mail-selected': {
-                display: 'block'
-            }
-        }
-    }
-});
-
 class MailToolbar extends Component {
+
     state = {
         selectMenu : null,
         foldersMenu: null,
@@ -57,11 +27,11 @@ class MailToolbar extends Component {
 
     render()
     {
-        const {classes, mails, selectAllMails, deselectAllMails, selectMailsByParameter, setFolderOnSelectedMails, toggleLabelOnSelectedMails, folders, labels, selectedMailIds} = this.props;
+        const {mails, selectAllMails, deselectAllMails, selectMailsByParameter, setFolderOnSelectedMails, toggleLabelOnSelectedMails, folders, labels, selectedMailIds} = this.props;
         const {foldersMenu, selectMenu, labelsMenu} = this.state;
 
         return (
-            <div className={classNames(classes.mailListActions, "flex flex-1 items-center sm:px-8")}>
+            <div className="flex flex-1 items-center sm:px-8">
 
                 <Checkbox
                     onChange={this.handleChange()}
@@ -70,7 +40,7 @@ class MailToolbar extends Component {
                 />
 
                 <IconButton
-                    className={classes.selectMenuButton}
+                    className="w-24"
                     aria-label="More"
                     aria-owns={selectMenu ? 'select-menu' : null}
                     aria-haspopup="true"
@@ -154,7 +124,7 @@ class MailToolbar extends Component {
                 {selectedMailIds.length > 0 && (
                     <React.Fragment>
 
-                        <div className={classes.toolbarSeparator}/>
+                        <div className="border-r-1 h-48 w-1 mx-12 my-0"/>
 
                         <IconButton
                             onClick={(ev) => setFolderOnSelectedMails(4)}
@@ -247,4 +217,4 @@ function mapStateToProps({mailApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(MailToolbar)));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MailToolbar));

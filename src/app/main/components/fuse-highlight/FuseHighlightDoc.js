@@ -1,66 +1,53 @@
-import React, {Component} from 'react';
-import {withStyles, Typography} from '@material-ui/core';
+import React from 'react';
+import {Typography} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
 
-const styles = theme => ({
-    layoutRoot: {}
-});
+const FuseHighlightDoc = () => {
+    return (
+        <FusePageSimple
+            header={
+                <div className="flex flex-1 items-center justify-between p-24">
+                    <Typography variant="h6">FuseHighlight</Typography>
+                </div>
+            }
+            content={
+                <div className="p-24 max-w-2xl mx-auto">
 
-class FuseHighlightDoc extends Component {
+                    <Typography className="mb-16" component="p">
+                        <code className="language-bash">FuseHighlight</code> is a custom built Fuse component allows to show syntax highlighted codes with
+                        <a href="http://prismjs.com/" target="_blank" rel="noopener noreferrer" className="ml-8 font-bold">PrismJS</a>.
+                    </Typography>
 
-    render()
-    {
-        const {classes} = this.props;
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Usage</Typography>
 
-        return (
-            <FusePageSimple
-                classes={{
-                    root: classes.layoutRoot
-                }}
-                header={
-                    <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="h6">FuseHighlight</Typography>
-                    </div>
-                }
-                content={
-                    <div className="p-24 max-w-2xl mx-auto">
-
-                        <Typography className="mb-16" component="p">
-                            <code className="language-bash">FuseHighlight</code> is a custom built Fuse component allows to show syntax highlighted codes with
-                            <a href="http://prismjs.com/" target="_blank" rel="noopener noreferrer" className="ml-8 font-bold">PrismJS</a>.
-                        </Typography>
-
-                        <Typography className="text-32 mt-32 mb-8" component="h2">Usage</Typography>
-
-                        <FuseHighlight component="pre" className="language-jsx">
-                            {
-                                `
+                    <FuseHighlight component="pre" className="language-jsx">
+                        {
+                            `
                                  <FuseHighlight component="pre" className="language-html">
                                    <div className="title">
                                         <span>Example Title</span>
                                     </div>
                                  </FuseHighlight>
                                 `
-                            }
-                        </FuseHighlight>
+                        }
+                    </FuseHighlight>
 
-                        <Typography className="text-32 mt-32 mb-8" component="h2">Preview</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Preview</Typography>
 
-                        <FuseHighlight component="pre" className="language-html">
-                            {
-                                `
+                    <FuseHighlight component="pre" className="language-html">
+                        {
+                            `
                             <div className="title">
                                 <span>Example Title</span>
                             </div>
                             `
-                            }
-                        </FuseHighlight>
+                        }
+                    </FuseHighlight>
 
-                    </div>
-                }
-            />
-        );
-    }
-}
+                </div>
+            }
+        />
+    );
+};
 
-export default withStyles(styles, {withTheme: true})(FuseHighlightDoc);
+export default FuseHighlightDoc;
