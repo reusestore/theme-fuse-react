@@ -1,17 +1,11 @@
 import React, {Component} from 'react';
-import {withStyles, Button, InputAdornment, Icon} from '@material-ui/core';
+import {Button, InputAdornment, Icon} from '@material-ui/core';
 import {TextFieldFormsy} from '@fuse';
 import Formsy from 'formsy-react';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
 import connect from 'react-redux/es/connect/connect';
-import * as Actions from 'app/auth/store/actions';
-
-const styles = theme => ({
-    root: {
-        width: '100%'
-    }
-});
+import * as authActions from 'app/auth/store/actions';
 
 class FirebaseLoginTab extends Component {
 
@@ -45,23 +39,15 @@ class FirebaseLoginTab extends Component {
             this.disableButton();
         }
 
-        if ( this.props.user.role !== 'guest' )
-        {
-            const pathname = this.props.location.state && this.props.location.state.redirectUrl ? this.props.location.state.redirectUrl : '/';
-            this.props.history.push({
-                pathname
-            });
-        }
         return null;
     }
 
     render()
     {
-        const {classes} = this.props;
         const {canSubmit} = this.state;
 
         return (
-            <div className={classes.root}>
+            <div className="w-full">
                 <Formsy
                     onValidSubmit={this.onSubmit}
                     onValid={this.enableButton}
@@ -127,7 +113,7 @@ class FirebaseLoginTab extends Component {
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-        submitLoginWithFireBase: Actions.submitLoginWithFireBase
+        submitLoginWithFireBase: authActions.submitLoginWithFireBase
     }, dispatch);
 }
 
@@ -139,4 +125,4 @@ function mapStateToProps({auth})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(FirebaseLoginTab)));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FirebaseLoginTab));

@@ -1,17 +1,11 @@
 import React, {Component} from 'react';
-import {withStyles, Button} from '@material-ui/core';
+import {Button} from '@material-ui/core';
 import {withRouter} from 'react-router-dom';
 import auth0Service from 'app/services/auth0Service';
 import {bindActionCreators} from 'redux';
 import connect from 'react-redux/es/connect/connect';
+import * as authActions from 'app/auth/store/actions';
 import * as Actions from 'app/store/actions';
-import * as userActions from 'app/auth/store/actions';
-
-const styles = theme => ({
-    root: {
-        width: '100%'
-    }
-});
 
 class Auth0LoginTab extends Component {
 
@@ -31,11 +25,6 @@ class Auth0LoginTab extends Component {
 
                 this.props.setUserDataAuth0(tokenData);
 
-                const pathname = this.props.location.state && this.props.location.state.redirectUrl ? this.props.location.state.redirectUrl : '/';
-                this.props.history.push({
-                    pathname
-                });
-
                 this.props.showMessage({message: 'Logged in with Auth0'});
             });
         });
@@ -43,10 +32,8 @@ class Auth0LoginTab extends Component {
 
     render()
     {
-        const {classes} = this.props;
-
         return (
-            <div className={classes.root}>
+            <div className="w-full">
                 <Button
                     className="w-full my-48"
                     color="primary"
@@ -64,10 +51,10 @@ class Auth0LoginTab extends Component {
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-            setUserDataAuth0: userActions.setUserDataAuth0,
+            setUserDataAuth0: authActions.setUserDataAuth0,
             showMessage     : Actions.showMessage
         },
         dispatch);
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(null, mapDispatchToProps)(Auth0LoginTab)));
+export default withRouter(connect(null, mapDispatchToProps)(Auth0LoginTab));

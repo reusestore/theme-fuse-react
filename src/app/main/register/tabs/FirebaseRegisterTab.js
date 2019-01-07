@@ -3,9 +3,9 @@ import Formsy from 'formsy-react';
 import {TextFieldFormsy} from '@fuse';
 import {Button, InputAdornment, Icon} from '@material-ui/core';
 import {bindActionCreators} from 'redux';
-import * as Actions from 'app/auth/store/actions';
 import {withRouter} from 'react-router-dom';
 import connect from 'react-redux/es/connect/connect';
+import * as authActions from 'app/auth/store/actions';
 
 class FirebaseRegisterTab extends Component {
 
@@ -39,13 +39,6 @@ class FirebaseRegisterTab extends Component {
             this.disableButton();
         }
 
-        if ( this.props.user.role !== 'guest' )
-        {
-            const pathname = this.props.location.state && this.props.location.state.redirectUrl ? this.props.location.state.redirectUrl : '/';
-            this.props.history.push({
-                pathname
-            });
-        }
         return null;
     }
 
@@ -148,7 +141,7 @@ class FirebaseRegisterTab extends Component {
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-        registerWithFirebase: Actions.registerWithFirebase
+        registerWithFirebase: authActions.registerWithFirebase
     }, dispatch);
 }
 

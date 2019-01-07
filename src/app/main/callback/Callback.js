@@ -19,7 +19,6 @@ class Callback extends Component {
              */
             auth0Service.getUserData().then(tokenData => {
                 this.props.setUserDataAuth0(tokenData);
-                this.props.history.push('/');
                 this.props.showMessage({message: 'Logged in with Auth0'});
             });
         });
