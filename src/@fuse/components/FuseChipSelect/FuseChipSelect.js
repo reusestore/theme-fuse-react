@@ -203,18 +203,18 @@ const components = {
     ValueContainer
 };
 
-const FuseChipSelect = () => {
+const FuseChipSelect = (props) => {
     return (
-        this.props.variant === 'fixed' ? (
+        props.variant === 'fixed' ? (
             <Select
                 classNamePrefix="fuse-chip-select"
-                {...this.props}
+                {...props}
                 components={components}
             />
         ) : (
             <CreatableSelect
                 classNamePrefix="fuse-chip-select"
-                {...this.props}
+                {...props}
                 components={components}
             />
         )

@@ -283,7 +283,7 @@ class FusePageSimple extends React.Component {
             >
                 <div className={classNames(classes.header, classes.topBg)}/>
 
-                <div className="flex flex-col container z-10">
+                <div className="flex flex-auto flex-col container z-10">
 
                     {header && sidebarInner && headerContent}
 
