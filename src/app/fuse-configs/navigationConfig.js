@@ -685,7 +685,7 @@ const navigationConfig = [
     },
     {
         'id'      : 'Documentation',
-        'title'   : 'documentation',
+        'title'   : 'Documentation',
         'type'    : 'group',
         'icon'    : 'star',
         'children': [
