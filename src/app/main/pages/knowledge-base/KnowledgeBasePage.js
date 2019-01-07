@@ -28,9 +28,8 @@ function Transition(props)
 
 const styles = theme => ({
     header: {
-        background    : "url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat",
-        backgroundSize: 'cover',
-        color         : '#fff'
+        background: 'linear-gradient(to right, ' + theme.palette.primary.dark + ' 0%, ' + theme.palette.primary.main + ' 100%)',
+        color     : theme.palette.primary.contrastText
     }
 });
 

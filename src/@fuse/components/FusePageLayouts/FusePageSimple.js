@@ -53,9 +53,10 @@ const styles = theme => ({
         height         : headerHeight,
         minHeight      : headerHeight,
         display        : 'flex',
-        backgroundColor: theme.palette.primary.dark,
+        background     : 'linear-gradient(to right, ' + theme.palette.primary.dark + ' 0%, ' + theme.palette.primary.main + ' 100%)',
+        color          : theme.palette.primary.contrastText,
         backgroundSize : 'cover',
-        color          : theme.palette.primary.contrastText
+        backgroundColor: theme.palette.primary.dark
     },
     topBg                         : {
         position     : 'absolute',

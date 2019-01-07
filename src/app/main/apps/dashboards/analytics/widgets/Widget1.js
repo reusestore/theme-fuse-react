@@ -7,7 +7,7 @@ import connect from 'react-redux/es/connect/connect';
 
 const styles = theme => ({
     root: {
-        backgroundColor: theme.palette.primary.main
+        background     : 'linear-gradient(to right, ' + theme.palette.primary.dark + ' 0%, ' + theme.palette.primary.main + ' 100%)',
     }
 });
 

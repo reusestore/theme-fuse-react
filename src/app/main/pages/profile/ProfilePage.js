@@ -9,9 +9,6 @@ const styles = theme => ({
     layoutHeader : {
         height                        : 320,
         minHeight                     : 320,
-        background                    : "url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat",
-        backgroundSize                : 'cover',
-        color                         : '#fff',
         [theme.breakpoints.down('md')]: {
             height   : 240,
             minHeight: 240

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {withStyles, Card, CardContent, Tab, Tabs, Typography} from '@material-ui/core';
+import {darken} from '@material-ui/core/styles/colorManipulator';
 import {FuseAnimate} from '@fuse';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux';
@@ -12,8 +13,8 @@ import JWTRegisterTab from './tabs/JWTRegisterTab';
 
 const styles = theme => ({
     root : {
-        background    : "url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat",
-        backgroundSize: 'cover'
+        background: 'linear-gradient(to right, ' + theme.palette.primary.dark + ' 0%, ' + darken(theme.palette.primary.dark, 0.5) + ' 100%)',
+        color     : theme.palette.primary.contrastText
     }
 });
 

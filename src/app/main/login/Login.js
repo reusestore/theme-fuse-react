@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {withStyles, Card, CardContent, Typography, Tabs, Tab} from '@material-ui/core';
+import {darken} from '@material-ui/core/styles/colorManipulator';
 import {FuseAnimate} from '@fuse';
 import {Link, withRouter} from 'react-router-dom';
 import classNames from 'classnames';
@@ -9,8 +10,8 @@ import Auth0LoginTab from './tabs/Auth0LoginTab';
 
 const styles = theme => ({
     root: {
-        background    : "url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat",
-        backgroundSize: 'cover'
+        background: 'linear-gradient(to right, ' + theme.palette.primary.dark + ' 0%, ' + darken(theme.palette.primary.dark, 0.5) + ' 100%)',
+        color     : theme.palette.primary.contrastText
     }
 });
 

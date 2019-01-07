@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles, Button, Card, CardContent, Checkbox, Divider, FormControl, FormControlLabel, TextField, Typography} from '@material-ui/core';
+import {darken} from '@material-ui/core/styles/colorManipulator';
 import {FuseAnimate} from '@fuse';
 import classNames from 'classnames';
 import {Link} from 'react-router-dom';
@@ -7,8 +8,8 @@ import _ from '@lodash';
 
 const styles = theme => ({
     root: {
-        background    : "url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat",
-        backgroundSize: 'cover'
+        background: 'radial-gradient(' + darken(theme.palette.primary.dark, 0.5) + ' 0%, ' + theme.palette.primary.dark + ' 80%)',
+        color     : theme.palette.primary.contrastText
     }
 });
 
