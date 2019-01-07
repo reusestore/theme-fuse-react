@@ -544,215 +544,218 @@ const navigationConfig = [
                 ]
             },
             {
-                'id'   : 'fuse-auth',
-                'title': 'FuseAuthorization',
-                'type' : 'item',
-                'icon' : 'settings_input_component',
-                'url'  : '/components/fuse-authorization'
+                'id'      : 'fuse-components',
+                'title'   : 'Fuse Components',
+                'type'    : 'collapse',
+                'icon'    : 'widgets',
+                'children': [
+                    {
+                        'id'   : 'fuse-auth',
+                        'title': 'FuseAuthorization',
+                        'type' : 'item',
+                        'url'  : '/components/fuse/fuse-authorization'
+                    },
+                    {
+                        'id'   : 'fuse-theme',
+                        'title': 'FuseTheme',
+                        'type' : 'item',
+                        'url'  : '/components/fuse/fuse-theme'
+                    },
+                    {
+                        'id'   : 'fuse-layout',
+                        'title': 'FuseLayout',
+                        'type' : 'item',
+                        'url'  : '/components/fuse/fuse-layout'
+                    },
+                    {
+                        'id'      : 'fuse-page',
+                        'title'   : 'Fuse Page Layouts',
+                        'type'    : 'collapse',
+                        'children': [
+                            {
+                                'id'   : 'fuse-page-carded',
+                                'title': 'FusePageCarded',
+                                'type' : 'item',
+                                'url'  : '/components/fuse/fuse-page-carded'
+                            },
+                            {
+                                'id'   : 'fuse-page-simple',
+                                'title': 'FusePageSimple',
+                                'type' : 'item',
+                                'url'  : '/components/fuse/fuse-page-simple'
+                            }
+                        ]
+                    },
+                    {
+                        'id'   : 'fuse-navigation',
+                        'title': 'FuseNavigation',
+                        'type' : 'item',
+                        'url'  : '/components/fuse/fuse-navigation'
+                    },
+                    {
+                        'id'   : 'fuse-scrollbars',
+                        'title': 'FuseScrollbars',
+                        'type' : 'item',
+                        'url'  : '/components/fuse/fuse-scrollbars'
+                    },
+                    {
+                        'id'   : 'fuse-highlight',
+                        'title': 'FuseHighlight',
+                        'type' : 'item',
+                        'url'  : '/components/fuse/fuse-highlight'
+                    },
+                    {
+                        'id'   : 'fuse-countdown',
+                        'title': 'FuseCountdown',
+                        'type' : 'item',
+                        'url'  : '/components/fuse/fuse-countdown'
+                    },
+                    {
+                        'id'   : 'fuse-message',
+                        'title': 'FuseMessage',
+                        'type' : 'item',
+                        'url'  : '/components/fuse/fuse-message'
+                    },
+                    {
+                        'id'   : 'fuse-dialog',
+                        'title': 'FuseDialog',
+                        'type' : 'item',
+                        'url'  : '/components/fuse/fuse-dialog'
+                    },
+                    {
+                        'id'   : 'fuse-animate',
+                        'title': 'FuseAnimate',
+                        'type' : 'item',
+                        'url'  : '/components/fuse/fuse-animate'
+                    },
+                    {
+                        'id'   : 'fuse-animate-group',
+                        'title': 'FuseAnimateGroup',
+                        'type' : 'item',
+                        'url'  : '/components/fuse/fuse-animate-group'
+                    },
+                    {
+                        'id'   : 'fuse-chip-select',
+                        'title': 'FuseChipSelect',
+                        'type' : 'item',
+                        'url'  : '/components/fuse/fuse-chip-select'
+                    }
+                ]
             },
             {
-                'id'   : 'fuse-theme',
-                'title': 'FuseTheme',
-                'type' : 'item',
-                'icon' : 'settings_input_component',
-                'url'  : '/components/fuse-theme'
-            },
-            {
-                'id'   : 'fuse-layout',
-                'title': 'FuseLayout',
-                'type' : 'item',
-                'icon' : 'settings_input_component',
-                'url'  : '/components/fuse-layout'
-            },
-            {
-                'id'      : 'fuse-page',
-                'title'   : 'Fuse Page Layouts',
+                'id'      : '3rd-party-components',
+                'title'   : '3rd Party Components',
                 'type'    : 'collapse',
                 'icon'    : 'settings_input_component',
                 'children': [
                     {
-                        'id'   : 'fuse-page-carded',
-                        'title': 'FusePageCarded',
-                        'type' : 'item',
-                        'url'  : '/components/fuse-page-carded'
+                        'id'      : 'datatables',
+                        'title'   : 'Datatables',
+                        'type'    : 'collapse',
+                        'children': [
+                            {
+                                'id'   : 'react-table',
+                                'title': 'React Table',
+                                'type' : 'item',
+                                'url'  : '/components/third-party/datatables/react-table'
+                            }
+                        ]
                     },
                     {
-                        'id'   : 'fuse-page-simple',
-                        'title': 'FusePageSimple',
+                        'id'   : 'formsy',
+                        'title': 'Formsy',
                         'type' : 'item',
-                        'url'  : '/components/fuse-page-simple'
-                    }
-                ]
-            },
-            {
-                'id'   : 'fuse-navigation',
-                'title': 'FuseNavigation',
-                'type' : 'item',
-                'icon' : 'settings_input_component',
-                'url'  : '/components/fuse-navigation'
-            },
-            {
-                'id'   : 'fuse-scrollbars',
-                'title': 'FuseScrollbars',
-                'type' : 'item',
-                'icon' : 'settings_input_component',
-                'url'  : '/components/fuse-scrollbars'
-            },
-            {
-                'id'   : 'fuse-highlight',
-                'title': 'FuseHighlight',
-                'type' : 'item',
-                'icon' : 'settings_input_component',
-                'url'  : '/components/fuse-highlight'
-            },
-            {
-                'id'   : 'fuse-countdown',
-                'title': 'FuseCountdown',
-                'type' : 'item',
-                'icon' : 'settings_input_component',
-                'url'  : '/components/fuse-countdown'
-            },
-            {
-                'id'   : 'fuse-message',
-                'title': 'FuseMessage',
-                'type' : 'item',
-                'icon' : 'settings_input_component',
-                'url'  : '/components/fuse-message'
-            },
-            {
-                'id'   : 'fuse-dialog',
-                'title': 'FuseDialog',
-                'type' : 'item',
-                'icon' : 'settings_input_component',
-                'url'  : '/components/fuse-dialog'
-            },
-            {
-                'id'   : 'fuse-animate',
-                'title': 'FuseAnimate',
-                'type' : 'item',
-                'icon' : 'settings_input_component',
-                'url'  : '/components/fuse-animate'
-            },
-            {
-                'id'   : 'fuse-animate-group',
-                'title': 'FuseAnimateGroup',
-                'type' : 'item',
-                'icon' : 'settings_input_component',
-                'url'  : '/components/fuse-animate-group'
-            },
-            {
-                'id'   : 'fuse-chip-select',
-                'title': 'FuseChipSelect',
-                'type' : 'item',
-                'icon' : 'settings_input_component',
-                'url'  : '/components/fuse-chip-select'
-            }
-        ]
-    },
-    {
-        'id'      : '3rd-party-components',
-        'title'   : '3rd Party components',
-        'type'    : 'group',
-        'icon'    : 'settings_input_component',
-        'children': [
-            {
-                'id'      : 'datatables',
-                'title'   : 'Datatables',
-                'type'    : 'collapse',
-                'icon'    : 'border_all',
-                'children': [
+                        'url'  : '/components/third-party/formsy'
+                    },
                     {
-                        'id'   : 'react-table',
-                        'title': 'React Table',
+                        'id'   : 'google-map-react',
+                        'title': 'Google Map React',
                         'type' : 'item',
-                        'url'  : '/components-third-party/datatables/react-table'
+                        'url'  : '/components/third-party/google-map-react'
+                    },
+                    {
+                        'id'   : 'react-chartjs-2',
+                        'title': 'React ChartJs 2',
+                        'type' : 'item',
+                        'url'  : '/components/third-party/react-chartjs-2'
                     }
                 ]
-            },
-            {
-                'id'   : 'formsy',
-                'title': 'Formsy',
-                'type' : 'item',
-                'icon' : 'priority_high',
-                'url'  : '/components-third-party/formsy'
-            },
-            {
-                'id'   : 'google-map-react',
-                'title': 'Google Map React',
-                'type' : 'item',
-                'icon' : 'place',
-                'url'  : '/components-third-party/google-map-react'
-            },
-            {
-                'id'   : 'react-chartjs-2',
-                'title': 'React ChartJs 2',
-                'type' : 'item',
-                'icon' : 'poll',
-                'url'  : '/components-third-party/react-chartjs-2'
             }
         ]
     },
     {
-        'id'      : 'getting-started',
-        'title'   : 'Getting Started',
+        'id'      : 'Documentation',
+        'title'   : 'documentation',
         'type'    : 'group',
         'icon'    : 'star',
         'children': [
+            {
+                'id'   : 'changelog',
+                'title': 'Changelog',
+                'type' : 'item',
+                'icon' : 'history',
+                'url'  : '/documentation/changelog',
+                'badge': {
+                    'title': '2.0.0',
+                    'bg'   : 'rgb(236, 12, 142)',
+                    'fg'   : '#FFFFFF'
+                }
+            },
             {
                 'id'   : 'introduction',
                 'title': 'Introduction',
                 'type' : 'item',
                 'icon' : 'info',
-                'url'  : '/getting-started/introduction'
+                'url'  : '/documentation/introduction'
             },
             {
                 'id'   : 'prerequisites',
                 'title': 'Prerequisites',
                 'type' : 'item',
                 'icon' : 'view_stream',
-                'url'  : '/getting-started/prerequisites'
+                'url'  : '/documentation/prerequisites'
             },
             {
                 'id'   : 'installation',
                 'title': 'Installation',
                 'type' : 'item',
                 'icon' : 'settings_applications',
-                'url'  : '/getting-started/installation'
+                'url'  : '/documentation/installation'
             },
             {
                 'id'   : 'working-with-fuse',
                 'title': 'Working with Fuse',
                 'type' : 'item',
                 'icon' : 'computer',
-                'url'  : '/getting-started/working-with-fuse'
+                'url'  : '/documentation/working-with-fuse'
             },
             {
                 'id'   : 'project-structure-doc',
                 'title': 'Project Structure',
                 'type' : 'item',
                 'icon' : 'folder',
-                'url'  : '/getting-started/project-structure'
+                'url'  : '/documentation/project-structure'
             },
             {
                 'id'   : 'settings',
                 'title': 'Settings',
                 'type' : 'item',
                 'icon' : 'settings',
-                'url'  : '/getting-started/settings'
+                'url'  : '/documentation/settings'
             },
             {
                 'id'   : 'fuse-react-routing',
                 'title': 'Routing',
                 'type' : 'item',
                 'icon' : 'menu',
-                'url'  : '/getting-started/routing'
+                'url'  : '/documentation/routing'
             },
             {
                 'id'   : 'fuse-react-code-splitting',
                 'title': 'Code Splitting',
                 'type' : 'item',
                 'icon' : 'call_split',
-                'url'  : '/getting-started/code-splitting'
+                'url'  : '/documentation/code-splitting'
             },
             {
                 'id'      : 'authentication',
@@ -764,28 +767,21 @@ const navigationConfig = [
                         'id'   : 'jwt-auth',
                         'title': 'JWT',
                         'type' : 'item',
-                        'url'  : '/getting-started/auth/jwt'
+                        'url'  : '/documentation/auth/jwt'
                     },
                     {
                         'id'   : 'firebase-auth',
                         'title': 'Firebase',
                         'type' : 'item',
-                        'url'  : '/getting-started/auth/firebase'
+                        'url'  : '/documentation/auth/firebase'
                     },
                     {
                         'id'   : 'auth0-auth',
                         'title': 'Auth0',
                         'type' : 'item',
-                        'url'  : '/getting-started/auth/auth0'
+                        'url'  : '/documentation/auth/auth0'
                     }
                 ]
-            },
-            {
-                'id'   : 'changelog',
-                'title': 'Changelog',
-                'type' : 'item',
-                'icon' : 'history',
-                'url'  : '/getting-started/changelog'
             }
         ]
     },

@@ -6,8 +6,7 @@ import {pagesConfigs} from 'app/main/pages/pagesConfigs';
 import {authRoleExamplesConfigs} from 'app/main/auth/authRoleExamplesConfigs';
 import {UserInterfaceConfig} from 'app/main/user-interface/UserInterfaceConfig';
 import {ComponentsConfig} from 'app/main/components/ComponentsConfig';
-import {ComponentsThirdPartyConfig} from 'app/main/components-third-party/ComponentsThirdPartyConfig';
-import {GettingStartedConfig} from 'app/main/getting-started/GettingStartedConfig';
+import {DocumentationConfig} from 'app/main/documentation/DocumentationConfig';
 import {LoginConfig} from 'app/main/login/LoginConfig';
 import {RegisterConfig} from 'app/main/register/RegisterConfig';
 import {LogoutConfig} from 'app/main/logout/LogoutConfig';
@@ -18,9 +17,8 @@ const routeConfigs = [
     ...pagesConfigs,
     ...authRoleExamplesConfigs,
     ComponentsConfig,
-    ComponentsThirdPartyConfig,
     UserInterfaceConfig,
-    GettingStartedConfig,
+    DocumentationConfig,
     LoginConfig,
     RegisterConfig,
     LogoutConfig,

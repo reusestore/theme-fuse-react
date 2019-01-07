@@ -1,75 +1,75 @@
 import {FuseLoadable} from '@fuse';
 
-export const GettingStartedConfig = {
+export const DocumentationConfig = {
     routes: [
         {
-            path     : '/getting-started/introduction',
+            path     : '/documentation/introduction',
             component: FuseLoadable({
                 loader: () => import('./introduction/IntroductionDoc')
             })
         },
         {
-            path     : '/getting-started/prerequisites',
+            path     : '/documentation/prerequisites',
             component: FuseLoadable({
                 loader: () => import('./prerequisites/PrerequisitesDoc')
             })
         },
         {
-            path     : '/getting-started/installation',
+            path     : '/documentation/installation',
             component: FuseLoadable({
                 loader: () => import('./installation/InstallationDoc')
             })
         },
         {
-            path     : '/getting-started/working-with-fuse',
+            path     : '/documentation/working-with-fuse',
             component: FuseLoadable({
                 loader: () => import('./working-with-fuse/WorkingWithFuseDoc')
             })
         },
         {
-            path     : '/getting-started/project-structure',
+            path     : '/documentation/project-structure',
             component: FuseLoadable({
                 loader: () => import('./project-structure/ProjectStructureDoc')
             })
         },
         {
-            path     : '/getting-started/settings',
+            path     : '/documentation/settings',
             component: FuseLoadable({
                 loader: () => import('./settings/SettingsDoc')
             })
         },
         {
-            path     : '/getting-started/routing',
+            path     : '/documentation/routing',
             component: FuseLoadable({
                 loader: () => import('./routing/RoutingDoc')
             })
         },
         {
-            path     : '/getting-started/code-splitting',
+            path     : '/documentation/code-splitting',
             component: FuseLoadable({
                 loader: () => import('./code-splitting/CodeSplittingDoc')
             })
         },
         {
-            path     : '/getting-started/auth/jwt',
+            path     : '/documentation/auth/jwt',
             component: FuseLoadable({
                 loader: () => import('./jwt-auth/jwtAuthDoc')
             })
         },
         {
-            path     : '/getting-started/auth/firebase',
+            path     : '/documentation/auth/firebase',
             component: FuseLoadable({
                 loader: () => import('./firebase-auth/FirebaseAuthDoc')
             })
         },
         {
-            path     : '/getting-started/auth/auth0',
+            path     : '/documentation/auth/auth0',
             component: FuseLoadable({
                 loader: () => import('./auth0-auth/Auth0AuthDoc')
             })
         },
         {
-            path     : '/getting-started/changelog',
+            path     : '/documentation/changelog',
             component: FuseLoadable({
                 loader: () => import('./changelog/ChangelogDoc')
             })
