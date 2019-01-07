@@ -96,12 +96,8 @@ class FuseLayout extends Component {
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-        setSettings      : Actions.setSettings,
-        resetSettings    : Actions.resetSettings,
-        navbarOpenFolded : Actions.navbarOpenFolded,
-        navbarCloseFolded: Actions.navbarCloseFolded,
-        navbarOpenMobile : Actions.navbarOpenMobile,
-        navbarCloseMobile: Actions.navbarCloseMobile
+        setSettings  : Actions.setSettings,
+        resetSettings: Actions.resetSettings
     }, dispatch);
 }
 
@@ -109,8 +105,7 @@ function mapStateToProps({fuse})
 {
     return {
         defaultSettings: fuse.settings.defaults,
-        settings       : fuse.settings.current,
-        navbar         : fuse.navbar
+        settings       : fuse.settings.current
     }
 }
 
