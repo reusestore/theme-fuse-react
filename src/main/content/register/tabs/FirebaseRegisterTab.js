@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import Formsy from 'formsy-react';
 import {TextFieldFormsy} from '@fuse';
 import {withStyles, Button, InputAdornment, Icon} from '@material-ui/core';
-import {bindActionCreators} from 'redux';
-import * as Actions from 'auth/store/actions';
 import {withRouter} from 'react-router-dom';
 import connect from 'react-redux/es/connect/connect';
+import {bindActionCreators} from 'redux';
+import * as authActions from 'auth/store/actions';
+import * as Actions from 'store/actions';
 
 const styles = theme => ({
     root: {
@@ -46,11 +47,9 @@ class FirebaseRegisterTab extends Component {
 
         if ( this.props.user.role !== 'guest' )
         {
-            const pathname = this.props.location.state && this.props.location.state.redirectUrl ? this.props.location.state.redirectUrl : '/';
-            this.props.history.push({
-                pathname
-            });
+            this.props.showMessage({message: 'Logged in with Firebase'});
         }
+
         return null;
     }
 
@@ -154,7 +153,8 @@ class FirebaseRegisterTab extends Component {
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-        registerWithFirebase: Actions.registerWithFirebase
+        registerWithFirebase: authActions.registerWithFirebase,
+        showMessage         : Actions.showMessage
     }, dispatch);
 }
 

@@ -4,8 +4,8 @@ import {withRouter} from 'react-router-dom';
 import auth0Service from 'auth0Service';
 import {bindActionCreators} from 'redux';
 import connect from 'react-redux/es/connect/connect';
+import * as authActions from 'auth/store/actions';
 import * as Actions from 'store/actions';
-import * as userActions from 'auth/store/actions';
 
 const styles = theme => ({
     root: {
@@ -29,11 +29,6 @@ class Auth0RegisterTab extends Component {
             auth0Service.getUserData().then(tokenData => {
 
                 this.props.setUserDataAuth0(tokenData);
-
-                const pathname = this.props.location.state && this.props.location.state.redirectUrl ? this.props.location.state.redirectUrl : '/';
-                this.props.history.push({
-                    pathname
-                });
 
                 this.props.showMessage({message: 'Logged in with Auth0'});
             });
@@ -63,7 +58,7 @@ class Auth0RegisterTab extends Component {
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-            setUserDataAuth0: userActions.setUserDataAuth0,
+            setUserDataAuth0: authActions.setUserDataAuth0,
             showMessage     : Actions.showMessage
         },
         dispatch);

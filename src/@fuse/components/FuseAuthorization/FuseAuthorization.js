@@ -5,75 +5,91 @@ import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import _ from '@lodash';
 
-let redirect = false;
-
 class FuseAuthorization extends Component {
+    state = {
+        accessGranted: this.hasUserAuthorization(this.props)
+    };
 
-    constructor(props)
+    componentDidMount()
     {
-        super(props);
-        this.checkAuth();
-    }
-
-    componentDidUpdate(prevProps)
-    {
-        /**
-         * If route is changed
-         * Update auths
-         */
-        if ( !_.isEqual(this.props.location.pathname, prevProps.location.pathname) )
+        if ( !this.state.accessGranted )
         {
-            this.checkAuth();
+            this.redirectRoute(this.props);
         }
     }
 
-    checkAuth()
+    UNSAFE_componentWillReceiveProps(nextProps)
     {
-        const matched = matchRoutes(this.props.routes, this.props.location.pathname)[0];
-        if ( matched && matched.route.auth && matched.route.auth.length > 0 )
+        if (
+            _.isEqual(this.props.location.pathname, nextProps.location.pathname) &&
+            _.isEqual(this.props.user, nextProps.user)
+        )
         {
-            if ( !matched.route.auth.includes(this.props.user.role) )
-            {
-                redirect = true;
-                if ( this.props.user.role === 'guest' )
-                {
-                    this.props.history.push({
-                        pathname: '/login',
-                        state   : {redirectUrl: this.props.location.pathname}
-                    });
-                }
-                else
-                {
-                    this.props.history.push({
-                        pathname: '/'
-                    });
-                }
-            }
+            return;
         }
+
+        const accessGranted = this.hasUserAuthorization(nextProps);
+
+        if ( !accessGranted )
+        {
+            this.redirectRoute(nextProps);
+        }
+
+        this.setState({accessGranted});
     }
 
-    shouldComponentUpdate(nextProps)
+    shouldComponentUpdate(nextProps, nextState)
     {
-        if ( redirect )
+        return nextState.accessGranted !== this.state.accessGranted;
+    }
+
+    hasUserAuthorization(props)
+    {
+        const {location, routes, user} = props;
+        const {pathname} = location;
+
+        const matched = matchRoutes(routes, pathname)[0];
+
+        return (matched && matched.route.auth && matched.route.auth.length > 0) ? matched.route.auth.includes(user.role) : true;
+    }
+
+    redirectRoute(props)
+    {
+        const {location, user, history} = props;
+        const {pathname, state} = location;
+        /*
+        User is guest
+        Redirect to Login Page
+        */
+        if ( user.role === 'guest' )
         {
-            redirect = false;
-            return false;
+            history.push({
+                pathname: '/login',
+                state   : {redirectUrl: pathname}
+            });
         }
+        /*
+        User is member
+        User must be on unAuthorized page or just logged in
+        Redirect to dashboard or redirectUrl
+        */
         else
         {
-            return true;
+            const redirectUrl = state && state.redirectUrl ? state.redirectUrl : '/';
+
+            history.push({
+                pathname: redirectUrl
+            });
         }
     }
+
 
     render()
     {
         const {children} = this.props;
-
-        return (
-            <React.Fragment>
-                {children}
-            </React.Fragment>
-        );
+        const {accessGranted} = this.state;
+        // console.info('Fuse Authorization rendered', accessGranted);
+        return accessGranted ? <React.Fragment>{children}</React.Fragment> : null;
     }
 }
 

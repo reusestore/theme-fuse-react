@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import Formsy from 'formsy-react';
 import {TextFieldFormsy} from '@fuse';
 import {withStyles, Button, Divider, Typography, InputAdornment, Icon} from '@material-ui/core';
-import {bindActionCreators} from 'redux';
-import * as Actions from 'auth/store/actions';
 import {withRouter} from 'react-router-dom';
 import connect from 'react-redux/es/connect/connect';
+import {bindActionCreators} from 'redux';
+import * as authActions from 'auth/store/actions';
 
 const styles = theme => ({
     root: {
@@ -44,13 +44,6 @@ class JWTLoginTab extends Component {
             this.disableButton();
         }
 
-        if ( this.props.user.role !== 'guest' )
-        {
-            const pathname = this.props.location.state && this.props.location.state.redirectUrl ? this.props.location.state.redirectUrl : '/';
-            this.props.history.push({
-                pathname
-            });
-        }
         return null;
     }
 
@@ -157,7 +150,7 @@ class JWTLoginTab extends Component {
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-        submitLogin: Actions.submitLogin
+        submitLogin: authActions.submitLogin
     }, dispatch);
 }
 
