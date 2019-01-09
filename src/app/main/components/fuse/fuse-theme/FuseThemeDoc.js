@@ -1,81 +1,51 @@
 import React from 'react';
-import {Typography} from '@material-ui/core';
+import {Icon, Typography} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
+import {Link} from 'react-router-dom';
+/* eslint import/no-webpack-loader-syntax: off */
 
 const FuseThemeDoc = () => {
     return (
         <FusePageSimple
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="h6">FuseTheme</Typography>
+                    <div className="flex flex-col">
+                        <div className="flex items-center mb-16">
+                            <Icon className="text-18" color="action">home</Icon>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Components</Typography>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Fuse Components</Typography>
+                        </div>
+                        <Typography variant="h6">FuseTheme</Typography>
+                    </div>
                 </div>
             }
             content={
-                <div className="p-24 max-w-2xl mx-auto">
+                <div className="p-24 max-w-2xl">
 
                     <Typography className="mb-16" component="p">
-                        <code className="language-bash">FuseTheme</code> is theming component of the Fuse React. It allows to change predefined Material UI themes. It should
-                        wraps the FuseLayout component.
+                        <code>FuseTheme</code> is theming component of the Fuse React. It allows to change predefined Material UI themes. It should
+                        wraps the <code>FuseLayout</code> component.
                     </Typography>
 
-                    <FuseHighlight component="pre" className="language-jsx">
-                        {
-                            `
-                                <FuseTheme>
-                                    <FuseLayout
-                                        routes={routes}
-                                        toolbar={
-                                            <MainToolbar/>
-                                        }
-                                        navbarHeader={
-                                            <MainNavbarHeader/>
-                                        }
-                                        navbarContent={
-                                            <MainNavbarContent/>
-                                        }
-                                        footer={
-                                            <MainFooter/>
-                                        }
-                                        rightSidePanel={
-                                            <React.Fragment>
-                                                <ChatPanel/>
-                                                <QuickPanel/>
-                                            </React.Fragment>
-                                        }
-                                        contentWrapper={
-                                            <SettingsPanel/>
-                                        }
-                                    />
-                                </FuseTheme>
-                                `
-                        }
-                    </FuseHighlight>
-
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Configuration</Typography>
-
                     <Typography className="mb-16" component="p">
-                        You can define the material ui themes under <code className="language-bash">fuse-configs/fuseThemesConfig.js</code> <a
-                        href="https://material-ui-next.com/customization/themes/" target="_blank" rel="noopener noreferrer" className="font-bold">
-                        Checkout</a> the Material UI's theme configuration options.
+                        <code>src/app/App.js</code>
                     </Typography>
 
                     <FuseHighlight component="pre" className="language-js">
-                        {`
-                            export const fuseThemes = {
-                                default: {
-                                    status: {
-                                        danger: 'orange'
-                                    }
-                                },
-                                dark   : {
-                                    status : {
-                                        danger: 'orange'
-                                    },
-                                    palette: {type: 'dark'}
-                                }
-                            };
-                            `}
+                        {require('!raw-loader!app/App.js')}
                     </FuseHighlight>
+
+                    <Typography className="mt-32 mb-8" variant="h5">Configuration</Typography>
+
+                    <Typography className="mb-16" component="p">
+                        Please checkout
+                        <Link className="font-medium mx-4" to="/documentation/working-with-fuse-react/theming">
+                            theming
+                        </Link>
+                        at documentation.
+                    </Typography>
                 </div>
             }
         />

@@ -1,27 +1,35 @@
 import React from 'react';
-import {Typography, Button} from '@material-ui/core';
+import {Typography, Button, Icon} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as Actions from 'app/store/actions';
 
-const FuseMessageDoc = () => {
+const FuseMessageDoc = ({showMessage}) => {
     return (
         <FusePageSimple
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="h6">FuseMessage</Typography>
+                    <div className="flex flex-col">
+                        <div className="flex items-center mb-16">
+                            <Icon className="text-18" color="action">home</Icon>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Components</Typography>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Fuse Components</Typography>
+                        </div>
+                        <Typography variant="h6">FuseMessage</Typography>
+                    </div>
                 </div>
             }
             content={
-                <div className="p-24 max-w-2xl mx-auto">
+                <div className="p-24 max-w-2xl">
 
                     <Typography className="mb-16" component="p">
-                        <code className="language-bash">FuseMessage</code> is a simple snackbar trigger for easily showing messages via redux action. It is located in the
-                        <code className="language-bash">FuseLayout</code>.
+                        <code>FuseMessage</code> is a simple snackbar trigger for easily showing messages via redux action. It should be located in the theme layouts.
                     </Typography>
 
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Usage</Typography>
+                    <Typography className="mt-32 mb-8" variant="h5">Usage</Typography>
 
                     <Typography className="mb-16" component="p">
                         You can show messages anywhere with dispatching the action showMessage, its using Material-UI's snackbar so you can pass the props in the object:
@@ -29,7 +37,7 @@ const FuseMessageDoc = () => {
 
                     <FuseHighlight component="pre" className="language-js">
                         {`
-                                    <Button onClick={() => this.props.showMessage({
+                                    <Button onClick={() => showMessage({
                                         message     : 'Hi, how are you?',//text or html
                                         autoHideDuration: 6000,//ms
                                         anchorOrigin: {
@@ -43,13 +51,13 @@ const FuseMessageDoc = () => {
                             `}
                     </FuseHighlight>
 
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Example</Typography>
+                    <Typography className="mt-32 mb-8" variant="h5">Example</Typography>
 
-                    <Typography className="text-24 mt-32 mb-8" component="h2">Position</Typography>
+                    <Typography className="mt-32 mb-8" variant="h6">Position</Typography>
 
                     <div>
 
-                        <Button onClick={() => this.props.showMessage({
+                        <Button onClick={() => showMessage({
                             message     : 'Hi, how are you?',
                             anchorOrigin: {
                                 vertical  : 'top',
@@ -58,7 +66,7 @@ const FuseMessageDoc = () => {
                         })}>
                             Top - Right
                         </Button>
-                        <Button onClick={() => this.props.showMessage({
+                        <Button onClick={() => showMessage({
                             message     : 'Hi, how are you?',
                             anchorOrigin: {
                                 vertical  : 'top',
@@ -67,7 +75,7 @@ const FuseMessageDoc = () => {
                         })}>
                             Top-Center
                         </Button>
-                        <Button onClick={() => this.props.showMessage({
+                        <Button onClick={() => showMessage({
                             message     : 'Hi, how are you?',
                             anchorOrigin: {
                                 vertical  : 'top',
@@ -76,7 +84,7 @@ const FuseMessageDoc = () => {
                         })}>
                             Top-Left
                         </Button>
-                        <Button onClick={() => this.props.showMessage({
+                        <Button onClick={() => showMessage({
                             message     : 'Hi, how are you?',
                             anchorOrigin: {
                                 vertical  : 'bottom',
@@ -85,7 +93,7 @@ const FuseMessageDoc = () => {
                         })}>
                             Bottom-Right
                         </Button>
-                        <Button onClick={() => this.props.showMessage({
+                        <Button onClick={() => showMessage({
                             message     : 'Hi, how are you?',
                             anchorOrigin: {
                                 vertical  : 'bottom',
@@ -94,7 +102,7 @@ const FuseMessageDoc = () => {
                         })}>
                             Bottom-Center
                         </Button>
-                        <Button onClick={() => this.props.showMessage({
+                        <Button onClick={() => showMessage({
                             message     : 'Hi, how are you?',
                             anchorOrigin: {
                                 vertical  : 'bottom',
@@ -105,33 +113,33 @@ const FuseMessageDoc = () => {
                         </Button>
                     </div>
 
-                    <Typography className="text-24 mt-32 mb-8" component="h2">Variants</Typography>
+                    <Typography className="mt-32 mb-8" variant="h6">Variants</Typography>
 
                     <div>
-                        <Button onClick={() => this.props.showMessage({
+                        <Button onClick={() => showMessage({
                             message: 'Hi, how are you?'
                         })}>
                             Default
                         </Button>
-                        <Button onClick={() => this.props.showMessage({
+                        <Button onClick={() => showMessage({
                             message: 'Hi, how are you?',
                             variant: 'success'
                         })}>
                             Success
                         </Button>
-                        <Button onClick={() => this.props.showMessage({
+                        <Button onClick={() => showMessage({
                             message: 'Hi, how are you?',
                             variant: 'warning'
                         })}>
                             Warning
                         </Button>
-                        <Button onClick={() => this.props.showMessage({
+                        <Button onClick={() => showMessage({
                             message: 'Hi, how are you?',
                             variant: 'error'
                         })}>
                             Error
                         </Button>
-                        <Button onClick={() => this.props.showMessage({
+                        <Button onClick={() => showMessage({
                             message: 'Hi, how are you?',
                             variant: 'info'
                         })}>

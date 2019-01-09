@@ -9,7 +9,18 @@ const ReactTableDoc = () => {
         <FusePageSimple
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="h6">React Table</Typography>
+                    <div className="flex flex-col">
+                        <div className="flex items-center mb-16">
+                            <Icon className="text-18" color="action">home</Icon>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Components</Typography>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">3rd Party Components</Typography>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Data Tables</Typography>
+                        </div>
+                        <Typography variant="h6">React Table</Typography>
+                    </div>
                     <Button
                         className="normal-case"
                         variant="contained"
@@ -23,10 +34,10 @@ const ReactTableDoc = () => {
                 </div>
             }
             content={
-                <div className="p-24 max-w-2xl mx-auto">
+                <div className="p-24 max-w-2xl">
 
                     <Typography className="mb-16" component="p">
-                        <code className="language-bash">react-table</code> is a lightweight, fast and extendable datagrid built for React.
+                        <code>react-table</code> is a lightweight, fast and extendable datagrid built for React.
                     </Typography>
 
                     <hr/>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Typography} from '@material-ui/core';
+import {Icon, Typography} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
 import {Link} from 'react-router-dom';
 
@@ -8,11 +8,20 @@ const FirebaseAuthDoc = () => {
         <FusePageSimple
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="h6">Firebase Authentication</Typography>
+                    <div className="flex flex-col">
+                        <div className="flex items-center mb-16">
+                            <Icon className="text-18" color="action">home</Icon>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Documentation</Typography>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Authentication</Typography>
+                        </div>
+                        <Typography variant="h6">Firebase Authentication</Typography>
+                    </div>
                 </div>
             }
             content={
-                <div className="p-24 max-w-2xl mx-auto">
+                <div className="p-24 max-w-2xl">
 
                     <Typography className="mb-16" component="p">
                         With Firebase Authentication in Fuse React.
@@ -35,13 +44,13 @@ const FirebaseAuthDoc = () => {
                     </Typography>
 
                     <Typography className="my-24 italic" component="p" color="textSecondary">
-                        Note: Make sure {`<Router>`} component wrapped with {`<Auth>`} component in 'index.js'.
+                        Note: Make sure {`<Router>`} component wrapped with {`<Auth>`} component in <code>src/app/App.js</code>.
                     </Typography>
 
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Configuration</Typography>
+                    <Typography className="mt-32 mb-8" variant="h5">Configuration</Typography>
 
                     <Typography className="mb-16" component="p">
-                        You need to paste the configuration of your Firebase Project into <code>/firebaseService/firebaseServiceConfig.js</code>
+                        You need to paste the configuration of your Firebase Project into <code>src/app/services/firebaseService/firebaseServiceConfig.js</code>
                     </Typography>
 
                     <FuseHighlight component="pre" className="language-jsx my-16">

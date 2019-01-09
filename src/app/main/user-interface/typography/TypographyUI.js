@@ -7,9 +7,16 @@ const TypographyUI = () => {
         <FusePageSimple
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <FuseAnimate>
+
+                    <div className="flex flex-col">
+                        <div className="flex items-center mb-16">
+                            <Icon className="text-18" color="action">home</Icon>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">User Interface</Typography>
+                        </div>
                         <Typography variant="h6">Typography</Typography>
-                    </FuseAnimate>
+                    </div>
+
                     <Button
                         className="normal-case"
                         variant="contained"

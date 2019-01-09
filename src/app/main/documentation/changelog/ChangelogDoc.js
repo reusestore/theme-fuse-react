@@ -11,7 +11,7 @@ const ChangelogDoc = () => {
                 </div>
             }
             content={
-                <div className="p-24 max-w-2xl mx-auto">
+                <div className="p-24 max-w-2xl">
 
                     <div>
                         <div className="flex items-center mb-32 mt-48">

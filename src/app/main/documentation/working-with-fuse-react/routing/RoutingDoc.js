@@ -11,7 +11,7 @@ const RoutingDoc = () => {
                 </div>
             }
             content={
-                <div className="p-24 max-w-2xl mx-auto">
+                <div className="p-24 max-w-2xl">
 
                     <Typography className="mb-16" component="p">
                         Fuse React routing system based on <a href="https://reacttraining.com/react-router/" target="_blank" rel="noopener noreferrer" className="font-bold">
@@ -25,7 +25,7 @@ const RoutingDoc = () => {
 
                     <Typography className="mb-16" component="p">
                         For example, have a look at the code below <FuseHighlight component="code" className="language-bash">MailAppConfig.js</FuseHighlight>. You can override
-                        all settings for a particular route as <code className="language-bash">/apps/mail</code> for this example.
+                        all settings for a particular route as <code>/apps/mail</code> for this example.
                     </Typography>
 
                     <FuseHighlight component="pre" className="language-jsx my-16">
@@ -89,7 +89,7 @@ const RoutingDoc = () => {
                     </FuseHighlight>
 
                     <Typography className="mb-16" component="p">
-                        Then we import and generate routes from that file in <code className="language-bash">fuse-configs/fuseRoutes</code>
+                        Then we import and generate routes from that file in <code>fuse-configs/fuseRoutes</code>
                     </Typography>
 
                     <FuseHighlight component="pre" className="language-jsx my-16">

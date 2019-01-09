@@ -1,15 +1,20 @@
 import React from 'react';
-import {Typography} from '@material-ui/core';
-import {FusePageSimple, FuseAnimate, FuseAnimateGroup} from '@fuse';
+import {Icon, Typography} from '@material-ui/core';
+import {FusePageSimple, FuseAnimateGroup} from '@fuse';
 
 const HelperClassesUI = () => {
     return (
         <FusePageSimple
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <FuseAnimate>
+                    <div className="flex flex-col">
+                        <div className="flex items-center mb-16">
+                            <Icon className="text-18" color="action">home</Icon>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">User Interface</Typography>
+                        </div>
                         <Typography variant="h6">Helper Classes</Typography>
-                    </FuseAnimate>
+                    </div>
                 </div>
             }
             content={
@@ -21,7 +26,7 @@ const HelperClassesUI = () => {
                     >
 
                         <div>
-                            <Typography className="text-44 mb-8" component="h1">Styling in Material-UI</Typography>
+                            <Typography className="mb-8" variant="h5">Styling in Material-UI</Typography>
 
                             <Typography className="mb-16" component="p">
                                 Fuse React developed based on Material-UI as ui library.
@@ -34,7 +39,7 @@ const HelperClassesUI = () => {
                         </div>
 
                         <div>
-                            <Typography className="text-44 mt-32 mb-8" component="h1">Helper Classes with Tailwind</Typography>
+                            <Typography className="mt-32 mb-8" variant="h5">Helper Classes with TailwindCSS</Typography>
 
                             <Typography className="mb-16" component="p">
                                 We are accepting JSS advantages but we can't leave <b>helper classes</b> for fast development, ease of use, globally access etc.
@@ -42,10 +47,9 @@ const HelperClassesUI = () => {
                             </Typography>
 
                             <Typography className="mb-16" component="p">
-                                We are using <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer">Tailwind</a> as an engine for generating helper
-                                classes.
-                                It's
-                                not an UI kit and it's customizable. You can find the config file of Tailwind with named "<b>tailwind.js</b>" under the root of Fuse React.
+                                We are using <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer">TailwindCSS</a> as an engine for generating helper
+                                classes. It's not an UI kit and it's customizable. You can find the config file of Tailwind with named "<b>tailwind.js</b>" under the root of Fuse
+                                React.
                             </Typography>
                         </div>
                     </FuseAnimateGroup>

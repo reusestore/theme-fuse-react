@@ -1,5 +1,5 @@
 import React from 'react';
-import {Typography} from '@material-ui/core';
+import {Icon, Typography} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
 
 const CodeSplittingDoc = () => {
@@ -7,11 +7,20 @@ const CodeSplittingDoc = () => {
         <FusePageSimple
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="h6">Code Splitting (Lazy loading)</Typography>
+                    <div className="flex flex-col">
+                        <div className="flex items-center mb-16">
+                            <Icon className="text-18" color="action">home</Icon>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Documentation</Typography>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Working with Fuse React</Typography>
+                        </div>
+                        <Typography variant="h6">Code Splitting (Lazy loading)</Typography>
+                    </div>
                 </div>
             }
             content={
-                <div className="p-24 max-w-2xl mx-auto">
+                <div className="p-24 max-w-2xl">
 
                     <Typography className="mb-16" component="p">
                         Code-splitting your app can help you “lazy-load” just the things that are currently needed by the user, which can dramatically improve the performance
@@ -19,7 +28,7 @@ const CodeSplittingDoc = () => {
                         amount of code needed during the initial load.
                     </Typography>
 
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Route-based code splitting</Typography>
+                    <Typography className="mt-32 mb-8" variant="h5">Route-based code splitting</Typography>
 
                     <Typography className="mb-16" component="p">
                         We are using <a href="https://github.com/thejameskyle/react-loadable" target="_blank" rel="noopener noreferrer" className="font-bold">React
@@ -80,10 +89,10 @@ const CodeSplittingDoc = () => {
                         </div>
                     </div>
 
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Code splitting the Redux reducers (Dynamically loaded reducers)</Typography>
+                    <Typography className="mt-32 mb-8" variant="h5">Code splitting the Redux reducers (Dynamically loaded reducers)</Typography>
 
                     <Typography className="mb-16" component="p">
-                        We created Higher Order Component <code className="language-bash">withReducer</code> to load redux reducer before the component render.<br/>
+                        We created Higher Order Component <code>withReducer</code> to load redux reducer before the component render.<br/>
                         You just need to pass <b>key</b> and the <b>reducer</b> to the component.
                     </Typography>
 

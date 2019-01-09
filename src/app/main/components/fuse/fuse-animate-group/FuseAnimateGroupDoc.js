@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Typography, List, ListItem} from '@material-ui/core';
+import {Typography, List, ListItem, Icon} from '@material-ui/core';
 import {FuseAnimateGroup, FuseHighlight, FusePageSimple} from '@fuse';
 
 const list = [
@@ -57,19 +57,29 @@ class FuseAnimateGroupDoc extends Component {
             <FusePageSimple
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="h6">FuseAnimateGroup</Typography>
+                        <div className="flex flex-col">
+                            <div className="flex items-center mb-16">
+                                <Icon className="text-18" color="action">home</Icon>
+                                <Icon className="text-16" color="action">chevron_right</Icon>
+                                <Typography color="textSecondary">Components</Typography>
+                                <Icon className="text-16" color="action">chevron_right</Icon>
+                                <Typography color="textSecondary">Fuse Components</Typography>
+                            </div>
+                            <Typography variant="h6">FuseAnimateGroup</Typography>
+                        </div>
                     </div>
+
                 }
                 content={
-                    <div className="p-24 max-w-2xl mx-auto">
+                    <div className="p-24 max-w-2xl">
 
                         <Typography className="mb-16" component="p">
-                            <code className="language-bash">FuseAnimateGroup</code> is a container component which
-                            uses <code className="language-bash">VelocityTransitionGroup</code> of <code className="language-bash">velocity-react</code> library.
+                            <code>FuseAnimateGroup</code> is a container component which
+                            uses <code>VelocityTransitionGroup</code> of <code>velocity-react</code> library.
                             Delegates to the React TransitionGroup addon.
                         </Typography>
 
-                        <Typography className="text-32 mt-32 mb-8" component="h2">Sample Usage</Typography>
+                        <Typography className="mt-32 mb-8" variant="h5">Sample Usage</Typography>
 
                         <div className="flex flex-wrap p-48 items-start">
 

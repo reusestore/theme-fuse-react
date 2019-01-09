@@ -45,9 +45,16 @@ class IconsUI extends Component {
                 header={
                     <div className="flex flex-1 items-center justify-between p-16 sm:p-24">
 
-                        <FuseAnimate>
-                            <Typography variant="h6">Icons</Typography>
-                        </FuseAnimate>
+                        <div className="flex flex-col">
+                            <div className="flex items-center mb-4">
+                                <Icon className="text-18" color="action">home</Icon>
+                                <Icon className="text-16" color="action">chevron_right</Icon>
+                                <Typography color="textSecondary">User Interface</Typography>
+                            </div>
+                            <FuseAnimate>
+                                <Typography variant="h6">Icons</Typography>
+                            </FuseAnimate>
+                        </div>
 
                         <div className="flex flex-1 items-center justify-center px-12">
 

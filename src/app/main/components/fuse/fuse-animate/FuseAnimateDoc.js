@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {withStyles, Typography, Card, Input, MenuItem, Select, FormControl, InputLabel} from '@material-ui/core';
+import {withStyles, Typography, Card, Input, MenuItem, Select, FormControl, InputLabel, Icon} from '@material-ui/core';
 import {FuseAnimate, FuseHighlight, FusePageSimple} from '@fuse';
 
 const styles = theme => ({
@@ -89,18 +89,27 @@ class FuseAnimateDoc extends Component {
                 }}
                 header={
                     <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography variant="h6">FuseAnimate</Typography>
+                        <div className="flex flex-col">
+                            <div className="flex items-center mb-16">
+                                <Icon className="text-18" color="action">home</Icon>
+                                <Icon className="text-16" color="action">chevron_right</Icon>
+                                <Typography color="textSecondary">Components</Typography>
+                                <Icon className="text-16" color="action">chevron_right</Icon>
+                                <Typography color="textSecondary">Fuse Components</Typography>
+                            </div>
+                            <Typography variant="h6">FuseAnimate</Typography>
+                        </div>
                     </div>
                 }
                 content={
-                    <div className="p-24 max-w-2xl mx-auto">
+                    <div className="p-24 max-w-2xl">
 
                         <Typography className="mb-16" component="p">
-                            <code className="language-bash">FuseAnimate</code> is a container component which
-                            uses <code className="language-bash">VelocityComponent</code> of <code className="language-bash">velocity-react</code> library.
+                            <code>FuseAnimate</code> is a container component which
+                            uses <code>VelocityComponent</code> of <code>velocity-react</code> library.
                         </Typography>
 
-                        <Typography className="text-32 mt-32 mb-8" component="h2">Predefined Effects Usage</Typography>
+                        <Typography className="mt-32 mb-8" variant="h5">Predefined Effects Usage</Typography>
 
                         <Typography className="mb-16" component="p">
                             You can use predefined animation effects.
@@ -158,7 +167,7 @@ class FuseAnimateDoc extends Component {
                             </div>
                         </div>
 
-                        <Typography className="text-32 mt-32 mb-8" component="h2">Custom Effects Usage</Typography>
+                        <Typography className="mt-32 mb-8" variant="h5">Custom Effects Usage</Typography>
 
                         <Typography className="mb-16" component="p">
                             You can create custom effects.

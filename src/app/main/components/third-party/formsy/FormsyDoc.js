@@ -9,7 +9,16 @@ const FormsyDoc = () => {
         <FusePageSimple
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="h6">Formsy</Typography>
+                    <div className="flex flex-col">
+                        <div className="flex items-center mb-16">
+                            <Icon className="text-18" color="action">home</Icon>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Components</Typography>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">3rd Party Components</Typography>
+                        </div>
+                        <Typography variant="h6">Formsy</Typography>
+                    </div>
                     <Button
                         className="normal-case"
                         variant="contained"
@@ -23,10 +32,10 @@ const FormsyDoc = () => {
                 </div>
             }
             content={
-                <div className="p-24 max-w-2xl mx-auto">
+                <div className="p-24 max-w-2xl">
 
                     <Typography className="mb-16" component="p">
-                        <code className="language-bash">formsy-react</code> is a form input builder and validator for React.
+                        <code>formsy-react</code> is a form input builder and validator for React.
                     </Typography>
 
                     <Typography className="mb-16" component="p">

@@ -702,84 +702,116 @@ const navigationConfig = [
                 }
             },
             {
-                'id'   : 'introduction',
-                'title': 'Introduction',
-                'type' : 'item',
-                'icon' : 'info',
-                'url'  : '/documentation/introduction'
-            },
-            {
-                'id'   : 'prerequisites',
-                'title': 'Prerequisites',
-                'type' : 'item',
-                'icon' : 'view_stream',
-                'url'  : '/documentation/prerequisites'
-            },
-            {
-                'id'   : 'installation',
-                'title': 'Installation',
-                'type' : 'item',
-                'icon' : 'settings_applications',
-                'url'  : '/documentation/installation'
-            },
-            {
-                'id'   : 'working-with-fuse',
-                'title': 'Working with Fuse',
-                'type' : 'item',
-                'icon' : 'computer',
-                'url'  : '/documentation/working-with-fuse'
-            },
-            {
-                'id'   : 'project-structure-doc',
-                'title': 'Project Structure',
-                'type' : 'item',
-                'icon' : 'folder',
-                'url'  : '/documentation/project-structure'
-            },
-            {
-                'id'   : 'settings',
-                'title': 'Settings',
-                'type' : 'item',
-                'icon' : 'settings',
-                'url'  : '/documentation/settings'
-            },
-            {
-                'id'   : 'fuse-react-routing',
-                'title': 'Routing',
-                'type' : 'item',
-                'icon' : 'menu',
-                'url'  : '/documentation/routing'
-            },
-            {
-                'id'   : 'fuse-react-code-splitting',
-                'title': 'Code Splitting',
-                'type' : 'item',
-                'icon' : 'call_split',
-                'url'  : '/documentation/code-splitting'
-            },
-            {
-                'id'      : 'authentication',
-                'title'   : 'Authentication',
+                'id'      : 'getting-started-doc',
+                'title'   : 'Getting Started',
                 'type'    : 'collapse',
-                'icon'    : 'lock',
+                'icon'    : 'import_contacts',
                 'children': [
                     {
-                        'id'   : 'jwt-auth',
+                        'id'   : 'introduction-doc',
+                        'title': 'Introduction',
+                        'type' : 'item',
+                        'url'  : '/documentation/getting-started/introduction'
+                    },
+                    {
+                        'id'   : 'installation-doc',
+                        'title': 'Installation',
+                        'type' : 'item',
+                        'url'  : '/documentation/getting-started/installation'
+                    }
+                ]
+            },
+            {
+                'id'      : 'working-with-fuse-react-doc',
+                'title'   : 'Working with Fuse',
+                'type'    : 'collapse',
+                'icon'    : 'import_contacts',
+                'children': [
+                    {
+                        'id'   : 'development-doc',
+                        'title': 'Development',
+                        'type' : 'item',
+                        'url'  : '/documentation/working-with-fuse-react/development'
+                    },
+                    {
+                        'id'   : 'production-doc',
+                        'title': 'Production',
+                        'type' : 'item',
+                        'url'  : '/documentation/working-with-fuse-react/production'
+                    },
+                    {
+                        'id'   : 'project-structure-doc',
+                        'title': 'Project Structure',
+                        'type' : 'item',
+                        'url'  : '/documentation/working-with-fuse-react/project-structure'
+                    },
+                    {
+                        'id'   : 'updating-fuse-react-doc',
+                        'title': 'Updating Fuse React',
+                        'type' : 'item',
+                        'url'  : '/documentation/working-with-fuse-react/updating-fuse-react'
+                    },
+                    {
+                        'id'   : 'theming-doc',
+                        'title': 'Theming',
+                        'type' : 'item',
+                        'url'  : '/documentation/working-with-fuse-react/theming'
+                    },
+                    {
+                        'id'   : 'theme-layouts-doc',
+                        'title': 'Theme Layouts',
+                        'type' : 'item',
+                        'url'  : '/documentation/working-with-fuse-react/theme-layouts'
+                    },
+                    {
+                        'id'   : 'page-layouts-doc',
+                        'title': 'Page Layouts',
+                        'type' : 'item',
+                        'url'  : '/documentation/working-with-fuse-react/page-layouts'
+                    },
+                    {
+                        'id'   : 'settings-doc',
+                        'title': 'Settings',
+                        'type' : 'item',
+                        'url'  : '/documentation/working-with-fuse-react/settings'
+                    },
+                    {
+                        'id'   : 'fuse-react-routing-doc',
+                        'title': 'Routing',
+                        'type' : 'item',
+                        'url'  : '/documentation/working-with-fuse-react/routing'
+                    },
+                    {
+                        'id'   : 'fuse-react-code-splitting-doc',
+                        'title': 'Code Splitting',
+                        'type' : 'item',
+                        'url'  : '/documentation/working-with-fuse-react/code-splitting'
+                    }
+                ]
+            },
+            {
+                'id'      : 'authentication-doc',
+                'title'   : 'Authentication',
+                'type'    : 'collapse',
+                'icon'    : 'import_contacts',
+                'children': [
+                    {
+                        'id'   : 'jwt-auth-doc',
                         'title': 'JWT',
                         'type' : 'item',
-                        'url'  : '/documentation/auth/jwt'
+                        'url'  : '/documentation/authentication/jwt'
                     },
                     {
-                        'id'   : 'firebase-auth',
+                        'id'   : 'firebase-auth-doc',
                         'title': 'Firebase',
                         'type' : 'item',
-                        'url'  : '/documentation/auth/firebase'
+                        'url'  : '/documentation/authentication/firebase'
                     },
                     {
-                        'id'   : 'auth0-auth',
+                        'id'   : 'auth0-auth-doc',
                         'title': 'Auth0',
                         'type' : 'item',
-                        'url'  : '/documentation/auth/auth0'
+                        'url'  : '/documentation/authentication/auth0'
                     }
                 ]
             }

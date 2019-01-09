@@ -1,5 +1,5 @@
 import React from 'react';
-import {Typography} from '@material-ui/core';
+import {Icon, Typography} from '@material-ui/core';
 import {FuseCountdown, FuseHighlight, FusePageSimple} from '@fuse';
 import {Link} from 'react-router-dom';
 
@@ -8,17 +8,26 @@ const FuseCountdownDoc = () => {
         <FusePageSimple
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="h6">FuseCountdown</Typography>
+                    <div className="flex flex-col">
+                        <div className="flex items-center mb-16">
+                            <Icon className="text-18" color="action">home</Icon>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Components</Typography>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Fuse Components</Typography>
+                        </div>
+                        <Typography variant="h6">FuseCountdown</Typography>
+                    </div>
                 </div>
             }
             content={
-                <div className="p-24 max-w-2xl mx-auto">
+                <div className="p-24 max-w-2xl">
 
                     <Typography className="mb-16" component="p">
-                        <code className="language-bash">FuseCountdown</code> is a custom built Fuse component allows you to create countdowns.
+                        <code>FuseCountdown</code> is a custom built Fuse component allows you to create countdowns.
                     </Typography>
 
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Usage</Typography>
+                    <Typography className="mt-32 mb-8" variant="h5">Usage</Typography>
 
                     <FuseHighlight component="pre" className="language-jsx">
                         {
@@ -28,11 +37,11 @@ const FuseCountdownDoc = () => {
                         }
                     </FuseHighlight>
 
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Preview</Typography>
+                    <Typography className="mt-32 mb-8" variant="h5">Preview</Typography>
 
                     <FuseCountdown endDate="2019-07-28" className="my-48"/>
 
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Demos</Typography>
+                    <Typography className="mt-32 mb-8" variant="h5">Demos</Typography>
 
                     <ul>
                         <li className="mb-8">

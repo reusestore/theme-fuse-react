@@ -1,59 +1,42 @@
 import React from 'react';
-import {Typography} from '@material-ui/core';
+import {Icon, Typography} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
+/* eslint import/no-webpack-loader-syntax: off */
 
 const FuseAuthorizationDoc = () => {
     return (
         <FusePageSimple
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="h6">FuseAuthorization</Typography>
+                    <div className="flex flex-col">
+                        <div className="flex items-center mb-16">
+                            <Icon className="text-18" color="action">home</Icon>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Components</Typography>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Fuse Components</Typography>
+                        </div>
+                        <Typography variant="h6">FuseAuthorization</Typography>
+                    </div>
                 </div>
             }
             content={
-                <div className="p-24 max-w-2xl mx-auto">
+                <div className="p-24 max-w-2xl">
 
                     <Typography className="mb-16" component="p">
-                        <code className="language-bash">FuseAuthorization</code> is authorization component of the Fuse React. It allows to block routes based on user roles. It
+                        <code>FuseAuthorization</code> is authorization component of the Fuse React. It allows to restrict routes based on user roles. It
                         should wraps the FuseTheme component.
                     </Typography>
 
-                    <FuseHighlight component="pre" className="language-jsx">
-                        {
-                            `
-                               <FuseAuthorization routes={routes}>
-                                    <FuseTheme>
-                                        <FuseLayout
-                                            routes={routes}
-                                            toolbar={
-                                                <MainToolbar/>
-                                            }
-                                            navbarHeader={
-                                                <MainNavbarHeader/>
-                                            }
-                                            navbarContent={
-                                                <MainNavbarContent/>
-                                            }
-                                            footer={
-                                                <MainFooter/>
-                                            }
-                                            rightSidePanel={
-                                                <React.Fragment>
-                                                    <ChatPanel/>
-                                                    <QuickPanel/>
-                                                </React.Fragment>
-                                            }
-                                            contentWrapper={
-                                                <SettingsPanel/>
-                                            }
-                                        />
-                                    </FuseTheme>
-                                </FuseAuthorization>
-                                `
-                        }
+                    <Typography className="mb-16" component="p">
+                        <code>src/app/App.js</code>
+                    </Typography>
+
+                    <FuseHighlight component="pre" className="language-js">
+                        {require('!raw-loader!app/App.js')}
                     </FuseHighlight>
 
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Configuration</Typography>
+                    <Typography className="mt-32 mb-8" variant="h5">Configuration</Typography>
 
                     <Typography className="mb-16" component="p">
                         You can define authorization roles in route config files.
@@ -79,7 +62,7 @@ const FuseAuthorizationDoc = () => {
                     </FuseHighlight>
 
                     <Typography className="mb-16 mt-32" component="p">
-                        You can also hide navigation item/group/collapse by adding auth property in <code className="language-bash">fuse-configs/fuseNavigationConfig.js</code>.
+                        You can also hide navigation item/group/collapse by adding <b>auth</b> property in <code>src/app/fuse-configs/NavigationConfig.js</code>.
                     </Typography>
 
                     <FuseHighlight component="pre" className="language-js">
@@ -95,11 +78,11 @@ const FuseAuthorizationDoc = () => {
                             `}
                     </FuseHighlight>
 
-                    <Typography className="text-32 mt-32 mb-8" component="h2">On fuseRoutesConfig.js file</Typography>
+                    <Typography id="auth-protected-app" className="mt-32 mb-8" variant="h5">On RoutesConfig.js file</Typography>
 
                     <Typography className="mb-16 mt-32" component="p">
                         If you don't want to set auth on every page config;
-                        <br/>You can group the configs and define authorization the fuseRoutesConfig.js file,
+                        <br/>You can group the configs and define authorization the <code>src/app/fuse-configs/RoutesConfig.js</code> file,
                         <br/>With this configuration below makes <b>whole app</b> auth protected:
                     </Typography>
 
@@ -113,13 +96,13 @@ const FuseAuthorizationDoc = () => {
                                     import {authRoleExamplesConfigs} from 'app/main/auth/authRoleExamplesConfigs';
                                     import {UserInterfaceConfig} from 'app/main/user-interface/UserInterfaceConfig';
                                     import {ComponentsConfig} from 'app/main/components/ComponentsConfig';
-                                    import {ComponentsThirdPartyConfig} from 'app/main/components-third-party/ComponentsThirdPartyConfig';
-                                    import {GettingStartedConfig} from 'app/main/getting-started/GettingStartedConfig';
+                                    import {DocumentationConfig} from 'app/main/documentation/DocumentationConfig';
                                     import {LoginConfig} from 'app/main/login/LoginConfig';
                                     import {RegisterConfig} from 'app/main/register/RegisterConfig';
+                                    import {LogoutConfig} from 'app/main/logout/LogoutConfig';
                                     import {CallbackConfig} from 'app/main/callback/CallbackConfig';
-                                    import _ from '@lodash';
-                                    import {authRoles} from 'auth';
+                                    import {authRoles} from 'app/auth';
+                                    import _ from 'lodash';
 
                                     function setAdminAuth(configs)
                                     {
@@ -132,16 +115,17 @@ const FuseAuthorizationDoc = () => {
                                             ...pagesConfigs,
                                             ...authRoleExamplesConfigs,
                                             ComponentsConfig,
-                                            ComponentsThirdPartyConfig,
                                             UserInterfaceConfig,
-                                            GettingStartedConfig
+                                            DocumentationConfig,
+                                            LogoutConfig,
+                                            CallbackConfig
                                         ]),
                                         LoginConfig,
                                         RegisterConfig,
                                         CallbackConfig
                                     ];
 
-                                    export const routes = [
+                                    const routes = [
                                         ...FuseUtils.generateRoutesFromConfigs(routeConfigs),
                                         {
                                             path     : '/',
@@ -152,6 +136,10 @@ const FuseAuthorizationDoc = () => {
                                             component: () => <Redirect to="/pages/errors/error-404"/>
                                         }
                                     ];
+
+                                    export default routes;
+
+
                             `}
                     </FuseHighlight>
 

@@ -9,7 +9,16 @@ const ReactChartJs2Doc = () => {
         <FusePageSimple
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="h6">React ChartJs 2</Typography>
+                    <div className="flex flex-col">
+                        <div className="flex items-center mb-16">
+                            <Icon className="text-18" color="action">home</Icon>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Components</Typography>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">3rd Party Components</Typography>
+                        </div>
+                        <Typography variant="h6">React ChartJs 2</Typography>
+                    </div>
                     <Button
                         className="normal-case"
                         variant="contained"
@@ -23,10 +32,10 @@ const ReactChartJs2Doc = () => {
                 </div>
             }
             content={
-                <div className="p-24 max-w-2xl mx-auto">
+                <div className="p-24 max-w-2xl">
 
                     <Typography className="mb-16" component="p">
-                        <code className="language-bash">react-chartjs-2</code> is a React wrapper for Chart.js 2.
+                        <code>react-chartjs-2</code> is a React wrapper for Chart.js 2.
                     </Typography>
 
                     <hr/>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Typography} from '@material-ui/core';
+import {Icon, Typography} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
 import {Link} from 'react-router-dom';
 
@@ -60,20 +60,29 @@ const FusePageCardedDoc = () => {
         <FusePageSimple
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="h6">FusePageCarded</Typography>
+                    <div className="flex flex-col">
+                        <div className="flex items-center mb-16">
+                            <Icon className="text-18" color="action">home</Icon>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Components</Typography>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Fuse Components</Typography>
+                        </div>
+                        <Typography variant="h6">FusePageCarded</Typography>
+                    </div>
                 </div>
             }
             content={
-                <div className="p-24 max-w-2xl mx-auto">
+                <div className="p-24 max-w-2xl">
 
                     <Typography className="mb-16" component="p">
-                        <code className="language-bash">FusePageCarded</code> is the carded page layout component of the Fuse React.
+                        <code>FusePageCarded</code> is the carded page layout component of the Fuse React.
                     </Typography>
                     <Typography className="mb-16" component="p">
                         The component has layout areas to easily enter the contents of the app.
                     </Typography>
                     <Typography className="mb-16" component="p">
-                        You can override the class names injected by the classes property
+                        You can extend the class names injected by the classes property
                     </Typography>
 
                     <FuseHighlight component="pre" className="language-jsx">
@@ -113,7 +122,7 @@ const FusePageCardedDoc = () => {
                         }
                     </FuseHighlight>
 
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Demos</Typography>
+                    <Typography className="mt-32 mb-8" variant="h5">Demos</Typography>
 
                     <ul>
                         {demos.map(demo => (

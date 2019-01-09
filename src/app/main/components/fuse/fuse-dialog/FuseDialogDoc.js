@@ -1,27 +1,35 @@
 import React from 'react';
-import {Button, Typography, DialogTitle, DialogContent, DialogContentText, DialogActions} from '@material-ui/core';
+import {Button, Typography, DialogTitle, DialogContent, DialogContentText, DialogActions, Icon} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as Actions from 'app/store/actions';
 
-const FuseDialogDoc = () => {
+const FuseDialogDoc = ({openDialog, closeDialog}) => {
     return (
         <FusePageSimple
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="h6">FuseDialog</Typography>
+                    <div className="flex flex-col">
+                        <div className="flex items-center mb-16">
+                            <Icon className="text-18" color="action">home</Icon>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Components</Typography>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Fuse Components</Typography>
+                        </div>
+                        <Typography variant="h6">FuseDialog</Typography>
+                    </div>
                 </div>
             }
             content={
-                <div className="p-24 max-w-2xl mx-auto">
+                <div className="p-24 max-w-2xl">
 
                     <Typography className="mb-16" component="p">
-                        <code className="language-bash">FuseDialog</code> is a simple dialog trigger for easily showing dialog messages via redux action. It is located in the
-                        <code className="language-bash">FuseLayout</code>.
+                        <code>FuseDialog</code> is a simple dialog trigger for easily showing dialog messages via redux action. It should be located in the theme layouts.
                     </Typography>
 
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Usage</Typography>
+                    <Typography className="mt-32 mb-8" variant="h5">Usage</Typography>
 
                     <Typography className="mb-16" component="p">
                         You can show dialog anywhere with dispatching the action openDialog, its using Material-UI's dialog so you can pass the props in the object:
@@ -30,7 +38,7 @@ const FuseDialogDoc = () => {
                     <FuseHighlight component="pre" className="language-js">
                         {`
                         <Button
-                            onClick={() => this.props.openDialog({
+                            onClick={() => openDialog({
                                 children: (
                                     <React.Fragment>
                                         <DialogTitle id="alert-dialog-title">Use Google's location service?</DialogTitle>
@@ -41,10 +49,10 @@ const FuseDialogDoc = () => {
                                             </DialogContentText>
                                         </DialogContent>
                                         <DialogActions>
-                                            <Button onClick={this.props.closeDialog} color="primary">
+                                            <Button onClick={closeDialog} color="primary">
                                                 Disagree
                                             </Button>
-                                            <Button onClick={this.props.closeDialog} color="primary" autoFocus>
+                                            <Button onClick={closeDialog} color="primary" autoFocus>
                                                 Agree
                                             </Button>
                                         </DialogActions>
@@ -59,10 +67,10 @@ const FuseDialogDoc = () => {
                             `}
                     </FuseHighlight>
 
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Example</Typography>
+                    <Typography className="mt-32 mb-8" variant="h5">Example</Typography>
 
                     <Button
-                        onClick={() => this.props.openDialog({
+                        onClick={() => openDialog({
                             children: (
                                 <React.Fragment>
                                     <DialogTitle id="alert-dialog-title">Use Google's location service?</DialogTitle>
@@ -73,10 +81,10 @@ const FuseDialogDoc = () => {
                                         </DialogContentText>
                                     </DialogContent>
                                     <DialogActions>
-                                        <Button onClick={this.props.closeDialog} color="primary">
+                                        <Button onClick={closeDialog} color="primary">
                                             Disagree
                                         </Button>
-                                        <Button onClick={this.props.closeDialog} color="primary" autoFocus>
+                                        <Button onClick={closeDialog} color="primary" autoFocus>
                                             Agree
                                         </Button>
                                     </DialogActions>
