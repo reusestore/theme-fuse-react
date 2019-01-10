@@ -31,9 +31,6 @@ const styles = theme => ({
                 '& .bubble': {
                     borderBottomLeftRadius: 20
                 }
-            },
-            '&:last-of-type'  : {
-                paddingBottom: 100
             }
         },
         '&.me'                            : {
@@ -96,6 +93,14 @@ class Chat extends Component {
     state = {
         messageText: ''
     };
+
+    componentDidMount(prevProps)
+    {
+        if ( this.props.chat )
+        {
+            this.scrollToBottom();
+        }
+    }
 
     componentDidUpdate(prevProps)
     {
@@ -167,7 +172,8 @@ class Chat extends Component {
                                                 {'me': item.who === user.id},
                                                 {'contact': item.who !== user.id},
                                                 {'first-of-group': this.isFirstMessageOfGroup(item, i)},
-                                                {'last-of-group': this.isLastMessageOfGroup(item, i)}
+                                                {'last-of-group': this.isLastMessageOfGroup(item, i)},
+                                                (i + 1) === chat.dialog.length && "pb-96"
                                             )}
                                         >
                                             {this.shouldShowContactAvatar(item, i) && (
