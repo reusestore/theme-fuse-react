@@ -35,7 +35,7 @@ const FuseMessageDoc = ({showMessage}) => {
                         You can show messages anywhere with dispatching the action showMessage, its using Material-UI's snackbar so you can pass the props in the object:
                     </Typography>
 
-                    <FuseHighlight component="pre" className="language-js">
+                    <FuseHighlight component="pre" className="language-jsx">
                         {`
                                     <Button onClick={() => showMessage({
                                         message     : 'Hi, how are you?',//text or html

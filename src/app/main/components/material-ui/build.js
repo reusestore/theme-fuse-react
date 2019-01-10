@@ -1,3 +1,4 @@
+"use strict";
 import path from 'path';
 import fs from 'fs';
 import _ from 'lodash';
@@ -6,7 +7,7 @@ import Beautify from 'js-beautify';
 
 var Promise = require("promise");
 
-const demoDir = ('src/main/content/components/material-ui/material-ui-examples');
+const demoDir = ('src/app/main/components/material-ui/material-ui-examples');
 const rootDirectory = path.resolve(__dirname);
 const examplesDirectory = path.resolve(rootDirectory, './material-ui-examples');
 const pagesDirectory = path.resolve(rootDirectory, './pages');
@@ -403,7 +404,7 @@ function replaceInExamples()
         list.forEach(function (file) {
             const fileSource = fs.readFileSync(file, 'utf8');
             const result = fileSource
-                .replace(new RegExp('@material-ui/docs/MarkdownElement', 'g'), "main/content/components/material-ui/MarkdownElement");
+                .replace(new RegExp('@material-ui/docs/MarkdownElement', 'g'), "app/main/components/material-ui/MarkdownElement");
             fs.writeFileSync(file, result, 'utf8', function (err) {
                 if ( err ) return console.log(err);
             });

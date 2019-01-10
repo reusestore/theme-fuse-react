@@ -43,7 +43,7 @@ const FuseScrollbarsDoc = () => {
 
                     <Typography className="mt-32 mb-8" variant="h5">Props</Typography>
 
-                    <FuseHighlight component="pre" className="language-js">
+                    <FuseHighlight component="pre" className="language-jsx">
                         {
                             `
                                 FuseScrollbars.defaultProps = {

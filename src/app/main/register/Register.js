@@ -103,7 +103,7 @@ class Register extends Component {
                             <Tabs
                                 value={tabValue}
                                 onChange={this.handleTabChange}
-                                fullWidth={true}
+                                variant="fullWidth"
                                 className="mb-32"
                             >
                                 <Tab

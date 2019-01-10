@@ -60,7 +60,7 @@ class Widget8 extends Component {
                     <Tabs
                         value={tabIndex}
                         onChange={this.handleChange}
-                        fullWidth
+                        variant="fullWidth"
                     >
                         <Tab label="1Day" className="min-w-0"/>
                         <Tab label="1Week" className="min-w-0"/>

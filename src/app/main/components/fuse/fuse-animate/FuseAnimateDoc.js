@@ -115,7 +115,7 @@ class FuseAnimateDoc extends Component {
                             You can use predefined animation effects.
                         </Typography>
 
-                        <FuseHighlight component="pre" className="language-js">
+                        <FuseHighlight component="pre" className="language-jsx">
                             {`
                                 <FuseAnimate
                                     animation="transition.${this.state.selectedEffect}In"
@@ -173,7 +173,7 @@ class FuseAnimateDoc extends Component {
                             You can create custom effects.
                         </Typography>
 
-                        <FuseHighlight component="pre" className="language-js">
+                        <FuseHighlight component="pre" className="language-jsx">
                             {`
                                 <FuseAnimate
                                     animation={{

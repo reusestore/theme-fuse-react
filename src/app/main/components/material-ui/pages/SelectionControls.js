@@ -22,7 +22,16 @@ function SelectionControls({classes})
             }}
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="h6">Selection Controls</Typography>
+                    <div className="flex flex-col">
+                        <div className="flex items-center mb-16">
+                            <Icon className="text-18" color="action">home</Icon>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Components</Typography>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Material UI Elements</Typography>
+                        </div>
+                        <Typography variant="h6">Selection Controls</Typography>
+                    </div>
                     <Button
                         className="normal-case"
                         variant="contained"
@@ -135,6 +144,9 @@ function SelectionControls({classes})
                     <Typography className="text-24 mt-32 mb-8" component="h3">Customized Switches</Typography>
                     <Typography className="mb-16" component="div">If you have been reading the <a href="/customization/overrides/">overrides documentation page</a>
                         but you are not confident jumping in, here&#39;s an example of how you can change the color of a Switch, and an iOS style Switch.</Typography>
+                    <Typography className="mb-16" component="div">
+                        <span role="img" aria-label="unicode-symbol">⚠</span>
+                        While the material design specification encourages theming, these examples are off the beaten path.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -149,6 +161,21 @@ function SelectionControls({classes})
                         component={require('app/main/components/material-ui/material-ui-examples/selection-controls/FormControlLabelPosition.js').default}
                         raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/selection-controls/FormControlLabelPosition.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
+                    <Typography className="mb-16" component="div">All form controls should have a label to identify it, this includes radio buttons, checkboxes, and switches. In
+                        most cases, this is done by using the <code>&lt;label&gt;</code> element (<a href="/api/form-control-label/">FormControlLabel</a>).</Typography>
+                    <Typography className="mb-16" component="div">When a label can&#39;t be used, it&#39;s necessary to add an attribute directly to the input component.
+                        In this case, you can apply the additional attribute (e.g. <code>aria-label</code>, <code>aria-labelledby</code>, <code>title</code>) via
+                        the <code>inputProps</code> property.</Typography>
+
+                    <FuseHighlight component="pre" className="language-jsx">
+                        {`
+<Checkbox
+  value="checkedA"
+  inputProps={{ 'aria-label': 'Checkbox A' } }
+/>
+`}
+                    </FuseHighlight>
 
                 </div>
             }

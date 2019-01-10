@@ -35,7 +35,7 @@ const FuseDialogDoc = ({openDialog, closeDialog}) => {
                         You can show dialog anywhere with dispatching the action openDialog, its using Material-UI's dialog so you can pass the props in the object:
                     </Typography>
 
-                    <FuseHighlight component="pre" className="language-js">
+                    <FuseHighlight component="pre" className="language-jsx">
                         {`
                         <Button
                             onClick={() => openDialog({

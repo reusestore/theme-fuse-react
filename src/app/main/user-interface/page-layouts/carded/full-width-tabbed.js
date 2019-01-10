@@ -36,7 +36,7 @@ class CardedFullWidthTabbedSample extends Component {
                         onChange={this.handleChange}
                         indicatorColor="primary"
                         textColor="primary"
-                        scrollable
+                        variant="scrollable"
                         scrollButtons="off"
                         className="w-full h-64"
                     >

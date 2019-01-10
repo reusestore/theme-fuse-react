@@ -20,49 +20,49 @@ import classNames from 'classnames';
 const rows = [
     {
         id            : 'id',
-        numeric       : false,
+        align         : 'left',
         disablePadding: false,
         label         : 'ID',
         sort          : true
     },
     {
         id            : 'reference',
-        numeric       : false,
+        align         : 'left',
         disablePadding: false,
         label         : 'Reference',
         sort          : true
     },
     {
         id            : 'customer',
-        numeric       : false,
+        align         : 'left',
         disablePadding: false,
         label         : 'Customer',
         sort          : true
     },
     {
         id            : 'total',
-        numeric       : true,
+        align         : 'right',
         disablePadding: false,
         label         : 'Total',
         sort          : true
     },
     {
         id            : 'payment',
-        numeric       : false,
+        align         : 'left',
         disablePadding: false,
         label         : 'Payment',
         sort          : true
     },
     {
         id            : 'status',
-        numeric       : false,
+        align         : 'left',
         disablePadding: false,
         label         : 'Status',
         sort          : true
     },
     {
         id            : 'date',
-        numeric       : false,
+        align         : 'left',
         disablePadding: false,
         label         : 'Date',
         sort          : true
@@ -143,14 +143,14 @@ class OrdersTableHead extends Component {
                         return (
                             <TableCell
                                 key={row.id}
-                                numeric={row.numeric}
+                                align={row.align}
                                 padding={row.disablePadding ? 'none' : 'default'}
                                 sortDirection={orderBy === row.id ? order : false}
                             >
                                 {row.sort && (
                                     <Tooltip
                                         title="Sort"
-                                        placement={row.numeric ? 'bottom-end' : 'bottom-start'}
+                                        placement={row.align === "right" ? 'bottom-end' : 'bottom-start'}
                                         enterDelay={300}
                                     >
                                         <TableSortLabel

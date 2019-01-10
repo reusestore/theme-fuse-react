@@ -22,7 +22,16 @@ function TextFields({classes})
             }}
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="h6">Text Fields</Typography>
+                    <div className="flex flex-col">
+                        <div className="flex items-center mb-16">
+                            <Icon className="text-18" color="action">home</Icon>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Components</Typography>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Material UI Elements</Typography>
+                        </div>
+                        <Typography variant="h6">Text Fields</Typography>
+                    </div>
                     <Button
                         className="normal-case"
                         variant="contained"
@@ -51,6 +60,10 @@ function TextFields({classes})
                         component={require('app/main/components/material-ui/material-ui-examples/text-fields/TextFields.js').default}
                         raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/text-fields/TextFields.js')}
                     /></Typography>
+                    <blockquote>
+                        <Typography className="mb-16" component="div"><strong>Note:</strong> This version of the text field is no longer documented in the Material Design
+                            documentation.</Typography>
+                    </blockquote>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Outlined</Typography>
                     <Typography className="mb-16" component="div"><code>TextField</code> supports outlined styling.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -97,11 +110,23 @@ function TextFields({classes})
                     <Typography className="text-32 mt-32 mb-8" component="h2">Customized inputs</Typography>
                     <Typography className="mb-16" component="div">If you have been reading the <a href="/customization/overrides/">overrides documentation page</a>
                         but you are not confident jumping in, here&#39;s an example of how you can change the main color of an Input.</Typography>
+                    <Typography className="mb-16" component="div">
+                        <span role="img" aria-label="unicode-symbol">⚠</span>
+                        While the material design specification encourages theming, these examples are off the beaten path.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
                         component={require('app/main/components/material-ui/material-ui-examples/text-fields/CustomizedInputs.js').default}
                         raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/text-fields/CustomizedInputs.js')}
+                    /></Typography>
+                    <Typography className="mb-16" component="div">Customization does not stop at CSS, you can use composition to build custom components and give your app a unique
+                        feel.
+                        Below is an example using the <a href="/api/input-base/"><code>InputBase</code></a> component, inspired by Google Maps.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/components/material-ui/material-ui-examples/text-fields/CustomizedInputBase.js').default}
+                        raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/text-fields/CustomizedInputBase.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Input Adornments</Typography>
                     <Typography className="mb-16" component="div"><code>Input</code> allows the provision of <code>InputAdornment</code>.
@@ -168,7 +193,10 @@ function TextFields({classes})
                     </FuseHighlight>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Formatted inputs</Typography>
                     <Typography className="mb-16" component="div">You can use third-party libraries to format an input.
-                        You have to provide a custom implementation of the <code>&lt;input&gt;</code> element with the <code>inputComponent</code> property.</Typography>
+                        You have to provide a custom implementation of the <code>&lt;input&gt;</code> element with the <code>inputComponent</code> property.
+                        The provided input component should handle the <code>inputRef</code> property.
+                        The property should be called with a value implementing the <a
+                            href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement"><code>HTMLInputElement</code></a> interface.</Typography>
                     <Typography className="mb-16" component="div">The following demo uses the <a href="https://github.com/text-mask/text-mask">react-text-mask</a> and <a
                         href="https://github.com/s-yadav/react-number-format">react-number-format</a> libraries.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -186,6 +214,9 @@ function TextFields({classes})
                         <li><a href="https://github.com/stackworx/formik-material-ui">formik-material-ui</a> Bindings for using Material-UI with formik.</li>
                         <li><a href="https://github.com/Deadly0/final-form-material-ui">final-form-material-ui</a> A set of wrapper components to facilitate using Material UI with
                             Final Form.
+                        </li>
+                        <li><a href="https://github.com/vazco/uniforms/tree/master/packages/uniforms-material">uniforms-material</a> Material-UI wrapper components for Uniforms, a
+                            set of React libraries for building forms.
                         </li>
                     </ul>
 

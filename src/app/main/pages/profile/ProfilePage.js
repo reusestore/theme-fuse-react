@@ -60,7 +60,7 @@ class ProfilePage extends Component {
                         onChange={this.handleChange}
                         indicatorColor="secondary"
                         textColor="secondary"
-                        scrollable
+                        variant="scrollable"
                         scrollButtons="off"
                         classes={{
                             root: "h-64 w-full border-b-1"

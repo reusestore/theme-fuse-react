@@ -22,7 +22,16 @@ function Tables({classes})
             }}
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="h6">Tables</Typography>
+                    <div className="flex flex-col">
+                        <div className="flex items-center mb-16">
+                            <Icon className="text-18" color="action">home</Icon>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Components</Typography>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Material UI Elements</Typography>
+                        </div>
+                        <Typography variant="h6">Tables</Typography>
+                    </div>
                     <Button
                         className="normal-case"
                         variant="contained"
@@ -76,7 +85,12 @@ function Tables({classes})
                         raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/tables/EnhancedTable.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Customized Tables</Typography>
-                    <Typography className="mb-16" component="div">You can customize the look and feel of the table by overriding the styles of the <code>TableCell</code> component.</Typography>
+                    <Typography className="mb-16" component="div">If you have been reading the <a href="/customization/overrides/">overrides documentation page</a>
+                        but you are not confident jumping in,
+                        here are examples of how you can change the look of a <code>TableCell</code>.</Typography>
+                    <Typography className="mb-16" component="div">
+                        <span role="img" aria-label="unicode-symbol">⚠</span>
+                        While the material design specification encourages theming, this example is off the beaten path.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -99,6 +113,16 @@ function Tables({classes})
                         iframe={false}
                         component={require('app/main/components/material-ui/material-ui-examples/tables/SpanningTable.js').default}
                         raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/tables/SpanningTable.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Virtualized Table</Typography>
+                    <Typography className="mb-16" component="div">In the following example, we demonstrate how to use <a
+                        href="https://github.com/bvaughn/react-virtualized">react-virtualized</a> with the <code>Table</code> component. It renders 200 rows and can easily handle
+                        more.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/components/material-ui/material-ui-examples/tables/ReactVirtualizedTable.js').default}
+                        raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/tables/ReactVirtualizedTable.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Complementary projects</Typography>
                     <Typography className="mb-16" component="div">For more advanced use cases you might be able to take advantage of:</Typography>

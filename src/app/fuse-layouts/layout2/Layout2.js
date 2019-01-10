@@ -94,14 +94,14 @@ const Layout2 = ({classes, settings, children}) => {
 
                             <FuseDialog/>
 
-                            <div className="flex flex-1 flex-col relative">
+                            <div className="flex flex-auto flex-col relative">
                                 {renderRoutes(routes)}
                                 {children}
+                                {layoutConfig.footer.display && layoutConfig.footer.style === 'static' && (
+                                    <FooterLayout2/>
+                                )}
                             </div>
 
-                            {layoutConfig.footer.display && layoutConfig.footer.style === 'static' && (
-                                <FooterLayout2/>
-                            )}
                         </FuseScrollbars>
 
                         {layoutConfig.footer.display && layoutConfig.footer.style === 'fixed' && (

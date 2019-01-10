@@ -11,7 +11,143 @@ const ChangelogDoc = () => {
                 </div>
             }
             content={
-                <div className="p-24 max-w-2xl">
+                <div className="p-24 pt-0 max-w-2xl">
+
+                    <div>
+                        <div className="flex items-center mb-32 mt-48">
+                            <Typography className="text-28" component="h2">v2.0.0</Typography>
+                            <Typography className="text-16 ml-8" color="textSecondary"
+                                        component="h3">(2019-01-11)</Typography>
+                        </div>
+                        <div className="mb-24">
+                            <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">
+                                NEW:
+                            </Typography>
+                            <ul>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        New theme layout added (layout-3)
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Container layout mode created for layout-2 and layout-3."container" class added to relevant places.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        FuseSidePanel created and used in layout-3.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        FuseNavigation: dense variant added for horizontal layout only.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        FuseShortcuts: vertical variant added.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        FuseSearch: basic variant added (checkout layout-3)
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        dark-material-bg.jpg changed to gradient background.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        IconsUI page refined.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Generating source map disabled by default on production build.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Navigation data refactored on the demo.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Documentation updated.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Dependency packages updated.
+                                    </Typography>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div className="mb-24">
+                            <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">
+                                FIX:
+                            </Typography>
+                            <ul>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Codebase improvements.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Some IE fixes.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        FuseAuthorization must have state to prevent restricted route component mount when unauthorized user redirects.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        E-Commerce App, navigating product to new product didn't update the form state.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Authentication timing issues fixed.
+                                    </Typography>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div className="mb-24">
+                            <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">
+                                BREAKING CHANGES:
+                            </Typography>
+                            <ul>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Theme layouts moved out of the @fuse core files which gives developers to create or edit theme layouts easily.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Project structure changed after new layout system.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Theme configuration state moved from FuseTheme to redux store (fuse.settings).
+                                    </Typography>
+                                </li>
+                            </ul>
+
+                            <Typography className="text-14 p-12 border-2 rounded-8 w-full max-w-lg mt-16" component="div">
+                                Migrating to the new major version (v2.0.0) can be difficult because of the project structure and layout system changes.
+                            </Typography>
+                        </div>
+
+                    </div>
 
                     <div>
                         <div className="flex items-center mb-32 mt-48">

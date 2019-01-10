@@ -25,25 +25,46 @@ function renderInputComponent(inputProps)
     } = inputProps;
     return (
         <div className="w-full relative">
-            <TextField
-                fullWidth
-                InputProps={{
-                    disableUnderline: true,
-                    inputRef        : node => {
-                        ref(node);
-                        inputRef(node);
-                    },
-                    classes         : {
-                        input         : classNames(classes.input, "py-0 px-16", variant === "basic" ? "h-48 pr-48" : "h-64"),
-                        notchedOutline: variant === "basic" ? "rounded-8" : null
-                    }
-                }}
-                variant={variant === "basic" ? "outlined" : "standard"}
-                {...other}
-            />
-            {variant === "basic" && (
-                <Icon className="absolute pin-t pin-r h-48 w-48 p-12 pointer-events-none" color="action">search</Icon>
-            )}
+            {variant === "basic" ? (
+                    // Outlined
+                    <React.Fragment>
+                        <TextField
+                            fullWidth
+                            InputProps={{
+                                inputRef: node => {
+                                    ref(node);
+                                    inputRef(node);
+                                },
+                                classes : {
+                                    input         : classNames(classes.input, "py-0 px-16 h-48 pr-48"),
+                                    notchedOutline: "rounded-8"
+                                }
+                            }}
+                            variant="outlined"
+                            {...other}
+                        />
+                        <Icon className="absolute pin-t pin-r h-48 w-48 p-12 pointer-events-none" color="action">search</Icon>
+                    </React.Fragment>
+                )
+                :
+                (
+                    // Standard
+                    <TextField
+                        fullWidth
+                        InputProps={{
+                            disableUnderline: true,
+                            inputRef        : node => {
+                                ref(node);
+                                inputRef(node);
+                            },
+                            classes         : {
+                                input: classNames(classes.input, "py-0 px-16 h-64")
+                            }
+                        }}
+                        variant="standard"
+                        {...other}
+                    />
+                )}
         </div>
     );
 }

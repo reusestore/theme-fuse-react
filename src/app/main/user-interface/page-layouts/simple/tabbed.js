@@ -38,7 +38,7 @@ class SimpleTabbedSample extends Component {
                         onChange={this.handleChange}
                         indicatorColor="primary"
                         textColor="primary"
-                        scrollable
+                        variant="scrollable"
                         scrollButtons="off"
                         className="w-full h-64 border-b-1"
                     >

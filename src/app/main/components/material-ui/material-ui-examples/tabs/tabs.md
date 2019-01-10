@@ -33,7 +33,7 @@ Fixed tabs should be used with a limited number of tabs and when consistent plac
 
 ### Full width
 
-The `fullWidth` property should be used for smaller views.
+The `variant="fullWidth"` property should be used for smaller views.
 This demo also uses [react-swipeable-views](https://github.com/oliviertassinari/react-swipeable-views) to animate the Tab transition, and allowing tabs to be swiped on touch devices.
 
 {{"demo": "pages/demos/tabs/FullWidthTabs.js"}}
@@ -67,7 +67,9 @@ Left and right scroll buttons will never be presented.  All scrolling must be in
 ## Customized Tabs
 
 If you have read the [overrides documentation page](/customization/overrides/)
-but aren't confident jumping in, here's an example of how you can change the main color of the Tabs. The following demo matches the [Ant Design UI](https://ant.design/components/tabs/).
+but aren't confident jumping in, here's an example of how you can change the main color of the Tabs.
+
+⚠️ While the material design specification encourages theming, this example is off the beaten path.
 
 {{"demo": "pages/demos/tabs/CustomizedTabs.js"}}
 

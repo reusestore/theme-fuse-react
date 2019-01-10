@@ -20,42 +20,42 @@ import classNames from 'classnames';
 const rows = [
     {
         id            : 'image',
-        numeric       : false,
+        align         : 'left',
         disablePadding: true,
         label         : '',
         sort          : false
     },
     {
         id            : 'name',
-        numeric       : false,
+        align         : 'left',
         disablePadding: false,
         label         : 'Name',
         sort          : true
     },
     {
         id            : 'categories',
-        numeric       : false,
+        align         : 'left',
         disablePadding: false,
         label         : 'Category',
         sort          : true
     },
     {
         id            : 'priceTaxIncl',
-        numeric       : true,
+        align         : 'right',
         disablePadding: false,
         label         : 'Price',
         sort          : true
     },
     {
         id            : 'quantity',
-        numeric       : true,
+        align         : 'right',
         disablePadding: false,
         label         : 'Quantity',
         sort          : true
     },
     {
         id            : 'active',
-        numeric       : true,
+        align         : 'right',
         disablePadding: false,
         label         : 'Active',
         sort          : true
@@ -135,14 +135,14 @@ class ProductsTableHead extends React.Component {
                         return (
                             <TableCell
                                 key={row.id}
-                                numeric={row.numeric}
+                                align={row.align}
                                 padding={row.disablePadding ? 'none' : 'default'}
                                 sortDirection={orderBy === row.id ? order : false}
                             >
                                 {row.sort && (
                                     <Tooltip
                                         title="Sort"
-                                        placement={row.numeric ? 'bottom-end' : 'bottom-start'}
+                                        placement={row.align === "right" ? 'bottom-end' : 'bottom-start'}
                                         enterDelay={300}
                                     >
                                         <TableSortLabel

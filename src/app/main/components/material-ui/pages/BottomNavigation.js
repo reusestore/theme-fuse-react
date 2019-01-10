@@ -22,7 +22,16 @@ function BottomNavigation({classes})
             }}
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="h6">Bottom Navigation</Typography>
+                    <div className="flex flex-col">
+                        <div className="flex items-center mb-16">
+                            <Icon className="text-18" color="action">home</Icon>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Components</Typography>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Material UI Elements</Typography>
+                        </div>
+                        <Typography variant="h6">Bottom Navigation</Typography>
+                    </div>
                     <Button
                         className="normal-case"
                         variant="contained"

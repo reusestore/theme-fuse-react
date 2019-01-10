@@ -106,7 +106,7 @@ class FuseAnimateGroupDoc extends Component {
                             </div>
 
                             <div className="flex w-full sm:w-1/2 p-24 justify-center">
-                                <FuseHighlight component="pre" className="language-js">
+                                <FuseHighlight component="pre" className="language-jsx">
                                     {`
                                      <List>
                                         <FuseAnimateGroup

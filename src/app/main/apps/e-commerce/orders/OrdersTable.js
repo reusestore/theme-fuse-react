@@ -191,7 +191,7 @@ class OrdersTable extends Component {
                                                     {n.customer.firstName + ' ' + n.customer.lastName}
                                                 </TableCell>
 
-                                                <TableCell component="th" scope="row" numeric>
+                                                <TableCell component="th" scope="row" align="right">
                                                     <span>$</span>
                                                     {n.total}
                                                 </TableCell>

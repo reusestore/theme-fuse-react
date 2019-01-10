@@ -33,7 +33,7 @@ const FuseThemeDoc = () => {
                         <code>src/app/App.js</code>
                     </Typography>
 
-                    <FuseHighlight component="pre" className="language-js">
+                    <FuseHighlight component="pre" className="language-jsx">
                         {require('!raw-loader!app/App.js')}
                     </FuseHighlight>
 

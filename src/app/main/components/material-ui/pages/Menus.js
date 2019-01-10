@@ -22,7 +22,16 @@ function Menus({classes})
             }}
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="h6">Menus</Typography>
+                    <div className="flex flex-col">
+                        <div className="flex items-center mb-16">
+                            <Icon className="text-18" color="action">home</Icon>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Components</Typography>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Material UI Elements</Typography>
+                        </div>
+                        <Typography variant="h6">Menus</Typography>
+                    </div>
                     <Button
                         className="normal-case"
                         variant="contained"
@@ -44,7 +53,7 @@ function Menus({classes})
                         surface. They appear when users interact with a button, action, or other control.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Simple Menu</Typography>
                     <Typography className="mb-16" component="div">Simple menus open over the anchor element by default (this option can be changed via props). When close to a
-                        screen edge, simple menus vertically realign to make all menu items are completely visible.</Typography>
+                        screen edge, simple menus vertically realign to make sure that all menu items are completely visible.</Typography>
                     <Typography className="mb-16" component="div">Choosing an option should immediately ideally commit the option and close the menu.</Typography>
                     <Typography className="mb-16" component="div"><strong>Disambiguation</strong>: In contrast to simple menus, simple dialogs can present additional detail related
                         to the options available for a list item or provide navigational or orthogonal actions related to the primary task. Although they can display the same
@@ -77,16 +86,20 @@ function Menus({classes})
                         raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/menus/MenuListComposition.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Customized MenuItem</Typography>
-                    <Typography className="mb-16" component="div">The <code>MenuItem</code> is a wrapper around <code>ListItem</code> with some additional styles.
-                        You can use the same list composition features with the <code>MenuItem</code> component:</Typography>
+                    <Typography className="mb-16" component="div">If you have been reading the <a href="/customization/overrides/">overrides documentation page</a>
+                        but you are not confident jumping in,
+                        here is one example of how you can customize the <code>MenuItem</code>.</Typography>
+                    <Typography className="mb-16" component="div">
+                        <span role="img" aria-label="unicode-symbol">⚠</span>
+                        While the material design specification encourages theming, this example is off the beaten path.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
                         component={require('app/main/components/material-ui/material-ui-examples/menus/ListItemComposition.js').default}
                         raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/menus/ListItemComposition.js')}
                     /></Typography>
-                    <Typography className="mb-16" component="div">If text in a simple menu wraps to a second line, use a simple dialog instead. Simple dialogs can have rows with
-                        varying heights.</Typography>
+                    <Typography className="mb-16" component="div">The <code>MenuItem</code> is a wrapper around <code>ListItem</code> with some additional styles.
+                        You can use the same list composition features with the <code>MenuItem</code> component:</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Max height menus</Typography>
                     <Typography className="mb-16" component="div">If the height of a menu prevents all menu items from being displayed, the menu can scroll internally.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample

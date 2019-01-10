@@ -22,7 +22,16 @@ function Steppers({classes})
             }}
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="h6">Steppers</Typography>
+                    <div className="flex flex-col">
+                        <div className="flex items-center mb-16">
+                            <Icon className="text-18" color="action">home</Icon>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Components</Typography>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Material UI Elements</Typography>
+                        </div>
+                        <Typography variant="h6">Steppers</Typography>
+                    </div>
                     <Button
                         className="normal-case"
                         variant="contained"
@@ -57,6 +66,9 @@ function Steppers({classes})
                         <li>Linear</li>
                         <li>Non-linear</li>
                     </ul>
+                    <blockquote>
+                        <Typography className="mb-16" component="div"><strong>Note:</strong> Steppers are no longer documented in the Material Design documentation.</Typography>
+                    </blockquote>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Horizontal Linear</Typography>
                     <Typography className="mb-16" component="div">The <code>Stepper</code> can be controlled by passing the current step index (zero-based) as
                         the <code>activeStep</code> property. <code>Stepper</code> orientation is set using the <code>orientation</code> property.</Typography>
@@ -115,8 +127,14 @@ function Steppers({classes})
                         raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/steppers/VerticalLinearStepper.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Customized Stepper</Typography>
+                    <Typography className="mb-16" component="div">If you have been reading the <a href="/customization/overrides/">overrides documentation page</a>
+                        but you are not confident jumping in,
+                        here are examples of how you can change the look of a stepper.</Typography>
                     <Typography className="mb-16" component="div">This component uses a customized <code>StepConnector</code> element that changes border color based on
                         the <code>active</code> and <code>completed</code> state.</Typography>
+                    <Typography className="mb-16" component="div">
+                        <span role="img" aria-label="unicode-symbol">⚠</span>
+                        While the material design specification encourages theming, these examples are off the beaten path.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}

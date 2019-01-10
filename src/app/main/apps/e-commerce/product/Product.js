@@ -176,7 +176,7 @@ class Product extends Component {
                         onChange={this.handleChangeTab}
                         indicatorColor="secondary"
                         textColor="secondary"
-                        scrollable
+                        variant="scrollable"
                         scrollButtons="auto"
                         classes={{root: "w-full h-64"}}
                     >

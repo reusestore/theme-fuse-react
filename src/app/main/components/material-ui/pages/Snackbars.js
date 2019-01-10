@@ -22,7 +22,16 @@ function Snackbars({classes})
             }}
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="h6">Snackbars</Typography>
+                    <div className="flex flex-col">
+                        <div className="flex items-center mb-16">
+                            <Icon className="text-18" color="action">home</Icon>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Components</Typography>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Material UI Elements</Typography>
+                        </div>
+                        <Typography variant="h6">Snackbars</Typography>
+                    </div>
                     <Button
                         className="normal-case"
                         variant="contained"
@@ -59,6 +68,9 @@ function Snackbars({classes})
                     <Typography className="mb-16" component="div">If you have been reading the <a href="/customization/overrides/">overrides documentation page</a>
                         but you are not confident jumping in,
                         here are examples of how you can change the look of a Snackbar.</Typography>
+                    <Typography className="mb-16" component="div">
+                        <span role="img" aria-label="unicode-symbol">⚠</span>
+                        While the material design specification encourages theming, these examples are off the beaten path.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -118,10 +130,18 @@ function Snackbars({classes})
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Complementary projects</Typography>
                     <Typography className="mb-16" component="div">For more advanced use cases you might be able to take advantage of:</Typography>
-                    <ul>
-                        <li><a href="https://github.com/iamhosseindhv/notistack">notistack</a> Highly customisable notification snackbars that can be stacked on top of each other.
-                        </li>
-                    </ul>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">notistack</Typography>
+                    <Typography className="mb-16" component="div"><img src="https://img.shields.io/github/stars/iamhosseindhv/notistack.svg?style=social&label=Stars" alt="stars"/>
+                        <img src="https://img.shields.io/npm/dm/notistack.svg" alt="npm downloads"/></Typography>
+                    <Typography className="mb-16" component="div">In the following example, we demonstrate how to use <a
+                        href="https://github.com/iamhosseindhv/notistack">notistack</a>. notistack makes it easy to display snackbars (so you don&#39;t have to deal with open/close
+                        state of them). It also enables you to stack them on top of one another.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/components/material-ui/material-ui-examples/snackbars/IntegrationNotistack.js').default}
+                        raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/snackbars/IntegrationNotistack.js')}
+                    /></Typography>
 
                 </div>
             }

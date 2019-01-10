@@ -22,7 +22,16 @@ function Tooltips({classes})
             }}
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="h6">Tooltips</Typography>
+                    <div className="flex flex-col">
+                        <div className="flex items-center mb-16">
+                            <Icon className="text-18" color="action">home</Icon>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Components</Typography>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Material UI Elements</Typography>
+                        </div>
+                        <Typography variant="h6">Tooltips</Typography>
+                    </div>
                     <Button
                         className="normal-case"
                         variant="contained"
@@ -59,6 +68,11 @@ function Tooltips({classes})
                         raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/tooltips/PositionedTooltips.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Customized Tooltips</Typography>
+                    <Typography className="mb-16" component="div">If you have been reading the <a href="/customization/overrides/">overrides documentation page</a>
+                        but you are not confident jumping in, here&#39;s an example of how you can theme a tooltip.</Typography>
+                    <Typography className="mb-16" component="div">
+                        <span role="img" aria-label="unicode-symbol">⚠</span>
+                        While the material design specification encourages theming, these examples are off the beaten path.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -101,7 +115,8 @@ function Tooltips({classes})
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Disabled Elements</Typography>
                     <Typography className="mb-16" component="div">By default disabled elements like <code>Button</code> do not trigger user interactions so
-                        a <code>Tooltip</code> will not activate on normal events like hover. To accomodate disabled elements, add a simple wrapper element like a <code>span</code>.</Typography>
+                        a <code>Tooltip</code> will not activate on normal events like hover. To accommodate disabled elements, add a simple wrapper element like
+                        a <code>span</code>.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}

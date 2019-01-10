@@ -115,7 +115,6 @@ class Board extends Component {
                             droppableId="list"
                             type="list"
                             direction="horizontal"
-                            ignoreContainerClipping={800}
                         >
                             {(provided) => (
                                 <div ref={provided.innerRef} className="flex container p-16 md:p-24">

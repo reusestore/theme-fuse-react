@@ -40,7 +40,7 @@ const ThemingDoc = () => {
                         Theme configurations are located at <code>src/app/fuse-configs/themesConfig.js</code> file.
                     </Typography>
 
-                    <FuseHighlight component="pre" className="language-js">
+                    <FuseHighlight component="pre" className="language-jsx">
                         {require('!raw-loader!app/fuse-configs/themesConfig.js')}
                     </FuseHighlight>
 

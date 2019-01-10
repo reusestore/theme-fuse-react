@@ -22,7 +22,16 @@ function Dialogs({classes})
             }}
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="h6">Dialogs</Typography>
+                    <div className="flex flex-col">
+                        <div className="flex items-center mb-16">
+                            <Icon className="text-18" color="action">home</Icon>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Components</Typography>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Material UI Elements</Typography>
+                        </div>
+                        <Typography variant="h6">Dialogs</Typography>
+                    </div>
                     <Button
                         className="normal-case"
                         variant="contained"
@@ -97,6 +106,19 @@ function Dialogs({classes})
                         component={require('app/main/components/material-ui/material-ui-examples/dialogs/FormDialog.js').default}
                         raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/dialogs/FormDialog.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Customized dialog</Typography>
+                    <Typography className="mb-16" component="div">If you have been reading the <a href="/customization/overrides/">overrides documentation page</a>
+                        but you are not confident jumping in,
+                        here is one example of how you can customize the <code>DialogTitle</code> to support a close button.</Typography>
+                    <Typography className="mb-16" component="div">
+                        <span role="img" aria-label="unicode-symbol">⚠</span>
+                        While the material design specification encourages theming, this example is off the beaten path.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/components/material-ui/material-ui-examples/dialogs/CustomizedDialog.js').default}
+                        raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/dialogs/CustomizedDialog.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Full-screen dialogs</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -153,6 +175,19 @@ function Dialogs({classes})
                         component={require('app/main/components/material-ui/material-ui-examples/dialogs/ScrollDialog.js').default}
                         raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/dialogs/ScrollDialog.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Draggable dialog</Typography>
+                    <Typography className="mb-16" component="div">You can create a draggable dialog by using <a
+                        href="https://github.com/mzabriskie/react-draggable">react-draggable</a>.
+                        To do so, you can pass the the imported <code>Draggable</code> component as the <code>PaperComponent</code> of the <code>Dialog</code> component.
+                        This will make the entire dialog draggable.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/components/material-ui/material-ui-examples/dialogs/DraggableDialog.js').default}
+                        raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/dialogs/DraggableDialog.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Performance</Typography>
+                    <Typography className="mb-16" component="div">Follow the <a href="/utils/modal/#performance">Modal performance section</a>.</Typography>
 
                 </div>
             }

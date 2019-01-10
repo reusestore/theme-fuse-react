@@ -29,7 +29,7 @@ const SettingsDoc = () => {
                         You can set default layout, theme settings of your app at <code>src/app/fuse-configs/settingsConfig.js</code>
                     </Typography>
 
-                    <FuseHighlight component="pre" className="language-js">
+                    <FuseHighlight component="pre" className="language-jsx">
                         {require('!raw-loader!app/fuse-configs/settingsConfig.js')}
                     </FuseHighlight>
                 </div>

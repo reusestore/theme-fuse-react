@@ -22,7 +22,16 @@ function Tabs({classes})
             }}
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="h6">Tabs</Typography>
+                    <div className="flex flex-col">
+                        <div className="flex items-center mb-16">
+                            <Icon className="text-18" color="action">home</Icon>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Components</Typography>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Material UI Elements</Typography>
+                        </div>
+                        <Typography variant="h6">Tabs</Typography>
+                    </div>
                     <Button
                         className="normal-case"
                         variant="contained"
@@ -71,7 +80,7 @@ function Tabs({classes})
                     <Typography className="mb-16" component="div">Fixed tabs should be used with a limited number of tabs and when consistent placement will aid muscle
                         memory.</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Full width</Typography>
-                    <Typography className="mb-16" component="div">The <code>fullWidth</code> property should be used for smaller views.
+                    <Typography className="mb-16" component="div">The <code>variant=&quot;fullWidth&quot;</code> property should be used for smaller views.
                         This demo also uses <a href="https://github.com/oliviertassinari/react-swipeable-views">react-swipeable-views</a> to animate the Tab transition, and
                         allowing tabs to be swiped on touch devices.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -117,8 +126,10 @@ function Tabs({classes})
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Customized Tabs</Typography>
                     <Typography className="mb-16" component="div">If you have read the <a href="/customization/overrides/">overrides documentation page</a>
-                        but aren&#39;t confident jumping in, here&#39;s an example of how you can change the main color of the Tabs. The following demo matches the <a
-                            href="https://ant.design/components/tabs/">Ant Design UI</a>.</Typography>
+                        but aren&#39;t confident jumping in, here&#39;s an example of how you can change the main color of the Tabs.</Typography>
+                    <Typography className="mb-16" component="div">
+                        <span role="img" aria-label="unicode-symbol">⚠</span>
+                        While the material design specification encourages theming, this example is off the beaten path.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}

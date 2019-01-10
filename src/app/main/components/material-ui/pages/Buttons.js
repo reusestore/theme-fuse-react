@@ -22,7 +22,16 @@ function Buttons({classes})
             }}
             header={
                 <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography variant="h6">Buttons</Typography>
+                    <div className="flex flex-col">
+                        <div className="flex items-center mb-16">
+                            <Icon className="text-18" color="action">home</Icon>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Components</Typography>
+                            <Icon className="text-16" color="action">chevron_right</Icon>
+                            <Typography color="textSecondary">Material UI Elements</Typography>
+                        </div>
+                        <Typography variant="h6">Buttons</Typography>
+                    </div>
                     <Button
                         className="normal-case"
                         variant="contained"
@@ -144,6 +153,9 @@ function Buttons({classes})
                         but you are not confident jumping in,
                         here are examples of how you can change the main color of a Button using classes,
                         and using a theme; and of a Bootstrap style Button.</Typography>
+                    <Typography className="mb-16" component="div">
+                        <span role="img" aria-label="unicode-symbol">⚠</span>
+                        While the material design specification encourages theming, these examples are off the beaten path.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -190,8 +202,8 @@ const MyLink = props => <Link to="/open-collective" {...props} />
 </Button>
 `}
                     </FuseHighlight>
-                    <Typography className="mb-16" component="div"><em>Note: Creating <code>MyLink</code> is necessary to prevent unexpected unmounting. You can read more about
-                        it <a href="/guides/composition/#component-property">here</a>.</em></Typography>
+                    <Typography className="mb-16" component="div"><em>Note: Creating <code>MyLink</code> is necessary to prevent unexpected unmounting. You can read more about it
+                        in our <a href="/guides/composition/#component-property">composition guide</a>.</em></Typography>
 
                 </div>
             }
