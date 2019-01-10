@@ -1,4 +1,4 @@
-import mock from './mock';
+import mock from './../mock';
 import {FuseUtils} from '@fuse';
 import _ from '@lodash';
 

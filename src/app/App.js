@@ -1,4 +1,4 @@
-import './fake-db/fake-db'
+import '@fake-db'
 import React from 'react';
 import {createGenerateClassName, jssPreset} from '@material-ui/core';
 import {FuseAuthorization, FuseLayout, FuseTheme} from '@fuse';
