@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
-import FuseNavVerticalGroup from './FuseNavVerticalGroup';
-import FuseNavVerticalItem from './FuseNavVerticalItem';
-import {Collapse, Icon, IconButton, ListItem, ListItemText} from '@material-ui/core';
-import {withStyles} from '@material-ui/core/styles/index';
+import {withStyles, Collapse, Icon, IconButton, ListItem, ListItemText} from '@material-ui/core';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
-import FuseNavBadge from './../FuseNavBadge';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import FuseNavVerticalGroup from './FuseNavVerticalGroup';
+import FuseNavVerticalItem from './FuseNavVerticalItem';
+import FuseNavBadge from './../FuseNavBadge';
 
 const propTypes = {
     item: PropTypes.shape(

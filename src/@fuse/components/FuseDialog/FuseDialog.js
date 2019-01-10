@@ -1,30 +1,19 @@
-import React, {Component} from 'react';
-import {Dialog, withStyles} from '@material-ui/core';
-import * as Actions from 'store/actions';
+import React from 'react';
+import {Dialog} from '@material-ui/core';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import * as Actions from 'app/store/actions';
 
-const styles = theme => ({
-    root: {}
-});
-
-class FuseDialog extends Component {
-    render()
-    {
-        const {classes} = this.props;
-        return (
-            <Dialog
-                open={this.props.state}
-                onClose={this.props.closeDialog}
-                aria-labelledby="fuse-dialog-title"
-                classes={{
-                    root: classes.root
-                }}
-                {...this.props.options}
-            />
-        );
-    }
-}
+const FuseDialog = (props) => {
+    return (
+        <Dialog
+            open={props.state}
+            onClose={props.closeDialog}
+            aria-labelledby="fuse-dialog-title"
+            {...props.options}
+        />
+    );
+};
 
 function mapDispatchToProps(dispatch)
 {
@@ -41,5 +30,4 @@ function mapStateToProps({fuse})
     }
 }
 
-
-export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(FuseDialog));
+export default connect(mapStateToProps, mapDispatchToProps)(FuseDialog);

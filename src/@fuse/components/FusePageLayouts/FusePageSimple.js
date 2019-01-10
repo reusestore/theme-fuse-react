@@ -1,12 +1,9 @@
 import React from 'react';
-import {withStyles} from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import Hidden from '@material-ui/core/Hidden';
+import {withStyles, MuiThemeProvider, Drawer, Hidden} from '@material-ui/core';
 import classNames from 'classnames';
 import {FuseScrollbars} from '@fuse';
-import {FuseThemes} from '@fuse/index';
-import {MuiThemeProvider} from '@material-ui/core';
 import PropTypes from 'prop-types';
+import connect from 'react-redux/es/connect/connect';
 
 const propTypes = {
     leftSidebarHeader  : PropTypes.node,
@@ -43,22 +40,31 @@ const styles = theme => ({
         height: '100%'
     },
     contentWrapper                : {
-        display      : 'flex',
-        flexDirection: 'row',
-        flex         : '1 1 auto',
-        zIndex       : 2,
-        maxWidth     : '100%',
-        minWidth     : 0,
-        height       : '100%'
+        display        : 'flex',
+        flexDirection  : 'row',
+        flex           : '1 1 auto',
+        zIndex         : 2,
+        maxWidth       : '100%',
+        minWidth       : 0,
+        height         : '100%',
+        backgroundColor: theme.palette.background.default
     },
     header                        : {
         height         : headerHeight,
         minHeight      : headerHeight,
         display        : 'flex',
-        // backgroundImage: 'url("../../assets/images/backgrounds/header-bg.png")',
-        backgroundColor: theme.palette.primary.dark,
+        background     : 'linear-gradient(to right, ' + theme.palette.primary.dark + ' 0%, ' + theme.palette.primary.main + ' 100%)',
         color          : theme.palette.primary.contrastText,
-        backgroundSize : 'cover'
+        backgroundSize : 'cover',
+        backgroundColor: theme.palette.primary.dark
+    },
+    topBg                         : {
+        position     : 'absolute',
+        left         : 0,
+        right        : 0,
+        top          : 0,
+        height       : headerHeight,
+        pointerEvents: 'none'
     },
     headerSidebarToggleButton     : {
         color: theme.palette.primary.contrastText
@@ -87,18 +93,15 @@ const styles = theme => ({
         display                     : 'flex',
         flexDirection               : 'column',
         flex                        : '1 1 auto',
-        boxShadow                   : theme.shadows[1],
         overflow                    : 'auto',
         '-webkit-overflow-scrolling': 'touch',
         zIndex                      : 9999
     },
     toolbar                       : {
-        height         : toolbarHeight,
-        minHeight      : toolbarHeight,
-        display        : 'flex',
-        alignItems     : 'center',
-        borderBottom   : '1px solid rgba(0,0,0,0.12)',
-        backgroundColor: theme.palette.background.paper
+        height    : toolbarHeight,
+        minHeight : toolbarHeight,
+        display   : 'flex',
+        alignItems: 'center'
     },
     content                       : {
         flex: '1 0 auto'
@@ -117,16 +120,26 @@ const styles = theme => ({
         position     : 'absolute',
         '&.permanent': {
             [theme.breakpoints.up('lg')]: {
-                backgroundColor: 'transparent',
-                position       : 'relative',
-                border         : 'none'
+                backgroundColor: theme.palette.background.default,
+                color          : theme.palette.text.primary,
+                position       : 'relative'
             }
         },
         width        : drawerWidth,
         height       : '100%'
     },
-    leftSidebar                   : {},
-    rightSidebar                  : {},
+    leftSidebar                   : {
+        [theme.breakpoints.up('lg')]: {
+            borderRight: '1px solid ' + theme.palette.divider,
+            borderLeft : 0
+        }
+    },
+    rightSidebar                  : {
+        [theme.breakpoints.up('lg')]: {
+            borderLeft : '1px solid ' + theme.palette.divider,
+            borderRight: 0
+        }
+    },
     sidebarHeader                 : {
         height         : headerHeight,
         minHeight      : headerHeight,
@@ -146,6 +159,7 @@ const styles = theme => ({
 });
 
 class FusePageSimple extends React.Component {
+
     state = {
         leftSidebar : false,
         rightSidebar: false
@@ -185,14 +199,14 @@ class FusePageSimple extends React.Component {
 
     render()
     {
-        const {classes, leftSidebarHeader, leftSidebarContent, leftSidebarVariant, rightSidebarHeader, rightSidebarContent, rightSidebarVariant, header, content, contentToolbar, sidebarInner, innerScroll} = this.props;
+        const {classes, mainThemeDark, leftSidebarHeader, leftSidebarContent, leftSidebarVariant, rightSidebarHeader, rightSidebarContent, rightSidebarVariant, header, content, contentToolbar, sidebarInner, innerScroll} = this.props;
         const isRightSidebar = rightSidebarHeader || rightSidebarContent;
         const isLeftSidebar = leftSidebarHeader || leftSidebarContent;
 
         const Sidebar = (header, content, variant) => (
             <FuseScrollbars enable={innerScroll}>
                 {header && (
-                    <MuiThemeProvider theme={FuseThemes['mainThemeDark']}>
+                    <MuiThemeProvider theme={mainThemeDark}>
                         <div className={classNames(classes.sidebarHeader, variant, sidebarInner && classes.sidebarHeaderInnerSidebar)}>
                             {header}
                         </div>
@@ -254,7 +268,7 @@ class FusePageSimple extends React.Component {
         const headerContent = (
             <div className={classes.header}>
                 {header && (
-                    <MuiThemeProvider theme={FuseThemes['mainThemeDark']}>
+                    <MuiThemeProvider theme={mainThemeDark}>
                         {header}
                     </MuiThemeProvider>
                 )}
@@ -268,37 +282,41 @@ class FusePageSimple extends React.Component {
                     this.root = root;
                 }}
             >
+                <div className={classNames(classes.header, classes.topBg)}/>
 
-                {header && sidebarInner && headerContent}
+                <div className="flex flex-auto flex-col container z-10">
 
-                <div className={classes.contentWrapper}>
+                    {header && sidebarInner && headerContent}
 
-                    {isLeftSidebar && SidebarWrapper(leftSidebarHeader, leftSidebarContent, 'leftSidebar', leftSidebarVariant || 'permanent')}
+                    <div className={classes.contentWrapper}>
 
-                    <FuseScrollbars
-                        className={classNames(classes.contentCardWrapper, sidebarInner && classes.contentCardWrapperInnerSidebar)}
-                        enable={innerScroll && sidebarInner}
-                    >
-                        <FuseScrollbars className={classes.contentCard} enable={innerScroll && !sidebarInner}>
+                        {isLeftSidebar && SidebarWrapper(leftSidebarHeader, leftSidebarContent, 'leftSidebar', leftSidebarVariant || 'permanent')}
 
-                            {header && !sidebarInner && headerContent}
+                        <FuseScrollbars
+                            className={classNames(classes.contentCardWrapper, sidebarInner && classes.contentCardWrapperInnerSidebar)}
+                            enable={innerScroll && sidebarInner}
+                        >
+                            <FuseScrollbars className={classes.contentCard} enable={innerScroll && !sidebarInner}>
 
-                            {contentToolbar && (
-                                <div className={classes.toolbar}>
-                                    {contentToolbar}
-                                </div>
-                            )}
+                                {header && !sidebarInner && headerContent}
 
-                            {content && (
-                                <div className={classes.content}>
-                                    {content}
-                                </div>
-                            )}
+                                {contentToolbar && (
+                                    <div className={classes.toolbar}>
+                                        {contentToolbar}
+                                    </div>
+                                )}
+
+                                {content && (
+                                    <div className={classes.content}>
+                                        {content}
+                                    </div>
+                                )}
+                            </FuseScrollbars>
                         </FuseScrollbars>
-                    </FuseScrollbars>
 
-                    {isRightSidebar && SidebarWrapper(rightSidebarHeader, rightSidebarContent, 'rightSidebar', rightSidebarVariant || 'permanent')}
+                        {isRightSidebar && SidebarWrapper(rightSidebarHeader, rightSidebarContent, 'rightSidebar', rightSidebarVariant || 'permanent')}
 
+                    </div>
                 </div>
             </div>
         );
@@ -308,4 +326,11 @@ class FusePageSimple extends React.Component {
 FusePageSimple.propTypes = propTypes;
 FusePageSimple.defaultProps = defaultProps;
 
-export default withStyles(styles, {withTheme: true})(FusePageSimple);
+function mapStateToProps({fuse})
+{
+    return {
+        mainThemeDark: fuse.settings.mainThemeDark
+    }
+}
+
+export default withStyles(styles, {withTheme: true})(connect(mapStateToProps)(FusePageSimple));

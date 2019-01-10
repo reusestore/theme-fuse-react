@@ -1,6 +1,6 @@
-import {withFormsy} from 'formsy-react';
 import React, {Component} from 'react';
 import {FormControl, FormHelperText, FilledInput, OutlinedInput, InputLabel, Input, Select} from '@material-ui/core';
+import {withFormsy} from 'formsy-react';
 import _ from '@lodash';
 
 class SelectFormsy extends Component {

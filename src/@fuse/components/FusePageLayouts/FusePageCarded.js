@@ -1,11 +1,9 @@
 import React from 'react';
-import {withStyles} from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import Hidden from '@material-ui/core/Hidden';
-import {MuiThemeProvider} from '@material-ui/core';
+import {withStyles, Drawer, Hidden, MuiThemeProvider} from '@material-ui/core';
 import classNames from 'classnames';
-import {FuseScrollbars, FuseThemes} from '@fuse';
+import {FuseScrollbars} from '@fuse';
 import PropTypes from 'prop-types';
+import connect from 'react-redux/es/connect/connect';
 
 const propTypes = {
     rightSidebarHeader : PropTypes.node,
@@ -42,15 +40,14 @@ const styles = theme => ({
         height: '100%'
     },
     topBg                    : {
-        position       : 'absolute',
-        left           : 0,
-        right          : 0,
-        top            : 0,
-        height         : headerHeight,
-        // backgroundImage: 'url("../../assets/images/backgrounds/header-bg.png")',
-        backgroundColor: theme.palette.primary.dark,
-        backgroundSize : 'cover',
-        pointerEvents  : 'none'
+        position      : 'absolute',
+        left          : 0,
+        right         : 0,
+        top           : 0,
+        height        : headerHeight,
+        background    : 'linear-gradient(to right, ' + theme.palette.primary.dark + ' 0%, ' + theme.palette.primary.main + ' 100%)',
+        backgroundSize: 'cover',
+        pointerEvents : 'none'
     },
     contentWrapper           : {
         display                       : 'flex',
@@ -137,6 +134,9 @@ const styles = theme => ({
         }
     },
     sidebarContent           : {
+        display                     : 'flex',
+        flex                        : '1 1 auto',
+        flexDirection               : 'column',
         backgroundColor             : theme.palette.background.default,
         color                       : theme.palette.text.primary,
         [theme.breakpoints.up('lg')]: {
@@ -150,6 +150,7 @@ const styles = theme => ({
 });
 
 class FusePageCarded extends React.Component {
+
     state = {
         leftSidebar : false,
         rightSidebar: false
@@ -189,14 +190,14 @@ class FusePageCarded extends React.Component {
 
     render()
     {
-        const {classes, rightSidebarHeader, rightSidebarContent, rightSidebarVariant, leftSidebarHeader, leftSidebarContent, leftSidebarVariant, header, content, contentToolbar, innerScroll} = this.props;
+        const {classes, mainThemeDark, rightSidebarHeader, rightSidebarContent, rightSidebarVariant, leftSidebarHeader, leftSidebarContent, leftSidebarVariant, header, content, contentToolbar, innerScroll} = this.props;
         const isRightSidebar = rightSidebarHeader || rightSidebarContent;
         const isLeftSidebar = leftSidebarHeader || leftSidebarContent;
 
         const Sidebar = (header, content, variant) => (
             <React.Fragment>
                 {header && (
-                    <MuiThemeProvider theme={FuseThemes['mainThemeDark']}>
+                    <MuiThemeProvider theme={mainThemeDark}>
                         <div className={classNames(classes.sidebarHeader, variant)}>
                             {header}
                         </div>
@@ -261,37 +262,38 @@ class FusePageCarded extends React.Component {
 
                 <div className={classes.topBg}/>
 
-                {isLeftSidebar && SidebarWrapper(leftSidebarHeader, leftSidebarContent, 'leftSidebar', leftSidebarVariant || 'permanent')}
+                <div className="flex container w-full">
+                    {isLeftSidebar && SidebarWrapper(leftSidebarHeader, leftSidebarContent, 'leftSidebar', leftSidebarVariant || 'permanent')}
 
-                <div
-                    className={classNames(classes.contentWrapper, isLeftSidebar && (leftSidebarVariant === undefined || leftSidebarVariant === 'permanent') && 'lg:pl-0', isRightSidebar && (rightSidebarVariant === undefined || rightSidebarVariant === 'permanent') && 'lg:pr-0')}
-                >
-                    <div className={classes.header}>
-                        {header && (
-                            <MuiThemeProvider theme={FuseThemes['mainThemeDark']}>
-                                {header}
-                            </MuiThemeProvider>
-                        )}
+                    <div
+                        className={classNames(classes.contentWrapper, isLeftSidebar && (leftSidebarVariant === undefined || leftSidebarVariant === 'permanent') && 'lg:pl-0', isRightSidebar && (rightSidebarVariant === undefined || rightSidebarVariant === 'permanent') && 'lg:pr-0')}
+                    >
+                        <div className={classes.header}>
+                            {header && (
+                                <MuiThemeProvider theme={mainThemeDark}>
+                                    {header}
+                                </MuiThemeProvider>
+                            )}
+                        </div>
+
+                        <div className={classNames(classes.contentCard, innerScroll && 'inner-scroll')}>
+
+                            {contentToolbar && (
+                                <div className={classes.toolbar}>
+                                    {contentToolbar}
+                                </div>
+                            )}
+
+                            {content && (
+                                <FuseScrollbars className={classes.content} enable={innerScroll}>
+                                    {content}
+                                </FuseScrollbars>
+                            )}
+                        </div>
                     </div>
 
-                    <div className={classNames(classes.contentCard, innerScroll && 'inner-scroll')}>
-
-                        {contentToolbar && (
-                            <div className={classes.toolbar}>
-                                {contentToolbar}
-                            </div>
-                        )}
-
-                        {content && (
-                            <FuseScrollbars className={classes.content} enable={innerScroll}>
-                                {content}
-                            </FuseScrollbars>
-                        )}
-                    </div>
+                    {isRightSidebar && SidebarWrapper(rightSidebarHeader, rightSidebarContent, 'rightSidebar', rightSidebarVariant || 'permanent')}
                 </div>
-
-                {isRightSidebar && SidebarWrapper(rightSidebarHeader, rightSidebarContent, 'rightSidebar', rightSidebarVariant || 'permanent')}
-
             </div>
         );
     }
@@ -300,4 +302,12 @@ class FusePageCarded extends React.Component {
 FusePageCarded.propTypes = propTypes;
 FusePageCarded.defaultProps = defaultProps;
 
-export default withStyles(styles, {withTheme: true})(FusePageCarded);
+
+function mapStateToProps({fuse})
+{
+    return {
+        mainThemeDark: fuse.settings.mainThemeDark
+    }
+}
+
+export default withStyles(styles, {withTheme: true})(connect(mapStateToProps)(FusePageCarded));

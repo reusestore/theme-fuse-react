@@ -1,7 +1,7 @@
 import "react-table/react-table.css";
 import React, {Component} from 'react';
-import {ReactTableDefaults} from 'react-table'
 import {FormControl, FormHelperText, Icon, IconButton, Input, InputAdornment, Menu, MenuItem} from '@material-ui/core';
+import {ReactTableDefaults} from 'react-table'
 import _ from '@lodash';
 
 const filterTypes = [
@@ -27,6 +27,7 @@ const filterTypes = [
 ];
 
 class FilterComponent extends Component {
+
     state = {
         filterType  : 'contains',
         filterValue : '',

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Typography, withStyles} from '@material-ui/core';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 
 const propTypes = {
     endDate   : PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
@@ -18,6 +18,7 @@ const styles = theme => ({
 });
 
 class FuseCountdown extends Component {
+
     state = {
         endDate  : moment.isMoment(this.props.endDate) ? this.props.endDate : moment(this.props.endDate),
         countdown: {

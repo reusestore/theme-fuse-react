@@ -1,5 +1,4 @@
 import React, {PureComponent} from 'react';
-import {withStyles} from '@material-ui/core';
 import * as Prism from 'prismjs';
 import './prism-languages';
 import PropTypes from 'prop-types';
@@ -11,10 +10,6 @@ const propTypes = {
 const defaultProps = {
     component: `code`
 };
-
-const styles = theme => ({
-    root: {}
-});
 
 class FuseHighlight extends PureComponent {
 
@@ -101,4 +96,4 @@ class FuseHighlight extends PureComponent {
 FuseHighlight.propTypes = propTypes;
 FuseHighlight.defaultProps = defaultProps;
 
-export default withStyles(styles)(FuseHighlight);
+export default FuseHighlight;

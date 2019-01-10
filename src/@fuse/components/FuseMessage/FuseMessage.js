@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {Snackbar, IconButton, withStyles, Icon, SnackbarContent} from '@material-ui/core';
 import {green, amber, blue} from '@material-ui/core/colors';
-import * as Actions from 'store/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import classNames from 'classnames';
+import * as Actions from 'app/store/actions';
 
 const styles = theme => ({
     root   : {},
@@ -93,6 +93,5 @@ function mapStateToProps({fuse})
         options: fuse.message.options
     }
 }
-
 
 export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(FuseMessage));

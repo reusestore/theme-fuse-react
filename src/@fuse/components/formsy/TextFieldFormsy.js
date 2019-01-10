@@ -1,6 +1,6 @@
-import {withFormsy} from 'formsy-react';
 import React, {Component} from 'react';
 import {TextField} from '@material-ui/core';
+import {withFormsy} from 'formsy-react';
 import _ from '@lodash';
 
 class TextFieldFormsy extends Component {

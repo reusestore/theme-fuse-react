@@ -1,14 +1,20 @@
 import React, {Component} from 'react';
 import {matchRoutes} from 'react-router-config';
-import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import _ from '@lodash';
+import AppContext from 'app/AppContext';
 
 class FuseAuthorization extends Component {
-    state = {
-        accessGranted: this.hasUserAuthorization(this.props)
-    };
+
+    constructor(props, context)
+    {
+        super(props);
+        const {routes} = context;
+        this.state = {
+            accessGranted: true,
+            routes
+        };
+    }
 
     componentDidMount()
     {
@@ -18,39 +24,31 @@ class FuseAuthorization extends Component {
         }
     }
 
-    UNSAFE_componentWillReceiveProps(nextProps)
+    componentDidUpdate()
     {
-        if (
-            _.isEqual(this.props.location.pathname, nextProps.location.pathname) &&
-            _.isEqual(this.props.user, nextProps.user)
-        )
+        if ( !this.state.accessGranted )
         {
-            return;
+            this.redirectRoute(this.props);
         }
+    }
 
-        const accessGranted = this.hasUserAuthorization(nextProps);
+    static getDerivedStateFromProps(props, state)
+    {
+        const {location, user} = props;
+        const {pathname} = location;
 
-        if ( !accessGranted )
-        {
-            this.redirectRoute(nextProps);
-        }
+        const matched = matchRoutes(state.routes, pathname)[0];
 
-        this.setState({accessGranted});
+        const accessGranted = (matched && matched.route.auth && matched.route.auth.length > 0) ? matched.route.auth.includes(user.role) : true;
+
+        return {
+            accessGranted
+        };
     }
 
     shouldComponentUpdate(nextProps, nextState)
     {
         return nextState.accessGranted !== this.state.accessGranted;
-    }
-
-    hasUserAuthorization(props)
-    {
-        const {location, routes, user} = props;
-        const {pathname} = location;
-
-        const matched = matchRoutes(routes, pathname)[0];
-
-        return (matched && matched.route.auth && matched.route.auth.length > 0) ? matched.route.auth.includes(user.role) : true;
     }
 
     redirectRoute(props)
@@ -83,7 +81,6 @@ class FuseAuthorization extends Component {
         }
     }
 
-
     render()
     {
         const {children} = this.props;
@@ -93,11 +90,6 @@ class FuseAuthorization extends Component {
     }
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({}, dispatch);
-}
-
 function mapStateToProps({fuse, auth})
 {
     return {
@@ -105,4 +97,6 @@ function mapStateToProps({fuse, auth})
     }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FuseAuthorization));
+FuseAuthorization.contextType = AppContext;
+
+export default withRouter(connect(mapStateToProps)(FuseAuthorization));

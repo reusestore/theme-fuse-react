@@ -27,9 +27,7 @@ const FuseAnimateGroup = (props) => {
         leave: leaveAnimationDefaults
     }, props);
 
-    return (
-        <VelocityTransitionGroup {...newProps} children={props.children}/>
-    )
+    return <VelocityTransitionGroup {...newProps} children={props.children}/>
 
 };
 
