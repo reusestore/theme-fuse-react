@@ -1,5 +1,5 @@
 import React from 'react';
-import {withStyles} from '@material-ui/core/styles/index';
+import {withStyles} from '@material-ui/core';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -31,7 +31,6 @@ const styles = theme => ({
 
 function FuseNavBadge({classes, className, badge})
 {
-
     return (
         <div
             className={classNames(classes.root, className)}

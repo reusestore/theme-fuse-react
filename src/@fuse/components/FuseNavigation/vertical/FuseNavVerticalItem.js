@@ -1,13 +1,12 @@
 import React from 'react';
-import {Icon, ListItem, ListItemText} from '@material-ui/core';
-import {withStyles} from '@material-ui/core/styles/index';
+import {withStyles, Icon, ListItem, ListItemText} from '@material-ui/core';
 import {NavLink, withRouter} from 'react-router-dom';
 import classNames from 'classnames';
-import FuseNavBadge from './../FuseNavBadge';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as Actions from 'store/actions';
+import * as Actions from 'app/store/actions';
+import FuseNavBadge from './../FuseNavBadge';
 
 const propTypes = {
     item: PropTypes.shape(

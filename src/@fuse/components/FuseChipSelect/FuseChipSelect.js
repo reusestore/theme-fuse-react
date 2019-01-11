@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
-import Select from 'react-select';
-import CreatableSelect from 'react-select/lib/Creatable';
+import React from 'react';
 import {withStyles, Paper, Chip, Typography, TextField, MenuItem} from '@material-ui/core';
 import {emphasize} from '@material-ui/core/styles/colorManipulator';
+import CreatableSelect from 'react-select/lib/Creatable';
+import Select from 'react-select';
 import classNames from 'classnames';
 
 const styles = theme => ({
@@ -25,7 +25,7 @@ const styles = theme => ({
                 paddingLeft: 12
             },
             '& $chip'          : {
-                border: "1px solid rgba(0, 0, 0, 0.12)"
+                border: '1px solid rgba(0, 0, 0, 0.12)'
             }
         },
         '&.outlined'                : {
@@ -52,7 +52,7 @@ const styles = theme => ({
         minHeight    : 40
     },
     chip            : {
-        margin: "4px 4px 4px 0"
+        margin: '4px 4px 4px 0'
     },
     chipFocused     : {
         backgroundColor: emphasize(
@@ -203,26 +203,22 @@ const components = {
     ValueContainer
 };
 
-class FuseChipSelect extends Component {
-
-    render()
-    {
-        return (
-            this.props.variant === 'fixed' ? (
-                <Select
-                    classNamePrefix="fuse-chip-select"
-                    {...this.props}
-                    components={components}
-                />
-            ) : (
-                <CreatableSelect
-                    classNamePrefix="fuse-chip-select"
-                    {...this.props}
-                    components={components}
-                />
-            )
-        );
-    }
-}
+const FuseChipSelect = (props) => {
+    return (
+        props.variant === 'fixed' ? (
+            <Select
+                classNamePrefix="fuse-chip-select"
+                {...props}
+                components={components}
+            />
+        ) : (
+            <CreatableSelect
+                classNamePrefix="fuse-chip-select"
+                {...props}
+                components={components}
+            />
+        )
+    );
+};
 
 export default withStyles(styles, {withTheme: true})(FuseChipSelect);

@@ -19,6 +19,7 @@ const styles = theme => ({
 });
 
 class FuseExample extends PureComponent {
+
     state = {
         value: this.props.currentTabIndex
     };

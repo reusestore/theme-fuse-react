@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
+import {withStyles} from '@material-ui/core';
 import PerfectScrollbar from 'perfect-scrollbar';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
 import {bindActionCreators} from 'redux';
-import {withStyles} from '@material-ui/core/styles/index';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
@@ -147,12 +147,13 @@ class FuseScrollbars extends Component {
 
     render()
     {
-        const {children, className, customScrollbars, enable} = this.props;
+        const {children, className, customScrollbars, enable, id} = this.props;
 
         return (
             customScrollbars && enable && !isMobile ?
                 (
                     <div
+                        id={id}
                         className={className}
                         style={{
                             position: 'relative',
@@ -165,7 +166,7 @@ class FuseScrollbars extends Component {
                 )
                 :
                 (
-                    <div className={this.props.className} ref={this.handleRef}>
+                    <div id={id} className={this.props.className} ref={this.handleRef}>
                         {this.props.children}
                     </div>
                 )

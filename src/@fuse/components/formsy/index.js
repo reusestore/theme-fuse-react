@@ -1,4 +1,4 @@
-export {default as TextFieldFormsy} from '@fuse/components/formsy/TextFieldFormsy';
-export {default as CheckboxFormsy} from '@fuse/components/formsy/CheckboxFormsy';
-export {default as RadioGroupFormsy} from '@fuse/components/formsy/RadioGroupFormsy';
-export {default as SelectFormsy} from '@fuse/components/formsy/SelectFormsy';
+export {default as TextFieldFormsy} from './TextFieldFormsy';
+export {default as CheckboxFormsy} from './CheckboxFormsy';
+export {default as RadioGroupFormsy} from './RadioGroupFormsy';
+export {default as SelectFormsy} from './SelectFormsy';

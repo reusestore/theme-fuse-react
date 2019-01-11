@@ -1,15 +1,10 @@
 import React from 'react';
+import {withStyles, createGenerateClassName, jssPreset, MuiThemeProvider} from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import {create} from 'jss';
-import {
-    withStyles,
-    createGenerateClassName,
-    jssPreset,
-    MuiThemeProvider
-} from '@material-ui/core/styles';
-import Frame from 'react-frame-component';
 import JssProvider from 'react-jss/lib/JssProvider';
 import jssExtend from 'jss-extend';
+import Frame from 'react-frame-component';
 
 const styles = theme => ({
     root: {
@@ -22,10 +17,11 @@ const styles = theme => ({
 });
 
 const generateClassName = createGenerateClassName({
-    productionPrefix: 'iframe-',
+    productionPrefix: 'iframe-'
 });
 
 class DemoFrame extends React.Component {
+
     state = {
         ready: false
     };
@@ -63,7 +59,7 @@ class DemoFrame extends React.Component {
                 `
                 }}
                 />
-                <noscript id="jss-demo-insertion-point"></noscript>
+                <noscript id="jss-demo-insertion-point"/>
             </React.Fragment>
         )
     };
@@ -71,7 +67,6 @@ class DemoFrame extends React.Component {
     render()
     {
         const {children, classes, theme} = this.props;
-
 
         const inIframe = this.state.ready ? (
             <JssProvider

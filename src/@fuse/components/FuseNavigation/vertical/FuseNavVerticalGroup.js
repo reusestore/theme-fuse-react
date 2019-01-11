@@ -1,11 +1,11 @@
 import React from 'react';
-import FuseNavVerticalCollapse from './FuseNavVerticalCollapse';
-import FuseNavVerticalItem from './FuseNavVerticalItem';
 import {ListSubheader, withStyles} from '@material-ui/core';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import FuseNavVerticalCollapse from './FuseNavVerticalCollapse';
+import FuseNavVerticalItem from './FuseNavVerticalItem';
 
 const propTypes = {
     item: PropTypes.shape(
