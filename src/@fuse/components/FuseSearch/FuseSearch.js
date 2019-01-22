@@ -8,6 +8,7 @@ import parse from 'autosuggest-highlight/parse';
 import {withRouter} from 'react-router-dom';
 import deburr from 'lodash/deburr';
 import Autosuggest from 'react-autosuggest';
+import _ from '@lodash';
 
 const propTypes = {};
 
@@ -174,6 +175,14 @@ class FuseSearch extends Component {
         noSuggestions : false
     };
 
+    componentDidUpdate(prevProps, prevState)
+    {
+        if ( !_.isEqual(this.props.userRole, prevProps.userRole) )
+        {
+            this.flattenNavigation(this.props.navigation);
+        }
+    }
+
     componentDidMount()
     {
         this.flattenNavigation(this.props.navigation);
@@ -199,9 +208,15 @@ class FuseSearch extends Component {
         }
     };
 
+    itemAuthAllowed = (item) => {
+        return !(item.auth && (!item.auth.includes(this.props.userRole) || (this.props.userRole !== 'guest' && item.auth.length === 1 && item.auth.includes('guest'))))
+    };
+
     flattenNavigation(navigation)
     {
-        this.setState({flatNavigation: FuseUtils.getFlatNavigation(navigation)})
+        const flatNavigation = FuseUtils.getFlatNavigation(navigation).filter(item => this.itemAuthAllowed(item));
+
+        this.setState({flatNavigation})
     }
 
     handleSuggestionsFetchRequested = ({value}) => {
@@ -400,10 +415,11 @@ class FuseSearch extends Component {
     }
 }
 
-function mapStateToProps({fuse})
+function mapStateToProps({fuse, auth})
 {
     return {
-        navigation: fuse.navigation
+        navigation: fuse.navigation,
+        userRole  : auth.user.role
     }
 }
 

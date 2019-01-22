@@ -12,7 +12,7 @@ components: MobileStepper, Step, StepButton, StepConnector, StepContent, StepIco
 
 - 可编辑
 - 不可编辑
-- 可移动
+- Mobile
 - 可选的
 
 **步进器类型**
@@ -21,6 +21,8 @@ components: MobileStepper, Step, StepButton, StepConnector, StepContent, StepIco
 - 垂直的
 - 线状
 - 非线性的
+
+> **注意：材料设计文档中不再记录** 步进器。
 
 ## 水平的步进器
 
@@ -60,7 +62,11 @@ components: MobileStepper, Step, StepButton, StepConnector, StepContent, StepIco
 
 ## 定制步进器
 
+如果您有阅读[重写样式文档页面](/customization/overrides/) 但你还不是很自信能够完全掌握， 以下是如何更改一个消息条(Stepperr)的主要颜色的示例
+
 此组件使用自定义的 `StepConnector` 元素, 它根据 `active` 更改边框颜色, 并 ` completed ` 状态。
+
+⚠️虽然材料设计规范鼓励主题，但这些例子是不合适的。
 
 {{"demo": "pages/demos/steppers/CustomizedStepper.js"}}
 

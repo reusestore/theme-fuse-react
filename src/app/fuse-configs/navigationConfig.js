@@ -136,6 +136,13 @@ const navigationConfig = [
                 'type' : 'item',
                 'icon' : 'assessment',
                 'url'  : '/apps/scrumboard'
+            },
+            {
+                'id'   : 'notes',
+                'title': 'Notes',
+                'type' : 'item',
+                'icon' : 'note',
+                'url'  : '/apps/notes'
             }
         ]
     },
@@ -696,7 +703,7 @@ const navigationConfig = [
                 'icon' : 'history',
                 'url'  : '/documentation/changelog',
                 'badge': {
-                    'title': '2.0.0',
+                    'title': '2.1.0',
                     'bg'   : 'rgb(236, 12, 142)',
                     'fg'   : '#FFFFFF'
                 }

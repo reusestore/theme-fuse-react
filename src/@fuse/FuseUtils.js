@@ -235,7 +235,8 @@ class FuseUtils {
                     title: navItem.title,
                     type : navItem.type,
                     icon : navItem.icon || false,
-                    url  : navItem.url
+                    url  : navItem.url,
+                    auth : navItem.auth || null
                 });
 
                 continue;

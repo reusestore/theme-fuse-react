@@ -188,7 +188,7 @@ import Button from '@material-ui/core/Button';
 </Button>
 `}
                     </FuseHighlight>
-                    <Typography className="mb-16" component="div">or if you want to avoid properties collisions:</Typography>
+                    <Typography className="mb-16" component="div">or if you want to avoid properties collision:</Typography>
 
                     <FuseHighlight component="pre" className="language-jsx">
                         {`
@@ -203,7 +203,7 @@ const MyLink = props => <Link to="/open-collective" {...props} />
 `}
                     </FuseHighlight>
                     <Typography className="mb-16" component="div"><em>Note: Creating <code>MyLink</code> is necessary to prevent unexpected unmounting. You can read more about it
-                        in our <a href="/guides/composition/#component-property">composition guide</a>.</em></Typography>
+                        in our <a href="/guides/composition/#component-property">component property guide</a>.</em></Typography>
 
                 </div>
             }

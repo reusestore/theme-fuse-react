@@ -15,6 +15,49 @@ const ChangelogDoc = () => {
 
                     <div>
                         <div className="flex items-center mb-32 mt-48">
+                            <Typography className="text-28" component="h2">v2.1.0</Typography>
+                            <Typography className="text-16 ml-8" color="textSecondary" component="h3">(2019-01-22)</Typography>
+                        </div>
+                        <div className="mb-24">
+                            <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">
+                                NEW:
+                            </Typography>
+                            <ul>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Notes App Added.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Dependency packages updated.
+                                    </Typography>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div className="mb-24">
+                            <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">
+                                FIX:
+                            </Typography>
+                            <ul>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        dir-glob error is fixed with globby 8.0.2 via locking it's version. (This error only occurs when you use npm to install node_modules instead
+                                        of yarn).
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        FuseSearch did not hide auth protected navigation items.
+                                    </Typography>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div className="flex items-center mb-32 mt-48">
                             <Typography className="text-28" component="h2">v2.0.0</Typography>
                             <Typography className="text-16 ml-8" color="textSecondary"
                                         component="h3">(2019-01-11)</Typography>
