@@ -30,7 +30,7 @@ function Badges({classes})
                             <Icon className="text-16" color="action">chevron_right</Icon>
                             <Typography color="textSecondary">Material UI Elements</Typography>
                         </div>
-                        <Typography variant="h6">Badge</Typography>
+                        <Typography variant="h6">Badges</Typography>
                     </div>
                     <Button
                         className="normal-case"
@@ -46,7 +46,7 @@ function Badges({classes})
             }
             content={
                 <div className="p-24 max-w-2xl mx-auto">
-                    <Typography className="text-44 mt-32 mb-8" component="h1">Badge</Typography>
+                    <Typography className="text-44 mt-32 mb-8" component="h1">Badges</Typography>
                     <Typography className="description">Badge generates a small badge to the top-right of its child(ren).</Typography>
 
                     <Typography className="text-32 mt-32 mb-8" component="h2">Simple Badges</Typography>
@@ -58,8 +58,27 @@ function Badges({classes})
                         component={require('app/main/components/material-ui/material-ui-examples/badges/SimpleBadge.js').default}
                         raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/badges/SimpleBadge.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Maximum Value</Typography>
+                    <Typography className="mb-16" component="div">You can use the <code>max</code> property to cap the value of the badge content.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/components/material-ui/material-ui-examples/badges/BadgeMax.js').default}
+                        raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/badges/BadgeMax.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Dot Badge</Typography>
+                    <Typography className="mb-16" component="div">The <code>dot</code> property changes a badge into a small dot. This can be used as a notification that something
+                        has changed without giving a count.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/components/material-ui/material-ui-examples/badges/DotBadge.js').default}
+                        raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/badges/DotBadge.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Badge visibility</Typography>
                     <Typography className="mb-16" component="div">The visibility of badges can be controlled using the <code>invisible</code> property.</Typography>
+                    <Typography className="mb-16" component="div">The badge auto hides with badgeContent is zero. You can override this with
+                        the <code>showZero</code> property.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}

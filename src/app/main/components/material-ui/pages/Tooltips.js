@@ -79,6 +79,26 @@ function Tooltips({classes})
                         component={require('app/main/components/material-ui/material-ui-examples/tooltips/CustomizedTooltips.js').default}
                         raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/tooltips/CustomizedTooltips.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Custom child element</Typography>
+                    <Typography className="mb-16" component="div">The tooltip needs to apply DOM event listeners to its child element.
+                        If the child is a custom React element, you need to make sure that it spreads its properties to the underlying DOM element.</Typography>
+
+                    <FuseHighlight component="pre" className="language-jsx">
+                        {`
+function MyComponent(props) {
+  // We spread the properties to the underlying DOM element.
+  return <div {...props}>Bin</div>
+}
+
+// ...
+
+<Tooltip title="Delete">
+  <MyComponent>
+</Tooltip>
+`}
+                    </FuseHighlight>
+                    <Typography className="mb-16" component="div">You can find a similar concept in the <a href="/guides/composition/#wrapping-components">wrapping
+                        components</a> guide.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Triggers</Typography>
                     <Typography className="mb-16" component="div">You can define the types of events that cause a tooltip to show.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -114,7 +134,7 @@ function Tooltips({classes})
                         raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/tooltips/InteractiveTooltips.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Disabled Elements</Typography>
-                    <Typography className="mb-16" component="div">By default disabled elements like <code>Button</code> do not trigger user interactions so
+                    <Typography className="mb-16" component="div">By default disabled elements like <code>&lt;button&gt;</code> do not trigger user interactions so
                         a <code>Tooltip</code> will not activate on normal events like hover. To accommodate disabled elements, add a simple wrapper element like
                         a <code>span</code>.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
