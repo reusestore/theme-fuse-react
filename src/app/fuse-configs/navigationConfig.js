@@ -136,6 +136,13 @@ const navigationConfig = [
                 'type' : 'item',
                 'icon' : 'assessment',
                 'url'  : '/apps/scrumboard'
+            },
+            {
+                'id'   : 'notes',
+                'title': 'Notes',
+                'type' : 'item',
+                'icon' : 'note',
+                'url'  : '/apps/notes'
             }
         ]
     },

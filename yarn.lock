@@ -10090,6 +10090,11 @@ react-loadable@5.5.0:
   dependencies:
     prop-types "^15.5.0"
 
+react-masonry-css@^1.0.12:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/react-masonry-css/-/react-masonry-css-1.0.12.tgz#e252a74c0e6d5272f759588232487d707608298a"
+  integrity sha512-tDO4dJugSLorlsqZ7WD/yW+OGIWFhUdrSv3VeGYOaFwqwwYwdcXOHh/rsu1PItb/kkmA8iQmpVcweKcZ6RIjmQ==
+
 react-number-format@4.0.6:
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/react-number-format/-/react-number-format-4.0.6.tgz#3cdfc48f5fc106edb3cf1d767d320348aa857f6a"
