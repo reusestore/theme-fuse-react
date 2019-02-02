@@ -11,6 +11,7 @@ import './db/faq-db';
 import './db/knowledge-base-db';
 import './db/icons-db';
 import './db/analytics-dashboard-db';
+import './db/project-dashboard-db';
 import './db/quick-panel-db';
 import './db/auth-db';
 import './db/chat-db';

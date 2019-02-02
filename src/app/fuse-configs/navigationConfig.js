@@ -19,6 +19,12 @@ const navigationConfig = [
                         'title': 'Analytics',
                         'type' : 'item',
                         'url'  : '/apps/dashboards/analytics'
+                    },
+                    {
+                        'id'   : 'project-dashboard',
+                        'title': 'Project',
+                        'type' : 'item',
+                        'url'  : '/apps/dashboards/project'
                     }
                 ]
             },
@@ -925,7 +931,7 @@ const navigationConfig = [
                         'id'   : 'test-item-level-1',
                         'title': 'Test Item Level 1',
                         'type' : 'item',
-                        'url'  : '/apps/dashboards/project'
+                        'url'  : '#'
                     },
                     {
                         'id'      : 'test-collapse-2',
@@ -936,7 +942,7 @@ const navigationConfig = [
                                 'id'   : 'test-item-level-2',
                                 'title': 'Test Item Level 2',
                                 'type' : 'item',
-                                'url'  : '/apps/dashboards/project'
+                                'url'  : '#'
                             },
                             {
                                 'id'      : 'test-collapse-level-3',
@@ -947,7 +953,7 @@ const navigationConfig = [
                                         'id'   : 'test-item-level-3',
                                         'title': 'Test Item Level 3',
                                         'type' : 'item',
-                                        'url'  : '/apps/dashboards/project'
+                                        'url'  : '#'
                                     },
                                     {
                                         'id'      : 'test-collapse-level-4',
@@ -958,7 +964,7 @@ const navigationConfig = [
                                                 'id'   : 'test-item-level-4',
                                                 'title': 'Test Item Level 4',
                                                 'type' : 'item',
-                                                'url'  : '/apps/dashboards/project'
+                                                'url'  : '#'
                                             }
                                         ]
                                     }
@@ -981,7 +987,7 @@ const navigationConfig = [
                                         'id'   : 'test-item-level-2-',
                                         'title': 'Test Item Level 2',
                                         'type' : 'item',
-                                        'url'  : '/apps/dashboards/project'
+                                        'url'  : '#'
                                     }
                                 ]
                             }
