@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import { Typography, Paper } from '@material-ui/core';
-import { Doughnut } from 'react-chartjs-2';
+import React, {Component} from 'react';
+import {Typography, Paper} from '@material-ui/core';
+import {Doughnut} from 'react-chartjs-2';
 
-class Widget8 extends Component
-{
+class Widget8 extends Component {
     render()
     {
         const {widget} = this.props;

@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
-import { Typography, Select, Paper, Divider } from '@material-ui/core';
-import { Line } from 'react-chartjs-2';
+import React, {Component} from 'react';
+import {Typography, Select, Paper, Divider} from '@material-ui/core';
+import {Line} from 'react-chartjs-2';
 import _ from 'lodash';
 
-class Widget9 extends Component
-{
+class Widget9 extends Component {
     state = {
         currentRange: this.props.widget.currentRange
     };
 
-    handleChangeSelect = (ev) =>
-    {
+    handleChangeSelect = (ev) => {
         this.setState({[ev.target.name]: ev.target.value});
     };
 
@@ -34,8 +32,7 @@ class Widget9 extends Component
                         }}
                         disableUnderline={true}
                     >
-                        {Object.entries(widget.ranges).map(([key, n]) =>
-                        {
+                        {Object.entries(widget.ranges).map(([key, n]) => {
                             return (
                                 <option key={key} value={key}>{n}</option>
                             )

@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import { Icon, Typography, Paper, IconButton } from '@material-ui/core';
+import React, {Component} from 'react';
+import {Icon, Typography, Paper, IconButton} from '@material-ui/core';
 import moment from 'moment';
 
-class WidgetNow extends Component
-{
+class WidgetNow extends Component {
     state = {
         time: moment()
     };
@@ -13,8 +12,7 @@ class WidgetNow extends Component
         this.timer = setInterval(this.update, 1000)
     }
 
-    update = () =>
-    {
+    update = () => {
         this.setState({
             time: moment()
         })

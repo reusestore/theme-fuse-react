@@ -7,7 +7,7 @@ const widgetsReducer = function (state = initialState, action) {
     {
         case Actions.GET_WIDGETS:
             return {
-               ...action.payload
+                ...action.payload
             };
         default:
             return state;

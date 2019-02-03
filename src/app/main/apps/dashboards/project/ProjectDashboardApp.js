@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Menu, MenuItem, Hidden, Icon, IconButton, Tab, Tabs, Typography, withStyles } from '@material-ui/core';
-import { FuseAnimateGroup, FusePageSimple } from '@fuse';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom'
-import { bindActionCreators } from 'redux';
+import React, {Component} from 'react';
+import {Menu, MenuItem, Hidden, Icon, IconButton, Tab, Tabs, Typography, withStyles} from '@material-ui/core';
+import {FuseAnimateGroup, FusePageSimple} from '@fuse';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom'
+import {bindActionCreators} from 'redux';
 import withReducer from 'app/store/withReducer';
 import * as Actions from './store/actions'
 import reducer from './store/reducers';
@@ -37,34 +37,29 @@ const styles = theme => ({
     }
 });
 
-class ProjectDashboardApp extends Component
-{
+class ProjectDashboardApp extends Component {
     state = {
         tabValue         : 0,
         selectedProjectId: 1,
         projectMenuEl    : null
     };
 
-    handleChangeTab = (event, tabValue) =>
-    {
+    handleChangeTab = (event, tabValue) => {
         this.setState({tabValue});
     };
 
-    handleChangeProject = selectedProjectId =>
-    {
+    handleChangeProject = selectedProjectId => {
         this.setState({
             selectedProjectId,
             projectMenuEl: null
         });
     };
 
-    handleOpenProjectMenu = event =>
-    {
+    handleOpenProjectMenu = event => {
         this.setState({projectMenuEl: event.currentTarget});
     };
 
-    handleCloseProjectMenu = () =>
-    {
+    handleCloseProjectMenu = () => {
         this.setState({projectMenuEl: null});
     };
 
@@ -124,8 +119,7 @@ class ProjectDashboardApp extends Component
                                     onClose={this.handleCloseProjectMenu}
                                 >
                                     {projects && projects.map(project => (
-                                        <MenuItem key={project.id} onClick={ev =>
-                                        {
+                                        <MenuItem key={project.id} onClick={ev => {
                                             this.handleChangeProject(project.id)
                                         }}>{project.name}</MenuItem>
                                     ))}
@@ -229,8 +223,7 @@ class ProjectDashboardApp extends Component
                         </div>
                     </FuseAnimateGroup>
                 }
-                onRef={instance =>
-                {
+                onRef={instance => {
                     this.pageLayout = instance;
                 }}
             />

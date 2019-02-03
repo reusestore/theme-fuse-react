@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import { Icon, Typography, Paper, IconButton } from '@material-ui/core';
+import React, {Component} from 'react';
+import {Icon, Typography, Paper, IconButton} from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
 
-class WidgetWeather extends Component
-{
+class WidgetWeather extends Component {
     render()
     {
         const {widget} = this.props;

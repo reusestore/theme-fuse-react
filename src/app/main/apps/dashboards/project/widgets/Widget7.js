@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
-import { Typography, Select, Paper, List, ListItem, ListItemText, ListItemSecondaryAction, IconButton, Icon } from '@material-ui/core';
+import React, {Component} from 'react';
+import {Typography, Select, Paper, List, ListItem, ListItemText, ListItemSecondaryAction, IconButton, Icon} from '@material-ui/core';
 
-class Widget7 extends Component
-{
+class Widget7 extends Component {
     state = {
         currentRange: this.props.widget.currentRange
     };
 
-    handleChangeSelect = (ev) =>
-    {
+    handleChangeSelect = (ev) => {
         this.setState({[ev.target.name]: ev.target.value});
     };
 
@@ -31,8 +29,7 @@ class Widget7 extends Component
                         }}
                         disableUnderline={true}
                     >
-                        {Object.entries(widget.ranges).map(([key, n]) =>
-                        {
+                        {Object.entries(widget.ranges).map(([key, n]) => {
                             return (
                                 <option key={key} value={key}>{n}</option>
                             )

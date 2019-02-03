@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-import { Avatar, Table, TableHead, TableCell, TableRow, Typography, Paper, TableBody } from '@material-ui/core';
+import React, {Component} from 'react';
+import {Avatar, Table, TableHead, TableCell, TableRow, Typography, Paper, TableBody} from '@material-ui/core';
 
-class Widget11 extends Component
-{
+class Widget11 extends Component {
     render()
     {
         const {widget} = this.props;
@@ -17,8 +16,7 @@ class Widget11 extends Component
                     <Table className="w-full min-w-full" padding="dense">
                         <TableHead>
                             <TableRow>
-                                {widget.table.columns.map(column =>
-                                {
+                                {widget.table.columns.map(column => {
                                     switch ( column.id )
                                     {
                                         case 'avatar':
@@ -50,8 +48,7 @@ class Widget11 extends Component
                         <TableBody>
                             {widget.table.rows.map(row => (
                                 <TableRow key={row.id}>
-                                    {row.cells.map(cell =>
-                                        {
+                                    {row.cells.map(cell => {
                                             switch ( cell.id )
                                             {
                                                 case 'avatar':

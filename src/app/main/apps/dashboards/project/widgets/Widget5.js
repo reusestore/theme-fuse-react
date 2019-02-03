@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
-import { Typography, Paper, Button } from '@material-ui/core';
-import { Bar, Line } from 'react-chartjs-2';
+import React, {Component} from 'react';
+import {Typography, Paper, Button} from '@material-ui/core';
+import {Bar, Line} from 'react-chartjs-2';
 import _ from 'lodash';
 
-class Widget5 extends Component
-{
+class Widget5 extends Component {
     state = {
         currentRange: 'TW'
     };
 
-    handleChangeRange = (currentRange) =>
-    {
+    handleChangeRange = (currentRange) => {
         this.setState({currentRange});
     };
 
@@ -25,8 +23,7 @@ class Widget5 extends Component
                 <div className="flex items-center justify-between px-16 py-16 border-b-1">
                     <Typography className="text-16">{widget.title}</Typography>
                     <div className="items-center">
-                        {Object.entries(widget.ranges).map(([key, n]) =>
-                        {
+                        {Object.entries(widget.ranges).map(([key, n]) => {
                             return (
                                 <Button
                                     key={key}
@@ -52,8 +49,7 @@ class Widget5 extends Component
                         />
                     </div>
                     <div className="flex w-full md:w-1/2 flex-wrap p-8">
-                        {Object.entries(widget.supporting).map(([key, item]) =>
-                        {
+                        {Object.entries(widget.supporting).map(([key, item]) => {
                             return (
                                 <div key={key} className="w-full sm:w-1/2 p-12">
                                     <Typography className="text-15 whitespace-no-wrap" color="textSecondary">{item.label}</Typography>

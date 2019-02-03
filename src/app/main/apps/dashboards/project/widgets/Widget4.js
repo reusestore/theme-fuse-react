@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-import { Icon, Typography, Paper, IconButton } from '@material-ui/core';
+import React, {Component} from 'react';
+import {Icon, Typography, Paper, IconButton} from '@material-ui/core';
 
-class Widget4 extends Component
-{
+class Widget4 extends Component {
     render()
     {
         const {widget} = this.props;

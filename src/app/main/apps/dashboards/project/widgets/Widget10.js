@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import { Icon, Table, TableHead, TableCell, TableRow, Typography, Paper, TableBody } from '@material-ui/core';
+import React, {Component} from 'react';
+import {Icon, Table, TableHead, TableCell, TableRow, Typography, Paper, TableBody} from '@material-ui/core';
 import classNames from 'classnames';
 
-class Widget10 extends Component
-{
+class Widget10 extends Component {
     render()
     {
         const {widget} = this.props;
@@ -27,8 +26,7 @@ class Widget10 extends Component
                         <TableBody>
                             {widget.table.rows.map(row => (
                                 <TableRow key={row.id}>
-                                    {row.cells.map(cell =>
-                                        {
+                                    {row.cells.map(cell => {
                                             switch ( cell.id )
                                             {
                                                 case 'budget_type':
