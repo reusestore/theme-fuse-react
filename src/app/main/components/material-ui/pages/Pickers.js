@@ -54,13 +54,10 @@ function Pickers({classes})
                         <li>For inline display, such as on a form, consider using compact controls such as segmented dropdown buttons.</li>
                     </ul>
                     <Typography className="text-16 mt-32 mb-8" component="h4">Notice</Typography>
-                    <Typography className="mb-16" component="div">We are falling back to <strong>native input controls</strong>.
-                        If you are interested in implementing or have implemented a rich Material Design Picker with an awesome UX, please, let us know on <a
-                            href="https://github.com/mui-org/material-ui/issues/4787">#4787</a> and <a href="https://github.com/mui-org/material-ui/issues/4796">#4796</a>! We could
-                        add <a href="#complementary-projects">a link to or a demo</a> of your project in the documentation.</Typography>
-                    <Typography className="mb-16" component="div">
-                        <span role="img" aria-label="unicode-symbol">⚠</span>
-                        Native input controls support by browsers <a href="https://caniuse.com/#feat=input-datetime">isn&#39;t perfect</a>.</Typography>
+                    <Typography className="mb-16" component="div">We are falling back to <strong>native input controls</strong>.</Typography>
+                    <Typography className="mb-16" component="div"><span role="img" aria-label="unicode-symbol">⚠</span> Native input controls support by browsers <a
+                        href="https://caniuse.com/#feat=input-datetime">isn&#39;t perfect</a>.
+                        Have a look at the <a href="#complementary-projects">complementary projects</a> for richer solutions.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Date pickers</Typography>
                     <Typography className="mb-16" component="div">A native date picker example with <code>type=&quot;date&quot;</code>, it can be used as a calendar
                         too.</Typography>

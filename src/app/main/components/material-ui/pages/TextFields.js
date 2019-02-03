@@ -110,9 +110,8 @@ function TextFields({classes})
                     <Typography className="text-32 mt-32 mb-8" component="h2">Customized inputs</Typography>
                     <Typography className="mb-16" component="div">If you have been reading the <a href="/customization/overrides/">overrides documentation page</a>
                         but you are not confident jumping in, here&#39;s an example of how you can change the main color of an Input.</Typography>
-                    <Typography className="mb-16" component="div">
-                        <span role="img" aria-label="unicode-symbol">⚠</span>
-                        While the material design specification encourages theming, these examples are off the beaten path.</Typography>
+                    <Typography className="mb-16" component="div"><span role="img" aria-label="unicode-symbol">⚠</span> While the material design specification encourages theming,
+                        these examples are off the beaten path.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -205,6 +204,33 @@ function TextFields({classes})
                         component={require('app/main/components/material-ui/material-ui-examples/text-fields/FormattedInputs.js').default}
                         raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/text-fields/FormattedInputs.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
+                    <Typography className="mb-16" component="div">In order for the text field to be accessible, <strong>the input should be linked to the label and the helper
+                        text</strong>. The underlying DOM nodes should have this structure.</Typography>
+
+                    <FuseHighlight component="pre" className="language-jsx">
+                        {`
+<div className="form-control">
+  <label for="my-input">Email address</label>
+  <input id="my-input" aria-describedby="my-helper-text" />
+  <span id="my-helper-text">We'll never share your email.</span>
+</div>
+`}
+                    </FuseHighlight>
+                    <ul>
+                        <li>If you are using the <code>TextField</code> component, you just have to provide a unique <code>id</code>.</li>
+                        <li>If you are composing the component:</li>
+                    </ul>
+
+                    <FuseHighlight component="pre" className="language-jsx">
+                        {`
+<FormControl>
+  <InputLabel htmlFor="my-input">Email address</InputLabel>
+  <Input id="my-input" aria-describedby="my-helper-text" />
+  <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
+</FormControl>
+`}
+                    </FuseHighlight>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Complementary projects</Typography>
                     <Typography className="mb-16" component="div">For more advanced use cases you might be able to take advantage of:</Typography>
                     <ul>

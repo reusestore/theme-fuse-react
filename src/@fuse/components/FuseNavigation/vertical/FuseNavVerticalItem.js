@@ -87,7 +87,7 @@ function mapDispatchToProps(dispatch)
     }, dispatch);
 }
 
-function mapStateToProps({auth, fuse})
+function mapStateToProps({auth})
 {
     return {
         userRole: auth.user.role

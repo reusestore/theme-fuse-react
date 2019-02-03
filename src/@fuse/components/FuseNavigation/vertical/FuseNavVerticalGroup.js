@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import FuseNavVerticalCollapse from './FuseNavVerticalCollapse';
 import FuseNavVerticalItem from './FuseNavVerticalItem';
+import FuseNavVerticalLink from './FuseNavVerticalLink';
 
 const propTypes = {
     item: PropTypes.shape(
@@ -63,6 +64,10 @@ function FuseNavVerticalGroup({classes, item, nestedLevel, userRole, active})
 
                                 {item.type === 'item' && (
                                     <FuseNavVerticalItem item={item} nestedLevel={nestedLevel} active={active}/>
+                                )}
+
+                                {item.type === 'link' && (
+                                    <FuseNavVerticalLink item={item} nestedLevel={nestedLevel} active={active}/>
                                 )}
 
                             </React.Fragment>

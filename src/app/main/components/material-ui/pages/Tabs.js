@@ -127,9 +127,8 @@ function Tabs({classes})
                     <Typography className="text-32 mt-32 mb-8" component="h2">Customized Tabs</Typography>
                     <Typography className="mb-16" component="div">If you have read the <a href="/customization/overrides/">overrides documentation page</a>
                         but aren&#39;t confident jumping in, here&#39;s an example of how you can change the main color of the Tabs.</Typography>
-                    <Typography className="mb-16" component="div">
-                        <span role="img" aria-label="unicode-symbol">⚠</span>
-                        While the material design specification encourages theming, this example is off the beaten path.</Typography>
+                    <Typography className="mb-16" component="div"><span role="img" aria-label="unicode-symbol">⚠</span> While the material design specification encourages theming,
+                        this example is off the beaten path.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}

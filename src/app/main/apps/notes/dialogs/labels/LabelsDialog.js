@@ -81,7 +81,7 @@ class LabelsDialog extends Component {
                             onChange={this.handleNewLabelChange}
                             placeholder="Create new label"
                         />
-                        <IconButton className="w-32 h-32 mx-4 p-0" aria-label="Delete" onClick={this.handleNewLabel}>
+                        <IconButton className="w-32 h-32 mx-4 p-0" aria-label="Delete" onClick={this.handleNewLabel} disabled={newLabelText === ""}>
                             <Icon fontSize="small">check</Icon>
                         </IconButton>
                     </ListItem>

@@ -19,6 +19,12 @@ const navigationConfig = [
                         'title': 'Analytics',
                         'type' : 'item',
                         'url'  : '/apps/dashboards/analytics'
+                    },
+                    {
+                        'id'   : 'project-dashboard',
+                        'title': 'Project',
+                        'type' : 'item',
+                        'url'  : '/apps/dashboards/project'
                     }
                 ]
             },
@@ -703,7 +709,7 @@ const navigationConfig = [
                 'icon' : 'history',
                 'url'  : '/documentation/changelog',
                 'badge': {
-                    'title': '2.1.0',
+                    'title': '2.2.0',
                     'bg'   : 'rgb(236, 12, 142)',
                     'fg'   : '#FFFFFF'
                 }
@@ -916,6 +922,21 @@ const navigationConfig = [
         'icon'    : 'apps',
         'children': [
             {
+                'id'   : 'test-item',
+                'title': 'Test Item',
+                'type' : 'item',
+                'icon' : 'list',
+                'url'  : '#'
+            },
+            {
+                'id'    : 'test-link',
+                'title' : 'Test Link',
+                'type'  : 'link',
+                'icon'  : 'link',
+                'url'   : 'http://fusetheme.com',
+                'target': '_blank'
+            },
+            {
                 'id'      : 'test-collapse-level-1',
                 'title'   : 'Test Collapse Level 1',
                 'type'    : 'collapse',
@@ -925,7 +946,14 @@ const navigationConfig = [
                         'id'   : 'test-item-level-1',
                         'title': 'Test Item Level 1',
                         'type' : 'item',
-                        'url'  : '/apps/dashboards/project'
+                        'url'  : '#'
+                    },
+                    {
+                        'id'    : 'test-link-level-1',
+                        'title' : 'Test Link Level 1',
+                        'type'  : 'link',
+                        'url'   : 'http://fusetheme.com',
+                        'target': '_blank'
                     },
                     {
                         'id'      : 'test-collapse-2',
@@ -936,7 +964,14 @@ const navigationConfig = [
                                 'id'   : 'test-item-level-2',
                                 'title': 'Test Item Level 2',
                                 'type' : 'item',
-                                'url'  : '/apps/dashboards/project'
+                                'url'  : '#'
+                            },
+                            {
+                                'id'    : 'test-link-level-2',
+                                'title' : 'Test Link Level 2',
+                                'type'  : 'link',
+                                'url'   : 'http://fusetheme.com',
+                                'target': '_blank'
                             },
                             {
                                 'id'      : 'test-collapse-level-3',
@@ -947,7 +982,14 @@ const navigationConfig = [
                                         'id'   : 'test-item-level-3',
                                         'title': 'Test Item Level 3',
                                         'type' : 'item',
-                                        'url'  : '/apps/dashboards/project'
+                                        'url'  : '#'
+                                    },
+                                    {
+                                        'id'    : 'test-link-level-3',
+                                        'title' : 'Test Link Level 3',
+                                        'type'  : 'link',
+                                        'url'   : 'http://fusetheme.com',
+                                        'target': '_blank'
                                     },
                                     {
                                         'id'      : 'test-collapse-level-4',
@@ -958,7 +1000,7 @@ const navigationConfig = [
                                                 'id'   : 'test-item-level-4',
                                                 'title': 'Test Item Level 4',
                                                 'type' : 'item',
-                                                'url'  : '/apps/dashboards/project'
+                                                'url'  : '#'
                                             }
                                         ]
                                     }
@@ -973,16 +1015,23 @@ const navigationConfig = [
                         'icon'    : 'apps',
                         'children': [
                             {
-                                'id'      : 'test-collapse-level-2-',
+                                'id'      : 'test-collapse-level-2-2',
                                 'title'   : 'Test Collapse Level 2',
                                 'type'    : 'collapse',
                                 'children': [
                                     {
-                                        'id'   : 'test-item-level-2-',
+                                        'id'   : 'test-item-level-2-2',
                                         'title': 'Test Item Level 2',
                                         'type' : 'item',
-                                        'url'  : '/apps/dashboards/project'
-                                    }
+                                        'url'  : '#'
+                                    },
+                                    {
+                                        'id'    : 'test-link-level-2-2',
+                                        'title' : 'Test Link Level 2',
+                                        'type'  : 'link',
+                                        'url'   : 'http://fusetheme.com',
+                                        'target': '_blank'
+                                    },
                                 ]
                             }
                         ]

@@ -1,12 +1,13 @@
-import React, {Component} from 'react';
-import {withStyles, Collapse, Icon, IconButton, ListItem, ListItemText} from '@material-ui/core';
-import {withRouter} from 'react-router-dom';
+import React, { Component } from 'react';
+import { withStyles, Collapse, Icon, IconButton, ListItem, ListItemText } from '@material-ui/core';
+import { withRouter } from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import FuseNavVerticalGroup from './FuseNavVerticalGroup';
 import FuseNavVerticalItem from './FuseNavVerticalItem';
 import FuseNavBadge from './../FuseNavBadge';
+import FuseNavVerticalLink from './FuseNavVerticalLink';
 
 const propTypes = {
     item: PropTypes.shape(
@@ -70,7 +71,8 @@ function isUrlInChildren(parent, url)
     return false;
 }
 
-class FuseNavVerticalCollapse extends Component {
+class FuseNavVerticalCollapse extends Component
+{
 
     constructor(props)
     {
@@ -91,7 +93,8 @@ class FuseNavVerticalCollapse extends Component {
         }
     }
 
-    handleClick = () => {
+    handleClick = () =>
+    {
         this.setState({open: !this.state.open});
     };
 
@@ -143,6 +146,10 @@ class FuseNavVerticalCollapse extends Component {
 
                                     {item.type === 'item' && (
                                         <FuseNavVerticalItem item={item} nestedLevel={nestedLevel + 1} active={active}/>
+                                    )}
+
+                                    {item.type === 'link' && (
+                                        <FuseNavVerticalLink item={item} nestedLevel={nestedLevel + 1} active={active}/>
                                     )}
 
                                 </React.Fragment>

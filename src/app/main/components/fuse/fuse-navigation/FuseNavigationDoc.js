@@ -133,6 +133,21 @@ const FuseNavigationDoc = () => {
                                 `
                         }
                     </FuseHighlight>
+                    <Typography className="mt-32 mb-8" variant="h6">Link</Typography>
+                    <FuseHighlight component="pre" className="language-json">
+                        {
+                            `
+                                {
+                                    'id'    : 'test-link',
+                                    'title' : 'Test Link',
+                                    'type'  : 'link',
+                                    'icon'  : 'link',
+                                    'url'   : 'http://fusetheme.com',
+                                    'target': '_blank'
+                                },
+                               `
+                        }
+                    </FuseHighlight>
                     <Typography className="mt-32 mb-8" variant="h6">Divider</Typography>
                     <FuseHighlight component="pre" className="language-json">
                         {

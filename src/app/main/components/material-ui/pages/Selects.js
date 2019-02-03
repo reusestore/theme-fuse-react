@@ -67,6 +67,17 @@ function Selects({classes})
                         component={require('app/main/components/material-ui/material-ui-examples/selects/NativeSelects.js').default}
                         raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/selects/NativeSelects.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Customized selects</Typography>
+                    <Typography className="mb-16" component="div">If you have been reading the <a href="/customization/overrides/">overrides documentation page</a>
+                        but you are not confident jumping in, here&#39;s an example of how you can change the main color of an Input.</Typography>
+                    <Typography className="mb-16" component="div"><span role="img" aria-label="unicode-symbol">⚠</span> While the material design specification encourages theming,
+                        these examples are off the beaten path.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/components/material-ui/material-ui-examples/selects/CustomizedSelects.js').default}
+                        raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/selects/CustomizedSelects.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Multiple Select</Typography>
                     <Typography className="mb-16" component="div">The <code>Select</code> component can handle multiple selections.
                         It&#39;s enabled with the <code>multiple</code> property.</Typography>
