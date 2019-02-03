@@ -132,9 +132,8 @@ function Steppers({classes})
                         here are examples of how you can change the look of a stepper.</Typography>
                     <Typography className="mb-16" component="div">This component uses a customized <code>StepConnector</code> element that changes border color based on
                         the <code>active</code> and <code>completed</code> state.</Typography>
-                    <Typography className="mb-16" component="div">
-                        <span role="img" aria-label="unicode-symbol">⚠</span>
-                        While the material design specification encourages theming, these examples are off the beaten path.</Typography>
+                    <Typography className="mb-16" component="div"><span role="img" aria-label="unicode-symbol">⚠</span> While the material design specification encourages theming,
+                        these examples are off the beaten path.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}

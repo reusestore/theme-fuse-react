@@ -110,9 +110,8 @@ function Dialogs({classes})
                     <Typography className="mb-16" component="div">If you have been reading the <a href="/customization/overrides/">overrides documentation page</a>
                         but you are not confident jumping in,
                         here is one example of how you can customize the <code>DialogTitle</code> to support a close button.</Typography>
-                    <Typography className="mb-16" component="div">
-                        <span role="img" aria-label="unicode-symbol">⚠</span>
-                        While the material design specification encourages theming, this example is off the beaten path.</Typography>
+                    <Typography className="mb-16" component="div"><span role="img" aria-label="unicode-symbol">⚠</span> While the material design specification encourages theming,
+                        this example is off the beaten path.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}

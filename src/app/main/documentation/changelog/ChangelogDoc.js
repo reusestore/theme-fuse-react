@@ -15,6 +15,40 @@ const ChangelogDoc = () => {
 
                     <div>
                         <div className="flex items-center mb-32 mt-48">
+                            <Typography className="text-28" component="h2">v2.2.0</Typography>
+                            <Typography className="text-16 ml-8" color="textSecondary" component="h3">(2019-02-03)</Typography>
+                        </div>
+                        <div className="mb-24">
+                            <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">
+                                NEW:
+                            </Typography>
+                            <ul>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Project Dashboard App added.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        External Link Item added to FuseNavigation (type:'link').
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        "metecons" extra icon fonts added.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Dependency packages updated.
+                                    </Typography>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div className="flex items-center mb-32 mt-48">
                             <Typography className="text-28" component="h2">v2.1.0</Typography>
                             <Typography className="text-16 ml-8" color="textSecondary" component="h3">(2019-01-22)</Typography>
                         </div>
