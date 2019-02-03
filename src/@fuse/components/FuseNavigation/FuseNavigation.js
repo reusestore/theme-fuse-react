@@ -1,14 +1,16 @@
 import React from 'react';
-import {Divider, List, Hidden} from '@material-ui/core';
-import {withRouter} from 'react-router-dom';
+import { Divider, List, Hidden } from '@material-ui/core';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import FuseNavVerticalGroup from './vertical/FuseNavVerticalGroup';
 import FuseNavVerticalCollapse from './vertical/FuseNavVerticalCollapse';
 import FuseNavVerticalItem from './vertical/FuseNavVerticalItem';
+import FuseNavVerticalLink from './vertical/FuseNavVerticalLink';
 import FuseNavHorizontalGroup from './horizontal/FuseNavHorizontalGroup';
 import FuseNavHorizontalCollapse from './horizontal/FuseNavHorizontalCollapse';
 import FuseNavHorizontalItem from './horizontal/FuseNavHorizontalItem';
+import FuseNavHorizontalLink from './horizontal/FuseNavHorizontalLink';
 
 const propTypes = {
     navigation: PropTypes.array.isRequired
@@ -18,7 +20,8 @@ const defaultProps = {
     layout: "vertical"
 };
 
-const FuseNavigation = ({navigation, layout, active, dense, className}) => {
+const FuseNavigation = ({navigation, layout, active, dense, className}) =>
+{
 
     const verticalNav = (
         <List className={classNames("navigation whitespace-no-wrap", className)}>
@@ -37,6 +40,10 @@ const FuseNavigation = ({navigation, layout, active, dense, className}) => {
 
                         {item.type === 'item' && (
                             <FuseNavVerticalItem item={item} nestedLevel={0} active={active} dense={dense}/>
+                        )}
+
+                        {item.type === 'link' && (
+                            <FuseNavVerticalLink item={item} nestedLevel={0} active={active} dense={dense}/>
                         )}
 
                         {item.type === 'divider' && (
@@ -65,6 +72,11 @@ const FuseNavigation = ({navigation, layout, active, dense, className}) => {
 
                         {item.type === 'item' && (
                             <FuseNavHorizontalItem item={item} nestedLevel={0} dense={dense}/>
+                        )}
+
+
+                        {item.type === 'link' && (
+                            <FuseNavHorizontalLink item={item} nestedLevel={0} dense={dense}/>
                         )}
 
                         {item.type === 'divider' && (

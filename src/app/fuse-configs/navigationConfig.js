@@ -922,6 +922,21 @@ const navigationConfig = [
         'icon'    : 'apps',
         'children': [
             {
+                'id'   : 'test-item',
+                'title': 'Test Item',
+                'type' : 'item',
+                'icon' : 'list',
+                'url'  : '#'
+            },
+            {
+                'id'    : 'test-link',
+                'title' : 'Test Link',
+                'type'  : 'link',
+                'icon'  : 'link',
+                'url'   : 'http://fusetheme.com',
+                'target': '_blank'
+            },
+            {
                 'id'      : 'test-collapse-level-1',
                 'title'   : 'Test Collapse Level 1',
                 'type'    : 'collapse',
@@ -932,6 +947,13 @@ const navigationConfig = [
                         'title': 'Test Item Level 1',
                         'type' : 'item',
                         'url'  : '#'
+                    },
+                    {
+                        'id'    : 'test-link-level-1',
+                        'title' : 'Test Link Level 1',
+                        'type'  : 'link',
+                        'url'   : 'http://fusetheme.com',
+                        'target': '_blank'
                     },
                     {
                         'id'      : 'test-collapse-2',
@@ -945,6 +967,13 @@ const navigationConfig = [
                                 'url'  : '#'
                             },
                             {
+                                'id'    : 'test-link-level-2',
+                                'title' : 'Test Link Level 2',
+                                'type'  : 'link',
+                                'url'   : 'http://fusetheme.com',
+                                'target': '_blank'
+                            },
+                            {
                                 'id'      : 'test-collapse-level-3',
                                 'title'   : 'Test Collapse Level 3',
                                 'type'    : 'collapse',
@@ -954,6 +983,13 @@ const navigationConfig = [
                                         'title': 'Test Item Level 3',
                                         'type' : 'item',
                                         'url'  : '#'
+                                    },
+                                    {
+                                        'id'    : 'test-link-level-3',
+                                        'title' : 'Test Link Level 3',
+                                        'type'  : 'link',
+                                        'url'   : 'http://fusetheme.com',
+                                        'target': '_blank'
                                     },
                                     {
                                         'id'      : 'test-collapse-level-4',
@@ -979,16 +1015,23 @@ const navigationConfig = [
                         'icon'    : 'apps',
                         'children': [
                             {
-                                'id'      : 'test-collapse-level-2-',
+                                'id'      : 'test-collapse-level-2-2',
                                 'title'   : 'Test Collapse Level 2',
                                 'type'    : 'collapse',
                                 'children': [
                                     {
-                                        'id'   : 'test-item-level-2-',
+                                        'id'   : 'test-item-level-2-2',
                                         'title': 'Test Item Level 2',
                                         'type' : 'item',
                                         'url'  : '#'
-                                    }
+                                    },
+                                    {
+                                        'id'    : 'test-link-level-2-2',
+                                        'title' : 'Test Link Level 2',
+                                        'type'  : 'link',
+                                        'url'   : 'http://fusetheme.com',
+                                        'target': '_blank'
+                                    },
                                 ]
                             }
                         ]

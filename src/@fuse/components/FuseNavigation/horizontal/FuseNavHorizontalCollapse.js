@@ -9,6 +9,7 @@ import _ from '@lodash';
 import * as ReactDOM from 'react-dom';
 import FuseNavHorizontalGroup from './FuseNavHorizontalGroup';
 import FuseNavHorizontalItem from './FuseNavHorizontalItem';
+import FuseNavHorizontalLink from './FuseNavHorizontalLink';
 import FuseNavBadge from './../FuseNavBadge';
 
 const propTypes = {
@@ -141,6 +142,10 @@ class FuseNavHorizontalCollapse extends Component {
 
                                                                 {item.type === 'item' && (
                                                                     <FuseNavHorizontalItem item={item} nestedLevel={nestedLevel + 1} dense={dense}/>
+                                                                )}
+
+                                                                {item.type === 'link' && (
+                                                                    <FuseNavHorizontalLink item={item} nestedLevel={nestedLevel + 1} dense={dense}/>
                                                                 )}
 
                                                             </React.Fragment>
