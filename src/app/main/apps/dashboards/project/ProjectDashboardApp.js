@@ -24,18 +24,24 @@ import WidgetNow from './widgets/WidgetNow';
 import WidgetWeather from './widgets/WidgetWeather';
 
 const styles = theme => ({
-    selectedProject  : {
-        background  : theme.palette.primary.main,
-        color       : theme.palette.primary.contrastText,
-        borderRadius: '8px 0 0 0'
-    },
-    projectMenuButton: {
-        background  : theme.palette.primary.main,
-        color       : theme.palette.primary.contrastText,
-        borderRadius: '0 8px 0 0',
-        marginLeft  : 1
+        content          : {
+            '& canvas': {
+                maxHeight: '100%'
+            }
+        },
+        selectedProject  : {
+            background  : theme.palette.primary.main,
+            color       : theme.palette.primary.contrastText,
+            borderRadius: '8px 0 0 0'
+        },
+        projectMenuButton: {
+            background  : theme.palette.primary.main,
+            color       : theme.palette.primary.contrastText,
+            borderRadius: '0 8px 0 0',
+            marginLeft  : 1
+        },
     }
-});
+);
 
 class ProjectDashboardApp extends Component {
     state = {
@@ -84,11 +90,12 @@ class ProjectDashboardApp extends Component {
                 classes={{
                     header      : "min-h-160 h-160",
                     toolbar     : "min-h-48 h-48",
-                    rightSidebar: "w-288"
+                    rightSidebar: "w-288",
+                    content     : classes.content,
                 }}
                 header={
-                    <div className="flex flex-col justify-between flex-1">
-                        <div className="flex justify-between items-start pr-12 lg:pr-24 p-24">
+                    <div className="flex flex-col justify-between flex-1 px-24 pt-24">
+                        <div className="flex justify-between items-start">
                             <Typography className="py-0 sm:py-24" variant="h4">Welcome back, John!</Typography>
                             <Hidden lgUp>
                                 <IconButton
@@ -99,7 +106,7 @@ class ProjectDashboardApp extends Component {
                                 </IconButton>
                             </Hidden>
                         </div>
-                        <div className="flex items-end px-16 lg:px-24">
+                        <div className="flex items-end">
                             <div className="flex items-center">
                                 <div className={classNames(classes.selectedProject, "flex items-center h-40 px-16 text-16")}>
                                     {_.find(projects, ['id', selectedProjectId]).name}
