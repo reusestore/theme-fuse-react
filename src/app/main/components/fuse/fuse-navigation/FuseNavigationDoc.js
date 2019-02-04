@@ -1,8 +1,12 @@
 import React from 'react';
-import {Icon, Typography} from '@material-ui/core';
-import {FuseHighlight, FusePageSimple} from '@fuse';
+import {Icon, Typography, Button} from '@material-ui/core';
+import {FuseHighlight, FusePageSimple, FuseUtils} from '@fuse';
+import {bindActionCreators} from 'redux';
+import * as Actions from 'app/store/actions';
+import {connect} from 'react-redux';
+import {authRoles} from 'app/auth';
 
-const FuseNavigationDoc = () => {
+const FuseNavigationDoc = ({updateNavigationItem, removeNavigationItem, appendNavigationItem, prependNavigationItem, setNavigation,resetNavigation}) => {
     return (
         <FusePageSimple
             header={
@@ -55,6 +59,10 @@ const FuseNavigationDoc = () => {
                                 `
                         }
                     </FuseHighlight>
+
+                    <Typography className="mt-48 mb-8" variant="h4">Navigation item types</Typography>
+
+                    <Typography className="mt-32 p-8 rounded-4 bg-yellow-lightest border-1 border-yellow-dark text-black mb-8" >Its mandatory to give a unique id to all of your navigation items.</Typography>
 
                     <Typography className="mt-32 mb-8" variant="h6">Group</Typography>
                     <FuseHighlight component="pre" className="language-json">
@@ -170,10 +178,451 @@ const FuseNavigationDoc = () => {
                                 `
                         }
                     </FuseHighlight>
+
+                    <Typography className="mt-48 mb-8" variant="h4">Actions</Typography>
+
+                    <Typography className="mt-32 mb-8" variant="h6">Actions.setNavigation</Typography>
+                    <Typography className="text-16 mb-8" component="h2">
+                        Use <code>setNavigation(navigation{'<Array>'})</code> action to set/change whole navigation.
+                    </Typography>
+
+                    <div className="border-1 rounded-8 p-16 my-16">
+                        <Typography className="text-16 mb-24" component="h2">
+                            With the button below, whole navigation is changed.
+                        </Typography>
+
+                        <Button
+                            onClick={() => {
+                                setNavigation([
+                                    {
+                                        'id'      : 'auth',
+                                        'title'   : 'Auth',
+                                        'type'    : 'group',
+                                        'icon'    : 'apps',
+                                        'children': [
+                                            {
+                                                'id'   : 'login',
+                                                'title': 'Login',
+                                                'type' : 'item',
+                                                'url'  : '/login',
+                                                auth   : authRoles.onlyGuest,
+                                                'icon' : 'lock'
+                                            },
+                                            {
+                                                'id'   : 'register',
+                                                'title': 'Register',
+                                                'type' : 'item',
+                                                'url'  : '/register',
+                                                auth   : authRoles.onlyGuest,
+                                                'icon' : 'person_add'
+                                            },
+                                        ]
+                                    }
+                                ]);
+                            }}
+                            variant="contained"
+                            color="primary"
+                        >
+                            Set Navigation
+                        </Button>
+
+                        <FuseHighlight component="pre" className="language-jsx mt-24">
+                            {
+                                `
+                                <Button
+                                    onClick={() => {
+                                        setNavigation([
+                                            {
+                                                'id'      : 'auth',
+                                                'title'   : 'Auth',
+                                                'type'    : 'group',
+                                                'icon'    : 'apps',
+                                                'children': [
+                                                    {
+                                                        'id'   : 'login',
+                                                        'title': 'Login',
+                                                        'type' : 'item',
+                                                        'url'  : '/login',
+                                                        auth   : authRoles.onlyGuest,
+                                                        'icon' : 'lock'
+                                                    },
+                                                    {
+                                                        'id'   : 'register',
+                                                        'title': 'Register',
+                                                        'type' : 'item',
+                                                        'url'  : '/register',
+                                                        auth   : authRoles.onlyGuest,
+                                                        'icon' : 'person_add'
+                                                    },
+                                                ]
+                                            }
+                                        ]);
+                                    }}
+                                    variant="contained"
+                                    color="primary"
+                                >
+                                    Set Navigation
+                                </Button>
+                                `
+                            }
+                        </FuseHighlight>
+                    </div>
+
+                    <Typography className="mt-32 mb-8" variant="h6">Actions.resetNavigation</Typography>
+                    <Typography className="text-16 mb-8" component="h2">
+                        Use <code>resetNavigation()</code> action to reset navigation to initial state.
+                    </Typography>
+
+                    <div className="border-1 rounded-8 p-16 my-16">
+                        <Typography className="text-16 mb-24" component="h2">
+                            With the button below, navigation is returned to config defaults.
+                        </Typography>
+
+                        <Button
+                            onClick={() => {
+                                resetNavigation();
+                            }}
+                            variant="contained"
+                            color="primary"
+                        >
+                            Reset Navigation
+                        </Button>
+
+                        <FuseHighlight component="pre" className="language-jsx mt-24">
+                            {
+                                `
+                                <Button
+                                    onClick={() => {
+                                        resetNavigation();
+                                    }}
+                                    variant="contained"
+                                    color="primary"
+                                >
+                                    Reset Navigation
+                                </Button>
+                                `
+                            }
+                        </FuseHighlight>
+                    </div>
+
+                    <Typography className="mt-32 mb-8" variant="h6">Actions.updateNavigationItem</Typography>
+                    <Typography className="text-16 mb-8" component="h2">
+                        Use <code>updateNavigationItem(id, <i>object</i>)</code> action to update a navigation item.
+                    </Typography>
+
+                    <div className="border-1 rounded-8 p-16 my-16">
+                        <Typography className="text-16 mb-24" component="h2">
+                            With the button below, 'dashboards' title changes and a badge is added.
+                        </Typography>
+
+                        <Button
+                            onClick={() => {
+                                updateNavigationItem('dashboards',
+                                    {
+                                        'title': 'All Dashboards',
+                                        'badge': {
+                                            'title': 2,
+                                            'bg'   : 'rgb(3, 155, 228)',
+                                            'fg'   : '#FFFFFF'
+                                        }
+                                    }
+                                )
+                            }}
+                            variant="contained"
+                            color="primary"
+                        >
+                            Update Navigation Item
+                        </Button>
+
+                        <FuseHighlight component="pre" className="language-jsx mt-24">
+                            {
+                                `
+                                <Button
+                                    onClick={() => {
+                                        updateNavigationItem('dashboards',
+                                            {
+                                                'title': 'All Dashboards',
+                                                'badge': {
+                                                    'title': 2,
+                                                    'bg'   : 'rgb(3, 155, 228)',
+                                                    'fg'   : '#FFFFFF'
+                                                }
+                                            }
+                                        )
+                                    }}
+                                    variant="contained"
+                                    color="primary"
+                                >
+                                Update Navigation Item
+                                </Button>
+                            `
+                            }
+                        </FuseHighlight>
+                    </div>
+
+                    <Typography className="mt-32 mb-8" variant="h6">Actions.removeNavigationItem</Typography>
+                    <Typography className="text-16 mb-8" component="h2">
+                        Use <code>removeNavigationItem(id)</code> action to remove a navigation item.
+                    </Typography>
+
+                    <div className="border-1 rounded-8 p-16 my-16">
+                        <Typography className="text-16 mb-24" component="h2">
+                            With the button below, "Calendar" navigation item is removed.
+                        </Typography>
+
+                        <Button
+                            onClick={() => {
+                                removeNavigationItem('calendar')
+                            }}
+                            variant="contained"
+                            color="primary"
+                        >
+                            Remove Navigation Item
+                        </Button>
+
+                        <FuseHighlight component="pre" className="language-jsx mt-24">
+                            {
+                                `
+                                  <Button
+                                        onClick={() => {
+                                            removeNavigationItem('calendar')
+                                        }}
+                                        variant="contained"
+                                        color="primary"
+                                  >
+                                  Remove Navigation Item
+                                  </Button>
+                            `
+                            }
+                        </FuseHighlight>
+                    </div>
+
+                    <Typography className="mt-32 mb-8" variant="h6">Actions.prependNavigationItem</Typography>
+                    <Typography className="text-16 mb-8" component="h2">
+                        Use <code>prependNavigationItem(<i>object</i>, <i>collapseId/groupId</i>?)</code> action to prepend a navigation item into the navigation array.
+                    </Typography>
+
+                    <div className="border-1 rounded-8 p-16 my-16">
+                        <Typography className="text-16 mb-24" component="h2">
+                            With the button below, "fusetheme.com" navigation item is added at the top of the navigation array.
+                        </Typography>
+
+                        <Button
+                            onClick={() => {
+                                prependNavigationItem(
+                                    {
+                                        'id'    : 'test-link-' + FuseUtils.generateGUID(),
+                                        'title' : 'fusetheme.com',
+                                        'type'  : 'link',
+                                        'icon'  : 'link',
+                                        'url'   : 'http://fusetheme.com',
+                                        'target': '_blank'
+                                    }
+                                )
+                            }}
+                            variant="contained"
+                            color="primary"
+                        >
+                            Prepend Navigation Item
+                        </Button>
+
+                        <FuseHighlight component="pre" className="language-jsx mt-24">
+                            {
+                                `
+                                <Button
+                                    onClick={() => {
+                                        prependNavigationItem(
+                                            {
+                                                'id'    : 'test-link',
+                                                'title' : 'fusetheme.com',
+                                                'type'  : 'link',
+                                                'icon'  : 'link',
+                                                'url'   : 'http://fusetheme.com',
+                                                'target': '_blank'
+                                            }
+                                        )
+                                    }}
+                                    variant="contained"
+                                    color="primary"
+                                >
+                                    Prepend Navigation Item
+                                </Button>
+                                `
+                            }
+                        </FuseHighlight>
+                    </div>
+
+                    <div className="border-1 rounded-8 p-16 my-16">
+
+                        <Typography className="text-16 mb-24" component="h2">
+                            With the button below, "fusetheme.com" navigation item is added into top of the "Dashboards" children.
+                        </Typography>
+
+                        <Button
+                            onClick={() => {
+                                prependNavigationItem(
+                                    {
+                                        'id'    : 'test-link-' + FuseUtils.generateGUID(),
+                                        'title' : 'fusetheme.com',
+                                        'type'  : 'link',
+                                        'icon'  : 'link',
+                                        'url'   : 'http://fusetheme.com',
+                                        'target': '_blank'
+                                    }, 'dashboards'
+                                )
+                            }}
+                            variant="contained"
+                            color="primary"
+                        >
+                            Prepend Navigation Item
+                        </Button>
+
+                        <FuseHighlight component="pre" className="language-jsx mt-24">
+                            {
+                                `
+                                <Button
+                                    onClick={() => {
+                                        prependNavigationItem(
+                                            {
+                                                'id'    : 'test-link',
+                                                'title' : 'fusetheme.com',
+                                                'type'  : 'link',
+                                                'icon'  : 'link',
+                                                'url'   : 'http://fusetheme.com',
+                                                'target': '_blank'
+                                            }, 'dashboards'
+                                        )
+                                    }}
+                                    variant="contained"
+                                    color="primary"
+                                >
+                                    Prepend Navigation Item
+                                </Button>
+                                `
+                            }
+                        </FuseHighlight>
+                    </div>
+
+                    <Typography className="mt-32 mb-8" variant="h6">Actions.appendNavigationItem</Typography>
+                    <Typography className="text-16 mb-8" component="h2">
+                        Use <code>appendNavigationItem(<i>object</i>, <i>collapseId/groupId</i>?)</code> action to append a navigation item into the navigation array.
+                    </Typography>
+
+                    <div className="border-1 rounded-8 p-16 my-16">
+                        <Typography className="text-16 mb-24" component="h2">
+                            With the button below, "Test" navigation item is added at the bottom of the array.
+                        </Typography>
+
+                        <Button
+                            onClick={() => {
+                                appendNavigationItem(
+                                    {
+                                        'id'    : 'test-link-' + FuseUtils.generateGUID(),
+                                        'title' : 'fusetheme.com',
+                                        'type'  : 'link',
+                                        'icon'  : 'link',
+                                        'url'   : 'http://fusetheme.com',
+                                        'target': '_blank'
+                                    }
+                                )
+                            }}
+                            variant="contained"
+                            color="primary"
+                        >
+                            Append Navigation Item
+                        </Button>
+                        <FuseHighlight component="pre" className="language-jsx mt-24">
+                            {
+                                `
+                                <Button
+                                    onClick={() => {
+                                        appendNavigationItem(
+                                            {
+                                                'id'    : 'test-link',
+                                                'title' : 'fusetheme.com',
+                                                'type'  : 'link',
+                                                'icon'  : 'link',
+                                                'url'   : 'http://fusetheme.com',
+                                                'target': '_blank'
+                                            }
+                                        )
+                                    }}
+                                    variant="contained"
+                                    color="primary"
+                                >
+                                    Append Navigation Item
+                                </Button>
+                                `
+                            }
+                        </FuseHighlight>
+                    </div>
+
+                    <div className="border-1 rounded-8 p-16 my-16">
+                        <Typography className="text-16 mb-24" component="h2">
+                            With the button below, "fusetheme.com" navigation item is added into bottom of the "Dashboards" children.
+                        </Typography>
+
+                        <Button
+                            onClick={() => {
+                                appendNavigationItem(
+                                    {
+                                        'id'    : 'test-link-' + FuseUtils.generateGUID(),
+                                        'title' : 'fusetheme.com',
+                                        'type'  : 'link',
+                                        'icon'  : 'link',
+                                        'url'   : 'http://fusetheme.com',
+                                        'target': '_blank'
+                                    }, 'dashboards'
+                                )
+                            }}
+                            variant="contained"
+                            color="primary"
+                        >
+                            Append Navigation Item
+                        </Button>
+
+                        <FuseHighlight component="pre" className="language-jsx mt-24">
+                            {
+                                `
+                                <Button
+                                    onClick={() => {
+                                        appendNavigationItem(
+                                            {
+                                                'id'    : 'test-link',
+                                                'title' : 'fusetheme.com',
+                                                'type'  : 'link',
+                                                'icon'  : 'link',
+                                                'url'   : 'http://fusetheme.com',
+                                                'target': '_blank'
+                                            }, 'dashboards'
+                                        )
+                                    }}
+                                    variant="contained"
+                                    color="primary"
+                                >
+                                    Append Navigation Item
+                                </Button>
+                                `
+                            }
+                        </FuseHighlight>
+                    </div>
+
                 </div>
             }
         />
     );
 };
 
-export default FuseNavigationDoc;
+function mapDispatchToProps(dispatch)
+{
+    return bindActionCreators({
+        setNavigation        : Actions.setNavigation,
+        resetNavigation      : Actions.resetNavigation,
+        updateNavigationItem : Actions.updateNavigationItem,
+        removeNavigationItem : Actions.removeNavigationItem,
+        appendNavigationItem : Actions.appendNavigationItem,
+        prependNavigationItem: Actions.prependNavigationItem
+    }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(FuseNavigationDoc);
