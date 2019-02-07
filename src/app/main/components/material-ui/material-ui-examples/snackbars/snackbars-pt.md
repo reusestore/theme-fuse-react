@@ -40,7 +40,7 @@ Some snackbars with varying message length.
 
 {{"demo": "pages/demos/snackbars/LongTextSnackbar.js"}}
 
-## Transitions
+## Transições
 
 ### Consecutive Snackbars
 
@@ -62,11 +62,11 @@ Change the direction of the transition. Slide is the default transition.
 
 ### Change Transition
 
-Use a different transition all together.
+Use a different transition.
 
 {{"demo": "pages/demos/snackbars/FadeSnackbar.js"}}
 
-## Complementary projects
+## Projetos Complementares
 
 For more advanced use cases you might be able to take advantage of:
 
