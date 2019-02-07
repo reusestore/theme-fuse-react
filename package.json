@@ -61,6 +61,10 @@
         "typeface-muli": "0.0.71",
         "velocity-react": "1.4.1"
     },
+    "resolutions": {
+        "react": "16.7.0",
+        "react-dom": "16.7.0"
+    },
     "devDependencies": {
         "@babel/core": "7.2.2",
         "@babel/node": "7.2.2",
