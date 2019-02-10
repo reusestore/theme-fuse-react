@@ -27,7 +27,7 @@ const ToolbarLayout1 = ({classes, settings, toolbarTheme}) => {
 
                     {layoutConfig.navbar.display && layoutConfig.navbar.position === 'left' && (
                         <Hidden lgUp>
-                            <NavbarMobileToggleButton/>
+                            <NavbarMobileToggleButton className="w-64 h-64 p-0"/>
                             <div className={classes.separator}/>
                         </Hidden>
                     )}

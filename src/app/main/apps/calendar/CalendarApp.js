@@ -14,6 +14,7 @@ import * as Actions from './store/actions';
 import reducer from './store/reducers';
 import EventDialog from './EventDialog';
 import CalendarHeader from './CalendarHeader';
+import * as ReactDOM from 'react-dom';
 
 const localizer = BigCalendar.momentLocalizer(moment);
 
@@ -163,6 +164,12 @@ const styles = theme => ({
 
 class CalendarApp extends Component {
 
+    constructor(props)
+    {
+        super(props);
+        this.headerEl = React.createRef();
+    }
+
     componentDidMount()
     {
         this.props.getEvents();
@@ -190,9 +197,7 @@ class CalendarApp extends Component {
         const {classes, events, openNewEventDialog, openEditEventDialog} = this.props;
         return (
             <div className={classNames(classes.root, "flex flex-col flex-auto relative")}>
-                {this.toolbarProps && (
-                    <CalendarHeader {...this.toolbarProps}/>
-                )}
+                <div ref={this.headerEl}/>
                 <DragAndDropCalendar
                     className="flex flex-1 container"
                     selectable
@@ -210,8 +215,11 @@ class CalendarApp extends Component {
                     showMultiDayTimes
                     components={{
                         toolbar: (props) => {
-                            this.toolbarProps = props;
-                            return null;
+                            return this.headerEl.current ?
+                                ReactDOM.createPortal(
+                                    <CalendarHeader {...props}/>,
+                                    this.headerEl.current
+                                ) : null;
                         }
                     }}
                     // onNavigate={this.handleNavigate}

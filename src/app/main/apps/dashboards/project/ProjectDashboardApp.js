@@ -82,7 +82,7 @@ class ProjectDashboardApp extends Component {
 
         if ( !widgets || !projects )
         {
-            return 'Loading..';
+            return null;
         }
 
         return (

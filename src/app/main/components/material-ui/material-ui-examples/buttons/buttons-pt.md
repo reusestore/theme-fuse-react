@@ -2,7 +2,7 @@
 title: Component React para Botão
 components: Button, Fab, IconButton, ButtonBase, Zoom
 ---
-# Botões
+# Buttons (Botões)
 
 <p class="description">Botões permitem que os usuários tomem ações e decisões com um simples toque.</p>
 
@@ -33,7 +33,7 @@ Em cartões, os botões de texto ajudam a manter a ênfase no conteúdo do cart�
 
 {{"demo": "pages/demos/buttons/TextButtons.js"}}
 
-## Outlined Buttons
+## Botões delineados
 
 [Botões delineados](https://material.io/design/components/buttons.html#outlined-button) são botões com ênfase média. Eles contém ações que são importantes, mas não são as ações primárias de um aplicativo.
 
@@ -63,7 +63,7 @@ A transição de zoom pode ser usada para conseguir isso. Observe que, como as a
 
 ## Tamanhos
 
-Fancy larger or smaller buttons? Use the `size` property.
+Fantasia maior ou menor botões? Use o `tamanho` propriedade.
 
 {{"demo": "pages/demos/buttons/ButtonSizes.js"}}
 
@@ -121,4 +121,4 @@ const MyLink = props => <Link to="/open-collective" {...props} />
 </Button>
 ```
 
-*Nota: `MyLink` a criação é necessária para evitar uma desmontagem inesperada. Você pode ler mais sobre isso [aqui](/guides/composition/#component-property).*
+*Nota: A criação de `MyLink` é necessário para impedir uma desmontagem inesperada. Você pode ler mais sobre isso em nosso [guia de propriedades de componentes](/guides/composition/#component-property).*

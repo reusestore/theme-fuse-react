@@ -4,9 +4,9 @@ import {bindActionCreators} from 'redux';
 import * as Actions from 'app/store/actions';
 import connect from 'react-redux/es/connect/connect';
 
-const NavbarMobileToggleButton = ({navbarToggleMobile, children}) => {
+const NavbarMobileToggleButton = ({navbarToggleMobile, children, className}) => {
     return (
-        <IconButton className="w-64 h-64" onClick={navbarToggleMobile} color="inherit">
+        <IconButton className={className} onClick={navbarToggleMobile} color="inherit" disableRipple>
             {children}
         </IconButton>
     );

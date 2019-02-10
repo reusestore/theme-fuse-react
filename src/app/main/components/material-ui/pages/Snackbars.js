@@ -120,7 +120,7 @@ function Snackbars({classes})
                         raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/snackbars/DirectionSnackbar.js')}
                     /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Change Transition</Typography>
-                    <Typography className="mb-16" component="div">Use a different transition all together.</Typography>
+                    <Typography className="mb-16" component="div">Use a different transition.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}

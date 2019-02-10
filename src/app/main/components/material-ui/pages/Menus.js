@@ -127,7 +127,7 @@ function Menus({classes})
                         raw={require('!raw-loader!app/main/components/material-ui/material-ui-examples/menus/TypographyMenu.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Change Transition</Typography>
-                    <Typography className="mb-16" component="div">Use a different transition altogether.</Typography>
+                    <Typography className="mb-16" component="div">Use a different transition.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
