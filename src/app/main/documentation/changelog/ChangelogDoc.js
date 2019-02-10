@@ -15,6 +15,54 @@ const ChangelogDoc = () => {
 
                     <div>
                         <div className="flex items-center mb-32 mt-48">
+                            <Typography className="text-28" component="h2">v2.2.1</Typography>
+                            <Typography className="text-16 ml-8" color="textSecondary" component="h3">(2019-02-11)</Typography>
+                        </div>
+                        <div className="mb-24">
+                            <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">
+                                NEW:
+                            </Typography>
+                            <ul>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Dependency packages updated (react, material-ui etc).
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        FuseNavigation update,remove,append,prepend actions created, documentation page is updated.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        react-chartjs-2-defaults.js file created.
+                                    </Typography>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="mb-24">
+                            <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">
+                                FIX:
+                            </Typography>
+                            <ul>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        react, react-dom are added to resolutions to prevent loading two versions of the react. +
+                                        the issue's main reason is auth0-lock uses react as dependency not peerDependency and they don't change it with kinda valid reason
+                                        (https://github.com/auth0/lock/issues/1148#issuecomment-336765301).
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Calendar App Header updating issue fixed.
+                                    </Typography>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div className="flex items-center mb-32 mt-48">
                             <Typography className="text-28" component="h2">v2.2.0</Typography>
                             <Typography className="text-16 ml-8" color="textSecondary" component="h3">(2019-02-03)</Typography>
                         </div>
