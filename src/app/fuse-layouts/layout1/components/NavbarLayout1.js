@@ -27,19 +27,19 @@ const NavbarLayout1 = ({classes, navigation, className}) => {
                 color="primary"
                 position="static"
                 elevation={0}
-                className="flex flex-row items-center flex-shrink h-64 min-h-64"
+                className="flex flex-row items-center flex-shrink h-64 min-h-64 pl-20 pr-12"
             >
-                <div className="flex flex-1 pr-8 pl-16">
+                <div className="flex flex-1 pr-8">
                     <Logo/>
                 </div>
 
                 <Hidden mdDown>
-                    <NavbarFoldedToggleButton/>
+                    <NavbarFoldedToggleButton className="w-40 h-40 p-0"/>
                 </Hidden>
 
                 <Hidden lgUp>
-                    <NavbarMobileToggleButton>
-                        <Icon>close</Icon>
+                    <NavbarMobileToggleButton className="w-40 h-40 p-0">
+                        <Icon>arrow_back</Icon>
                     </NavbarMobileToggleButton>
                 </Hidden>
             </AppBar>

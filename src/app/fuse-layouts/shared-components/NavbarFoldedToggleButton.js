@@ -5,9 +5,10 @@ import {bindActionCreators} from 'redux';
 import * as Actions from 'app/store/actions';
 import connect from 'react-redux/es/connect/connect';
 
-const NavbarFoldedToggleButton = ({settings, setDefaultSettings, children}) => {
+const NavbarFoldedToggleButton = ({settings, setDefaultSettings, children, className}) => {
     return (
         <IconButton
+            className={className}
             onClick={() => {
                 setDefaultSettings(_.set({}, 'layout.config.navbar.folded', !settings.layout.config.navbar.folded));
             }}
