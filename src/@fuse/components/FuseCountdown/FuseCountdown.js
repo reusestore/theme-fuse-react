@@ -81,7 +81,7 @@ class FuseCountdown extends Component {
         return (
             <div className={classNames(classes.root, "flex items-center", this.props.className)}>
                 <div className="flex flex-col items-center justify-center px-12">
-                    <Typography variant="h4" color="inherit" className="mb-4">
+                    <Typography variant="h4" className="mb-4">
                         {countdown.days}
                     </Typography>
                     <Typography variant="caption" color="textSecondary">
@@ -89,7 +89,7 @@ class FuseCountdown extends Component {
                     </Typography>
                 </div>
                 <div className="flex flex-col items-center justify-center px-12">
-                    <Typography variant="h4" color="inherit" className="mb-4">
+                    <Typography variant="h4" className="mb-4">
                         {countdown.hours}
                     </Typography>
                     <Typography variant="caption" color="textSecondary">
@@ -97,7 +97,7 @@ class FuseCountdown extends Component {
                     </Typography>
                 </div>
                 <div className="flex flex-col items-center justify-center px-12">
-                    <Typography variant="h4" color="inherit" className="mb-4">
+                    <Typography variant="h4" className="mb-4">
                         {countdown.minutes}
                     </Typography>
                     <Typography variant="caption" color="textSecondary">
@@ -105,7 +105,7 @@ class FuseCountdown extends Component {
                     </Typography>
                 </div>
                 <div className="flex flex-col items-center justify-center px-12">
-                    <Typography variant="h4" color="inherit" className="mb-4">
+                    <Typography variant="h4" className="mb-4">
                         {countdown.seconds}
                     </Typography>
                     <Typography variant="caption" color="textSecondary">
