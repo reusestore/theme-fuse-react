@@ -1,5 +1,5 @@
 import React from 'react';
-import {withStyles, Card, CardContent, Typography} from '@material-ui/core';
+import {withStyles, Card, CardContent, Typography, TableCell, TableRow, TableBody, TableHead, Table} from '@material-ui/core';
 import classNames from 'classnames';
 
 const styles = theme => ({
@@ -120,87 +120,87 @@ const OrderInvoice = ({classes, order}) => {
 
                         <div className="mt-64">
 
-                            <table className="simple invoice-table">
-                                <thead>
-                                    <tr>
-                                        <th>
+                            <Table className="simple">
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell>
                                             PRODUCT
-                                        </th>
-                                        <th>
+                                        </TableCell>
+                                        <TableCell>
                                             PRICE
-                                        </th>
-                                        <th className="text-right">
+                                        </TableCell>
+                                        <TableCell align="right">
                                             QUANTITY
-                                        </th>
-                                        <th className="text-right">
+                                        </TableCell>
+                                        <TableCell align="right">
                                             TOTAL
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+                                        </TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
                                     {order.products.map((product) => (
-                                        <tr key={product.id}>
-                                            <td>
+                                        <TableRow key={product.id}>
+                                            <TableCell>
                                                 <Typography variant="subtitle1">{product.name}</Typography>
-                                            </td>
-                                            <td className="text-right">
+                                            </TableCell>
+                                            <TableCell align="right">
                                                 {formatter.format(product.price)}
-                                            </td>
-                                            <td className="text-right">
+                                            </TableCell>
+                                            <TableCell align="right">
                                                 {product.quantity}
-                                            </td>
-                                            <td className="text-right">
+                                            </TableCell>
+                                            <TableCell align="right">
                                                 {formatter.format(product.price * product.quantity)}
-                                            </td>
-                                        </tr>
+                                            </TableCell>
+                                        </TableRow>
                                     ))}
-                                </tbody>
-                            </table>
+                                </TableBody>
+                            </Table>
 
-                            <table className="simple mt-32">
-                                <tbody>
-                                    <tr>
-                                        <td>
+                            <Table className="simple mt-32">
+                                <TableBody>
+                                    <TableRow>
+                                        <TableCell>
                                             <Typography className="font-medium" variant="subtitle1" color="textSecondary">SUBTOTAL</Typography>
-                                        </td>
-                                        <td className="text-right">
+                                        </TableCell>
+                                        <TableCell align="right">
                                             <Typography className="font-medium" variant="subtitle1" color="textSecondary">
                                                 {formatter.format(order.subtotal)}
                                             </Typography>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
+                                        </TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell>
                                             <Typography className="font-medium" variant="subtitle1" color="textSecondary">TAX</Typography>
-                                        </td>
-                                        <td className="text-right">
+                                        </TableCell>
+                                        <TableCell align="right">
                                             <Typography className="font-medium" variant="subtitle1" color="textSecondary">
                                                 {formatter.format(order.tax)}
                                             </Typography>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
+                                        </TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell>
                                             <Typography className="font-medium" variant="subtitle1" color="textSecondary">DISCOUNT</Typography>
-                                        </td>
-                                        <td className="text-right">
+                                        </TableCell>
+                                        <TableCell align="right">
                                             <Typography className="font-medium" variant="subtitle1" color="textSecondary">
                                                 {formatter.format(order.discount)}
                                             </Typography>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
+                                        </TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell>
                                             <Typography className="font-light" variant="h4" color="textSecondary">TOTAL</Typography>
-                                        </td>
-                                        <td className="text-right">
+                                        </TableCell>
+                                        <TableCell align="right">
                                             <Typography className="font-light" variant="h4" color="textSecondary">
                                                 {formatter.format(order.total)}
                                             </Typography>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                        </TableCell>
+                                    </TableRow>
+                                </TableBody>
+                            </Table>
 
                         </div>
 

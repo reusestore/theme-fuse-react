@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {withStyles, Card, CardContent, Typography} from '@material-ui/core';
+import {withStyles, Card, CardContent, Typography, TableCell, TableRow, TableBody, TableHead, Table} from '@material-ui/core';
 import {darken} from '@material-ui/core/styles/colorManipulator';
 import {FuseAnimate} from '@fuse';
 import classNames from 'classnames';
@@ -7,8 +7,7 @@ import axios from 'axios';
 
 const styles = theme => ({
     root   : {
-        background: 'radial-gradient(' + darken(theme.palette.primary.dark, 0.5) + ' 0%, ' + theme.palette.primary.dark + ' 80%)',
-        color     : theme.palette.primary.contrastText
+        background: 'radial-gradient(' + darken(theme.palette.primary.dark, 0.5) + ' 0%, ' + theme.palette.primary.dark + ' 80%)'
     },
     divider: {
         backgroundColor: theme.palette.getContrastText(theme.palette.primary.dark)
@@ -74,7 +73,7 @@ class CompactInvoicePage extends Component {
                                                         </Typography>
                                                     </td>
                                                     <td className="pb-4">
-                                                        <Typography className="font-light" variant="h6" color="inherit">
+                                                        <Typography className="font-light" variant="h6">
                                                             {invoice.number}
                                                         </Typography>
                                                     </td>
@@ -87,7 +86,7 @@ class CompactInvoicePage extends Component {
                                                         </Typography>
                                                     </td>
                                                     <td>
-                                                        <Typography color="inherit">
+                                                        <Typography>
                                                             {invoice.date}
                                                         </Typography>
                                                     </td>
@@ -100,7 +99,7 @@ class CompactInvoicePage extends Component {
                                                         </Typography>
                                                     </td>
                                                     <td>
-                                                        <Typography color="inherit">
+                                                        <Typography>
                                                             {invoice.dueDate}
                                                         </Typography>
                                                     </td>
@@ -167,93 +166,93 @@ class CompactInvoicePage extends Component {
 
                                 <div className="mt-64">
 
-                                    <table className="simple invoice-table">
-                                        <thead>
-                                            <tr>
-                                                <th>
+                                    <Table className="simple">
+                                        <TableHead>
+                                            <TableRow>
+                                                <TableCell>
                                                     SERVICE
-                                                </th>
-                                                <th>
+                                                </TableCell>
+                                                <TableCell>
                                                     UNIT
-                                                </th>
-                                                <th className="text-right">
+                                                </TableCell>
+                                                <TableCell align="right">
                                                     UNIT PRICE
-                                                </th>
-                                                <th className="text-right">
+                                                </TableCell>
+                                                <TableCell align="right">
                                                     QUANTITY
-                                                </th>
-                                                <th className="text-right">
+                                                </TableCell>
+                                                <TableCell align="right">
                                                     TOTAL
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                                                </TableCell>
+                                            </TableRow>
+                                        </TableHead>
+                                        <TableBody>
                                             {invoice.services.map((service) => (
-                                                <tr key={service.id}>
-                                                    <td>
+                                                <TableRow key={service.id}>
+                                                    <TableCell>
                                                         <Typography variant="subtitle1">{service.title}</Typography>
-                                                    </td>
-                                                    <td>
+                                                    </TableCell>
+                                                    <TableCell>
                                                         {service.unit}
-                                                    </td>
-                                                    <td className="text-right">
+                                                    </TableCell>
+                                                    <TableCell align="right">
                                                         {formatter.format(service.unitPrice)}
-                                                    </td>
-                                                    <td className="text-right">
+                                                    </TableCell>
+                                                    <TableCell align="right">
                                                         {service.quantity}
-                                                    </td>
-                                                    <td className="text-right">
+                                                    </TableCell>
+                                                    <TableCell align="right">
                                                         {formatter.format(service.total)}
-                                                    </td>
-                                                </tr>
+                                                    </TableCell>
+                                                </TableRow>
                                             ))}
-                                        </tbody>
-                                    </table>
+                                        </TableBody>
+                                    </Table>
 
-                                    <table className="simple mt-32">
-                                        <tbody>
-                                            <tr>
-                                                <td>
+                                    <Table className="simple mt-32">
+                                        <TableBody>
+                                            <TableRow>
+                                                <TableCell>
                                                     <Typography className="font-medium" variant="subtitle1" color="textSecondary">SUBTOTAL</Typography>
-                                                </td>
-                                                <td className="text-right">
+                                                </TableCell>
+                                                <TableCell align="right">
                                                     <Typography className="font-medium" variant="subtitle1" color="textSecondary">
                                                         {formatter.format(invoice.subtotal)}
                                                     </Typography>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
+                                                </TableCell>
+                                            </TableRow>
+                                            <TableRow>
+                                                <TableCell>
                                                     <Typography className="font-medium" variant="subtitle1" color="textSecondary">TAX</Typography>
-                                                </td>
-                                                <td className="text-right">
+                                                </TableCell>
+                                                <TableCell align="right">
                                                     <Typography className="font-medium" variant="subtitle1" color="textSecondary">
                                                         {formatter.format(invoice.tax)}
                                                     </Typography>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
+                                                </TableCell>
+                                            </TableRow>
+                                            <TableRow>
+                                                <TableCell>
                                                     <Typography className="font-medium" variant="subtitle1" color="textSecondary">DISCOUNT</Typography>
-                                                </td>
-                                                <td className="text-right">
+                                                </TableCell>
+                                                <TableCell align="right">
                                                     <Typography className="font-medium" variant="subtitle1" color="textSecondary">
                                                         {formatter.format(invoice.discount)}
                                                     </Typography>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
+                                                </TableCell>
+                                            </TableRow>
+                                            <TableRow>
+                                                <TableCell>
                                                     <Typography className="font-light" variant="h4" color="textSecondary">TOTAL</Typography>
-                                                </td>
-                                                <td className="text-right">
+                                                </TableCell>
+                                                <TableCell align="right">
                                                     <Typography className="font-light" variant="h4" color="textSecondary">
                                                         {formatter.format(invoice.total)}
                                                     </Typography>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                                </TableCell>
+                                            </TableRow>
+                                        </TableBody>
+                                    </Table>
 
                                 </div>
 
