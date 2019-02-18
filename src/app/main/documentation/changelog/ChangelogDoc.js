@@ -15,6 +15,42 @@ const ChangelogDoc = () => {
 
                     <div>
                         <div className="flex items-center mb-32 mt-48">
+                            <Typography className="text-28" component="h2">v2.2.2</Typography>
+                            <Typography className="text-16 ml-8" color="textSecondary" component="h3">(2019-02-18)</Typography>
+                        </div>
+                        <div className="mb-24">
+                            <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">
+                                NEW:
+                            </Typography>
+                            <ul>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Dependency packages updated (react v16.8.1, react-scripts etc).
+                                    </Typography>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="mb-24">
+                            <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">
+                                FIX:
+                            </Typography>
+                            <ul>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Rendering Dom in "window.onload" function to wait all files loaded (esp css files).
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Theming issues (FuseCountdown, tables of Invoice pages).
+                                    </Typography>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div className="flex items-center mb-32 mt-48">
                             <Typography className="text-28" component="h2">v2.2.1</Typography>
                             <Typography className="text-16 ml-8" color="textSecondary" component="h3">(2019-02-11)</Typography>
                         </div>
