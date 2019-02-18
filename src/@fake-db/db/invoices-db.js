@@ -18,8 +18,8 @@ const invoicesDB = {
                 'email'  : 'johndoe@mail.com'
             },
             'number'  : 'P9-0004',
-            'date'    : 'Jul 19, 2015',
-            'dueDate' : 'Aug 24, 2015',
+            'date'    : 'Jul 19, 2019',
+            'dueDate' : 'Aug 24, 2019',
             'services': [
                 {
                     'id'       : '1',
