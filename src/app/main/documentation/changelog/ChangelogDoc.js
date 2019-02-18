@@ -28,6 +28,11 @@ const ChangelogDoc = () => {
                                         Dependency packages updated (react v16.8.1, react-scripts etc).
                                     </Typography>
                                 </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        PSD files updated.
+                                    </Typography>
+                                </li>
                             </ul>
                         </div>
                         <div className="mb-24">
