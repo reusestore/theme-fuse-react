@@ -78,11 +78,11 @@ const FuseAuthorizationDoc = () => {
                             `}
                     </FuseHighlight>
 
-                    <Typography id="auth-protected-app" className="mt-32 mb-8" variant="h5">On RoutesConfig.js file</Typography>
+                    <Typography id="auth-protected-app" className="mt-32 mb-8" variant="h5">On routesConfig.js file</Typography>
 
                     <Typography className="mb-16 mt-32" component="p">
                         If you don't want to set auth on every page config;
-                        <br/>You can group the configs and define authorization the <code>src/app/fuse-configs/RoutesConfig.js</code> file,
+                        <br/>You can group the configs and define authorization the <code>src/app/fuse-configs/routesConfig.js</code> file,
                         <br/>With this configuration below makes <b>whole app</b> auth protected:
                     </Typography>
 
@@ -117,8 +117,7 @@ const FuseAuthorizationDoc = () => {
                                             ComponentsConfig,
                                             UserInterfaceConfig,
                                             DocumentationConfig,
-                                            LogoutConfig,
-                                            CallbackConfig
+                                            LogoutConfig
                                         ]),
                                         LoginConfig,
                                         RegisterConfig,
