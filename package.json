@@ -13,7 +13,7 @@
         "babel-polyfill": "7.0.0-beta.3",
         "chart.js": "2.7.3",
         "date-fns": "2.0.0-alpha.27",
-        "downshift": "3.2.4",
+        "downshift": "3.2.6",
         "firebase": "5.8.4",
         "formsy-react": "1.1.5",
         "google-map-react": "1.1.2",
@@ -71,24 +71,20 @@
         "globby": "8.0.2",
         "js-beautify": "1.8.9",
         "marked": "0.6.1",
-        "postcss-cli": "6.1.2",
+        "purgecss": "1.1.0",
         "tailwindcss": "0.7.4",
-        "@fullhuman/postcss-purgecss": "1.1.0",
-        "concurrently": "4.1.0",
         "webpack-bundle-analyzer": "3.0.4"
     },
     "scripts": {
-        "start:tw": "postcss ./src/styles/fuse-helpers.tailwind.css -o ./src/styles/fuse-helpers.css -w",
-        "start:cra": "cross-env NODE_PATH=src react-scripts start",
-        "start": "concurrently \"yarn run start:tw\" \"yarn run start:cra\"",
-        "build:tw": "postcss ./src/styles/fuse-helpers.tailwind.css -o ./src/styles/fuse-helpers.css --env production",
-        "build:cra": "cross-env NODE_PATH=src GENERATE_SOURCEMAP=false react-scripts build",
-        "build": "yarn run build:tw && yarn run build:cra",
+        "start": "yarn run tailwind && cross-env NODE_PATH=src react-scripts start",
+        "build": "yarn run tailwind && yarn run purgecss:tailwind && cross-env NODE_PATH=src GENERATE_SOURCEMAP=false react-scripts build",
+        "tailwind": "./node_modules/.bin/tailwind build ./src/styles/fuse-helpers.tailwind.css -c ./tailwind.js -o ./src/styles/fuse-helpers.css",
+        "purgecss:tailwind": "purgecss --config ./purgecss.config.js -o ./src/styles",
         "test": "cross-env NODE_PATH=src react-scripts test --env=node",
         "eject": "cross-env NODE_PATH=src react-scripts eject",
         "build-docs": "babel-node src/app/main/components/material-ui/build.js",
-        "build-stats": "yarn run build -- --stats",
-        "bundle-report": "yarn run build-stats && webpack-bundle-analyzer build/bundle-stats.json"
+        "build-stats": "yarn run build --stats",
+        "bundle-report": "yarn run build-stats && webpack-bundle-analyzer build/bundle-stats.json -m static -r build/bundle-stats.html -O"
     },
     "eslintConfig": {
         "extends": "react-app"
