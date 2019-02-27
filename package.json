@@ -77,9 +77,8 @@
     },
     "scripts": {
         "start": "yarn run tailwind && cross-env NODE_PATH=src react-scripts start",
-        "build": "yarn run tailwind && yarn run purgecss:tailwind && cross-env NODE_PATH=src GENERATE_SOURCEMAP=false react-scripts build",
-        "tailwind": "./node_modules/.bin/tailwind build ./src/styles/fuse-helpers.tailwind.css -c ./tailwind.js -o ./src/styles/fuse-helpers.css",
-        "purgecss:tailwind": "purgecss --config ./purgecss.config.js -o ./src/styles",
+        "build": "yarn run tailwind && node ./purge-tailwindcss.js && cross-env NODE_PATH=src GENERATE_SOURCEMAP=false react-scripts build",
+        "tailwind": "./node_modules/.bin/tailwind build ./src/styles/tailwind.base.css -c ./tailwind.js -o ./src/styles/tailwind.css",
         "test": "cross-env NODE_PATH=src react-scripts test --env=node",
         "eject": "cross-env NODE_PATH=src react-scripts eject",
         "build-docs": "babel-node src/app/main/components/material-ui/build.js",
