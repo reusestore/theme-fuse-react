@@ -709,7 +709,7 @@ const navigationConfig = [
                 'icon' : 'history',
                 'url'  : '/documentation/changelog',
                 'badge': {
-                    'title': '2.2.2',
+                    'title': '2.2.3',
                     'bg'   : 'rgb(236, 12, 142)',
                     'fg'   : '#FFFFFF'
                 }
@@ -1031,7 +1031,7 @@ const navigationConfig = [
                                         'type'  : 'link',
                                         'url'   : 'http://fusetheme.com',
                                         'target': '_blank'
-                                    },
+                                    }
                                 ]
                             }
                         ]

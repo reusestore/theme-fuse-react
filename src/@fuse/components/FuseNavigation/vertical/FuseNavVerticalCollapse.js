@@ -8,6 +8,7 @@ import FuseNavVerticalGroup from './FuseNavVerticalGroup';
 import FuseNavVerticalItem from './FuseNavVerticalItem';
 import FuseNavBadge from './../FuseNavBadge';
 import FuseNavVerticalLink from './FuseNavVerticalLink';
+import _ from '@lodash';
 
 const propTypes = {
     item: PropTypes.shape(
@@ -83,13 +84,13 @@ class FuseNavVerticalCollapse extends Component
 
     componentDidUpdate(prevProps, prevState, snapshot)
     {
-        if ( needsToBeOpened(this.props) )
+        if (
+            !prevState.open &&
+            (!_.isEqual(this.props.location, prevProps.location) || !_.isEqual(this.props.item, prevProps.item)) &&
+            needsToBeOpened(this.props)
+        )
         {
-            !prevState.open && this.setState({open: true});
-        }
-        else
-        {
-            prevState.open && this.setState({open: false});
+            this.setState({open: true});
         }
     }
 
