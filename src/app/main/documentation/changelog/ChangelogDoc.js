@@ -52,19 +52,6 @@ const ChangelogDoc = () => {
                                 </li>
                             </ul>
                         </div>
-                        <div className="mb-24">
-                            <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">
-                                BREAKING CHANGES:
-                            </Typography>
-                            <ul>
-                                <li>
-                                    <Typography className="text-14 mb-8">
-                                        src/styles/fuse-helpers.css renamed with src/styles/tailwind.css <br/>
-                                        src/styles/fuse-helpers.tailwind.css renamed with src/styles/tailwind.base.css
-                                    </Typography>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
 
                     <div>
