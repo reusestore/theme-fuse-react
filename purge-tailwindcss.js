@@ -6,8 +6,7 @@ const path = require('path');
 // class names.
 //
 // https://github.com/FullHuman/purgecss#extractor
-class TailwindExtractor
-{
+class TailwindExtractor {
     static extract(content)
     {
         return content.match(/[A-Za-z0-9-_:\/]+/g) || [];
@@ -17,6 +16,7 @@ class TailwindExtractor
 const purgecss = new Purgecss({
     content   : ['./src/**/*.js'],
     css       : ['./src/styles/tailwind.css'],
+    whitelist : ["pl-24", "pl-40", "pl-56", "pl-72", "pl-80"],
     extractors: [
         {
             extractor : TailwindExtractor,
@@ -27,8 +27,7 @@ const purgecss = new Purgecss({
 
 const result = purgecss.purge();
 
-result.forEach(out =>
-{
+result.forEach(out => {
     fs.writeFileSync(path.resolve(__dirname, out.file), out.css, 'utf-8');
 });
 

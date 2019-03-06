@@ -1,6 +1,6 @@
 {
     "name": "fuse-react-app",
-    "version": "2.2.3",
+    "version": "2.2.4",
     "private": true,
     "dependencies": {
         "@date-io/date-fns": "1.1.0",
@@ -14,7 +14,7 @@
         "chart.js": "2.7.3",
         "date-fns": "2.0.0-alpha.27",
         "downshift": "3.2.6",
-        "firebase": "5.8.4",
+        "firebase": "5.8.5",
         "formsy-react": "1.1.5",
         "google-map-react": "1.1.2",
         "jsonwebtoken": "8.5.0",
@@ -22,24 +22,24 @@
         "jwt-decode": "2.2.0",
         "keycode": "2.2.0",
         "lodash": "4.17.11",
-        "material-ui-pickers": "2.2.1",
+        "material-ui-pickers": "2.2.4",
         "material-ui-popup-state": "1.2.0",
         "mobile-detect": "1.4.3",
         "moment": "2.24.0",
-        "notistack": "0.4.2",
+        "notistack": "0.5.0",
         "path-to-regexp": "3.0.0",
         "perfect-scrollbar": "1.4.0",
         "prismjs": "1.15.0",
         "qs": "6.6.0",
         "raw-loader": "1.0.0",
-        "react": "16.8.3",
+        "react": "16.8.4",
         "react-autosuggest": "9.4.3",
         "react-beautiful-dnd": "10.0.4",
         "react-big-calendar": "0.20.3",
         "react-chartjs-2": "2.7.4",
-        "react-dom": "16.8.3",
-        "react-draggable": "3.1.1",
-        "react-frame-component": "4.0.2",
+        "react-dom": "16.8.4",
+        "react-draggable": "3.2.1",
+        "react-frame-component": "4.1.0",
         "react-jss": "8.6.1",
         "react-loadable": "5.5.0",
         "react-masonry-css": "1.0.12",
@@ -60,8 +60,8 @@
         "velocity-react": "1.4.1"
     },
     "resolutions": {
-        "react": "16.8.3",
-        "react-dom": "16.8.3"
+        "react": "16.8.4",
+        "react-dom": "16.8.4"
     },
     "devDependencies": {
         "@babel/core": "7.2.2",
@@ -69,11 +69,11 @@
         "@babel/preset-env": "7.3.1",
         "cross-env": "5.2.0",
         "globby": "8.0.2",
-        "js-beautify": "1.8.9",
+        "js-beautify": "1.9.0",
         "marked": "0.6.1",
         "purgecss": "1.1.0",
         "tailwindcss": "0.7.4",
-        "webpack-bundle-analyzer": "3.0.4"
+        "webpack-bundle-analyzer": "3.1.0"
     },
     "scripts": {
         "start": "yarn run tailwind && cross-env NODE_PATH=src react-scripts start",

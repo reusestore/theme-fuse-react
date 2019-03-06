@@ -15,6 +15,60 @@ const ChangelogDoc = () => {
 
                     <div>
                         <div className="flex items-center mb-32 mt-48">
+                            <Typography className="text-28" component="h2">v2.2.4</Typography>
+                            <Typography className="text-16 ml-8" color="textSecondary" component="h3">(2019-03-06)</Typography>
+                        </div>
+                        <div className="mb-24">
+                            <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">
+                                NEW:
+                            </Typography>
+                            <ul>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Dependency packages updated (react v16.8.4 etc).
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        setRef prop added to FuseAnimate.
+                                    </Typography>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="mb-24">
+                            <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">
+                                FIX:
+                            </Typography>
+                            <ul>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        whitelist added to purgecss config for to prevent removing dynamically created navigation classes.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        Layout issues on safari {"<= v10"}
+                                    </Typography>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="mb-24">
+                            <Typography className="text-16 pb-8 inline-block border-b-1 mb-16" component="h4">
+                                BREAKING CHANGES:
+                            </Typography>
+                            <ul>
+                                <li>
+                                    <Typography className="text-14 mb-8">
+                                        src/styles/fuse-helpers.css renamed with src/styles/tailwind.css <br/>
+                                        src/styles/fuse-helpers.tailwind.css renamed with src/styles/tailwind.base.css
+                                    </Typography>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div className="flex items-center mb-32 mt-48">
                             <Typography className="text-28" component="h2">v2.2.3</Typography>
                             <Typography className="text-16 ml-8" color="textSecondary" component="h3">(2019-02-27)</Typography>
                         </div>

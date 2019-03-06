@@ -10,7 +10,7 @@ const FuseAnimate = (props) => {
             visibility: 'hidden'
         }
     });
-    return <VelocityComponent {...props} children={children}/>
+    return <VelocityComponent ref={ev => props.setRef && props.setRef(ev)} {...props} children={children}/>
 };
 
 FuseAnimate.propTypes = {
@@ -26,7 +26,8 @@ FuseAnimate.defaultProps = {
     duration           : 300,
     delay              : 50,
     easing             : [0.4, 0.0, 0.2, 1],
-    display            : null
+    display            : null,
+    setRef             : undefined
 };
 
 export default FuseAnimate;

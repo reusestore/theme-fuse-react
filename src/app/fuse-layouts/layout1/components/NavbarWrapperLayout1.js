@@ -10,6 +10,8 @@ const navbarWidth = 280;
 
 const styles = theme => ({
     wrapper        : {
+        display      : 'flex',
+        flexDirection: 'column',
         zIndex                      : 4,
         [theme.breakpoints.up('lg')]: {
             width   : navbarWidth,
@@ -26,6 +28,7 @@ const styles = theme => ({
         display      : 'flex',
         overflow     : 'hidden',
         flexDirection: 'column',
+        flex         : '1 1 auto',
         width        : navbarWidth,
         minWidth     : navbarWidth,
         height       : '100%',
@@ -53,7 +56,9 @@ const styles = theme => ({
         width   : navbarWidth,
         minWidth: navbarWidth
     },
-    navbarContent  : {},
+    navbarContent  : {
+        flex         : '1 1 auto',
+    },
     foldedAndClosed: {
         '& $navbarContent': {
             '& .logo-icon'                          : {

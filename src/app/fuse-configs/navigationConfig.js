@@ -709,7 +709,7 @@ const navigationConfig = [
                 'icon' : 'history',
                 'url'  : '/documentation/changelog',
                 'badge': {
-                    'title': '2.2.3',
+                    'title': '2.2.4',
                     'bg'   : 'rgb(236, 12, 142)',
                     'fg'   : '#FFFFFF'
                 }
