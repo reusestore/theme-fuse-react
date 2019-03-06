@@ -27,7 +27,7 @@ const FuseAnimateGroup = (props) => {
         leave: leaveAnimationDefaults
     }, props);
 
-    return <VelocityTransitionGroup ref={ev => props.setRef && props.setRef(ev)} {...newProps} children={props.children}/>
+    return <VelocityTransitionGroup {...newProps} children={props.children}/>
 
 };
 
@@ -45,8 +45,7 @@ FuseAnimateGroup.defaultProps = {
     },
     enterShowStyle: {
         visibility: 'hidden'
-    },
-    setRef        : undefined
+    }
 };
 
 export default FuseAnimateGroup;
