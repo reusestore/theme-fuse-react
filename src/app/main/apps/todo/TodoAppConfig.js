@@ -8,19 +8,11 @@ export const TodoAppConfig = {
     },
     routes  : [
         {
-            path     : '/apps/todo/label/:labelHandle/:todoId?',
-            component: FuseLoadable({
-                loader: () => import('./TodoApp')
-            })
-        },
-        {
-            path     : '/apps/todo/filter/:filterHandle/:todoId?',
-            component: FuseLoadable({
-                loader: () => import('./TodoApp')
-            })
-        },
-        {
-            path     : '/apps/todo/:folderHandle/:todoId?',
+            path     : [
+                '/apps/todo/label/:labelHandle/:todoId?',
+                '/apps/todo/filter/:filterHandle/:todoId?',
+                '/apps/todo/:folderHandle/:todoId?'
+            ],
             component: FuseLoadable({
                 loader: () => import('./TodoApp')
             })
