@@ -209,7 +209,7 @@ class AboutTab extends Component {
                                             <ListItemText
                                                 primary={(
                                                     <div className="">
-                                                        <Typography className="inline font-medium" color="primary" paragraph={false}>
+                                                        <Typography className="inline font-medium" color="secondary" paragraph={false}>
                                                             {group.name}
                                                         </Typography>
 
