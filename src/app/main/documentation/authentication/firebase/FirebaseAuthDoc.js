@@ -3,7 +3,8 @@ import {Icon, Typography} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
 import {Link} from 'react-router-dom';
 
-const FirebaseAuthDoc = () => {
+function FirebaseAuthDoc()
+{
     return (
         <FusePageSimple
             header={
@@ -78,6 +79,6 @@ const FirebaseAuthDoc = () => {
             }
         />
     );
-};
+}
 
 export default FirebaseAuthDoc;

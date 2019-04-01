@@ -1,9 +1,11 @@
 import React from 'react';
 import {Icon, Typography} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
+
 /* eslint import/no-webpack-loader-syntax: off */
 
-const SettingsDoc = () => {
+function SettingsDoc()
+{
     return (
         <FusePageSimple
             header={
@@ -36,6 +38,6 @@ const SettingsDoc = () => {
             }
         />
     );
-};
+}
 
 export default SettingsDoc;

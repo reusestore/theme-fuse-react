@@ -1,19 +1,20 @@
 import React from 'react';
 import {FuseExample, FuseHighlight, FusePageSimple} from '@fuse';
 import {Button, Icon, Typography} from '@material-ui/core';
-import {withStyles} from '@material-ui/core/styles/index';
+import {makeStyles} from '@material-ui/styles';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint no-unused-vars: off */
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     layoutRoot: {
         '& .description': {
             marginBottom: 16
         }
     }
-});
+}));
 
-function Buttons({classes})
+function Buttons(props)
 {
+    const classes = useStyles();
     return (
 
         <FusePageSimple
@@ -178,7 +179,7 @@ function Buttons({classes})
                         able to take advantage of it everywhere:</Typography>
 
                     <FuseHighlight component="pre" className="language-jsx">
-                        {`
+                        {` 
 import { Link } from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 
@@ -190,7 +191,7 @@ import Button from '@material-ui/core/Button';
                     <Typography className="mb-16" component="div">or if you want to avoid properties collision:</Typography>
 
                     <FuseHighlight component="pre" className="language-jsx">
-                        {`
+                        {` 
 import { Link } from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 
@@ -211,4 +212,4 @@ const MyLink = props => <Link to="/open-collective" {...props} />
     );
 }
 
-export default withStyles(styles, {withTheme: true})(Buttons);
+export default Buttons;

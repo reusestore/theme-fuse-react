@@ -6,7 +6,8 @@ import * as Actions from 'app/store/actions';
 import {connect} from 'react-redux';
 import {authRoles} from 'app/auth';
 
-const FuseNavigationDoc = ({updateNavigationItem, removeNavigationItem, appendNavigationItem, prependNavigationItem, setNavigation,resetNavigation}) => {
+function FuseNavigationDoc(props)
+{
     return (
         <FusePageSimple
             header={
@@ -62,7 +63,8 @@ const FuseNavigationDoc = ({updateNavigationItem, removeNavigationItem, appendNa
 
                     <Typography className="mt-48 mb-8" variant="h4">Navigation item types</Typography>
 
-                    <Typography className="mt-32 p-8 rounded-4 bg-yellow-lightest border-1 border-yellow-dark text-black mb-8" >Its mandatory to give a unique id to all of your navigation items.</Typography>
+                    <Typography className="mt-32 p-8 rounded-4 bg-yellow-lightest border-1 border-yellow-dark text-black mb-8">Its mandatory to give a unique id to all of your
+                        navigation items.</Typography>
 
                     <Typography className="mt-32 mb-8" variant="h6">Group</Typography>
                     <FuseHighlight component="pre" className="language-json">
@@ -193,7 +195,7 @@ const FuseNavigationDoc = ({updateNavigationItem, removeNavigationItem, appendNa
 
                         <Button
                             onClick={() => {
-                                setNavigation([
+                                props.setNavigation([
                                     {
                                         'id'      : 'auth',
                                         'title'   : 'Auth',
@@ -231,7 +233,7 @@ const FuseNavigationDoc = ({updateNavigationItem, removeNavigationItem, appendNa
                                 `
                                 <Button
                                     onClick={() => {
-                                        setNavigation([
+                                        props.setNavigation([
                                             {
                                                 'id'      : 'auth',
                                                 'title'   : 'Auth',
@@ -280,7 +282,7 @@ const FuseNavigationDoc = ({updateNavigationItem, removeNavigationItem, appendNa
 
                         <Button
                             onClick={() => {
-                                resetNavigation();
+                                props.resetNavigation();
                             }}
                             variant="contained"
                             color="primary"
@@ -293,7 +295,7 @@ const FuseNavigationDoc = ({updateNavigationItem, removeNavigationItem, appendNa
                                 `
                                 <Button
                                     onClick={() => {
-                                        resetNavigation();
+                                        props.resetNavigation();
                                     }}
                                     variant="contained"
                                     color="primary"
@@ -317,7 +319,7 @@ const FuseNavigationDoc = ({updateNavigationItem, removeNavigationItem, appendNa
 
                         <Button
                             onClick={() => {
-                                updateNavigationItem('dashboards',
+                                props.updateNavigationItem('dashboards',
                                     {
                                         'title': 'All Dashboards',
                                         'badge': {
@@ -339,7 +341,7 @@ const FuseNavigationDoc = ({updateNavigationItem, removeNavigationItem, appendNa
                                 `
                                 <Button
                                     onClick={() => {
-                                        updateNavigationItem('dashboards',
+                                        props.updateNavigationItem('dashboards',
                                             {
                                                 'title': 'All Dashboards',
                                                 'badge': {
@@ -372,7 +374,7 @@ const FuseNavigationDoc = ({updateNavigationItem, removeNavigationItem, appendNa
 
                         <Button
                             onClick={() => {
-                                removeNavigationItem('calendar')
+                                props.removeNavigationItem('calendar')
                             }}
                             variant="contained"
                             color="primary"
@@ -385,7 +387,7 @@ const FuseNavigationDoc = ({updateNavigationItem, removeNavigationItem, appendNa
                                 `
                                   <Button
                                         onClick={() => {
-                                            removeNavigationItem('calendar')
+                                            props.removeNavigationItem('calendar')
                                         }}
                                         variant="contained"
                                         color="primary"
@@ -409,7 +411,7 @@ const FuseNavigationDoc = ({updateNavigationItem, removeNavigationItem, appendNa
 
                         <Button
                             onClick={() => {
-                                prependNavigationItem(
+                                props.prependNavigationItem(
                                     {
                                         'id'    : 'test-link-' + FuseUtils.generateGUID(),
                                         'title' : 'fusetheme.com',
@@ -431,7 +433,7 @@ const FuseNavigationDoc = ({updateNavigationItem, removeNavigationItem, appendNa
                                 `
                                 <Button
                                     onClick={() => {
-                                        prependNavigationItem(
+                                        props.prependNavigationItem(
                                             {
                                                 'id'    : 'test-link',
                                                 'title' : 'fusetheme.com',
@@ -460,7 +462,7 @@ const FuseNavigationDoc = ({updateNavigationItem, removeNavigationItem, appendNa
 
                         <Button
                             onClick={() => {
-                                prependNavigationItem(
+                                props.prependNavigationItem(
                                     {
                                         'id'    : 'test-link-' + FuseUtils.generateGUID(),
                                         'title' : 'fusetheme.com',
@@ -482,7 +484,7 @@ const FuseNavigationDoc = ({updateNavigationItem, removeNavigationItem, appendNa
                                 `
                                 <Button
                                     onClick={() => {
-                                        prependNavigationItem(
+                                        props.prependNavigationItem(
                                             {
                                                 'id'    : 'test-link',
                                                 'title' : 'fusetheme.com',
@@ -510,12 +512,12 @@ const FuseNavigationDoc = ({updateNavigationItem, removeNavigationItem, appendNa
 
                     <div className="border-1 rounded-8 p-16 my-16">
                         <Typography className="text-16 mb-24" component="h2">
-                            With the button below, "Test" navigation item is added at the bottom of the array.
+                            With the button below, "fusetheme.com" navigation item is added at the bottom of the array.
                         </Typography>
 
                         <Button
                             onClick={() => {
-                                appendNavigationItem(
+                                props.appendNavigationItem(
                                     {
                                         'id'    : 'test-link-' + FuseUtils.generateGUID(),
                                         'title' : 'fusetheme.com',
@@ -536,7 +538,7 @@ const FuseNavigationDoc = ({updateNavigationItem, removeNavigationItem, appendNa
                                 `
                                 <Button
                                     onClick={() => {
-                                        appendNavigationItem(
+                                        props.appendNavigationItem(
                                             {
                                                 'id'    : 'test-link',
                                                 'title' : 'fusetheme.com',
@@ -564,7 +566,7 @@ const FuseNavigationDoc = ({updateNavigationItem, removeNavigationItem, appendNa
 
                         <Button
                             onClick={() => {
-                                appendNavigationItem(
+                                props.appendNavigationItem(
                                     {
                                         'id'    : 'test-link-' + FuseUtils.generateGUID(),
                                         'title' : 'fusetheme.com',
@@ -586,7 +588,7 @@ const FuseNavigationDoc = ({updateNavigationItem, removeNavigationItem, appendNa
                                 `
                                 <Button
                                     onClick={() => {
-                                        appendNavigationItem(
+                                        props.appendNavigationItem(
                                             {
                                                 'id'    : 'test-link',
                                                 'title' : 'fusetheme.com',
@@ -606,12 +608,11 @@ const FuseNavigationDoc = ({updateNavigationItem, removeNavigationItem, appendNa
                             }
                         </FuseHighlight>
                     </div>
-
                 </div>
             }
         />
     );
-};
+}
 
 function mapDispatchToProps(dispatch)
 {

@@ -3,7 +3,8 @@ import {Icon, Typography} from '@material-ui/core';
 import {FusePageSimple, FuseHighlight} from '@fuse';
 import {Link} from 'react-router-dom';
 
-const InstallationDoc = () => {
+function InstallationDoc()
+{
     return (
         <FusePageSimple
             header={
@@ -120,11 +121,10 @@ const InstallationDoc = () => {
                         </ol>
                     </Typography>
 
-
                 </div>
             }
         />
     );
-};
+}
 
 export default InstallationDoc;

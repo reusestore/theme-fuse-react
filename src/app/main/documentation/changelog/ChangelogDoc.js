@@ -412,7 +412,8 @@ const changelogData = [
     }
 ];
 
-const ChangelogDoc = () => {
+function ChangelogDoc()
+{
     return (
         <FusePageSimple
             header={
@@ -440,6 +441,6 @@ const ChangelogDoc = () => {
             }
         />
     );
-};
+}
 
 export default ChangelogDoc;

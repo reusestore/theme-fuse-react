@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import React, {useContext, useEffect} from 'react';
+import {makeStyles} from '@material-ui/styles';
 import {withRouter} from 'react-router-dom';
 import {matchRoutes} from 'react-router-config'
 import {bindActionCreators} from 'redux';
@@ -9,7 +9,7 @@ import {FuseLayouts} from '@fuse';
 import _ from '@lodash';
 import AppContext from 'app/AppContext';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     root: {
         backgroundColor                   : theme.palette.background.default,
         color                             : theme.palette.text.primary,
@@ -40,57 +40,48 @@ const styles = theme => ({
             borderColor: theme.palette.divider
         }
     }
-});
+}));
 
-class FuseLayout extends Component {
+function FuseLayout(props)
+{
+    const classes = useStyles(props);
+    const appContext = useContext(AppContext);
 
-    constructor(props, context)
+    routeSettingsCheck();
+
+    useEffect(() => {
+        routeSettingsCheck();
+    }, [props.location.pathname]);
+
+    function routeSettingsCheck()
     {
-        super(props);
-        this.appContext = context;
-        this.routeSettingsCheck();
-    }
+        const {routes} = appContext;
 
-    componentDidUpdate(prevProps)
-    {
-        if ( !_.isEqual(this.props.location.pathname, prevProps.location.pathname) )
-        {
-            this.routeSettingsCheck();
-        }
-    }
-
-    routeSettingsCheck = () => {
-        const {routes} = this.appContext;
-
-        const matched = matchRoutes(routes, this.props.location.pathname)[0];
+        const matched = matchRoutes(routes, props.location.pathname)[0];
 
         if ( matched && matched.route.settings )
         {
-            const routeSettings = _.merge({}, this.props.defaultSettings, matched.route.settings);
-            if ( !_.isEqual(this.props.settings, routeSettings) )
+            const routeSettings = _.merge({}, props.defaultSettings, matched.route.settings);
+            if ( !_.isEqual(props.settings, routeSettings) )
             {
-                this.props.setSettings(_.merge({}, routeSettings));
+                props.setSettings(_.merge({}, routeSettings));
             }
         }
         else
         {
-            if ( !_.isEqual(this.props.settings, this.props.defaultSettings) )
+            if ( !_.isEqual(props.settings, props.defaultSettings) )
             {
-                this.props.resetSettings();
+                props.resetSettings();
             }
         }
-    };
-
-    render()
-    {
-        const {settings, classes} = this.props;
-        // console.warn('FuseLayout:: rendered');
-
-        const Layout = FuseLayouts[settings.layout.style];
-        return (
-            <Layout className={classes.root} {...this.props}/>
-        );
     }
+
+    // console.warn('FuseLayout:: rendered');
+
+    const Layout = FuseLayouts[props.settings.layout.style];
+    return (
+        <Layout classes={{root: classes.root}} {...props}/>
+    );
 }
 
 function mapDispatchToProps(dispatch)
@@ -109,6 +100,4 @@ function mapStateToProps({fuse})
     }
 }
 
-FuseLayout.contextType = AppContext;
-
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(FuseLayout)));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FuseLayout));

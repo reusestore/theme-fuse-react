@@ -1,5 +1,6 @@
 import React from 'react';
-import {withStyles, Hidden, Icon, IconButton, Table, TableBody, TableCell, TableHead, TableRow} from '@material-ui/core';
+import {Hidden, Icon, IconButton, Table, TableBody, TableCell, TableHead, TableRow} from '@material-ui/core';
+import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate} from '@fuse';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
@@ -7,7 +8,7 @@ import {connect} from 'react-redux';
 import classNames from 'classnames';
 import * as Actions from './store/actions';
 
-const styles = theme => ({
+const useStyles = makeStyles({
     typeIcon: {
         '&.folder:before'     : {
             content: "'folder'",
@@ -24,7 +25,9 @@ const styles = theme => ({
     }
 });
 
-const FileList = ({classes, files, selectedItem, setSelectedItem, pageLayout}) => {
+function FileList(props)
+{
+    const classes = useStyles();
 
     return (
         <FuseAnimate animation="transition.slideUpIn" delay={300}>
@@ -42,17 +45,17 @@ const FileList = ({classes, files, selectedItem, setSelectedItem, pageLayout}) =
                 </TableHead>
 
                 <TableBody>
-                    {Object.entries(files).map(([key, n]) => {
+                    {Object.entries(props.files).map(([key, n]) => {
                         return (
                             <TableRow
                                 key={n.id}
                                 hover
-                                onClick={event => setSelectedItem(n.id)}
-                                selected={n.id === selectedItem}
+                                onClick={event => props.setSelectedItem(n.id)}
+                                selected={n.id === props.selectedItem}
                                 className="cursor-pointer"
                             >
                                 <TableCell className="max-w-64 w-64 p-0 text-center">
-                                    <Icon className={classNames(classes.typeIcon, n.type)}></Icon>
+                                    <Icon className={classNames(classes.typeIcon, n.type)}/>
                                 </TableCell>
                                 <TableCell>{n.name}</TableCell>
                                 <TableCell className="hidden sm:table-cell">{n.type}</TableCell>
@@ -62,7 +65,7 @@ const FileList = ({classes, files, selectedItem, setSelectedItem, pageLayout}) =
                                 <Hidden lgUp>
                                     <TableCell>
                                         <IconButton
-                                            onClick={(ev) => pageLayout().toggleRightSidebar()}
+                                            onClick={(ev) => props.pageLayout().toggleRightSidebar()}
                                             aria-label="open right sidebar"
                                         >
                                             <Icon>info</Icon>
@@ -94,4 +97,4 @@ function mapStateToProps({fileManagerApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(FileList)));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FileList));

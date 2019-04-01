@@ -2,7 +2,8 @@ import React from 'react';
 import {Icon, Typography} from '@material-ui/core';
 import {FusePageSimple, FuseHighlight} from '@fuse';
 
-const DevelopmentDoc = () => {
+function DevelopmentDoc()
+{
     return (
         <FusePageSimple
             header={
@@ -56,6 +57,6 @@ const DevelopmentDoc = () => {
             }
         />
     );
-};
+}
 
 export default DevelopmentDoc;

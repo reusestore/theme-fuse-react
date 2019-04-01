@@ -1,9 +1,11 @@
 import React from 'react';
 import {Icon, Typography} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
+
 /* eslint import/no-webpack-loader-syntax: off */
 
-const FuseAuthorizationDoc = () => {
+function FuseAuthorizationDoc()
+{
     return (
         <FusePageSimple
             header={
@@ -146,6 +148,6 @@ const FuseAuthorizationDoc = () => {
             }
         />
     );
-};
+}
 
 export default FuseAuthorizationDoc;

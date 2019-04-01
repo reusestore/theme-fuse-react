@@ -1,14 +1,14 @@
-import React, {Component} from 'react';
-import {Avatar, Paper, Typography, withStyles, TextField, IconButton, Icon} from '@material-ui/core';
+import React, {useEffect, useMemo, useRef, useState} from 'react';
+import {Avatar, Paper, Typography, TextField, IconButton, Icon} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
 import classNames from 'classnames';
 import moment from 'moment/moment';
 import * as Actions from './store/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import _ from '@lodash';
+import {makeStyles} from '@material-ui/styles';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     messageRow  : {
         position                          : 'relative',
         display                           : 'flex',
@@ -128,150 +128,140 @@ const styles = theme => ({
     inputWrapper: {
         borderRadius: 24
     }
-});
+}));
 
-class Chat extends Component {
+function Chat(props)
+{
+    const classes = useStyles();
+    const chatScroll = useRef(null);
+    const [messageText, setMessageText] = useState('');
 
-    state = {
-        messageText: ''
-    };
+    useEffect(() => {
+        scrollToBottom();
+    }, [props.chat]);
 
-    componentDidUpdate(prevProps)
-    {
-        if ( this.props.chat && !_.isEqual(prevProps.chat, this.props.chat) )
-        {
-            this.scrollToBottom();
-        }
-    }
-
-    shouldShowContactAvatar = (item, i) => {
+    const shouldShowContactAvatar = (item, i) => {
         return (
-            item.who === this.props.selectedContactId &&
-            ((this.props.chat.dialog[i + 1] && this.props.chat.dialog[i + 1].who !== this.props.selectedContactId) || !this.props.chat.dialog[i + 1])
+            item.who === props.selectedContactId &&
+            ((props.chat.dialog[i + 1] && props.chat.dialog[i + 1].who !== props.selectedContactId) || !props.chat.dialog[i + 1])
         );
     };
 
-    isFirstMessageOfGroup = (item, i) => {
-        return (i === 0 || (this.props.chat.dialog[i - 1] && this.props.chat.dialog[i - 1].who !== item.who));
+    const isFirstMessageOfGroup = (item, i) => {
+        return (i === 0 || (props.chat.dialog[i - 1] && props.chat.dialog[i - 1].who !== item.who));
     };
 
-    isLastMessageOfGroup = (item, i) => {
-        return (i === this.props.chat.dialog.length - 1 || (this.props.chat.dialog[i + 1] && this.props.chat.dialog[i + 1].who !== item.who));
+    const isLastMessageOfGroup = (item, i) => {
+        return (i === props.chat.dialog.length - 1 || (props.chat.dialog[i + 1] && props.chat.dialog[i + 1].who !== item.who));
     };
 
-    onInputChange = (ev) => {
-        this.setState({messageText: ev.target.value});
+    const onInputChange = (ev) => {
+        setMessageText(ev.target.value);
     };
 
-    onMessageSubmit = (ev) => {
+    const onMessageSubmit = (ev) => {
         ev.preventDefault();
-        if ( this.state.messageText === '' )
+        if ( messageText === '' )
         {
             return;
         }
-        this.props.sendMessage(this.state.messageText, this.props.chat.id, this.props.user.id)
+        props.sendMessage(messageText, props.chat.id, props.user.id)
             .then(() => {
-                this.setState({messageText: ''});
-                this.scrollToBottom();
+                setMessageText('');
             });
     };
 
-    scrollToBottom = () => {
-        this.chatScroll.scrollTop = this.chatScroll.scrollHeight;
+    const scrollToBottom = () => {
+        chatScroll.current.scrollTop = chatScroll.current.scrollHeight;
     };
 
-    render()
-    {
-        const {classes, chat, contacts, user, className} = this.props;
-        const {messageText} = this.state;
-        return (
-            <Paper elevation={3} className={classNames("flex flex-col", className)}>
-                <FuseScrollbars
-                    containerRef={(ref) => {
-                        this.chatScroll = ref
-                    }}
-                    className="flex flex-1 flex-col overflow-y-auto"
-                >
-                    {!chat ?
-                        (
-                            <div className="flex flex-col flex-1 items-center justify-center p-24">
-                                <Icon className="text-128" color="disabled">chat</Icon>
-                                <Typography className="px-16 pb-24 mt-24 text-center" color="textSecondary">
-                                    Select a contact to start a conversation.
-                                </Typography>
-                            </div>
-                        ) :
-                        chat.dialog.length > 0 ?
+    return (
+        <Paper elevation={3} className={classNames("flex flex-col", props.className)}>
+
+            {useMemo(() =>
+                    <FuseScrollbars
+                        ref={chatScroll}
+                        className="flex flex-1 flex-col overflow-y-auto"
+                    >
+                        {!props.chat ?
                             (
-                                <div className="flex flex-col pt-16 pl-40 pb-40">
-                                    {chat.dialog.map((item, i) => {
-                                        const contact = item.who === user.id ? user : contacts.find(_contact => _contact.id === item.who);
-                                        return (
-                                            <div
-                                                key={item.time}
-                                                className={classNames(
-                                                    classes.messageRow,
-                                                    {'me': item.who === user.id},
-                                                    {'contact': item.who !== user.id},
-                                                    {'first-of-group': this.isFirstMessageOfGroup(item, i)},
-                                                    {'last-of-group': this.isLastMessageOfGroup(item, i)}
-                                                )}
-                                            >
-                                                {this.shouldShowContactAvatar(item, i) && (
-                                                    <Avatar className={classes.avatar} src={contact.avatar}/>
-                                                )}
-                                                <div className={classes.bubble}>
-                                                    <div className={classes.message}>{item.message}</div>
-                                                    <Typography className={classes.time} color="textSecondary">{moment(item.time).format('MMMM Do YYYY, h:mm:ss a')}</Typography>
-                                                </div>
-                                            </div>
-                                        )
-                                    })}
-                                </div>
-                            ) : (
-                                <div className="flex flex-col flex-1">
-                                    <div className="flex flex-col flex-1 items-center justify-center">
-                                        <Icon className="text-128" color="disabled">chat</Icon>
-                                    </div>
-                                    <Typography className="px-16 pb-24 text-center" color="textSecondary">
-                                        Start a conversation by typing your message below.
+                                <div className="flex flex-col flex-1 items-center justify-center p-24">
+                                    <Icon className="text-128" color="disabled">chat</Icon>
+                                    <Typography className="px-16 pb-24 mt-24 text-center" color="textSecondary">
+                                        Select a contact to start a conversation.
                                     </Typography>
                                 </div>
-                            )
-                    }
-
-                </FuseScrollbars>
-                {chat && (
-                    <form onSubmit={this.onMessageSubmit} className={classNames(classes.bottom, "py-16 px-8")}>
-                        <Paper className={classNames(classes.inputWrapper, "flex items-center relative")}>
-                            <TextField
-                                autoFocus={false}
-                                id="message-input"
-                                className="flex-1"
-                                InputProps={{
-                                    disableUnderline: true,
-                                    classes         : {
-                                        root : "flex flex-grow flex-no-shrink ml-16 mr-48 my-8",
-                                        input: ""
-                                    },
-                                    placeholder     : "Type your message"
-                                }}
-                                InputLabelProps={{
-                                    shrink   : false,
-                                    className: classes.bootstrapFormLabel
-                                }}
-                                onChange={this.onInputChange}
-                                value={messageText}
-                            />
-                            <IconButton className="absolute pin-r pin-t" type="submit">
-                                <Icon className="text-24" color="action">send</Icon>
-                            </IconButton>
-                        </Paper>
-                    </form>
-                )}
-            </Paper>
-        );
-    }
+                            ) :
+                            props.chat.dialog.length > 0 ?
+                                (
+                                    <div className="flex flex-col pt-16 pl-40 pb-40">
+                                        {props.chat.dialog.map((item, i) => {
+                                            const contact = item.who === props.user.id ? props.user : props.contacts.find(_contact => _contact.id === item.who);
+                                            return (
+                                                <div
+                                                    key={item.time}
+                                                    className={classNames(
+                                                        classes.messageRow,
+                                                        {'me': item.who === props.user.id},
+                                                        {'contact': item.who !== props.user.id},
+                                                        {'first-of-group': isFirstMessageOfGroup(item, i)},
+                                                        {'last-of-group': isLastMessageOfGroup(item, i)}
+                                                    )}
+                                                >
+                                                    {shouldShowContactAvatar(item, i) && (
+                                                        <Avatar className={classes.avatar} src={contact.avatar}/>
+                                                    )}
+                                                    <div className={classes.bubble}>
+                                                        <div className={classes.message}>{item.message}</div>
+                                                        <Typography className={classes.time} color="textSecondary">{moment(item.time).format('MMMM Do YYYY, h:mm:ss a')}</Typography>
+                                                    </div>
+                                                </div>
+                                            )
+                                        })}
+                                    </div>
+                                ) : (
+                                    <div className="flex flex-col flex-1">
+                                        <div className="flex flex-col flex-1 items-center justify-center">
+                                            <Icon className="text-128" color="disabled">chat</Icon>
+                                        </div>
+                                        <Typography className="px-16 pb-24 text-center" color="textSecondary">
+                                            Start a conversation by typing your message below.
+                                        </Typography>
+                                    </div>
+                                )
+                        }
+                    </FuseScrollbars>
+                , [props.chat])}
+            {props.chat && (
+                <form onSubmit={onMessageSubmit} className={classNames(classes.bottom, "py-16 px-8")}>
+                    <Paper className={classNames(classes.inputWrapper, "flex items-center relative")}>
+                        <TextField
+                            autoFocus={false}
+                            id="message-input"
+                            className="flex-1"
+                            InputProps={{
+                                disableUnderline: true,
+                                classes         : {
+                                    root : "flex flex-grow flex-no-shrink ml-16 mr-48 my-8",
+                                    input: ""
+                                },
+                                placeholder     : "Type your message"
+                            }}
+                            InputLabelProps={{
+                                shrink   : false,
+                                className: classes.bootstrapFormLabel
+                            }}
+                            onChange={onInputChange}
+                            value={messageText}
+                        />
+                        <IconButton className="absolute pin-r pin-t" type="submit">
+                            <Icon className="text-24" color="action">send</Icon>
+                        </IconButton>
+                    </Paper>
+                </form>
+            )}
+        </Paper>
+    );
 }
 
 function mapDispatchToProps(dispatch)
@@ -291,4 +281,4 @@ function mapStateToProps({chatPanel})
     }
 }
 
-export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(Chat));
+export default connect(mapStateToProps, mapDispatchToProps)(Chat);

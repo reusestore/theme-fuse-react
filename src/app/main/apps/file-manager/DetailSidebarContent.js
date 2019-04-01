@@ -1,12 +1,13 @@
 import React from 'react';
-import {withStyles, FormControlLabel, Icon, Switch, Typography} from '@material-ui/core';
+import {FormControlLabel, Icon, Switch, Typography} from '@material-ui/core';
+import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate} from '@fuse';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import classNames from 'classnames';
 
-const styles = theme => ({
+const useStyles = makeStyles({
     table   : {
         '& th': {
             padding: '16px 0'
@@ -28,9 +29,10 @@ const styles = theme => ({
     }
 });
 
-const DetailSidebarContent = ({classes, files, selectedItem}) => {
-
-    const selected = files[selectedItem];
+function DetailSidebarContent(props)
+{
+    const classes = useStyles();
+    const selected = props.files[props.selectedItem];
 
     if ( !selected )
     {
@@ -104,7 +106,7 @@ const DetailSidebarContent = ({classes, files, selectedItem}) => {
             </div>
         </FuseAnimate>
     );
-};
+}
 
 function mapDispatchToProps(dispatch)
 {
@@ -119,4 +121,4 @@ function mapStateToProps({fileManagerApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(DetailSidebarContent)));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DetailSidebarContent));

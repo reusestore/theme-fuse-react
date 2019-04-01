@@ -143,7 +143,7 @@ class Chat extends Component {
     };
 
     scrollToBottom = () => {
-        this.chatScroll.scrollTop = this.chatScroll.scrollHeight;
+        // this.chatScroll.scrollTop = this.chatScroll.scrollHeight;
     };
 
     render()

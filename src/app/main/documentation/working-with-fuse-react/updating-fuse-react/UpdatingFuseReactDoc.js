@@ -2,7 +2,8 @@ import React from 'react';
 import {Icon, Typography} from '@material-ui/core';
 import {FusePageSimple} from '@fuse';
 
-const UpdatingFuseReactDoc = () => {
+function UpdatingFuseReactDoc()
+{
     return (
         <FusePageSimple
             header={
@@ -54,6 +55,6 @@ const UpdatingFuseReactDoc = () => {
             }
         />
     );
-};
+}
 
 export default UpdatingFuseReactDoc;

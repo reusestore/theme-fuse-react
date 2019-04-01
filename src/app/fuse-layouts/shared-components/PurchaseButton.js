@@ -1,7 +1,8 @@
 import React from 'react';
 import {Button, Icon} from '@material-ui/core';
 
-const PurchaseButton = () => {
+function PurchaseButton()
+{
     return (
         <Button component="a"
                 href="https://themeforest.net/item/fuse-react-react-redux-material-design-admin-template/21769397?ref=withinpixels"
@@ -15,6 +16,6 @@ const PurchaseButton = () => {
             <span>Purchase FUSE React</span>
         </Button>
     );
-};
+}
 
 export default PurchaseButton;

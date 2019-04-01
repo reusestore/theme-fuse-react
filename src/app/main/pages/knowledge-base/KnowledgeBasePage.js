@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import {
-    withStyles,
     Button,
     Card,
     CardContent,
@@ -17,6 +16,7 @@ import {
     Typography,
     Slide
 } from '@material-ui/core';
+import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate, FuseAnimateGroup} from '@fuse';
 import classNames from 'classnames';
 import axios from 'axios';
@@ -26,69 +26,66 @@ function Transition(props)
     return <Slide direction="up" {...props} />;
 }
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     header: {
         background: 'linear-gradient(to right, ' + theme.palette.primary.dark + ' 0%, ' + theme.palette.primary.main + ' 100%)',
         color     : theme.palette.primary.contrastText
     }
-});
+}));
 
-class KnowledgeBasePage extends Component {
+function KnowledgeBasePage()
+{
+    const classes = useStyles();
+    const [data, setData] = useState([]);
+    const [dialog, setDialog] = useState({
+        open   : false,
+        title  : null,
+        content: null
+    });
 
-    state = {
-        data      : [],
-        openDialog: false,
-        dialogData: {
-            title  : null,
-            content: null
-        }
-    };
-
-    componentDidMount()
-    {
+    useEffect(() => {
         axios.get('/api/knowledge-base').then(res => {
-            this.setState({data: res.data});
+            setData(res.data);
+        });
+    }, []);
+
+    function handleOpenDialog(dialogData)
+    {
+        setDialog({
+            open: true,
+            ...dialogData
         });
     }
 
-    handleOpenDialog = (dialogData) => {
-        this.setState({
-            openDialog: true,
-            dialogData
-        });
-    };
-
-    handleCloseDialog = () => {
-        this.setState({
-            openDialog: false
-        });
-    };
-
-    render()
+    function handleCloseDialog()
     {
-        const {classes} = this.props;
-        const {data, openDialog, dialogData} = this.state;
+        setDialog({
+            ...dialog,
+            open: false,
+        });
+    }
 
-        return (
-            <div className="w-full">
+    return (
+        <div className="w-full">
 
-                <div className={classNames(classes.header, "flex flex-col items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-360")}>
+            <div className={classNames(classes.header, "flex flex-col items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-360")}>
 
-                    <FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
-                        <Typography color="inherit" className="text-36 sm:text-56 font-light">
-                            How can we help?
-                        </Typography>
-                    </FuseAnimate>
+                <FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
+                    <Typography color="inherit" className="text-36 sm:text-56 font-light">
+                        How can we help?
+                    </Typography>
+                </FuseAnimate>
 
-                    <FuseAnimate duration={400} delay={600}>
-                        <Typography variant="subtitle1" color="inherit" className="opacity-75 mt-16 mx-auto max-w-512">
-                            Welcome to our knowledge base
-                        </Typography>
-                    </FuseAnimate>
-                </div>
+                <FuseAnimate duration={400} delay={600}>
+                    <Typography variant="subtitle1" color="inherit" className="opacity-75 mt-16 mx-auto max-w-512">
+                        Welcome to our knowledge base
+                    </Typography>
+                </FuseAnimate>
+            </div>
 
-                <div>
+            <div>
 
+                {useMemo(() => (
                     <FuseAnimateGroup
                         enter={{
                             animation: "transition.slideUpBigIn"
@@ -102,7 +99,7 @@ class KnowledgeBasePage extends Component {
                                         <Typography className="font-medium px-16 pt-8" color="textSecondary">{category.title}</Typography>
                                         <List component="nav">
                                             {category.featuredArticles.map(article => (
-                                                <ListItem key={article.id} button onClick={() => this.handleOpenDialog(article)}>
+                                                <ListItem key={article.id} button onClick={() => handleOpenDialog(article)}>
                                                     <ListItemIcon className="mr-0">
                                                         <Icon>note</Icon>
                                                     </ListItemIcon>
@@ -116,30 +113,31 @@ class KnowledgeBasePage extends Component {
                             </div>
                         ))}
                     </FuseAnimateGroup>
-                </div>
+                ), [data])}
+            </div>
 
+            {useMemo(() => (
                 <Dialog
-                    open={openDialog}
-                    onClose={this.handleCloseDialog}
+                    open={dialog.open}
+                    onClose={handleCloseDialog}
                     aria-labelledby="knowledge-base-document"
                     TransitionComponent={Transition}
                 >
                     <DialogTitle>
-                        {dialogData.title}
+                        {dialog.title}
                     </DialogTitle>
                     <DialogContent>
-                        <DialogContentText dangerouslySetInnerHTML={{__html: dialogData.content}}>
-                        </DialogContentText>
+                        <DialogContentText dangerouslySetInnerHTML={{__html: dialog.content}}/>
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={this.handleCloseDialog} color="primary">
+                        <Button onClick={handleCloseDialog} color="primary">
                             CLOSE
                         </Button>
                     </DialogActions>
                 </Dialog>
-            </div>
-        );
-    }
+            ), [dialog])}
+        </div>
+    );
 }
 
-export default withStyles(styles, {withTheme: true})(KnowledgeBasePage);
+export default KnowledgeBasePage;

@@ -2,7 +2,8 @@ import React from 'react';
 import {Typography} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
 
-const RoutingDoc = () => {
+function RoutingDoc()
+{
     return (
         <FusePageSimple
             header={
@@ -116,6 +117,6 @@ const RoutingDoc = () => {
             }
         />
     );
-};
+}
 
 export default RoutingDoc;

@@ -5,7 +5,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as Actions from 'app/store/actions';
 
-const FuseDialogDoc = ({openDialog, closeDialog}) => {
+function FuseDialogDoc(props)
+{
     return (
         <FusePageSimple
             header={
@@ -38,7 +39,7 @@ const FuseDialogDoc = ({openDialog, closeDialog}) => {
                     <FuseHighlight component="pre" className="language-jsx">
                         {`
                         <Button
-                            onClick={() => openDialog({
+                            onClick={() => props.openDialog({
                                 children: (
                                     <React.Fragment>
                                         <DialogTitle id="alert-dialog-title">Use Google's location service?</DialogTitle>
@@ -49,10 +50,10 @@ const FuseDialogDoc = ({openDialog, closeDialog}) => {
                                             </DialogContentText>
                                         </DialogContent>
                                         <DialogActions>
-                                            <Button onClick={closeDialog} color="primary">
+                                            <Button onClick={props.closeDialog} color="primary">
                                                 Disagree
                                             </Button>
-                                            <Button onClick={closeDialog} color="primary" autoFocus>
+                                            <Button onClick={props.closeDialog} color="primary" autoFocus>
                                                 Agree
                                             </Button>
                                         </DialogActions>
@@ -70,7 +71,7 @@ const FuseDialogDoc = ({openDialog, closeDialog}) => {
                     <Typography className="mt-32 mb-8" variant="h5">Example</Typography>
 
                     <Button
-                        onClick={() => openDialog({
+                        onClick={() => props.openDialog({
                             children: (
                                 <React.Fragment>
                                     <DialogTitle id="alert-dialog-title">Use Google's location service?</DialogTitle>
@@ -81,10 +82,10 @@ const FuseDialogDoc = ({openDialog, closeDialog}) => {
                                         </DialogContentText>
                                     </DialogContent>
                                     <DialogActions>
-                                        <Button onClick={closeDialog} color="primary">
+                                        <Button onClick={props.closeDialog} color="primary">
                                             Disagree
                                         </Button>
-                                        <Button onClick={closeDialog} color="primary" autoFocus>
+                                        <Button onClick={props.closeDialog} color="primary" autoFocus>
                                             Agree
                                         </Button>
                                     </DialogActions>
@@ -100,7 +101,7 @@ const FuseDialogDoc = ({openDialog, closeDialog}) => {
             }
         />
     );
-};
+}
 
 function mapDispatchToProps(dispatch)
 {

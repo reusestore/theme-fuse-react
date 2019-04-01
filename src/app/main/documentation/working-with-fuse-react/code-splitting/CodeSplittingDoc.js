@@ -2,7 +2,8 @@ import React from 'react';
 import {Icon, Typography} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
 
-const CodeSplittingDoc = () => {
+function CodeSplittingDoc()
+{
     return (
         <FusePageSimple
             header={
@@ -109,6 +110,6 @@ const CodeSplittingDoc = () => {
             }
         />
     );
-};
+}
 
 export default CodeSplittingDoc;

@@ -1,10 +1,11 @@
 import React from 'react';
-import {withStyles, createGenerateClassName, jssPreset, MuiThemeProvider} from '@material-ui/core/styles';
-import PropTypes from 'prop-types';
+import {createGenerateClassName} from '@material-ui/core/styles';
 import {create} from 'jss';
-import JssProvider from 'react-jss/lib/JssProvider';
 import jssExtend from 'jss-extend';
 import Frame from 'react-frame-component';
+import PropTypes from 'prop-types';
+import {withStyles, jssPreset} from '@material-ui/core/styles';
+import {StylesProvider, ThemeProvider} from '@material-ui/styles';
 
 const styles = theme => ({
     root: {
@@ -68,20 +69,6 @@ class DemoFrame extends React.Component {
     {
         const {children, classes, theme} = this.props;
 
-        const inIframe = this.state.ready ? (
-            <JssProvider
-                jss={this.state.jss}
-                generateClassName={generateClassName}
-                classNamePrefix="iframe-jss-"
-            >
-                <MuiThemeProvider theme={theme} sheetsManager={this.state.sheetsManager}>
-                    {React.cloneElement(children, {
-                        container: this.state.container
-                    })}
-                </MuiThemeProvider>
-            </JssProvider>
-        ) : null;
-
         return (
             <Frame
                 head={this.renderHead()}
@@ -90,7 +77,19 @@ class DemoFrame extends React.Component {
                 contentDidMount={this.onContentDidMount}
                 contentDidUpdate={this.onContentDidUpdate}
             >
-                {inIframe}
+                {this.state.ready ? (
+                    <StylesProvider
+                        jss={this.state.jss}
+                        generateClassName={generateClassName}
+                        sheetsManager={this.state.sheetsManager}
+                    >
+                        <ThemeProvider theme={theme}>
+                            {React.cloneElement(children, {
+                                container: this.state.container
+                            })}
+                        </ThemeProvider>
+                    </StylesProvider>
+                ) : null}
             </Frame>
         );
     }

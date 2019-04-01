@@ -1,19 +1,20 @@
 import React from 'react';
 import {FuseExample, FuseHighlight, FusePageSimple} from '@fuse';
 import {Button, Icon, Typography} from '@material-ui/core';
-import {withStyles} from '@material-ui/core/styles/index';
+import {makeStyles} from '@material-ui/styles';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint no-unused-vars: off */
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     layoutRoot: {
         '& .description': {
             marginBottom: 16
         }
     }
-});
+}));
 
-function Lists({classes})
+function Lists(props)
 {
+    const classes = useStyles();
     return (
 
         <FusePageSimple
@@ -61,7 +62,7 @@ function Lists({classes})
                     <Typography className="mb-16" component="div">The last item of the previous demo shows how you can render a link:</Typography>
 
                     <FuseHighlight component="pre" className="language-jsx">
-                        {`
+                        {` 
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
 }
@@ -166,4 +167,4 @@ function ListItemLink(props) {
     );
 }
 
-export default withStyles(styles, {withTheme: true})(Lists);
+export default Lists;

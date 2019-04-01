@@ -1,24 +1,22 @@
-import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core';
+import React from 'react';
+import {makeStyles} from '@material-ui/styles';
 import {DemoContent} from '@fuse';
 
-const styles = theme => ({
+const useStyles = makeStyles({
     root: {
         padding: 24
     }
 });
 
-class BlankSample extends Component {
+function BlankSample()
+{
+    const classes = useStyles();
 
-    render()
-    {
-        const {classes} = this.props;
-        return (
-            <div className={classes.root}>
-                <DemoContent/>
-            </div>
-        )
-    }
+    return (
+        <div className={classes.root}>
+            <DemoContent/>
+        </div>
+    )
 }
 
-export default withStyles(styles, {withTheme: true})(BlankSample);
+export default BlankSample;

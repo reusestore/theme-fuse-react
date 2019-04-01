@@ -1,5 +1,6 @@
 import React from 'react';
-import {AppBar, Hidden, MuiThemeProvider, Toolbar, withStyles} from '@material-ui/core';
+import {AppBar, Hidden, Toolbar} from '@material-ui/core';
+import {makeStyles, ThemeProvider} from '@material-ui/styles';
 import {FuseSearch, FuseShortcuts} from '@fuse';
 import connect from 'react-redux/es/connect/connect';
 import {withRouter} from 'react-router-dom';
@@ -8,24 +9,24 @@ import QuickPanelToggleButton from 'app/fuse-layouts/shared-components/quickPane
 import ChatPanelToggleButton from 'app/fuse-layouts/shared-components/chatPanel/ChatPanelToggleButton';
 import UserMenu from 'app/fuse-layouts/shared-components/UserMenu';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     separator: {
         width          : 1,
         height         : 64,
         backgroundColor: theme.palette.divider
     }
-});
+}));
 
-const ToolbarLayout1 = ({classes, settings, toolbarTheme}) => {
-
-    const layoutConfig = settings.layout.config;
+function ToolbarLayout1(props)
+{
+    const classes = useStyles();
 
     return (
-        <MuiThemeProvider theme={toolbarTheme}>
+        <ThemeProvider theme={props.toolbarTheme}>
             <AppBar id="fuse-toolbar" className="flex relative z-10" color="default">
                 <Toolbar className="p-0">
 
-                    {layoutConfig.navbar.display && layoutConfig.navbar.position === 'left' && (
+                    {props.config.navbar.display && props.config.navbar.position === 'left' && (
                         <Hidden lgUp>
                             <NavbarMobileToggleButton className="w-64 h-64 p-0"/>
                             <div className={classes.separator}/>
@@ -58,23 +59,23 @@ const ToolbarLayout1 = ({classes, settings, toolbarTheme}) => {
                         <QuickPanelToggleButton/>
                     </div>
 
-                    {layoutConfig.navbar.display && layoutConfig.navbar.position === 'right' && (
+                    {props.config.navbar.display && props.config.navbar.position === 'right' && (
                         <Hidden lgUp>
                             <NavbarMobileToggleButton/>
                         </Hidden>
                     )}
                 </Toolbar>
             </AppBar>
-        </MuiThemeProvider>
+        </ThemeProvider>
     );
-};
+}
 
 function mapStateToProps({fuse})
 {
     return {
-        settings    : fuse.settings.current,
+        config      : fuse.settings.current.layout.config,
         toolbarTheme: fuse.settings.toolbarTheme
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps)(ToolbarLayout1)));
+export default withRouter(connect(mapStateToProps)(ToolbarLayout1));

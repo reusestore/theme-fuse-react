@@ -11,7 +11,8 @@ function Marker({text})
     );
 }
 
-const SimpleExample = () => {
+function SimpleExample()
+{
     return (
         <div className="w-full">
             <Typography className="h2 mb-16">Simple Map Example</Typography>
@@ -32,6 +33,6 @@ const SimpleExample = () => {
             </div>
         </div>
     );
-};
+}
 
 export default SimpleExample;

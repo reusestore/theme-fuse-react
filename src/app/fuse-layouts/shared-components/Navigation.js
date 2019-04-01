@@ -4,11 +4,12 @@ import connect from 'react-redux/es/connect/connect';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
 
-const Navigation = ({navigation, layout, dense, className}) => {
+function Navigation(props)
+{
     return (
-        <FuseNavigation className={classNames("navigation", className)} navigation={navigation} layout={layout} dense={dense}/>
+        <FuseNavigation className={classNames("navigation", props.className)} navigation={props.navigation} layout={props.layout} dense={props.dense}/>
     );
-};
+}
 
 function mapStateToProps({fuse})
 {

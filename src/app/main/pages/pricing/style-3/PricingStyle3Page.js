@@ -1,13 +1,14 @@
 import React from 'react';
-import {withStyles, Button, Card, CardContent, Typography} from '@material-ui/core';
+import {Button, Card, CardContent, Typography} from '@material-ui/core';
+import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate, FuseAnimateGroup} from '@fuse';
 import classNames from 'classnames';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     header: {
-        height        : 600,
-        background     : 'linear-gradient(to right, ' + theme.palette.primary.dark + ' 0%, ' + theme.palette.primary.main + ' 100%)',
-        color: theme.palette.primary.contrastText
+        height    : 600,
+        background: 'linear-gradient(to right, ' + theme.palette.primary.dark + ' 0%, ' + theme.palette.primary.main + ' 100%)',
+        color     : theme.palette.primary.contrastText
     },
     badge : {
         backgroundColor: theme.palette.error.main,
@@ -17,9 +18,12 @@ const styles = theme => ({
         backgroundColor: theme.palette.primary[600],
         color          : theme.palette.getContrastText(theme.palette.primary[600])
     }
-});
+}));
 
-const PricingStyle3Page = ({classes}) => {
+function PricingStyle3Page()
+{
+    const classes = useStyles();
+
     return (
         <div>
 
@@ -255,6 +259,6 @@ const PricingStyle3Page = ({classes}) => {
             </div>
         </div>
     );
-};
+}
 
-export default withStyles(styles, {withTheme: true})(PricingStyle3Page);
+export default PricingStyle3Page;

@@ -1,49 +1,49 @@
-import React, {Component} from 'react';
-import {withStyles, Button, Icon, Typography} from '@material-ui/core';
+import React from 'react';
+import {Button, Icon, Typography} from '@material-ui/core';
 import {FusePageSimple, FuseHighlight} from '@fuse';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as authActions from 'app/auth/store/actions';
+import {makeStyles} from '@material-ui/styles';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     layoutRoot: {}
-});
+}));
 
-class StaffRoleExample extends Component {
+function StaffRoleExample(props)
+{
+    const classes = useStyles();
 
-    render()
-    {
-        const {classes, logout} = this.props;
-        return (
-            <FusePageSimple
-                classes={{
-                    root: classes.layoutRoot
-                }}
-                header={
-                    <div className="flex flex-1 items-center justify-between p-24">
-                        <Typography className="h2">Staff: Auth role example page</Typography>
-                        <Button
-                            className="normal-case"
-                            variant="contained"
-                            onClick={logout}
-                        >
-                            <Icon className="mr-4">exit_to_app</Icon>
-                            Logout
-                        </Button>
-                    </div>
-                }
-                content={
-                    <div className="p-24">
-                        <Typography className="mb-24">
-                            You can see this page because you have logged in and have permission. Otherwise you should be redirected to login page.
-                        </Typography>
+    return (
+        <FusePageSimple
+            classes={{
+                root: classes.layoutRoot
+            }}
+            header={
+                <div className="flex flex-1 items-center justify-between p-24">
+                    <Typography className="h2">Staff: Auth role example page</Typography>
+                    <Button
+                        className="normal-case"
+                        variant="contained"
+                        onClick={props.logout}
+                    >
+                        <Icon className="mr-4">exit_to_app</Icon>
+                        Logout
+                    </Button>
+                </div>
+            }
+            content={
+                <div className="p-24">
+                    <Typography className="mb-24">
+                        You can see this page because you have logged in and have permission. Otherwise you should be redirected to login page.
+                    </Typography>
 
-                        <Typography className="mb-24">
-                            This is the page's config file:
-                        </Typography>
+                    <Typography className="mb-24">
+                        This is the page's config file:
+                    </Typography>
 
-                        <FuseHighlight component="pre" className="language-js">
-                            {`
+                    <FuseHighlight component="pre" className="language-js">
+                        {`
                             import {authRoles} from 'auth';
                             import StaffRoleExample from 'app/main/auth/staff-role-example/StaffRoleExample';
 
@@ -62,14 +62,14 @@ class StaffRoleExample extends Component {
                                 ]
                             };
                             `}
-                        </FuseHighlight>
+                    </FuseHighlight>
 
-                        <Typography className="my-24">
-                            You can also hide the navigation item/collapse/group with user roles by giving auth property.
-                        </Typography>
+                    <Typography className="my-24">
+                        You can also hide the navigation item/collapse/group with user roles by giving auth property.
+                    </Typography>
 
-                        <FuseHighlight component="pre" className="language-json">
-                            {`
+                    <FuseHighlight component="pre" className="language-json">
+                        {`
                                 export const fuseNavigationConfig = [
                                    {
                                         'id'   : 'only-staff-navigation-item',
@@ -81,13 +81,12 @@ class StaffRoleExample extends Component {
                                     }
                                 ];
                             `}
-                        </FuseHighlight>
+                    </FuseHighlight>
 
-                    </div>
-                }
-            />
-        )
-    }
+                </div>
+            }
+        />
+    )
 }
 
 function mapDispatchToProps(dispatch)
@@ -104,4 +103,4 @@ function mapStateToProps({auth})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(StaffRoleExample));
+export default connect(mapStateToProps, mapDispatchToProps)(StaffRoleExample);

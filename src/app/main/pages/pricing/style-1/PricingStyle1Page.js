@@ -1,9 +1,10 @@
 import React from 'react';
-import {withStyles, Button, Card, CardContent, Divider, Typography} from '@material-ui/core';
+import {Button, Card, CardContent, Divider, Typography} from '@material-ui/core';
+import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate, FuseAnimateGroup} from '@fuse';
 import classNames from 'classnames';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     header    : {
         height    : 600,
         background: 'linear-gradient(to right, ' + theme.palette.primary.dark + ' 0%, ' + theme.palette.primary.main + ' 100%)',
@@ -13,10 +14,13 @@ const styles = theme => ({
         backgroundColor: theme.palette.primary[800],
         color          : theme.palette.getContrastText(theme.palette.primary[800])
     }
-});
+}));
 
 
-const PricingStyle1Page = ({classes}) => {
+function PricingStyle1Page()
+{
+    const classes = useStyles();
+
     return (
         <div>
 
@@ -223,6 +227,6 @@ const PricingStyle1Page = ({classes}) => {
             </div>
         </div>
     );
-};
+}
 
-export default withStyles(styles, {withTheme: true})(PricingStyle1Page);
+export default PricingStyle1Page;

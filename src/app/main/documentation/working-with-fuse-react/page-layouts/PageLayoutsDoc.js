@@ -3,7 +3,8 @@ import {Icon, Typography} from '@material-ui/core';
 import {FusePageSimple} from '@fuse';
 import {Link} from 'react-router-dom';
 
-const PageLayoutsDoc = () => {
+function PageLayoutsDoc()
+{
     return (
         <FusePageSimple
             header={
@@ -48,6 +49,6 @@ const PageLayoutsDoc = () => {
             }
         />
     );
-};
+}
 
 export default PageLayoutsDoc;

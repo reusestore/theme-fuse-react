@@ -5,7 +5,7 @@ import _ from 'lodash';
 import marked from 'marked';
 import Beautify from 'js-beautify';
 
-var Promise = require("promise");
+const Promise = require("promise");
 
 const demoDir = ('src/app/main/components/material-ui/material-ui-examples');
 const rootDirectory = path.resolve(__dirname);
@@ -264,26 +264,27 @@ function writePage(file)
     // contentJSX = Beautify(contentJSX, BeautifyConfig);
 
     let content = `import React from 'react';
-                        import {FuseExample, FuseHighlight, FusePageSimple} from '@fuse';
-                        import {Button, Icon, Typography} from '@material-ui/core';
-                        import {withStyles} from '@material-ui/core/styles/index';
-                        /* eslint import/no-webpack-loader-syntax: off */
-                        /* eslint no-unused-vars: off */
-                        const styles = theme => ({
-                            layoutRoot: {
-                                '& .description':{
-                                        marginBottom:16
-                                }
-                            }
-                        });
-                        function ${fileName}({classes}) {
-                          return (
-                            ${contentJSX}
-                          );
-                        }
-                        
-                        export default withStyles(styles, {withTheme: true})(${fileName});
-                        `;
+                   import {FuseExample, FuseHighlight, FusePageSimple} from '@fuse';
+                   import {Button, Icon, Typography} from '@material-ui/core';
+                   import {makeStyles} from '@material-ui/styles';
+                   /* eslint import/no-webpack-loader-syntax: off */
+                   /* eslint no-unused-vars: off */
+                   const useStyles = makeStyles(theme=>({
+                       layoutRoot: {
+                           '& .description':{
+                                   marginBottom:16
+                           }
+                       }
+                   }));
+                   function ${fileName}(props) {
+                     const classes = useStyles();
+                     return (
+                       ${contentJSX}
+                     );
+                   }
+                   
+                   export default ${fileName};
+                   `;
 
     //content = Beautify(content, BeautifyConfig);
 

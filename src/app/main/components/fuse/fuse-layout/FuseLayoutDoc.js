@@ -3,7 +3,8 @@ import {Icon, Typography} from '@material-ui/core';
 import {FusePageSimple} from '@fuse';
 import {Link} from 'react-router-dom';
 
-const FuseLayoutDoc = () => {
+function FuseLayoutDoc()
+{
     return (
         <FusePageSimple
             header={
@@ -24,7 +25,8 @@ const FuseLayoutDoc = () => {
                 <div className="p-24 max-w-2xl">
 
                     <Typography className="mb-16" component="p">
-                        <code>FuseLayout</code> is the main layout component of the Fuse React. It allows to switch theme layouts, set layout settings based on default configuration and route configs.
+                        <code>FuseLayout</code> is the main layout component of the Fuse React. It allows to switch theme layouts, set layout settings based on default
+                        configuration and route configs.
                     </Typography>
 
                     <Typography className="mt-32 mb-8" variant="h5">Configuration</Typography>
@@ -40,6 +42,6 @@ const FuseLayoutDoc = () => {
             }
         />
     );
-};
+}
 
 export default FuseLayoutDoc;

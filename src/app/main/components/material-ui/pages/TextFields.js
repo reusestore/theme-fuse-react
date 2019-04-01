@@ -1,19 +1,20 @@
 import React from 'react';
 import {FuseExample, FuseHighlight, FusePageSimple} from '@fuse';
 import {Button, Icon, Typography} from '@material-ui/core';
-import {withStyles} from '@material-ui/core/styles/index';
+import {makeStyles} from '@material-ui/styles';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint no-unused-vars: off */
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     layoutRoot: {
         '& .description': {
             marginBottom: 16
         }
     }
-});
+}));
 
-function TextFields({classes})
+function TextFields(props)
 {
+    const classes = useStyles();
     return (
 
         <FusePageSimple
@@ -87,8 +88,8 @@ function TextFields({classes})
                         <a href="/api/filled-input/"><code>FilledInput</code></a>,
                         <a href="/api/input-label/"><code>InputLabel</code></a>,
                         <a href="/api/outlined-input/"><code>OutlinedInput</code></a>,
-                        and <a href="/api/form-helper-text/"><code>FormHelperText</code></a>
-                        ) that you can leverage directly to significantly customize your form inputs.</Typography>
+                        and <a href="/api/form-helper-text/"><code>FormHelperText</code></a>) that you can leverage directly to significantly customize your form
+                        inputs.</Typography>
                     <Typography className="mb-16" component="div">You might also have noticed that some native HTML input properties are missing from
                         the <code>TextField</code> component.
                         This is on purpose.
@@ -179,14 +180,14 @@ function TextFields({classes})
                     <Typography className="mb-16" component="div">To workaround the issue, you can force the &quot;shrink&quot; state of the label.</Typography>
 
                     <FuseHighlight component="pre" className="language-jsx">
-                        {`
+                        {` 
 <TextField InputLabelProps={{ shrink: true }} />
 `}
                     </FuseHighlight>
                     <Typography className="mb-16" component="div">or</Typography>
 
                     <FuseHighlight component="pre" className="language-jsx">
-                        {`
+                        {` 
 <InputLabel shrink>Count</InputLabel>
 `}
                     </FuseHighlight>
@@ -209,7 +210,7 @@ function TextFields({classes})
                         text</strong>. The underlying DOM nodes should have this structure.</Typography>
 
                     <FuseHighlight component="pre" className="language-jsx">
-                        {`
+                        {` 
 <div className="form-control">
   <label for="my-input">Email address</label>
   <input id="my-input" aria-describedby="my-helper-text" />
@@ -223,7 +224,7 @@ function TextFields({classes})
                     </ul>
 
                     <FuseHighlight component="pre" className="language-jsx">
-                        {`
+                        {` 
 <FormControl>
   <InputLabel htmlFor="my-input">Email address</InputLabel>
   <Input id="my-input" aria-describedby="my-helper-text" />
@@ -253,4 +254,4 @@ function TextFields({classes})
     );
 }
 
-export default withStyles(styles, {withTheme: true})(TextFields);
+export default TextFields;

@@ -1,5 +1,5 @@
-export {default as FusePageSimple} from './components/FusePageLayouts/FusePageSimple';
-export {default as FusePageCarded} from './components/FusePageLayouts/FusePageCarded';
+export {default as FusePageSimple} from './components/FusePageLayouts/simple/FusePageSimple';
+export {default as FusePageCarded} from './components/FusePageLayouts/carded/FusePageCarded';
 export {default as DemoSidebarContent} from './components/DemoSidebarContent';
 export {default as DemoContent} from './components/DemoContent';
 export {default as FuseNavigation} from './components/FuseNavigation/FuseNavigation';

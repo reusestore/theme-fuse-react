@@ -1,96 +1,97 @@
-import React, {Component} from 'react';
-import {withStyles, Button, Card, CardContent, TextField, Typography} from '@material-ui/core';
+import React from 'react';
+import {Button, Card, CardContent, TextField, Typography} from '@material-ui/core';
+import {darken} from '@material-ui/core/styles/colorManipulator';
+import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate} from '@fuse';
+import {useForm} from '@fuse/hooks';
 import classNames from 'classnames';
 import {Link} from 'react-router-dom';
-import _ from '@lodash';
-import {darken} from '@material-ui/core/styles/colorManipulator';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     root: {
         background: 'radial-gradient(' + darken(theme.palette.primary.dark, 0.5) + ' 0%, ' + theme.palette.primary.dark + ' 80%)',
         color     : theme.palette.primary.contrastText
     }
-});
+}));
 
-class ForgotPasswordPage extends Component {
-
-    state = {
+function ForgotPasswordPage()
+{
+    const classes = useStyles();
+    const {form, handleChange, resetForm} = useForm({
         email: ''
-    };
+    });
 
-    handleChange = (event) => {
-        this.setState(_.set({...this.state}, event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value));
-    };
-
-    canBeSubmitted()
+    function isFormValid()
     {
-        const {email} = this.state;
-        return (
-            email.length > 0
-        );
+        return form.email.length > 0;
     }
 
-    render()
+    function handleSubmit(ev)
     {
-        const {classes} = this.props;
-        const {email} = this.state;
+        ev.preventDefault();
+        resetForm();
+    }
 
-        return (
-            <div className={classNames(classes.root, "flex flex-col flex-auto flex-no-shrink items-center justify-center p-32")}>
+    return (
+        <div className={classNames(classes.root, "flex flex-col flex-auto flex-no-shrink items-center justify-center p-32")}>
 
-                <div className="flex flex-col items-center justify-center w-full">
+            <div className="flex flex-col items-center justify-center w-full">
 
-                    <FuseAnimate animation="transition.expandIn">
+                <FuseAnimate animation="transition.expandIn">
 
-                        <Card className="w-full max-w-384">
+                    <Card className="w-full max-w-384">
 
-                            <CardContent className="flex flex-col items-center justify-center p-32">
+                        <CardContent className="flex flex-col items-center justify-center p-32">
 
-                                <div className="w-128 m-32">
-                                    <img src="assets/images/logos/fuse.svg" alt="logo"/>
-                                </div>
+                            <div className="w-128 m-32">
+                                <img src="assets/images/logos/fuse.svg" alt="logo"/>
+                            </div>
 
-                                <Typography variant="h6" className="mt-16 mb-32">RECOVER YOUR PASSWORD</Typography>
+                            <Typography variant="h6" className="mt-16 mb-32">RECOVER YOUR PASSWORD</Typography>
 
-                                <form name="recoverForm" noValidate className="flex flex-col justify-center w-full">
+                            <form
+                                name="recoverForm"
+                                noValidate
+                                className="flex flex-col justify-center w-full"
+                                onSubmit={handleSubmit}
+                            >
 
-                                    <TextField
-                                        className="mb-16"
-                                        label="Email"
-                                        autoFocus
-                                        type="email"
-                                        name="email"
-                                        value={email}
-                                        onChange={this.handleChange}
-                                        variant="outlined"
-                                        required
-                                        fullWidth
-                                    />
+                                <TextField
+                                    className="mb-16"
+                                    label="Email"
+                                    autoFocus
+                                    type="email"
+                                    name="email"
+                                    value={form.email}
+                                    onChange={handleChange}
+                                    variant="outlined"
+                                    required
+                                    fullWidth
+                                />
 
-                                    <Button
-                                        variant="contained"
-                                        color="primary"
-                                        className="w-224 mx-auto mt-16"
-                                        aria-label="Reset"
-                                        disabled={!this.canBeSubmitted()}
-                                    >
-                                        SEND RESET LINK
-                                    </Button>
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    className="w-224 mx-auto mt-16"
+                                    aria-label="Reset"
+                                    disabled={!isFormValid()}
+                                    type="submit"
+                                >
+                                    SEND RESET LINK
+                                </Button>
 
-                                </form>
+                            </form>
 
-                                <div className="flex flex-col items-center justify-center pt-32 pb-24">
-                                    <Link className="font-medium" to="/pages/auth/login">Go back to login</Link>
-                                </div>
+                            <div className="flex flex-col items-center justify-center pt-32 pb-24">
+                                <Link className="font-medium" to="/pages/auth/login">Go back to login</Link>
+                            </div>
 
-                            </CardContent>
-                        </Card>
-                    </FuseAnimate>
-                </div>
+                        </CardContent>
+                    </Card>
+                </FuseAnimate>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
-export default withStyles(styles, {withTheme: true})(ForgotPasswordPage);
+export default ForgotPasswordPage;

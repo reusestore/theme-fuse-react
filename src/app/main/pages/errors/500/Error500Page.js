@@ -3,7 +3,8 @@ import {Typography} from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
 import {Link} from 'react-router-dom';
 
-const Error500Page = () => {
+function Error500Page()
+{
     return (
         <div className="flex flex-col flex-1 items-center justify-center p-16">
 
@@ -31,6 +32,6 @@ const Error500Page = () => {
             </div>
         </div>
     );
-};
+}
 
 export default Error500Page;

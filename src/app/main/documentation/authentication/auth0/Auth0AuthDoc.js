@@ -3,7 +3,8 @@ import {Icon, Typography} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
 import {Link} from 'react-router-dom';
 
-const Auth0AuthDoc = () => {
+function Auth0AuthDoc()
+{
     return (
         <FusePageSimple
             header={
@@ -66,6 +67,6 @@ const Auth0AuthDoc = () => {
             }
         />
     );
-};
+}
 
 export default Auth0AuthDoc;

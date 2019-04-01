@@ -1,5 +1,5 @@
 import React from 'react';
-import {withStyles} from '@material-ui/core';
+import {makeStyles} from '@material-ui/styles';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import marked from 'marked';
@@ -80,7 +80,7 @@ marked.setOptions({
     renderer
 });
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     root: {
         fontFamily                        : theme.typography.fontFamily,
         fontSize                          : 16,
@@ -177,12 +177,12 @@ const styles = theme => ({
                 fontFamily: 'Consolas, "Liberation Mono", Menlo, monospace'
             },
             '& .required'          : {
-                color: theme.palette.type === 'light' ? '#006500' : '#9bc89b'
+                color: theme.palette.type === 'light' ? '#006500' : '#9BC89B'
             },
             '& .prop-type'         : {
                 fontSize  : 13,
                 fontFamily: 'Consolas, "Liberation Mono", Menlo, monospace',
-                color     : theme.palette.type === 'light' ? '#932981' : '#dbb0d0'
+                color     : theme.palette.type === 'light' ? '#932981' : '#DBB0D0'
             },
             '& .prop-default'      : {
                 fontSize    : 13,
@@ -252,11 +252,12 @@ const styles = theme => ({
             maxWidth: '100%'
         }
     }
-});
+}));
 
 function MarkdownElement(props)
 {
-    const {classes, className, text, ...other} = props;
+    const classes = useStyles();
+    const {className, text, ...other} = props;
 
     /* eslint-disable react/no-danger */
     return (
@@ -275,4 +276,4 @@ MarkdownElement.propTypes = {
     text     : PropTypes.string
 };
 
-export default withStyles(styles, {flip: false})(MarkdownElement);
+export default MarkdownElement;

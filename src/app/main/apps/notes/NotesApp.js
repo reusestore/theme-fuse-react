@@ -27,11 +27,10 @@ class NotesApp extends Component {
             <React.Fragment>
                 <FusePageSimple
                     classes={{
-                        contentCardWrapper: "p-16 sm:p-24 pb-80",
-                        contentCard       : "min-h-full",
-                        content           : "flex",
-                        leftSidebar       : "w-256 border-0",
-                        header            : "min-h-72 h-72"
+                        contentWrapper: "p-16 sm:p-24 pb-80",
+                        content       : "flex min-h-full",
+                        leftSidebar   : "w-256 border-0",
+                        header        : "min-h-72 h-72"
                     }}
                     header={
                         <NotesHeader pageLayout={() => this.pageLayout}/>

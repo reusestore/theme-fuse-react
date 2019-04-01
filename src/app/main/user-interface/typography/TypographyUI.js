@@ -2,7 +2,8 @@ import React from 'react';
 import {Button, Card, CardContent, Icon, Typography} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple, FuseAnimate} from '@fuse';
 
-const TypographyUI = () => {
+function TypographyUI()
+{
     return (
         <FusePageSimple
             header={
@@ -200,6 +201,6 @@ const TypographyUI = () => {
             }
         />
     );
-};
+}
 
 export default TypographyUI;

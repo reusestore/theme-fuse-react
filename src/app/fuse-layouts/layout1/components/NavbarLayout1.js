@@ -1,5 +1,5 @@
 import React from 'react';
-import {AppBar, Hidden, Icon, withStyles} from '@material-ui/core';
+import {AppBar, Hidden, Icon} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
 import classNames from 'classnames';
 import UserNavbarHeader from 'app/fuse-layouts/shared-components/UserNavbarHeader';
@@ -7,8 +7,9 @@ import Logo from 'app/fuse-layouts/shared-components/Logo';
 import NavbarFoldedToggleButton from 'app/fuse-layouts/shared-components/NavbarFoldedToggleButton';
 import NavbarMobileToggleButton from 'app/fuse-layouts/shared-components/NavbarMobileToggleButton';
 import Navigation from 'app/fuse-layouts/shared-components/Navigation';
+import {makeStyles} from '@material-ui/styles';
 
-const styles = theme => ({
+const useStyles = makeStyles({
     content: {
         overflowX                   : 'hidden',
         overflowY                   : 'auto',
@@ -20,15 +21,20 @@ const styles = theme => ({
     }
 });
 
-const NavbarLayout1 = ({classes, navigation, className}) => {
+function NavbarLayout1(props)
+{
+    const classes = useStyles();
+
     return (
-        <div className={classNames("flex flex-col overflow-hidden h-full", className)}>
+        <div className={classNames("flex flex-col overflow-hidden h-full", props.className)}>
+
             <AppBar
                 color="primary"
                 position="static"
                 elevation={0}
                 className="flex flex-row items-center flex-shrink h-64 min-h-64 pl-20 pr-12"
             >
+
                 <div className="flex flex-1 pr-8">
                     <Logo/>
                 </div>
@@ -53,8 +59,8 @@ const NavbarLayout1 = ({classes, navigation, className}) => {
             </FuseScrollbars>
         </div>
     );
-};
+}
 
-export default withStyles(styles, {withTheme: true})(NavbarLayout1);
+export default NavbarLayout1;
 
 

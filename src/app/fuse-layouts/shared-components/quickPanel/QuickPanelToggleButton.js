@@ -4,13 +4,14 @@ import {bindActionCreators} from 'redux';
 import connect from 'react-redux/es/connect/connect';
 import * as quickPanelActions from './store/actions';
 
-const QuickPanelToggleButton = ({toggleQuickPanel, children}) => {
+function QuickPanelToggleButton(props)
+{
     return (
-        <IconButton className="w-64 h-64" onClick={toggleQuickPanel}>
-            {children}
+        <IconButton className="w-64 h-64" onClick={props.toggleQuickPanel}>
+            {props.children}
         </IconButton>
     );
-};
+}
 
 function mapDispatchToProps(dispatch)
 {

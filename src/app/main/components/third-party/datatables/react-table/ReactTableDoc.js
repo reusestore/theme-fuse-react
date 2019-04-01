@@ -2,9 +2,11 @@ import React from 'react';
 import {Button, Icon, Typography} from '@material-ui/core';
 import {FuseExample, FusePageSimple} from '@fuse';
 import {Link} from 'react-router-dom';
+
 /* eslint import/no-webpack-loader-syntax: off */
 
-const ReactTableDoc = () => {
+function ReactTableDoc()
+{
     return (
         <FusePageSimple
             header={
@@ -61,6 +63,6 @@ const ReactTableDoc = () => {
             }
         />
     );
-};
+}
 
 export default ReactTableDoc;

@@ -2,7 +2,8 @@ import React from 'react';
 import {Icon, Typography} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
 
-const FuseHighlightDoc = () => {
+function FuseHighlightDoc()
+{
     return (
         <FusePageSimple
             header={
@@ -57,6 +58,6 @@ const FuseHighlightDoc = () => {
             }
         />
     );
-};
+}
 
 export default FuseHighlightDoc;

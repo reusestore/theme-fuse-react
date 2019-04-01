@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useEffect} from 'react';
 import {FuseSplashScreen} from '@fuse';
 import {bindActionCreators} from 'redux';
 import connect from 'react-redux/es/connect/connect';
@@ -7,29 +7,25 @@ import auth0Service from 'app/services/auth0Service';
 import * as userActions from 'app/auth/store/actions';
 import * as Actions from 'app/store/actions';
 
-class Callback extends Component {
-
-    componentDidMount()
-    {
+function Callback(props)
+{
+    useEffect(() => {
         auth0Service.onAuthenticated(() => {
-            this.props.showMessage({message: 'Logging in with Auth0'});
+            props.showMessage({message: 'Logging in with Auth0'});
 
             /**
              * Retrieve user data from Auth0
              */
             auth0Service.getUserData().then(tokenData => {
-                this.props.setUserDataAuth0(tokenData);
-                this.props.showMessage({message: 'Logged in with Auth0'});
+                props.setUserDataAuth0(tokenData);
+                props.showMessage({message: 'Logged in with Auth0'});
             });
         });
-    }
+    }, []);
 
-    render()
-    {
-        return (
-            <FuseSplashScreen/>
-        );
-    }
+    return (
+        <FuseSplashScreen/>
+    );
 }
 
 function mapDispatchToProps(dispatch)

@@ -1,8 +1,9 @@
 import React from 'react';
-import {Typography, withStyles} from '@material-ui/core';
+import {Typography} from '@material-ui/core';
 import classNames from 'classnames';
+import {makeStyles} from '@material-ui/styles';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     root      : {
         '& .logo-icon': {
             width     : 24,
@@ -17,10 +18,12 @@ const styles = theme => ({
         backgroundColor: 'rgba(0,0,0,0.6)',
         color          : '#61dafb'
     }
-});
+}));
 
-function Logo({classes})
+function Logo()
 {
+    const classes = useStyles();
+
     return (
         <div className={classNames(classes.root, "flex items-center")}>
             <img className="logo-icon" src="assets/images/logos/fuse.svg" alt="logo"/>
@@ -38,4 +41,4 @@ function Logo({classes})
     );
 }
 
-export default withStyles(styles, {withTheme: true})(Logo);
+export default Logo;

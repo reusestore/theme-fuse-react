@@ -2,7 +2,8 @@ import React from 'react';
 import {Icon, Typography} from '@material-ui/core';
 import {FusePageSimple} from '@fuse/index';
 
-const ProjectStructureDoc = () => {
+function ProjectStructureDoc()
+{
     return (
         <FusePageSimple
             header={
@@ -31,6 +32,6 @@ const ProjectStructureDoc = () => {
             }
         />
     );
-};
+}
 
 export default ProjectStructureDoc;

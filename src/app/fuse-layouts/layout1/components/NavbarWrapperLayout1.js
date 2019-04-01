@@ -1,5 +1,6 @@
 import React from 'react';
-import {Drawer, Hidden, MuiThemeProvider, withStyles} from '@material-ui/core';
+import {Drawer, Hidden} from '@material-ui/core';
+import {makeStyles, ThemeProvider} from '@material-ui/styles';
 import classNames from 'classnames';
 import {bindActionCreators} from 'redux';
 import * as Actions from 'app/store/actions';
@@ -8,10 +9,10 @@ import NavbarLayout1 from './NavbarLayout1';
 
 const navbarWidth = 280;
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     wrapper        : {
-        display      : 'flex',
-        flexDirection: 'column',
+        display                     : 'flex',
+        flexDirection               : 'column',
         zIndex                      : 4,
         [theme.breakpoints.up('lg')]: {
             width   : navbarWidth,
@@ -57,7 +58,7 @@ const styles = theme => ({
         minWidth: navbarWidth
     },
     navbarContent  : {
-        flex         : '1 1 auto',
+        flex: '1 1 auto',
     },
     foldedAndClosed: {
         '& $navbarContent': {
@@ -113,18 +114,18 @@ const styles = theme => ({
             }
         }
     }
-});
+}));
 
-const NavbarWrapperLayout1 = ({classes, children, navbar, settings, navbarTheme, navbarOpenFolded, navbarCloseFolded, navbarCloseMobile}) => {
+function NavbarWrapperLayout1(props)
+{
+    const classes = useStyles();
 
-    const layoutConfig = settings.layout.config;
-
-    const folded = layoutConfig.navbar.folded;
-    const foldedAndClosed = folded && !navbar.foldedOpen;
-    const foldedAndOpened = folded && navbar.foldedOpen;
+    const folded = props.config.navbar.folded;
+    const foldedAndClosed = folded && !props.navbar.foldedOpen;
+    const foldedAndOpened = folded && props.navbar.foldedOpen;
 
     return (
-        <MuiThemeProvider theme={navbarTheme}>
+        <ThemeProvider theme={props.navbarTheme}>
             <div id="fuse-navbar"
                  className={
                      classNames(
@@ -137,15 +138,15 @@ const NavbarWrapperLayout1 = ({classes, children, navbar, settings, navbarTheme,
                         className={
                             classNames(
                                 classes.navbar,
-                                classes[layoutConfig.navbar.position],
+                                classes[props.config.navbar.position],
                                 folded && classes.folded,
                                 foldedAndOpened && classes.foldedAndOpened,
                                 foldedAndClosed && classes.foldedAndClosed
                             )
                         }
-                        onMouseEnter={() => foldedAndClosed && navbarOpenFolded()}
-                        onMouseLeave={() => foldedAndOpened && navbarCloseFolded()}
-                        style={{backgroundColor: navbarTheme.palette.background.default}}
+                        onMouseEnter={() => foldedAndClosed && props.navbarOpenFolded()}
+                        onMouseLeave={() => foldedAndOpened && props.navbarCloseFolded()}
+                        style={{backgroundColor: props.navbarTheme.palette.background.default}}
                     >
                         <NavbarLayout1 className={classes.navbarContent}/>
                     </div>
@@ -153,13 +154,13 @@ const NavbarWrapperLayout1 = ({classes, children, navbar, settings, navbarTheme,
 
                 <Hidden lgUp>
                     <Drawer
-                        anchor={layoutConfig.navbar.position}
+                        anchor={props.config.navbar.position}
                         variant="temporary"
-                        open={navbar.mobileOpen}
+                        open={props.navbar.mobileOpen}
                         classes={{
                             paper: classes.navbar
                         }}
-                        onClose={navbarCloseMobile}
+                        onClose={props.navbarCloseMobile}
                         ModalProps={{
                             keepMounted: true // Better open performance on mobile.
                         }}
@@ -168,9 +169,9 @@ const NavbarWrapperLayout1 = ({classes, children, navbar, settings, navbarTheme,
                     </Drawer>
                 </Hidden>
             </div>
-        </MuiThemeProvider>
+        </ThemeProvider>
     );
-};
+}
 
 function mapDispatchToProps(dispatch)
 {
@@ -184,10 +185,10 @@ function mapDispatchToProps(dispatch)
 function mapStateToProps({fuse})
 {
     return {
-        settings   : fuse.settings.current,
+        config     : fuse.settings.current.layout.config,
         navbarTheme: fuse.settings.navbarTheme,
         navbar     : fuse.navbar
     }
 }
 
-export default withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(NavbarWrapperLayout1));
+export default connect(mapStateToProps, mapDispatchToProps)(NavbarWrapperLayout1);

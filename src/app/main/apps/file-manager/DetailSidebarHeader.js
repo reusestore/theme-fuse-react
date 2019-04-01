@@ -5,9 +5,10 @@ import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-const DetailSidebarHeader = ({files, selectedItem}) => {
+function DetailSidebarHeader(props)
+{
 
-    const selected = files[selectedItem];
+    const selected = props.files[props.selectedItem];
 
     if ( !selected )
     {
@@ -46,7 +47,7 @@ const DetailSidebarHeader = ({files, selectedItem}) => {
             </div>
         </div>
     );
-};
+}
 
 function mapDispatchToProps(dispatch)
 {

@@ -2,7 +2,8 @@ import React from 'react';
 import {Typography, Icon} from '@material-ui/core';
 import {FusePageSimple} from '@fuse';
 
-const IntroductionDoc = () => {
+function IntroductionDoc()
+{
     return (
         <FusePageSimple
             header={
@@ -75,6 +76,6 @@ const IntroductionDoc = () => {
             }
         />
     );
-};
+}
 
 export default IntroductionDoc;

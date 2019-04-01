@@ -1,9 +1,11 @@
 import React from 'react';
 import {Icon, Typography} from '@material-ui/core';
 import {FusePageSimple, FuseHighlight} from '@fuse';
+
 /* eslint import/no-webpack-loader-syntax: off */
 
-const ThemingDoc = () => {
+function ThemingDoc()
+{
     return (
         <FusePageSimple
             header={
@@ -48,6 +50,6 @@ const ThemingDoc = () => {
             }
         />
     );
-};
+}
 
 export default ThemingDoc;

@@ -3,7 +3,8 @@ import {Icon, Typography} from '@material-ui/core';
 import {FusePageSimple} from '@fuse';
 import {Link} from 'react-router-dom';
 
-const ThemeLayoutsDoc = () => {
+function ThemeLayoutsDoc()
+{
     return (
         <FusePageSimple
             header={
@@ -84,13 +85,14 @@ const ThemeLayoutsDoc = () => {
                     </Typography>
 
                     <Typography className="mb-16" component="p">
-                        You can get more information about route configuration and its usage from <Link to="/documentation/working-with-fuse-react/routing">Routing documentation page</Link>.
+                        You can get more information about route configuration and its usage from <Link to="/documentation/working-with-fuse-react/routing">Routing documentation
+                        page</Link>.
                     </Typography>
 
                 </div>
             }
         />
     );
-};
+}
 
 export default ThemeLayoutsDoc;

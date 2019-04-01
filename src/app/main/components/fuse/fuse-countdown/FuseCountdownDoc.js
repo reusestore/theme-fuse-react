@@ -3,7 +3,8 @@ import {Icon, Typography} from '@material-ui/core';
 import {FuseCountdown, FuseHighlight, FusePageSimple} from '@fuse';
 import {Link} from 'react-router-dom';
 
-const FuseCountdownDoc = () => {
+function FuseCountdownDoc()
+{
     return (
         <FusePageSimple
             header={
@@ -32,8 +33,8 @@ const FuseCountdownDoc = () => {
                     <FuseHighlight component="pre" className="language-jsx">
                         {
                             `
-                                <FuseCountdown endDate="2019-07-28" className="my-48"/>
-                                `
+                              <FuseCountdown endDate="2019-07-28" className="my-48"/>
+                            `
                         }
                     </FuseHighlight>
 
@@ -53,6 +54,6 @@ const FuseCountdownDoc = () => {
             }
         />
     );
-};
+}
 
 export default FuseCountdownDoc;

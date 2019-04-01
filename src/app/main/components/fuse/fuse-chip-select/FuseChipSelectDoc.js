@@ -2,9 +2,11 @@ import React from 'react';
 import {Icon, Typography} from '@material-ui/core';
 import {FuseExample, FusePageSimple} from '@fuse';
 import {Link} from 'react-router-dom';
+
 /* eslint import/no-webpack-loader-syntax: off */
 
-const FuseChipSelectDoc = () => {
+function FuseChipSelectDoc()
+{
     return (
         <FusePageSimple
             header={
@@ -49,6 +51,6 @@ const FuseChipSelectDoc = () => {
             }
         />
     );
-};
+}
 
 export default FuseChipSelectDoc;

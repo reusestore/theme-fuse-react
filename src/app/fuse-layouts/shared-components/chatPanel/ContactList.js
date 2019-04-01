@@ -1,12 +1,13 @@
-import React, {Component} from 'react';
-import {withStyles, Button, Avatar, Divider, Tooltip} from '@material-ui/core';
+import React, {useRef} from 'react';
+import {Button, Avatar, Divider, Tooltip} from '@material-ui/core';
 import {FuseScrollbars, FuseAnimateGroup} from '@fuse';
 import classNames from 'classnames';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as Actions from './store/actions';
+import {makeStyles} from '@material-ui/styles';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     root         : {
         background: theme.palette.background.default
     },
@@ -70,79 +71,75 @@ const styles = theme => ({
             backgroundColor: '#646464'
         }
     }
-});
+}));
 
-class ContactList extends Component {
+function ContactList(props)
+{
+    const classes = useStyles();
+    const contactListScroll = useRef(null);
 
-    handleContactClick = (contactId) => {
-        this.props.openChatPanel();
-        this.props.getChat(contactId);
-        this.scrollToTop();
+    const handleContactClick = (contactId) => {
+        props.openChatPanel();
+        props.getChat(contactId);
+        scrollToTop();
     };
 
-    scrollToTop = () => {
-        this.contactListScroll.scrollTop = 0;
+    const scrollToTop = () => {
+        contactListScroll.current.scrollTop = 0;
     };
 
-    render()
-    {
-        const {classes, contacts, user, selectedContactId} = this.props;
-
-        const ContactButton = ({contact}) => {
-            return (
-                <Tooltip title={contact.name} placement="left">
-                    <Button
-                        onClick={() => this.handleContactClick(contact.id)}
-                        className={classNames(classes.contactButton, {'active': (selectedContactId === contact.id)})}
-                    >
-                        {contact.unread && (
-                            <div className={classes.unreadBadge}>{contact.unread}</div>
-                        )}
-                        <div className={classNames(contact.status, classes.status)}/>
-                        <Avatar
-                            src={contact.avatar}
-                            alt={contact.name}
-                        >
-                            {!contact.avatar || contact.avatar === '' ? contact.name[0] : ''}
-                        </Avatar>
-                    </Button>
-                </Tooltip>
-            )
-        };
-
+    const ContactButton = ({contact}) => {
         return (
-            <FuseScrollbars
-                className={classNames(classes.root, "flex flex-no-shrink flex-col overflow-y-auto py-8")}
-                containerRef={(ref) => {
-                    this.contactListScroll = ref
-                }}
-            >
-                {contacts.length > 0 && (
-                    <React.Fragment>
-                        <FuseAnimateGroup
-                            enter={{
-                                animation: "transition.expandIn"
-                            }}
-                            className="flex flex-col flex-no-shrink"
-                        >
-                            {(user && user.chatList) &&
-                            user.chatList.map(chat => {
-                                const contact = contacts.find((_contact) => _contact.id === chat.contactId);
-                                return (
-                                    <ContactButton key={contact.id} contact={contact}/>
-                                )
-                            })}
-                            <Divider className="mx-24 my-8"/>
-                            {contacts.map(contact => {
-                                const chatContact = user.chatList.find((_chat) => _chat.contactId === contact.id);
-                                return !chatContact ? <ContactButton key={contact.id} contact={contact}/> : '';
-                            })}
-                        </FuseAnimateGroup>
-                    </React.Fragment>
-                )}
-            </FuseScrollbars>
-        );
+            <Tooltip title={contact.name} placement="left">
+                <Button
+                    onClick={() => handleContactClick(contact.id)}
+                    className={classNames(classes.contactButton, {'active': (props.selectedContactId === contact.id)})}
+                >
+                    {contact.unread && (
+                        <div className={classes.unreadBadge}>{contact.unread}</div>
+                    )}
+                    <div className={classNames(contact.status, classes.status)}/>
+                    <Avatar
+                        src={contact.avatar}
+                        alt={contact.name}
+                    >
+                        {!contact.avatar || contact.avatar === '' ? contact.name[0] : ''}
+                    </Avatar>
+                </Button>
+            </Tooltip>
+        )
     };
+
+    return (
+        <FuseScrollbars
+            className={classNames(classes.root, "flex flex-no-shrink flex-col overflow-y-auto py-8")}
+            ref={contactListScroll}
+        >
+            {props.contacts.length > 0 && (
+                <React.Fragment>
+                    <FuseAnimateGroup
+                        enter={{
+                            animation: "transition.expandIn"
+                        }}
+                        className="flex flex-col flex-no-shrink"
+                    >
+                        {(props.user && props.user.chatList) &&
+                        props.user.chatList.map(chat => {
+                            const contact = props.contacts.find((_contact) => _contact.id === chat.contactId);
+                            return (
+                                <ContactButton key={contact.id} contact={contact}/>
+                            )
+                        })}
+                        <Divider className="mx-24 my-8"/>
+                        {props.contacts.map(contact => {
+                            const chatContact = props.user.chatList.find((_chat) => _chat.contactId === contact.id);
+                            return !chatContact ? <ContactButton key={contact.id} contact={contact}/> : '';
+                        })}
+                    </FuseAnimateGroup>
+                </React.Fragment>
+            )}
+        </FuseScrollbars>
+    );
 }
 
 function mapDispatchToProps(dispatch)
@@ -162,5 +159,5 @@ function mapStateToProps({chatPanel})
     }
 }
 
-export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(ContactList));
+export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
 

@@ -5,19 +5,20 @@ import {bindActionCreators} from 'redux';
 import * as Actions from 'app/store/actions';
 import connect from 'react-redux/es/connect/connect';
 
-const NavbarFoldedToggleButton = ({settings, setDefaultSettings, children, className}) => {
+function NavbarFoldedToggleButton(props)
+{
     return (
         <IconButton
-            className={className}
+            className={props.className}
             onClick={() => {
-                setDefaultSettings(_.set({}, 'layout.config.navbar.folded', !settings.layout.config.navbar.folded));
+                props.setDefaultSettings(_.set({}, 'layout.config.navbar.folded', !props.settings.layout.config.navbar.folded));
             }}
             color="inherit"
         >
-            {children}
+            {props.children}
         </IconButton>
     );
-};
+}
 
 function mapDispatchToProps(dispatch)
 {

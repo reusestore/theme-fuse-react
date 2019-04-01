@@ -1,19 +1,20 @@
 import React from 'react';
 import {FuseExample, FuseHighlight, FusePageSimple} from '@fuse';
 import {Button, Icon, Typography} from '@material-ui/core';
-import {withStyles} from '@material-ui/core/styles/index';
+import {makeStyles} from '@material-ui/styles';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint no-unused-vars: off */
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     layoutRoot: {
         '& .description': {
             marginBottom: 16
         }
     }
-});
+}));
 
-function Progress({classes})
+function Progress(props)
 {
+    const classes = useStyles();
     return (
 
         <FusePageSimple
@@ -129,7 +130,7 @@ function Progress({classes})
                         you can easily transform a value in any range to a scale of 0 - 100:</Typography>
 
                     <FuseHighlight component="pre" className="language-jsx">
-                        {`
+                        {` 
 // MIN = Minimum expected value
 // MAX = Maximium expected value
 // Function to normalise the values (MIN / MAX could be integrated)
@@ -191,4 +192,4 @@ function Progress(props) {
     );
 }
 
-export default withStyles(styles, {withTheme: true})(Progress);
+export default Progress;

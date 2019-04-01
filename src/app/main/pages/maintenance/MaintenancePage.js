@@ -1,16 +1,20 @@
 import React from 'react';
-import {withStyles, Card, CardContent, Grow, Typography} from '@material-ui/core';
+import {Card, CardContent, Grow, Typography} from '@material-ui/core';
 import {darken} from '@material-ui/core/styles/colorManipulator';
+import {makeStyles} from '@material-ui/styles';
 import classNames from 'classnames';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     root: {
         background: 'radial-gradient(' + darken(theme.palette.primary.dark, 0.5) + ' 0%, ' + theme.palette.primary.dark + ' 80%)',
         color     : theme.palette.primary.contrastText
     }
-});
+}));
 
-const MaintenancePage = ({classes}) => {
+function MaintenancePage()
+{
+    const classes = useStyles();
+
     return (
         <div className={classNames(classes.root, "flex flex-col flex-auto flex-no-shrink items-center justify-center p-32")}>
 
@@ -37,6 +41,6 @@ const MaintenancePage = ({classes}) => {
             </div>
         </div>
     );
-};
+}
 
-export default withStyles(styles, {withTheme: true})(MaintenancePage);
+export default MaintenancePage;

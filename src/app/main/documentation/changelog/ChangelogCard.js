@@ -1,16 +1,17 @@
 import React from 'react';
-import {Card, Typography, withStyles} from '@material-ui/core';
+import {Card, Typography} from '@material-ui/core';
 import classNames from 'classnames';
 import {blue, green, red} from '@material-ui/core/colors';
+import {makeStyles} from '@material-ui/styles';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     root : {
         padding: '24px 32px'
     },
     badge: {
         display      : 'inline-flex',
         fontSize     : 13,
-        color        : '#fff',
+        color        : '#FFF',
         letterSpacing: '.015em',
         lineHeight   : 1,
         padding      : '5px 8px',
@@ -25,24 +26,27 @@ const styles = theme => ({
             backgroundColor: red[500]
         }
     }
-});
+}));
 
-const ChangelogCard = ({classes, className, version, date, newChanges, fixedChanges, breakingChanges, notes}) => {
+function ChangelogCard(props)
+{
+    const classes = useStyles();
+
     return (
-        <Card className={classNames(classes.root, className)}>
+        <Card className={classNames(classes.root, props.className)}>
             <div className="flex items-center">
-                {version && (
-                    <Typography className="text-24" component="h2">{`v${version}`}</Typography>
+                {props.version && (
+                    <Typography className="text-24" component="h2">{`v${props.version}`}</Typography>
                 )}
-                {date && (
-                    <Typography className="text-17 ml-8" color="textSecondary" component="h3">({date})</Typography>
+                {props.date && (
+                    <Typography className="text-17 ml-8" color="textSecondary" component="h3">({props.date})</Typography>
                 )}
             </div>
-            {newChanges.length > 0 && (
+            {props.newChanges.length > 0 && (
                 <div className="mt-24">
                     <div className={classNames(classes.badge, "new")}>New</div>
                     <ul className="my-16 pl-24">
-                        {newChanges.map((change, index) => (
+                        {props.newChanges.map((change, index) => (
                             <li key={index} className="mb-6">
                                 <Typography>{change}</Typography>
                             </li>
@@ -50,11 +54,11 @@ const ChangelogCard = ({classes, className, version, date, newChanges, fixedChan
                     </ul>
                 </div>
             )}
-            {fixedChanges.length > 0 && (
+            {props.fixedChanges.length > 0 && (
                 <div className="mt-24">
                     <div className={classNames(classes.badge, "fix")}>Fixed</div>
                     <ul className="my-16 pl-24">
-                        {fixedChanges.map((change, index) => (
+                        {props.fixedChanges.map((change, index) => (
                             <li key={index} className="mb-6">
                                 <Typography>{change}</Typography>
                             </li>
@@ -62,11 +66,11 @@ const ChangelogCard = ({classes, className, version, date, newChanges, fixedChan
                     </ul>
                 </div>
             )}
-            {breakingChanges.length > 0 && (
+            {props.breakingChanges.length > 0 && (
                 <div className="mt-24">
                     <div className={classNames(classes.badge, "breaking")}>Breaking Changes</div>
                     <ul className="my-16 pl-24">
-                        {breakingChanges.map((change, index) => (
+                        {props.breakingChanges.map((change, index) => (
                             <li key={index} className="mb-6">
                                 <Typography>{change}</Typography>
                             </li>
@@ -75,11 +79,11 @@ const ChangelogCard = ({classes, className, version, date, newChanges, fixedChan
                 </div>
             )}
 
-            {notes}
+            {props.notes}
 
         </Card>
     );
-};
+}
 
 ChangelogCard.defaultProps = {
     version        : null,
@@ -89,4 +93,4 @@ ChangelogCard.defaultProps = {
     breakingChanges: [],
     notes          : null,
 };
-export default withStyles(styles, {withTheme: true})(ChangelogCard);
+export default ChangelogCard;

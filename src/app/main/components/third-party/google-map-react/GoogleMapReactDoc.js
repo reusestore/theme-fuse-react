@@ -2,9 +2,11 @@ import React from 'react';
 import {Button, Icon, Typography} from '@material-ui/core';
 import {FuseExample, FusePageSimple} from '@fuse';
 import {Link} from 'react-router-dom';
+
 /* eslint import/no-webpack-loader-syntax: off */
 
-const GoogleMapReactDoc = () => {
+function GoogleMapReactDoc()
+{
     return (
         <FusePageSimple
             header={
@@ -59,6 +61,6 @@ const GoogleMapReactDoc = () => {
             }
         />
     );
-};
+}
 
 export default GoogleMapReactDoc;

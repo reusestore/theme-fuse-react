@@ -4,13 +4,14 @@ import {bindActionCreators} from 'redux';
 import * as Actions from 'app/store/actions';
 import connect from 'react-redux/es/connect/connect';
 
-const NavbarMobileToggleButton = ({navbarToggleMobile, children, className}) => {
+function NavbarMobileToggleButton(props)
+{
     return (
-        <IconButton className={className} onClick={navbarToggleMobile} color="inherit" disableRipple>
-            {children}
+        <IconButton className={props.className} onClick={props.navbarToggleMobile} color="inherit" disableRipple>
+            {props.children}
         </IconButton>
     );
-};
+}
 
 function mapDispatchToProps(dispatch)
 {

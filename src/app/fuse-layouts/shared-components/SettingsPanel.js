@@ -1,14 +1,15 @@
-import React, {Component} from 'react';
-import {Button, Typography, Dialog, Icon, IconButton, Slide, withStyles} from '@material-ui/core';
-import {FuseScrollbars, FuseSettings} from '@fuse';
+import React, {useState} from 'react';
+import {Button, Typography, Dialog, Icon, IconButton, Slide} from '@material-ui/core';
+import {makeStyles} from '@material-ui/styles';
 import {red} from '@material-ui/core/colors';
+import {FuseScrollbars, FuseSettings} from '@fuse';
 
 function Transition(props)
 {
     return <Slide direction="left" {...props} />;
 }
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     button               : {
         position               : 'absolute',
         right                  : 0,
@@ -54,57 +55,52 @@ const styles = theme => ({
         zIndex         : 1000,
         borderRadius   : 0
     }
-});
+}));
 
-class SettingsPanel extends Component {
+function SettingsPanel()
+{
+    const classes = useStyles();
+    const [open, setOpen] = useState(false);
 
-    state = {
-        open: false
+    const handleOpen = () => {
+        setOpen(true);
     };
 
-    handleOpen = () => {
-        this.setState({open: true});
+    const handleClose = () => {
+        setOpen(false);
     };
 
-    handleClose = () => {
-        this.setState({open: false});
-    };
+    return (
+        <React.Fragment>
+            <Button id="fuse-settings" className={classes.button} variant="contained" onClick={handleOpen}>
+                <Icon className={classes.buttonIcon}>settings</Icon>
+            </Button>
 
-    render()
-    {
-        const {classes} = this.props;
-        return (
-            <React.Fragment>
-                <Button id="fuse-settings" className={classes.button} variant="contained" onClick={this.handleOpen}>
-                    <Icon className={classes.buttonIcon}>settings</Icon>
-                </Button>
+            <Dialog
+                TransitionComponent={Transition}
+                aria-labelledby="settings-panel"
+                aria-describedby="settings"
+                open={open}
+                keepMounted
+                onClose={handleClose}
+                BackdropProps={{invisible: true}}
+                classes={{
+                    paper: classes.dialogPaper
+                }}
+            >
+                <FuseScrollbars className="p-24 sm:p-32">
+                    <IconButton className="fixed pin-t pin-r z-10" onClick={handleClose}>
+                        <Icon>close</Icon>
+                    </IconButton>
 
-                <Dialog
-                    TransitionComponent={Transition}
-                    aria-labelledby="settings-panel"
-                    aria-describedby="settings"
-                    open={this.state.open}
-                    keepMounted
-                    onClose={this.handleClose}
-                    BackdropProps={{invisible: true}}
-                    classes={{
-                        paper: classes.dialogPaper
-                    }}
-                >
-                    <FuseScrollbars className="p-24 sm:p-32">
-                        <IconButton className="fixed pin-t pin-r z-10" onClick={this.handleClose}>
-                            <Icon>close</Icon>
-                        </IconButton>
+                    <Typography className="mb-32" variant="h6">Theme Settings</Typography>
 
-                        <Typography className="mb-32" variant="h6">Theme Settings</Typography>
+                    <FuseSettings/>
 
-                        <FuseSettings/>
-
-                    </FuseScrollbars>
-                </Dialog>
-            </React.Fragment>
-        );
-    }
+                </FuseScrollbars>
+            </Dialog>
+        </React.Fragment>
+    );
 }
 
-export default withStyles(styles)(SettingsPanel);
+export default SettingsPanel;

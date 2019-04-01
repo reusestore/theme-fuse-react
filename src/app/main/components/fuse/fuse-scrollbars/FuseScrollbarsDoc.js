@@ -2,7 +2,8 @@ import React from 'react';
 import {Icon, Typography} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
 
-const FuseScrollbarsDoc = () => {
+function FuseScrollbarsDoc()
+{
     return (
         <FusePageSimple
             header={
@@ -47,21 +48,23 @@ const FuseScrollbarsDoc = () => {
                         {
                             `
                                 FuseScrollbars.defaultProps = {
-                                    className    : '',
-                                    enable       : true,
-                                    option       : undefined,
-                                    containerRef : () => {
+                                    className               : '',
+                                    enable                  : true,
+                                    scrollToTopOnChildChange: false,
+                                    option                  : {
+                                        wheelPropagation: true
                                     },
-                                    onScrollY    : undefined,
-                                    onScrollX    : undefined,
-                                    onScrollUp   : undefined,
-                                    onScrollDown : undefined,
-                                    onScrollLeft : undefined,
-                                    onScrollRight: undefined,
-                                    onYReachStart: undefined,
-                                    onYReachEnd  : undefined,
-                                    onXReachStart: undefined,
-                                    onXReachEnd  : undefined
+                                    ref                     : undefined,
+                                    onScrollY               : undefined,
+                                    onScrollX               : undefined,
+                                    onScrollUp              : undefined,
+                                    onScrollDown            : undefined,
+                                    onScrollLeft            : undefined,
+                                    onScrollRight           : undefined,
+                                    onYReachStart           : undefined,
+                                    onYReachEnd             : undefined,
+                                    onXReachStart           : undefined,
+                                    onXReachEnd             : undefined
                                 };
                                 `
                         }

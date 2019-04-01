@@ -1,19 +1,20 @@
 import React from 'react';
 import {FuseExample, FuseHighlight, FusePageSimple} from '@fuse';
 import {Button, Icon, Typography} from '@material-ui/core';
-import {withStyles} from '@material-ui/core/styles/index';
+import {makeStyles} from '@material-ui/styles';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint no-unused-vars: off */
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     layoutRoot: {
         '& .description': {
             marginBottom: 16
         }
     }
-});
+}));
 
-function Dialogs({classes})
+function Dialogs(props)
 {
+    const classes = useStyles();
     return (
 
         <FusePageSimple
@@ -195,4 +196,4 @@ function Dialogs({classes})
     );
 }
 
-export default withStyles(styles, {withTheme: true})(Dialogs);
+export default Dialogs;

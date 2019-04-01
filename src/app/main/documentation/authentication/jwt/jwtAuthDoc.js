@@ -3,7 +3,8 @@ import {Icon, Typography} from '@material-ui/core';
 import {FusePageSimple} from '@fuse';
 import {Link} from 'react-router-dom';
 
-const JwtAuthDoc = () => {
+function JwtAuthDoc()
+{
     return (
         <FusePageSimple
             header={
@@ -55,6 +56,6 @@ const JwtAuthDoc = () => {
             }
         />
     );
-};
+}
 
 export default JwtAuthDoc;
