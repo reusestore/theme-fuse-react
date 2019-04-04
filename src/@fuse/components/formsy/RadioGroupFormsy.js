@@ -1,51 +1,49 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {FormControl, FormHelperText, FormLabel, RadioGroup} from '@material-ui/core';
 import {withFormsy} from 'formsy-react';
 import _ from '@lodash';
 
-class RadioGroupFormsy extends Component {
+function RadioGroupFormsy(props)
+{
+    const importedProps = _.pick(props, [
+        'children',
+        'name',
+        'onBlur',
+        'onChange',
+        'onKeyDown',
+        'variant'
+    ]);
 
-    changeValue = (event, value) => {
-        this.props.setValue(value);
-        if ( this.props.onChange )
-        {
-            this.props.onChange(event);
-        }
-    };
+    // An error message is returned only if the component is invalid
+    const errorMessage = props.getErrorMessage();
+    const value = props.getValue();
 
-    render()
+    function changeValue(event, value)
     {
-        const importedProps = _.pick(this.props, [
-            'children',
-            'name',
-            'onBlur',
-            'onChange',
-            'onKeyDown',
-            'variant'
-        ]);
-
-        // An error message is returned only if the component is invalid
-        const errorMessage = this.props.getErrorMessage();
-        const value = this.props.getValue();
-
-        return (
-            <FormControl error={Boolean(errorMessage)} className={this.props.className}>
-                <FormControl component="fieldset" required={this.props.required} error={Boolean(errorMessage)}>
-                    {this.props.label && (
-                        <FormLabel component="legend">{this.props.label}</FormLabel>
-                    )}
-                    <RadioGroup
-                        {...importedProps}
-                        value={value}
-                        onChange={this.changeValue}
-                    />
-                    {Boolean(errorMessage) && (
-                        <FormHelperText>{errorMessage}</FormHelperText>
-                    )}
-                </FormControl>
-            </FormControl>
-        );
+        props.setValue(value);
+        if ( props.onChange )
+        {
+            props.onChange(event);
+        }
     }
+
+    return (
+        <FormControl error={Boolean(errorMessage)} className={props.className}>
+            <FormControl component="fieldset" required={props.required} error={Boolean(errorMessage)}>
+                {props.label && (
+                    <FormLabel component="legend">{props.label}</FormLabel>
+                )}
+                <RadioGroup
+                    {...importedProps}
+                    value={value}
+                    onChange={changeValue}
+                />
+                {Boolean(errorMessage) && (
+                    <FormHelperText>{errorMessage}</FormHelperText>
+                )}
+            </FormControl>
+        </FormControl>
+    );
 }
 
-export default withFormsy(RadioGroupFormsy);
+export default React.memo(withFormsy(RadioGroupFormsy));

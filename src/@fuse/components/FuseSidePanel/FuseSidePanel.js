@@ -1,16 +1,10 @@
-import React, {Component} from 'react';
-import {withStyles, Paper, Drawer, Icon, IconButton, Fab, Hidden, Tooltip} from '@material-ui/core';
+import React, {useState} from 'react';
+import {Paper, Drawer, Icon, IconButton, Fab, Hidden, Tooltip} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
 import classNames from 'classnames';
+import {makeStyles} from '@material-ui/styles';
 
-const propTypes = {};
-
-const defaultProps = {
-    position: "left",
-    opened  : true
-};
-
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     paper        : {
         display: 'flex',
         width  : 56
@@ -158,83 +152,81 @@ const styles = theme => ({
             }
         }
     }
-});
+}));
 
-class FuseSidePanel extends Component {
+function FuseSidePanel(props)
+{
+    const classes = useStyles(props);
+    const [opened, setOpened] = useState(props.opened);
+    const [mobileOpen, setMobileOpen] = useState(false);
 
-    state = {
-        opened    : this.props.opened,
-        mobileOpen: false
-    };
-
-    toggleOpened = () => {
-        this.setState({opened: !this.state.opened})
-    };
-
-    toggleMobileDrawer = () => {
-        this.setState({mobileOpen: !this.state.mobileOpen})
-    };
-
-    render()
+    function toggleOpened()
     {
-        const {classes, position, children, className} = this.props;
-        const {opened} = this.state;
-
-        return (
-            <React.Fragment>
-                <Hidden mdDown>
-                    <Paper
-                        className={classNames(classes.root, classes.paper, className, opened ? "opened" : "closed", position)}
-                        elevation={3}
-                        square={true}
-                    >
-                        <FuseScrollbars className={classNames("content", classes.content)}>
-                            {children}
-                        </FuseScrollbars>
-
-                        <div className={classes.buttonWrapper}>
-                            <Tooltip title="Toggle side panel" placement={position === "left" ? "right" : "right"}>
-                                <IconButton
-                                    className={classes.button}
-                                    onClick={this.toggleOpened}
-                                    disableRipple
-                                >
-                                    <Icon className={classes.buttonIcon}>keyboard_arrow_left</Icon>
-                                </IconButton>
-                            </Tooltip>
-                        </div>
-                    </Paper>
-                </Hidden>
-                <Hidden lgUp>
-                    <Drawer
-                        classes={{
-                            paper: classNames(classes.paper, className)
-                        }}
-                        anchor={position}
-                        open={this.state.mobileOpen}
-                        onClose={this.toggleMobileDrawer}
-                    >
-                        <FuseScrollbars className={classNames("content", classes.content)}>
-                            {children}
-                        </FuseScrollbars>
-                    </Drawer>
-
-                    <Tooltip title="Hide side panel" placement={position === "left" ? "right" : "right"}>
-                        <Fab
-                            className={classNames(classes.mobileButton, position)}
-                            onClick={this.toggleMobileDrawer}
-                            disableRipple
-                        >
-                            <Icon className={classes.buttonIcon} color="action">keyboard_arrow_right</Icon>
-                        </Fab>
-                    </Tooltip>
-                </Hidden>
-            </React.Fragment>
-        );
+        setOpened(!opened)
     }
+
+    function toggleMobileDrawer()
+    {
+        setMobileOpen(!mobileOpen)
+    }
+
+    return (
+        <React.Fragment>
+            <Hidden mdDown>
+                <Paper
+                    className={classNames(classes.root, classes.paper, props.className, opened ? "opened" : "closed", props.position)}
+                    elevation={3}
+                    square={true}
+                >
+                    <FuseScrollbars className={classNames("content", classes.content)}>
+                        {props.children}
+                    </FuseScrollbars>
+
+                    <div className={classes.buttonWrapper}>
+                        <Tooltip title="Toggle side panel" placement={props.position === "left" ? "right" : "right"}>
+                            <IconButton
+                                className={classes.button}
+                                onClick={toggleOpened}
+                                disableRipple
+                            >
+                                <Icon className={classes.buttonIcon}>keyboard_arrow_left</Icon>
+                            </IconButton>
+                        </Tooltip>
+                    </div>
+                </Paper>
+            </Hidden>
+            <Hidden lgUp>
+                <Drawer
+                    classes={{
+                        paper: classNames(classes.paper, props.className)
+                    }}
+                    anchor={props.position}
+                    open={mobileOpen}
+                    onClose={toggleMobileDrawer}
+                >
+                    <FuseScrollbars className={classNames("content", classes.content)}>
+                        {props.children}
+                    </FuseScrollbars>
+                </Drawer>
+
+                <Tooltip title="Hide side panel" placement={props.position === "left" ? "right" : "right"}>
+                    <Fab
+                        className={classNames(classes.mobileButton, props.position)}
+                        onClick={toggleMobileDrawer}
+                        disableRipple
+                    >
+                        <Icon className={classes.buttonIcon} color="action">keyboard_arrow_right</Icon>
+                    </Fab>
+                </Tooltip>
+            </Hidden>
+        </React.Fragment>
+    );
 }
 
-FuseSidePanel.propTypes = propTypes;
-FuseSidePanel.defaultProps = defaultProps;
+FuseSidePanel.propTypes = {};
+FuseSidePanel.defaultProps = {
+    position: "left",
+    opened  : true
+};
 
-export default withStyles(styles)(FuseSidePanel);
+export default React.memo(FuseSidePanel);

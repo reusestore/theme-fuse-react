@@ -1,123 +1,99 @@
-import React, {Component} from 'react';
-import {Typography, withStyles} from '@material-ui/core';
+import React, {useEffect, useRef, useState} from 'react';
+import {Typography} from '@material-ui/core';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import classNames from 'classnames';
 
-const propTypes = {
-    endDate   : PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
-    onComplete: PropTypes.func
-};
+function FuseCountdown(props)
+{
+    const [endDate] = useState(moment.isMoment(props.endDate) ? props.endDate : moment(props.endDate));
+    const [countdown, setCountdown] = useState({
+        days   : '',
+        hours  : '',
+        minutes: '',
+        seconds: ''
+    });
+    const intervalRef = useRef();
 
-const defaultProps = {
-    endDate: moment().add(15, 'days')
-};
+    useEffect(() => {
+        intervalRef.current = setInterval(tick, 1000);
+        return () => {
+            clearInterval(intervalRef.current);
+        };
+    }, []);
 
-const styles = theme => ({
-    root: {}
-});
-
-class FuseCountdown extends Component {
-
-    state = {
-        endDate  : moment.isMoment(this.props.endDate) ? this.props.endDate : moment(this.props.endDate),
-        countdown: {
-            days   : '',
-            hours  : '',
-            minutes: '',
-            seconds: ''
-        }
-    };
-
-    componentDidMount()
+    function tick()
     {
-        this.tick();
-        this.interval = setInterval(() => {
-            this.tick()
-        }, 1000);
-    }
-
-    componentWillUnmount()
-    {
-        window.clearInterval(this.interval);
-    }
-
-    tick()
-    {
-        const {endDate} = this.state;
-
         const currDate = moment();
         const diff = endDate.diff(currDate, 'seconds');
         if ( diff < 0 )
         {
-            this.complete();
+            complete();
             return;
         }
         const timeLeft = moment.duration(diff, 'seconds');
-        this.setState({
-            countdown: {
-                days   : timeLeft.asDays().toFixed(0),
-                hours  : timeLeft.hours(),
-                minutes: timeLeft.minutes(),
-                seconds: timeLeft.seconds()
-            }
+        setCountdown({
+            days   : timeLeft.asDays().toFixed(0),
+            hours  : timeLeft.hours(),
+            minutes: timeLeft.minutes(),
+            seconds: timeLeft.seconds()
         });
     }
 
-    complete()
+    function complete()
     {
-        window.clearInterval(this.interval);
-        if ( this.props.onComplete )
+        window.clearInterval(intervalRef.current);
+        if ( props.onComplete )
         {
-            this.props.onComplete();
+            props.onComplete();
         }
     }
 
-    render()
-    {
-        const {classes} = this.props;
-        const {countdown} = this.state;
-
-        return (
-            <div className={classNames(classes.root, "flex items-center", this.props.className)}>
-                <div className="flex flex-col items-center justify-center px-12">
-                    <Typography variant="h4" className="mb-4">
-                        {countdown.days}
-                    </Typography>
-                    <Typography variant="caption" color="textSecondary">
-                        days
-                    </Typography>
-                </div>
-                <div className="flex flex-col items-center justify-center px-12">
-                    <Typography variant="h4" className="mb-4">
-                        {countdown.hours}
-                    </Typography>
-                    <Typography variant="caption" color="textSecondary">
-                        hours
-                    </Typography>
-                </div>
-                <div className="flex flex-col items-center justify-center px-12">
-                    <Typography variant="h4" className="mb-4">
-                        {countdown.minutes}
-                    </Typography>
-                    <Typography variant="caption" color="textSecondary">
-                        minutes
-                    </Typography>
-                </div>
-                <div className="flex flex-col items-center justify-center px-12">
-                    <Typography variant="h4" className="mb-4">
-                        {countdown.seconds}
-                    </Typography>
-                    <Typography variant="caption" color="textSecondary">
-                        seconds
-                    </Typography>
-                </div>
+    return (
+        <div className={classNames("flex items-center", props.className)}>
+            <div className="flex flex-col items-center justify-center px-12">
+                <Typography variant="h4" className="mb-4">
+                    {countdown.days}
+                </Typography>
+                <Typography variant="caption" color="textSecondary">
+                    days
+                </Typography>
             </div>
-        );
-    }
+            <div className="flex flex-col items-center justify-center px-12">
+                <Typography variant="h4" className="mb-4">
+                    {countdown.hours}
+                </Typography>
+                <Typography variant="caption" color="textSecondary">
+                    hours
+                </Typography>
+            </div>
+            <div className="flex flex-col items-center justify-center px-12">
+                <Typography variant="h4" className="mb-4">
+                    {countdown.minutes}
+                </Typography>
+                <Typography variant="caption" color="textSecondary">
+                    minutes
+                </Typography>
+            </div>
+            <div className="flex flex-col items-center justify-center px-12">
+                <Typography variant="h4" className="mb-4">
+                    {countdown.seconds}
+                </Typography>
+                <Typography variant="caption" color="textSecondary">
+                    seconds
+                </Typography>
+            </div>
+        </div>
+    );
 }
 
-FuseCountdown.propTypes = propTypes;
-FuseCountdown.defaultProps = defaultProps;
+FuseCountdown.propTypes = {
+    endDate   : PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
+    onComplete: PropTypes.func
+};
 
-export default withStyles(styles)(FuseCountdown);
+FuseCountdown.defaultProps = {
+    endDate: moment().add(15, 'days')
+};
+
+export default React.memo(FuseCountdown);

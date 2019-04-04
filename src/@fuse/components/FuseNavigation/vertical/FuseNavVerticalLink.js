@@ -1,5 +1,6 @@
 import React from 'react';
-import {withStyles, Icon, ListItem, ListItemText} from '@material-ui/core';
+import {Icon, ListItem, ListItemText} from '@material-ui/core';
+import {makeStyles} from '@material-ui/styles';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
@@ -8,20 +9,7 @@ import {bindActionCreators} from 'redux';
 import * as Actions from 'app/store/actions';
 import FuseNavBadge from './../FuseNavBadge';
 
-const propTypes = {
-    item: PropTypes.shape(
-        {
-            id    : PropTypes.string.isRequired,
-            title : PropTypes.string,
-            icon  : PropTypes.string,
-            url   : PropTypes.string,
-            target: PropTypes.string
-        })
-};
-
-const defaultProps = {};
-
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     item: {
         height                     : 40,
         width                      : 'calc(100% - 16px)',
@@ -48,17 +36,19 @@ const styles = theme => ({
         color                      : 'inherit!important',
         textDecoration             : 'none!important'
     }
-});
+}));
 
-function FuseNavVerticalLink({item, classes, nestedLevel, userRole, navbarCloseMobile, active})
+function FuseNavVerticalLink(props)
 {
+    const classes = useStyles(props);
+    const {item, nestedLevel, userRole, navbarCloseMobile, active} = props;
+    let paddingValue = 40 + (nestedLevel * 16);
+    const listItemPadding = nestedLevel > 0 ? 'pl-' + (paddingValue > 80 ? 80 : paddingValue) : 'pl-24';
+
     if ( item.auth && (!item.auth.includes(userRole) || (userRole !== 'guest' && item.auth.length === 1 && item.auth.includes('guest'))) )
     {
         return null;
     }
-
-    let paddingValue = 40 + (nestedLevel * 16);
-    const listItemPadding = nestedLevel > 0 ? 'pl-' + (paddingValue > 80 ? 80 : paddingValue) : 'pl-24';
 
     return (
         <ListItem
@@ -94,9 +84,18 @@ function mapStateToProps({auth, fuse})
     }
 }
 
-FuseNavVerticalLink.propTypes = propTypes;
-FuseNavVerticalLink.defaultProps = defaultProps;
+FuseNavVerticalLink.propTypes = {
+    item: PropTypes.shape(
+        {
+            id    : PropTypes.string.isRequired,
+            title : PropTypes.string,
+            icon  : PropTypes.string,
+            url   : PropTypes.string,
+            target: PropTypes.string
+        })
+};
+FuseNavVerticalLink.defaultProps = {};
 
-const NavVerticalLink = withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(FuseNavVerticalLink)));
+const NavVerticalLink = withRouter(connect(mapStateToProps, mapDispatchToProps)(React.memo(FuseNavVerticalLink)));
 
 export default NavVerticalLink;

@@ -1,7 +1,8 @@
 import React from 'react';
 import {Typography, LinearProgress, Icon, Button} from '@material-ui/core';
 
-const Loading = (props) => {
+function Loading(props)
+{
     if ( props.error )
     {
         return (
@@ -39,6 +40,6 @@ const Loading = (props) => {
     {
         return null;
     }
-};
+}
 
 export default Loading;

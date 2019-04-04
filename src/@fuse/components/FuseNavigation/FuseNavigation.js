@@ -1,6 +1,6 @@
 import React from 'react';
-import { Divider, List, Hidden } from '@material-ui/core';
-import { withRouter } from 'react-router-dom';
+import {Divider, List, Hidden} from '@material-ui/core';
+import {withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import FuseNavVerticalGroup from './vertical/FuseNavVerticalGroup';
@@ -12,16 +12,9 @@ import FuseNavHorizontalCollapse from './horizontal/FuseNavHorizontalCollapse';
 import FuseNavHorizontalItem from './horizontal/FuseNavHorizontalItem';
 import FuseNavHorizontalLink from './horizontal/FuseNavHorizontalLink';
 
-const propTypes = {
-    navigation: PropTypes.array.isRequired
-};
-
-const defaultProps = {
-    layout: "vertical"
-};
-
-const FuseNavigation = ({navigation, layout, active, dense, className}) =>
+function FuseNavigation(props)
 {
+    const {navigation, layout, active, dense, className} = props;
 
     const verticalNav = (
         <List className={classNames("navigation whitespace-no-wrap", className)}>
@@ -74,7 +67,6 @@ const FuseNavigation = ({navigation, layout, active, dense, className}) =>
                             <FuseNavHorizontalItem item={item} nestedLevel={0} dense={dense}/>
                         )}
 
-
                         {item.type === 'link' && (
                             <FuseNavHorizontalLink item={item} nestedLevel={0} dense={dense}/>
                         )}
@@ -116,9 +108,14 @@ const FuseNavigation = ({navigation, layout, active, dense, className}) =>
     {
         return null;
     }
+}
+
+FuseNavigation.propTypes = {
+    navigation: PropTypes.array.isRequired
 };
 
-FuseNavigation.propTypes = propTypes;
-FuseNavigation.defaultProps = defaultProps;
+FuseNavigation.defaultProps = {
+    layout: "vertical"
+};
 
-export default withRouter(FuseNavigation);
+export default withRouter(React.memo(FuseNavigation));

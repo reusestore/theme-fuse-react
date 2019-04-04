@@ -21,7 +21,8 @@ const leaveAnimationDefaults = {
     delay     : 0
 };
 
-const FuseAnimateGroup = (props) => {
+function FuseAnimateGroup(props)
+{
     const newProps = _.merge({}, {
         enter: enterAnimationDefaults,
         leave: leaveAnimationDefaults
@@ -29,7 +30,7 @@ const FuseAnimateGroup = (props) => {
 
     return <VelocityTransitionGroup {...newProps} children={props.children}/>
 
-};
+}
 
 FuseAnimateGroup.propTypes = {
     children: PropTypes.any
@@ -48,4 +49,4 @@ FuseAnimateGroup.defaultProps = {
     }
 };
 
-export default FuseAnimateGroup;
+export default React.memo(FuseAnimateGroup);

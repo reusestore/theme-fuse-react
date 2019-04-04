@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
 
 function ToolbarLayout1(props)
 {
-    const classes = useStyles();
+    const classes = useStyles(props);
 
     return (
         <ThemeProvider theme={props.toolbarTheme}>

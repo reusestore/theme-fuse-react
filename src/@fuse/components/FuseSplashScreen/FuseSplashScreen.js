@@ -1,6 +1,7 @@
 import React from 'react';
 
-const FuseSplashScreen = () => {
+function FuseSplashScreen()
+{
     return (
         <div id="fuse-splash-screen">
 
@@ -25,6 +26,6 @@ const FuseSplashScreen = () => {
             </div>
         </div>
     );
-};
+}
 
-export default FuseSplashScreen;
+export default React.memo(FuseSplashScreen);

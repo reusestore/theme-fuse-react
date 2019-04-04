@@ -4,7 +4,8 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as Actions from 'app/store/actions';
 
-const FuseDialog = (props) => {
+function FuseDialog(props)
+{
     return (
         <Dialog
             open={props.state}
@@ -13,7 +14,7 @@ const FuseDialog = (props) => {
             {...props.options}
         />
     );
-};
+}
 
 function mapDispatchToProps(dispatch)
 {

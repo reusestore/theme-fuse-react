@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {withStyles, Grow, Paper, Icon, IconButton, ListItem, ListItemText} from '@material-ui/core';
+import React, {useState} from 'react';
+import {Grow, Paper, Icon, IconButton, ListItem, ListItemText} from '@material-ui/core';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
@@ -10,19 +10,9 @@ import * as ReactDOM from 'react-dom';
 import FuseNavHorizontalCollapse from './FuseNavHorizontalCollapse';
 import FuseNavHorizontalItem from './FuseNavHorizontalItem';
 import FuseNavHorizontalLink from './FuseNavHorizontalLink';
+import {makeStyles} from '@material-ui/styles';
 
-const propTypes = {
-    item: PropTypes.shape(
-        {
-            id      : PropTypes.string.isRequired,
-            title   : PropTypes.string,
-            children: PropTypes.array
-        })
-};
-
-const defaultProps = {};
-
-const styles = theme => ({
+const useStyles = makeStyles({
     root       : {
         '& .list-item-text': {
             padding: '0 0 0 16px'
@@ -51,113 +41,108 @@ const styles = theme => ({
     }
 });
 
-class FuseNavHorizontalGroup extends Component {
+function FuseNavHorizontalGroup(props)
+{
+    const classes = useStyles(props);
+    const [opened, setOpened] = useState(false);
+    const {item, nestedLevel, userRole, dense} = props;
 
-    state = {
-        open: false
-    };
-
-    handleToggle = _.debounce((open) => {
-        if ( this.state.open === open )
+    const handleToggle = _.debounce((open) => {
+        if ( opened === open )
         {
             return;
         }
-        this.setState({open});
+        setOpened(open);
     }, 150);
 
-    render()
+
+    if ( item.auth && (!item.auth.includes(userRole) || (userRole !== 'guest' && item.auth.length === 1 && item.auth.includes('guest'))) )
     {
-        const {item, nestedLevel, userRole, classes, dense} = this.props;
-        const {open} = this.state;
+        return null;
+    }
 
-        if ( item.auth && (!item.auth.includes(userRole) || (userRole !== 'guest' && item.auth.length === 1 && item.auth.includes('guest'))) )
-        {
-            return null;
-        }
+    return (
+        <Manager>
+            <Reference>
+                {({ref}) => (
+                    <div ref={ref}>
+                        <ListItem
+                            button
+                            className={classNames("list-item ", classes.root, "relative", "level-" + nestedLevel, dense && "dense")}
+                            onMouseEnter={() => handleToggle(true)}
+                            onMouseLeave={() => handleToggle(false)}
+                            aria-owns={opened ? 'menu-list-grow' : null}
+                            aria-haspopup="true"
+                        >
+                            {item.icon && (
+                                <Icon color="action" className="text-16 flex-no-shrink">{item.icon}</Icon>
+                            )}
+                            <ListItemText className="list-item-text" primary={item.title} classes={{primary: 'text-14'}}/>
+                            {nestedLevel > 0 && (
+                                <IconButton disableRipple className="w-16 h-16 ml-4 p-0">
+                                    <Icon className="text-16 arrow-icon">keyboard_arrow_right</Icon>
+                                </IconButton>
+                            )}
+                        </ListItem>
+                    </div>
+                )}
+            </Reference>
+            {ReactDOM.createPortal(
+                <Popper
+                    placement={nestedLevel === 0 ? "bottom-start" : "right"}
+                    eventsEnabled={opened}
+                    positionFixed
+                >
+                    {({ref, style, placement, arrowProps}) => (
+                        <div
+                            ref={ref}
+                            style={{
+                                ...style,
+                                zIndex: 999 + nestedLevel
+                            }}
+                            data-placement={placement}
+                            className={classNames(classes.popper, {[classes.popperClose]: !opened})}
+                        >
+                            <Grow in={opened} id="menu-list-grow" style={{transformOrigin: '0 0 0'}}>
+                                <Paper
+                                    onMouseEnter={() => handleToggle(true)}
+                                    onMouseLeave={() => handleToggle(false)}
+                                >
+                                    {item.children && (
+                                        <ul className={classNames(classes.children, "pl-0")}>
+                                            {
+                                                item.children.map((item) => (
+                                                    <React.Fragment key={item.id}>
 
-        return (
-            <Manager>
-                <Reference>
-                    {({ref}) => (
-                        <div ref={ref}>
-                            <ListItem
-                                button
-                                className={classNames("list-item ", classes.root, "relative", "level-" + nestedLevel, dense && "dense")}
-                                onMouseEnter={() => this.handleToggle(true)}
-                                onMouseLeave={() => this.handleToggle(false)}
-                                aria-owns={open ? 'menu-list-grow' : null}
-                                aria-haspopup="true"
-                            >
-                                {item.icon && (
-                                    <Icon color="action" className="text-16 flex-no-shrink">{item.icon}</Icon>
-                                )}
-                                <ListItemText className="list-item-text" primary={item.title} classes={{primary: 'text-14'}}/>
-                                {nestedLevel > 0 && (
-                                    <IconButton disableRipple className="w-16 h-16 ml-4 p-0">
-                                        <Icon className="text-16 arrow-icon">keyboard_arrow_right</Icon>
-                                    </IconButton>
-                                )}
-                            </ListItem>
+                                                        {item.type === 'group' && (
+                                                            <NavHorizontalGroup item={item} nestedLevel={nestedLevel} dense={dense}/>
+                                                        )}
+
+                                                        {item.type === 'collapse' && (
+                                                            <FuseNavHorizontalCollapse item={item} nestedLevel={nestedLevel} dense={dense}/>
+                                                        )}
+
+                                                        {item.type === 'item' && (
+                                                            <FuseNavHorizontalItem item={item} nestedLevel={nestedLevel} dense={dense}/>
+                                                        )}
+
+                                                        {item.type === 'link' && (
+                                                            <FuseNavHorizontalLink item={item} nestedLevel={nestedLevel} dense={dense}/>
+                                                        )}
+                                                    </React.Fragment>
+                                                ))
+                                            }
+                                        </ul>
+                                    )}
+                                </Paper>
+                            </Grow>
                         </div>
                     )}
-                </Reference>
-                {ReactDOM.createPortal(
-                    <Popper
-                        placement={nestedLevel === 0 ? "bottom-start" : "right"}
-                        eventsEnabled={open}
-                        positionFixed
-                    >
-                        {({ref, style, placement, arrowProps}) => (
-                            <div
-                                ref={ref}
-                                style={{
-                                    ...style,
-                                    zIndex: 999 + nestedLevel
-                                }}
-                                data-placement={placement}
-                                className={classNames(classes.popper, {[classes.popperClose]: !open})}
-                            >
-                                <Grow in={open} id="menu-list-grow" style={{transformOrigin: '0 0 0'}}>
-                                    <Paper
-                                        onMouseEnter={() => this.handleToggle(true)}
-                                        onMouseLeave={() => this.handleToggle(false)}
-                                    >
-                                        {item.children && (
-                                            <ul className={classNames(classes.children, "pl-0")}>
-                                                {
-                                                    item.children.map((item) => (
-                                                        <React.Fragment key={item.id}>
-
-                                                            {item.type === 'group' && (
-                                                                <NavHorizontalGroup item={item} nestedLevel={nestedLevel} dense={dense}/>
-                                                            )}
-
-                                                            {item.type === 'collapse' && (
-                                                                <FuseNavHorizontalCollapse item={item} nestedLevel={nestedLevel} dense={dense}/>
-                                                            )}
-
-                                                            {item.type === 'item' && (
-                                                                <FuseNavHorizontalItem item={item} nestedLevel={nestedLevel} dense={dense}/>
-                                                            )}
-
-                                                            {item.type === 'link' && (
-                                                                <FuseNavHorizontalLink item={item} nestedLevel={nestedLevel} dense={dense}/>
-                                                            )}
-                                                        </React.Fragment>
-                                                    ))
-                                                }
-                                            </ul>
-                                        )}
-                                    </Paper>
-                                </Grow>
-                            </div>
-                        )}
-                    </Popper>,
-                    document.querySelector('#root')
-                )}
-            </Manager>
-        );
-    }
+                </Popper>,
+                document.querySelector('#root')
+            )}
+        </Manager>
+    );
 }
 
 function mapStateToProps({auth})
@@ -167,9 +152,17 @@ function mapStateToProps({auth})
     }
 }
 
-FuseNavHorizontalGroup.propTypes = propTypes;
-FuseNavHorizontalGroup.defaultProps = defaultProps;
+FuseNavHorizontalGroup.propTypes = {
+    item: PropTypes.shape(
+        {
+            id      : PropTypes.string.isRequired,
+            title   : PropTypes.string,
+            children: PropTypes.array
+        })
+};
 
-const NavHorizontalGroup = withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps)(FuseNavHorizontalGroup)));
+FuseNavHorizontalGroup.defaultProps = {};
+
+const NavHorizontalGroup = withRouter(connect(mapStateToProps)(React.memo(FuseNavHorizontalGroup)));
 
 export default NavHorizontalGroup;

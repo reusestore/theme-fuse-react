@@ -4,13 +4,14 @@ import {FuseScrollbars} from '@fuse';
 import classNames from 'classnames';
 import FusePageSimpleSidebar from './FusePageSimpleSidebar';
 import FusePageSimpleHeader from './FusePageSimpleHeader';
+import * as PropTypes from 'prop-types';
 
 const headerHeight = 120;
 const toolbarHeight = 64;
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
-    root                          : {
+    root                     : {
         display        : 'flex',
         flexDirection  : 'column',
         minHeight      : '100%',
@@ -19,11 +20,11 @@ const useStyles = makeStyles(theme => ({
         height         : 'auto',
         backgroundColor: theme.palette.background.default
     },
-    innerScroll                   : {
+    innerScroll              : {
         flex  : '1 1 auto',
         height: '100%'
     },
-    wrapper                : {
+    wrapper                  : {
         display        : 'flex',
         flexDirection  : 'row',
         flex           : '1 1 auto',
@@ -33,7 +34,7 @@ const useStyles = makeStyles(theme => ({
         height         : '100%',
         backgroundColor: theme.palette.background.default
     },
-    header                        : {
+    header                   : {
         height         : headerHeight,
         minHeight      : headerHeight,
         display        : 'flex',
@@ -42,7 +43,7 @@ const useStyles = makeStyles(theme => ({
         backgroundSize : 'cover',
         backgroundColor: theme.palette.primary.dark
     },
-    topBg                         : {
+    topBg                    : {
         position     : 'absolute',
         left         : 0,
         right        : 0,
@@ -50,27 +51,27 @@ const useStyles = makeStyles(theme => ({
         height       : headerHeight,
         pointerEvents: 'none'
     },
-   /* contentCardWrapper            : {
-        display : 'flex ',
-        flex    : '1 1 auto',
-        overflow: 'visible!important',
-        minWidth: 0,
-        '&.ps'  : {
-            overflow: 'visible!important'
-        }
-    },
-    contentCardWrapperInnerSidebar: {
-        display                     : 'block',
-        overflow                    : 'auto!important',
-        '-webkit-overflow-scrolling': 'touch',
-        '&.ps'                      : {
-            overflow: 'hidden!important'
-        },
-        '& $contentCard'            : {
-            borderRadius: 8
-        }
-    },*/
-    contentWrapper                   : {
+    /* contentCardWrapper            : {
+         display : 'flex ',
+         flex    : '1 1 auto',
+         overflow: 'visible!important',
+         minWidth: 0,
+         '&.ps'  : {
+             overflow: 'visible!important'
+         }
+     },
+     contentCardWrapperInnerSidebar: {
+         display                     : 'block',
+         overflow                    : 'auto!important',
+         '-webkit-overflow-scrolling': 'touch',
+         '&.ps'                      : {
+             overflow: 'hidden!important'
+         },
+         '& $contentCard'            : {
+             borderRadius: 8
+         }
+     },*/
+    contentWrapper           : {
         display                     : 'flex',
         flexDirection               : 'column',
         flex                        : '1 1 auto',
@@ -78,16 +79,16 @@ const useStyles = makeStyles(theme => ({
         '-webkit-overflow-scrolling': 'touch',
         zIndex                      : 9999
     },
-    toolbar                       : {
+    toolbar                  : {
         height    : toolbarHeight,
         minHeight : toolbarHeight,
         display   : 'flex',
         alignItems: 'center'
     },
-    content                       : {
+    content                  : {
         flex: '1 0 auto'
     },
-    sidebarWrapper                : {
+    sidebarWrapper           : {
         overflow       : 'hidden',
         backgroundColor: 'transparent',
         position       : 'absolute',
@@ -97,7 +98,7 @@ const useStyles = makeStyles(theme => ({
             }
         }
     },
-    sidebar                       : {
+    sidebar                  : {
         position     : 'absolute',
         '&.permanent': {
             [theme.breakpoints.up('lg')]: {
@@ -109,38 +110,37 @@ const useStyles = makeStyles(theme => ({
         width        : drawerWidth,
         height       : '100%'
     },
-    leftSidebar                   : {
+    leftSidebar              : {
         [theme.breakpoints.up('lg')]: {
             borderRight: '1px solid ' + theme.palette.divider,
             borderLeft : 0
         }
     },
-    rightSidebar                  : {
+    rightSidebar             : {
         [theme.breakpoints.up('lg')]: {
             borderLeft : '1px solid ' + theme.palette.divider,
             borderRight: 0
         }
     },
-    sidebarHeader                 : {
+    sidebarHeader            : {
         height         : headerHeight,
         minHeight      : headerHeight,
         backgroundColor: theme.palette.primary.dark,
         color          : theme.palette.primary.contrastText
     },
-    sidebarHeaderInnerSidebar     : {
+    sidebarHeaderInnerSidebar: {
         backgroundColor: 'transparent',
         color          : 'inherit',
         height         : 'auto',
         minHeight      : 'auto'
     },
-    sidebarContent                : {},
-    backdrop                      : {
+    sidebarContent           : {},
+    backdrop                 : {
         position: 'absolute'
     }
 }));
 
-function FusePageSimple(props, ref)
-{
+const FusePageSimple = React.forwardRef(function (props, ref) {
     // console.info("render::FusePageSimple");
     const leftSidebarRef = useRef(null);
     const rightSidebarRef = useRef(null);
@@ -228,6 +228,22 @@ function FusePageSimple(props, ref)
             </div>
         </div>
     );
-}
+});
 
-export default React.forwardRef(FusePageSimple);
+FusePageSimple.propTypes = {
+    leftSidebarHeader  : PropTypes.node,
+    leftSidebarContent : PropTypes.node,
+    leftSidebarVariant : PropTypes.node,
+    rightSidebarHeader : PropTypes.node,
+    rightSidebarContent: PropTypes.node,
+    rightSidebarVariant: PropTypes.node,
+    header             : PropTypes.node,
+    content            : PropTypes.node,
+    contentToolbar     : PropTypes.node,
+    sidebarInner       : PropTypes.bool,
+    innerScroll        : PropTypes.bool
+};
+
+FusePageSimple.defaultProps = {};
+
+export default React.memo(FusePageSimple);

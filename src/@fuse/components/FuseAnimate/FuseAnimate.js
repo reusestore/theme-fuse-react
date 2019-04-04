@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import {VelocityComponent} from 'velocity-react';
 import 'velocity-animate/velocity.ui';
 
-const FuseAnimate = (props) => {
+function FuseAnimate(props)
+{
     const children = React.cloneElement(props.children, {
         style: {
             ...props.children.style,
@@ -11,7 +12,7 @@ const FuseAnimate = (props) => {
         }
     });
     return <VelocityComponent ref={ev => props.setRef && props.setRef(ev)} {...props} children={children}/>
-};
+}
 
 FuseAnimate.propTypes = {
     children: PropTypes.element.isRequired
@@ -30,4 +31,4 @@ FuseAnimate.defaultProps = {
     setRef             : undefined
 };
 
-export default FuseAnimate;
+export default React.memo(FuseAnimate);

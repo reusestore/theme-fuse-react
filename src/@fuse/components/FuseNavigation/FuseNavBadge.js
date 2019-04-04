@@ -1,20 +1,9 @@
 import React from 'react';
-import {withStyles} from '@material-ui/core';
+import {makeStyles} from '@material-ui/styles';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-const propTypes = {
-    badge: PropTypes.shape(
-        {
-            title: PropTypes.node,
-            bg   : PropTypes.string,
-            fg   : PropTypes.string
-        })
-};
-
-const defaultProps = {};
-
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     root: {
         padding        : '0 7px',
         fontSize       : 11,
@@ -27,10 +16,13 @@ const styles = theme => ({
         backgroundColor: theme.palette.secondary.main,
         color          : theme.palette.secondary.contrastText
     }
-});
+}));
 
-function FuseNavBadge({classes, className, badge})
+function FuseNavBadge(props)
 {
+    const classes = useStyles(props);
+    const {className, badge} = props;
+
     return (
         <div
             className={classNames(classes.root, className)}
@@ -44,7 +36,14 @@ function FuseNavBadge({classes, className, badge})
     )
 }
 
-FuseNavBadge.propTypes = propTypes;
-FuseNavBadge.defaultProps = defaultProps;
+FuseNavBadge.propTypes = {
+    badge: PropTypes.shape(
+        {
+            title: PropTypes.node,
+            bg   : PropTypes.string,
+            fg   : PropTypes.string
+        })
+};
+FuseNavBadge.defaultProps = {};
 
-export default withStyles(styles, {withTheme: true})(FuseNavBadge);
+export default React.memo(FuseNavBadge);

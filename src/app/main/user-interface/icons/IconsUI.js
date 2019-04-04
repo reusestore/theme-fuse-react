@@ -8,8 +8,8 @@ function IconsUI()
 {
     const theme = useTheme();
     const [searchText, setSearchText] = useState('');
-    const [data, setData] = useState([]);
-    const [filteredData, setFilteredData] = useState([]);
+    const [data, setData] = useState(null);
+    const [filteredData, setFilteredData] = useState(null);
 
     useEffect(() => {
         axios.get('/api/icons').then(res => {
@@ -45,6 +45,9 @@ function IconsUI()
 
     return (
         <FusePageSimple
+            classes={{
+                content: "flex"
+            }}
             header={
                 <div className="flex flex-1 items-center justify-between p-16 sm:p-24">
 
@@ -99,18 +102,31 @@ function IconsUI()
             }
             content={
                 <div className="py-24 max-w-2xl mx-auto">
-                    <FuseAnimate animation="transition.slideUpBigIn" delay={300}>
-                        <div className="flex flex-wrap justify-center">
-                            {useMemo(() =>
-                                filteredData.map((item) => (
-                                    <div className="w-160 h-128 p-16 flex flex-col items-center justify-center" key={item.id}>
-                                        <Icon className="text-48" color="action">{item.ligatures}</Icon>
-                                        <Typography variant="caption" className="mt-4">{item.ligatures}</Typography>
-                                    </div>
-                                )), [filteredData])
-                            }
-                        </div>
-                    </FuseAnimate>
+                    {useMemo(() => (
+                        filteredData && (
+                            filteredData.length > 0 ? (
+                                    <FuseAnimate animation="transition.slideUpBigIn" delay={300}>
+                                        <div className="flex flex-wrap justify-center">
+                                            {filteredData.map((item) => (
+                                                <div className="w-160 h-128 p-16 flex flex-col items-center justify-center" key={item.id}>
+                                                    <Icon className="text-48" color="action">{item.ligatures}</Icon>
+                                                    <Typography variant="caption" className="mt-4">{item.ligatures}</Typography>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </FuseAnimate>
+                                ) :
+                                (
+                                    <FuseAnimate animation="transition.slideUpBigIn" delay={300}>
+                                        <div className="flex flex-auto items-center justify-center w-full h-full">
+                                            <Typography color="textSecondary" variant="h5">
+                                                No results!
+                                            </Typography>
+                                        </div>
+                                    </FuseAnimate>
+                                )
+                        )), [filteredData])
+                    }
                 </div>
             }
         />

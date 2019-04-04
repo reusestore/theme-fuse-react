@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
         color                             : theme.palette.text.primary,
         '& code:not([class*="language-"])': {
             color          : theme.palette.secondary.dark,
-            backgroundColor: '#f5f5f5',
+            backgroundColor: '#F5F5F5',
             padding        : '2px 3px',
             borderRadius   : 2,
             lineHeight     : 1.7
@@ -100,4 +100,4 @@ function mapStateToProps({fuse})
     }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FuseLayout));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(React.memo(FuseLayout)));

@@ -20,4 +20,4 @@ function mapStateToProps({fuse})
     }
 }
 
-export default withRouter(connect(mapStateToProps)(FuseTheme));
+export default withRouter(connect(mapStateToProps)(React.memo(FuseTheme)));

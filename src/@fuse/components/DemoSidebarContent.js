@@ -28,4 +28,4 @@ function DemoSidebarContent()
     );
 }
 
-export default DemoSidebarContent;
+export default React.memo(DemoSidebarContent);

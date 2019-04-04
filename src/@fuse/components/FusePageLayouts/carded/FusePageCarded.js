@@ -4,6 +4,7 @@ import {FuseScrollbars} from '@fuse';
 import classNames from 'classnames';
 import FusePageCardedSidebar from './FusePageCardedSidebar';
 import FusePageCardedHeader from './FusePageCardedHeader';
+import * as PropTypes from 'prop-types';
 
 const drawerWidth = 240;
 const headerHeight = 200;
@@ -134,9 +135,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-function FusePageCarded(props, ref)
-{
-
+const FusePageCarded = React.forwardRef(function (props, ref) {
     const leftSidebarRef = useRef(null);
     const rightSidebarRef = useRef(null);
     const rootRef = useRef(null);
@@ -213,12 +212,9 @@ function FusePageCarded(props, ref)
             </div>
         </div>
     );
-}
+});
 
-/*
-FusePageCarded.propTypes = propTypes;
-FusePageCarded.defaultProps = defaultProps;
-const propTypes = {
+FusePageCarded.propTypes = {
     rightSidebarHeader : PropTypes.node,
     rightSidebarContent: PropTypes.node,
     rightSidebarVariant: PropTypes.node,
@@ -231,9 +227,6 @@ const propTypes = {
     innerScroll        : PropTypes.bool
 };
 
-const defaultProps = {};*/
+FusePageCarded.defaultProps = {};
 
-export default React.forwardRef(FusePageCarded);
-
-// export default withStyles(styles, {withTheme: true})(connect(mapStateToProps)(FusePageCarded));
-// export default FusePageCarded;
+export default React.memo(FusePageCarded);

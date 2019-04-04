@@ -1,5 +1,6 @@
 import React from 'react';
-import {withStyles, Icon, ListItem, ListItemText} from '@material-ui/core';
+import {Icon, ListItem, ListItemText} from '@material-ui/core';
+import {makeStyles} from '@material-ui/styles';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
@@ -8,20 +9,7 @@ import {bindActionCreators} from 'redux';
 import * as Actions from 'app/store/actions';
 import FuseNavBadge from './../FuseNavBadge';
 
-const propTypes = {
-    item: PropTypes.shape(
-        {
-            id    : PropTypes.string.isRequired,
-            title : PropTypes.string,
-            icon  : PropTypes.string,
-            url   : PropTypes.string,
-            target: PropTypes.string
-        })
-};
-
-const defaultProps = {};
-
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     root: {
         minHeight          : 48,
         '&.active'         : {
@@ -49,10 +37,13 @@ const styles = theme => ({
             }
         }
     }
-});
+}));
 
-function FuseNavHorizontalLink({item, classes, nestedLevel, userRole, navbarCloseMobile, dense})
+function FuseNavHorizontalLink(props)
 {
+    const classes = useStyles(props);
+    const {item, userRole, navbarCloseMobile, dense} = props;
+
     if ( item.auth && (!item.auth.includes(userRole) || (userRole !== 'guest' && item.auth.length === 1 && item.auth.includes('guest'))) )
     {
         return null;
@@ -92,9 +83,19 @@ function mapStateToProps({auth})
     }
 }
 
-FuseNavHorizontalLink.propTypes = propTypes;
-FuseNavHorizontalLink.defaultProps = defaultProps;
+FuseNavHorizontalLink.propTypes = {
+    item: PropTypes.shape(
+        {
+            id    : PropTypes.string.isRequired,
+            title : PropTypes.string,
+            icon  : PropTypes.string,
+            url   : PropTypes.string,
+            target: PropTypes.string
+        })
+};
 
-const NavHorizontalLink = withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(FuseNavHorizontalLink)));
+FuseNavHorizontalLink.defaultProps = {};
+
+const NavHorizontalLink = withRouter(connect(mapStateToProps, mapDispatchToProps)(React.memo(FuseNavHorizontalLink)));
 
 export default NavHorizontalLink;

@@ -1,6 +1,7 @@
 import React from 'react';
 
-const DemoContent = () => {
+function DemoContent()
+{
     return (
         <div>
 
@@ -130,6 +131,6 @@ const DemoContent = () => {
             </p>
         </div>
     );
-};
+}
 
-export default DemoContent;
+export default React.memo(DemoContent);

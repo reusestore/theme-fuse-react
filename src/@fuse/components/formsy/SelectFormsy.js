@@ -1,73 +1,72 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {FormControl, FormHelperText, FilledInput, OutlinedInput, InputLabel, Input, Select} from '@material-ui/core';
 import {withFormsy} from 'formsy-react';
 import _ from '@lodash';
 
-class SelectFormsy extends Component {
+function SelectFormsy(props)
+{
+    const importedProps = _.pick(props, [
+        'autoWidth',
+        'children',
+        'classes',
+        'displayEmpty',
+        'input',
+        'inputProps',
+        'MenuProps',
+        'multiple',
+        'native',
+        'onChange',
+        'onClose',
+        'onOpen',
+        'open',
+        'renderValue',
+        'SelectDisplayProps',
+        'value',
+        'variant'
+    ]);
 
-    changeValue = (event) => {
-        this.props.setValue(event.target.value);
-        if ( this.props.onChange )
-        {
-            this.props.onChange(event);
-        }
-    };
+    // An error message is returned only if the component is invalid
+    const errorMessage = props.getErrorMessage();
+    const value = props.getValue();
 
-    render()
+    function input()
     {
-        const importedProps = _.pick(this.props, [
-            'autoWidth',
-            'children',
-            'classes',
-            'displayEmpty',
-            'input',
-            'inputProps',
-            'MenuProps',
-            'multiple',
-            'native',
-            'onChange',
-            'onClose',
-            'onOpen',
-            'open',
-            'renderValue',
-            'SelectDisplayProps',
-            'value',
-            'variant'
-        ]);
-
-        // An error message is returned only if the component is invalid
-        const errorMessage = this.props.getErrorMessage();
-        const value = this.props.getValue();
-
-        this.input = () => {
-            switch ( importedProps.variant )
-            {
-                case "outlined":
-                    return <OutlinedInput labelWidth={this.props.label.length * 8} id={this.props.name}/>;
-                case "filled":
-                    return <FilledInput id={this.props.name}/>;
-                default:
-                    return <Input id={this.props.name}/>
-            }
-        };
-
-        return (
-            <FormControl error={Boolean(errorMessage)} className={this.props.className} variant={importedProps.variant}>
-                {this.props.label && (
-                    <InputLabel htmlFor={this.props.name}>{this.props.label}</InputLabel>
-                )}
-                <Select
-                    {...importedProps}
-                    value={value}
-                    onChange={this.changeValue}
-                    input={this.input()}
-                />
-                {Boolean(errorMessage) && (
-                    <FormHelperText>{errorMessage}</FormHelperText>
-                )}
-            </FormControl>
-        );
+        switch ( importedProps.variant )
+        {
+            case "outlined":
+                return <OutlinedInput labelWidth={props.label.length * 8} id={props.name}/>;
+            case "filled":
+                return <FilledInput id={props.name}/>;
+            default:
+                return <Input id={props.name}/>
+        }
     }
+
+    function changeValue(event)
+    {
+        props.setValue(event.target.value);
+        if ( props.onChange )
+        {
+            props.onChange(event);
+        }
+    }
+
+    return (
+        <FormControl error={Boolean(errorMessage)} className={props.className} variant={importedProps.variant}>
+            {props.label && (
+                <InputLabel htmlFor={props.name}>{props.label}</InputLabel>
+            )}
+            <Select
+                {...importedProps}
+                value={value}
+                onChange={changeValue}
+                input={input()}
+            />
+            {Boolean(errorMessage) && (
+                <FormHelperText>{errorMessage}</FormHelperText>
+            )}
+        </FormControl>
+    );
 }
 
-export default withFormsy(SelectFormsy);
+export default React.memo(withFormsy(SelectFormsy));

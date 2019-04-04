@@ -182,6 +182,7 @@ function SimpleFormExample()
                 <CheckboxFormsy
                     className="my-16"
                     name="accept"
+                    value={false}
                     label="Accept"
                     validations="equals:true"
                     validationError="You need to accept"

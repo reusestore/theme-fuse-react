@@ -2,7 +2,6 @@ import React, {useEffect, useRef} from 'react';
 import {makeStyles} from '@material-ui/styles';
 import PerfectScrollbar from 'perfect-scrollbar';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import MobileDetect from 'mobile-detect';
 import PropTypes from 'prop-types';
@@ -132,11 +131,6 @@ const FuseScrollbars = React.forwardRef(function FuseScrollbars(props, ref) {
     );
 });
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({}, dispatch);
-}
-
 function mapStateToProps({fuse})
 {
     return {
@@ -178,4 +172,4 @@ FuseScrollbars.defaultProps = {
     onXReachEnd             : undefined
 };
 
-export default React.memo(connect(mapStateToProps, mapDispatchToProps, null, {forwardRef: true})(FuseScrollbars));
+export default connect(mapStateToProps, null, null, {forwardRef: true})(React.memo(FuseScrollbars));

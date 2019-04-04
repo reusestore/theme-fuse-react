@@ -1,63 +1,61 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {TextField} from '@material-ui/core';
 import {withFormsy} from 'formsy-react';
 import _ from '@lodash';
 
-class TextFieldFormsy extends Component {
+function TextFieldFormsy(props)
+{
+    const importedProps = _.pick(props, [
+        'autoComplete',
+        'autoFocus',
+        'children',
+        'className',
+        'defaultValue',
+        'disabled',
+        'FormHelperTextProps',
+        'fullWidth',
+        'id',
+        'InputLabelProps',
+        'inputProps',
+        'InputProps',
+        'inputRef',
+        'label',
+        'multiline',
+        'name',
+        'onBlur',
+        'onChange',
+        'onFocus',
+        'placeholder',
+        'required',
+        'rows',
+        'rowsMax',
+        'select',
+        'SelectProps',
+        'type',
+        'variant'
+    ]);
 
-    changeValue = (event) => {
-        this.props.setValue(event.currentTarget.value);
-        if ( this.props.onChange )
-        {
-            this.props.onChange(event);
-        }
-    };
+    const errorMessage = props.getErrorMessage();
+    const value = props.getValue() || '';
 
-    render()
+    function changeValue(event)
     {
-        const importedProps = _.pick(this.props, [
-            'autoComplete',
-            'autoFocus',
-            'children',
-            'className',
-            'defaultValue',
-            'disabled',
-            'FormHelperTextProps',
-            'fullWidth',
-            'id',
-            'InputLabelProps',
-            'inputProps',
-            'InputProps',
-            'inputRef',
-            'label',
-            'multiline',
-            'name',
-            'onBlur',
-            'onChange',
-            'onFocus',
-            'placeholder',
-            'required',
-            'rows',
-            'rowsMax',
-            'select',
-            'SelectProps',
-            'type',
-            'variant'
-        ]);
-
-        const errorMessage = this.props.getErrorMessage();
-        const value = this.props.getValue() || '';
-
-        return (
-            <TextField
-                {...importedProps}
-                onChange={this.changeValue}
-                value={value}
-                error={Boolean(errorMessage)}
-                helperText={errorMessage}
-            />
-        );
+        props.setValue(event.currentTarget.value);
+        if ( props.onChange )
+        {
+            props.onChange(event);
+        }
     }
+
+    return (
+        <TextField
+            {...importedProps}
+            onChange={changeValue}
+            value={value}
+            error={Boolean(errorMessage)}
+            helperText={errorMessage}
+        />
+    );
 }
 
-export default withFormsy(TextFieldFormsy);
+export default React.memo(withFormsy(TextFieldFormsy));

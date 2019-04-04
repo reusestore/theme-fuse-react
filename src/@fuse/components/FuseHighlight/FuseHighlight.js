@@ -1,33 +1,21 @@
-import React, {PureComponent} from 'react';
+import React, {useEffect, useRef} from 'react';
 import * as Prism from 'prismjs';
 import './prism-languages';
 import PropTypes from 'prop-types';
 
-const propTypes = {
-    component: PropTypes.node
-};
+function FuseHighlight(props)
+{
+    const domNode = useRef(null);
+    const source = useRef(trimCode());
 
-const defaultProps = {
-    component: `code`
-};
+    useEffect(() => {
+        highlight()
+    }, []);
 
-class FuseHighlight extends PureComponent {
-
-    constructor(props)
-    {
-        super(props);
-        this.trimCode();
-    }
-
-    componentDidMount()
-    {
-        this.highlight()
-    }
-
-    trimCode()
+    function trimCode()
     {
         // Split the source into lines
-        const sourceLines = this.props.children.split('\n');
+        const sourceLines = props.children.split('\n');
 
         // Remove the first and the last line of the source
         // code if they are blank lines. This way, the html
@@ -48,52 +36,44 @@ class FuseHighlight extends PureComponent {
         const indexOfFirstChar = sourceLines[0].search(/\S|$/);
 
         // Generate the trimmed source
-        let source = '';
+        let sourceRaw = '';
 
         // Iterate through all the lines
         sourceLines.forEach((line, index) => {
 
             // Trim the beginning white space depending on the index
             // and concat the source code
-            source = source + line.substr(indexOfFirstChar, line.length);
+            sourceRaw = sourceRaw + line.substr(indexOfFirstChar, line.length);
 
             // If it's not the last line...
             if ( index !== sourceLines.length - 1 )
             {
                 // Add a line break at the end
-                source = source + '\n';
+                sourceRaw = sourceRaw + '\n';
             }
         });
-        this.source = source;
+        return sourceRaw;
     }
 
-    componentDidUpdate()
+    function highlight()
     {
-        this.highlight()
+        Prism.highlightElement(domNode.current, props.async)
     }
 
-    highlight()
-    {
-        Prism.highlightElement(this.domNode, this.props.async)
-    }
+    const {className, component: Wrapper} = props;
 
-    handleRefMount = domNode => {
-        this.domNode = domNode
-    };
-
-    render()
-    {
-        const {className, component: Wrapper} = this.props;
-
-        return (
-            <Wrapper ref={this.handleRefMount} className={className}>
-                {this.source}
-            </Wrapper>
-        )
-    }
+    return (
+        <Wrapper ref={domNode} className={className}>
+            {source.current}
+        </Wrapper>
+    )
 }
 
-FuseHighlight.propTypes = propTypes;
-FuseHighlight.defaultProps = defaultProps;
+FuseHighlight.propTypes = {
+    component: PropTypes.node
+};
+FuseHighlight.defaultProps = {
+    component: `code`
+};
 
-export default FuseHighlight;
+export default React.memo(FuseHighlight);
