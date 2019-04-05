@@ -1,14 +1,11 @@
 import React from 'react';
-import {withStyles, Card, Icon, Typography} from '@material-ui/core';
+import {Card, Icon, Typography} from '@material-ui/core';
 import {Bar} from 'react-chartjs-2';
+import {useTheme} from '@material-ui/styles';
 
-const Widget4 = ({data, theme}) => {
-
-    const dataWithColors = data.datasets.map(obj => ({
-        ...obj,
-        borderColor    : theme.palette.error.main,
-        backgroundColor: theme.palette.error.main
-    }));
+function Widget4(props)
+{
+    const theme = useTheme();
 
     return (
         <Card className="w-full rounded-8 shadow-none border-1">
@@ -18,19 +15,19 @@ const Widget4 = ({data, theme}) => {
                 <div className="pr-16">
                     <Typography className="h3" color="textSecondary">Visits</Typography>
                     <Typography className="text-56 font-300 leading-none mt-8">
-                        {data.visits.value}
+                        {props.data.visits.value}
                     </Typography>
                 </div>
 
                 <div className="py-4 text-16 flex flex-row items-center">
                     <div className="flex flex-row items-center">
-                        {data.visits.ofTarget > 0 && (
+                        {props.data.visits.ofTarget > 0 && (
                             <Icon className="text-green mr-4">trending_up</Icon>
                         )}
-                        {data.visits.ofTarget < 0 && (
+                        {props.data.visits.ofTarget < 0 && (
                             <Icon className="text-red mr-4">trending_down</Icon>
                         )}
-                        <Typography>{data.visits.ofTarget}%</Typography>
+                        <Typography>{props.data.visits.ofTarget}%</Typography>
                     </div>
                     <Typography className="ml-4 whitespace-no-wrap">of target</Typography>
                 </div>
@@ -40,14 +37,18 @@ const Widget4 = ({data, theme}) => {
             <div className="h-96 w-100-p">
                 <Bar
                     data={{
-                        labels  : data.labels,
-                        datasets: dataWithColors
+                        labels  : props.data.labels,
+                        datasets: props.data.datasets.map(obj => ({
+                            ...obj,
+                            borderColor    : theme.palette.error.main,
+                            backgroundColor: theme.palette.error.main
+                        }))
                     }}
-                    options={data.options}
+                    options={props.data.options}
                 />
             </div>
         </Card>
     );
-};
+}
 
-export default withStyles(null, {withTheme: true})(Widget4);
+export default React.memo(Widget4);

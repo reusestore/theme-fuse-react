@@ -1,7 +1,8 @@
 import React from 'react';
-import {withStyles, Button, Card, Divider, Icon, IconButton, Typography} from '@material-ui/core';
+import {Button, Card, Divider, Icon, IconButton, Typography} from '@material-ui/core';
 
-const Widget9 = ({data}) => {
+function Widget9(props)
+{
     return (
         <Card className="w-full rounded-8 shadow-none border-1">
 
@@ -25,7 +26,7 @@ const Widget9 = ({data}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.rows.map(row => (
+                    {props.data.rows.map(row => (
                         <tr key={row.title}>
                             <td>{row.title}</td>
                             <td className="text-right">{row.clicks}</td>
@@ -42,6 +43,6 @@ const Widget9 = ({data}) => {
             </div>
         </Card>
     );
-};
+}
 
-export default withStyles(null, {withTheme: true})(Widget9);
+export default React.memo(Widget9);

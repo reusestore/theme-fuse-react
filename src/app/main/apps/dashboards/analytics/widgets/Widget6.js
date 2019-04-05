@@ -1,17 +1,18 @@
 import React from 'react';
-import {withStyles, Card, Icon, Tooltip} from '@material-ui/core';
+import {Card, Icon, Tooltip} from '@material-ui/core';
 import GoogleMap from 'google-map-react';
 
-function Marker({text})
+function Marker(props)
 {
     return (
-        <Tooltip title={text} placement="top">
+        <Tooltip title={props.text} placement="top">
             <Icon className="text-red">place</Icon>
         </Tooltip>
     );
 }
 
-const Widget6 = ({data}) => {
+function Widget6(props)
+{
     return (
         <Card className="w-full h-512 rounded-8 shadow-none border-1">
 
@@ -22,10 +23,10 @@ const Widget6 = ({data}) => {
                 defaultZoom={1}
                 defaultCenter={[17.308688, 7.03125]}
                 options={{
-                    styles: data.styles
+                    styles: props.data.styles
                 }}
             >
-                {data.markers.map(marker => (
+                {props.data.markers.map(marker => (
                     <Marker
                         key={marker.label}
                         text={marker.label}
@@ -36,6 +37,6 @@ const Widget6 = ({data}) => {
             </GoogleMap>
         </Card>
     );
-};
+}
 
-export default withStyles(null, {withTheme: true})(Widget6);
+export default Widget6;
