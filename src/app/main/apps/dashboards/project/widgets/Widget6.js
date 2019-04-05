@@ -65,4 +65,4 @@ function Widget6(props)
     );
 }
 
-export default Widget6;
+export default React.memo(Widget6);

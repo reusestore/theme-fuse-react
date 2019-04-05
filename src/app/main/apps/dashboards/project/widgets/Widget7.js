@@ -50,4 +50,4 @@ function Widget7(props)
     );
 }
 
-export default Widget7;
+export default React.memo(Widget7);

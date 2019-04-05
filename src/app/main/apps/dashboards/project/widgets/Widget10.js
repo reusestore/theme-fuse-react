@@ -77,4 +77,4 @@ function Widget10(props)
     );
 }
 
-export default Widget10;
+export default React.memo(Widget10);

@@ -57,4 +57,4 @@ function WidgetWeather(props)
     );
 }
 
-export default WidgetWeather;
+export default React.memo(WidgetWeather);

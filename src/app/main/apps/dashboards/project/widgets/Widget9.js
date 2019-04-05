@@ -80,4 +80,4 @@ function Widget9(props)
     );
 }
 
-export default Widget9;
+export default React.memo(Widget9);

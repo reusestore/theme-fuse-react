@@ -45,4 +45,4 @@ function WidgetNow()
     );
 }
 
-export default WidgetNow;
+export default React.memo(WidgetNow);

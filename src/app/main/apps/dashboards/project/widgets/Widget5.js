@@ -67,4 +67,4 @@ function Widget5(props)
     );
 }
 
-export default Widget5;
+export default React.memo(Widget5);

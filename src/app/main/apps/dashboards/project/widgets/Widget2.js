@@ -27,4 +27,4 @@ function Widget2(props)
     );
 }
 
-export default Widget2;
+export default React.memo(Widget2);

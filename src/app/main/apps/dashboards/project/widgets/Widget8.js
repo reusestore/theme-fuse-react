@@ -22,4 +22,4 @@ function Widget8(props)
     );
 }
 
-export default Widget8;
+export default React.memo(Widget8);

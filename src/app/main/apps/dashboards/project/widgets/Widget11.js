@@ -99,4 +99,4 @@ function Widget11(props)
     );
 }
 
-export default Widget11;
+export default React.memo(Widget11);
