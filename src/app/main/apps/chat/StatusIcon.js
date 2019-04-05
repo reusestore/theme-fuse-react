@@ -1,8 +1,9 @@
 import React from 'react';
 import {Icon} from "@material-ui/core";
 
-const StatusIcon = ({status}) => {
-    switch ( status )
+function StatusIcon(props)
+{
+    switch ( props.status )
     {
         case 'online':
             return <Icon className="block text-16 text-green bg-white rounded-full">check_circle</Icon>;
@@ -15,6 +16,6 @@ const StatusIcon = ({status}) => {
         default:
             return null;
     }
-};
+}
 
 export default StatusIcon;

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useEffect} from 'react';
 import {Radio, FormControlLabel, RadioGroup, FormLabel, FormControl, IconButton, TextField, AppBar, Icon, Toolbar, Typography, Avatar} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
 import {bindActionCreators} from 'redux';
@@ -6,6 +6,7 @@ import connect from 'react-redux/es/connect/connect';
 import _ from '@lodash';
 import * as Actions from './store/actions';
 import StatusIcon from './StatusIcon';
+import {useForm} from '../../../../@fuse/hooks';
 
 const statusArr = [
     {
@@ -26,100 +27,94 @@ const statusArr = [
     }
 ];
 
-class UserSidebar extends Component {
+function UserSidebar(props)
+{
+    const {form, handleChange, setForm} = useForm(props.user ? {...props.user} : null);
 
-    constructor(props)
-    {
-        super(props);
-        this.state = this.props.user ? {...this.props.user} : null;
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot)
-    {
-        if ( this.props.user && !_.isEqual(prevProps.user, this.props.user) && !_.isEqual(this.state, this.props.user) )
+    useEffect(() => {
+        if ( props.user && !_.isEqual(form, props.user) )
         {
-            this.setState({...this.props.user});
+            setForm({...props.user});
         }
+    }, [props.user]);
 
-        if ( this.state && !_.isEqual(this.state, prevState) && !_.isEqual(this.state, this.props.user) )
+    useEffect(() => {
+        if ( form && !_.isEqual(form, props.user) )
         {
-            this.updateUserData();
+            updateUserData();
         }
-    }
+    }, [form]);
 
-    updateUserData = _.debounce(() => {
-        this.props.updateUserData(this.state);
+    const updateUserData = _.debounce(() => {
+        props.updateUserData(form);
     }, 500);
 
-    handleChange = (event) => {
-        this.setState(_.set({...this.state}, event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value));
-    };
-
-    render()
+    if ( !form )
     {
-        const {user, closeUserSidebar} = this.props;
-        return this.state ? (
-            <div className="flex flex-col flex-auto h-full">
-                <AppBar
-                    position="static"
-                    color="primary"
-                    elevation={1}
-                >
-                    <Toolbar className="flex justify-between items-center px-16 pr-4">
-                        <Typography color="inherit" variant="subtitle1">User Info</Typography>
-                        <IconButton onClick={closeUserSidebar} color="inherit">
-                            <Icon>close</Icon>
-                        </IconButton>
-                    </Toolbar>
-                    <Toolbar className="flex flex-col justify-center items-center p-24">
-                        <Avatar src={user.avatar} alt={user.name} className="w-96 h-96">
-                            {(!user.avatar || user.avatar === '') ? user.name[0] : ''}
-                        </Avatar>
-                        <Typography color="inherit" className="mt-16" variant="h6">{user.name}</Typography>
-                    </Toolbar>
-                </AppBar>
-                <FuseScrollbars className="overflow-y-auto flex-1 p-24">
-                    <form>
-                        <FormControl component="fieldset" className="w-full mb-16">
-                            <TextField
-                                label="Mood"
-                                name="mood"
-                                className="w-full"
-                                value={this.state.mood}
-                                margin="normal"
-                                multiline
-                                onChange={this.handleChange}
-                            />
-                        </FormControl>
-                        <FormControl component="fieldset" className="w-full mb-16">
-                            <FormLabel component="legend">Status</FormLabel>
-                            <RadioGroup
-                                aria-label="Status"
-                                name="status"
-                                className=""
-                                value={this.state.status}
-                                onChange={this.handleChange}
-                            >
-                                {statusArr.map((status) => (
-                                    <FormControlLabel
-                                        key={status.value}
-                                        value={status.value}
-                                        control={<Radio/>}
-                                        label={(
-                                            <div className="flex items-center">
-                                                <StatusIcon status={status.value}/>
-                                                <span className="ml-8">{status.title}</span>
-                                            </div>
-                                        )}
-                                    />
-                                ))}
-                            </RadioGroup>
-                        </FormControl>
-                    </form>
-                </FuseScrollbars>
-            </div>
-        ) : '';
+        return null;
     }
+
+    return (
+        <div className="flex flex-col flex-auto h-full">
+            <AppBar
+                position="static"
+                color="primary"
+                elevation={1}
+            >
+                <Toolbar className="flex justify-between items-center px-16 pr-4">
+                    <Typography color="inherit" variant="subtitle1">User Info</Typography>
+                    <IconButton onClick={props.closeUserSidebar} color="inherit">
+                        <Icon>close</Icon>
+                    </IconButton>
+                </Toolbar>
+                <Toolbar className="flex flex-col justify-center items-center p-24">
+                    <Avatar src={props.user.avatar} alt={props.user.name} className="w-96 h-96">
+                        {(!props.user.avatar || props.user.avatar === '') ? props.user.name[0] : ''}
+                    </Avatar>
+                    <Typography color="inherit" className="mt-16" variant="h6">{props.user.name}</Typography>
+                </Toolbar>
+            </AppBar>
+            <FuseScrollbars className="overflow-y-auto flex-1 p-24">
+                <form>
+                    <FormControl component="fieldset" className="w-full mb-16">
+                        <TextField
+                            label="Mood"
+                            name="mood"
+                            className="w-full"
+                            value={form.mood}
+                            margin="normal"
+                            multiline
+                            onChange={handleChange}
+                        />
+                    </FormControl>
+                    <FormControl component="fieldset" className="w-full mb-16">
+                        <FormLabel component="legend">Status</FormLabel>
+                        <RadioGroup
+                            aria-label="Status"
+                            name="status"
+                            className=""
+                            value={form.status}
+                            onChange={handleChange}
+                        >
+                            {statusArr.map((status) => (
+                                <FormControlLabel
+                                    key={status.value}
+                                    value={status.value}
+                                    control={<Radio/>}
+                                    label={(
+                                        <div className="flex items-center">
+                                            <StatusIcon status={status.value}/>
+                                            <span className="ml-8">{status.title}</span>
+                                        </div>
+                                    )}
+                                />
+                            ))}
+                        </RadioGroup>
+                    </FormControl>
+                </form>
+            </FuseScrollbars>
+        </div>
+    )
 }
 
 function mapDispatchToProps(dispatch)

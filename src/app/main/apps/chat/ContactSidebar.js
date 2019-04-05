@@ -5,16 +5,21 @@ import {bindActionCreators} from 'redux';
 import connect from 'react-redux/es/connect/connect';
 import * as Actions from './store/actions';
 
-const ContactSidebar = ({contacts, closeContactSidebar, selectedContactId}) => {
-    const contact = contacts.find(_contact => (_contact.id === selectedContactId));
-    return contact ? (
+function ContactSidebar(props)
+{
+    const contact = props.contacts.find(_contact => (_contact.id === props.selectedContactId));
+    if ( !contact )
+    {
+        return null;
+    }
+    return (
         <div className="flex flex-col flex-auto h-full">
 
             <AppBar position="static" color="primary" elevation={1}>
 
                 <Toolbar className="flex justify-between items-center px-16 pr-4">
                     <Typography color="inherit" variant="subtitle1">Contact Info</Typography>
-                    <IconButton onClick={closeContactSidebar} color="inherit">
+                    <IconButton onClick={props.closeContactSidebar} color="inherit">
                         <Icon>close</Icon>
                     </IconButton>
                 </Toolbar>
@@ -38,8 +43,8 @@ const ContactSidebar = ({contacts, closeContactSidebar, selectedContactId}) => {
                 />
             </FuseScrollbars>
         </div>
-    ) : '';
-};
+    )
+}
 
 function mapDispatchToProps(dispatch)
 {

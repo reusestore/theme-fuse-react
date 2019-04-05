@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
-import {withStyles, Fab, Icon} from '@material-ui/core';
+import React, {useEffect, useRef} from 'react';
+import {Fab, Icon} from '@material-ui/core';
+import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate} from '@fuse';
 import BigCalendar from 'react-big-calendar'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
@@ -22,7 +23,7 @@ const DragAndDropCalendar = withDragAndDrop(BigCalendar);
 
 let allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k]);
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     root     : {
         '& .rbc-header'                                                                                                : {
             padding   : '12px 6px',
@@ -160,94 +161,90 @@ const styles = theme => ({
         top     : 172,
         zIndex  : 99
     }
-});
+}));
 
-class CalendarApp extends Component {
+function CalendarApp(props)
+{
+    const classes = useStyles(props);
+    const headerEl = useRef(null);
 
-    constructor(props)
+    useEffect(() => {
+        props.getEvents();
+    }, []);
+
+    function moveEvent({event, start, end})
     {
-        super(props);
-        this.headerEl = React.createRef();
-    }
-
-    componentDidMount()
-    {
-        this.props.getEvents();
-    }
-
-    moveEvent = ({event, start, end}) => {
-        this.props.updateEvent({
+        props.updateEvent({
             ...event,
             start,
             end
         });
-    };
+    }
 
-    resizeEvent = ({event, start, end}) => {
+    function resizeEvent({event, start, end})
+    {
         delete event.type;
-        this.props.updateEvent({
+        props.updateEvent({
             ...event,
             start,
             end
         });
-    };
-
-    render()
-    {
-        const {classes, events, openNewEventDialog, openEditEventDialog} = this.props;
-        return (
-            <div className={classNames(classes.root, "flex flex-col flex-auto relative")}>
-                <div ref={this.headerEl}/>
-                <DragAndDropCalendar
-                    className="flex flex-1 container"
-                    selectable
-                    localizer={localizer}
-                    events={events}
-                    onEventDrop={this.moveEvent}
-                    resizable
-                    onEventResize={this.resizeEvent}
-                    defaultView={BigCalendar.Views.MONTH}
-                    defaultDate={new Date(2018, 3, 1)}
-                    startAccessor="start"
-                    endAccessor="end"
-                    views={allViews}
-                    step={60}
-                    showMultiDayTimes
-                    components={{
-                        toolbar: (props) => {
-                            return this.headerEl.current ?
-                                ReactDOM.createPortal(
-                                    <CalendarHeader {...props}/>,
-                                    this.headerEl.current
-                                ) : null;
-                        }
-                    }}
-                    // onNavigate={this.handleNavigate}
-                    onSelectEvent={event => {
-                        openEditEventDialog(event);
-                    }}
-                    onSelectSlot={slotInfo => openNewEventDialog({
-                        start: slotInfo.start.toLocaleString(),
-                        end  : slotInfo.end.toLocaleString()
-                    })}
-                />
-                <FuseAnimate animation="transition.expandIn" delay={500}>
-                    <Fab
-                        color="secondary"
-                        aria-label="add"
-                        className={classes.addButton}
-                        onClick={() => openNewEventDialog({
-                            start: new Date(),
-                            end  : new Date()
-                        })}
-                    >
-                        <Icon>add</Icon>
-                    </Fab>
-                </FuseAnimate>
-                <EventDialog/>
-            </div>
-        )
     }
+
+    const {events, openNewEventDialog, openEditEventDialog} = props;
+
+    return (
+        <div className={classNames(classes.root, "flex flex-col flex-auto relative")}>
+            <div ref={headerEl}/>
+            <DragAndDropCalendar
+                className="flex flex-1 container"
+                selectable
+                localizer={localizer}
+                events={events}
+                onEventDrop={moveEvent}
+                resizable
+                onEventResize={resizeEvent}
+                defaultView={BigCalendar.Views.MONTH}
+                defaultDate={new Date(2018, 3, 1)}
+                startAccessor="start"
+                endAccessor="end"
+                views={allViews}
+                step={60}
+                showMultiDayTimes
+                components={{
+                    toolbar: (props) => {
+                        return headerEl.current ?
+                            ReactDOM.createPortal(
+                                <CalendarHeader {...props}/>,
+                                headerEl.current
+                            ) : null;
+                    }
+                }}
+                // onNavigate={handleNavigate}
+                onSelectEvent={event => {
+                    openEditEventDialog(event);
+                }}
+                onSelectSlot={slotInfo => openNewEventDialog({
+                    start: slotInfo.start.toLocaleString(),
+                    end  : slotInfo.end.toLocaleString()
+                })}
+            />
+            <FuseAnimate animation="transition.expandIn" delay={500}>
+                <Fab
+                    color="secondary"
+                    aria-label="add"
+                    className={classes.addButton}
+                    onClick={() => openNewEventDialog({
+                        start: new Date(),
+                        end  : new Date()
+                    })}
+                >
+                    <Icon>add</Icon>
+                </Fab>
+            </FuseAnimate>
+            <EventDialog/>
+        </div>
+    )
 }
 
 function mapDispatchToProps(dispatch)
@@ -267,4 +264,4 @@ function mapStateToProps({calendarApp})
     }
 }
 
-export default withReducer('calendarApp', reducer)(withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(CalendarApp)));
+export default withReducer('calendarApp', reducer)(connect(mapStateToProps, mapDispatchToProps)(CalendarApp));

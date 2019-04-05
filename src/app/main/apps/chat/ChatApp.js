@@ -1,5 +1,5 @@
-import React from 'react';
-import {withStyles, Drawer, AppBar, Toolbar, Typography, IconButton, Hidden, Avatar, Icon, Paper, Button} from '@material-ui/core';
+import React, {useEffect} from 'react';
+import {Drawer, AppBar, Toolbar, Typography, IconButton, Hidden, Avatar, Icon, Paper, Button} from '@material-ui/core';
 import {fade} from '@material-ui/core/styles/colorManipulator';
 import classNames from 'classnames';
 import {bindActionCreators} from "redux";
@@ -12,11 +12,12 @@ import StatusIcon from "./StatusIcon";
 import ContactSidebar from './ContactSidebar';
 import UserSidebar from './UserSidebar';
 import reducer from './store/reducers';
+import {makeStyles} from '@material-ui/styles';
 
 const drawerWidth = 400;
 const headerHeight = 200;
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     root              : {
         display        : 'flex',
         flexDirection  : 'row',
@@ -88,70 +89,34 @@ const styles = theme => ({
         flex     : '1 1 100%',
         minHeight: 0
     }
-});
+}));
 
-class ChatApp extends React.Component {
+function ChatApp(props)
+{
+    const classes = useStyles(props);
+    const selectedContact = props.contacts.find(_contact => (_contact.id === props.selectedContactId));
 
-    componentDidMount()
-    {
-        this.props.getUserData();
-        this.props.getContacts();
-    }
+    useEffect(() => {
+        props.getUserData();
+        props.getContacts();
+    }, []);
 
-    render()
-    {
-        const {classes, chat, selectedContactId, contacts, mobileChatsSidebarOpen, openMobileChatsSidebar, closeMobileChatsSidebar, userSidebarOpen, closeUserSidebar, contactSidebarOpen, openContactSidebar, closeContactSidebar} = this.props;
-        const selectedContact = contacts.find(_contact => (_contact.id === selectedContactId));
-        return (
-            <div className={classNames(classes.root)}>
+    return (
+        <div className={classNames(classes.root)}>
 
-                <div className={classes.topBg}/>
+            <div className={classes.topBg}/>
 
-                <div className={classNames(classes.contentCardWrapper, 'container')}>
+            <div className={classNames(classes.contentCardWrapper, 'container')}>
 
-                    <div className={classes.contentCard}>
+                <div className={classes.contentCard}>
 
-                        <Hidden mdUp>
-                            <Drawer
-                                className="h-full absolute z-20"
-                                variant="temporary"
-                                anchor="left"
-                                open={mobileChatsSidebarOpen}
-                                onClose={closeMobileChatsSidebar}
-                                classes={{
-                                    paper: classNames(classes.drawerPaper, "absolute pin-l")
-                                }}
-                                ModalProps={{
-                                    keepMounted  : true,
-                                    disablePortal: true,
-                                    BackdropProps: {
-                                        classes: {
-                                            root: "absolute"
-                                        }
-                                    }
-                                }}
-                            >
-                                <ChatsSidebar/>
-                            </Drawer>
-                        </Hidden>
-                        <Hidden smDown>
-                            <Drawer
-                                className="h-full z-20"
-                                variant="permanent"
-                                open
-                                classes={{
-                                    paper: classes.drawerPaper
-                                }}
-                            >
-                                <ChatsSidebar/>
-                            </Drawer>
-                        </Hidden>
+                    <Hidden mdUp>
                         <Drawer
-                            className="h-full absolute z-30"
+                            className="h-full absolute z-20"
                             variant="temporary"
                             anchor="left"
-                            open={userSidebarOpen}
-                            onClose={closeUserSidebar}
+                            open={props.mobileChatsSidebarOpen}
+                            onClose={props.closeMobileChatsSidebar}
                             classes={{
                                 paper: classNames(classes.drawerPaper, "absolute pin-l")
                             }}
@@ -165,85 +130,118 @@ class ChatApp extends React.Component {
                                 }
                             }}
                         >
-                            <UserSidebar/>
+                            <ChatsSidebar/>
                         </Drawer>
-
-                        <main className={classNames(classes.contentWrapper, "z-10")}>
-                            {!chat ?
-                                (
-                                    <div className="flex flex-col flex-1 items-center justify-center p-24">
-                                        <Paper className="rounded-full p-48">
-                                            <Icon className="block text-64" color="secondary">chat</Icon>
-                                        </Paper>
-                                        <Typography variant="h6" className="my-24">Chat App</Typography>
-                                        <Typography className="hidden md:flex px-16 pb-24 mt-24 text-center" color="textSecondary">
-                                            Select a contact to start a conversation!..
-                                        </Typography>
-                                        <Button variant="outlined" color="primary" className="flex md:hidden normal-case" onClick={openMobileChatsSidebar}>
-                                            Select a contact to start a conversation!..
-                                        </Button>
-                                    </div>
-                                ) : (
-                                    <React.Fragment>
-                                        <AppBar className="w-full" position="static" elevation={1}>
-                                            <Toolbar className="px-16">
-                                                <IconButton
-                                                    color="inherit"
-                                                    aria-label="Open drawer"
-                                                    onClick={openMobileChatsSidebar}
-                                                    className="flex md:hidden"
-                                                >
-                                                    <Icon>chat</Icon>
-                                                </IconButton>
-                                                <div className="flex items-center cursor-pointer" onClick={openContactSidebar}>
-                                                    <div className="relative ml-8 mr-12">
-                                                        <div className="absolute pin-r pin-b -m-4 z-10">
-                                                            <StatusIcon status={selectedContact.status}/>
-                                                        </div>
-
-                                                        <Avatar src={selectedContact.avatar} alt={selectedContact.name}>
-                                                            {!selectedContact.avatar || selectedContact.avatar === '' ? selectedContact.name[0] : ''}
-                                                        </Avatar>
-                                                    </div>
-                                                    <Typography color="inherit" className="text-18 font-600">{selectedContact.name}</Typography>
-                                                </div>
-                                            </Toolbar>
-                                        </AppBar>
-
-                                        <div className={classes.content}>
-                                            <Chat className="flex flex-1 z-10"/>
-                                        </div>
-                                    </React.Fragment>
-                                )
-                            }
-                        </main>
-
+                    </Hidden>
+                    <Hidden smDown>
                         <Drawer
-                            className="h-full absolute z-30"
-                            variant="temporary"
-                            anchor="right"
-                            open={contactSidebarOpen}
-                            onClose={closeContactSidebar}
+                            className="h-full z-20"
+                            variant="permanent"
+                            open
                             classes={{
-                                paper: classNames(classes.drawerPaper, "absolute pin-r")
-                            }}
-                            ModalProps={{
-                                keepMounted  : true,
-                                disablePortal: true,
-                                BackdropProps: {
-                                    classes: {
-                                        root: "absolute"
-                                    }
-                                }
+                                paper: classes.drawerPaper
                             }}
                         >
-                            <ContactSidebar/>
+                            <ChatsSidebar/>
                         </Drawer>
-                    </div>
+                    </Hidden>
+                    <Drawer
+                        className="h-full absolute z-30"
+                        variant="temporary"
+                        anchor="left"
+                        open={props.userSidebarOpen}
+                        onClose={props.closeUserSidebar}
+                        classes={{
+                            paper: classNames(classes.drawerPaper, "absolute pin-l")
+                        }}
+                        ModalProps={{
+                            keepMounted  : true,
+                            disablePortal: true,
+                            BackdropProps: {
+                                classes: {
+                                    root: "absolute"
+                                }
+                            }
+                        }}
+                    >
+                        <UserSidebar/>
+                    </Drawer>
+
+                    <main className={classNames(classes.contentWrapper, "z-10")}>
+                        {!props.chat ?
+                            (
+                                <div className="flex flex-col flex-1 items-center justify-center p-24">
+                                    <Paper className="rounded-full p-48">
+                                        <Icon className="block text-64" color="secondary">chat</Icon>
+                                    </Paper>
+                                    <Typography variant="h6" className="my-24">Chat App</Typography>
+                                    <Typography className="hidden md:flex px-16 pb-24 mt-24 text-center" color="textSecondary">
+                                        Select a contact to start a conversation!..
+                                    </Typography>
+                                    <Button variant="outlined" color="primary" className="flex md:hidden normal-case" onClick={props.openMobileChatsSidebar}>
+                                        Select a contact to start a conversation!..
+                                    </Button>
+                                </div>
+                            ) : (
+                                <React.Fragment>
+                                    <AppBar className="w-full" position="static" elevation={1}>
+                                        <Toolbar className="px-16">
+                                            <IconButton
+                                                color="inherit"
+                                                aria-label="Open drawer"
+                                                onClick={props.openMobileChatsSidebar}
+                                                className="flex md:hidden"
+                                            >
+                                                <Icon>chat</Icon>
+                                            </IconButton>
+                                            <div className="flex items-center cursor-pointer" onClick={props.openContactSidebar}>
+                                                <div className="relative ml-8 mr-12">
+                                                    <div className="absolute pin-r pin-b -m-4 z-10">
+                                                        <StatusIcon status={selectedContact.status}/>
+                                                    </div>
+
+                                                    <Avatar src={selectedContact.avatar} alt={selectedContact.name}>
+                                                        {!selectedContact.avatar || selectedContact.avatar === '' ? selectedContact.name[0] : ''}
+                                                    </Avatar>
+                                                </div>
+                                                <Typography color="inherit" className="text-18 font-600">{selectedContact.name}</Typography>
+                                            </div>
+                                        </Toolbar>
+                                    </AppBar>
+
+                                    <div className={classes.content}>
+                                        <Chat className="flex flex-1 z-10"/>
+                                    </div>
+                                </React.Fragment>
+                            )
+                        }
+                    </main>
+
+                    <Drawer
+                        className="h-full absolute z-30"
+                        variant="temporary"
+                        anchor="right"
+                        open={props.contactSidebarOpen}
+                        onClose={props.closeContactSidebar}
+                        classes={{
+                            paper: classNames(classes.drawerPaper, "absolute pin-r")
+                        }}
+                        ModalProps={{
+                            keepMounted  : true,
+                            disablePortal: true,
+                            BackdropProps: {
+                                classes: {
+                                    root: "absolute"
+                                }
+                            }
+                        }}
+                    >
+                        <ContactSidebar/>
+                    </Drawer>
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
 function mapDispatchToProps(dispatch)
@@ -272,4 +270,4 @@ function mapStateToProps({chatApp})
     }
 }
 
-export default withReducer('chatApp', reducer)(withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(ChatApp)));
+export default withReducer('chatApp', reducer)(connect(mapStateToProps, mapDispatchToProps)(ChatApp));

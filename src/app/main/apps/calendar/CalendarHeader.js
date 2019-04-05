@@ -1,5 +1,6 @@
 import React from 'react';
-import {withStyles, Icon, IconButton, MuiThemeProvider, Tooltip, Typography} from '@material-ui/core';
+import {withStyles, Icon, IconButton, Tooltip, Typography} from '@material-ui/core';
+import {ThemeProvider} from '@material-ui/styles';
 import {FuseAnimate} from '@fuse';
 import Toolbar from 'react-big-calendar/lib/Toolbar';
 import {navigate} from 'react-big-calendar/lib/utils/constants';
@@ -132,7 +133,7 @@ class CalendarHeader extends Toolbar {
         const {classes, mainThemeDark, label, date} = this.props;
 
         return (
-            <MuiThemeProvider theme={mainThemeDark}>
+            <ThemeProvider theme={mainThemeDark}>
 
                 <div className={classNames(classes.root, "flex h-200 min-h-200 relative", moment(date).format('MMM'))}>
 
@@ -176,11 +177,10 @@ class CalendarHeader extends Toolbar {
                         </FuseAnimate>
                     </div>
                 </div>
-            </MuiThemeProvider>
+            </ThemeProvider>
         )
     };
 }
-
 
 function mapStateToProps({fuse})
 {

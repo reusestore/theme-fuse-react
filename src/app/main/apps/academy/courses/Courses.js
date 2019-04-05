@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import {
-    withStyles,
     Button,
     Card,
     CardContent,
@@ -16,6 +15,7 @@ import {
     MenuItem,
     LinearProgress
 } from '@material-ui/core';
+import {makeStyles, useTheme} from '@material-ui/styles';
 import {FuseAnimate, FuseAnimateGroup} from '@fuse';
 import withReducer from 'app/store/withReducer';
 import {bindActionCreators} from 'redux';
@@ -26,7 +26,7 @@ import {Link} from 'react-router-dom';
 import * as Actions from '../store/actions';
 import reducer from '../store/reducers';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     header    : {
         background: 'linear-gradient(to right, ' + theme.palette.primary.dark + ' 0%, ' + theme.palette.primary.main + ' 100%)',
         color     : theme.palette.getContrastText(theme.palette.primary.main)
@@ -41,48 +41,56 @@ const styles = theme => ({
         height       : 512,
         pointerEvents: 'none'
     }
-});
+}));
 
-class Courses extends Component {
+function Courses(props)
+{
+    const classes = useStyles(props);
+    const theme = useTheme();
+    const [filteredData, setFilteredData] = useState(null);
+    const [searchText, setSearchText] = useState('');
+    const [selectedCategory, setSelectedCategory] = useState('all');
 
-    state = {
-        data: this.props.courses
-    };
+    useEffect(() => {
+        props.getCategories();
+        props.getCourses();
+    }, []);
 
-    componentDidMount()
-    {
-        this.props.getCategories();
-        this.props.getCourses();
-    }
-
-    componentDidUpdate(prevProps, prevState)
-    {
-        if ( !_.isEqual(this.props.courses, prevProps.courses) ||
-            !_.isEqual(this.props.searchText, prevProps.searchText) ||
-            !_.isEqual(this.props.categoryFilter, prevProps.categoryFilter)
-        )
+    useEffect(() => {
+        if ( props.courses )
         {
-            const data = this.getFilteredArray(this.props.courses, this.props.searchText, this.props.categoryFilter);
-            this.setState({data})
+            setFilteredData(getFilteredArray());
         }
-    }
+    }, [props.courses, searchText, selectedCategory]);
 
-    getFilteredArray = (data, searchText, categoryFilter) => {
-        if ( searchText.length === 0 && categoryFilter === "all" )
+    function getFilteredArray()
+    {
+        if ( searchText.length === 0 && selectedCategory === "all" )
         {
-            return data;
+            return props.courses;
         }
 
-        return _.filter(data, item => {
-            if ( categoryFilter !== "all" && item.category !== categoryFilter )
+        return _.filter(props.courses, item => {
+            if ( selectedCategory !== "all" && item.category !== selectedCategory )
             {
                 return false;
             }
             return item.title.toLowerCase().includes(searchText.toLowerCase())
         });
-    };
+    }
 
-    buttonStatus = (course) => {
+    function handleSelectedCategory(event)
+    {
+        setSelectedCategory(event.target.value);
+    }
+
+    function handleSearchText(event)
+    {
+        setSearchText(event.target.value);
+    }
+
+    function buttonStatus(course)
+    {
         switch ( course.activeStep )
         {
             case course.totalSteps:
@@ -92,161 +100,153 @@ class Courses extends Component {
             default:
                 return "CONTINUE";
         }
-    };
+    }
 
-    render()
-    {
-        const {classes, setSearchText, searchText, categories, categoryFilter, setCategoryFilter, theme} = this.props;
+    return (
+        <div className="flex flex-col flex-1 w-full">
+            <div
+                className={classNames(classes.header, "relative overflow-hidden flex flex-col flex-no-shrink items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-288")}>
 
-        const {data} = this.state;
+                <FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
+                    <Typography color="inherit" className="text-24 sm:text-40 font-light">
+                        WELCOME TO ACADEMY
+                    </Typography>
+                </FuseAnimate>
 
-        return (
-            <div className="w-full">
-
-                <div className={classNames(classes.header, "relative overflow-hidden flex flex-col items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-288")}>
-
-                    <FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
-                        <Typography color="inherit" className="text-24 sm:text-40 font-light">
-                            WELCOME TO ACADEMY
-                        </Typography>
-                    </FuseAnimate>
-
-                    <FuseAnimate duration={400} delay={600}>
-                        <Typography variant="subtitle1" color="inherit" className="mt-8 sm:mt-16 mx-auto max-w-512">
+                <FuseAnimate duration={400} delay={600}>
+                    <Typography variant="subtitle1" color="inherit" className="mt-8 sm:mt-16 mx-auto max-w-512">
                             <span className="opacity-75">
                                 Our courses will step you through the process of building a small application, or adding a new feature to an existing
                                 application.
                             </span>
-                        </Typography>
-                    </FuseAnimate>
+                    </Typography>
+                </FuseAnimate>
 
-                    <Icon className={classes.headerIcon}>school</Icon>
-                </div>
+                <Icon className={classes.headerIcon}>school</Icon>
+            </div>
 
-                <div className="max-w-2xl w-full mx-auto px-8 sm:px-16 py-24">
-                    <div className="flex flex-col sm:flex-row items-center justify-between py-24">
-                        <TextField
-                            label="Search for a course"
-                            placeholder="Enter a keyword..."
-                            className="flex w-full sm:w-320 mb-16 sm:mb-0 mx-16"
-                            value={searchText}
-                            inputProps={{
-                                'aria-label': 'Search'
-                            }}
-                            onChange={setSearchText}
-                            variant="outlined"
-                            InputLabelProps={{
-                                shrink: true
-                            }}
-                        />
-                        <FormControl className="flex w-full sm:w-320 mx-16" variant="outlined">
-                            <InputLabel htmlFor="category-label-placeholder">
-                                Category
-                            </InputLabel>
-                            <Select
-                                value={categoryFilter}
-                                onChange={setCategoryFilter}
-                                input={
-                                    <OutlinedInput
-                                        labelWidth={("category".length * 9)}
-                                        name="category"
-                                        id="category-label-placeholder"
-                                    />
-                                }
-                            >
-                                <MenuItem value="all">
-                                    <em>All</em>
-                                </MenuItem>
-
-                                {categories.map(category => (
-                                    <MenuItem value={category.value} key={category.id}>{category.label}</MenuItem>
-                                ))}
-                            </Select>
-                        </FormControl>
-                    </div>
-                    <FuseAnimateGroup
-                        enter={{
-                            animation: "transition.slideUpBigIn"
+            <div className="flex flex-col flex-1 max-w-2xl w-full mx-auto px-8 sm:px-16 py-24">
+                <div className="flex flex-col flex-no-shrink sm:flex-row items-center justify-between py-24">
+                    <TextField
+                        label="Search for a course"
+                        placeholder="Enter a keyword..."
+                        className="flex w-full sm:w-320 mb-16 sm:mb-0 mx-16"
+                        value={searchText}
+                        inputProps={{
+                            'aria-label': 'Search'
                         }}
-                        className="flex flex-wrap py-24"
-                    >
-                        {data.length === 0 && (
-                            <div className="flex flex-1 items-center justify-center">
-                                <Typography color="textSecondary" className="text-24 my-24">
-                                    No courses found!
-                                </Typography>
-                            </div>
-                        )}
+                        onChange={handleSearchText}
+                        variant="outlined"
+                        InputLabelProps={{
+                            shrink: true
+                        }}
+                    />
+                    <FormControl className="flex w-full sm:w-320 mx-16" variant="outlined">
+                        <InputLabel htmlFor="category-label-placeholder">
+                            Category
+                        </InputLabel>
+                        <Select
+                            value={selectedCategory}
+                            onChange={handleSelectedCategory}
+                            input={
+                                <OutlinedInput
+                                    labelWidth={("category".length * 9)}
+                                    name="category"
+                                    id="category-label-placeholder"
+                                />
+                            }
+                        >
+                            <MenuItem value="all">
+                                <em>All</em>
+                            </MenuItem>
 
-                        {data.map((course) => {
-                            const category = categories.find(_cat => _cat.value === course.category);
-                            return (
-                                <div className="w-full pb-24 sm:w-1/2 lg:w-1/3 sm:p-16" key={course.id}>
-                                    <Card elevation={1} className="flex flex-col h-256">
-                                        <div
-                                            className="flex flex-no-shrink items-center justify-between px-24 h-64"
-                                            style={{
-                                                background: category.color,
-                                                color     : theme.palette.getContrastText(category.color)
-                                            }}
-                                        >
-                                            <Typography className="font-medium truncate" color="inherit">{category.label}</Typography>
-                                            <div className="flex items-center justify-center opacity-75">
-                                                <Icon className="text-20 mr-8" color="inherit">access_time</Icon>
-                                                <div className="text-16 whitespace-no-wrap">{course.length} min</div>
+                            {props.categories.map(category => (
+                                <MenuItem value={category.value} key={category.id}>{category.label}</MenuItem>
+                            ))}
+                        </Select>
+                    </FormControl>
+                </div>
+                {useMemo(() => (
+                    filteredData && (
+                        filteredData.length > 0 ? (
+                                <FuseAnimateGroup
+                                    enter={{
+                                        animation: "transition.slideUpBigIn"
+                                    }}
+                                    className="flex flex-wrap py-24"
+                                >
+                                    {filteredData.map((course) => {
+                                        const category = props.categories.find(_cat => _cat.value === course.category);
+                                        return (
+                                            <div className="w-full pb-24 sm:w-1/2 lg:w-1/3 sm:p-16" key={course.id}>
+                                                <Card elevation={1} className="flex flex-col h-256">
+                                                    <div
+                                                        className="flex flex-no-shrink items-center justify-between px-24 h-64"
+                                                        style={{
+                                                            background: category.color,
+                                                            color     : theme.palette.getContrastText(category.color)
+                                                        }}
+                                                    >
+                                                        <Typography className="font-medium truncate" color="inherit">{category.label}</Typography>
+                                                        <div className="flex items-center justify-center opacity-75">
+                                                            <Icon className="text-20 mr-8" color="inherit">access_time</Icon>
+                                                            <div className="text-16 whitespace-no-wrap">{course.length} min</div>
+                                                        </div>
+                                                    </div>
+                                                    <CardContent className="flex flex-col flex-auto items-center justify-center">
+                                                        <Typography className="text-center text-16 font-400">{course.title}</Typography>
+                                                        <Typography className="text-center text-13 font-600 mt-4" color="textSecondary">{course.updated}</Typography>
+                                                    </CardContent>
+                                                    <Divider/>
+                                                    <CardActions className="justify-center">
+                                                        <Button
+                                                            to={`/apps/academy/courses/${course.id}/${course.slug}`}
+                                                            component={Link}
+                                                            className="justify-start px-32"
+                                                            color="secondary"
+                                                        >
+                                                            {buttonStatus(course)}
+                                                        </Button>
+                                                    </CardActions>
+                                                    <LinearProgress
+                                                        className="w-full"
+                                                        variant="determinate"
+                                                        value={course.activeStep * 100 / course.totalSteps}
+                                                        color="secondary"
+                                                    />
+                                                </Card>
                                             </div>
-                                        </div>
-                                        <CardContent className="flex flex-col flex-auto items-center justify-center">
-                                            <Typography className="text-center text-16 font-400">{course.title}</Typography>
-                                            <Typography className="text-center text-13 font-600 mt-4" color="textSecondary">{course.updated}</Typography>
-                                        </CardContent>
-                                        <Divider/>
-                                        <CardActions className="justify-center">
-                                            <Button
-                                                to={`/apps/academy/courses/${course.id}/${course.slug}`}
-                                                component={Link}
-                                                className="justify-start px-32"
-                                                color="secondary"
-                                            >
-                                                {this.buttonStatus(course)}
-                                            </Button>
-                                        </CardActions>
-                                        <LinearProgress
-                                            className="w-full"
-                                            variant="determinate"
-                                            value={course.activeStep * 100 / course.totalSteps}
-                                            color="secondary"
-                                        />
-                                    </Card>
+                                        )
+                                    })}
+                                </FuseAnimateGroup>
+                            ) :
+                            (
+                                <div className="flex flex-1 items-center justify-center">
+                                    <Typography color="textSecondary" className="text-24 my-24">
+                                        No courses found!
+                                    </Typography>
                                 </div>
                             )
-                        })}
-                    </FuseAnimateGroup>
-                </div>
-
+                    )), [filteredData])}
             </div>
-        );
-    }
+        </div>
+    );
 }
 
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-        getCategories    : Actions.getCategories,
-        getCourses       : Actions.getCourses,
-        setCategoryFilter: Actions.setCategoryFilter,
-        setSearchText    : Actions.setCoursesSearchText
+        getCategories: Actions.getCategories,
+        getCourses   : Actions.getCourses
     }, dispatch);
 }
 
 function mapStateToProps({academyApp})
 {
     return {
-        courses       : academyApp.courses.data,
-        searchText    : academyApp.courses.searchText,
-        categories    : academyApp.courses.categories,
-        categoryFilter: academyApp.courses.categoryFilter
+        courses   : academyApp.courses.data,
+        categories: academyApp.courses.categories,
     }
 }
 
-export default withReducer('academyApp', reducer)(withStyles(styles, {withTheme: true})(connect(mapStateToProps, mapDispatchToProps)(Courses)));
+export default withReducer('academyApp', reducer)(connect(mapStateToProps, mapDispatchToProps)(Courses));
