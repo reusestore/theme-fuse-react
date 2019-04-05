@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Table, TableBody, TableCell, TablePagination, TableRow, Checkbox} from '@material-ui/core';
 import {FuseScrollbars, FuseUtils} from '@fuse';
 import {withRouter} from 'react-router-dom';
@@ -9,69 +9,58 @@ import OrdersTableHead from './OrdersTableHead';
 import OrdersStatus from '../order/OrdersStatus';
 import * as Actions from '../store/actions';
 
-class OrdersTable extends Component {
+function OrdersTable(props)
+{
+    const [selected, setSelected] = useState([]);
+    const [data, setData] = useState(props.orders);
+    const [page, setPage] = useState(0);
+    const [rowsPerPage, setRowsPerPage] = useState(10);
+    const [order, setOrder] = useState({
+        direction: 'asc',
+        id       : null
+    });
 
-    state = {
-        order      : 'asc',
-        orderBy    : 'id',
-        selected   : [],
-        data       : this.props.orders,
-        page       : 0,
-        rowsPerPage: 10
-    };
+    useEffect(() => {
+        props.getOrders();
+    }, []);
 
-    componentDidMount()
+    useEffect(() => {
+        setData(props.searchText.length === 0 ? props.orders : FuseUtils.filterArrayByString(props.orders, props.searchText))
+    }, [props.orders, props.searchText]);
+
+    function handleRequestSort(event, property)
     {
-        this.props.getOrders();
-    }
+        const id = property;
+        let direction = 'desc';
 
-    componentDidUpdate(prevProps, prevState)
-    {
-        if ( !_.isEqual(this.props.orders, prevProps.orders) || !_.isEqual(this.props.searchText, prevProps.searchText) )
+        if ( order.id === property && order.direction === 'desc' )
         {
-            const data = this.getFilteredArray(this.props.orders, this.props.searchText);
-            this.setState({data})
-        }
-    }
-
-    getFilteredArray = (data, searchText) => {
-        if ( searchText.length === 0 )
-        {
-            return data;
-        }
-        return FuseUtils.filterArrayByString(data, searchText);
-    };
-
-    handleRequestSort = (event, property) => {
-        const orderBy = property;
-        let order = 'desc';
-
-        if ( this.state.orderBy === property && this.state.order === 'desc' )
-        {
-            order = 'asc';
+            direction = 'asc';
         }
 
-        this.setState({
-            order,
-            orderBy
+        setOrder({
+            direction,
+            id
         });
-    };
+    }
 
-    handleSelectAllClick = event => {
+    function handleSelectAllClick(event)
+    {
         if ( event.target.checked )
         {
-            this.setState(state => ({selected: this.state.data.map(n => n.id)}));
+            setSelected(data.map(n => n.id));
             return;
         }
-        this.setState({selected: []});
-    };
+        setSelected([]);
+    }
 
-    handleClick = (item) => {
-        this.props.history.push('/apps/e-commerce/orders/' + item.id);
-    };
+    function handleClick(item)
+    {
+        props.history.push('/apps/e-commerce/orders/' + item.id + '/' + item.handle);
+    }
 
-    handleCheck = (event, id) => {
-        const {selected} = this.state;
+    function handleCheck(event, id)
+    {
         const selectedIndex = selected.indexOf(id);
         let newSelected = [];
 
@@ -95,143 +84,137 @@ class OrdersTable extends Component {
             );
         }
 
-        this.setState({selected: newSelected});
-    };
+        setSelected(newSelected);
+    }
 
-    handleChangePage = (event, page) => {
-        this.setState({page});
-    };
-
-    handleChangeRowsPerPage = event => {
-        this.setState({rowsPerPage: event.target.value});
-    };
-
-    isSelected = id => this.state.selected.indexOf(id) !== -1;
-
-    render()
+    function handleChangePage(event, page)
     {
-        const {order, orderBy, selected, rowsPerPage, page, data} = this.state;
+        setPage(page);
+    }
 
-        return (
-            <div className="w-full flex flex-col">
+    function handleChangeRowsPerPage(event)
+    {
+        setRowsPerPage(event.target.value);
+    }
 
-                <FuseScrollbars className="flex-grow overflow-x-auto">
+    return (
+        <div className="w-full flex flex-col">
 
-                    <Table className="min-w-xl" aria-labelledby="tableTitle">
+            <FuseScrollbars className="flex-grow overflow-x-auto">
 
-                        <OrdersTableHead
-                            numSelected={selected.length}
-                            order={order}
-                            orderBy={orderBy}
-                            onSelectAllClick={this.handleSelectAllClick}
-                            onRequestSort={this.handleRequestSort}
-                            rowCount={data.length}
-                        />
+                <Table className="min-w-xl" aria-labelledby="tableTitle">
 
-                        <TableBody>
-                            {
-                                _.orderBy(data, [
-                                    (o) => {
-                                        switch ( orderBy )
+                    <OrdersTableHead
+                        numSelected={selected.length}
+                        order={order}
+                        onSelectAllClick={handleSelectAllClick}
+                        onRequestSort={handleRequestSort}
+                        rowCount={data.length}
+                    />
+
+                    <TableBody>
+                        {
+                            _.orderBy(data, [
+                                (o) => {
+                                    switch ( order.id )
+                                    {
+                                        case 'id':
                                         {
-                                            case 'id':
-                                            {
-                                                return parseInt(o.id, 10);
-                                            }
-                                            case 'customer':
-                                            {
-                                                return o.customer.firstName;
-                                            }
-                                            case 'payment':
-                                            {
-                                                return o.payment.method;
-                                            }
-                                            case 'status':
-                                            {
-                                                return o.status[0].name;
-                                            }
-                                            default:
-                                            {
-                                                return o[orderBy];
-                                            }
+                                            return parseInt(o.id, 10);
+                                        }
+                                        case 'customer':
+                                        {
+                                            return o.customer.firstName;
+                                        }
+                                        case 'payment':
+                                        {
+                                            return o.payment.method;
+                                        }
+                                        case 'status':
+                                        {
+                                            return o.status[0].name;
+                                        }
+                                        default:
+                                        {
+                                            return o[order.id];
                                         }
                                     }
-                                ], [order])
-                                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                                    .map(n => {
-                                        const isSelected = this.isSelected(n.id);
-                                        return (
-                                            <TableRow
-                                                className="h-64 cursor-pointer"
-                                                hover
-                                                role="checkbox"
-                                                aria-checked={isSelected}
-                                                tabIndex={-1}
-                                                key={n.id}
-                                                selected={isSelected}
-                                                onClick={event => this.handleClick(n)}
-                                            >
-                                                <TableCell className="w-48 pl-4 sm:pl-12" padding="checkbox">
-                                                    <Checkbox
-                                                        checked={isSelected}
-                                                        onClick={event => event.stopPropagation()}
-                                                        onChange={event => this.handleCheck(event, n.id)}
-                                                    />
-                                                </TableCell>
+                                }
+                            ], [order.direction])
+                                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                .map(n => {
+                                    const isSelected = selected.indexOf(n.id) !== -1;
+                                    return (
+                                        <TableRow
+                                            className="h-64 cursor-pointer"
+                                            hover
+                                            role="checkbox"
+                                            aria-checked={isSelected}
+                                            tabIndex={-1}
+                                            key={n.id}
+                                            selected={isSelected}
+                                            onClick={event => handleClick(n)}
+                                        >
+                                            <TableCell className="w-48 pl-4 sm:pl-12" padding="checkbox">
+                                                <Checkbox
+                                                    checked={isSelected}
+                                                    onClick={event => event.stopPropagation()}
+                                                    onChange={event => handleCheck(event, n.id)}
+                                                />
+                                            </TableCell>
 
-                                                <TableCell component="th" scope="row">
-                                                    {n.id}
-                                                </TableCell>
+                                            <TableCell component="th" scope="row">
+                                                {n.id}
+                                            </TableCell>
 
-                                                <TableCell component="th" scope="row">
-                                                    {n.reference}
-                                                </TableCell>
+                                            <TableCell component="th" scope="row">
+                                                {n.reference}
+                                            </TableCell>
 
-                                                <TableCell className="truncate" component="th" scope="row">
-                                                    {n.customer.firstName + ' ' + n.customer.lastName}
-                                                </TableCell>
+                                            <TableCell className="truncate" component="th" scope="row">
+                                                {n.customer.firstName + ' ' + n.customer.lastName}
+                                            </TableCell>
 
-                                                <TableCell component="th" scope="row" align="right">
-                                                    <span>$</span>
-                                                    {n.total}
-                                                </TableCell>
+                                            <TableCell component="th" scope="row" align="right">
+                                                <span>$</span>
+                                                {n.total}
+                                            </TableCell>
 
-                                                <TableCell component="th" scope="row">
-                                                    {n.payment.method}
-                                                </TableCell>
+                                            <TableCell component="th" scope="row">
+                                                {n.payment.method}
+                                            </TableCell>
 
-                                                <TableCell component="th" scope="row">
-                                                    <OrdersStatus name={n.status[0].name}/>
-                                                </TableCell>
+                                            <TableCell component="th" scope="row">
+                                                <OrdersStatus name={n.status[0].name}/>
+                                            </TableCell>
 
-                                                <TableCell component="th" scope="row">
-                                                    {n.date}
-                                                </TableCell>
+                                            <TableCell component="th" scope="row">
+                                                {n.date}
+                                            </TableCell>
 
-                                            </TableRow>
-                                        );
-                                    })}
-                        </TableBody>
-                    </Table>
-                </FuseScrollbars>
+                                        </TableRow>
+                                    );
+                                })}
+                    </TableBody>
+                </Table>
+            </FuseScrollbars>
 
-                <TablePagination
-                    component="div"
-                    count={data.length}
-                    rowsPerPage={rowsPerPage}
-                    page={page}
-                    backIconButtonProps={{
-                        'aria-label': 'Previous Page'
-                    }}
-                    nextIconButtonProps={{
-                        'aria-label': 'Next Page'
-                    }}
-                    onChangePage={this.handleChangePage}
-                    onChangeRowsPerPage={this.handleChangeRowsPerPage}
-                />
-            </div>
-        );
-    }
+            <TablePagination
+                component="div"
+                count={data.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                backIconButtonProps={{
+                    'aria-label': 'Previous Page'
+                }}
+                nextIconButtonProps={{
+                    'aria-label': 'Next Page'
+                }}
+                onChangePage={handleChangePage}
+                onChangeRowsPerPage={handleChangeRowsPerPage}
+            />
+        </div>
+    );
 }
 
 function mapDispatchToProps(dispatch)

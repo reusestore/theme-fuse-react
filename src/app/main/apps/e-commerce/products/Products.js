@@ -5,7 +5,8 @@ import ProductsTable from './ProductsTable';
 import ProductsHeader from './ProductsHeader';
 import reducer from '../store/reducers';
 
-const Products = () => {
+function Products()
+{
     return (
         <FusePageCarded
             classes={{
@@ -21,6 +22,6 @@ const Products = () => {
             innerScroll
         />
     );
-};
+}
 
 export default withReducer('eCommerceApp', reducer)(Products);

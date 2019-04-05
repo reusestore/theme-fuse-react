@@ -1,8 +1,9 @@
 import React from 'react';
-import {withStyles, Card, CardContent, Typography, TableCell, TableRow, TableBody, TableHead, Table} from '@material-ui/core';
+import {Card, CardContent, Typography, TableCell, TableRow, TableBody, TableHead, Table} from '@material-ui/core';
+import {makeStyles} from '@material-ui/styles';
 import classNames from 'classnames';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     root   : {
         '& table ': {
             '& th:first-child, & td:first-child': {
@@ -29,9 +30,10 @@ const styles = theme => ({
             opacity        : .5
         }
     }
-});
+}));
 
-const OrderInvoice = ({classes, order}) => {
+const OrderInvoice = (props) => {
+    const classes = useStyles(props);
 
     const formatter = new Intl.NumberFormat('en-US',
         {
@@ -43,13 +45,13 @@ const OrderInvoice = ({classes, order}) => {
     return (
         <div className={classNames(classes.root, "flex-grow flex-no-shrink p-0")}>
 
-            {order && (
+            {props.order && (
                 <Card className="w-xl mx-auto" elevation={0}>
 
                     <CardContent className="p-88 print:p-0">
 
                         <Typography color="textSecondary" className="mb-32">
-                            {order.date}
+                            {props.order.date}
                         </Typography>
 
                         <div className="flex justify-between">
@@ -65,7 +67,7 @@ const OrderInvoice = ({classes, order}) => {
                                             </td>
                                             <td className="pb-4">
                                                 <Typography className="font-light" variant="h6" color="inherit">
-                                                    {order.reference}
+                                                    {props.order.reference}
                                                 </Typography>
                                             </td>
                                         </tr>
@@ -73,22 +75,22 @@ const OrderInvoice = ({classes, order}) => {
                                 </table>
 
                                 <Typography color="textSecondary">
-                                    {order.customer.firstName + ' ' + order.customer.lastName}
+                                    {props.order.customer.firstName + ' ' + props.order.customer.lastName}
                                 </Typography>
 
-                                {order.customer.invoiceAddress.address && (
+                                {props.order.customer.invoiceAddress.address && (
                                     <Typography color="textSecondary">
-                                        {order.customer.invoiceAddress.address}
+                                        {props.order.customer.invoiceAddress.address}
                                     </Typography>
                                 )}
-                                {order.customer.phone && (
+                                {props.order.customer.phone && (
                                     <Typography color="textSecondary">
-                                        {order.customer.phone}
+                                        {props.order.customer.phone}
                                     </Typography>
                                 )}
-                                {order.customer.email && (
+                                {props.order.customer.email && (
                                     <Typography color="textSecondary">
-                                        {order.customer.email}
+                                        {props.order.customer.email}
                                     </Typography>
                                 )}
                             </div>
@@ -138,7 +140,7 @@ const OrderInvoice = ({classes, order}) => {
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {order.products.map((product) => (
+                                    {props.order.products.map((product) => (
                                         <TableRow key={product.id}>
                                             <TableCell>
                                                 <Typography variant="subtitle1">{product.name}</Typography>
@@ -165,7 +167,7 @@ const OrderInvoice = ({classes, order}) => {
                                         </TableCell>
                                         <TableCell align="right">
                                             <Typography className="font-medium" variant="subtitle1" color="textSecondary">
-                                                {formatter.format(order.subtotal)}
+                                                {formatter.format(props.order.subtotal)}
                                             </Typography>
                                         </TableCell>
                                     </TableRow>
@@ -175,7 +177,7 @@ const OrderInvoice = ({classes, order}) => {
                                         </TableCell>
                                         <TableCell align="right">
                                             <Typography className="font-medium" variant="subtitle1" color="textSecondary">
-                                                {formatter.format(order.tax)}
+                                                {formatter.format(props.order.tax)}
                                             </Typography>
                                         </TableCell>
                                     </TableRow>
@@ -185,7 +187,7 @@ const OrderInvoice = ({classes, order}) => {
                                         </TableCell>
                                         <TableCell align="right">
                                             <Typography className="font-medium" variant="subtitle1" color="textSecondary">
-                                                {formatter.format(order.discount)}
+                                                {formatter.format(props.order.discount)}
                                             </Typography>
                                         </TableCell>
                                     </TableRow>
@@ -195,7 +197,7 @@ const OrderInvoice = ({classes, order}) => {
                                         </TableCell>
                                         <TableCell align="right">
                                             <Typography className="font-light" variant="h4" color="textSecondary">
-                                                {formatter.format(order.total)}
+                                                {formatter.format(props.order.total)}
                                             </Typography>
                                         </TableCell>
                                     </TableRow>
@@ -230,4 +232,4 @@ const OrderInvoice = ({classes, order}) => {
     );
 };
 
-export default withStyles(styles, {withTheme: true})(OrderInvoice);
+export default React.memo(OrderInvoice);

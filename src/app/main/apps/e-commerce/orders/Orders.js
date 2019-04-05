@@ -5,7 +5,8 @@ import OrdersHeader from './OrdersHeader';
 import OrdersTable from './OrdersTable';
 import reducer from '../store/reducers';
 
-const Orders = () => {
+function Orders()
+{
     return (
         <FusePageCarded
             classes={{
@@ -21,6 +22,6 @@ const Orders = () => {
             innerScroll
         />
     );
-};
+}
 
 export default withReducer('eCommerceApp', reducer)(Orders);

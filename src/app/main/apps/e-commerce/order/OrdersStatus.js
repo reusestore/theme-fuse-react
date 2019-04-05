@@ -75,12 +75,13 @@ export const orderStatuses = [
     }
 ];
 
-const OrdersStatus = ({name}) => {
+function OrdersStatus(props)
+{
     return (
-        <div className={classNames("inline text-12 p-4 rounded truncate", _.find(orderStatuses, {name: name}).color)}>
-            {name}
+        <div className={classNames("inline text-12 p-4 rounded truncate", _.find(orderStatuses, {name: props.name}).color)}>
+            {props.name}
         </div>
     );
-};
+}
 
 export default OrdersStatus;

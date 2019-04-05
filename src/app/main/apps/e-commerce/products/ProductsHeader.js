@@ -6,8 +6,8 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import * as Actions from '../store/actions';
 
-const ProductsHeader = ({setSearchText, searchText, mainTheme}) => {
-
+function ProductsHeader(props)
+{
     return (
         <div className="flex flex-1 w-full items-center justify-between">
 
@@ -22,7 +22,7 @@ const ProductsHeader = ({setSearchText, searchText, mainTheme}) => {
 
             <div className="flex flex-1 items-center justify-center px-12">
 
-                <MuiThemeProvider theme={mainTheme}>
+                <MuiThemeProvider theme={props.mainTheme}>
                     <FuseAnimate animation="transition.slideDownIn" delay={300}>
                         <Paper className="flex items-center w-full max-w-512 px-8 py-4 rounded-8" elevation={1}>
 
@@ -33,11 +33,11 @@ const ProductsHeader = ({setSearchText, searchText, mainTheme}) => {
                                 className="flex flex-1"
                                 disableUnderline
                                 fullWidth
-                                value={searchText}
+                                value={props.searchText}
                                 inputProps={{
                                     'aria-label': 'Search'
                                 }}
-                                onChange={setSearchText}
+                                onChange={props.setSearchText}
                             />
                         </Paper>
                     </FuseAnimate>
@@ -52,7 +52,7 @@ const ProductsHeader = ({setSearchText, searchText, mainTheme}) => {
             </FuseAnimate>
         </div>
     );
-};
+}
 
 function mapDispatchToProps(dispatch)
 {

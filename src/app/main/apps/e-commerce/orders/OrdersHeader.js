@@ -1,12 +1,13 @@
 import React from 'react';
-import {Paper, Input, Icon, Typography, MuiThemeProvider} from '@material-ui/core';
+import {Paper, Input, Icon, Typography} from '@material-ui/core';
+import {ThemeProvider} from '@material-ui/styles';
 import {FuseAnimate} from '@fuse';
 import * as Actions from '../store/actions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-const OrdersHeader = ({setSearchText, searchText, mainTheme}) => {
-
+function OrdersHeader(props)
+{
     return (
         <div className="flex flex-1 w-full items-center justify-between">
 
@@ -23,7 +24,7 @@ const OrdersHeader = ({setSearchText, searchText, mainTheme}) => {
 
             <div className="flex flex-1 items-center justify-center pr-0 pl-12 sm:px-12">
 
-                <MuiThemeProvider theme={mainTheme}>
+                <ThemeProvider theme={props.mainTheme}>
                     <FuseAnimate animation="transition.slideDownIn" delay={300}>
                         <Paper className="flex items-center w-full max-w-512 px-8 py-4 rounded-8" elevation={1}>
 
@@ -34,20 +35,19 @@ const OrdersHeader = ({setSearchText, searchText, mainTheme}) => {
                                 className="flex flex-1"
                                 disableUnderline
                                 fullWidth
-                                value={searchText}
+                                value={props.searchText}
                                 inputProps={{
                                     'aria-label': 'Search'
                                 }}
-                                onChange={setSearchText}
+                                onChange={props.setSearchText}
                             />
                         </Paper>
                     </FuseAnimate>
-                </MuiThemeProvider>
-
+                </ThemeProvider>
             </div>
         </div>
     );
-};
+}
 
 function mapDispatchToProps(dispatch)
 {
