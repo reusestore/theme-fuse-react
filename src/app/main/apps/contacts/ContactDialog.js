@@ -1,11 +1,13 @@
-import React, {Component} from 'react';
+import React, {useEffect} from 'react';
 import {TextField, Button, Dialog, DialogActions, DialogContent, Icon, IconButton, Typography, Toolbar, AppBar, Avatar} from '@material-ui/core';
+import {useForm} from '@fuse/hooks';
+import FuseUtils from '@fuse/FuseUtils';
 import {bindActionCreators} from 'redux';
 import * as Actions from './store/actions';
 import {connect} from 'react-redux';
 import _ from '@lodash';
 
-const newContactState = {
+const defaultFormState = {
     id      : '',
     name    : '',
     lastName: '',
@@ -20,87 +22,102 @@ const newContactState = {
     notes   : ''
 };
 
-class ContactDialog extends Component {
+function ContactDialog(props)
+{
+    const {form, handleChange, setForm} = useForm(defaultFormState);
 
-    state = {...newContactState};
-
-    componentDidUpdate(prevProps, prevState, snapshot)
-    {
+    useEffect(() => {
         /**
          * After Dialog Open
          */
-        if ( !prevProps.contactDialog.props.open && this.props.contactDialog.props.open )
+        if ( props.contactDialog.props.open )
         {
             /**
              * Dialog type: 'edit'
              * Update State
              */
-            if ( this.props.contactDialog.type === 'edit' &&
-                this.props.contactDialog.data &&
-                !_.isEqual(this.props.contactDialog.data, prevState) )
+            if ( props.contactDialog.type === 'edit' &&
+                props.contactDialog.data &&
+                !_.isEqual(props.contactDialog.data, form) )
             {
-                this.setState({...this.props.contactDialog.data});
+                setForm({...props.contactDialog.data});
             }
 
             /**
              * Dialog type: 'new'
              * Update State
              */
-            if ( this.props.contactDialog.type === 'new' &&
-                !_.isEqual(newContactState, prevState) )
+            if ( props.contactDialog.type === 'new' )
             {
-                this.setState({...newContactState});
+                setForm({
+                    ...defaultFormState,
+                    ...props.contactDialog.data,
+                    id: FuseUtils.generateGUID()
+                });
             }
         }
+    }, [props.contactDialog.props.open]);
+
+    function closeComposeDialog()
+    {
+        props.contactDialog.type === 'edit' ? props.closeEditContactDialog() : props.closeNewContactDialog();
     }
 
-    handleChange = (event) => {
-        this.setState(_.set({...this.state}, event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value));
-    };
-
-    closeComposeDialog = () => {
-        this.props.contactDialog.type === 'edit' ? this.props.closeEditContactDialog() : this.props.closeNewContactDialog();
-    };
-
-    canBeSubmitted()
+    function canBeSubmitted()
     {
-        const {name} = this.state;
         return (
-            name.length > 0
+            form.name.length > 0
         );
     }
 
-    render()
+    function handleSubmit(event)
     {
-        const {contactDialog, addContact, updateContact, removeContact} = this.props;
+        event.preventDefault();
 
-        return (
-            <Dialog
-                classes={{
-                    paper: "m-24"
-                }}
-                {...contactDialog.props}
-                onClose={this.closeComposeDialog}
-                fullWidth
-                maxWidth="xs"
-            >
+        if ( props.contactDialog.type === 'new' )
+        {
+            props.addContact(form);
+        }
+        else
+        {
+            props.updateContact(form);
+        }
+        closeComposeDialog();
+    }
 
-                <AppBar position="static" elevation={1}>
-                    <Toolbar className="flex w-full">
-                        <Typography variant="subtitle1" color="inherit">
-                            {contactDialog.type === 'new' ? 'New Contact' : 'Edit Contact'}
+    function handleRemove()
+    {
+        props.removeContact(form.id);
+        closeComposeDialog();
+    }
+
+    return (
+        <Dialog
+            classes={{
+                paper: "m-24"
+            }}
+            {...props.contactDialog.props}
+            onClose={closeComposeDialog}
+            fullWidth
+            maxWidth="xs"
+        >
+
+            <AppBar position="static" elevation={1}>
+                <Toolbar className="flex w-full">
+                    <Typography variant="subtitle1" color="inherit">
+                        {props.contactDialog.type === 'new' ? 'New Contact' : 'Edit Contact'}
+                    </Typography>
+                </Toolbar>
+                <div className="flex flex-col items-center justify-center pb-24">
+                    <Avatar className="w-96 h-96" alt="contact avatar" src={form.avatar}/>
+                    {props.contactDialog.type === 'edit' && (
+                        <Typography variant="h6" color="inherit" className="pt-8">
+                            {form.name}
                         </Typography>
-                    </Toolbar>
-                    <div className="flex flex-col items-center justify-center pb-24">
-                        <Avatar className="w-96 h-96" alt="contact avatar" src={this.state.avatar}/>
-                        {contactDialog.type === 'edit' && (
-                            <Typography variant="h6" color="inherit" className="pt-8">
-                                {this.state.name}
-                            </Typography>
-                        )}
-                    </div>
-                </AppBar>
-
+                    )}
+                </div>
+            </AppBar>
+            <form noValidate onSubmit={handleSubmit} className="flex flex-col">
                 <DialogContent classes={{root: "p-24"}}>
                     <div className="flex">
                         <div className="min-w-48 pt-20">
@@ -113,8 +130,8 @@ class ContactDialog extends Component {
                             autoFocus
                             id="name"
                             name="name"
-                            value={this.state.name}
-                            onChange={this.handleChange}
+                            value={form.name}
+                            onChange={handleChange}
                             variant="outlined"
                             required
                             fullWidth
@@ -129,8 +146,8 @@ class ContactDialog extends Component {
                             label="Last name"
                             id="lastName"
                             name="lastName"
-                            value={this.state.lastName}
-                            onChange={this.handleChange}
+                            value={form.lastName}
+                            onChange={handleChange}
                             variant="outlined"
                             fullWidth
                         />
@@ -145,8 +162,8 @@ class ContactDialog extends Component {
                             label="Nickname"
                             id="nickname"
                             name="nickname"
-                            value={this.state.nickname}
-                            onChange={this.handleChange}
+                            value={form.nickname}
+                            onChange={handleChange}
                             variant="outlined"
                             fullWidth
                         />
@@ -161,8 +178,8 @@ class ContactDialog extends Component {
                             label="Phone"
                             id="phone"
                             name="phone"
-                            value={this.state.phone}
-                            onChange={this.handleChange}
+                            value={form.phone}
+                            onChange={handleChange}
                             variant="outlined"
                             fullWidth
                         />
@@ -177,8 +194,8 @@ class ContactDialog extends Component {
                             label="Email"
                             id="email"
                             name="email"
-                            value={this.state.email}
-                            onChange={this.handleChange}
+                            value={form.email}
+                            onChange={handleChange}
                             variant="outlined"
                             fullWidth
                         />
@@ -193,8 +210,8 @@ class ContactDialog extends Component {
                             label="Company"
                             id="company"
                             name="company"
-                            value={this.state.company}
-                            onChange={this.handleChange}
+                            value={form.company}
+                            onChange={handleChange}
                             variant="outlined"
                             fullWidth
                         />
@@ -209,8 +226,8 @@ class ContactDialog extends Component {
                             label="Job title"
                             id="jobTitle"
                             name="jobTitle"
-                            value={this.state.jobTitle}
-                            onChange={this.handleChange}
+                            value={form.jobTitle}
+                            onChange={handleChange}
                             variant="outlined"
                             fullWidth
                         />
@@ -225,8 +242,8 @@ class ContactDialog extends Component {
                             id="birthday"
                             label="Birthday"
                             type="date"
-                            value={this.state.birthday}
-                            onChange={this.handleChange}
+                            value={form.birthday}
+                            onChange={handleChange}
                             InputLabelProps={{
                                 shrink: true
                             }}
@@ -244,8 +261,8 @@ class ContactDialog extends Component {
                             label="Address"
                             id="address"
                             name="address"
-                            value={this.state.address}
-                            onChange={this.handleChange}
+                            value={form.address}
+                            onChange={handleChange}
                             variant="outlined"
                             fullWidth
                         />
@@ -260,8 +277,8 @@ class ContactDialog extends Component {
                             label="Notes"
                             id="notes"
                             name="notes"
-                            value={this.state.notes}
-                            onChange={this.handleChange}
+                            value={form.notes}
+                            onChange={handleChange}
                             variant="outlined"
                             multiline
                             rows={5}
@@ -270,16 +287,14 @@ class ContactDialog extends Component {
                     </div>
                 </DialogContent>
 
-                {contactDialog.type === 'new' ? (
+                {props.contactDialog.type === 'new' ? (
                     <DialogActions className="justify-between pl-16">
                         <Button
                             variant="contained"
                             color="primary"
-                            onClick={() => {
-                                addContact(this.state);
-                                this.closeComposeDialog();
-                            }}
-                            disabled={!this.canBeSubmitted()}
+                            onClick={handleSubmit}
+                            type="submit"
+                            disabled={!canBeSubmitted()}
                         >
                             Add
                         </Button>
@@ -289,29 +304,23 @@ class ContactDialog extends Component {
                         <Button
                             variant="contained"
                             color="primary"
-                            onClick={() => {
-                                updateContact(this.state);
-                                this.closeComposeDialog();
-                            }}
-                            disabled={!this.canBeSubmitted()}
+                            type="submit"
+                            onClick={handleSubmit}
+                            disabled={!canBeSubmitted()}
                         >
                             Save
                         </Button>
                         <IconButton
-                            onClick={() => {
-                                removeContact(this.state.id);
-                                this.closeComposeDialog();
-                            }}
+                            onClick={handleRemove}
                         >
                             <Icon>delete</Icon>
                         </IconButton>
                     </DialogActions>
                 )}
-            </Dialog>
-        );
-    }
+            </form>
+        </Dialog>
+    );
 }
-
 
 function mapDispatchToProps(dispatch)
 {
@@ -330,6 +339,5 @@ function mapStateToProps({contactsApp})
         contactDialog: contactsApp.contacts.contactDialog
     }
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactDialog);

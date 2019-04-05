@@ -2,7 +2,7 @@ import * as Actions from '../actions';
 import _ from '@lodash';
 
 const initialState = {
-    entities          : [],
+    entities          : null,
     searchText        : '',
     selectedContactIds: [],
     routeParams       : {},

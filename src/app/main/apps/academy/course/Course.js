@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
 function Course(props)
 {
     const classes = useStyles(props);
-    const pageLayoutRef = useRef(null);
+    const pageLayout = useRef(null);
 
     useEffect(() => {
         /**
@@ -71,7 +71,7 @@ function Course(props)
                 <div className="flex flex-1 items-center px-16 lg:px-24">
                     <Hidden lgUp>
                         <IconButton
-                            onClick={(ev) => pageLayoutRef.current.toggleLeftSidebar()}
+                            onClick={(ev) => pageLayout.current.toggleLeftSidebar()}
                             aria-label="open left sidebar"
                         >
                             <Icon>menu</Icon>
@@ -160,7 +160,7 @@ function Course(props)
                 )
             }
             innerScroll
-            ref={pageLayoutRef}
+            ref={pageLayout}
         />
     )
 }

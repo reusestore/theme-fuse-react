@@ -6,7 +6,7 @@ import connect from 'react-redux/es/connect/connect';
 import _ from '@lodash';
 import * as Actions from './store/actions';
 import StatusIcon from './StatusIcon';
-import {useForm} from '../../../../@fuse/hooks';
+import {useForm} from '@fuse/hooks';
 
 const statusArr = [
     {

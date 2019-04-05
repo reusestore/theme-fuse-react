@@ -50,7 +50,6 @@ export function toggleInSelectedContacts(contactId)
     }
 }
 
-
 export function selectAllContacts()
 {
     return {
@@ -64,7 +63,6 @@ export function deSelectAllContacts()
         type: DESELECT_ALL_CONTACTS
     }
 }
-
 
 export function openNewContactDialog()
 {

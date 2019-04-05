@@ -1,19 +1,19 @@
-import React, {Component} from 'react';
-import {withStyles, Fab, Icon} from '@material-ui/core';
+import React, {useEffect, useRef} from 'react';
+import {Fab, Icon} from '@material-ui/core';
 import {FusePageSimple, FuseAnimate} from '@fuse';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import withReducer from 'app/store/withReducer';
-import _ from '@lodash';
 import ContactsList from './ContactsList';
 import ContactsHeader from './ContactsHeader';
 import ContactsSidebarContent from './ContactsSidebarContent';
 import ContactDialog from './ContactDialog';
 import * as Actions from './store/actions';
 import reducer from './store/reducers';
+import {makeStyles} from '@material-ui/styles';
 
-const styles = theme => ({
+const useStyles = makeStyles({
     addButton: {
         position: 'absolute',
         right   : 12,
@@ -22,63 +22,55 @@ const styles = theme => ({
     }
 });
 
-class ContactsApp extends Component {
+function ContactsApp(props)
+{
+    const classes = useStyles(props);
+    const pageLayout = useRef(null);
 
-    componentDidMount()
-    {
-        this.props.getContacts(this.props.match.params);
-        this.props.getUserData();
-    }
+    useEffect(() => {
+        props.getContacts(props.match.params);
+        props.getUserData();
+    }, []);
 
-    componentDidUpdate(prevProps, prevState)
-    {
-        if ( !_.isEqual(this.props.location, prevProps.location) )
-        {
-            this.props.getContacts(this.props.match.params);
-        }
-    }
+    useEffect(() => {
+        props.getContacts(props.match.params);
+    }, [props.location]);
 
-    render()
-    {
-        const {classes, openNewContactDialog} = this.props;
-
-        return (
-            <React.Fragment>
-                <FusePageSimple
-                    classes={{
-                        contentWrapper: "p-16 sm:p-24 pb-80",
-                        leftSidebar       : "w-256 border-0",
-                        header            : "min-h-72 h-72 sm:h-136 sm:min-h-136"
-                    }}
-                    header={
-                        <ContactsHeader pageLayout={() => this.pageLayout}/>
-                    }
-                    content={
-                        <ContactsList/>
-                    }
-                    leftSidebarContent={
-                        <ContactsSidebarContent/>
-                    }
-                    sidebarInner
-                    onRef={instance => {
-                        this.pageLayout = instance;
-                    }}
-                    innerScroll
-                />
-                <FuseAnimate animation="transition.expandIn" delay={300}>
-                    <Fab
-                        color="primary"
-                        aria-label="add"
-                        className={classes.addButton}
-                        onClick={openNewContactDialog}
-                    >
-                        <Icon>person_add</Icon>
-                    </Fab>
-                </FuseAnimate>
-                <ContactDialog/>
-            </React.Fragment>
-        )
-    };
+    return (
+        <React.Fragment>
+            <FusePageSimple
+                classes={{
+                    contentWrapper: "p-16 sm:p-24 pb-80",
+                    content       : "flex flex-col",
+                    leftSidebar   : "w-256 border-0",
+                    header        : "min-h-72 h-72 sm:h-136 sm:min-h-136"
+                }}
+                header={
+                    <ContactsHeader pageLayout={pageLayout}/>
+                }
+                content={
+                    <ContactsList/>
+                }
+                leftSidebarContent={
+                    <ContactsSidebarContent/>
+                }
+                sidebarInner
+                ref={pageLayout}
+                innerScroll
+            />
+            <FuseAnimate animation="transition.expandIn" delay={300}>
+                <Fab
+                    color="primary"
+                    aria-label="add"
+                    className={classes.addButton}
+                    onClick={props.openNewContactDialog}
+                >
+                    <Icon>person_add</Icon>
+                </Fab>
+            </FuseAnimate>
+            <ContactDialog/>
+        </React.Fragment>
+    )
 }
 
 function mapDispatchToProps(dispatch)
@@ -100,4 +92,4 @@ function mapStateToProps({contactsApp})
     }
 }
 
-export default withReducer('contactsApp', reducer)(withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(ContactsApp))));
+export default withReducer('contactsApp', reducer)(withRouter(connect(mapStateToProps, mapDispatchToProps)(ContactsApp)));
