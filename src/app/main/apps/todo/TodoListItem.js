@@ -1,5 +1,6 @@
 import React from 'react';
-import {withStyles, IconButton, Icon, Typography, Checkbox, ListItem} from '@material-ui/core';
+import {IconButton, Icon, Typography, Checkbox, ListItem} from '@material-ui/core';
+import {makeStyles} from '@material-ui/styles';
 import red from '@material-ui/core/colors/red';
 import amber from '@material-ui/core/colors/amber';
 import {withRouter} from 'react-router-dom';
@@ -10,7 +11,7 @@ import _ from '@lodash';
 import * as Actions from './store/actions';
 import TodoChip from './TodoChip';
 
-const styles = theme => ({
+const useStyles = makeStyles({
     todoItem: {
         '&.completed': {
             background                    : 'rgba(0,0,0,0.03)',
@@ -21,23 +22,26 @@ const styles = theme => ({
     }
 });
 
-const TodoListItem = ({todo, labels, classes, openEditTodoDialog, toggleImportant, toggleStarred, toggleCompleted}) => {
+function TodoListItem(props)
+{
+    const classes = useStyles(props);
+
     return (
         <ListItem
+            className={classNames(classes.todoItem, {"completed": props.todo.completed}, "border-solid border-b-1 py-16  px-0 sm:px-8")}
             onClick={(ev) => {
                 ev.preventDefault();
-                openEditTodoDialog(todo);
+                props.openEditTodoDialog(props.todo);
             }}
             dense
             button
-            className={classNames(classes.todoItem, {"completed": todo.completed}, "border-solid border-b-1 py-16  px-0 sm:px-8")}
         >
 
             <Checkbox
                 tabIndex={-1}
                 disableRipple
-                checked={todo.completed}
-                onChange={() => toggleCompleted(todo)}
+                checked={props.todo.completed}
+                onChange={() => props.toggleCompleted(props.todo)}
                 onClick={(ev) => ev.stopPropagation()}
             />
 
@@ -46,24 +50,24 @@ const TodoListItem = ({todo, labels, classes, openEditTodoDialog, toggleImportan
                 <Typography
                     variant="subtitle1"
                     className="todo-title truncate"
-                    color={todo.completed ? "textSecondary" : "default"}
+                    color={props.todo.completed ? "textSecondary" : "default"}
                 >
-                    {todo.title}
+                    {props.todo.title}
                 </Typography>
 
                 <Typography
                     color="textSecondary"
                     className="todo-notes truncate"
                 >
-                    {_.truncate(todo.notes.replace(/<(?:.|\n)*?>/gm, ''), {'length': 180})}
+                    {_.truncate(props.todo.notes.replace(/<(?:.|\n)*?>/gm, ''), {'length': 180})}
                 </Typography>
 
                 <div className={classNames(classes.labels, "flex mt-8")}>
-                    {todo.labels.map(label => (
+                    {props.todo.labels.map(label => (
                         <TodoChip
                             className="mr-4"
-                            title={_.find(labels, {id: label}).title}
-                            color={_.find(labels, {id: label}).color}
+                            title={_.find(props.labels, {id: label}).title}
+                            color={_.find(props.labels, {id: label}).color}
                             key={label}
                         />
                     ))}
@@ -74,9 +78,9 @@ const TodoListItem = ({todo, labels, classes, openEditTodoDialog, toggleImportan
                 <IconButton onClick={(ev) => {
                     ev.preventDefault();
                     ev.stopPropagation();
-                    toggleImportant(todo)
+                    props.toggleImportant(props.todo)
                 }}>
-                    {todo.important ? (
+                    {props.todo.important ? (
                         <Icon style={{color: red[500]}}>error</Icon>
                     ) : (
                         <Icon>error_outline</Icon>
@@ -85,9 +89,9 @@ const TodoListItem = ({todo, labels, classes, openEditTodoDialog, toggleImportan
                 <IconButton onClick={(ev) => {
                     ev.preventDefault();
                     ev.stopPropagation();
-                    toggleStarred(todo)
+                    props.toggleStarred(props.todo)
                 }}>
-                    {todo.starred ? (
+                    {props.todo.starred ? (
                         <Icon style={{color: amber[500]}}>star</Icon>
                     ) : (
                         <Icon>star_outline</Icon>
@@ -96,7 +100,7 @@ const TodoListItem = ({todo, labels, classes, openEditTodoDialog, toggleImportan
             </div>
         </ListItem>
     );
-};
+}
 
 function mapDispatchToProps(dispatch)
 {
@@ -115,4 +119,4 @@ function mapStateToProps({todoApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(TodoListItem)));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TodoListItem));

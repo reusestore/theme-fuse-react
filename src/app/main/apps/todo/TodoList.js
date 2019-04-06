@@ -6,19 +6,9 @@ import {withRouter} from 'react-router-dom';
 import _ from '@lodash';
 import TodoListItem from './TodoListItem';
 
-function getFilteredArray(entities, searchText)
+function TodoList(props)
 {
-    const arr = Object.keys(entities).map((id) => entities[id]);
-    if ( searchText.length === 0 )
-    {
-        return arr;
-    }
-    return FuseUtils.filterArrayByString(arr, searchText);
-}
-
-const TodoList = ({todos, searchText, orderBy, orderDescending}) => {
-
-    const arr = _.orderBy(getFilteredArray(todos, searchText), [orderBy], [orderDescending ? 'desc' : 'asc']);
+    const arr = _.orderBy(getFilteredArray(props.todos, props.searchText), [props.orderBy], [props.orderDescending ? 'desc' : 'asc']);
 
     if ( arr.length === 0 )
     {
@@ -31,6 +21,16 @@ const TodoList = ({todos, searchText, orderBy, orderDescending}) => {
                 </div>
             </FuseAnimate>
         );
+    }
+
+    function getFilteredArray(entities, searchText)
+    {
+        const arr = Object.keys(entities).map((id) => entities[id]);
+        if ( searchText.length === 0 )
+        {
+            return arr;
+        }
+        return FuseUtils.filterArrayByString(arr, searchText);
     }
 
     return (
@@ -49,7 +49,7 @@ const TodoList = ({todos, searchText, orderBy, orderDescending}) => {
             </FuseAnimateGroup>
         </List>
     );
-};
+}
 
 function mapStateToProps({todoApp})
 {

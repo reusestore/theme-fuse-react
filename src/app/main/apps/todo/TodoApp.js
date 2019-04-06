@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {FusePageCarded} from '@fuse';
-import _ from '@lodash';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom'
@@ -14,67 +13,58 @@ import TodoDialog from './TodoDialog';
 import * as Actions from './store/actions';
 import reducer from './store/reducers';
 
-class TodoApp extends Component {
+function TodoApp(props)
+{
+    const pageLayout = useRef(null);
 
-    componentDidMount()
-    {
-        this.props.getData(this.props.match);
-    }
+    useEffect(() => {
+        props.getFilters();
+        props.getFolders();
+        props.getLabels();
+    }, []);
 
-    componentDidUpdate(prevProps, prevState)
-    {
-        if ( !_.isEqual(this.props.location, prevProps.location) )
-        {
-            this.props.getTodos(this.props.match);
-        }
-    }
+    useEffect(() => {
+        props.getTodos(props.match);
+    }, [props.match]);
 
-    render()
-    {
-        return (
-            <React.Fragment>
-                <FusePageCarded
-                    classes={{
-                        root  : "w-full",
-                        header: "items-center min-h-72 h-72 sm:h-136 sm:min-h-136"
-                    }}
-                    header={
-                        <TodoHeader pageLayout={() => this.pageLayout}/>
-                    }
-                    contentToolbar={
-                        <TodoToolbar/>
-                    }
-                    content={
-                        <TodoList/>
-                    }
-                    leftSidebarHeader={
-                        <TodoSidebarHeader/>
-                    }
-                    leftSidebarContent={
-                        <TodoSidebarContent/>
-                    }
-                    onRef={instance => {
-                        this.pageLayout = instance;
-                    }}
-                    innerScroll
-                />
-                <TodoDialog/>
-            </React.Fragment>
-        )
-    };
+    return (
+        <React.Fragment>
+            <FusePageCarded
+                classes={{
+                    root  : "w-full",
+                    header: "items-center min-h-72 h-72 sm:h-136 sm:min-h-136"
+                }}
+                header={
+                    <TodoHeader pageLayout={pageLayout}/>
+                }
+                contentToolbar={
+                    <TodoToolbar/>
+                }
+                content={
+                    <TodoList/>
+                }
+                leftSidebarHeader={
+                    <TodoSidebarHeader/>
+                }
+                leftSidebarContent={
+                    <TodoSidebarContent/>
+                }
+                ref={pageLayout}
+                innerScroll
+            />
+            <TodoDialog/>
+        </React.Fragment>
+    )
 }
 
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-        getData : Actions.getData,
-        getTodos: Actions.getTodos
+        getTodos   : Actions.getTodos,
+        getFilters: Actions.getFilters,
+        getFolders: Actions.getFolders,
+        getLabels : Actions.getLabels
     }, dispatch);
 }
 
-function mapStateToProps({todoApp})
-{
-    return {}
-}
-
-export default withReducer('todoApp', reducer)(withRouter(connect(mapStateToProps, mapDispatchToProps)(TodoApp)));
+export default withReducer('todoApp', reducer)(withRouter(connect(null, mapDispatchToProps)(TodoApp)));

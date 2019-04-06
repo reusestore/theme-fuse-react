@@ -1,7 +1,4 @@
 import axios from 'axios';
-import {getFilters} from './filters.actions';
-import {getFolders} from './folders.actions';
-import {getLabels} from './labels.actions';
 
 export const GET_TODOS = '[TODO APP] GET TODOS';
 export const UPDATE_TODOS = '[TODO APP] UPDATE TODOS';
@@ -18,18 +15,6 @@ export const OPEN_EDIT_TODO_DIALOG = '[TODO APP] OPEN EDIT TODO DIALOG';
 export const CLOSE_EDIT_TODO_DIALOG = '[TODO APP] CLOSE EDIT TODO DIALOG';
 export const TOGGLE_ORDER_DESCENDING = '[TODO APP] TOGGLE ORDER DESCENDING';
 export const CHANGE_ORDER = '[TODO APP] CHANGE ORDER';
-
-export function getData(match)
-{
-    return (dispatch) => {
-        Promise.all([
-            dispatch(getFilters()),
-            dispatch(getFolders()),
-            dispatch(getLabels())
-        ]).then(
-            () => dispatch(getTodos(match)));
-    }
-}
 
 export function getTodos(match)
 {
