@@ -1,59 +1,67 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import {TextField, Button, Dialog, DialogActions, DialogContent, Icon, IconButton, Typography, Toolbar, AppBar} from '@material-ui/core';
-import _ from '@lodash';
+import {useForm} from '@fuse/hooks';
 import MailAttachment from './MailAttachment';
 
-class MailCompose extends Component {
+function MailCompose()
+{
+    const [openDialog, setOpenDialog] = useState(false);
+    const {form, handleChange} = useForm({
+        from   : 'johndoe@creapond.com',
+        to     : '',
+        cc     : '',
+        bcc    : '',
+        subject: '',
+        message: ''
+    });
 
-    state = {
-        composeDialog: false,
-        from         : 'johndoe@creapond.com',
-        to           : '',
-        cc           : '',
-        bcc          : '',
-        subject      : '',
-        message      : ''
-    };
-
-    openComposeDialog = () => {
-        this.setState({composeDialog: true});
-    };
-
-    closeComposeDialog = () => {
-        this.setState({composeDialog: false});
-    };
-
-    handleChange = (event) => {
-        this.setState(_.set({...this.state}, event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value));
-    };
-
-    render()
+    function handleOpenDialog()
     {
-        return (
-            <div className="p-24">
+        setOpenDialog(true);
+    }
 
-                <Button
-                    variant="contained"
-                    color="primary"
-                    className="w-full"
-                    onClick={this.openComposeDialog}
-                >
-                    COMPOSE
-                </Button>
+    function handleCloseDialog()
+    {
+        setOpenDialog(false);
+    }
 
-                <Dialog
-                    open={this.state.composeDialog}
-                    onClose={this.closeComposeDialog}
-                    aria-labelledby="form-dialog-title"
-                >
-                    <AppBar position="static">
-                        <Toolbar className="flex w-full">
-                            <Typography variant="subtitle1" color="inherit">
-                                New Message
-                            </Typography>
-                        </Toolbar>
-                    </AppBar>
+    function handleDelete()
+    {
+        setOpenDialog(false);
+    }
 
+    function handleSubmit(ev)
+    {
+        ev.preventDefault();
+        setOpenDialog(false);
+    }
+
+    return (
+        <div className="p-24">
+
+            <Button
+                variant="contained"
+                color="primary"
+                className="w-full"
+                onClick={handleOpenDialog}
+            >
+                COMPOSE
+            </Button>
+
+            <Dialog
+                open={openDialog}
+                onClose={handleCloseDialog}
+                aria-labelledby="form-dialog-title"
+            >
+                <AppBar position="static">
+                    <Toolbar className="flex w-full">
+                        <Typography variant="subtitle1" color="inherit">
+                            New Message
+                        </Typography>
+                    </Toolbar>
+                </AppBar>
+
+                <form noValidate onSubmit={handleSubmit} className="flex flex-col">
                     <DialogContent classes={{root: "p-16 pb-0 sm:p-24 sm:pb-0"}}>
 
                         <TextField
@@ -61,8 +69,8 @@ class MailCompose extends Component {
                             label="From"
                             id="from"
                             name="from"
-                            value={this.state.from}
-                            onChange={this.handleChange}
+                            value={form.from}
+                            onChange={handleChange}
                             variant="outlined"
                             fullWidth
                             disabled
@@ -74,8 +82,8 @@ class MailCompose extends Component {
                             autoFocus
                             id="to"
                             name="to"
-                            value={this.state.to}
-                            onChange={this.handleChange}
+                            value={form.to}
+                            onChange={handleChange}
                             variant="outlined"
                             fullWidth
                             required
@@ -86,8 +94,8 @@ class MailCompose extends Component {
                             label="Cc"
                             id="cc"
                             name="cc"
-                            value={this.state.cc}
-                            onChange={this.handleChange}
+                            value={form.cc}
+                            onChange={handleChange}
                             variant="outlined"
                             fullWidth
                         />
@@ -97,8 +105,8 @@ class MailCompose extends Component {
                             label="Bcc"
                             id="bcc"
                             name="bcc"
-                            value={this.state.bcc}
-                            onChange={this.handleChange}
+                            value={form.bcc}
+                            onChange={handleChange}
                             variant="outlined"
                             fullWidth
                         />
@@ -108,8 +116,8 @@ class MailCompose extends Component {
                             label="Subject"
                             id="subject"
                             name="subject"
-                            value={this.state.subject}
-                            onChange={this.handleChange}
+                            value={form.subject}
+                            onChange={handleChange}
                             variant="outlined"
                             fullWidth
                         />
@@ -118,7 +126,8 @@ class MailCompose extends Component {
                             className="mt-8 mb-16"
                             id="message"
                             name="message"
-                            onChange={this.handleChange}
+                            onChange={handleChange}
+                            value={form.message}
                             label="Message"
                             type="text"
                             multiline
@@ -135,21 +144,21 @@ class MailCompose extends Component {
 
                     <DialogActions className="justify-between pl-8 sm:pl-16">
                         <div>
-                            <Button variant="contained" color="primary" onClick={this.closeComposeDialog}>
+                            <Button variant="contained" color="primary" type="submit">
                                 Send
                             </Button>
                             <IconButton>
                                 <Icon>attach_file</Icon>
                             </IconButton>
                         </div>
-                        <IconButton onClick={this.closeComposeDialog}>
+                        <IconButton onClick={handleDelete}>
                             <Icon>delete</Icon>
                         </IconButton>
                     </DialogActions>
-                </Dialog>
-            </div>
-        );
-    }
+                </form>
+            </Dialog>
+        </div>
+    );
 }
 
 export default MailCompose;

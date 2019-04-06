@@ -7,7 +7,6 @@ import {connect} from 'react-redux';
 
 function DetailSidebarHeader(props)
 {
-
     const selected = props.files[props.selectedItem];
 
     if ( !selected )

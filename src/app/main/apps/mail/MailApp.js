@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {FusePageCarded} from '@fuse';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -13,57 +13,50 @@ import MailAppSidebarContent from './MailAppSidebarContent';
 import * as Actions from './store/actions';
 import reducer from './store/reducers';
 
-class MailApp extends Component {
+function MailApp(props)
+{
+    const pageLayout = useRef(null);
 
-    componentDidMount()
-    {
-        this.props.getFilters();
-        this.props.getFolders();
-        this.props.getLabels();
-    }
+    useEffect(() => {
+        props.getFilters();
+        props.getFolders();
+        props.getLabels();
+    }, []);
 
-    render()
-    {
-        const {match} = this.props;
-        const {params} = match;
-
-        return (
-            <FusePageCarded
-                classes={{
-                    root   : "w-full",
-                    content: "flex flex-col",
-                    header : "items-center min-h-72 h-72 sm:h-136 sm:min-h-136"
-                }}
-                header={
-                    <MailAppHeader pageLayout={() => this.pageLayout}/>
-                }
-                contentToolbar={
-                    params.mailId ? (
-                        <MailToolbar/>
-                    ) : (
-                        <MailsToolbar/>
-                    )
-                }
-                content={
-                    params.mailId ? (
-                        <MailDetails/>
-                    ) : (
-                        <MailList/>
-                    )
-                }
-                leftSidebarHeader={
-                    <MailAppSidebarHeader/>
-                }
-                leftSidebarContent={
-                    <MailAppSidebarContent/>
-                }
-                onRef={instance => {
-                    this.pageLayout = instance;
-                }}
-                innerScroll
-            />
-        )
-    };
+    return (
+        <FusePageCarded
+            classes={{
+                root   : "w-full",
+                content: "flex flex-col",
+                header : "items-center min-h-72 h-72 sm:h-136 sm:min-h-136"
+            }}
+            header={
+                <MailAppHeader pageLayout={pageLayout}/>
+            }
+            contentToolbar={
+                props.match.params.mailId ? (
+                    <MailToolbar/>
+                ) : (
+                    <MailsToolbar/>
+                )
+            }
+            content={
+                props.match.params.mailId ? (
+                    <MailDetails/>
+                ) : (
+                    <MailList/>
+                )
+            }
+            leftSidebarHeader={
+                <MailAppSidebarHeader/>
+            }
+            leftSidebarContent={
+                <MailAppSidebarContent/>
+            }
+            ref={pageLayout}
+            innerScroll
+        />
+    )
 }
 
 function mapDispatchToProps(dispatch)

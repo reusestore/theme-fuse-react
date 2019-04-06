@@ -1,79 +1,71 @@
-import React, {Component} from 'react';
-import {withStyles, List, Typography} from '@material-ui/core';
+import React, {useEffect, useState} from 'react';
+import {List, Typography} from '@material-ui/core';
 import {FuseUtils, FuseAnimate, FuseAnimateGroup} from '@fuse';
 import {withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import _ from '@lodash';
 import * as Actions from '../store/actions';
 import MailListItem from './MailListItem';
 
-const styles = theme => ({
-    avatar: {
-        backgroundColor: theme.palette.primary[500]
-    }
-});
+function MailList(props)
+{
+    const [filteredData, setFilteredData] = useState(null);
 
-class MailList extends Component {
+    useEffect(() => {
+        props.getMails(props.match.params);
+    }, [props.location]);
 
-    componentDidMount()
-    {
-        this.props.getMails(this.props.match.params);
-    }
-
-    componentDidUpdate(prevProps, prevState)
-    {
-        if ( !_.isEqual(this.props.location, prevProps.location) )
+    useEffect(() => {
+        if ( props.mails )
         {
-            this.props.getMails(this.props.match.params);
+            setFilteredData(getFilteredArray());
         }
-    }
+    }, [props.mails, props.searchText]);
 
-    getFilteredArray = (entities, searchText) => {
-        const arr = Object.keys(entities).map((id) => entities[id]);
-        if ( searchText.length === 0 )
+    function getFilteredArray()
+    {
+        const arr = Object.keys(props.mails).map((id) => props.mails[id]);
+        if ( props.searchText.length === 0 )
         {
             return arr;
         }
-        return FuseUtils.filterArrayByString(arr, searchText);
-    };
+        return FuseUtils.filterArrayByString(arr, props.searchText);
+    }
 
-    render()
+    if ( !filteredData )
     {
-        const {mails, searchText} = this.props;
+        return null;
+    }
 
-        const arr = this.getFilteredArray(mails, searchText);
-
-        if ( arr.length === 0 )
-        {
-            return (
-                <FuseAnimate delay={100}>
-                    <div className="flex flex-1 items-center justify-center h-full">
-                        <Typography color="textSecondary" variant="h5">
-                            There are no messages!
-                        </Typography>
-                    </div>
-                </FuseAnimate>
-            );
-        }
-
+    if ( filteredData.length === 0 )
+    {
         return (
-            <List className="p-0">
-                <FuseAnimateGroup
-                    enter={{
-                        animation: "transition.slideUpBigIn"
-                    }}
-                >
-                    {
-                        arr.map((mail) => (
-                                <MailListItem mail={mail} key={mail.id}/>
-                            )
-                        )
-                    }
-                </FuseAnimateGroup>
-            </List>
+            <FuseAnimate delay={100}>
+                <div className="flex flex-1 items-center justify-center h-full">
+                    <Typography color="textSecondary" variant="h5">
+                        There are no messages!
+                    </Typography>
+                </div>
+            </FuseAnimate>
         );
     }
+
+    return (
+        <List className="p-0">
+            <FuseAnimateGroup
+                enter={{
+                    animation: "transition.slideUpBigIn"
+                }}
+            >
+                {
+                    filteredData.map((mail) => (
+                            <MailListItem mail={mail} key={mail.id}/>
+                        )
+                    )
+                }
+            </FuseAnimateGroup>
+        </List>
+    );
 }
 
 function mapDispatchToProps(dispatch)
@@ -91,4 +83,4 @@ function mapStateToProps({mailApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(MailList)));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MailList));

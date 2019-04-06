@@ -1,8 +1,9 @@
 import React from 'react';
-import {Icon, IconButton, Typography, withStyles} from '@material-ui/core';
+import {Icon, IconButton, Typography} from '@material-ui/core';
+import {makeStyles} from '@material-ui/styles';
 import classNames from 'classnames';
 
-const styles = theme => ({
+const useStyles = makeStyles({
     root    : {
         fontSize       : 13,
         backgroundColor: 'rgba(0, 0, 0, 0.08)',
@@ -23,18 +24,21 @@ const styles = theme => ({
     }
 });
 
-const MailAttachment = ({classes, className, fileName, size}) => {
+function MailAttachment(props)
+{
+    const classes = useStyles();
+
     return (
-        <div className={classNames(classes.root, className)}>
+        <div className={classNames(classes.root, props.className)}>
             <div className="flex">
-                <Typography variant="caption" className={classes.filename}>{fileName}</Typography>
-                <Typography variant="caption" className={classes.size}>({size})</Typography>
+                <Typography variant="caption" className={classes.filename}>{props.fileName}</Typography>
+                <Typography variant="caption" className={classes.size}>({props.size})</Typography>
             </div>
             <IconButton>
                 <Icon className="text-16">close</Icon>
             </IconButton>
         </div>
     );
-};
+}
 
-export default withStyles(styles, {withTheme: true})(MailAttachment);
+export default MailAttachment;

@@ -1,8 +1,8 @@
 import React from 'react';
-import {withStyles} from '@material-ui/core';
+import {makeStyles} from '@material-ui/styles';
 import classNames from 'classnames';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     root : {
         display        : 'flex',
         alignItems     : 'center',
@@ -18,16 +18,18 @@ const styles = theme => ({
         marginRight : 4,
         borderRadius: '50%'
     }
-});
+}));
 
-function MailChip({classes, title, color, className})
+function MailChip(props)
 {
+    const classes = useStyles();
+
     return (
-        <div className={classNames(classes.root, className)}>
-            <div className={classes.color} style={{backgroundColor: color}}/>
-            <div>{title}</div>
+        <div className={classNames(classes.root, props.className)}>
+            <div className={classes.color} style={{backgroundColor: props.color}}/>
+            <div>{props.title}</div>
         </div>
     );
 }
 
-export default withStyles(styles, {withTheme: true})(MailChip);
+export default MailChip;

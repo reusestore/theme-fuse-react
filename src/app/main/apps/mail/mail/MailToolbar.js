@@ -8,15 +8,14 @@ import * as Actions from '../store/actions/index';
 
 const pathToRegexp = require('path-to-regexp');
 
-const MailToolbar = ({classes, mail, match, history, toggleStar, toggleImportant}) => {
-
-    const {params} = match;
-    const toPath = pathToRegexp.compile(match.path);
-    const matchParams = {...params};
+function MailToolbar(props)
+{
+    const toPath = pathToRegexp.compile(props.match.path);
+    const matchParams = {...props.match.params};
     delete matchParams['mailId'];
     const deselectUrl = toPath(matchParams);
 
-    if ( !mail )
+    if ( !props.mail )
     {
         return null;
     }
@@ -24,14 +23,14 @@ const MailToolbar = ({classes, mail, match, history, toggleStar, toggleImportant
     return (
         <div className="flex flex-1 items-center justify-between overflow-hidden sm:px-16">
 
-            <IconButton onClick={() => history.push(deselectUrl)}>
+            <IconButton onClick={() => props.history.push(deselectUrl)}>
                 <Icon>arrow_back</Icon>
             </IconButton>
 
             <div className="flex items-center justify-start" aria-label="Toggle star">
                 <FuseAnimate animation="transition.expandIn" delay={100}>
-                    <IconButton onClick={() => toggleStar(mail)}>
-                        {mail.starred ?
+                    <IconButton onClick={() => props.toggleStar(props.mail)}>
+                        {props.mail.starred ?
                             (
                                 <Icon>star</Icon>
                             )
@@ -43,8 +42,8 @@ const MailToolbar = ({classes, mail, match, history, toggleStar, toggleImportant
                     </IconButton>
                 </FuseAnimate>
                 <FuseAnimate animation="transition.expandIn" delay={100}>
-                    <IconButton onClick={() => toggleImportant(mail)}>
-                        {mail.important ?
+                    <IconButton onClick={() => props.toggleImportant(props.mail)}>
+                        {props.mail.important ?
                             (
                                 <Icon>label</Icon>
                             )
@@ -58,7 +57,7 @@ const MailToolbar = ({classes, mail, match, history, toggleStar, toggleImportant
             </div>
         </div>
     );
-};
+}
 
 function mapDispatchToProps(dispatch)
 {
