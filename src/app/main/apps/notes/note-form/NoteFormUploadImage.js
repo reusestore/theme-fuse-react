@@ -1,8 +1,8 @@
 import React, {Fragment} from 'react';
 import {Icon, IconButton} from '@material-ui/core';
 
-const NoteFormUploadImage = ({onChange}) => {
-
+function NoteFormUploadImage(props)
+{
     return (
         <Fragment>
             <input
@@ -10,7 +10,7 @@ const NoteFormUploadImage = ({onChange}) => {
                 className="hidden"
                 id="button-file"
                 type="file"
-                onChange={onChange}
+                onChange={props.onChange}
             />
             <label htmlFor="button-file">
                 <IconButton className="w-32 h-32 mx-4 p-0" component="span">
@@ -19,6 +19,6 @@ const NoteFormUploadImage = ({onChange}) => {
             </label>
         </Fragment>
     );
-};
+}
 
 export default NoteFormUploadImage;

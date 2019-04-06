@@ -3,9 +3,9 @@ import {Icon, IconButton} from '@material-ui/core';
 import {DateTimePicker, MuiPickersUtilsProvider} from 'material-ui-pickers';
 import DateFnsUtils from '@date-io/date-fns';
 
-const NoteFormReminder = ({reminder, onChange}) => {
-
-    reminder = new Date(reminder);
+function NoteFormReminder(props)
+{
+    const reminder = new Date(props.reminder);
     let picker = null;
 
     function handleOpen()
@@ -34,7 +34,7 @@ const NoteFormReminder = ({reminder, onChange}) => {
                     showTodayButton
                     disablePast
                     value={reminder}
-                    onChange={onChange}
+                    onChange={props.onChange}
                     DialogProps={{
                         className: "prevent-add-close"
                     }}
@@ -42,6 +42,6 @@ const NoteFormReminder = ({reminder, onChange}) => {
             </MuiPickersUtilsProvider>
         </Fragment>
     );
-};
+}
 
 export default NoteFormReminder;

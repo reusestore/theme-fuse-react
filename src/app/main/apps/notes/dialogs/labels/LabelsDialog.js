@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import {Typography, Dialog, ListItem, Input, IconButton, Icon, List} from '@material-ui/core';
+import {useDebounce, useForm} from '@fuse/hooks';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import classNames from 'classnames';
@@ -7,68 +8,73 @@ import _ from '@lodash';
 import * as Actions from 'app/main/apps/notes/store/actions';
 import LabelModel from 'app/main/apps/notes/model/LabelModel';
 
-class LabelsDialog extends Component {
-
-    state = {
-        labels      : this.props.labels,
-        newLabelText: ""
-    };
-
-    componentDidUpdate(prevProps, prevState, snapshot)
-    {
-        if ( !_.isEqual(prevProps.labels, this.props.labels) &&
-            !_.isEqual(this.state.labels, this.props.labels) )
+function LabelsDialog(props)
+{
+    const [labels, setLabels] = useState(props.labels);
+    const {form: newLabelForm, handleChange, resetForm} = useForm(
         {
-            this.setState({labels: this.props.labels});
+            name: ""
         }
+    );
 
-        if ( prevState.labels &&
-            this.state.labels &&
-            !_.isEqual(prevState.labels, this.state.labels) &&
-            !_.isEqual(this.state.labels, this.props.labels)
-        )
-        {
-            this.handleOnChange(this.state.labels);
-        }
-    }
-
-    handleOnChange = _.debounce((labels) => {
-        this.props.updateLabels(labels);
+    const handleOnChange = useDebounce((labels) => {
+        props.updateLabels(labels);
     }, 600);
 
-    handleOnDelete = ((label) => {
-        this.setState({labels: _.omit(this.state.labels, [label.id])});
-    });
 
-    handleLabelChange = (event, label) => {
-        const updatedLabel = new LabelModel(_.setIn(label, event.target.name, event.target.value));
-        this.setState({labels: _.setIn(this.state.labels, updatedLabel.id, updatedLabel)});
-    };
+    useEffect(() => {
+        if ( !_.isEqual(labels, props.labels) )
+        {
+            setLabels(props.labels);
+        }
+    }, [props.labels]);
 
-    handleNewLabelChange = (event) => {
-        this.setState({newLabelText: event.target.value});
-    };
+    useEffect(() => {
+        if ( labels && !_.isEqual(labels, props.labels) )
+        {
+            handleOnChange(labels);
+        }
+    }, [labels]);
 
-    handleNewLabel = () => {
-        const newLabel = new LabelModel({name: this.state.newLabelText});
-        this.setState({labels: _.setIn(this.state.labels, newLabel.id, newLabel)});
-        this.setState({newLabelText: ""});
-    };
-
-    render()
+    function handleOnDelete(label)
     {
-        const {closeLabelsDialog, labelsDialogOpen} = this.props;
-        const {labels, newLabelText} = this.state;
-        return (
-            <Dialog
-                classes={{
-                    paper: "w-full max-w-320 p-16 m-24 rounded-8"
-                }}
-                onClose={closeLabelsDialog}
-                open={labelsDialogOpen}
-            >
-                <Typography className="text-16 mb-8 font-600">Edit Labels</Typography>
-                <List dense>
+        setLabels(_.omit(labels, [label.id]));
+    }
+
+    function handleLabelChange(event, label)
+    {
+        const updatedLabel = new LabelModel(_.setIn(label, event.target.name, event.target.value));
+        setLabels(_.setIn(labels, updatedLabel.id, updatedLabel));
+    }
+
+    function isFormInValid()
+    {
+        return newLabelForm.name === '';
+    }
+
+    function handleSubmit(ev)
+    {
+        ev.preventDefault();
+        if ( isFormInValid() )
+        {
+            return;
+        }
+        const newLabel = new LabelModel(newLabelForm);
+        setLabels(_.setIn(labels, newLabel.id, newLabel));
+        resetForm();
+    }
+
+    return (
+        <Dialog
+            classes={{
+                paper: "w-full max-w-320 p-16 m-24 rounded-8"
+            }}
+            onClose={props.closeLabelsDialog}
+            open={props.labelsDialogOpen}
+        >
+            <Typography className="text-16 mb-8 font-600">Edit Labels</Typography>
+            <List dense>
+                <form onSubmit={handleSubmit}>
                     <ListItem
                         className="p-0 mb-16"
                         dense
@@ -77,15 +83,22 @@ class LabelsDialog extends Component {
                         <Input
                             className={classNames("flex flex-1 mx-8")}
                             name="name"
-                            value={newLabelText}
-                            onChange={this.handleNewLabelChange}
+                            value={newLabelForm.name}
+                            onChange={handleChange}
                             placeholder="Create new label"
                         />
-                        <IconButton className="w-32 h-32 mx-4 p-0" aria-label="Delete" onClick={this.handleNewLabel} disabled={newLabelText === ""}>
+                        <IconButton
+                            className="w-32 h-32 mx-4 p-0"
+                            aria-label="Delete"
+                            disabled={isFormInValid()}
+                            type="submit"
+                        >
                             <Icon fontSize="small">check</Icon>
                         </IconButton>
                     </ListItem>
-                    {Object.entries(labels).map(([key, label]) => (
+                </form>
+                {useMemo(() =>
+                    Object.entries(labels).map(([key, label]) => (
                         <ListItem
                             className="p-0"
                             key={label.id}
@@ -96,18 +109,17 @@ class LabelsDialog extends Component {
                                 className={classNames("flex flex-1 mx-8")}
                                 name="name"
                                 value={label.name}
-                                onChange={(event) => this.handleLabelChange(event, label)}
+                                onChange={(event) => handleLabelChange(event, label)}
                                 disableUnderline
                             />
-                            <IconButton className="w-32 h-32 mx-4 p-0" aria-label="Delete" onClick={(ev) => this.handleOnDelete(label)}>
+                            <IconButton className="w-32 h-32 mx-4 p-0" aria-label="Delete" onClick={(ev) => handleOnDelete(label)}>
                                 <Icon fontSize="small">delete</Icon>
                             </IconButton>
                         </ListItem>
-                    ))}
-                </List>
-            </Dialog>
-        );
-    }
+                    )), [labels])}
+            </List>
+        </Dialog>
+    );
 }
 
 function mapDispatchToProps(dispatch)

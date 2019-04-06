@@ -3,14 +3,14 @@ import {Icon, IconButton, Checkbox, ListItem, Input} from '@material-ui/core';
 import classNames from 'classnames';
 import _ from '@lodash';
 
-const NoteFormListItem = ({item, onListItemChange, onListItemRemove}) => {
-
+function NoteFormListItem(props)
+{
     function handleChange(event)
     {
-        onListItemChange(_.setIn(item, event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value));
+        props.onListItemChange(_.setIn(props.item, event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value));
     }
 
-    if ( !item )
+    if ( !props.item )
     {
         return null;
     }
@@ -18,12 +18,12 @@ const NoteFormListItem = ({item, onListItemChange, onListItemRemove}) => {
     return (
         <ListItem
             className="p-0"
-            key={item.id}
+            key={props.item.id}
             dense
         >
             <Checkbox
                 className="p-0"
-                checked={item.checked}
+                checked={props.item.checked}
                 tabIndex={-1}
                 disableRipple
                 name="checked"
@@ -31,17 +31,17 @@ const NoteFormListItem = ({item, onListItemChange, onListItemRemove}) => {
                 color="default"
             />
             <Input
-                className={classNames("flex flex-1 mx-8", item.checked && "line-through opacity-50")}
+                className={classNames("flex flex-1 mx-8", props.item.checked && "line-through opacity-50")}
                 name="text"
-                value={item.text}
+                value={props.item.text}
                 onChange={handleChange}
                 disableUnderline
             />
-            <IconButton className="w-32 h-32 mx-4 p-0" aria-label="Delete" onClick={() => onListItemRemove(item.id)}>
+            <IconButton className="w-32 h-32 mx-4 p-0" aria-label="Delete" onClick={() => props.onListItemRemove(props.item.id)}>
                 <Icon fontSize="small">delete</Icon>
             </IconButton>
         </ListItem>
     );
-};
+}
 
 export default NoteFormListItem;

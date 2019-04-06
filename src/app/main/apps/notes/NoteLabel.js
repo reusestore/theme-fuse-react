@@ -4,23 +4,21 @@ import {connect} from 'react-redux';
 import classNames from 'classnames';
 import {Link} from 'react-router-dom';
 
-const NoteLabel = (props) => {
-
-    const {labels, id, className, classes, onDelete, linkable} = props;
-
-    if ( !labels )
+function NoteLabel(props)
+{
+    if ( !props.labels )
     {
         return null;
     }
 
-    const label = labels[id];
+    const label = props.labels[props.id];
 
     if ( !label )
     {
         return null;
     }
 
-    const linkProps = linkable ? {
+    const linkProps = props.linkable ? {
         component: Link,
         onClick  : ev => {
             ev.stopPropagation();
@@ -33,16 +31,16 @@ const NoteLabel = (props) => {
             {...linkProps}
             label={label.name}
             classes={{
-                root      : classNames("h-24", className),
+                root      : classNames("h-24", props.className),
                 label     : "px-6 py-4 text-11",
                 deleteIcon: "w-16 ml-0",
-                ...classes
+                ...props.classes
             }}
             variant="outlined"
-            onDelete={onDelete}
+            onDelete={props.onDelete}
         />
     );
-};
+}
 
 function mapStateToProps({notesApp})
 {

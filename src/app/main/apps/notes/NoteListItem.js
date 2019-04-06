@@ -9,39 +9,39 @@ import setDescriptionStyle from './setDescriptionStyle';
 import NoteReminderLabel from './NoteReminderLabel';
 import NoteLabel from './NoteLabel';
 
-const NoteListItem = ({className, note, variateDescSize, openNoteDialog}) => {
-
+function NoteListItem(props)
+{
     return (
         <FuseAnimate animation="transition.fadeIn" duration={400} delay={100}>
-            <Card className={classNames("cursor-pointer", className)} onClick={() => openNoteDialog(note.id)}>
-                {note.image && note.image !== "" && (
-                    <img src={note.image} className="w-full block" alt="note"/>
+            <Card className={classNames("cursor-pointer", props.className)} onClick={() => props.openNoteDialog(props.note.id)}>
+                {props.note.image && props.note.image !== "" && (
+                    <img src={props.note.image} className="w-full block" alt="note"/>
                 )}
 
-                {note.title && note.title !== "" && (
+                {props.note.title && props.note.title !== "" && (
                     <Typography className="p-16 pb-8 text-14 font-bold">
-                        {note.title}
+                        {props.note.title}
                     </Typography>
                 )}
 
-                {note.description && note.description !== "" && (
+                {props.note.description && props.note.description !== "" && (
                     <Typography
                         className="py-8 px-16"
                         component="div"
                     >
                         <div
-                            className={classNames("w-full break-words", variateDescSize ? "font-200" : "text-14")}
+                            className={classNames("w-full break-words", props.variateDescSize ? "font-200" : "text-14")}
                             ref={el => {
-                                setTimeout(() => setDescriptionStyle(note.description, el, variateDescSize));
+                                setTimeout(() => setDescriptionStyle(props.note.description, el, props.variateDescSize));
                             }}>
-                            {note.description}
+                            {props.note.description}
                         </div>
                     </Typography>
                 )}
 
-                {note.checklist && note.checklist.length > 0 && (
+                {props.note.checklist && props.note.checklist.length > 0 && (
                     <ul className="py-8 px-16 flex flex-wrap list-reset">
-                        {note.checklist.map(item => (
+                        {props.note.checklist.map(item => (
                             <li key={item.id} className="flex items-center w-full">
                                 <Icon color="action" className="mr-8 text-16">{item.checked ? "check_box_outline" : "check_box_outline_blank"}</Icon>
                                 <Typography
@@ -55,12 +55,12 @@ const NoteListItem = ({className, note, variateDescSize, openNoteDialog}) => {
                     </ul>
                 )}
 
-                {(note.labels.length > 0 || note.reminder) && (
+                {(props.note.labels.length > 0 || props.note.reminder) && (
                     <div className="py-8 px-16 flex flex-wrap w-full">
-                        {note.reminder && (
-                            <NoteReminderLabel className="mt-4 mr-4" date={note.reminder}/>
+                        {props.note.reminder && (
+                            <NoteReminderLabel className="mt-4 mr-4" date={props.note.reminder}/>
                         )}
-                        {note.labels.map(id => (
+                        {props.note.labels.map(id => (
                             <NoteLabel id={id} key={id} className="mt-4 mr-4" linkable/>
                         ))}
                     </div>
@@ -68,7 +68,7 @@ const NoteListItem = ({className, note, variateDescSize, openNoteDialog}) => {
             </Card>
         </FuseAnimate>
     );
-};
+}
 
 function mapDispatchToProps(dispatch)
 {

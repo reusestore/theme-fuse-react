@@ -1,35 +1,34 @@
 import React from 'react';
 import {List} from '@material-ui/core';
-import classNames from 'classnames';
 import NoteFormListItem from './NoteFormListItem';
 import NoteFormAddListItem from './NoteFormAddListItem';
 
-const NoteFormList = ({className, checklist, onCheckListChange}) => {
-
+function NoteFormList(props)
+{
     function handleListItemChange(item)
     {
-        onCheckListChange(checklist.map((_item) => _item.id === item.id ? item : _item));
+        props.onCheckListChange(props.checklist.map((_item) => _item.id === item.id ? item : _item));
     }
 
     function handleListItemRemove(id)
     {
-        onCheckListChange(checklist.filter((_item) => _item.id !== id));
+        props.onCheckListChange(props.checklist.filter((_item) => _item.id !== id));
     }
 
     function handleListItemAdd(item)
     {
-        onCheckListChange([...checklist, item]);
+        props.onCheckListChange([...props.checklist, item]);
     }
 
-    if ( !checklist )
+    if ( !props.checklist )
     {
         return null;
     }
 
     return (
-        <div className={classNames("", className)}>
+        <div className={props.className}>
             <List dense>
-                {checklist.map(item => (
+                {props.checklist.map(item => (
                     <NoteFormListItem
                         item={item}
                         key={item.id}
@@ -41,6 +40,6 @@ const NoteFormList = ({className, checklist, onCheckListChange}) => {
             </List>
         </div>
     );
-};
+}
 
 export default NoteFormList;

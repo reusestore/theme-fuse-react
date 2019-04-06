@@ -1,13 +1,14 @@
-import React, {Component} from 'react';
-import {withStyles, Divider, Icon, List, ListItem, ListItemText, Paper, ListSubheader} from '@material-ui/core';
+import React from 'react';
+import {Divider, Icon, List, ListItem, ListItemText, Paper, ListSubheader} from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
 import {NavLink, withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as Actions from 'app/main/apps/notes/store/actions';
 import classNames from 'classnames';
+import {makeStyles} from '@material-ui/styles';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     paper   : {
         [theme.breakpoints.down('md')]: {
             boxShadow: 'none'
@@ -30,89 +31,86 @@ const styles = theme => ({
             }
         }
     }
-});
+}));
 
-class NotesSidebarContent extends Component {
+function NotesSidebarContent(props)
+{
+    const classes = useStyles(props);
 
-    render()
-    {
-        const {classes, labels, openLabelsDialog} = this.props;
+    return (
+        <div className="py-24 lg:p-24 lg:pr-4">
+            <FuseAnimate animation="transition.slideLeftIn" delay={200}>
+                <Paper elevation={1} className={classNames(classes.paper, "rounded-8")}>
+                    <List>
+                        <ListItem
+                            button
+                            component={NavLink}
+                            to={'/apps/notes'}
+                            exact={true}
+                            activeClassName="active"
+                            className={classes.listItem}
+                        >
+                            <Icon className="list-item-icon text-16" color="action">label</Icon>
+                            <ListItemText className="truncate pr-0" primary="Notes" disableTypography={true}/>
+                        </ListItem>
+                        <ListItem
+                            button
+                            component={NavLink}
+                            to={'/apps/notes/reminders'}
+                            exact={true}
+                            activeClassName="active"
+                            className={classes.listItem}
+                        >
+                            <Icon className="list-item-icon text-16" color="action">notifications</Icon>
+                            <ListItemText className="truncate pr-0" primary="Reminders" disableTypography={true}/>
+                        </ListItem>
+                    </List>
+                    <Divider/>
+                    <List>
+                        <ListSubheader>
+                            Labels
+                        </ListSubheader>
+                        {Object.entries(props.labels).map(([key, label]) => (
 
-        return (
-            <div className="py-24 lg:p-24 lg:pr-4">
-                <FuseAnimate animation="transition.slideLeftIn" delay={200}>
-                    <Paper elevation={1} className={classNames(classes.paper, "rounded-8")}>
-                        <List>
                             <ListItem
+                                key={label.id}
                                 button
                                 component={NavLink}
-                                to={'/apps/notes'}
+                                to={`/apps/notes/labels/${label.handle}/${label.id}`}
                                 exact={true}
                                 activeClassName="active"
                                 className={classes.listItem}
                             >
                                 <Icon className="list-item-icon text-16" color="action">label</Icon>
-                                <ListItemText className="truncate pr-0" primary="Notes" disableTypography={true}/>
+                                <ListItemText className="truncate pr-0" primary={label.name} disableTypography={true}/>
                             </ListItem>
-                            <ListItem
-                                button
-                                component={NavLink}
-                                to={'/apps/notes/reminders'}
-                                exact={true}
-                                activeClassName="active"
-                                className={classes.listItem}
-                            >
-                                <Icon className="list-item-icon text-16" color="action">notifications</Icon>
-                                <ListItemText className="truncate pr-0" primary="Reminders" disableTypography={true}/>
-                            </ListItem>
-                        </List>
-                        <Divider/>
-                        <List>
-                            <ListSubheader>
-                                Labels
-                            </ListSubheader>
-                            {Object.entries(labels).map(([key, label]) => (
-
-                                <ListItem
-                                    key={label.id}
-                                    button
-                                    component={NavLink}
-                                    to={`/apps/notes/labels/${label.handle}/${label.id}`}
-                                    exact={true}
-                                    activeClassName="active"
-                                    className={classes.listItem}
-                                >
-                                    <Icon className="list-item-icon text-16" color="action">label</Icon>
-                                    <ListItemText className="truncate pr-0" primary={label.name} disableTypography={true}/>
-                                </ListItem>
-                            ))}
-                            <ListItem
-                                button
-                                className={classes.listItem}
-                                onClick={openLabelsDialog}
-                            >
-                                <Icon className="list-item-icon text-16" color="action">edit</Icon>
-                                <ListItemText className="truncate pr-0" primary="Edit Labels" disableTypography={true}/>
-                            </ListItem>
-                        </List>
-                        <Divider/>
-                        <List>
-                            <ListItem
-                                button
-                                component={NavLink}
-                                to={'/apps/notes/archive'}
-                                activeClassName="active"
-                                className={classes.listItem}
-                            >
-                                <Icon className="list-item-icon text-16" color="action">archive</Icon>
-                                <ListItemText className="truncate pr-0" primary="Archive" disableTypography={true}/>
-                            </ListItem>
-                        </List>
-                    </Paper>
-                </FuseAnimate>
-            </div>
-        );
-    }
+                        ))}
+                        <ListItem
+                            button
+                            className={classes.listItem}
+                            onClick={props.openLabelsDialog}
+                        >
+                            <Icon className="list-item-icon text-16" color="action">edit</Icon>
+                            <ListItemText className="truncate pr-0" primary="Edit Labels" disableTypography={true}/>
+                        </ListItem>
+                    </List>
+                    <Divider/>
+                    <List>
+                        <ListItem
+                            button
+                            component={NavLink}
+                            to={'/apps/notes/archive'}
+                            activeClassName="active"
+                            className={classes.listItem}
+                        >
+                            <Icon className="list-item-icon text-16" color="action">archive</Icon>
+                            <ListItemText className="truncate pr-0" primary="Archive" disableTypography={true}/>
+                        </ListItem>
+                    </List>
+                </Paper>
+            </FuseAnimate>
+        </div>
+    );
 }
 
 function mapDispatchToProps(dispatch)
@@ -129,4 +127,4 @@ function mapStateToProps({notesApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(NotesSidebarContent)));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NotesSidebarContent));

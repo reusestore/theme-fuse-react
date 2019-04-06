@@ -1,6 +1,7 @@
-import React, {Component, Fragment} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 import {Tooltip, Button, Icon, Input, Typography, IconButton, Fab} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
+import {useForm} from '@fuse/hooks';
 import moment from 'moment';
 import _ from '@lodash';
 import {withRouter} from 'react-router-dom';
@@ -12,255 +13,243 @@ import NoteFormReminder from './NoteFormReminder';
 import NoteFormUploadImage from './NoteFormUploadImage';
 import NoteFormLabelMenu from './NoteFormLabelMenu';
 
-const propTypes = {};
-
-const defaultProps = {
-    variant: "edit",
-    note   : null
-};
-
-class NoteForm extends Component {
-
-    state = {
-        note    : _.merge(
+function NoteForm(props)
+{
+    const [showList, setShowList] = useState(false);
+    const {form: noteForm, handleChange, setForm} = useForm(
+        _.merge(
             {},
             new NoteModel(),
-            this.props.note,
-            this.props.match.params.labelId ? {labels: [this.props.match.params.labelId]} : null,
-            this.props.match.params.id === "archive" ? {archive: true} : null
-        ),
-        showList: false
-    };
+            props.note,
+            props.match.params.labelId ? {labels: [props.match.params.labelId]} : null,
+            props.match.params.id === "archive" ? {archive: true} : null
+        ));
 
-    componentDidUpdate(prevProps, prevState, snapshot)
-    {
-        if ( prevState.note &&
-            this.state.note &&
-            !_.isEqual(prevState.note, this.state.note) &&
-            this.props.onChange
-        )
+    useEffect(() => {
+        if ( noteForm && props.onChange )
         {
-            this.props.onChange(this.state.note);
+            props.onChange(noteForm);
         }
-    }
+    }, [noteForm]);
 
-    handleChange = (event) => {
-        this.setState(_.setIn(this.state, event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value));
-    };
-
-    handleOnCreate = (event) => {
-        if ( !this.props.onCreate )
+    function handleOnCreate(event)
+    {
+        if ( !props.onCreate )
         {
             return;
         }
-        this.props.onCreate(this.state.note);
-    };
+        props.onCreate(noteForm);
+    }
 
-    handleToggleList = () => {
-        this.setState({showList: !this.state.showList});
-    };
+    function handleToggleList()
+    {
+        setShowList(!showList);
+    }
 
-    handleDateChange = date => {
-        this.setState(_.setIn(this.state, "note.reminder", date));
-    };
+    function handleDateChange(date)
+    {
+        setForm(_.setIn(noteForm, "reminder", date));
+    }
 
-    handleChecklistChange = checklist => {
-        this.setState(_.setIn(this.state, `note.checklist`, checklist));
-    };
+    function handleChecklistChange(checklist)
+    {
+        setForm(_.setIn(noteForm, `checklist`, checklist));
+    }
 
-    handleRemoveLabel = id => {
-        this.setState(_.setIn(this.state, `note.labels`, this.state.note.labels.filter(_id => _id !== id)));
-    };
+    function handleRemoveLabel(id)
+    {
+        setForm(_.setIn(noteForm, `labels`, noteForm.labels.filter(_id => _id !== id)));
+    }
 
-    handleLabelsChange = labels => {
-        this.setState(_.setIn(this.state, `note.labels`, labels));
-    };
+    function handleLabelsChange(labels)
+    {
+        setForm(_.setIn(noteForm, `labels`, labels));
+    }
 
-    handleRemoveImage = e => {
-        this.setState(_.setIn(this.state, `note.image`, ""));
-    };
+    function handleRemoveImage()
+    {
+        setForm(_.setIn(noteForm, `image`, ""));
+    }
 
-    handleArchiveToggle = e => {
-        this.setState(_.setIn(this.state, `note.archive`, !this.state.archive));
-        if ( this.props.variant === "new" )
+    function handleArchiveToggle()
+    {
+        setForm(_.setIn(noteForm, `archive`, !noteForm.archive));
+        if ( props.variant === "new" )
         {
-            setTimeout(() => this.handleOnCreate());
+            setTimeout(() => handleOnCreate());
         }
-    };
+    }
 
-    handleUploadChange = e => {
+    function handleUploadChange(e)
+    {
         const file = e.target.files[0];
         const reader = new FileReader();
 
         reader.readAsBinaryString(file);
 
         reader.onload = () => {
-            this.setState(_.setIn(this.state, `note.image`, `data:${file.type};base64,${btoa(reader.result)}`));
+            setForm(_.setIn(noteForm, `image`, `data:${file.type};base64,${btoa(reader.result)}`));
         };
 
         reader.onerror = function () {
             console.log("error on load image");
         };
-    };
-
-    newFormButtonDisabled()
-    {
-        const note = this.state.note;
-        return note.title === "" && note.image === "" && note.description === "" && note.checklist.length === 0;
     }
 
-    render()
+    function newFormButtonDisabled()
     {
-        const {note, showList} = this.state;
-        const {variant} = this.props;
+        return noteForm.title === "" && noteForm.image === "" && noteForm.description === "" && noteForm.checklist.length === 0;
+    }
 
-        if ( !note )
-        {
-            return null;
-        }
+    if ( !noteForm )
+    {
+        return null;
+    }
 
-        return (
-            <div className="flex flex-col w-full">
-                <FuseScrollbars className="flex flex-auto w-full max-h-640">
-                    <div className="w-full">
-                        {note.image && note.image !== "" && (
-                            <div className="relative">
-                                <img src={note.image} className="w-full block" alt="note"/>
-                                <Fab
-                                    className="absolute pin-r pin-b m-8"
-                                    variant="extended"
-                                    size="small"
-                                    color="secondary"
-                                    aria-label="Delete Image"
-                                    onClick={this.handleRemoveImage}
-                                >
-                                    <Icon fontSize="small">delete</Icon>
-                                </Fab>
-                            </div>
-                        )}
-                        <div className="p-16 pb-12">
-                            <Input
-                                className="font-bold"
-                                placeholder="Title"
-                                type="text"
-                                name="note.title"
-                                value={note.title}
-                                onChange={this.handleChange}
-                                disableUnderline
-                                fullWidth
-                            />
+    return (
+        <div className="flex flex-col w-full">
+            <FuseScrollbars className="flex flex-auto w-full max-h-640">
+                <div className="w-full">
+                    {noteForm.image && noteForm.image !== "" && (
+                        <div className="relative">
+                            <img src={noteForm.image} className="w-full block" alt="note"/>
+                            <Fab
+                                className="absolute pin-r pin-b m-8"
+                                variant="extended"
+                                size="small"
+                                color="secondary"
+                                aria-label="Delete Image"
+                                onClick={handleRemoveImage}
+                            >
+                                <Icon fontSize="small">delete</Icon>
+                            </Fab>
                         </div>
-                        <div className="p-16 pb-12">
-                            <Input
-                                placeholder="Take a note..."
-                                multiline
-                                rows="4"
-                                name="note.description"
-                                value={note.description}
-                                onChange={this.handleChange}
-                                disableUnderline
-                                fullWidth
-                                autoFocus
-                            />
-                        </div>
-
-                        {(note.checklist.length > 0 || showList) && (
-                            <div className="px-16">
-                                <NoteFormList checklist={note.checklist} onCheckListChange={this.handleChecklistChange}/>
-                            </div>
-                        )}
-
-                        {(note.labels || note.reminder || note.time) && (
-                            <div className="flex flex-wrap w-full p-16 pb-12">
-                                {note.reminder && (
-                                    <NoteReminderLabel className="mt-4 mr-4" date={note.reminder}/>
-                                )}
-                                {note.labels && note.labels.map(id => (
-                                    <NoteLabel id={id} key={id} className="mt-4 mr-4" onDelete={() => this.handleRemoveLabel(id)}/>
-                                ))}
-                                {note.time && (
-                                    <Typography color="textSecondary" className="text-12 ml-auto mt-8 mr-4">
-                                        Edited: {moment(note.time).format('MMM DD YY, h:mm A')}
-                                    </Typography>
-                                )}
-                            </div>
-                        )}
+                    )}
+                    <div className="p-16 pb-12">
+                        <Input
+                            className="font-bold"
+                            placeholder="Title"
+                            type="text"
+                            name="title"
+                            value={noteForm.title}
+                            onChange={handleChange}
+                            disableUnderline
+                            fullWidth
+                        />
                     </div>
-                </FuseScrollbars>
+                    <div className="p-16 pb-12">
+                        <Input
+                            placeholder="Take a note..."
+                            multiline
+                            rows="4"
+                            name="description"
+                            value={noteForm.description}
+                            onChange={handleChange}
+                            disableUnderline
+                            fullWidth
+                            autoFocus
+                        />
+                    </div>
 
-                <div className="flex flex-auto justify-between items-center h-48">
-                    <div className="flex items-center px-4">
+                    {(noteForm.checklist.length > 0 || showList) && (
+                        <div className="px-16">
+                            <NoteFormList checklist={noteForm.checklist} onCheckListChange={handleChecklistChange}/>
+                        </div>
+                    )}
 
-                        <Tooltip title="Remind me" placement="bottom">
-                            <div>
-                                <NoteFormReminder reminder={note.reminder} onChange={this.handleDateChange}/>
-                            </div>
-                        </Tooltip>
+                    {(noteForm.labels || noteForm.reminder || noteForm.time) && (
+                        <div className="flex flex-wrap w-full p-16 pb-12">
+                            {noteForm.reminder && (
+                                <NoteReminderLabel className="mt-4 mr-4" date={noteForm.reminder}/>
+                            )}
+                            {noteForm.labels && noteForm.labels.map(id => (
+                                <NoteLabel id={id} key={id} className="mt-4 mr-4" onDelete={() => handleRemoveLabel(id)}/>
+                            ))}
+                            {noteForm.time && (
+                                <Typography color="textSecondary" className="text-12 ml-auto mt-8 mr-4">
+                                    Edited: {moment(noteForm.time).format('MMM DD YY, h:mm A')}
+                                </Typography>
+                            )}
+                        </div>
+                    )}
+                </div>
+            </FuseScrollbars>
 
-                        <Tooltip title="Add image" placement="bottom">
-                            <div>
-                                <NoteFormUploadImage onChange={this.handleUploadChange}/>
-                            </div>
-                        </Tooltip>
+            <div className="flex flex-auto justify-between items-center h-48">
+                <div className="flex items-center px-4">
 
-                        <Tooltip title="Add checklist" placement="bottom">
-                            <IconButton className="w-32 h-32 mx-4 p-0" onClick={this.handleToggleList}>
-                                <Icon fontSize="small">playlist_add_check</Icon>
+                    <Tooltip title="Remind me" placement="bottom">
+                        <div>
+                            <NoteFormReminder reminder={noteForm.reminder} onChange={handleDateChange}/>
+                        </div>
+                    </Tooltip>
+
+                    <Tooltip title="Add image" placement="bottom">
+                        <div>
+                            <NoteFormUploadImage onChange={handleUploadChange}/>
+                        </div>
+                    </Tooltip>
+
+                    <Tooltip title="Add checklist" placement="bottom">
+                        <IconButton className="w-32 h-32 mx-4 p-0" onClick={handleToggleList}>
+                            <Icon fontSize="small">playlist_add_check</Icon>
+                        </IconButton>
+                    </Tooltip>
+
+                    <Tooltip title="Change labels" placement="bottom">
+                        <div>
+                            <NoteFormLabelMenu note={noteForm} onChange={handleLabelsChange}/>
+                        </div>
+                    </Tooltip>
+
+                    <Tooltip title={noteForm.archive ? "Unarchive" : "Archive"} placement="bottom">
+                        <div>
+                            <IconButton className="w-32 h-32 mx-4 p-0" onClick={handleArchiveToggle} disabled={newFormButtonDisabled()}>
+                                <Icon fontSize="small">
+                                    {noteForm.archive ? "unarchive" : "archive"}
+                                </Icon>
                             </IconButton>
-                        </Tooltip>
-
-                        <Tooltip title="Change labels" placement="bottom">
-                            <div>
-                                <NoteFormLabelMenu note={note} onChange={this.handleLabelsChange}/>
-                            </div>
-                        </Tooltip>
-
-                        <Tooltip title={note.archive ? "Unarchive" : "Archive"} placement="bottom">
-                            <div>
-                                <IconButton className="w-32 h-32 mx-4 p-0" onClick={this.handleArchiveToggle} disabled={this.newFormButtonDisabled()}>
-                                    <Icon fontSize="small">
-                                        {note.archive ? "unarchive" : "archive"}
-                                    </Icon>
+                        </div>
+                    </Tooltip>
+                </div>
+                <div className="flex items-center px-4">
+                    {props.variant === "new" ? (
+                        <Button
+                            className="m-4"
+                            onClick={handleOnCreate}
+                            variant="outlined"
+                            size="small"
+                            disabled={newFormButtonDisabled()}
+                        >
+                            Create
+                        </Button>
+                    ) : (
+                        <Fragment>
+                            <Tooltip title="Delete Note" placement="bottom">
+                                <IconButton className="w-32 h-32 mx-4 p-0" onClick={props.onRemove}>
+                                    <Icon fontSize="small">delete</Icon>
                                 </IconButton>
-                            </div>
-                        </Tooltip>
-                    </div>
-                    <div className="flex items-center px-4">
-                        {variant === "new" ? (
+                            </Tooltip>
                             <Button
                                 className="m-4"
-                                onClick={this.handleOnCreate}
+                                onClick={props.onClose}
                                 variant="outlined"
                                 size="small"
-                                disabled={this.newFormButtonDisabled()}
                             >
-                                Create
+                                Close
                             </Button>
-                        ) : (
-                            <Fragment>
-                                <Tooltip title="Delete Note" placement="bottom">
-                                    <IconButton className="w-32 h-32 mx-4 p-0" onClick={this.props.onRemove}>
-                                        <Icon fontSize="small">delete</Icon>
-                                    </IconButton>
-                                </Tooltip>
-                                <Button
-                                    className="m-4"
-                                    onClick={this.props.onClose}
-                                    variant="outlined"
-                                    size="small"
-                                >
-                                    Close
-                                </Button>
-                            </Fragment>
-                        )}
-                    </div>
+                        </Fragment>
+                    )}
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
-NoteForm.propTypes = propTypes;
-NoteForm.defaultProps = defaultProps;
+NoteForm.propTypes = {};
+NoteForm.defaultProps = {
+    variant: "edit",
+    note   : null
+};
 
 export default withRouter(NoteForm);

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {FusePageSimple} from '@fuse';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
@@ -13,48 +13,44 @@ import NotesHeader from './NotesHeader';
 import NotesSidebarContent from './NotesSidebarContent';
 import NewNote from './NewNote';
 
-class NotesApp extends Component {
+function NotesApp(props)
+{
+    const pageLayout = useRef(null);
 
-    componentDidMount()
-    {
-        this.props.getNotes();
-        this.props.getLabels();
-    }
+    useEffect(() => {
+        props.getNotes();
+        props.getLabels();
+    }, []);
 
-    render()
-    {
-        return (
-            <React.Fragment>
-                <FusePageSimple
-                    classes={{
-                        contentWrapper: "p-16 sm:p-24 pb-80",
-                        content       : "flex min-h-full",
-                        leftSidebar   : "w-256 border-0",
-                        header        : "min-h-72 h-72"
-                    }}
-                    header={
-                        <NotesHeader pageLayout={() => this.pageLayout}/>
-                    }
-                    content={
-                        <div className="flex flex-col w-full items-center">
-                            <NewNote/>
-                            <NoteList/>
-                            <NoteDialog/>
-                            <LabelsDialog/>
-                        </div>
-                    }
-                    leftSidebarContent={
-                        <NotesSidebarContent/>
-                    }
-                    sidebarInner
-                    onRef={instance => {
-                        this.pageLayout = instance;
-                    }}
-                    innerScroll
-                />
-            </React.Fragment>
-        )
-    };
+    return (
+        <React.Fragment>
+            <FusePageSimple
+                classes={{
+                    contentWrapper: "p-16 sm:p-24 pb-80",
+                    content       : "flex min-h-full",
+                    leftSidebar   : "w-256 border-0",
+                    header        : "min-h-72 h-72"
+                }}
+                header={
+                    <NotesHeader pageLayout={pageLayout}/>
+                }
+                content={
+                    <div className="flex flex-col w-full items-center">
+                        <NewNote/>
+                        <NoteList/>
+                        <NoteDialog/>
+                        <LabelsDialog/>
+                    </div>
+                }
+                leftSidebarContent={
+                    <NotesSidebarContent/>
+                }
+                sidebarInner
+                ref={pageLayout}
+                innerScroll
+            />
+        </React.Fragment>
+    )
 }
 
 function mapDispatchToProps(dispatch)
