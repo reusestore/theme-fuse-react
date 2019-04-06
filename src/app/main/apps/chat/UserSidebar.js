@@ -6,7 +6,7 @@ import connect from 'react-redux/es/connect/connect';
 import _ from '@lodash';
 import * as Actions from './store/actions';
 import StatusIcon from './StatusIcon';
-import {useForm} from '@fuse/hooks';
+import {useForm, useDebounce} from '@fuse/hooks';
 
 const statusArr = [
     {
@@ -29,7 +29,10 @@ const statusArr = [
 
 function UserSidebar(props)
 {
-    const {form, handleChange, setForm} = useForm(props.user ? {...props.user} : null);
+    const {form, handleChange, setForm} = useForm(props.user ? {...props.user} : false);
+    const updateUserData = useDebounce(() => {
+        props.updateUserData(form);
+    }, 500);
 
     useEffect(() => {
         if ( props.user && !_.isEqual(form, props.user) )
@@ -44,10 +47,6 @@ function UserSidebar(props)
             updateUserData();
         }
     }, [form]);
-
-    const updateUserData = _.debounce(() => {
-        props.updateUserData(form);
-    }, 500);
 
     if ( !form )
     {

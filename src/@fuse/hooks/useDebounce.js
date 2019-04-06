@@ -1,4 +1,4 @@
-import {useEffect, useRef} from 'react';
+import {useEffect, useMemo, useRef} from 'react';
 import _ from '@lodash';
 
 function useDebounce(func, wait, options)
@@ -10,6 +10,15 @@ function useDebounce(func, wait, options)
             fnRef.current.cancel();
         }
     }, []);
+
+    useMemo(() => {
+        if ( fnRef.current )
+        {
+            // only call when update
+            fnRef.current.cancel();
+        }
+        fnRef.current = _.debounce(func, wait, options);
+    }, [func, wait, options]);
 
     return fnRef.current;
 }

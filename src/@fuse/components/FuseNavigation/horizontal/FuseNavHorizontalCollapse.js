@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import {Grow, Paper, Icon, IconButton, ListItem, ListItemText} from '@material-ui/core';
+import {useDebounce} from '@fuse/hooks';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Manager, Reference, Popper} from 'react-popper';
-import _ from '@lodash';
 import * as ReactDOM from 'react-dom';
 import FuseNavHorizontalGroup from './FuseNavHorizontalGroup';
 import FuseNavHorizontalItem from './FuseNavHorizontalItem';
@@ -46,7 +46,7 @@ function FuseNavHorizontalCollapse(props)
     const [opened, setOpened] = useState(false);
     const {item, nestedLevel, userRole, dense} = props;
 
-    const handleToggle = _.debounce((open) => {
+    const handleToggle = useDebounce((open) => {
         if ( opened === open )
         {
             return;
