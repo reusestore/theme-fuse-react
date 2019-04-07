@@ -1,7 +1,8 @@
 import React from 'react';
 import {Icon, List, ListItem, ListItemIcon, ListItemText} from '@material-ui/core';
 
-const MainSidebarContent = () => {
+function MainSidebarContent()
+{
     return (
         <List component="nav">
             <ListItem button dense>
@@ -36,7 +37,7 @@ const MainSidebarContent = () => {
             </ListItem>
         </List>
     );
-};
+}
 
 export default MainSidebarContent;
 
