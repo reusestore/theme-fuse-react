@@ -1,5 +1,6 @@
 import React from 'react';
-import {AppBar, Hidden, MuiThemeProvider, Toolbar, withStyles} from '@material-ui/core';
+import {AppBar, Hidden, Toolbar} from '@material-ui/core';
+import {makeStyles, ThemeProvider} from '@material-ui/styles';
 import {FuseSearch} from '@fuse';
 import connect from 'react-redux/es/connect/connect';
 import {withRouter} from 'react-router-dom';
@@ -10,24 +11,24 @@ import ChatPanelToggleButton from 'app/fuse-layouts/shared-components/chatPanel/
 import UserMenu from 'app/fuse-layouts/shared-components/UserMenu';
 import Logo from 'app/fuse-layouts/shared-components/Logo';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     separator: {
         width          : 1,
         height         : 64,
         backgroundColor: theme.palette.divider
     }
-});
+}));
 
-const ToolbarLayout3 = ({classes, settings, toolbarTheme}) => {
-
-    const layoutConfig = settings.layout.config;
+function ToolbarLayout3(props)
+{
+    const classes = useStyles(props);
 
     return (
-        <MuiThemeProvider theme={toolbarTheme}>
+        <ThemeProvider theme={props.toolbarTheme}>
             <AppBar id="fuse-toolbar" className="flex relative z-10" color="default">
                 <Toolbar className="container p-0 lg:px-24">
 
-                    {layoutConfig.navbar.display && (
+                    {props.config.navbar.display && (
                         <Hidden lgUp>
                             <NavbarMobileToggleButton className="w-64 h-64 p-0"/>
                             <div className={classes.separator}/>
@@ -74,16 +75,16 @@ const ToolbarLayout3 = ({classes, settings, toolbarTheme}) => {
 
                 </Toolbar>
             </AppBar>
-        </MuiThemeProvider>
+        </ThemeProvider>
     );
-};
+}
 
 function mapStateToProps({fuse})
 {
     return {
-        settings    : fuse.settings.current,
+        config      : fuse.settings.current.layout.config,
         toolbarTheme: fuse.settings.toolbarTheme
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps)(ToolbarLayout3)));
+export default withRouter(connect(mapStateToProps)(ToolbarLayout3));

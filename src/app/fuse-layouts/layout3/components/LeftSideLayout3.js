@@ -1,7 +1,8 @@
 import React from 'react';
 import {FuseShortcuts, FuseSidePanel} from '@fuse';
 
-const LeftSideLayout3 = () => {
+function LeftSideLayout3()
+{
     return (
         <React.Fragment>
             <FuseSidePanel>
@@ -9,6 +10,6 @@ const LeftSideLayout3 = () => {
             </FuseSidePanel>
         </React.Fragment>
     );
-};
+}
 
 export default LeftSideLayout3;

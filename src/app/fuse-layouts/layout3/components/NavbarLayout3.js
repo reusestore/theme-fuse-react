@@ -2,7 +2,8 @@ import React from 'react';
 import {FuseScrollbars} from '@fuse';
 import Navigation from 'app/fuse-layouts/shared-components/Navigation';
 
-const NavbarLayout3 = () => {
+function NavbarLayout3()
+{
     return (
         <div className="flex flex-auto items-center w-full h-full container px-16 lg:px-24">
             <FuseScrollbars className="flex h-full items-center">
@@ -10,7 +11,7 @@ const NavbarLayout3 = () => {
             </FuseScrollbars>
         </div>
     );
-};
+}
 
 export default NavbarLayout3;
 

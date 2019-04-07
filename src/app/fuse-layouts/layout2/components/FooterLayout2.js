@@ -1,12 +1,14 @@
 import React from 'react';
-import {AppBar, MuiThemeProvider, Toolbar} from '@material-ui/core';
+import {AppBar, Toolbar} from '@material-ui/core';
+import {ThemeProvider} from '@material-ui/styles';
 import connect from 'react-redux/es/connect/connect';
 import PurchaseButton from 'app/fuse-layouts/shared-components/PurchaseButton';
 import PoweredByLinks from 'app/fuse-layouts/shared-components/PoweredByLinks';
 
-const FooterLayout2 = ({classes, footerTheme}) => {
+function FooterLayout2(props)
+{
     return (
-        <MuiThemeProvider theme={footerTheme}>
+        <ThemeProvider theme={props.footerTheme}>
             <AppBar id="fuse-footer" className="relative z-10" color="default">
                 <Toolbar className="px-16 py-0 flex items-center">
 
@@ -19,9 +21,9 @@ const FooterLayout2 = ({classes, footerTheme}) => {
                     </div>
                 </Toolbar>
             </AppBar>
-        </MuiThemeProvider>
+        </ThemeProvider>
     );
-};
+}
 
 function mapStateToProps({fuse})
 {
