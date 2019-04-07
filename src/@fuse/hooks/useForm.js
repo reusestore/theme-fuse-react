@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import _ from '../../@lodash';
 
 function useForm(initialState, onSubmit)
 {
@@ -20,6 +21,11 @@ function useForm(initialState, onSubmit)
         setForm(initialState);
     }
 
+    function setInForm(name,value)
+    {
+        setForm(_.setIn(form, name, value));
+    }
+
     function handleSubmit(event)
     {
         if ( event )
@@ -37,7 +43,8 @@ function useForm(initialState, onSubmit)
         handleChange,
         handleSubmit,
         resetForm,
-        setForm
+        setForm,
+        setInForm
     }
 }
 
