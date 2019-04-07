@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {Button, MuiThemeProvider, Typography} from '@material-ui/core';
-import {makeStyles, useTheme} from '@material-ui/styles';
+import {Button, Typography} from '@material-ui/core';
+import {makeStyles, useTheme, ThemeProvider} from '@material-ui/styles';
 import {FuseAnimate} from '@fuse';
 import {Line} from 'react-chartjs-2';
 import _ from '@lodash';
@@ -20,7 +20,7 @@ function Widget1(props)
     const data = _.merge({}, props.data);
 
     return (
-        <MuiThemeProvider theme={props.mainThemeDark}>
+        <ThemeProvider theme={props.mainThemeDark}>
             <div className={classes.root}>
                 <div className="container relative p-16 sm:p-24 flex flex-row justify-between items-center">
 
@@ -63,7 +63,7 @@ function Widget1(props)
                     />
                 </div>
             </div>
-        </MuiThemeProvider>
+        </ThemeProvider>
     );
 }
 

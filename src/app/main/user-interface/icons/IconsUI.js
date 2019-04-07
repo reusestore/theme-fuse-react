@@ -1,8 +1,8 @@
 import React, {useEffect, useMemo, useState} from 'react';
-import {Button, Icon, Input, MuiThemeProvider, Paper, Typography} from '@material-ui/core';
+import {Button, Icon, Input, Paper, Typography} from '@material-ui/core';
+import {useTheme, ThemeProvider} from '@material-ui/styles';
 import {FusePageSimple, FuseAnimate} from '@fuse';
 import axios from 'axios';
-import {useTheme} from '@material-ui/styles';
 
 function IconsUI()
 {
@@ -64,7 +64,7 @@ function IconsUI()
 
                     <div className="flex flex-1 items-center justify-center px-12">
 
-                        <MuiThemeProvider theme={theme}>
+                        <ThemeProvider theme={theme}>
 
                             <Paper className="flex items-center w-full max-w-512 px-8 py-4 rounded-8" elevation={1}>
 
@@ -85,7 +85,7 @@ function IconsUI()
                                 ), [searchText])}
 
                             </Paper>
-                        </MuiThemeProvider>
+                        </ThemeProvider>
                     </div>
 
                     <Button

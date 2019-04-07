@@ -1,5 +1,6 @@
 import React from 'react';
-import {MuiThemeProvider, Hidden, Icon, IconButton, Input, Paper, Typography} from '@material-ui/core';
+import {Hidden, Icon, IconButton, Input, Paper, Typography} from '@material-ui/core';
+import {ThemeProvider} from '@material-ui/styles';
 import {FuseAnimate} from '@fuse';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
@@ -34,7 +35,7 @@ function ContactsHeader(props)
 
             <div className="flex flex-1 items-center justify-center pr-8 sm:px-12">
 
-                <MuiThemeProvider theme={props.mainTheme}>
+                <ThemeProvider theme={props.mainTheme}>
                     <FuseAnimate animation="transition.slideLeftIn" delay={300}>
                         <Paper className="flex p-4 items-center w-full max-w-512 px-8 py-4" elevation={1}>
 
@@ -53,7 +54,7 @@ function ContactsHeader(props)
                             />
                         </Paper>
                     </FuseAnimate>
-                </MuiThemeProvider>
+                </ThemeProvider>
             </div>
         </div>
     );

@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {Button, colors, Icon, IconButton, Input, MuiThemeProvider, Paper, Typography} from '@material-ui/core';
+import {Button, colors, Icon, IconButton, Input, Paper, Typography} from '@material-ui/core';
+import {makeStyles, useTheme, ThemeProvider} from '@material-ui/styles';
 import {FusePageSimple, FuseAnimate, FuseAnimateGroup} from '@fuse';
 import classNames from 'classnames';
 import axios from 'axios';
-import {makeStyles, useTheme} from '@material-ui/styles';
 
 const useStyles = makeStyles({
     title: {
@@ -30,7 +30,7 @@ function ModernSearchPage()
         <FusePageSimple
             header={
                 <div className="flex flex-1 items-center p-16 sm:p-24 max-w-md">
-                    <MuiThemeProvider theme={theme}>
+                    <ThemeProvider theme={theme}>
                         <Paper className={"flex items-center h-44 w-full"} elevation={1}>
                             <Input
                                 placeholder="Search..."
@@ -43,7 +43,7 @@ function ModernSearchPage()
                             />
                             <Icon color="action" className="mr-16">search</Icon>
                         </Paper>
-                    </MuiThemeProvider>
+                    </ThemeProvider>
                 </div>
             }
             content={
