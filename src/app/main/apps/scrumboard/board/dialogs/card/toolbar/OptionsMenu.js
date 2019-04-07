@@ -1,38 +1,33 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import {Icon, IconButton, MenuItem} from '@material-ui/core';
 import ToolbarMenu from './ToolbarMenu';
 
-class OptionsMenu extends Component {
+function OptionsMenu(props)
+{
+    const [anchorEl, setAnchorEl] = useState(null);
 
-    state = {
-        anchorEl: null
-    };
-
-    handleMenuClick = event => {
-        this.setState({anchorEl: event.currentTarget});
-    };
-
-    handleMenuClose = () => {
-        this.setState({anchorEl: null});
-    };
-
-    render()
+    function handleMenuOpen(event)
     {
-        const {onRemoveCard} = this.props;
+        setAnchorEl(event.currentTarget);
+    }
 
-        return (
-            <div>
-                <IconButton color="inherit" onClick={this.handleMenuClick}>
-                    <Icon>more_horiz</Icon>
-                </IconButton>
-                <ToolbarMenu state={this.state.anchorEl} onClose={this.handleMenuClose}>
-                    <MenuItem onClick={onRemoveCard}>
-                        Remove Card
-                    </MenuItem>
-                </ToolbarMenu>
-            </div>
-        );
-    };
+    function handleMenuClose()
+    {
+        setAnchorEl(null);
+    }
+
+    return (
+        <div>
+            <IconButton color="inherit" onClick={handleMenuOpen}>
+                <Icon>more_horiz</Icon>
+            </IconButton>
+            <ToolbarMenu state={anchorEl} onClose={handleMenuClose}>
+                <MenuItem onClick={props.onRemoveCard}>
+                    Remove Card
+                </MenuItem>
+            </ToolbarMenu>
+        </div>
+    );
 }
 
 export default OptionsMenu;

@@ -1,54 +1,49 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import {Avatar, Checkbox, Icon, IconButton, ListItemText, MenuItem} from '@material-ui/core';
 import ToolbarMenu from './ToolbarMenu';
 
-class MembersMenu extends Component {
+function MembersMenu(props)
+{
+    const [anchorEl, setAnchorEl] = useState(null);
 
-    state = {
-        anchorEl: null
-    };
-
-    handleMenuClick = event => {
-        this.setState({anchorEl: event.currentTarget});
-    };
-
-    handleMenuClose = () => {
-        this.setState({anchorEl: null});
-    };
-
-    render()
+    function handleMenuOpen(event)
     {
-        const {members, idMembers, onToggleMember} = this.props;
+        setAnchorEl(event.currentTarget);
+    }
 
-        return (
-            <div>
-                <IconButton color="inherit" onClick={this.handleMenuClick}>
-                    <Icon>account_circle</Icon>
-                </IconButton>
-                <ToolbarMenu state={this.state.anchorEl} onClose={this.handleMenuClose}>
-                    <div className="">
-                        {members.map(member => {
-                            return (
-                                <MenuItem
-                                    className="px-8"
-                                    key={member.id}
-                                    onClick={(ev) => {
-                                        onToggleMember(member.id)
-                                    }}
-                                >
-                                    <Checkbox checked={idMembers.includes(member.id)}/>
-                                    <Avatar className="w-32 h-32" src={member.avatar}/>
-                                    <ListItemText>
-                                        {member.name}
-                                    </ListItemText>
-                                </MenuItem>
-                            );
-                        })}
-                    </div>
-                </ToolbarMenu>
-            </div>
-        );
-    };
+    function handleMenuClose()
+    {
+        setAnchorEl(null);
+    }
+
+    return (
+        <div>
+            <IconButton color="inherit" onClick={handleMenuOpen}>
+                <Icon>account_circle</Icon>
+            </IconButton>
+            <ToolbarMenu state={anchorEl} onClose={handleMenuClose}>
+                <div className="">
+                    {props.members.map(member => {
+                        return (
+                            <MenuItem
+                                className="px-8"
+                                key={member.id}
+                                onClick={(ev) => {
+                                    props.onToggleMember(member.id)
+                                }}
+                            >
+                                <Checkbox checked={props.idMembers.includes(member.id)}/>
+                                <Avatar className="w-32 h-32" src={member.avatar}/>
+                                <ListItemText>
+                                    {member.name}
+                                </ListItemText>
+                            </MenuItem>
+                        );
+                    })}
+                </div>
+            </ToolbarMenu>
+        </div>
+    );
 }
 
 export default MembersMenu;

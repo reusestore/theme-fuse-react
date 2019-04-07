@@ -1,31 +1,34 @@
 import React from 'react';
 import {Popover, ClickAwayListener} from '@material-ui/core';
 
-const ToolbarMenu = ({state, onClose, children}) => (
-    <Popover
-        hideBackdrop={true}
-        open={Boolean(state)}
-        anchorEl={state}
-        onClose={onClose}
-        anchorOrigin={{
-            vertical  : 'bottom',
-            horizontal: 'center'
-        }}
-        transformOrigin={{
-            vertical  : 'top',
-            horizontal: 'center'
-        }}
-        className="pointer-events-none"
-        classes={{
-            paper: "pointer-events-auto py-8"
-        }}
-    >
-        <ClickAwayListener onClickAway={onClose}>
-            <React.Fragment>
-                {children}
-            </React.Fragment>
-        </ClickAwayListener>
-    </Popover>
-);
+function ToolbarMenu(props)
+{
+    return (
+        <Popover
+            hideBackdrop={true}
+            open={Boolean(props.state)}
+            anchorEl={props.state}
+            onClose={props.onClose}
+            anchorOrigin={{
+                vertical  : 'bottom',
+                horizontal: 'center'
+            }}
+            transformOrigin={{
+                vertical  : 'top',
+                horizontal: 'center'
+            }}
+            className="pointer-events-none"
+            classes={{
+                paper: "pointer-events-auto py-8"
+            }}
+        >
+            <ClickAwayListener onClickAway={props.onClose}>
+                <React.Fragment>
+                    {props.children}
+                </React.Fragment>
+            </ClickAwayListener>
+        </Popover>
+    );
+}
 
 export default ToolbarMenu;

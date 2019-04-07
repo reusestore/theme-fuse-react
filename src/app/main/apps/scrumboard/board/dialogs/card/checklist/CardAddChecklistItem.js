@@ -1,58 +1,59 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Icon, ListItem, TextField, Fab} from '@material-ui/core';
+import {useForm} from '@fuse/hooks';
 import ChecklistItemModel from 'app/main/apps/scrumboard/model/ChecklistItemModel';
-import _ from '@lodash';
 
-class CardAddChecklistItem extends Component {
+function CardAddChecklistItem(props)
+{
+    const {form, handleChange, resetForm} = useForm(
+        {
+            name: ""
+        }
+    );
 
-    state = {
-        name: ""
-    };
+    function isFormInValid()
+    {
+        return form.name === '';
+    }
 
-    handleChange = (event) => {
-        this.setState(_.setIn(this.state, event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value));
-    };
-
-    submit = (ev) => {
+    function handleSubmit(ev)
+    {
         ev.preventDefault();
-        const {name} = this.state;
-        if ( name === '' )
+        if ( isFormInValid() )
         {
             return;
         }
-        this.props.onListItemAdd(new ChecklistItemModel({name}));
-        this.setState({name: ''})
-    };
-
-    render()
-    {
-        return (
-            <form onSubmit={this.submit}>
-                <ListItem
-                    className="pr-0 pl-56"
-                    dense
-                >
-                    <TextField
-                        className="flex flex-1"
-                        name="name"
-                        value={this.state.name}
-                        onChange={this.handleChange}
-                        variant="outlined"
-                        placeholder="Add an item"
-                    />
-                    <Fab
-                        className="ml-16"
-                        aria-label="Add"
-                        size="small"
-                        color="secondary"
-                        type="submit"
-                    >
-                        <Icon>add</Icon>
-                    </Fab>
-                </ListItem>
-            </form>
-        );
+        props.onListItemAdd(new ChecklistItemModel(form));
+        resetForm();
     }
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <ListItem
+                className="pr-0 pl-56"
+                dense
+            >
+                <TextField
+                    className="flex flex-1"
+                    name="name"
+                    value={form.name}
+                    onChange={handleChange}
+                    variant="outlined"
+                    placeholder="Add an item"
+                />
+                <Fab
+                    className="ml-16"
+                    aria-label="Add"
+                    size="small"
+                    color="secondary"
+                    type="submit"
+                    disabled={isFormInValid()}
+                >
+                    <Icon>add</Icon>
+                </Fab>
+            </ListItem>
+        </form>
+    );
 }
 
 export default CardAddChecklistItem;

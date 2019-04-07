@@ -1,73 +1,68 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import {Icon, IconButton, InputAdornment, MenuItem, TextField} from '@material-ui/core';
-import ToolbarMenu from 'app/main/apps/scrumboard/board/dialogs/card/toolbar/ToolbarMenu';
+import ToolbarMenu from './ToolbarMenu';
 import moment from 'moment';
 
-class DueMenu extends Component {
+function DueMenu(props)
+{
+    const [anchorEl, setAnchorEl] = useState(null);
+    const dueDate = props.due ? moment(props.due).format(moment.HTML5_FMT.DATE) : "";
 
-    state = {
-        anchorEl: null
-    };
-
-    handleMenuClick = event => {
-        this.setState({anchorEl: event.currentTarget});
-    };
-
-    handleMenuClose = () => {
-        this.setState({anchorEl: null});
-    };
-
-    render()
+    function handleMenuOpen(event)
     {
-        const {due, onRemoveDue, onDueChange} = this.props;
-        const dueDate = due ? moment(due).format(moment.HTML5_FMT.DATE) : "";
+        setAnchorEl(event.currentTarget);
+    }
 
-        return (
-            <div>
-                <IconButton color="inherit" onClick={this.handleMenuClick}>
-                    <Icon>today</Icon>
-                </IconButton>
-                <ToolbarMenu state={this.state.anchorEl} onClose={this.handleMenuClose}>
-                    {due ? (
-                        <MenuItem
-                            onClick={(ev) => {
-                                onRemoveDue();
-                                this.handleMenuClose(ev);
+    function handleMenuClose()
+    {
+        setAnchorEl(null);
+    }
+
+    return (
+        <div>
+            <IconButton color="inherit" onClick={handleMenuOpen}>
+                <Icon>today</Icon>
+            </IconButton>
+            <ToolbarMenu state={anchorEl} onClose={handleMenuClose}>
+                {props.due ? (
+                    <MenuItem
+                        onClick={(ev) => {
+                            props.onRemoveDue();
+                            handleMenuClose(ev);
+                        }}
+                    >
+                        Remove Due Date
+                    </MenuItem>
+                ) : (
+                    <div className="p-16">
+                        <TextField
+                            label="Due date"
+                            type="date"
+                            name="due"
+                            value={dueDate}
+                            onChange={(ev) => {
+                                props.onDueChange(ev);
+                                handleMenuClose(ev)
                             }}
-                        >
-                            Remove Due Date
-                        </MenuItem>
-                    ) : (
-                        <div className="p-16">
-                            <TextField
-                                label="Due date"
-                                type="date"
-                                name="card.due"
-                                value={dueDate}
-                                onChange={(ev) => {
-                                    onDueChange(ev);
-                                    this.handleMenuClose(ev)
-                                }}
-                                placeholder=" Choose a due date"
-                                className=""
-                                InputLabelProps={{
-                                    shrink: true
-                                }}
-                                variant="outlined"
-                                InputProps={{
-                                    endAdornment: (
-                                        <InputAdornment position="end">
-                                            <Icon color="action">today</Icon>
-                                        </InputAdornment>
-                                    )
-                                }}
-                            />
-                        </div>
-                    )}
-                </ToolbarMenu>
-            </div>
-        );
-    };
+                            placeholder=" Choose a due date"
+                            className=""
+                            InputLabelProps={{
+                                shrink: true
+                            }}
+                            variant="outlined"
+                            InputProps={{
+                                endAdornment: (
+                                    <InputAdornment position="end">
+                                        <Icon color="action">today</Icon>
+                                    </InputAdornment>
+                                )
+                            }}
+                        />
+                    </div>
+                )}
+            </ToolbarMenu>
+        </div>
+    );
 }
 
 export default DueMenu;

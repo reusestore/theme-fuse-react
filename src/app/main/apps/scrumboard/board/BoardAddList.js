@@ -1,118 +1,116 @@
-import React, {Component} from 'react';
-import {Button, IconButton, Icon, withStyles, ClickAwayListener, Card, TextField, InputAdornment} from '@material-ui/core';
+import React, {useEffect, useState} from 'react';
+import {Button, IconButton, Icon, ClickAwayListener, Card, TextField, InputAdornment} from '@material-ui/core';
 import {darken} from '@material-ui/core/styles/colorManipulator';
+import {makeStyles} from '@material-ui/styles';
+import {useForm} from '@fuse/hooks';
 import {withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import connect from 'react-redux/es/connect/connect';
 import classNames from 'classnames';
 import * as Actions from '../store/actions';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     card: {
         backgroundColor: darken(theme.palette.background.default, theme.palette.type === 'light' ? 0.02 : .4)
     }
-});
+}));
 
-const initialState = {
-    formOpen : false,
-    listTitle: ""
-};
+function BoardAddList(props)
+{
+    const classes = useStyles(props);
+    const [formOpen, setFormOpen] = useState(false);
+    const {form, handleChange, resetForm} = useForm({
+        title: ''
+    });
 
-class BoardAddList extends Component {
+    useEffect(() => {
+        if ( !formOpen )
+        {
+            resetForm();
+        }
+    }, [formOpen]);
 
-    state = initialState;
+    function handleOpenForm()
+    {
+        setFormOpen(true);
+    }
 
-    handleOpenForm = () => {
-        this.setState({formOpen: true})
-    };
+    function handleCloseForm()
+    {
+        setFormOpen(false);
+    }
 
-    handleCloseForm = () => {
-        this.setState({...initialState})
-    };
-
-    handleChange = (event) => {
-        this.setState({listTitle: event.target.value});
-    };
-
-    onSubmit = (ev) => {
+    function handleSubmit(ev)
+    {
         ev.preventDefault();
-        this.props.newList(this.props.board.id, this.state.listTitle);
-        this.handleCloseForm();
-    };
-
-    canBeSubmitted()
-    {
-        const {listTitle} = this.state;
-        return (
-            listTitle.length > 0
-        );
+        props.newList(props.board.id, form.title);
+        handleCloseForm();
     }
 
-    render()
+    function isFormInvalid()
     {
-        const {classes} = this.props;
-        const {formOpen} = this.state;
-
-        return (
-            <div>
-                <Card
-                    className={classNames(classes.card, "w-320 mr-24")}
-                    square={true}
-                >
-                    {formOpen ? (
-                        <ClickAwayListener onClickAway={this.handleCloseForm}>
-
-                            <form className="p-16" onSubmit={this.onSubmit}>
-
-                                <TextField
-                                    className="mb-16"
-                                    required
-                                    fullWidth
-                                    variant="outlined"
-                                    label="List title"
-                                    autoFocus
-                                    name="title"
-                                    value={this.state.listTitle}
-                                    onChange={this.handleChange}
-                                    InputProps={{
-                                        endAdornment: (
-                                            <InputAdornment position="end">
-                                                <IconButton onClick={this.handleCloseForm}>
-                                                    <Icon className="text-18">close</Icon>
-                                                </IconButton>
-                                            </InputAdornment>
-                                        )
-                                    }}
-                                />
-
-                                <div className="flex justify-between items-center">
-                                    <Button
-                                        variant="contained"
-                                        color="secondary"
-                                        type="submit"
-                                        disabled={!this.canBeSubmitted()}
-                                    >
-                                        Add
-                                    </Button>
-                                </div>
-                            </form>
-                        </ClickAwayListener>
-                    ) : (
-                        <Button
-                            onClick={this.handleOpenForm}
-                            classes={{
-                                root : "normal-case font-600 w-full rounded-none h-64",
-                                label: "justify-start"
-                            }}
-                        >
-                            <Icon className="text-32 text-red mr-8">add_circle</Icon>
-                            Add a list
-                        </Button>
-                    )}
-                </Card>
-            </div>
-        );
+        return form.title.length === 0;
     }
+
+    return (
+        <div>
+            <Card
+                className={classNames(classes.card, "w-320 mr-24")}
+                square={true}
+            >
+                {formOpen ? (
+                    <ClickAwayListener onClickAway={handleCloseForm}>
+
+                        <form className="p-16" onSubmit={handleSubmit}>
+
+                            <TextField
+                                className="mb-16"
+                                required
+                                fullWidth
+                                variant="outlined"
+                                label="List title"
+                                autoFocus
+                                name="title"
+                                value={form.title}
+                                onChange={handleChange}
+                                InputProps={{
+                                    endAdornment: (
+                                        <InputAdornment position="end">
+                                            <IconButton onClick={handleCloseForm}>
+                                                <Icon className="text-18">close</Icon>
+                                            </IconButton>
+                                        </InputAdornment>
+                                    )
+                                }}
+                            />
+
+                            <div className="flex justify-between items-center">
+                                <Button
+                                    variant="contained"
+                                    color="secondary"
+                                    type="submit"
+                                    disabled={isFormInvalid()}
+                                >
+                                    Add
+                                </Button>
+                            </div>
+                        </form>
+                    </ClickAwayListener>
+                ) : (
+                    <Button
+                        onClick={handleOpenForm}
+                        classes={{
+                            root : "normal-case font-600 w-full rounded-none h-64",
+                            label: "justify-start"
+                        }}
+                    >
+                        <Icon className="text-32 text-red mr-8">add_circle</Icon>
+                        Add a list
+                    </Button>
+                )}
+            </Card>
+        </div>
+    );
 }
 
 function mapDispatchToProps(dispatch)
@@ -129,4 +127,4 @@ function mapStateToProps({scrumboardApp})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(withRouter(connect(mapStateToProps, mapDispatchToProps)(BoardAddList)));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BoardAddList));

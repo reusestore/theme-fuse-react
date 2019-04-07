@@ -1,106 +1,103 @@
-import React, {Component} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, IconButton, Icon, TextField, ClickAwayListener, InputAdornment} from '@material-ui/core';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
 import connect from 'react-redux/es/connect/connect';
 import * as Actions from '../store/actions';
+import {useForm} from '@fuse/hooks';
 
-const initialState = {
-    formOpen : false,
-    cardTitle: ""
-};
+function BoardAddCard(props)
+{
+    const [formOpen, setFormOpen] = useState(false);
+    const {form, handleChange, resetForm} = useForm({
+        title: ''
+    });
 
-class BoardAddCard extends Component {
+    useEffect(() => {
+        if ( !formOpen )
+        {
+            resetForm();
+        }
+    }, [formOpen]);
 
-    state = initialState;
+    function handleOpenForm()
+    {
+        setFormOpen(true);
+    }
 
-    handleOpenForm = () => {
-        this.setState({formOpen: true})
-    };
+    function handleCloseForm()
+    {
+        setFormOpen(false);
+    }
 
-    handleCloseForm = () => {
-        this.setState({...initialState})
-    };
-
-    handleChange = (event) => {
-        this.setState({cardTitle: event.target.value});
-    };
-
-    onSubmit = (ev) => {
+    function handleSubmit(ev)
+    {
         ev.preventDefault();
-        this.props.newCard(this.props.board.id, this.props.listId, this.state.cardTitle).then(() => {
-            this.props.onCardAdded();
+        props.newCard(props.board.id, props.listId, form.title).then(() => {
+            props.onCardAdded();
         });
-        this.handleCloseForm();
-    };
-
-    canBeSubmitted()
-    {
-        const {cardTitle} = this.state;
-        return (
-            cardTitle.length > 0
-        );
+        handleCloseForm();
     }
 
-    render()
+    function isFormInvalid()
     {
-        const {formOpen} = this.state;
-
-        return (
-            <div className="w-full border-t-1">
-                {formOpen ? (
-                    <ClickAwayListener onClickAway={this.handleCloseForm}>
-                        <form className="p-16" onSubmit={this.onSubmit}>
-
-                            <TextField
-                                className="mb-16"
-                                required
-                                fullWidth
-                                variant="outlined"
-                                label="Card title"
-                                autoFocus
-                                name="title"
-                                value={this.state.cardTitle}
-                                onChange={this.handleChange}
-                                InputProps={{
-                                    endAdornment: (
-                                        <InputAdornment position="end">
-                                            <IconButton onClick={this.handleCloseForm}>
-                                                <Icon className="text-18">close</Icon>
-                                            </IconButton>
-                                        </InputAdornment>
-                                    )
-                                }}
-                            />
-
-                            <div className="flex justify-between items-center">
-                                <Button
-                                    variant="contained"
-                                    color="secondary"
-                                    type="submit"
-                                    disabled={!this.canBeSubmitted()}
-                                >
-                                    Add
-                                </Button>
-
-                            </div>
-                        </form>
-                    </ClickAwayListener>
-                ) : (
-                    <Button
-                        onClick={this.handleOpenForm}
-                        classes={{
-                            root : "normal-case font-600 w-full rounded-none h-48",
-                            label: "justify-start"
-                        }}
-                    >
-                        <Icon className="text-20 mr-8">add</Icon>
-                        Add a card
-                    </Button>
-                )}
-            </div>
-        );
+        return form.title.length === 0;
     }
+
+    return (
+        <div className="w-full border-t-1">
+            {formOpen ? (
+                <ClickAwayListener onClickAway={handleCloseForm}>
+                    <form className="p-16" onSubmit={handleSubmit}>
+
+                        <TextField
+                            className="mb-16"
+                            required
+                            fullWidth
+                            variant="outlined"
+                            label="Card title"
+                            autoFocus
+                            name="title"
+                            value={form.title}
+                            onChange={handleChange}
+                            InputProps={{
+                                endAdornment: (
+                                    <InputAdornment position="end">
+                                        <IconButton onClick={handleCloseForm}>
+                                            <Icon className="text-18">close</Icon>
+                                        </IconButton>
+                                    </InputAdornment>
+                                )
+                            }}
+                        />
+
+                        <div className="flex justify-between items-center">
+                            <Button
+                                variant="contained"
+                                color="secondary"
+                                type="submit"
+                                disabled={isFormInvalid()}
+                            >
+                                Add
+                            </Button>
+
+                        </div>
+                    </form>
+                </ClickAwayListener>
+            ) : (
+                <Button
+                    onClick={handleOpenForm}
+                    classes={{
+                        root : "normal-case font-600 w-full rounded-none h-48",
+                        label: "justify-start"
+                    }}
+                >
+                    <Icon className="text-20 mr-8">add</Icon>
+                    Add a card
+                </Button>
+            )}
+        </div>
+    );
 }
 
 function mapDispatchToProps(dispatch)

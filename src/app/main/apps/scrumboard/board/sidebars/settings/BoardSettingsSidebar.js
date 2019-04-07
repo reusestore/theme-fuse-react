@@ -5,7 +5,8 @@ import * as Actions from 'app/main/apps/scrumboard/store/actions';
 import connect from 'react-redux/es/connect/connect';
 import {withRouter} from 'react-router-dom';
 
-const BoardSettingsSidebar = ({board, changeBoardSettings, deleteBoard, copyBoard}) => {
+function BoardSettingsSidebar(props)
+{
     return (
         <div>
             <AppBar position="static">
@@ -18,7 +19,7 @@ const BoardSettingsSidebar = ({board, changeBoardSettings, deleteBoard, copyBoar
 
                 <ListItem
                     button
-                    onClick={() => changeBoardSettings({cardCoverImages: !board.settings.cardCoverImages})}
+                    onClick={() => props.changeBoardSettings({cardCoverImages: !props.board.settings.cardCoverImages})}
                 >
                     <ListItemIcon>
                         <Icon>photo</Icon>
@@ -26,15 +27,15 @@ const BoardSettingsSidebar = ({board, changeBoardSettings, deleteBoard, copyBoar
                     <ListItemText primary="Card Cover Images"/>
                     <ListItemSecondaryAction>
                         <Switch
-                            onChange={() => changeBoardSettings({cardCoverImages: !board.settings.cardCoverImages})}
-                            checked={board.settings.cardCoverImages}
+                            onChange={() => props.changeBoardSettings({cardCoverImages: !props.board.settings.cardCoverImages})}
+                            checked={props.board.settings.cardCoverImages}
                         />
                     </ListItemSecondaryAction>
                 </ListItem>
 
                 <ListItem
                     button
-                    onClick={() => changeBoardSettings({subscribed: !board.settings.subscribed})}
+                    onClick={() => props.changeBoardSettings({subscribed: !props.board.settings.subscribed})}
                 >
                     <ListItemIcon>
                         <Icon>remove_red_eye</Icon>
@@ -42,20 +43,20 @@ const BoardSettingsSidebar = ({board, changeBoardSettings, deleteBoard, copyBoar
                     <ListItemText primary="Subscribe"/>
                     <ListItemSecondaryAction>
                         <Switch
-                            onChange={() => changeBoardSettings({subscribed: !board.settings.subscribed})}
-                            checked={board.settings.subscribed}
+                            onChange={() => props.changeBoardSettings({subscribed: !props.board.settings.subscribed})}
+                            checked={props.board.settings.subscribed}
                         />
                     </ListItemSecondaryAction>
                 </ListItem>
 
-                <ListItem button onClick={() => copyBoard(board)}>
+                <ListItem button onClick={() => props.copyBoard(props.board)}>
                     <ListItemIcon>
                         <Icon>file_copy</Icon>
                     </ListItemIcon>
                     <ListItemText primary="Copy Board"/>
                 </ListItem>
 
-                <ListItem button onClick={() => deleteBoard(board.id)}>
+                <ListItem button onClick={() => props.deleteBoard(props.board.id)}>
                     <ListItemIcon>
                         <Icon>delete</Icon>
                     </ListItemIcon>
@@ -64,7 +65,7 @@ const BoardSettingsSidebar = ({board, changeBoardSettings, deleteBoard, copyBoar
             </List>
         </div>
     );
-};
+}
 
 function mapDispatchToProps(dispatch)
 {

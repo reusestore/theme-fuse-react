@@ -1,181 +1,202 @@
-import React, {Component} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Icon, Typography, Menu, MenuItem, LinearProgress, List, ListItemText, ListItemIcon, IconButton, TextField, InputAdornment, ClickAwayListener} from '@material-ui/core';
 import CardChecklistItem from './CardChecklistItem';
 import CardAddChecklistItem from './CardAddChecklistItem';
 import _ from '@lodash';
+import {useForm} from '@fuse/hooks';
 
-class CardChecklist extends Component {
+function CardChecklist(props)
+{
+    const [anchorEl, setAnchorEl] = useState(null);
+    const [formOpen, setFormOpen] = useState(false);
+    const [checklist, setChecklist] = useState(props.checklist);
+    const {form, handleChange, resetForm, setForm} = useForm({
+        title: props.checklist.name
+    });
 
-    state = {
-        anchorEl   : null,
-        renameForm : false,
-        renameTitle: this.props.checklist.name,
-        checklist  : this.props.checklist
-    };
-
-    componentDidUpdate(prevProps, prevState, snapshot)
-    {
-        if ( this.state.checklist &&
-            prevState.checklist &&
-            !_.isEqual(this.state.checklist, prevState.checklist) )
+    useEffect(() => {
+        if ( !formOpen )
         {
-            this.props.onCheckListChange(this.state.checklist);
+            resetForm();
         }
+        if ( anchorEl )
+        {
+            setAnchorEl(null);
+        }
+
+    }, [formOpen]);
+
+    useEffect(() => {
+        if ( form.title !== props.checklist.name )
+        {
+            setForm({title: props.checklist.name});
+        }
+    }, [props.checklist.name]);
+
+    function handleMenuOpen(event)
+    {
+        setAnchorEl(event.currentTarget);
     }
 
-    handleClick = event => {
-        this.setState({anchorEl: event.currentTarget});
-    };
+    function handleMenuClose()
+    {
+        setAnchorEl(null);
+    }
 
-    handleClose = () => {
-        this.setState({anchorEl: null});
-    };
+    function handleOpenForm()
+    {
+        setFormOpen(true);
+    }
 
-    handleListItemChange = (item) => {
-        const index = this.state.checklist.checkItems.findIndex((x) => x.id === item.id);
-        this.setState(_.setIn(this.state, `checklist.checkItems[${index}]`, item));
-    };
+    function handleCloseForm()
+    {
+        setFormOpen(false);
+    }
 
-    handleListItemRemove = (id) => {
-        this.setState(_.setIn(this.state, 'checklist.checkItems', _.reject(this.state.checklist.checkItems, {id})));
-    };
+    function isFormInvalid()
+    {
+        return form.title === '';
+    }
 
-    checkItemsChecked = () => {
-        return _.sum(this.state.checklist.checkItems.map(x => (x.checked ? 1 : 0)));
-    };
-
-    handleListItemAdd = (item) => {
-        this.setState(_.setIn(this.state, 'checklist.checkItems', [...this.state.checklist.checkItems, item]));
-    };
-
-    renameFormToggle = (state) => {
-        this.setState({
-            renameForm : state,
-            renameTitle: this.state.checklist.name
-        })
-    };
-
-    onRenameTitleChange = (ev) => {
-        this.setState({renameTitle: ev.target.value})
-    };
-
-    renameTitleSubmit = (ev) => {
+    function handleSubmit(ev)
+    {
         ev.preventDefault();
-        if ( this.state.renameTitle === '' )
+        if ( isFormInvalid() )
         {
-            this.renameFormToggle(false);
             return;
         }
-        this.setState(_.setIn(this.state, 'checklist.name', this.state.renameTitle));
-        this.renameFormToggle(false);
-    };
+        setChecklist(_.setIn(checklist, 'name', form.title));
+        handleCloseForm();
+    }
 
-    render()
-    {
-        const {onRemoveCheckList} = this.props;
-        const {anchorEl, checklist, renameTitle, renameForm} = this.state;
-
-        if ( !checklist )
+    useEffect(() => {
+        if ( !_.isEqual(props.checklist, checklist) )
         {
-            return null;
+            props.onCheckListChange(checklist);
         }
-        return (
-            <div className="mb-24">
+    }, [checklist]);
 
-                <div className="flex items-center justify-between mt-16 mb-12">
-                    <div className="flex items-center">
-                        <Icon className="text-20 mr-8">check_box</Icon>
-                        {renameForm ? (
-                            <ClickAwayListener onClickAway={() => this.renameFormToggle(false)}>
-                                <form onSubmit={this.renameTitleSubmit}>
-                                    <TextField
-                                        value={renameTitle}
-                                        onChange={this.onRenameTitleChange}
-                                        variant="outlined"
-                                        margin="dense"
-                                        InputProps={{
-                                            endAdornment: (
-                                                <InputAdornment position="end">
-                                                    <IconButton type="submit">
-                                                        <Icon>check</Icon>
-                                                    </IconButton>
-                                                </InputAdornment>
-                                            )
-                                        }}
-                                    />
-                                </form>
-                            </ClickAwayListener>
-                        ) : (
-                            <Typography
-                                className="text-16 font-600"
-                                onClick={() => this.renameFormToggle(true)}
-                            >
-                                {checklist.name}
-                            </Typography>
-                        )}
+    function handleListItemChange(item)
+    {
+        const index = checklist.checkItems.findIndex((x) => x.id === item.id);
+        setChecklist(_.setIn(checklist, `checkItems[${index}]`, item));
+    }
 
-                    </div>
-                    <div className="">
-                        <IconButton
-                            aria-owns={anchorEl ? 'actions-menu' : null}
-                            aria-haspopup="true"
-                            onClick={this.handleClick}
-                            variant="outlined"
-                            size="small"
+    function handleListItemRemove(id)
+    {
+        setChecklist(_.setIn(checklist, 'checkItems', _.reject(checklist.checkItems, {id})));
+    }
+
+    function checkItemsChecked()
+    {
+        return _.sum(checklist.checkItems.map(x => (x.checked ? 1 : 0)));
+    }
+
+    function handleListItemAdd(item)
+    {
+        setChecklist(_.setIn(checklist, 'checkItems', [...checklist.checkItems, item]));
+    }
+
+    if ( !checklist )
+    {
+        return null;
+    }
+    return (
+        <div className="mb-24">
+
+            <div className="flex items-center justify-between mt-16 mb-12">
+                <div className="flex items-center">
+                    <Icon className="text-20 mr-8">check_box</Icon>
+                    {formOpen ? (
+                        <ClickAwayListener onClickAway={() => handleCloseForm()}>
+                            <form onSubmit={handleSubmit}>
+                                <TextField
+                                    value={form.title}
+                                    name="title"
+                                    onChange={handleChange}
+                                    variant="outlined"
+                                    margin="dense"
+                                    InputProps={{
+                                        endAdornment: (
+                                            <InputAdornment position="end">
+                                                <IconButton type="submit" disabled={isFormInvalid()}>
+                                                    <Icon>check</Icon>
+                                                </IconButton>
+                                            </InputAdornment>
+                                        )
+                                    }}
+                                />
+                            </form>
+                        </ClickAwayListener>
+                    ) : (
+                        <Typography
+                            className="text-16 font-600 cursor-pointer"
+                            onClick={() => handleOpenForm()}
                         >
-                            <Icon className="text-20">more_vert</Icon>
-                        </IconButton>
-                        <Menu
-                            id="actions-menu"
-                            anchorEl={anchorEl}
-                            open={Boolean(anchorEl)}
-                            onClose={this.handleClose}
-                        >
-                            <MenuItem onClick={onRemoveCheckList}>
-                                <ListItemIcon>
-                                    <Icon>delete</Icon>
-                                </ListItemIcon>
-                                <ListItemText primary="Remove Checklist"/>
-                            </MenuItem>
-                            <MenuItem onClick={() => this.renameFormToggle(true)}>
-                                <ListItemIcon>
-                                    <Icon>edit</Icon>
-                                </ListItemIcon>
-                                <ListItemText primary="Rename Checklist"/>
-                            </MenuItem>
-                        </Menu>
-                    </div>
-                </div>
-
-                <div className="">
-                    <div className="flex items-center pl-16">
-                        <Typography className="flex font-600 mr-12">
-                            {this.checkItemsChecked() + ' / ' + checklist.checkItems.length}
+                            {checklist.name}
                         </Typography>
-                        <LinearProgress
-                            className="flex flex-1"
-                            variant="determinate"
-                            color="secondary"
-                            value={100 * this.checkItemsChecked() / checklist.checkItems.length}
-                        />
-                    </div>
-                    <List className="">
-                        {checklist.checkItems.map(checkItem => (
-                            <CardChecklistItem
-                                item={checkItem}
-                                key={checkItem.id}
-                                onListItemChange={this.handleListItemChange}
-                                onListItemRemove={() => this.handleListItemRemove(checkItem.id)}
-                            />
-                        ))}
-                        <CardAddChecklistItem
-                            onListItemAdd={(item) => this.handleListItemAdd(item)}
-                        />
-                    </List>
+                    )}
+                </div>
+                <div className="">
+                    <IconButton
+                        aria-owns={anchorEl ? 'actions-menu' : null}
+                        aria-haspopup="true"
+                        onClick={handleMenuOpen}
+                        variant="outlined"
+                        size="small"
+                    >
+                        <Icon className="text-20">more_vert</Icon>
+                    </IconButton>
+                    <Menu
+                        id="actions-menu"
+                        anchorEl={anchorEl}
+                        open={Boolean(anchorEl)}
+                        onClose={handleMenuClose}
+                    >
+                        <MenuItem onClick={props.onRemoveCheckList}>
+                            <ListItemIcon>
+                                <Icon>delete</Icon>
+                            </ListItemIcon>
+                            <ListItemText primary="Remove Checklist"/>
+                        </MenuItem>
+                        <MenuItem onClick={() => handleOpenForm()}>
+                            <ListItemIcon>
+                                <Icon>edit</Icon>
+                            </ListItemIcon>
+                            <ListItemText primary="Rename Checklist"/>
+                        </MenuItem>
+                    </Menu>
                 </div>
             </div>
-        )
-    }
+
+            <div className="">
+                <div className="flex items-center pl-16">
+                    <Typography className="flex font-600 mr-12">
+                        {checkItemsChecked() + ' / ' + checklist.checkItems.length}
+                    </Typography>
+                    <LinearProgress
+                        className="flex flex-1"
+                        variant="determinate"
+                        color="secondary"
+                        value={100 * checkItemsChecked() / checklist.checkItems.length}
+                    />
+                </div>
+                <List className="">
+                    {checklist.checkItems.map(checkItem => (
+                        <CardChecklistItem
+                            item={checkItem}
+                            key={checkItem.id}
+                            onListItemChange={handleListItemChange}
+                            onListItemRemove={() => handleListItemRemove(checkItem.id)}
+                        />
+                    ))}
+                    <CardAddChecklistItem
+                        onListItemAdd={(item) => handleListItemAdd(item)}
+                    />
+                </List>
+            </div>
+        </div>
+    )
 }
 
 export default CardChecklist;

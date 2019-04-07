@@ -1,96 +1,102 @@
-import React, {Component} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Paper, ClickAwayListener, Icon, IconButton, InputAdornment, TextField, Typography} from '@material-ui/core';
 import {bindActionCreators} from 'redux';
 import {withRouter} from 'react-router-dom';
 import connect from 'react-redux/es/connect/connect';
 import * as Actions from '../store/actions';
+import {useForm} from '@fuse/hooks';
 
-class BoardListHeader extends Component {
-
-    state = {
-        renameForm : false,
-        renameTitle: this.props.board.name
-    };
-
-    renameFormToggle = (state) => {
-        this.setState({
-            renameForm : state,
-            renameTitle: this.props.board.name
-        })
-    };
-
-    onRenameTitleChange = (ev) => {
-        this.setState({renameTitle: ev.target.value})
-    };
-
-    renameTitleSubmit = (ev) => {
-        ev.preventDefault();
-        if ( !this.canSubmit() )
+function BoardListHeader(props)
+{
+    const [formOpen, setFormOpen] = useState(false);
+    const {form, handleChange, resetForm, setForm} = useForm({
+        title: props.board.name
+    });
+    useEffect(() => {
+        if ( !formOpen )
         {
-            this.renameFormToggle(false);
+            resetForm();
+        }
+    }, [formOpen]);
+
+    useEffect(() => {
+        if ( form.title !== props.board.name )
+        {
+            setForm({title: props.board.name});
+        }
+    }, [props.board.name]);
+
+    function handleOpenForm()
+    {
+        setFormOpen(true);
+    }
+
+    function handleCloseForm()
+    {
+        setFormOpen(false);
+    }
+
+    function isFormInvalid()
+    {
+        return form.title === '';
+    }
+
+    function handleSubmit(ev)
+    {
+        ev.preventDefault();
+        if ( isFormInvalid() )
+        {
             return;
         }
-        this.setState({
-            renameForm : false,
-            renameTitle: this.state.renameTitle
-        });
-        this.props.renameBoard(this.props.board.id, this.state.renameTitle);
-    };
-
-    canSubmit = () => {
-        return this.state.renameTitle !== '';
-    };
-
-    render()
-    {
-        const {board} = this.props;
-        const {renameTitle, renameForm} = this.state;
-
-        return (
-            <div className="flex items-center min-w-0">
-                {renameForm ? (
-                    <ClickAwayListener onClickAway={() => this.renameFormToggle(false)}>
-                        <Paper className="p-4">
-                            <form className="flex w-full" onSubmit={this.renameTitleSubmit}>
-                                <TextField
-                                    value={renameTitle}
-                                    onChange={this.onRenameTitleChange}
-                                    variant="outlined"
-                                    margin="none"
-                                    autoFocus
-                                    InputProps={{
-                                        endAdornment: (
-                                            <InputAdornment position="end">
-                                                <IconButton
-                                                    type="submit"
-                                                    disabled={!this.canSubmit()}
-                                                >
-                                                    <Icon>check</Icon>
-                                                </IconButton>
-                                            </InputAdornment>
-                                        )
-                                    }}
-                                />
-                            </form>
-                        </Paper>
-                    </ClickAwayListener>
-                ) : (
-                    <div className="flex items-center justify-center">
-                        {board.settings.subscribed && (
-                            <Icon className="text-16 mr-8">remove_red_eye</Icon>
-                        )}
-                        <Typography
-                            className="text-16 font-600 cursor-pointer"
-                            onClick={() => this.renameFormToggle(true)}
-                            color="inherit"
-                        >
-                            {board.name}
-                        </Typography>
-                    </div>
-                )}
-            </div>
-        );
+        props.renameBoard(props.board.id, form.title);
+        handleCloseForm();
     }
+
+    return (
+        <div className="flex items-center min-w-0">
+            {formOpen ? (
+                <ClickAwayListener onClickAway={() => handleCloseForm()}>
+                    <Paper className="p-4">
+                        <form className="flex w-full" onSubmit={handleSubmit}>
+                            <TextField
+                                name="title"
+                                value={form.title}
+                                onChange={handleChange}
+                                variant="outlined"
+                                margin="none"
+                                autoFocus
+                                InputProps={{
+                                    endAdornment: (
+                                        <InputAdornment position="end">
+                                            <IconButton
+                                                type="submit"
+                                                disabled={isFormInvalid()}
+                                            >
+                                                <Icon>check</Icon>
+                                            </IconButton>
+                                        </InputAdornment>
+                                    )
+                                }}
+                            />
+                        </form>
+                    </Paper>
+                </ClickAwayListener>
+            ) : (
+                <div className="flex items-center justify-center">
+                    {props.board.settings.subscribed && (
+                        <Icon className="text-16 mr-8">remove_red_eye</Icon>
+                    )}
+                    <Typography
+                        className="text-16 font-600 cursor-pointer"
+                        onClick={() => handleOpenForm()}
+                        color="inherit"
+                    >
+                        {props.board.name}
+                    </Typography>
+                </div>
+            )}
+        </div>
+    );
 }
 
 function mapDispatchToProps(dispatch)
