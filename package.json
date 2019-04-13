@@ -42,7 +42,6 @@
         "react-dom": "16.8.6",
         "react-draggable": "3.2.1",
         "react-frame-component": "4.1.0",
-        "react-loadable": "5.5.0",
         "react-masonry-css": "1.0.12",
         "react-number-format": "4.0.7",
         "react-popper": "1.0.2",

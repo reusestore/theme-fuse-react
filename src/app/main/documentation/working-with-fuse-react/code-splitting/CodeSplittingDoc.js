@@ -32,8 +32,10 @@ function CodeSplittingDoc()
                     <Typography className="mt-32 mb-8" variant="h5">Route-based code splitting</Typography>
 
                     <Typography className="mb-16" component="p">
-                        We are using <a href="https://github.com/thejameskyle/react-loadable" target="_blank" rel="noopener noreferrer" className="font-bold">React
-                        Loadable</a> library and created FuseLoadable higher order component for to avoid repetition of Loadable component defaults.<br/>
+                        We are using <b>React.lazy</b> function to dynamically import component.
+                        <br/>
+                        <b>FuseSuspense</b> component is created for to avoid repetition of <b>React.Suspense</b> component defaults, which is used in the theme layouts.
+                        <br/>
                         Checkout the examples below to see dynamically or regular way of importing the components.
                     </Typography>
 
@@ -44,7 +46,7 @@ function CodeSplittingDoc()
 
                             <FuseHighlight component="pre" className="language-jsx my-16">
                                 {`
-                            import {FuseLoadable} from '@fuse';
+                            import React from 'react';
 
                             export const AnalyticsDashboardAppConfig = {
                                 settings: {
@@ -55,9 +57,7 @@ function CodeSplittingDoc()
                                 routes  : [
                                     {
                                         path     : '/apps/dashboards/analytics',
-                                        component: FuseLoadable({
-                                            loader: () => import('./AnalyticsDashboardApp')
-                                        })
+                                        component: React.lazy(() => import('./AnalyticsDashboardApp'))
                                     }
                                 ]
                             };
