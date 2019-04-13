@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {withRouter} from 'react-router-dom';
 import {renderRoutes} from 'react-router-config'
-import {FuseScrollbars, FuseMessage, FuseDialog} from '@fuse';
+import {FuseScrollbars, FuseMessage, FuseDialog, FuseSuspense} from '@fuse';
 import {makeStyles} from '@material-ui/styles';
 import {connect} from 'react-redux';
 import ToolbarLayout1 from './components/ToolbarLayout1';
@@ -114,9 +114,15 @@ function Layout1(props)
                                     )}
 
                                     <div className={classes.content}>
+
                                         <FuseDialog/>
-                                        {renderRoutes(routes)}
+
+                                        <FuseSuspense>
+                                            {renderRoutes(routes)}
+                                        </FuseSuspense>
+
                                         {props.children}
+
                                     </div>
 
                                     {props.config.footer.display && props.config.footer.position === 'below' && (
@@ -186,7 +192,10 @@ function Layout1(props)
 
                                     <FuseDialog/>
 
-                                    {renderRoutes(routes)}
+                                    <FuseSuspense>
+                                        {renderRoutes(routes)}
+                                    </FuseSuspense>
+
                                     {props.children}
 
                                     {props.config.footer.display && props.config.footer.position === 'below' && props.config.footer.style !== 'fixed' && (

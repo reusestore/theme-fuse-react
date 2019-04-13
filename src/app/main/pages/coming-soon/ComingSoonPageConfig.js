@@ -1,4 +1,4 @@
-import {FuseLoadable} from '@fuse';
+import React from 'react';
 
 export const ComingSoonPageConfig = {
     settings: {
@@ -9,9 +9,7 @@ export const ComingSoonPageConfig = {
     routes  : [
         {
             path     : '/pages/coming-soon',
-            component: FuseLoadable({
-                loader: () => import('./ComingSoonPage')
-            })
+            component: React.lazy(() => import('./ComingSoonPage'))
         }
     ]
 };

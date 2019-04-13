@@ -1,4 +1,4 @@
-import {FuseLoadable} from '@fuse';
+import React from 'react';
 
 export const ModernSearchPageConfig = {
     settings: {
@@ -9,9 +9,7 @@ export const ModernSearchPageConfig = {
     routes  : [
         {
             path     : '/pages/search/modern',
-            component: FuseLoadable({
-                loader: () => import('./ModernSearchPage')
-            })
+            component: React.lazy(() => import('./ModernSearchPage'))
         }
     ]
 };

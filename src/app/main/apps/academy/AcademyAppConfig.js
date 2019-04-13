@@ -1,5 +1,4 @@
 import React from 'react';
-import {FuseLoadable} from '@fuse';
 import {Redirect} from 'react-router-dom';
 
 export const AcademyAppConfig = {
@@ -9,15 +8,11 @@ export const AcademyAppConfig = {
     routes  : [
         {
             path     : '/apps/academy/courses/:courseId/:courseHandle?',
-            component: FuseLoadable({
-                loader: () => import('./course/Course')
-            })
+            component: React.lazy(() => import('./course/Course'))
         },
         {
             path     : '/apps/academy/courses',
-            component: FuseLoadable({
-                loader: () => import('./courses/Courses')
-            })
+            component: React.lazy(() => import('./courses/Courses'))
         },
         {
             path     : '/apps/academy',

@@ -1,4 +1,4 @@
-import {FuseLoadable} from '@fuse';
+import React from 'react';
 
 export const Error404PageConfig = {
     settings: {
@@ -9,9 +9,7 @@ export const Error404PageConfig = {
     routes  : [
         {
             path     : '/pages/errors/error-404',
-            component: FuseLoadable({
-                loader: () => import('./Error404Page')
-            })
+            component: React.lazy(() => import('./Error404Page'))
         }
     ]
 };

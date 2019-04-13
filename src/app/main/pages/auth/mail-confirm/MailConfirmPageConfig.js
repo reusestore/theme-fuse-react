@@ -1,4 +1,4 @@
-import {FuseLoadable} from '@fuse';
+import React from 'react';
 
 export const MailConfirmPageConfig = {
     settings: {
@@ -9,9 +9,7 @@ export const MailConfirmPageConfig = {
     routes  : [
         {
             path     : '/pages/auth/mail-confirm',
-            component: FuseLoadable({
-                loader: () => import('./MailConfirmPage')
-            })
+            component: React.lazy(() => import('./MailConfirmPage'))
         }
     ]
 };

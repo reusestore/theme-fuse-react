@@ -1,4 +1,4 @@
-import {FuseLoadable} from '@fuse';
+import React from 'react';
 
 export const PricingStyle1PageConfig = {
     settings: {
@@ -9,9 +9,7 @@ export const PricingStyle1PageConfig = {
     routes  : [
         {
             path     : '/pages/pricing/style-1',
-            component: FuseLoadable({
-                loader: () => import('./PricingStyle1Page')
-            })
+            component: React.lazy(() => import('./PricingStyle1Page'))
         }
     ]
 };

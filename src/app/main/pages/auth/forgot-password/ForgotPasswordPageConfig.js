@@ -1,4 +1,4 @@
-import {FuseLoadable} from '@fuse';
+import React from 'react';
 
 export const ForgotPasswordPageConfig = {
     settings: {
@@ -9,9 +9,7 @@ export const ForgotPasswordPageConfig = {
     routes  : [
         {
             path     : '/pages/auth/forgot-password',
-            component: FuseLoadable({
-                loader: () => import('./ForgotPasswordPage')
-            })
+            component: React.lazy(() => import('./ForgotPasswordPage'))
         }
     ]
 };

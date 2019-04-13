@@ -1,4 +1,4 @@
-import {FuseLoadable} from '@fuse';
+import React from 'react';
 
 export const LockPageConfig = {
     settings: {
@@ -9,9 +9,7 @@ export const LockPageConfig = {
     routes  : [
         {
             path     : '/pages/auth/lock',
-            component: FuseLoadable({
-                loader: () => import('./LockPage')
-            })
+            component: React.lazy(() => import('./LockPage'))
         }
     ]
 };

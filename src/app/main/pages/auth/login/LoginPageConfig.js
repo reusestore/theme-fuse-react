@@ -1,4 +1,4 @@
-import {FuseLoadable} from '@fuse';
+import React from 'react';
 
 export const LoginPageConfig = {
     settings: {
@@ -9,9 +9,7 @@ export const LoginPageConfig = {
     routes  : [
         {
             path     : '/pages/auth/login',
-            component: FuseLoadable({
-                loader: () => import('./LoginPage')
-            })
+            component: React.lazy(() => import('./LoginPage'))
         }
     ]
 };

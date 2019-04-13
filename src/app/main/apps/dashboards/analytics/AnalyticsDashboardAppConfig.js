@@ -1,4 +1,4 @@
-import {FuseLoadable} from '@fuse';
+import React from 'react';
 
 export const AnalyticsDashboardAppConfig = {
     settings: {
@@ -9,9 +9,7 @@ export const AnalyticsDashboardAppConfig = {
     routes  : [
         {
             path     : '/apps/dashboards/analytics',
-            component: FuseLoadable({
-                loader: () => import('./AnalyticsDashboardApp')
-            })
+            component: React.lazy(() => import('./AnalyticsDashboardApp'))
         }
     ]
 };

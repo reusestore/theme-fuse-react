@@ -1,4 +1,4 @@
-import {FuseLoadable} from '@fuse';
+import React from 'react';
 
 export const CalendarAppConfig = {
     settings: {
@@ -9,9 +9,7 @@ export const CalendarAppConfig = {
     routes  : [
         {
             path     : '/apps/calendar',
-            component: FuseLoadable({
-                loader: () => import('./CalendarApp')
-            })
+            component: React.lazy(() => import('./CalendarApp'))
         }
     ]
 };

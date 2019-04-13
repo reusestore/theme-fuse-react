@@ -1,4 +1,4 @@
-import {FuseLoadable} from '@fuse';
+import React from 'react';
 
 export const FileManagerAppConfig = {
     settings: {
@@ -9,9 +9,7 @@ export const FileManagerAppConfig = {
     routes  : [
         {
             path     : '/apps/file-manager',
-            component: FuseLoadable({
-                loader: () => import('./FileManagerApp')
-            })
+            component: React.lazy(() => import('./FileManagerApp'))
         }
     ]
 };

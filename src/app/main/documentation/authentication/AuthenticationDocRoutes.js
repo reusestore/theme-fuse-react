@@ -1,22 +1,16 @@
-import {FuseLoadable} from '@fuse';
+import React from 'react';
 
 export const AuthenticationDocRoutes = [
     {
         path     : '/documentation/authentication/jwt',
-        component: FuseLoadable({
-            loader: () => import('./jwt/jwtAuthDoc')
-        })
+        component: React.lazy(() => import('./jwt/jwtAuthDoc'))
     },
     {
         path     : '/documentation/authentication/firebase',
-        component: FuseLoadable({
-            loader: () => import('./firebase/FirebaseAuthDoc')
-        })
+        component: React.lazy(() => import('./firebase/FirebaseAuthDoc'))
     },
     {
         path     : '/documentation/authentication/auth0',
-        component: FuseLoadable({
-            loader: () => import('./auth0/Auth0AuthDoc')
-        })
+        component: React.lazy(() => import('./auth0/Auth0AuthDoc'))
     }
 ];

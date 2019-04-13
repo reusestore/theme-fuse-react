@@ -1,5 +1,4 @@
 import React from 'react';
-import {FuseLoadable} from '@fuse';
 import {Redirect} from 'react-router-dom';
 
 export const MailAppConfig = {
@@ -13,9 +12,7 @@ export const MailAppConfig = {
                 '/apps/mail/filter/:filterHandle/:mailId?',
                 '/apps/mail/:folderHandle/:mailId?'
             ],
-            component: FuseLoadable({
-                loader: () => import('./MailApp')
-            })
+            component: React.lazy(() => import('./MailApp'))
         },
         {
             path     : '/apps/mail',

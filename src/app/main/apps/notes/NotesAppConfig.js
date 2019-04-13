@@ -1,4 +1,4 @@
-import {FuseLoadable} from '@fuse';
+import React from 'react';
 
 export const NotesAppConfig = {
     settings: {
@@ -9,9 +9,7 @@ export const NotesAppConfig = {
     routes  : [
         {
             path     : '/apps/notes/:id?/:labelHandle?/:labelId?',
-            component: FuseLoadable({
-                loader: () => import('./NotesApp')
-            })
+            component: React.lazy(() => import('./NotesApp'))
         }
     ]
 };

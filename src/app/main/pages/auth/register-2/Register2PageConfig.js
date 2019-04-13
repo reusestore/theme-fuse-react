@@ -1,4 +1,4 @@
-import {FuseLoadable} from '@fuse';
+import React from 'react';
 
 export const Register2PageConfig = {
     settings: {
@@ -9,9 +9,7 @@ export const Register2PageConfig = {
     routes  : [
         {
             path     : '/pages/auth/register-2',
-            component: FuseLoadable({
-                loader: () => import('./Register2Page')
-            })
+            component: React.lazy(() => import('./Register2Page'))
         }
     ]
 };

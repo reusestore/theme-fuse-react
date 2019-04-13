@@ -1,4 +1,4 @@
-import {FuseLoadable} from '@fuse';
+import React from 'react';
 
 export const CompactInvoicePageConfig = {
     settings: {
@@ -9,9 +9,7 @@ export const CompactInvoicePageConfig = {
     routes  : [
         {
             path     : '/pages/invoices/compact',
-            component: FuseLoadable({
-                loader: () => import('./CompactInvoicePage')
-            })
+            component: React.lazy(() => import('./CompactInvoicePage'))
         }
     ]
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import {FuseScrollbars, FuseMessage, FuseDialog} from '@fuse';
+import {FuseScrollbars, FuseMessage, FuseDialog, FuseSuspense} from '@fuse';
 import {makeStyles} from '@material-ui/styles';
 import {withRouter} from 'react-router-dom';
 import {renderRoutes} from 'react-router-config'
@@ -95,11 +95,17 @@ function Layout3(props)
                             <FuseDialog/>
 
                             <div className="flex flex-auto flex-col relative">
-                                {renderRoutes(routes)}
+
+                                <FuseSuspense>
+                                    {renderRoutes(routes)}
+                                </FuseSuspense>
+
                                 {props.children}
+
                                 {props.config.footer.display && props.config.footer.style === 'static' && (
                                     <FooterLayout3/>
                                 )}
+
                             </div>
 
                         </FuseScrollbars>

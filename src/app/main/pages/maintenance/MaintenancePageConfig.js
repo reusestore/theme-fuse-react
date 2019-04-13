@@ -1,4 +1,4 @@
-import {FuseLoadable} from '@fuse';
+import React from 'react';
 
 export const MaintenancePageConfig = {
     settings: {
@@ -9,9 +9,7 @@ export const MaintenancePageConfig = {
     routes  : [
         {
             path     : '/pages/maintenance',
-            component: FuseLoadable({
-                loader: () => import('./MaintenancePage')
-            })
+            component: React.lazy(() => import('./MaintenancePage'))
         }
     ]
 };

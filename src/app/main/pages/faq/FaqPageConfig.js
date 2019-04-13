@@ -1,4 +1,4 @@
-import {FuseLoadable} from '@fuse';
+import React from 'react';
 
 export const FaqPageConfig = {
     settings: {
@@ -9,9 +9,7 @@ export const FaqPageConfig = {
     routes  : [
         {
             path     : '/pages/faq',
-            component: FuseLoadable({
-                loader: () => import('./FaqPage')
-            })
+            component: React.lazy(() => import('./FaqPage'))
         }
     ]
 };

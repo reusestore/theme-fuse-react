@@ -1,6 +1,6 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/styles';
-import {FuseScrollbars, FuseMessage, FuseDialog} from '@fuse';
+import {FuseScrollbars, FuseMessage, FuseDialog, FuseSuspense} from '@fuse';
 import {withRouter} from 'react-router-dom';
 import {renderRoutes} from 'react-router-config'
 import {connect} from 'react-redux';
@@ -95,11 +95,17 @@ function Layout2(props)
                             <FuseDialog/>
 
                             <div className="flex flex-auto flex-col relative">
-                                {renderRoutes(routes)}
+
+                                <FuseSuspense>
+                                    {renderRoutes(routes)}
+                                </FuseSuspense>
+
                                 {props.children}
+
                                 {props.config.footer.display && props.config.footer.style === 'static' && (
                                     <FooterLayout2/>
                                 )}
+
                             </div>
 
                         </FuseScrollbars>
