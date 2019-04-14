@@ -45,7 +45,7 @@
         "react-masonry-css": "1.0.12",
         "react-number-format": "4.0.7",
         "react-popper": "1.0.2",
-        "react-redux": "6.0.1",
+        "react-redux": "7.0.2",
         "react-router-config": "5.0.0",
         "react-router-dom": "5.0.0",
         "react-scripts": "2.1.8",

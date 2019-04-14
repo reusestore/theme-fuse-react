@@ -1,6 +1,5 @@
 import React from "react";
 import {injectReducer} from 'app/store';
-import {ReactReduxContext} from "react-redux";
 
 const withReducer = (key, reducer) => WrappedComponent =>
     class extends React.PureComponent {
@@ -12,13 +11,7 @@ const withReducer = (key, reducer) => WrappedComponent =>
 
         render()
         {
-            return (
-                <ReactReduxContext.Consumer>
-                    {({store, storeState}) => {
-                        return storeState[key] ? <WrappedComponent {...this.props} /> : null;
-                    }}
-                </ReactReduxContext.Consumer>
-            );
+            return <WrappedComponent {...this.props} />;
         };
     };
 
