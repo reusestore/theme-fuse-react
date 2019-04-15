@@ -13,48 +13,49 @@ function NoteList(props)
     const [filteredData, setFilteredData] = useState(null);
 
     useEffect(() => {
+        function filterData()
+        {
+            const {params} = props.match;
+            const {id, labelId} = params;
+
+            let data = Object.keys(props.notes).map((id) => props.notes[id]);
+
+            if ( labelId )
+            {
+                data = data.filter((note) => note.labels.includes(labelId) && !note.archive);
+            }
+
+            if ( !id )
+            {
+                data = data.filter((note) => !note.archive);
+            }
+
+            if ( id === "archive" )
+            {
+                data = data.filter((note) => note.archive);
+            }
+
+            if ( id === "reminders" )
+            {
+                data = data.filter((note) => Boolean(note.reminder) && !note.archive);
+            }
+
+            if ( props.searchText.length === 0 )
+            {
+                return data;
+            }
+
+            data = (FuseUtils.filterArrayByString(data, props.searchText));
+
+            return data;
+        }
+
         if ( props.notes )
         {
             setFilteredData(filterData())
         }
+
     }, [props.notes, props.searchText, props.match]);
-
-    function filterData()
-    {
-        const {params} = props.match;
-        const {id, labelId} = params;
-
-        let data = Object.keys(props.notes).map((id) => props.notes[id]);
-
-        if ( labelId )
-        {
-            data = data.filter((note) => note.labels.includes(labelId) && !note.archive);
-        }
-
-        if ( !id )
-        {
-            data = data.filter((note) => !note.archive);
-        }
-
-        if ( id === "archive" )
-        {
-            data = data.filter((note) => note.archive);
-        }
-
-        if ( id === "reminders" )
-        {
-            data = data.filter((note) => Boolean(note.reminder) && !note.archive);
-        }
-
-        if ( props.searchText.length === 0 )
-        {
-            return data;
-        }
-
-        data = (FuseUtils.filterArrayByString(data, props.searchText));
-
-        return data;
-    }
 
     return (
         (!filteredData || filteredData.length === 0) ?

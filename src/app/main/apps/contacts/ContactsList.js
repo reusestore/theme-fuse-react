@@ -13,21 +13,22 @@ function ContactsList(props)
     const [filteredData, setFilteredData] = useState(null);
 
     useEffect(() => {
+        function getFilteredArray(entities, searchText)
+        {
+            const arr = Object.keys(entities).map((id) => entities[id]);
+            if ( searchText.length === 0 )
+            {
+                return arr;
+            }
+            return FuseUtils.filterArrayByString(arr, searchText);
+        }
+
         if ( props.contacts )
         {
             setFilteredData(getFilteredArray(props.contacts, props.searchText));
         }
     }, [props.contacts, props.searchText]);
 
-    function getFilteredArray(entities, searchText)
-    {
-        const arr = Object.keys(entities).map((id) => entities[id]);
-        if ( searchText.length === 0 )
-        {
-            return arr;
-        }
-        return FuseUtils.filterArrayByString(arr, searchText);
-    }
 
     if ( !filteredData )
     {

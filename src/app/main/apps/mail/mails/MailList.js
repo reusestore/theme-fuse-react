@@ -16,21 +16,21 @@ function MailList(props)
     }, [props.location]);
 
     useEffect(() => {
+        function getFilteredArray()
+        {
+            const arr = Object.keys(props.mails).map((id) => props.mails[id]);
+            if ( props.searchText.length === 0 )
+            {
+                return arr;
+            }
+            return FuseUtils.filterArrayByString(arr, props.searchText);
+        }
+
         if ( props.mails )
         {
             setFilteredData(getFilteredArray());
         }
     }, [props.mails, props.searchText]);
-
-    function getFilteredArray()
-    {
-        const arr = Object.keys(props.mails).map((id) => props.mails[id]);
-        if ( props.searchText.length === 0 )
-        {
-            return arr;
-        }
-        return FuseUtils.filterArrayByString(arr, props.searchText);
-    }
 
     if ( !filteredData )
     {

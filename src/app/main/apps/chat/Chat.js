@@ -101,6 +101,11 @@ function Chat(props)
         }
     }, [props.chat]);
 
+    function scrollToBottom()
+    {
+        chatRef.current.scrollTop = chatRef.current.scrollHeight;
+    }
+
     function shouldShowContactAvatar(item, i)
     {
         return (
@@ -135,11 +140,6 @@ function Chat(props)
             .then(() => {
                 setMessageText('');
             });
-    }
-
-    function scrollToBottom()
-    {
-        chatRef.current.scrollTop = chatRef.current.scrollHeight;
     }
 
     return (

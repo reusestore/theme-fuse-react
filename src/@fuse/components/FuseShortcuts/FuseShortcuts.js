@@ -35,12 +35,13 @@ function FuseShortcuts(props)
     const shortcutItems = props.shortcuts ? props.shortcuts.map(id => FuseUtils.findById(props.navigation, id)) : [];
 
     useEffect(() => {
-        flattenNavigation(props.navigation);
-    }, []);
+        function flattenNavigation()
+        {
+            setNavigation(FuseUtils.getFlatNavigation(props.navigation));
+        }
 
-    useEffect(() => {
-        flattenNavigation(props.navigation);
-    }, [props.location]);
+        flattenNavigation();
+    }, [props.location, props.navigation]);
 
     function addMenuClick(event)
     {
@@ -50,11 +51,6 @@ function FuseShortcuts(props)
     function addMenuClose()
     {
         setAddMenu(null);
-    }
-
-    function flattenNavigation(navigation)
-    {
-        setNavigation(FuseUtils.getFlatNavigation(navigation));
     }
 
     function search(ev)

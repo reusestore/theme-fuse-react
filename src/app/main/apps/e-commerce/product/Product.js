@@ -51,10 +51,21 @@ function Product(props)
     const {form, handleChange, setForm} = useForm(null);
 
     useEffect(() => {
-        updateProductState();
-    }, []);
+        function updateProductState()
+        {
+            const params = props.match.params;
+            const {productId} = params;
 
-    useEffect(() => {
+            if ( productId === 'new' )
+            {
+                props.newProduct();
+            }
+            else
+            {
+                props.getProduct(props.match.params);
+            }
+        }
+
         updateProductState();
     }, [props.location]);
 
@@ -67,21 +78,6 @@ function Product(props)
             setForm(props.product.data);
         }
     }, [props.product.data]);
-
-    function updateProductState()
-    {
-        const params = props.match.params;
-        const {productId} = params;
-
-        if ( productId === 'new' )
-        {
-            props.newProduct();
-        }
-        else
-        {
-            props.getProduct(props.match.params);
-        }
-    }
 
     function handleChangeTab(event, tabValue)
     {

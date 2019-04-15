@@ -57,27 +57,27 @@ function Courses(props)
     }, []);
 
     useEffect(() => {
+        function getFilteredArray()
+        {
+            if ( searchText.length === 0 && selectedCategory === "all" )
+            {
+                return props.courses;
+            }
+
+            return _.filter(props.courses, item => {
+                if ( selectedCategory !== "all" && item.category !== selectedCategory )
+                {
+                    return false;
+                }
+                return item.title.toLowerCase().includes(searchText.toLowerCase())
+            });
+        }
+
         if ( props.courses )
         {
             setFilteredData(getFilteredArray());
         }
     }, [props.courses, searchText, selectedCategory]);
-
-    function getFilteredArray()
-    {
-        if ( searchText.length === 0 && selectedCategory === "all" )
-        {
-            return props.courses;
-        }
-
-        return _.filter(props.courses, item => {
-            if ( selectedCategory !== "all" && item.category !== selectedCategory )
-            {
-                return false;
-            }
-            return item.title.toLowerCase().includes(searchText.toLowerCase())
-        });
-    }
 
     function handleSelectedCategory(event)
     {

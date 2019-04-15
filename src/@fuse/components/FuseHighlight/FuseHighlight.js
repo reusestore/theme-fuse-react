@@ -9,7 +9,12 @@ function FuseHighlight(props)
     const source = useRef(trimCode());
 
     useEffect(() => {
-        highlight()
+        function highlight()
+        {
+            Prism.highlightElement(domNode.current, props.async)
+        }
+
+        highlight();
     }, []);
 
     function trimCode()
@@ -53,11 +58,6 @@ function FuseHighlight(props)
             }
         });
         return sourceRaw;
-    }
-
-    function highlight()
-    {
-        Prism.highlightElement(domNode.current, props.async)
     }
 
     const {className, component: Wrapper} = props;

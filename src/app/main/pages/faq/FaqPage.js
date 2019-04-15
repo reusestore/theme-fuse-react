@@ -40,6 +40,15 @@ function FaqPage()
     }, []);
 
     useEffect(() => {
+        function getFilteredArray(arr, searchText)
+        {
+            if ( searchText.length === 0 )
+            {
+                return arr;
+            }
+            return FuseUtils.filterArrayByString(arr, searchText);
+        }
+
         setFilteredData(getFilteredArray(data, searchText));
     }, [data, searchText]);
 
@@ -50,15 +59,6 @@ function FaqPage()
     function handleSearch(event)
     {
         setSearchText(event.target.value);
-    }
-
-    function getFilteredArray(arr, searchText)
-    {
-        if ( searchText.length === 0 )
-        {
-            return arr;
-        }
-        return FuseUtils.filterArrayByString(arr, searchText);
     }
 
     return (

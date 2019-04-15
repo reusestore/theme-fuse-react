@@ -46,35 +46,32 @@ function FuseLayout(props)
 {
     const classes = useStyles(props);
     const appContext = useContext(AppContext);
-
-    routeSettingsCheck();
+    const {routes} = appContext;
 
     useEffect(() => {
+        function routeSettingsCheck()
+        {
+            const matched = matchRoutes(routes, props.location.pathname)[0];
+
+            if ( matched && matched.route.settings )
+            {
+                const routeSettings = _.merge({}, props.defaultSettings, matched.route.settings);
+                if ( !_.isEqual(props.settings, routeSettings) )
+                {
+                    props.setSettings(_.merge({}, routeSettings));
+                }
+            }
+            else
+            {
+                if ( !_.isEqual(props.settings, props.defaultSettings) )
+                {
+                    props.resetSettings();
+                }
+            }
+        }
+
         routeSettingsCheck();
-    }, [props.location.pathname]);
-
-    function routeSettingsCheck()
-    {
-        const {routes} = appContext;
-
-        const matched = matchRoutes(routes, props.location.pathname)[0];
-
-        if ( matched && matched.route.settings )
-        {
-            const routeSettings = _.merge({}, props.defaultSettings, matched.route.settings);
-            if ( !_.isEqual(props.settings, routeSettings) )
-            {
-                props.setSettings(_.merge({}, routeSettings));
-            }
-        }
-        else
-        {
-            if ( !_.isEqual(props.settings, props.defaultSettings) )
-            {
-                props.resetSettings();
-            }
-        }
-    }
+    }, [props.location.pathname, props.settings, props.defaultSettings]);
 
     // console.warn('FuseLayout:: rendered');
 

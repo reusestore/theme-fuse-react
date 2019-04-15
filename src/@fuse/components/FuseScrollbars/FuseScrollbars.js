@@ -55,15 +55,17 @@ const FuseScrollbars = React.forwardRef(function FuseScrollbars(props, ref) {
         }
     }, []);
 
-    const updatePs = () => {
+    function updatePs()
+    {
         if ( !ps.current )
         {
             return;
         }
         ps.current.update();
-    };
+    }
 
-    const destroyPs = () => {
+    function destroyPs()
+    {
         // console.info("destroy::ps");
 
         unHookUpEvents();
@@ -74,9 +76,10 @@ const FuseScrollbars = React.forwardRef(function FuseScrollbars(props, ref) {
         }
         ps.current.destroy();
         ps.current = null;
-    };
+    }
 
-    const createPs = () => {
+    function createPs()
+    {
         // console.info("create::ps");
 
         if ( isMobile || !ref || ps.current )
@@ -87,9 +90,10 @@ const FuseScrollbars = React.forwardRef(function FuseScrollbars(props, ref) {
         ps.current = new PerfectScrollbar(ref.current, props.option);
 
         hookUpEvents();
-    };
+    }
 
-    const hookUpEvents = () => {
+    function hookUpEvents()
+    {
         Object.keys(handlerNameByEvent).forEach((key) => {
             const callback = props[handlerNameByEvent[key]];
             if ( callback )
@@ -99,18 +103,20 @@ const FuseScrollbars = React.forwardRef(function FuseScrollbars(props, ref) {
                 ref.current.addEventListener(key, handler, false);
             }
         });
-    };
+    }
 
-    const unHookUpEvents = () => {
+    function unHookUpEvents()
+    {
         Object.keys(handlerByEvent.current).forEach((value, key) => {
             ref.current.removeEventListener(key, value, false);
         });
         handlerByEvent.current.clear();
-    };
+    }
 
-    const scrollToTop = () => {
+    function scrollToTop()
+    {
         ref.current.scrollTop = 0;
-    };
+    }
 
     // console.info('render::ps');
     return (

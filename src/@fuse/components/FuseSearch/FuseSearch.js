@@ -238,12 +238,16 @@ function FuseSearch(props)
     const popperNode = useRef(null);
 
     useEffect(() => {
-        setNavigation();
-    }, []);
+        function setNavigation()
+        {
+            dispatch({
+                type : "setNavigation",
+                value: FuseUtils.getFlatNavigation(props.navigation).filter(item => itemAuthAllowed(item))
+            });
+        }
 
-    useEffect(() => {
         setNavigation();
-    }, [props.userRole]);
+    }, [props.userRole, props.navigation]);
 
     function showSearch()
     {
@@ -268,14 +272,6 @@ function FuseSearch(props)
     function itemAuthAllowed(item)
     {
         return !(item.auth && (!item.auth.includes(props.userRole) || (props.userRole !== 'guest' && item.auth.length === 1 && item.auth.includes('guest'))))
-    }
-
-    function setNavigation()
-    {
-        dispatch({
-            type : "setNavigation",
-            value: FuseUtils.getFlatNavigation(props.navigation).filter(item => itemAuthAllowed(item))
-        });
     }
 
     function handleSuggestionsFetchRequested({value})
