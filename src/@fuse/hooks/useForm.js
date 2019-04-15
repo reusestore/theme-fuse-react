@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import _ from '../../@lodash';
+import _ from '@lodash';
 
 function useForm(initialState, onSubmit)
 {
@@ -21,7 +21,7 @@ function useForm(initialState, onSubmit)
         setForm(initialState);
     }
 
-    function setInForm(name,value)
+    function setInForm(name, value)
     {
         setForm(_.setIn(form, name, value));
     }

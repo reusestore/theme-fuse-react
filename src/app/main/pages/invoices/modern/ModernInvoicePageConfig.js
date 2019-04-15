@@ -9,7 +9,7 @@ export const ModernInvoicePageConfig = {
     routes  : [
         {
             path     : '/pages/invoices/modern',
-            component: React.lazy(() =>  import('./ModernInvoicePage'))
+            component: React.lazy(() => import('./ModernInvoicePage'))
         }
     ]
 };

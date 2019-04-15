@@ -1997,12 +1997,10 @@ const projectDashboardAppDB = {
     ]
 };
 
-mock.onGet('/api/project-dashboard-app/widgets').reply((config) =>
-{
+mock.onGet('/api/project-dashboard-app/widgets').reply((config) => {
     return [200, projectDashboardAppDB.widgets];
 });
 
-mock.onGet('/api/project-dashboard-app/projects').reply((config) =>
-{
+mock.onGet('/api/project-dashboard-app/projects').reply((config) => {
     return [200, projectDashboardAppDB.projects];
 });

@@ -9,7 +9,7 @@ export const PricingStyle2PageConfig = {
     routes  : [
         {
             path     : '/pages/pricing/style-2',
-            component: React.lazy(() =>  import('./PricingStyle2Page'))
+            component: React.lazy(() => import('./PricingStyle2Page'))
         }
     ]
 };

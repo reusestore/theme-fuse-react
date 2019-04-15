@@ -26,7 +26,7 @@ function FusePageCardedSidebar(props, ref)
                     open={isOpen}
                     onClose={(ev) => handleToggleDrawer()}
                     classes={{
-                        paper: classNames(classes.sidebar, props.variant, props.position === 'left'  ? classes.leftSidebar : classes.rightSidebar)
+                        paper: classNames(classes.sidebar, props.variant, props.position === 'left' ? classes.leftSidebar : classes.rightSidebar)
                     }}
                     ModalProps={{
                         keepMounted: true // Better open performance on mobile.
@@ -49,7 +49,7 @@ function FusePageCardedSidebar(props, ref)
                         className={classNames(classes.sidebarWrapper, props.variant)}
                         open={isOpen}
                         classes={{
-                            paper: classNames(classes.sidebar, props.variant, props.position === 'left'  ? classes.leftSidebar : classes.rightSidebar)
+                            paper: classNames(classes.sidebar, props.variant, props.position === 'left' ? classes.leftSidebar : classes.rightSidebar)
                         }}>
                         <FusePageCardedSidebarContent {...props}/>
                     </Drawer>

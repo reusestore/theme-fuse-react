@@ -60,7 +60,7 @@ function TodoApp(props)
 function mapDispatchToProps(dispatch)
 {
     return bindActionCreators({
-        getTodos   : Actions.getTodos,
+        getTodos  : Actions.getTodos,
         getFilters: Actions.getFilters,
         getFolders: Actions.getFolders,
         getLabels : Actions.getLabels
