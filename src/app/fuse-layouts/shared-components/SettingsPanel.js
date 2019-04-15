@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
         }
     },
     buttonIcon           : {
-        animation: 'rotating 3s linear infinite'
+        animation: '$rotating 3s linear infinite'
     },
     dialogPaper          : {
         position       : 'fixed',
