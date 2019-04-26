@@ -2,19 +2,19 @@
 title: Circular Progress, Linear Progress React component
 components: CircularProgress, LinearProgress
 ---
-# Progress
+# Прогресс
 
-<p class="description">Progress indicators express an unspecified wait time or display the length of a process.</p>
+<p class="description">Индикаторы прогресса указывают на неопределенное время ожидания или отображают продолжительность процесса.</p>
 
-[Progress indicators](https://material.io/design/components/progress-indicators.html) inform users about the status of ongoing processes, such as loading an app, submitting a form, or saving updates. They communicate an app’s state and indicate available actions, such as whether users can navigate away from the current screen.
+[Индикаторы прогресса](https://material.io/design/components/progress-indicators.html) информируют пользователей о состоянии текущих процессов, таких как загрузка приложения, отправка формы или сохранение обновлений. Они сообщают о состоянии приложения и указывают возможные действия, например, могут ли пользователи уходить с текущего экрана.
 
-**Determinate** indicators display how long an operation will take.
+**Детерменированные** индикаторы показывают, сколько времени займет операция.
 
-**Indeterminate** indicators visualize an unspecified wait time.
+**Недетерминированные** индикаторы отображают неопределенное время ожидания.
 
-#### Progress as a group
+#### Групповой прогресс
 
-When displaying progress for a sequence of processes, indicate overall progress rather than the progress of each activity.
+Отображая прогресс последовательности процессов, укажите общий прогресс, а не прогресс каждого отдельного действия.
 
 ## Circular
 
@@ -61,7 +61,7 @@ When displaying progress for a sequence of processes, indicate overall progress 
 
 ## Non-standard ranges
 
-The progress components accept a value in the range 0 - 100. This simplifies things for screen-reader users, where these are the default min / max values. Sometimes, however, you might be working with a data source where the values fall outside this range. Here's how you can easily transform a value in any range to a scale of 0 - 100:
+Компоненты прогресса принимают значение в диапазоне от 0 до 100. Это упрощает работу с программами для чтения с экрана ("скринридеры"), где это минимальные и максимальные значения по умолчанию. Однако иногда вы можете работать с данными, значения которых выходят за пределы этого диапазона. Вот так можно легко преобразовать значение из любого диапазона в шкалу от 0 до 100:
 
 ```jsx
 // MIN = Minimum expected value
@@ -84,7 +84,7 @@ function Progress(props) {
 
 If you have been reading the [overrides documentation page](/customization/overrides/) but you are not confident jumping in, here is one example of how you can customize the components. The last demo demonstrates how you can build a Facebook like spinner.
 
-⚠️ While the material design specification encourages theming, these examples are off the beaten path.
+⚠️ Хотя спецификации материал дизайна поощряют использование тем, эти примеры не соответствуют требованиям.
 
 {{"demo": "pages/demos/progress/CustomizedProgress.js"}}
 
@@ -94,7 +94,7 @@ There are [3 important limits](https://www.nngroup.com/articles/response-times-3
 
 {{"demo": "pages/demos/progress/DelayingAppearance.js"}}
 
-## Limitations
+## Ограничения
 
 Under heavy load, you might lose the stroke dash animation or see random CircularProgress ring widths. You should run processor intensive operations in a web worker or by batch in order not to block the main rendering thread.
 

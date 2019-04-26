@@ -1,35 +1,33 @@
 ---
-title: Date Picker, Time Picker React components
+title: Composant React pour les sélecteurs de date ou d'heure
 components: TextField
 ---
-# Les sélecteurs (Pickers)
+# Les sélecteurs
 
 <p class="description">Les sélecteurs constituent un moyen simple de sélectionner une valeur unique dans un ensemble prédéterminé.</p>
 
 - Sur mobile, les sélecteurs conviennent mieux à l’affichage dans la boîte de dialogue de confirmation.
-- For inline display, such as on a form, consider using compact controls such as segmented dropdown buttons.
+- Pour un affichage en ligne, par exemple sur un formulaire, envisagez d'utiliser des contrôles compacts tels que des boutons déroulants segmentés.
 
-#### Avis
+## Native pickers
 
-We are falling back to **native input controls**.
+⚠️ La prise en charge des sélecteurs natifs par les navigateurs [n'est pas parfaite](https://caniuse.com/#feat=input-datetime). Have a look at the [complementary projects](#complementary-projects) for a richer solution.
 
-⚠️ Native input controls support by browsers [isn't perfect](https://caniuse.com/#feat=input-datetime). Have a look at the [complementary projects](#complementary-projects) for richer solutions.
+### Sélecteurs de date
 
-## Sélecteurs de date
-
-A native date picker example with `type="date"`, it can be used as a calendar too.
+A native date picker example with `type="date"`.
 
 {{"demo": "pages/demos/pickers/DatePickers.js"}}
 
-## Sélecteurs de date & temps
+### Sélecteurs de date & temps
 
-A native date & time picker example with `type="datetime-local"`.
+Exemple de sélecteur de date natif avec `type = "datetime-local"`.
 
 {{"demo": "pages/demos/pickers/DateAndTimePickers.js"}}
 
-## Sélecteurs de temps
+### Sélecteurs de temps
 
-A native time picker example with `type="time"`.
+Exemple de sélecteur de temps natif avec `type = "time"`.
 
 {{"demo": "pages/demos/pickers/TimePickers.js"}}
 
@@ -41,7 +39,7 @@ Pour des cas d'utilisation plus avancés, vous pourrez peut-être tirer parti de
 
 ![stars](https://img.shields.io/github/stars/dmtrKovalenko/material-ui-pickers.svg?style=social&label=Stars) ![npm downloads](https://img.shields.io/npm/dm/material-ui-pickers.svg)
 
-[Material-ui-pickers](https://material-ui-pickers. firebaseapp. com/) fournit des contrôles de date et d'heure conformes à la spécification Material Design.
+[Material-ui-pickers](https://material-ui-pickers.firebaseapp.com/) fournit des sélecteurs de date et d'heure conformes à la spécification Material Design.
 
 {{"demo": "pages/demos/pickers/MaterialUIPickers.js"}}
 

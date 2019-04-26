@@ -150,11 +150,13 @@ class CalendarHeader extends Toolbar {
                             </div>
                             <div className="flex items-center">
                                 <Tooltip title="Today">
-                                    <FuseAnimate animation="transition.expandIn" delay={500}>
-                                        <IconButton aria-label="today" onClick={this.navigate.bind(null, navigate.TODAY)}>
-                                            <Icon>today</Icon>
-                                        </IconButton>
-                                    </FuseAnimate>
+                                    <div>
+                                        <FuseAnimate animation="transition.expandIn" delay={500}>
+                                            <IconButton aria-label="today" onClick={this.navigate.bind(null, navigate.TODAY)}>
+                                                <Icon>today</Icon>
+                                            </IconButton>
+                                        </FuseAnimate>
+                                    </div>
                                 </Tooltip>
                                 {this.viewButtons()}
                             </div>
@@ -189,5 +191,5 @@ function mapStateToProps({fuse})
     }
 }
 
-export default withStyles(styles, {withTheme: true})(connect(mapStateToProps)(CalendarHeader));
+export default connect(mapStateToProps)(withStyles(styles, {withTheme: true})(CalendarHeader));
 

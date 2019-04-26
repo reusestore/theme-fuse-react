@@ -70,7 +70,7 @@ function renderSuggestion(suggestion, {query, isHighlighted})
 
     return (
         <MenuItem selected={isHighlighted} component="div">
-            <ListItemIcon>
+            <ListItemIcon className="min-w-40">
                 {suggestion.icon ?
                     (
                         <Icon>{suggestion.icon}</Icon>
@@ -135,7 +135,7 @@ const useStyles = makeStyles(theme => ({
     suggestionsContainerOpen: {
         position : 'absolute',
         zIndex   : 1,
-        marginTop: theme.spacing.unit,
+        marginTop: theme.spacing(),
         left     : 0,
         right    : 0
     },
@@ -271,7 +271,7 @@ function FuseSearch(props)
 
     function itemAuthAllowed(item)
     {
-        return !(item.auth && (!item.auth.includes(props.userRole) || (props.userRole !== 'guest' && item.auth.length === 1 && item.auth.includes('guest'))))
+        return FuseUtils.hasPermission(item.auth, props.userRole)
     }
 
     function handleSuggestionsFetchRequested({value})

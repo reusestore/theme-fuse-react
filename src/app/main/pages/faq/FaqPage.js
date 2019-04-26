@@ -6,11 +6,11 @@ import classNames from 'classnames';
 import axios from 'axios';
 
 const useStyles = makeStyles(theme => ({
-    header: {
+    header  : {
         background: 'linear-gradient(to right, ' + theme.palette.primary.dark + ' 0%, ' + theme.palette.primary.main + ' 100%)',
         color     : theme.palette.primary.contrastText
     },
-    panel : {
+    panel   : {
         margin         : 0,
         borderWidth    : '1px 1px 0 1px',
         borderStyle    : 'solid',
@@ -22,6 +22,9 @@ const useStyles = makeStyles(theme => ({
             borderRadius: '0 0 16px 16px',
             borderWidth : '0 1px 1px 1px'
         }
+    },
+    expanded: {
+        margin: 0
     }
 }));
 
@@ -111,7 +114,17 @@ function FaqPage()
                 >
                     {useMemo(() => {
                         return filteredData.map((faq) => (
-                            <ExpansionPanel className={classes.panel} key={faq.id} expanded={expanded === faq.id} onChange={toggleExpansion(faq.id)} elevation={0}>
+
+                            <ExpansionPanel
+                                classes={{
+                                    root    : classes.panel,
+                                    expanded: classes.expanded
+                                }}
+                                key={faq.id}
+                                expanded={expanded === faq.id}
+                                onChange={toggleExpansion(faq.id)}
+                                elevation={0}
+                            >
 
                                 <ExpansionPanelSummary expandIcon={<Icon>expand_more</Icon>}>
                                     <div className="flex items-center">

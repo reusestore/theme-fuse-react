@@ -1,9 +1,8 @@
-import './bootstrap';
-import './styles/index.css';
 import 'babel-polyfill'
 import 'typeface-muli';
 import './react-table-defaults';
 import './react-chartjs-2-defaults';
+import './styles/index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';

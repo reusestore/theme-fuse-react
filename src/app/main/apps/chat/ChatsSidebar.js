@@ -1,13 +1,11 @@
 import {FuseScrollbars, FuseAnimateGroup, FuseUtils} from '@fuse';
-import {AppBar, Avatar, ListItemIcon, List, ListItem, ListItemText, Menu, MenuItem, Typography, Toolbar, Icon, IconButton, Input, Paper} from '@material-ui/core';
+import {AppBar, Avatar, ListItemIcon, List, ListItemText, Menu, MenuItem, Typography, Toolbar, Icon, IconButton, Input, Paper} from '@material-ui/core';
 import React, {useMemo, useState} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import classNames from 'classnames';
-import moment from "moment";
 import * as Actions from "./store/actions";
 import StatusIcon from "./StatusIcon";
-import {makeStyles} from '@material-ui/styles';
+import ContactListItem from './ContactListItem'
 
 const statusArr = [
     {
@@ -28,22 +26,8 @@ const statusArr = [
     }
 ];
 
-const useStyles = makeStyles(theme => ({
-    contactListItem: {
-        borderBottom: '1px solid ' + theme.palette.divider,
-        '&.active'  : {
-            backgroundColor: theme.palette.background.paper
-        }
-    },
-    unreadBadge    : {
-        backgroundColor: theme.palette.secondary.main,
-        color          : theme.palette.secondary.contrastText
-    }
-}));
-
 function ChatsSidebar(props)
 {
-    const classes = useStyles(props);
     const [searchText, setSearchText] = useState('');
     const [statusMenuEl, setStatusMenuEl] = useState(null);
     const [moreMenuEl, setMoreMenuEl] = useState(null);
@@ -110,54 +94,9 @@ function ChatsSidebar(props)
         setSearchText(event.target.value);
     }
 
-    const ContactListItem = ({contact}) => {
-        return (
-            <ListItem
-                button
-                className={classNames(classes.contactListItem, "px-16 py-12 min-h-92", {'active': (props.selectedContactId === contact.id)})}
-                onClick={() => handleContactClick(contact.id)}
-            >
-                <div className="relative">
-
-                    <div className="absolute pin-r pin-b -m-4 z-10">
-                        <StatusIcon status={contact.status}/>
-                    </div>
-
-                    <Avatar src={contact.avatar} alt={contact.name}>
-                        {!contact.avatar || contact.avatar === '' ? contact.name[0] : ''}
-                    </Avatar>
-                </div>
-
-                <ListItemText
-                    classes={{
-                        root     : "min-w-px",
-                        secondary: "truncate"
-                    }}
-                    primary={contact.name}
-                    secondary={contact.mood}
-                />
-
-                {contact.chatId && (
-                    <div className="flex flex-col justify-center items-end">
-                        {contact.lastMessageTime && (
-                            <Typography className="whitespace-no-wrap mb-8">
-                                {moment(contact.lastMessageTime).format('ll')}
-                            </Typography>
-                        )}
-                        {contact.unread && (
-                            <div
-                                className={classNames(classes.unreadBadge, "flex items-center justify-center min-w-24 h-24 rounded-full text-14 text-center")}>{contact.unread}</div>
-                        )}
-                    </div>
-                )}
-            </ListItem>
-        )
-    };
-
     return (
         <div className="flex flex-col flex-auto h-full">
             <AppBar
-                className={classes.contentToolbar}
                 position="static"
                 color="default"
                 elevation={1}
@@ -187,7 +126,7 @@ function ChatsSidebar(props)
                             >
                                 {statusArr.map((status) => (
                                     <MenuItem onClick={(ev) => handleStatusSelect(ev, status.value)} key={status.value}>
-                                        <ListItemIcon>
+                                        <ListItemIcon className="min-w-40">
                                             <StatusIcon status={status.value}/>
                                         </ListItemIcon>
                                         <ListItemText primary={status.title}/>
@@ -259,7 +198,7 @@ function ChatsSidebar(props)
                                     )}
 
                                     {chatListArr.map(contact => (
-                                        <ContactListItem key={contact.id} contact={contact}/>
+                                        <ContactListItem key={contact.id} contact={contact} onContactClick={handleContactClick}/>
                                     ))}
 
                                     {contactsArr.length > 0 && (
@@ -272,7 +211,7 @@ function ChatsSidebar(props)
                                     )}
 
                                     {contactsArr.map(contact => (
-                                        <ContactListItem key={contact.id} contact={contact}/>
+                                        <ContactListItem key={contact.id} contact={contact} onContactClick={handleContactClick}/>
                                     ))}
                                 </FuseAnimateGroup>
                             </React.Fragment>

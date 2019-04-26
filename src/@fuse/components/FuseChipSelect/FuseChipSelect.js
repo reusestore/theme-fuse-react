@@ -41,7 +41,8 @@ const useStyles = makeStyles(theme => ({
     },
     input           : {
         display: 'flex',
-        padding: 0
+        padding: 0,
+        height : 'auto'
     },
     valueContainer  : {
         display      : 'flex',
@@ -62,7 +63,7 @@ const useStyles = makeStyles(theme => ({
         )
     },
     noOptionsMessage: {
-        padding: `${theme.spacing.unit}px ${theme.spacing.unit * 2}px`
+        padding: `${theme.spacing()}px ${theme.spacing(2)}px`
     },
     singleValue     : {
         fontSize: 16
@@ -76,12 +77,12 @@ const useStyles = makeStyles(theme => ({
     paper           : {
         position : 'absolute',
         zIndex   : 2,
-        marginTop: theme.spacing.unit,
+        marginTop: theme.spacing(),
         left     : 0,
         right    : 0
     },
     divider         : {
-        height: theme.spacing.unit * 2
+        height: theme.spacing(2)
     }
 }));
 

@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import {Grow, Paper, Icon, IconButton, ListItem, ListItemText} from '@material-ui/core';
+import {makeStyles} from '@material-ui/styles';
+import {FuseUtils} from '@fuse';
 import {useDebounce} from '@fuse/hooks';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
@@ -10,16 +12,19 @@ import * as ReactDOM from 'react-dom';
 import FuseNavHorizontalCollapse from './FuseNavHorizontalCollapse';
 import FuseNavHorizontalItem from './FuseNavHorizontalItem';
 import FuseNavHorizontalLink from './FuseNavHorizontalLink';
-import {makeStyles} from '@material-ui/styles';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
     root       : {
+        color              : theme.palette.text.primary,
         '& .list-item-text': {
             padding: '0 0 0 16px'
         },
         '&.level-0'        : {
             height      : 48,
-            borderRadius: 4
+            borderRadius: 4,
+            '&:hover'   : {
+                background: 'transparent'
+            },
         },
         '&.dense'          : {
             padding            : '8px 12px 8px 12px',
@@ -39,7 +44,7 @@ const useStyles = makeStyles({
     popperClose: {
         pointerEvents: 'none'
     }
-});
+}));
 
 function FuseNavHorizontalGroup(props)
 {
@@ -56,7 +61,7 @@ function FuseNavHorizontalGroup(props)
     }, 150);
 
 
-    if ( item.auth && (!item.auth.includes(userRole) || (userRole !== 'guest' && item.auth.length === 1 && item.auth.includes('guest'))) )
+    if ( !FuseUtils.hasPermission(item.auth, userRole) )
     {
         return null;
     }

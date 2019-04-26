@@ -65,7 +65,7 @@ function FileList(props)
                                 <Hidden lgUp>
                                     <TableCell>
                                         <IconButton
-                                            onClick={(ev) => props.pageLayout().toggleRightSidebar()}
+                                            onClick={(ev) => props.pageLayout.current.toggleRightSidebar()}
                                             aria-label="open right sidebar"
                                         >
                                             <Icon>info</Icon>

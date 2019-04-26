@@ -1,6 +1,7 @@
 import React from 'react';
 import {Icon, ListItem, ListItemText} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
+import {FuseUtils} from '@fuse';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
@@ -27,7 +28,7 @@ const useStyles = makeStyles(theme => ({
         '& .list-item-text': {
             padding: '0 0 0 16px'
         },
-        color              : 'inherit!important',
+        color              : theme.palette.text.primary,
         textDecoration     : 'none!important',
         '&.dense'          : {
             padding            : '8px 12px 8px 12px',
@@ -44,7 +45,7 @@ function FuseNavHorizontalLink(props)
     const classes = useStyles(props);
     const {item, userRole, navbarCloseMobile, dense} = props;
 
-    if ( item.auth && (!item.auth.includes(userRole) || (userRole !== 'guest' && item.auth.length === 1 && item.auth.includes('guest'))) )
+    if ( !FuseUtils.hasPermission(item.auth, userRole) )
     {
         return null;
     }

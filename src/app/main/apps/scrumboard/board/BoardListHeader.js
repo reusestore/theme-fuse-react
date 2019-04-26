@@ -127,13 +127,13 @@ function BoardListHeader(props)
                         <MenuItem onClick={() => {
                             props.removeList(props.board.id, props.list.id);
                         }}>
-                            <ListItemIcon>
+                            <ListItemIcon className="min-w-40">
                                 <Icon>delete</Icon>
                             </ListItemIcon>
                             <ListItemText primary="Remove List"/>
                         </MenuItem>
                         <MenuItem onClick={() => handleOpenForm()}>
-                            <ListItemIcon>
+                            <ListItemIcon className="min-w-40">
                                 <Icon>edit</Icon>
                             </ListItemIcon>
                             <ListItemText primary="Rename List"/>

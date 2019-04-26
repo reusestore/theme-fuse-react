@@ -1,73 +1,103 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import {makeStyles, withStyles} from '@material-ui/core/styles';
+import {lighten} from '@material-ui/core/styles/colorManipulator';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import Paper from '@material-ui/core/Paper';
 import LinearProgress from '@material-ui/core/LinearProgress';
 
-const styles = theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  progress: {
-    margin: theme.spacing.unit * 2,
-    color: '#00695c',
-  },
-  linearColorPrimary: {
-    backgroundColor: '#b2dfdb',
-  },
-  linearBarColorPrimary: {
-    backgroundColor: '#00695c',
-  },
-  // Reproduce the Facebook spinners.
-  facebook: {
-    margin: theme.spacing.unit * 2,
-    position: 'relative',
-  },
-  facebook1: {
-    color: '#eef3fd',
-  },
-  facebook2: {
-    color: '#6798e5',
-    animationDuration: '550ms',
-    position: 'absolute',
-    left: 0,
-  },
+const ColorCircularProgress = withStyles({
+    root: {
+        color: '#00695c',
+    },
+})(CircularProgress);
+
+const ColorLinearProgress = withStyles({
+    colorPrimary   : {
+        backgroundColor: '#b2dfdb',
+    },
+    barColorPrimary: {
+        backgroundColor: '#00695c',
+    },
+})(LinearProgress);
+
+const BorderLinearProgress = withStyles({
+    root: {
+        height         : 10,
+        backgroundColor: lighten('#ff6c5c', 0.5),
+    },
+    bar : {
+        borderRadius   : 20,
+        backgroundColor: '#ff6c5c',
+    },
+})(LinearProgress);
+
+// Inspired by the Facebook spinners.
+const useStylesFacebook = makeStyles({
+    root  : {
+        position: 'relative',
+    },
+    top   : {
+        color: '#eef3fd',
+    },
+    bottom: {
+        color            : '#6798e5',
+        animationDuration: '550ms',
+        position         : 'absolute',
+        left             : 0,
+    },
 });
 
-function CustomizedProgress(props) {
-  const { classes } = props;
-  return (
-    <Paper className={classes.root}>
-      <CircularProgress className={classes.progress} size={30} thickness={5} />
-      <LinearProgress
-        classes={{
-          colorPrimary: classes.linearColorPrimary,
-          barColorPrimary: classes.linearBarColorPrimary,
-        }}
-      />
-      <div className={classes.facebook}>
-        <CircularProgress
-          variant="determinate"
-          value={100}
-          className={classes.facebook1}
-          size={24}
-          thickness={4}
-        />
-        <CircularProgress
-          variant="indeterminate"
-          disableShrink
-          className={classes.facebook2}
-          size={24}
-          thickness={4}
-        />
-      </div>
-    </Paper>
-  );
+function FacebookProgress(props)
+{
+    const classes = useStylesFacebook();
+
+    return (
+        <div className={classes.root}>
+            <CircularProgress
+                variant="determinate"
+                value={100}
+                className={classes.top}
+                size={24}
+                thickness={4}
+                {...props}
+            />
+            <CircularProgress
+                variant="indeterminate"
+                disableShrink
+                className={classes.bottom}
+                size={24}
+                thickness={4}
+                {...props}
+            />
+        </div>
+    );
 }
 
-CustomizedProgress.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+const useStyles = makeStyles(theme => ({
+    root  : {
+        flexGrow: 1,
+    },
+    margin: {
+        margin: theme.spacing(1),
+    },
+}));
 
-export default withStyles(styles)(CustomizedProgress);
+function CustomizedProgress()
+{
+    const classes = useStyles();
+
+    return (
+        <div className={classes.root}>
+            <ColorCircularProgress size={30} thickness={5}/>
+            <ColorLinearProgress className={classes.margin}/>
+            <BorderLinearProgress
+                className={classes.margin}
+                variant="determinate"
+                color="secondary"
+                value={50}
+            />
+            <FacebookProgress/>
+        </div>
+    );
+}
+
+export default CustomizedProgress;

@@ -154,13 +154,13 @@ function CardChecklist(props)
                         onClose={handleMenuClose}
                     >
                         <MenuItem onClick={props.onRemoveCheckList}>
-                            <ListItemIcon>
+                            <ListItemIcon className="min-w-40">
                                 <Icon>delete</Icon>
                             </ListItemIcon>
                             <ListItemText primary="Remove Checklist"/>
                         </MenuItem>
                         <MenuItem onClick={() => handleOpenForm()}>
-                            <ListItemIcon>
+                            <ListItemIcon className="min-w-40">
                                 <Icon>edit</Icon>
                             </ListItemIcon>
                             <ListItemText primary="Rename Checklist"/>

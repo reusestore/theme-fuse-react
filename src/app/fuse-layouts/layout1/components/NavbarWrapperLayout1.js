@@ -62,23 +62,23 @@ const useStyles = makeStyles(theme => ({
     },
     foldedAndClosed: {
         '& $navbarContent': {
-            '& .logo-icon'                          : {
+            '& .logo-icon'                                   : {
                 width : 32,
                 height: 32
             },
-            '& .logo-text'                          : {
+            '& .logo-text'                                   : {
                 opacity: 0
             },
-            '& .react-badge'                        : {
+            '& .react-badge'                                 : {
                 opacity: 0
             },
-            '& .list-item-text, & .arrow-icon'      : {
+            '& .list-item-text, & .arrow-icon, & .item-badge': {
                 opacity: 0
             },
-            '& .list-subheader .list-subheader-text': {
+            '& .list-subheader .list-subheader-text'         : {
                 opacity: 0
             },
-            '& .list-subheader:before'              : {
+            '& .list-subheader:before'                       : {
                 content  : '""',
                 display  : 'block',
                 position : 'absolute',
@@ -86,10 +86,10 @@ const useStyles = makeStyles(theme => ({
                 borderTop: '2px solid',
                 opacity  : .2
             },
-            '& .collapse-children'                  : {
+            '& .collapse-children'                           : {
                 display: 'none'
             },
-            '& .user'                               : {
+            '& .user'                                        : {
                 '& .username, & .email': {
                     opacity: 0
                 },
@@ -100,7 +100,7 @@ const useStyles = makeStyles(theme => ({
                     padding: 0
                 }
             },
-            '& .list-item.active'                   : {
+            '& .list-item.active'                            : {
                 marginLeft  : 12,
                 width       : 40,
                 padding     : 12,

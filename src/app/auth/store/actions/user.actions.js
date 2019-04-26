@@ -18,7 +18,7 @@ export const USER_LOGGED_OUT = '[USER] LOGGED OUT';
 export function setUserDataAuth0(tokenData)
 {
     const user = {
-        role: 'admin',
+        role: ['admin'],
         from: 'auth0',
         data: {
             displayName: tokenData.username,
@@ -70,7 +70,7 @@ export function createUserSettingsFirebase(authUser)
             {
                 uid : authUser.uid,
                 from: 'firebase',
-                role: "admin",
+                role: ["admin"],
                 data: {
                     displayName: authUser.displayName,
                     email      : authUser.email,
@@ -163,7 +163,7 @@ export function logoutUser()
 
         const user = getState().auth.user;
 
-        if ( user.role === 'guest' )
+        if ( !user.role || user.role.length === 0 )// is guest
         {
             return null;
         }
@@ -203,7 +203,7 @@ export function logoutUser()
  */
 function updateUserData(user)
 {
-    if ( user.role === 'guest' )
+    if ( !user.role || user.role.length === 0 )// is guest
     {
         return;
     }

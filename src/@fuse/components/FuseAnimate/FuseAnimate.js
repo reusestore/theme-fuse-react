@@ -3,16 +3,15 @@ import PropTypes from 'prop-types';
 import {VelocityComponent} from 'velocity-react';
 import 'velocity-animate/velocity.ui';
 
-function FuseAnimate(props)
-{
+const FuseAnimate = React.forwardRef(function FuseAnimate(props, ref) {
     const children = React.cloneElement(props.children, {
         style: {
             ...props.children.style,
             visibility: 'hidden'
         }
     });
-    return <VelocityComponent ref={ev => props.setRef && props.setRef(ev)} {...props} children={children}/>
-}
+    return <VelocityComponent ref={ref} {...props} children={children}/>
+});
 
 FuseAnimate.propTypes = {
     children: PropTypes.element.isRequired

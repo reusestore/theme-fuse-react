@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 const useStyles = makeStyles(theme => ({
     root  : {
-        '& .user': {
+        '&.user': {
             '& .username, & .email': {
                 transition: theme.transitions.create('opacity', {
                     duration: theme.transitions.duration.shortest,
@@ -25,6 +25,10 @@ const useStyles = makeStyles(theme => ({
         boxSizing : 'content-box',
         left      : '50%',
         transform : 'translateX(-50%)',
+        transition: theme.transitions.create('all', {
+            duration: theme.transitions.duration.shortest,
+            easing  : theme.transitions.easing.easeInOut,
+        }),
         '& > img' : {
             borderRadius: '50%'
         }

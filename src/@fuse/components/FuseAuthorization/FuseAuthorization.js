@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {FuseUtils} from '@fuse';
 import {matchRoutes} from 'react-router-config';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
@@ -39,21 +40,9 @@ class FuseAuthorization extends Component {
 
         const matched = matchRoutes(state.routes, pathname)[0];
 
-        const accessGranted = (matched && matched.route.auth && matched.route.auth.length > 0) ? hasUserPermission(matched.route.auth) : true;
-
-        function hasUserPermission(authArr)
-        {
-            if ( Array.isArray(userRole) )
-            {
-                return authArr.some(r => userRole.indexOf(r) >= 0);
-            }
-
-            return authArr.includes(userRole);
-        }
-
         return {
-            accessGranted
-        };
+            accessGranted: matched ? FuseUtils.hasPermission(matched.route.auth, userRole) : true
+        }
     }
 
     shouldComponentUpdate(nextProps, nextState)
@@ -71,7 +60,7 @@ class FuseAuthorization extends Component {
         User is guest
         Redirect to Login Page
         */
-        if ( !userRole || userRole === 'guest' )
+        if ( !userRole || userRole.length === 0 )
         {
             history.push({
                 pathname: '/login',

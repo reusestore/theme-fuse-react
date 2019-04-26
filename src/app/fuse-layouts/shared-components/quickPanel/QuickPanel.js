@@ -89,7 +89,7 @@ function QuickPanel(props)
                 <List>
                     <ListSubheader component="div">Quick Settings</ListSubheader>
                     <ListItem>
-                        <ListItemIcon>
+                        <ListItemIcon className="min-w-40">
                             <Icon>notifications</Icon>
                         </ListItemIcon>
                         <ListItemText primary="Notifications"/>
@@ -102,7 +102,7 @@ function QuickPanel(props)
                         </ListItemSecondaryAction>
                     </ListItem>
                     <ListItem>
-                        <ListItemIcon>
+                        <ListItemIcon className="min-w-40">
                             <Icon>cloud</Icon>
                         </ListItemIcon>
                         <ListItemText primary="Cloud Sync"/>
@@ -115,7 +115,7 @@ function QuickPanel(props)
                         </ListItemSecondaryAction>
                     </ListItem>
                     <ListItem>
-                        <ListItemIcon>
+                        <ListItemIcon className="min-w-40">
                             <Icon>brightness_high</Icon>
                         </ListItemIcon>
                         <ListItemText primary="Retro Thrusters"/>

@@ -65,7 +65,7 @@ function FileManagerApp(props)
                 </div>
             }
             content={
-                <FileList/>
+                <FileList pageLayout={pageLayout}/>
             }
             leftSidebarVariant="temporary"
             leftSidebarHeader={

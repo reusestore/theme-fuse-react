@@ -1,118 +1,164 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import purple from '@material-ui/core/colors/purple';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 
-const styles = theme => ({
-  colorSwitchBase: {
-    color: purple[300],
-    '&$colorChecked': {
-      color: purple[500],
-      '& + $colorBar': {
-        backgroundColor: purple[500],
-      },
+const PurpleSwitch = withStyles({
+    switchBase: {
+        color               : purple[300],
+        '&$checked'         : {
+            color: purple[500],
+        },
+        '&$checked + $track': {
+            backgroundColor: purple[500],
+        },
     },
-  },
-  colorBar: {},
-  colorChecked: {},
-  iOSSwitchBase: {
-    '&$iOSChecked': {
-      color: theme.palette.common.white,
-      '& + $iOSBar': {
-        backgroundColor: '#52d869',
-      },
+    checked   : {},
+    track     : {},
+})(Switch);
+
+const IOSSwitch = withStyles(theme => ({
+    root        : {
+        width  : 42,
+        height : 26,
+        padding: 0,
+        margin : theme.spacing(1),
     },
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-      easing: theme.transitions.easing.sharp,
-    }),
-  },
-  iOSChecked: {
-    transform: 'translateX(15px)',
-    '& + $iOSBar': {
-      opacity: 1,
-      border: 'none',
+    switchBase  : {
+        padding                : 1,
+        '&$checked'            : {
+            transform   : 'translateX(16px)',
+            color       : theme.palette.common.white,
+            '& + $track': {
+                backgroundColor: '#52d869',
+                opacity        : 1,
+                border         : 'none',
+            },
+        },
+        '&$focusVisible $thumb': {
+            color : '#52d869',
+            border: '6px solid #fff',
+        },
     },
-  },
-  iOSBar: {
-    borderRadius: 13,
-    width: 42,
-    height: 26,
-    marginTop: -13,
-    marginLeft: -21,
-    border: 'solid 1px',
-    borderColor: theme.palette.grey[400],
-    backgroundColor: theme.palette.grey[50],
-    opacity: 1,
-    transition: theme.transitions.create(['background-color', 'border']),
-  },
-  iOSIcon: {
-    width: 24,
-    height: 24,
-  },
-  iOSIconChecked: {
-    boxShadow: theme.shadows[1],
-  },
+    thumb       : {
+        width : 24,
+        height: 24,
+    },
+    track       : {
+        borderRadius   : 26 / 2,
+        border         : `1px solid ${theme.palette.grey[400]}`,
+        backgroundColor: theme.palette.grey[50],
+        opacity        : 1,
+        transition     : theme.transitions.create(['background-color', 'border']),
+    },
+    checked     : {},
+    focusVisible: {},
+}))(({classes, ...props}) => {
+    return (
+        <Switch
+            focusVisibleClassName={classes.focusVisible}
+            disableRipple
+            classes={{
+                root      : classes.root,
+                switchBase: classes.switchBase,
+                thumb     : classes.thumb,
+                track     : classes.track,
+                checked   : classes.checked,
+            }}
+            {...props}
+        />
+    );
 });
 
-class CustomizedSwitches extends React.Component {
-  state = {
-    checkedA: true,
-    checkedB: true,
-  };
+const AntSwitch = withStyles(theme => ({
+    root      : {
+        width  : 28,
+        height : 16,
+        padding: 0,
+    },
+    switchBase: {
+        padding    : 2,
+        color      : theme.palette.grey[500],
+        '&$checked': {
+            transform   : 'translateX(12px)',
+            color       : theme.palette.common.white,
+            '& + $track': {
+                opacity        : 1,
+                backgroundColor: theme.palette.primary.main,
+                borderColor    : theme.palette.primary.main,
+            },
+        },
+    },
+    thumb     : {
+        width    : 12,
+        height   : 12,
+        boxShadow: 'none',
+    },
+    track     : {
+        border         : `1px solid ${theme.palette.grey[500]}`,
+        borderRadius   : 16 / 2,
+        opacity        : 1,
+        backgroundColor: theme.palette.common.white,
+    },
+    checked   : {},
+}))(Switch);
 
-  handleChange = name => event => {
-    this.setState({ [name]: event.target.checked });
-  };
+function CustomizedSwitches()
+{
+    const [state, setState] = React.useState({
+        checkedA: true,
+        checkedB: true,
+        checkedC: true,
+    });
 
-  render() {
-    const { classes } = this.props;
+    const handleChange = name => event => {
+        setState({
+            ...state,
+            [name]: event.target.checked
+        });
+    };
 
     return (
-      <FormGroup row>
-        <FormControlLabel
-          control={
-            <Switch
-              checked={this.state.checkedA}
-              onChange={this.handleChange('checkedA')}
-              value="checkedA"
-              classes={{
-                switchBase: classes.colorSwitchBase,
-                checked: classes.colorChecked,
-                bar: classes.colorBar,
-              }}
+        <FormGroup>
+            <FormControlLabel
+                control={
+                    <PurpleSwitch
+                        checked={state.checkedA}
+                        onChange={handleChange('checkedA')}
+                        value="checkedA"
+                    />
+                }
+                label="Custom color"
             />
-          }
-          label="Custom color"
-        />
-        <FormControlLabel
-          control={
-            <Switch
-              classes={{
-                switchBase: classes.iOSSwitchBase,
-                bar: classes.iOSBar,
-                icon: classes.iOSIcon,
-                iconChecked: classes.iOSIconChecked,
-                checked: classes.iOSChecked,
-              }}
-              disableRipple
-              checked={this.state.checkedB}
-              onChange={this.handleChange('checkedB')}
-              value="checkedB"
+            <FormControlLabel
+                control={
+                    <IOSSwitch
+                        checked={state.checkedB}
+                        onChange={handleChange('checkedB')}
+                        value="checkedB"
+                    />
+                }
+                label="iOS style"
             />
-          }
-          label="iOS style"
-        />
-      </FormGroup>
+            <Typography component="div">
+                <Grid component="label" container alignItems="center" spacing={1}>
+                    <Grid item>Off</Grid>
+                    <Grid item>
+                        <AntSwitch
+                            checked={state.checkedC}
+                            onChange={handleChange('checkedC')}
+                            value="checkedC"
+                        />
+                    </Grid>
+                    <Grid item>On</Grid>
+                </Grid>
+            </Typography>
+        </FormGroup>
     );
-  }
 }
 
-CustomizedSwitches.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(CustomizedSwitches);
+export default CustomizedSwitches;

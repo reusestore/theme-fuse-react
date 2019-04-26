@@ -2,7 +2,7 @@
 title: Composant React Puce
 components: Chip
 ---
-# Puces (Chips)
+# Chips (Puces)
 
 <p class="description">Les puces sont des éléments compacts qui représentent une entrée, un attribut ou une action.</p>
 
@@ -27,10 +27,10 @@ Outlined chips offer an alternative style.
 
 ## Tableau de puce
 
-An example of rendering multiple Chips from an array of values. Supprimer une puce la supprime du tablea. Notez que puisqu'aucun `onClick` propriété est définie, la puce peut être concentré, mais ne pas profondeur de gain tandis que vous cliquez dessus ou touché.
+Un exemple de rendu de plusieurs puces à partir d'un tableau de valeurs. Supprimer une puce la supprime du tablea. Notez que puisqu'aucun `onClick` propriété est définie, la puce peut être concentré, mais ne pas profondeur de gain tandis que vous cliquez dessus ou touché.
 
 {{"demo": "pages/demos/chips/ChipsArray.js"}}
 
 ## Terrain de jeu de puce
 
-{{"demo": "pages/demos/chips/ChipsPlayground.js"}}
+{{"demo": "pages/demos/chips/ChipsPlayground.js", "hideHeader": true}}

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Icon, List, ListItem, ListItemText, ListSubheader, Button} from '@material-ui/core';
-import {FuseAnimate} from '@fuse';
-import {NavLink, withRouter} from 'react-router-dom';
+import {FuseAnimate, NavLinkAdapter} from '@fuse';
+import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as Actions from './store/actions';
@@ -25,9 +25,10 @@ const useStyles = makeStyles(theme => ({
             }
         },
         '& .list-item-icon': {
-            fontSize: 16,
-            width   : 16,
-            height  : 16
+            fontSize   : 16,
+            width      : 16,
+            height     : 16,
+            marginRight: 16
         }
     }
 }));
@@ -60,7 +61,7 @@ function TodoSidebarContent(props)
                         {props.folders.length > 0 && props.folders.map((folder) => (
                             <ListItem
                                 button
-                                component={NavLink}
+                                component={NavLinkAdapter}
                                 to={'/apps/todo/' + folder.handle} key={folder.id}
                                 activeClassName="active"
                                 className={classes.listItem}
@@ -77,7 +78,7 @@ function TodoSidebarContent(props)
                         {props.filters.length > 0 && props.filters.map((filter) => (
                             <ListItem
                                 button
-                                component={NavLink}
+                                component={NavLinkAdapter}
                                 to={'/apps/todo/filter/' + filter.handle}
                                 activeClassName="active"
                                 className={classes.listItem}
@@ -96,7 +97,7 @@ function TodoSidebarContent(props)
                         {props.labels.length > 0 && props.labels.map((label) => (
                             <ListItem
                                 button
-                                component={NavLink}
+                                component={NavLinkAdapter}
                                 to={'/apps/todo/label/' + label.handle}
                                 key={label.id}
                                 className={classes.listItem}

@@ -9,25 +9,23 @@ components: TextField
 - On mobile, pickers are best suited for display in confirmation dialog.
 - For inline display, such as on a form, consider using compact controls such as segmented dropdown buttons.
 
-#### Notice
+## Native pickers
 
-We are falling back to **native input controls**.
+⚠️ Native input controls support by browsers [isn't perfect](https://caniuse.com/#feat=input-datetime). Have a look at the [complementary projects](#complementary-projects) for a richer solution.
 
-⚠️ Native input controls support by browsers [isn't perfect](https://caniuse.com/#feat=input-datetime). Have a look at the [complementary projects](#complementary-projects) for richer solutions.
+### Date pickers
 
-## Date pickers
-
-A native date picker example with `type="date"`, it can be used as a calendar too.
+A native date picker example with `type="date"`.
 
 {{"demo": "pages/demos/pickers/DatePickers.js"}}
 
-## Date & Time pickers
+### Date & Time pickers
 
 A native date & time picker example with `type="datetime-local"`.
 
 {{"demo": "pages/demos/pickers/DateAndTimePickers.js"}}
 
-## Time pickers
+### Time pickers
 
 A native time picker example with `type="time"`.
 
@@ -39,7 +37,7 @@ For more advanced use cases you might be able to take advantage of.
 
 ### material-ui-pickers
 
-![stars](https://img.shields.io/github/stars/dmtrKovalenko/material-ui-pickers.svg?style=social&label=Stars) ![npm downloads](https://img.shields.io/npm/dm/material-ui-pickers.svg)
+![Stars](https://img.shields.io/github/stars/dmtrKovalenko/material-ui-pickers.svg?style=social&label=Stars) ![npmダウンロード](https://img.shields.io/npm/dm/material-ui-pickers.svg)
 
 [material-ui-pickers](https://material-ui-pickers.firebaseapp.com/) provides date and time controls that follow the Material Design spec.
 

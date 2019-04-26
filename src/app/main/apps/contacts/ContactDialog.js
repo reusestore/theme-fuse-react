@@ -117,7 +117,7 @@ function ContactDialog(props)
                     )}
                 </div>
             </AppBar>
-            <form noValidate onSubmit={handleSubmit} className="flex flex-col">
+            <form noValidate onSubmit={handleSubmit} className="flex flex-col overflow-hidden">
                 <DialogContent classes={{root: "p-24"}}>
                     <div className="flex">
                         <div className="min-w-48 pt-20">

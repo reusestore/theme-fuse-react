@@ -21,7 +21,7 @@ function BoardSettingsSidebar(props)
                     button
                     onClick={() => props.changeBoardSettings({cardCoverImages: !props.board.settings.cardCoverImages})}
                 >
-                    <ListItemIcon>
+                    <ListItemIcon className="min-w-40">
                         <Icon>photo</Icon>
                     </ListItemIcon>
                     <ListItemText primary="Card Cover Images"/>
@@ -37,7 +37,7 @@ function BoardSettingsSidebar(props)
                     button
                     onClick={() => props.changeBoardSettings({subscribed: !props.board.settings.subscribed})}
                 >
-                    <ListItemIcon>
+                    <ListItemIcon className="min-w-40">
                         <Icon>remove_red_eye</Icon>
                     </ListItemIcon>
                     <ListItemText primary="Subscribe"/>
@@ -50,14 +50,14 @@ function BoardSettingsSidebar(props)
                 </ListItem>
 
                 <ListItem button onClick={() => props.copyBoard(props.board)}>
-                    <ListItemIcon>
+                    <ListItemIcon className="min-w-40">
                         <Icon>file_copy</Icon>
                     </ListItemIcon>
                     <ListItemText primary="Copy Board"/>
                 </ListItem>
 
                 <ListItem button onClick={() => props.deleteBoard(props.board.id)}>
-                    <ListItemIcon>
+                    <ListItemIcon className="min-w-40">
                         <Icon>delete</Icon>
                     </ListItemIcon>
                     <ListItemText primary="Delete Board"/>

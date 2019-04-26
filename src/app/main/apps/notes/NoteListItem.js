@@ -46,7 +46,7 @@ function NoteListItem(props)
                                 <Icon color="action" className="mr-8 text-16">{item.checked ? "check_box_outline" : "check_box_outline_blank"}</Icon>
                                 <Typography
                                     className={classNames("truncate", item.checked && "line-through")}
-                                    color={item.checked ? "textSecondary" : "default"}
+                                    color={item.checked ? "textSecondary" : "inherit"}
                                 >
                                     {item.text}
                                 </Typography>

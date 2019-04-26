@@ -1,51 +1,49 @@
 ---
-title: Date Picker, Time Picker React components
+title: Componentes React Selector de Fecha, Selector de Hora
 components: TextField
 ---
 # Pickers
 
-<p class="description">Pickers provide a simple way to select a single value from a pre-determined set.</p>
+<p class="description">Los selectores proporcionan una manera sencilla de elegir un valor desde un conjunto predeterminado.</p>
 
-- On mobile, pickers are best suited for display in confirmation dialog.
-- For inline display, such as on a form, consider using compact controls such as segmented dropdown buttons.
+- En móvil, los selectores son los mas adecuados para despliegue en diálogos de confirmación.
+- Para despliegue en línea, como en un formulario, considere usar controles compactos tales como los botones desplegables segmentados.
 
-#### Notice
+## Native pickers
 
-We are falling back to **native input controls**.
+⚠️ Los controles de entrada nativos compatibles con los navegadores [no son perfectos](https://caniuse.com/#feat=input-datetime). Have a look at the [complementary projects](#complementary-projects) for a richer solution.
 
-⚠️ Native input controls support by browsers [isn't perfect](https://caniuse.com/#feat=input-datetime). Have a look at the [complementary projects](#complementary-projects) for richer solutions.
+### Selectores de fecha
 
-## Date pickers
-
-A native date picker example with `type="date"`, it can be used as a calendar too.
+A native date picker example with `type="date"`.
 
 {{"demo": "pages/demos/pickers/DatePickers.js"}}
 
-## Date & Time pickers
+### Selectores de fecha y hora
 
-A native date & time picker example with `type="datetime-local"`.
+Un ejemplo de selector de fecha y hora con `type="datetime-local"`.
 
 {{"demo": "pages/demos/pickers/DateAndTimePickers.js"}}
 
-## Time pickers
+### Selectores de hora
 
-A native time picker example with `type="time"`.
+Un ejemplo de un selector de hora nativo con `type="time"`.
 
 {{"demo": "pages/demos/pickers/TimePickers.js"}}
 
-## Complementary projects
+## Proyectos relacionados
 
-For more advanced use cases you might be able to take advantage of.
+Para que puedas sacar ventaja de ellos en casos de uso más avanzados.
 
 ### material-ui-pickers
 
-![stars](https://img.shields.io/github/stars/dmtrKovalenko/material-ui-pickers.svg?style=social&label=Stars) ![npm downloads](https://img.shields.io/npm/dm/material-ui-pickers.svg)
+![estrellas](https://img.shields.io/github/stars/dmtrKovalenko/material-ui-pickers.svg?style=social&label=Stars) ![descargas npm](https://img.shields.io/npm/dm/material-ui-pickers.svg)
 
-[material-ui-pickers](https://material-ui-pickers.firebaseapp.com/) provides date and time controls that follow the Material Design spec.
+[material-ui-pickers](https://material-ui-pickers.firebaseapp.com/) provee controles de fecha y hora que siguen la especificación de Material Design.
 
 {{"demo": "pages/demos/pickers/MaterialUIPickers.js"}}
 
-### Other
+### Otros
 
-- [material-ui-time-picker](https://github.com/TeamWertarbyte/material-ui-time-picker): time pickers.
-- [material-ui-next-pickers](https://github.com/chingyawhao/material-ui-next-pickers): date pickers and time pickers.
+- [material-ui-time-picker](https://github.com/TeamWertarbyte/material-ui-time-picker): selectores de hora.
+- [material-ui-next-pickers](https://github.com/chingyawhao/material-ui-next-pickers): selectores de fecha y hora.

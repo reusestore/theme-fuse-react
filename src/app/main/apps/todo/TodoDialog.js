@@ -197,13 +197,13 @@ function TodoDialog(props)
                                 >
                                     {props.labels.length > 0 && props.labels.map((label) => (
                                         <MenuItem onClick={(ev) => handleToggleLabel(ev, label.id)} key={label.id}>
-                                            <ListItemIcon>
+                                            <ListItemIcon className="min-w-40">
                                                 <Icon className="mr-0" color="action">
                                                     {form.labels.includes(label.id) ? 'check_box' : 'check_box_outline_blank'}
                                                 </Icon>
                                             </ListItemIcon>
                                             <ListItemText primary={label.title} disableTypography={true}/>
-                                            <ListItemIcon>
+                                            <ListItemIcon className="min-w-40">
                                                 <Icon className="mr-0" style={{color: label.color}} color="action">
                                                     label
                                                 </Icon>

@@ -49,7 +49,7 @@ function ContactsList(props)
     return (
         <FuseAnimate animation="transition.slideUpIn" delay={300}>
             <ReactTable
-                className="-striped -highlight border-0"
+                className="-striped -highlight h-full sm:rounded-16 overflow-hidden"
                 getTrProps={(state, rowInfo, column) => {
                     return {
                         className: "cursor-pointer",

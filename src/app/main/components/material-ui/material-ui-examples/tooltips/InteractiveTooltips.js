@@ -1,32 +1,28 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Tooltip from '@material-ui/core/Tooltip';
 
-const styles = theme => ({
-  button: {
-    margin: theme.spacing.unit,
-  },
-});
+const useStyles = makeStyles(theme => ({
+    button: {
+        margin: theme.spacing(1),
+    },
+}));
 
-function InteractiveTooltips(props) {
-  const { classes } = props;
+function InteractiveTooltips()
+{
+    const classes = useStyles();
 
-  return (
-    <div>
-      <Tooltip title="Add" interactive>
-        <Button className={classes.button}>Interactive</Button>
-      </Tooltip>
-      <Tooltip title="Add">
-        <Button className={classes.button}>Non Interactive</Button>
-      </Tooltip>
-    </div>
-  );
+    return (
+        <div>
+            <Tooltip title="Add" interactive>
+                <Button className={classes.button}>Interactive</Button>
+            </Tooltip>
+            <Tooltip title="Add">
+                <Button className={classes.button}>Non Interactive</Button>
+            </Tooltip>
+        </div>
+    );
 }
 
-InteractiveTooltips.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(InteractiveTooltips);
+export default InteractiveTooltips;

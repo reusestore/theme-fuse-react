@@ -10,13 +10,13 @@ components: Tabs, Tab
 
 ## Simple Tabs
 
-A simple example with no frills.
+Un ejemplo sencillo sin florituras.
 
 {{"demo": "pages/demos/tabs/SimpleTabs.js"}}
 
 ### Wrapped Labels
 
-Os rótulos longos serão agrupados automaticamente nas guias. Se o marcador for muito longo para a guia, ele será excedido e o texto não ficará visível.
+Long labels will automatically wrap on tabs. If the label is too long for the tab, it will overflow and the text will not be visible.
 
 {{"demo": "pages/demos/tabs/TabsWrappedLabel.js"}}
 
@@ -66,7 +66,7 @@ Left and right scroll buttons will never be presented. All scrolling must be ini
 
 If you have read the [overrides documentation page](/customization/overrides/) but aren't confident jumping in, here's an example of how you can change the main color of the Tabs.
 
-⚠️ While the material design specification encourages theming, this example is off the beaten path.
+⚠️ A pesar de que la especificación de material design anima a usar temas, este ejemplo no es común.
 
 {{"demo": "pages/demos/tabs/CustomizedTabs.js"}}
 

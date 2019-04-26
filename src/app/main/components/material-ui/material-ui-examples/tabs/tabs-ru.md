@@ -2,27 +2,27 @@
 title: Tabs React component
 components: Tabs, Tab
 ---
-# Tabs
+# Вкладки
 
 <p class="description">Tabs make it easy to explore and switch between different views.</p>
 
 [Tabs](https://material.io/design/components/tabs.html) organize and allow navigation between groups of content that are related and at the same level of hierarchy.
 
-## Simple Tabs
+## Простые вкладки
 
-A simple example with no frills.
+Простой пример без излишеств.
 
 {{"demo": "pages/demos/tabs/SimpleTabs.js"}}
 
 ### Wrapped Labels
 
-Os rótulos longos serão agrupados automaticamente nas guias. Se o marcador for muito longo para a guia, ele será excedido e o texto não ficará visível.
+Long labels will automatically wrap on tabs. If the label is too long for the tab, it will overflow and the text will not be visible.
 
 {{"demo": "pages/demos/tabs/TabsWrappedLabel.js"}}
 
-### Disabled Tab
+### Отключённые вкладки
 
-A Tab can be disabled by setting `disabled` property.
+Вкладка может быть отключена, установив параметр `disabled`.
 
 {{"demo": "pages/demos/tabs/DisabledTabs.js"}}
 
@@ -66,7 +66,7 @@ Left and right scroll buttons will never be presented. All scrolling must be ini
 
 If you have read the [overrides documentation page](/customization/overrides/) but aren't confident jumping in, here's an example of how you can change the main color of the Tabs.
 
-⚠️ While the material design specification encourages theming, this example is off the beaten path.
+⚠️ Хотя спецификации материал дизайна поощряют использование тем, эти примеры не соответствуют требованиям.
 
 {{"demo": "pages/demos/tabs/CustomizedTabs.js"}}
 

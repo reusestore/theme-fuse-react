@@ -2,31 +2,25 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import Tooltip from '@material-ui/core/Tooltip';
 
-class ControlledTooltips extends React.Component {
-  state = {
-    open: false,
-  };
+function ControlledTooltips()
+{
+    const [open, setOpen] = React.useState(false);
 
-  handleTooltipClose = () => {
-    this.setState({ open: false });
-  };
+    function handleTooltipClose()
+    {
+        setOpen(false);
+    }
 
-  handleTooltipOpen = () => {
-    this.setState({ open: true });
-  };
+    function handleTooltipOpen()
+    {
+        setOpen(true);
+    }
 
-  render() {
     return (
-      <Tooltip
-        onClose={this.handleTooltipClose}
-        onOpen={this.handleTooltipOpen}
-        open={this.state.open}
-        title="Add"
-      >
-        <Button>Controlled</Button>
-      </Tooltip>
+        <Tooltip onClose={handleTooltipClose} onOpen={handleTooltipOpen} open={open} title="Add">
+            <Button>Controlled</Button>
+        </Tooltip>
     );
-  }
 }
 
 export default ControlledTooltips;

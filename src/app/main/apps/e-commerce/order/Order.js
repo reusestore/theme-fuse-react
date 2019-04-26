@@ -48,7 +48,7 @@ function Order(props)
                         <div className="flex flex-1 flex-col items-center sm:items-start">
 
                             <FuseAnimate animation="transition.slideRightIn" delay={300}>
-                                <Typography className="normal-case flex items-center sm:mb-12" component={Link} role="button" to="/apps/e-commerce/orders">
+                                <Typography className="normal-case flex items-center sm:mb-12" component={Link} role="button" to="/apps/e-commerce/orders" color="inherit">
                                     <Icon className="mr-4 text-20">arrow_back</Icon>
                                     Orders
                                 </Typography>

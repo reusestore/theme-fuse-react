@@ -222,11 +222,14 @@ function BoardCardForm(props)
                             <FuseChipSelect
                                 className={cardForm.idMembers.length > 0 && 'sm:mr-8'}
                                 value={
-                                    cardForm.idLabels.map(labelId => ({
-                                        value: labelId,
-                                        label: _.find(props.board.labels, {id: labelId}).name,
-                                        class: _.find(props.board.labels, {id: labelId}).class
-                                    }))
+                                    cardForm.idLabels.map(labelId => {
+                                        const label = _.find(props.board.labels, {id: labelId});
+                                        return label && {
+                                            value: labelId,
+                                            label: label.name,
+                                            class: label.class
+                                        }
+                                    })
                                 }
                                 onChange={(value) => chipChange('idLabels', value)}
                                 placeholder="Select multiple Labels"
@@ -268,7 +271,7 @@ function BoardCardForm(props)
                                 value={
                                     cardForm.idMembers.map(memberId => {
                                         const member = _.find(props.board.members, {id: memberId});
-                                        return {
+                                        return member && {
                                             value: member.id,
                                             label: (<Tooltip title={member.name}><Avatar className="-ml-12 w-32 h-32" src={member.avatar}/></Tooltip>)
                                         }

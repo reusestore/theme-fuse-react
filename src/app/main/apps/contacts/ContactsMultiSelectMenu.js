@@ -21,6 +21,7 @@ function ContactsMultiSelectMenu(props)
     return (
         <React.Fragment>
             <IconButton
+                className="p-0"
                 aria-owns={anchorEl ? 'selectedContactsMenu' : null}
                 aria-haspopup="true"
                 onClick={openSelectedContactMenu}
@@ -40,10 +41,10 @@ function ContactsMultiSelectMenu(props)
                             closeSelectedContactsMenu();
                         }}
                     >
-                        <ListItemIcon>
+                        <ListItemIcon className="min-w-40">
                             <Icon>delete</Icon>
                         </ListItemIcon>
-                        <ListItemText inset primary="Remove"/>
+                        <ListItemText primary="Remove"/>
                     </MenuItem>
                     <MenuItem
                         onClick={() => {
@@ -51,10 +52,10 @@ function ContactsMultiSelectMenu(props)
                             closeSelectedContactsMenu();
                         }}
                     >
-                        <ListItemIcon>
+                        <ListItemIcon className="min-w-40">
                             <Icon>star</Icon>
                         </ListItemIcon>
-                        <ListItemText inset primary="Starred"/>
+                        <ListItemText primary="Starred"/>
                     </MenuItem>
                     <MenuItem
                         onClick={() => {
@@ -62,10 +63,10 @@ function ContactsMultiSelectMenu(props)
                             closeSelectedContactsMenu();
                         }}
                     >
-                        <ListItemIcon>
+                        <ListItemIcon className="min-w-40">
                             <Icon>star_border</Icon>
                         </ListItemIcon>
-                        <ListItemText inset primary="Unstarred"/>
+                        <ListItemText primary="Unstarred"/>
                     </MenuItem>
                 </MenuList>
             </Menu>

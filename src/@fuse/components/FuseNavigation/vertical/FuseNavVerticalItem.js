@@ -1,7 +1,8 @@
 import React from 'react';
 import {Icon, ListItem, ListItemText} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
-import {NavLink, withRouter} from 'react-router-dom';
+import {NavLinkAdapter, FuseUtils} from '@fuse';
+import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
@@ -33,7 +34,8 @@ const useStyles = makeStyles(theme => ({
         },
         '& .list-item-icon'        : {},
         '& .list-item-text'        : {},
-        color                      : 'inherit!important',
+        color                      : theme.palette.text.primary,
+        cursor                     : 'pointer',
         textDecoration             : 'none!important'
     }
 }));
@@ -45,7 +47,7 @@ function FuseNavVerticalItem(props)
     let paddingValue = 40 + (nestedLevel * 16);
     const listItemPadding = nestedLevel > 0 ? 'pl-' + (paddingValue > 80 ? 80 : paddingValue) : 'pl-24';
 
-    if ( item.auth && (!item.auth.includes(userRole) || (userRole !== 'guest' && item.auth.length === 1 && item.auth.includes('guest'))) )
+    if ( !FuseUtils.hasPermission(item.auth, userRole) )
     {
         return null;
     }
@@ -53,7 +55,7 @@ function FuseNavVerticalItem(props)
     return (
         <ListItem
             button
-            component={NavLink}
+            component={NavLinkAdapter}
             to={item.url}
             activeClassName="active"
             className={classNames(classes.item, listItemPadding, 'list-item', active)}
@@ -61,7 +63,7 @@ function FuseNavVerticalItem(props)
             exact={item.exact}
         >
             {item.icon && (
-                <Icon className="list-item-icon text-16 flex-no-shrink" color="action">{item.icon}</Icon>
+                <Icon className="list-item-icon text-16 flex-no-shrink mr-16" color="action">{item.icon}</Icon>
             )}
             <ListItemText className="list-item-text" primary={item.title} classes={{primary: 'text-14 list-item-text-primary'}}/>
             {item.badge && (

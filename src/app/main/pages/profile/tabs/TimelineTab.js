@@ -84,7 +84,7 @@ function TimelineTab()
                     </div>
 
                     {data.posts.map((post) => (
-                            <Card className="mb-32 overflow-hidden" key={post.id}>
+                            <Card key={post.id} className="mb-32 overflow-hidden">
                                 <CardHeader
                                     avatar={
                                         <Avatar aria-label="Recipe" src={post.user.avatar}/>
@@ -134,7 +134,7 @@ function TimelineTab()
                                     )}
                                 </CardContent>
 
-                                <CardActions className="" disableActionSpacing>
+                                <CardActions disableSpacing>
                                     <Button size="small" aria-label="Add to favorites">
                                         <Icon className="text-16 mr-8" color="action">favorite</Icon>
                                         <Typography className="normal-case">Like</Typography>
@@ -162,11 +162,11 @@ function TimelineTab()
                                                 {post.comments.map((comment) => (
                                                     <div key={comment.id}>
                                                         <ListItem className="px-0">
-                                                            <Avatar alt={comment.user.name} src={comment.user.avatar}/>
+                                                            <Avatar alt={comment.user.name} src={comment.user.avatar} className="mr-16"/>
                                                             <ListItemText
                                                                 primary={(
                                                                     <div>
-                                                                        <Typography className="inline font-medium" color="default" paragraph={false}>
+                                                                        <Typography className="inline font-medium" color="initial" paragraph={false}>
                                                                             {comment.user.name}
                                                                         </Typography>
                                                                         <Typography className="inline ml-4" variant="caption">
@@ -207,8 +207,7 @@ function TimelineTab()
                                 </AppBar>
                             </Card>
                         )
-                    )
-                    }
+                    )}
                 </FuseAnimateGroup>
 
             </div>

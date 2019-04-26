@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Collapse, Icon, IconButton, ListItem, ListItemText} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
+import {FuseUtils} from '@fuse';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
@@ -10,7 +11,7 @@ import FuseNavVerticalItem from './FuseNavVerticalItem';
 import FuseNavBadge from './../FuseNavBadge';
 import FuseNavVerticalLink from './FuseNavVerticalLink';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
     root: {
         padding : 0,
         '&.open': {
@@ -22,12 +23,13 @@ const useStyles = makeStyles({
         width       : 'calc(100% - 16px)',
         borderRadius: '0 20px 20px 0',
         paddingRight: 12,
+        color       : theme.palette.text.primary,
         '&.square'  : {
             width       : '100%',
             borderRadius: '0'
         }
     }
-});
+}));
 
 function needsToBeOpened(props)
 {
@@ -83,7 +85,7 @@ function FuseNavVerticalCollapse(props)
         setOpen(!open);
     }
 
-    if ( item.auth && (!item.auth.includes(userRole) || (userRole !== 'guest' && item.auth.length === 1 && item.auth.includes('guest'))) )
+    if ( !FuseUtils.hasPermission(item.auth, userRole) )
     {
         return null;
     }
@@ -97,7 +99,7 @@ function FuseNavVerticalCollapse(props)
                 onClick={handleClick}
             >
                 {item.icon && (
-                    <Icon color="action" className="text-16 flex-no-shrink">{item.icon}</Icon>
+                    <Icon color="action" className="text-16 flex-no-shrink mr-16">{item.icon}</Icon>
                 )}
                 <ListItemText className="list-item-text" primary={item.title} classes={{primary: 'text-14'}}/>
                 {item.badge && (

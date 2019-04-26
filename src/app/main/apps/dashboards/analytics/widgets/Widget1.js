@@ -26,7 +26,7 @@ function Widget1(props)
 
                     <FuseAnimate delay={100}>
                         <div className="flex-col">
-                            <Typography className="h2">Visitors</Typography>
+                            <Typography className="h2" color="textPrimary">Visitors</Typography>
                             <Typography className="h5" color="textSecondary">Unique visitors by month</Typography>
                         </div>
                     </FuseAnimate>

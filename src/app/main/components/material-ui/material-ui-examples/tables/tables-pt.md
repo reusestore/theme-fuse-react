@@ -30,6 +30,12 @@ Um exemplo simples sem frescuras.
 
 {{"demo": "pages/demos/tables/SimpleTable.js"}}
 
+## Dense Table
+
+A simple example of a dense table with no frills.
+
+{{"demo": "pages/demos/tables/DenseTable.js"}}
+
 ## Classificando & Selecionando
 
 Este exemplo demonstra o uso de linhas clicáveis e `Checkbox` para a seleção, com uma barra de ferramentas personalizada ``. Ele usa o componente `TableSortLabel` para ajudar no estilo dos cabeçalhos das colunas.
@@ -60,15 +66,16 @@ Um exemplo simples com abrangência de linhas & colunas.
 
 ## Tabela Virtualizada
 
-No exemplo a seguir, nós demonstramos como usar [react-virtualized](https://github.com/bvaughn/react-virtualized) com o componente `Table`. São renderizadas 200 linhas e pode facilmente lidar com mais.
+No exemplo a seguir, nós demonstramos como usar [react-virtualized](https://github.com/bvaughn/react-virtualized) com o componente `Table`. São renderizadas 200 linhas e pode facilmente lidar com mais. Virtualization helps with performance issues.
 
 {{"demo": "pages/demos/tables/ReactVirtualizedTable.js"}}
 
 ## Projetos Complementares
 
-For more advanced use cases you might be able to take advantage of:
+Para caso de usos mais avançados, você é capaz de aproveitar de:
 
-- [dx-react-grid-material-ui](https://devexpress.github.io/devextreme-reactive/react/grid/) A data grid for Material-UI with paging, sorting, filtering, grouping and editing features ([custom license](https://js.devexpress.com/licensing/)).
+- [dx-react-grid-material-ui](https://devexpress.github.io/devextreme-reactive/react/grid/) Uma grade de dados para Material-UI com paginação, ordenação, filtragem, agrupamento and funções de edição ([custom license](https://js.devexpress.com/licensing/)).
 - [mui-datatables](https://github.com/gregnb/mui-datatables) Tabelas de dados responsivos para Material-UI com filtro, ordenação, pesquisa e muito mais.
 - [material-table](https://github.com/mbrn/material-table) DataTable baseado no componente table com recursos adicionais como: pesquisa, filtro, ordenação e muito mais.
 - [mui-virtualized-table](https://github.com/techniq/mui-virtualized-table) Tabela Material-UI Virtualizada.
+- [mui-tables](https://parkerself.gitbook.io/mui-table/) Customizable table for managing complex data. Features a summary row, de-duplication & merging, as well as filtering, search, etc.

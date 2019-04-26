@@ -24,7 +24,7 @@ components: Snackbar, SnackbarContent
 
 如果您有阅读[重写样式文档页面](/customization/overrides/) 但你还不是很自信能够完全掌握， 以下是如何更改一个消息条(Snackbar)的主要颜色的示例
 
-⚠️虽然材料设计规范鼓励主题，但这些例子是不合适的。
+⚠️虽然 Material design 规范鼓励样式化，但这些例子是不合适的。
 
 {{"demo": "pages/demos/snackbars/CustomizedSnackbars.js"}}
 
@@ -44,27 +44,27 @@ components: Snackbar, SnackbarContent
 
 ### 连续的消息条(Snackbar)
 
-按照[Google的指引](https://material.io/design/components/snackbars.html#snackbars-toasts-usage),当第一个消息条(Snackbar)还在显示时如果第二条消息条(Snackbar)被触发的话, 第一条消息条(Snackbar)应该在第二条消息条(Snackbar)开始上浮出现时往下方收缩消失.
+When multiple snackbar updates are necessary, they should appear one at a time.
 
 {{"demo": "pages/demos/snackbars/ConsecutiveSnackbars.js"}}
 
-### 不要遮住其他浮动的操作按钮。
+### Snackbars and floating action buttons (FABs)
 
-当出现消息条(Snackbar)时底部的浮动按钮自动上升一个消息条高度。
+Snackbars should appear above FABs (on mobile).
 
-{{"demo": "pages/demos/snackbars/FabIntegrationSnackbar.js"}}
-
-### 控制方向
-
-控制过渡动画的方向。幻灯片效果是默认的过渡动画。
-
-{{"demo": "pages/demos/snackbars/DirectionSnackbar.js"}}
+{{"demo": "pages/demos/snackbars/FabIntegrationSnackbar.js", "iframe": true, "maxWidth": 500}}
 
 ### 更改过渡动画
 
-同时使用不同的过渡动画。
+[Grow](/utils/transitions/#grow) is the default transition but you can use a different one.
 
-{{"demo": "pages/demos/snackbars/FadeSnackbar.js"}}
+{{"demo": "pages/demos/snackbars/TransitionsSnackbar.js"}}
+
+### Control Slide direction
+
+You can change the direction of the [Slide](/utils/transitions/#slide) transition.
+
+{{"demo": "pages/demos/snackbars/DirectionSnackbar.js"}}
 
 ## 补充项目
 
@@ -74,6 +74,6 @@ components: Snackbar, SnackbarContent
 
 ![stars](https://img.shields.io/github/stars/iamhosseindhv/notistack.svg?style=social&label=Stars) ![npm downloads](https://img.shields.io/npm/dm/notistack.svg)
 
-在下面的示例中, 我们演示如何使用 [notistack](https://github.com/iamhosseindhv/notistack)。 notistack可以很容易地显示零食栏（因此您不必处理它们的打开/关闭状态）。 它还使您可以将它们堆叠在一起。
+在下面的示例中, 我们演示如何使用 [notistack](https://github.com/iamhosseindhv/notistack)。 notistack可以很容易地显示零食栏（因此您不必处理它们的打开/关闭状态）。 It also enables you to stack them on top of one another (but discouraged by the specification).
 
 {{"demo": "pages/demos/snackbars/IntegrationNotistack.js"}}

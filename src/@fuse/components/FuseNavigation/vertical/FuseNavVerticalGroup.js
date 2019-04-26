@@ -1,6 +1,7 @@
 import React from 'react';
 import {ListSubheader} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
+import {FuseUtils} from '@fuse';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
@@ -25,7 +26,7 @@ function FuseNavVerticalGroup(props)
     let paddingValue = 40 + (nestedLevel * 16);
     const listItemPadding = nestedLevel > 0 ? 'pl-' + (paddingValue > 80 ? 80 : paddingValue) : 'pl-24';
 
-    if ( item.auth && (!item.auth.includes(userRole) || (userRole !== 'guest' && item.auth.length === 1 && item.auth.includes('guest'))) )
+    if ( !FuseUtils.hasPermission(item.auth, userRole) )
     {
         return null;
     }

@@ -405,7 +405,7 @@ function replaceInExamples()
         list.forEach(function (file) {
             const fileSource = fs.readFileSync(file, 'utf8');
             const result = fileSource
-                .replace(new RegExp('@material-ui/docs/MarkdownElement', 'g'), "app/main/components/material-ui/MarkdownElement");
+                .replace(new RegExp('docs/src/modules/components/MarkdownElement', 'g'), "app/main/components/material-ui/MarkdownElement");
             fs.writeFileSync(file, result, 'utf8', function (err) {
                 if ( err ) return console.log(err);
             });

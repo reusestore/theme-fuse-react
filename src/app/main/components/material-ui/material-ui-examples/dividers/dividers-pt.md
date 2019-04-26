@@ -6,7 +6,7 @@ components: Divider
 
 <p class="description">Um divisor é uma linha fina que agrupa conteúdo em listas e layouts.</p>
 
-[Dividers](https://material.io/design/components/dividers.html) separate content into clear groups.
+[Dividers (Divisores)](https://material.io/design/components/dividers.html) separam grupos de conteúdos.
 
 ## Divisores de lista
 
@@ -16,15 +16,13 @@ The divider renders as a `<hr>` by default. You can save rendering this DOM elem
 
 ## Especificação HTML5
 
-We need to make sure the `Divider` is rendered as a `li` to match the HTML5 specification. The examples below show two ways of achieving this.
+Precisamos garantir que o `Divider` seja renderizado como `li` para corresponder à especificação do HTML5. Os exemplos abaixo mostram duas maneiras de conseguir isso.
 
 ## Divisores de inserção
 
-The `inset` property has now been deprecated. You should now use `variant="inset"`
-
 {{"demo": "pages/demos/dividers/InsetDividers.js"}}
 
-## Divisores Subheader
+## Divisores de subtítulo
 
 {{"demo": "pages/demos/dividers/SubheaderDividers.js"}}
 

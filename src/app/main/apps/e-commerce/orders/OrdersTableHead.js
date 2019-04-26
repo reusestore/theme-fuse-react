@@ -112,10 +112,10 @@ function OrdersTableHead(props)
                                             closeSelectedOrdersMenu();
                                         }}
                                     >
-                                        <ListItemIcon className={classes.icon}>
+                                        <ListItemIcon className="min-w-40">
                                             <Icon>delete</Icon>
                                         </ListItemIcon>
-                                        <ListItemText inset primary="Remove"/>
+                                        <ListItemText primary="Remove"/>
                                     </MenuItem>
                                 </MenuList>
                             </Menu>

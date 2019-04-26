@@ -36,7 +36,7 @@ function LabelsMenu(props)
                                 <ListItemText>
                                     {label.name}
                                 </ListItemText>
-                                <ListItemIcon>
+                                <ListItemIcon className="min-w-40">
                                     <Icon>label</Icon>
                                 </ListItemIcon>
                             </MenuItem>

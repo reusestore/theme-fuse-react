@@ -142,7 +142,7 @@ function ProductsTable(props)
                                         selected={isSelected}
                                         onClick={event => handleClick(n)}
                                     >
-                                        <TableCell className="w-48 pl-4 sm:pl-12" padding="checkbox">
+                                        <TableCell className="w-48 px-4 sm:px-12" padding="checkbox">
                                             <Checkbox
                                                 checked={isSelected}
                                                 onClick={event => event.stopPropagation()}
@@ -151,7 +151,7 @@ function ProductsTable(props)
                                         </TableCell>
 
                                         <TableCell className="w-52" component="th" scope="row" padding="none">
-                                            {n.images.length > 0 ? (
+                                            {n.images.length > 0 && n.featuredImageId ? (
                                                 <img className="w-full block rounded" src={_.find(n.images, {id: n.featuredImageId}).url} alt={n.name}/>
                                             ) : (
                                                 <img className="w-full block rounded" src="assets/images/ecommerce/product-image-placeholder.png" alt={n.name}/>

@@ -38,7 +38,7 @@ function UserMenu(props)
                         {props.user.data.displayName}
                     </Typography>
                     <Typography className="text-11 capitalize" color="textSecondary">
-                        {props.user.role}
+                        {props.user.role.toString()}
                     </Typography>
                 </div>
 
@@ -61,16 +61,16 @@ function UserMenu(props)
                     paper: "py-8"
                 }}
             >
-                {props.user.role === 'guest' ? (
+                {!props.user.role || props.user.role.length === 0 ? (
                     <React.Fragment>
                         <MenuItem component={Link} to="/login">
-                            <ListItemIcon>
+                            <ListItemIcon className="min-w-40">
                                 <Icon>lock</Icon>
                             </ListItemIcon>
                             <ListItemText className="pl-0" primary="Login"/>
                         </MenuItem>
                         <MenuItem component={Link} to="/register">
-                            <ListItemIcon>
+                            <ListItemIcon className="min-w-40">
                                 <Icon>person_add</Icon>
                             </ListItemIcon>
                             <ListItemText className="pl-0" primary="Register"/>
@@ -79,13 +79,13 @@ function UserMenu(props)
                 ) : (
                     <React.Fragment>
                         <MenuItem component={Link} to="/pages/profile" onClick={userMenuClose}>
-                            <ListItemIcon>
+                            <ListItemIcon className="min-w-40">
                                 <Icon>account_circle</Icon>
                             </ListItemIcon>
                             <ListItemText className="pl-0" primary="My Profile"/>
                         </MenuItem>
                         <MenuItem component={Link} to="/apps/mail" onClick={userMenuClose}>
-                            <ListItemIcon>
+                            <ListItemIcon className="min-w-40">
                                 <Icon>mail</Icon>
                             </ListItemIcon>
                             <ListItemText className="pl-0" primary="Inbox"/>
@@ -96,7 +96,7 @@ function UserMenu(props)
                                 userMenuClose();
                             }}
                         >
-                            <ListItemIcon>
+                            <ListItemIcon className="min-w-40">
                                 <Icon>exit_to_app</Icon>
                             </ListItemIcon>
                             <ListItemText className="pl-0" primary="Logout"/>

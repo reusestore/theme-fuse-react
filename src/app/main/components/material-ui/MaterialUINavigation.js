@@ -24,6 +24,11 @@ export const MaterialUINavigation = [{
     'type': 'item',
     'url': '/components/material-ui/bottom-navigation'
 }, {
+    'id': 'breadcrumbs',
+    'title': 'Breadcrumbs',
+    'type': 'item',
+    'url': '/components/material-ui/breadcrumbs'
+}, {
     'id': 'buttons',
     'title': 'Buttons',
     'type': 'item',
@@ -128,4 +133,9 @@ export const MaterialUINavigation = [{
     'title': 'Tooltips',
     'type': 'item',
     'url': '/components/material-ui/tooltips'
+}, {
+    'id': 'transferList',
+    'title': 'Transfer List',
+    'type': 'item',
+    'url': '/components/material-ui/transfer-list'
 }];

@@ -4,7 +4,7 @@ components: MobileStepper, Step, StepButton, StepConnector, StepContent, StepIco
 ---
 # Steppers
 
-<p class="description">Steppers convey progress through numbered steps.</p>
+<p class="description">Steppers convey progress through numbered steps. It provides a wizard-like workflow.</p>
 
 [Steppers](https://material.io/archive/guidelines/components/steppers.html) display progress through a sequence of logical and numbered steps. They may also be used for navigation. Steppers may display a transient feedback message after a step is saved.
 
@@ -19,7 +19,7 @@ components: MobileStepper, Step, StepButton, StepConnector, StepContent, StepIco
 
 - Horizontal
 - Vertical
-- Linear
+- Lineal
 - Non-linear
 
 > **Note:** Steppers are no longer documented in the Material Design documentation.
@@ -66,7 +66,7 @@ If you have been reading the [overrides documentation page](/customization/overr
 
 This component uses a customized `StepConnector` element that changes border color based on the `active` and `completed` state.
 
-⚠️ While the material design specification encourages theming, these examples are off the beaten path.
+⚠️ A pesar de que la especificación de material design anima a usar temas, estos ejemplos no son comunes.
 
 {{"demo": "pages/demos/steppers/CustomizedStepper.js"}}
 

@@ -17,7 +17,8 @@ const useStyles = makeStyles({
         }
     },
     item   : {
-        textDecoration: 'none!important'
+        textDecoration: 'none!important',
+        color         : 'inherit'
     },
     addIcon: {
         color: amber[600]
@@ -60,7 +61,7 @@ function FuseShortcuts(props)
 
         if ( searchText.length !== 0 && navigation )
         {
-            setSearchResults(navigation.filter(item => item.title.toLowerCase().includes(searchText)));
+            setSearchResults(navigation.filter(item => item.title.toLowerCase().includes(searchText.toLowerCase())));
             return;
         }
         setSearchResults(null);
@@ -73,13 +74,12 @@ function FuseShortcuts(props)
         props.updateUserShortcuts(shortcuts);
     }
 
-
     function ShortcutMenuItem({item, onToggle})
     {
         return (
             <Link to={item.url} className={classes.item}>
                 <MenuItem key={item.id}>
-                    <ListItemIcon>
+                    <ListItemIcon className="min-w-40">
                         {item.icon ?
                             (
                                 <Icon>{item.icon}</Icon>

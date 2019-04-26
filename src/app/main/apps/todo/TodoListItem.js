@@ -50,7 +50,7 @@ function TodoListItem(props)
                 <Typography
                     variant="subtitle1"
                     className="todo-title truncate"
-                    color={props.todo.completed ? "textSecondary" : "default"}
+                    color={props.todo.completed ? "textSecondary" : "inherit"}
                 >
                     {props.todo.title}
                 </Typography>

@@ -1,8 +1,8 @@
 import React from 'react';
 import {Icon, List, ListItem, ListItemText, ListSubheader} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
-import {FuseAnimate} from '@fuse';
-import {NavLink, withRouter} from 'react-router-dom';
+import {FuseAnimate, NavLinkAdapter} from '@fuse';
+import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import MailCompose from './MailCompose';
 
@@ -24,9 +24,10 @@ const useStyles = makeStyles(theme => ({
             }
         },
         '& .list-item-icon': {
-            fontSize: 16,
-            width   : 16,
-            height  : 16
+            fontSize   : 16,
+            width      : 16,
+            height     : 16,
+            marginRight: 16
         }
     }
 }));
@@ -50,7 +51,7 @@ function MailAppSidebarContent(props)
                         {props.folders.length > 0 && props.folders.map((folder) => (
                             <ListItem
                                 button
-                                component={NavLink}
+                                component={NavLinkAdapter}
                                 to={'/apps/mail/' + folder.handle} key={folder.id}
                                 activeClassName="active"
                                 className={classes.listItem}
@@ -68,7 +69,7 @@ function MailAppSidebarContent(props)
                         {props.filters.length > 0 && props.filters.map((filter) => (
                             <ListItem
                                 button
-                                component={NavLink}
+                                component={NavLinkAdapter}
                                 to={'/apps/mail/filter/' + filter.handle}
                                 activeClassName="active"
                                 className={classes.listItem}
@@ -87,7 +88,7 @@ function MailAppSidebarContent(props)
                         {props.labels && props.labels.map((label) => (
                             <ListItem
                                 button
-                                component={NavLink}
+                                component={NavLinkAdapter}
                                 to={'/apps/mail/label/' + label.handle}
                                 key={label.id}
                                 className={classes.listItem}

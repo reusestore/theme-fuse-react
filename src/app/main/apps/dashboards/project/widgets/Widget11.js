@@ -10,7 +10,7 @@ function Widget11(props)
                 <Typography className="text-11 font-500 rounded-4 text-white bg-blue px-8 py-4">{props.widget.table.rows.length + " Members"}</Typography>
             </div>
             <div className="table-responsive">
-                <Table className="w-full min-w-full" padding="dense">
+                <Table className="w-full min-w-full" size="small">
                     <TableHead>
                         <TableRow>
                             {props.widget.table.columns.map(column => {

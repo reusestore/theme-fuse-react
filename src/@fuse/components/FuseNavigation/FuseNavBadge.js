@@ -25,7 +25,7 @@ function FuseNavBadge(props)
 
     return (
         <div
-            className={classNames(classes.root, className)}
+            className={classNames(classes.root, className, "item-badge")}
             style={{
                 backgroundColor: badge.bg,
                 color          : badge.fg

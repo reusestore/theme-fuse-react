@@ -57,7 +57,13 @@ export const defaultThemeOptions = {
 
 export const mustHaveThemeOptions = {
     typography: {
-        htmlFontSize: 10
+        htmlFontSize: 10,
+        body1       : {
+            fontSize: "1.4rem",
+        },
+        body2       : {
+            fontSize: "1.4rem",
+        }
     }
 };
 

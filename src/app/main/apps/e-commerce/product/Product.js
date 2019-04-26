@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Button, Tab, Tabs, TextField, InputAdornment, Icon, Typography} from '@material-ui/core';
 import {orange} from '@material-ui/core/colors';
 import {makeStyles} from '@material-ui/styles';
-import {FuseAnimate, FusePageCarded, FuseChipSelect} from '@fuse';
+import {FuseAnimate, FusePageCarded, FuseChipSelect, FuseUtils} from '@fuse';
 import {useForm} from '@fuse/hooks';
 import {Link, withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
@@ -21,12 +21,16 @@ const useStyles = makeStyles(theme => ({
         color   : orange[400],
         opacity : 0
     },
+    productImageUpload      : {
+        transitionProperty      : 'box-shadow',
+        transitionDuration      : theme.transitions.duration.short,
+        transitionTimingFunction: theme.transitions.easing.easeInOut,
+    },
     productImageItem        : {
         transitionProperty      : 'box-shadow',
         transitionDuration      : theme.transitions.duration.short,
         transitionTimingFunction: theme.transitions.easing.easeInOut,
         '&:hover'               : {
-            boxShadow                    : theme.shadows[5],
             '& $productImageFeaturedStar': {
                 opacity: .8
             }
@@ -94,6 +98,34 @@ function Product(props)
         setForm(_.set({...form}, 'featuredImageId', id));
     }
 
+    function handleUploadChange(e)
+    {
+        const file = e.target.files[0];
+        if ( !file )
+        {
+            return;
+        }
+        const reader = new FileReader();
+        reader.readAsBinaryString(file);
+
+        reader.onload = () => {
+            setForm(_.set({...form}, `images`,
+                [
+                    {
+                        'id'  : FuseUtils.generateGUID(),
+                        'url' : `data:${file.type};base64,${btoa(reader.result)}`,
+                        'type': 'image'
+                    },
+                    ...form.images
+                ]
+            ));
+        };
+
+        reader.onerror = function () {
+            console.log("error on load image");
+        };
+    }
+
     function canBeSubmitted()
     {
         return (
@@ -115,7 +147,7 @@ function Product(props)
                         <div className="flex flex-col items-start max-w-full">
 
                             <FuseAnimate animation="transition.slideRightIn" delay={300}>
-                                <Typography className="normal-case flex items-center sm:mb-12" component={Link} role="button" to="/apps/e-commerce/products">
+                                <Typography className="normal-case flex items-center sm:mb-12" component={Link} role="button" to="/apps/e-commerce/products" color="inherit">
                                     <Icon className="mr-4 text-20">arrow_back</Icon>
                                     Products
                                 </Typography>
@@ -123,7 +155,7 @@ function Product(props)
 
                             <div className="flex items-center max-w-full">
                                 <FuseAnimate animation="transition.expandIn" delay={300}>
-                                    {form.images.length > 0 ? (
+                                    {form.images.length > 0 && form.featuredImageId ? (
                                         <img className="w-32 sm:w-48 mr-8 sm:mr-16 rounded" src={_.find(form.images, {id: form.featuredImageId}).url} alt={form.name}/>
                                     ) : (
                                         <img className="w-32 sm:w-48 mr-8 sm:mr-16 rounded" src="assets/images/ecommerce/product-image-placeholder.png" alt={form.name}/>
@@ -249,14 +281,31 @@ function Product(props)
                         )}
                         {tabValue === 1 && (
                             <div>
+                                <input
+                                    accept="image/*"
+                                    className="hidden"
+                                    id="button-file"
+                                    type="file"
+                                    onChange={handleUploadChange}
+                                />
                                 <div className="flex justify-center sm:justify-start flex-wrap">
+                                    <label
+                                        htmlFor="button-file"
+                                        className={
+                                            classNames(
+                                                classes.productImageUpload,
+                                                "flex items-center justify-center relative w-128 h-128 rounded-4 mr-16 mb-16 overflow-hidden cursor-pointer shadow-1 hover:shadow-5"
+                                            )}
+                                    >
+                                        <Icon fontSize="large" color="action">cloud_upload</Icon>
+                                    </label>
                                     {form.images.map(media => (
                                         <div
                                             onClick={() => setFeaturedImage(media.id)}
                                             className={
                                                 classNames(
                                                     classes.productImageItem,
-                                                    "flex items-center justify-center relative w-128 h-128 rounded-4 mr-16 mb-16 overflow-hidden cursor-pointer",
+                                                    "flex items-center justify-center relative w-128 h-128 rounded-4 mr-16 mb-16 overflow-hidden cursor-pointer shadow-1 hover:shadow-5",
                                                     (media.id === form.featuredImageId) && 'featured')
                                             }
                                             key={media.id}

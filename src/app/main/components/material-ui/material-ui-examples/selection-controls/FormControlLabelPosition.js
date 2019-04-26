@@ -5,54 +5,46 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 
-class FormControlLabelPosition extends React.Component {
-  state = {
-    value: 'female',
-  };
+function FormControlLabelPosition()
+{
+    const [value, setValue] = React.useState('female');
 
-  handleChange = event => {
-    this.setState({ value: event.target.value });
-  };
+    function handleChange(event)
+    {
+        setValue(event.target.value);
+    }
 
-  render() {
     return (
-      <FormControl component="fieldset">
-        <FormLabel component="legend">labelPlacement</FormLabel>
-        <RadioGroup
-          aria-label="position"
-          name="position"
-          value={this.state.value}
-          onChange={this.handleChange}
-          row
-        >
-          <FormControlLabel
-            value="top"
-            control={<Radio color="primary" />}
-            label="Top"
-            labelPlacement="top"
-          />
-          <FormControlLabel
-            value="start"
-            control={<Radio color="primary" />}
-            label="Start"
-            labelPlacement="start"
-          />
-          <FormControlLabel
-            value="bottom"
-            control={<Radio color="primary" />}
-            label="Bottom"
-            labelPlacement="bottom"
-          />
-          <FormControlLabel
-            value="end"
-            control={<Radio color="primary" />}
-            label="End"
-            labelPlacement="end"
-          />
-        </RadioGroup>
-      </FormControl>
+        <FormControl component="fieldset">
+            <FormLabel component="legend">labelPlacement</FormLabel>
+            <RadioGroup aria-label="position" name="position" value={value} onChange={handleChange} row>
+                <FormControlLabel
+                    value="top"
+                    control={<Radio color="primary"/>}
+                    label="Top"
+                    labelPlacement="top"
+                />
+                <FormControlLabel
+                    value="start"
+                    control={<Radio color="primary"/>}
+                    label="Start"
+                    labelPlacement="start"
+                />
+                <FormControlLabel
+                    value="bottom"
+                    control={<Radio color="primary"/>}
+                    label="Bottom"
+                    labelPlacement="bottom"
+                />
+                <FormControlLabel
+                    value="end"
+                    control={<Radio color="primary"/>}
+                    label="End"
+                    labelPlacement="end"
+                />
+            </RadioGroup>
+        </FormControl>
     );
-  }
 }
 
 export default FormControlLabelPosition;

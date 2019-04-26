@@ -3,46 +3,44 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 
-class SwitchLabels extends React.Component {
-  state = {
-    checkedA: true,
-    checkedB: true,
-  };
+function SwitchLabels()
+{
+    const [state, setState] = React.useState({
+        checkedA: true,
+        checkedB: true,
+    });
 
-  handleChange = name => event => {
-    this.setState({ [name]: event.target.checked });
-  };
+    const handleChange = name => event => {
+        setState({
+            ...state,
+            [name]: event.target.checked
+        });
+    };
 
-  render() {
     return (
-      <FormGroup row>
-        <FormControlLabel
-          control={
-            <Switch
-              checked={this.state.checkedA}
-              onChange={this.handleChange('checkedA')}
-              value="checkedA"
+        <FormGroup row>
+            <FormControlLabel
+                control={
+                    <Switch checked={state.checkedA} onChange={handleChange('checkedA')} value="checkedA"/>
+                }
+                label="Secondary"
             />
-          }
-          label="Secondary"
-        />
-        <FormControlLabel
-          control={
-            <Switch
-              checked={this.state.checkedB}
-              onChange={this.handleChange('checkedB')}
-              value="checkedB"
-              color="primary"
+            <FormControlLabel
+                control={
+                    <Switch
+                        checked={state.checkedB}
+                        onChange={handleChange('checkedB')}
+                        value="checkedB"
+                        color="primary"
+                    />
+                }
+                label="Primary"
             />
-          }
-          label="Primary"
-        />
-        <FormControlLabel control={<Switch value="checkedC" />} label="Uncontrolled" />
-        <FormControlLabel disabled control={<Switch value="checkedD" />} label="Disabled" />
-        <FormControlLabel disabled control={<Switch checked value="checkedE" />} label="Disabled" />
-      </FormGroup>
+            <FormControlLabel control={<Switch value="checkedC"/>} label="Uncontrolled"/>
+            <FormControlLabel disabled control={<Switch value="checkedD"/>} label="Disabled"/>
+            <FormControlLabel disabled control={<Switch checked value="checkedE"/>} label="Disabled"/>
+        </FormGroup>
     );
-  }
 }
 
 export default SwitchLabels;

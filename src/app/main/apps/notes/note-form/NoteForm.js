@@ -83,6 +83,10 @@ function NoteForm(props)
     function handleUploadChange(e)
     {
         const file = e.target.files[0];
+        if ( !file )
+        {
+            return;
+        }
         const reader = new FileReader();
 
         reader.readAsBinaryString(file);
