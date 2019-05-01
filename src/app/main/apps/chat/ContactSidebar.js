@@ -1,13 +1,16 @@
 import React from 'react';
 import {IconButton, TextField, AppBar, Icon, Toolbar, Typography, Avatar} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
-import {bindActionCreators} from 'redux';
-import connect from 'react-redux/es/connect/connect';
+import {useActions, useSelector} from 'react-redux';
 import * as Actions from './store/actions';
 
 function ContactSidebar(props)
 {
-    const contact = props.contacts.find(_contact => (_contact.id === props.selectedContactId));
+    const contacts = useSelector(({chatApp}) => chatApp.contacts.entities, []);
+    const selectedContactId = useSelector(({chatApp}) => chatApp.contacts.selectedContactId, []);
+    const closeContactSidebar = useActions(Actions.closeContactSidebar, []);
+
+    const contact = contacts.find(_contact => (_contact.id === selectedContactId));
     if ( !contact )
     {
         return null;
@@ -19,7 +22,7 @@ function ContactSidebar(props)
 
                 <Toolbar className="flex justify-between items-center px-16 pr-4">
                     <Typography color="inherit" variant="subtitle1">Contact Info</Typography>
-                    <IconButton onClick={props.closeContactSidebar} color="inherit">
+                    <IconButton onClick={closeContactSidebar} color="inherit">
                         <Icon>close</Icon>
                     </IconButton>
                 </Toolbar>
@@ -46,19 +49,4 @@ function ContactSidebar(props)
     )
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        closeContactSidebar: Actions.closeContactSidebar
-    }, dispatch);
-}
-
-function mapStateToProps({chatApp})
-{
-    return {
-        contacts         : chatApp.contacts.entities,
-        selectedContactId: chatApp.contacts.selectedContactId
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ContactSidebar);
+export default ContactSidebar;

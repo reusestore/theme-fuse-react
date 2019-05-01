@@ -1,12 +1,11 @@
 import React, {useEffect, useRef} from 'react';
 import {Paper, Hidden, Icon, IconButton, Fab, Typography, Stepper, Step, StepLabel} from '@material-ui/core';
 import {FusePageSimple, FuseScrollbars} from '@fuse';
+import {useActions, useSelector} from 'react-redux';
 import withReducer from 'app/store/withReducer';
-import connect from 'react-redux/es/connect/connect';
 import SwipeableViews from 'react-swipeable-views';
 import {green} from '@material-ui/core/colors';
 import {Link} from 'react-router-dom';
-import {bindActionCreators} from 'redux';
 import reducer from '../store/reducers';
 import * as Actions from '../store/actions';
 import {makeStyles} from '@material-ui/styles';
@@ -23,6 +22,9 @@ const useStyles = makeStyles(theme => ({
 
 function Course(props)
 {
+    const course = useSelector(({academyApp}) => academyApp.course, []);
+    const [getCourse, updateCourse] = useActions([Actions.getCourse, Actions.updateCourse], []);
+
     const classes = useStyles(props);
     const pageLayout = useRef(null);
 
@@ -30,36 +32,36 @@ function Course(props)
         /**
          * Get the Course Data
          */
-        props.getCourse(props.match.params);
-    }, []);
+        getCourse(props.match.params);
+    }, [getCourse, props.match.params]);
 
     useEffect(() => {
         /**
          * If the course is opened for the first time
          * Change ActiveStep to 1
          */
-        if ( props.course && props.course.activeStep === 0 )
+        if ( course && course.activeStep === 0 )
         {
-            props.updateCourse({activeStep: 1});
+            updateCourse({activeStep: 1});
         }
-    }, [props.course]);
+    }, [course]);
 
     function handleChangeActiveStep(index)
     {
-        props.updateCourse({activeStep: index + 1});
+        updateCourse({activeStep: index + 1});
     }
 
     function handleNext()
     {
-        props.updateCourse({activeStep: props.course.activeStep + 1});
+        updateCourse({activeStep: course.activeStep + 1});
     }
 
     function handleBack()
     {
-        props.updateCourse({activeStep: props.course.activeStep - 1});
+        updateCourse({activeStep: course.activeStep - 1});
     }
 
-    const activeStep = props.course && props.course.activeStep !== 0 ? props.course.activeStep : 1;
+    const activeStep = course && course.activeStep !== 0 ? course.activeStep : 1;
 
     return (
         <FusePageSimple
@@ -84,13 +86,13 @@ function Course(props)
                     >
                         <Icon>arrow_back</Icon>
                     </IconButton>
-                    {props.course && (
-                        <Typography className="flex-1 text-20">{props.course.title}</Typography>
+                    {course && (
+                        <Typography className="flex-1 text-20">{course.title}</Typography>
                     )}
                 </div>
             }
             content={
-                props.course && (
+                course && (
                     <div className="flex flex-1 relative overflow-hidden">
                         <FuseScrollbars className="w-full overflow-auto">
                             <SwipeableViews
@@ -99,7 +101,7 @@ function Course(props)
                                 enableMouseEvents={true}
                                 onChangeIndex={handleChangeActiveStep}
                             >
-                                {props.course.steps.map((step, index) => (
+                                {course.steps.map((step, index) => (
                                     <div className="flex justify-center p-16 pb-64 sm:p-24 sm:pb-64 md:p-48 md:pb-64" key={step.id}>
                                         <Paper className="w-full max-w-lg rounded-8 p-16 md:p-24" elevation={1}>
                                             <div dangerouslySetInnerHTML={{__html: step.content}}/>
@@ -119,7 +121,7 @@ function Course(props)
                                     )}
                                 </div>
                                 <div>
-                                    {activeStep < props.course.steps.length ? (
+                                    {activeStep < course.steps.length ? (
                                             <Fab className="" color="secondary" onClick={handleNext}>
                                                 <Icon>chevron_right</Icon>
                                             </Fab>
@@ -140,13 +142,13 @@ function Course(props)
                 )
             }
             leftSidebarContent={
-                props.course && (
+                course && (
                     <Stepper
                         classes={{root: "bg-transparent"}}
                         activeStep={activeStep - 1}
                         orientation="vertical"
                     >
-                        {props.course.steps.map((step, index) => {
+                        {course.steps.map((step, index) => {
                             return (
                                 <Step
                                     key={step.id}
@@ -165,19 +167,4 @@ function Course(props)
     )
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        getCourse   : Actions.getCourse,
-        updateCourse: Actions.updateCourse
-    }, dispatch);
-}
-
-function mapStateToProps({academyApp})
-{
-    return {
-        course: academyApp.course
-    }
-}
-
-export default withReducer('academyApp', reducer)(connect(mapStateToProps, mapDispatchToProps)(Course));
+export default withReducer('academyApp', reducer)(Course);

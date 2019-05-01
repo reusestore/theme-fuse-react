@@ -1,9 +1,8 @@
 import React, {useEffect} from 'react';
 import {Drawer, AppBar, Toolbar, Typography, IconButton, Hidden, Avatar, Icon, Paper, Button} from '@material-ui/core';
 import {fade} from '@material-ui/core/styles/colorManipulator';
+import {useActions, useSelector} from 'react-redux';
 import classNames from 'classnames';
-import {bindActionCreators} from "redux";
-import connect from "react-redux/es/connect/connect";
 import withReducer from 'app/store/withReducer';
 import * as Actions from "./store/actions";
 import Chat from "./Chat";
@@ -93,12 +92,36 @@ const useStyles = makeStyles(theme => ({
 
 function ChatApp(props)
 {
+    const chat = useSelector(({chatApp}) => chatApp.chat, []);
+    const contacts = useSelector(({chatApp}) => chatApp.contacts.entities, []);
+    const selectedContactId = useSelector(({chatApp}) => chatApp.contacts.selectedContactId, []);
+    const mobileChatsSidebarOpen = useSelector(({chatApp}) => chatApp.sidebars.mobileChatsSidebarOpen, []);
+    const userSidebarOpen = useSelector(({chatApp}) => chatApp.sidebars.userSidebarOpen, []);
+    const contactSidebarOpen = useSelector(({chatApp}) => chatApp.sidebars.contactSidebarOpen, []);
+    const [
+        getUserData,
+        getContacts,
+        openMobileChatsSidebar,
+        closeMobileChatsSidebar,
+        closeUserSidebar,
+        openContactSidebar,
+        closeContactSidebar,
+    ] = useActions([
+        Actions.getUserData,
+        Actions.getContacts,
+        Actions.openMobileChatsSidebar,
+        Actions.closeMobileChatsSidebar,
+        Actions.closeUserSidebar,
+        Actions.openContactSidebar,
+        Actions.closeContactSidebar
+    ], []);
+
     const classes = useStyles(props);
-    const selectedContact = props.contacts.find(_contact => (_contact.id === props.selectedContactId));
+    const selectedContact = contacts.find(_contact => (_contact.id === selectedContactId));
 
     useEffect(() => {
-        props.getUserData();
-        props.getContacts();
+        getUserData();
+        getContacts();
     }, []);
 
     return (
@@ -115,8 +138,8 @@ function ChatApp(props)
                             className="h-full absolute z-20"
                             variant="temporary"
                             anchor="left"
-                            open={props.mobileChatsSidebarOpen}
-                            onClose={props.closeMobileChatsSidebar}
+                            open={mobileChatsSidebarOpen}
+                            onClose={closeMobileChatsSidebar}
                             classes={{
                                 paper: classNames(classes.drawerPaper, "absolute pin-l")
                             }}
@@ -149,8 +172,8 @@ function ChatApp(props)
                         className="h-full absolute z-30"
                         variant="temporary"
                         anchor="left"
-                        open={props.userSidebarOpen}
-                        onClose={props.closeUserSidebar}
+                        open={userSidebarOpen}
+                        onClose={closeUserSidebar}
                         classes={{
                             paper: classNames(classes.drawerPaper, "absolute pin-l")
                         }}
@@ -168,7 +191,7 @@ function ChatApp(props)
                     </Drawer>
 
                     <main className={classNames(classes.contentWrapper, "z-10")}>
-                        {!props.chat ?
+                        {!chat ?
                             (
                                 <div className="flex flex-col flex-1 items-center justify-center p-24">
                                     <Paper className="rounded-full p-48">
@@ -178,7 +201,7 @@ function ChatApp(props)
                                     <Typography className="hidden md:flex px-16 pb-24 mt-24 text-center" color="textSecondary">
                                         Select a contact to start a conversation!..
                                     </Typography>
-                                    <Button variant="outlined" color="primary" className="flex md:hidden normal-case" onClick={props.openMobileChatsSidebar}>
+                                    <Button variant="outlined" color="primary" className="flex md:hidden normal-case" onClick={openMobileChatsSidebar}>
                                         Select a contact to start a conversation!..
                                     </Button>
                                 </div>
@@ -189,12 +212,12 @@ function ChatApp(props)
                                             <IconButton
                                                 color="inherit"
                                                 aria-label="Open drawer"
-                                                onClick={props.openMobileChatsSidebar}
+                                                onClick={openMobileChatsSidebar}
                                                 className="flex md:hidden"
                                             >
                                                 <Icon>chat</Icon>
                                             </IconButton>
-                                            <div className="flex items-center cursor-pointer" onClick={props.openContactSidebar}>
+                                            <div className="flex items-center cursor-pointer" onClick={openContactSidebar}>
                                                 <div className="relative ml-8 mr-12">
                                                     <div className="absolute pin-r pin-b -m-4 z-10">
                                                         <StatusIcon status={selectedContact.status}/>
@@ -221,8 +244,8 @@ function ChatApp(props)
                         className="h-full absolute z-30"
                         variant="temporary"
                         anchor="right"
-                        open={props.contactSidebarOpen}
-                        onClose={props.closeContactSidebar}
+                        open={contactSidebarOpen}
+                        onClose={closeContactSidebar}
                         classes={{
                             paper: classNames(classes.drawerPaper, "absolute pin-r")
                         }}
@@ -244,30 +267,4 @@ function ChatApp(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        getUserData            : Actions.getUserData,
-        getContacts            : Actions.getContacts,
-        openMobileChatsSidebar : Actions.openMobileChatsSidebar,
-        closeMobileChatsSidebar: Actions.closeMobileChatsSidebar,
-        openUserSidebar        : Actions.openUserSidebar,
-        closeUserSidebar       : Actions.closeUserSidebar,
-        openContactSidebar     : Actions.openContactSidebar,
-        closeContactSidebar    : Actions.closeContactSidebar
-    }, dispatch);
-}
-
-function mapStateToProps({chatApp})
-{
-    return {
-        chat                  : chatApp.chat,
-        contacts              : chatApp.contacts.entities,
-        selectedContactId     : chatApp.contacts.selectedContactId,
-        mobileChatsSidebarOpen: chatApp.sidebars.mobileChatsSidebarOpen,
-        userSidebarOpen       : chatApp.sidebars.userSidebarOpen,
-        contactSidebarOpen    : chatApp.sidebars.contactSidebarOpen
-    }
-}
-
-export default withReducer('chatApp', reducer)(connect(mapStateToProps, mapDispatchToProps)(ChatApp));
+export default withReducer('chatApp', reducer)(ChatApp);

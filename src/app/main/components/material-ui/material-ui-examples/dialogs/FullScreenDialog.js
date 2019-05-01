@@ -1,5 +1,5 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -14,66 +14,62 @@ import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
 
 const useStyles = makeStyles(theme => ({
-    appBar: {
-        position: 'relative',
-    },
-    title : {
-        marginLeft: theme.spacing(2),
-        flex      : 1,
-    },
+  appBar: {
+    position: 'relative',
+  },
+  title: {
+    marginLeft: theme.spacing(2),
+    flex: 1,
+  },
 }));
 
-function Transition(props)
-{
-    return <Slide direction="up" {...props} />;
+function Transition(props) {
+  return <Slide direction="up" {...props} />;
 }
 
-function FullScreenDialog()
-{
-    const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
+function FullScreenDialog() {
+  const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
 
-    function handleClickOpen()
-    {
-        setOpen(true);
-    }
+  function handleClickOpen() {
+    setOpen(true);
+  }
 
-    function handleClose()
-    {
-        setOpen(false);
-    }
+  function handleClose() {
+    setOpen(false);
+  }
 
-    return (
-        <div>
-            <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-                Open full-screen dialog
+  return (
+    <div>
+      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+        Open full-screen dialog
+      </Button>
+      <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
+        <AppBar className={classes.appBar}>
+          <Toolbar>
+            <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="Close">
+              <CloseIcon />
+            </IconButton>
+            <Typography variant="h6" color="inherit" className={classes.title}>
+              Sound
+            </Typography>
+            <Button color="inherit" onClick={handleClose}>
+              save
             </Button>
-            <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
-                <AppBar className={classes.appBar}>
-                    <Toolbar>
-                        <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="Close">
-                            <CloseIcon/>
-                        </IconButton>
-                        <Typography variant="h6" color="inherit" className={classes.title}>
-                            Sound
-                        </Typography>
-                        <Button color="inherit" onClick={handleClose}>
-                            save
-                        </Button>
-                    </Toolbar>
-                </AppBar>
-                <List>
-                    <ListItem button>
-                        <ListItemText primary="Phone ringtone" secondary="Titania"/>
-                    </ListItem>
-                    <Divider/>
-                    <ListItem button>
-                        <ListItemText primary="Default notification ringtone" secondary="Tethys"/>
-                    </ListItem>
-                </List>
-            </Dialog>
-        </div>
-    );
+          </Toolbar>
+        </AppBar>
+        <List>
+          <ListItem button>
+            <ListItemText primary="Phone ringtone" secondary="Titania" />
+          </ListItem>
+          <Divider />
+          <ListItem button>
+            <ListItemText primary="Default notification ringtone" secondary="Tethys" />
+          </ListItem>
+        </List>
+      </Dialog>
+    </div>
+  );
 }
 
 export default FullScreenDialog;

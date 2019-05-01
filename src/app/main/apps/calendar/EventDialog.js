@@ -2,8 +2,7 @@ import React, {useEffect} from 'react';
 import {TextField, Button, Dialog, DialogActions, DialogContent, Icon, IconButton, Typography, Toolbar, AppBar, FormControlLabel, Switch} from '@material-ui/core';
 import FuseUtils from '@fuse/FuseUtils';
 import {useForm} from '@fuse/hooks';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import {useActions, useSelector} from 'react-redux';
 import _ from '@lodash';
 import moment from 'moment';
 import * as Actions from './store/actions';
@@ -19,6 +18,19 @@ const defaultFormState = {
 
 function EventDialog(props)
 {
+    const eventDialog = useSelector(({calendarApp}) => calendarApp.events.eventDialog, []);
+    const [
+        closeEditEventDialog,
+        closeNewEventDialog,
+        addEvent,
+        updateEvent
+    ] = useActions([
+        Actions.closeEditEventDialog,
+        Actions.closeNewEventDialog,
+        Actions.addEvent,
+        Actions.updateEvent,
+    ], []);
+
     const {form, handleChange, setForm} = useForm(defaultFormState);
     let start = moment(form.start).format(moment.HTML5_FMT.DATETIME_LOCAL_SECONDS);
     let end = moment(form.end).format(moment.HTML5_FMT.DATETIME_LOCAL_SECONDS);
@@ -27,37 +39,37 @@ function EventDialog(props)
         /**
          * After Dialog Open
          */
-        if ( props.eventDialog.props.open )
+        if ( eventDialog.props.open )
         {
             /**
              * Dialog type: 'edit'
              * Update State
              */
-            if ( props.eventDialog.type === 'edit' &&
-                props.eventDialog.data &&
-                !_.isEqual(props.eventDialog.data, form) )
+            if ( eventDialog.type === 'edit' &&
+                eventDialog.data &&
+                !_.isEqual(eventDialog.data, form) )
             {
-                setForm({...props.eventDialog.data});
+                setForm({...eventDialog.data});
             }
 
             /**
              * Dialog type: 'new'
              * Update State
              */
-            if ( props.eventDialog.type === 'new' )
+            if ( eventDialog.type === 'new' )
             {
                 setForm({
                     ...defaultFormState,
-                    ...props.eventDialog.data,
+                    ...eventDialog.data,
                     id: FuseUtils.generateGUID()
                 });
             }
         }
-    }, [props.eventDialog.props.open]);
+    }, [eventDialog.props.open]);
 
     function closeComposeDialog()
     {
-        props.eventDialog.type === 'edit' ? props.closeEditEventDialog() : props.closeNewEventDialog();
+        eventDialog.type === 'edit' ? closeEditEventDialog() : closeNewEventDialog();
     }
 
     function canBeSubmitted()
@@ -71,13 +83,13 @@ function EventDialog(props)
     {
         event.preventDefault();
 
-        if ( props.eventDialog.type === 'new' )
+        if ( eventDialog.type === 'new' )
         {
-            props.addEvent(form);
+            addEvent(form);
         }
         else
         {
-            props.updateEvent(form);
+            updateEvent(form);
         }
         closeComposeDialog();
     }
@@ -89,12 +101,12 @@ function EventDialog(props)
     }
 
     return (
-        <Dialog {...props.eventDialog.props} onClose={closeComposeDialog} fullWidth maxWidth="xs" component="form">
+        <Dialog {...eventDialog.props} onClose={closeComposeDialog} fullWidth maxWidth="xs" component="form">
 
             <AppBar position="static">
                 <Toolbar className="flex w-full">
                     <Typography variant="subtitle1" color="inherit">
-                        {props.eventDialog.type === 'new' ? 'New Event' : 'Edit Event'}
+                        {eventDialog.type === 'new' ? 'New Event' : 'Edit Event'}
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -181,7 +193,7 @@ function EventDialog(props)
                     />
                 </DialogContent>
 
-                {props.eventDialog.type === 'new' ? (
+                {eventDialog.type === 'new' ? (
                     <DialogActions className="justify-between pl-8 sm:pl-16">
                         <Button
                             variant="contained"
@@ -211,22 +223,4 @@ function EventDialog(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        closeEditEventDialog: Actions.closeEditEventDialog,
-        closeNewEventDialog : Actions.closeNewEventDialog,
-        addEvent            : Actions.addEvent,
-        updateEvent         : Actions.updateEvent,
-        removeEvent         : Actions.removeEvent
-    }, dispatch);
-}
-
-function mapStateToProps({calendarApp})
-{
-    return {
-        eventDialog: calendarApp.events.eventDialog
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(EventDialog);
+export default EventDialog;

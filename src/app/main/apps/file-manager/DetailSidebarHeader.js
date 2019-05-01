@@ -1,15 +1,14 @@
 import React from 'react';
 import {Icon, IconButton, Typography} from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
-import {bindActionCreators} from 'redux';
-import {withRouter} from 'react-router-dom';
-import {connect} from 'react-redux';
+import {useSelector} from 'react-redux';
 
 function DetailSidebarHeader(props)
 {
-    const selected = props.files[props.selectedItem];
+    const files = useSelector(({fileManagerApp}) => fileManagerApp.files, []);
+    const selectedItem = useSelector(({fileManagerApp}) => files[fileManagerApp.selectedItemId], [files]);
 
-    if ( !selected )
+    if ( !selectedItem )
     {
         return null;
     }
@@ -35,12 +34,12 @@ function DetailSidebarHeader(props)
 
             <div className="p-12">
                 <FuseAnimate delay={200}>
-                    <Typography variant="subtitle1" className="mb-8">{selected.name}</Typography>
+                    <Typography variant="subtitle1" className="mb-8">{selectedItem.name}</Typography>
                 </FuseAnimate>
                 <FuseAnimate delay={300}>
                     <Typography variant="caption" className="">
                         <span>Edited</span>
-                        <span>: {selected.modified}</span>
+                        <span>: {selectedItem.modified}</span>
                     </Typography>
                 </FuseAnimate>
             </div>
@@ -48,17 +47,4 @@ function DetailSidebarHeader(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({}, dispatch);
-}
-
-function mapStateToProps({fileManagerApp})
-{
-    return {
-        files       : fileManagerApp.files,
-        selectedItem: fileManagerApp.selectedItem
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DetailSidebarHeader));
+export default DetailSidebarHeader;

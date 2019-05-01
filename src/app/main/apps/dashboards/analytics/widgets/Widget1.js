@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import {Button, Typography} from '@material-ui/core';
 import {makeStyles, useTheme, ThemeProvider} from '@material-ui/styles';
 import {FuseAnimate} from '@fuse';
+import {useSelector} from 'react-redux';
 import {Line} from 'react-chartjs-2';
 import _ from '@lodash';
-import connect from 'react-redux/es/connect/connect';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -14,13 +14,16 @@ const useStyles = makeStyles(theme => ({
 
 function Widget1(props)
 {
+    const mainThemeDark = useSelector(({fuse}) => fuse.settings.mainThemeDark, []);
+
     const classes = useStyles(props);
     const theme = useTheme();
     const [dataset, setDataset] = useState('2017');
+
     const data = _.merge({}, props.data);
 
     return (
-        <ThemeProvider theme={props.mainThemeDark}>
+        <ThemeProvider theme={mainThemeDark}>
             <div className={classes.root}>
                 <div className="container relative p-16 sm:p-24 flex flex-row justify-between items-center">
 
@@ -67,11 +70,4 @@ function Widget1(props)
     );
 }
 
-function mapStateToProps({fuse})
-{
-    return {
-        mainThemeDark: fuse.settings.mainThemeDark
-    }
-}
-
-export default connect(mapStateToProps)(React.memo(Widget1));
+export default React.memo(Widget1);

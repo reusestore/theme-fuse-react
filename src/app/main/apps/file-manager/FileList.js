@@ -2,9 +2,7 @@ import React from 'react';
 import {Hidden, Icon, IconButton, Table, TableBody, TableCell, TableHead, TableRow} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate} from '@fuse';
-import {bindActionCreators} from 'redux';
-import {withRouter} from 'react-router-dom';
-import {connect} from 'react-redux';
+import {useActions, useSelector} from 'react-redux';
 import classNames from 'classnames';
 import * as Actions from './store/actions';
 
@@ -27,6 +25,10 @@ const useStyles = makeStyles({
 
 function FileList(props)
 {
+    const files = useSelector(({fileManagerApp}) => fileManagerApp.files, []);
+    const selectedItemId = useSelector(({fileManagerApp}) => fileManagerApp.selectedItemId, []);
+    const setSelectedItem = useActions(Actions.setSelectedItem, []);
+
     const classes = useStyles();
 
     return (
@@ -45,13 +47,13 @@ function FileList(props)
                 </TableHead>
 
                 <TableBody>
-                    {Object.entries(props.files).map(([key, n]) => {
+                    {Object.entries(files).map(([key, n]) => {
                         return (
                             <TableRow
                                 key={n.id}
                                 hover
-                                onClick={event => props.setSelectedItem(n.id)}
-                                selected={n.id === props.selectedItem}
+                                onClick={event => setSelectedItem(n.id)}
+                                selected={n.id === selectedItemId}
                                 className="cursor-pointer"
                             >
                                 <TableCell className="max-w-64 w-64 p-0 text-center">
@@ -79,22 +81,6 @@ function FileList(props)
             </Table>
         </FuseAnimate>
     );
-};
-
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        getFiles       : Actions.getFiles,
-        setSelectedItem: Actions.setSelectedItem
-    }, dispatch);
 }
 
-function mapStateToProps({fileManagerApp})
-{
-    return {
-        files       : fileManagerApp.files,
-        selectedItem: fileManagerApp.selectedItem
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FileList));
+export default FileList;

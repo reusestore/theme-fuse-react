@@ -1,8 +1,7 @@
 import {FuseScrollbars, FuseAnimateGroup, FuseUtils} from '@fuse';
 import {AppBar, Avatar, ListItemIcon, List, ListItemText, Menu, MenuItem, Typography, Toolbar, Icon, IconButton, Input, Paper} from '@material-ui/core';
 import React, {useMemo, useState} from 'react';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import {useActions, useSelector} from 'react-redux';
 import * as Actions from "./store/actions";
 import StatusIcon from "./StatusIcon";
 import ContactListItem from './ContactListItem'
@@ -28,17 +27,29 @@ const statusArr = [
 
 function ChatsSidebar(props)
 {
+    const contacts = useSelector(({chatApp}) => chatApp.contacts.entities, []);
+    const user = useSelector(({chatApp}) => chatApp.user, []);
+    const [
+        getChat,
+        openUserSidebar,
+        updateUserData
+    ] = useActions([
+        Actions.getChat,
+        Actions.openUserSidebar,
+        Actions.updateUserData
+    ], []);
+
     const [searchText, setSearchText] = useState('');
     const [statusMenuEl, setStatusMenuEl] = useState(null);
     const [moreMenuEl, setMoreMenuEl] = useState(null);
-    const chatListContacts = props.user && props.user.chatList ? props.user.chatList.map((_chat) => (
+    const chatListContacts = user && user.chatList ? user.chatList.map((_chat) => (
         {
             ..._chat,
-            ...props.contacts.find((_contact) => _contact.id === _chat.contactId)
+            ...contacts.find((_contact) => _contact.id === _chat.contactId)
         }
     )) : [];
     const chatListArr = getFilteredArray([...chatListContacts], searchText);
-    const contactsArr = getFilteredArray([...props.contacts], searchText);
+    const contactsArr = getFilteredArray([...contacts], searchText);
 
     function getFilteredArray(arr, searchText)
     {
@@ -51,7 +62,7 @@ function ChatsSidebar(props)
 
     function handleContactClick(contactId)
     {
-        props.getChat(contactId);
+        getChat(contactId);
     }
 
     function handleMoreMenuClick(event)
@@ -75,8 +86,8 @@ function ChatsSidebar(props)
     {
         event.preventDefault();
         event.stopPropagation();
-        props.updateUserData({
-            ...props.user,
+        updateUserData({
+            ...user,
             status
         });
         setStatusMenuEl(null);
@@ -102,11 +113,11 @@ function ChatsSidebar(props)
                 elevation={1}
             >
                 <Toolbar className="flex justify-between items-center px-16 pr-4">
-                    {props.user && (
-                        <div className="relative w-40 h-40 p-0 cursor-pointer" onClick={props.openUserSidebar}>
+                    {user && (
+                        <div className="relative w-40 h-40 p-0 cursor-pointer" onClick={openUserSidebar}>
 
-                            <Avatar src={props.user.avatar} alt={props.user.name} className="w-40 h-40">
-                                {(!props.user.avatar || props.user.avatar === '') ? props.user.name[0] : ''}
+                            <Avatar src={user.avatar} alt={user.name} className="w-40 h-40">
+                                {(!user.avatar || user.avatar === '') ? user.name[0] : ''}
                             </Avatar>
 
                             <div
@@ -115,7 +126,7 @@ function ChatsSidebar(props)
                                 aria-haspopup="true"
                                 onClick={handleStatusMenuClick}
                             >
-                                <StatusIcon status={props.user.status}/>
+                                <StatusIcon status={user.status}/>
                             </div>
 
                             <Menu
@@ -180,7 +191,7 @@ function ChatsSidebar(props)
             <FuseScrollbars className="overflow-y-auto flex-1">
                 <List className="w-full">
                     {useMemo(() => (
-                        props.contacts.length > 0 && (
+                        contacts.length > 0 && (
                             <React.Fragment>
                                 <FuseAnimateGroup
                                     enter={{
@@ -215,7 +226,7 @@ function ChatsSidebar(props)
                                     ))}
                                 </FuseAnimateGroup>
                             </React.Fragment>
-                        )), [props.contacts, chatListArr])
+                        )), [contacts, chatListArr])
                     }
                 </List>
             </FuseScrollbars>
@@ -223,22 +234,4 @@ function ChatsSidebar(props)
     )
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        getChat        : Actions.getChat,
-        openUserSidebar: Actions.openUserSidebar,
-        updateUserData : Actions.updateUserData
-    }, dispatch);
-}
-
-function mapStateToProps({chatApp})
-{
-    return {
-        contacts         : chatApp.contacts.entities,
-        selectedContactId: chatApp.contacts.selectedContactId,
-        user             : chatApp.user
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ChatsSidebar);
+export default ChatsSidebar;

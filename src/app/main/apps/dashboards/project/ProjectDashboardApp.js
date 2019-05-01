@@ -1,9 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {Menu, MenuItem, Hidden, Icon, IconButton, Tab, Tabs, Typography} from '@material-ui/core';
 import {FuseAnimateGroup, FusePageSimple} from '@fuse';
-import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom'
-import {bindActionCreators} from 'redux';
+import {useActions, useSelector} from 'react-redux';
 import withReducer from 'app/store/withReducer';
 import * as Actions from './store/actions'
 import reducer from './store/reducers';
@@ -45,6 +43,11 @@ const useStyles = makeStyles(theme => ({
 
 function ProjectDashboardApp(props)
 {
+    const widgets = useSelector(({projectDashboardApp}) => projectDashboardApp.widgets, []);
+    const projects = useSelector(({projectDashboardApp}) => projectDashboardApp.projects, []);
+    const getWidgets = useActions(Actions.getWidgets, []);
+    const getProjects = useActions(Actions.getProjects, []);
+
     const classes = useStyles(props);
     const pageLayout = useRef(null);
     const [tabValue, setTabValue] = useState(0);
@@ -53,9 +56,10 @@ function ProjectDashboardApp(props)
         menuEl: null
     });
 
+
     useEffect(() => {
-        props.getWidgets();
-        props.getProjects();
+        getWidgets();
+        getProjects();
     }, []);
 
     function handleChangeTab(event, tabValue)
@@ -87,7 +91,7 @@ function ProjectDashboardApp(props)
         });
     }
 
-    if ( !props.widgets || !props.projects )
+    if ( !widgets || !projects )
     {
         return null;
     }
@@ -116,7 +120,7 @@ function ProjectDashboardApp(props)
                     <div className="flex items-end">
                         <div className="flex items-center">
                             <div className={classNames(classes.selectedProject, "flex items-center h-40 px-16 text-16")}>
-                                {_.find(props.projects, ['id', selectedProject.id]).name}
+                                {_.find(projects, ['id', selectedProject.id]).name}
                             </div>
                             <IconButton
                                 className={classNames(classes.projectMenuButton, "h-40 w-40 p-0")}
@@ -132,7 +136,7 @@ function ProjectDashboardApp(props)
                                 open={Boolean(selectedProject.menuEl)}
                                 onClose={handleCloseProjectMenu}
                             >
-                                {props.projects && props.projects.map(project => (
+                                {projects && projects.map(project => (
                                     <MenuItem key={project.id} onClick={ev => {
                                         handleChangeProject(project.id)
                                     }}>{project.name}</MenuItem>
@@ -168,25 +172,25 @@ function ProjectDashboardApp(props)
                             }}
                         >
                             <div className="widget flex w-full sm:w-1/2 md:w-1/4 p-12">
-                                <Widget1 widget={props.widgets.widget1}/>
+                                <Widget1 widget={widgets.widget1}/>
                             </div>
                             <div className="widget flex w-full sm:w-1/2 md:w-1/4 p-12">
-                                <Widget2 widget={props.widgets.widget2}/>
+                                <Widget2 widget={widgets.widget2}/>
                             </div>
                             <div className="widget flex w-full sm:w-1/2 md:w-1/4 p-12">
-                                <Widget3 widget={props.widgets.widget3}/>
+                                <Widget3 widget={widgets.widget3}/>
                             </div>
                             <div className="widget flex w-full sm:w-1/2 md:w-1/4 p-12">
-                                <Widget4 widget={props.widgets.widget4}/>
+                                <Widget4 widget={widgets.widget4}/>
                             </div>
                             <div className="widget flex w-full p-12">
-                                <Widget5 widget={props.widgets.widget5}/>
+                                <Widget5 widget={widgets.widget5}/>
                             </div>
                             <div className="widget flex w-full sm:w-1/2 p-12">
-                                <Widget6 widget={props.widgets.widget6}/>
+                                <Widget6 widget={widgets.widget6}/>
                             </div>
                             <div className="widget flex w-full sm:w-1/2 p-12">
-                                <Widget7 widget={props.widgets.widget7}/>
+                                <Widget7 widget={widgets.widget7}/>
                             </div>
                         </FuseAnimateGroup>
                     )}
@@ -198,13 +202,13 @@ function ProjectDashboardApp(props)
                             }}
                         >
                             <div className="widget flex w-full sm:w-1/2 p-12">
-                                <Widget8 widget={props.widgets.widget8}/>
+                                <Widget8 widget={widgets.widget8}/>
                             </div>
                             <div className="widget flex w-full sm:w-1/2 p-12">
-                                <Widget9 widget={props.widgets.widget9}/>
+                                <Widget9 widget={widgets.widget9}/>
                             </div>
                             <div className="widget flex w-full p-12">
-                                <Widget10 widget={props.widgets.widget10}/>
+                                <Widget10 widget={widgets.widget10}/>
                             </div>
                         </FuseAnimateGroup>
                     )}
@@ -216,7 +220,7 @@ function ProjectDashboardApp(props)
                             }}
                         >
                             <div className="widget flex w-full p-12">
-                                <Widget11 widget={props.widgets.widget11}/>
+                                <Widget11 widget={widgets.widget11}/>
                             </div>
                         </FuseAnimateGroup>
                     )}
@@ -233,7 +237,7 @@ function ProjectDashboardApp(props)
                         <WidgetNow/>
                     </div>
                     <div className="widget w-full p-12">
-                        <WidgetWeather widget={props.widgets.weatherWidget}/>
+                        <WidgetWeather widget={widgets.weatherWidget}/>
                     </div>
                 </FuseAnimateGroup>
             }
@@ -242,20 +246,4 @@ function ProjectDashboardApp(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        getWidgets : Actions.getWidgets,
-        getProjects: Actions.getProjects
-    }, dispatch);
-}
-
-function mapStateToProps({projectDashboardApp})
-{
-    return {
-        widgets : projectDashboardApp.widgets,
-        projects: projectDashboardApp.projects
-    }
-}
-
-export default withReducer('projectDashboardApp', reducer)(withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectDashboardApp)));
+export default withReducer('projectDashboardApp', reducer)(ProjectDashboardApp);

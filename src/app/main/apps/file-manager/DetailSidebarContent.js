@@ -2,9 +2,7 @@ import React from 'react';
 import {FormControlLabel, Icon, Switch, Typography} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate} from '@fuse';
-import {bindActionCreators} from 'redux';
-import {withRouter} from 'react-router-dom';
-import {connect} from 'react-redux';
+import {useSelector} from 'react-redux';
 import classNames from 'classnames';
 
 const useStyles = makeStyles({
@@ -31,10 +29,12 @@ const useStyles = makeStyles({
 
 function DetailSidebarContent(props)
 {
-    const classes = useStyles();
-    const selected = props.files[props.selectedItem];
+    const files = useSelector(({fileManagerApp}) => fileManagerApp.files, []);
+    const selectedItem = useSelector(({fileManagerApp}) => files[fileManagerApp.selectedItemId], [files]);
 
-    if ( !selected )
+    const classes = useStyles();
+
+    if ( !selectedItem )
     {
         return null;
     }
@@ -46,7 +46,7 @@ function DetailSidebarContent(props)
 
                 <div className="preview h-128 sm:h-256 file-icon flex items-center justify-center">
                     <FuseAnimate animation="transition.expandIn" delay={300}>
-                        <Icon className={classNames(classes.typeIcon, selected.type, "text-48")}/>
+                        <Icon className={classNames(classes.typeIcon, selectedItem.type, "text-48")}/>
                     </FuseAnimate>
                 </div>
 
@@ -54,7 +54,7 @@ function DetailSidebarContent(props)
                     className="offline-switch"
                     control={
                         <Switch
-                            checked={selected.offline}
+                            checked={selectedItem.offline}
                             aria-label="Available Offline"
                         />
                     }
@@ -69,37 +69,37 @@ function DetailSidebarContent(props)
 
                         <tr className="type">
                             <th>Type</th>
-                            <td>{selected.type}</td>
+                            <td>{selectedItem.type}</td>
                         </tr>
 
                         <tr className="size">
                             <th>Size</th>
-                            <td>{selected.size === '' ? '-' : selected.size}</td>
+                            <td>{selectedItem.size === '' ? '-' : selectedItem.size}</td>
                         </tr>
 
                         <tr className="location">
                             <th>Location</th>
-                            <td>{selected.location}</td>
+                            <td>{selectedItem.location}</td>
                         </tr>
 
                         <tr className="owner">
                             <th>Owner</th>
-                            <td>{selected.owner}</td>
+                            <td>{selectedItem.owner}</td>
                         </tr>
 
                         <tr className="modified">
                             <th>Modified</th>
-                            <td>{selected.modified}</td>
+                            <td>{selectedItem.modified}</td>
                         </tr>
 
                         <tr className="opened">
                             <th>Opened</th>
-                            <td>{selected.opened}</td>
+                            <td>{selectedItem.opened}</td>
                         </tr>
 
                         <tr className="created">
                             <th>Created</th>
-                            <td>{selected.created}</td>
+                            <td>{selectedItem.created}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -108,17 +108,4 @@ function DetailSidebarContent(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({}, dispatch);
-}
-
-function mapStateToProps({fileManagerApp})
-{
-    return {
-        files       : fileManagerApp.files,
-        selectedItem: fileManagerApp.selectedItem
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DetailSidebarContent));
+export default DetailSidebarContent;

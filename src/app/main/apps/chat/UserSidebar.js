@@ -1,8 +1,7 @@
 import React, {useEffect} from 'react';
 import {Radio, FormControlLabel, RadioGroup, FormLabel, FormControl, IconButton, TextField, AppBar, Icon, Toolbar, Typography, Avatar} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
-import {bindActionCreators} from 'redux';
-import connect from 'react-redux/es/connect/connect';
+import {useActions, useSelector} from 'react-redux';
 import _ from '@lodash';
 import * as Actions from './store/actions';
 import StatusIcon from './StatusIcon';
@@ -29,20 +28,30 @@ const statusArr = [
 
 function UserSidebar(props)
 {
-    const {form, handleChange, setForm} = useForm(props.user ? {...props.user} : false);
+    const user = useSelector(({chatApp}) => chatApp.user, []);
+    const [
+        closeUserSidebar,
+        _updateUserData
+    ] = useActions([
+        Actions.closeContactSidebar,
+        Actions.updateUserData
+    ], []);
+
+    const {form, handleChange, setForm} = useForm(user ? {...user} : false);
+
     const updateUserData = useDebounce(() => {
-        props.updateUserData(form);
+        _updateUserData(form);
     }, 500);
 
     useEffect(() => {
-        if ( props.user && !_.isEqual(form, props.user) )
+        if ( user && !_.isEqual(form, user) )
         {
-            setForm({...props.user});
+            setForm({...user});
         }
-    }, [props.user]);
+    }, [user]);
 
     useEffect(() => {
-        if ( form && !_.isEqual(form, props.user) )
+        if ( form && !_.isEqual(form, user) )
         {
             updateUserData();
         }
@@ -62,15 +71,15 @@ function UserSidebar(props)
             >
                 <Toolbar className="flex justify-between items-center px-16 pr-4">
                     <Typography color="inherit" variant="subtitle1">User Info</Typography>
-                    <IconButton onClick={props.closeUserSidebar} color="inherit">
+                    <IconButton onClick={closeUserSidebar} color="inherit">
                         <Icon>close</Icon>
                     </IconButton>
                 </Toolbar>
                 <Toolbar className="flex flex-col justify-center items-center p-24">
-                    <Avatar src={props.user.avatar} alt={props.user.name} className="w-96 h-96">
-                        {(!props.user.avatar || props.user.avatar === '') ? props.user.name[0] : ''}
+                    <Avatar src={user.avatar} alt={user.name} className="w-96 h-96">
+                        {(!user.avatar || user.avatar === '') ? user.name[0] : ''}
                     </Avatar>
-                    <Typography color="inherit" className="mt-16" variant="h6">{props.user.name}</Typography>
+                    <Typography color="inherit" className="mt-16" variant="h6">{user.name}</Typography>
                 </Toolbar>
             </AppBar>
             <FuseScrollbars className="overflow-y-auto flex-1 p-24">
@@ -116,19 +125,4 @@ function UserSidebar(props)
     )
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        closeUserSidebar: Actions.closeUserSidebar,
-        updateUserData  : Actions.updateUserData
-    }, dispatch);
-}
-
-function mapStateToProps({chatApp})
-{
-    return {
-        user: chatApp.user
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(UserSidebar);
+export default UserSidebar;

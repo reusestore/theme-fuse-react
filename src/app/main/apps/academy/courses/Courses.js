@@ -17,9 +17,8 @@ import {
 } from '@material-ui/core';
 import {makeStyles, useTheme} from '@material-ui/styles';
 import {FuseAnimate, FuseAnimateGroup} from '@fuse';
+import {useActions, useSelector} from 'react-redux';
 import withReducer from 'app/store/withReducer';
-import {bindActionCreators} from 'redux';
-import connect from 'react-redux/es/connect/connect';
 import classNames from 'classnames';
 import _ from '@lodash';
 import {Link} from 'react-router-dom';
@@ -45,6 +44,10 @@ const useStyles = makeStyles(theme => ({
 
 function Courses(props)
 {
+    const courses = useSelector(({academyApp}) => academyApp.courses.data, []);
+    const categories = useSelector(({academyApp}) => academyApp.courses.categories, []);
+    const [getCategories, getCourses] = useActions([Actions.getCategories, Actions.getCourses], []);
+
     const classes = useStyles(props);
     const theme = useTheme();
     const [filteredData, setFilteredData] = useState(null);
@@ -52,19 +55,19 @@ function Courses(props)
     const [selectedCategory, setSelectedCategory] = useState('all');
 
     useEffect(() => {
-        props.getCategories();
-        props.getCourses();
-    }, []);
+        getCategories();
+        getCourses();
+    }, [getCategories, getCourses]);
 
     useEffect(() => {
         function getFilteredArray()
         {
             if ( searchText.length === 0 && selectedCategory === "all" )
             {
-                return props.courses;
+                return courses;
             }
 
-            return _.filter(props.courses, item => {
+            return _.filter(courses, item => {
                 if ( selectedCategory !== "all" && item.category !== selectedCategory )
                 {
                     return false;
@@ -73,11 +76,11 @@ function Courses(props)
             });
         }
 
-        if ( props.courses )
+        if ( courses )
         {
             setFilteredData(getFilteredArray());
         }
-    }, [props.courses, searchText, selectedCategory]);
+    }, [courses, searchText, selectedCategory]);
 
     function handleSelectedCategory(event)
     {
@@ -160,7 +163,7 @@ function Courses(props)
                                 <em>All</em>
                             </MenuItem>
 
-                            {props.categories.map(category => (
+                            {categories.map(category => (
                                 <MenuItem value={category.value} key={category.id}>{category.label}</MenuItem>
                             ))}
                         </Select>
@@ -176,7 +179,7 @@ function Courses(props)
                                     className="flex flex-wrap py-24"
                                 >
                                     {filteredData.map((course) => {
-                                        const category = props.categories.find(_cat => _cat.value === course.category);
+                                        const category = categories.find(_cat => _cat.value === course.category);
                                         return (
                                             <div className="w-full pb-24 sm:w-1/2 lg:w-1/3 sm:p-16" key={course.id}>
                                                 <Card elevation={1} className="flex flex-col h-256">
@@ -233,20 +236,4 @@ function Courses(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        getCategories: Actions.getCategories,
-        getCourses   : Actions.getCourses
-    }, dispatch);
-}
-
-function mapStateToProps({academyApp})
-{
-    return {
-        courses   : academyApp.courses.data,
-        categories: academyApp.courses.categories,
-    }
-}
-
-export default withReducer('academyApp', reducer)(connect(mapStateToProps, mapDispatchToProps)(Courses));
+export default withReducer('academyApp', reducer)(Courses);

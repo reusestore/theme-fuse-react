@@ -1,9 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {Fab, Icon, IconButton} from '@material-ui/core';
 import {FuseAnimate, FusePageSimple} from '@fuse';
-import {bindActionCreators} from 'redux';
-import {withRouter} from 'react-router-dom';
-import {connect} from 'react-redux';
+import {useActions, useSelector} from 'react-redux';
 import withReducer from 'app/store/withReducer';
 import * as Actions from './store/actions';
 import reducer from './store/reducers';
@@ -14,13 +12,16 @@ import MainSidebarHeader from './MainSidebarHeader';
 import MainSidebarContent from './MainSidebarContent';
 import Breadcrumb from './Breadcrumb';
 
-function FileManagerApp(props)
+function FileManagerApp()
 {
+    const files = useSelector(({fileManagerApp}) => fileManagerApp.files, []);
+    const selectedItem = useSelector(({fileManagerApp}) => files[fileManagerApp.selectedItemId], [files]);
+    const getFiles = useActions(Actions.getFiles, []);
+
     const pageLayout = useRef(null);
-    const selected = props.files[props.selectedItem];
 
     useEffect(() => {
-        props.getFiles();
+        getFiles();
     }, []);
 
     return (
@@ -56,8 +57,8 @@ function FileManagerApp(props)
                         </FuseAnimate>
                         <FuseAnimate delay={200}>
                             <div>
-                                {selected && (
-                                    <Breadcrumb selected={props.files[props.selectedItem]} className="flex flex-1 pl-72 pb-12 text-16 sm:text-24"/>
+                                {selectedItem && (
+                                    <Breadcrumb selected={selectedItem} className="flex flex-1 pl-72 pb-12 text-16 sm:text-24"/>
                                 )}
                             </div>
                         </FuseAnimate>
@@ -86,19 +87,4 @@ function FileManagerApp(props)
     )
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        getFiles: Actions.getFiles
-    }, dispatch);
-}
-
-function mapStateToProps({fileManagerApp})
-{
-    return {
-        files       : fileManagerApp.files,
-        selectedItem: fileManagerApp.selectedItem
-    }
-}
-
-export default withReducer('fileManagerApp', reducer)(withRouter(connect(mapStateToProps, mapDispatchToProps)(FileManagerApp)));
+export default withReducer('fileManagerApp', reducer)(FileManagerApp);

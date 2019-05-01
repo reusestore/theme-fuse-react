@@ -39,6 +39,11 @@ export const MaterialUINavigation = [{
     'type': 'item',
     'url': '/components/material-ui/cards'
 }, {
+    'id': 'checkboxes',
+    'title': 'Checkboxes',
+    'type': 'item',
+    'url': '/components/material-ui/checkboxes'
+}, {
     'id': 'chips',
     'title': 'Chips',
     'type': 'item',
@@ -94,10 +99,10 @@ export const MaterialUINavigation = [{
     'type': 'item',
     'url': '/components/material-ui/progress'
 }, {
-    'id': 'selectionControls',
-    'title': 'Selection Controls',
+    'id': 'radioButtons',
+    'title': 'Radio Buttons',
     'type': 'item',
-    'url': '/components/material-ui/selection-controls'
+    'url': '/components/material-ui/radio-buttons'
 }, {
     'id': 'selects',
     'title': 'Selects',
@@ -113,6 +118,11 @@ export const MaterialUINavigation = [{
     'title': 'Steppers',
     'type': 'item',
     'url': '/components/material-ui/steppers'
+}, {
+    'id': 'switches',
+    'title': 'Switches',
+    'type': 'item',
+    'url': '/components/material-ui/switches'
 }, {
     'id': 'tables',
     'title': 'Tables',

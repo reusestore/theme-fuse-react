@@ -178,6 +178,7 @@ function getHtmlCode(markdownSource)
         .replace(new RegExp('{breakpoint: &#39;xs&#39;}', 'g'), "{\"{breakpoint: 'xs'}\"}")
         .replace(new RegExp('(<img("[^"]*"|[^>])+)(?<!\\/)>', 'g'), '$1/>')
         .replace(new RegExp('⚠️', 'g'), "<span role=\"img\" aria-label=\"unicode-symbol\">⚠</span>")
+        .replace(new RegExp('👑', 'g'), "<span role=\"img\" aria-label=\"unicode-symbol\">👑</span>")
     return response;
 }
 
@@ -373,7 +374,7 @@ function filewalker(dir, done)
             file = path.resolve(dir, file);
 
             fs.stat(file, function (err, stat) {
-                // If directory, execute a recursive call
+                // If directorute a recursive call
                 if ( stat && stat.isDirectory() )
                 {
                     // Add directory to array [comment if you need to remove the directories from the array]

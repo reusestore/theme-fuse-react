@@ -2,14 +2,13 @@ import React, {useEffect, useRef} from 'react';
 import {Fab, Icon} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate} from '@fuse';
+import {useActions, useSelector} from 'react-redux';
 import BigCalendar from 'react-big-calendar'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
 import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
 import moment from 'moment'
 import classNames from 'classnames';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
 import withReducer from 'app/store/withReducer';
 import * as Actions from './store/actions';
 import reducer from './store/reducers';
@@ -165,16 +164,29 @@ const useStyles = makeStyles(theme => ({
 
 function CalendarApp(props)
 {
+    const events = useSelector(({calendarApp}) => calendarApp.events.entities, []);
+    const [
+        getEvents,
+        openNewEventDialog,
+        openEditEventDialog,
+        updateEvent
+    ] = useActions([
+        Actions.getEvents,
+        Actions.openNewEventDialog,
+        Actions.openEditEventDialog,
+        Actions.updateEvent
+    ], []);
+
     const classes = useStyles(props);
     const headerEl = useRef(null);
 
     useEffect(() => {
-        props.getEvents();
+        getEvents();
     }, []);
 
     function moveEvent({event, start, end})
     {
-        props.updateEvent({
+        updateEvent({
             ...event,
             start,
             end
@@ -184,14 +196,12 @@ function CalendarApp(props)
     function resizeEvent({event, start, end})
     {
         delete event.type;
-        props.updateEvent({
+        updateEvent({
             ...event,
             start,
             end
         });
     }
-
-    const {events, openNewEventDialog, openEditEventDialog} = props;
 
     return (
         <div className={classNames(classes.root, "flex flex-col flex-auto relative")}>
@@ -247,21 +257,4 @@ function CalendarApp(props)
     )
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        getEvents          : Actions.getEvents,
-        openNewEventDialog : Actions.openNewEventDialog,
-        openEditEventDialog: Actions.openEditEventDialog,
-        updateEvent        : Actions.updateEvent
-    }, dispatch);
-}
-
-function mapStateToProps({calendarApp})
-{
-    return {
-        events: calendarApp.events.entities
-    }
-}
-
-export default withReducer('calendarApp', reducer)(connect(mapStateToProps, mapDispatchToProps)(CalendarApp));
+export default withReducer('calendarApp', reducer)(CalendarApp);

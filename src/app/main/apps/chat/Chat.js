@@ -1,10 +1,9 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {Avatar, Paper, Typography, TextField, IconButton, Icon} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
+import {useActions, useSelector} from 'react-redux';
 import classNames from 'classnames';
 import moment from 'moment/moment';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
 import * as Actions from './store/actions';
 import {makeStyles} from '@material-ui/styles';
 
@@ -90,16 +89,22 @@ const useStyles = makeStyles(theme => ({
 
 function Chat(props)
 {
+    const contacts = useSelector(({chatApp}) => chatApp.contacts.entities, []);
+    const selectedContactId = useSelector(({chatApp}) => chatApp.contacts.selectedContactId, []);
+    const chat = useSelector(({chatApp}) => chatApp.chat, []);
+    const user = useSelector(({chatApp}) => chatApp.user, []);
+    const sendMessage = useActions(Actions.sendMessage, []);
+
     const classes = useStyles(props);
     const chatRef = useRef(null);
     const [messageText, setMessageText] = useState('');
 
     useEffect(() => {
-        if ( props.chat )
+        if ( chat )
         {
             scrollToBottom();
         }
-    }, [props.chat]);
+    }, [chat]);
 
     function scrollToBottom()
     {
@@ -109,19 +114,19 @@ function Chat(props)
     function shouldShowContactAvatar(item, i)
     {
         return (
-            item.who === props.selectedContactId &&
-            ((props.chat.dialog[i + 1] && props.chat.dialog[i + 1].who !== props.selectedContactId) || !props.chat.dialog[i + 1])
+            item.who === selectedContactId &&
+            ((chat.dialog[i + 1] && chat.dialog[i + 1].who !== selectedContactId) || !chat.dialog[i + 1])
         );
     }
 
     function isFirstMessageOfGroup(item, i)
     {
-        return (i === 0 || (props.chat.dialog[i - 1] && props.chat.dialog[i - 1].who !== item.who));
+        return (i === 0 || (chat.dialog[i - 1] && chat.dialog[i - 1].who !== item.who));
     }
 
     function isLastMessageOfGroup(item, i)
     {
-        return (i === props.chat.dialog.length - 1 || (props.chat.dialog[i + 1] && props.chat.dialog[i + 1].who !== item.who));
+        return (i === chat.dialog.length - 1 || (chat.dialog[i + 1] && chat.dialog[i + 1].who !== item.who));
     }
 
     function onInputChange(ev)
@@ -136,7 +141,7 @@ function Chat(props)
         {
             return;
         }
-        props.sendMessage(messageText, props.chat.id, props.user.id)
+        sendMessage(messageText, chat.id, user.id)
             .then(() => {
                 setMessageText('');
             });
@@ -148,22 +153,22 @@ function Chat(props)
                 ref={chatRef}
                 className="flex flex-1 flex-col overflow-y-auto"
             >
-                {props.chat && props.chat.dialog.length > 0 ?
+                {chat && chat.dialog.length > 0 ?
                     (
                         <div className="flex flex-col pt-16 pl-56 pr-16 pb-40">
-                            {props.chat.dialog.map((item, i) => {
-                                const contact = item.who === props.user.id ? props.user : props.contacts.find(_contact => _contact.id === item.who);
+                            {chat.dialog.map((item, i) => {
+                                const contact = item.who === user.id ? user : contacts.find(_contact => _contact.id === item.who);
                                 return (
                                     <div
                                         key={item.time}
                                         className={classNames(
                                             classes.messageRow,
                                             "flex flex-col flex-no-grow flex-no-shrink items-start justify-end relative pr-16 pb-4 pl-16",
-                                            {'me': item.who === props.user.id},
-                                            {'contact': item.who !== props.user.id},
+                                            {'me': item.who === user.id},
+                                            {'contact': item.who !== user.id},
                                             {'first-of-group': isFirstMessageOfGroup(item, i)},
                                             {'last-of-group': isLastMessageOfGroup(item, i)},
-                                            (i + 1) === props.chat.dialog.length && "pb-96"
+                                            (i + 1) === chat.dialog.length && "pb-96"
                                         )}
                                     >
                                         {shouldShowContactAvatar(item, i) && (
@@ -191,7 +196,7 @@ function Chat(props)
                 }
 
             </FuseScrollbars>
-            {props.chat && (
+            {chat && (
                 <form onSubmit={onMessageSubmit} className="absolute pin-b pin-r pin-l py-16 px-8">
                     <Paper className="flex items-center relative rounded-24" elevation={1}>
                         <TextField
@@ -223,21 +228,4 @@ function Chat(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        sendMessage: Actions.sendMessage
-    }, dispatch);
-}
-
-function mapStateToProps({chatApp})
-{
-    return {
-        contacts         : chatApp.contacts.entities,
-        selectedContactId: chatApp.contacts.selectedContactId,
-        chat             : chatApp.chat,
-        user             : chatApp.user
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Chat);
+export default Chat;

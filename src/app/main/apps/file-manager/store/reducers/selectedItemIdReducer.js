@@ -1,13 +1,13 @@
 import * as Actions from '../actions';
 
-const selectedItemReducer = function (state = "1", action) {
+const selectedItemIdReducer = function (state = "1", action) {
     switch ( action.type )
     {
-        case Actions.SET_SELECTED_ITEM:
+        case Actions.SET_SELECTED_ITEM_ID:
             return action.payload;
         default:
             return state;
     }
 };
 
-export default selectedItemReducer;
+export default selectedItemIdReducer;

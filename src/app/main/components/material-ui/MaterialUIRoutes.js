@@ -25,6 +25,9 @@ export const MaterialUIRoutes = [{
     path: '/components/material-ui/cards',
     component: React.lazy(() => import('app/main/components/material-ui/pages/Cards'))
 }, {
+    path: '/components/material-ui/checkboxes',
+    component: React.lazy(() => import('app/main/components/material-ui/pages/Checkboxes'))
+}, {
     path: '/components/material-ui/chips',
     component: React.lazy(() => import('app/main/components/material-ui/pages/Chips'))
 }, {
@@ -58,8 +61,8 @@ export const MaterialUIRoutes = [{
     path: '/components/material-ui/progress',
     component: React.lazy(() => import('app/main/components/material-ui/pages/Progress'))
 }, {
-    path: '/components/material-ui/selection-controls',
-    component: React.lazy(() => import('app/main/components/material-ui/pages/SelectionControls'))
+    path: '/components/material-ui/radio-buttons',
+    component: React.lazy(() => import('app/main/components/material-ui/pages/RadioButtons'))
 }, {
     path: '/components/material-ui/selects',
     component: React.lazy(() => import('app/main/components/material-ui/pages/Selects'))
@@ -69,6 +72,9 @@ export const MaterialUIRoutes = [{
 }, {
     path: '/components/material-ui/steppers',
     component: React.lazy(() => import('app/main/components/material-ui/pages/Steppers'))
+}, {
+    path: '/components/material-ui/switches',
+    component: React.lazy(() => import('app/main/components/material-ui/pages/Switches'))
 }, {
     path: '/components/material-ui/tables',
     component: React.lazy(() => import('app/main/components/material-ui/pages/Tables'))

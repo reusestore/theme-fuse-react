@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {createRef, useEffect, useRef} from 'react';
 import {makeStyles} from '@material-ui/styles';
 import PerfectScrollbar from 'perfect-scrollbar';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const FuseScrollbars = React.forwardRef(function FuseScrollbars(props, ref) {
-    ref = ref || useRef(null);
+    ref = ref || createRef();
     const ps = useRef(null);
     const handlerByEvent = useRef(new Map());
     const classes = useStyles();

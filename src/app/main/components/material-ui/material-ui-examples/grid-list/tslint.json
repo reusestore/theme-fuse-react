@@ -1,6 +1,6 @@
 {
-    "extends": "../../../tslint.json",
-    "rules": {
-        "no-relative-import-in-test": false
-    }
+  "extends": "../../../tslint.json",
+  "rules": {
+    "no-relative-import-in-test": false
+  }
 }
