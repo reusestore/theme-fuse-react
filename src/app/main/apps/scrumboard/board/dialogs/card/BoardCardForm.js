@@ -26,7 +26,6 @@ function BoardCardForm(props)
     const {form: cardForm, handleChange, setForm, setInForm} = useForm(card);
     const updateCard = useDebounce((boardId, newCard) => {
         dispatch(Actions.updateCard(boardId, {...newCard}));
-        console.info('triggered')
     }, 600);
     const dueDate = cardForm && cardForm.due ? moment(cardForm.due).format(moment.HTML5_FMT.DATE) : "";
 
