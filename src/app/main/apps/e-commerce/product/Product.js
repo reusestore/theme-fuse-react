@@ -4,11 +4,10 @@ import {orange} from '@material-ui/core/colors';
 import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate, FusePageCarded, FuseChipSelect, FuseUtils} from '@fuse';
 import {useForm} from '@fuse/hooks';
-import {Link, withRouter} from 'react-router-dom';
-import {bindActionCreators} from 'redux';
-import connect from 'react-redux/es/connect/connect';
+import {Link} from 'react-router-dom';
 import classNames from 'classnames';
 import _ from '@lodash';
+import {useDispatch, useSelector} from 'react-redux';
 import withReducer from 'app/store/withReducer';
 import * as Actions from '../store/actions';
 import reducer from '../store/reducers';
@@ -50,6 +49,9 @@ const useStyles = makeStyles(theme => ({
 
 function Product(props)
 {
+    const dispatch = useDispatch();
+    const product = useSelector(({eCommerceApp}) => eCommerceApp.product, []);
+
     const classes = useStyles(props);
     const [tabValue, setTabValue] = useState(0);
     const {form, handleChange, setForm} = useForm(null);
@@ -62,26 +64,26 @@ function Product(props)
 
             if ( productId === 'new' )
             {
-                props.newProduct();
+                dispatch(Actions.newProduct());
             }
             else
             {
-                props.getProduct(props.match.params);
+                dispatch(Actions.getProduct(props.match.params));
             }
         }
 
         updateProductState();
-    }, [props.location]);
+    }, [dispatch, props.match.params]);
 
     useEffect(() => {
         if (
-            (props.product.data && !form) ||
-            (props.product.data && form && props.product.data.id !== form.id)
+            (product.data && !form) ||
+            (product.data && form && product.data.id !== form.id)
         )
         {
-            setForm(props.product.data);
+            setForm(product.data);
         }
-    }, [props.product.data]);
+    }, [form, product.data, setForm]);
 
     function handleChangeTab(event, tabValue)
     {
@@ -130,7 +132,7 @@ function Product(props)
     {
         return (
             form.name.length > 0 &&
-            !_.isEqual(props.product.data, form)
+            !_.isEqual(product.data, form)
         );
     }
 
@@ -178,7 +180,7 @@ function Product(props)
                                 className="whitespace-no-wrap"
                                 variant="contained"
                                 disabled={!canBeSubmitted()}
-                                onClick={() => props.saveProduct(form)}
+                                onClick={() => dispatch(Actions.saveProduct(form))}
                             >
                                 Save
                             </Button>
@@ -486,20 +488,4 @@ function Product(props)
     )
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        getProduct : Actions.getProduct,
-        newProduct : Actions.newProduct,
-        saveProduct: Actions.saveProduct
-    }, dispatch);
-}
-
-function mapStateToProps({eCommerceApp})
-{
-    return {
-        product: eCommerceApp.product
-    }
-}
-
-export default withReducer('eCommerceApp', reducer)(withRouter(connect(mapStateToProps, mapDispatchToProps)(Product)));
+export default withReducer('eCommerceApp', reducer)(Product);

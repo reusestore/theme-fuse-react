@@ -1,7 +1,6 @@
 import React from 'react';
 import {TextField, Button, Avatar} from '@material-ui/core';
 import {useForm} from '@fuse/hooks';
-import connect from 'react-redux/es/connect/connect';
 import CommentModel from 'app/main/apps/scrumboard/model/CommentModel';
 import _ from '@lodash';
 
@@ -62,11 +61,4 @@ function CardComment(props)
     );
 }
 
-function mapStateToProps({auth})
-{
-    return {
-        user: auth.user
-    }
-}
-
-export default connect(mapStateToProps)(CardComment);
+export default CardComment;

@@ -1,41 +1,31 @@
 import React, {useEffect} from 'react';
 import {FuseSplashScreen} from '@fuse';
-import {bindActionCreators} from 'redux';
-import connect from 'react-redux/es/connect/connect';
-import {withRouter} from 'react-router-dom';
 import auth0Service from 'app/services/auth0Service';
 import * as userActions from 'app/auth/store/actions';
 import * as Actions from 'app/store/actions';
+import {useDispatch} from 'react-redux';
 
 function Callback(props)
 {
+    const dispatch = useDispatch();
+
     useEffect(() => {
         auth0Service.onAuthenticated(() => {
-            props.showMessage({message: 'Logging in with Auth0'});
+            dispatch(Actions.showMessage({message: 'Logging in with Auth0'}));
 
             /**
              * Retrieve user data from Auth0
              */
             auth0Service.getUserData().then(tokenData => {
-                props.setUserDataAuth0(tokenData);
-                props.showMessage({message: 'Logged in with Auth0'});
+                dispatch(userActions.setUserDataAuth0(tokenData));
+                dispatch(Actions.showMessage({message: 'Logged in with Auth0'}));
             });
         });
-    }, []);
+    }, [dispatch]);
 
     return (
         <FuseSplashScreen/>
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-            setUserDataAuth0: userActions.setUserDataAuth0,
-            showMessage     : Actions.showMessage,
-            hideMessage     : Actions.hideMessage
-        },
-        dispatch);
-}
-
-export default withRouter(connect(null, mapDispatchToProps)(Callback));
+export default Callback;

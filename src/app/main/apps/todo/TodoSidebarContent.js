@@ -1,9 +1,7 @@
 import React from 'react';
 import {Icon, List, ListItem, ListItemText, ListSubheader, Button} from '@material-ui/core';
 import {FuseAnimate, NavLinkAdapter} from '@fuse';
-import {withRouter} from 'react-router-dom';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from './store/actions';
 import {makeStyles} from '@material-ui/styles';
 
@@ -35,6 +33,11 @@ const useStyles = makeStyles(theme => ({
 
 function TodoSidebarContent(props)
 {
+    const dispatch = useDispatch();
+    const labels = useSelector(({todoApp}) => todoApp.labels, []);
+    const folders = useSelector(({todoApp}) => todoApp.folders, []);
+    const filters = useSelector(({todoApp}) => todoApp.filters, []);
+
     const classes = useStyles(props);
 
     return (
@@ -45,7 +48,7 @@ function TodoSidebarContent(props)
                 <div className="p-24">
                     <Button
                         onClick={() => {
-                            props.openNewTodoDialog();
+                            dispatch(Actions.openNewTodoDialog());
                         }}
                         variant="contained"
                         color="primary"
@@ -58,7 +61,7 @@ function TodoSidebarContent(props)
                 <div className={classes.listWrapper}>
 
                     <List>
-                        {props.folders.length > 0 && props.folders.map((folder) => (
+                        {folders.length > 0 && folders.map((folder) => (
                             <ListItem
                                 button
                                 component={NavLinkAdapter}
@@ -75,7 +78,7 @@ function TodoSidebarContent(props)
                     <List>
                         <ListSubheader className={classes.listSubheader} disableSticky>FILTERS</ListSubheader>
 
-                        {props.filters.length > 0 && props.filters.map((filter) => (
+                        {filters.length > 0 && filters.map((filter) => (
                             <ListItem
                                 button
                                 component={NavLinkAdapter}
@@ -94,7 +97,7 @@ function TodoSidebarContent(props)
 
                         <ListSubheader className="pr-24 pl-24" disableSticky>LABELS</ListSubheader>
 
-                        {props.labels.length > 0 && props.labels.map((label) => (
+                        {labels.length > 0 && labels.map((label) => (
                             <ListItem
                                 button
                                 component={NavLinkAdapter}
@@ -114,20 +117,4 @@ function TodoSidebarContent(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        openNewTodoDialog: Actions.openNewTodoDialog
-    }, dispatch);
-}
-
-function mapStateToProps({todoApp})
-{
-    return {
-        folders: todoApp.folders,
-        labels : todoApp.labels,
-        filters: todoApp.filters
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TodoSidebarContent));
+export default TodoSidebarContent;

@@ -1,9 +1,7 @@
 import React from 'react';
 import {Divider, Icon, List, ListItem, ListItemText, Paper, ListSubheader} from '@material-ui/core';
 import {FuseAnimate, NavLinkAdapter} from '@fuse';
-import {withRouter} from 'react-router-dom';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from 'app/main/apps/notes/store/actions';
 import classNames from 'classnames';
 import {makeStyles} from '@material-ui/styles';
@@ -38,6 +36,9 @@ const useStyles = makeStyles(theme => ({
 
 function NotesSidebarContent(props)
 {
+    const dispatch = useDispatch();
+    const labels = useSelector(({notesApp}) => notesApp.labels.entities, []);
+
     const classes = useStyles(props);
 
     return (
@@ -73,7 +74,7 @@ function NotesSidebarContent(props)
                         <ListSubheader>
                             Labels
                         </ListSubheader>
-                        {Object.entries(props.labels).map(([key, label]) => (
+                        {Object.entries(labels).map(([key, label]) => (
 
                             <ListItem
                                 key={label.id}
@@ -91,7 +92,7 @@ function NotesSidebarContent(props)
                         <ListItem
                             button
                             className={classes.listItem}
-                            onClick={props.openLabelsDialog}
+                            onClick={ev => dispatch(Actions.openLabelsDialog())}
                         >
                             <Icon className="list-item-icon text-16" color="action">edit</Icon>
                             <ListItemText className="truncate pr-0" primary="Edit Labels" disableTypography={true}/>
@@ -116,18 +117,4 @@ function NotesSidebarContent(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        openLabelsDialog: Actions.openLabelsDialog
-    }, dispatch);
-}
-
-function mapStateToProps({notesApp})
-{
-    return {
-        labels: notesApp.labels.entities
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NotesSidebarContent));
+export default NotesSidebarContent;

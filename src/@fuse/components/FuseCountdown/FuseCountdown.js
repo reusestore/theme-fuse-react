@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {Typography} from '@material-ui/core';
 import PropTypes from 'prop-types';
 import moment from 'moment';
@@ -6,6 +6,7 @@ import classNames from 'classnames';
 
 function FuseCountdown(props)
 {
+    const {onComplete} = props;
     const [endDate] = useState(moment.isMoment(props.endDate) ? props.endDate : moment(props.endDate));
     const [countdown, setCountdown] = useState({
         days   : '',
@@ -15,15 +16,15 @@ function FuseCountdown(props)
     });
     const intervalRef = useRef();
 
-    useEffect(() => {
-        intervalRef.current = setInterval(tick, 1000);
-        return () => {
-            clearInterval(intervalRef.current);
-        };
-    }, []);
+    const complete = useCallback(() => {
+        window.clearInterval(intervalRef.current);
+        if ( onComplete )
+        {
+            onComplete();
+        }
+    }, [onComplete]);
 
-    function tick()
-    {
+    const tick = useCallback(() => {
         const currDate = moment();
         const diff = endDate.diff(currDate, 'seconds');
         if ( diff < 0 )
@@ -38,16 +39,14 @@ function FuseCountdown(props)
             minutes: timeLeft.minutes(),
             seconds: timeLeft.seconds()
         });
-    }
+    }, [complete, endDate]);
 
-    function complete()
-    {
-        window.clearInterval(intervalRef.current);
-        if ( props.onComplete )
-        {
-            props.onComplete();
-        }
-    }
+    useEffect(() => {
+        intervalRef.current = setInterval(tick, 1000);
+        return () => {
+            clearInterval(intervalRef.current);
+        };
+    }, [tick]);
 
     return (
         <div className={classNames("flex items-center", props.className)}>

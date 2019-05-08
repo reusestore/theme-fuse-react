@@ -1,11 +1,10 @@
 import React from 'react';
 import {Paper, Drawer, Hidden} from '@material-ui/core';
 import {makeStyles, ThemeProvider} from '@material-ui/styles';
-import {bindActionCreators} from 'redux';
 import * as Actions from 'app/store/actions';
-import connect from 'react-redux/es/connect/connect';
 import NavbarMobileLayout2 from 'app/fuse-layouts/layout2/components/NavbarMobileLayout2';
 import NavbarLayout2 from './NavbarLayout2';
+import {useDispatch, useSelector} from 'react-redux';
 
 const navbarWidth = 280;
 
@@ -37,10 +36,14 @@ const useStyles = makeStyles(theme => ({
 
 function NavbarWrapperLayout2(props)
 {
+    const dispatch = useDispatch();
+    const navbarTheme = useSelector(({fuse}) => fuse.settings.navbarTheme, []);
+    const navbar = useSelector(({fuse}) => fuse.navbar, []);
+
     const classes = useStyles(props);
 
     return (
-        <ThemeProvider theme={props.navbarTheme}>
+        <ThemeProvider theme={navbarTheme}>
 
             <Hidden mdDown>
                 <Paper className={classes.navbar} square={true}>
@@ -52,11 +55,11 @@ function NavbarWrapperLayout2(props)
                 <Drawer
                     anchor="left"
                     variant="temporary"
-                    open={props.navbar.mobileOpen}
+                    open={navbar.mobileOpen}
                     classes={{
                         paper: classes.navbarMobile
                     }}
-                    onClose={props.navbarCloseMobile}
+                    onClose={ev => dispatch(Actions.navbarCloseMobile())}
                     ModalProps={{
                         keepMounted: true // Better open performance on mobile.
                     }}
@@ -68,21 +71,4 @@ function NavbarWrapperLayout2(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        navbarOpenFolded : Actions.navbarOpenFolded,
-        navbarCloseFolded: Actions.navbarCloseFolded,
-        navbarCloseMobile: Actions.navbarCloseMobile
-    }, dispatch);
-}
-
-function mapStateToProps({fuse})
-{
-    return {
-        navbarTheme: fuse.settings.navbarTheme,
-        navbar     : fuse.navbar
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(NavbarWrapperLayout2);
+export default NavbarWrapperLayout2;

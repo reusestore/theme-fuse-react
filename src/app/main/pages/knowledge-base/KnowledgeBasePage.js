@@ -21,10 +21,9 @@ import {FuseAnimate, FuseAnimateGroup} from '@fuse';
 import classNames from 'classnames';
 import axios from 'axios';
 
-function Transition(props)
-{
-    return <Slide direction="up" {...props} />;
-}
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
 
 const useStyles = makeStyles(theme => ({
     header: {
@@ -54,14 +53,6 @@ function KnowledgeBasePage()
         setDialog({
             open: true,
             ...dialogData
-        });
-    }
-
-    function handleCloseDialog()
-    {
-        setDialog({
-            ...dialog,
-            open: false,
         });
     }
 
@@ -116,26 +107,36 @@ function KnowledgeBasePage()
                 ), [data])}
             </div>
 
-            {useMemo(() => (
-                <Dialog
-                    open={dialog.open}
-                    onClose={handleCloseDialog}
-                    aria-labelledby="knowledge-base-document"
-                    TransitionComponent={Transition}
-                >
-                    <DialogTitle>
-                        {dialog.title}
-                    </DialogTitle>
-                    <DialogContent>
-                        <DialogContentText dangerouslySetInnerHTML={{__html: dialog.content}}/>
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={handleCloseDialog} color="primary">
-                            CLOSE
-                        </Button>
-                    </DialogActions>
-                </Dialog>
-            ), [dialog])}
+            {useMemo(() => {
+                function handleCloseDialog()
+                {
+                    setDialog({
+                        ...dialog,
+                        open: false,
+                    });
+                }
+
+                return (
+                    <Dialog
+                        open={dialog.open}
+                        onClose={handleCloseDialog}
+                        aria-labelledby="knowledge-base-document"
+                        TransitionComponent={Transition}
+                    >
+                        <DialogTitle>
+                            {dialog.title}
+                        </DialogTitle>
+                        <DialogContent>
+                            <DialogContentText dangerouslySetInnerHTML={{__html: dialog.content}}/>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={handleCloseDialog} color="primary">
+                                CLOSE
+                            </Button>
+                        </DialogActions>
+                    </Dialog>
+                )
+            }, [dialog])}
         </div>
     );
 }

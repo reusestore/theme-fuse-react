@@ -1,8 +1,7 @@
 import React from 'react';
 import {Card, Typography, Icon} from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import classNames from 'classnames';
 import * as Actions from './store/actions';
 import setDescriptionStyle from './setDescriptionStyle';
@@ -11,9 +10,11 @@ import NoteLabel from './NoteLabel';
 
 function NoteListItem(props)
 {
+    const dispatch = useDispatch();
+
     return (
         <FuseAnimate animation="transition.fadeIn" duration={400} delay={100}>
-            <Card className={classNames("cursor-pointer", props.className)} onClick={() => props.openNoteDialog(props.note.id)}>
+            <Card className={classNames("cursor-pointer", props.className)} onClick={() => dispatch(Actions.openNoteDialog(props.note.id))}>
                 {props.note.image && props.note.image !== "" && (
                     <img src={props.note.image} className="w-full block" alt="note"/>
                 )}
@@ -70,11 +71,4 @@ function NoteListItem(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        openNoteDialog: Actions.openNoteDialog
-    }, dispatch);
-}
-
-export default connect(null, mapDispatchToProps)(NoteListItem);
+export default NoteListItem;

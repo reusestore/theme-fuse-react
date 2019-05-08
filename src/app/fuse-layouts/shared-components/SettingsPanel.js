@@ -4,10 +4,9 @@ import {makeStyles} from '@material-ui/styles';
 import {red} from '@material-ui/core/colors';
 import {FuseScrollbars, FuseSettings} from '@fuse';
 
-function Transition(props)
-{
-    return <Slide direction="left" {...props} />;
-}
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="left" ref={ref} {...props} />;
+});
 
 const useStyles = makeStyles(theme => ({
     button               : {

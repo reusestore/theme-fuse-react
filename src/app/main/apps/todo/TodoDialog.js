@@ -24,8 +24,7 @@ import amber from '@material-ui/core/colors/amber';
 import red from '@material-ui/core/colors/red';
 import {FuseUtils} from '@fuse';
 import {useForm} from '@fuse/hooks';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import moment from 'moment/moment';
 import _ from '@lodash';
 import * as Actions from './store/actions';
@@ -45,6 +44,10 @@ const defaultFormState = {
 
 function TodoDialog(props)
 {
+    const dispatch = useDispatch();
+    const todoDialog = useSelector(({todoApp}) => todoApp.todos.todoDialog, []);
+    const labels = useSelector(({todoApp}) => todoApp.labels, []);
+
     const [labelMenuEl, setLabelMenuEl] = useState(null);
     const {form, handleChange, setForm} = useForm({...defaultFormState});
     const startDate = moment(form.startDate).format(moment.HTML5_FMT.DATETIME_LOCAL_SECONDS);
@@ -54,37 +57,38 @@ function TodoDialog(props)
         /**
          * After Dialog Open
          */
-        if ( props.todoDialog.props.open )
+        if ( todoDialog.props.open )
         {
             /**
              * Dialog type: 'edit'
              * Update State
              */
-            if ( props.todoDialog.type === 'edit' &&
-                props.todoDialog.data &&
-                !_.isEqual(props.todoDialog.data, form) )
+            if ( todoDialog.type === 'edit' &&
+                todoDialog.data &&
+                !_.isEqual(todoDialog.data, form) )
             {
-                setForm({...props.todoDialog.data});
+                setForm({...todoDialog.data});
             }
 
             /**
              * Dialog type: 'new'
              * Update State
              */
-            if ( props.todoDialog.type === 'new' )
+            if ( todoDialog.type === 'new' )
             {
                 setForm({
                     ...defaultFormState,
-                    ...props.todoDialog.data,
+                    ...todoDialog.data,
                     id: FuseUtils.generateGUID()
                 });
             }
         }
-    }, [props.todoDialog.props.open]);
+        // eslint-disable-next-line
+    }, [todoDialog.props.open]);
 
     function closeTodoDialog()
     {
-        props.todoDialog.type === 'edit' ? props.closeEditTodoDialog() : props.closeNewTodoDialog();
+        todoDialog.type === 'edit' ? dispatch(Actions.closeEditTodoDialog()) : dispatch(Actions.closeNewTodoDialog());
     }
 
     function handleLabelMenuOpen(event)
@@ -141,12 +145,12 @@ function TodoDialog(props)
 
 
     return (
-        <Dialog {...props.todoDialog.props} onClose={closeTodoDialog} fullWidth maxWidth="sm">
+        <Dialog {...todoDialog.props} onClose={closeTodoDialog} fullWidth maxWidth="sm">
 
             <AppBar position="static" elevation={1}>
                 <Toolbar className="flex w-full">
                     <Typography variant="subtitle1" color="inherit">
-                        {props.todoDialog.type === 'new' ? 'New Todo' : 'Edit Todo'}
+                        {todoDialog.type === 'new' ? 'New Todo' : 'Edit Todo'}
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -195,7 +199,7 @@ function TodoDialog(props)
                                     open={Boolean(labelMenuEl)}
                                     onClose={handleLabelMenuClose}
                                 >
-                                    {props.labels.length > 0 && props.labels.map((label) => (
+                                    {labels.length > 0 && labels.map((label) => (
                                         <MenuItem onClick={(ev) => handleToggleLabel(ev, label.id)} key={label.id}>
                                             <ListItemIcon className="min-w-40">
                                                 <Icon className="mr-0" color="action">
@@ -226,13 +230,13 @@ function TodoDialog(props)
                                         classes={{colorDefault: "bg-transparent"}}>
                                         <Icon
                                             className="text-20"
-                                            style={{color: _.find(props.labels, {id: label}).color}}
+                                            style={{color: _.find(labels, {id: label}).color}}
                                         >
                                             label
                                         </Icon>
                                     </Avatar>
                                 )}
-                                label={_.find(props.labels, {id: label}).title}
+                                label={_.find(labels, {id: label}).title}
                                 onDelete={(ev) => handleToggleLabel(ev, label)}
                                 className="mr-8 my-8"
                                 classes={{label: "pl-4"}}
@@ -302,13 +306,13 @@ function TodoDialog(props)
 
             </DialogContent>
 
-            {props.todoDialog.type === 'new' ? (
+            {todoDialog.type === 'new' ? (
                 <DialogActions className="justify-between pl-8 sm:pl-16">
                     <Button
                         variant="contained"
                         color="primary"
                         onClick={() => {
-                            props.addTodo(form);
+                            dispatch(Actions.addTodo(form));
                             closeTodoDialog();
                         }}
                         disabled={!canBeSubmitted()}
@@ -322,7 +326,7 @@ function TodoDialog(props)
                         variant="contained"
                         color="primary"
                         onClick={() => {
-                            props.updateTodo(form);
+                            dispatch(Actions.updateTodo(form));
                             closeTodoDialog();
                         }}
                         disabled={!canBeSubmitted()}
@@ -332,7 +336,7 @@ function TodoDialog(props)
                     <IconButton
                         className="min-w-auto"
                         onClick={() => {
-                            props.removeTodo(form.id);
+                            dispatch(Actions.removeTodo(form.id));
                             closeTodoDialog();
                         }}
                     >
@@ -344,23 +348,4 @@ function TodoDialog(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        closeEditTodoDialog: Actions.closeEditTodoDialog,
-        closeNewTodoDialog : Actions.closeNewTodoDialog,
-        addTodo            : Actions.addTodo,
-        updateTodo         : Actions.updateTodo,
-        removeTodo         : Actions.removeTodo
-    }, dispatch);
-}
-
-function mapStateToProps({todoApp})
-{
-    return {
-        todoDialog: todoApp.todos.todoDialog,
-        labels    : todoApp.labels
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(TodoDialog);
+export default TodoDialog;

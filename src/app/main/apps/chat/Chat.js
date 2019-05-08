@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {Avatar, Paper, Typography, TextField, IconButton, Icon} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
-import {useActions, useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import classNames from 'classnames';
 import moment from 'moment/moment';
 import * as Actions from './store/actions';
@@ -89,11 +89,11 @@ const useStyles = makeStyles(theme => ({
 
 function Chat(props)
 {
+    const dispatch = useDispatch();
     const contacts = useSelector(({chatApp}) => chatApp.contacts.entities, []);
     const selectedContactId = useSelector(({chatApp}) => chatApp.contacts.selectedContactId, []);
     const chat = useSelector(({chatApp}) => chatApp.chat, []);
     const user = useSelector(({chatApp}) => chatApp.user, []);
-    const sendMessage = useActions(Actions.sendMessage, []);
 
     const classes = useStyles(props);
     const chatRef = useRef(null);
@@ -141,7 +141,8 @@ function Chat(props)
         {
             return;
         }
-        sendMessage(messageText, chat.id, user.id)
+
+        dispatch(Actions.sendMessage(messageText, chat.id, user.id))
             .then(() => {
                 setMessageText('');
             });

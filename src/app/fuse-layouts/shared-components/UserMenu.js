@@ -1,12 +1,14 @@
 import React, {useState} from 'react';
 import {Avatar, Button, Icon, ListItemIcon, ListItemText, Popover, MenuItem, Typography} from '@material-ui/core';
-import {connect} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import * as authActions from 'app/auth/store/actions';
-import {bindActionCreators} from 'redux';
 import {Link} from 'react-router-dom';
 
 function UserMenu(props)
 {
+    const dispatch = useDispatch();
+    const user = useSelector(({auth}) => auth.user, []);
+
     const [userMenu, setUserMenu] = useState(null);
 
     const userMenuClick = event => {
@@ -21,24 +23,24 @@ function UserMenu(props)
         <React.Fragment>
 
             <Button className="h-64" onClick={userMenuClick}>
-                {props.user.data.photoURL ?
+                {user.data.photoURL ?
                     (
-                        <Avatar className="" alt="user photo" src={props.user.data.photoURL}/>
+                        <Avatar className="" alt="user photo" src={user.data.photoURL}/>
                     )
                     :
                     (
                         <Avatar className="">
-                            {props.user.data.displayName[0]}
+                            {user.data.displayName[0]}
                         </Avatar>
                     )
                 }
 
                 <div className="hidden md:flex flex-col ml-12 items-start">
                     <Typography component="span" className="normal-case font-600 flex">
-                        {props.user.data.displayName}
+                        {user.data.displayName}
                     </Typography>
                     <Typography className="text-11 capitalize" color="textSecondary">
-                        {props.user.role.toString()}
+                        {user.role.toString()}
                     </Typography>
                 </div>
 
@@ -61,7 +63,7 @@ function UserMenu(props)
                     paper: "py-8"
                 }}
             >
-                {!props.user.role || props.user.role.length === 0 ? (
+                {!user.role || user.role.length === 0 ? (
                     <React.Fragment>
                         <MenuItem component={Link} to="/login">
                             <ListItemIcon className="min-w-40">
@@ -92,7 +94,7 @@ function UserMenu(props)
                         </MenuItem>
                         <MenuItem
                             onClick={() => {
-                                props.logout();
+                                dispatch(authActions.logoutUser());
                                 userMenuClose();
                             }}
                         >
@@ -108,18 +110,4 @@ function UserMenu(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        logout: authActions.logoutUser
-    }, dispatch);
-}
-
-function mapStateToProps({auth})
-{
-    return {
-        user: auth.user
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(UserMenu);
+export default UserMenu;

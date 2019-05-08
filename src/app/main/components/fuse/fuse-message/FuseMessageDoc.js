@@ -1,12 +1,13 @@
 import React from 'react';
 import {Typography, Button, Icon} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import {useDispatch} from 'react-redux';
 import * as Actions from 'app/store/actions';
 
 function FuseMessageDoc(props)
 {
+    const dispatch = useDispatch();
+
     return (
         <FusePageSimple
             header={
@@ -38,7 +39,7 @@ function FuseMessageDoc(props)
 
                     <FuseHighlight component="pre" className="language-jsx">
                         {`
-                                    <Button onClick={() => props.showMessage({
+                                    <Button onClick={()=> dispatch(Actions.showMessage({
                                         message     : 'Hi, how are you?',//text or html
                                         autoHideDuration: 6000,//ms
                                         anchorOrigin: {
@@ -46,7 +47,7 @@ function FuseMessageDoc(props)
                                             horizontal: 'right'//left center right
                                         },
                                         variant: 'success'//success error info warning null
-                                    })}>
+                                    }))}>
                                         Top - Right
                                     </Button>
                             `}
@@ -58,58 +59,58 @@ function FuseMessageDoc(props)
 
                     <div>
 
-                        <Button onClick={() => props.showMessage({
+                        <Button onClick={() => dispatch(Actions.showMessage({
                             message     : 'Hi, how are you?',
                             anchorOrigin: {
                                 vertical  : 'top',
                                 horizontal: 'right'
                             }
-                        })}>
+                        }))}>
                             Top - Right
                         </Button>
-                        <Button onClick={() => props.showMessage({
+                        <Button onClick={() => dispatch(Actions.showMessage({
                             message     : 'Hi, how are you?',
                             anchorOrigin: {
                                 vertical  : 'top',
                                 horizontal: 'center'
                             }
-                        })}>
+                        }))}>
                             Top-Center
                         </Button>
-                        <Button onClick={() => props.showMessage({
+                        <Button onClick={() => dispatch(Actions.showMessage({
                             message     : 'Hi, how are you?',
                             anchorOrigin: {
                                 vertical  : 'top',
                                 horizontal: 'left'
                             }
-                        })}>
+                        }))}>
                             Top-Left
                         </Button>
-                        <Button onClick={() => props.showMessage({
+                        <Button onClick={() => dispatch(Actions.showMessage({
                             message     : 'Hi, how are you?',
                             anchorOrigin: {
                                 vertical  : 'bottom',
                                 horizontal: 'right'
                             }
-                        })}>
+                        }))}>
                             Bottom-Right
                         </Button>
-                        <Button onClick={() => props.showMessage({
+                        <Button onClick={() => dispatch(Actions.showMessage({
                             message     : 'Hi, how are you?',
                             anchorOrigin: {
                                 vertical  : 'bottom',
                                 horizontal: 'center'
                             }
-                        })}>
+                        }))}>
                             Bottom-Center
                         </Button>
-                        <Button onClick={() => props.showMessage({
+                        <Button onClick={() => dispatch(Actions.showMessage({
                             message     : 'Hi, how are you?',
                             anchorOrigin: {
                                 vertical  : 'bottom',
                                 horizontal: 'left'
                             }
-                        })}>
+                        }))}>
                             Bottom-Left
                         </Button>
                     </div>
@@ -117,33 +118,33 @@ function FuseMessageDoc(props)
                     <Typography className="mt-32 mb-8" variant="h6">Variants</Typography>
 
                     <div>
-                        <Button onClick={() => props.showMessage({
+                        <Button onClick={() => dispatch(Actions.showMessage({
                             message: 'Hi, how are you?'
-                        })}>
+                        }))}>
                             Default
                         </Button>
-                        <Button onClick={() => props.showMessage({
+                        <Button onClick={() => dispatch(Actions.showMessage({
                             message: 'Hi, how are you?',
                             variant: 'success'
-                        })}>
+                        }))}>
                             Success
                         </Button>
-                        <Button onClick={() => props.showMessage({
+                        <Button onClick={() => dispatch(Actions.showMessage({
                             message: 'Hi, how are you?',
                             variant: 'warning'
-                        })}>
+                        }))}>
                             Warning
                         </Button>
-                        <Button onClick={() => props.showMessage({
+                        <Button onClick={() => dispatch(Actions.showMessage({
                             message: 'Hi, how are you?',
                             variant: 'error'
-                        })}>
+                        }))}>
                             Error
                         </Button>
-                        <Button onClick={() => props.showMessage({
+                        <Button onClick={() => dispatch(Actions.showMessage({
                             message: 'Hi, how are you?',
                             variant: 'info'
-                        })}>
+                        }))}>
                             Info
                         </Button>
                     </div>
@@ -153,13 +154,4 @@ function FuseMessageDoc(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-            showMessage: Actions.showMessage,
-            hideMessage: Actions.hideMessage
-        },
-        dispatch);
-}
-
-export default connect(null, mapDispatchToProps)(FuseMessageDoc);
+export default FuseMessageDoc;

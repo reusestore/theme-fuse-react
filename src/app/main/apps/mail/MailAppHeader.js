@@ -1,14 +1,17 @@
 import React from 'react';
 import {Hidden, Icon, IconButton, Input, Paper} from '@material-ui/core';
 import {ThemeProvider} from '@material-ui/styles';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from './store/actions';
 
 function MailAppHeader(props)
 {
+    const dispatch = useDispatch();
+    const searchText = useSelector(({mailApp}) => mailApp.mails.searchText, []);
+    const mainTheme = useSelector(({fuse}) => fuse.settings.mainTheme, []);
+
     return (
-        <ThemeProvider theme={props.mainTheme}>
+        <ThemeProvider theme={mainTheme}>
             <div className="flex flex-1">
                 <Paper className="flex items-center w-full h-48 sm:h-56 p-16 pl-4 md:pl-16 rounded-8 " elevation={1}>
                     <Hidden lgUp>
@@ -27,11 +30,11 @@ function MailAppHeader(props)
                         className="pl-16"
                         disableUnderline
                         fullWidth
-                        value={props.searchText}
+                        value={searchText}
                         inputProps={{
                             'aria-label': 'Search'
                         }}
-                        onChange={props.setSearchText}
+                        onChange={ev => dispatch(Actions.setSearchText(ev))}
                     />
                 </Paper>
             </div>
@@ -39,19 +42,4 @@ function MailAppHeader(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        setSearchText: Actions.setSearchText
-    }, dispatch);
-}
-
-function mapStateToProps({mailApp, fuse})
-{
-    return {
-        searchText: mailApp.mails.searchText,
-        mainTheme : fuse.settings.mainTheme
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(MailAppHeader);
+export default MailAppHeader;

@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {Paper, Hidden, Icon, IconButton, Fab, Typography, Stepper, Step, StepLabel} from '@material-ui/core';
 import {FusePageSimple, FuseScrollbars} from '@fuse';
-import {useActions, useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import withReducer from 'app/store/withReducer';
 import SwipeableViews from 'react-swipeable-views';
 import {green} from '@material-ui/core/colors';
@@ -22,8 +22,8 @@ const useStyles = makeStyles(theme => ({
 
 function Course(props)
 {
+    const dispatch = useDispatch();
     const course = useSelector(({academyApp}) => academyApp.course, []);
-    const [getCourse, updateCourse] = useActions([Actions.getCourse, Actions.updateCourse], []);
 
     const classes = useStyles(props);
     const pageLayout = useRef(null);
@@ -32,8 +32,8 @@ function Course(props)
         /**
          * Get the Course Data
          */
-        getCourse(props.match.params);
-    }, [getCourse, props.match.params]);
+        dispatch(Actions.getCourse(props.match.params));
+    }, [dispatch, props.match.params]);
 
     useEffect(() => {
         /**
@@ -42,23 +42,23 @@ function Course(props)
          */
         if ( course && course.activeStep === 0 )
         {
-            updateCourse({activeStep: 1});
+            dispatch(Actions.updateCourse({activeStep: 1}));
         }
-    }, [course]);
+    }, [dispatch, course]);
 
     function handleChangeActiveStep(index)
     {
-        updateCourse({activeStep: index + 1});
+        dispatch(Actions.updateCourse({activeStep: index + 1}));
     }
 
     function handleNext()
     {
-        updateCourse({activeStep: course.activeStep + 1});
+        dispatch(Actions.updateCourse({activeStep: course.activeStep + 1}));
     }
 
     function handleBack()
     {
-        updateCourse({activeStep: course.activeStep - 1});
+        dispatch(Actions.updateCourse({activeStep: course.activeStep - 1}));
     }
 
     const activeStep = course && course.activeStep !== 0 ? course.activeStep : 1;

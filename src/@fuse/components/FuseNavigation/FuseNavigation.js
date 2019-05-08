@@ -1,6 +1,5 @@
 import React from 'react';
 import {Divider, List, Hidden} from '@material-ui/core';
-import {withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import FuseNavVerticalGroup from './vertical/FuseNavVerticalGroup';
@@ -118,4 +117,4 @@ FuseNavigation.defaultProps = {
     layout: "vertical"
 };
 
-export default withRouter(React.memo(FuseNavigation));
+export default React.memo(FuseNavigation);

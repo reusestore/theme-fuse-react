@@ -15,7 +15,7 @@ function FuseHighlight(props)
         }
 
         highlight();
-    }, []);
+    }, [props.async]);
 
     function trimCode()
     {

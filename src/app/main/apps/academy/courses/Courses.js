@@ -17,7 +17,7 @@ import {
 } from '@material-ui/core';
 import {makeStyles, useTheme} from '@material-ui/styles';
 import {FuseAnimate, FuseAnimateGroup} from '@fuse';
-import {useActions, useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import withReducer from 'app/store/withReducer';
 import classNames from 'classnames';
 import _ from '@lodash';
@@ -44,9 +44,9 @@ const useStyles = makeStyles(theme => ({
 
 function Courses(props)
 {
+    const dispatch = useDispatch();
     const courses = useSelector(({academyApp}) => academyApp.courses.data, []);
     const categories = useSelector(({academyApp}) => academyApp.courses.categories, []);
-    const [getCategories, getCourses] = useActions([Actions.getCategories, Actions.getCourses], []);
 
     const classes = useStyles(props);
     const theme = useTheme();
@@ -55,9 +55,9 @@ function Courses(props)
     const [selectedCategory, setSelectedCategory] = useState('all');
 
     useEffect(() => {
-        getCategories();
-        getCourses();
-    }, [getCategories, getCourses]);
+        dispatch(Actions.getCategories());
+        dispatch(Actions.getCourses());
+    }, [dispatch]);
 
     useEffect(() => {
         function getFilteredArray()
@@ -230,7 +230,7 @@ function Courses(props)
                                     </Typography>
                                 </div>
                             )
-                    )), [filteredData])}
+                    )), [categories, filteredData, theme.palette])}
             </div>
         </div>
     );

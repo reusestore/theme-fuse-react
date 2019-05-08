@@ -2,17 +2,20 @@ import React, {useEffect, useState} from 'react';
 import {Icon, Table, TableBody, TableCell, TablePagination, TableRow, Checkbox} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
 import {withRouter} from 'react-router-dom';
-import {bindActionCreators} from 'redux';
-import connect from 'react-redux/es/connect/connect';
 import classNames from 'classnames';
 import _ from '@lodash';
 import ProductsTableHead from './ProductsTableHead';
 import * as Actions from '../store/actions';
+import {useDispatch, useSelector} from 'react-redux';
 
 function ProductsTable(props)
 {
+    const dispatch = useDispatch();
+    const products = useSelector(({eCommerceApp}) => eCommerceApp.products.data, []);
+    const searchText = useSelector(({eCommerceApp}) => eCommerceApp.products.searchText, []);
+
     const [selected, setSelected] = useState([]);
-    const [data, setData] = useState(props.products);
+    const [data, setData] = useState(products);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
     const [order, setOrder] = useState({
@@ -21,12 +24,12 @@ function ProductsTable(props)
     });
 
     useEffect(() => {
-        props.getProducts();
-    }, []);
+        dispatch(Actions.getProducts());
+    }, [dispatch]);
 
     useEffect(() => {
-        setData(props.searchText.length === 0 ? props.products : _.filter(data, item => item.name.toLowerCase().includes(props.searchText.toLowerCase())))
-    }, [props.products, props.searchText]);
+        setData(searchText.length === 0 ? products : _.filter(products, item => item.name.toLowerCase().includes(searchText.toLowerCase())))
+    }, [products, searchText]);
 
     function handleRequestSort(event, property)
     {
@@ -211,19 +214,4 @@ function ProductsTable(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        getProducts: Actions.getProducts
-    }, dispatch);
-}
-
-function mapStateToProps({eCommerceApp})
-{
-    return {
-        products  : eCommerceApp.products.data,
-        searchText: eCommerceApp.products.searchText
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProductsTable));
+export default withRouter(ProductsTable);

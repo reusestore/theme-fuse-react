@@ -1,15 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import {Avatar, Checkbox, Icon, IconButton, Typography} from '@material-ui/core';
 import {FuseUtils, FuseAnimate} from '@fuse';
-import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom';
-import {bindActionCreators} from 'redux';
+import {useDispatch, useSelector} from 'react-redux';
 import ReactTable from "react-table";
 import * as Actions from './store/actions';
 import ContactsMultiSelectMenu from './ContactsMultiSelectMenu';
 
 function ContactsList(props)
 {
+    const dispatch = useDispatch();
+    const contacts = useSelector(({contactsApp}) => contactsApp.contacts.entities, []);
+    const selectedContactIds = useSelector(({contactsApp}) => contactsApp.contacts.selectedContactIds, []);
+    const searchText = useSelector(({contactsApp}) => contactsApp.contacts.searchText, []);
+    const user = useSelector(({contactsApp}) => contactsApp.user, []);
+
     const [filteredData, setFilteredData] = useState(null);
 
     useEffect(() => {
@@ -23,11 +27,11 @@ function ContactsList(props)
             return FuseUtils.filterArrayByString(arr, searchText);
         }
 
-        if ( props.contacts )
+        if ( contacts )
         {
-            setFilteredData(getFilteredArray(props.contacts, props.searchText));
+            setFilteredData(getFilteredArray(contacts, searchText));
         }
-    }, [props.contacts, props.searchText]);
+    }, [contacts, searchText]);
 
 
     if ( !filteredData )
@@ -56,7 +60,7 @@ function ContactsList(props)
                         onClick  : (e, handleOriginal) => {
                             if ( rowInfo )
                             {
-                                props.openEditContactDialog(rowInfo.original);
+                                dispatch(Actions.openEditContactDialog(rowInfo.original));
                             }
                         }
                     }
@@ -70,10 +74,10 @@ function ContactsList(props)
                                     event.stopPropagation();
                                 }}
                                 onChange={(event) => {
-                                    event.target.checked ? props.selectAllContacts() : props.deSelectAllContacts();
+                                    event.target.checked ? dispatch(Actions.selectAllContacts()) : dispatch(Actions.deSelectAllContacts());
                                 }}
-                                checked={props.selectedContactIds.length === Object.keys(props.contacts).length && props.selectedContactIds.length > 0}
-                                indeterminate={props.selectedContactIds.length !== Object.keys(props.contacts).length && props.selectedContactIds.length > 0}
+                                checked={selectedContactIds.length === Object.keys(contacts).length && selectedContactIds.length > 0}
+                                indeterminate={selectedContactIds.length !== Object.keys(contacts).length && selectedContactIds.length > 0}
                             />
                         ),
                         accessor : "",
@@ -82,8 +86,8 @@ function ContactsList(props)
                                     onClick={(event) => {
                                         event.stopPropagation();
                                     }}
-                                    checked={props.selectedContactIds.includes(row.value.id)}
-                                    onChange={() => props.toggleInSelectedContacts(row.value.id)}
+                                    checked={selectedContactIds.includes(row.value.id)}
+                                    onChange={() => dispatch(Actions.toggleInSelectedContacts(row.value.id))}
                                 />
                             )
                         },
@@ -93,7 +97,7 @@ function ContactsList(props)
                     },
                     {
                         Header   : () => (
-                            props.selectedContactIds.length > 0 && (
+                            selectedContactIds.length > 0 && (
                                 <ContactsMultiSelectMenu/>
                             )
                         ),
@@ -145,10 +149,10 @@ function ContactsList(props)
                                 <IconButton
                                     onClick={(ev) => {
                                         ev.stopPropagation();
-                                        props.toggleStarredContact(row.original.id)
+                                        dispatch(Actions.toggleStarredContact(row.original.id))
                                     }}
                                 >
-                                    {props.user.starred && props.user.starred.includes(row.original.id) ? (
+                                    {user.starred && user.starred.includes(row.original.id) ? (
                                         <Icon>star</Icon>
                                     ) : (
                                         <Icon>star_border</Icon>
@@ -157,7 +161,7 @@ function ContactsList(props)
                                 <IconButton
                                     onClick={(ev) => {
                                         ev.stopPropagation();
-                                        props.removeContact(row.original.id);
+                                        dispatch(Actions.removeContact(row.original.id));
                                     }}
                                 >
                                     <Icon>delete</Icon>
@@ -173,29 +177,4 @@ function ContactsList(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        getContacts             : Actions.getContacts,
-        getUserData             : Actions.getUserData,
-        toggleInSelectedContacts: Actions.toggleInSelectedContacts,
-        selectAllContacts       : Actions.selectAllContacts,
-        deSelectAllContacts     : Actions.deSelectAllContacts,
-        openEditContactDialog   : Actions.openEditContactDialog,
-        removeContact           : Actions.removeContact,
-        toggleStarredContact    : Actions.toggleStarredContact,
-        toggleStarredContacts   : Actions.toggleStarredContacts,
-    }, dispatch);
-}
-
-function mapStateToProps({contactsApp})
-{
-    return {
-        contacts          : contactsApp.contacts.entities,
-        selectedContactIds: contactsApp.contacts.selectedContactIds,
-        searchText        : contactsApp.contacts.searchText,
-        user              : contactsApp.user
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ContactsList));
+export default ContactsList;

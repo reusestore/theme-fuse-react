@@ -1,10 +1,8 @@
 import {useState} from 'react';
 import {ClickAwayListener, Icon, IconButton, Input, Tooltip} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import React from 'react';
-import {withRouter} from 'react-router-dom';
-import {bindActionCreators} from 'redux';
 import classNames from 'classnames';
 import * as Actions from './store/actions';
 
@@ -17,6 +15,9 @@ const useStyles = makeStyles(theme => ({
 
 function NotesSearch(props)
 {
+    const dispatch = useDispatch();
+    const searchText = useSelector(({notesApp}) => notesApp.notes.searchText, []);
+
     const classes = useStyles(props);
     const [search, setSearch] = useState(false);
 
@@ -29,7 +30,7 @@ function NotesSearch(props)
     function hideSearch()
     {
         setSearch(false);
-        props.resetSearchText();
+        dispatch(Actions.resetSearchText());
         document.removeEventListener("keydown", escFunction, false);
     }
 
@@ -67,11 +68,11 @@ function NotesSearch(props)
                                 className="flex flex-1 py-0 pr-16 h-64"
                                 disableUnderline
                                 fullWidth
-                                value={props.searchText}
+                                value={searchText}
                                 inputProps={{
                                     'aria-label': 'Search'
                                 }}
-                                onChange={props.setSearchText}
+                                onChange={ev => dispatch(Actions.setSearchText(ev))}
                                 autoFocus
                             />
 
@@ -86,24 +87,9 @@ function NotesSearch(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        setSearchText  : Actions.setSearchText,
-        resetSearchText: Actions.resetSearchText
-    }, dispatch);
-}
-
-function mapStateToProps({notesApp})
-{
-    return {
-        searchText: notesApp.notes.searchText
-    }
-}
-
 NotesSearch.propTypes = {};
 NotesSearch.defaultProps = {
     trigger: (<IconButton className="w-64 h-64"><Icon>search</Icon></IconButton>)
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NotesSearch));
+export default NotesSearch;

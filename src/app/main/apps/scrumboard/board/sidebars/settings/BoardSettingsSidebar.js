@@ -1,12 +1,13 @@
 import React from 'react';
 import {AppBar, Toolbar, List, ListItem, ListItemIcon, Icon, ListItemText, ListItemSecondaryAction, Switch} from '@material-ui/core';
-import {bindActionCreators} from 'redux';
 import * as Actions from 'app/main/apps/scrumboard/store/actions';
-import connect from 'react-redux/es/connect/connect';
-import {withRouter} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
 
 function BoardSettingsSidebar(props)
 {
+    const dispatch = useDispatch();
+    const board = useSelector(({scrumboardApp}) => scrumboardApp.board, []);
+
     return (
         <div>
             <AppBar position="static">
@@ -19,7 +20,7 @@ function BoardSettingsSidebar(props)
 
                 <ListItem
                     button
-                    onClick={() => props.changeBoardSettings({cardCoverImages: !props.board.settings.cardCoverImages})}
+                    onClick={() => dispatch(Actions.changeBoardSettings({cardCoverImages: !board.settings.cardCoverImages}))}
                 >
                     <ListItemIcon className="min-w-40">
                         <Icon>photo</Icon>
@@ -27,15 +28,15 @@ function BoardSettingsSidebar(props)
                     <ListItemText primary="Card Cover Images"/>
                     <ListItemSecondaryAction>
                         <Switch
-                            onChange={() => props.changeBoardSettings({cardCoverImages: !props.board.settings.cardCoverImages})}
-                            checked={props.board.settings.cardCoverImages}
+                            onChange={() => dispatch(Actions.changeBoardSettings({cardCoverImages: !board.settings.cardCoverImages}))}
+                            checked={board.settings.cardCoverImages}
                         />
                     </ListItemSecondaryAction>
                 </ListItem>
 
                 <ListItem
                     button
-                    onClick={() => props.changeBoardSettings({subscribed: !props.board.settings.subscribed})}
+                    onClick={() => dispatch(Actions.changeBoardSettings({subscribed: !board.settings.subscribed}))}
                 >
                     <ListItemIcon className="min-w-40">
                         <Icon>remove_red_eye</Icon>
@@ -43,20 +44,20 @@ function BoardSettingsSidebar(props)
                     <ListItemText primary="Subscribe"/>
                     <ListItemSecondaryAction>
                         <Switch
-                            onChange={() => props.changeBoardSettings({subscribed: !props.board.settings.subscribed})}
-                            checked={props.board.settings.subscribed}
+                            onChange={() => dispatch(Actions.changeBoardSettings({subscribed: !board.settings.subscribed}))}
+                            checked={board.settings.subscribed}
                         />
                     </ListItemSecondaryAction>
                 </ListItem>
 
-                <ListItem button onClick={() => props.copyBoard(props.board)}>
+                <ListItem button onClick={() => dispatch(Actions.copyBoard(board))}>
                     <ListItemIcon className="min-w-40">
                         <Icon>file_copy</Icon>
                     </ListItemIcon>
                     <ListItemText primary="Copy Board"/>
                 </ListItem>
 
-                <ListItem button onClick={() => props.deleteBoard(props.board.id)}>
+                <ListItem button onClick={() => dispatch(Actions.deleteBoard(board.id))}>
                     <ListItemIcon className="min-w-40">
                         <Icon>delete</Icon>
                     </ListItemIcon>
@@ -67,20 +68,4 @@ function BoardSettingsSidebar(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        changeBoardSettings: Actions.changeBoardSettings,
-        deleteBoard        : Actions.deleteBoard,
-        copyBoard          : Actions.copyBoard
-    }, dispatch);
-}
-
-function mapStateToProps({scrumboardApp})
-{
-    return {
-        board: scrumboardApp.board
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BoardSettingsSidebar));
+export default BoardSettingsSidebar;

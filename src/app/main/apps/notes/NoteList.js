@@ -1,15 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import {Typography} from '@material-ui/core';
 import {FuseUtils} from '@fuse';
-import {connect} from 'react-redux';
+import {useSelector} from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import {bindActionCreators} from 'redux';
 import Masonry from 'react-masonry-css';
-import * as Actions from './store/actions';
 import NoteListItem from './NoteListItem';
 
 function NoteList(props)
 {
+    const notes = useSelector(({notesApp}) => notesApp.notes.entities, []);
+    const variateDescSize = useSelector(({notesApp}) => notesApp.notes.variateDescSize, []);
+    const searchText = useSelector(({notesApp}) => notesApp.notes.searchText, []);
+
     const [filteredData, setFilteredData] = useState(null);
 
     useEffect(() => {
@@ -18,7 +20,7 @@ function NoteList(props)
             const {params} = props.match;
             const {id, labelId} = params;
 
-            let data = Object.keys(props.notes).map((id) => props.notes[id]);
+            let data = Object.keys(notes).map((id) => notes[id]);
 
             if ( labelId )
             {
@@ -40,22 +42,22 @@ function NoteList(props)
                 data = data.filter((note) => Boolean(note.reminder) && !note.archive);
             }
 
-            if ( props.searchText.length === 0 )
+            if ( searchText.length === 0 )
             {
                 return data;
             }
 
-            data = (FuseUtils.filterArrayByString(data, props.searchText));
+            data = (FuseUtils.filterArrayByString(data, searchText));
 
             return data;
         }
 
-        if ( props.notes )
+        if ( notes )
         {
             setFilteredData(filterData())
         }
 
-    }, [props.notes, props.searchText, props.match]);
+    }, [notes, searchText, props.match]);
 
     return (
         (!filteredData || filteredData.length === 0) ?
@@ -86,7 +88,7 @@ function NoteList(props)
                                 key={note.id}
                                 note={note}
                                 className="w-full rounded-8 shadow-none border-1 mb-16"
-                                variateDescSize={props.variateDescSize}
+                                variateDescSize={variateDescSize}
                             />
                         ))}
                     </Masonry>
@@ -95,23 +97,4 @@ function NoteList(props)
     )
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        getNotes       : Actions.getNotes,
-        openNoteDialog : Actions.openNoteDialog,
-        closeNoteDialog: Actions.closeNoteDialog,
-        removeNote     : Actions.removeNote
-    }, dispatch);
-}
-
-function mapStateToProps({notesApp})
-{
-    return {
-        notes          : notesApp.notes.entities,
-        variateDescSize: notesApp.notes.variateDescSize,
-        searchText     : notesApp.notes.searchText
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NoteList));
+export default withRouter(NoteList);

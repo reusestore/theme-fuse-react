@@ -2,8 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Divider, Drawer, Icon, List, ListItem, ListItemIcon, ListItemSecondaryAction, ListItemText, ListSubheader, Switch, Typography} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
 import moment from 'moment';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import * as Actions from './store/actions/index'
 import withReducer from 'app/store/withReducer';
 import reducer from './store/reducers';
@@ -17,6 +16,10 @@ const useStyles = makeStyles(theme => ({
 
 function QuickPanel(props)
 {
+    const dispatch = useDispatch();
+    const data = useSelector(({quickPanel}) => quickPanel.data, []);
+    const state = useSelector(({quickPanel}) => quickPanel.state, []);
+
     const classes = useStyles();
     const [checked, setChecked] = useState('notifications');
 
@@ -37,15 +40,15 @@ function QuickPanel(props)
     };
 
     useEffect(() => {
-        props.getQuickPanelData()
-    }, []);
+        dispatch(Actions.getQuickPanelData());
+    }, [dispatch]);
 
     return (
         <Drawer
             classes={{paper: classes.root}}
-            open={props.state}
+            open={state}
             anchor="right"
-            onClose={props.toggleQuickPanel}
+            onClose={ev => dispatch(Actions.toggleQuickPanel())}
         >
             <FuseScrollbars>
 
@@ -64,7 +67,7 @@ function QuickPanel(props)
                 <Divider/>
                 <List>
                     <ListSubheader component="div">Events</ListSubheader>
-                    {props.data && props.data.events.map(event => (
+                    {data && data.events.map(event => (
                         <ListItem key={event.id}>
                             <ListItemText
                                 primary={event.title}
@@ -76,7 +79,7 @@ function QuickPanel(props)
                 <Divider/>
                 <List>
                     <ListSubheader component="div">Notes</ListSubheader>
-                    {props.data && props.data.notes.map(note => (
+                    {data && data.notes.map(note => (
                         <ListItem key={note.id}>
                             <ListItemText
                                 primary={note.title}
@@ -133,20 +136,4 @@ function QuickPanel(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        toggleQuickPanel : Actions.toggleQuickPanel,
-        getQuickPanelData: Actions.getQuickPanelData
-    }, dispatch);
-}
-
-function mapStateToProps({quickPanel})
-{
-    return {
-        state: quickPanel.state,
-        data : quickPanel.data
-    }
-}
-
-export default withReducer('quickPanel', reducer)(connect(mapStateToProps, mapDispatchToProps)(QuickPanel));
+export default withReducer('quickPanel', reducer)(QuickPanel);

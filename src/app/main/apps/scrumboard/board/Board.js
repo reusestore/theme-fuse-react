@@ -1,8 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {Button, Icon, IconButton, AppBar, Toolbar, Drawer, Hidden} from '@material-ui/core';
 import {Link, withRouter} from 'react-router-dom';
-import {bindActionCreators} from 'redux';
-import connect from 'react-redux/es/connect/connect';
 import {DragDropContext, Droppable} from 'react-beautiful-dnd';
 import withReducer from 'app/store/withReducer';
 import * as Actions from '../store/actions';
@@ -13,18 +11,22 @@ import BoardList from './BoardList';
 import BoardAddList from './BoardAddList';
 import BoardCardDialog from './dialogs/card/BoardCardDialog';
 import BoardSettingsSidebar from './sidebars/settings/BoardSettingsSidebar';
+import {useDispatch, useSelector} from 'react-redux';
 
 function Board(props)
 {
+    const dispatch = useDispatch();
+    const board = useSelector(({scrumboardApp}) => scrumboardApp.board, []);
+
     const containerRef = useRef(null);
     const [settingsDrawerOpen, setSettingsDrawerOpen] = useState(false);
 
     useEffect(() => {
-        props.getBoard(props.match.params.boardId);
+        dispatch(Actions.getBoard(props.match.params.boardId));
         return () => {
-            props.resetBoard();
+            dispatch(Actions.resetBoard());
         }
-    }, []);
+    }, [dispatch, props.match.params.boardId]);
 
     function onDragEnd(result)
     {
@@ -48,13 +50,13 @@ function Board(props)
         // reordering list
         if ( result.type === 'list' )
         {
-            props.reorderList(result);
+            dispatch(Actions.reorderList(result));
         }
 
         // reordering card
         if ( result.type === 'card' )
         {
-            props.reorderCard(result);
+            dispatch(Actions.reorderCard(result));
         }
     }
 
@@ -63,7 +65,7 @@ function Board(props)
         setSettingsDrawerOpen((state === undefined) ? !settingsDrawerOpen : state);
     }
 
-    if ( !props.board )
+    if ( !board )
     {
         return null;
     }
@@ -108,7 +110,7 @@ function Board(props)
                     >
                         {(provided) => (
                             <div ref={provided.innerRef} className="flex container p-16 md:p-24">
-                                {props.board.lists.map((list, index) => (
+                                {board.lists.map((list, index) => (
                                     <BoardList
                                         key={list.id}
                                         list={list}
@@ -151,21 +153,4 @@ function Board(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        getBoard   : Actions.getBoard,
-        resetBoard : Actions.resetBoard,
-        reorderList: Actions.reorderList,
-        reorderCard: Actions.reorderCard
-    }, dispatch);
-}
-
-function mapStateToProps({scrumboardApp})
-{
-    return {
-        board: scrumboardApp.board
-    }
-}
-
-export default withReducer('scrumboardApp', reducer)(withRouter(connect(mapStateToProps, mapDispatchToProps)(Board)));
+export default withReducer('scrumboardApp', reducer)(withRouter(Board));

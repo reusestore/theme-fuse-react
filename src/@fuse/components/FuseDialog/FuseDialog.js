@@ -1,34 +1,22 @@
 import React from 'react';
 import {Dialog} from '@material-ui/core';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from 'app/store/actions';
 
 function FuseDialog(props)
 {
+    const dispatch = useDispatch();
+    const state = useSelector(({fuse}) => fuse.dialog.state, []);
+    const options = useSelector(({fuse}) => fuse.dialog.options, []);
+
     return (
         <Dialog
-            open={props.state}
-            onClose={props.closeDialog}
+            open={state}
+            onClose={ev => dispatch(Actions.closeDialog())}
             aria-labelledby="fuse-dialog-title"
-            {...props.options}
+            {...options}
         />
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        closeDialog: Actions.closeDialog
-    }, dispatch);
-}
-
-function mapStateToProps({fuse})
-{
-    return {
-        state  : fuse.dialog.state,
-        options: fuse.dialog.options
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(FuseDialog);
+export default FuseDialog;

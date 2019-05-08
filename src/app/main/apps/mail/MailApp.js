@@ -1,7 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import {FusePageCarded} from '@fuse';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import {useDispatch} from 'react-redux';
 import withReducer from 'app/store/withReducer';
 import MailList from './mails/MailList';
 import MailDetails from './mail/MailDetails';
@@ -15,13 +14,15 @@ import reducer from './store/reducers';
 
 function MailApp(props)
 {
+    const dispatch = useDispatch();
+
     const pageLayout = useRef(null);
 
     useEffect(() => {
-        props.getFilters();
-        props.getFolders();
-        props.getLabels();
-    }, []);
+        dispatch(Actions.getFilters());
+        dispatch(Actions.getFolders());
+        dispatch(Actions.getLabels());
+    }, [dispatch]);
 
     return (
         <FusePageCarded
@@ -59,13 +60,4 @@ function MailApp(props)
     )
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        getFilters: Actions.getFilters,
-        getFolders: Actions.getFolders,
-        getLabels : Actions.getLabels
-    }, dispatch);
-}
-
-export default withReducer('mailApp', reducer)(connect(null, mapDispatchToProps)(MailApp));
+export default withReducer('mailApp', reducer)(MailApp);

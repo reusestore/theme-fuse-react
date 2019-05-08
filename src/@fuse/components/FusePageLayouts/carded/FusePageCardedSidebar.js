@@ -20,12 +20,12 @@ function FusePageCardedSidebar(props, ref)
         <React.Fragment>
             <Hidden lgUp={props.variant === 'permanent'}>
                 <Drawer
-                    className={classNames(classes.sidebarWrapper, props.variant)}
                     variant="temporary"
                     anchor={props.position}
                     open={isOpen}
                     onClose={(ev) => handleToggleDrawer()}
                     classes={{
+                        root : classNames(classes.sidebarWrapper, props.variant),
                         paper: classNames(classes.sidebar, props.variant, props.position === 'left' ? classes.leftSidebar : classes.rightSidebar)
                     }}
                     ModalProps={{
@@ -37,6 +37,7 @@ function FusePageCardedSidebar(props, ref)
                             root: classes.backdrop
                         }
                     }}
+                    style={{position: 'absolute'}}
                     onClick={(ev) => handleToggleDrawer()}
                 >
                     <FusePageCardedSidebarContent {...props}/>

@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {Card, CardContent, Typography, Tabs, Tab} from '@material-ui/core';
 import {darken} from '@material-ui/core/styles/colorManipulator';
 import {FuseAnimate} from '@fuse';
-import {Link, withRouter} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import classNames from 'classnames';
 import JWTLoginTab from './tabs/JWTLoginTab';
 import FirebaseLoginTab from './tabs/FirebaseLoginTab';
@@ -97,4 +97,4 @@ function Login()
     )
 }
 
-export default withRouter(Login);
+export default Login;

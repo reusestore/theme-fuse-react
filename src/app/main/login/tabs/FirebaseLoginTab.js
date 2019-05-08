@@ -2,25 +2,26 @@ import React, {useEffect, useRef, useState} from 'react';
 import {Button, InputAdornment, Icon} from '@material-ui/core';
 import {TextFieldFormsy} from '@fuse';
 import Formsy from 'formsy-react';
-import {bindActionCreators} from 'redux';
-import {withRouter} from 'react-router-dom';
-import connect from 'react-redux/es/connect/connect';
 import * as authActions from 'app/auth/store/actions';
+import {useDispatch, useSelector} from 'react-redux';
 
 function FirebaseLoginTab(props)
 {
+    const dispatch = useDispatch();
+    const login = useSelector(({auth}) => auth.login, []);
+
     const [isFormValid, setIsFormValid] = useState(false);
     const formRef = useRef(null);
 
     useEffect(() => {
-        if ( props.login.error && (props.login.error.username || props.login.error.password) )
+        if ( login.error && (login.error.username || login.error.password) )
         {
             formRef.current.updateInputsWithError({
-                ...props.login.error
+                ...login.error
             });
             disableButton();
         }
-    }, [props.login.error]);
+    }, [login.error]);
 
     function disableButton()
     {
@@ -34,7 +35,7 @@ function FirebaseLoginTab(props)
 
     function handleSubmit(model)
     {
-        props.submitLoginWithFireBase(model);
+        dispatch(authActions.submitLoginWithFireBase(model));
     }
 
     return (
@@ -99,19 +100,4 @@ function FirebaseLoginTab(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        submitLoginWithFireBase: authActions.submitLoginWithFireBase
-    }, dispatch);
-}
-
-function mapStateToProps({auth})
-{
-    return {
-        login: auth.login,
-        user : auth.user
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FirebaseLoginTab));
+export default FirebaseLoginTab;

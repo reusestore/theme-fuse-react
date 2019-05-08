@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {Card, CardContent, Tab, Tabs, Typography} from '@material-ui/core';
 import {darken} from '@material-ui/core/styles/colorManipulator';
 import {FuseAnimate} from '@fuse';
-import {Link, withRouter} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import classNames from 'classnames';
 import FirebaseRegisterTab from './tabs/FirebaseRegisterTab';
 import Auth0RegisterTab from './tabs/Auth0RegisterTab';
@@ -99,4 +99,4 @@ function Register()
     )
 }
 
-export default withRouter(Register);
+export default Register;

@@ -2,8 +2,7 @@ import React from 'react';
 import {Avatar, Typography, Checkbox, ListItem} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 import {withRouter} from 'react-router-dom';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import classNames from 'classnames';
 import _ from '@lodash';
 import * as Actions from '../store/actions/index';
@@ -36,9 +35,13 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const MailListItem = (props) => {
+    const dispatch = useDispatch();
+    const selectedMailIds = useSelector(({mailApp}) => mailApp.mails.selectedMailIds, []);
+    const labels = useSelector(({mailApp}) => mailApp.labels, []);
+
     const classes = useStyles(props);
     const toPath = pathToRegexp.compile(props.match.path);
-    const checked = props.selectedMailIds.length > 0 && props.selectedMailIds.find(id => id === props.mail.id) !== undefined;
+    const checked = selectedMailIds.length > 0 && selectedMailIds.find(id => id === props.mail.id) !== undefined;
 
     return (
         <ListItem
@@ -56,7 +59,7 @@ const MailListItem = (props) => {
                 tabIndex={-1}
                 disableRipple
                 checked={checked}
-                onChange={() => props.toggleInSelectedMails(props.mail.id)}
+                onChange={() => dispatch(Actions.toggleInSelectedMails(props.mail.id))}
                 onClick={(ev) => ev.stopPropagation()}
             />
 
@@ -82,8 +85,8 @@ const MailListItem = (props) => {
                 </div>
 
                 <div className="flex justify-end">
-                    {props.labels && props.mail.labels.map(label => (
-                        <MailChip className="mr-4" title={_.find(props.labels, {id: label}).title} color={_.find(props.labels, {id: label}).color} key={label}/>
+                    {labels && props.mail.labels.map(label => (
+                        <MailChip className="mr-4" title={_.find(labels, {id: label}).title} color={_.find(labels, {id: label}).color} key={label}/>
                     ))}
                 </div>
             </div>
@@ -91,19 +94,4 @@ const MailListItem = (props) => {
     );
 };
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        toggleInSelectedMails: Actions.toggleInSelectedMails
-    }, dispatch);
-}
-
-function mapStateToProps({mailApp})
-{
-    return {
-        selectedMailIds: mailApp.mails.selectedMailIds,
-        labels         : mailApp.labels
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MailListItem));
+export default withRouter(MailListItem);

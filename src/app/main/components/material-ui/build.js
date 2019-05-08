@@ -1,4 +1,3 @@
-"use strict";
 import path from 'path';
 import fs from 'fs';
 import _ from 'lodash';
@@ -17,7 +16,7 @@ const navigationFilePath = path.resolve(rootDirectory, './MaterialUINavigation.j
 const demoRegexp = /^"demo": "(.*)"/;
 const headerRegExp = /---[\r\n]([\s\S]*)[\r\n]---/;
 const titleRegExp = /# (.*)[\r\n]/;
-const headerKeyValueRegExp = /(.*): (.*)/g;
+// const headerKeyValueRegExp = /(.*): (.*)/g;
 const emptyRegExp = /^\s*$/;
 
 marked.Lexer.prototype.lex = function lex(src) {
@@ -40,7 +39,7 @@ marked.setOptions({
     renderer
 });
 
-const BeautifyConfig = {
+/*const BeautifyConfig = {
     "indent_size": 2,
     "e4x"        : true,
     "js"         : {
@@ -64,7 +63,7 @@ const BeautifyConfig = {
         "unescape_strings"         : false,
         "wrap_line_length"         : 120
     }
-};
+};*/
 
 renderer.heading = (text, level) => {
     let className = '';
@@ -122,6 +121,7 @@ const rmDir = function (dirPath) {
     fs.rmdirSync(dirPath);
 };
 
+// eslint-disable-next-line
 String.prototype.allReplace = function (obj) {
     let retStr = this;
     for ( let x in obj )
@@ -255,7 +255,7 @@ function writePage(file)
                 </div>
             }
             content={
-                <div className="p-24 max-w-2xl mx-auto">
+                <div className="p-24 max-w-2xl">
                      ${htmlCode}
                 </div>
             }
@@ -294,13 +294,13 @@ function writePage(file)
 
 function writeRouteFile(pages)
 {
-    const importPath = 'import %s from \'app/main/components/material-ui/pages/%s\';';
-    const imports = pages.map(page => {
-        const componentName = _.upperFirst(_.camelCase(page));
-        return importPath.replace(/%s/g, componentName, componentName);
-    });
+    // const importPath = 'import %s from \'app/main/components/material-ui/pages/%s\';';
+    // const imports = pages.map(page => {
+    //     const componentName = _.upperFirst(_.camelCase(page));
+    //     return importPath.replace(/%s/g, componentName, componentName);
+    // });
 
-    const routeObject = "{ path     : '/components/material-ui/%s', component: React.lazy(() => import('app/main/components/material-ui/pages/%p'))" + "}";
+    const routeObject = "{ path     : '/components/material-ui/%s', component: React.lazy(() => import('app/main/components/material-ui/pages/%p'))}";
     const routes = pages.map(page => {
         const componentName = _.upperFirst(_.camelCase(page));
         return routeObject.allReplace({
@@ -338,7 +338,7 @@ function writeNavigationFile(pages)
 }
 
 
-function walkSync(dir, filelist = [])
+/*function walkSync(dir, filelist = [])
 {
     return new Promise(function (resolve, reject) {
         fs.readdirSync(dir).forEach(file => {
@@ -357,7 +357,7 @@ function walkSync(dir, filelist = [])
             filelist
         });
     });
-}
+}*/
 
 function filewalker(dir, done)
 {

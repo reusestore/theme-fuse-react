@@ -1,8 +1,7 @@
 import React from 'react';
 import {Snackbar, IconButton, Icon, SnackbarContent} from '@material-ui/core';
 import {green, amber, blue} from '@material-ui/core/colors';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import classNames from 'classnames';
 import * as Actions from 'app/store/actions';
 import {makeStyles} from '@material-ui/styles';
@@ -36,13 +35,17 @@ const variantIcon = {
 
 function FuseMessage(props)
 {
+    const dispatch = useDispatch();
+    const state = useSelector(({fuse}) => fuse.message.state, []);
+    const options = useSelector(({fuse}) => fuse.message.options, []);
+
     const classes = useStyles();
 
     return (
         <Snackbar
-            {...props.options}
-            open={props.state}
-            onClose={props.hideMessage}
+            {...options}
+            open={state}
+            onClose={() => dispatch(Actions.hideMessage())}
             classes={{
                 root: classes.root
             }}
@@ -55,13 +58,13 @@ function FuseMessage(props)
             }}
         >
             <SnackbarContent
-                className={classNames(classes[props.options.variant])}
+                className={classNames(classes[options.variant])}
                 message={
                     <div className="flex items-center">
-                        {variantIcon[props.options.variant] && (
-                            <Icon className="mr-8" color="inherit">{variantIcon[props.options.variant]}</Icon>
+                        {variantIcon[options.variant] && (
+                            <Icon className="mr-8" color="inherit">{variantIcon[options.variant]}</Icon>
                         )}
-                        {props.options.message}
+                        {options.message}
                     </div>
                 }
                 action={[
@@ -79,19 +82,4 @@ function FuseMessage(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        hideMessage: Actions.hideMessage
-    }, dispatch);
-}
-
-function mapStateToProps({fuse})
-{
-    return {
-        state  : fuse.message.state,
-        options: fuse.message.options
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(React.memo(FuseMessage));
+export default React.memo(FuseMessage);

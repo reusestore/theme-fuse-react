@@ -30,7 +30,8 @@ function CardAddChecklistItem(props)
     return (
         <form onSubmit={handleSubmit}>
             <ListItem
-                className="pr-0 pl-56"
+                className="pr-0"
+                style={{paddingLeft: 50}}
                 dense
             >
                 <TextField

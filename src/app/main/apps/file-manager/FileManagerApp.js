@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {Fab, Icon, IconButton} from '@material-ui/core';
 import {FuseAnimate, FusePageSimple} from '@fuse';
-import {useActions, useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import withReducer from 'app/store/withReducer';
 import * as Actions from './store/actions';
 import reducer from './store/reducers';
@@ -14,15 +14,15 @@ import Breadcrumb from './Breadcrumb';
 
 function FileManagerApp()
 {
+    const dispatch = useDispatch();
     const files = useSelector(({fileManagerApp}) => fileManagerApp.files, []);
     const selectedItem = useSelector(({fileManagerApp}) => files[fileManagerApp.selectedItemId], [files]);
-    const getFiles = useActions(Actions.getFiles, []);
 
     const pageLayout = useRef(null);
 
     useEffect(() => {
-        getFiles();
-    }, []);
+        dispatch(Actions.getFiles());
+    }, [dispatch]);
 
     return (
         <FusePageSimple

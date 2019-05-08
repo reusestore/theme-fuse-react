@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
 import {ClickAwayListener, Paper, Typography} from '@material-ui/core';
 import classNames from 'classnames';
-import {bindActionCreators} from 'redux';
 import * as Actions from 'app/main/apps/notes/store/actions';
-import {connect} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import NoteForm from './note-form/NoteForm';
 import {makeStyles} from '@material-ui/styles';
 
@@ -15,6 +14,8 @@ const useStyles = makeStyles({
 
 function NewNote(props)
 {
+    const dispatch = useDispatch();
+
     const classes = useStyles(props);
     const [formOpen, setFormOpen] = useState(false);
 
@@ -36,7 +37,7 @@ function NewNote(props)
 
     function handleCreate(note)
     {
-        props.createNote(note);
+        dispatch(Actions.createNote(note));
         handleFormClose();
     }
 
@@ -81,11 +82,4 @@ function NewNote(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        createNote: Actions.createNote
-    }, dispatch);
-}
-
-export default connect(null, mapDispatchToProps)(NewNote);
+export default NewNote;

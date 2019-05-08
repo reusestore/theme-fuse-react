@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {TextField, Button, Dialog, DialogActions, DialogContent, Icon, IconButton, Typography, Toolbar, AppBar, FormControlLabel, Switch} from '@material-ui/core';
 import FuseUtils from '@fuse/FuseUtils';
 import {useForm} from '@fuse/hooks';
-import {useActions, useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import _ from '@lodash';
 import moment from 'moment';
 import * as Actions from './store/actions';
@@ -18,18 +18,8 @@ const defaultFormState = {
 
 function EventDialog(props)
 {
+    const dispatch = useDispatch();
     const eventDialog = useSelector(({calendarApp}) => calendarApp.events.eventDialog, []);
-    const [
-        closeEditEventDialog,
-        closeNewEventDialog,
-        addEvent,
-        updateEvent
-    ] = useActions([
-        Actions.closeEditEventDialog,
-        Actions.closeNewEventDialog,
-        Actions.addEvent,
-        Actions.updateEvent,
-    ], []);
 
     const {form, handleChange, setForm} = useForm(defaultFormState);
     let start = moment(form.start).format(moment.HTML5_FMT.DATETIME_LOCAL_SECONDS);
@@ -65,11 +55,12 @@ function EventDialog(props)
                 });
             }
         }
+        // eslint-disable-next-line
     }, [eventDialog.props.open]);
 
     function closeComposeDialog()
     {
-        eventDialog.type === 'edit' ? closeEditEventDialog() : closeNewEventDialog();
+        eventDialog.type === 'edit' ? dispatch(Actions.closeEditEventDialog()) : dispatch(Actions.closeNewEventDialog());
     }
 
     function canBeSubmitted()
@@ -85,11 +76,11 @@ function EventDialog(props)
 
         if ( eventDialog.type === 'new' )
         {
-            addEvent(form);
+            dispatch(Actions.addEvent(form));
         }
         else
         {
-            updateEvent(form);
+            dispatch(Actions.updateEvent(form));
         }
         closeComposeDialog();
     }

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {Drawer, AppBar, Toolbar, Typography, IconButton, Hidden, Avatar, Icon, Paper, Button} from '@material-ui/core';
 import {fade} from '@material-ui/core/styles/colorManipulator';
-import {useActions, useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import classNames from 'classnames';
 import withReducer from 'app/store/withReducer';
 import * as Actions from "./store/actions";
@@ -92,37 +92,21 @@ const useStyles = makeStyles(theme => ({
 
 function ChatApp(props)
 {
+    const dispatch = useDispatch();
     const chat = useSelector(({chatApp}) => chatApp.chat, []);
     const contacts = useSelector(({chatApp}) => chatApp.contacts.entities, []);
     const selectedContactId = useSelector(({chatApp}) => chatApp.contacts.selectedContactId, []);
     const mobileChatsSidebarOpen = useSelector(({chatApp}) => chatApp.sidebars.mobileChatsSidebarOpen, []);
     const userSidebarOpen = useSelector(({chatApp}) => chatApp.sidebars.userSidebarOpen, []);
     const contactSidebarOpen = useSelector(({chatApp}) => chatApp.sidebars.contactSidebarOpen, []);
-    const [
-        getUserData,
-        getContacts,
-        openMobileChatsSidebar,
-        closeMobileChatsSidebar,
-        closeUserSidebar,
-        openContactSidebar,
-        closeContactSidebar,
-    ] = useActions([
-        Actions.getUserData,
-        Actions.getContacts,
-        Actions.openMobileChatsSidebar,
-        Actions.closeMobileChatsSidebar,
-        Actions.closeUserSidebar,
-        Actions.openContactSidebar,
-        Actions.closeContactSidebar
-    ], []);
 
     const classes = useStyles(props);
     const selectedContact = contacts.find(_contact => (_contact.id === selectedContactId));
 
     useEffect(() => {
-        getUserData();
-        getContacts();
-    }, []);
+        dispatch(Actions.getUserData());
+        dispatch(Actions.getContacts());
+    }, [dispatch]);
 
     return (
         <div className={classNames(classes.root)}>
@@ -139,10 +123,11 @@ function ChatApp(props)
                             variant="temporary"
                             anchor="left"
                             open={mobileChatsSidebarOpen}
-                            onClose={closeMobileChatsSidebar}
+                            onClose={() => dispatch(Actions.closeMobileChatsSidebar())}
                             classes={{
                                 paper: classNames(classes.drawerPaper, "absolute pin-l")
                             }}
+                            style={{position: 'absolute'}}
                             ModalProps={{
                                 keepMounted  : true,
                                 disablePortal: true,
@@ -173,10 +158,11 @@ function ChatApp(props)
                         variant="temporary"
                         anchor="left"
                         open={userSidebarOpen}
-                        onClose={closeUserSidebar}
+                        onClose={() => dispatch(Actions.closeUserSidebar())}
                         classes={{
                             paper: classNames(classes.drawerPaper, "absolute pin-l")
                         }}
+                        style={{position: 'absolute'}}
                         ModalProps={{
                             keepMounted  : true,
                             disablePortal: true,
@@ -201,7 +187,7 @@ function ChatApp(props)
                                     <Typography className="hidden md:flex px-16 pb-24 mt-24 text-center" color="textSecondary">
                                         Select a contact to start a conversation!..
                                     </Typography>
-                                    <Button variant="outlined" color="primary" className="flex md:hidden normal-case" onClick={openMobileChatsSidebar}>
+                                    <Button variant="outlined" color="primary" className="flex md:hidden normal-case" onClick={() => dispatch(Actions.openMobileChatsSidebar())}>
                                         Select a contact to start a conversation!..
                                     </Button>
                                 </div>
@@ -212,12 +198,12 @@ function ChatApp(props)
                                             <IconButton
                                                 color="inherit"
                                                 aria-label="Open drawer"
-                                                onClick={openMobileChatsSidebar}
+                                                onClick={() => dispatch(Actions.openMobileChatsSidebar())}
                                                 className="flex md:hidden"
                                             >
                                                 <Icon>chat</Icon>
                                             </IconButton>
-                                            <div className="flex items-center cursor-pointer" onClick={openContactSidebar}>
+                                            <div className="flex items-center cursor-pointer" onClick={() => dispatch(Actions.openContactSidebar())}>
                                                 <div className="relative ml-8 mr-12">
                                                     <div className="absolute pin-r pin-b -m-4 z-10">
                                                         <StatusIcon status={selectedContact.status}/>
@@ -245,10 +231,11 @@ function ChatApp(props)
                         variant="temporary"
                         anchor="right"
                         open={contactSidebarOpen}
-                        onClose={closeContactSidebar}
+                        onClose={() => dispatch(Actions.closeContactSidebar())}
                         classes={{
                             paper: classNames(classes.drawerPaper, "absolute pin-r")
                         }}
+                        style={{position: 'absolute'}}
                         ModalProps={{
                             keepMounted  : true,
                             disablePortal: true,

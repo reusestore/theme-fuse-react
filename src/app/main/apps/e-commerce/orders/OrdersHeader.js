@@ -3,11 +3,14 @@ import {Paper, Input, Icon, Typography} from '@material-ui/core';
 import {ThemeProvider} from '@material-ui/styles';
 import {FuseAnimate} from '@fuse';
 import * as Actions from '../store/actions';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 function OrdersHeader(props)
 {
+    const dispatch = useDispatch();
+    const searchText = useSelector(({eCommerceApp}) => eCommerceApp.orders.searchText, []);
+    const mainTheme = useSelector(({fuse}) => fuse.settings.mainTheme, []);
+
     return (
         <div className="flex flex-1 w-full items-center justify-between">
 
@@ -24,7 +27,7 @@ function OrdersHeader(props)
 
             <div className="flex flex-1 items-center justify-center pr-0 pl-12 sm:px-12">
 
-                <ThemeProvider theme={props.mainTheme}>
+                <ThemeProvider theme={mainTheme}>
                     <FuseAnimate animation="transition.slideDownIn" delay={300}>
                         <Paper className="flex items-center w-full max-w-512 px-8 py-4 rounded-8" elevation={1}>
 
@@ -35,11 +38,11 @@ function OrdersHeader(props)
                                 className="flex flex-1"
                                 disableUnderline
                                 fullWidth
-                                value={props.searchText}
+                                value={searchText}
                                 inputProps={{
                                     'aria-label': 'Search'
                                 }}
-                                onChange={props.setSearchText}
+                                onChange={ev => dispatch(Actions.setOrdersSearchText(ev))}
                             />
                         </Paper>
                     </FuseAnimate>
@@ -49,19 +52,4 @@ function OrdersHeader(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        setSearchText: Actions.setOrdersSearchText
-    }, dispatch);
-}
-
-function mapStateToProps({eCommerceApp, fuse})
-{
-    return {
-        searchText: eCommerceApp.orders.searchText,
-        mainTheme : fuse.settings.mainTheme
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(OrdersHeader);
+export default OrdersHeader;

@@ -1,14 +1,14 @@
 import React from 'react';
 import {IconButton, TextField, AppBar, Icon, Toolbar, Typography, Avatar} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
-import {useActions, useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from './store/actions';
 
 function ContactSidebar(props)
 {
+    const dispatch = useDispatch();
     const contacts = useSelector(({chatApp}) => chatApp.contacts.entities, []);
     const selectedContactId = useSelector(({chatApp}) => chatApp.contacts.selectedContactId, []);
-    const closeContactSidebar = useActions(Actions.closeContactSidebar, []);
 
     const contact = contacts.find(_contact => (_contact.id === selectedContactId));
     if ( !contact )
@@ -22,7 +22,7 @@ function ContactSidebar(props)
 
                 <Toolbar className="flex justify-between items-center px-16 pr-4">
                     <Typography color="inherit" variant="subtitle1">Contact Info</Typography>
-                    <IconButton onClick={closeContactSidebar} color="inherit">
+                    <IconButton onClick={() => dispatch(Actions.closeContactSidebar())} color="inherit">
                         <Icon>close</Icon>
                     </IconButton>
                 </Toolbar>

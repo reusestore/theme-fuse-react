@@ -1,16 +1,41 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {List, Typography} from '@material-ui/core';
 import {FuseUtils, FuseAnimate, FuseAnimateGroup} from '@fuse';
-import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom';
+import {useSelector} from 'react-redux';
 import _ from '@lodash';
 import TodoListItem from './TodoListItem';
 
 function TodoList(props)
 {
-    const arr = _.orderBy(getFilteredArray(props.todos, props.searchText), [props.orderBy], [props.orderDescending ? 'desc' : 'asc']);
+    const todos = useSelector(({todoApp}) => todoApp.todos.entities, []);
+    const searchText = useSelector(({todoApp}) => todoApp.todos.searchText, []);
+    const orderBy = useSelector(({todoApp}) => todoApp.todos.orderBy, []);
+    const orderDescending = useSelector(({todoApp}) => todoApp.todos.orderDescending, []);
+    const [filteredData, setFilteredData] = useState(null);
 
-    if ( arr.length === 0 )
+    useEffect(() => {
+        function getFilteredArray(entities, searchText)
+        {
+            const arr = Object.keys(entities).map((id) => entities[id]);
+            if ( searchText.length === 0 )
+            {
+                return arr;
+            }
+            return FuseUtils.filterArrayByString(arr, searchText);
+        }
+
+        if ( todos )
+        {
+            setFilteredData(_.orderBy(getFilteredArray(todos, searchText), [orderBy], [orderDescending ? 'desc' : 'asc']));
+        }
+    }, [todos, searchText, orderBy, orderDescending]);
+
+    if ( !filteredData )
+    {
+        return null;
+    }
+
+    if ( filteredData.length === 0 )
     {
         return (
             <FuseAnimate delay={100}>
@@ -23,16 +48,6 @@ function TodoList(props)
         );
     }
 
-    function getFilteredArray(entities, searchText)
-    {
-        const arr = Object.keys(entities).map((id) => entities[id]);
-        if ( searchText.length === 0 )
-        {
-            return arr;
-        }
-        return FuseUtils.filterArrayByString(arr, searchText);
-    }
-
     return (
         <List className="p-0">
             <FuseAnimateGroup
@@ -41,7 +56,7 @@ function TodoList(props)
                 }}
             >
                 {
-                    arr.map((todo) => (
+                    filteredData.map((todo) => (
                             <TodoListItem todo={todo} key={todo.id}/>
                         )
                     )
@@ -51,14 +66,4 @@ function TodoList(props)
     );
 }
 
-function mapStateToProps({todoApp})
-{
-    return {
-        todos          : todoApp.todos.entities,
-        searchText     : todoApp.todos.searchText,
-        orderBy        : todoApp.todos.orderBy,
-        orderDescending: todoApp.todos.orderDescending
-    }
-}
-
-export default withRouter(connect(mapStateToProps)(TodoList));
+export default TodoList;

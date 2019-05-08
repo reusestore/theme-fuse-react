@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Avatar, Divider, Icon, IconButton, Typography} from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import _ from '@lodash';
 import * as Actions from '../store/actions/index';
@@ -10,13 +9,17 @@ import MailChip from '../MailChip';
 
 function MailDetails(props)
 {
+    const dispatch = useDispatch();
+    const mail = useSelector(({mailApp}) => mailApp.mail, []);
+    const labels = useSelector(({mailApp}) => mailApp.labels, []);
+
     const [showDetails, setShowDetails] = useState(false);
 
     useEffect(() => {
-        props.getMail(props.match.params);
-    }, []);
+        dispatch(Actions.getMail(props.match.params));
+    }, [dispatch, props.match.params]);
 
-    if ( !props.mail )
+    if ( !mail )
     {
         return null;
     }
@@ -27,13 +30,13 @@ function MailDetails(props)
 
                 <div className="flex flex-col">
                     <FuseAnimate delay={100}>
-                        <Typography variant="subtitle1" className="flex">{props.mail.subject}</Typography>
+                        <Typography variant="subtitle1" className="flex">{mail.subject}</Typography>
                     </FuseAnimate>
 
-                    {props.labels && props.mail.labels.length > 0 && (
+                    {labels && mail.labels.length > 0 && (
                         <div className="flex flex-wrap mt-8">
-                            {props.mail.labels.map(label => (
-                                <MailChip className="mt-4 mr-4" title={_.find(props.labels, {id: label}).title} color={_.find(props.labels, {id: label}).color} key={label}/>
+                            {mail.labels.map(label => (
+                                <MailChip className="mt-4 mr-4" title={_.find(labels, {id: label}).title} color={_.find(labels, {id: label}).color} key={label}/>
                             ))}
                         </div>
                     )}
@@ -49,23 +52,23 @@ function MailDetails(props)
                     <div className="flex items-start justify-between">
 
                         <div className="flex items-center justify-start">
-                            {props.mail.from.avatar ?
+                            {mail.from.avatar ?
                                 (
-                                    <Avatar className="mr-8" alt={props.mail.from.name} src={props.mail.from.avatar}/>
+                                    <Avatar className="mr-8" alt={mail.from.name} src={mail.from.avatar}/>
                                 )
                                 :
                                 (
                                     <Avatar className="mr-8">
-                                        {props.mail.from.name[0]}
+                                        {mail.from.name[0]}
                                     </Avatar>
                                 )
                             }
 
                             <div className="flex flex-col">
-                                <span>{props.mail.from.name}</span>
+                                <span>{mail.from.name}</span>
                                 <Typography component="div" color="textSecondary" variant="body1" className="flex items-center justify-start">
                                     <div>to</div>
-                                    <div className="ml-4">{props.mail.to[0].name}</div>
+                                    <div className="ml-4">{mail.to[0].name}</div>
                                 </Typography>
                             </div>
                         </div>
@@ -102,27 +105,27 @@ function MailDetails(props)
                                 </Typography>
 
                                 <Typography variant="body2" color="textSecondary" className="pl-4 flex flex-col">
-                                    <span>{props.mail.from.email}</span>
-                                    <span>{props.mail.to[0].email}</span>
-                                    <span>{props.mail.time}</span>
+                                    <span>{mail.from.email}</span>
+                                    <span>{mail.to[0].email}</span>
+                                    <span>{mail.time}</span>
                                 </Typography>
                             </div>
                         )}
                     </div>
 
-                    <Typography variant="body2" dangerouslySetInnerHTML={{__html: props.mail.message}}/>
+                    <Typography variant="body2" dangerouslySetInnerHTML={{__html: mail.message}}/>
 
                     <Divider className="my-16"/>
 
-                    {props.mail.attachments && (
+                    {mail.attachments && (
                         <div>
                             <Typography variant="subtitle1" className="mb-16">
                                 <span>Attachments</span>
-                                <span className="ml-4">({props.mail.attachments.length})</span>
+                                <span className="ml-4">({mail.attachments.length})</span>
                             </Typography>
 
                             <div className="flex flex-wrap">
-                                {props.mail.attachments.map(attachment => (
+                                {mail.attachments.map(attachment => (
                                     <div className="w-192 pr-16 pb-16" key={attachment.fileName}>
                                         <img className="w-full rounded-4" src={attachment.preview} alt={attachment.fileName}/>
                                         <div className="flex flex-col">
@@ -141,19 +144,4 @@ function MailDetails(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        getMail: Actions.getMail
-    }, dispatch);
-}
-
-function mapStateToProps({mailApp})
-{
-    return {
-        mail  : mailApp.mail,
-        labels: mailApp.labels
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MailDetails));
+export default withRouter(MailDetails);

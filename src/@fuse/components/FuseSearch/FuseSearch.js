@@ -1,7 +1,7 @@
 import React, {useEffect, useReducer, useRef} from 'react';
 import {Popper, ClickAwayListener, MenuItem, Icon, IconButton, ListItemIcon, ListItemText, Paper, TextField, Tooltip, Typography} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
-import {connect} from 'react-redux';
+import {useSelector} from 'react-redux';
 import {FuseUtils} from '@fuse';
 import classNames from 'classnames';
 import match from 'autosuggest-highlight/match';
@@ -232,22 +232,30 @@ function reducer(state, action)
 
 function FuseSearch(props)
 {
+    const userRole = useSelector(({auth}) => auth.user.role, []);
+    const navigation = useSelector(({fuse}) => fuse.navigation, []);
+
     const [state, dispatch] = useReducer(reducer, initialState);
     const classes = useStyles(props);
     const suggestionsNode = useRef(null);
     const popperNode = useRef(null);
 
     useEffect(() => {
+        function itemAuthAllowed(item)
+        {
+            return FuseUtils.hasPermission(item.auth, userRole)
+        }
+
         function setNavigation()
         {
             dispatch({
                 type : "setNavigation",
-                value: FuseUtils.getFlatNavigation(props.navigation).filter(item => itemAuthAllowed(item))
+                value: FuseUtils.getFlatNavigation(navigation).filter(item => itemAuthAllowed(item))
             });
         }
 
         setNavigation();
-    }, [props.userRole, props.navigation]);
+    }, [userRole, navigation]);
 
     function showSearch()
     {
@@ -267,11 +275,6 @@ function FuseSearch(props)
         {
             hideSearch();
         }
-    }
-
-    function itemAuthAllowed(item)
-    {
-        return FuseUtils.hasPermission(item.auth, props.userRole)
     }
 
     function handleSuggestionsFetchRequested({value})
@@ -458,18 +461,10 @@ function FuseSearch(props)
     }
 }
 
-function mapStateToProps({fuse, auth})
-{
-    return {
-        navigation: fuse.navigation,
-        userRole  : auth.user.role
-    }
-}
-
 FuseSearch.propTypes = {};
 FuseSearch.defaultProps = {
     trigger: (<IconButton className="w-64 h-64"><Icon>search</Icon></IconButton>),
     variant: 'full'// basic, full
 };
 
-export default withRouter(connect(mapStateToProps)(React.memo(FuseSearch)));
+export default withRouter(React.memo(FuseSearch));

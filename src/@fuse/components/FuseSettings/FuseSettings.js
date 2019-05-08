@@ -3,8 +3,7 @@ import {Typography, FormControl, FormControlLabel, FormLabel, MenuItem, Radio, R
 import {makeStyles} from '@material-ui/styles';
 import * as Actions from 'app/store/actions';
 import * as AuthActions from 'app/auth/store/actions';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {FuseLayoutConfigs} from '@fuse';
 import classNames from 'classnames';
 import _ from '@lodash';
@@ -41,29 +40,34 @@ const useStyles = makeStyles(theme => ({
 
 function FuseSettings(props)
 {
+    const dispatch = useDispatch();
+    const user = useSelector(({auth}) => auth.user, []);
+    const themes = useSelector(({fuse}) => fuse.settings.themes, []);
+    const settings = useSelector(({fuse}) => fuse.settings.current, []);
+
     const classes = useStyles(props);
 
     function handleChange(event)
     {
 
-        const newSettings = _.set(_.merge({}, props.settings), event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
+        const newSettings = _.set(_.merge({}, settings), event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
 
         /**
          * If layout style changes,
          * Reset Layout Configuration
          */
-        if ( event.target.name === 'layout.style' && event.target.value !== props.settings.layout.style )
+        if ( event.target.name === 'layout.style' && event.target.value !== settings.layout.style )
         {
             newSettings.layout.config = {};
         }
 
-        if ( props.user.role === 'guest' )
+        if ( user.role === 'guest' )
         {
-            props.setDefaultSettings(newSettings);
+            dispatch(Actions.setDefaultSettings(newSettings));
         }
         else
         {
-            props.updateUserSettings(newSettings);
+            dispatch(AuthActions.updateUserSettings(newSettings));
         }
     }
 
@@ -76,7 +80,7 @@ function FuseSettings(props)
                 onChange={handleChange}
                 name={name}
             >
-                {Object.entries(props.themes).map(([key, val]) => (
+                {Object.entries(themes).map(([key, val]) => (
                     <MenuItem
                         key={key} value={key}
                         className="m-8 mt-0 rounded-lg"
@@ -114,7 +118,7 @@ function FuseSettings(props)
                     aria-label="Layout Style"
                     name="layout.style"
                     className={classes.group}
-                    value={props.settings.layout.style}
+                    value={settings.layout.style}
                     onChange={handleChange}
                 >
                     {Object.entries(FuseLayoutConfigs).map(([key, layout]) => (
@@ -140,7 +144,7 @@ function FuseSettings(props)
                                 aria-label={formControl.title}
                                 name={`layout.config.${target}`}
                                 className={classes.group}
-                                value={_.get(props.settings.layout.config, target)}
+                                value={_.get(settings.layout.config, target)}
                                 onChange={handleChange}
                                 row={formControl.options.length < 4}
                             >
@@ -162,7 +166,7 @@ function FuseSettings(props)
                                 control={
                                     <Switch
                                         name={`layout.config.${target}`}
-                                        checked={_.get(props.settings.layout.config, target)}
+                                        checked={_.get(settings.layout.config, target)}
                                         onChange={handleChange}
                                         aria-label={formControl.title}
                                     />
@@ -197,7 +201,7 @@ function FuseSettings(props)
 
     function LayoutConfig()
     {
-        const form = FuseLayoutConfigs[props.settings.layout.style].form;
+        const form = FuseLayoutConfigs[settings.layout.style].form;
         return getForm(form);
     }
 
@@ -228,26 +232,26 @@ function FuseSettings(props)
 
                 <FormControl component="fieldset" className={classes.formControl}>
                     <FormLabel component="legend" className="text-14">Main</FormLabel>
-                    <ThemeSelect value={props.settings.theme.main} name="theme.main" handleChange={handleChange}/>
+                    <ThemeSelect value={settings.theme.main} name="theme.main" handleChange={handleChange}/>
                 </FormControl>
                 <FormControl component="fieldset" className={classes.formControl}>
                     <FormLabel component="legend" className="text-14">Navbar</FormLabel>
-                    <ThemeSelect value={props.settings.theme.navbar} name="theme.navbar" handleChange={handleChange}/>
+                    <ThemeSelect value={settings.theme.navbar} name="theme.navbar" handleChange={handleChange}/>
                 </FormControl>
                 <FormControl component="fieldset" className={classes.formControl}>
                     <FormLabel component="legend" className="text-14">Toolbar</FormLabel>
-                    <ThemeSelect value={props.settings.theme.toolbar} name="theme.toolbar" handleChange={handleChange}/>
+                    <ThemeSelect value={settings.theme.toolbar} name="theme.toolbar" handleChange={handleChange}/>
                 </FormControl>
                 <FormControl component="fieldset" className={classes.formControl}>
                     <FormLabel component="legend" className="text-14">Footer</FormLabel>
-                    <ThemeSelect value={props.settings.theme.footer} name="theme.footer" handleChange={handleChange}/>
+                    <ThemeSelect value={settings.theme.footer} name="theme.footer" handleChange={handleChange}/>
                 </FormControl>
             </div>
 
             <FormControl component="fieldset" className={classes.formControl}>
                 <FormLabel component="legend" className="text-14">Custom Scrollbars</FormLabel>
                 <Switch
-                    checked={props.settings.customScrollbars}
+                    checked={settings.customScrollbars}
                     onChange={handleChange}
                     aria-label="Custom Scrollbars"
                     name="customScrollbars"
@@ -257,21 +261,4 @@ function FuseSettings(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        setDefaultSettings: Actions.setDefaultSettings,
-        updateUserSettings: AuthActions.updateUserSettings
-    }, dispatch);
-}
-
-function mapStateToProps({fuse, auth})
-{
-    return {
-        settings: fuse.settings.current,
-        themes  : fuse.settings.themes,
-        user    : auth.user
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(React.memo(FuseSettings));
+export default React.memo(FuseSettings);

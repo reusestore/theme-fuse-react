@@ -1,8 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import {FusePageSimple} from '@fuse';
-import {bindActionCreators} from 'redux';
-import {withRouter} from 'react-router-dom';
-import {connect} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import withReducer from 'app/store/withReducer';
 import * as Actions from './store/actions';
 import reducer from './store/reducers';
@@ -15,12 +13,14 @@ import NewNote from './NewNote';
 
 function NotesApp(props)
 {
+    const dispatch = useDispatch();
+
     const pageLayout = useRef(null);
 
     useEffect(() => {
-        props.getNotes();
-        props.getLabels();
-    }, []);
+        dispatch(Actions.getNotes());
+        dispatch(Actions.getLabels());
+    }, [dispatch]);
 
     return (
         <React.Fragment>
@@ -53,12 +53,4 @@ function NotesApp(props)
     )
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        getNotes : Actions.getNotes,
-        getLabels: Actions.getLabels
-    }, dispatch);
-}
-
-export default withReducer('notesApp', reducer)(withRouter(connect(null, mapDispatchToProps)(NotesApp)));
+export default withReducer('notesApp', reducer)(NotesApp);

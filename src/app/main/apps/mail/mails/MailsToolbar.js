@@ -1,12 +1,16 @@
 import React, {useState} from 'react';
 import {Checkbox, Icon, IconButton, Menu, MenuItem} from '@material-ui/core';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from '../store/actions/index';
 
 function MailToolbar(props)
 {
+    const dispatch = useDispatch();
+    const selectedMailIds = useSelector(({mailApp}) => mailApp.mails.selectedMailIds, []);
+    const mails = useSelector(({mailApp}) => mailApp.mails.entities, []);
+    const labels = useSelector(({mailApp}) => mailApp.labels, []);
+    const folders = useSelector(({mailApp}) => mailApp.folders, []);
+
     const [menu, setMenu] = useState({
         selectMenu : null,
         foldersMenu: null,
@@ -31,7 +35,7 @@ function MailToolbar(props)
 
     function handleCheckChange(event)
     {
-        event.target.checked ? props.selectAllMails() : props.deselectAllMails();
+        event.target.checked ? dispatch(Actions.selectAllMails()) : dispatch(Actions.deselectAllMails());
     }
 
     return (
@@ -39,8 +43,8 @@ function MailToolbar(props)
 
             <Checkbox
                 onChange={handleCheckChange}
-                checked={props.selectedMailIds.length === Object.keys(props.mails).length && props.selectedMailIds.length > 0}
-                indeterminate={props.selectedMailIds.length !== Object.keys(props.mails).length && props.selectedMailIds.length > 0}
+                checked={selectedMailIds.length === Object.keys(mails).length && selectedMailIds.length > 0}
+                indeterminate={selectedMailIds.length !== Object.keys(mails).length && selectedMailIds.length > 0}
             />
 
             <IconButton
@@ -61,7 +65,7 @@ function MailToolbar(props)
             >
                 <MenuItem
                     onClick={(ev) => {
-                        props.selectAllMails();
+                        dispatch(Actions.selectAllMails());
                         handleMenuClose(ev, 'select');
                     }}
                 >
@@ -69,7 +73,7 @@ function MailToolbar(props)
                 </MenuItem>
                 <MenuItem
                     onClick={(ev) => {
-                        props.deselectAllMails();
+                        dispatch(Actions.deselectAllMails());
                         handleMenuClose(ev, 'select')
                     }}
                 >
@@ -77,7 +81,7 @@ function MailToolbar(props)
                 </MenuItem>
                 <MenuItem
                     onClick={(ev) => {
-                        props.selectMailsByParameter('read', true);
+                        dispatch(Actions.selectMailsByParameter('read', true));
                         handleMenuClose(ev, 'select');
                     }}
                 >
@@ -85,7 +89,7 @@ function MailToolbar(props)
                 </MenuItem>
                 <MenuItem
                     onClick={(ev) => {
-                        props.selectMailsByParameter('read', false);
+                        dispatch(Actions.selectMailsByParameter('read', false));
                         handleMenuClose(ev, 'select');
                     }}
                 >
@@ -93,7 +97,7 @@ function MailToolbar(props)
                 </MenuItem>
                 <MenuItem
                     onClick={(ev) => {
-                        props.selectMailsByParameter('starred', true);
+                        dispatch(Actions.selectMailsByParameter('starred', true));
                         handleMenuClose(ev, 'select');
                     }}
                 >
@@ -101,7 +105,7 @@ function MailToolbar(props)
                 </MenuItem>
                 <MenuItem
                     onClick={(ev) => {
-                        props.selectMailsByParameter('starred', false);
+                        dispatch(Actions.selectMailsByParameter('starred', false));
                         handleMenuClose(ev, 'select');
                     }}
                 >
@@ -109,7 +113,7 @@ function MailToolbar(props)
                 </MenuItem>
                 <MenuItem
                     onClick={(ev) => {
-                        props.selectMailsByParameter('important', true);
+                        dispatch(Actions.selectMailsByParameter('important', true));
                         handleMenuClose(ev, 'select');
                     }}
                 >
@@ -117,7 +121,7 @@ function MailToolbar(props)
                 </MenuItem>
                 <MenuItem
                     onClick={(ev) => {
-                        props.selectMailsByParameter('important', false);
+                        dispatch(Actions.selectMailsByParameter('important', false));
                         handleMenuClose(ev, 'select');
                     }}
                 >
@@ -125,13 +129,13 @@ function MailToolbar(props)
                 </MenuItem>
             </Menu>
 
-            {props.selectedMailIds.length > 0 && (
+            {selectedMailIds.length > 0 && (
                 <React.Fragment>
 
                     <div className="border-r-1 h-48 w-1 mx-12 my-0"/>
 
                     <IconButton
-                        onClick={(ev) => props.setFolderOnSelectedMails(4)}
+                        onClick={(ev) => dispatch(Actions.setFolderOnSelectedMails(4))}
                         aria-label="Delete"
                     >
                         <Icon>delete</Icon>
@@ -152,10 +156,10 @@ function MailToolbar(props)
                         open={Boolean(menu.folders)}
                         onClose={(ev) => handleMenuClose(ev, 'folders')}
                     >
-                        {props.folders.length > 0 && props.folders.map((folder) => (
+                        {folders.length > 0 && folders.map((folder) => (
                             <MenuItem
                                 onClick={(ev) => {
-                                    props.setFolderOnSelectedMails(folder.id);
+                                    dispatch(Actions.setFolderOnSelectedMails(folder.id));
                                     handleMenuClose(ev, 'folders')
                                 }}
                                 key={folder.id}
@@ -180,10 +184,10 @@ function MailToolbar(props)
                         open={Boolean(menu.labels)}
                         onClose={(ev) => handleMenuClose(ev, 'labels')}
                     >
-                        {props.labels.length > 0 && props.labels.map((label) => (
+                        {labels.length > 0 && labels.map((label) => (
                             <MenuItem
                                 onClick={(ev) => {
-                                    props.toggleLabelOnSelectedMails(label.id);
+                                    dispatch(Actions.toggleLabelOnSelectedMails(label.id));
                                     handleMenuClose(ev, 'labels')
                                 }}
                                 key={label.id}
@@ -198,26 +202,4 @@ function MailToolbar(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        selectAllMails            : Actions.selectAllMails,
-        deselectAllMails          : Actions.deselectAllMails,
-        selectMailsByParameter    : Actions.selectMailsByParameter,
-        setFolderOnSelectedMails  : Actions.setFolderOnSelectedMails,
-        toggleLabelOnSelectedMails: Actions.toggleLabelOnSelectedMails
-    }, dispatch);
-}
-
-function mapStateToProps({mailApp})
-{
-    return {
-        mails          : mailApp.mails.entities,
-        selectedMailIds: mailApp.mails.selectedMailIds,
-        folders        : mailApp.folders,
-        labels         : mailApp.labels,
-        filters        : mailApp.filters
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MailToolbar));
+export default MailToolbar;

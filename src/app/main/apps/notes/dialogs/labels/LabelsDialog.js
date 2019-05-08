@@ -1,8 +1,7 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import {Typography, Dialog, ListItem, Input, IconButton, Icon, List} from '@material-ui/core';
 import {useDebounce, useForm} from '@fuse/hooks';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import classNames from 'classnames';
 import _ from '@lodash';
 import * as Actions from 'app/main/apps/notes/store/actions';
@@ -10,7 +9,11 @@ import LabelModel from 'app/main/apps/notes/model/LabelModel';
 
 function LabelsDialog(props)
 {
-    const [labels, setLabels] = useState(props.labels);
+    const dispatch = useDispatch();
+    const labels = useSelector(({notesApp}) => notesApp.labels.entities, []);
+    const labelsDialogOpen = useSelector(({notesApp}) => notesApp.labels.labelsDialogOpen, []);
+
+    const [labelsForm, setLabels] = useState(labels);
     const {form: newLabelForm, handleChange, resetForm} = useForm(
         {
             name: ""
@@ -18,34 +21,23 @@ function LabelsDialog(props)
     );
 
     const handleOnChange = useDebounce((labels) => {
-        props.updateLabels(labels);
+        dispatch(Actions.updateLabels(labels));
     }, 600);
 
-
     useEffect(() => {
-        if ( !_.isEqual(labels, props.labels) )
+        if ( !_.isEqual(labelsForm, labels) )
         {
-            setLabels(props.labels);
+            setLabels(labels);
         }
-    }, [props.labels]);
-
-    useEffect(() => {
-        if ( labels && !_.isEqual(labels, props.labels) )
-        {
-            handleOnChange(labels);
-        }
+        // eslint-disable-next-line
     }, [labels]);
 
-    function handleOnDelete(label)
-    {
-        setLabels(_.omit(labels, [label.id]));
-    }
-
-    function handleLabelChange(event, label)
-    {
-        const updatedLabel = new LabelModel(_.setIn(label, event.target.name, event.target.value));
-        setLabels(_.setIn(labels, updatedLabel.id, updatedLabel));
-    }
+    useEffect(() => {
+        if ( labelsForm && !_.isEqual(labelsForm, labels) )
+        {
+            handleOnChange(labelsForm);
+        }
+    }, [handleOnChange, labels, labelsForm]);
 
     function isFormInValid()
     {
@@ -60,7 +52,7 @@ function LabelsDialog(props)
             return;
         }
         const newLabel = new LabelModel(newLabelForm);
-        setLabels(_.setIn(labels, newLabel.id, newLabel));
+        setLabels(_.setIn(labelsForm, newLabel.id, newLabel));
         resetForm();
     }
 
@@ -69,8 +61,8 @@ function LabelsDialog(props)
             classes={{
                 paper: "w-full max-w-320 p-16 m-24 rounded-8"
             }}
-            onClose={props.closeLabelsDialog}
-            open={props.labelsDialogOpen}
+            onClose={ev => dispatch(Actions.closeLabelsDialog())}
+            open={labelsDialogOpen}
         >
             <Typography className="text-16 mb-8 font-600">Edit Labels</Typography>
             <List dense>
@@ -97,8 +89,19 @@ function LabelsDialog(props)
                         </IconButton>
                     </ListItem>
                 </form>
-                {useMemo(() =>
-                    Object.entries(labels).map(([key, label]) => (
+                {useMemo(() => {
+                    function handleOnDelete(label)
+                    {
+                        setLabels(_.omit(labelsForm, [label.id]));
+                    }
+
+                    function handleLabelChange(event, label)
+                    {
+                        const updatedLabel = new LabelModel(_.setIn(label, event.target.name, event.target.value));
+                        setLabels(_.setIn(labelsForm, updatedLabel.id, updatedLabel));
+                    }
+
+                    return Object.entries(labelsForm).map(([key, label]) => (
                         <ListItem
                             className="p-0"
                             key={label.id}
@@ -116,26 +119,11 @@ function LabelsDialog(props)
                                 <Icon fontSize="small">delete</Icon>
                             </IconButton>
                         </ListItem>
-                    )), [labels])}
+                    ))
+                }, [labelsForm])}
             </List>
         </Dialog>
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        closeLabelsDialog: Actions.closeLabelsDialog,
-        updateLabels     : Actions.updateLabels
-    }, dispatch);
-}
-
-function mapStateToProps({notesApp})
-{
-    return {
-        labels          : notesApp.labels.entities,
-        labelsDialogOpen: notesApp.labels.labelsDialogOpen
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(LabelsDialog);
+export default LabelsDialog;

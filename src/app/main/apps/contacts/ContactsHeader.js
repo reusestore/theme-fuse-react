@@ -2,12 +2,15 @@ import React from 'react';
 import {Hidden, Icon, IconButton, Input, Paper, Typography} from '@material-ui/core';
 import {ThemeProvider} from '@material-ui/styles';
 import {FuseAnimate} from '@fuse';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from './store/actions';
 
 function ContactsHeader(props)
 {
+    const dispatch = useDispatch();
+    const searchText = useSelector(({contactsApp}) => contactsApp.contacts.searchText, []);
+    const mainTheme = useSelector(({fuse}) => fuse.settings.mainTheme, []);
+
     return (
         <div className="flex flex-1 items-center justify-between p-8 sm:p-24">
 
@@ -35,7 +38,7 @@ function ContactsHeader(props)
 
             <div className="flex flex-1 items-center justify-center pr-8 sm:px-12">
 
-                <ThemeProvider theme={props.mainTheme}>
+                <ThemeProvider theme={mainTheme}>
                     <FuseAnimate animation="transition.slideLeftIn" delay={300}>
                         <Paper className="flex p-4 items-center w-full max-w-512 px-8 py-4" elevation={1}>
 
@@ -46,11 +49,11 @@ function ContactsHeader(props)
                                 className="flex flex-1"
                                 disableUnderline
                                 fullWidth
-                                value={props.searchText}
+                                value={searchText}
                                 inputProps={{
                                     'aria-label': 'Search'
                                 }}
-                                onChange={props.setSearchText}
+                                onChange={ev => dispatch(Actions.setSearchText(ev))}
                             />
                         </Paper>
                     </FuseAnimate>
@@ -60,19 +63,4 @@ function ContactsHeader(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        setSearchText: Actions.setSearchText
-    }, dispatch);
-}
-
-function mapStateToProps({contactsApp, fuse})
-{
-    return {
-        searchText: contactsApp.contacts.searchText,
-        mainTheme : fuse.settings.mainTheme
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ContactsHeader);
+export default ContactsHeader;

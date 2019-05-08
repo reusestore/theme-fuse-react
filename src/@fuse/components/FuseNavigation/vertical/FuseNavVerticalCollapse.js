@@ -5,7 +5,7 @@ import {FuseUtils} from '@fuse';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
+import {useSelector} from 'react-redux';
 import FuseNavVerticalGroup from './FuseNavVerticalGroup';
 import FuseNavVerticalItem from './FuseNavVerticalItem';
 import FuseNavBadge from './../FuseNavBadge';
@@ -31,9 +31,9 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-function needsToBeOpened(props)
+function needsToBeOpened(location, item)
 {
-    return props.location && isUrlInChildren(props.item, props.location.pathname)
+    return location && isUrlInChildren(item, location.pathname)
 }
 
 function isUrlInChildren(parent, url)
@@ -64,17 +64,16 @@ function isUrlInChildren(parent, url)
 
 function FuseNavVerticalCollapse(props)
 {
+    const userRole = useSelector(({auth}) => auth.user.role, []);
+
     const classes = useStyles(props);
-    const [open, setOpen] = useState(() => needsToBeOpened(props));
-    const {item, nestedLevel, userRole, active} = props;
+    const [open, setOpen] = useState(() => needsToBeOpened(props.location, props.item));
+    const {item, nestedLevel, active} = props;
     let paddingValue = 40 + (nestedLevel * 16);
     const listItemPadding = nestedLevel > 0 ? 'pl-' + (paddingValue > 80 ? 80 : paddingValue) : 'pl-24';
 
     useEffect(() => {
-        if (
-            !open &&
-            needsToBeOpened(props)
-        )
+        if ( needsToBeOpened(props.location, props.item) )
         {
             setOpen(true);
         }
@@ -144,13 +143,6 @@ function FuseNavVerticalCollapse(props)
     );
 }
 
-function mapStateToProps({auth})
-{
-    return {
-        userRole: auth.user.role
-    }
-}
-
 FuseNavVerticalCollapse.propTypes = {
     item: PropTypes.shape(
         {
@@ -162,6 +154,6 @@ FuseNavVerticalCollapse.propTypes = {
 };
 FuseNavVerticalCollapse.defaultProps = {};
 
-const NavVerticalCollapse = withRouter(connect(mapStateToProps)(React.memo(FuseNavVerticalCollapse)));
+const NavVerticalCollapse = withRouter(React.memo(FuseNavVerticalCollapse));
 
 export default NavVerticalCollapse;

@@ -2,8 +2,7 @@ import React, {useRef} from 'react';
 import {Button, Avatar, Divider, Tooltip} from '@material-ui/core';
 import {FuseScrollbars, FuseAnimateGroup} from '@fuse';
 import classNames from 'classnames';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from './store/actions';
 import {makeStyles} from '@material-ui/styles';
 
@@ -75,12 +74,17 @@ const useStyles = makeStyles(theme => ({
 
 function ContactList(props)
 {
+    const dispatch = useDispatch();
+    const contacts = useSelector(({chatPanel}) => chatPanel.contacts.entities, []);
+    const selectedContactId = useSelector(({chatPanel}) => chatPanel.contacts.selectedContactId, []);
+    const user = useSelector(({chatPanel}) => chatPanel.user, []);
+
     const classes = useStyles();
     const contactListScroll = useRef(null);
 
     const handleContactClick = (contactId) => {
-        props.openChatPanel();
-        props.getChat(contactId);
+        dispatch(Actions.openChatPanel());
+        dispatch(Actions.getChat(contactId));
         scrollToTop();
     };
 
@@ -93,7 +97,7 @@ function ContactList(props)
             <Tooltip title={contact.name} placement="left">
                 <Button
                     onClick={() => handleContactClick(contact.id)}
-                    className={classNames(classes.contactButton, {'active': (props.selectedContactId === contact.id)})}
+                    className={classNames(classes.contactButton, {'active': (selectedContactId === contact.id)})}
                 >
                     {contact.unread && (
                         <div className={classes.unreadBadge}>{contact.unread}</div>
@@ -115,7 +119,7 @@ function ContactList(props)
             className={classNames(classes.root, "flex flex-no-shrink flex-col overflow-y-auto py-8")}
             ref={contactListScroll}
         >
-            {props.contacts.length > 0 && (
+            {contacts.length > 0 && (
                 <React.Fragment>
                     <FuseAnimateGroup
                         enter={{
@@ -123,16 +127,16 @@ function ContactList(props)
                         }}
                         className="flex flex-col flex-no-shrink"
                     >
-                        {(props.user && props.user.chatList) &&
-                        props.user.chatList.map(chat => {
-                            const contact = props.contacts.find((_contact) => _contact.id === chat.contactId);
+                        {(user && user.chatList) &&
+                        user.chatList.map(chat => {
+                            const contact = contacts.find((_contact) => _contact.id === chat.contactId);
                             return (
                                 <ContactButton key={contact.id} contact={contact}/>
                             )
                         })}
                         <Divider className="mx-24 my-8"/>
-                        {props.contacts.map(contact => {
-                            const chatContact = props.user.chatList.find((_chat) => _chat.contactId === contact.id);
+                        {contacts.map(contact => {
+                            const chatContact = user.chatList.find((_chat) => _chat.contactId === contact.id);
                             return !chatContact ? <ContactButton key={contact.id} contact={contact}/> : '';
                         })}
                     </FuseAnimateGroup>
@@ -142,22 +146,5 @@ function ContactList(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        getChat      : Actions.getChat,
-        openChatPanel: Actions.openChatPanel
-    }, dispatch);
-}
-
-function mapStateToProps({chatPanel})
-{
-    return {
-        contacts         : chatPanel.contacts.entities,
-        selectedContactId: chatPanel.contacts.selectedContactId,
-        user             : chatPanel.user
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
+export default ContactList;
 

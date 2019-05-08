@@ -2,13 +2,11 @@ import React from 'react';
 import {Card, Typography, Avatar, Icon, Tooltip} from '@material-ui/core';
 import {Draggable} from 'react-beautiful-dnd';
 import classNames from 'classnames';
-import {bindActionCreators} from 'redux';
-import {withRouter} from 'react-router-dom';
-import connect from 'react-redux/es/connect/connect';
 import moment from 'moment';
 import _ from '@lodash';
 import * as Actions from '../store/actions';
 import {makeStyles} from '@material-ui/styles';
+import {useDispatch, useSelector} from 'react-redux';
 
 const useStyles = makeStyles(theme => ({
     card: {
@@ -20,8 +18,11 @@ const useStyles = makeStyles(theme => ({
 
 function BoardCard(props)
 {
+    const dispatch = useDispatch();
+    const board = useSelector(({scrumboardApp}) => scrumboardApp.board, []);
+
     const classes = useStyles(props);
-    const {cardId, index, board} = props;
+    const {cardId, index} = props;
     const card = _.find(board.cards, {id: cardId});
     const checkItemsChecked = getCheckItemsChecked(card);
     const checkItems = getCheckItems(card);
@@ -30,7 +31,7 @@ function BoardCard(props)
     function handleCardClick(ev, card)
     {
         ev.preventDefault();
-        props.openCardDialog(card)
+        dispatch(Actions.openCardDialog(card));
     }
 
     function getCheckItemsChecked(card)
@@ -157,19 +158,4 @@ function BoardCard(props)
     );
 }
 
-
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        openCardDialog: Actions.openCardDialog
-    }, dispatch);
-}
-
-function mapStateToProps({scrumboardApp})
-{
-    return {
-        board: scrumboardApp.board
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BoardCard));
+export default BoardCard;

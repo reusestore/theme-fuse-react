@@ -1,30 +1,32 @@
 import React, {useEffect, useState} from 'react';
 import {Paper, ClickAwayListener, Icon, IconButton, InputAdornment, TextField, Typography} from '@material-ui/core';
-import {bindActionCreators} from 'redux';
-import {withRouter} from 'react-router-dom';
-import connect from 'react-redux/es/connect/connect';
 import * as Actions from '../store/actions';
 import {useForm} from '@fuse/hooks';
+import {useDispatch, useSelector} from 'react-redux';
 
 function BoardListHeader(props)
 {
+    const dispatch = useDispatch();
+    const board = useSelector(({scrumboardApp}) => scrumboardApp.board, []);
+
     const [formOpen, setFormOpen] = useState(false);
     const {form, handleChange, resetForm, setForm} = useForm({
-        title: props.board.name
+        title: board.name
     });
     useEffect(() => {
         if ( !formOpen )
         {
             resetForm();
         }
-    }, [formOpen]);
+    }, [formOpen, resetForm]);
 
     useEffect(() => {
-        if ( form.title !== props.board.name )
+        if ( form.title !== board.name )
         {
-            setForm({title: props.board.name});
+            setForm({title: board.name});
         }
-    }, [props.board.name]);
+        // eslint-disable-next-line
+    }, [board.name, setForm]);
 
     function handleOpenForm()
     {
@@ -48,7 +50,7 @@ function BoardListHeader(props)
         {
             return;
         }
-        props.renameBoard(props.board.id, form.title);
+        dispatch(Actions.renameBoard(board.id, form.title));
         handleCloseForm();
     }
 
@@ -83,7 +85,7 @@ function BoardListHeader(props)
                 </ClickAwayListener>
             ) : (
                 <div className="flex items-center justify-center">
-                    {props.board.settings.subscribed && (
+                    {board.settings.subscribed && (
                         <Icon className="text-16 mr-8">remove_red_eye</Icon>
                     )}
                     <Typography
@@ -91,7 +93,7 @@ function BoardListHeader(props)
                         onClick={() => handleOpenForm()}
                         color="inherit"
                     >
-                        {props.board.name}
+                        {board.name}
                     </Typography>
                 </div>
             )}
@@ -99,18 +101,4 @@ function BoardListHeader(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        renameBoard: Actions.renameBoard
-    }, dispatch);
-}
-
-function mapStateToProps({scrumboardApp})
-{
-    return {
-        board: scrumboardApp.board
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BoardListHeader));
+export default BoardListHeader;

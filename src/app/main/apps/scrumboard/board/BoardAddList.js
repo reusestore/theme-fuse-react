@@ -3,11 +3,9 @@ import {Button, IconButton, Icon, ClickAwayListener, Card, TextField, InputAdorn
 import {darken} from '@material-ui/core/styles/colorManipulator';
 import {makeStyles} from '@material-ui/styles';
 import {useForm} from '@fuse/hooks';
-import {withRouter} from 'react-router-dom';
-import {bindActionCreators} from 'redux';
-import connect from 'react-redux/es/connect/connect';
 import classNames from 'classnames';
 import * as Actions from '../store/actions';
+import {useDispatch, useSelector} from 'react-redux';
 
 const useStyles = makeStyles(theme => ({
     card: {
@@ -17,6 +15,9 @@ const useStyles = makeStyles(theme => ({
 
 function BoardAddList(props)
 {
+    const dispatch = useDispatch();
+    const board = useSelector(({scrumboardApp}) => scrumboardApp.board, []);
+
     const classes = useStyles(props);
     const [formOpen, setFormOpen] = useState(false);
     const {form, handleChange, resetForm} = useForm({
@@ -28,7 +29,7 @@ function BoardAddList(props)
         {
             resetForm();
         }
-    }, [formOpen]);
+    }, [formOpen, resetForm]);
 
     function handleOpenForm()
     {
@@ -43,7 +44,7 @@ function BoardAddList(props)
     function handleSubmit(ev)
     {
         ev.preventDefault();
-        props.newList(props.board.id, form.title);
+        dispatch(Actions.newList(board.id, form.title));
         handleCloseForm();
     }
 
@@ -113,18 +114,4 @@ function BoardAddList(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        newList: Actions.newList
-    }, dispatch);
-}
-
-function mapStateToProps({scrumboardApp})
-{
-    return {
-        board: scrumboardApp.board
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BoardAddList));
+export default BoardAddList;

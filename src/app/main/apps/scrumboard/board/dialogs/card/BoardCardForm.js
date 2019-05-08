@@ -2,10 +2,9 @@ import React, {useEffect} from 'react';
 import {TextField, DialogContent, DialogTitle, Icon, IconButton, Typography, Toolbar, AppBar, Avatar, InputAdornment, Tooltip, List} from '@material-ui/core';
 import {FuseChipSelect} from '@fuse';
 import {useDebounce, useForm} from '@fuse/hooks';
-import {bindActionCreators} from 'redux';
 import _ from '@lodash';
 import moment from 'moment';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from 'app/main/apps/scrumboard/store/actions/index';
 import LabelModel from 'app/main/apps/scrumboard/model/LabelModel';
 import CardAttachment from './attachment/CardAttachment';
@@ -20,17 +19,23 @@ import CardComment from './comment/CardComment';
 
 function BoardCardForm(props)
 {
-    const {form: cardForm, handleChange, setForm, setInForm} = useForm(props.card);
-    const updateCard = useDebounce((boardId, card) => {
-        props.updateCard(boardId, card);
+    const dispatch = useDispatch();
+    const card = useSelector(({scrumboardApp}) => scrumboardApp.card, []);
+    const board = useSelector(({scrumboardApp}) => scrumboardApp.board, []);
+
+    const {form: cardForm, handleChange, setForm, setInForm} = useForm(card);
+    const updateCard = useDebounce((boardId, newCard) => {
+        dispatch(Actions.updateCard(boardId, {...newCard}));
+        console.info('triggered')
     }, 600);
     const dueDate = cardForm && cardForm.due ? moment(cardForm.due).format(moment.HTML5_FMT.DATE) : "";
 
     useEffect(() => {
-        if ( !_.isEqual(props.card, cardForm) )
+        if ( !_.isEqual(card, cardForm) )
         {
-            updateCard(props.board.id, cardForm);
+            updateCard(board.id, cardForm);
         }
+        // eslint-disable-next-line
     }, [cardForm]);
 
     function removeDue()
@@ -115,13 +120,13 @@ function BoardCardForm(props)
 
                             <LabelsMenu
                                 onToggleLabel={toggleLabel}
-                                labels={props.board.labels}
+                                labels={board.labels}
                                 idLabels={cardForm.idLabels}
                             />
 
                             <MembersMenu
                                 onToggleMember={toggleMember}
-                                members={props.board.members}
+                                members={board.members}
                                 idMembers={cardForm.idMembers}
                             />
 
@@ -134,11 +139,11 @@ function BoardCardForm(props)
                             />
 
                             <OptionsMenu
-                                onRemoveCard={() => props.removeCard(props.board.id, cardForm.id)}
+                                onRemoveCard={() => dispatch(Actions.removeCard(board.id, cardForm.id))}
                             />
 
                         </div>
-                        <IconButton color="inherit" onClick={props.closeCardDialog}>
+                        <IconButton color="inherit" onClick={ev => dispatch(Actions.closeCardDialog())}>
                             <Icon>close</Icon>
                         </IconButton>
                     </Toolbar>
@@ -148,7 +153,7 @@ function BoardCardForm(props)
             <DialogContent className="p-16 sm:p-24">
                 <div className="flex flex-col sm:flex-row sm:justify-between justify-center items-center mb-24">
                     <div className="mb-16 sm:mb-0 flex items-center">
-                        <Typography>{props.board.name}</Typography>
+                        <Typography>{board.name}</Typography>
                         <Icon className="text-20" color="inherit">chevron_right</Icon>
                         <Typography>{props.list && props.list.name}</Typography>
                     </div>
@@ -223,7 +228,7 @@ function BoardCardForm(props)
                                 className={cardForm.idMembers.length > 0 && 'sm:mr-8'}
                                 value={
                                     cardForm.idLabels.map(labelId => {
-                                        const label = _.find(props.board.labels, {id: labelId});
+                                        const label = _.find(board.labels, {id: labelId});
                                         return label && {
                                             value: labelId,
                                             label: label.name,
@@ -237,7 +242,7 @@ function BoardCardForm(props)
                                 textFieldProps={{
                                     variant: "outlined"
                                 }}
-                                options={props.board.labels.map((label) => (
+                                options={board.labels.map((label) => (
                                     {
                                         value: label.id,
                                         label: label.name,
@@ -249,7 +254,7 @@ function BoardCardForm(props)
                                     const newLabel = new LabelModel({name});
 
                                     // Ad new Label to board(redux store and server)
-                                    props.addLabel(newLabel);
+                                    dispatch(Actions.addLabel(newLabel));
 
                                     // Trigger handle chip change
                                     addNewChip('idLabels', newLabel.id);
@@ -270,7 +275,7 @@ function BoardCardForm(props)
                                 className={cardForm.idLabels.length > 0 && 'sm:ml-8'}
                                 value={
                                     cardForm.idMembers.map(memberId => {
-                                        const member = _.find(props.board.members, {id: memberId});
+                                        const member = _.find(board.members, {id: memberId});
                                         return member && {
                                             value: member.id,
                                             label: (<Tooltip title={member.name}><Avatar className="-ml-12 w-32 h-32" src={member.avatar}/></Tooltip>)
@@ -283,7 +288,7 @@ function BoardCardForm(props)
                                 textFieldProps={{
                                     variant: "outlined"
                                 }}
-                                options={props.board.members.map((member) => (
+                                options={board.members.map((member) => (
                                     {
                                         value: member.id,
                                         label: (<span className="flex items-center"><Avatar className="w-32 h-32 mr-8" src={member.avatar}/>{member.name}</span>)
@@ -333,7 +338,7 @@ function BoardCardForm(props)
                     </div>
                     <div>
                         <CardComment
-                            members={props.board.members}
+                            members={board.members}
                             onCommentAdd={commentAdd}
                         />
                     </div>
@@ -350,7 +355,7 @@ function BoardCardForm(props)
                                     <CardActivity
                                         item={item}
                                         key={item.id}
-                                        members={props.board.members}
+                                        members={board.members}
                                     />
                                 )
                             )}
@@ -362,22 +367,4 @@ function BoardCardForm(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        closeCardDialog: Actions.closeCardDialog,
-        updateCard     : Actions.updateCard,
-        removeCard     : Actions.removeCard,
-        addLabel       : Actions.addLabel,
-    }, dispatch);
-}
-
-function mapStateToProps({scrumboardApp})
-{
-    return {
-        card : scrumboardApp.card,
-        board: scrumboardApp.board
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(BoardCardForm);
+export default BoardCardForm;

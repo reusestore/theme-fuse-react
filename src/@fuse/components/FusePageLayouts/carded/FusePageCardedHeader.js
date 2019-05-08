@@ -1,13 +1,15 @@
 import React from 'react';
 import {ThemeProvider} from '@material-ui/styles';
-import connect from 'react-redux/es/connect/connect';
+import {useSelector} from 'react-redux';
 
 function FusePageCardedHeader(props)
 {
+    const mainThemeDark = useSelector(({fuse}) => fuse.settings.mainThemeDark, []);
+
     return (
         <div className={props.classes.header}>
             {props.header && (
-                <ThemeProvider theme={props.mainThemeDark}>
+                <ThemeProvider theme={mainThemeDark}>
                     {props.header}
                 </ThemeProvider>
             )}
@@ -15,11 +17,4 @@ function FusePageCardedHeader(props)
     )
 }
 
-function mapStateToProps({fuse})
-{
-    return {
-        mainThemeDark: fuse.settings.mainThemeDark
-    }
-}
-
-export default connect(mapStateToProps)(FusePageCardedHeader);
+export default FusePageCardedHeader;

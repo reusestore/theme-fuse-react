@@ -1,17 +1,19 @@
 import React from 'react';
 import {Icon, IconButton} from '@material-ui/core';
 import _ from '@lodash';
-import {bindActionCreators} from 'redux';
 import * as Actions from 'app/store/actions';
-import connect from 'react-redux/es/connect/connect';
+import {useDispatch, useSelector} from 'react-redux';
 
 function NavbarFoldedToggleButton(props)
 {
+    const dispatch = useDispatch();
+    const settings = useSelector(({fuse}) => fuse.settings.current, []);
+
     return (
         <IconButton
             className={props.className}
             onClick={() => {
-                props.setDefaultSettings(_.set({}, 'layout.config.navbar.folded', !props.settings.layout.config.navbar.folded));
+                dispatch(Actions.setDefaultSettings(_.set({}, 'layout.config.navbar.folded', !settings.layout.config.navbar.folded)));
             }}
             color="inherit"
         >
@@ -20,22 +22,8 @@ function NavbarFoldedToggleButton(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        setDefaultSettings: Actions.setDefaultSettings
-    }, dispatch);
-}
-
-function mapStateToProps({fuse})
-{
-    return {
-        settings: fuse.settings.current
-    }
-}
-
 NavbarFoldedToggleButton.defaultProps = {
     children: <Icon>menu</Icon>
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavbarFoldedToggleButton);
+export default NavbarFoldedToggleButton;

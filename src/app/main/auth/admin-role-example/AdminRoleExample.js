@@ -1,8 +1,7 @@
 import React from 'react';
 import {Button, Icon, Typography} from '@material-ui/core';
 import {FusePageSimple, FuseHighlight} from '@fuse';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import {useDispatch} from 'react-redux';
 import * as authActions from 'app/auth/store/actions';
 import {makeStyles} from '@material-ui/styles';
 
@@ -12,6 +11,8 @@ const useStyles = makeStyles(theme => ({
 
 function AdminRoleExample(props)
 {
+    const dispatch = useDispatch();
+
     const classes = useStyles();
 
     return (
@@ -25,7 +26,7 @@ function AdminRoleExample(props)
                     <Button
                         className="normal-case"
                         variant="contained"
-                        onClick={props.logout}
+                        onClick={ev => dispatch(authActions.logoutUser())}
                     >
                         <Icon className="mr-4">exit_to_app</Icon>
                         Logout
@@ -88,18 +89,4 @@ function AdminRoleExample(props)
     )
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        logout: authActions.logoutUser
-    }, dispatch);
-}
-
-function mapStateToProps({auth})
-{
-    return {
-        user: auth.user
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(AdminRoleExample);
+export default AdminRoleExample;

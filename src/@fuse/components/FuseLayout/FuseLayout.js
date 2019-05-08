@@ -2,8 +2,7 @@ import React, {useContext, useEffect} from 'react';
 import {makeStyles} from '@material-ui/styles';
 import {withRouter} from 'react-router-dom';
 import {matchRoutes} from 'react-router-config'
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from 'app/store/actions';
 import {FuseLayouts} from '@fuse';
 import _ from '@lodash';
@@ -44,6 +43,10 @@ const useStyles = makeStyles(theme => ({
 
 function FuseLayout(props)
 {
+    const dispatch = useDispatch();
+    const defaultSettings = useSelector(({fuse}) => fuse.settings.defaults, []);
+    const settings = useSelector(({fuse}) => fuse.settings.current, []);
+
     const classes = useStyles(props);
     const appContext = useContext(AppContext);
     const {routes} = appContext;
@@ -55,46 +58,30 @@ function FuseLayout(props)
 
             if ( matched && matched.route.settings )
             {
-                const routeSettings = _.merge({}, props.defaultSettings, matched.route.settings);
-                if ( !_.isEqual(props.settings, routeSettings) )
+                const routeSettings = _.merge({}, defaultSettings, matched.route.settings);
+                if ( !_.isEqual(settings, routeSettings) )
                 {
-                    props.setSettings(_.merge({}, routeSettings));
+                    dispatch(Actions.setSettings(_.merge({}, routeSettings)));
                 }
             }
             else
             {
-                if ( !_.isEqual(props.settings, props.defaultSettings) )
+                if ( !_.isEqual(settings, defaultSettings) )
                 {
-                    props.resetSettings();
+                    dispatch(Actions.resetSettings());
                 }
             }
         }
 
         routeSettingsCheck();
-    }, [props.location.pathname, props.settings, props.defaultSettings]);
+    }, [defaultSettings, dispatch, props.location.pathname, routes, settings]);
 
     // console.warn('FuseLayout:: rendered');
 
-    const Layout = FuseLayouts[props.settings.layout.style];
+    const Layout = FuseLayouts[settings.layout.style];
     return (
         <Layout classes={{root: classes.root}} {...props}/>
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        setSettings  : Actions.setSettings,
-        resetSettings: Actions.resetSettings
-    }, dispatch);
-}
-
-function mapStateToProps({fuse})
-{
-    return {
-        defaultSettings: fuse.settings.defaults,
-        settings       : fuse.settings.current
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(React.memo(FuseLayout)));
+export default withRouter(React.memo(FuseLayout));

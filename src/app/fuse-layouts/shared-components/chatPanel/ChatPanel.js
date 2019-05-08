@@ -1,9 +1,8 @@
-import React, {useEffect} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {AppBar, Toolbar, Icon, IconButton, ClickAwayListener, Paper, Avatar, Typography} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 import keycode from 'keycode';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import classNames from 'classnames';
 import * as Actions from './store/actions';
 import reducer from './store/reducers';
@@ -55,19 +54,31 @@ const useStyles = makeStyles(theme => ({
 
 function ChatPanel(props)
 {
+    const dispatch = useDispatch();
+    const contacts = useSelector(({chatPanel}) => chatPanel.contacts.entities, []);
+    const selectedContactId = useSelector(({chatPanel}) => chatPanel.contacts.selectedContactId, []);
+    const state = useSelector(({chatPanel}) => chatPanel.state, []);
+
     const classes = useStyles(props);
-    const selectedContact = props.contacts.find(_contact => _contact.id === props.selectedContactId);
+    const selectedContact = contacts.find(_contact => _contact.id === selectedContactId);
+
+    const handleDocumentKeyDown = useCallback(event => {
+        if ( keycode(event) === 'esc' )
+        {
+            dispatch(Actions.closeChatPanel());
+        }
+    }, [dispatch]);
 
     useEffect(() => {
-        props.getUserData();
-        props.getContacts();
+        dispatch(Actions.getUserData());
+        dispatch(Actions.getContacts());
         return (() => {
             document.removeEventListener('keydown', handleDocumentKeyDown);
         });
-    }, []);
+    }, [dispatch, handleDocumentKeyDown]);
 
     useEffect(() => {
-        if ( props.state )
+        if ( state )
         {
             document.addEventListener("keydown", handleDocumentKeyDown);
         }
@@ -76,41 +87,33 @@ function ChatPanel(props)
             document.removeEventListener('keydown', handleDocumentKeyDown);
         }
 
-    }, [props.state]);
-
-    function handleDocumentKeyDown(event)
-    {
-        if ( keycode(event) === 'esc' )
-        {
-            props.closeChatPanel();
-        }
-    }
+    }, [handleDocumentKeyDown, state]);
 
     return (
         <div className={classes.root}>
-            <ClickAwayListener onClickAway={() => props.state && props.closeChatPanel()}>
-                <div className={classNames(classes.panel, {'opened': props.state}, "flex flex-col")}>
+            <ClickAwayListener onClickAway={() => state && dispatch(Actions.closeChatPanel())}>
+                <div className={classNames(classes.panel, {'opened': state}, "flex flex-col")}>
                     <AppBar position="static" elevation={1}>
                         <Toolbar className="pl-12 pr-8">
                             <div className="flex flex-1 items-center">
-                                {(!props.state || !props.selectedContactId) && (
+                                {(!state || !selectedContactId) && (
                                     <React.Fragment>
-                                        <IconButton color="inherit" onClick={props.openChatPanel}>
+                                        <IconButton color="inherit" onClick={ev => dispatch(Actions.openChatPanel())}>
                                             <Icon className="text-32">chat</Icon>
                                         </IconButton>
-                                        {!props.selectedContactId && (
+                                        {!selectedContactId && (
                                             <Typography className="ml-16 text-16" color="inherit">Team Chat</Typography>
                                         )}
                                     </React.Fragment>
                                 )}
-                                {props.state && selectedContact && (
+                                {state && selectedContact && (
                                     <React.Fragment>
                                         <Avatar className="ml-4" src={selectedContact.avatar}/>
                                         <Typography className="ml-16 text-16" color="inherit">{selectedContact.name}</Typography>
                                     </React.Fragment>
                                 )}
                             </div>
-                            <IconButton onClick={props.closeChatPanel} color="inherit">
+                            <IconButton onClick={ev => dispatch(Actions.closeChatPanel())} color="inherit">
                                 <Icon>close</Icon>
                             </IconButton>
                         </Toolbar>
@@ -125,23 +128,4 @@ function ChatPanel(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        getUserData   : Actions.getUserData,
-        getContacts   : Actions.getContacts,
-        openChatPanel : Actions.openChatPanel,
-        closeChatPanel: Actions.closeChatPanel
-    }, dispatch);
-}
-
-function mapStateToProps({chatPanel})
-{
-    return {
-        contacts         : chatPanel.contacts.entities,
-        selectedContactId: chatPanel.contacts.selectedContactId,
-        state            : chatPanel.state
-    }
-}
-
-export default withReducer('chatPanel', reducer)(connect(mapStateToProps, mapDispatchToProps)(ChatPanel));
+export default withReducer('chatPanel', reducer)(ChatPanel);

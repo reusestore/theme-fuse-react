@@ -1,17 +1,19 @@
 import React from 'react';
 import {ThemeProvider} from '@material-ui/styles';
 import {FuseScrollbars} from '@fuse';
-import connect from 'react-redux/es/connect/connect';
 import classNames from 'classnames';
+import {useSelector} from 'react-redux';
 
 function FusePageCardedSidebarContent(props)
 {
+    const mainThemeDark = useSelector(({fuse}) => fuse.settings.mainThemeDark, []);
+
     const classes = props.classes;
 
     return (
         <React.Fragment>
             {props.header && (
-                <ThemeProvider theme={props.mainThemeDark}>
+                <ThemeProvider theme={mainThemeDark}>
                     <div className={classNames(classes.sidebarHeader, props.variant)}>
                         {props.header}
                     </div>
@@ -27,11 +29,4 @@ function FusePageCardedSidebarContent(props)
     )
 }
 
-function mapStateToProps({fuse})
-{
-    return {
-        mainThemeDark: fuse.settings.mainThemeDark
-    }
-}
-
-export default connect(mapStateToProps)(FusePageCardedSidebarContent);
+export default FusePageCardedSidebarContent;

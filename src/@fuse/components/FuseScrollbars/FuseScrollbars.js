@@ -1,4 +1,4 @@
-import React, {createRef, useEffect, useRef} from 'react';
+import React, {createRef, useEffect, useRef, useCallback} from 'react';
 import {makeStyles} from '@material-ui/styles';
 import PerfectScrollbar from 'perfect-scrollbar';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
@@ -33,39 +33,29 @@ const FuseScrollbars = React.forwardRef(function FuseScrollbars(props, ref) {
     const ps = useRef(null);
     const handlerByEvent = useRef(new Map());
     const classes = useStyles();
+    const {customScrollbars} = props;
 
-    useEffect(() => {
-        props.customScrollbars ? createPs() : destroyPs();
-    }, [props.customScrollbars]);
+    const hookUpEvents = useCallback(() => {
+        Object.keys(handlerNameByEvent).forEach((key) => {
+            const callback = props[handlerNameByEvent[key]];
+            if ( callback )
+            {
+                const handler = () => callback(ref.current);
+                handlerByEvent.current.set(key, handler);
+                ref.current.addEventListener(key, handler, false);
+            }
+        });
+        // eslint-disable-next-line
+    }, [ref]);
 
-    useEffect(() => {
-        updatePs();
-    });
+    const unHookUpEvents = useCallback(() => {
+        Object.keys(handlerByEvent.current).forEach((value, key) => {
+            ref.current.removeEventListener(key, value, false);
+        });
+        handlerByEvent.current.clear();
+    }, [ref]);
 
-    useEffect(() => {
-        if ( props.scrollToTopOnChildChange )
-        {
-            scrollToTop();
-        }
-    }, [props.children]);
-
-    useEffect(() => {
-        return () => {
-            destroyPs();
-        }
-    }, []);
-
-    function updatePs()
-    {
-        if ( !ps.current )
-        {
-            return;
-        }
-        ps.current.update();
-    }
-
-    function destroyPs()
-    {
+    const destroyPs = useCallback(() => {
         // console.info("destroy::ps");
 
         unHookUpEvents();
@@ -76,10 +66,9 @@ const FuseScrollbars = React.forwardRef(function FuseScrollbars(props, ref) {
         }
         ps.current.destroy();
         ps.current = null;
-    }
+    }, [unHookUpEvents]);
 
-    function createPs()
-    {
+    const createPs = useCallback(() => {
         // console.info("create::ps");
 
         if ( isMobile || !ref || ps.current )
@@ -90,33 +79,43 @@ const FuseScrollbars = React.forwardRef(function FuseScrollbars(props, ref) {
         ps.current = new PerfectScrollbar(ref.current, props.option);
 
         hookUpEvents();
-    }
+    }, [hookUpEvents, props.option, ref]);
 
-    function hookUpEvents()
-    {
-        Object.keys(handlerNameByEvent).forEach((key) => {
-            const callback = props[handlerNameByEvent[key]];
-            if ( callback )
+    useEffect(() => {
+
+        function updatePs()
+        {
+            if ( !ps.current )
             {
-                const handler = () => callback(ref.current);
-                handlerByEvent.current.set(key, handler);
-                ref.current.addEventListener(key, handler, false);
+                return;
             }
-        });
-    }
+            ps.current.update();
+        }
 
-    function unHookUpEvents()
-    {
-        Object.keys(handlerByEvent.current).forEach((value, key) => {
-            ref.current.removeEventListener(key, value, false);
-        });
-        handlerByEvent.current.clear();
-    }
+        updatePs();
+    });
 
-    function scrollToTop()
-    {
-        ref.current.scrollTop = 0;
-    }
+    useEffect(() => {
+        customScrollbars ? createPs() : destroyPs();
+    }, [createPs, customScrollbars, destroyPs]);
+
+    useEffect(() => {
+        function scrollToTop()
+        {
+            ref.current.scrollTop = 0;
+        }
+
+        if ( props.scrollToTopOnChildChange )
+        {
+            scrollToTop();
+        }
+    }, [props.children, props.scrollToTopOnChildChange, ref]);
+
+    useEffect(() => {
+        return () => {
+            destroyPs();
+        }
+    }, [destroyPs]);
 
     // console.info('render::ps');
     return (

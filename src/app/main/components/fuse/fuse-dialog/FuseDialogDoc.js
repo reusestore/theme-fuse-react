@@ -1,12 +1,13 @@
 import React from 'react';
 import {Button, Typography, DialogTitle, DialogContent, DialogContentText, DialogActions, Icon} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple} from '@fuse';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import {useDispatch} from 'react-redux';
 import * as Actions from 'app/store/actions';
 
 function FuseDialogDoc(props)
 {
+    const dispatch = useDispatch();
+
     return (
         <FusePageSimple
             header={
@@ -39,7 +40,7 @@ function FuseDialogDoc(props)
                     <FuseHighlight component="pre" className="language-jsx">
                         {`
                         <Button
-                            onClick={() => props.openDialog({
+                            onClick={()=> dispatch(Actions.openDialog({
                                 children: (
                                     <React.Fragment>
                                         <DialogTitle id="alert-dialog-title">Use Google's location service?</DialogTitle>
@@ -50,28 +51,28 @@ function FuseDialogDoc(props)
                                             </DialogContentText>
                                         </DialogContent>
                                         <DialogActions>
-                                            <Button onClick={props.closeDialog} color="primary">
+                                            <Button onClick={()=> dispatch(Actions.closeDialog())} color="primary">
                                                 Disagree
                                             </Button>
-                                            <Button onClick={props.closeDialog} color="primary" autoFocus>
+                                            <Button onClick={()=> dispatch(Actions.closeDialog())} color="primary" autoFocus>
                                                 Agree
                                             </Button>
                                         </DialogActions>
                                     </React.Fragment>
-                                )
-                            })}
+                                     )
+                                 }))}
                             variant="contained"
                             color="secondary"
                         >
-                        Open Dialog
+                            Open Dialog
                         </Button>
-                            `}
+                        `}
                     </FuseHighlight>
 
                     <Typography className="mt-32 mb-8" variant="h5">Example</Typography>
 
                     <Button
-                        onClick={() => props.openDialog({
+                        onClick={() => dispatch(Actions.openDialog({
                             children: (
                                 <React.Fragment>
                                     <DialogTitle id="alert-dialog-title">Use Google's location service?</DialogTitle>
@@ -82,16 +83,16 @@ function FuseDialogDoc(props)
                                         </DialogContentText>
                                     </DialogContent>
                                     <DialogActions>
-                                        <Button onClick={props.closeDialog} color="primary">
+                                        <Button onClick={() => dispatch(Actions.closeDialog())} color="primary">
                                             Disagree
                                         </Button>
-                                        <Button onClick={props.closeDialog} color="primary" autoFocus>
+                                        <Button onClick={() => dispatch(Actions.closeDialog())} color="primary" autoFocus>
                                             Agree
                                         </Button>
                                     </DialogActions>
                                 </React.Fragment>
                             )
-                        })}
+                        }))}
                         variant="contained"
                         color="secondary"
                     >
@@ -103,13 +104,4 @@ function FuseDialogDoc(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-            openDialog : Actions.openDialog,
-            closeDialog: Actions.closeDialog
-        },
-        dispatch);
-}
-
-export default connect(null, mapDispatchToProps)(FuseDialogDoc);
+export default FuseDialogDoc;

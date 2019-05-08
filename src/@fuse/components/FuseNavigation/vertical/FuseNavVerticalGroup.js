@@ -5,7 +5,7 @@ import {FuseUtils} from '@fuse';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
+import {useSelector} from 'react-redux';
 import FuseNavVerticalCollapse from './FuseNavVerticalCollapse';
 import FuseNavVerticalItem from './FuseNavVerticalItem';
 import FuseNavVerticalLink from './FuseNavVerticalLink';
@@ -21,8 +21,10 @@ const useStyles = makeStyles({
 
 function FuseNavVerticalGroup(props)
 {
+    const userRole = useSelector(({auth}) => auth.user.role, []);
+
     const classes = useStyles(props);
-    const {item, nestedLevel, userRole, active} = props;
+    const {item, nestedLevel, active} = props;
     let paddingValue = 40 + (nestedLevel * 16);
     const listItemPadding = nestedLevel > 0 ? 'pl-' + (paddingValue > 80 ? 80 : paddingValue) : 'pl-24';
 
@@ -72,13 +74,6 @@ function FuseNavVerticalGroup(props)
     );
 }
 
-function mapStateToProps({auth})
-{
-    return {
-        userRole: auth.user.role
-    }
-}
-
 FuseNavVerticalGroup.propTypes = {
     item: PropTypes.shape(
         {
@@ -90,6 +85,6 @@ FuseNavVerticalGroup.propTypes = {
 
 FuseNavVerticalGroup.defaultProps = {};
 
-const NavVerticalGroup = withRouter(connect(mapStateToProps)(React.memo(FuseNavVerticalGroup)));
+const NavVerticalGroup = withRouter(React.memo(FuseNavVerticalGroup));
 
 export default NavVerticalGroup;

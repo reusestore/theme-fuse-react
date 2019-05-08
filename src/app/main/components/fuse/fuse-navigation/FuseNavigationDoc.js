@@ -1,13 +1,14 @@
 import React from 'react';
 import {Icon, Typography, Button} from '@material-ui/core';
 import {FuseHighlight, FusePageSimple, FuseUtils} from '@fuse';
-import {bindActionCreators} from 'redux';
 import * as Actions from 'app/store/actions';
-import {connect} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {authRoles} from 'app/auth';
 
 function FuseNavigationDoc(props)
 {
+    const dispatch = useDispatch();
+
     return (
         <FusePageSimple
             header={
@@ -195,7 +196,7 @@ function FuseNavigationDoc(props)
 
                         <Button
                             onClick={() => {
-                                props.setNavigation([
+                                dispatch(Actions.setNavigation([
                                     {
                                         'id'      : 'auth',
                                         'title'   : 'Auth',
@@ -220,7 +221,7 @@ function FuseNavigationDoc(props)
                                             },
                                         ]
                                     }
-                                ]);
+                                ]));
                             }}
                             variant="contained"
                             color="primary"
@@ -232,8 +233,8 @@ function FuseNavigationDoc(props)
                             {
                                 `
                                 <Button
-                                    onClick={() => {
-                                        props.setNavigation([
+                                    onClick={()=> {
+                                        dispatch(Actions.setNavigation([
                                             {
                                                 'id'      : 'auth',
                                                 'title'   : 'Auth',
@@ -258,7 +259,7 @@ function FuseNavigationDoc(props)
                                                     },
                                                 ]
                                             }
-                                        ]);
+                                        ]));
                                     }}
                                     variant="contained"
                                     color="primary"
@@ -282,7 +283,7 @@ function FuseNavigationDoc(props)
 
                         <Button
                             onClick={() => {
-                                props.resetNavigation();
+                                dispatch(Actions.resetNavigation());
                             }}
                             variant="contained"
                             color="primary"
@@ -294,8 +295,8 @@ function FuseNavigationDoc(props)
                             {
                                 `
                                 <Button
-                                    onClick={() => {
-                                        props.resetNavigation();
+                                    onClick={()=> {
+                                        dispatch(Actions.resetNavigation());
                                     }}
                                     variant="contained"
                                     color="primary"
@@ -319,7 +320,7 @@ function FuseNavigationDoc(props)
 
                         <Button
                             onClick={() => {
-                                props.updateNavigationItem('dashboards',
+                                dispatch(Actions.updateNavigationItem('dashboards',
                                     {
                                         'title': 'All Dashboards',
                                         'badge': {
@@ -328,7 +329,7 @@ function FuseNavigationDoc(props)
                                             'fg'   : '#FFFFFF'
                                         }
                                     }
-                                )
+                                ))
                             }}
                             variant="contained"
                             color="primary"
@@ -340,8 +341,8 @@ function FuseNavigationDoc(props)
                             {
                                 `
                                 <Button
-                                    onClick={() => {
-                                        props.updateNavigationItem('dashboards',
+                                    onClick={()=> {
+                                        dispatch(Actions.updateNavigationItem('dashboards',
                                             {
                                                 'title': 'All Dashboards',
                                                 'badge': {
@@ -350,7 +351,7 @@ function FuseNavigationDoc(props)
                                                     'fg'   : '#FFFFFF'
                                                 }
                                             }
-                                        )
+                                        ))
                                     }}
                                     variant="contained"
                                     color="primary"
@@ -374,7 +375,7 @@ function FuseNavigationDoc(props)
 
                         <Button
                             onClick={() => {
-                                props.removeNavigationItem('calendar')
+                                dispatch(Actions.removeNavigationItem('calendar'))
                             }}
                             variant="contained"
                             color="primary"
@@ -386,8 +387,8 @@ function FuseNavigationDoc(props)
                             {
                                 `
                                   <Button
-                                        onClick={() => {
-                                            props.removeNavigationItem('calendar')
+                                        onClick={()=> {
+                                            dispatch(Actions.removeNavigationItem('calendar'))
                                         }}
                                         variant="contained"
                                         color="primary"
@@ -411,7 +412,7 @@ function FuseNavigationDoc(props)
 
                         <Button
                             onClick={() => {
-                                props.prependNavigationItem(
+                                dispatch(Actions.prependNavigationItem(
                                     {
                                         'id'    : 'test-link-' + FuseUtils.generateGUID(),
                                         'title' : 'fusetheme.com',
@@ -420,7 +421,7 @@ function FuseNavigationDoc(props)
                                         'url'   : 'http://fusetheme.com',
                                         'target': '_blank'
                                     }
-                                )
+                                ))
                             }}
                             variant="contained"
                             color="primary"
@@ -432,8 +433,8 @@ function FuseNavigationDoc(props)
                             {
                                 `
                                 <Button
-                                    onClick={() => {
-                                        props.prependNavigationItem(
+                                    onClick={()=> {
+                                        dispatch(Actions.prependNavigationItem(
                                             {
                                                 'id'    : 'test-link',
                                                 'title' : 'fusetheme.com',
@@ -442,7 +443,7 @@ function FuseNavigationDoc(props)
                                                 'url'   : 'http://fusetheme.com',
                                                 'target': '_blank'
                                             }
-                                        )
+                                        ))
                                     }}
                                     variant="contained"
                                     color="primary"
@@ -462,7 +463,7 @@ function FuseNavigationDoc(props)
 
                         <Button
                             onClick={() => {
-                                props.prependNavigationItem(
+                                dispatch(Actions.prependNavigationItem(
                                     {
                                         'id'    : 'test-link-' + FuseUtils.generateGUID(),
                                         'title' : 'fusetheme.com',
@@ -471,7 +472,7 @@ function FuseNavigationDoc(props)
                                         'url'   : 'http://fusetheme.com',
                                         'target': '_blank'
                                     }, 'dashboards'
-                                )
+                                ))
                             }}
                             variant="contained"
                             color="primary"
@@ -483,8 +484,8 @@ function FuseNavigationDoc(props)
                             {
                                 `
                                 <Button
-                                    onClick={() => {
-                                        props.prependNavigationItem(
+                                    onClick={()=> {
+                                        dispatch(Actions.prependNavigationItem(
                                             {
                                                 'id'    : 'test-link',
                                                 'title' : 'fusetheme.com',
@@ -493,7 +494,7 @@ function FuseNavigationDoc(props)
                                                 'url'   : 'http://fusetheme.com',
                                                 'target': '_blank'
                                             }, 'dashboards'
-                                        )
+                                        ))
                                     }}
                                     variant="contained"
                                     color="primary"
@@ -517,7 +518,7 @@ function FuseNavigationDoc(props)
 
                         <Button
                             onClick={() => {
-                                props.appendNavigationItem(
+                                dispatch(Actions.appendNavigationItem(
                                     {
                                         'id'    : 'test-link-' + FuseUtils.generateGUID(),
                                         'title' : 'fusetheme.com',
@@ -526,7 +527,7 @@ function FuseNavigationDoc(props)
                                         'url'   : 'http://fusetheme.com',
                                         'target': '_blank'
                                     }
-                                )
+                                ))
                             }}
                             variant="contained"
                             color="primary"
@@ -537,8 +538,8 @@ function FuseNavigationDoc(props)
                             {
                                 `
                                 <Button
-                                    onClick={() => {
-                                        props.appendNavigationItem(
+                                    onClick={()=> {
+                                        dispatch(Actions.appendNavigationItem(
                                             {
                                                 'id'    : 'test-link',
                                                 'title' : 'fusetheme.com',
@@ -547,7 +548,7 @@ function FuseNavigationDoc(props)
                                                 'url'   : 'http://fusetheme.com',
                                                 'target': '_blank'
                                             }
-                                        )
+                                        ))
                                     }}
                                     variant="contained"
                                     color="primary"
@@ -566,7 +567,7 @@ function FuseNavigationDoc(props)
 
                         <Button
                             onClick={() => {
-                                props.appendNavigationItem(
+                                dispatch(Actions.appendNavigationItem(
                                     {
                                         'id'    : 'test-link-' + FuseUtils.generateGUID(),
                                         'title' : 'fusetheme.com',
@@ -575,7 +576,7 @@ function FuseNavigationDoc(props)
                                         'url'   : 'http://fusetheme.com',
                                         'target': '_blank'
                                     }, 'dashboards'
-                                )
+                                ))
                             }}
                             variant="contained"
                             color="primary"
@@ -587,8 +588,8 @@ function FuseNavigationDoc(props)
                             {
                                 `
                                 <Button
-                                    onClick={() => {
-                                        props.appendNavigationItem(
+                                    onClick={()=> {
+                                        dispatch(Actions.appendNavigationItem(
                                             {
                                                 'id'    : 'test-link',
                                                 'title' : 'fusetheme.com',
@@ -597,7 +598,7 @@ function FuseNavigationDoc(props)
                                                 'url'   : 'http://fusetheme.com',
                                                 'target': '_blank'
                                             }, 'dashboards'
-                                        )
+                                        ))
                                     }}
                                     variant="contained"
                                     color="primary"
@@ -614,16 +615,4 @@ function FuseNavigationDoc(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        setNavigation        : Actions.setNavigation,
-        resetNavigation      : Actions.resetNavigation,
-        updateNavigationItem : Actions.updateNavigationItem,
-        removeNavigationItem : Actions.removeNavigationItem,
-        appendNavigationItem : Actions.appendNavigationItem,
-        prependNavigationItem: Actions.prependNavigationItem
-    }, dispatch);
-}
-
-export default connect(null, mapDispatchToProps)(FuseNavigationDoc);
+export default FuseNavigationDoc;

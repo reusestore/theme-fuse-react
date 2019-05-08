@@ -2,9 +2,7 @@ import React from 'react';
 import {Avatar, Divider, Icon, List, ListItem, ListItemText, Paper, Typography} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate, NavLinkAdapter} from '@fuse';
-import {withRouter} from 'react-router-dom';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import {useSelector} from 'react-redux';
 
 const useStyles = makeStyles(theme => ({
     listItem: {
@@ -31,6 +29,8 @@ const useStyles = makeStyles(theme => ({
 
 function ContactsSidebarContent(props)
 {
+    const user = useSelector(({contactsApp}) => contactsApp.user, []);
+
     const classes = useStyles(props);
 
     return (
@@ -38,8 +38,8 @@ function ContactsSidebarContent(props)
             <FuseAnimate animation="transition.slideLeftIn" delay={200}>
                 <Paper className="rounded-0 shadow-none lg:rounded-8 lg:shadow-1">
                     <div className="p-24 flex items-center">
-                        <Avatar className="mr-12" alt={props.user.name} src={props.user.avatar}/>
-                        <Typography>{props.user.name}</Typography>
+                        <Avatar className="mr-12" alt={user.name} src={user.avatar}/>
+                        <Typography>{user.name}</Typography>
                     </div>
                     <Divider/>
                     <List>
@@ -80,16 +80,4 @@ function ContactsSidebarContent(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({}, dispatch);
-}
-
-function mapStateToProps({contactsApp})
-{
-    return {
-        user: contactsApp.user
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ContactsSidebarContent));
+export default ContactsSidebarContent;

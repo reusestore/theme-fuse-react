@@ -1,13 +1,15 @@
 import React from 'react';
 import {Hidden, Icon, IconButton, Tooltip, Typography} from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from './store/actions';
 import NotesSearch from './NotesSearch';
 
 function NotesHeader(props)
 {
+    const dispatch = useDispatch();
+    const variateDescSize = useSelector(({notesApp}) => notesApp.notes.variateDescSize, []);
+
     return (
         <div className="flex flex-1 items-center justify-between p-8 sm:p-24 relative">
 
@@ -33,8 +35,8 @@ function NotesHeader(props)
 
             <div className="flex flex-1 items-center justify-end">
                 <Tooltip title="Toggle Variate Description Size">
-                    <IconButton onClick={props.toggleVariateDescSize}>
-                        <Icon color={props.variateDescSize ? "action" : "disabled"}>format_size</Icon>
+                    <IconButton onClick={ev => dispatch(Actions.toggleVariateDescSize())}>
+                        <Icon color={variateDescSize ? "action" : "disabled"}>format_size</Icon>
                     </IconButton>
                 </Tooltip>
                 <NotesSearch/>
@@ -43,18 +45,4 @@ function NotesHeader(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        toggleVariateDescSize: Actions.toggleVariateDescSize
-    }, dispatch);
-}
-
-function mapStateToProps({notesApp})
-{
-    return {
-        variateDescSize: notesApp.notes.variateDescSize
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(NotesHeader);
+export default NotesHeader;

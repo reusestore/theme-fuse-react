@@ -6,7 +6,7 @@ import {useDebounce} from '@fuse/hooks';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
+import {useSelector} from 'react-redux';
 import {Manager, Reference, Popper} from 'react-popper';
 import * as ReactDOM from 'react-dom';
 import FuseNavHorizontalGroup from './FuseNavHorizontalGroup';
@@ -44,9 +44,11 @@ const useStyles = makeStyles(theme => ({
 
 function FuseNavHorizontalCollapse(props)
 {
+    const userRole = useSelector(({auth}) => auth.user.role, []);
+
     const classes = useStyles(props);
     const [opened, setOpened] = useState(false);
-    const {item, nestedLevel, userRole, dense} = props;
+    const {item, nestedLevel, dense} = props;
 
     const handleToggle = useDebounce((open) => {
         if ( opened === open )
@@ -151,13 +153,6 @@ function FuseNavHorizontalCollapse(props)
     );
 }
 
-function mapStateToProps({auth})
-{
-    return {
-        userRole: auth.user.role
-    }
-}
-
 FuseNavHorizontalCollapse.propTypes = {
     item: PropTypes.shape(
         {
@@ -170,6 +165,6 @@ FuseNavHorizontalCollapse.propTypes = {
 
 FuseNavHorizontalCollapse.defaultProps = {};
 
-const NavHorizontalCollapse = withRouter(connect(mapStateToProps)(React.memo(FuseNavHorizontalCollapse)));
+const NavHorizontalCollapse = withRouter(React.memo(FuseNavHorizontalCollapse));
 
 export default NavHorizontalCollapse;

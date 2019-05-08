@@ -2,35 +2,38 @@ import React, {useEffect, useState} from 'react';
 import {List, Typography} from '@material-ui/core';
 import {FuseUtils, FuseAnimate, FuseAnimateGroup} from '@fuse';
 import {withRouter} from 'react-router-dom';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from '../store/actions';
 import MailListItem from './MailListItem';
 
 function MailList(props)
 {
+    const dispatch = useDispatch();
+    const mails = useSelector(({mailApp}) => mailApp.mails.entities, []);
+    const searchText = useSelector(({mailApp}) => mailApp.mails.searchText, []);
+
     const [filteredData, setFilteredData] = useState(null);
 
     useEffect(() => {
-        props.getMails(props.match.params);
-    }, [props.location]);
+        dispatch(Actions.getMails(props.match.params));
+    }, [dispatch, props.match.params]);
 
     useEffect(() => {
         function getFilteredArray()
         {
-            const arr = Object.keys(props.mails).map((id) => props.mails[id]);
-            if ( props.searchText.length === 0 )
+            const arr = Object.keys(mails).map((id) => mails[id]);
+            if ( searchText.length === 0 )
             {
                 return arr;
             }
-            return FuseUtils.filterArrayByString(arr, props.searchText);
+            return FuseUtils.filterArrayByString(arr, searchText);
         }
 
-        if ( props.mails )
+        if ( mails )
         {
             setFilteredData(getFilteredArray());
         }
-    }, [props.mails, props.searchText]);
+    }, [mails, searchText]);
 
     if ( !filteredData )
     {
@@ -68,19 +71,4 @@ function MailList(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        getMails: Actions.getMails
-    }, dispatch);
-}
-
-function mapStateToProps({mailApp})
-{
-    return {
-        mails     : mailApp.mails.entities,
-        searchText: mailApp.mails.searchText
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MailList));
+export default withRouter(MailList);

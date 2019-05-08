@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {Button, IconButton, Icon, TextField, ClickAwayListener, InputAdornment} from '@material-ui/core';
-import {bindActionCreators} from 'redux';
-import {withRouter} from 'react-router-dom';
-import connect from 'react-redux/es/connect/connect';
 import * as Actions from '../store/actions';
 import {useForm} from '@fuse/hooks';
+import {useDispatch, useSelector} from 'react-redux';
 
 function BoardAddCard(props)
 {
+    const dispatch = useDispatch();
+    const board = useSelector(({scrumboardApp}) => scrumboardApp.board, []);
+
     const [formOpen, setFormOpen] = useState(false);
     const {form, handleChange, resetForm} = useForm({
         title: ''
@@ -18,7 +19,7 @@ function BoardAddCard(props)
         {
             resetForm();
         }
-    }, [formOpen]);
+    }, [formOpen, resetForm]);
 
     function handleOpenForm()
     {
@@ -33,9 +34,10 @@ function BoardAddCard(props)
     function handleSubmit(ev)
     {
         ev.preventDefault();
-        props.newCard(props.board.id, props.listId, form.title).then(() => {
-            props.onCardAdded();
-        });
+        dispatch(Actions.newCard(board.id, props.listId, form.title))
+            .then(() => {
+                props.onCardAdded();
+            });
         handleCloseForm();
     }
 
@@ -100,18 +102,4 @@ function BoardAddCard(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        newCard: Actions.newCard
-    }, dispatch);
-}
-
-function mapStateToProps({scrumboardApp})
-{
-    return {
-        board: scrumboardApp.board
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BoardAddCard));
+export default BoardAddCard;

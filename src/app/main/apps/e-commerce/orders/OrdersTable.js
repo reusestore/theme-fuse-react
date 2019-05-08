@@ -2,17 +2,20 @@ import React, {useEffect, useState} from 'react';
 import {Table, TableBody, TableCell, TablePagination, TableRow, Checkbox} from '@material-ui/core';
 import {FuseScrollbars, FuseUtils} from '@fuse';
 import {withRouter} from 'react-router-dom';
-import {bindActionCreators} from 'redux';
-import connect from 'react-redux/es/connect/connect';
 import _ from '@lodash';
 import OrdersTableHead from './OrdersTableHead';
 import OrdersStatus from '../order/OrdersStatus';
 import * as Actions from '../store/actions';
+import {useDispatch, useSelector} from 'react-redux';
 
 function OrdersTable(props)
 {
+    const dispatch = useDispatch();
+    const orders = useSelector(({eCommerceApp}) => eCommerceApp.orders.data, []);
+    const searchText = useSelector(({eCommerceApp}) => eCommerceApp.orders.searchText, []);
+
     const [selected, setSelected] = useState([]);
-    const [data, setData] = useState(props.orders);
+    const [data, setData] = useState(orders);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
     const [order, setOrder] = useState({
@@ -21,12 +24,12 @@ function OrdersTable(props)
     });
 
     useEffect(() => {
-        props.getOrders();
-    }, []);
+        dispatch(Actions.getOrders());
+    }, [dispatch]);
 
     useEffect(() => {
-        setData(props.searchText.length === 0 ? props.orders : FuseUtils.filterArrayByString(props.orders, props.searchText))
-    }, [props.orders, props.searchText]);
+        setData(searchText.length === 0 ? orders : FuseUtils.filterArrayByString(orders, searchText))
+    }, [orders, searchText]);
 
     function handleRequestSort(event, property)
     {
@@ -217,19 +220,4 @@ function OrdersTable(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        getOrders: Actions.getOrders
-    }, dispatch);
-}
-
-function mapStateToProps({eCommerceApp})
-{
-    return {
-        orders    : eCommerceApp.orders.data,
-        searchText: eCommerceApp.orders.searchText
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OrdersTable));
+export default withRouter(OrdersTable);

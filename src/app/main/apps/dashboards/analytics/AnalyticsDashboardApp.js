@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {Typography} from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
-import {useActions, useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import Widget1 from './widgets/Widget1';
 import Widget2 from './widgets/Widget2';
 import Widget3 from './widgets/Widget3';
@@ -17,12 +17,12 @@ import reducer from './store/reducers';
 
 function AnalyticsDashboardApp()
 {
+    const dispatch = useDispatch();
     const widgets = useSelector(({analyticsDashboardApp}) => analyticsDashboardApp.widgets.data, []);
-    const getWidgets = useActions(Actions.getWidgets, []);
 
     useEffect(() => {
-        getWidgets();
-    }, []);
+        dispatch(Actions.getWidgets());
+    }, [dispatch]);
 
     if ( !widgets )
     {

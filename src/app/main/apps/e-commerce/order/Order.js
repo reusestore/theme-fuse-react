@@ -1,16 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import {Avatar, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Icon, Tab, Tabs, Tooltip, Typography} from '@material-ui/core';
 import {FuseAnimate, FusePageCarded} from '@fuse';
-import {Link, withRouter} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import connect from 'react-redux/es/connect/connect';
-import {bindActionCreators} from 'redux';
 import GoogleMap from 'google-map-react';
 import withReducer from 'app/store/withReducer';
 import OrdersStatus from './OrdersStatus';
 import OrderInvoice from './OrderInvoice';
 import * as Actions from '../store/actions';
 import reducer from '../store/reducers';
+import {useDispatch, useSelector} from 'react-redux';
 
 function Marker(props)
 {
@@ -23,12 +22,15 @@ function Marker(props)
 
 function Order(props)
 {
+    const dispatch = useDispatch();
+    const order = useSelector(({eCommerceApp}) => eCommerceApp.order, []);
+
     const [tabValue, setTabValue] = useState(0);
     const [map, setMap] = useState('shipping');
 
     useEffect(() => {
-        props.getOrder(props.match.params);
-    }, []);
+        dispatch(Actions.getOrder(props.match.params));
+    }, [dispatch, props.match.params]);
 
     function handleChangeTab(event, tabValue)
     {
@@ -42,7 +44,7 @@ function Order(props)
                 header : "min-h-72 h-72 sm:h-136 sm:min-h-136"
             }}
             header={
-                props.order && (
+                order && (
                     <div className="flex flex-1 w-full items-center justify-between">
 
                         <div className="flex flex-1 flex-col items-center sm:items-start">
@@ -58,13 +60,13 @@ function Order(props)
 
                                 <FuseAnimate animation="transition.slideLeftIn" delay={300}>
                                     <Typography className="text-16 sm:text-20 truncate">
-                                        {'Order ' + props.order.reference}
+                                        {'Order ' + order.reference}
                                     </Typography>
                                 </FuseAnimate>
 
                                 <FuseAnimate animation="transition.slideLeftIn" delay={300}>
                                     <Typography variant="caption">
-                                        {'From ' + props.order.customer.firstName + ' ' + props.order.customer.lastName}
+                                        {'From ' + order.customer.firstName + ' ' + order.customer.lastName}
                                     </Typography>
                                 </FuseAnimate>
                             </div>
@@ -89,7 +91,7 @@ function Order(props)
                 </Tabs>
             }
             content={
-                props.order && (
+                order && (
                     <div className="p-16 sm:p-24 max-w-2xl w-full">
                         {/*Order Details*/}
                         {tabValue === 0 &&
@@ -118,20 +120,20 @@ function Order(props)
                                                     <tr>
                                                         <td>
                                                             <div className="flex items-center">
-                                                                <Avatar className="mr-8" src={props.order.customer.avatar}/>
+                                                                <Avatar className="mr-8" src={order.customer.avatar}/>
                                                                 <Typography className="truncate">
-                                                                    {props.order.customer.firstName + ' ' + props.order.customer.lastName}
+                                                                    {order.customer.firstName + ' ' + order.customer.lastName}
                                                                 </Typography>
                                                             </div>
                                                         </td>
                                                         <td>
-                                                            <Typography className="truncate">{props.order.customer.email}</Typography>
+                                                            <Typography className="truncate">{order.customer.email}</Typography>
                                                         </td>
                                                         <td>
-                                                            <Typography className="truncate">{props.order.customer.phone}</Typography>
+                                                            <Typography className="truncate">{order.customer.phone}</Typography>
                                                         </td>
                                                         <td>
-                                                            <span className="truncate">{props.order.customer.company}</span>
+                                                            <span className="truncate">{order.customer.company}</span>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -147,19 +149,19 @@ function Order(props)
                                                 <Typography className="font-600">Shipping Address</Typography>
                                             </ExpansionPanelSummary>
                                             <ExpansionPanelDetails className="flex flex-col md:flex-row">
-                                                <Typography className="w-full md:max-w-256 mb-16 md:mb-0">{props.order.customer.shippingAddress.address}</Typography>
+                                                <Typography className="w-full md:max-w-256 mb-16 md:mb-0">{order.customer.shippingAddress.address}</Typography>
                                                 <div className="w-full h-320">
                                                     <GoogleMap
                                                         bootstrapURLKeys={{
                                                             key: process.env.REACT_APP_MAP_KEY
                                                         }}
                                                         defaultZoom={15}
-                                                        defaultCenter={[props.order.customer.shippingAddress.lat, props.order.customer.shippingAddress.lng]}
+                                                        defaultCenter={[order.customer.shippingAddress.lat, order.customer.shippingAddress.lng]}
                                                     >
                                                         <Marker
-                                                            text={props.order.customer.shippingAddress.address}
-                                                            lat={props.order.customer.shippingAddress.lat}
-                                                            lng={props.order.customer.shippingAddress.lng}
+                                                            text={order.customer.shippingAddress.address}
+                                                            lat={order.customer.shippingAddress.lat}
+                                                            lng={order.customer.shippingAddress.lng}
                                                         />
                                                     </GoogleMap>
                                                 </div>
@@ -175,19 +177,19 @@ function Order(props)
                                                 <Typography className="font-600">Invoice Address</Typography>
                                             </ExpansionPanelSummary>
                                             <ExpansionPanelDetails className="flex flex-col md:flex-row">
-                                                <Typography className="w-full md:max-w-256 mb-16 md:mb-0">{props.order.customer.invoiceAddress.address}</Typography>
+                                                <Typography className="w-full md:max-w-256 mb-16 md:mb-0">{order.customer.invoiceAddress.address}</Typography>
                                                 <div className="w-full h-320">
                                                     <GoogleMap
                                                         bootstrapURLKeys={{
                                                             key: process.env.REACT_APP_MAP_KEY
                                                         }}
                                                         defaultZoom={15}
-                                                        defaultCenter={[props.order.customer.invoiceAddress.lat, props.order.customer.invoiceAddress.lng]}
+                                                        defaultCenter={[order.customer.invoiceAddress.lat, order.customer.invoiceAddress.lng]}
                                                     >
                                                         <Marker
-                                                            text={props.order.customer.invoiceAddress.address}
-                                                            lat={props.order.customer.invoiceAddress.lat}
-                                                            lng={props.order.customer.invoiceAddress.lng}
+                                                            text={order.customer.invoiceAddress.address}
+                                                            lat={order.customer.invoiceAddress.lat}
+                                                            lng={order.customer.invoiceAddress.lng}
                                                         />
                                                     </GoogleMap>
                                                 </div>
@@ -212,7 +214,7 @@ function Order(props)
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {props.order.status.map(status => (
+                                                {order.status.map(status => (
                                                     <tr key={status.id}>
                                                         <td>
                                                             <OrdersStatus name={status.name}/>
@@ -248,22 +250,22 @@ function Order(props)
                                                 <tr>
                                                     <td>
                                                             <span className="truncate">
-                                                                {props.order.payment.transactionId}
+                                                                {order.payment.transactionId}
                                                             </span>
                                                     </td>
                                                     <td>
                                                             <span className="truncate">
-                                                                {props.order.payment.method}
+                                                                {order.payment.method}
                                                             </span>
                                                     </td>
                                                     <td>
                                                             <span className="truncate">
-                                                                {props.order.payment.amount}
+                                                                {order.payment.amount}
                                                             </span>
                                                     </td>
                                                     <td>
                                                             <span className="truncate">
-                                                                {props.order.payment.date}
+                                                                {order.payment.date}
                                                             </span>
                                                     </td>
                                                 </tr>
@@ -291,7 +293,7 @@ function Order(props)
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {props.order.shippingDetails.map(shipping => (
+                                                {order.shippingDetails.map(shipping => (
                                                     <tr key={shipping.date}>
                                                         <td>
                                                                 <span className="truncate">
@@ -341,7 +343,7 @@ function Order(props)
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {props.order.products.map(product => (
+                                        {order.products.map(product => (
                                             <tr key={product.id}>
                                                 <td className="w-64">
                                                     {product.id}
@@ -381,7 +383,7 @@ function Order(props)
                         {/*Invoice*/}
                         {tabValue === 2 &&
                         (
-                            <OrderInvoice order={props.order}/>
+                            <OrderInvoice order={order}/>
                         )}
                     </div>
                 )
@@ -391,19 +393,4 @@ function Order(props)
     )
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        getOrder : Actions.getOrder,
-        saveOrder: Actions.saveOrder
-    }, dispatch);
-}
-
-function mapStateToProps({eCommerceApp})
-{
-    return {
-        order: eCommerceApp.order
-    }
-}
-
-export default withReducer('eCommerceApp', reducer)(withRouter(connect(mapStateToProps, mapDispatchToProps)(Order)));
+export default withReducer('eCommerceApp', reducer)(Order);

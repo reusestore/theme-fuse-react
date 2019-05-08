@@ -5,8 +5,7 @@ import {FuseUtils} from '@fuse';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from 'app/store/actions';
 import FuseNavBadge from './../FuseNavBadge';
 
@@ -41,8 +40,11 @@ const useStyles = makeStyles(theme => ({
 
 function FuseNavVerticalLink(props)
 {
+    const dispatch = useDispatch();
+    const userRole = useSelector(({auth}) => auth.user.role, []);
+
     const classes = useStyles(props);
-    const {item, nestedLevel, userRole, navbarCloseMobile, active} = props;
+    const {item, nestedLevel, active} = props;
     let paddingValue = 40 + (nestedLevel * 16);
     const listItemPadding = nestedLevel > 0 ? 'pl-' + (paddingValue > 80 ? 80 : paddingValue) : 'pl-24';
 
@@ -58,7 +60,7 @@ function FuseNavVerticalLink(props)
             href={item.url}
             target={item.target ? item.target : "_blank"}
             className={classNames(classes.item, listItemPadding, 'list-item', active)}
-            onClick={navbarCloseMobile}
+            onClick={ev => dispatch(Actions.navbarCloseMobile())}
         >
             {item.icon && (
                 <Icon className="list-item-icon text-16 flex-no-shrink mr-16" color="action">{item.icon}</Icon>
@@ -69,20 +71,6 @@ function FuseNavVerticalLink(props)
             )}
         </ListItem>
     );
-}
-
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        navbarCloseMobile: Actions.navbarCloseMobile
-    }, dispatch);
-}
-
-function mapStateToProps({auth, fuse})
-{
-    return {
-        userRole: auth.user.role
-    }
 }
 
 FuseNavVerticalLink.propTypes = {
@@ -97,6 +85,6 @@ FuseNavVerticalLink.propTypes = {
 };
 FuseNavVerticalLink.defaultProps = {};
 
-const NavVerticalLink = withRouter(connect(mapStateToProps, mapDispatchToProps)(React.memo(FuseNavVerticalLink)));
+const NavVerticalLink = withRouter(React.memo(FuseNavVerticalLink));
 
 export default NavVerticalLink;

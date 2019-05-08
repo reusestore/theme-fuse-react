@@ -1,9 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {Fab, Icon} from '@material-ui/core';
 import {FusePageSimple, FuseAnimate} from '@fuse';
-import {bindActionCreators} from 'redux';
-import {withRouter} from 'react-router-dom';
-import {connect} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import withReducer from 'app/store/withReducer';
 import ContactsList from './ContactsList';
 import ContactsHeader from './ContactsHeader';
@@ -24,17 +22,19 @@ const useStyles = makeStyles({
 
 function ContactsApp(props)
 {
+    const dispatch = useDispatch();
+
     const classes = useStyles(props);
     const pageLayout = useRef(null);
 
     useEffect(() => {
-        props.getContacts(props.match.params);
-        props.getUserData();
-    }, []);
+        dispatch(Actions.getContacts(props.match.params));
+        dispatch(Actions.getUserData());
+    }, [dispatch, props.match.params]);
 
     useEffect(() => {
-        props.getContacts(props.match.params);
-    }, [props.location]);
+        dispatch(Actions.getContacts(props.match.params));
+    }, [dispatch, props.match.params]);
 
     return (
         <React.Fragment>
@@ -63,7 +63,7 @@ function ContactsApp(props)
                     color="primary"
                     aria-label="add"
                     className={classes.addButton}
-                    onClick={props.openNewContactDialog}
+                    onClick={ev => dispatch(Actions.openNewContactDialog())}
                 >
                     <Icon>person_add</Icon>
                 </Fab>
@@ -73,23 +73,4 @@ function ContactsApp(props)
     )
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        getContacts         : Actions.getContacts,
-        getUserData         : Actions.getUserData,
-        openNewContactDialog: Actions.openNewContactDialog
-    }, dispatch);
-}
-
-function mapStateToProps({contactsApp})
-{
-    return {
-        contacts          : contactsApp.contacts.entities,
-        selectedContactIds: contactsApp.contacts.selectedContactIds,
-        searchText        : contactsApp.contacts.searchText,
-        user              : contactsApp.user
-    }
-}
-
-export default withReducer('contactsApp', reducer)(withRouter(connect(mapStateToProps, mapDispatchToProps)(ContactsApp)));
+export default withReducer('contactsApp', reducer)(ContactsApp);

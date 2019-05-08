@@ -19,7 +19,7 @@ function useTimeout(callback, delay)
                 }
             };
         }
-    }, [delay]);
+    }, [callback, delay]);
 }
 
 export default useTimeout;

@@ -2,9 +2,8 @@ import React, {useEffect} from 'react';
 import {Typography, Icon} from '@material-ui/core';
 import {fade} from '@material-ui/core/styles/colorManipulator';
 import {FuseAnimateGroup, FuseAnimate} from '@fuse';
-import {bindActionCreators} from 'redux';
-import {Link, withRouter} from 'react-router-dom';
-import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
 import classNames from 'classnames';
 import withReducer from 'app/store/withReducer';
 import * as Actions from '../store/actions';
@@ -40,14 +39,17 @@ const useStyles = makeStyles(theme => ({
 
 function Boards(props)
 {
+    const dispatch = useDispatch();
+    const boards = useSelector(({scrumboardApp}) => scrumboardApp.boards, []);
+
     const classes = useStyles(props);
 
     useEffect(() => {
-        props.getBoards();
+        dispatch(Actions.getBoards());
         return () => {
-            props.resetBoards();
+            dispatch(Actions.resetBoards());
         }
-    }, []);
+    }, [dispatch]);
 
     return (
         <div className={classNames(classes.root, "flex flex-grow flex-no-shrink flex-col items-center")}>
@@ -66,7 +68,7 @@ function Boards(props)
                             duration : 300
                         }}
                     >
-                        {props.boards.map(board => (
+                        {boards.map(board => (
                             <div className="w-224 h-224 p-16" key={board.id}>
                                 <Link
                                     to={'/apps/scrumboard/boards/' + board.id + '/' + board.uri}
@@ -81,7 +83,7 @@ function Boards(props)
                         <div className="w-224 h-224 p-16">
                             <div
                                 className={classNames(classes.board, classes.newBoard, "flex flex-col items-center justify-center w-full h-full rounded py-24")}
-                                onClick={() => props.newBoard()}
+                                onClick={() => dispatch(Actions.newBoard())}
                             >
                                 <Icon className="text-56">add_circle</Icon>
                                 <Typography className="text-16 font-300 text-center pt-16 px-32" color="inherit">Add new board</Typography>
@@ -94,20 +96,4 @@ function Boards(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        getBoards  : Actions.getBoards,
-        resetBoards: Actions.resetBoards,
-        newBoard   : Actions.newBoard
-    }, dispatch);
-}
-
-function mapStateToProps({scrumboardApp})
-{
-    return {
-        boards: scrumboardApp.boards
-    }
-}
-
-export default withReducer('scrumboardApp', reducer)(withRouter(connect(mapStateToProps, mapDispatchToProps)(Boards)));
+export default withReducer('scrumboardApp', reducer)(Boards);

@@ -5,8 +5,7 @@ import {NavLinkAdapter, FuseUtils} from '@fuse';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import { useDispatch, useSelector} from 'react-redux';
 import * as Actions from 'app/store/actions';
 import FuseNavBadge from './../FuseNavBadge';
 
@@ -42,8 +41,11 @@ const useStyles = makeStyles(theme => ({
 
 function FuseNavVerticalItem(props)
 {
+    const dispatch = useDispatch();
+    const userRole = useSelector(({auth}) => auth.user.role, []);
+
     const classes = useStyles(props);
-    const {item, nestedLevel, userRole, navbarCloseMobile, active} = props;
+    const {item, nestedLevel, active} = props;
     let paddingValue = 40 + (nestedLevel * 16);
     const listItemPadding = nestedLevel > 0 ? 'pl-' + (paddingValue > 80 ? 80 : paddingValue) : 'pl-24';
 
@@ -59,7 +61,7 @@ function FuseNavVerticalItem(props)
             to={item.url}
             activeClassName="active"
             className={classNames(classes.item, listItemPadding, 'list-item', active)}
-            onClick={navbarCloseMobile}
+            onClick={ev => dispatch(Actions.navbarCloseMobile())}
             exact={item.exact}
         >
             {item.icon && (
@@ -71,20 +73,6 @@ function FuseNavVerticalItem(props)
             )}
         </ListItem>
     );
-}
-
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        navbarCloseMobile: Actions.navbarCloseMobile
-    }, dispatch);
-}
-
-function mapStateToProps({auth})
-{
-    return {
-        userRole: auth.user.role
-    }
 }
 
 FuseNavVerticalItem.propTypes = {
@@ -99,6 +87,6 @@ FuseNavVerticalItem.propTypes = {
 
 FuseNavVerticalItem.defaultProps = {};
 
-const NavVerticalItem = withRouter(connect(mapStateToProps, mapDispatchToProps)(React.memo(FuseNavVerticalItem)));
+const NavVerticalItem = withRouter(React.memo(FuseNavVerticalItem));
 
 export default NavVerticalItem;

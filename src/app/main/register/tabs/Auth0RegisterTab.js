@@ -1,30 +1,31 @@
 import React, {useEffect} from 'react';
 import {Button} from '@material-ui/core';
-import {withRouter} from 'react-router-dom';
 import auth0Service from 'app/services/auth0Service';
-import {bindActionCreators} from 'redux';
-import connect from 'react-redux/es/connect/connect';
 import * as Actions from 'app/store/actions';
 import * as authActions from 'app/auth/store/actions';
+import {useDispatch} from 'react-redux';
 
 function Auth0RegisterTab(props)
 {
+    const dispatch = useDispatch();
+
+
     useEffect(() => {
 
         showDialog();
 
         auth0Service.onAuthenticated(() => {
 
-            props.showMessage({message: 'Logging in with Auth0'});
+            dispatch(Actions.showMessage({message: 'Logging in with Auth0'}));
 
             auth0Service.getUserData().then(tokenData => {
 
-                props.setUserDataAuth0(tokenData);
+                dispatch(authActions.setUserDataAuth0(tokenData));
 
-                props.showMessage({message: 'Logged in with Auth0'});
+                dispatch(Actions.showMessage({message: 'Logged in with Auth0'}));
             });
         });
-    }, []);
+    }, [dispatch]);
 
     function showDialog()
     {
@@ -45,13 +46,4 @@ function Auth0RegisterTab(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-            setUserDataAuth0: authActions.setUserDataAuth0,
-            showMessage     : Actions.showMessage
-        },
-        dispatch);
-}
-
-export default withRouter(connect(null, mapDispatchToProps)(Auth0RegisterTab));
+export default Auth0RegisterTab;

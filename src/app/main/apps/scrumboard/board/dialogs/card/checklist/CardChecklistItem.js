@@ -1,15 +1,21 @@
 import {Icon, IconButton, TextField, Checkbox, ListItem} from '@material-ui/core';
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useForm} from '@fuse/hooks';
 import _ from '@lodash';
 
 function CardChecklistItem(props)
 {
-    function handleChange(event)
-    {
-        props.onListItemChange(_.setIn(props.item, event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value));
-    }
+    const {form, handleChange} = useForm(props.item);
 
-    if ( !props.item )
+    useEffect(() => {
+        if ( !_.isEqual(props.item, form) )
+        {
+            props.onListItemChange(form);
+        }
+        // eslint-disable-next-line
+    }, [form]);
+
+    if ( !form )
     {
         return null;
     }
@@ -17,11 +23,11 @@ function CardChecklistItem(props)
     return (
         <ListItem
             className="px-0"
-            key={props.item.id}
+            key={form.id}
             dense
         >
             <Checkbox
-                checked={props.item.checked}
+                checked={form.checked}
                 name="checked"
                 onChange={handleChange}
                 tabIndex={-1}
@@ -30,7 +36,7 @@ function CardChecklistItem(props)
             <TextField
                 className="flex flex-1 mx-8"
                 name="name"
-                value={props.item.name}
+                value={form.name}
                 onChange={handleChange}
                 variant="outlined"
             />

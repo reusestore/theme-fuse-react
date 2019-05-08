@@ -2,8 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import {Divider, Icon, IconButton, Input, ListItemIcon, ListItemText, Menu, MenuItem, Tooltip, Typography} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 import * as UserActions from 'app/auth/store/actions';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {FuseUtils, FuseAnimateGroup} from '@fuse';
 import {Link} from 'react-router-dom';
 import amber from '@material-ui/core/colors/amber';
@@ -27,22 +26,26 @@ const useStyles = makeStyles({
 
 function FuseShortcuts(props)
 {
+    const dispatch = useDispatch();
+    const shortcuts = useSelector(({auth}) => auth.user.data.shortcuts, []);
+    const navigationData = useSelector(({fuse}) => fuse.navigation, []);
+
     const classes = useStyles(props);
     const searchInputRef = useRef(null);
     const [addMenu, setAddMenu] = useState(null);
     const [searchText, setSearchText] = useState('');
     const [searchResults, setSearchResults] = useState(null);
     const [navigation, setNavigation] = useState(null);
-    const shortcutItems = props.shortcuts ? props.shortcuts.map(id => FuseUtils.findById(props.navigation, id)) : [];
+    const shortcutItems = shortcuts ? shortcuts.map(id => FuseUtils.findById(navigationData, id)) : [];
 
     useEffect(() => {
         function flattenNavigation()
         {
-            setNavigation(FuseUtils.getFlatNavigation(props.navigation));
+            setNavigation(FuseUtils.getFlatNavigation(navigationData));
         }
 
         flattenNavigation();
-    }, [props.location, props.navigation]);
+    }, [props.location, navigationData]);
 
     function addMenuClick(event)
     {
@@ -69,9 +72,9 @@ function FuseShortcuts(props)
 
     function toggleInShortcuts(id)
     {
-        let shortcuts = [...props.shortcuts];
-        shortcuts = shortcuts.includes(id) ? shortcuts.filter(_id => id !== _id) : [...shortcuts, id];
-        props.updateUserShortcuts(shortcuts);
+        let newShortcuts = [...shortcuts];
+        newShortcuts = newShortcuts.includes(id) ? newShortcuts.filter(_id => id !== _id) : [...newShortcuts, id];
+        dispatch(UserActions.updateUserShortcuts(newShortcuts));
     }
 
     function ShortcutMenuItem({item, onToggle})
@@ -97,7 +100,7 @@ function FuseShortcuts(props)
                             onToggle(item.id);
                         }}
                     >
-                        <Icon color="action">{props.shortcuts.includes(item.id) ? 'star' : 'star_border'}</Icon>
+                        <Icon color="action">{shortcuts.includes(item.id) ? 'star' : 'star_border'}</Icon>
                     </IconButton>
                 </MenuItem>
             </Link>
@@ -196,24 +199,9 @@ function FuseShortcuts(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        updateUserShortcuts: UserActions.updateUserShortcuts
-    }, dispatch);
-}
-
-function mapStateToProps({fuse, auth})
-{
-    return {
-        navigation: fuse.navigation,
-        shortcuts : auth.user.data.shortcuts
-    }
-}
-
 FuseShortcuts.propTypes = {};
 FuseShortcuts.defaultProps = {
     variant: "horizontal"
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(React.memo(FuseShortcuts));
+export default React.memo(FuseShortcuts);

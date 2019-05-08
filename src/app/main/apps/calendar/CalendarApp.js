@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import {Fab, Icon} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate} from '@fuse';
-import {useActions, useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import BigCalendar from 'react-big-calendar'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
@@ -164,43 +164,33 @@ const useStyles = makeStyles(theme => ({
 
 function CalendarApp(props)
 {
+    const dispatch = useDispatch();
     const events = useSelector(({calendarApp}) => calendarApp.events.entities, []);
-    const [
-        getEvents,
-        openNewEventDialog,
-        openEditEventDialog,
-        updateEvent
-    ] = useActions([
-        Actions.getEvents,
-        Actions.openNewEventDialog,
-        Actions.openEditEventDialog,
-        Actions.updateEvent
-    ], []);
 
     const classes = useStyles(props);
     const headerEl = useRef(null);
 
     useEffect(() => {
-        getEvents();
-    }, []);
+        dispatch(Actions.getEvents());
+    }, [dispatch]);
 
     function moveEvent({event, start, end})
     {
-        updateEvent({
+        dispatch(Actions.updateEvent({
             ...event,
             start,
             end
-        });
+        }));
     }
 
     function resizeEvent({event, start, end})
     {
         delete event.type;
-        updateEvent({
+        dispatch(Actions.updateEvent({
             ...event,
             start,
             end
-        });
+        }));
     }
 
     return (
@@ -232,22 +222,22 @@ function CalendarApp(props)
                 }}
                 // onNavigate={handleNavigate}
                 onSelectEvent={event => {
-                    openEditEventDialog(event);
+                    dispatch(Actions.openEditEventDialog(event));
                 }}
-                onSelectSlot={slotInfo => openNewEventDialog({
+                onSelectSlot={slotInfo => dispatch(Actions.openNewEventDialog({
                     start: slotInfo.start.toLocaleString(),
                     end  : slotInfo.end.toLocaleString()
-                })}
+                }))}
             />
             <FuseAnimate animation="transition.expandIn" delay={500}>
                 <Fab
                     color="secondary"
                     aria-label="add"
                     className={classes.addButton}
-                    onClick={() => openNewEventDialog({
+                    onClick={() => dispatch(Actions.openNewEventDialog({
                         start: new Date(),
                         end  : new Date()
-                    })}
+                    }))}
                 >
                     <Icon>add</Icon>
                 </Fab>

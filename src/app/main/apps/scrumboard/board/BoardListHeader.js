@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {ClickAwayListener, Icon, IconButton, InputAdornment, ListItemIcon, ListItemText, Menu, MenuItem, TextField, Typography} from '@material-ui/core';
 import {useForm} from '@fuse/hooks';
-import {bindActionCreators} from 'redux';
-import {withRouter} from 'react-router-dom';
-import connect from 'react-redux/es/connect/connect';
 import * as Actions from '../store/actions';
+import {useDispatch, useSelector} from 'react-redux';
 
 function BoardListHeader(props)
 {
+    const dispatch = useDispatch();
+    const board = useSelector(({scrumboardApp}) => scrumboardApp.board, []);
+
     const [anchorEl, setAnchorEl] = useState(null);
     const [formOpen, setFormOpen] = useState(false);
     const {form, handleChange, resetForm, setForm} = useForm({
@@ -24,14 +25,14 @@ function BoardListHeader(props)
             setAnchorEl(null);
         }
 
-    }, [formOpen]);
+    }, [anchorEl, formOpen, resetForm]);
 
     useEffect(() => {
         if ( form.title !== props.list.name )
         {
             setForm({title: props.list.name});
         }
-    }, [props.list.name]);
+    }, [form.title, props.list.name, setForm]);
 
     function handleMenuClick(event)
     {
@@ -65,7 +66,7 @@ function BoardListHeader(props)
         {
             return;
         }
-        props.renameList(props.board.id, props.list.id, form.title);
+        dispatch(Actions.renameList(board.id, props.list.id, form.title));
         handleCloseForm();
     }
 
@@ -125,7 +126,7 @@ function BoardListHeader(props)
                         onClose={handleMenuClose}
                     >
                         <MenuItem onClick={() => {
-                            props.removeList(props.board.id, props.list.id);
+                            dispatch(Actions.removeList(board.id, props.list.id));
                         }}>
                             <ListItemIcon className="min-w-40">
                                 <Icon>delete</Icon>
@@ -146,19 +147,4 @@ function BoardListHeader(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        renameList: Actions.renameList,
-        removeList: Actions.removeList
-    }, dispatch);
-}
-
-function mapStateToProps({scrumboardApp})
-{
-    return {
-        board: scrumboardApp.board
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BoardListHeader));
+export default BoardListHeader;

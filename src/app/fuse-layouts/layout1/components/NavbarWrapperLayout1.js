@@ -2,10 +2,9 @@ import React from 'react';
 import {Drawer, Hidden} from '@material-ui/core';
 import {makeStyles, ThemeProvider} from '@material-ui/styles';
 import classNames from 'classnames';
-import {bindActionCreators} from 'redux';
 import * as Actions from 'app/store/actions';
-import connect from 'react-redux/es/connect/connect';
 import NavbarLayout1 from './NavbarLayout1';
+import {useDispatch, useSelector} from 'react-redux';
 
 const navbarWidth = 280;
 
@@ -118,14 +117,19 @@ const useStyles = makeStyles(theme => ({
 
 function NavbarWrapperLayout1(props)
 {
+    const dispatch = useDispatch();
+    const config = useSelector(({fuse}) => fuse.settings.current.layout.config, []);
+    const navbarTheme = useSelector(({fuse}) => fuse.settings.navbarTheme, []);
+    const navbar = useSelector(({fuse}) => fuse.navbar, []);
+
     const classes = useStyles();
 
-    const folded = props.config.navbar.folded;
-    const foldedAndClosed = folded && !props.navbar.foldedOpen;
-    const foldedAndOpened = folded && props.navbar.foldedOpen;
+    const folded = config.navbar.folded;
+    const foldedAndClosed = folded && !navbar.foldedOpen;
+    const foldedAndOpened = folded && navbar.foldedOpen;
 
     return (
-        <ThemeProvider theme={props.navbarTheme}>
+        <ThemeProvider theme={navbarTheme}>
             <div id="fuse-navbar"
                  className={
                      classNames(
@@ -138,15 +142,15 @@ function NavbarWrapperLayout1(props)
                         className={
                             classNames(
                                 classes.navbar,
-                                classes[props.config.navbar.position],
+                                classes[config.navbar.position],
                                 folded && classes.folded,
                                 foldedAndOpened && classes.foldedAndOpened,
                                 foldedAndClosed && classes.foldedAndClosed
                             )
                         }
-                        onMouseEnter={() => foldedAndClosed && props.navbarOpenFolded()}
-                        onMouseLeave={() => foldedAndOpened && props.navbarCloseFolded()}
-                        style={{backgroundColor: props.navbarTheme.palette.background.default}}
+                        onMouseEnter={() => foldedAndClosed && dispatch(Actions.navbarOpenFolded())}
+                        onMouseLeave={() => foldedAndOpened && dispatch(Actions.navbarCloseFolded())}
+                        style={{backgroundColor: navbarTheme.palette.background.default}}
                     >
                         <NavbarLayout1 className={classes.navbarContent}/>
                     </div>
@@ -154,13 +158,13 @@ function NavbarWrapperLayout1(props)
 
                 <Hidden lgUp>
                     <Drawer
-                        anchor={props.config.navbar.position}
+                        anchor={config.navbar.position}
                         variant="temporary"
-                        open={props.navbar.mobileOpen}
+                        open={navbar.mobileOpen}
                         classes={{
                             paper: classes.navbar
                         }}
-                        onClose={props.navbarCloseMobile}
+                        onClose={() => dispatch(Actions.navbarCloseMobile())}
                         ModalProps={{
                             keepMounted: true // Better open performance on mobile.
                         }}
@@ -173,22 +177,4 @@ function NavbarWrapperLayout1(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        navbarOpenFolded : Actions.navbarOpenFolded,
-        navbarCloseFolded: Actions.navbarCloseFolded,
-        navbarCloseMobile: Actions.navbarCloseMobile
-    }, dispatch);
-}
-
-function mapStateToProps({fuse})
-{
-    return {
-        config     : fuse.settings.current.layout.config,
-        navbarTheme: fuse.settings.navbarTheme,
-        navbar     : fuse.navbar
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(NavbarWrapperLayout1);
+export default NavbarWrapperLayout1;

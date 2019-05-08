@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {Radio, FormControlLabel, RadioGroup, FormLabel, FormControl, IconButton, TextField, AppBar, Icon, Toolbar, Typography, Avatar} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
-import {useActions, useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import _ from '@lodash';
 import * as Actions from './store/actions';
 import StatusIcon from './StatusIcon';
@@ -28,19 +28,14 @@ const statusArr = [
 
 function UserSidebar(props)
 {
+    const dispatch = useDispatch();
     const user = useSelector(({chatApp}) => chatApp.user, []);
-    const [
-        closeUserSidebar,
-        _updateUserData
-    ] = useActions([
-        Actions.closeContactSidebar,
-        Actions.updateUserData
-    ], []);
 
     const {form, handleChange, setForm} = useForm(user ? {...user} : false);
 
     const updateUserData = useDebounce(() => {
-        _updateUserData(form);
+        console.info('update user data')
+        dispatch(Actions.updateUserData(form));
     }, 500);
 
     useEffect(() => {
@@ -48,6 +43,7 @@ function UserSidebar(props)
         {
             setForm({...user});
         }
+        // eslint-disable-next-line
     }, [user]);
 
     useEffect(() => {
@@ -55,7 +51,7 @@ function UserSidebar(props)
         {
             updateUserData();
         }
-    }, [form]);
+    }, [form, updateUserData, user]);
 
     if ( !form )
     {
@@ -71,7 +67,7 @@ function UserSidebar(props)
             >
                 <Toolbar className="flex justify-between items-center px-16 pr-4">
                     <Typography color="inherit" variant="subtitle1">User Info</Typography>
-                    <IconButton onClick={closeUserSidebar} color="inherit">
+                    <IconButton onClick={() => dispatch(Actions.closeUserSidebar())} color="inherit">
                         <Icon>close</Icon>
                     </IconButton>
                 </Toolbar>

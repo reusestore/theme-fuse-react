@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {Menu, MenuItem, Hidden, Icon, IconButton, Tab, Tabs, Typography} from '@material-ui/core';
 import {FuseAnimateGroup, FusePageSimple} from '@fuse';
-import {useActions, useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import withReducer from 'app/store/withReducer';
 import * as Actions from './store/actions'
 import reducer from './store/reducers';
@@ -43,10 +43,9 @@ const useStyles = makeStyles(theme => ({
 
 function ProjectDashboardApp(props)
 {
+    const dispatch = useDispatch();
     const widgets = useSelector(({projectDashboardApp}) => projectDashboardApp.widgets, []);
     const projects = useSelector(({projectDashboardApp}) => projectDashboardApp.projects, []);
-    const getWidgets = useActions(Actions.getWidgets, []);
-    const getProjects = useActions(Actions.getProjects, []);
 
     const classes = useStyles(props);
     const pageLayout = useRef(null);
@@ -58,9 +57,9 @@ function ProjectDashboardApp(props)
 
 
     useEffect(() => {
-        getWidgets();
-        getProjects();
-    }, []);
+        dispatch(Actions.getWidgets());
+        dispatch(Actions.getProjects());
+    }, [dispatch]);
 
     function handleChangeTab(event, tabValue)
     {

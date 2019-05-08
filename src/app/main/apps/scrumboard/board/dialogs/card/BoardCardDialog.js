@@ -1,9 +1,8 @@
 import React from 'react';
 import {Dialog} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
-import {bindActionCreators} from 'redux';
 import _ from '@lodash';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from 'app/main/apps/scrumboard/store/actions';
 import classNames from 'classnames';
 import BoardCardForm from './BoardCardForm';
@@ -16,6 +15,10 @@ const useStyles = makeStyles(theme => ({
 
 function BoardCardDialog(props)
 {
+    const dispatch = useDispatch();
+    const card = useSelector(({scrumboardApp}) => scrumboardApp.card, []);
+    const board = useSelector(({scrumboardApp}) => scrumboardApp.board, []);
+
     const classes = useStyles(props);
 
     return (
@@ -23,30 +26,15 @@ function BoardCardDialog(props)
             classes={{
                 paper: classNames(classes.paper, "max-w-lg w-full m-24")
             }}
-            onClose={props.closeCardDialog}
-            open={Boolean(props.card)}
+            onClose={ev => dispatch(Actions.closeCardDialog())}
+            open={Boolean(card)}
         >
             <BoardCardForm
-                card={props.card}
-                list={props.card ? _.find(props.board.lists, (_list) => _list.idCards.includes(props.card.id)) : null}
+                card={card}
+                list={card ? _.find(board.lists, (_list) => _list.idCards.includes(card.id)) : null}
             />
         </Dialog>
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        closeCardDialog: Actions.closeCardDialog
-    }, dispatch);
-}
-
-function mapStateToProps({scrumboardApp})
-{
-    return {
-        card : scrumboardApp.card,
-        board: scrumboardApp.board
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(BoardCardDialog);
+export default BoardCardDialog;

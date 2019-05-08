@@ -1,8 +1,7 @@
 import React from 'react';
 import {Icon, IconButton} from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import * as Actions from '../store/actions/index';
 
@@ -10,12 +9,15 @@ const pathToRegexp = require('path-to-regexp');
 
 function MailToolbar(props)
 {
+    const dispatch = useDispatch();
+    const mail = useSelector(({mailApp}) => mailApp.mail, []);
+
     const toPath = pathToRegexp.compile(props.match.path);
     const matchParams = {...props.match.params};
     delete matchParams['mailId'];
     const deselectUrl = toPath(matchParams);
 
-    if ( !props.mail )
+    if ( !mail )
     {
         return null;
     }
@@ -29,8 +31,8 @@ function MailToolbar(props)
 
             <div className="flex items-center justify-start" aria-label="Toggle star">
                 <FuseAnimate animation="transition.expandIn" delay={100}>
-                    <IconButton onClick={() => props.toggleStar(props.mail)}>
-                        {props.mail.starred ?
+                    <IconButton onClick={() => dispatch(Actions.toggleStar(mail))}>
+                        {mail.starred ?
                             (
                                 <Icon>star</Icon>
                             )
@@ -42,8 +44,8 @@ function MailToolbar(props)
                     </IconButton>
                 </FuseAnimate>
                 <FuseAnimate animation="transition.expandIn" delay={100}>
-                    <IconButton onClick={() => props.toggleImportant(props.mail)}>
-                        {props.mail.important ?
+                    <IconButton onClick={() => dispatch(Actions.toggleImportant(mail))}>
+                        {mail.important ?
                             (
                                 <Icon>label</Icon>
                             )
@@ -59,19 +61,4 @@ function MailToolbar(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        toggleStar     : Actions.toggleStar,
-        toggleImportant: Actions.toggleImportant
-    }, dispatch);
-}
-
-function mapStateToProps({mailApp})
-{
-    return {
-        mail: mailApp.mail
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MailToolbar));
+export default withRouter(MailToolbar);

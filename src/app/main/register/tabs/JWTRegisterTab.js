@@ -2,25 +2,26 @@ import React, {useEffect, useRef, useState} from 'react';
 import Formsy from 'formsy-react';
 import {TextFieldFormsy} from '@fuse';
 import {Button, InputAdornment, Icon} from '@material-ui/core';
-import {bindActionCreators} from 'redux';
-import {withRouter} from 'react-router-dom';
-import connect from 'react-redux/es/connect/connect';
 import * as authActions from 'app/auth/store/actions';
+import {useDispatch, useSelector} from 'react-redux';
 
 function JWTRegisterTab(props)
 {
+    const dispatch = useDispatch();
+    const register = useSelector(({auth}) => auth.register, []);
+
     const [isFormValid, setIsFormValid] = useState(false);
     const formRef = useRef(null);
 
     useEffect(() => {
-        if ( props.register.error && (props.register.error.username || props.register.error.password || props.register.error.email) )
+        if ( register.error && (register.error.username || register.error.password || register.error.email) )
         {
             formRef.current.updateInputsWithError({
-                ...props.register.error
+                ...register.error
             });
             disableButton();
         }
-    }, [props.register.error]);
+    }, [register.error]);
 
     function disableButton()
     {
@@ -34,7 +35,7 @@ function JWTRegisterTab(props)
 
     function handleSubmit(model)
     {
-        props.submitRegister(model);
+        dispatch(authActions.submitRegister(model));
     }
 
     return (
@@ -130,19 +131,4 @@ function JWTRegisterTab(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        submitRegister: authActions.submitRegister
-    }, dispatch);
-}
-
-function mapStateToProps({auth})
-{
-    return {
-        register: auth.register,
-        user    : auth.user
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(JWTRegisterTab));
+export default JWTRegisterTab;

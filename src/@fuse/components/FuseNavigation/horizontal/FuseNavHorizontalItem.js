@@ -4,8 +4,7 @@ import {FuseUtils, NavLinkAdapter} from '@fuse';
 import {withRouter} from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from 'app/store/actions';
 import FuseNavBadge from './../FuseNavBadge';
 import {makeStyles} from '@material-ui/styles';
@@ -42,8 +41,11 @@ const useStyles = makeStyles(theme => ({
 
 function FuseNavHorizontalItem(props)
 {
+    const dispatch = useDispatch();
+    const userRole = useSelector(({auth}) => auth.user.role, []);
+
     const classes = useStyles(props);
-    const {item, userRole, navbarCloseMobile, dense} = props;
+    const {item, dense} = props;
 
     if ( !FuseUtils.hasPermission(item.auth, userRole) )
     {
@@ -57,7 +59,7 @@ function FuseNavHorizontalItem(props)
             to={item.url}
             activeClassName="active"
             className={classNames("list-item", classes.root, dense && "dense")}
-            onClick={navbarCloseMobile}
+            onClick={ev => dispatch(Actions.navbarCloseMobile())}
             exact={item.exact}
         >
             {item.icon && (
@@ -69,20 +71,6 @@ function FuseNavHorizontalItem(props)
             )}
         </ListItem>
     );
-}
-
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        navbarCloseMobile: Actions.navbarCloseMobile
-    }, dispatch);
-}
-
-function mapStateToProps({auth})
-{
-    return {
-        userRole: auth.user.role
-    }
 }
 
 FuseNavHorizontalItem.propTypes = {
@@ -97,6 +85,6 @@ FuseNavHorizontalItem.propTypes = {
 
 FuseNavHorizontalItem.defaultProps = {};
 
-const NavHorizontalItem = withRouter(connect(mapStateToProps, mapDispatchToProps)(React.memo(FuseNavHorizontalItem)));
+const NavHorizontalItem = withRouter(React.memo(FuseNavHorizontalItem));
 
 export default NavHorizontalItem;

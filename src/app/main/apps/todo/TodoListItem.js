@@ -3,9 +3,7 @@ import {IconButton, Icon, Typography, Checkbox, ListItem} from '@material-ui/cor
 import {makeStyles} from '@material-ui/styles';
 import red from '@material-ui/core/colors/red';
 import amber from '@material-ui/core/colors/amber';
-import {withRouter} from 'react-router-dom';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import classNames from 'classnames';
 import _ from '@lodash';
 import * as Actions from './store/actions';
@@ -24,6 +22,9 @@ const useStyles = makeStyles({
 
 function TodoListItem(props)
 {
+    const dispatch = useDispatch();
+    const labels = useSelector(({todoApp}) => todoApp.labels, []);
+
     const classes = useStyles(props);
 
     return (
@@ -31,7 +32,7 @@ function TodoListItem(props)
             className={classNames(classes.todoItem, {"completed": props.todo.completed}, "border-solid border-b-1 py-16  px-0 sm:px-8")}
             onClick={(ev) => {
                 ev.preventDefault();
-                props.openEditTodoDialog(props.todo);
+                dispatch(Actions.openEditTodoDialog(props.todo));
             }}
             dense
             button
@@ -41,7 +42,7 @@ function TodoListItem(props)
                 tabIndex={-1}
                 disableRipple
                 checked={props.todo.completed}
-                onChange={() => props.toggleCompleted(props.todo)}
+                onChange={() => dispatch(Actions.toggleCompleted(props.todo))}
                 onClick={(ev) => ev.stopPropagation()}
             />
 
@@ -66,8 +67,8 @@ function TodoListItem(props)
                     {props.todo.labels.map(label => (
                         <TodoChip
                             className="mr-4"
-                            title={_.find(props.labels, {id: label}).title}
-                            color={_.find(props.labels, {id: label}).color}
+                            title={_.find(labels, {id: label}).title}
+                            color={_.find(labels, {id: label}).color}
                             key={label}
                         />
                     ))}
@@ -78,7 +79,7 @@ function TodoListItem(props)
                 <IconButton onClick={(ev) => {
                     ev.preventDefault();
                     ev.stopPropagation();
-                    props.toggleImportant(props.todo)
+                    dispatch(Actions.toggleImportant(props.todo))
                 }}>
                     {props.todo.important ? (
                         <Icon style={{color: red[500]}}>error</Icon>
@@ -89,7 +90,7 @@ function TodoListItem(props)
                 <IconButton onClick={(ev) => {
                     ev.preventDefault();
                     ev.stopPropagation();
-                    props.toggleStarred(props.todo)
+                    dispatch(Actions.toggleStarred(props.todo))
                 }}>
                     {props.todo.starred ? (
                         <Icon style={{color: amber[500]}}>star</Icon>
@@ -102,21 +103,4 @@ function TodoListItem(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        toggleCompleted   : Actions.toggleCompleted,
-        toggleImportant   : Actions.toggleImportant,
-        toggleStarred     : Actions.toggleStarred,
-        openEditTodoDialog: Actions.openEditTodoDialog
-    }, dispatch);
-}
-
-function mapStateToProps({todoApp})
-{
-    return {
-        labels: todoApp.labels
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TodoListItem));
+export default TodoListItem;

@@ -2,7 +2,7 @@ import React from 'react';
 import {Hidden, Icon, IconButton, Table, TableBody, TableCell, TableHead, TableRow} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate} from '@fuse';
-import {useActions, useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import classNames from 'classnames';
 import * as Actions from './store/actions';
 
@@ -25,9 +25,9 @@ const useStyles = makeStyles({
 
 function FileList(props)
 {
+    const dispatch = useDispatch();
     const files = useSelector(({fileManagerApp}) => fileManagerApp.files, []);
     const selectedItemId = useSelector(({fileManagerApp}) => fileManagerApp.selectedItemId, []);
-    const setSelectedItem = useActions(Actions.setSelectedItem, []);
 
     const classes = useStyles();
 
@@ -52,7 +52,7 @@ function FileList(props)
                             <TableRow
                                 key={n.id}
                                 hover
-                                onClick={event => setSelectedItem(n.id)}
+                                onClick={event => dispatch(Actions.setSelectedItem(n.id))}
                                 selected={n.id === selectedItemId}
                                 className="cursor-pointer"
                             >

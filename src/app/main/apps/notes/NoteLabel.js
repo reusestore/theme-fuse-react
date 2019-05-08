@@ -1,17 +1,19 @@
 import React from 'react';
 import {Chip} from '@material-ui/core';
-import {connect} from 'react-redux';
+import {useSelector} from 'react-redux';
 import classNames from 'classnames';
 import {Link} from 'react-router-dom';
 
 function NoteLabel(props)
 {
-    if ( !props.labels )
+    const labels = useSelector(({notesApp}) => notesApp.labels.entities, []);
+
+    if ( !labels )
     {
         return null;
     }
 
-    const label = props.labels[props.id];
+    const label = labels[props.id];
 
     if ( !label )
     {
@@ -42,11 +44,4 @@ function NoteLabel(props)
     );
 }
 
-function mapStateToProps({notesApp})
-{
-    return {
-        labels: notesApp.labels.entities
-    }
-}
-
-export default connect(mapStateToProps)(NoteLabel);
+export default NoteLabel;

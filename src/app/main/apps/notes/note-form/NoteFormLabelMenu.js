@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import {Popover, ClickAwayListener, IconButton, Icon, List, ListItem, ListItemText} from '@material-ui/core';
-import {connect} from 'react-redux';
+import {useSelector} from 'react-redux';
 import _ from '@lodash';
 
 function NoteFormLabelMenu(props)
 {
+    const labels = useSelector(({notesApp}) => notesApp.labels.entities, []);
+
     const [anchorEl, setAnchorEl] = useState(null);
 
     function handleMenuClick(event)
@@ -47,7 +49,7 @@ function NoteFormLabelMenu(props)
             >
                 <ClickAwayListener onClickAway={handleMenuClose}>
                     <List className="p-0">
-                        {Object.entries(props.labels).map(([key, label]) => (
+                        {Object.entries(labels).map(([key, label]) => (
                             <ListItem
                                 key={label.id}
                                 button
@@ -67,12 +69,5 @@ function NoteFormLabelMenu(props)
     );
 }
 
-function mapStateToProps({notesApp})
-{
-    return {
-        labels: notesApp.labels.entities
-    }
-}
-
-export default connect(mapStateToProps)(NoteFormLabelMenu);
+export default NoteFormLabelMenu;
 

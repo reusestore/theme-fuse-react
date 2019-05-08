@@ -16,7 +16,7 @@ function CheckListMenu(props)
         {
             resetForm();
         }
-    }, [anchorEl]);
+    }, [anchorEl, resetForm]);
 
     function handleMenuOpen(event)
     {

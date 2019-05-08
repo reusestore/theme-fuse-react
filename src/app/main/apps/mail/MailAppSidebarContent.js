@@ -2,8 +2,7 @@ import React from 'react';
 import {Icon, List, ListItem, ListItemText, ListSubheader} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate, NavLinkAdapter} from '@fuse';
-import {withRouter} from 'react-router-dom';
-import {connect} from 'react-redux';
+import {useSelector} from 'react-redux';
 import MailCompose from './MailCompose';
 
 const useStyles = makeStyles(theme => ({
@@ -34,6 +33,10 @@ const useStyles = makeStyles(theme => ({
 
 function MailAppSidebarContent(props)
 {
+    const folders = useSelector(({mailApp}) => mailApp.folders, []);
+    const labels = useSelector(({mailApp}) => mailApp.labels, []);
+    const filters = useSelector(({mailApp}) => mailApp.filters, []);
+
     const classes = useStyles();
 
     return (
@@ -48,7 +51,7 @@ function MailAppSidebarContent(props)
                     <List>
                         <ListSubheader className={classes.listSubheader} disableSticky>FOLDERS</ListSubheader>
 
-                        {props.folders.length > 0 && props.folders.map((folder) => (
+                        {folders.length > 0 && folders.map((folder) => (
                             <ListItem
                                 button
                                 component={NavLinkAdapter}
@@ -66,7 +69,7 @@ function MailAppSidebarContent(props)
 
                         <ListSubheader className={classes.listSubheader} disableSticky>FILTERS</ListSubheader>
 
-                        {props.filters.length > 0 && props.filters.map((filter) => (
+                        {filters.length > 0 && filters.map((filter) => (
                             <ListItem
                                 button
                                 component={NavLinkAdapter}
@@ -85,7 +88,7 @@ function MailAppSidebarContent(props)
 
                         <ListSubheader className="pr-24 pl-24" disableSticky>LABELS</ListSubheader>
 
-                        {props.labels && props.labels.map((label) => (
+                        {labels && labels.map((label) => (
                             <ListItem
                                 button
                                 component={NavLinkAdapter}
@@ -104,13 +107,4 @@ function MailAppSidebarContent(props)
     );
 }
 
-function mapStateToProps({mailApp})
-{
-    return {
-        folders: mailApp.folders,
-        labels : mailApp.labels,
-        filters: mailApp.filters
-    }
-}
-
-export default withRouter(connect(mapStateToProps)(MailAppSidebarContent));
+export default MailAppSidebarContent;

@@ -1,28 +1,29 @@
 import React from 'react';
 import {Slide, Dialog} from '@material-ui/core';
 import {useDebounce} from '@fuse/hooks';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from 'app/main/apps/notes/store/actions';
 import NoteForm from 'app/main/apps/notes/note-form/NoteForm';
 
-function Transition(props)
-{
-    return <Slide direction="up" {...props} />;
-}
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
 
 function NoteDialog(props)
 {
+    const dispatch = useDispatch();
+    const notes = useSelector(({notesApp}) => notesApp.notes, []);
+
     const handleOnChange = useDebounce((note) => {
-        props.updateNote(note);
+        dispatch(Actions.updateNote(note));
     }, 600);
 
     function handleOnRemove()
     {
-        props.removeNote(props.notes.noteDialogId);
+        dispatch(Actions.removeNote(notes.noteDialogId));
     }
 
-    if ( !props.notes.entities )
+    if ( !notes.entities )
     {
         return null;
     }
@@ -33,33 +34,17 @@ function NoteDialog(props)
                 paper: "w-full m-24 rounded-8"
             }}
             TransitionComponent={Transition}
-            onClose={props.closeNoteDialog}
-            open={Boolean(props.notes.noteDialogId)}
+            onClose={ev => dispatch(Actions.closeNoteDialog())}
+            open={Boolean(notes.noteDialogId)}
         >
             <NoteForm
-                note={props.notes.entities[props.notes.noteDialogId]}
+                note={notes.entities[notes.noteDialogId]}
                 onChange={handleOnChange}
-                onClose={props.closeNoteDialog}
+                onClose={ev => dispatch(Actions.closeNoteDialog())}
                 onRemove={handleOnRemove}
             />
         </Dialog>
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        closeNoteDialog: Actions.closeNoteDialog,
-        updateNote     : Actions.updateNote,
-        removeNote     : Actions.removeNote
-    }, dispatch);
-}
-
-function mapStateToProps({notesApp})
-{
-    return {
-        notes: notesApp.notes
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(NoteDialog);
+export default NoteDialog;

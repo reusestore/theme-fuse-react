@@ -1,27 +1,21 @@
 import React from 'react';
 import {Icon, IconButton} from '@material-ui/core';
-import {bindActionCreators} from 'redux';
-import connect from 'react-redux/es/connect/connect';
 import * as quickPanelActions from './store/actions';
+import {useDispatch} from 'react-redux';
 
 function QuickPanelToggleButton(props)
 {
+    const dispatch = useDispatch();
+
     return (
-        <IconButton className="w-64 h-64" onClick={props.toggleQuickPanel}>
+        <IconButton className="w-64 h-64" onClick={ev => dispatch(quickPanelActions.toggleQuickPanel())}>
             {props.children}
         </IconButton>
     );
-}
-
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        toggleQuickPanel: quickPanelActions.toggleQuickPanel
-    }, dispatch);
 }
 
 QuickPanelToggleButton.defaultProps = {
     children: <Icon>format_list_bulleted</Icon>
 };
 
-export default connect(null, mapDispatchToProps)(QuickPanelToggleButton);
+export default QuickPanelToggleButton;

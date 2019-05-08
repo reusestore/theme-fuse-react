@@ -21,11 +21,12 @@ const useStyles = makeStyles(theme => ({
         '&:last-child' : {
             borderRadius: '0 0 16px 16px',
             borderWidth : '0 1px 1px 1px'
-        }
+        },
+        '&$expanded'   : {
+            margin: 'auto',
+        },
     },
-    expanded: {
-        margin: 0
-    }
+    expanded: {}
 }));
 
 function FaqPage()
@@ -138,7 +139,7 @@ function FaqPage()
                                 </ExpansionPanelDetails>
                             </ExpansionPanel>
                         ))
-                    }, [filteredData, expanded])}
+                    }, [filteredData, classes, expanded])}
                 </FuseAnimateGroup>
 
             </div>

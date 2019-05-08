@@ -2,9 +2,8 @@ import React, {useEffect} from 'react';
 import {TextField, Button, Dialog, DialogActions, DialogContent, Icon, IconButton, Typography, Toolbar, AppBar, Avatar} from '@material-ui/core';
 import {useForm} from '@fuse/hooks';
 import FuseUtils from '@fuse/FuseUtils';
-import {bindActionCreators} from 'redux';
 import * as Actions from './store/actions';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import _ from '@lodash';
 
 const defaultFormState = {
@@ -24,43 +23,47 @@ const defaultFormState = {
 
 function ContactDialog(props)
 {
+    const dispatch = useDispatch();
+    const contactDialog = useSelector(({contactsApp}) => contactsApp.contacts.contactDialog, []);
+
     const {form, handleChange, setForm} = useForm(defaultFormState);
 
     useEffect(() => {
         /**
          * After Dialog Open
          */
-        if ( props.contactDialog.props.open )
+        if ( contactDialog.props.open )
         {
             /**
              * Dialog type: 'edit'
              * Update State
              */
-            if ( props.contactDialog.type === 'edit' &&
-                props.contactDialog.data &&
-                !_.isEqual(props.contactDialog.data, form) )
+            if ( contactDialog.type === 'edit' &&
+                contactDialog.data &&
+                !_.isEqual(contactDialog.data, form) )
             {
-                setForm({...props.contactDialog.data});
+                setForm({...contactDialog.data});
             }
 
             /**
              * Dialog type: 'new'
              * Update State
              */
-            if ( props.contactDialog.type === 'new' )
+            if ( contactDialog.type === 'new' )
             {
                 setForm({
                     ...defaultFormState,
-                    ...props.contactDialog.data,
+                    ...contactDialog.data,
                     id: FuseUtils.generateGUID()
                 });
             }
         }
-    }, [props.contactDialog.props.open]);
+        // eslint-disable-next-line
+    }, [contactDialog.props.open]);
 
     function closeComposeDialog()
     {
-        props.contactDialog.type === 'edit' ? props.closeEditContactDialog() : props.closeNewContactDialog();
+        contactDialog.type === 'edit' ? dispatch(Actions.closeEditContactDialog()) : dispatch(Actions.closeNewContactDialog());
     }
 
     function canBeSubmitted()
@@ -74,20 +77,20 @@ function ContactDialog(props)
     {
         event.preventDefault();
 
-        if ( props.contactDialog.type === 'new' )
+        if ( contactDialog.type === 'new' )
         {
-            props.addContact(form);
+            dispatch(Actions.addContact(form));
         }
         else
         {
-            props.updateContact(form);
+            dispatch(Actions.updateContact(form));
         }
         closeComposeDialog();
     }
 
     function handleRemove()
     {
-        props.removeContact(form.id);
+        dispatch(Actions.removeContact(form.id));
         closeComposeDialog();
     }
 
@@ -96,7 +99,7 @@ function ContactDialog(props)
             classes={{
                 paper: "m-24"
             }}
-            {...props.contactDialog.props}
+            {...contactDialog.props}
             onClose={closeComposeDialog}
             fullWidth
             maxWidth="xs"
@@ -105,12 +108,12 @@ function ContactDialog(props)
             <AppBar position="static" elevation={1}>
                 <Toolbar className="flex w-full">
                     <Typography variant="subtitle1" color="inherit">
-                        {props.contactDialog.type === 'new' ? 'New Contact' : 'Edit Contact'}
+                        {contactDialog.type === 'new' ? 'New Contact' : 'Edit Contact'}
                     </Typography>
                 </Toolbar>
                 <div className="flex flex-col items-center justify-center pb-24">
                     <Avatar className="w-96 h-96" alt="contact avatar" src={form.avatar}/>
-                    {props.contactDialog.type === 'edit' && (
+                    {contactDialog.type === 'edit' && (
                         <Typography variant="h6" color="inherit" className="pt-8">
                             {form.name}
                         </Typography>
@@ -287,7 +290,7 @@ function ContactDialog(props)
                     </div>
                 </DialogContent>
 
-                {props.contactDialog.type === 'new' ? (
+                {contactDialog.type === 'new' ? (
                     <DialogActions className="justify-between pl-16">
                         <Button
                             variant="contained"
@@ -322,22 +325,4 @@ function ContactDialog(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        closeEditContactDialog: Actions.closeEditContactDialog,
-        closeNewContactDialog : Actions.closeNewContactDialog,
-        addContact            : Actions.addContact,
-        updateContact         : Actions.updateContact,
-        removeContact         : Actions.removeContact
-    }, dispatch);
-}
-
-function mapStateToProps({contactsApp})
-{
-    return {
-        contactDialog: contactsApp.contacts.contactDialog
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ContactDialog);
+export default ContactDialog;

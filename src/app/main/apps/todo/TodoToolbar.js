@@ -1,15 +1,17 @@
 import React from 'react';
 import {Icon, IconButton, MenuItem, FormControl, Select} from '@material-ui/core';
-import {withRouter} from 'react-router-dom';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from './store/actions';
 
 function TodoToolbar(props)
 {
+    const dispatch = useDispatch();
+    const orderBy = useSelector(({todoApp}) => todoApp.todos.orderBy, []);
+    const orderDescending = useSelector(({todoApp}) => todoApp.todos.orderDescending, []);
+
     function handleOrderChange(ev)
     {
-        props.changeOrder(ev.target.value);
+        dispatch(Actions.changeOrder(ev.target.value));
     }
 
     return (
@@ -18,7 +20,7 @@ function TodoToolbar(props)
             <div className="flex items-center">
                 <FormControl className="">
                     <Select
-                        value={props.orderBy}
+                        value={orderBy}
                         onChange={handleOrderChange}
                         displayEmpty
                         name="filter"
@@ -32,8 +34,8 @@ function TodoToolbar(props)
                         <MenuItem value="title">Title</MenuItem>
                     </Select>
                 </FormControl>
-                <IconButton onClick={props.toggleOrderDescending}>
-                    <Icon style={{transform: props.orderDescending ? 'scaleY(-1)' : 'scaleY(1)'}}>
+                <IconButton onClick={ev => dispatch(Actions.toggleOrderDescending())}>
+                    <Icon style={{transform: orderDescending ? 'scaleY(-1)' : 'scaleY(1)'}}>
                         sort
                     </Icon>
                 </IconButton>
@@ -42,20 +44,4 @@ function TodoToolbar(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        changeOrder          : Actions.changeOrder,
-        toggleOrderDescending: Actions.toggleOrderDescending
-    }, dispatch);
-}
-
-function mapStateToProps({todoApp})
-{
-    return {
-        orderBy        : todoApp.todos.orderBy,
-        orderDescending: todoApp.todos.orderDescending
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TodoToolbar));
+export default TodoToolbar;

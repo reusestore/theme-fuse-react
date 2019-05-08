@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 import {Icon, IconButton, ListItemIcon, ListItemText, Menu, MenuItem, MenuList} from '@material-ui/core';
 import * as Actions from './store/actions';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 function ContactsMultiSelectMenu(props)
 {
+    const dispatch = useDispatch();
+    const selectedContactIds = useSelector(({contactsApp}) => contactsApp.contacts.selectedContactIds, []);
+
     const [anchorEl, setAnchorEl] = useState(null);
 
     function openSelectedContactMenu(event)
@@ -37,7 +39,7 @@ function ContactsMultiSelectMenu(props)
                 <MenuList>
                     <MenuItem
                         onClick={() => {
-                            props.removeContacts(props.selectedContactIds);
+                            dispatch(Actions.removeContacts(selectedContactIds));
                             closeSelectedContactsMenu();
                         }}
                     >
@@ -48,7 +50,7 @@ function ContactsMultiSelectMenu(props)
                     </MenuItem>
                     <MenuItem
                         onClick={() => {
-                            props.setContactsStarred(props.selectedContactIds);
+                            dispatch(Actions.setContactsStarred(selectedContactIds));
                             closeSelectedContactsMenu();
                         }}
                     >
@@ -59,7 +61,7 @@ function ContactsMultiSelectMenu(props)
                     </MenuItem>
                     <MenuItem
                         onClick={() => {
-                            props.setContactsUnstarred(props.selectedContactIds);
+                            dispatch(Actions.setContactsUnstarred(selectedContactIds));
                             closeSelectedContactsMenu();
                         }}
                     >
@@ -74,21 +76,5 @@ function ContactsMultiSelectMenu(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        removeContacts      : Actions.removeContacts,
-        setContactsStarred  : Actions.setContactsStarred,
-        setContactsUnstarred: Actions.setContactsUnstarred
-    }, dispatch);
-}
-
-function mapStateToProps({contactsApp})
-{
-    return {
-        selectedContactIds: contactsApp.contacts.selectedContactIds,
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ContactsMultiSelectMenu);
+export default ContactsMultiSelectMenu;
 

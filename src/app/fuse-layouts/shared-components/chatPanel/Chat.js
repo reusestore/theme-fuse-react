@@ -4,8 +4,7 @@ import {FuseScrollbars} from '@fuse';
 import classNames from 'classnames';
 import moment from 'moment/moment';
 import * as Actions from './store/actions';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {makeStyles} from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -132,33 +131,24 @@ const useStyles = makeStyles(theme => ({
 
 function Chat(props)
 {
+    const dispatch = useDispatch();
+    const contacts = useSelector(({chatPanel}) => chatPanel.contacts.entities, []);
+    const selectedContactId = useSelector(({chatPanel}) => chatPanel.contacts.selectedContactId, []);
+    const chat = useSelector(({chatPanel}) => chatPanel.chat, []);
+    const user = useSelector(({chatPanel}) => chatPanel.user, []);
+
     const classes = useStyles();
     const chatScroll = useRef(null);
     const [messageText, setMessageText] = useState('');
 
     useEffect(() => {
         scrollToBottom();
-    }, [props.chat]);
+    }, [chat]);
 
     function scrollToBottom()
     {
         chatScroll.current.scrollTop = chatScroll.current.scrollHeight;
     }
-
-    const shouldShowContactAvatar = (item, i) => {
-        return (
-            item.who === props.selectedContactId &&
-            ((props.chat.dialog[i + 1] && props.chat.dialog[i + 1].who !== props.selectedContactId) || !props.chat.dialog[i + 1])
-        );
-    };
-
-    const isFirstMessageOfGroup = (item, i) => {
-        return (i === 0 || (props.chat.dialog[i - 1] && props.chat.dialog[i - 1].who !== item.who));
-    };
-
-    const isLastMessageOfGroup = (item, i) => {
-        return (i === props.chat.dialog.length - 1 || (props.chat.dialog[i + 1] && props.chat.dialog[i + 1].who !== item.who));
-    };
 
     const onInputChange = (ev) => {
         setMessageText(ev.target.value);
@@ -170,7 +160,7 @@ function Chat(props)
         {
             return;
         }
-        props.sendMessage(messageText, props.chat.id, props.user.id)
+        dispatch(Actions.sendMessage(messageText, chat.id, user.id))
             .then(() => {
                 setMessageText('');
             });
@@ -179,61 +169,78 @@ function Chat(props)
     return (
         <Paper elevation={3} className={classNames("flex flex-col", props.className)}>
 
-            {useMemo(() =>
-                    <FuseScrollbars
-                        ref={chatScroll}
-                        className="flex flex-1 flex-col overflow-y-auto"
-                    >
-                        {!props.chat ?
-                            (
-                                <div className="flex flex-col flex-1 items-center justify-center p-24">
-                                    <Icon className="text-128" color="disabled">chat</Icon>
-                                    <Typography className="px-16 pb-24 mt-24 text-center" color="textSecondary">
-                                        Select a contact to start a conversation.
-                                    </Typography>
-                                </div>
-                            ) :
-                            props.chat.dialog.length > 0 ?
+            {useMemo(() => {
+                    const shouldShowContactAvatar = (item, i) => {
+                        return (
+                            item.who === selectedContactId &&
+                            ((chat.dialog[i + 1] && chat.dialog[i + 1].who !== selectedContactId) || !chat.dialog[i + 1])
+                        );
+                    };
+
+                    const isFirstMessageOfGroup = (item, i) => {
+                        return (i === 0 || (chat.dialog[i - 1] && chat.dialog[i - 1].who !== item.who));
+                    };
+
+                    const isLastMessageOfGroup = (item, i) => {
+                        return (i === chat.dialog.length - 1 || (chat.dialog[i + 1] && chat.dialog[i + 1].who !== item.who));
+                    };
+                    return (<FuseScrollbars
+                            ref={chatScroll}
+                            className="flex flex-1 flex-col overflow-y-auto"
+                        >
+                            {!chat ?
                                 (
-                                    <div className="flex flex-col pt-16 pl-40 pb-40">
-                                        {props.chat.dialog.map((item, i) => {
-                                            const contact = item.who === props.user.id ? props.user : props.contacts.find(_contact => _contact.id === item.who);
-                                            return (
-                                                <div
-                                                    key={item.time}
-                                                    className={classNames(
-                                                        classes.messageRow,
-                                                        {'me': item.who === props.user.id},
-                                                        {'contact': item.who !== props.user.id},
-                                                        {'first-of-group': isFirstMessageOfGroup(item, i)},
-                                                        {'last-of-group': isLastMessageOfGroup(item, i)}
-                                                    )}
-                                                >
-                                                    {shouldShowContactAvatar(item, i) && (
-                                                        <Avatar className={classes.avatar} src={contact.avatar}/>
-                                                    )}
-                                                    <div className={classes.bubble}>
-                                                        <div className={classes.message}>{item.message}</div>
-                                                        <Typography className={classes.time} color="textSecondary">{moment(item.time).format('MMMM Do YYYY, h:mm:ss a')}</Typography>
-                                                    </div>
-                                                </div>
-                                            )
-                                        })}
-                                    </div>
-                                ) : (
-                                    <div className="flex flex-col flex-1">
-                                        <div className="flex flex-col flex-1 items-center justify-center">
-                                            <Icon className="text-128" color="disabled">chat</Icon>
-                                        </div>
-                                        <Typography className="px-16 pb-24 text-center" color="textSecondary">
-                                            Start a conversation by typing your message below.
+                                    <div className="flex flex-col flex-1 items-center justify-center p-24">
+                                        <Icon className="text-128" color="disabled">chat</Icon>
+                                        <Typography className="px-16 pb-24 mt-24 text-center" color="textSecondary">
+                                            Select a contact to start a conversation.
                                         </Typography>
                                     </div>
-                                )
-                        }
-                    </FuseScrollbars>
-                , [props.chat])}
-            {props.chat && (
+                                ) :
+                                chat.dialog.length > 0 ?
+                                    (
+                                        <div className="flex flex-col pt-16 pl-40 pb-40">
+                                            {chat.dialog.map((item, i) => {
+                                                const contact = item.who === user.id ? user : contacts.find(_contact => _contact.id === item.who);
+                                                return (
+                                                    <div
+                                                        key={item.time}
+                                                        className={classNames(
+                                                            classes.messageRow,
+                                                            {'me': item.who === user.id},
+                                                            {'contact': item.who !== user.id},
+                                                            {'first-of-group': isFirstMessageOfGroup(item, i)},
+                                                            {'last-of-group': isLastMessageOfGroup(item, i)}
+                                                        )}
+                                                    >
+                                                        {shouldShowContactAvatar(item, i) && (
+                                                            <Avatar className={classes.avatar} src={contact.avatar}/>
+                                                        )}
+                                                        <div className={classes.bubble}>
+                                                            <div className={classes.message}>{item.message}</div>
+                                                            <Typography className={classes.time}
+                                                                        color="textSecondary">{moment(item.time).format('MMMM Do YYYY, h:mm:ss a')}</Typography>
+                                                        </div>
+                                                    </div>
+                                                )
+                                            })}
+                                        </div>
+                                    ) : (
+                                        <div className="flex flex-col flex-1">
+                                            <div className="flex flex-col flex-1 items-center justify-center">
+                                                <Icon className="text-128" color="disabled">chat</Icon>
+                                            </div>
+                                            <Typography className="px-16 pb-24 text-center" color="textSecondary">
+                                                Start a conversation by typing your message below.
+                                            </Typography>
+                                        </div>
+                                    )
+                            }
+                        </FuseScrollbars>
+                    )
+                }
+                , [chat, classes, contacts, selectedContactId, user])}
+            {chat && (
                 <form onSubmit={onMessageSubmit} className={classNames(classes.bottom, "py-16 px-8")}>
                     <Paper className={classNames(classes.inputWrapper, "flex items-center relative")}>
                         <TextField
@@ -265,21 +272,4 @@ function Chat(props)
     );
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        sendMessage: Actions.sendMessage
-    }, dispatch);
-}
-
-function mapStateToProps({chatPanel})
-{
-    return {
-        contacts         : chatPanel.contacts.entities,
-        selectedContactId: chatPanel.contacts.selectedContactId,
-        chat             : chatPanel.chat,
-        user             : chatPanel.user
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Chat);
+export default Chat;

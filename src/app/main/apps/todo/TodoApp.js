@@ -1,8 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import {FusePageCarded} from '@fuse';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {withRouter} from 'react-router-dom'
+import {useDispatch} from 'react-redux';
 import withReducer from 'app/store/withReducer';
 import TodoList from './TodoList';
 import TodoToolbar from './TodoToolbar';
@@ -15,17 +13,19 @@ import reducer from './store/reducers';
 
 function TodoApp(props)
 {
+    const dispatch = useDispatch();
+
     const pageLayout = useRef(null);
 
     useEffect(() => {
-        props.getFilters();
-        props.getFolders();
-        props.getLabels();
-    }, []);
+        dispatch(Actions.getFilters());
+        dispatch(Actions.getFolders());
+        dispatch(Actions.getLabels());
+    }, [dispatch]);
 
     useEffect(() => {
-        props.getTodos(props.match);
-    }, [props.match]);
+        dispatch(Actions.getTodos(props.match));
+    }, [dispatch, props.match]);
 
     return (
         <React.Fragment>
@@ -57,14 +57,4 @@ function TodoApp(props)
     )
 }
 
-function mapDispatchToProps(dispatch)
-{
-    return bindActionCreators({
-        getTodos  : Actions.getTodos,
-        getFilters: Actions.getFilters,
-        getFolders: Actions.getFolders,
-        getLabels : Actions.getLabels
-    }, dispatch);
-}
-
-export default withReducer('todoApp', reducer)(withRouter(connect(null, mapDispatchToProps)(TodoApp)));
+export default withReducer('todoApp', reducer)(TodoApp);

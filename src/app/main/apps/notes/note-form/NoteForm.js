@@ -24,12 +24,14 @@ function NoteForm(props)
             props.match.params.labelId ? {labels: [props.match.params.labelId]} : null,
             props.match.params.id === "archive" ? {archive: true} : null
         ));
+    const {onChange} = props;
 
     useEffect(() => {
-        if ( noteForm && props.onChange )
+        if ( noteForm && onChange )
         {
-            props.onChange(noteForm);
+            onChange(noteForm);
         }
+        // eslint-disable-next-line
     }, [noteForm]);
 
     function handleOnCreate(event)
