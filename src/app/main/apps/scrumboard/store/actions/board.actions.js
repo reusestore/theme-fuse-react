@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {FuseUtils} from '@fuse';
-import history from 'history.js';
+import history from '@history.js';
 import _ from '@lodash';
 import {showMessage} from 'app/store/actions/fuse';
 import reorder, {reorderQuoteMap} from './reorder';
