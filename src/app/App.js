@@ -4,7 +4,7 @@ import {FuseAuthorization, FuseLayout, FuseTheme} from '@fuse';
 import Provider from 'react-redux/es/components/Provider';
 import {Router} from 'react-router-dom';
 import jssExtend from 'jss-extend';
-import history from '../history';
+import history from '@history';
 import {Auth} from './auth';
 import store from './store';
 import AppContext from './AppContext';

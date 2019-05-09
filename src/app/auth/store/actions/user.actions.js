@@ -1,4 +1,4 @@
-import history from 'history.js';
+import history from '@history';
 import {setDefaultSettings, setInitialSettings} from 'app/store/actions/fuse';
 import _ from '@lodash';
 import store from 'app/store';
