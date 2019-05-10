@@ -5,7 +5,7 @@ import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate, FusePageCarded, FuseChipSelect, FuseUtils} from '@fuse';
 import {useForm} from '@fuse/hooks';
 import {Link} from 'react-router-dom';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import _ from '@lodash';
 import {useDispatch, useSelector} from 'react-redux';
 import withReducer from 'app/store/withReducer';
@@ -294,7 +294,7 @@ function Product(props)
                                     <label
                                         htmlFor="button-file"
                                         className={
-                                            classNames(
+                                            clsx(
                                                 classes.productImageUpload,
                                                 "flex items-center justify-center relative w-128 h-128 rounded-4 mr-16 mb-16 overflow-hidden cursor-pointer shadow-1 hover:shadow-5"
                                             )}
@@ -305,7 +305,7 @@ function Product(props)
                                         <div
                                             onClick={() => setFeaturedImage(media.id)}
                                             className={
-                                                classNames(
+                                                clsx(
                                                     classes.productImageItem,
                                                     "flex items-center justify-center relative w-128 h-128 rounded-4 mr-16 mb-16 overflow-hidden cursor-pointer shadow-1 hover:shadow-5",
                                                     (media.id === form.featuredImageId) && 'featured')

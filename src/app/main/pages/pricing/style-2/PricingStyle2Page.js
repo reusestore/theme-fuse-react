@@ -2,7 +2,7 @@ import React from 'react';
 import {Button, Card, CardContent, Typography} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate, FuseAnimateGroup} from '@fuse';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({
     header: {
@@ -23,7 +23,7 @@ function PricingStyle2Page()
     return (
         <div>
 
-            <div className={classNames(classes.header, "flex")}>
+            <div className={clsx(classes.header, "flex")}>
 
                 <div className="p-24 w-full max-w-2xl mx-auto">
 
@@ -103,7 +103,7 @@ function PricingStyle2Page()
                             <Card className="relative" raised>
 
                                 <div className="absolute pin-t pin-x flex justify-center">
-                                    <div className={classNames(classes.badge, "py-4 px-8")}>
+                                    <div className={clsx(classes.badge, "py-4 px-8")}>
                                         <Typography variant="caption" color="inherit">BEST VALUE</Typography>
                                     </div>
                                 </div>

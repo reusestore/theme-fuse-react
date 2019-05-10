@@ -2,7 +2,7 @@ import React, {useEffect, useMemo, useState} from 'react';
 import {ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, Icon, Input, Paper, Typography} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 import {FuseUtils, FuseAnimate, FuseAnimateGroup} from '@fuse';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import axios from 'axios';
 
 const useStyles = makeStyles(theme => ({
@@ -68,7 +68,7 @@ function FaqPage()
     return (
         <div className="w-full flex flex-col flex-auto">
 
-            <div className={classNames(classes.header, "flex flex-col flex-no-shrink items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-360")}>
+            <div className={clsx(classes.header, "flex flex-col flex-no-shrink items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-360")}>
 
                 <FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
                     <Typography color="inherit" className="text-36 sm:text-56 font-light">

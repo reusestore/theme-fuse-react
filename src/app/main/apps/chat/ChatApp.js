@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {Drawer, AppBar, Toolbar, Typography, IconButton, Hidden, Avatar, Icon, Paper, Button} from '@material-ui/core';
 import {fade} from '@material-ui/core/styles/colorManipulator';
 import {useDispatch, useSelector} from 'react-redux';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import withReducer from 'app/store/withReducer';
 import * as Actions from "./store/actions";
 import Chat from "./Chat";
@@ -109,11 +109,11 @@ function ChatApp(props)
     }, [dispatch]);
 
     return (
-        <div className={classNames(classes.root)}>
+        <div className={clsx(classes.root)}>
 
             <div className={classes.topBg}/>
 
-            <div className={classNames(classes.contentCardWrapper, 'container')}>
+            <div className={clsx(classes.contentCardWrapper, 'container')}>
 
                 <div className={classes.contentCard}>
 
@@ -125,7 +125,7 @@ function ChatApp(props)
                             open={mobileChatsSidebarOpen}
                             onClose={() => dispatch(Actions.closeMobileChatsSidebar())}
                             classes={{
-                                paper: classNames(classes.drawerPaper, "absolute pin-l")
+                                paper: clsx(classes.drawerPaper, "absolute pin-l")
                             }}
                             style={{position: 'absolute'}}
                             ModalProps={{
@@ -160,7 +160,7 @@ function ChatApp(props)
                         open={userSidebarOpen}
                         onClose={() => dispatch(Actions.closeUserSidebar())}
                         classes={{
-                            paper: classNames(classes.drawerPaper, "absolute pin-l")
+                            paper: clsx(classes.drawerPaper, "absolute pin-l")
                         }}
                         style={{position: 'absolute'}}
                         ModalProps={{
@@ -176,7 +176,7 @@ function ChatApp(props)
                         <UserSidebar/>
                     </Drawer>
 
-                    <main className={classNames(classes.contentWrapper, "z-10")}>
+                    <main className={clsx(classes.contentWrapper, "z-10")}>
                         {!chat ?
                             (
                                 <div className="flex flex-col flex-1 items-center justify-center p-24">
@@ -233,7 +233,7 @@ function ChatApp(props)
                         open={contactSidebarOpen}
                         onClose={() => dispatch(Actions.closeContactSidebar())}
                         classes={{
-                            paper: classNames(classes.drawerPaper, "absolute pin-r")
+                            paper: clsx(classes.drawerPaper, "absolute pin-r")
                         }}
                         style={{position: 'absolute'}}
                         ModalProps={{

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Icon, IconButton, Checkbox, ListItem, Input} from '@material-ui/core';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import _ from '@lodash';
 
 function NoteFormListItem(props)
@@ -31,7 +31,7 @@ function NoteFormListItem(props)
                 color="default"
             />
             <Input
-                className={classNames("flex flex-1 mx-8", props.item.checked && "line-through opacity-50")}
+                className={clsx("flex flex-1 mx-8", props.item.checked && "line-through opacity-50")}
                 name="text"
                 value={props.item.text}
                 onChange={handleChange}

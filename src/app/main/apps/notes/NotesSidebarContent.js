@@ -3,7 +3,7 @@ import {Divider, Icon, List, ListItem, ListItemText, Paper, ListSubheader} from 
 import {FuseAnimate, NavLinkAdapter} from '@fuse';
 import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from 'app/main/apps/notes/store/actions';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import {makeStyles} from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -44,7 +44,7 @@ function NotesSidebarContent(props)
     return (
         <div className="py-24 lg:p-24 lg:pr-4">
             <FuseAnimate animation="transition.slideLeftIn" delay={200}>
-                <Paper elevation={1} className={classNames(classes.paper, "rounded-8")}>
+                <Paper elevation={1} className={clsx(classes.paper, "rounded-8")}>
                     <List>
                         <ListItem
                             button

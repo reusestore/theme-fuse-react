@@ -1,6 +1,6 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/styles';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
@@ -25,7 +25,7 @@ function FuseNavBadge(props)
 
     return (
         <div
-            className={classNames(classes.root, className, "item-badge")}
+            className={clsx(classes.root, className, "item-badge")}
             style={{
                 backgroundColor: badge.bg,
                 color          : badge.fg

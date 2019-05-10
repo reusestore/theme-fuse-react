@@ -1,7 +1,7 @@
 import React from 'react';
 import {Chip} from '@material-ui/core';
 import {useSelector} from 'react-redux';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import {Link} from 'react-router-dom';
 
 function NoteLabel(props)
@@ -33,7 +33,7 @@ function NoteLabel(props)
             {...linkProps}
             label={label.name}
             classes={{
-                root      : classNames("h-24", props.className),
+                root      : clsx("h-24", props.className),
                 label     : "px-6 py-4 text-11",
                 deleteIcon: "w-16 ml-0",
                 ...props.classes

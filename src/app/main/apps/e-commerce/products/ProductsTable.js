@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Icon, Table, TableBody, TableCell, TablePagination, TableRow, Checkbox} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
 import {withRouter} from 'react-router-dom';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import _ from '@lodash';
 import ProductsTableHead from './ProductsTableHead';
 import * as Actions from '../store/actions';
@@ -176,7 +176,7 @@ function ProductsTable(props)
 
                                         <TableCell component="th" scope="row" align="right">
                                             {n.quantity}
-                                            <i className={classNames("inline-block w-8 h-8 rounded ml-8", n.quantity <= 5 && "bg-red", n.quantity > 5 && n.quantity <= 25 && "bg-orange", n.quantity > 25 && "bg-green")}/>
+                                            <i className={clsx("inline-block w-8 h-8 rounded ml-8", n.quantity <= 5 && "bg-red", n.quantity > 5 && n.quantity <= 25 && "bg-orange", n.quantity > 25 && "bg-green")}/>
                                         </TableCell>
 
                                         <TableCell component="th" scope="row" align="right">

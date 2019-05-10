@@ -6,7 +6,7 @@ import withReducer from 'app/store/withReducer';
 import * as Actions from './store/actions'
 import reducer from './store/reducers';
 import _ from 'lodash';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import Widget1 from './widgets/Widget1';
 import Widget2 from './widgets/Widget2';
 import Widget3 from './widgets/Widget3';
@@ -118,11 +118,11 @@ function ProjectDashboardApp(props)
                     </div>
                     <div className="flex items-end">
                         <div className="flex items-center">
-                            <div className={classNames(classes.selectedProject, "flex items-center h-40 px-16 text-16")}>
+                            <div className={clsx(classes.selectedProject, "flex items-center h-40 px-16 text-16")}>
                                 {_.find(projects, ['id', selectedProject.id]).name}
                             </div>
                             <IconButton
-                                className={classNames(classes.projectMenuButton, "h-40 w-40 p-0")}
+                                className={clsx(classes.projectMenuButton, "h-40 w-40 p-0")}
                                 aria-owns={selectedProject.menuEl ? 'project-menu' : undefined}
                                 aria-haspopup="true"
                                 onClick={handleOpenProjectMenu}

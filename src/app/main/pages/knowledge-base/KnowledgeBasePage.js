@@ -18,7 +18,7 @@ import {
 } from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate, FuseAnimateGroup} from '@fuse';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import axios from 'axios';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -59,7 +59,7 @@ function KnowledgeBasePage()
     return (
         <div className="w-full">
 
-            <div className={classNames(classes.header, "flex flex-col items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-360")}>
+            <div className={clsx(classes.header, "flex flex-col items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-360")}>
 
                 <FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
                     <Typography color="inherit" className="text-36 sm:text-56 font-light">

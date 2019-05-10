@@ -3,7 +3,7 @@ import {Paper, Chip, Typography, TextField, MenuItem} from '@material-ui/core';
 import {emphasize} from '@material-ui/core/styles/colorManipulator';
 import CreatableSelect from 'react-select/lib/Creatable';
 import Select from 'react-select';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import {makeStyles} from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -113,7 +113,7 @@ function Control(props)
     return (
         <TextField
             fullWidth
-            className={classNames(classes.root, props.selectProps.textFieldProps.variant)}
+            className={clsx(classes.root, props.selectProps.textFieldProps.variant)}
             InputProps={{
                 inputComponent,
                 inputProps: {
@@ -186,7 +186,7 @@ function MultiValue(props)
         <Chip
             tabIndex={-1}
             label={props.children}
-            className={classNames(classes.chip, {
+            className={clsx(classes.chip, {
                 [classes.chipFocused]: props.isFocused
             }, props.data.class)}
             onDelete={event => {

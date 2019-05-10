@@ -1,7 +1,7 @@
 import React from 'react';
 import {Icon, IconButton, Typography} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 const useStyles = makeStyles({
     root    : {
@@ -29,7 +29,7 @@ function MailAttachment(props)
     const classes = useStyles();
 
     return (
-        <div className={classNames(classes.root, props.className)}>
+        <div className={clsx(classes.root, props.className)}>
             <div className="flex">
                 <Typography variant="caption" className={classes.filename}>{props.fileName}</Typography>
                 <Typography variant="caption" className={classes.size}>({props.size})</Typography>

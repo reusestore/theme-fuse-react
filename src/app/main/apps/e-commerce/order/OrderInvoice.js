@@ -1,7 +1,7 @@
 import React from 'react';
 import {Card, CardContent, Typography, TableCell, TableRow, TableBody, TableHead, Table} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({
     root   : {
@@ -43,7 +43,7 @@ const OrderInvoice = (props) => {
         });
 
     return (
-        <div className={classNames(classes.root, "flex-grow flex-no-shrink p-0")}>
+        <div className={clsx(classes.root, "flex-grow flex-no-shrink p-0")}>
 
             {props.order && (
                 <Card className="w-xl mx-auto" elevation={0}>
@@ -95,11 +95,11 @@ const OrderInvoice = (props) => {
                                 )}
                             </div>
 
-                            <div className={classNames(classes.seller, "flex items-center p-16")}>
+                            <div className={clsx(classes.seller, "flex items-center p-16")}>
 
                                 <img className="w-80" src="assets/images/logos/fuse.svg" alt="logo"/>
 
-                                <div className={classNames(classes.divider, "divider ml-8 mr-16 h-96")}/>
+                                <div className={clsx(classes.divider, "divider ml-8 mr-16 h-96")}/>
 
                                 <div>
                                     <Typography color="inherit">FUSE INC.</Typography>

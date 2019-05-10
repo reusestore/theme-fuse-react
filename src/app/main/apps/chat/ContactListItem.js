@@ -1,7 +1,7 @@
 import React from 'react';
 import {Avatar, ListItem, ListItemText, Typography} from '@material-ui/core';
 import moment from "moment";
-import classNames from 'classnames';
+import clsx from 'clsx';
 import StatusIcon from './StatusIcon';
 import {makeStyles} from '@material-ui/styles';
 
@@ -25,7 +25,7 @@ function ContactListItem(props)
     return (
         <ListItem
             button
-            className={classNames(classes.contactListItem, "px-16 py-12 min-h-92", {'active': (props.selectedContactId === props.contact.id)})}
+            className={clsx(classes.contactListItem, "px-16 py-12 min-h-92", {'active': (props.selectedContactId === props.contact.id)})}
             onClick={() => props.onContactClick(props.contact.id)}
         >
             <div className="relative mr-16">
@@ -57,7 +57,7 @@ function ContactListItem(props)
                     )}
                     {props.contact.unread && (
                         <div
-                            className={classNames(classes.unreadBadge, "flex items-center justify-center min-w-24 h-24 rounded-full text-14 text-center")}>{props.contact.unread}</div>
+                            className={clsx(classes.unreadBadge, "flex items-center justify-center min-w-24 h-24 rounded-full text-14 text-center")}>{props.contact.unread}</div>
                     )}
                 </div>
             )}

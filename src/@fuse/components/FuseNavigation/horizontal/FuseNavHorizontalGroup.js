@@ -4,7 +4,7 @@ import {makeStyles} from '@material-ui/styles';
 import {FuseUtils} from '@fuse';
 import {useDebounce} from '@fuse/hooks';
 import {withRouter} from 'react-router-dom';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import {useSelector} from 'react-redux';
 import {Manager, Reference, Popper} from 'react-popper';
@@ -75,7 +75,7 @@ function FuseNavHorizontalGroup(props)
                     <div ref={ref}>
                         <ListItem
                             button
-                            className={classNames("list-item ", classes.root, "relative", "level-" + nestedLevel, dense && "dense")}
+                            className={clsx("list-item ", classes.root, "relative", "level-" + nestedLevel, dense && "dense")}
                             onMouseEnter={() => handleToggle(true)}
                             onMouseLeave={() => handleToggle(false)}
                             aria-owns={opened ? 'menu-list-grow' : null}
@@ -108,7 +108,7 @@ function FuseNavHorizontalGroup(props)
                                 zIndex: 999 + nestedLevel
                             }}
                             data-placement={placement}
-                            className={classNames(classes.popper, {[classes.popperClose]: !opened})}
+                            className={clsx(classes.popper, {[classes.popperClose]: !opened})}
                         >
                             <Grow in={opened} id="menu-list-grow" style={{transformOrigin: '0 0 0'}}>
                                 <Paper
@@ -116,7 +116,7 @@ function FuseNavHorizontalGroup(props)
                                     onMouseLeave={() => handleToggle(false)}
                                 >
                                     {item.children && (
-                                        <ul className={classNames(classes.children, "pl-0")}>
+                                        <ul className={clsx(classes.children, "pl-0")}>
                                             {
                                                 item.children.map((item) => (
                                                     <React.Fragment key={item.id}>

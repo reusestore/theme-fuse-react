@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Card, CardContent, Typography, TableCell, TableRow, TableBody, TableHead, Table} from '@material-ui/core';
 import {darken} from '@material-ui/core/styles/colorManipulator';
 import {FuseAnimate} from '@fuse';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import axios from 'axios';
 import {makeStyles} from '@material-ui/styles';
 
@@ -42,7 +42,7 @@ function CompactInvoicePage()
     }, []);
 
     return (
-        <div className={classNames(classes.root, "flex-grow flex-no-shrink p-0 sm:p-64 print:p-0")}>
+        <div className={clsx(classes.root, "flex-grow flex-no-shrink p-0 sm:p-64 print:p-0")}>
 
             {invoice && (
                 <FuseAnimate animation={{translateY: [0, '100%']}} duration={600}>
@@ -125,11 +125,11 @@ function CompactInvoicePage()
                                     )}
                                 </div>
 
-                                <div className={classNames(classes.seller, "flex items-center p-16")}>
+                                <div className={clsx(classes.seller, "flex items-center p-16")}>
 
                                     <img className="w-80" src="assets/images/logos/fuse.svg" alt="logo"/>
 
-                                    <div className={classNames(classes.divider, "w-px ml-8 mr-16 h-96 opacity-50")}/>
+                                    <div className={clsx(classes.divider, "w-px ml-8 mr-16 h-96 opacity-50")}/>
 
                                     <div>
                                         <Typography color="inherit">{invoice.from.title}</Typography>

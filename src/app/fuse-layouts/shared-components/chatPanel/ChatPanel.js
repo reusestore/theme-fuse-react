@@ -3,7 +3,7 @@ import {AppBar, Toolbar, Icon, IconButton, ClickAwayListener, Paper, Avatar, Typ
 import {makeStyles} from '@material-ui/styles';
 import keycode from 'keycode';
 import {useDispatch, useSelector} from 'react-redux';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import * as Actions from './store/actions';
 import reducer from './store/reducers';
 import withReducer from 'app/store/withReducer';
@@ -92,7 +92,7 @@ function ChatPanel(props)
     return (
         <div className={classes.root}>
             <ClickAwayListener onClickAway={() => state && dispatch(Actions.closeChatPanel())}>
-                <div className={classNames(classes.panel, {'opened': state}, "flex flex-col")}>
+                <div className={clsx(classes.panel, {'opened': state}, "flex flex-col")}>
                     <AppBar position="static" elevation={1}>
                         <Toolbar className="pl-12 pr-8">
                             <div className="flex flex-1 items-center">

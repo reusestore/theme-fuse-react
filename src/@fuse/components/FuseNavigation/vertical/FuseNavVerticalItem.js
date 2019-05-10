@@ -3,7 +3,7 @@ import {Icon, ListItem, ListItemText} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 import {NavLinkAdapter, FuseUtils} from '@fuse';
 import {withRouter} from 'react-router-dom';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector} from 'react-redux';
 import * as Actions from 'app/store/actions';
@@ -60,7 +60,7 @@ function FuseNavVerticalItem(props)
             component={NavLinkAdapter}
             to={item.url}
             activeClassName="active"
-            className={classNames(classes.item, listItemPadding, 'list-item', active)}
+            className={clsx(classes.item, listItemPadding, 'list-item', active)}
             onClick={ev => dispatch(Actions.navbarCloseMobile())}
             exact={item.exact}
         >

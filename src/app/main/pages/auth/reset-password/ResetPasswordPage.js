@@ -4,7 +4,7 @@ import {darken} from '@material-ui/core/styles/colorManipulator';
 import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate} from '@fuse';
 import {useForm} from '@fuse/hooks';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import {Link} from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
@@ -42,7 +42,7 @@ function ResetPasswordPage()
     }
 
     return (
-        <div className={classNames(classes.root, "flex flex-col flex-auto flex-no-shrink items-center justify-center p-32")}>
+        <div className={clsx(classes.root, "flex flex-col flex-auto flex-no-shrink items-center justify-center p-32")}>
 
             <div className="flex flex-col items-center justify-center w-full">
 

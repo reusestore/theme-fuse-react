@@ -1,7 +1,7 @@
 import React from 'react';
 import {AppBar, Hidden, Icon} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import UserNavbarHeader from 'app/fuse-layouts/shared-components/UserNavbarHeader';
 import Logo from 'app/fuse-layouts/shared-components/Logo';
 import NavbarFoldedToggleButton from 'app/fuse-layouts/shared-components/NavbarFoldedToggleButton';
@@ -26,7 +26,7 @@ function NavbarLayout1(props)
     const classes = useStyles();
 
     return (
-        <div className={classNames("flex flex-col overflow-hidden h-full", props.className)}>
+        <div className={clsx("flex flex-col overflow-hidden h-full", props.className)}>
 
             <AppBar
                 color="primary"
@@ -50,7 +50,7 @@ function NavbarLayout1(props)
                 </Hidden>
             </AppBar>
 
-            <FuseScrollbars className={classNames(classes.content)}>
+            <FuseScrollbars className={clsx(classes.content)}>
 
                 <UserNavbarHeader/>
 

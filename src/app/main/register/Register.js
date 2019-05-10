@@ -3,7 +3,7 @@ import {Card, CardContent, Tab, Tabs, Typography} from '@material-ui/core';
 import {darken} from '@material-ui/core/styles/colorManipulator';
 import {FuseAnimate} from '@fuse';
 import {Link} from 'react-router-dom';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import FirebaseRegisterTab from './tabs/FirebaseRegisterTab';
 import Auth0RegisterTab from './tabs/Auth0RegisterTab';
 import JWTRegisterTab from './tabs/JWTRegisterTab';
@@ -27,7 +27,7 @@ function Register()
     }
 
     return (
-        <div className={classNames(classes.root, "flex flex-col flex-1 flex-no-shrink p-24 md:flex-row md:p-0")}>
+        <div className={clsx(classes.root, "flex flex-col flex-1 flex-no-shrink p-24 md:flex-row md:p-0")}>
 
             <div className="flex flex-col flex-no-grow items-center text-white p-16 text-center md:p-128 md:items-start md:flex-no-shrink md:flex-1 md:text-left">
 

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {ClickAwayListener, Paper, Typography} from '@material-ui/core';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import * as Actions from 'app/main/apps/notes/store/actions';
 import {useDispatch} from 'react-redux';
 import NoteForm from './note-form/NoteForm';
@@ -63,7 +63,7 @@ function NewNote(props)
     return (
         <ClickAwayListener onClickAway={handleClickAway}>
             <Paper
-                className={classNames(classes.button, "flex items-center w-full max-w-512 mt-8 mb-16 min-h-48")}
+                className={clsx(classes.button, "flex items-center w-full max-w-512 mt-8 mb-16 min-h-48")}
                 elevation={1}
             >
                 {formOpen ? (

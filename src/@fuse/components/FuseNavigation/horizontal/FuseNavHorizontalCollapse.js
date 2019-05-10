@@ -4,7 +4,7 @@ import {makeStyles} from '@material-ui/styles';
 import {FuseUtils} from '@fuse';
 import {useDebounce} from '@fuse/hooks';
 import {withRouter} from 'react-router-dom';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import {useSelector} from 'react-redux';
 import {Manager, Reference, Popper} from 'react-popper';
@@ -65,14 +65,14 @@ function FuseNavHorizontalCollapse(props)
     }
 
     return (
-        <ul className={classNames(classes.root, "relative pl-0")}>
+        <ul className={clsx(classes.root, "relative pl-0")}>
             <Manager>
                 <Reference>
                     {({ref}) => (
                         <div ref={ref}>
                             <ListItem
                                 button
-                                className={classNames("list-item", classes.button, opened && "open", dense && "dense")}
+                                className={clsx("list-item", classes.button, opened && "open", dense && "dense")}
                                 onMouseEnter={() => handleToggle(true)}
                                 onMouseLeave={() => handleToggle(false)}
                                 aria-owns={opened ? 'menu-list-grow' : null}
@@ -106,7 +106,7 @@ function FuseNavHorizontalCollapse(props)
                                     zIndex: 999 + nestedLevel + 1
                                 }}
                                 data-placement={placement}
-                                className={classNames(classes.popper, {[classes.popperClose]: !opened})}
+                                className={clsx(classes.popper, {[classes.popperClose]: !opened})}
                             >
                                 <Grow in={opened} id="menu-list-grow" style={{transformOrigin: '0 0 0'}}>
                                     <Paper
@@ -114,7 +114,7 @@ function FuseNavHorizontalCollapse(props)
                                         onMouseLeave={() => handleToggle(false)}
                                     >
                                         {item.children && (
-                                            <ul className={classNames(classes.children, "pl-0")}>
+                                            <ul className={clsx(classes.children, "pl-0")}>
                                                 {
                                                     item.children.map((item) => (
 

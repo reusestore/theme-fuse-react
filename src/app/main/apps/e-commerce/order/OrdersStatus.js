@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import _ from '@lodash';
 
 export const orderStatuses = [
@@ -78,7 +78,7 @@ export const orderStatuses = [
 function OrdersStatus(props)
 {
     return (
-        <div className={classNames("inline text-12 p-4 rounded truncate", _.find(orderStatuses, {name: props.name}).color)}>
+        <div className={clsx("inline text-12 p-4 rounded truncate", _.find(orderStatuses, {name: props.name}).color)}>
             {props.name}
         </div>
     );

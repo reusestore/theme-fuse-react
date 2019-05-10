@@ -3,7 +3,7 @@ import {ListSubheader} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 import {FuseUtils} from '@fuse';
 import {withRouter} from 'react-router-dom';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import {useSelector} from 'react-redux';
 import FuseNavVerticalCollapse from './FuseNavVerticalCollapse';
@@ -36,7 +36,7 @@ function FuseNavVerticalGroup(props)
     return (
         <React.Fragment>
 
-            <ListSubheader disableSticky={true} className={classNames(classes.item, listItemPadding, "list-subheader flex items-center")}>
+            <ListSubheader disableSticky={true} className={clsx(classes.item, listItemPadding, "list-subheader flex items-center")}>
                 <span className="list-subheader-text uppercase text-12">
                     {item.title}
                 </span>

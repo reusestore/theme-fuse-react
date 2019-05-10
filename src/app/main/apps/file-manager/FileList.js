@@ -3,7 +3,7 @@ import {Hidden, Icon, IconButton, Table, TableBody, TableCell, TableHead, TableR
 import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate} from '@fuse';
 import {useDispatch, useSelector} from 'react-redux';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import * as Actions from './store/actions';
 
 const useStyles = makeStyles({
@@ -57,7 +57,7 @@ function FileList(props)
                                 className="cursor-pointer"
                             >
                                 <TableCell className="max-w-64 w-64 p-0 text-center">
-                                    <Icon className={classNames(classes.typeIcon, n.type)}/>
+                                    <Icon className={clsx(classes.typeIcon, n.type)}/>
                                 </TableCell>
                                 <TableCell>{n.name}</TableCell>
                                 <TableCell className="hidden sm:table-cell">{n.type}</TableCell>

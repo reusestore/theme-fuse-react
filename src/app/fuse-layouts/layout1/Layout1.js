@@ -9,7 +9,7 @@ import LeftSideLayout1 from './components/LeftSideLayout1';
 import RightSideLayout1 from './components/RightSideLayout1';
 import NavbarWrapperLayout1 from './components/NavbarWrapperLayout1';
 import SettingsPanel from 'app/fuse-layouts/shared-components/SettingsPanel';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import AppContext from 'app/AppContext';
 
 const useStyles = makeStyles(theme => ({
@@ -92,7 +92,7 @@ function Layout1(props)
         case 'body':
         {
             return (
-                <div id="fuse-layout" className={classNames(classes.root, config.mode, 'scroll-' + config.scroll)}>
+                <div id="fuse-layout" className={clsx(classes.root, config.mode, 'scroll-' + config.scroll)}>
 
                     {config.leftSidePanel.display && (
                         <LeftSideLayout1/>
@@ -172,7 +172,7 @@ function Layout1(props)
         default:
         {
             return (
-                <div id="fuse-layout" className={classNames(classes.root, config.mode, 'scroll-' + config.scroll)}>
+                <div id="fuse-layout" className={clsx(classes.root, config.mode, 'scroll-' + config.scroll)}>
                     {config.leftSidePanel.display && (
                         <LeftSideLayout1/>
                     )}

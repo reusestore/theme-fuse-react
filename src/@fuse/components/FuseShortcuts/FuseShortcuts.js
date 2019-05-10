@@ -6,7 +6,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {FuseUtils, FuseAnimateGroup} from '@fuse';
 import {Link} from 'react-router-dom';
 import amber from '@material-ui/core/colors/amber';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 const useStyles = makeStyles({
     root   : {
@@ -108,13 +108,13 @@ function FuseShortcuts(props)
     }
 
     return (
-        <div className={classNames(classes.root, props.variant, "flex flex-1", props.variant === "vertical" && "flex-no-grow flex-shrink", props.className)}>
+        <div className={clsx(classes.root, props.variant, "flex flex-1", props.variant === "vertical" && "flex-no-grow flex-shrink", props.className)}>
 
             <FuseAnimateGroup
                 enter={{
                     animation: "transition.expandIn"
                 }}
-                className={classNames("flex flex-1", props.variant === "vertical" && "flex-col")}
+                className={clsx("flex flex-1", props.variant === "vertical" && "flex-col")}
             >
                 {shortcutItems.map(item => item && (
                     <Link to={item.url} key={item.id} className={classes.item}>

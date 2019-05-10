@@ -2,7 +2,7 @@ import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {Typography} from '@material-ui/core';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 function FuseCountdown(props)
 {
@@ -49,7 +49,7 @@ function FuseCountdown(props)
     }, [tick]);
 
     return (
-        <div className={classNames("flex items-center", props.className)}>
+        <div className={clsx("flex items-center", props.className)}>
             <div className="flex flex-col items-center justify-center px-12">
                 <Typography variant="h4" className="mb-4">
                     {countdown.days}

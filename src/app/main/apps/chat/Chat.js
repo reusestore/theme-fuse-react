@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import {Avatar, Paper, Typography, TextField, IconButton, Icon} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
 import {useDispatch, useSelector} from 'react-redux';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import moment from 'moment/moment';
 import * as Actions from './store/actions';
 import {makeStyles} from '@material-ui/styles';
@@ -149,7 +149,7 @@ function Chat(props)
     }
 
     return (
-        <div className={classNames("flex flex-col relative", props.className)}>
+        <div className={clsx("flex flex-col relative", props.className)}>
             <FuseScrollbars
                 ref={chatRef}
                 className="flex flex-1 flex-col overflow-y-auto"
@@ -162,7 +162,7 @@ function Chat(props)
                                 return (
                                     <div
                                         key={item.time}
-                                        className={classNames(
+                                        className={clsx(
                                             classes.messageRow,
                                             "flex flex-col flex-no-grow flex-no-shrink items-start justify-end relative pr-16 pb-4 pl-16",
                                             {'me': item.who === user.id},

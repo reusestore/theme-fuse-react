@@ -1,6 +1,6 @@
 import React from 'react';
 import {Avatar, ListItem, Typography} from '@material-ui/core';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import _ from '@lodash';
 import {makeStyles} from '@material-ui/styles';
 
@@ -23,7 +23,7 @@ function CardActivity(props)
             return (
                 <ListItem dense className="px-0">
                     <Avatar alt={user.name} src={user.avatar} className="w-32 h-32"/>
-                    <div className={classNames(classes.commentBubble, "flex flex-col ml-16 p-12")}>
+                    <div className={clsx(classes.commentBubble, "flex flex-col ml-16 p-12")}>
                         <div className="flex items-center">
                             <Typography>{user.name}</Typography>
                             <Typography className="ml-8 text-12" color="textSecondary">{props.item.time}</Typography>

@@ -2,7 +2,7 @@ import React from 'react';
 import {AppBar, Hidden, Toolbar} from '@material-ui/core';
 import {makeStyles, ThemeProvider} from '@material-ui/styles';
 import {FuseSearch} from '@fuse';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import NavbarMobileToggleButton from 'app/fuse-layouts/shared-components/NavbarMobileToggleButton';
 import QuickPanelToggleButton from 'app/fuse-layouts/shared-components/quickPanel/QuickPanelToggleButton';
 import ChatPanelToggleButton from 'app/fuse-layouts/shared-components/chatPanel/ChatPanelToggleButton';
@@ -38,7 +38,7 @@ function ToolbarLayout3(props)
                     )}
 
                     <Hidden mdDown>
-                        <div className={classNames("flex flex-no-shrink items-center")}>
+                        <div className={clsx("flex flex-no-shrink items-center")}>
                             <Logo/>
                         </div>
                     </Hidden>

@@ -1,6 +1,6 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/styles';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({
     root : {
@@ -25,7 +25,7 @@ function MailChip(props)
     const classes = useStyles();
 
     return (
-        <div className={classNames(classes.root, props.className)}>
+        <div className={clsx(classes.root, props.className)}>
             <div className={classes.color} style={{backgroundColor: props.color}}/>
             <div>{props.title}</div>
         </div>

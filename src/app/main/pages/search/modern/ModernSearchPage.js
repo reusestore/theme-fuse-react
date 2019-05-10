@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Button, colors, Icon, IconButton, Input, Paper, Typography} from '@material-ui/core';
 import {makeStyles, useTheme, ThemeProvider} from '@material-ui/styles';
 import {FusePageSimple, FuseAnimate, FuseAnimateGroup} from '@fuse';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import axios from 'axios';
 
 const useStyles = makeStyles({
@@ -60,8 +60,8 @@ function ModernSearchPage()
                     >
                         {data.map((item) => (
                             <Paper className="p-16 mb-16" elevation={1} key={item.id}>
-                                <Typography className={classNames(classes.title, "text-18 cursor-pointer")}>{item.title}</Typography>
-                                <Typography className={classNames(classes.url)}>{item.url}</Typography>
+                                <Typography className={clsx(classes.title, "text-18 cursor-pointer")}>{item.title}</Typography>
+                                <Typography className={clsx(classes.url)}>{item.url}</Typography>
                                 <Typography className="text-13">{item.excerpt}</Typography>
                             </Paper>
                         ))}

@@ -2,7 +2,7 @@ import React, {useEffect, useMemo, useState} from 'react';
 import {Typography, Dialog, ListItem, Input, IconButton, Icon, List} from '@material-ui/core';
 import {useDebounce, useForm} from '@fuse/hooks';
 import {useDispatch, useSelector} from 'react-redux';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import _ from '@lodash';
 import * as Actions from 'app/main/apps/notes/store/actions';
 import LabelModel from 'app/main/apps/notes/model/LabelModel';
@@ -73,7 +73,7 @@ function LabelsDialog(props)
                     >
                         <Icon className="list-item-icon text-16" color="action">add</Icon>
                         <Input
-                            className={classNames("flex flex-1 mx-8")}
+                            className={clsx("flex flex-1 mx-8")}
                             name="name"
                             value={newLabelForm.name}
                             onChange={handleChange}
@@ -109,7 +109,7 @@ function LabelsDialog(props)
                         >
                             <Icon className="list-item-icon text-16" color="action">label</Icon>
                             <Input
-                                className={classNames("flex flex-1 mx-8")}
+                                className={clsx("flex flex-1 mx-8")}
                                 name="name"
                                 value={label.name}
                                 onChange={(event) => handleLabelChange(event, label)}

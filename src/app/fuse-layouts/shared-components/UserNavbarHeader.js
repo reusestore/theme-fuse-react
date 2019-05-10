@@ -1,7 +1,7 @@
 import React from 'react';
 import {AppBar, Avatar, Typography} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import {useSelector} from 'react-redux';
 
 const useStyles = makeStyles(theme => ({
@@ -52,7 +52,7 @@ function UserNavbarHeader(props)
             <Typography className="username text-16 whitespace-no-wrap" color="inherit">{user.data.displayName}</Typography>
             <Typography className="email text-13 mt-8 opacity-50 whitespace-no-wrap" color="inherit">{user.data.email}</Typography>
             <Avatar
-                className={classNames(classes.avatar, "avatar")}
+                className={clsx(classes.avatar, "avatar")}
                 alt="user photo"
                 src={user.data.photoURL && user.data.photoURL !== '' ? user.data.photoURL : "assets/images/avatars/profile.jpg"}
             />

@@ -3,7 +3,7 @@ import {makeStyles} from '@material-ui/styles';
 import {FuseScrollbars, FuseMessage, FuseDialog, FuseSuspense} from '@fuse';
 import {renderRoutes} from 'react-router-config'
 import {useSelector} from 'react-redux';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import AppContext from 'app/AppContext';
 import LeftSideLayout2 from './components/LeftSideLayout2';
 import ToolbarLayout2 from './components/ToolbarLayout2';
@@ -71,7 +71,7 @@ function Layout2(props)
     return (
         <AppContext.Consumer>
             {({routes}) => (
-                <div id="fuse-layout" className={classNames(classes.root, config.mode)}>
+                <div id="fuse-layout" className={clsx(classes.root, config.mode)}>
 
                     {config.leftSidePanel.display && (
                         <LeftSideLayout2/>

@@ -1,7 +1,7 @@
 import React, {useRef} from 'react';
 import {makeStyles} from '@material-ui/styles';
 import {FuseScrollbars} from '@fuse';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import FusePageCardedSidebar from './FusePageCardedSidebar';
 import FusePageCardedHeader from './FusePageCardedHeader';
 import * as PropTypes from 'prop-types';
@@ -156,7 +156,7 @@ const FusePageCarded = React.forwardRef(function (props, ref) {
     });
 
     return (
-        <div className={classNames(classes.root, props.innerScroll && classes.innerScroll)} ref={rootRef}>
+        <div className={clsx(classes.root, props.innerScroll && classes.innerScroll)} ref={rootRef}>
 
             <div className={classes.topBg}/>
 
@@ -176,12 +176,12 @@ const FusePageCarded = React.forwardRef(function (props, ref) {
                 )}
 
                 <div
-                    className={classNames(classes.contentWrapper, isLeftSidebar && (props.leftSidebarVariant === undefined || props.leftSidebarVariant === 'permanent') && 'lg:pl-0', isRightSidebar && (props.rightSidebarVariant === undefined || props.rightSidebarVariant === 'permanent') && 'lg:pr-0')}
+                    className={clsx(classes.contentWrapper, isLeftSidebar && (props.leftSidebarVariant === undefined || props.leftSidebarVariant === 'permanent') && 'lg:pl-0', isRightSidebar && (props.rightSidebarVariant === undefined || props.rightSidebarVariant === 'permanent') && 'lg:pr-0')}
                 >
 
                     <FusePageCardedHeader header={props.header} classes={classes}/>
 
-                    <div className={classNames(classes.contentCard, props.innerScroll && 'inner-scroll')}>
+                    <div className={clsx(classes.contentCard, props.innerScroll && 'inner-scroll')}>
 
                         {props.contentToolbar && (
                             <div className={classes.toolbar}>

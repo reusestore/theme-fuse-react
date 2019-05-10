@@ -1,7 +1,7 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/styles';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import marked from 'marked';
 import prism from './prism';
 
@@ -262,7 +262,7 @@ function MarkdownElement(props)
     /* eslint-disable react/no-danger */
     return (
         <div
-            className={classNames(classes.root, 'markdown-body', className)}
+            className={clsx(classes.root, 'markdown-body', className)}
             dangerouslySetInnerHTML={{__html: marked(text)}}
             {...other}
         />

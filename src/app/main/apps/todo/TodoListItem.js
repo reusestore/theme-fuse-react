@@ -4,7 +4,7 @@ import {makeStyles} from '@material-ui/styles';
 import red from '@material-ui/core/colors/red';
 import amber from '@material-ui/core/colors/amber';
 import {useDispatch, useSelector} from 'react-redux';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import _ from '@lodash';
 import * as Actions from './store/actions';
 import TodoChip from './TodoChip';
@@ -29,7 +29,7 @@ function TodoListItem(props)
 
     return (
         <ListItem
-            className={classNames(classes.todoItem, {"completed": props.todo.completed}, "border-solid border-b-1 py-16  px-0 sm:px-8")}
+            className={clsx(classes.todoItem, {"completed": props.todo.completed}, "border-solid border-b-1 py-16  px-0 sm:px-8")}
             onClick={(ev) => {
                 ev.preventDefault();
                 dispatch(Actions.openEditTodoDialog(props.todo));
@@ -63,7 +63,7 @@ function TodoListItem(props)
                     {_.truncate(props.todo.notes.replace(/<(?:.|\n)*?>/gm, ''), {'length': 180})}
                 </Typography>
 
-                <div className={classNames(classes.labels, "flex mt-8")}>
+                <div className={clsx(classes.labels, "flex mt-8")}>
                     {props.todo.labels.map(label => (
                         <TodoChip
                             className="mr-4"

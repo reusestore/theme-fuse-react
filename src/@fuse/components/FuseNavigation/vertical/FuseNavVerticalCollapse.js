@@ -3,7 +3,7 @@ import {Collapse, Icon, IconButton, ListItem, ListItemText} from '@material-ui/c
 import {makeStyles} from '@material-ui/styles';
 import {FuseUtils} from '@fuse';
 import {withRouter} from 'react-router-dom';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import {useSelector} from 'react-redux';
 import FuseNavVerticalGroup from './FuseNavVerticalGroup';
@@ -90,11 +90,11 @@ function FuseNavVerticalCollapse(props)
     }
 
     return (
-        <ul className={classNames(classes.root, open && "open")}>
+        <ul className={clsx(classes.root, open && "open")}>
 
             <ListItem
                 button
-                className={classNames(classes.item, listItemPadding, 'list-item', active)}
+                className={clsx(classes.item, listItemPadding, 'list-item', active)}
                 onClick={handleClick}
             >
                 {item.icon && (

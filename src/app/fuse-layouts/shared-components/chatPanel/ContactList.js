@@ -1,7 +1,7 @@
 import React, {useRef} from 'react';
 import {Button, Avatar, Divider, Tooltip} from '@material-ui/core';
 import {FuseScrollbars, FuseAnimateGroup} from '@fuse';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from './store/actions';
 import {makeStyles} from '@material-ui/styles';
@@ -97,12 +97,12 @@ function ContactList(props)
             <Tooltip title={contact.name} placement="left">
                 <Button
                     onClick={() => handleContactClick(contact.id)}
-                    className={classNames(classes.contactButton, {'active': (selectedContactId === contact.id)})}
+                    className={clsx(classes.contactButton, {'active': (selectedContactId === contact.id)})}
                 >
                     {contact.unread && (
                         <div className={classes.unreadBadge}>{contact.unread}</div>
                     )}
-                    <div className={classNames(contact.status, classes.status)}/>
+                    <div className={clsx(contact.status, classes.status)}/>
                     <Avatar
                         src={contact.avatar}
                         alt={contact.name}
@@ -116,7 +116,7 @@ function ContactList(props)
 
     return (
         <FuseScrollbars
-            className={classNames(classes.root, "flex flex-no-shrink flex-col overflow-y-auto py-8")}
+            className={clsx(classes.root, "flex flex-no-shrink flex-col overflow-y-auto py-8")}
             ref={contactListScroll}
         >
             {contacts.length > 0 && (

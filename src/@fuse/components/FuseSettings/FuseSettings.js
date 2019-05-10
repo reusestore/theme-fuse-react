@@ -5,7 +5,7 @@ import * as Actions from 'app/store/actions';
 import * as AuthActions from 'app/auth/store/actions';
 import {useSelector, useDispatch} from 'react-redux';
 import {FuseLayoutConfigs} from '@fuse';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import _ from '@lodash';
 
 const useStyles = makeStyles(theme => ({
@@ -224,7 +224,7 @@ function FuseSettings(props)
 
             </div>
 
-            <div className={classNames(classes.formGroup, "pb-16")}>
+            <div className={clsx(classes.formGroup, "pb-16")}>
 
                 <Typography className={classes.formGroupTitle} color="textSecondary">
                     Theme

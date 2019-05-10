@@ -3,7 +3,7 @@ import {FormControlLabel, Icon, Switch, Typography} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate} from '@fuse';
 import {useSelector} from 'react-redux';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 const useStyles = makeStyles({
     table   : {
@@ -46,7 +46,7 @@ function DetailSidebarContent(props)
 
                 <div className="preview h-128 sm:h-256 file-icon flex items-center justify-center">
                     <FuseAnimate animation="transition.expandIn" delay={300}>
-                        <Icon className={classNames(classes.typeIcon, selectedItem.type, "text-48")}/>
+                        <Icon className={clsx(classes.typeIcon, selectedItem.type, "text-48")}/>
                     </FuseAnimate>
                 </div>
 
@@ -63,7 +63,7 @@ function DetailSidebarContent(props)
 
                 <Typography variant="subtitle1" className="py-16">Info</Typography>
 
-                <table className={classNames(classes.table, "w-full, text-left")}>
+                <table className={clsx(classes.table, "w-full, text-left")}>
 
                     <tbody>
 

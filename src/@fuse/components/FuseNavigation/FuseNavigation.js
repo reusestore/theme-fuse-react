@@ -1,7 +1,7 @@
 import React from 'react';
 import {Divider, List, Hidden} from '@material-ui/core';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import FuseNavVerticalGroup from './vertical/FuseNavVerticalGroup';
 import FuseNavVerticalCollapse from './vertical/FuseNavVerticalCollapse';
 import FuseNavVerticalItem from './vertical/FuseNavVerticalItem';
@@ -16,7 +16,7 @@ function FuseNavigation(props)
     const {navigation, layout, active, dense, className} = props;
 
     const verticalNav = (
-        <List className={classNames("navigation whitespace-no-wrap", className)}>
+        <List className={clsx("navigation whitespace-no-wrap", className)}>
             {
                 navigation.map((item) => (
 
@@ -48,7 +48,7 @@ function FuseNavigation(props)
     );
 
     const horizontalNav = (
-        <List className={classNames("navigation whitespace-no-wrap flex p-0", className)}>
+        <List className={clsx("navigation whitespace-no-wrap flex p-0", className)}>
             {
                 navigation.map((item) => (
 

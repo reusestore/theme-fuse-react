@@ -5,7 +5,7 @@ import 'perfect-scrollbar/css/perfect-scrollbar.css';
 import {connect} from 'react-redux';
 import MobileDetect from 'mobile-detect';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 const md = new MobileDetect(window.navigator.userAgent);
 const isMobile = md.mobile();
@@ -121,7 +121,7 @@ const FuseScrollbars = React.forwardRef(function FuseScrollbars(props, ref) {
     return (
         <div
             id={props.id}
-            className={classNames(classes.root, props.className)}
+            className={clsx(classes.root, props.className)}
             style={
                 (props.customScrollbars && (props.enable || true) && !isMobile) ?
                     {

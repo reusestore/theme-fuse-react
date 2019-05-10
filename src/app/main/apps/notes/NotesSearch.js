@@ -3,7 +3,7 @@ import {ClickAwayListener, Icon, IconButton, Input, Tooltip} from '@material-ui/
 import {makeStyles} from '@material-ui/styles';
 import {useDispatch, useSelector} from 'react-redux';
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import * as Actions from './store/actions';
 
 const useStyles = makeStyles(theme => ({
@@ -48,7 +48,7 @@ function NotesSearch(props)
     }
 
     return (
-        <div className={classNames(classes.root, "flex", props.className)}>
+        <div className={clsx(classes.root, "flex", props.className)}>
 
             <Tooltip title="Click to search" placement="bottom">
                 <div onClick={showSearch}>
@@ -59,7 +59,7 @@ function NotesSearch(props)
             {search && (
                 <ClickAwayListener onClickAway={handleClickAway}>
 
-                    <div className={classNames(classes.inputWrapper, "absolute pin-l pin-r pin-t pin-b h-full z-9999 px-8 sm:px-24")}>
+                    <div className={clsx(classes.inputWrapper, "absolute pin-l pin-r pin-t pin-b h-full z-9999 px-8 sm:px-24")}>
 
                         <div className="flex items-center w-full h-full">
 

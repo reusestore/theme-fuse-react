@@ -8,7 +8,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
 import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
 import moment from 'moment'
-import classNames from 'classnames';
+import clsx from 'clsx';
 import withReducer from 'app/store/withReducer';
 import * as Actions from './store/actions';
 import reducer from './store/reducers';
@@ -194,7 +194,7 @@ function CalendarApp(props)
     }
 
     return (
-        <div className={classNames(classes.root, "flex flex-col flex-auto relative")}>
+        <div className={clsx(classes.root, "flex flex-col flex-auto relative")}>
             <div ref={headerEl}/>
             <DragAndDropCalendar
                 className="flex flex-1 container"

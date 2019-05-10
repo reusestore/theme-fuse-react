@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {TableHead, TableSortLabel, TableCell, TableRow, Checkbox, Tooltip, IconButton, Icon, Menu, MenuList, MenuItem, ListItemIcon, ListItemText,} from '@material-ui/core';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import {makeStyles} from '@material-ui/styles';
 
 const rows = [
@@ -83,7 +83,7 @@ function ProductsTableHead(props)
                         onChange={props.onSelectAllClick}
                     />
                     {props.numSelected > 0 && (
-                        <div className={classNames("flex items-center justify-center absolute w-64 pin-t pin-l ml-68 h-64 z-10", classes.actionsButtonWrapper)}>
+                        <div className={clsx("flex items-center justify-center absolute w-64 pin-t pin-l ml-68 h-64 z-10", classes.actionsButtonWrapper)}>
                             <IconButton
                                 aria-owns={selectedProductsMenu ? 'selectedProductsMenu' : null}
                                 aria-haspopup="true"

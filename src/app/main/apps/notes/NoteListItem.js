@@ -2,7 +2,7 @@ import React from 'react';
 import {Card, Typography, Icon} from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
 import {useDispatch} from 'react-redux';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import * as Actions from './store/actions';
 import setDescriptionStyle from './setDescriptionStyle';
 import NoteReminderLabel from './NoteReminderLabel';
@@ -14,7 +14,7 @@ function NoteListItem(props)
 
     return (
         <FuseAnimate animation="transition.fadeIn" duration={400} delay={100}>
-            <Card className={classNames("cursor-pointer", props.className)} onClick={() => dispatch(Actions.openNoteDialog(props.note.id))}>
+            <Card className={clsx("cursor-pointer", props.className)} onClick={() => dispatch(Actions.openNoteDialog(props.note.id))}>
                 {props.note.image && props.note.image !== "" && (
                     <img src={props.note.image} className="w-full block" alt="note"/>
                 )}
@@ -31,7 +31,7 @@ function NoteListItem(props)
                         component="div"
                     >
                         <div
-                            className={classNames("w-full break-words", props.variateDescSize ? "font-200" : "text-14")}
+                            className={clsx("w-full break-words", props.variateDescSize ? "font-200" : "text-14")}
                             ref={el => {
                                 setTimeout(() => setDescriptionStyle(props.note.description, el, props.variateDescSize));
                             }}>
@@ -46,7 +46,7 @@ function NoteListItem(props)
                             <li key={item.id} className="flex items-center w-full">
                                 <Icon color="action" className="mr-8 text-16">{item.checked ? "check_box_outline" : "check_box_outline_blank"}</Icon>
                                 <Typography
-                                    className={classNames("truncate", item.checked && "line-through")}
+                                    className={clsx("truncate", item.checked && "line-through")}
                                     color={item.checked ? "textSecondary" : "inherit"}
                                 >
                                     {item.text}

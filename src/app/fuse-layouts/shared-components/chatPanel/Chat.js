@@ -1,7 +1,7 @@
 import React, {useEffect, useMemo, useRef, useState} from 'react';
 import {Avatar, Paper, Typography, TextField, IconButton, Icon} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import moment from 'moment/moment';
 import * as Actions from './store/actions';
 import {useDispatch, useSelector} from 'react-redux';
@@ -167,7 +167,7 @@ function Chat(props)
     };
 
     return (
-        <Paper elevation={3} className={classNames("flex flex-col", props.className)}>
+        <Paper elevation={3} className={clsx("flex flex-col", props.className)}>
 
             {useMemo(() => {
                     const shouldShowContactAvatar = (item, i) => {
@@ -205,7 +205,7 @@ function Chat(props)
                                                 return (
                                                     <div
                                                         key={item.time}
-                                                        className={classNames(
+                                                        className={clsx(
                                                             classes.messageRow,
                                                             {'me': item.who === user.id},
                                                             {'contact': item.who !== user.id},
@@ -241,8 +241,8 @@ function Chat(props)
                 }
                 , [chat, classes, contacts, selectedContactId, user])}
             {chat && (
-                <form onSubmit={onMessageSubmit} className={classNames(classes.bottom, "py-16 px-8")}>
-                    <Paper className={classNames(classes.inputWrapper, "flex items-center relative")}>
+                <form onSubmit={onMessageSubmit} className={clsx(classes.bottom, "py-16 px-8")}>
+                    <Paper className={clsx(classes.inputWrapper, "flex items-center relative")}>
                         <TextField
                             autoFocus={false}
                             id="message-input"

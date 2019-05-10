@@ -3,7 +3,7 @@ import {RootRef, Card, CardContent, CardActions} from '@material-ui/core';
 import {darken} from '@material-ui/core/styles/colorManipulator';
 import {makeStyles} from '@material-ui/styles';
 import {Draggable, Droppable} from 'react-beautiful-dnd';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import BoardCard from './BoardCard';
 import BoardAddCard from './BoardAddCard';
 import BoardListHeader from './BoardListHeader';
@@ -35,7 +35,7 @@ function BoardList(props)
                     {...provided.draggableProps}
                 >
                     <Card
-                        className={classNames(classes.list, "w-256 sm:w-320 mr-16 sm:mr-24 max-h-full flex flex-col")}
+                        className={clsx(classes.list, "w-256 sm:w-320 mr-16 sm:mr-24 max-h-full flex flex-col")}
                         square={true}
                         elevation={snapshot.isDragging ? 3 : 1}
                     >

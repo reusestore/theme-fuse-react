@@ -3,7 +3,7 @@ import {Avatar, Typography, Checkbox, ListItem} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 import {withRouter} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import _ from '@lodash';
 import * as Actions from '../store/actions/index';
 import MailChip from '../MailChip';
@@ -53,7 +53,7 @@ const MailListItem = (props) => {
                     mailId: props.mail.id
                 }
             ))}
-            className={classNames(classes.mailItem, checked && "selected", !props.mail.read && "unread", "py-16 pl-0 pr-8 sm:pl-8 sm:pr-24")}>
+            className={clsx(classes.mailItem, checked && "selected", !props.mail.read && "unread", "py-16 pl-0 pr-8 sm:pl-8 sm:pr-24")}>
 
             <Checkbox
                 tabIndex={-1}
@@ -70,7 +70,7 @@ const MailListItem = (props) => {
                         {props.mail.from.avatar ? (
                             <Avatar className="mr-8" alt={props.mail.from.name} src={props.mail.from.avatar}/>
                         ) : (
-                            <Avatar className={classNames(classes.avatar, "mr-8")}>
+                            <Avatar className={clsx(classes.avatar, "mr-8")}>
                                 {props.mail.from.name[0]}
                             </Avatar>
                         )}

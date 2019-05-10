@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Card, CardContent, Typography, TableCell, TableRow, TableBody, TableHead, Table} from '@material-ui/core';
 import {darken} from '@material-ui/core/styles/colorManipulator';
 import {FuseAnimate} from '@fuse';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import axios from 'axios';
 import {makeStyles} from '@material-ui/styles';
 
@@ -35,7 +35,7 @@ function ModernInvoicePage()
     }, []);
 
     return (
-        <div className={classNames(classes.root, "flex-grow flex-no-shrink p-0 sm:p-64 print:p-0")}>
+        <div className={clsx(classes.root, "flex-grow flex-no-shrink p-0 sm:p-64 print:p-0")}>
 
             {invoice && (
 
@@ -53,7 +53,7 @@ function ModernInvoicePage()
 
                                         <img className="w-160 print:w-60" src="assets/images/logos/fuse.svg" alt="logo"/>
 
-                                        <div className={classNames(classes.divider, "mx-48 w-px h-128 print:mx-16")}/>
+                                        <div className={clsx(classes.divider, "mx-48 w-px h-128 print:mx-16")}/>
 
                                         <div className="max-w-160">
 
@@ -90,7 +90,7 @@ function ModernInvoicePage()
                                             <Typography variant="h5" className="font-light print:text-16" color="textSecondary">CLIENT</Typography>
                                         </div>
 
-                                        <div className={classNames(classes.divider, "mx-48 w-px h-128 print:mx-16")}/>
+                                        <div className={clsx(classes.divider, "mx-48 w-px h-128 print:mx-16")}/>
 
                                         <div className="max-w-160">
 

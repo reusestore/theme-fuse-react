@@ -5,7 +5,7 @@ import {DragDropContext, Droppable} from 'react-beautiful-dnd';
 import withReducer from 'app/store/withReducer';
 import * as Actions from '../store/actions';
 import reducer from '../store/reducers';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import BoardTitle from './BoardTitle';
 import BoardList from './BoardList';
 import BoardAddList from './BoardAddList';
@@ -100,7 +100,7 @@ function Board(props)
                 </Toolbar>
             </AppBar>
 
-            <div className={classNames("flex flex-1 overflow-x-auto overflow-y-hidden")}>
+            <div className={clsx("flex flex-1 overflow-x-auto overflow-y-hidden")}>
 
                 <DragDropContext onDragEnd={onDragEnd}>
                     <Droppable

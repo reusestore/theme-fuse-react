@@ -2,7 +2,7 @@ import React from 'react';
 import {Button, Card, CardContent, Divider, Typography} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate, FuseAnimateGroup} from '@fuse';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({
     header    : {
@@ -24,7 +24,7 @@ function PricingStyle1Page()
     return (
         <div>
 
-            <div className={classNames(classes.header, "flex")}>
+            <div className={clsx(classes.header, "flex")}>
 
                 <div className="p-24 w-full max-w-2xl mx-auto">
 
@@ -60,7 +60,7 @@ function PricingStyle1Page()
 
                             <Card square>
 
-                                <div className={classNames(classes.cardHeader, "px-24 py-16")}>
+                                <div className={clsx(classes.cardHeader, "px-24 py-16")}>
                                     <Typography variant="subtitle1" color="inherit">BASIC</Typography>
                                 </div>
 
@@ -102,7 +102,7 @@ function PricingStyle1Page()
 
                             <Card raised square>
 
-                                <div className={classNames(classes.cardHeader, "flex items-center justify-between px-24 py-16")}>
+                                <div className={clsx(classes.cardHeader, "flex items-center justify-between px-24 py-16")}>
                                     <Typography variant="subtitle1" color="inherit">STANDART</Typography>
                                     <Typography variant="caption" color="inherit">Save 15%</Typography>
                                 </div>
@@ -145,7 +145,7 @@ function PricingStyle1Page()
 
                             <Card square>
 
-                                <div className={classNames(classes.cardHeader, "px-24 py-16")}>
+                                <div className={clsx(classes.cardHeader, "px-24 py-16")}>
                                     <Typography variant="subtitle1" color="inherit">ADVANCED</Typography>
                                 </div>
 

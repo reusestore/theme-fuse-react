@@ -3,7 +3,7 @@ import {Popper, ClickAwayListener, MenuItem, Icon, IconButton, ListItemIcon, Lis
 import {makeStyles} from '@material-ui/styles';
 import {useSelector} from 'react-redux';
 import {FuseUtils} from '@fuse';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import match from 'autosuggest-highlight/match';
 import parse from 'autosuggest-highlight/parse';
 import {withRouter} from 'react-router-dom';
@@ -30,7 +30,7 @@ function renderInputComponent(inputProps)
                                     inputRef(node);
                                 },
                                 classes : {
-                                    input         : classNames(classes.input, "py-0 px-16 h-48 pr-48"),
+                                    input         : clsx(classes.input, "py-0 px-16 h-48 pr-48"),
                                     notchedOutline: "rounded-8"
                                 }
                             }}
@@ -52,7 +52,7 @@ function renderInputComponent(inputProps)
                                 inputRef(node);
                             },
                             classes         : {
-                                input: classNames(classes.input, "py-0 px-16 h-64")
+                                input: clsx(classes.input, "py-0 px-16 h-64")
                             }
                         }}
                         variant="standard"
@@ -336,7 +336,7 @@ function FuseSearch(props)
         case 'basic':
         {
             return (
-                <div className={classNames("flex items-center w-full", props.className)} ref={popperNode}>
+                <div className={clsx("flex items-center w-full", props.className)} ref={popperNode}>
                     <Autosuggest
                         {...autosuggestProps}
                         inputProps={{
@@ -387,7 +387,7 @@ function FuseSearch(props)
         case 'full':
         {
             return (
-                <div className={classNames(classes.root, "flex", props.className)}>
+                <div className={clsx(classes.root, "flex", props.className)}>
 
                     <Tooltip title="Click to search" placement="bottom">
                         <div onClick={showSearch}>

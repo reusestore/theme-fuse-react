@@ -1,7 +1,7 @@
 import React from 'react';
 import {AppBar, Hidden, Icon} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import UserNavbarHeader from 'app/fuse-layouts/shared-components/UserNavbarHeader';
 import NavbarFoldedToggleButton from 'app/fuse-layouts/shared-components/NavbarFoldedToggleButton';
 import NavbarMobileToggleButton from 'app/fuse-layouts/shared-components/NavbarMobileToggleButton';
@@ -48,7 +48,7 @@ function NavbarMobileLayout3(props)
                 </Hidden>
             </AppBar>
 
-            <FuseScrollbars className={classNames(classes.content)}>
+            <FuseScrollbars className={clsx(classes.content)}>
 
                 <UserNavbarHeader/>
 

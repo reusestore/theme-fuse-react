@@ -2,7 +2,7 @@ import React from 'react';
 import {Button, Card, CardContent, Typography} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate, FuseAnimateGroup} from '@fuse';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({
     header: {
@@ -27,7 +27,7 @@ function PricingStyle3Page()
     return (
         <div>
 
-            <div className={classNames(classes.header, "flex")}>
+            <div className={clsx(classes.header, "flex")}>
 
                 <div className="p-24 w-full max-w-2xl mx-auto">
 
@@ -73,7 +73,7 @@ function PricingStyle3Page()
 
                                 <CardContent className="text-center p-0">
 
-                                    <div className={classNames(classes.price, "flex items-end justify-center py-16 px-32")}>
+                                    <div className={clsx(classes.price, "flex items-end justify-center py-16 px-32")}>
                                         <div className="flex justify-center">
                                             <Typography color="inherit" className="font-medium">$</Typography>
                                             <Typography color="inherit" className="text-32 ml-4 mr-8 font-light leading-none">29</Typography>
@@ -123,7 +123,7 @@ function PricingStyle3Page()
 
                                 <CardContent className="text-center p-0">
 
-                                    <div className={classNames(classes.price, "flex items-end justify-center py-16 px-32")}>
+                                    <div className={clsx(classes.price, "flex items-end justify-center py-16 px-32")}>
                                         <div className="flex justify-center">
                                             <Typography color="inherit" className="font-medium">$</Typography>
                                             <Typography color="inherit" className="text-32 ml-4 mr-8 font-light leading-none">59</Typography>
@@ -181,7 +181,7 @@ function PricingStyle3Page()
 
                                 <CardContent className="text-center p-0">
 
-                                    <div className={classNames(classes.price, "flex items-end justify-center py-16 px-32")}>
+                                    <div className={clsx(classes.price, "flex items-end justify-center py-16 px-32")}>
                                         <div className="flex justify-center">
                                             <Typography color="inherit" className="font-medium">$</Typography>
                                             <Typography color="inherit" className="text-32 ml-4 mr-8 font-light leading-none">29</Typography>

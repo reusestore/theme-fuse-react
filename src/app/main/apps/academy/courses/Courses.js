@@ -19,7 +19,7 @@ import {makeStyles, useTheme} from '@material-ui/styles';
 import {FuseAnimate, FuseAnimateGroup} from '@fuse';
 import {useDispatch, useSelector} from 'react-redux';
 import withReducer from 'app/store/withReducer';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import _ from '@lodash';
 import {Link} from 'react-router-dom';
 import * as Actions from '../store/actions';
@@ -108,7 +108,7 @@ function Courses(props)
     return (
         <div className="flex flex-col flex-1 w-full">
             <div
-                className={classNames(classes.header, "relative overflow-hidden flex flex-col flex-no-shrink items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-288")}>
+                className={clsx(classes.header, "relative overflow-hidden flex flex-col flex-no-shrink items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-288")}>
 
                 <FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
                     <Typography color="inherit" className="text-24 sm:text-40 font-light">

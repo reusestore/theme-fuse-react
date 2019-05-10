@@ -1,7 +1,7 @@
 import React, {useRef} from 'react';
 import {makeStyles} from '@material-ui/styles';
 import {FuseScrollbars} from '@fuse';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import FusePageSimpleSidebar from './FusePageSimpleSidebar';
 import FusePageSimpleHeader from './FusePageSimpleHeader';
 import * as PropTypes from 'prop-types';
@@ -160,9 +160,9 @@ const FusePageSimple = React.forwardRef(function (props, ref) {
     });
 
     return (
-        <div className={classNames(classes.root, props.innerScroll && classes.innerScroll)} ref={rootRef}>
+        <div className={clsx(classes.root, props.innerScroll && classes.innerScroll)} ref={rootRef}>
 
-            <div className={classNames(classes.header, classes.topBg)}/>
+            <div className={clsx(classes.header, classes.topBg)}/>
 
             <div className="flex flex-auto flex-col container z-10">
 
@@ -187,7 +187,7 @@ const FusePageSimple = React.forwardRef(function (props, ref) {
                     )}
 
                     {/*<FuseScrollbars*/}
-                    {/*    className={classNames(classes.contentCardWrapper, props.sidebarInner && classes.contentCardWrapperInnerSidebar)}*/}
+                    {/*    className={clsx(classes.contentCardWrapper, props.sidebarInner && classes.contentCardWrapperInnerSidebar)}*/}
                     {/*    enable={props.innerScroll && props.sidebarInner}*/}
                     {/*>*/}
                     <FuseScrollbars className={classes.contentWrapper} enable={props.innerScroll && !props.sidebarInner}>

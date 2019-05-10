@@ -1,6 +1,6 @@
 import React from 'react';
 import {Icon, Table, TableHead, TableCell, TableRow, Typography, Paper, TableBody} from '@material-ui/core';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 function Widget10(props)
 {
@@ -34,7 +34,7 @@ function Widget10(props)
                                                         component="th"
                                                         scope="row"
                                                     >
-                                                        <Typography className={classNames(cell.classes, "inline text-11 font-500 px-8 py-4 rounded-4")}>
+                                                        <Typography className={clsx(cell.classes, "inline text-11 font-500 px-8 py-4 rounded-4")}>
                                                             {cell.value}
                                                         </Typography>
                                                     </TableCell>
@@ -48,7 +48,7 @@ function Widget10(props)
                                                         component="th"
                                                         scope="row"
                                                     >
-                                                        <Typography className={classNames(cell.classes, "flex items-center")}>
+                                                        <Typography className={clsx(cell.classes, "flex items-center")}>
                                                             {cell.value}
                                                             <Icon className="text-14 ml-4">{cell.icon}</Icon>
                                                         </Typography>

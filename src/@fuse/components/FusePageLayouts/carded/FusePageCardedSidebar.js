@@ -1,6 +1,6 @@
 import React, {useImperativeHandle, useState} from 'react';
 import {Hidden, Drawer} from '@material-ui/core';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import FusePageCardedSidebarContent from './FusePageCardedSidebarContent';
 
 function FusePageCardedSidebar(props, ref)
@@ -25,8 +25,8 @@ function FusePageCardedSidebar(props, ref)
                     open={isOpen}
                     onClose={(ev) => handleToggleDrawer()}
                     classes={{
-                        root : classNames(classes.sidebarWrapper, props.variant),
-                        paper: classNames(classes.sidebar, props.variant, props.position === 'left' ? classes.leftSidebar : classes.rightSidebar)
+                        root : clsx(classes.sidebarWrapper, props.variant),
+                        paper: clsx(classes.sidebar, props.variant, props.position === 'left' ? classes.leftSidebar : classes.rightSidebar)
                     }}
                     ModalProps={{
                         keepMounted: true // Better open performance on mobile.
@@ -47,10 +47,10 @@ function FusePageCardedSidebar(props, ref)
                 <Hidden mdDown>
                     <Drawer
                         variant="permanent"
-                        className={classNames(classes.sidebarWrapper, props.variant)}
+                        className={clsx(classes.sidebarWrapper, props.variant)}
                         open={isOpen}
                         classes={{
-                            paper: classNames(classes.sidebar, props.variant, props.position === 'left' ? classes.leftSidebar : classes.rightSidebar)
+                            paper: clsx(classes.sidebar, props.variant, props.position === 'left' ? classes.leftSidebar : classes.rightSidebar)
                         }}>
                         <FusePageCardedSidebarContent {...props}/>
                     </Drawer>

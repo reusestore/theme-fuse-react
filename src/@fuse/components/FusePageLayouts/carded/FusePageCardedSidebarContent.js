@@ -1,7 +1,7 @@
 import React from 'react';
 import {ThemeProvider} from '@material-ui/styles';
 import {FuseScrollbars} from '@fuse';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import {useSelector} from 'react-redux';
 
 function FusePageCardedSidebarContent(props)
@@ -14,7 +14,7 @@ function FusePageCardedSidebarContent(props)
         <React.Fragment>
             {props.header && (
                 <ThemeProvider theme={mainThemeDark}>
-                    <div className={classNames(classes.sidebarHeader, props.variant)}>
+                    <div className={clsx(classes.sidebarHeader, props.variant)}>
                         {props.header}
                     </div>
                 </ThemeProvider>

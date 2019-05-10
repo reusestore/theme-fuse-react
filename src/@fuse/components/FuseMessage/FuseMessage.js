@@ -2,7 +2,7 @@ import React from 'react';
 import {Snackbar, IconButton, Icon, SnackbarContent} from '@material-ui/core';
 import {green, amber, blue} from '@material-ui/core/colors';
 import {useDispatch, useSelector} from 'react-redux';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import * as Actions from 'app/store/actions';
 import {makeStyles} from '@material-ui/styles';
 
@@ -58,7 +58,7 @@ function FuseMessage(props)
             }}
         >
             <SnackbarContent
-                className={classNames(classes[options.variant])}
+                className={clsx(classes[options.variant])}
                 message={
                     <div className="flex items-center">
                         {variantIcon[options.variant] && (

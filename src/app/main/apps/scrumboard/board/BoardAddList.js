@@ -3,7 +3,7 @@ import {Button, IconButton, Icon, ClickAwayListener, Card, TextField, InputAdorn
 import {darken} from '@material-ui/core/styles/colorManipulator';
 import {makeStyles} from '@material-ui/styles';
 import {useForm} from '@fuse/hooks';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import * as Actions from '../store/actions';
 import {useDispatch, useSelector} from 'react-redux';
 
@@ -56,7 +56,7 @@ function BoardAddList(props)
     return (
         <div>
             <Card
-                className={classNames(classes.card, "w-320 mr-24")}
+                className={clsx(classes.card, "w-320 mr-24")}
                 square={true}
             >
                 {formOpen ? (

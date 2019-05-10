@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Paper, Drawer, Icon, IconButton, Fab, Hidden, Tooltip} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import {makeStyles} from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -174,11 +174,11 @@ function FuseSidePanel(props)
         <React.Fragment>
             <Hidden mdDown>
                 <Paper
-                    className={classNames(classes.root, classes.paper, props.className, opened ? "opened" : "closed", props.position)}
+                    className={clsx(classes.root, classes.paper, props.className, opened ? "opened" : "closed", props.position)}
                     elevation={3}
                     square={true}
                 >
-                    <FuseScrollbars className={classNames("content", classes.content)}>
+                    <FuseScrollbars className={clsx("content", classes.content)}>
                         {props.children}
                     </FuseScrollbars>
 
@@ -198,20 +198,20 @@ function FuseSidePanel(props)
             <Hidden lgUp>
                 <Drawer
                     classes={{
-                        paper: classNames(classes.paper, props.className)
+                        paper: clsx(classes.paper, props.className)
                     }}
                     anchor={props.position}
                     open={mobileOpen}
                     onClose={toggleMobileDrawer}
                 >
-                    <FuseScrollbars className={classNames("content", classes.content)}>
+                    <FuseScrollbars className={clsx("content", classes.content)}>
                         {props.children}
                     </FuseScrollbars>
                 </Drawer>
 
                 <Tooltip title="Hide side panel" placement={props.position === "left" ? "right" : "right"}>
                     <Fab
-                        className={classNames(classes.mobileButton, props.position)}
+                        className={clsx(classes.mobileButton, props.position)}
                         onClick={toggleMobileDrawer}
                         disableRipple
                     >

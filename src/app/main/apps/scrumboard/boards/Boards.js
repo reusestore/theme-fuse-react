@@ -4,7 +4,7 @@ import {fade} from '@material-ui/core/styles/colorManipulator';
 import {FuseAnimateGroup, FuseAnimate} from '@fuse';
 import {Link} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import withReducer from 'app/store/withReducer';
 import * as Actions from '../store/actions';
 import reducer from '../store/reducers';
@@ -52,7 +52,7 @@ function Boards(props)
     }, [dispatch]);
 
     return (
-        <div className={classNames(classes.root, "flex flex-grow flex-no-shrink flex-col items-center")}>
+        <div className={clsx(classes.root, "flex flex-grow flex-no-shrink flex-col items-center")}>
 
             <div className="flex flex-grow flex-no-shrink flex-col items-center container px-16 md:px-24">
 
@@ -72,7 +72,7 @@ function Boards(props)
                             <div className="w-224 h-224 p-16" key={board.id}>
                                 <Link
                                     to={'/apps/scrumboard/boards/' + board.id + '/' + board.uri}
-                                    className={classNames(classes.board, "flex flex-col items-center justify-center w-full h-full rounded py-24")}
+                                    className={clsx(classes.board, "flex flex-col items-center justify-center w-full h-full rounded py-24")}
                                     role="button"
                                 >
                                     <Icon className="text-56">assessment</Icon>
@@ -82,7 +82,7 @@ function Boards(props)
                         ))}
                         <div className="w-224 h-224 p-16">
                             <div
-                                className={classNames(classes.board, classes.newBoard, "flex flex-col items-center justify-center w-full h-full rounded py-24")}
+                                className={clsx(classes.board, classes.newBoard, "flex flex-col items-center justify-center w-full h-full rounded py-24")}
                                 onClick={() => dispatch(Actions.newBoard())}
                             >
                                 <Icon className="text-56">add_circle</Icon>

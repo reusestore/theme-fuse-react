@@ -2,7 +2,7 @@ import React from 'react';
 import {Icon, ListItem, ListItemText} from '@material-ui/core';
 import {FuseUtils, NavLinkAdapter} from '@fuse';
 import {withRouter} from 'react-router-dom';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from 'app/store/actions';
@@ -58,7 +58,7 @@ function FuseNavHorizontalItem(props)
             component={NavLinkAdapter}
             to={item.url}
             activeClassName="active"
-            className={classNames("list-item", classes.root, dense && "dense")}
+            className={clsx("list-item", classes.root, dense && "dense")}
             onClick={ev => dispatch(Actions.navbarCloseMobile())}
             exact={item.exact}
         >

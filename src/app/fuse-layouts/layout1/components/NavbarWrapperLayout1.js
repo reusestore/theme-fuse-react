@@ -1,7 +1,7 @@
 import React from 'react';
 import {Drawer, Hidden} from '@material-ui/core';
 import {makeStyles, ThemeProvider} from '@material-ui/styles';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import * as Actions from 'app/store/actions';
 import NavbarLayout1 from './NavbarLayout1';
 import {useDispatch, useSelector} from 'react-redux';
@@ -132,7 +132,7 @@ function NavbarWrapperLayout1(props)
         <ThemeProvider theme={navbarTheme}>
             <div id="fuse-navbar"
                  className={
-                     classNames(
+                     clsx(
                          classes.wrapper,
                          folded && classes.wrapperFolded
                      )}
@@ -140,7 +140,7 @@ function NavbarWrapperLayout1(props)
                 <Hidden mdDown>
                     <div
                         className={
-                            classNames(
+                            clsx(
                                 classes.navbar,
                                 classes[config.navbar.position],
                                 folded && classes.folded,

@@ -2,7 +2,7 @@ import React from 'react';
 import {Paper, Drawer, Hidden} from '@material-ui/core';
 import {ThemeProvider, makeStyles} from '@material-ui/styles';
 import * as Actions from 'app/store/actions';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import NavbarMobileLayout3 from './NavbarMobileLayout3';
 import NavbarLayout3 from './NavbarLayout3';
 import {useDispatch, useSelector} from 'react-redux';
@@ -47,7 +47,7 @@ function NavbarWrapperLayout3(props)
         <ThemeProvider theme={navbarTheme}>
 
             <Hidden mdDown>
-                <Paper className={classNames(classes.navbar)} square={true}>
+                <Paper className={clsx(classes.navbar)} square={true}>
                     <NavbarLayout3/>
                 </Paper>
             </Hidden>
