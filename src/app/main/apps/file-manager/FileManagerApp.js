@@ -51,7 +51,7 @@ function FileManagerApp()
                     </div>
                     <div className="flex flex-1 items-end">
                         <FuseAnimate animation="transition.expandIn" delay={600}>
-                            <Fab color="secondary" aria-label="add" className="absolute pin-b pin-l ml-16 -mb-28 z-999">
+                            <Fab color="secondary" aria-label="add" className="absolute bottom-0 left-0 ml-16 -mb-28 z-999">
                                 <Icon>add</Icon>
                             </Fab>
                         </FuseAnimate>

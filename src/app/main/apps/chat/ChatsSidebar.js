@@ -91,7 +91,7 @@ function ChatsSidebar(props)
                             </Avatar>
 
                             <div
-                                className="absolute pin-r pin-b -m-4 z-10 cursor-pointer"
+                                className="absolute right-0 bottom-0 -m-4 z-10 cursor-pointer"
                                 aria-owns={statusMenuEl ? 'switch-menu' : null}
                                 aria-haspopup="true"
                                 onClick={handleStatusMenuClick}

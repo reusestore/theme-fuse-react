@@ -125,7 +125,7 @@ function ChatApp(props)
                             open={mobileChatsSidebarOpen}
                             onClose={() => dispatch(Actions.closeMobileChatsSidebar())}
                             classes={{
-                                paper: clsx(classes.drawerPaper, "absolute pin-l")
+                                paper: clsx(classes.drawerPaper, "absolute left-0")
                             }}
                             style={{position: 'absolute'}}
                             ModalProps={{
@@ -160,7 +160,7 @@ function ChatApp(props)
                         open={userSidebarOpen}
                         onClose={() => dispatch(Actions.closeUserSidebar())}
                         classes={{
-                            paper: clsx(classes.drawerPaper, "absolute pin-l")
+                            paper: clsx(classes.drawerPaper, "absolute left-0")
                         }}
                         style={{position: 'absolute'}}
                         ModalProps={{
@@ -205,7 +205,7 @@ function ChatApp(props)
                                             </IconButton>
                                             <div className="flex items-center cursor-pointer" onClick={() => dispatch(Actions.openContactSidebar())}>
                                                 <div className="relative ml-8 mr-12">
-                                                    <div className="absolute pin-r pin-b -m-4 z-10">
+                                                    <div className="absolute right-0 bottom-0 -m-4 z-10">
                                                         <StatusIcon status={selectedContact.status}/>
                                                     </div>
 
@@ -233,7 +233,7 @@ function ChatApp(props)
                         open={contactSidebarOpen}
                         onClose={() => dispatch(Actions.closeContactSidebar())}
                         classes={{
-                            paper: clsx(classes.drawerPaper, "absolute pin-r")
+                            paper: clsx(classes.drawerPaper, "absolute right-0")
                         }}
                         style={{position: 'absolute'}}
                         ModalProps={{

@@ -113,9 +113,7 @@ function FusePageSimpleDoc()
                                         rightSidebarContent={
                                             Right Sidebar Content
                                         }
-                                        onRef={instance => {
-                                            this.pageLayout = instance;
-                                        }}
+                                        ref={pageLayout}
                                         innerScroll
                                         sidebarInner
                                     />

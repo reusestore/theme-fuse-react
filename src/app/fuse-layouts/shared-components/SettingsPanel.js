@@ -88,7 +88,7 @@ function SettingsPanel()
                 }}
             >
                 <FuseScrollbars className="p-24 sm:p-32">
-                    <IconButton className="fixed pin-t pin-r z-10" onClick={handleClose}>
+                    <IconButton className="fixed top-0 right-0 z-10" onClick={handleClose}>
                         <Icon>close</Icon>
                     </IconButton>
 

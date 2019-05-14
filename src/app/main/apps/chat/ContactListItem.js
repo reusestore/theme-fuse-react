@@ -30,7 +30,7 @@ function ContactListItem(props)
         >
             <div className="relative mr-16">
 
-                <div className="absolute pin-r pin-b -m-4 z-10">
+                <div className="absolute right-0 bottom-0 -m-4 z-10">
                     <StatusIcon status={props.contact.status}/>
                 </div>
 

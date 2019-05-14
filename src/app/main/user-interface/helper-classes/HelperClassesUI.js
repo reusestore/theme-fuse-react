@@ -19,7 +19,7 @@ function HelperClassesUI()
                 </div>
             }
             content={
-                <div className="p-24 max-w-2xl mx-auto">
+                <div className="p-24 max-w-2xl">
                     <FuseAnimateGroup
                         enter={{
                             animation: "transition.slideUpBigIn"

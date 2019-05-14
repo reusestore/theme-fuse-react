@@ -173,11 +173,11 @@ function Chat(props)
                                         )}
                                     >
                                         {shouldShowContactAvatar(item, i) && (
-                                            <Avatar className="avatar absolute pin-l m-0 -ml-32" src={contact.avatar}/>
+                                            <Avatar className="avatar absolute left-0 m-0 -ml-32" src={contact.avatar}/>
                                         )}
                                         <div className="bubble flex relative items-center justify-center p-12 max-w-full">
                                             <div className="leading-tight whitespace-pre-wrap">{item.message}</div>
-                                            <Typography className="time absolute hidden w-full text-11 mt-8 -mb-24 pin-l pin-b whitespace-no-wrap"
+                                            <Typography className="time absolute hidden w-full text-11 mt-8 -mb-24 left-0 bottom-0 whitespace-no-wrap"
                                                         color="textSecondary">{moment(item.time).format('MMMM Do YYYY, h:mm:ss a')}</Typography>
                                         </div>
                                     </div>
@@ -198,7 +198,7 @@ function Chat(props)
 
             </FuseScrollbars>
             {chat && (
-                <form onSubmit={onMessageSubmit} className="absolute pin-b pin-r pin-l py-16 px-8">
+                <form onSubmit={onMessageSubmit} className="absolute bottom-0 right-0 left-0 py-16 px-8">
                     <Paper className="flex items-center relative rounded-24" elevation={1}>
                         <TextField
                             autoFocus={false}
@@ -219,7 +219,7 @@ function Chat(props)
                             onChange={onInputChange}
                             value={messageText}
                         />
-                        <IconButton className="absolute pin-r pin-t" type="submit">
+                        <IconButton className="absolute right-0 top-0" type="submit">
                             <Icon className="text-24" color="action">send</Icon>
                         </IconButton>
                     </Paper>

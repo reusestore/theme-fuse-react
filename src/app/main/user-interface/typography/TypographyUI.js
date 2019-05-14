@@ -31,11 +31,11 @@ function TypographyUI()
                 </div>
             }
             content={
-                <div className="p-24 max-w-2xl mx-auto">
+                <div className="p-24 max-w-2xl">
                     <FuseAnimate animation="transition.slideUpBigIn" delay={300}>
                         <Card>
                             <CardContent>
-                                <div className="flex flex-wrap justify-center mb-16">
+                                <div className="flex flex-wrap mb-16">
                                     <div className="flex w-1 sm:w-1/2">
                                         <Typography variant="h1">
                                             Display 4
@@ -49,7 +49,7 @@ function TypographyUI()
                                         </FuseHighlight>
                                     </div>
                                 </div>
-                                <div className="flex flex-wrap justify-center mb-16">
+                                <div className="flex flex-wrap mb-16">
                                     <div className="flex w-1 sm:w-1/2">
                                         <Typography variant="h2">
                                             Display 3
@@ -63,7 +63,7 @@ function TypographyUI()
                                         </FuseHighlight>
                                     </div>
                                 </div>
-                                <div className="flex flex-wrap justify-center mb-16">
+                                <div className="flex flex-wrap mb-16">
                                     <div className="flex w-1 sm:w-1/2">
                                         <Typography variant="h3">
                                             Display 2
@@ -77,7 +77,7 @@ function TypographyUI()
                                         </FuseHighlight>
                                     </div>
                                 </div>
-                                <div className="flex flex-wrap justify-center mb-16">
+                                <div className="flex flex-wrap mb-16">
                                     <div className="flex w-1 sm:w-1/2">
                                         <Typography variant="h4">
                                             Display 1
@@ -91,7 +91,7 @@ function TypographyUI()
                                         </FuseHighlight>
                                     </div>
                                 </div>
-                                <div className="flex flex-wrap justify-center mb-16">
+                                <div className="flex flex-wrap mb-16">
                                     <div className="flex w-1 sm:w-1/2">
                                         <Typography variant="h5">
                                             Headline
@@ -105,7 +105,7 @@ function TypographyUI()
                                         </FuseHighlight>
                                     </div>
                                 </div>
-                                <div className="flex flex-wrap justify-center mb-16">
+                                <div className="flex flex-wrap mb-16">
                                     <div className="flex w-1 sm:w-1/2">
                                         <Typography variant="h6">Title</Typography>
                                     </div>
@@ -117,7 +117,7 @@ function TypographyUI()
                                         </FuseHighlight>
                                     </div>
                                 </div>
-                                <div className="flex flex-wrap justify-center mb-16">
+                                <div className="flex flex-wrap mb-16">
                                     <div className="flex w-1 sm:w-1/2">
                                         <Typography variant="subtitle1">Subheading</Typography>
                                     </div>
@@ -129,7 +129,7 @@ function TypographyUI()
                                         </FuseHighlight>
                                     </div>
                                 </div>
-                                <div className="flex flex-wrap justify-center mb-16">
+                                <div className="flex flex-wrap mb-16">
                                     <div className="flex w-1 sm:w-1/2">
                                         <Typography variant="body1">Body 2</Typography>
                                     </div>
@@ -141,7 +141,7 @@ function TypographyUI()
                                         </FuseHighlight>
                                     </div>
                                 </div>
-                                <div className="flex flex-wrap justify-center mb-16">
+                                <div className="flex flex-wrap mb-16">
                                     <div className="flex w-1 sm:w-1/2">
                                         <Typography variant="body2">Body 1</Typography>
                                     </div>
@@ -153,7 +153,7 @@ function TypographyUI()
                                         </FuseHighlight>
                                     </div>
                                 </div>
-                                <div className="flex flex-wrap justify-center mb-16">
+                                <div className="flex flex-wrap mb-16">
                                     <div className="flex w-1 sm:w-1/2">
                                         <Typography variant="caption">Caption</Typography>
                                     </div>
@@ -165,7 +165,7 @@ function TypographyUI()
                                         </FuseHighlight>
                                     </div>
                                 </div>
-                                <div className="flex flex-wrap justify-center mb-16">
+                                <div className="flex flex-wrap mb-16">
                                     <div className="flex w-1 sm:w-1/2">
                                         <Typography gutterBottom
                                                     noWrap>
@@ -182,7 +182,7 @@ function TypographyUI()
                                         </FuseHighlight>
                                     </div>
                                 </div>
-                                <div className="flex flex-wrap justify-center mb-16">
+                                <div className="flex flex-wrap mb-16">
                                     <div className="flex w-1 sm:w-1/2">
                                         <Typography variant="button">Button</Typography>
                                     </div>

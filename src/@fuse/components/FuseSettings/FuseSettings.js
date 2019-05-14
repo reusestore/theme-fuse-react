@@ -92,7 +92,7 @@ function FuseSettings(props)
                     >
                         {_.startCase(key)}
                         <div
-                            className="flex w-full h-8 block absolute pin-b pin-l pin-r"
+                            className="flex w-full h-8 block absolute bottom-0 left-0 right-0"
                             style={{
                                 borderTop: '1px solid ' + val.palette.divider
                             }}

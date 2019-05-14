@@ -361,8 +361,8 @@ textarea {
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
 
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
+[type="number"]::-webkit-inner-sbottom-0utton,
+[type="number"]::-webkit-outer-sbottom-0utton {
     height: auto;
 }
 

@@ -40,15 +40,6 @@ function InstallationDoc()
                         this documentation. Also you won't need to actually use Node.js, it's only required for the development process.
                     </Typography>
 
-                    <Typography className="mt-32 mb-8" variant="h5">Git</Typography>
-                    <Typography className="mb-16" component="p">
-                        To be able to install and use Fuse, you will also need
-                        <a href="https://git-scm.com/" target="_blank" rel="noreferrer noopener" className="mx-4 font-bold">
-                            Git
-                        </a>
-                        installed to your computer. Git is required for npm/yarn to work correctly.
-                    </Typography>
-
                     <Typography className="mt-32 mb-8" variant="h5">Yarn - Package Manager</Typography>
                     <Typography className="mb-16" component="p">
                         Fuse React uses
@@ -68,13 +59,6 @@ function InstallationDoc()
                                 Download and install <b>at least LTS</b> or the latest version of
                                 <a href="https://nodejs.org/" target="_blank" rel="noreferrer noopener" className="mx-4 font-bold">
                                     Node.js
-                                </a>
-                                from its web site.
-                            </li>
-                            <li className="mb-16">
-                                Download and install the latest version of
-                                <a href="https://git-scm.com/" target="_blank" rel="noreferrer noopener" className="mx-4 font-bold">
-                                    Git
                                 </a>
                                 from its web site.
                             </li>
@@ -119,6 +103,12 @@ function InstallationDoc()
                                 </Typography>
                             </li>
                         </ol>
+                    </Typography>
+
+                    <Typography className="mt-32 mb-8" variant="h5">Github Repository</Typography>
+                    <Typography className="mb-16" component="p">
+                       You can also checkout Fuse React from github repository. Fuse React's Github repository is private, you can get invitation by filling the
+                        <a href="http://support.withinpixels.com/github" target="_blank" rel="noreferrer noopener" className="mx-4 font-bold">invitation form</a>.
                     </Typography>
 
                 </div>

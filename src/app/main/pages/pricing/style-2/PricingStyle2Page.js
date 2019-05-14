@@ -102,7 +102,7 @@ function PricingStyle2Page()
                         <div className="w-full max-w-320 sm:w-1/3 p-12">
                             <Card className="relative" raised>
 
-                                <div className="absolute pin-t pin-x flex justify-center">
+                                <div className="absolute top-0 inset-x-0 flex justify-center">
                                     <div className={clsx(classes.badge, "py-4 px-8")}>
                                         <Typography variant="caption" color="inherit">BEST VALUE</Typography>
                                     </div>

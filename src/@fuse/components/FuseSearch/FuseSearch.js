@@ -37,7 +37,7 @@ function renderInputComponent(inputProps)
                             variant="outlined"
                             {...other}
                         />
-                        <Icon className="absolute pin-t pin-r h-48 w-48 p-12 pointer-events-none" color="action">search</Icon>
+                        <Icon className="absolute top-0 right-0 h-48 w-48 p-12 pointer-events-none" color="action">search</Icon>
                     </React.Fragment>
                 )
                 :
@@ -398,7 +398,7 @@ function FuseSearch(props)
                     {state.opened && (
                         <ClickAwayListener onClickAway={handleClickAway}>
                             <Paper
-                                className="absolute pin-l pin-r h-full z-9999"
+                                className="absolute left-0 right-0 h-full z-9999"
                                 square={true}
                             >
                                 <div className="flex items-center w-full" ref={popperNode}>

@@ -5,6 +5,13 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
     {
+        version        : '3.0.0-beta.0',
+        date           : '2019-',
+        newChanges     : [],
+        fixedChanges   : [],
+        breakingChanges: []
+    },
+    {
         version     : '2.2.5',
         date        : '2019-03-25',
         newChanges  : [

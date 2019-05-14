@@ -59,7 +59,7 @@ function NotesSearch(props)
             {search && (
                 <ClickAwayListener onClickAway={handleClickAway}>
 
-                    <div className={clsx(classes.inputWrapper, "absolute pin-l pin-r pin-t pin-b h-full z-9999 px-8 sm:px-24")}>
+                    <div className={clsx(classes.inputWrapper, "absolute left-0 right-0 top-0 bottom-0 h-full z-9999 px-8 sm:px-24")}>
 
                         <div className="flex items-center w-full h-full">
 

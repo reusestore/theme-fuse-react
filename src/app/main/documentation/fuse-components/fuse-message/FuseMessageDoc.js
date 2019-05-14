@@ -39,15 +39,18 @@ function FuseMessageDoc(props)
 
                     <FuseHighlight component="pre" className="language-jsx">
                         {`
-                                    <Button onClick={()=> dispatch(Actions.showMessage({
-                                        message     : 'Hi, how are you?',//text or html
-                                        autoHideDuration: 6000,//ms
-                                        anchorOrigin: {
-                                            vertical  : 'top',//top bottom
-                                            horizontal: 'right'//left center right
-                                        },
-                                        variant: 'success'//success error info warning null
-                                    }))}>
+                                    <Button 
+                                        onClick={()=> dispatch(
+                                            Actions.showMessage({
+                                                message     : 'Hi, how are you?',//text or html
+                                                autoHideDuration: 6000,//ms
+                                                anchorOrigin: {
+                                                    vertical  : 'top',//top bottom
+                                                    horizontal: 'right'//left center right
+                                                },
+                                                variant: 'success'//success error info warning null
+                                            }))}
+                                    >
                                         Top - Right
                                     </Button>
                             `}

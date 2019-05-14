@@ -111,7 +111,7 @@ function Course(props)
                             </SwipeableViews>
                         </FuseScrollbars>
 
-                        <div className="flex justify-center w-full absolute pin-l pin-r pin-b pb-16 md:pb-32">
+                        <div className="flex justify-center w-full absolute left-0 right-0 bottom-0 pb-16 md:pb-32">
                             <div className="flex justify-between w-full max-w-xl px-8">
                                 <div>
                                     {activeStep !== 1 && (

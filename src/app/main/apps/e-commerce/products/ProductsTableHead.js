@@ -83,7 +83,7 @@ function ProductsTableHead(props)
                         onChange={props.onSelectAllClick}
                     />
                     {props.numSelected > 0 && (
-                        <div className={clsx("flex items-center justify-center absolute w-64 pin-t pin-l ml-68 h-64 z-10", classes.actionsButtonWrapper)}>
+                        <div className={clsx("flex items-center justify-center absolute w-64 top-0 left-0 ml-68 h-64 z-10", classes.actionsButtonWrapper)}>
                             <IconButton
                                 aria-owns={selectedProductsMenu ? 'selectedProductsMenu' : null}
                                 aria-haspopup="true"

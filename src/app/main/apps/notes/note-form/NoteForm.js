@@ -120,7 +120,7 @@ function NoteForm(props)
                         <div className="relative">
                             <img src={noteForm.image} className="w-full block" alt="note"/>
                             <Fab
-                                className="absolute pin-r pin-b m-8"
+                                className="absolute right-0 bottom-0 m-8"
                                 variant="extended"
                                 size="small"
                                 color="secondary"

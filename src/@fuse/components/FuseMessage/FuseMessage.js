@@ -72,7 +72,7 @@ function FuseMessage(props)
                         key="close"
                         aria-label="Close"
                         color="inherit"
-                        onClick={props.hideMessage}
+                        onClick={() => dispatch(Actions.hideMessage())}
                     >
                         <Icon>close</Icon>
                     </IconButton>
