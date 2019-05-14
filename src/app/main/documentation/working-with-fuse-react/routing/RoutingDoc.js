@@ -96,7 +96,7 @@ function RoutingDoc()
                     <FuseHighlight component="pre" className="language-jsx my-16">
                         {`
                                 import {appsRoutes} from 'app/main/apps/mail/MailAppConfig.js';
-                                import {FuseUtils} from '@fuse/index';
+                                import {FuseUtils} from '@fuse';
                                 import {Redirect} from 'react-router-dom';
                                 import React from 'react';
 

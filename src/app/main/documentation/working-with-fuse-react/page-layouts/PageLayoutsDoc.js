@@ -41,8 +41,8 @@ function PageLayoutsDoc()
 
                     <Typography className="my-16" component="div">
                         <ul>
-                            <li className="mb-8"><Link to="/components/fuse/fuse-page-simple">FusePageSimple</Link></li>
-                            <li className="mb-8"><Link to="/components/fuse/fuse-page-carded">FusePageCarded</Link></li>
+                            <li className="mb-8"><Link to="/documentation/fuse-components/fuse-page-simple">FusePageSimple</Link></li>
+                            <li className="mb-8"><Link to="/documentation/fuse-components/fuse-page-carded">FusePageCarded</Link></li>
                         </ul>
                     </Typography>
                 </div>

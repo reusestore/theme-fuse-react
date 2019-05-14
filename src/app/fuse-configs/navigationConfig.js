@@ -1,4 +1,4 @@
-import {MaterialUINavigation} from 'app/main/components/material-ui/MaterialUINavigation';
+import {MaterialUIComponentsNavigation} from 'app/main/documentation/material-ui-components/MaterialUIComponentsNavigation';
 import {authRoles} from 'app/auth';
 
 const navigationConfig = [
@@ -165,7 +165,7 @@ const navigationConfig = [
                 'icon'    : 'lock',
                 'badge'   : {
                     'title': 10,
-                    'bg'   : '#525e8a',
+                    'bg'   : '#525E8A',
                     'fg'   : '#FFFFFF'
                 },
                 'children': [
@@ -393,7 +393,7 @@ const navigationConfig = [
                         'type'    : 'collapse',
                         'badge'   : {
                             'title': 12,
-                            'bg'   : '#525e8a',
+                            'bg'   : '#525E8A',
                             'fg'   : '#FFFFFF'
                         },
                         'children': [
@@ -477,7 +477,7 @@ const navigationConfig = [
                         'type'    : 'collapse',
                         'badge'   : {
                             'title': 8,
-                            'bg'   : '#525e8a',
+                            'bg'   : '#525E8A',
                             'fg'   : '#FFFFFF'
                         },
                         'children': [
@@ -536,161 +536,6 @@ const navigationConfig = [
                         'title': 'Blank',
                         'type' : 'item',
                         'url'  : '/ui/page-layouts/blank'
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        'id'      : 'components',
-        'title'   : 'Components',
-        'type'    : 'group',
-        'icon'    : 'settings_input_component',
-        'children': [
-            {
-                'id'      : 'material-ui-elements',
-                'title'   : 'Material UI Elements',
-                'type'    : 'collapse',
-                'icon'    : 'layers',
-                'children': [
-                    ...MaterialUINavigation
-                ]
-            },
-            {
-                'id'      : 'fuse-components',
-                'title'   : 'Fuse Components',
-                'type'    : 'collapse',
-                'icon'    : 'widgets',
-                'children': [
-                    {
-                        'id'   : 'fuse-auth',
-                        'title': 'FuseAuthorization',
-                        'type' : 'item',
-                        'url'  : '/components/fuse/fuse-authorization'
-                    },
-                    {
-                        'id'   : 'fuse-theme',
-                        'title': 'FuseTheme',
-                        'type' : 'item',
-                        'url'  : '/components/fuse/fuse-theme'
-                    },
-                    {
-                        'id'   : 'fuse-layout',
-                        'title': 'FuseLayout',
-                        'type' : 'item',
-                        'url'  : '/components/fuse/fuse-layout'
-                    },
-                    {
-                        'id'      : 'fuse-page',
-                        'title'   : 'Fuse Page Layouts',
-                        'type'    : 'collapse',
-                        'children': [
-                            {
-                                'id'   : 'fuse-page-carded',
-                                'title': 'FusePageCarded',
-                                'type' : 'item',
-                                'url'  : '/components/fuse/fuse-page-carded'
-                            },
-                            {
-                                'id'   : 'fuse-page-simple',
-                                'title': 'FusePageSimple',
-                                'type' : 'item',
-                                'url'  : '/components/fuse/fuse-page-simple'
-                            }
-                        ]
-                    },
-                    {
-                        'id'   : 'fuse-navigation',
-                        'title': 'FuseNavigation',
-                        'type' : 'item',
-                        'url'  : '/components/fuse/fuse-navigation'
-                    },
-                    {
-                        'id'   : 'fuse-scrollbars',
-                        'title': 'FuseScrollbars',
-                        'type' : 'item',
-                        'url'  : '/components/fuse/fuse-scrollbars'
-                    },
-                    {
-                        'id'   : 'fuse-highlight',
-                        'title': 'FuseHighlight',
-                        'type' : 'item',
-                        'url'  : '/components/fuse/fuse-highlight'
-                    },
-                    {
-                        'id'   : 'fuse-countdown',
-                        'title': 'FuseCountdown',
-                        'type' : 'item',
-                        'url'  : '/components/fuse/fuse-countdown'
-                    },
-                    {
-                        'id'   : 'fuse-message',
-                        'title': 'FuseMessage',
-                        'type' : 'item',
-                        'url'  : '/components/fuse/fuse-message'
-                    },
-                    {
-                        'id'   : 'fuse-dialog',
-                        'title': 'FuseDialog',
-                        'type' : 'item',
-                        'url'  : '/components/fuse/fuse-dialog'
-                    },
-                    {
-                        'id'   : 'fuse-animate',
-                        'title': 'FuseAnimate',
-                        'type' : 'item',
-                        'url'  : '/components/fuse/fuse-animate'
-                    },
-                    {
-                        'id'   : 'fuse-animate-group',
-                        'title': 'FuseAnimateGroup',
-                        'type' : 'item',
-                        'url'  : '/components/fuse/fuse-animate-group'
-                    },
-                    {
-                        'id'   : 'fuse-chip-select',
-                        'title': 'FuseChipSelect',
-                        'type' : 'item',
-                        'url'  : '/components/fuse/fuse-chip-select'
-                    }
-                ]
-            },
-            {
-                'id'      : '3rd-party-components',
-                'title'   : '3rd Party Components',
-                'type'    : 'collapse',
-                'icon'    : 'settings_input_component',
-                'children': [
-                    {
-                        'id'      : 'datatables',
-                        'title'   : 'Datatables',
-                        'type'    : 'collapse',
-                        'children': [
-                            {
-                                'id'   : 'react-table',
-                                'title': 'React Table',
-                                'type' : 'item',
-                                'url'  : '/components/third-party/datatables/react-table'
-                            }
-                        ]
-                    },
-                    {
-                        'id'   : 'formsy',
-                        'title': 'Formsy',
-                        'type' : 'item',
-                        'url'  : '/components/third-party/formsy'
-                    },
-                    {
-                        'id'   : 'google-map-react',
-                        'title': 'Google Map React',
-                        'type' : 'item',
-                        'url'  : '/components/third-party/google-map-react'
-                    },
-                    {
-                        'id'   : 'react-chartjs-2',
-                        'title': 'React ChartJs 2',
-                        'type' : 'item',
-                        'url'  : '/components/third-party/react-chartjs-2'
                     }
                 ]
             }
@@ -825,6 +670,153 @@ const navigationConfig = [
                         'title': 'Auth0',
                         'type' : 'item',
                         'url'  : '/documentation/authentication/auth0'
+                    }
+                ]
+            },
+            {
+                'id'      : 'fuse-components',
+                'title'   : 'Fuse Components',
+                'type'    : 'collapse',
+                'icon'    : 'widgets',
+                'children': [
+                    {
+                        'id'   : 'fuse-auth',
+                        'title': 'FuseAuthorization',
+                        'type' : 'item',
+                        'url'  : '/documentation/fuse-components/fuse-authorization'
+                    },
+                    {
+                        'id'   : 'fuse-theme',
+                        'title': 'FuseTheme',
+                        'type' : 'item',
+                        'url'  : '/documentation/fuse-components/fuse-theme'
+                    },
+                    {
+                        'id'   : 'fuse-layout',
+                        'title': 'FuseLayout',
+                        'type' : 'item',
+                        'url'  : '/documentation/fuse-components/fuse-layout'
+                    },
+                    {
+                        'id'      : 'fuse-components-page',
+                        'title'   : 'Fuse Page Layouts',
+                        'type'    : 'collapse',
+                        'children': [
+                            {
+                                'id'   : 'fuse-page-carded',
+                                'title': 'FusePageCarded',
+                                'type' : 'item',
+                                'url'  : '/documentation/fuse-components/fuse-page-carded'
+                            },
+                            {
+                                'id'   : 'fuse-page-simple',
+                                'title': 'FusePageSimple',
+                                'type' : 'item',
+                                'url'  : '/documentation/fuse-components/fuse-page-simple'
+                            }
+                        ]
+                    },
+                    {
+                        'id'   : 'fuse-navigation',
+                        'title': 'FuseNavigation',
+                        'type' : 'item',
+                        'url'  : '/documentation/fuse-components/fuse-navigation'
+                    },
+                    {
+                        'id'   : 'fuse-scrollbars',
+                        'title': 'FuseScrollbars',
+                        'type' : 'item',
+                        'url'  : '/documentation/fuse-components/fuse-scrollbars'
+                    },
+                    {
+                        'id'   : 'fuse-highlight',
+                        'title': 'FuseHighlight',
+                        'type' : 'item',
+                        'url'  : '/documentation/fuse-components/fuse-highlight'
+                    },
+                    {
+                        'id'   : 'fuse-countdown',
+                        'title': 'FuseCountdown',
+                        'type' : 'item',
+                        'url'  : '/documentation/fuse-components/fuse-countdown'
+                    },
+                    {
+                        'id'   : 'fuse-message',
+                        'title': 'FuseMessage',
+                        'type' : 'item',
+                        'url'  : '/documentation/fuse-components/fuse-message'
+                    },
+                    {
+                        'id'   : 'fuse-dialog',
+                        'title': 'FuseDialog',
+                        'type' : 'item',
+                        'url'  : '/documentation/fuse-components/fuse-dialog'
+                    },
+                    {
+                        'id'   : 'fuse-animate',
+                        'title': 'FuseAnimate',
+                        'type' : 'item',
+                        'url'  : '/documentation/fuse-components/fuse-animate'
+                    },
+                    {
+                        'id'   : 'fuse-animate-group',
+                        'title': 'FuseAnimateGroup',
+                        'type' : 'item',
+                        'url'  : '/documentation/fuse-components/fuse-animate-group'
+                    },
+                    {
+                        'id'   : 'fuse-chip-select',
+                        'title': 'FuseChipSelect',
+                        'type' : 'item',
+                        'url'  : '/documentation/fuse-components/fuse-chip-select'
+                    }
+                ]
+            },
+            {
+                'id'      : 'material-ui-components',
+                'title'   : 'Material UI Components',
+                'type'    : 'collapse',
+                'icon'    : 'layers',
+                'children': [
+                    ...MaterialUIComponentsNavigation
+                ]
+            },
+            {
+                'id'      : '3rd-party-components',
+                'title'   : '3rd Party Components',
+                'type'    : 'collapse',
+                'icon'    : 'settings_input_component',
+                'children': [
+                    {
+                        'id'      : 'datatables',
+                        'title'   : 'Datatables',
+                        'type'    : 'collapse',
+                        'children': [
+                            {
+                                'id'   : 'react-table',
+                                'title': 'React Table',
+                                'type' : 'item',
+                                'url'  : '/documentation/third-party-components/datatables/react-table'
+                            }
+                        ]
+                    },
+                    {
+                        'id'   : 'formsy',
+                        'title': 'Formsy',
+                        'type' : 'item',
+                        'url'  : '/documentation/third-party-components/formsy'
+                    },
+                    {
+                        'id'   : 'google-map-react',
+                        'title': 'Google Map React',
+                        'type' : 'item',
+                        'url'  : '/documentation/third-party-components/google-map-react'
+                    },
+                    {
+                        'id'   : 'react-chartjs-2',
+                        'title': 'React ChartJs 2',
+                        'type' : 'item',
+                        'url'  : '/documentation/third-party-components/react-chartjs-2'
                     }
                 ]
             }

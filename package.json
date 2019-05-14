@@ -4,9 +4,9 @@
     "private": true,
     "dependencies": {
         "@date-io/date-fns": "1.3.5",
-        "@material-ui/core": "4.0.0-beta.1",
+        "@material-ui/core": "4.0.0-beta.2",
         "@material-ui/icons": "4.0.0-beta.0",
-        "@material-ui/styles": "4.0.0-beta.1",
+        "@material-ui/styles": "4.0.0-beta.2",
         "auth0-lock": "11.15.0",
         "autosuggest-highlight": "3.1.1",
         "axios": "0.18.0",
@@ -83,7 +83,7 @@
         "tailwind": "./node_modules/.bin/tailwind build ./src/styles/tailwind.base.css -c ./tailwind.js -o ./src/styles/tailwind.css",
         "test": "react-scripts test --env=node",
         "eject": "react-scripts eject",
-        "build-docs": "find ./src/app/main/components/material-ui \\( -name '*.ts' -o -name '*.tsx' \\) -type f -delete && babel-node src/app/main/components/material-ui/build.js",
+        "build-docs": "find ./src/app/main/documentation/material-ui-components \\( -name '*.ts' -o -name '*.tsx' \\) -type f -delete && babel-node src/app/main/documentation/material-ui-components/build.js",
         "build-stats": "yarn run build --stats",
         "bundle-report": "yarn run build-stats && webpack-bundle-analyzer build/bundle-stats.json -m static -r build/bundle-stats.html -O"
     },
