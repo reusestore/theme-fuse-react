@@ -62,7 +62,7 @@ function FuseNavHorizontalLink(props)
             onClick={ev => dispatch(Actions.navbarCloseMobile())}
         >
             {item.icon && (
-                <Icon className="list-item-icon text-16 flex-no-shrink" color="action">{item.icon}</Icon>
+                <Icon className="list-item-icon text-16 flex-shrink-0" color="action">{item.icon}</Icon>
             )}
             <ListItemText className="list-item-text" primary={item.title} classes={{primary: 'text-14 list-item-text-primary'}}/>
             {item.badge && (

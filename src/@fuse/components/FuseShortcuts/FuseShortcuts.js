@@ -108,7 +108,7 @@ function FuseShortcuts(props)
     }
 
     return (
-        <div className={clsx(classes.root, props.variant, "flex flex-1", props.variant === "vertical" && "flex-no-grow flex-shrink", props.className)}>
+        <div className={clsx(classes.root, props.variant, "flex flex-1", props.variant === "vertical" && "flex-grow-0 flex-shrink", props.className)}>
 
             <FuseAnimateGroup
                 enter={{

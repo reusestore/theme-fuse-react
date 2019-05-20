@@ -119,7 +119,7 @@ function ChatPanel(props)
                         </Toolbar>
                     </AppBar>
                     <Paper className="flex flex-1 flex-row min-h-px">
-                        <ContactList className="flex flex-no-shrink"/>
+                        <ContactList className="flex flex-shrink-0"/>
                         <Chat className="flex flex-1 z-10"/>
                     </Paper>
                 </div>

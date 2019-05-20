@@ -43,7 +43,7 @@ const OrderInvoice = (props) => {
         });
 
     return (
-        <div className={clsx(classes.root, "flex-grow flex-no-shrink p-0")}>
+        <div className={clsx(classes.root, "flex-grow flex-shrink-0 p-0")}>
 
             {props.order && (
                 <Card className="w-xl mx-auto" elevation={0}>
@@ -212,7 +212,7 @@ const OrderInvoice = (props) => {
 
                             <div className="flex">
 
-                                <div className="flex-no-shrink mr-24">
+                                <div className="flex-shrink-0 mr-24">
                                     <img className="w-32" src="assets/images/logos/fuse.svg" alt="logo"/>
                                 </div>
 

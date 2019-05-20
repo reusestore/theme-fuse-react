@@ -82,7 +82,7 @@ function FuseNavHorizontalGroup(props)
                             aria-haspopup="true"
                         >
                             {item.icon && (
-                                <Icon color="action" className="text-16 flex-no-shrink">{item.icon}</Icon>
+                                <Icon color="action" className="text-16 flex-shrink-0">{item.icon}</Icon>
                             )}
                             <ListItemText className="list-item-text" primary={item.title} classes={{primary: 'text-14'}}/>
                             {nestedLevel > 0 && (

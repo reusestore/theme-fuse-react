@@ -38,7 +38,7 @@ function ToolbarLayout3(props)
                     )}
 
                     <Hidden mdDown>
-                        <div className={clsx("flex flex-no-shrink items-center")}>
+                        <div className={clsx("flex flex-shrink-0 items-center")}>
                             <Logo/>
                         </div>
                     </Hidden>

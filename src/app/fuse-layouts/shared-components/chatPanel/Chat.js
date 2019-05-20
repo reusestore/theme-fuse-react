@@ -250,7 +250,7 @@ function Chat(props)
                             InputProps={{
                                 disableUnderline: true,
                                 classes         : {
-                                    root : "flex flex-grow flex-no-shrink ml-16 mr-48 my-8",
+                                    root : "flex flex-grow flex-shrink-0 ml-16 mr-48 my-8",
                                     input: ""
                                 },
                                 placeholder     : "Type your message"

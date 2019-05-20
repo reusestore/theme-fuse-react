@@ -108,7 +108,7 @@ function Courses(props)
     return (
         <div className="flex flex-col flex-1 w-full">
             <div
-                className={clsx(classes.header, "relative overflow-hidden flex flex-col flex-no-shrink items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-288")}>
+                className={clsx(classes.header, "relative overflow-hidden flex flex-col flex-shrink-0 items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-288")}>
 
                 <FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
                     <Typography color="inherit" className="text-24 sm:text-40 font-light">
@@ -129,7 +129,7 @@ function Courses(props)
             </div>
 
             <div className="flex flex-col flex-1 max-w-2xl w-full mx-auto px-8 sm:px-16 py-24">
-                <div className="flex flex-col flex-no-shrink sm:flex-row items-center justify-between py-24">
+                <div className="flex flex-col flex-shrink-0 sm:flex-row items-center justify-between py-24">
                     <TextField
                         label="Search for a course"
                         placeholder="Enter a keyword..."
@@ -184,7 +184,7 @@ function Courses(props)
                                             <div className="w-full pb-24 sm:w-1/2 lg:w-1/3 sm:p-16" key={course.id}>
                                                 <Card elevation={1} className="flex flex-col h-256">
                                                     <div
-                                                        className="flex flex-no-shrink items-center justify-between px-24 h-64"
+                                                        className="flex flex-shrink-0 items-center justify-between px-24 h-64"
                                                         style={{
                                                             background: category.color,
                                                             color     : theme.palette.getContrastText(category.color)

@@ -164,7 +164,7 @@ function Chat(props)
                                         key={item.time}
                                         className={clsx(
                                             classes.messageRow,
-                                            "flex flex-col flex-no-grow flex-no-shrink items-start justify-end relative pr-16 pb-4 pl-16",
+                                            "flex flex-col flex-grow-0 flex-shrink-0 items-start justify-end relative pr-16 pb-4 pl-16",
                                             {'me': item.who === user.id},
                                             {'contact': item.who !== user.id},
                                             {'first-of-group': isFirstMessageOfGroup(item, i)},
@@ -207,7 +207,7 @@ function Chat(props)
                             InputProps={{
                                 disableUnderline: true,
                                 classes         : {
-                                    root : "flex flex-grow flex-no-shrink ml-16 mr-48 my-8",
+                                    root : "flex flex-grow flex-shrink-0 ml-16 mr-48 my-8",
                                     input: ""
                                 },
                                 placeholder     : "Type your message"

@@ -68,7 +68,7 @@ function FaqPage()
     return (
         <div className="w-full flex flex-col flex-auto">
 
-            <div className={clsx(classes.header, "flex flex-col flex-no-shrink items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-360")}>
+            <div className={clsx(classes.header, "flex flex-col flex-shrink-0 items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-360")}>
 
                 <FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
                     <Typography color="inherit" className="text-36 sm:text-56 font-light">
@@ -98,7 +98,7 @@ function FaqPage()
                 </Paper>
             </div>
 
-            <div className="flex flex-col flex-1 flex-no-shrink max-w-xl w-full mx-auto px-16 sm:px-24 py-24 sm:py-32">
+            <div className="flex flex-col flex-1 flex-shrink-0 max-w-xl w-full mx-auto px-16 sm:px-24 py-24 sm:py-32">
                 {
                     (filteredData.length === 0) && (
                         <div className="flex flex-auto items-center justify-center w-full h-full">

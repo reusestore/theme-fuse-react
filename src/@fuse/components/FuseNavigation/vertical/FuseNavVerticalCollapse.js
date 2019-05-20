@@ -98,7 +98,7 @@ function FuseNavVerticalCollapse(props)
                 onClick={handleClick}
             >
                 {item.icon && (
-                    <Icon color="action" className="text-16 flex-no-shrink mr-16">{item.icon}</Icon>
+                    <Icon color="action" className="text-16 flex-shrink-0 mr-16">{item.icon}</Icon>
                 )}
                 <ListItemText className="list-item-text" primary={item.title} classes={{primary: 'text-14'}}/>
                 {item.badge && (

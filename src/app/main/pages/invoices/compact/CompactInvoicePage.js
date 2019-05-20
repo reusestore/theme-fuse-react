@@ -42,7 +42,7 @@ function CompactInvoicePage()
     }, []);
 
     return (
-        <div className={clsx(classes.root, "flex-grow flex-no-shrink p-0 sm:p-64 print:p-0")}>
+        <div className={clsx(classes.root, "flex-grow flex-shrink-0 p-0 sm:p-64 print:p-0")}>
 
             {invoice && (
                 <FuseAnimate animation={{translateY: [0, '100%']}} duration={600}>
@@ -256,7 +256,7 @@ function CompactInvoicePage()
 
                                 <div className="flex">
 
-                                    <div className="flex-no-shrink mr-24">
+                                    <div className="flex-shrink-0 mr-24">
                                         <img className="w-32" src="assets/images/logos/fuse.svg" alt="logo"/>
                                     </div>
 

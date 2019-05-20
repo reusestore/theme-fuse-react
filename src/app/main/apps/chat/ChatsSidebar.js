@@ -185,7 +185,7 @@ function ChatsSidebar(props)
                                     enter={{
                                         animation: "transition.expandIn"
                                     }}
-                                    className="flex flex-col flex-no-shrink"
+                                    className="flex flex-col flex-shrink-0"
                                 >
                                     {chatListArr.length > 0 && (
                                         <Typography

@@ -116,7 +116,7 @@ function ContactList(props)
 
     return (
         <FuseScrollbars
-            className={clsx(classes.root, "flex flex-no-shrink flex-col overflow-y-auto py-8")}
+            className={clsx(classes.root, "flex flex-shrink-0 flex-col overflow-y-auto py-8")}
             ref={contactListScroll}
         >
             {contacts.length > 0 && (
@@ -125,7 +125,7 @@ function ContactList(props)
                         enter={{
                             animation: "transition.expandIn"
                         }}
-                        className="flex flex-col flex-no-shrink"
+                        className="flex flex-col flex-shrink-0"
                     >
                         {(user && user.chatList) &&
                         user.chatList.map(chat => {
