@@ -15,8 +15,8 @@ import Breadcrumb from './Breadcrumb';
 function FileManagerApp()
 {
     const dispatch = useDispatch();
-    const files = useSelector(({fileManagerApp}) => fileManagerApp.files, []);
-    const selectedItem = useSelector(({fileManagerApp}) => files[fileManagerApp.selectedItemId], [files]);
+    const files = useSelector(({fileManagerApp}) => fileManagerApp.files);
+    const selectedItem = useSelector(({fileManagerApp}) => files[fileManagerApp.selectedItemId]);
 
     const pageLayout = useRef(null);
 

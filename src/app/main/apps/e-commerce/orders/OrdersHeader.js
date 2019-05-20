@@ -8,8 +8,8 @@ import {useDispatch, useSelector} from 'react-redux';
 function OrdersHeader(props)
 {
     const dispatch = useDispatch();
-    const searchText = useSelector(({eCommerceApp}) => eCommerceApp.orders.searchText, []);
-    const mainTheme = useSelector(({fuse}) => fuse.settings.mainTheme, []);
+    const searchText = useSelector(({eCommerceApp}) => eCommerceApp.orders.searchText);
+    const mainTheme = useSelector(({fuse}) => fuse.settings.mainTheme);
 
     return (
         <div className="flex flex-1 w-full items-center justify-between">

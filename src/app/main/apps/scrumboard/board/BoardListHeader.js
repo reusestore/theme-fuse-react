@@ -7,7 +7,7 @@ import {useDispatch, useSelector} from 'react-redux';
 function BoardListHeader(props)
 {
     const dispatch = useDispatch();
-    const board = useSelector(({scrumboardApp}) => scrumboardApp.board, []);
+    const board = useSelector(({scrumboardApp}) => scrumboardApp.board);
 
     const [anchorEl, setAnchorEl] = useState(null);
     const [formOpen, setFormOpen] = useState(false);

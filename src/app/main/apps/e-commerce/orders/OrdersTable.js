@@ -11,8 +11,8 @@ import {useDispatch, useSelector} from 'react-redux';
 function OrdersTable(props)
 {
     const dispatch = useDispatch();
-    const orders = useSelector(({eCommerceApp}) => eCommerceApp.orders.data, []);
-    const searchText = useSelector(({eCommerceApp}) => eCommerceApp.orders.searchText, []);
+    const orders = useSelector(({eCommerceApp}) => eCommerceApp.orders.data);
+    const searchText = useSelector(({eCommerceApp}) => eCommerceApp.orders.searchText);
 
     const [selected, setSelected] = useState([]);
     const [data, setData] = useState(orders);

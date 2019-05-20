@@ -44,8 +44,8 @@ const useStyles = makeStyles(theme => ({
 function FuseLayout(props)
 {
     const dispatch = useDispatch();
-    const defaultSettings = useSelector(({fuse}) => fuse.settings.defaults, []);
-    const settings = useSelector(({fuse}) => fuse.settings.current, []);
+    const defaultSettings = useSelector(({fuse}) => fuse.settings.defaults);
+    const settings = useSelector(({fuse}) => fuse.settings.current);
 
     const classes = useStyles(props);
     const appContext = useContext(AppContext);

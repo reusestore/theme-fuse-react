@@ -17,8 +17,8 @@ const useStyles = makeStyles(theme => ({
 function QuickPanel(props)
 {
     const dispatch = useDispatch();
-    const data = useSelector(({quickPanel}) => quickPanel.data, []);
-    const state = useSelector(({quickPanel}) => quickPanel.state, []);
+    const data = useSelector(({quickPanel}) => quickPanel.data);
+    const state = useSelector(({quickPanel}) => quickPanel.state);
 
     const classes = useStyles();
     const [checked, setChecked] = useState('notifications');

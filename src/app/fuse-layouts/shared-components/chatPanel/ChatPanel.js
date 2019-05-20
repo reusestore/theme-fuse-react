@@ -55,9 +55,9 @@ const useStyles = makeStyles(theme => ({
 function ChatPanel(props)
 {
     const dispatch = useDispatch();
-    const contacts = useSelector(({chatPanel}) => chatPanel.contacts.entities, []);
-    const selectedContactId = useSelector(({chatPanel}) => chatPanel.contacts.selectedContactId, []);
-    const state = useSelector(({chatPanel}) => chatPanel.state, []);
+    const contacts = useSelector(({chatPanel}) => chatPanel.contacts.entities);
+    const selectedContactId = useSelector(({chatPanel}) => chatPanel.contacts.selectedContactId);
+    const state = useSelector(({chatPanel}) => chatPanel.state);
 
     const classes = useStyles(props);
     const selectedContact = contacts.find(_contact => _contact.id === selectedContactId);

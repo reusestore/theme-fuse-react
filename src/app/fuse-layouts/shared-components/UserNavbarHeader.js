@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
 
 function UserNavbarHeader(props)
 {
-    const user = useSelector(({auth}) => auth.user, []);
+    const user = useSelector(({auth}) => auth.user);
 
     const classes = useStyles();
 

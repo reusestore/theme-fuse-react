@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
 
 function Widget1(props)
 {
-    const mainThemeDark = useSelector(({fuse}) => fuse.settings.mainThemeDark, []);
+    const mainThemeDark = useSelector(({fuse}) => fuse.settings.mainThemeDark);
 
     const classes = useStyles(props);
     const theme = useTheme();

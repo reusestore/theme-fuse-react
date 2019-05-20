@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 function Course(props)
 {
     const dispatch = useDispatch();
-    const course = useSelector(({academyApp}) => academyApp.course, []);
+    const course = useSelector(({academyApp}) => academyApp.course);
 
     const classes = useStyles(props);
     const pageLayout = useRef(null);

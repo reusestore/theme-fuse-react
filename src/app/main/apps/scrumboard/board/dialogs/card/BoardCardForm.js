@@ -20,8 +20,8 @@ import CardComment from './comment/CardComment';
 function BoardCardForm(props)
 {
     const dispatch = useDispatch();
-    const card = useSelector(({scrumboardApp}) => scrumboardApp.card, []);
-    const board = useSelector(({scrumboardApp}) => scrumboardApp.board, []);
+    const card = useSelector(({scrumboardApp}) => scrumboardApp.card);
+    const board = useSelector(({scrumboardApp}) => scrumboardApp.board);
 
     const {form: cardForm, handleChange, setForm, setInForm} = useForm(card);
     const updateCard = useDebounce((boardId, newCard) => {

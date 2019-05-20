@@ -45,8 +45,8 @@ const useStyles = makeStyles(theme => ({
 function Courses(props)
 {
     const dispatch = useDispatch();
-    const courses = useSelector(({academyApp}) => academyApp.courses.data, []);
-    const categories = useSelector(({academyApp}) => academyApp.courses.categories, []);
+    const courses = useSelector(({academyApp}) => academyApp.courses.data);
+    const categories = useSelector(({academyApp}) => academyApp.courses.categories);
 
     const classes = useStyles(props);
     const theme = useTheme();

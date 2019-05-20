@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
 function Product(props)
 {
     const dispatch = useDispatch();
-    const product = useSelector(({eCommerceApp}) => eCommerceApp.product, []);
+    const product = useSelector(({eCommerceApp}) => eCommerceApp.product);
 
     const classes = useStyles(props);
     const [tabValue, setTabValue] = useState(0);

@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux';
 
 function FuseTheme(props)
 {
-    const mainTheme = useSelector(({fuse}) => fuse.settings.mainTheme, []);
+    const mainTheme = useSelector(({fuse}) => fuse.settings.mainTheme);
 
     // console.warn('FuseTheme:: rendered',mainTheme);
     return (

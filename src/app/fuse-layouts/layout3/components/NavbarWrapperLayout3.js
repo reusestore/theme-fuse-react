@@ -38,8 +38,8 @@ const useStyles = makeStyles(theme => ({
 function NavbarWrapperLayout3(props)
 {
     const dispatch = useDispatch();
-    const navbarTheme = useSelector(({fuse}) => fuse.settings.navbarTheme, []);
-    const navbar = useSelector(({fuse}) => fuse.navbar, []);
+    const navbarTheme = useSelector(({fuse}) => fuse.settings.navbarTheme);
+    const navbar = useSelector(({fuse}) => fuse.navbar);
 
     const classes = useStyles(props);
 

@@ -6,7 +6,7 @@ import {useDispatch, useSelector} from 'react-redux';
 function ContactsMultiSelectMenu(props)
 {
     const dispatch = useDispatch();
-    const selectedContactIds = useSelector(({contactsApp}) => contactsApp.contacts.selectedContactIds, []);
+    const selectedContactIds = useSelector(({contactsApp}) => contactsApp.contacts.selectedContactIds);
 
     const [anchorEl, setAnchorEl] = useState(null);
 

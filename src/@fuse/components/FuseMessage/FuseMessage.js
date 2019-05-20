@@ -36,8 +36,8 @@ const variantIcon = {
 function FuseMessage(props)
 {
     const dispatch = useDispatch();
-    const state = useSelector(({fuse}) => fuse.message.state, []);
-    const options = useSelector(({fuse}) => fuse.message.options, []);
+    const state = useSelector(({fuse}) => fuse.message.state);
+    const options = useSelector(({fuse}) => fuse.message.options);
 
     const classes = useStyles();
 

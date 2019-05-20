@@ -24,7 +24,7 @@ const defaultFormState = {
 function ContactDialog(props)
 {
     const dispatch = useDispatch();
-    const contactDialog = useSelector(({contactsApp}) => contactsApp.contacts.contactDialog, []);
+    const contactDialog = useSelector(({contactsApp}) => contactsApp.contacts.contactDialog);
 
     const {form, handleChange, setForm} = useForm(defaultFormState);
 

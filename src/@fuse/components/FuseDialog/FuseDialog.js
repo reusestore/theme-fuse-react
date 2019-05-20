@@ -6,8 +6,8 @@ import * as Actions from 'app/store/actions';
 function FuseDialog(props)
 {
     const dispatch = useDispatch();
-    const state = useSelector(({fuse}) => fuse.dialog.state, []);
-    const options = useSelector(({fuse}) => fuse.dialog.options, []);
+    const state = useSelector(({fuse}) => fuse.dialog.state);
+    const options = useSelector(({fuse}) => fuse.dialog.options);
 
     return (
         <Dialog

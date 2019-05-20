@@ -7,8 +7,8 @@ import * as Actions from './store/actions';
 function MailAppHeader(props)
 {
     const dispatch = useDispatch();
-    const searchText = useSelector(({mailApp}) => mailApp.mails.searchText, []);
-    const mainTheme = useSelector(({fuse}) => fuse.settings.mainTheme, []);
+    const searchText = useSelector(({mailApp}) => mailApp.mails.searchText);
+    const mainTheme = useSelector(({fuse}) => fuse.settings.mainTheme);
 
     return (
         <ThemeProvider theme={mainTheme}>

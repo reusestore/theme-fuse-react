@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
 function NotesSidebarContent(props)
 {
     const dispatch = useDispatch();
-    const labels = useSelector(({notesApp}) => notesApp.labels.entities, []);
+    const labels = useSelector(({notesApp}) => notesApp.labels.entities);
 
     const classes = useStyles(props);
 

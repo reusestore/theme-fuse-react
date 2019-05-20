@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
 function NotesSearch(props)
 {
     const dispatch = useDispatch();
-    const searchText = useSelector(({notesApp}) => notesApp.notes.searchText, []);
+    const searchText = useSelector(({notesApp}) => notesApp.notes.searchText);
 
     const classes = useStyles(props);
     const [search, setSearch] = useState(false);

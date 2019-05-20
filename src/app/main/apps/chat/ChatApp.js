@@ -93,12 +93,12 @@ const useStyles = makeStyles(theme => ({
 function ChatApp(props)
 {
     const dispatch = useDispatch();
-    const chat = useSelector(({chatApp}) => chatApp.chat, []);
-    const contacts = useSelector(({chatApp}) => chatApp.contacts.entities, []);
-    const selectedContactId = useSelector(({chatApp}) => chatApp.contacts.selectedContactId, []);
-    const mobileChatsSidebarOpen = useSelector(({chatApp}) => chatApp.sidebars.mobileChatsSidebarOpen, []);
-    const userSidebarOpen = useSelector(({chatApp}) => chatApp.sidebars.userSidebarOpen, []);
-    const contactSidebarOpen = useSelector(({chatApp}) => chatApp.sidebars.contactSidebarOpen, []);
+    const chat = useSelector(({chatApp}) => chatApp.chat);
+    const contacts = useSelector(({chatApp}) => chatApp.contacts.entities);
+    const selectedContactId = useSelector(({chatApp}) => chatApp.contacts.selectedContactId);
+    const mobileChatsSidebarOpen = useSelector(({chatApp}) => chatApp.sidebars.mobileChatsSidebarOpen);
+    const userSidebarOpen = useSelector(({chatApp}) => chatApp.sidebars.userSidebarOpen);
+    const contactSidebarOpen = useSelector(({chatApp}) => chatApp.sidebars.contactSidebarOpen);
 
     const classes = useStyles(props);
     const selectedContact = contacts.find(_contact => (_contact.id === selectedContactId));

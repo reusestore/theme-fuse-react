@@ -5,7 +5,7 @@ import _ from '@lodash';
 
 function NoteFormLabelMenu(props)
 {
-    const labels = useSelector(({notesApp}) => notesApp.labels.entities, []);
+    const labels = useSelector(({notesApp}) => notesApp.labels.entities);
 
     const [anchorEl, setAnchorEl] = useState(null);
 

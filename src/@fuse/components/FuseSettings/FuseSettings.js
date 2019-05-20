@@ -41,9 +41,9 @@ const useStyles = makeStyles(theme => ({
 function FuseSettings(props)
 {
     const dispatch = useDispatch();
-    const user = useSelector(({auth}) => auth.user, []);
-    const themes = useSelector(({fuse}) => fuse.settings.themes, []);
-    const settings = useSelector(({fuse}) => fuse.settings.current, []);
+    const user = useSelector(({auth}) => auth.user);
+    const themes = useSelector(({fuse}) => fuse.settings.themes);
+    const settings = useSelector(({fuse}) => fuse.settings.current);
 
     const classes = useStyles(props);
 

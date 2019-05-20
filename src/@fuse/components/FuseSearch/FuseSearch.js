@@ -232,8 +232,8 @@ function reducer(state, action)
 
 function FuseSearch(props)
 {
-    const userRole = useSelector(({auth}) => auth.user.role, []);
-    const navigation = useSelector(({fuse}) => fuse.navigation, []);
+    const userRole = useSelector(({auth}) => auth.user.role);
+    const navigation = useSelector(({fuse}) => fuse.navigation);
 
     const [state, dispatch] = useReducer(reducer, initialState);
     const classes = useStyles(props);

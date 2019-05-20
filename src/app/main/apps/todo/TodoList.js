@@ -7,10 +7,10 @@ import TodoListItem from './TodoListItem';
 
 function TodoList(props)
 {
-    const todos = useSelector(({todoApp}) => todoApp.todos.entities, []);
-    const searchText = useSelector(({todoApp}) => todoApp.todos.searchText, []);
-    const orderBy = useSelector(({todoApp}) => todoApp.todos.orderBy, []);
-    const orderDescending = useSelector(({todoApp}) => todoApp.todos.orderDescending, []);
+    const todos = useSelector(({todoApp}) => todoApp.todos.entities);
+    const searchText = useSelector(({todoApp}) => todoApp.todos.searchText);
+    const orderBy = useSelector(({todoApp}) => todoApp.todos.orderBy);
+    const orderDescending = useSelector(({todoApp}) => todoApp.todos.orderDescending);
     const [filteredData, setFilteredData] = useState(null);
 
     useEffect(() => {

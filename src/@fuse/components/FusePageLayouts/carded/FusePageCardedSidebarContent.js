@@ -6,7 +6,7 @@ import {useSelector} from 'react-redux';
 
 function FusePageCardedSidebarContent(props)
 {
-    const mainThemeDark = useSelector(({fuse}) => fuse.settings.mainThemeDark, []);
+    const mainThemeDark = useSelector(({fuse}) => fuse.settings.mainThemeDark);
 
     const classes = props.classes;
 

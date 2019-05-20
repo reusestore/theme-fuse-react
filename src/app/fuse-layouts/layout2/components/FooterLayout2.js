@@ -7,7 +7,7 @@ import {useSelector} from 'react-redux';
 
 function FooterLayout2(props)
 {
-    const footerTheme = useSelector(({fuse}) => fuse.settings.footerTheme, []);
+    const footerTheme = useSelector(({fuse}) => fuse.settings.footerTheme);
 
     return (
         <ThemeProvider theme={footerTheme}>

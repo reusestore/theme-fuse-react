@@ -79,7 +79,7 @@ const useStyles = makeStyles(theme => ({
 
 function Layout1(props)
 {
-    const config = useSelector(({fuse}) => fuse.settings.current.layout.config, []);
+    const config = useSelector(({fuse}) => fuse.settings.current.layout.config);
 
     const appContext = useContext(AppContext);
     const classes = useStyles(props);

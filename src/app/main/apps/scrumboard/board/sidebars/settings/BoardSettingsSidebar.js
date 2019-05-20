@@ -6,7 +6,7 @@ import {useDispatch, useSelector} from 'react-redux';
 function BoardSettingsSidebar(props)
 {
     const dispatch = useDispatch();
-    const board = useSelector(({scrumboardApp}) => scrumboardApp.board, []);
+    const board = useSelector(({scrumboardApp}) => scrumboardApp.board);
 
     return (
         <div>

@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux';
 
 function FusePageSimpleHeader(props)
 {
-    const mainThemeDark = useSelector(({fuse}) => fuse.settings.mainThemeDark, []);
+    const mainThemeDark = useSelector(({fuse}) => fuse.settings.mainThemeDark);
 
     return (
         <div className={props.classes.header}>

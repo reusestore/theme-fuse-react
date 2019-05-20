@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom';
 function UserMenu(props)
 {
     const dispatch = useDispatch();
-    const user = useSelector(({auth}) => auth.user, []);
+    const user = useSelector(({auth}) => auth.user);
 
     const [userMenu, setUserMenu] = useState(null);
 

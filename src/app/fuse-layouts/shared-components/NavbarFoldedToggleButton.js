@@ -7,7 +7,7 @@ import {useDispatch, useSelector} from 'react-redux';
 function NavbarFoldedToggleButton(props)
 {
     const dispatch = useDispatch();
-    const settings = useSelector(({fuse}) => fuse.settings.current, []);
+    const settings = useSelector(({fuse}) => fuse.settings.current);
 
     return (
         <IconButton

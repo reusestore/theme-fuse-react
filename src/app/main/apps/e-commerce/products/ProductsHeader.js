@@ -9,8 +9,8 @@ import * as Actions from '../store/actions';
 function ProductsHeader(props)
 {
     const dispatch = useDispatch();
-    const searchText = useSelector(({eCommerceApp}) => eCommerceApp.products.searchText, []);
-    const mainTheme = useSelector(({fuse}) => fuse.settings.mainTheme, []);
+    const searchText = useSelector(({eCommerceApp}) => eCommerceApp.products.searchText);
+    const mainTheme = useSelector(({fuse}) => fuse.settings.mainTheme);
 
     return (
         <div className="flex flex-1 w-full items-center justify-between">

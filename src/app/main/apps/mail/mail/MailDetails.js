@@ -10,8 +10,8 @@ import MailChip from '../MailChip';
 function MailDetails(props)
 {
     const dispatch = useDispatch();
-    const mail = useSelector(({mailApp}) => mailApp.mail, []);
-    const labels = useSelector(({mailApp}) => mailApp.labels, []);
+    const mail = useSelector(({mailApp}) => mailApp.mail);
+    const labels = useSelector(({mailApp}) => mailApp.labels);
 
     const [showDetails, setShowDetails] = useState(false);
 

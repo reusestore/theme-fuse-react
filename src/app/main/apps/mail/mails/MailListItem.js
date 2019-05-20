@@ -36,8 +36,8 @@ const useStyles = makeStyles(theme => ({
 
 const MailListItem = (props) => {
     const dispatch = useDispatch();
-    const selectedMailIds = useSelector(({mailApp}) => mailApp.mails.selectedMailIds, []);
-    const labels = useSelector(({mailApp}) => mailApp.labels, []);
+    const selectedMailIds = useSelector(({mailApp}) => mailApp.mails.selectedMailIds);
+    const labels = useSelector(({mailApp}) => mailApp.labels);
 
     const classes = useStyles(props);
     const toPath = pathToRegexp.compile(props.match.path);

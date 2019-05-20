@@ -45,8 +45,8 @@ const defaultFormState = {
 function TodoDialog(props)
 {
     const dispatch = useDispatch();
-    const todoDialog = useSelector(({todoApp}) => todoApp.todos.todoDialog, []);
-    const labels = useSelector(({todoApp}) => todoApp.labels, []);
+    const todoDialog = useSelector(({todoApp}) => todoApp.todos.todoDialog);
+    const labels = useSelector(({todoApp}) => todoApp.labels);
 
     const [labelMenuEl, setLabelMenuEl] = useState(null);
     const {form, handleChange, setForm} = useForm({...defaultFormState});

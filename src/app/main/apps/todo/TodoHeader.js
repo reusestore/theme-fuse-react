@@ -7,8 +7,8 @@ import * as Actions from './store/actions';
 function TodoHeader(props)
 {
     const dispatch = useDispatch();
-    const searchText = useSelector(({todoApp}) => todoApp.todos.searchText, []);
-    const mainTheme = useSelector(({fuse}) => fuse.settings.mainTheme, []);
+    const searchText = useSelector(({todoApp}) => todoApp.todos.searchText);
+    const mainTheme = useSelector(({fuse}) => fuse.settings.mainTheme);
 
     return (
         <ThemeProvider theme={mainTheme}>

@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 function TodoListItem(props)
 {
     const dispatch = useDispatch();
-    const labels = useSelector(({todoApp}) => todoApp.labels, []);
+    const labels = useSelector(({todoApp}) => todoApp.labels);
 
     const classes = useStyles(props);
 

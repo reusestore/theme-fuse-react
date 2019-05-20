@@ -10289,10 +10289,10 @@ react-popper@1.0.2:
     typed-styles "^0.0.5"
     warning "^3.0.0"
 
-react-redux@7.1.0-alpha.4:
-  version "7.1.0-alpha.4"
-  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.1.0-alpha.4.tgz#103bab23e336ce18951bc76a8c9567ce0607fc44"
-  integrity sha512-Vxk6F1ibo2EC/cThTVUbvhTyltUFg7iLnEtro+QwOfOCygKpvwUtag1a8MPWPGv+BLWMXHniOaeo0sy6INhzFg==
+react-redux@7.1.0-alpha.5:
+  version "7.1.0-alpha.5"
+  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.1.0-alpha.5.tgz#762336fd7a941ed5503ee4890e2324ce29ec0488"
+  integrity sha512-bLDaXcNWcoiXKIBz/waf+oImYIBhR8h1YgXo4GKgBEyMJXtMqZkkNqD4w7JNlTsN2Xxo2/1E4akcmAo+wzJAnw==
   dependencies:
     "@babel/runtime" "^7.4.3"
     hoist-non-react-statics "^3.3.0"

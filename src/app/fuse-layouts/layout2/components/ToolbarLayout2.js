@@ -18,8 +18,8 @@ const useStyles = makeStyles(theme => ({
 
 function ToolbarLayout2(props)
 {
-    const config = useSelector(({fuse}) => fuse.settings.current.layout.config, []);
-    const toolbarTheme = useSelector(({fuse}) => fuse.settings.toolbarTheme, []);
+    const config = useSelector(({fuse}) => fuse.settings.current.layout.config);
+    const toolbarTheme = useSelector(({fuse}) => fuse.settings.toolbarTheme);
 
     const classes = useStyles(props);
 

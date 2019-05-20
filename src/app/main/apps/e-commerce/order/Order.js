@@ -23,7 +23,7 @@ function Marker(props)
 function Order(props)
 {
     const dispatch = useDispatch();
-    const order = useSelector(({eCommerceApp}) => eCommerceApp.order, []);
+    const order = useSelector(({eCommerceApp}) => eCommerceApp.order);
 
     const [tabValue, setTabValue] = useState(0);
     const [map, setMap] = useState('shipping');

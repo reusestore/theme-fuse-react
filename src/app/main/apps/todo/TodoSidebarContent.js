@@ -34,9 +34,9 @@ const useStyles = makeStyles(theme => ({
 function TodoSidebarContent(props)
 {
     const dispatch = useDispatch();
-    const labels = useSelector(({todoApp}) => todoApp.labels, []);
-    const folders = useSelector(({todoApp}) => todoApp.folders, []);
-    const filters = useSelector(({todoApp}) => todoApp.filters, []);
+    const labels = useSelector(({todoApp}) => todoApp.labels);
+    const folders = useSelector(({todoApp}) => todoApp.folders);
+    const filters = useSelector(({todoApp}) => todoApp.filters);
 
     const classes = useStyles(props);
 

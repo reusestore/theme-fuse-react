@@ -132,10 +132,10 @@ const useStyles = makeStyles(theme => ({
 function Chat(props)
 {
     const dispatch = useDispatch();
-    const contacts = useSelector(({chatPanel}) => chatPanel.contacts.entities, []);
-    const selectedContactId = useSelector(({chatPanel}) => chatPanel.contacts.selectedContactId, []);
-    const chat = useSelector(({chatPanel}) => chatPanel.chat, []);
-    const user = useSelector(({chatPanel}) => chatPanel.user, []);
+    const contacts = useSelector(({chatPanel}) => chatPanel.contacts.entities);
+    const selectedContactId = useSelector(({chatPanel}) => chatPanel.contacts.selectedContactId);
+    const chat = useSelector(({chatPanel}) => chatPanel.chat);
+    const user = useSelector(({chatPanel}) => chatPanel.user);
 
     const classes = useStyles();
     const chatScroll = useRef(null);

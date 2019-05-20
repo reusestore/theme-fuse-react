@@ -16,7 +16,7 @@ import {useDispatch, useSelector} from 'react-redux';
 function Board(props)
 {
     const dispatch = useDispatch();
-    const board = useSelector(({scrumboardApp}) => scrumboardApp.board, []);
+    const board = useSelector(({scrumboardApp}) => scrumboardApp.board);
 
     const containerRef = useRef(null);
     const [settingsDrawerOpen, setSettingsDrawerOpen] = useState(false);

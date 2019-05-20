@@ -6,8 +6,8 @@ import * as Actions from './store/actions';
 function TodoToolbar(props)
 {
     const dispatch = useDispatch();
-    const orderBy = useSelector(({todoApp}) => todoApp.todos.orderBy, []);
-    const orderDescending = useSelector(({todoApp}) => todoApp.todos.orderDescending, []);
+    const orderBy = useSelector(({todoApp}) => todoApp.todos.orderBy);
+    const orderDescending = useSelector(({todoApp}) => todoApp.todos.orderDescending);
 
     function handleOrderChange(ev)
     {

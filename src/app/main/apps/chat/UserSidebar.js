@@ -29,7 +29,7 @@ const statusArr = [
 function UserSidebar(props)
 {
     const dispatch = useDispatch();
-    const user = useSelector(({chatApp}) => chatApp.user, []);
+    const user = useSelector(({chatApp}) => chatApp.user);
 
     const {form, handleChange, setForm} = useForm(user ? {...user} : false);
 

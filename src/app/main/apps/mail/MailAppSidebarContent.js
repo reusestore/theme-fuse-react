@@ -33,9 +33,9 @@ const useStyles = makeStyles(theme => ({
 
 function MailAppSidebarContent(props)
 {
-    const folders = useSelector(({mailApp}) => mailApp.folders, []);
-    const labels = useSelector(({mailApp}) => mailApp.labels, []);
-    const filters = useSelector(({mailApp}) => mailApp.filters, []);
+    const folders = useSelector(({mailApp}) => mailApp.folders);
+    const labels = useSelector(({mailApp}) => mailApp.labels);
+    const filters = useSelector(({mailApp}) => mailApp.filters);
 
     const classes = useStyles();
 

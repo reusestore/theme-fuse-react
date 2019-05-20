@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 
 function NoteLabel(props)
 {
-    const labels = useSelector(({notesApp}) => notesApp.labels.entities, []);
+    const labels = useSelector(({notesApp}) => notesApp.labels.entities);
 
     if ( !labels )
     {

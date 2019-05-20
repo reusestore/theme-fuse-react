@@ -44,8 +44,8 @@ const useStyles = makeStyles(theme => ({
 function ProjectDashboardApp(props)
 {
     const dispatch = useDispatch();
-    const widgets = useSelector(({projectDashboardApp}) => projectDashboardApp.widgets, []);
-    const projects = useSelector(({projectDashboardApp}) => projectDashboardApp.projects, []);
+    const widgets = useSelector(({projectDashboardApp}) => projectDashboardApp.widgets);
+    const projects = useSelector(({projectDashboardApp}) => projectDashboardApp.projects);
 
     const classes = useStyles(props);
     const pageLayout = useRef(null);

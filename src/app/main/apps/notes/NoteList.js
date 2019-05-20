@@ -8,9 +8,9 @@ import NoteListItem from './NoteListItem';
 
 function NoteList(props)
 {
-    const notes = useSelector(({notesApp}) => notesApp.notes.entities, []);
-    const variateDescSize = useSelector(({notesApp}) => notesApp.notes.variateDescSize, []);
-    const searchText = useSelector(({notesApp}) => notesApp.notes.searchText, []);
+    const notes = useSelector(({notesApp}) => notesApp.notes.entities);
+    const variateDescSize = useSelector(({notesApp}) => notesApp.notes.variateDescSize);
+    const searchText = useSelector(({notesApp}) => notesApp.notes.searchText);
 
     const [filteredData, setFilteredData] = useState(null);
 

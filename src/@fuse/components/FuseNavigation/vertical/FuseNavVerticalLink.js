@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
 function FuseNavVerticalLink(props)
 {
     const dispatch = useDispatch();
-    const userRole = useSelector(({auth}) => auth.user.role, []);
+    const userRole = useSelector(({auth}) => auth.user.role);
 
     const classes = useStyles(props);
     const {item, nestedLevel, active} = props;

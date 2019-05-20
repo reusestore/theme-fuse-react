@@ -8,7 +8,7 @@ import NotesSearch from './NotesSearch';
 function NotesHeader(props)
 {
     const dispatch = useDispatch();
-    const variateDescSize = useSelector(({notesApp}) => notesApp.notes.variateDescSize, []);
+    const variateDescSize = useSelector(({notesApp}) => notesApp.notes.variateDescSize);
 
     return (
         <div className="flex flex-1 items-center justify-between p-8 sm:p-24 relative">

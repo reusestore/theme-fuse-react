@@ -11,8 +11,8 @@ import {useDispatch, useSelector} from 'react-redux';
 function ProductsTable(props)
 {
     const dispatch = useDispatch();
-    const products = useSelector(({eCommerceApp}) => eCommerceApp.products.data, []);
-    const searchText = useSelector(({eCommerceApp}) => eCommerceApp.products.searchText, []);
+    const products = useSelector(({eCommerceApp}) => eCommerceApp.products.data);
+    const searchText = useSelector(({eCommerceApp}) => eCommerceApp.products.searchText);
 
     const [selected, setSelected] = useState([]);
     const [data, setData] = useState(products);

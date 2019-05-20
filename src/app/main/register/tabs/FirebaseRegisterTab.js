@@ -8,7 +8,7 @@ import {useDispatch, useSelector} from 'react-redux';
 function FirebaseRegisterTab(props)
 {
     const dispatch = useDispatch();
-    const register = useSelector(({auth}) => auth.register, []);
+    const register = useSelector(({auth}) => auth.register);
 
     const [isFormValid, setIsFormValid] = useState(false);
     const formRef = useRef(null);

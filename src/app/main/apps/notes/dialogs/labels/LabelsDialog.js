@@ -10,8 +10,8 @@ import LabelModel from 'app/main/apps/notes/model/LabelModel';
 function LabelsDialog(props)
 {
     const dispatch = useDispatch();
-    const labels = useSelector(({notesApp}) => notesApp.labels.entities, []);
-    const labelsDialogOpen = useSelector(({notesApp}) => notesApp.labels.labelsDialogOpen, []);
+    const labels = useSelector(({notesApp}) => notesApp.labels.entities);
+    const labelsDialogOpen = useSelector(({notesApp}) => notesApp.labels.labelsDialogOpen);
 
     const [labelsForm, setLabels] = useState(labels);
     const {form: newLabelForm, handleChange, resetForm} = useForm(

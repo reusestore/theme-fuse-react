@@ -28,8 +28,8 @@ const statusArr = [
 function ChatsSidebar(props)
 {
     const dispatch = useDispatch();
-    const contacts = useSelector(({chatApp}) => chatApp.contacts.entities, []);
-    const user = useSelector(({chatApp}) => chatApp.user, []);
+    const contacts = useSelector(({chatApp}) => chatApp.contacts.entities);
+    const user = useSelector(({chatApp}) => chatApp.user);
 
     const [searchText, setSearchText] = useState('');
     const [statusMenuEl, setStatusMenuEl] = useState(null);

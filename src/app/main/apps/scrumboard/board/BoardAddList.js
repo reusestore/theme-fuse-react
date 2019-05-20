@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
 function BoardAddList(props)
 {
     const dispatch = useDispatch();
-    const board = useSelector(({scrumboardApp}) => scrumboardApp.board, []);
+    const board = useSelector(({scrumboardApp}) => scrumboardApp.board);
 
     const classes = useStyles(props);
     const [formOpen, setFormOpen] = useState(false);

@@ -26,8 +26,8 @@ const useStyles = makeStyles({
 function FileList(props)
 {
     const dispatch = useDispatch();
-    const files = useSelector(({fileManagerApp}) => fileManagerApp.files, []);
-    const selectedItemId = useSelector(({fileManagerApp}) => fileManagerApp.selectedItemId, []);
+    const files = useSelector(({fileManagerApp}) => fileManagerApp.files);
+    const selectedItemId = useSelector(({fileManagerApp}) => fileManagerApp.selectedItemId);
 
     const classes = useStyles();
 

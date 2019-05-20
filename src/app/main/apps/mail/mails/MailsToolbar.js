@@ -6,10 +6,10 @@ import * as Actions from '../store/actions/index';
 function MailToolbar(props)
 {
     const dispatch = useDispatch();
-    const selectedMailIds = useSelector(({mailApp}) => mailApp.mails.selectedMailIds, []);
-    const mails = useSelector(({mailApp}) => mailApp.mails.entities, []);
-    const labels = useSelector(({mailApp}) => mailApp.labels, []);
-    const folders = useSelector(({mailApp}) => mailApp.folders, []);
+    const selectedMailIds = useSelector(({mailApp}) => mailApp.mails.selectedMailIds);
+    const mails = useSelector(({mailApp}) => mailApp.mails.entities);
+    const labels = useSelector(({mailApp}) => mailApp.labels);
+    const folders = useSelector(({mailApp}) => mailApp.folders);
 
     const [menu, setMenu] = useState({
         selectMenu : null,

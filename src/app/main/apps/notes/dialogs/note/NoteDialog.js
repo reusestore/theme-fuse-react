@@ -12,7 +12,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 function NoteDialog(props)
 {
     const dispatch = useDispatch();
-    const notes = useSelector(({notesApp}) => notesApp.notes, []);
+    const notes = useSelector(({notesApp}) => notesApp.notes);
 
     const handleOnChange = useDebounce((note) => {
         dispatch(Actions.updateNote(note));

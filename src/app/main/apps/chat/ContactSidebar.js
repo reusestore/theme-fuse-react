@@ -7,8 +7,8 @@ import * as Actions from './store/actions';
 function ContactSidebar(props)
 {
     const dispatch = useDispatch();
-    const contacts = useSelector(({chatApp}) => chatApp.contacts.entities, []);
-    const selectedContactId = useSelector(({chatApp}) => chatApp.contacts.selectedContactId, []);
+    const contacts = useSelector(({chatApp}) => chatApp.contacts.entities);
+    const selectedContactId = useSelector(({chatApp}) => chatApp.contacts.selectedContactId);
 
     const contact = contacts.find(_contact => (_contact.id === selectedContactId));
     if ( !contact )

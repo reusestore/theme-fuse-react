@@ -9,8 +9,8 @@ import MailListItem from './MailListItem';
 function MailList(props)
 {
     const dispatch = useDispatch();
-    const mails = useSelector(({mailApp}) => mailApp.mails.entities, []);
-    const searchText = useSelector(({mailApp}) => mailApp.mails.searchText, []);
+    const mails = useSelector(({mailApp}) => mailApp.mails.entities);
+    const searchText = useSelector(({mailApp}) => mailApp.mails.searchText);
 
     const [filteredData, setFilteredData] = useState(null);
 

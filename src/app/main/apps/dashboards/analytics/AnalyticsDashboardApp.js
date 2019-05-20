@@ -18,7 +18,7 @@ import reducer from './store/reducers';
 function AnalyticsDashboardApp()
 {
     const dispatch = useDispatch();
-    const widgets = useSelector(({analyticsDashboardApp}) => analyticsDashboardApp.widgets.data, []);
+    const widgets = useSelector(({analyticsDashboardApp}) => analyticsDashboardApp.widgets.data);
 
     useEffect(() => {
         dispatch(Actions.getWidgets());

@@ -5,8 +5,8 @@ import {useSelector} from 'react-redux';
 
 function DetailSidebarHeader(props)
 {
-    const files = useSelector(({fileManagerApp}) => fileManagerApp.files, []);
-    const selectedItem = useSelector(({fileManagerApp}) => files[fileManagerApp.selectedItemId], [files]);
+    const files = useSelector(({fileManagerApp}) => fileManagerApp.files);
+    const selectedItem = useSelector(({fileManagerApp}) => files[fileManagerApp.selectedItemId]);
 
     if ( !selectedItem )
     {

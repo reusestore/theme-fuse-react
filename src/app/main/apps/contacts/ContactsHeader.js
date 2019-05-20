@@ -8,8 +8,8 @@ import * as Actions from './store/actions';
 function ContactsHeader(props)
 {
     const dispatch = useDispatch();
-    const searchText = useSelector(({contactsApp}) => contactsApp.contacts.searchText, []);
-    const mainTheme = useSelector(({fuse}) => fuse.settings.mainTheme, []);
+    const searchText = useSelector(({contactsApp}) => contactsApp.contacts.searchText);
+    const mainTheme = useSelector(({fuse}) => fuse.settings.mainTheme);
 
     return (
         <div className="flex flex-1 items-center justify-between p-8 sm:p-24">

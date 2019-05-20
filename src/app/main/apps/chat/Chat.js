@@ -90,10 +90,10 @@ const useStyles = makeStyles(theme => ({
 function Chat(props)
 {
     const dispatch = useDispatch();
-    const contacts = useSelector(({chatApp}) => chatApp.contacts.entities, []);
-    const selectedContactId = useSelector(({chatApp}) => chatApp.contacts.selectedContactId, []);
-    const chat = useSelector(({chatApp}) => chatApp.chat, []);
-    const user = useSelector(({chatApp}) => chatApp.user, []);
+    const contacts = useSelector(({chatApp}) => chatApp.contacts.entities);
+    const selectedContactId = useSelector(({chatApp}) => chatApp.contacts.selectedContactId);
+    const chat = useSelector(({chatApp}) => chatApp.chat);
+    const user = useSelector(({chatApp}) => chatApp.user);
 
     const classes = useStyles(props);
     const chatRef = useRef(null);

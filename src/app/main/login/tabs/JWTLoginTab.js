@@ -8,7 +8,7 @@ import {useDispatch, useSelector} from 'react-redux';
 function JWTLoginTab(props)
 {
     const dispatch = useDispatch();
-    const login = useSelector(({auth}) => auth.login, []);
+    const login = useSelector(({auth}) => auth.login);
 
     const [isFormValid, setIsFormValid] = useState(false);
     const formRef = useRef(null);

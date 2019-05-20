@@ -10,7 +10,7 @@ const pathToRegexp = require('path-to-regexp');
 function MailToolbar(props)
 {
     const dispatch = useDispatch();
-    const mail = useSelector(({mailApp}) => mailApp.mail, []);
+    const mail = useSelector(({mailApp}) => mailApp.mail);
 
     const toPath = pathToRegexp.compile(props.match.path);
     const matchParams = {...props.match.params};

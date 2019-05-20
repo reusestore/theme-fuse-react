@@ -118,9 +118,9 @@ const useStyles = makeStyles(theme => ({
 function NavbarWrapperLayout1(props)
 {
     const dispatch = useDispatch();
-    const config = useSelector(({fuse}) => fuse.settings.current.layout.config, []);
-    const navbarTheme = useSelector(({fuse}) => fuse.settings.navbarTheme, []);
-    const navbar = useSelector(({fuse}) => fuse.navbar, []);
+    const config = useSelector(({fuse}) => fuse.settings.current.layout.config);
+    const navbarTheme = useSelector(({fuse}) => fuse.settings.navbarTheme);
+    const navbar = useSelector(({fuse}) => fuse.navbar);
 
     const classes = useStyles();
 

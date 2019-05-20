@@ -9,10 +9,10 @@ import ContactsMultiSelectMenu from './ContactsMultiSelectMenu';
 function ContactsList(props)
 {
     const dispatch = useDispatch();
-    const contacts = useSelector(({contactsApp}) => contactsApp.contacts.entities, []);
-    const selectedContactIds = useSelector(({contactsApp}) => contactsApp.contacts.selectedContactIds, []);
-    const searchText = useSelector(({contactsApp}) => contactsApp.contacts.searchText, []);
-    const user = useSelector(({contactsApp}) => contactsApp.user, []);
+    const contacts = useSelector(({contactsApp}) => contactsApp.contacts.entities);
+    const selectedContactIds = useSelector(({contactsApp}) => contactsApp.contacts.selectedContactIds);
+    const searchText = useSelector(({contactsApp}) => contactsApp.contacts.searchText);
+    const user = useSelector(({contactsApp}) => contactsApp.user);
 
     const [filteredData, setFilteredData] = useState(null);
 

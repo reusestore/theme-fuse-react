@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
 function Boards(props)
 {
     const dispatch = useDispatch();
-    const boards = useSelector(({scrumboardApp}) => scrumboardApp.boards, []);
+    const boards = useSelector(({scrumboardApp}) => scrumboardApp.boards);
 
     const classes = useStyles(props);
 
