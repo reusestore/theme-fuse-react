@@ -38,7 +38,7 @@ function PickersDoc(props)
                         className="normal-case"
                         variant="contained"
                         component="a"
-                        href="https://material-ui-next.com/components/pickers"
+                        href="https://material-ui.com/components/pickers"
                         target="_blank"
                     >
                         <Icon className="mr-4">link</Icon>

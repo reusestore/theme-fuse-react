@@ -38,7 +38,7 @@ function BottomNavigationDoc(props)
                         className="normal-case"
                         variant="contained"
                         component="a"
-                        href="https://material-ui-next.com/components/bottom-navigation"
+                        href="https://material-ui.com/components/bottom-navigation"
                         target="_blank"
                     >
                         <Icon className="mr-4">link</Icon>

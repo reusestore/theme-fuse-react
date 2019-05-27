@@ -38,7 +38,7 @@ function AvatarsDoc(props)
                         className="normal-case"
                         variant="contained"
                         component="a"
-                        href="https://material-ui-next.com/components/avatars"
+                        href="https://material-ui.com/components/avatars"
                         target="_blank"
                     >
                         <Icon className="mr-4">link</Icon>

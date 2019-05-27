@@ -38,7 +38,7 @@ function TypographyDoc(props)
                         className="normal-case"
                         variant="contained"
                         component="a"
-                        href="https://material-ui-next.com/components/typography"
+                        href="https://material-ui.com/components/typography"
                         target="_blank"
                     >
                         <Icon className="mr-4">link</Icon>
@@ -64,7 +64,7 @@ function TypographyDoc(props)
 
                     <FuseHighlight component="pre" className="language-html">
                         {` 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" />
 `}
                     </FuseHighlight>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Install with npm</Typography>

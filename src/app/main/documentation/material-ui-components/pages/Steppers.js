@@ -38,7 +38,7 @@ function SteppersDoc(props)
                         className="normal-case"
                         variant="contained"
                         component="a"
-                        href="https://material-ui-next.com/components/steppers"
+                        href="https://material-ui.com/components/steppers"
                         target="_blank"
                     >
                         <Icon className="mr-4">link</Icon>

@@ -38,7 +38,7 @@ function CheckboxesDoc(props)
                         className="normal-case"
                         variant="contained"
                         component="a"
-                        href="https://material-ui-next.com/components/checkboxes"
+                        href="https://material-ui.com/components/checkboxes"
                         target="_blank"
                     >
                         <Icon className="mr-4">link</Icon>

@@ -38,7 +38,7 @@ function ListsDoc(props)
                         className="normal-case"
                         variant="contained"
                         component="a"
-                        href="https://material-ui-next.com/components/lists"
+                        href="https://material-ui.com/components/lists"
                         target="_blank"
                     >
                         <Icon className="mr-4">link</Icon>

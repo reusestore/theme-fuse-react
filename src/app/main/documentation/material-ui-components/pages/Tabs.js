@@ -38,7 +38,7 @@ function TabsDoc(props)
                         className="normal-case"
                         variant="contained"
                         component="a"
-                        href="https://material-ui-next.com/components/tabs"
+                        href="https://material-ui.com/components/tabs"
                         target="_blank"
                     >
                         <Icon className="mr-4">link</Icon>

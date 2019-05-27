@@ -38,7 +38,7 @@ function AppBarDoc(props)
                         className="normal-case"
                         variant="contained"
                         component="a"
-                        href="https://material-ui-next.com/components/app-bar"
+                        href="https://material-ui.com/components/app-bar"
                         target="_blank"
                     >
                         <Icon className="mr-4">link</Icon>
@@ -127,7 +127,7 @@ function AppBarDoc(props)
                     <ol>
                         <li><Typography className="mb-16" component="div"><code>{`options`}</code> (<em>Object</em> [optional]):</Typography>
                             <ul>
-                                <li><code>{`options.disableHysteresis`}</code> (<em>Boolan</em> [optional]): Defaults to <code>{`false`}</code>. Disable the hysteresis. Ignore the
+                                <li><code>{`options.disableHysteresis`}</code> (<em>Boolean</em> [optional]): Defaults to <code>{`false`}</code>. Disable the hysteresis. Ignore the
                                     scroll direction when determining the <code>{`trigger`}</code> value.
                                 </li>
                                 <li><code>{`options.target`}</code> (<em>Node</em> [optional]): Defaults to <code>{`window`}</code>.</li>

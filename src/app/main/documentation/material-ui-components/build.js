@@ -249,7 +249,7 @@ function writePage(file)
                         className="normal-case"
                         variant="contained" 
                         component="a" 
-                        href="https://next.material-ui.com/components/${path.basename(file)}" 
+                        href="https://material-ui.com/components/${path.basename(file)}" 
                         target="_blank"
                         >
                         <Icon className="mr-4">link</Icon>

@@ -38,7 +38,7 @@ function PopperDoc(props)
                         className="normal-case"
                         variant="contained"
                         component="a"
-                        href="https://material-ui-next.com/components/popper"
+                        href="https://material-ui.com/components/popper"
                         target="_blank"
                     >
                         <Icon className="mr-4">link</Icon>

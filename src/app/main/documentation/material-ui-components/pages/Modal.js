@@ -38,7 +38,7 @@ function ModalDoc(props)
                         className="normal-case"
                         variant="contained"
                         component="a"
-                        href="https://material-ui-next.com/components/modal"
+                        href="https://material-ui.com/components/modal"
                         target="_blank"
                     >
                         <Icon className="mr-4">link</Icon>
@@ -52,12 +52,11 @@ function ModalDoc(props)
                     <Typography className="description">The modal component provides a solid foundation for creating dialogs, popovers, lightboxes, or whatever else.</Typography>
 
                     <Typography className="mb-16" component="div">The component renders its <code>{`children`}</code> node in front of a backdrop component.
-                        The <code>{`Modal`}</code> offers a few helpful features over using just a <a href="/utils/portal/"><code>{`Portal`}</code></a>
-                        component and some styles:</Typography>
+                        The <code>{`Modal`}</code> offers important features:</Typography>
                     <ul>
-                        <li>Manages modal stacking when one-at-a-time just isn&#39;t enough.</li>
-                        <li>Creates a backdrop, for disabling interaction below the modal.</li>
-                        <li>It disables scrolling of the page content while open.</li>
+                        <li>💄 Manages modal stacking when one-at-a-time just isn&#39;t enough.</li>
+                        <li>🔐 Creates a backdrop, for disabling interaction below the modal.</li>
+                        <li>🔐 It disables scrolling of the page content while open.</li>
                         <li>♿️ It properly manages focus; moving to the modal content,
                             and keeping it there until the modal is closed.
                         </li>

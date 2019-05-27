@@ -38,7 +38,7 @@ function ChipsDoc(props)
                         className="normal-case"
                         variant="contained"
                         component="a"
-                        href="https://material-ui-next.com/components/chips"
+                        href="https://material-ui.com/components/chips"
                         target="_blank"
                     >
                         <Icon className="mr-4">link</Icon>

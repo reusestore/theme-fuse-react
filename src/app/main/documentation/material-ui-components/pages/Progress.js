@@ -38,7 +38,7 @@ function ProgressDoc(props)
                         className="normal-case"
                         variant="contained"
                         component="a"
-                        href="https://material-ui-next.com/components/progress"
+                        href="https://material-ui.com/components/progress"
                         target="_blank"
                     >
                         <Icon className="mr-4">link</Icon>

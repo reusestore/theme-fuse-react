@@ -38,7 +38,7 @@ function ClickAwayListenerDoc(props)
                         className="normal-case"
                         variant="contained"
                         component="a"
-                        href="https://material-ui-next.com/components/click-away-listener"
+                        href="https://material-ui.com/components/click-away-listener"
                         target="_blank"
                     >
                         <Icon className="mr-4">link</Icon>
@@ -49,10 +49,14 @@ function ClickAwayListenerDoc(props)
             content={
                 <div className="p-24 max-w-2xl">
                     <Typography className="text-44 mt-32 mb-8" component="h1">Click away listener</Typography>
-                    <Typography className="description">Listen for click events that occur somewhere in the document, outside of the element itself.</Typography>
+                    <Typography className="description">Detect if a click event happened outside of an element. It listens for clicks that occur somewhere in the
+                        document.</Typography>
 
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Simple menu</Typography>
-                    <Typography className="mb-16" component="div">For instance, if you need to hide a menu when people click anywhere else on your page:</Typography>
+                    <ul>
+                        <li>📦 <a href="/size-snapshot">1.4 kB gzipped</a>.</li>
+                    </ul>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Simple menu dropdown</Typography>
+                    <Typography className="mb-16" component="div">For instance, if you need to hide a menu dropdown when people click anywhere else on your page:</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}

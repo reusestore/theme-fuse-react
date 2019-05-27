@@ -38,7 +38,7 @@ function SnackbarsDoc(props)
                         className="normal-case"
                         variant="contained"
                         component="a"
-                        href="https://material-ui-next.com/components/snackbars"
+                        href="https://material-ui.com/components/snackbars"
                         target="_blank"
                     >
                         <Icon className="mr-4">link</Icon>

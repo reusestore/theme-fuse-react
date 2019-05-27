@@ -38,7 +38,7 @@ function AutocompleteDoc(props)
                         className="normal-case"
                         variant="contained"
                         component="a"
-                        href="https://material-ui-next.com/components/autocomplete"
+                        href="https://material-ui.com/components/autocomplete"
                         target="_blank"
                     >
                         <Icon className="mr-4">link</Icon>

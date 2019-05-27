@@ -38,7 +38,7 @@ function DividersDoc(props)
                         className="normal-case"
                         variant="contained"
                         component="a"
-                        href="https://material-ui-next.com/components/dividers"
+                        href="https://material-ui.com/components/dividers"
                         target="_blank"
                     >
                         <Icon className="mr-4">link</Icon>

@@ -38,7 +38,7 @@ function DialogsDoc(props)
                         className="normal-case"
                         variant="contained"
                         component="a"
-                        href="https://material-ui-next.com/components/dialogs"
+                        href="https://material-ui.com/components/dialogs"
                         target="_blank"
                     >
                         <Icon className="mr-4">link</Icon>
@@ -91,6 +91,7 @@ function DialogsDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/dialogs/AlertDialog.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dialogs/AlertDialog.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Transitions</Typography>
                     <Typography className="mb-16" component="div">You can also swap out the transition, the next example uses <code>{`Slide`}</code>.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"

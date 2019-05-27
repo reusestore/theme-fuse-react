@@ -38,7 +38,7 @@ function PopoverDoc(props)
                         className="normal-case"
                         variant="contained"
                         component="a"
-                        href="https://material-ui-next.com/components/popover"
+                        href="https://material-ui.com/components/popover"
                         target="_blank"
                     >
                         <Icon className="mr-4">link</Icon>

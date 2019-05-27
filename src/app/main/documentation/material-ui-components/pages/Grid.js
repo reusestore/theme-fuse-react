@@ -38,7 +38,7 @@ function GridDoc(props)
                         className="normal-case"
                         variant="contained"
                         component="a"
-                        href="https://material-ui-next.com/components/grid"
+                        href="https://material-ui.com/components/grid"
                         target="_blank"
                     >
                         <Icon className="mr-4">link</Icon>

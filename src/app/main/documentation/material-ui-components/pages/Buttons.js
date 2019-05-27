@@ -38,7 +38,7 @@ function ButtonsDoc(props)
                         className="normal-case"
                         variant="contained"
                         component="a"
-                        href="https://material-ui-next.com/components/buttons"
+                        href="https://material-ui.com/components/buttons"
                         target="_blank"
                     >
                         <Icon className="mr-4">link</Icon>

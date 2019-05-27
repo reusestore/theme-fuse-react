@@ -38,7 +38,7 @@ function TransferListDoc(props)
                         className="normal-case"
                         variant="contained"
                         component="a"
-                        href="https://material-ui-next.com/components/transfer-list"
+                        href="https://material-ui.com/components/transfer-list"
                         target="_blank"
                     >
                         <Icon className="mr-4">link</Icon>

@@ -1,6 +1,6 @@
 import React, {Fragment, useState} from 'react';
 import {Icon, IconButton} from '@material-ui/core';
-import {DateTimePicker, MuiPickersUtilsProvider} from 'material-ui-pickers';
+import {DateTimePicker, MuiPickersUtilsProvider} from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 
 function NoteFormReminder(props)
