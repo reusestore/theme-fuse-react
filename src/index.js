@@ -1,4 +1,5 @@
-import 'babel-polyfill'
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
 import 'typeface-muli';
 import './react-table-defaults';
 import './react-chartjs-2-defaults';
