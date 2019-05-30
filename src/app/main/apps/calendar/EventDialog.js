@@ -87,7 +87,7 @@ function EventDialog(props)
 
     function handleRemove()
     {
-        props.removeEvent(form.id);
+        dispatch(Actions.removeEvent(form.id));
         closeComposeDialog();
     }
 
