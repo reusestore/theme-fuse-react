@@ -50,7 +50,9 @@ const FuseScrollbars = React.forwardRef(function FuseScrollbars(props, ref) {
 
     const unHookUpEvents = useCallback(() => {
         Object.keys(handlerByEvent.current).forEach((value, key) => {
-            ref.current.removeEventListener(key, value, false);
+            if(ref.current){
+                ref.current.removeEventListener(key, value, false);
+            }
         });
         handlerByEvent.current.clear();
     }, [ref]);
