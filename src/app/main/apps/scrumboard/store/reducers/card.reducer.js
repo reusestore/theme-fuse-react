@@ -1,6 +1,9 @@
 import * as Actions from '../actions';
 
-const initialState = null;
+const initialState = {
+    dialogOpen: false,
+    data      : null
+};
 
 const cardReducer = function (state = initialState, action) {
     switch ( action.type )
@@ -8,16 +11,24 @@ const cardReducer = function (state = initialState, action) {
         case Actions.OPEN_CARD_DIALOG:
         {
             return {
-                ...action.payload
+                dialogOpen: true,
+                data      : action.payload
+            };
+        }
+        case Actions.UPDATE_CARD:
+        {
+            return {
+                ...state,
+                data: action.payload
             };
         }
         case Actions.REMOVE_CARD:
         {
-            return null;
+            return initialState;
         }
         case Actions.CLOSE_CARD_DIALOG:
         {
-            return null;
+            return initialState;
         }
         default:
             return state;

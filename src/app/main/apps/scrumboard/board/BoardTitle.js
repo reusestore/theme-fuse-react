@@ -21,11 +21,7 @@ function BoardListHeader(props)
     }, [formOpen, resetForm]);
 
     useEffect(() => {
-        if ( form.title !== board.name )
-        {
-            setForm({title: board.name});
-        }
-        // eslint-disable-next-line
+        setForm({title: board.name});
     }, [board.name, setForm]);
 
     function handleOpenForm()

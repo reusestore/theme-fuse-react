@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {
     TextField,
     Button,
@@ -53,26 +53,18 @@ function TodoDialog(props)
     const startDate = moment(form.startDate).format(moment.HTML5_FMT.DATETIME_LOCAL_SECONDS);
     const dueDate = moment(form.dueDate).format(moment.HTML5_FMT.DATETIME_LOCAL_SECONDS);
 
-    useEffect(() => {
-        /**
-         * After Dialog Open
-         */
-        if ( todoDialog.props.open )
-        {
+    const initDialog = useCallback(
+        () => {
             /**
              * Dialog type: 'edit'
-             * Update State
              */
-            if ( todoDialog.type === 'edit' &&
-                todoDialog.data &&
-                !_.isEqual(todoDialog.data, form) )
+            if ( todoDialog.type === 'edit' && todoDialog.data )
             {
                 setForm({...todoDialog.data});
             }
 
             /**
              * Dialog type: 'new'
-             * Update State
              */
             if ( todoDialog.type === 'new' )
             {
@@ -82,9 +74,20 @@ function TodoDialog(props)
                     id: FuseUtils.generateGUID()
                 });
             }
+        },
+        [todoDialog.data, todoDialog.type, setForm]
+    );
+
+    useEffect(() => {
+        /**
+         * After Dialog Open
+         */
+        if ( todoDialog.props.open )
+        {
+            initDialog();
         }
-        // eslint-disable-next-line
-    }, [todoDialog.props.open]);
+
+    }, [todoDialog.props.open, initDialog]);
 
     function closeTodoDialog()
     {

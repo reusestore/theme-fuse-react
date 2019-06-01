@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import {Radio, FormControlLabel, RadioGroup, FormLabel, FormControl, IconButton, TextField, AppBar, Icon, Toolbar, Typography, Avatar} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
 import {useDispatch, useSelector} from 'react-redux';
-import _ from '@lodash';
 import * as Actions from './store/actions';
 import StatusIcon from './StatusIcon';
 import {useForm, useDebounce} from '@fuse/hooks';
@@ -33,25 +32,20 @@ function UserSidebar(props)
 
     const {form, handleChange, setForm} = useForm(user ? {...user} : false);
 
-    const updateUserData = useDebounce(() => {
-        console.info('update user data')
+    const updateUserData = useDebounce((form) => {
         dispatch(Actions.updateUserData(form));
     }, 500);
 
     useEffect(() => {
-        if ( user && !_.isEqual(form, user) )
+        if ( user )
         {
             setForm({...user});
         }
-        // eslint-disable-next-line
-    }, [user]);
+    }, [setForm, user]);
 
     useEffect(() => {
-        if ( form && !_.isEqual(form, user) )
-        {
-            updateUserData();
-        }
-    }, [form, updateUserData, user]);
+        updateUserData(form);
+    }, [form, updateUserData]);
 
     if ( !form )
     {

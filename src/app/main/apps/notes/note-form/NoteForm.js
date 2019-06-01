@@ -31,8 +31,7 @@ function NoteForm(props)
         {
             onChange(noteForm);
         }
-        // eslint-disable-next-line
-    }, [noteForm]);
+    }, [noteForm, onChange]);
 
     function handleOnCreate(event)
     {

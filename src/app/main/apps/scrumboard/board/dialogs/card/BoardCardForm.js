@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react';
+import React, {useCallback, useEffect, useRef} from 'react';
 import {TextField, DialogContent, DialogTitle, Icon, IconButton, Typography, Toolbar, AppBar, Avatar, InputAdornment, Tooltip, List} from '@material-ui/core';
 import {FuseChipSelect} from '@fuse';
-import {useDebounce, useForm} from '@fuse/hooks';
+import {useForm, useDebounce} from '@fuse/hooks';
 import _ from '@lodash';
 import moment from 'moment';
 import {useDispatch, useSelector} from 'react-redux';
@@ -20,7 +20,7 @@ import CardComment from './comment/CardComment';
 function BoardCardForm(props)
 {
     const dispatch = useDispatch();
-    const card = useSelector(({scrumboardApp}) => scrumboardApp.card);
+    const card = useSelector(({scrumboardApp}) => scrumboardApp.card.data);
     const board = useSelector(({scrumboardApp}) => scrumboardApp.board);
 
     const {form: cardForm, handleChange, setForm, setInForm} = useForm(card);
@@ -28,14 +28,16 @@ function BoardCardForm(props)
         dispatch(Actions.updateCard(boardId, {...newCard}));
     }, 600);
     const dueDate = cardForm && cardForm.due ? moment(cardForm.due).format(moment.HTML5_FMT.DATE) : "";
+    const mounted = useRef(false);
 
     useEffect(() => {
-        if ( !_.isEqual(card, cardForm) )
+        if ( mounted.current )
         {
             updateCard(board.id, cardForm);
         }
-        // eslint-disable-next-line
-    }, [cardForm]);
+
+        mounted.current = true;
+    }, [dispatch, board.id, cardForm, updateCard]);
 
     function removeDue()
     {
@@ -88,11 +90,9 @@ function BoardCardForm(props)
         );
     }
 
-    function checkListChange(item)
-    {
-        const index = cardForm.checklists.findIndex((x) => x.id === item.id);
+    const handleCheckListChange = useCallback((item, index) => {
         setInForm(`checklists[${index}]`, item);
-    }
+    }, [setInForm]);
 
     function removeCheckList(id)
     {
@@ -154,7 +154,13 @@ function BoardCardForm(props)
                     <div className="mb-16 sm:mb-0 flex items-center">
                         <Typography>{board.name}</Typography>
                         <Icon className="text-20" color="inherit">chevron_right</Icon>
-                        <Typography>{props.list && props.list.name}</Typography>
+                        {React.useMemo(() => {
+                            const list = card ? _.find(board.lists, (_list) => _list.idCards.includes(card.id)) : null;
+
+                            return (
+                                <Typography>{list && list.name}</Typography>
+                            )
+                        }, [board, card])}
                     </div>
 
                     {cardForm.due && (
@@ -321,11 +327,12 @@ function BoardCardForm(props)
                     </div>
                 )}
 
-                {cardForm.checklists.map(checklist => (
+                {cardForm.checklists.map((checklist, index) => (
                     <CardChecklist
                         key={checklist.id}
                         checklist={checklist}
-                        onCheckListChange={checkListChange}
+                        index={index}
+                        onCheckListChange={handleCheckListChange}
                         onRemoveCheckList={() => removeCheckList(checklist.id)}
                     />
                 ))}

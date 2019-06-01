@@ -55,13 +55,8 @@ function FuseNavHorizontalGroup(props)
     const {item, nestedLevel, dense} = props;
 
     const handleToggle = useDebounce((open) => {
-        if ( opened === open )
-        {
-            return;
-        }
         setOpened(open);
     }, 150);
-
 
     if ( !FuseUtils.hasPermission(item.auth, userRole) )
     {

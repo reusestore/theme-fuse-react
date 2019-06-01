@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React, {useEffect, useState, useRef, useCallback} from 'react';
 import {Icon, Typography, Menu, MenuItem, LinearProgress, List, ListItemText, ListItemIcon, IconButton} from '@material-ui/core';
 import CardChecklistItem from './CardChecklistItem';
 import CardAddChecklistItem from './CardAddChecklistItem';
@@ -8,17 +8,19 @@ import CardChecklistName from './CardChecklistName';
 
 function CardChecklist(props)
 {
+    const {onCheckListChange, checklist, index} = props;
     const [anchorEl, setAnchorEl] = useState(null);
-    const {form, setInForm} = useForm(props.checklist);
+    const {form, setInForm} = useForm(checklist);
     const checkListNameRef = useRef();
+    const mounted = useRef(false);
 
     useEffect(() => {
-        if ( !_.isEqual(props.checklist, form) )
+        if ( mounted.current )
         {
-            props.onCheckListChange(form);
+            onCheckListChange(form, index);
         }
-        // eslint-disable-next-line
-    }, [form]);
+        mounted.current = true;
+    }, [form, index, onCheckListChange]);
 
     function handleOpenNameForm()
     {
@@ -41,11 +43,9 @@ function CardChecklist(props)
         setInForm("name", name);
     }
 
-    function handleListItemChange(item)
-    {
-        const index = form.checkItems.findIndex((x) => x.id === item.id);
+    const handleListItemChange = useCallback((item, index) => {
         setInForm(`checkItems[${index}]`, item);
-    }
+    }, [setInForm]);
 
     function handleListItemRemove(id)
     {
@@ -119,10 +119,11 @@ function CardChecklist(props)
                     />
                 </div>
                 <List className="">
-                    {form.checkItems.map(checkItem => (
+                    {form.checkItems.map((checkItem, index) => (
                         <CardChecklistItem
                             item={checkItem}
                             key={checkItem.id}
+                            index={index}
                             onListItemChange={handleListItemChange}
                             onListItemRemove={() => handleListItemRemove(checkItem.id)}
                         />

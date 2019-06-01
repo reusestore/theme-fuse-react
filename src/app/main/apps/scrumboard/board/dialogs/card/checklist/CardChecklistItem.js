@@ -1,19 +1,20 @@
 import {Icon, IconButton, TextField, Checkbox, ListItem} from '@material-ui/core';
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {useForm} from '@fuse/hooks';
-import _ from '@lodash';
 
 function CardChecklistItem(props)
 {
-    const {form, handleChange} = useForm(props.item);
+    const {item, onListItemChange, index} = props;
+    const {form, handleChange} = useForm(item);
+    const mounted = useRef(false);
 
     useEffect(() => {
-        if ( !_.isEqual(props.item, form) )
+        if ( mounted.current )
         {
-            props.onListItemChange(form);
+            onListItemChange(form, index);
         }
-        // eslint-disable-next-line
-    }, [form]);
+        mounted.current = true;
+    }, [form, index, onListItemChange]);
 
     if ( !form )
     {

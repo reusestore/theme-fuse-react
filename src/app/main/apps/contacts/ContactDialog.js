@@ -1,10 +1,9 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useCallback} from 'react';
 import {TextField, Button, Dialog, DialogActions, DialogContent, Icon, IconButton, Typography, Toolbar, AppBar, Avatar} from '@material-ui/core';
 import {useForm} from '@fuse/hooks';
 import FuseUtils from '@fuse/FuseUtils';
 import * as Actions from './store/actions';
 import {useDispatch, useSelector} from 'react-redux';
-import _ from '@lodash';
 
 const defaultFormState = {
     id      : '',
@@ -28,26 +27,18 @@ function ContactDialog(props)
 
     const {form, handleChange, setForm} = useForm(defaultFormState);
 
-    useEffect(() => {
-        /**
-         * After Dialog Open
-         */
-        if ( contactDialog.props.open )
-        {
+    const initDialog = useCallback(
+        () => {
             /**
              * Dialog type: 'edit'
-             * Update State
              */
-            if ( contactDialog.type === 'edit' &&
-                contactDialog.data &&
-                !_.isEqual(contactDialog.data, form) )
+            if ( contactDialog.type === 'edit' && contactDialog.data )
             {
                 setForm({...contactDialog.data});
             }
 
             /**
              * Dialog type: 'new'
-             * Update State
              */
             if ( contactDialog.type === 'new' )
             {
@@ -57,9 +48,20 @@ function ContactDialog(props)
                     id: FuseUtils.generateGUID()
                 });
             }
+        },
+        [contactDialog.data, contactDialog.type, setForm],
+    );
+
+    useEffect(() => {
+        /**
+         * After Dialog Open
+         */
+        if ( contactDialog.props.open )
+        {
+            initDialog();
         }
-        // eslint-disable-next-line
-    }, [contactDialog.props.open]);
+
+    }, [contactDialog.props.open, initDialog]);
 
     function closeComposeDialog()
     {

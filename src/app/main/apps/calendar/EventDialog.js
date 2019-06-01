@@ -1,9 +1,8 @@
-import React, {useEffect} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {TextField, Button, Dialog, DialogActions, DialogContent, Icon, IconButton, Typography, Toolbar, AppBar, FormControlLabel, Switch} from '@material-ui/core';
 import FuseUtils from '@fuse/FuseUtils';
 import {useForm} from '@fuse/hooks';
 import {useDispatch, useSelector} from 'react-redux';
-import _ from '@lodash';
 import moment from 'moment';
 import * as Actions from './store/actions';
 
@@ -25,26 +24,18 @@ function EventDialog(props)
     let start = moment(form.start).format(moment.HTML5_FMT.DATETIME_LOCAL_SECONDS);
     let end = moment(form.end).format(moment.HTML5_FMT.DATETIME_LOCAL_SECONDS);
 
-    useEffect(() => {
-        /**
-         * After Dialog Open
-         */
-        if ( eventDialog.props.open )
-        {
+    const initDialog = useCallback(
+        () => {
             /**
              * Dialog type: 'edit'
-             * Update State
              */
-            if ( eventDialog.type === 'edit' &&
-                eventDialog.data &&
-                !_.isEqual(eventDialog.data, form) )
+            if ( eventDialog.type === 'edit' && eventDialog.data )
             {
                 setForm({...eventDialog.data});
             }
 
             /**
              * Dialog type: 'new'
-             * Update State
              */
             if ( eventDialog.type === 'new' )
             {
@@ -54,9 +45,19 @@ function EventDialog(props)
                     id: FuseUtils.generateGUID()
                 });
             }
+        },
+        [eventDialog.data, eventDialog.type, setForm],
+    );
+
+    useEffect(() => {
+        /**
+         * After Dialog Open
+         */
+        if ( eventDialog.props.open )
+        {
+            initDialog();
         }
-        // eslint-disable-next-line
-    }, [eventDialog.props.open]);
+    }, [eventDialog.props.open, initDialog]);
 
     function closeComposeDialog()
     {
