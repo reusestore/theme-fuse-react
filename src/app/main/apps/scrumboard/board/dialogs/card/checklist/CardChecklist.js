@@ -1,9 +1,9 @@
-import React, {useEffect, useState, useRef, useCallback} from 'react';
+import React, {useState, useRef, useCallback} from 'react';
 import {Icon, Typography, Menu, MenuItem, LinearProgress, List, ListItemText, ListItemIcon, IconButton} from '@material-ui/core';
 import CardChecklistItem from './CardChecklistItem';
 import CardAddChecklistItem from './CardAddChecklistItem';
 import _ from '@lodash';
-import {useForm} from '@fuse/hooks';
+import {useForm, useUpdateEffect} from '@fuse/hooks';
 import CardChecklistName from './CardChecklistName';
 
 function CardChecklist(props)
@@ -12,14 +12,9 @@ function CardChecklist(props)
     const [anchorEl, setAnchorEl] = useState(null);
     const {form, setInForm} = useForm(checklist);
     const checkListNameRef = useRef();
-    const mounted = useRef(false);
 
-    useEffect(() => {
-        if ( mounted.current )
-        {
-            onCheckListChange(form, index);
-        }
-        mounted.current = true;
+    useUpdateEffect(() => {
+        onCheckListChange(form, index);
     }, [form, index, onCheckListChange]);
 
     function handleOpenNameForm()

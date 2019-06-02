@@ -778,9 +778,8 @@ mock.onPost('/api/scrumboard-app/board/rename').reply((request) => {
 });
 
 mock.onGet('/api/scrumboard-app/board').reply((config) => {
-    const {boardId} = config;
+    const {boardId} = config.params;
     const response = _.find(scrumboardDB.boards, {id: boardId});
-
     if ( response )
     {
         return [200, response];

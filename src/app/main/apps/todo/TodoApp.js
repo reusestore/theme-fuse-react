@@ -24,8 +24,8 @@ function TodoApp(props)
     }, [dispatch]);
 
     useEffect(() => {
-        dispatch(Actions.getTodos(props.match));
-    }, [dispatch, props.match]);
+        dispatch(Actions.getTodos(props.match.params));
+    }, [dispatch, props.match.params]);
 
     return (
         <React.Fragment>

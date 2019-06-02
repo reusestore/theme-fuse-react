@@ -2,11 +2,21 @@ import config from './firebaseServiceConfig';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
+import {AUTH_CONFIG} from '../auth0Service/auth0ServiceConfig';
 
 class firebaseService {
 
     init()
     {
+        if ( Object.entries(AUTH_CONFIG).length === 0 && AUTH_CONFIG.constructor === Object )
+        {
+            if ( process.env.NODE_ENV === 'development' )
+            {
+                console.warn("Missing Firebase Configuration at src/app/services/firebaseService/firebaseServiceConfig.js");
+            }
+            return;
+        }
+
         if ( firebase.apps.length )
         {
             return;

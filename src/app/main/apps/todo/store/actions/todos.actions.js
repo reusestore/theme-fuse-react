@@ -16,17 +16,15 @@ export const CLOSE_EDIT_TODO_DIALOG = '[TODO APP] CLOSE EDIT TODO DIALOG';
 export const TOGGLE_ORDER_DESCENDING = '[TODO APP] TOGGLE ORDER DESCENDING';
 export const CHANGE_ORDER = '[TODO APP] CHANGE ORDER';
 
-export function getTodos(match)
+export function getTodos(params)
 {
-    const request = axios.get('/api/todo-app/todos', {
-        params: match.params
-    });
+    const request = axios.get('/api/todo-app/todos', {params});
 
     return (dispatch) =>
         request.then((response) =>
             dispatch({
                 type       : GET_TODOS,
-                routeParams: match.params,
+                routeParams: params,
                 payload    : response.data
             })
         );

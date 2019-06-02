@@ -1,7 +1,7 @@
-import React, {Fragment, useEffect, useState} from 'react';
+import React, {Fragment, useState} from 'react';
 import {Tooltip, Button, Icon, Input, Typography, IconButton, Fab} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
-import {useForm} from '@fuse/hooks';
+import {useForm, useUpdateEffect} from '@fuse/hooks';
 import moment from 'moment';
 import _ from '@lodash';
 import {withRouter} from 'react-router-dom';
@@ -26,7 +26,7 @@ function NoteForm(props)
         ));
     const {onChange} = props;
 
-    useEffect(() => {
+    useUpdateEffect(() => {
         if ( noteForm && onChange )
         {
             onChange(noteForm);

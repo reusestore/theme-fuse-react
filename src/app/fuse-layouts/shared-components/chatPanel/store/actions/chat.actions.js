@@ -11,8 +11,10 @@ export function getChat(contactId)
     return (dispatch, getState) => {
         const {id: userId} = getState().chatPanel.user;
         const request = axios.get('/api/chat/get-chat', {
-            contactId,
-            userId
+            params: {
+                contactId,
+                userId
+            }
         });
 
         return request.then((response) => {

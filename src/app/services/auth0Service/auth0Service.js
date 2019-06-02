@@ -8,6 +8,15 @@ class auth0Service {
 
     init()
     {
+        if ( Object.entries(AUTH_CONFIG).length === 0 && AUTH_CONFIG.constructor === Object )
+        {
+            if ( process.env.NODE_ENV === 'development' )
+            {
+                console.warn("Missing Auth0 configuration at src/app/services/auth0Service/auth0ServiceConfig.js");
+            }
+            return;
+        }
+
         this.lock = new Auth0Lock(
             AUTH_CONFIG.clientId,
             AUTH_CONFIG.domain,

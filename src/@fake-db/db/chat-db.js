@@ -343,7 +343,7 @@ mock.onGet('/api/chat/contacts').reply((config) => {
 });
 
 mock.onGet('/api/chat/get-chat').reply((request) => {
-    const {contactId, userId} = request;
+    const {contactId, userId} = request.params;
     let response;
     const user = chatDb.user.find(_user => _user.id === userId);
 

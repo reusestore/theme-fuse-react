@@ -22,11 +22,11 @@ function Board(props)
     const [settingsDrawerOpen, setSettingsDrawerOpen] = useState(false);
 
     useEffect(() => {
-        dispatch(Actions.getBoard(props.match.params.boardId));
+        dispatch(Actions.getBoard(props.match.params));
         return () => {
             dispatch(Actions.resetBoard());
         }
-    }, [dispatch, props.match.params.boardId]);
+    }, [dispatch, props.match.params]);
 
     function onDragEnd(result)
     {

@@ -1,19 +1,14 @@
 import {Icon, IconButton, TextField, Checkbox, ListItem} from '@material-ui/core';
-import React, {useEffect, useRef} from 'react';
-import {useForm} from '@fuse/hooks';
+import React from 'react';
+import {useForm, useUpdateEffect} from '@fuse/hooks';
 
 function CardChecklistItem(props)
 {
     const {item, onListItemChange, index} = props;
     const {form, handleChange} = useForm(item);
-    const mounted = useRef(false);
 
-    useEffect(() => {
-        if ( mounted.current )
-        {
-            onListItemChange(form, index);
-        }
-        mounted.current = true;
+    useUpdateEffect(() => {
+        onListItemChange(form, index);
     }, [form, index, onListItemChange]);
 
     if ( !form )

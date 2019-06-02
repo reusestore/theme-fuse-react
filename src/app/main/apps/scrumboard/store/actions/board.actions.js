@@ -22,9 +22,9 @@ export const ADD_LABEL = '[SCRUMBOARD APP] ADD LABEL';
 export const RENAME_LIST = '[SCRUMBOARD APP] RENAME LIST';
 export const REMOVE_LIST = '[SCRUMBOARD APP] REMOVE LIST';
 
-export function getBoard(boardId)
+export function getBoard(params)
 {
-    const request = axios.get('/api/scrumboard-app/board', {boardId});
+    const request = axios.get('/api/scrumboard-app/board', {params});
 
     return (dispatch) =>
         request.then(

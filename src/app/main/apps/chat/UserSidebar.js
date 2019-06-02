@@ -1,10 +1,10 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Radio, FormControlLabel, RadioGroup, FormLabel, FormControl, IconButton, TextField, AppBar, Icon, Toolbar, Typography, Avatar} from '@material-ui/core';
 import {FuseScrollbars} from '@fuse';
 import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from './store/actions';
 import StatusIcon from './StatusIcon';
-import {useForm, useDebounce} from '@fuse/hooks';
+import {useForm, useDebounce, useUpdateEffect} from '@fuse/hooks';
 
 const statusArr = [
     {
@@ -30,20 +30,13 @@ function UserSidebar(props)
     const dispatch = useDispatch();
     const user = useSelector(({chatApp}) => chatApp.user);
 
-    const {form, handleChange, setForm} = useForm(user ? {...user} : false);
+    const {form, handleChange} = useForm(user ? {...user} : false);
 
     const updateUserData = useDebounce((form) => {
         dispatch(Actions.updateUserData(form));
     }, 500);
 
-    useEffect(() => {
-        if ( user )
-        {
-            setForm({...user});
-        }
-    }, [setForm, user]);
-
-    useEffect(() => {
+    useUpdateEffect(() => {
         updateUserData(form);
     }, [form, updateUserData]);
 

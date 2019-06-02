@@ -1,7 +1,7 @@
-import React, {useCallback, useEffect, useRef} from 'react';
+import React, {useCallback} from 'react';
 import {TextField, DialogContent, DialogTitle, Icon, IconButton, Typography, Toolbar, AppBar, Avatar, InputAdornment, Tooltip, List} from '@material-ui/core';
 import {FuseChipSelect} from '@fuse';
-import {useForm, useDebounce} from '@fuse/hooks';
+import {useForm, useDebounce, useUpdateEffect} from '@fuse/hooks';
 import _ from '@lodash';
 import moment from 'moment';
 import {useDispatch, useSelector} from 'react-redux';
@@ -28,15 +28,9 @@ function BoardCardForm(props)
         dispatch(Actions.updateCard(boardId, {...newCard}));
     }, 600);
     const dueDate = cardForm && cardForm.due ? moment(cardForm.due).format(moment.HTML5_FMT.DATE) : "";
-    const mounted = useRef(false);
 
-    useEffect(() => {
-        if ( mounted.current )
-        {
-            updateCard(board.id, cardForm);
-        }
-
-        mounted.current = true;
+    useUpdateEffect(() => {
+        updateCard(board.id, cardForm);
     }, [dispatch, board.id, cardForm, updateCard]);
 
     function removeDue()

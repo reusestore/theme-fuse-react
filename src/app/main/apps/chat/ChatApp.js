@@ -164,7 +164,7 @@ function ChatApp(props)
                         }}
                         style={{position: 'absolute'}}
                         ModalProps={{
-                            keepMounted  : true,
+                            keepMounted  : false,
                             disablePortal: true,
                             BackdropProps: {
                                 classes: {
