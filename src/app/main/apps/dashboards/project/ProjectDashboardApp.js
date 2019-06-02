@@ -109,7 +109,7 @@ function ProjectDashboardApp(props)
                         <Typography className="py-0 sm:py-24" variant="h4">Welcome back, John!</Typography>
                         <Hidden lgUp>
                             <IconButton
-                                onClick={(ev) => pageLayout.toggleRightSidebar()}
+                                onClick={(ev) => pageLayout.current.toggleRightSidebar()}
                                 aria-label="open left sidebar"
                             >
                                 <Icon>menu</Icon>

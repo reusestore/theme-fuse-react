@@ -38,7 +38,7 @@ function PhotosVideosTab()
                                 {period.media.map(media => (
                                     <GridListTile
                                         classes={{
-                                            root: "w-1 sm:w-1/2 md:w-1/4",
+                                            root: "w-full sm:w-1/2 md:w-1/4",
                                             tile: "rounded-8"
                                         }}
                                         key={media.preview}

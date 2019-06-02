@@ -36,7 +36,7 @@ function TypographyUI()
                         <Card>
                             <CardContent>
                                 <div className="flex flex-wrap mb-16">
-                                    <div className="flex w-1 sm:w-1/2">
+                                    <div className="flex w-full sm:w-1/2">
                                         <Typography variant="h1">
                                             Display 4
                                         </Typography>
@@ -50,7 +50,7 @@ function TypographyUI()
                                     </div>
                                 </div>
                                 <div className="flex flex-wrap mb-16">
-                                    <div className="flex w-1 sm:w-1/2">
+                                    <div className="flex w-full sm:w-1/2">
                                         <Typography variant="h2">
                                             Display 3
                                         </Typography>
@@ -64,7 +64,7 @@ function TypographyUI()
                                     </div>
                                 </div>
                                 <div className="flex flex-wrap mb-16">
-                                    <div className="flex w-1 sm:w-1/2">
+                                    <div className="flex w-full sm:w-1/2">
                                         <Typography variant="h3">
                                             Display 2
                                         </Typography>
@@ -78,7 +78,7 @@ function TypographyUI()
                                     </div>
                                 </div>
                                 <div className="flex flex-wrap mb-16">
-                                    <div className="flex w-1 sm:w-1/2">
+                                    <div className="flex w-full sm:w-1/2">
                                         <Typography variant="h4">
                                             Display 1
                                         </Typography>
@@ -92,7 +92,7 @@ function TypographyUI()
                                     </div>
                                 </div>
                                 <div className="flex flex-wrap mb-16">
-                                    <div className="flex w-1 sm:w-1/2">
+                                    <div className="flex w-full sm:w-1/2">
                                         <Typography variant="h5">
                                             Headline
                                         </Typography>
@@ -106,7 +106,7 @@ function TypographyUI()
                                     </div>
                                 </div>
                                 <div className="flex flex-wrap mb-16">
-                                    <div className="flex w-1 sm:w-1/2">
+                                    <div className="flex w-full sm:w-1/2">
                                         <Typography variant="h6">Title</Typography>
                                     </div>
                                     <div className="flex w-full sm:w-1/2">
@@ -118,7 +118,7 @@ function TypographyUI()
                                     </div>
                                 </div>
                                 <div className="flex flex-wrap mb-16">
-                                    <div className="flex w-1 sm:w-1/2">
+                                    <div className="flex w-full sm:w-1/2">
                                         <Typography variant="subtitle1">Subheading</Typography>
                                     </div>
                                     <div className="flex w-full sm:w-1/2">
@@ -130,7 +130,7 @@ function TypographyUI()
                                     </div>
                                 </div>
                                 <div className="flex flex-wrap mb-16">
-                                    <div className="flex w-1 sm:w-1/2">
+                                    <div className="flex w-full sm:w-1/2">
                                         <Typography variant="body1">Body 2</Typography>
                                     </div>
                                     <div className="flex w-full sm:w-1/2">
@@ -142,7 +142,7 @@ function TypographyUI()
                                     </div>
                                 </div>
                                 <div className="flex flex-wrap mb-16">
-                                    <div className="flex w-1 sm:w-1/2">
+                                    <div className="flex w-full sm:w-1/2">
                                         <Typography variant="body2">Body 1</Typography>
                                     </div>
                                     <div className="flex w-full sm:w-1/2">
@@ -154,7 +154,7 @@ function TypographyUI()
                                     </div>
                                 </div>
                                 <div className="flex flex-wrap mb-16">
-                                    <div className="flex w-1 sm:w-1/2">
+                                    <div className="flex w-full sm:w-1/2">
                                         <Typography variant="caption">Caption</Typography>
                                     </div>
                                     <div className="flex w-full sm:w-1/2">
@@ -166,7 +166,7 @@ function TypographyUI()
                                     </div>
                                 </div>
                                 <div className="flex flex-wrap mb-16">
-                                    <div className="flex w-1 sm:w-1/2">
+                                    <div className="flex w-full sm:w-1/2">
                                         <Typography gutterBottom
                                                     noWrap>
                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -183,7 +183,7 @@ function TypographyUI()
                                     </div>
                                 </div>
                                 <div className="flex flex-wrap mb-16">
-                                    <div className="flex w-1 sm:w-1/2">
+                                    <div className="flex w-full sm:w-1/2">
                                         <Typography variant="button">Button</Typography>
                                     </div>
                                     <div className="flex w-full sm:w-1/2">
