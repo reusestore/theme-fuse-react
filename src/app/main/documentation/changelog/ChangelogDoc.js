@@ -23,6 +23,7 @@ const changelogData = [
             <span><i>"createBrowserHistroy is not exported from history.js"</i> error on windows environment(rare)</span>
         ],
         breakingChanges: [
+            <span>react-loadable changed with React.suspense, React.lazy. All route configs updated with React.lazy</span>,
             "classNames() replaced with clsx().",
             <span>We have no longer support Internet Explorer by default. If you still need it, you can install <a
                 href="https://github.com/facebook/create-react-app/tree/master/packages/react-app-polyfill" target="_blank" rel="noopener noreferrer">react-app-polyfill</a> for to support.</span>,
