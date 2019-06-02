@@ -5,11 +5,33 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
     {
-        version        : '3.0.0-beta.0',
-        date           : '2019-',
-        newChanges     : [],
-        fixedChanges   : [],
-        breakingChanges: []
+        version        : '3.0.0',
+        date           : '2019-06-02',
+        newChanges     : [
+            <span>All of the code migrated to <a href="https://reactjs.org/docs/hooks-intro.html" target="_blank" rel="noopener noreferrer">the hooks</a> (New feature of react let you use state and other React features without writing a class.)</span>,
+            "material-ui updated to v4",
+            "react-scripts updated to v3",
+            "react-redux updated to v7.1 (for hooks support)",
+            "tailwindcss updated to v1.0.2",
+            <span>user.role can be array to assign multiple permission roles. For details checkout <a
+                href="http://react-material.fusetheme.com/documentation/fuse-components/fuse-authorization" target="_blank"
+                rel="noopener noreferrer">FuseAuthorization Docs</a>.</span>,
+            "All dependecy packages updated.",
+            "Codebase improved."
+        ],
+        fixedChanges   : [
+            <span><i>"createBrowserHistroy is not exported from history.js"</i> error on windows environment(rare)</span>
+        ],
+        breakingChanges: [
+            "classNames() replaced with clsx().",
+            <span>We have no longer support Internet Explorer by default. If you still need it, you can install <a
+                href="https://github.com/facebook/create-react-app/tree/master/packages/react-app-polyfill" target="_blank" rel="noopener noreferrer">react-app-polyfill</a> for to support.</span>,
+        ],
+        notes          : (
+            <Typography className="text-14 p-12 border-2 rounded-8 w-full max-w-lg mt-16" component="div">
+                Migrating to the new major version (<b>v3.0.0</b>) can be difficult because of the hooks support and major dependency releases.
+            </Typography>
+        )
     },
     {
         version     : '2.2.5',
