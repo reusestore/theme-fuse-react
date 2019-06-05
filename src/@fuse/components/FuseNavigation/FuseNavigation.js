@@ -85,16 +85,7 @@ function FuseNavigation(props)
         {
             case 'horizontal':
             {
-                return (
-                    <React.Fragment>
-                        <Hidden lgUp>
-                            {verticalNav}
-                        </Hidden>
-                        <Hidden mdDown>
-                            {horizontalNav}
-                        </Hidden>
-                    </React.Fragment>
-                )
+                return horizontalNav;
             }
             case 'vertical':
             default:
