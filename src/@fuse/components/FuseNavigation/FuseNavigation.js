@@ -1,5 +1,5 @@
 import React from 'react';
-import {Divider, List, Hidden} from '@material-ui/core';
+import {Divider, List} from '@material-ui/core';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import FuseNavVerticalGroup from './vertical/FuseNavVerticalGroup';
