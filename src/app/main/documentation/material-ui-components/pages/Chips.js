@@ -92,6 +92,22 @@ function ChipsDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/chips/ChipsArray.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/chips/ChipsArray.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Small Chip</Typography>
+                    <Typography className="mb-16" component="div">You can use the <code>{`size`}</code> prop to define a small Chip. </Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Default variant</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/chips/SmallChips.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/chips/SmallChips.js')}
+                    /></Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Outlined variant</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/chips/SmallOutlinedChips.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/chips/SmallOutlinedChips.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Chip Playground</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"

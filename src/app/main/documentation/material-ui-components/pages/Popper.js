@@ -55,7 +55,7 @@ function PopperDoc(props)
                     <ul>
                         <li>🕷 Popper relies on the 3rd party library (<a href="https://github.com/FezVrasta/popper.js">Popper.js</a>) for perfect positioning.</li>
                         <li>💄 It&#39;s an alternative API to react-popper. It aims for simplicity.</li>
-                        <li>📦 <a href="/size-snapshot">10 kB gzipped</a>.</li>
+                        <li>📦 <a href="/size-snapshot">10 kB gzipped</a> (7 kB from Popper.js).</li>
                         <li>The children is <a href="/components/portal/"><code>{`Portal`}</code></a> to the body of the document to avoid rendering problems.
                             You can disable this behavior with <code>{`disablePortal`}</code>.
                         </li>

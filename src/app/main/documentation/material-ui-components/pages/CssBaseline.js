@@ -92,11 +92,15 @@ export default MyApp;
                     </ul>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Typography</Typography>
                     <ul>
-                        <li>Font antialiasing is enabled for better display of the Roboto font.</li>
                         <li>No base font-size is declared on the <code>{`&lt;html&gt;`}</code>, but 16px is assumed (the browser default).
                             You can learn more about the implications of changing the <code>{`&lt;html&gt;`}</code> default font size in <a
                                 href="/customization/typography/#typography-html-font-size">the theme documentation</a> page.
                         </li>
+                        <li>Set the <code>{`theme.typography.body2`}</code> style on the <code>{`&lt;body&gt;`}</code> element.</li>
+                        <li>Set the font-weight to &quot;bolder&quot; for the <code>{`&lt;b&gt;`}</code> and <code>{`&lt;strong&gt;`}</code> elements.
+                            Bolder is one font weight heavier than the parent element (among the available weights of the font).
+                        </li>
+                        <li>Font antialiasing is enabled for better display of the Roboto font.</li>
                     </ul>
 
                 </div>

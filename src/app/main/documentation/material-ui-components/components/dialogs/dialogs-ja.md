@@ -40,6 +40,8 @@ If a title is required:
 
 {{"demo": "pages/components/dialogs/AlertDialog.js"}}
 
+## Transições
+
 You can also swap out the transition, the next example uses `Slide`.
 
 {{"demo": "pages/components/dialogs/AlertDialogSlide.js"}}
@@ -82,7 +84,7 @@ Touching “Cancel” in a confirmation dialog, or pressing Back, cancels the ac
 
 {{"demo": "pages/components/dialogs/ConfirmationDialog.js"}}
 
-## Accessibility
+## アクセシビリティ
 
 Follow the [Modal accessibility section](/components/modal/#accessibility).
 

@@ -5,6 +5,17 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
     {
+        version   : '3.0.1',
+        date      : '2019-06-18',
+        newChanges: [
+            "material-ui updated to v4.1.1",
+            "react-redux updated to v7.1.0",
+            "react-router updated to v5.0.1",
+            "tailwindcss updated to v1.0.4",
+            "All dependency packages updated."
+        ]
+    },
+    {
         version        : '3.0.0',
         date           : '2019-06-02',
         newChanges     : [
@@ -16,7 +27,7 @@ const changelogData = [
             <span>user.role can be array to assign multiple permission roles. For details checkout <a
                 href="http://react-material.fusetheme.com/documentation/fuse-components/fuse-authorization" target="_blank"
                 rel="noopener noreferrer">FuseAuthorization Docs</a>.</span>,
-            "All dependecy packages updated.",
+            "All dependency packages updated.",
             "Codebase improved."
         ],
         fixedChanges   : [

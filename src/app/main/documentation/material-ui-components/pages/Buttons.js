@@ -98,6 +98,23 @@ function ButtonsDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/buttons/OutlinedButtons.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/OutlinedButtons.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Grouped Buttons</Typography>
+                    <Typography className="mb-16" component="div">The ButtonGroup component can be used to group outlined (the default) or contained buttons.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/buttons/GroupedButtons.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/GroupedButtons.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Split Button</Typography>
+                    <Typography className="mb-16" component="div">ButtonGroup can also be used to create a split button. The dropdown can change the button action (as in this
+                        example), or be use to immediately trigger a related action.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/buttons/SplitButton.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/SplitButton.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Floating Action Buttons</Typography>
                     <Typography className="mb-16" component="div">A <a href="https://material.io/design/components/buttons-floating-action-button.html">floating action button</a>
                         (FAB) performs the primary, or most common, action on a screen.

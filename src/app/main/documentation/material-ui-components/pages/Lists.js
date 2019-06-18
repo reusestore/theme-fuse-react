@@ -171,6 +171,9 @@ function ListItemLink(props) {
                         component={require('app/main/documentation/material-ui-components/components/lists/VirtualizedList.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/lists/VirtualizedList.js')}
                     /></Typography>
+                    <Typography className="mb-16" component="div">We encourage the use of <a href="https://github.com/bvaughn/react-window">react-window</a> when possible.
+                        If this library doesn&#39;t cover your use case, you should consider using <a href="https://github.com/bvaughn/react-virtualized">react-virtualized</a>,
+                        then alternatives like <a href="https://github.com/petyosi/react-virtuoso">react-virtuoso</a>.</Typography>
 
                 </div>
             }
