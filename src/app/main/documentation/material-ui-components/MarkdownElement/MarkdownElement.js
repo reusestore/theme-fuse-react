@@ -271,7 +271,6 @@ function MarkdownElement(props)
 }
 
 MarkdownElement.propTypes = {
-    classes  : PropTypes.object.isRequired,
     className: PropTypes.string,
     text     : PropTypes.string
 };
