@@ -3,7 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 
-function SimpleContainer() {
+export default function SimpleContainer() {
   return (
     <React.Fragment>
       <CssBaseline />
@@ -13,5 +13,3 @@ function SimpleContainer() {
     </React.Fragment>
   );
 }
-
-export default SimpleContainer;

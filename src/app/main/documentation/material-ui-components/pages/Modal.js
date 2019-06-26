@@ -61,7 +61,7 @@ function ModalDoc(props)
                             and keeping it there until the modal is closed.
                         </li>
                         <li>♿️ Adds the appropriate ARIA roles automatically.</li>
-                        <li>📦 <a href="/size-snapshot">6.5 kB gzipped</a>.</li>
+                        <li>📦 <a href="/size-snapshot">5 kB gzipped</a>.</li>
                     </ul>
                     <blockquote>
                         <Typography className="mb-16" component="div"><strong>Terminology note</strong>. The term &quot;modal&quot; is sometimes used to mean &quot;dialog&quot;,

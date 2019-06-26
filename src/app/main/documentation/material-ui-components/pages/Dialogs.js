@@ -137,10 +137,21 @@ function DialogsDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dialogs/MaxWidthDialog.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Responsive full-screen</Typography>
-                    <Typography className="mb-16" component="div">You may make a dialog responsively full screen using <code>{`withMobileDialog`}</code>. By
-                        default, <code>{`withMobileDialog()(Dialog)`}</code> responsively full screens <em>at or below</em> the <code>{`sm`}</code> <a
-                            href="/customization/breakpoints/">screen size</a>. You can choose your own breakpoint for example <code>{`xs`}</code> by passing
-                        the <code>{`breakpoint`}</code> argument: <code>{`withMobileDialog({breakpoint: &#39;xs&#39;})(Dialog)`}</code>.</Typography>
+                    <Typography className="mb-16" component="div">You may make a dialog responsively full screen using <a
+                        href="/components/use-media-query/#usemediaquery"><code>{`useMediaQuery`}</code></a>.</Typography>
+
+                    <FuseHighlight component="pre" className="language-jsx">
+                        {` 
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
+function MyComponent() {
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
+  return <Dialog fullScreen={fullScreen} />
+}
+`}
+                    </FuseHighlight>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}

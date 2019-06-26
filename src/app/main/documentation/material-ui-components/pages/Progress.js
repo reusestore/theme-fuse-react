@@ -49,7 +49,8 @@ function ProgressDoc(props)
             content={
                 <div className="p-24 max-w-2xl">
                     <Typography className="text-44 mt-32 mb-8" component="h1">Progress</Typography>
-                    <Typography className="description">Progress indicators express an unspecified wait time or display the length of a process.</Typography>
+                    <Typography className="description">Progress indicators commonly known as spinners, express an unspecified wait time or display the length of a process. The
+                        animation works with CSS, not JavaScript.</Typography>
 
                     <Typography className="mb-16" component="div"><a href="https://material.io/design/components/progress-indicators.html">Progress indicators</a> inform users
                         about the status of ongoing processes, such as loading an app, submitting a form, or saving updates. They communicate an app’s state and indicate available

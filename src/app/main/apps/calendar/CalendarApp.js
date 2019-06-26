@@ -3,7 +3,7 @@ import {Fab, Icon} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate} from '@fuse';
 import {useDispatch, useSelector} from 'react-redux';
-import BigCalendar from 'react-big-calendar'
+import {Calendar, momentLocalizer, Views} from 'react-big-calendar'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
 import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
@@ -16,11 +16,11 @@ import EventDialog from './EventDialog';
 import CalendarHeader from './CalendarHeader';
 import * as ReactDOM from 'react-dom';
 
-const localizer = BigCalendar.momentLocalizer(moment);
+const localizer = momentLocalizer(moment);
 
-const DragAndDropCalendar = withDragAndDrop(BigCalendar);
+const DragAndDropCalendar = withDragAndDrop(Calendar);
 
-let allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k]);
+let allViews = Object.keys(Views).map(k => Views[k]);
 
 const useStyles = makeStyles(theme => ({
     root     : {
@@ -204,7 +204,7 @@ function CalendarApp(props)
                 onEventDrop={moveEvent}
                 resizable
                 onEventResize={resizeEvent}
-                defaultView={BigCalendar.Views.MONTH}
+                defaultView={Views.MONTH}
                 defaultDate={new Date(2018, 3, 1)}
                 startAccessor="start"
                 endAccessor="end"
