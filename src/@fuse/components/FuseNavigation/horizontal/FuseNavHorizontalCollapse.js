@@ -94,51 +94,53 @@ function FuseNavHorizontalCollapse(props)
                         positionFixed
                     >
                         {({ref, style, placement, arrowProps}) => (
-                            <div
-                                ref={ref}
-                                style={{
-                                    ...style,
-                                    zIndex: 999 + nestedLevel + 1
-                                }}
-                                data-placement={placement}
-                                className={clsx(classes.popper, {[classes.popperClose]: !opened})}
-                            >
-                                <Grow in={opened} id="menu-list-grow" style={{transformOrigin: '0 0 0'}}>
-                                    <Paper
-                                        onMouseEnter={() => handleToggle(true)}
-                                        onMouseLeave={() => handleToggle(false)}
-                                    >
-                                        {item.children && (
-                                            <ul className={clsx(classes.children, "pl-0")}>
-                                                {
-                                                    item.children.map((item) => (
+                            opened && (
+                                <div
+                                    ref={ref}
+                                    style={{
+                                        ...style,
+                                        zIndex: 999 + nestedLevel + 1
+                                    }}
+                                    data-placement={placement}
+                                    className={clsx(classes.popper, {[classes.popperClose]: !opened})}
+                                >
+                                    <Grow in={opened} id="menu-list-grow" style={{transformOrigin: '0 0 0'}}>
+                                        <Paper
+                                            onMouseEnter={() => handleToggle(true)}
+                                            onMouseLeave={() => handleToggle(false)}
+                                        >
+                                            {item.children && (
+                                                <ul className={clsx(classes.children, "pl-0")}>
+                                                    {
+                                                        item.children.map((item) => (
 
-                                                        <React.Fragment key={item.id}>
+                                                            <React.Fragment key={item.id}>
 
-                                                            {item.type === 'group' && (
-                                                                <FuseNavHorizontalGroup item={item} nestedLevel={nestedLevel + 1} dense={dense}/>
-                                                            )}
+                                                                {item.type === 'group' && (
+                                                                    <FuseNavHorizontalGroup item={item} nestedLevel={nestedLevel + 1} dense={dense}/>
+                                                                )}
 
-                                                            {item.type === 'collapse' && (
-                                                                <NavHorizontalCollapse item={item} nestedLevel={nestedLevel + 1} dense={dense}/>
-                                                            )}
+                                                                {item.type === 'collapse' && (
+                                                                    <NavHorizontalCollapse item={item} nestedLevel={nestedLevel + 1} dense={dense}/>
+                                                                )}
 
-                                                            {item.type === 'item' && (
-                                                                <FuseNavHorizontalItem item={item} nestedLevel={nestedLevel + 1} dense={dense}/>
-                                                            )}
+                                                                {item.type === 'item' && (
+                                                                    <FuseNavHorizontalItem item={item} nestedLevel={nestedLevel + 1} dense={dense}/>
+                                                                )}
 
-                                                            {item.type === 'link' && (
-                                                                <FuseNavHorizontalLink item={item} nestedLevel={nestedLevel + 1} dense={dense}/>
-                                                            )}
+                                                                {item.type === 'link' && (
+                                                                    <FuseNavHorizontalLink item={item} nestedLevel={nestedLevel + 1} dense={dense}/>
+                                                                )}
 
-                                                        </React.Fragment>
-                                                    ))
-                                                }
-                                            </ul>
-                                        )}
-                                    </Paper>
-                                </Grow>
-                            </div>
+                                                            </React.Fragment>
+                                                        ))
+                                                    }
+                                                </ul>
+                                            )}
+                                        </Paper>
+                                    </Grow>
+                                </div>
+                            )
                         )}
                     </Popper>,
                     document.querySelector('#root')
