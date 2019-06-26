@@ -5,6 +5,16 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
     {
+        version   : '3.1.0',
+        date      : '2019-06-27',
+        newChanges: [
+            "material-ui updated to v4.1.3",
+            "react-big-calendar updated to v0.22.0",
+            "Await render while auto re-login on refresh or revisit of the authenticated user. It also solves extra redirection.",
+            "All dependency packages updated."
+        ]
+    },
+    {
         version   : '3.0.1',
         date      : '2019-06-18',
         newChanges: [

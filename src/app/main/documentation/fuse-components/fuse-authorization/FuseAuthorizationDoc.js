@@ -170,66 +170,59 @@ function FuseAuthorizationDoc()
                             `}
                     </FuseHighlight>
 
-                    <Typography className="mt-48 mb-4" variant="h6">On routesConfig.js file:</Typography>
-                    <Typography className="mb-12" variant="subtitle2">(Making the whole app auth protected)</Typography>
+                    <Typography className="mt-48 mb-4" variant="h6">Making the whole app auth protected:</Typography>
+                    <Typography className="mb-12" variant="subtitle2">On routesConfig.js file</Typography>
 
                     <Typography className="mb-16" component="p">
                         If you don't want to set auth on every page config;
-                        <br/>You can group the configs and define authorization in the <code>src/app/fuse-configs/routesConfig.js</code> file,
-                        <br/>With this configuration below, makes <b>whole app</b> auth protected:
+                        <br/>You can give default auth role value in the <code>src/app/fuse-configs/routesConfig.js</code> file,
+                        <br/>Set defaultAuth paramater <code>FuseUtils.generateRoutesFromConfigs(routeConfigs, ['admin','staff','user'])</code>,
+                        <br/>The individual route configs which has auth option won't be overridden,
+                        <br/>With this configuration below, makes <b>whole app</b> auth protected by default:
                     </Typography>
 
                     <FuseHighlight component="pre" className="language-js">
                         {`
-                                    import React from 'react';
-                                    import {Redirect} from 'react-router-dom';
-                                    import {FuseUtils} from '@fuse';
-                                    import {appsConfigs} from 'app/main/apps/appsConfigs';
-                                    import {pagesConfigs} from 'app/main/pages/pagesConfigs';
-                                    import {authRoleExamplesConfigs} from 'app/main/auth/authRoleExamplesConfigs';
-                                    import {UserInterfaceConfig} from 'app/main/user-interface/UserInterfaceConfig';
-                                    import {ComponentsConfig} from 'app/main/components/ComponentsConfig';
-                                    import {DocumentationConfig} from 'app/main/documentation/DocumentationConfig';
-                                    import {LoginConfig} from 'app/main/login/LoginConfig';
-                                    import {RegisterConfig} from 'app/main/register/RegisterConfig';
-                                    import {LogoutConfig} from 'app/main/logout/LogoutConfig';
-                                    import {CallbackConfig} from 'app/main/callback/CallbackConfig';
-                                    import {authRoles} from 'app/auth';
-                                    import _ from 'lodash';
-
-                                    function setAdminAuth(configs)
+                                import React from 'react';
+                                import {Redirect} from 'react-router-dom';
+                                import {FuseUtils} from '@fuse/index';
+                                import {appsConfigs} from 'app/main/apps/appsConfigs';
+                                import {pagesConfigs} from 'app/main/pages/pagesConfigs';
+                                import {authRoleExamplesConfigs} from 'app/main/auth/authRoleExamplesConfigs';
+                                import {UserInterfaceConfig} from 'app/main/user-interface/UserInterfaceConfig';
+                                import {DocumentationConfig} from 'app/main/documentation/DocumentationConfig';
+                                import {LoginConfig} from 'app/main/login/LoginConfig';
+                                import {RegisterConfig} from 'app/main/register/RegisterConfig';
+                                import {LogoutConfig} from 'app/main/logout/LogoutConfig';
+                                import {CallbackConfig} from 'app/main/callback/CallbackConfig';
+                                
+                                const routeConfigs = [
+                                    ...appsConfigs,
+                                    ...pagesConfigs,
+                                    ...authRoleExamplesConfigs,
+                                    UserInterfaceConfig,
+                                    DocumentationConfig,
+                                    LogoutConfig,
+                                    LoginConfig,
+                                    RegisterConfig,
+                                    LogoutConfig,
+                                    CallbackConfig,
+                                ];
+                                
+                                const routes = [
+                                    ...FuseUtils.generateRoutesFromConfigs(routeConfigs, ['admin','staff','user']),
                                     {
-                                        return configs.map(config => _.merge({}, config, {auth: authRoles.admin}))
+                                        path     : '/',
+                                        exact    : true,
+                                        component: () => <Redirect to="/apps/dashboards/analytics"/>
+                                    },
+                                    {
+                                        component: () => <Redirect to="/pages/errors/error-404"/>
                                     }
+                                ];
+                                
+                                export default routes;
 
-                                    const routeConfigs = [
-                                        ...setAdminAuth([
-                                            ...appsConfigs,
-                                            ...pagesConfigs,
-                                            ...authRoleExamplesConfigs,
-                                            ComponentsConfig,
-                                            UserInterfaceConfig,
-                                            DocumentationConfig,
-                                            LogoutConfig
-                                        ]),
-                                        LoginConfig,
-                                        RegisterConfig,
-                                        CallbackConfig
-                                    ];
-
-                                    const routes = [
-                                        ...FuseUtils.generateRoutesFromConfigs(routeConfigs),
-                                        {
-                                            path     : '/',
-                                            component: () => <Redirect to="/apps/dashboards/analytics"/>
-                                        },
-                                        {
-                                            exact    : true,
-                                            component: () => <Redirect to="/pages/errors/error-404"/>
-                                        }
-                                    ];
-
-                                    export default routes;
                             `}
                     </FuseHighlight>
 

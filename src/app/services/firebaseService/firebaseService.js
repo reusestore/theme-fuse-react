@@ -6,7 +6,7 @@ import {AUTH_CONFIG} from '../auth0Service/auth0ServiceConfig';
 
 class firebaseService {
 
-    init()
+    init(success)
     {
         if ( Object.entries(AUTH_CONFIG).length === 0 && AUTH_CONFIG.constructor === Object )
         {
@@ -14,6 +14,7 @@ class firebaseService {
             {
                 console.warn("Missing Firebase Configuration at src/app/services/firebaseService/firebaseServiceConfig.js");
             }
+            success(false);
             return;
         }
 
@@ -24,6 +25,7 @@ class firebaseService {
         firebase.initializeApp(config);
         this.db = firebase.database();
         this.auth = firebase.auth();
+        success(true);
     }
 
     getUserData = (userId) => {

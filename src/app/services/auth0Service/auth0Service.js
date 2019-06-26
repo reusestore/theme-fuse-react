@@ -6,7 +6,7 @@ import {AUTH_CONFIG} from './auth0ServiceConfig';
 class auth0Service {
     sdk = {auth0Manage: null};
 
-    init()
+    init(success)
     {
         if ( Object.entries(AUTH_CONFIG).length === 0 && AUTH_CONFIG.constructor === Object )
         {
@@ -14,6 +14,7 @@ class auth0Service {
             {
                 console.warn("Missing Auth0 configuration at src/app/services/auth0Service/auth0ServiceConfig.js");
             }
+            success(false);
             return;
         }
 
@@ -35,6 +36,7 @@ class auth0Service {
             }
         );
         this.handleAuthentication();
+        success(true);
     }
 
     login = () => {

@@ -105,7 +105,7 @@ function RoutingDoc()
                                 ];
 
                                 export const routes = [
-                                    ...FuseUtils.generateRoutesFromConfigs(routeConfigs),
+                                    ...FuseUtils.generateRoutesFromConfigs(routeConfigs, null),
                                     {
                                         path     : '/',
                                         component: () => <Redirect to="/pages/errors/error-404"/>

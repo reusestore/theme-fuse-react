@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {FuseSplashScreen} from '@fuse';
 import {connect} from 'react-redux';
 import * as userActions from 'app/auth/store/actions';
 import {bindActionCreators} from 'redux';
@@ -8,28 +9,25 @@ import auth0Service from 'app/services/auth0Service';
 import jwtService from 'app/services/jwtService';
 
 class Auth extends Component {
-    /*eslint-disable-next-line no-useless-constructor*/
-    constructor(props)
-    {
-        super(props);
 
-        /**
-         * Comment the line if you do not use JWt
-         */
-        this.jwtCheck();
-
-        /**
-         * Comment the line if you do not use Auth0
-         */
-        this.auth0Check();
-
-        /**
-         * Comment the line if you do not use Firebase
-         */
-        this.firebaseCheck();
+    state = {
+        waitAuthCheck: true
     }
 
-    jwtCheck = () => {
+    componentDidMount()
+    {
+        return Promise.all([
+            // Comment the lines which you do not use
+            this.firebaseCheck(),
+            this.auth0Check(),
+            this.jwtCheck()
+        ]).then(() => {
+            this.setState({waitAuthCheck: false})
+        })
+    }
+
+    jwtCheck = () => new Promise(resolve => {
+
         jwtService.on('onAutoLogin', () => {
 
             this.props.showMessage({message: 'Logging in with JWT'});
@@ -39,29 +37,52 @@ class Auth extends Component {
              */
             jwtService.signInWithToken()
                 .then(user => {
+
                     this.props.setUserData(user);
+
+                    resolve();
 
                     this.props.showMessage({message: 'Logged in with JWT'});
                 })
                 .catch(error => {
+
                     this.props.showMessage({message: error});
+
+                    resolve();
                 })
         });
 
         jwtService.on('onAutoLogout', (message) => {
+
             if ( message )
             {
                 this.props.showMessage({message});
             }
+
             this.props.logout();
+
+            resolve();
+        });
+
+        jwtService.on('onNoAccessToken', () => {
+
+            resolve();
         });
 
         jwtService.init();
-    };
 
-    auth0Check = () => {
+        return Promise.resolve();
+    })
 
-        auth0Service.init();
+    auth0Check = () => new Promise(resolve => {
+        auth0Service.init(
+            success => {
+                if ( !success )
+                {
+                    resolve();
+                }
+            }
+        );
 
         if ( auth0Service.isAuthenticated() )
         {
@@ -74,18 +95,34 @@ class Auth extends Component {
 
                 this.props.setUserDataAuth0(tokenData);
 
+                resolve();
+
                 this.props.showMessage({message: 'Logged in with Auth0'});
             })
         }
-    };
+        else
+        {
+            resolve();
+        }
 
-    firebaseCheck = () => {
+        return Promise.resolve();
+    })
 
-        firebaseService.init();
+    firebaseCheck = () => new Promise(resolve => {
+
+        firebaseService.init(
+            success => {
+                if ( !success )
+                {
+                    resolve();
+                }
+            }
+        );
 
         firebaseService.onAuthStateChanged(authUser => {
             if ( authUser )
             {
+
                 this.props.showMessage({message: 'Logging in with Firebase'});
 
                 /**
@@ -95,21 +132,26 @@ class Auth extends Component {
 
                     this.props.setUserDataFirebase(user, authUser);
 
+                    resolve();
+
                     this.props.showMessage({message: 'Logged in with Firebase'});
+                }, error => {
+
+                    resolve();
                 })
             }
+            else
+            {
+                resolve();
+            }
         });
-    };
+
+        return Promise.resolve();
+    })
 
     render()
     {
-        const {children} = this.props;
-
-        return (
-            <React.Fragment>
-                {children}
-            </React.Fragment>
-        );
+        return this.state.waitAuthCheck ? <FuseSplashScreen/> : <React.Fragment children={this.props.children}/>;
     }
 }
 

@@ -52,6 +52,7 @@ function JWTLoginTab(props)
                     type="text"
                     name="email"
                     label="Username/Email"
+                    value="admin"
                     validations={{
                         minLength: 4
                     }}
@@ -70,6 +71,7 @@ function JWTLoginTab(props)
                     type="password"
                     name="password"
                     label="Password"
+                    value="admin"
                     validations={{
                         minLength: 4
                     }}

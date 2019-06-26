@@ -32,6 +32,8 @@ class jwtService extends FuseUtils.EventEmitter {
 
         if ( !access_token )
         {
+            this.emit('onNoAccessToken');
+
             return;
         }
 

@@ -164,14 +164,14 @@ class FuseUtils {
             .replace(/-+$/, '');            // Trim - from end of text
     }
 
-    static setRoutes(config)
+    static setRoutes(config, defaultAuth)
     {
         let routes = [...config.routes];
 
         if ( config.settings || config.auth )
         {
             routes = routes.map((route) => {
-                let auth = config.auth ? [...config.auth] : null;
+                let auth = config.auth ? [...config.auth] : defaultAuth || null;
                 auth = route.auth ? [...auth, ...route.auth] : auth;
                 return {
                     ...route,
@@ -184,13 +184,13 @@ class FuseUtils {
         return [...routes];
     }
 
-    static generateRoutesFromConfigs(configs)
+    static generateRoutesFromConfigs(configs, defaultAuth)
     {
         let allRoutes = [];
         configs.forEach((config) => {
             allRoutes = [
                 ...allRoutes,
-                ...this.setRoutes(config)
+                ...this.setRoutes(config, defaultAuth)
             ]
         });
         return allRoutes;
