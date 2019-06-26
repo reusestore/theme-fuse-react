@@ -61,7 +61,7 @@ function Login()
                             value={selectedTab}
                             onChange={handleTabChange}
                             variant="fullWidth"
-                            className="mb-32"
+                            className="w-full mb-32"
                         >
                             <Tab
                                 icon={<img className="h-40 p-4 bg-black rounded-12" src="assets/images/logos/jwt.svg" alt="firebase"/>}
