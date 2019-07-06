@@ -28,11 +28,8 @@ function BoardListHeader(props)
     }, [anchorEl, formOpen, resetForm]);
 
     useEffect(() => {
-        if ( form.title !== props.list.name )
-        {
-            setForm({title: props.list.name});
-        }
-    }, [form.title, props.list.name, setForm]);
+        setForm({title: props.list.name});
+    }, [props.list.name, setForm]);
 
     function handleMenuClick(event)
     {

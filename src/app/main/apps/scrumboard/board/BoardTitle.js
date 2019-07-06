@@ -4,7 +4,7 @@ import * as Actions from '../store/actions';
 import {useForm} from '@fuse/hooks';
 import {useDispatch, useSelector} from 'react-redux';
 
-function BoardListHeader(props)
+function BoardTitle(props)
 {
     const dispatch = useDispatch();
     const board = useSelector(({scrumboardApp}) => scrumboardApp.board);
@@ -97,4 +97,4 @@ function BoardListHeader(props)
     );
 }
 
-export default BoardListHeader;
+export default BoardTitle;
