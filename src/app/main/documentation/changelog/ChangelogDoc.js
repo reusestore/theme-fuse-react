@@ -5,6 +5,22 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
     {
+        version        : '3.2.0',
+        date           : '2019-07-31',
+        newChanges     : [
+            "material-ui updated to v4.3.0",
+            "tailwind config updated.",
+            "All dependency packages updated."
+        ],
+        fixedChanges   : [
+            "Academy App is not scroll correctly when the theme footer is static.",
+            "Scrumboard App list name form not works.",
+        ],
+        breakingChanges: [
+            "tailwindcss colors matched with material colors (shade values changed with hues for example: .bg-red-dark to .bg-red-700)",
+        ]
+    },
+    {
         version   : '3.1.0',
         date      : '2019-06-27',
         newChanges: [
