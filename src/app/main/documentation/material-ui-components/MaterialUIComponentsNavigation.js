@@ -169,6 +169,11 @@ export const MaterialUIComponentsNavigation = [{
     'type': 'item',
     'url': '/documentation/material-ui-components/selects'
 }, {
+    'id': 'slider',
+    'title': 'Slider',
+    'type': 'item',
+    'url': '/documentation/material-ui-components/slider'
+}, {
     'id': 'snackbars',
     'title': 'Snackbars',
     'type': 'item',
@@ -198,6 +203,11 @@ export const MaterialUIComponentsNavigation = [{
     'title': 'Text Fields',
     'type': 'item',
     'url': '/documentation/material-ui-components/text-fields'
+}, {
+    'id': 'textareaAutosize',
+    'title': 'Textarea Autosize',
+    'type': 'item',
+    'url': '/documentation/material-ui-components/textarea-autosize'
 }, {
     'id': 'tooltips',
     'title': 'Tooltips',

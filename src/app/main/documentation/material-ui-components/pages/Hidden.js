@@ -40,6 +40,7 @@ function HiddenDoc(props)
                         component="a"
                         href="https://material-ui.com/components/hidden"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -57,7 +58,7 @@ function HiddenDoc(props)
                         or you can use it in conjunction with our <a href="/components/grid/"><code>{`Grid`}</code></a> component.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">How it works</Typography>
                     <Typography className="mb-16" component="div">Hidden works with a range of breakpoints e.g. <code>{`xsUp`}</code> or <code>{`mdDown`}</code>, or one or more
-                        breakpoints e.g. <code>{`only=&#39;sm&#39;`}</code> or <code>{`only={[&#39;md&#39;, &#39;xl&#39;]}`}</code>.
+                        breakpoints e.g. <code>{`only='sm'`}</code> or <code>{`only={['md', 'xl']}`}</code>.
                         Ranges and individual breakpoints can be used simultaneously to achieve very customized behavior.
                         The ranges are inclusive of the specified breakpoints.</Typography>
 
@@ -78,8 +79,8 @@ mdDown      |                     hide | show
                         href="/customization/breakpoints/#withwidth"><code>{`withWidth()`}</code></a> higher-order component that watches screen size.
                         This has the benefit of not rendering any content at all unless the breakpoint is met.</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">css</Typography>
-                    <Typography className="mb-16" component="div">If you are using server-side rendering, you can set <code>{`implementation=&quot;css&quot;`}</code> if you
-                        don&#39;t want the browser to re-flow your content on the screen.</Typography>
+                    <Typography className="mb-16" component="div">If you are using server-side rendering, you can set <code>{`implementation="css"`}</code> if you don&#39;t want
+                        the browser to re-flow your content on the screen.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Breakpoint up</Typography>
                     <Typography className="mb-16" component="div">Using any breakpoint <code>{`up`}</code> property, the given <em>children</em> will be hidden <em>at or
                         above</em> the breakpoint.</Typography>

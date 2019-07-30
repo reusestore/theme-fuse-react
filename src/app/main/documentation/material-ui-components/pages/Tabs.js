@@ -40,6 +40,7 @@ function TabsDoc(props)
                         component="a"
                         href="https://material-ui.com/components/tabs"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -82,7 +83,7 @@ function TabsDoc(props)
                     <Typography className="mb-16" component="div">Fixed tabs should be used with a limited number of tabs and when consistent placement will aid muscle
                         memory.</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Full width</Typography>
-                    <Typography className="mb-16" component="div">The <code>{`variant=&quot;fullWidth&quot;`}</code> property should be used for smaller views.
+                    <Typography className="mb-16" component="div">The <code>{`variant="fullWidth"`}</code> property should be used for smaller views.
                         This demo also uses <a href="https://github.com/oliviertassinari/react-swipeable-views">react-swipeable-views</a> to animate the Tab transition, and
                         allowing tabs to be swiped on touch devices.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -137,6 +138,13 @@ function TabsDoc(props)
                     /></Typography>
                     <Typography className="mb-16" component="div">👑 If you are looking for inspiration, you can check <a href="https://mui-treasury.com/components/tabs">MUI
                         Treasury&#39;s customization examples</a>.</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Vertical tabs</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/tabs/VerticalTabs.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/VerticalTabs.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Nav Tabs</Typography>
                     <Typography className="mb-16" component="div">By default tabs use a <code>{`button`}</code> element, but you can provide your own custom tag or component.
                         Here&#39;s an example of implementing tabbed navigation:</Typography>

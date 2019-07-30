@@ -40,6 +40,7 @@ function DividersDoc(props)
                         component="a"
                         href="https://material-ui.com/components/dividers"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -54,7 +55,7 @@ function DividersDoc(props)
                     <Typography className="mb-16" component="div"><a href="https://material.io/design/components/dividers.html">Dividers</a> separate content into clear
                         groups.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">List Dividers</Typography>
-                    <Typography className="mb-16" component="div">The divider renders as a <code>{`&lt;hr&gt;`}</code> by default.
+                    <Typography className="mb-16" component="div">The divider renders as a <code>{`<hr>`}</code> by default.
                         You can save rendering this DOM element by using the <code>{`divider`}</code> property on the <code>{`ListItem`}</code> component.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"

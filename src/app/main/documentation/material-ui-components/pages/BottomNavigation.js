@@ -40,6 +40,7 @@ function BottomNavigationDoc(props)
                         component="a"
                         href="https://material-ui.com/components/bottom-navigation"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference

@@ -40,6 +40,7 @@ function ListsDoc(props)
                         component="a"
                         href="https://material-ui.com/components/lists"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -108,7 +109,7 @@ function ListItemLink(props) {
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Align list items</Typography>
                     <Typography className="mb-16" component="div">You should change the list item alignment when displaying 3 lines or more, set
-                        the <code>{`alignItems=&quot;flex-start&quot;`}</code> property.</Typography>
+                        the <code>{`alignItems="flex-start"`}</code> property.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}

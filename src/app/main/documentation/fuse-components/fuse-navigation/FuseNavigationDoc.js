@@ -64,7 +64,7 @@ function FuseNavigationDoc(props)
 
                     <Typography className="mt-48 mb-8" variant="h4">Navigation item types</Typography>
 
-                    <Typography className="mt-32 p-8 rounded-4 bg-yellow-lightest border-1 border-yellow-dark text-black mb-8">Its mandatory to give a unique id to all of your
+                    <Typography className="mt-32 p-8 rounded-4 bg-yellow-100 border-1 border-yellow-700 text-black mb-8">Its mandatory to give a unique id to all of your
                         navigation items.</Typography>
 
                     <Typography className="mt-32 mb-8" variant="h6">Group</Typography>

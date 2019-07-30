@@ -30,7 +30,7 @@ function CardAttachment(props)
                         <div className="flex items-center w-full">
                             <Typography className="text-16 font-600 truncate flex-shrink">{props.item.name}</Typography>
                             {props.card.idAttachmentCover === props.item.id && (
-                                <Icon className="text-orange-light text-20 ml-4">star</Icon>
+                                <Icon className="text-orange-300 text-20 ml-4">star</Icon>
                             )}
                         </div>
                         <Typography className="truncate w-full mb-12" color="textSecondary">{props.item.time}</Typography>

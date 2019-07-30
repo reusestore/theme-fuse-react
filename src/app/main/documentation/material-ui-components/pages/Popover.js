@@ -40,6 +40,7 @@ function PopoverDoc(props)
                         component="a"
                         href="https://material-ui.com/components/popover"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference

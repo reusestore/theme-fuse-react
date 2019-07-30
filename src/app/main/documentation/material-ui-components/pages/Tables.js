@@ -40,6 +40,7 @@ function TablesDoc(props)
                         component="a"
                         href="https://material-ui.com/components/tables"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -63,9 +64,8 @@ function TablesDoc(props)
                     <Typography className="text-32 mt-32 mb-8" component="h2">Structure</Typography>
                     <Typography className="mb-16" component="div">A data table contains a header row at the top that lists column names, followed by rows for data.</Typography>
                     <Typography className="mb-16" component="div">Checkboxes should accompany each row if the user needs to select or manipulate data.</Typography>
-                    <Typography className="mb-16" component="div">For accessibility, the first column is set to be a <code>{`&lt;th&gt;`}</code> element, with
-                        a <code>{`scope`}</code> of <code>{`&quot;row&quot;`}</code>. This enables screen readers to identify a cell&#39;s value by it&#39;s row and column
-                        name.</Typography>
+                    <Typography className="mb-16" component="div">For accessibility, the first column is set to be a <code>{`<th>`}</code> element, with
+                        a <code>{`scope`}</code> of <code>{`"row"`}</code>. This enables screen readers to identify a cell&#39;s value by it&#39;s row and column name.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Simple Table</Typography>
                     <Typography className="mb-16" component="div">A simple example with no frills.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample

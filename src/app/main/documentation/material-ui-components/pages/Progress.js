@@ -40,6 +40,7 @@ function ProgressDoc(props)
                         component="a"
                         href="https://material-ui.com/components/progress"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference

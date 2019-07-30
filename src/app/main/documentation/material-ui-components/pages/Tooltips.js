@@ -40,6 +40,7 @@ function TooltipsDoc(props)
                         component="a"
                         href="https://material-ui.com/components/tooltips"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -133,7 +134,7 @@ function MyComponent(props) {
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tooltips/InteractiveTooltips.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Disabled Elements</Typography>
-                    <Typography className="mb-16" component="div">By default disabled elements like <code>{`&lt;button&gt;`}</code> do not trigger user interactions so
+                    <Typography className="mb-16" component="div">By default disabled elements like <code>{`<button>`}</code> do not trigger user interactions so
                         a <code>{`Tooltip`}</code> will not activate on normal events like hover. To accommodate disabled elements, add a simple wrapper element like
                         a <code>{`span`}</code>.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample

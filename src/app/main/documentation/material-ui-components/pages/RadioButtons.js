@@ -40,6 +40,7 @@ function RadioButtonsDoc(props)
                         component="a"
                         href="https://material-ui.com/components/radio-buttons"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -81,7 +82,7 @@ function RadioButtonsDoc(props)
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
                     <Typography className="mb-16" component="div">All form controls should have labels, and this includes radio buttons, checkboxes, and switches. In most cases,
-                        this is done by using the <code>{`&lt;label&gt;`}</code> element (<a href="/api/form-control-label/">FormControlLabel</a>).</Typography>
+                        this is done by using the <code>{`<label>`}</code> element (<a href="/api/form-control-label/">FormControlLabel</a>).</Typography>
                     <Typography className="mb-16" component="div">When a label can&#39;t be used, it&#39;s necessary to add an attribute directly to the input component.
                         In this case, you can apply the additional attribute (e.g. <code>{`aria-label`}</code>, <code>{`aria-labelledby`}</code>, <code>{`title`}</code>) via
                         the <code>{`inputProps`}</code> property.</Typography>
@@ -90,7 +91,7 @@ function RadioButtonsDoc(props)
                         {` 
 <RadioButton
   value="radioA"
-  inputProps={{ 'aria-label': 'Radio A' } }
+  inputProps={{ 'aria-label': 'Radio A' 
 />
 `}
                     </FuseHighlight>

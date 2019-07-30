@@ -40,6 +40,7 @@ function ChipsDoc(props)
                         component="a"
                         href="https://material-ui.com/components/chips"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference

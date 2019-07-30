@@ -40,6 +40,7 @@ function PortalDoc(props)
                         component="a"
                         href="https://material-ui.com/components/portal"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -58,7 +59,7 @@ function PortalDoc(props)
                     <Typography className="mb-16" component="div">The component is used internally by the <a href="/components/modal/"><code>{`Modal`}</code></a> and <a
                         href="/components/popper/"><code>{`Popper`}</code></a> components.
                         On the server, the content won&#39;t be rendered.
-                        You have to wait for the client side hydratation to see the children.</Typography>
+                        You have to wait for the client-side hydration to see the children.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Simple Portal</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"

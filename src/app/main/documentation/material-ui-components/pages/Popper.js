@@ -40,6 +40,7 @@ function PopperDoc(props)
                         component="a"
                         href="https://material-ui.com/components/popper"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference

@@ -40,6 +40,7 @@ function AppBarDoc(props)
                         component="a"
                         href="https://material-ui.com/components/app-bar"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -122,7 +123,7 @@ function AppBarDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/app-bar/ElevateAppBar.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/app-bar/ElevateAppBar.js')}
                     /></Typography>
-                    <Typography className="text-24 mt-32 mb-8" component="h3"><code>{`useScrollTrigger([options]) =&gt; trigger`}</code></Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3"><code>{`useScrollTrigger([options]) => trigger`}</code></Typography>
                     <Typography className="text-16 mt-32 mb-8" component="h4">Arguments</Typography>
                     <ol>
                         <li><Typography className="mb-16" component="div"><code>{`options`}</code> (<em>Object</em> [optional]):</Typography>

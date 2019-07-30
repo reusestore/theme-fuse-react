@@ -1,7 +1,7 @@
 import React from 'react';
 import {Paper, Chip, Typography, TextField, MenuItem} from '@material-ui/core';
 import {emphasize} from '@material-ui/core/styles/colorManipulator';
-import CreatableSelect from 'react-select/lib/Creatable';
+import Creatable from 'react-select/creatable';
 import Select from 'react-select';
 import clsx from 'clsx';
 import {makeStyles} from '@material-ui/styles';
@@ -229,7 +229,7 @@ function FuseChipSelect(props)
                 components={components}
             />
         ) : (
-            <CreatableSelect
+            <Creatable
                 classNamePrefix="fuse-chip-select"
                 {...props}
                 components={components}

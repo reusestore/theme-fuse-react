@@ -40,6 +40,7 @@ function DrawersDoc(props)
                         component="a"
                         href="https://material-ui.com/components/drawers"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -52,9 +53,9 @@ function DrawersDoc(props)
                     <Typography className="description">Navigation drawers provide access to destinations in your app. Side sheets are surfaces containing supplementary content
                         that are anchored to the left or right edge of the screen.</Typography>
 
-                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/navigation-drawer.html">Navigation drawers</a> provide access to
-                        destinations and app functionality, such as switching accounts. They can either be permanently on-screen or controlled by a navigation menu
-                        icon.</Typography>
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/navigation-drawer.html">Navigation
+                        drawers</a> (or &quot;sidebars&quot;) provide access to destinations and app functionality, such as switching accounts. They can either be permanently
+                        on-screen or controlled by a navigation menu icon.</Typography>
                     <Typography className="mb-16" component="div"><a href="https://material.io/design/components/sheets-side.html">Side sheets</a> are supplementary surfaces
                         primarily used on tablet and desktop.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Temporary drawer</Typography>

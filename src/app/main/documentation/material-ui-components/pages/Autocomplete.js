@@ -40,6 +40,7 @@ function AutocompleteDoc(props)
                         component="a"
                         href="https://material-ui.com/components/autocomplete"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -58,7 +59,7 @@ function AutocompleteDoc(props)
                         src="https://img.shields.io/npm/dm/downshift.svg" alt="npm downloads/></Typography>
                     <Typography className="mb-16" component="div">In the following example, we demonstrate how to use <a
                         href="https://github.com/downshift-js/downshift">downshift</a>.</Typography>
-                    <Typography className="mb-16" component="div">The last demo allow to clear the input and show a number of options on focus.</Typography>
+                    <Typography className="mb-16" component="div">The last demo allows the user to clear the input and show a number of options on focus.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}

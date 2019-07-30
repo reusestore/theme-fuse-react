@@ -3,9 +3,9 @@ title: Date Picker, Time Picker React components
 components: TextField
 ---
 
-# Pickers
+# Date/Time inputs
 
-<p class="description">Pickers provide a simple way to select a single value from a pre-determined set.</p>
+<p class="description">Date/Time inputs (short: pickers) provide a simple way to select a single value from a pre-determined set.</p>
 
 - On mobile, pickers are best suited for display in confirmation dialog.
 - For inline display, such as on a form, consider using compact controls such as segmented dropdown buttons.
@@ -42,6 +42,6 @@ For more advanced use cases you might be able to take advantage of.
 ![stars](https://img.shields.io/github/stars/mui-org/material-ui-pickers.svg?style=social&label=Stars)
 ![npm downloads](https://img.shields.io/npm/dm/@material-ui/pickers.svg)
 
-[@material-ui/pickers](https://material-ui-pickers.dev/) provides date and time controls that follow the Material Design spec.
+[@material-ui/pickers](https://material-ui-pickers.dev/) provides date and time controls that follow the Material Design spec. You can also [inline](https://material-ui-pickers.dev/demo/datepicker#inline-mode) the calendar right under the input.
 
 {{"demo": "pages/components/pickers/MaterialUIPickers.js"}}

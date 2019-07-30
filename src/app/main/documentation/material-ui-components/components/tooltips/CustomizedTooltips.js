@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
-import PropTypes from 'prop-types';
 
 function arrowGenerator(color) {
   return {
@@ -62,6 +62,9 @@ const LightTooltip = withStyles(theme => ({
 }))(Tooltip);
 
 const useStylesArrow = makeStyles(theme => ({
+  tooltip: {
+    position: 'relative',
+  },
   arrow: {
     position: 'absolute',
     fontSize: 6,
@@ -128,6 +131,7 @@ const useStylesBootstrap = makeStyles(theme => ({
   },
   popper: arrowGenerator(theme.palette.common.black),
   tooltip: {
+    position: 'relative',
     backgroundColor: theme.palette.common.black,
   },
   tooltipPlacementLeft: {

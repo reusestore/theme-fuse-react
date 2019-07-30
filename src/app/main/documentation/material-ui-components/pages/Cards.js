@@ -40,6 +40,7 @@ function CardsDoc(props)
                         component="a"
                         href="https://material-ui.com/components/cards"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -80,8 +81,8 @@ function CardsDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/cards/MediaCard.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/cards/MediaCard.js')}
                     /></Typography>
-                    <Typography className="mb-16" component="div">By default, we use the combination of a <code>{`&lt;div&gt;`}</code> element and a <em>background image</em> to
-                        display the media. It can be problematic in some situations. For instance, you might want to display a video or a responsive image. Use
+                    <Typography className="mb-16" component="div">By default, we use the combination of a <code>{`<div>`}</code> element and a <em>background image</em> to display
+                        the media. It can be problematic in some situations. For instance, you might want to display a video or a responsive image. Use
                         the <code>{`component`}</code> property for these use cases:</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -90,8 +91,8 @@ function CardsDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/cards/ImgMediaCard.js')}
                     /></Typography>
                     <blockquote>
-                        <Typography className="mb-16" component="div">⚠️ When <code>{`component=&quot;img&quot;`}</code>, CardMedia relies on <code>{`object-fit`}</code> for
-                            centering the image. It&#39;s not supported by IE 11.</Typography>
+                        <Typography className="mb-16" component="div">⚠️ When <code>{`component="img"`}</code>, CardMedia relies on <code>{`object-fit`}</code> for centering the
+                            image. It&#39;s not supported by IE 11.</Typography>
                     </blockquote>
                     <Typography className="text-32 mt-32 mb-8" component="h2">UI Controls</Typography>
                     <Typography className="mb-16" component="div">Supplemental actions within the card are explicitly called out using icons, text, and UI controls, typically

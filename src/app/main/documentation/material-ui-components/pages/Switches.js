@@ -40,6 +40,7 @@ function SwitchesDoc(props)
                         component="a"
                         href="https://material-ui.com/components/switches"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -89,6 +90,14 @@ function SwitchesDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/switches/CustomizedSwitches.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/switches/CustomizedSwitches.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Sizes</Typography>
+                    <Typography className="mb-16" component="div">Fancy smaller switches? Use the <code>{`size`}</code> property.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/switches/SwitchesSize.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/switches/SwitchesSize.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Label placement</Typography>
                     <Typography className="mb-16" component="div">You can change the placement of the label:</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -99,7 +108,7 @@ function SwitchesDoc(props)
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
                     <Typography className="mb-16" component="div">All form controls should have labels, and this includes radio buttons, checkboxes, and switches. In most cases,
-                        this is done by using the <code>{`&lt;label&gt;`}</code> element (<a href="/api/form-control-label/">FormControlLabel</a>).</Typography>
+                        this is done by using the <code>{`<label>`}</code> element (<a href="/api/form-control-label/">FormControlLabel</a>).</Typography>
                     <Typography className="mb-16" component="div">When a label can&#39;t be used, it&#39;s necessary to add an attribute directly to the input component.
                         In this case, you can apply the additional attribute (e.g. <code>{`aria-label`}</code>, <code>{`aria-labelledby`}</code>, <code>{`title`}</code>) via
                         the <code>{`inputProps`}</code> property.</Typography>
@@ -108,7 +117,7 @@ function SwitchesDoc(props)
                         {` 
 <Switch
   value="checkedA"
-  inputProps={{ 'aria-label': 'Switch A' } }
+  inputProps={{ 'aria-label': 'Switch A' 
 />
 `}
                     </FuseHighlight>

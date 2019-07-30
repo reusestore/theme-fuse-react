@@ -26,7 +26,7 @@ export const orderStatuses = [
     {
         id   : 5,
         name : 'Delivered',
-        color: 'bg-green-dark text-white'
+        color: 'bg-green-700 text-white'
     },
     {
         id   : 6,
@@ -41,12 +41,12 @@ export const orderStatuses = [
     {
         id   : 8,
         name : 'Payment error',
-        color: 'bg-red-dark text-white'
+        color: 'bg-red-700 text-white'
     },
     {
         id   : 9,
         name : 'On pre-order (paid)',
-        color: 'bg-purple-light text-white'
+        color: 'bg-purple-300 text-white'
     },
     {
         id   : 10,
@@ -56,22 +56,22 @@ export const orderStatuses = [
     {
         id   : 11,
         name : 'Awaiting PayPal payment',
-        color: 'bg-blue-dark text-white'
+        color: 'bg-blue-700 text-white'
     },
     {
         id   : 12,
         name : 'Remote payment accepted',
-        color: 'bg-green-darker text-white'
+        color: 'bg-green-800 text-white'
     },
     {
         id   : 13,
         name : 'On pre-order (not paid)',
-        color: 'bg-purple-dark text-white'
+        color: 'bg-purple-700 text-white'
     },
     {
         id   : 14,
         name : 'Awaiting Cash-on-delivery payment',
-        color: 'bg-blue-darker text-white'
+        color: 'bg-blue-800 text-white'
     }
 ];
 

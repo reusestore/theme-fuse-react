@@ -37,7 +37,7 @@ Modal is a lower-level construct that is leveraged by the following components:
 ## Performance
 
 The content of the modal is **lazily mounted** into the DOM.
-It ensures that having many closed modal in your React tree won't slow down your page.
+It ensures that having many closed modals in your React tree won't slow down your page.
 
 However, creating React elements has a cost too. Consider the following case:
 
@@ -88,12 +88,12 @@ Additionally, you may give a description of your modal with the `aria-describedb
   aria-labelledby="simple-modal-title"
   aria-describedby="simple-modal-description"
 >
-  <Typography variant="h6" id="modal-title">
+  <h2 id="modal-title">
     My Title
-  </Typography>
-  <Typography variant="subtitle1" id="simple-modal-description">
+  </h2>
+  <p id="simple-modal-description">
     My Description
-  </Typography>
+  </p>
 </Modal>
 ```
 

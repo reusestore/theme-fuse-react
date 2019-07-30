@@ -40,6 +40,7 @@ function ExpansionPanelsDoc(props)
                         component="a"
                         href="https://material-ui.com/components/expansion-panels"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -54,8 +55,8 @@ function ExpansionPanelsDoc(props)
                     <Typography className="mb-16" component="div"><a href="https://material.io/archive/guidelines/components/expansion-panels.html">An expansion panel</a> is a
                         lightweight container that may either stand alone or be connected to a larger surface, such as a card.</Typography>
                     <blockquote>
-                        <Typography className="mb-16" component="div"><strong>Note:</strong> Expansion panels are no longer documented in the Material Design
-                            documentation.</Typography>
+                        <Typography className="mb-16" component="div"><strong>Note:</strong> Expansion panels are no longer documented in the <a href="https://material.io/">Material
+                            Design guidelines</a>, but Material-UI will continue to support them.</Typography>
                     </blockquote>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
                     <Typography className="mb-16" component="div">For optimal accessibility we recommend setting <code>{`id`}</code> and <code>{`aria-controls`}</code> on the
@@ -91,7 +92,7 @@ function ExpansionPanelsDoc(props)
                         This default behavior has server-side rendering and SEO in mind.
                         If you render expensive component trees inside your panels or simply render many
                         panels it might be a good idea to change this default behavior by enabling the
-                        <code>{`unmountOnExit`}</code> in <code>{`TransitionProps`}</code>: <code>{`&lt;ExpansionPanel TransitionProps={{ unmountOnExit: true }} /&gt;`}</code>.
+                        <code>{`unmountOnExit`}</code> in <code>{`TransitionProps`}</code>: <code>{`<ExpansionPanel TransitionProps={{ unmountOnExit: true }} />`}</code>.
                         As with any performance optimization this is not a silver bullet. Be sure to identify
                         bottlenecks first and then try out these optimization strategies.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Customized expansion panels</Typography>

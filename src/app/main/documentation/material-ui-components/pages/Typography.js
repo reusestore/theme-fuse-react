@@ -40,6 +40,7 @@ function TypographyDoc(props)
                         component="a"
                         href="https://material-ui.com/components/typography"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -106,7 +107,7 @@ import 'typeface-roboto';
                         semantic element.
                         It’s important to realize that the style of a typography is independent from the semantic underlying element.</Typography>
                     <ul>
-                        <li>You can change the underlying element for a one time occassion with the <code>{`component`}</code> property:</li>
+                        <li>You can change the underlying element for a one time occasion with the <code>{`component`}</code> property:</li>
                     </ul>
 
                     <FuseHighlight component="pre" className="language-jsx">

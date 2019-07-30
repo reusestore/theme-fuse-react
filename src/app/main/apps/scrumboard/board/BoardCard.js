@@ -96,7 +96,7 @@ function BoardCard(props)
 
                                     {checkItems > 0 && (
                                         <div
-                                            className={clsx("flex items-center px-8 py-4 mr-8 rounded-sm", checkItemsChecked === checkItems ? "bg-green text-white" : "bg-grey-dark text-white")}
+                                            className={clsx("flex items-center px-8 py-4 mr-8 rounded-sm", checkItemsChecked === checkItems ? "bg-green text-white" : "bg-grey-700 text-white")}
                                         >
                                             <Icon className="text-16 mr-4">check_circle</Icon>
                                             <span>{checkItemsChecked}</span>

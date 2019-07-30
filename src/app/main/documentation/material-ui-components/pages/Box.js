@@ -40,6 +40,7 @@ function BoxDoc(props)
                         component="a"
                         href="https://material-ui.com/components/box"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -59,8 +60,8 @@ function BoxDoc(props)
                     <Typography className="mb-16" component="div"><a href="/system/palette/">The palette</a> style function.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Overriding Material-UI components</Typography>
                     <Typography className="mb-16" component="div">The Box component wraps your component.
-                        It creates a new DOM element, a <code>{`&lt;div&gt;`}</code> by default that can be changed with the <code>{`component`}</code> property.
-                        Let&#39;s say you want to use a <code>{`&lt;span&gt;`}</code> instead:</Typography>
+                        It creates a new DOM element, a <code>{`<div>`}</code> by default that can be changed with the <code>{`component`}</code> property.
+                        Let&#39;s say you want to use a <code>{`<span>`}</code> instead:</Typography>
 
                     <FuseHighlight component="pre" className="language-jsx">
                         {` 

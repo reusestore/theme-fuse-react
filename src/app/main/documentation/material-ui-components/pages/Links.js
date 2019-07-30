@@ -40,6 +40,7 @@ function LinksDoc(props)
                         component="a"
                         href="https://material-ui.com/components/links"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -62,8 +63,8 @@ function LinksDoc(props)
                     /></Typography>
                     <Typography className="mb-16" component="div">However, the Link component has different default properties than the Typography component:</Typography>
                     <ul>
-                        <li><code>{`color=&quot;primary&quot;`}</code> as the link needs to stand out.</li>
-                        <li><code>{`variant=&quot;inherit&quot;`}</code> as the link will, most of the time, be used as a child of a Typography component.</li>
+                        <li><code>{`color="primary"`}</code> as the link needs to stand out.</li>
+                        <li><code>{`variant="inherit"`}</code> as the link will, most of the time, be used as a child of a Typography component.</li>
                     </ul>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
                     <ul>
@@ -72,7 +73,7 @@ function LinksDoc(props)
                         </li>
                         <li>For the best user experience, links should stand out from the text on the page.</li>
                         <li>If a link doesn&#39;t have a meaningful href, <a href="https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md">it
-                            should be rendered using a <code>{`&lt;button&gt;`}</code> element</a>.
+                            should be rendered using a <code>{`<button>`}</code> element</a>.
                         </li>
                     </ul>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -82,15 +83,15 @@ function LinksDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/links/ButtonLink.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Security</Typography>
-                    <Typography className="mb-16" component="div">When you use <code>{`target=&quot;_blank&quot;`}</code> with Links, it is <a
+                    <Typography className="mb-16" component="div">When you use <code>{`target="_blank"`}</code> with Links, it is <a
                         href="https://developers.google.com/web/tools/lighthouse/audits/noopener">recommended</a> to always
-                        set <code>{`rel=&quot;noopener&quot;`}</code> or <code>{`rel=&quot;noreferrer&quot;`}</code> when linking to third party content.</Typography>
+                        set <code>{`rel="noopener"`}</code> or <code>{`rel="noreferrer"`}</code> when linking to third party content.</Typography>
                     <ul>
-                        <li><code>{`rel=&quot;noopener&quot;`}</code> prevents the new page from being able to access the <code>{`window.opener`}</code> property and ensures it
-                            runs in a separate process.
+                        <li><code>{`rel="noopener"`}</code> prevents the new page from being able to access the <code>{`window.opener`}</code> property and ensures it runs in a
+                            separate process.
                             Without this, the target page can potentially redirect your page to a malicious URL.
                         </li>
-                        <li><code>{`rel=&quot;noreferrer&quot;`}</code> has the same effect, but also prevents the <em>Referer</em> header from being sent to the new page.
+                        <li><code>{`rel="noreferrer"`}</code> has the same effect, but also prevents the <em>Referer</em> header from being sent to the new page.
                             ⚠️ Removing the referrer header will affect analytics.
                         </li>
                     </ul>

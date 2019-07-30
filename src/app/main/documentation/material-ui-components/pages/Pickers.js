@@ -32,7 +32,7 @@ function PickersDoc(props)
                             <Icon className="text-16" color="action">chevron_right</Icon>
                             <Typography color="textSecondary">Material UI Components</Typography>
                         </div>
-                        <Typography variant="h6">Pickers</Typography>
+                        <Typography variant="h6">Date/Time inputs</Typography>
                     </div>
                     <Button
                         className="normal-case"
@@ -40,6 +40,7 @@ function PickersDoc(props)
                         component="a"
                         href="https://material-ui.com/components/pickers"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -48,8 +49,8 @@ function PickersDoc(props)
             }
             content={
                 <div className="p-24 max-w-2xl">
-                    <Typography className="text-44 mt-32 mb-8" component="h1">Pickers</Typography>
-                    <Typography className="description">Pickers provide a simple way to select a single value from a pre-determined set.</Typography>
+                    <Typography className="text-44 mt-32 mb-8" component="h1">Date/Time inputs</Typography>
+                    <Typography className="description">Date/Time inputs (short: pickers) provide a simple way to select a single value from a pre-determined set.</Typography>
 
                     <ul>
                         <li>On mobile, pickers are best suited for display in confirmation dialog.</li>
@@ -60,7 +61,7 @@ function PickersDoc(props)
                         perfect</a>.
                         Have a look at the <a href="#complementary-projects">complementary projects</a> for a richer solution.</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Date pickers</Typography>
-                    <Typography className="mb-16" component="div">A native date picker example with <code>{`type=&quot;date&quot;`}</code>.</Typography>
+                    <Typography className="mb-16" component="div">A native date picker example with <code>{`type="date"`}</code>.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -68,7 +69,7 @@ function PickersDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/pickers/DatePickers.js')}
                     /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Date &amp; Time pickers</Typography>
-                    <Typography className="mb-16" component="div">A native date &amp; time picker example with <code>{`type=&quot;datetime-local&quot;`}</code>.</Typography>
+                    <Typography className="mb-16" component="div">A native date &amp; time picker example with <code>{`type="datetime-local"`}</code>.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -76,7 +77,7 @@ function PickersDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/pickers/DateAndTimePickers.js')}
                     /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Time pickers</Typography>
-                    <Typography className="mb-16" component="div">A native time picker example with <code>{`type=&quot;time&quot;`}</code>.</Typography>
+                    <Typography className="mb-16" component="div">A native time picker example with <code>{`type="time"`}</code>.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -89,7 +90,7 @@ function PickersDoc(props)
                     <Typography className="mb-16" component="div"> src="https://img.shields.io/github/stars/mui-org/material-ui-pickers.svg?style=social&label=Stars" alt="stars/>
                         src="https://img.shields.io/npm/dm/@material-ui/pickers.svg" alt="npm downloads/></Typography>
                     <Typography className="mb-16" component="div"><a href="https://material-ui-pickers.dev/">@material-ui/pickers</a> provides date and time controls that follow
-                        the Material Design spec.</Typography>
+                        the Material Design spec. You can also <a href="https://material-ui-pickers.dev/demo/datepicker#inline-mode">inline</a> the calendar right under the input.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}

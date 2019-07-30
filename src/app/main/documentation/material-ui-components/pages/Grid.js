@@ -40,6 +40,7 @@ function GridDoc(props)
                         component="a"
                         href="https://material-ui.com/components/grid"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -144,7 +145,7 @@ function GridDoc(props)
                     <Typography className="text-32 mt-32 mb-8" component="h2">Limitations</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Negative margin</Typography>
                     <Typography className="mb-16" component="div">There is one limitation with the negative margin we use to implement the spacing between items.
-                        A horizontal scroll will appear if a negative margin goes beyond the <code>{`&lt;body&gt;`}</code>.
+                        A horizontal scroll will appear if a negative margin goes beyond the <code>{`<body>`}</code>.
                         There are 3 available workarounds:</Typography>
                     <ol>
                         <li>Not using the spacing feature and implementing it in user space <code>{`spacing={0}`}</code> (default).</li>

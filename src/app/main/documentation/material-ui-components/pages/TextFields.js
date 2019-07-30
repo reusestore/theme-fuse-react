@@ -40,6 +40,7 @@ function TextFieldsDoc(props)
                         component="a"
                         href="https://material-ui.com/components/text-fields"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -63,8 +64,8 @@ function TextFieldsDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/TextFields.js')}
                     /></Typography>
                     <blockquote>
-                        <Typography className="mb-16" component="div"><strong>Note:</strong> This version of the text field is no longer documented in the Material Design
-                            documentation.</Typography>
+                        <Typography className="mb-16" component="div"><strong>Note:</strong> This version of the text field is no longer documented in the <a
+                            href="https://material.io/">Material Design guidelines</a>, but Material-UI will continue to support it.</Typography>
                     </blockquote>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Outlined</Typography>
                     <Typography className="mb-16" component="div"><code>{`TextField`}</code> supports outlined styling.</Typography>
@@ -192,20 +193,56 @@ function TextFieldsDoc(props)
 <InputLabel shrink>Count</InputLabel>
 `}
                     </FuseHighlight>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Formatted inputs</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Integration with 3rd party input libraries</Typography>
                     <Typography className="mb-16" component="div">You can use third-party libraries to format an input.
-                        You have to provide a custom implementation of the <code>{`&lt;input&gt;`}</code> element with the <code>{`inputComponent`}</code> property.
-                        The provided input component should handle the <code>{`inputRef`}</code> property.
-                        The property should be called with a value implementing the <a
-                            href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement"><code>{`HTMLInputElement`}</code></a> interface.</Typography>
+                        You have to provide a custom implementation of the <code>{`<input>`}</code> element with the <code>{`inputComponent`}</code> property.</Typography>
                     <Typography className="mb-16" component="div">The following demo uses the <a href="https://github.com/text-mask/text-mask">react-text-mask</a> and <a
-                        href="https://github.com/s-yadav/react-number-format">react-number-format</a> libraries.</Typography>
+                        href="https://github.com/s-yadav/react-number-format">react-number-format</a> libraries. The same concept could be applied to <a
+                        href="https://github.com/mui-org/material-ui/issues/16037">e.g. react-stripe-element</a>.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
                         component={require('app/main/documentation/material-ui-components/components/text-fields/FormattedInputs.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/FormattedInputs.js')}
                     /></Typography>
+                    <Typography className="mb-16" component="div">The provided input component should handle the <code>{`inputRef`}</code> property.
+                        The property should be called with a value that implements the following interface:</Typography>
+
+                    <FuseHighlight component="pre" className="language-ts">
+                        {` 
+interface InputElement {
+  focus(): void;
+  value?: string;
+}
+`}
+                    </FuseHighlight>
+
+                    <FuseHighlight component="pre" className="language-jsx">
+                        {` 
+function MyInputComponent(props) {
+  const { component: Component, inputRef, ...other } = props;
+
+  // implement \`InputElement\` interface
+  React.useImperativeHandle(inputRef, () => ({
+    focus: () => {
+      // logic to focus the rendered component from 3rd party belongs here
+    },
+    // hiding the value e.g. react-stripe-elements
+  }));
+
+  // \`Component\` will be your \`SomeThirdPartyComponent\` from below
+  return <Component {...other} />;
+}
+
+// usage
+<TextField
+  InputProps={{
+    inputComponent: MyInputComponent,
+    inputProps: { component: SomeThirdPartyComponent },
+
+/>;
+`}
+                    </FuseHighlight>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
                     <Typography className="mb-16" component="div">In order for the text field to be accessible, <strong>the input should be linked to the label and the helper
                         text</strong>. The underlying DOM nodes should have this structure.</Typography>

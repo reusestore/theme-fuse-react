@@ -26,6 +26,7 @@ marked.Lexer.prototype.lex = function lex(src) {
         .replace(/\u2424/g, '\n');
     return this.token(src, true);
 };
+
 const renderer = new marked.Renderer();
 
 marked.setOptions({
@@ -104,7 +105,7 @@ ${code}
 };
 
 renderer.codespan = (code, lang) => {
-    const response = `<code>{%%${code}%%}</code>`;
+    const response = `<code>{%%${_.unescape(code)}%%}</code>`;
     return response.replace(new RegExp('%%', 'g'), '`');
 };
 
@@ -251,6 +252,7 @@ function writePage(file)
                         component="a" 
                         href="https://material-ui.com/components/${path.basename(file)}" 
                         target="_blank"
+                        role="button"
                         >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -423,11 +425,12 @@ function removeExcludedComponents()
 {
     const excludedComponents = [
         path.resolve(examplesDirectory, './breakpoints'),
-        path.resolve(examplesDirectory, './about-the-lab'),
         path.resolve(examplesDirectory, './use-media-query'),
-        path.resolve(examplesDirectory, './toggle-button'),
-        path.resolve(examplesDirectory, './slider'),
+        path.resolve(examplesDirectory, './about-the-lab'),
+        path.resolve(examplesDirectory, './rating'),
         path.resolve(examplesDirectory, './speed-dial'),
+        path.resolve(examplesDirectory, './toggle-button'),
+        path.resolve(examplesDirectory, './tree-view'),
         path.resolve(examplesDirectory, './icons')
     ];
 

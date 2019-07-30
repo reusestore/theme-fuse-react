@@ -40,6 +40,7 @@ function BreadcrumbsDoc(props)
                         component="a"
                         href="https://material-ui.com/components/breadcrumbs"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -94,7 +95,7 @@ function BreadcrumbsDoc(props)
                         the <code>{`Breadcrumbs`}</code> component.</Typography>
                     <Typography className="mb-16" component="div">The accessibility of this component relies on:</Typography>
                     <ul>
-                        <li>The set of links is structured using an ordered list (<code>{`&lt;ol&gt;`}</code> element).</li>
+                        <li>The set of links is structured using an ordered list (<code>{`<ol>`}</code> element).</li>
                         <li>To prevent screen reader announcement of the visual separators between links, they are hidden with <code>{`aria-hidden`}</code>.</li>
                         <li>A nav element labeled with <code>{`aria-label`}</code> identifies the structure as a breadcrumb trail and makes it a navigation landmark so that it is
                             easy to locate.

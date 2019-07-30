@@ -40,6 +40,7 @@ function ModalDoc(props)
                         component="a"
                         href="https://material-ui.com/components/modal"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -88,7 +89,7 @@ function ModalDoc(props)
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Performance</Typography>
                     <Typography className="mb-16" component="div">The content of the modal is <strong>lazily mounted</strong> into the DOM.
-                        It ensures that having many closed modal in your React tree won&#39;t slow down your page.</Typography>
+                        It ensures that having many closed modals in your React tree won&#39;t slow down your page.</Typography>
                     <Typography className="mb-16" component="div">However, creating React elements has a cost too. Consider the following case:</Typography>
 
                     <FuseHighlight component="pre" className="language-jsx">
@@ -132,9 +133,8 @@ function ModalDoc(props)
                         The <code>{`TableComponent`}</code> render method will only be evaluated when opening the modal.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
                     <ul>
-                        <li>Be sure to add <code>{`aria-labelledby=&quot;id...&quot;`}</code>, referencing the modal title, to the <code>{`Modal`}</code>.
-                            Additionally, you may give a description of your modal with the <code>{`aria-describedby=&quot;id...&quot;`}</code> property on
-                            the <code>{`Modal`}</code>.
+                        <li>Be sure to add <code>{`aria-labelledby="id..."`}</code>, referencing the modal title, to the <code>{`Modal`}</code>.
+                            Additionally, you may give a description of your modal with the <code>{`aria-describedby="id..."`}</code> property on the <code>{`Modal`}</code>.
                         </li>
                     </ul>
 
@@ -144,10 +144,10 @@ function ModalDoc(props)
   aria-labelledby="simple-modal-title"
   aria-describedby="simple-modal-description"
 >
-  <Typography variant="h6" id="modal-title">
+  <h2 id="modal-title">
     My Title
-  </Typography>
-  <Typography variant="subtitle1" id="simple-modal-description">
+  </h2>
+  <Typography id="simple-modal-description">
     My Description
   </Typography>
 </Modal>

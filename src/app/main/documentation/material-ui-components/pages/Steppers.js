@@ -40,6 +40,7 @@ function SteppersDoc(props)
                         component="a"
                         href="https://material-ui.com/components/steppers"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -69,7 +70,8 @@ function SteppersDoc(props)
                         <li>Non-linear</li>
                     </ul>
                     <blockquote>
-                        <Typography className="mb-16" component="div"><strong>Note:</strong> Steppers are no longer documented in the Material Design documentation.</Typography>
+                        <Typography className="mb-16" component="div"><strong>Note:</strong> Steppers are no longer documented in the <a href="https://material.io/">Material Design
+                            guidelines</a>, but Material-UI will continue to support them.</Typography>
                     </blockquote>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Horizontal Linear</Typography>
                     <Typography className="mb-16" component="div">The <code>{`Stepper`}</code> can be controlled by passing the current step index (zero-based) as
@@ -131,8 +133,6 @@ function SteppersDoc(props)
                     <Typography className="text-32 mt-32 mb-8" component="h2">Customized Stepper</Typography>
                     <Typography className="mb-16" component="div">Here is an example of customizing the component. You can learn more about this in the
                         <a href="/customization/components/">overrides documentation page</a>.</Typography>
-                    <Typography className="mb-16" component="div">This component uses a customized <code>{`StepConnector`}</code> element that changes border color based on
-                        the <code>{`active`}</code> and <code>{`completed`}</code> state.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}

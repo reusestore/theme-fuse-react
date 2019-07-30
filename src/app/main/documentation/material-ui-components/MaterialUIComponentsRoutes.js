@@ -103,6 +103,9 @@ export const MaterialUIComponentsRoutes = [{
     path: '/documentation/material-ui-components/selects',
     component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/Selects'))
 }, {
+    path: '/documentation/material-ui-components/slider',
+    component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/Slider'))
+}, {
     path: '/documentation/material-ui-components/snackbars',
     component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/Snackbars'))
 }, {
@@ -120,6 +123,9 @@ export const MaterialUIComponentsRoutes = [{
 }, {
     path: '/documentation/material-ui-components/text-fields',
     component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/TextFields'))
+}, {
+    path: '/documentation/material-ui-components/textarea-autosize',
+    component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/TextareaAutosize'))
 }, {
     path: '/documentation/material-ui-components/tooltips',
     component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/Tooltips'))

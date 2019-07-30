@@ -40,6 +40,7 @@ function CssBaselineDoc(props)
                         component="a"
                         href="https://material-ui.com/components/css-baseline"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -74,8 +75,8 @@ export default MyApp;
                     </FuseHighlight>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Approach</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Page</Typography>
-                    <Typography className="mb-16" component="div">The <code>{`&lt;html&gt;`}</code> and <code>{`&lt;body&gt;`}</code> elements are updated to provide better
-                        page-wide defaults. More specifically:</Typography>
+                    <Typography className="mb-16" component="div">The <code>{`<html>`}</code> and <code>{`<body>`}</code> elements are updated to provide better page-wide defaults.
+                        More specifically:</Typography>
                     <ul>
                         <li>The margin in all browsers is removed.</li>
                         <li>The default Material Design background color is applied.
@@ -85,19 +86,19 @@ export default MyApp;
                     </ul>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Layout</Typography>
                     <ul>
-                        <li><code>{`box-sizing`}</code> is set globally on the <code>{`&lt;html&gt;`}</code> element to <code>{`border-box`}</code>.
+                        <li><code>{`box-sizing`}</code> is set globally on the <code>{`<html>`}</code> element to <code>{`border-box`}</code>.
                             Every element—including <code>{`*::before`}</code> and <code>{`*::after`}</code> are declared to inherit this property,
                             which ensures that the declared width of the element is never exceeded due to padding or border.
                         </li>
                     </ul>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Typography</Typography>
                     <ul>
-                        <li>No base font-size is declared on the <code>{`&lt;html&gt;`}</code>, but 16px is assumed (the browser default).
-                            You can learn more about the implications of changing the <code>{`&lt;html&gt;`}</code> default font size in <a
+                        <li>No base font-size is declared on the <code>{`<html>`}</code>, but 16px is assumed (the browser default).
+                            You can learn more about the implications of changing the <code>{`<html>`}</code> default font size in <a
                                 href="/customization/typography/#typography-html-font-size">the theme documentation</a> page.
                         </li>
-                        <li>Set the <code>{`theme.typography.body2`}</code> style on the <code>{`&lt;body&gt;`}</code> element.</li>
-                        <li>Set the font-weight to &quot;bolder&quot; for the <code>{`&lt;b&gt;`}</code> and <code>{`&lt;strong&gt;`}</code> elements.
+                        <li>Set the <code>{`theme.typography.body2`}</code> style on the <code>{`<body>`}</code> element.</li>
+                        <li>Set the font-weight to &quot;bolder&quot; for the <code>{`<b>`}</code> and <code>{`<strong>`}</code> elements.
                             Bolder is one font weight heavier than the parent element (among the available weights of the font).
                         </li>
                         <li>Font antialiasing is enabled for better display of the Roboto font.</li>

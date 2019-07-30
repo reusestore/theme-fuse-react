@@ -40,6 +40,7 @@ function ButtonsDoc(props)
                         component="a"
                         href="https://material-ui.com/components/buttons"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
@@ -195,7 +196,8 @@ function ButtonsDoc(props)
                         component. This is achieved by attaching a ref to the component and expecting that the
                         component forwards this ref to the underlying DOM node.
                         Given that a lot of our interactive components rely on <code>{`ButtonBase`}</code>, you should be
-                        able to take advantage of it everywhere:</Typography>
+                        able to take advantage of it everywhere.</Typography>
+                    <Typography className="mb-16" component="div">Here is an integration example with react-router:</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
