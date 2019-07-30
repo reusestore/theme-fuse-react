@@ -106,7 +106,7 @@ function Courses(props)
     }
 
     return (
-        <div className="flex flex-col flex-1 w-full">
+        <div className="flex flex-col flex-auto flex-shrink-0 w-full">
             <div
                 className={clsx(classes.header, "relative overflow-hidden flex flex-col flex-shrink-0 items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-288")}>
 
