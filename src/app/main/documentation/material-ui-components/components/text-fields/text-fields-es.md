@@ -81,7 +81,7 @@ Iconos se pueden poner en frente o detrás del campo de texto.
 
 El estado "shrink" de la etiqueta del campo de texto no está siempre correcto. La etiqueta debe achicarse al momento que el campo demuestra algun texto. En algunas circunstancias, no se puede determinar el estado "shrink" (campo de números, campo de fecha y hora, campo de Stripe). Tal vez veas una superposición.
 
-![shrink](/static/images/text-fields/shrink.png)
+![shrink](/material-ui-static/images/text-fields/shrink.png)
 
 Para resolver el problema, puedes forzar el estado "shrink" de la etiqueta.
 

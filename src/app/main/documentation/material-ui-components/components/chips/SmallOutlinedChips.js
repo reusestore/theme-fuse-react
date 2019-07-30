@@ -40,7 +40,7 @@ export default function SmallOutlinedChips() {
       />
       <Chip
         size="small"
-        avatar={<Avatar alt="Natacha" src="/static/images/avatar/1.jpg" />}
+        avatar={<Avatar alt="Natacha" src="/material-ui-static/images/avatar/1.jpg" />}
         label="Deletable Chip"
         onDelete={handleDelete}
         className={classes.chip}

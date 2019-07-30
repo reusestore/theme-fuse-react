@@ -19,8 +19,8 @@ export default function ImageAvatars() {
 
   return (
     <Grid container justify="center" alignItems="center">
-      <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.avatar} />
-      <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.bigAvatar} />
+      <Avatar alt="Remy Sharp" src="/material-ui-static/images/avatar/1.jpg" className={classes.avatar} />
+      <Avatar alt="Remy Sharp" src="/material-ui-static/images/avatar/1.jpg" className={classes.bigAvatar} />
     </Grid>
   );
 }

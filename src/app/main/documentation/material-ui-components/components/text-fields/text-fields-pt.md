@@ -81,7 +81,7 @@ A customização não para no CSS, você pode usar composição para criar compo
 
 O label de entrada "shrink" nem sempre está correto. O input label deve encolher assim que o input estiver exibindo algo. Em algumas circunstâncias, não podemos determinar o estado de "srink" (input numérico, input datetime, input Stripe). Você pode notar uma sobreposição.
 
-![minimizar](/static/images/text-fields/shrink.png)
+![minimizar](/material-ui-static/images/text-fields/shrink.png)
 
 Para contornar o problema, você pode forçar a "shrink" do label.
 

@@ -81,7 +81,7 @@ components: FilledInput, FormControl, FormHelperText, Input, InputAdornment, Inp
 
 Состояние метки поля ввода (label) "shrink" не всегда корректно. Предполагается, что метка поля ввода уменьшается, как только в поле ввода что-нибудь отображается. В некоторых случаях мы не можем определить состояние "shrink" (числовое поле, поле даты, Stripe input). Вы могли заметить совпадения.
 
-![сжатие](/static/images/text-fields/shrink.png)
+![сжатие](/material-ui-static/images/text-fields/shrink.png)
 
 Чтобы решить эту проблему, вы можете принудительно изменить состояние метки.
 

@@ -178,7 +178,7 @@ function TextFieldsDoc(props)
                         The input label is supposed to shrink as soon as the input is displaying something.
                         In some circumstances, we can&#39;t determine the &quot;shrink&quot; state (number input, datetime input, Stripe input). You might notice an
                         overlap.</Typography>
-                    <Typography className="mb-16" component="div"> src="/static/images/text-fields/shrink.png" alt="shrink/></Typography>
+                    <Typography className="mb-16" component="div"> src="/material-ui-static/images/text-fields/shrink.png" alt="shrink/></Typography>
                     <Typography className="mb-16" component="div">To workaround the issue, you can force the &quot;shrink&quot; state of the label.</Typography>
 
                     <FuseHighlight component="pre" className="language-jsx">

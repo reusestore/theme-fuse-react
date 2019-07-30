@@ -81,7 +81,7 @@ Les icônes peuvent être spécifiées comme prédéfinies ou ajoutées.
 
 Le label "shrink" n'est pas toujours correct. Le label d'input est supposé se réduire dès que l'input affiche quelque chose. Dans certaines circonstances, nous ne pouvons pas déterminer l'état de "réduction" (entrée de numéro, entrée de date / heure, entrée de bande). Vous remarquerez peut-être un chevauchement.
 
-![shrink](/static/images/text-fields/shrink.png)
+![shrink](/material-ui-static/images/text-fields/shrink.png)
 
 Pour contourner le problème, vous pouvez forcer l'état "shrink" de la legende.
 

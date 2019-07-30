@@ -81,7 +81,7 @@ Symbole können vorangestellt oder angehängt werden.
 
 Der Status des Eingabe-Labels "Verkleinern" ist nicht immer korrekt. Das Eingabeetikett soll schrumpfen, sobald die Eingabe etwas anzeigt. Unter bestimmten Umständen können wir den Status "Schrumpfen" nicht ermitteln (Zahleneingabe, Datumseingabe, Stripe-Eingabe). Möglicherweise stellen Sie eine Überlappung fest.
 
-![schrumpfen](/static/images/text-fields/shrink.png)
+![schrumpfen](/material-ui-static/images/text-fields/shrink.png)
 
 Um das Problem zu umgehen, können Sie den Status des Labels "verkleinern" erzwingen.
 

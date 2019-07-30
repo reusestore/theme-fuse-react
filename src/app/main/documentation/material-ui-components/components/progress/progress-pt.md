@@ -97,7 +97,7 @@ Existem [3 limites importantes](https://www.nngroup.com/articles/response-times-
 
 Quando o processamento é particularmente lento, você pode perder a animação do traço ou ver raios aleatórios com CircularProgress. Para não bloquear o processo principal de renderização, você deve processar suas operações com um web worker ou por batch.
 
-![carga pesada](/static/images/progress/heavy-load.gif)
+![carga pesada](/material-ui-static/images/progress/heavy-load.gif)
 
 Quando não for possível, você pode aproveitar a propriedade `disableShrink` para atenuar o problema. Veja [este issue](https://github.com/mui-org/material-ui/issues/10327).
 

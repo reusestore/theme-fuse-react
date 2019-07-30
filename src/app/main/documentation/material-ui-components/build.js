@@ -183,6 +183,7 @@ function getHtmlCode(markdownSource)
         .replace(new RegExp('class=', 'g'), "className=")
         .replace(new RegExp('<img([^>]+)(\\s*[^\\/])>', 'gm'), '$1/>')
         .replace(new RegExp('<br>', 'g'), '<br/>')
+        .replace(new RegExp('/static/', 'g'), "/material-ui-static/")
     return response;
 }
 
@@ -413,7 +414,8 @@ function replaceInExamples()
             const fileSource = fs.readFileSync(file, 'utf8');
             const result = fileSource
                 .replace(new RegExp('docs/src/modules/utils/compose', 'g'), 'app/main/documentation/material-ui-components/compose')
-                .replace(new RegExp('docs/src/modules/components/MarkdownElement', 'g'), "app/main/documentation/material-ui-components/MarkdownElement");
+                .replace(new RegExp('docs/src/modules/components/MarkdownElement', 'g'), "app/main/documentation/material-ui-components/MarkdownElement")
+                .replace(new RegExp('/static/', 'g'), "/material-ui-static/");
             fs.writeFileSync(file, result, 'utf8', function (err) {
                 if ( err ) return console.log(err);
             });

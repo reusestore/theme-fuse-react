@@ -81,7 +81,7 @@ components: FilledInput, FormControl, FormHelperText, Input, InputAdornment, Inp
 
 入力ラベルの「shrink」状態は必ずしも正しくありません。 入力が何かを表示しているとすぐに入力ラベルは縮小するはずです。 状況によっては、「shrink」状態（数値入力、日時入力、ストライプ入力）を判別できません。 重複があるかもしれません。
 
-![shrink](/static/images/text-fields/shrink.png)
+![shrink](/material-ui-static/images/text-fields/shrink.png)
 
 この問題を回避するにはラベルの"shrink"状態を以下のように強制する必要があります。
 

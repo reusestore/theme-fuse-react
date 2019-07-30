@@ -64,7 +64,7 @@ export default function MediaControlCard() {
       </div>
       <CardMedia
         className={classes.cover}
-        image="/static/images/cards/live-from-space.jpg"
+        image="/material-ui-static/images/cards/live-from-space.jpg"
         title="Live from space album cover"
       />
     </Card>

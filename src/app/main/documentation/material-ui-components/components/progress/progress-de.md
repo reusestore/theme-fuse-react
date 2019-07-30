@@ -97,7 +97,7 @@ Es gibt [3 wichtige Grenzwerte](https://www.nngroup.com/articles/response-times-
 
 Bei starker Belastung verlieren Sie möglicherweise die Strich-Animation oder sehen zufällige CircularProgress-Ringbreiten. Sie sollten prozessorintensive Vorgänge in einem Web-Worker oder in Batches ausführen, um den Haupt-Rendering-Thread nicht zu blockieren.
 
-![schwere Last](/static/images/progress/heavy-load.gif)
+![schwere Last](/material-ui-static/images/progress/heavy-load.gif)
 
 Wenn dies nicht möglich ist, können Sie die `disableShrink` Eigenschaft nutzen, um das Problem zu verringern. Siehe [dieses Github issue](https://github.com/mui-org/material-ui/issues/10327).
 

@@ -97,7 +97,7 @@ Hay [3 límites importantes](https://www.nngroup.com/articles/response-times-3-i
 
 Bajo cargas pesadas, puede perder la animación del trazo o ver anchos de anillos aleatorios de CircularProgress. Debería ejecutar operaciones de procesamiento intensivas en un trabajador web o por lotes para no bloquear el hilo de dibujo (render).
 
-![carga pesada](/static/images/progress/heavy-load.gif)
+![carga pesada](/material-ui-static/images/progress/heavy-load.gif)
 
 When it's not possible, you can leverage the `disableShrink` property to mitigate the issue. See [this issue](https://github.com/mui-org/material-ui/issues/10327).
 

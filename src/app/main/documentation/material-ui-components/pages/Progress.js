@@ -174,7 +174,7 @@ function Progress(props) {
                     <Typography className="text-32 mt-32 mb-8" component="h2">Limitations</Typography>
                     <Typography className="mb-16" component="div">Under heavy load, you might lose the stroke dash animation or see random CircularProgress ring widths.
                         You should run processor intensive operations in a web worker or by batch in order not to block the main rendering thread.</Typography>
-                    <Typography className="mb-16" component="div"> src="/static/images/progress/heavy-load.gif" alt="heavy load/></Typography>
+                    <Typography className="mb-16" component="div"> src="/material-ui-static/images/progress/heavy-load.gif" alt="heavy load/></Typography>
                     <Typography className="mb-16" component="div">When it&#39;s not possible, you can leverage the <code>{`disableShrink`}</code> property to mitigate the issue.
                         See <a href="https://github.com/mui-org/material-ui/issues/10327">this issue</a>.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample

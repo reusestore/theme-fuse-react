@@ -38,7 +38,7 @@ export default function OutlinedChips() {
         variant="outlined"
       />
       <Chip
-        avatar={<Avatar alt="Natacha" src="/static/images/avatar/1.jpg" />}
+        avatar={<Avatar alt="Natacha" src="/material-ui-static/images/avatar/1.jpg" />}
         label="Deletable Chip"
         onDelete={handleDelete}
         className={classes.chip}
