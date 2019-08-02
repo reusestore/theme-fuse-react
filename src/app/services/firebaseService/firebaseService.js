@@ -2,13 +2,12 @@ import config from './firebaseServiceConfig';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
-import {AUTH_CONFIG} from '../auth0Service/auth0ServiceConfig';
 
 class firebaseService {
 
     init(success)
     {
-        if ( Object.entries(AUTH_CONFIG).length === 0 && AUTH_CONFIG.constructor === Object )
+        if ( Object.entries(config).length === 0 && config.constructor === Object )
         {
             if ( process.env.NODE_ENV === 'development' )
             {
