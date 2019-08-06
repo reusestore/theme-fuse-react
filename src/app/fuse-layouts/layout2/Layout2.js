@@ -95,7 +95,7 @@ function Layout2(props)
 
                             <FuseDialog/>
 
-                            <div className="flex flex-auto flex-col relative">
+                            <div className="flex flex-auto flex-col relative h-full">
 
                                 <FuseSuspense>
                                     {renderRoutes(routes)}
