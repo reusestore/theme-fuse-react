@@ -8,6 +8,7 @@ import * as Actions from 'app/store/actions';
 import {FuseLayouts} from '@fuse';
 import _ from '@lodash';
 import AppContext from 'app/AppContext';
+import FuseLayoutConfigs from 'app/fuse-layouts/FuseLayoutConfigs';
 
 const styles = theme => ({
     root: {
@@ -47,49 +48,59 @@ class FuseLayout extends Component {
     constructor(props, context)
     {
         super(props);
-        this.appContext = context;
-        this.routeSettingsCheck();
+        const {routes} = context;
+
+        this.state = {
+            awaitRender: false,
+            routes
+        };
     }
 
-    componentDidUpdate(prevProps)
+    static getDerivedStateFromProps(props, state)
     {
-        if ( !_.isEqual(this.props.location.pathname, prevProps.location.pathname) )
+        const {location} = props;
+        const {pathname} = location;
+        const matched = matchRoutes(state.routes, pathname)[0];
+        let newSettings = props.settings;
+
+        if ( state.pathname !== pathname )
         {
-            this.routeSettingsCheck();
+            if ( matched && matched.route.settings )
+            {
+                const routeSettings = matched.route.settings;
+
+                newSettings = _.merge({}, props.defaultSettings, routeSettings && routeSettings.layout && routeSettings.layout.style ? {layout: {config: FuseLayoutConfigs[routeSettings.layout.style].defaults}} : {}, routeSettings)
+
+                if ( !_.isEqual(props.settings, newSettings) )
+                {
+                    props.setSettings(newSettings);
+                }
+            }
+            else
+            {
+                if ( !_.isEqual(props.settings, props.defaultSettings) )
+                {
+                    newSettings = _.merge({}, props.defaultSettings);
+
+                    props.resetSettings();
+                }
+            }
+        }
+
+        return {
+            awaitRender: !_.isEqual(props.settings, newSettings),
+            pathname
         }
     }
-
-    routeSettingsCheck = () => {
-        const {routes} = this.appContext;
-
-        const matched = matchRoutes(routes, this.props.location.pathname)[0];
-
-        if ( matched && matched.route.settings )
-        {
-            const routeSettings = _.merge({}, this.props.defaultSettings, matched.route.settings);
-            if ( !_.isEqual(this.props.settings, routeSettings) )
-            {
-                this.props.setSettings(_.merge({}, routeSettings));
-            }
-        }
-        else
-        {
-            if ( !_.isEqual(this.props.settings, this.props.defaultSettings) )
-            {
-                this.props.resetSettings();
-            }
-        }
-    };
 
     render()
     {
         const {settings, classes} = this.props;
-        // consoleconsole.warn('FuseLayout:: rendered');
+        // console.warn('FuseLayout:: rendered');
 
         const Layout = FuseLayouts[settings.layout.style];
-        return (
-            <Layout classes={{root: classes.root}} {...this.props}/>
-        );
+
+        return !this.state.awaitRender ? <Layout classes={{root: classes.root}} {...this.props}/> : null;
     }
 }
 

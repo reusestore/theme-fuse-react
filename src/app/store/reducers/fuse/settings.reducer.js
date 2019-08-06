@@ -30,13 +30,13 @@ const settings = function (state = initialState, action) {
     {
         case Actions.SET_SETTINGS:
         {
-            const newSettings = _.merge({}, state.current, action.value && action.value.layout && action.value.layout.style ? {layout: {config: FuseLayoutConfigs[action.value.layout.style].defaults}} : {}, action.value)
-            const themes = newSettings.theme.main !== state.current.theme.main ? {...state.themes, ...updateMainThemeVariations(newSettings.theme.main)} : state.themes;
+            const current = _.merge({}, state.defaults, action.value && action.value.layout && action.value.layout.style ? {layout: {config: FuseLayoutConfigs[action.value.layout.style].defaults}} : {}, action.value)
+            const themes = current.theme.main !== state.current.theme.main ? {...state.themes, ...updateMainThemeVariations(current.theme.main)} : state.themes;
             return {
                 ...state,
-                current: newSettings,
+                current,
                 themes,
-                ...getThemeOptions(themes, newSettings)
+                ...getThemeOptions(themes, current)
             };
         }
         case Actions.SET_INITIAL_SETTINGS:
