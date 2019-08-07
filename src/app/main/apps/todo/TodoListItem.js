@@ -1,8 +1,7 @@
 import React from 'react';
 import {IconButton, Icon, Typography, Checkbox, ListItem} from '@material-ui/core';
+import {red, amber} from '@material-ui/core/colors';
 import {makeStyles} from '@material-ui/styles';
-import red from '@material-ui/core/colors/red';
-import amber from '@material-ui/core/colors/amber';
 import {useDispatch, useSelector} from 'react-redux';
 import clsx from 'clsx';
 import _ from '@lodash';

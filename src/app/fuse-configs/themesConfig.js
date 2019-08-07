@@ -1,6 +1,5 @@
+import {lightBlue, red} from '@material-ui/core/colors';
 import {fuseDark} from '@fuse/fuse-colors';
-import lightBlue from '@material-ui/core/colors/lightBlue';
-import red from '@material-ui/core/colors/red';
 
 const themesConfig = {
     default    : {
@@ -22,15 +21,15 @@ const themesConfig = {
         palette: {
             type     : 'light',
             primary  : {
-                light: '#ff908b',
-                main : '#d0605e',
-                dark : '#9b3134'
+                light: '#FF908B',
+                main : '#D0605E',
+                dark : '#9B3134'
             },
             secondary: {
-                light       : '#c76a1d',
-                main        : '#ff994c',
-                dark        : '#ffca7b',
-                contrastText: '#fff'
+                light       : '#C76A1D',
+                main        : '#FF994C',
+                dark        : '#FFCA7B',
+                contrastText: '#FFF'
             },
             error    : red
         },
@@ -42,15 +41,15 @@ const themesConfig = {
         palette: {
             type     : 'light',
             primary  : {
-                light: '#6cabd4',
-                main : '#387ca3',
+                light: '#6CABD4',
+                main : '#387CA3',
                 dark : '#005074'
             },
             secondary: {
-                light       : '#89f6cf',
-                main        : '#55c39e',
+                light       : '#89F6CF',
+                main        : '#55C39E',
                 dark        : '#159270',
-                contrastText: '#fff'
+                contrastText: '#FFF'
             },
             error    : red
         },
@@ -62,16 +61,16 @@ const themesConfig = {
         palette: {
             type     : 'light',
             primary  : {
-                light       : '#c4d8dd',
-                main        : '#93a7ab',
-                dark        : '#65787c',
-                contrastText: '#fff'
+                light       : '#C4D8DD',
+                main        : '#93A7AB',
+                dark        : '#65787C',
+                contrastText: '#FFF'
             },
             secondary: {
-                light       : '#ffb281',
-                main        : '#f18153',
-                dark        : '#ba5228',
-                contrastText: '#fff'
+                light       : '#FFB281',
+                main        : '#F18153',
+                dark        : '#BA5228',
+                contrastText: '#FFF'
             }
         }
     },
@@ -79,15 +78,15 @@ const themesConfig = {
         palette: {
             type     : 'light',
             primary  : {
-                light       : '#87efff',
-                main        : '#4dbce9',
-                dark        : '#008cb7',
-                contrastText: '#fff'
+                light       : '#87EFFF',
+                main        : '#4DBCE9',
+                dark        : '#008CB7',
+                contrastText: '#FFF'
             },
             secondary: {
-                light: '#ffff83',
-                main : '#d1e751',
-                dark : '#9db516'
+                light: '#FFFF83',
+                main : '#D1E751',
+                dark : '#9DB516'
             }
         }
     },
@@ -95,14 +94,14 @@ const themesConfig = {
         palette: {
             type     : 'light',
             primary  : {
-                light       : '#d5c1eb',
-                main        : '#a391b9',
+                light       : '#D5C1EB',
+                main        : '#A391B9',
                 dark        : '#746389',
-                contrastText: '#fff'
+                contrastText: '#FFF'
             },
             secondary: {
-                light: '#90afd4',
-                main : '#6080a3',
+                light: '#90AFD4',
+                main : '#6080A3',
                 dark : '#325474'
             }
         }
@@ -126,15 +125,15 @@ const themesConfig = {
         palette: {
             type     : 'dark',
             primary  : {
-                light: '#8f53e7',
-                main : '#5a24b4',
-                dark : '#1e0083'
+                light: '#8F53E7',
+                main : '#5A24B4',
+                dark : '#1E0083'
             },
             secondary: {
-                light       : '#ff61ff',
-                main        : '#fe00e9',
-                dark        : '#c600b6',
-                contrastText: '#fff'
+                light       : '#FF61FF',
+                main        : '#FE00E9',
+                dark        : '#C600B6',
+                contrastText: '#FFF'
             }
         }
     },
@@ -142,15 +141,15 @@ const themesConfig = {
         palette: {
             type     : 'dark',
             primary  : {
-                light: '#86fff7',
-                main : '#4ecdc4',
-                dark : '#009b94'
+                light: '#86FFF7',
+                main : '#4ECDC4',
+                dark : '#009B94'
             },
             secondary: {
-                light       : '#ff9d99',
-                main        : '#ff6b6b',
-                dark        : '#c73840',
-                contrastText: '#fff'
+                light       : '#FF9D99',
+                main        : '#FF6B6B',
+                dark        : '#C73840',
+                contrastText: '#FFF'
             }
         }
     }

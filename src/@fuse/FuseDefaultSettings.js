@@ -1,9 +1,8 @@
-import {createMuiTheme} from '@material-ui/core/styles';
+import {createMuiTheme} from '@material-ui/core';
+import {lightBlue, red} from '@material-ui/core/colors';
 import {fuseDark} from '@fuse/fuse-colors';
-import lightBlue from '@material-ui/core/colors/lightBlue';
-import red from '@material-ui/core/colors/red';
-import qs from 'qs';
 import _ from '@lodash';
+import qs from 'qs';
 
 /**
  * SETTINGS DEFAULTS

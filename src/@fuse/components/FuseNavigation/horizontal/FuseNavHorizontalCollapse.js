@@ -21,12 +21,16 @@ const useStyles = makeStyles(theme => ({
         }
     },
     button     : {
-        color    : theme.palette.text.primary,
-        minHeight: 48,
-        '&.open' : {
+        color                                     : theme.palette.text.primary,
+        minHeight                                 : 48,
+        '&.active, &.active:hover, &.active:focus': {
+            backgroundColor: theme.palette.secondary.main + '!important',
+            color          : theme.palette.secondary.contrastText + '!important'
+        },
+        '&.open'                                  : {
             backgroundColor: 'rgba(0,0,0,.08)'
         },
-        '&.dense': {
+        '&.dense'                                 : {
             padding            : '8px 12px 8px 12px',
             minHeight          : 40,
             '& .list-item-text': {
@@ -59,6 +63,32 @@ function FuseNavHorizontalCollapse(props)
         return null;
     }
 
+    function isUrlInChildren(parent, url)
+    {
+        if ( !parent.children )
+        {
+            return false;
+        }
+
+        for ( let i = 0; i < parent.children.length; i++ )
+        {
+            if ( parent.children[i].children )
+            {
+                if ( isUrlInChildren(parent.children[i], url) )
+                {
+                    return true;
+                }
+            }
+
+            if ( parent.children[i].url === url || url.includes(parent.children[i].url) )
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     return (
         <ul className={clsx(classes.root, "relative pl-0")}>
             <Manager>
@@ -67,7 +97,7 @@ function FuseNavHorizontalCollapse(props)
                         <div ref={ref}>
                             <ListItem
                                 button
-                                className={clsx("list-item", classes.button, opened && "open", dense && "dense")}
+                                className={clsx("list-item", classes.button, opened && "open", dense && "dense", isUrlInChildren(item, props.location.pathname) && "active")}
                                 onMouseEnter={() => handleToggle(true)}
                                 onMouseLeave={() => handleToggle(false)}
                                 aria-owns={opened ? 'menu-list-grow' : null}

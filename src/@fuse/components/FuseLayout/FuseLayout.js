@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core';
+import {FuseLayouts} from '@fuse';
+import _ from '@lodash';
 import {withRouter} from 'react-router-dom';
 import {matchRoutes} from 'react-router-config'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as Actions from 'app/store/actions';
-import {FuseLayouts} from '@fuse';
-import _ from '@lodash';
 import AppContext from 'app/AppContext';
 import FuseLayoutConfigs from 'app/fuse-layouts/FuseLayoutConfigs';
 

@@ -15,18 +15,22 @@ import FuseNavHorizontalLink from './FuseNavHorizontalLink';
 
 const useStyles = makeStyles(theme => ({
     root       : {
-        color              : theme.palette.text.primary,
-        '& .list-item-text': {
+        color                                     : theme.palette.text.primary,
+        '&.active, &.active:hover, &.active:focus': {
+            backgroundColor: theme.palette.secondary.main + '!important',
+            color          : theme.palette.secondary.contrastText + '!important'
+        },
+        '& .list-item-text'                       : {
             padding: '0 0 0 16px'
         },
-        '&.level-0'        : {
+        '&.level-0'                               : {
             height      : 48,
             borderRadius: 4,
             '&:hover'   : {
                 background: 'transparent'
             },
         },
-        '&.dense'          : {
+        '&.dense'                                 : {
             padding            : '8px 12px 8px 12px',
             minHeight          : 40,
             '&.level-0'        : {
@@ -63,6 +67,32 @@ function FuseNavHorizontalGroup(props)
         return null;
     }
 
+    function isUrlInChildren(parent, url)
+    {
+        if ( !parent.children )
+        {
+            return false;
+        }
+
+        for ( let i = 0; i < parent.children.length; i++ )
+        {
+            if ( parent.children[i].children )
+            {
+                if ( isUrlInChildren(parent.children[i], url) )
+                {
+                    return true;
+                }
+            }
+
+            if ( parent.children[i].url === url || url.includes(parent.children[i].url) )
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     return (
         <Manager>
             <Reference>
@@ -70,7 +100,7 @@ function FuseNavHorizontalGroup(props)
                     <div ref={ref}>
                         <ListItem
                             button
-                            className={clsx("list-item ", classes.root, "relative", "level-" + nestedLevel, dense && "dense")}
+                            className={clsx("list-item ", classes.root, "relative", "level-" + nestedLevel, dense && "dense", isUrlInChildren(item, props.location.pathname) && "active")}
                             onMouseEnter={() => handleToggle(true)}
                             onMouseLeave={() => handleToggle(false)}
                             aria-owns={opened ? 'menu-list-grow' : null}
