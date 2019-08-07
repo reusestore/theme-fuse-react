@@ -30,7 +30,7 @@ const settings = function (state = initialState, action) {
     {
         case Actions.SET_SETTINGS:
         {
-            const current = _.merge({}, state.defaults, action.value && action.value.layout && action.value.layout.style ? {layout: {config: FuseLayoutConfigs[action.value.layout.style].defaults}} : {}, action.value)
+            const current = generateSettings(state.defaults, action.value);
             const themes = current.theme.main !== state.current.theme.main ? {...state.themes, ...updateMainThemeVariations(current.theme.main)} : state.themes;
             return {
                 ...state,
@@ -45,14 +45,14 @@ const settings = function (state = initialState, action) {
         }
         case Actions.SET_DEFAULT_SETTINGS:
         {
-            const newSettings = _.merge({}, state.defaults, action.value && action.value.layout && action.value.layout.style ? {layout: {config: FuseLayoutConfigs[action.value.layout.style].defaults}} : {}, action.value);
-            const themes = newSettings.theme.main !== state.defaults.theme.main ? {...state.themes, ...updateMainThemeVariations(newSettings.theme.main)} : state.themes;
+            const defaults = generateSettings(state.defaults, action.value);
+            const themes = defaults.theme.main !== state.defaults.theme.main ? {...state.themes, ...updateMainThemeVariations(defaults.theme.main)} : state.themes;
             return {
                 ...state,
-                defaults: _.merge({}, newSettings),
-                current : _.merge({}, newSettings),
+                defaults: _.merge({}, defaults),
+                current : _.merge({}, defaults),
                 themes,
-                ...getThemeOptions(themes, newSettings)
+                ...getThemeOptions(themes, defaults)
             };
         }
         case Actions.RESET_DEFAULT_SETTINGS:
@@ -124,4 +124,9 @@ function getThemeOptions(themes, settings)
         footerTheme : themes[settings.theme.footer],
         ...updateMainThemeVariations(settings.theme.main)
     }
+}
+
+export function generateSettings(defaultSettings, newSettings)
+{
+    return _.merge({}, defaultSettings, newSettings && newSettings.layout && newSettings.layout.style ? {layout: {config: FuseLayoutConfigs[newSettings.layout.style].defaults}} : {}, newSettings);
 }
