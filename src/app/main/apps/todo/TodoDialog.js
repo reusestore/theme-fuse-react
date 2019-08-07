@@ -20,8 +20,7 @@ import {
     ListItemText,
     Divider
 } from '@material-ui/core';
-import amber from '@material-ui/core/colors/amber';
-import red from '@material-ui/core/colors/red';
+import {amber, red} from '@material-ui/core/colors';
 import {FuseUtils} from '@fuse';
 import {useForm} from '@fuse/hooks';
 import {useDispatch, useSelector} from 'react-redux';
