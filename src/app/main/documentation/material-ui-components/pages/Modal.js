@@ -87,6 +87,7 @@ function ModalDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/modal/SimpleModal.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/modal/SimpleModal.js')}
                     /></Typography>
+                    <Typography className="mb-16" component="div">Notice that you can disable the blue outline with the <code>{`outline: 0`}</code> CSS property.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Performance</Typography>
                     <Typography className="mb-16" component="div">The content of the modal is <strong>lazily mounted</strong> into the DOM.
                         It ensures that having many closed modals in your React tree won&#39;t slow down your page.</Typography>
@@ -141,13 +142,13 @@ function ModalDoc(props)
                     <FuseHighlight component="pre" className="language-jsx">
                         {` 
 <Modal
-  aria-labelledby="simple-modal-title"
-  aria-describedby="simple-modal-description"
+  aria-labelledby="modal-title"
+  aria-describedby="modal-description"
 >
   <h2 id="modal-title">
     My Title
   </h2>
-  <Typography id="simple-modal-description">
+  <Typography id="modal-description">
     My Description
   </Typography>
 </Modal>
@@ -158,6 +159,16 @@ function ModalDoc(props)
                             initial focus on the most relevant element, based on your modal content.
                         </li>
                     </ul>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Server-side modal</Typography>
+                    <Typography className="mb-16" component="div">React <a href="https://github.com/facebook/react/issues/13097">doesn&#39;t support</a> the <a
+                        href="https://reactjs.org/docs/portals.html"><code>{`createPortal()`}</code></a> API on the server.
+                        In order to make it work, you need to disable this feature with the <code>{`disablePortal`}</code> prop:</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/modal/ServerModal.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/modal/ServerModal.js')}
+                    /></Typography>
 
                 </div>
             }

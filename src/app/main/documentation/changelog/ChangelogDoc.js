@@ -5,6 +5,22 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
     {
+        version     : '3.2.1',
+        date        : '2019-08-08',
+        newChanges  : [
+            "material-ui updated to v4.3.1",
+            "tailwind config updated.",
+            "All dependency packages updated.",
+            "Some import paths optimized.",
+            "HorizontalNavigation active highlighting added for group and collapse navigation items."
+        ],
+        fixedChanges: [
+            "FuseLayout do not hold render until settings at the redux state is updated. This causes multiple mount of the route component which has different layout settings.",
+            "Layout style issues due to browser updates.",
+            "Removal of event listeners in FuseScrollbars (@stephankaag).",
+        ]
+    },
+    {
         version        : '3.2.0',
         date           : '2019-07-31',
         newChanges     : [

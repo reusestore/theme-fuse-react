@@ -102,8 +102,7 @@ function BoxDoc(props)
                     </FuseHighlight>
                     <blockquote>
                         <Typography className="mb-16" component="div">⚠️ The CSS specificity relies on the import order.
-                            If you want the guarantee that the wrapped component&#39;s style will be overridden,
-                            you need to import the Box last.</Typography>
+                            If you want the guarantee that the wrapped component&#39;s style will be overridden, you need to import the Box last.</Typography>
                     </blockquote>
                     <Typography className="text-32 mt-32 mb-8" component="h2">API</Typography>
 

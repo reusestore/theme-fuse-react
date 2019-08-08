@@ -12,9 +12,9 @@ module.exports = {
                 print: {'raw': 'print'}
             },
             colors            : {
-                'transparent': 'transparent',
-                'black'      : '#22292F',
-                'white'      : '#FFF',
+                transparent  : 'transparent',
+                black        : '#22292F',
+                white        : '#FFF',
                 grey         : {
                     50     : '#FAFAFA',
                     100    : '#F5F5F5',
@@ -367,7 +367,6 @@ module.exports = {
                 '3xl' : '128rem',
                 '4xl' : '144rem',
                 '5xl' : '160rem',
-                'auto': 'auto',
                 'px'  : '1px',
                 '0'   : '0',
                 '4'   : '0.4rem',
@@ -457,13 +456,14 @@ module.exports = {
                 '2'    : '2px',
                 '3'    : '3px',
                 '4'    : '4px',
-                '8'    : '8px'
+                '8'    : '8px',
             },
             boxShadow         : {
                 default: '0 2px 4px 0 rgba(0,0,0,0.10)',
                 md     : '0 4px 8px 0 rgba(0,0,0,0.12), 0 2px 4px 0 rgba(0,0,0,0.08)',
                 lg     : '0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08)',
                 inner  : 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',
+                outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
                 none   : 'none',
                 '0'    : "none",
                 '1'    : "0px 1px 3px 0px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 2px 1px -1px rgba(0,0,0,0.12)",
@@ -549,7 +549,7 @@ module.exports = {
                     '"Liberation Mono"',
                     '"Courier New"',
                     'monospace',
-                ]
+                ],
             },
             fontSize          : {
                 xs   : '1.2rem',     // 12px
@@ -586,7 +586,7 @@ module.exports = {
                 '68' : '6.8rem',
                 '72' : '7.2rem',
                 '96' : '9.6rem',
-                '128': '12.8rem'
+                '128': '12.8rem',
             },
             fontWeight        : {
                 hairline : '100',
@@ -612,7 +612,7 @@ module.exports = {
                 auto  : 'auto',
                 ...theme('spacing'),
                 full  : '100%',
-                screen: '100vh'
+                screen: '100vh',
             }),
             inset             : {
                 '0' : '0',
@@ -682,7 +682,7 @@ module.exports = {
                 '25' : '0.25',
                 '50' : '0.5',
                 '75' : '0.75',
-                '100': '1'
+                '100': '1',
             },
             order             : {
                 first: '-9999',
@@ -702,6 +702,7 @@ module.exports = {
                 '12' : '12',
             },
             padding           : theme => theme('spacing'),
+            placeholderColor  : theme => theme('colors'),
             stroke            : {
                 current: 'currentColor',
             },
@@ -802,6 +803,7 @@ module.exports = {
         outline             : ['responsive', 'focus'],
         overflow            : ['responsive'],
         padding             : ['responsive'],
+        placeholderColor    : ['responsive', 'focus'],
         pointerEvents       : ['responsive'],
         position            : ['responsive'],
         resize              : ['responsive'],
@@ -817,8 +819,8 @@ module.exports = {
         whitespace          : ['responsive'],
         width               : ['responsive'],
         wordBreak           : ['responsive'],
-        zIndex              : ['responsive']
+        zIndex              : ['responsive'],
     },
     corePlugins: {},
     plugins    : [],
-};
+}

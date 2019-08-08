@@ -135,8 +135,10 @@ function TablesDoc(props)
                     <Typography className="text-32 mt-32 mb-8" component="h2">Complementary projects</Typography>
                     <Typography className="mb-16" component="div">For more advanced use cases you might be able to take advantage of:</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">material-table</Typography>
-                    <Typography className="mb-16" component="div"> src="https://img.shields.io/github/stars/mbrn/material-table.svg?style=social&label=Stars" alt="stars/>
-                        src="https://img.shields.io/npm/dm/material-table.svg" alt="npm downloads/></Typography>
+                    <Typography className="mb-16" component="div">
+                        <img src="https://img.shields.io/github/stars/mbrn/material-table.svg?style=social&label=Stars" alt="stars"/>
+                        <img src="https://img.shields.io/npm/dm/material-table.svg" alt="npm downloads"/>
+                    </Typography>
                     <Typography className="mb-16" component="div"><a href="https://github.com/mbrn/material-table">material-table</a> is a simple and powerful Datatable for React
                         based on Material-UI Table with some additional features.
                         They support many different use cases (editable, filtering, grouping, sorting, selection, i18n, tree data and more). You should check it out.</Typography>

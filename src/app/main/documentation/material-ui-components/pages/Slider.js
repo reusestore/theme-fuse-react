@@ -62,7 +62,7 @@ function SliderDoc(props)
                         By order of demos:</Typography>
                     <ol>
                         <li>You can generate a mark for each step with <code>{`marks={true}`}</code>.</li>
-                        <li>You can change de default step increment.</li>
+                        <li>You can change the default step increment.</li>
                         <li>You can have custom marks by providing a rich array to the <code>{`marks`}</code> prop.</li>
                         <li>You can restrict the selectable values to those provided with the <code>{`marks`}</code> prop with <code>{`step={null}`}</code>.</li>
                         <li>You can force the thumb label to be always visible with <code>{`valueLabelDisplay="on"`}</code>.</li>
