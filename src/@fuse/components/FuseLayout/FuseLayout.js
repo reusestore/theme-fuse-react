@@ -49,12 +49,10 @@ class FuseLayout extends Component {
     {
         super(props);
         const {routes} = context;
-        const {pathname} = props.location;
 
         this.state = {
             awaitRender: false,
-            routes,
-            pathname
+            routes
         };
     }
 
