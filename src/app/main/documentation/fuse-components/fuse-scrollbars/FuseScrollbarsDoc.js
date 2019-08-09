@@ -51,6 +51,7 @@ function FuseScrollbarsDoc()
                                     className               : '',
                                     enable                  : true,
                                     scrollToTopOnChildChange: false,
+                                    scrollToTopOnRouteChange: false,
                                     option                  : {
                                         wheelPropagation: true
                                     },

@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import MobileDetect from 'mobile-detect';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
+import withRouterAndRef from '../withRouterAndRef/withRouterAndRef';
 
 const md = new MobileDetect(window.navigator.userAgent);
 const isMobile = md.mobile();
@@ -50,7 +51,8 @@ const FuseScrollbars = React.forwardRef(function FuseScrollbars(props, ref) {
 
     const unHookUpEvents = useCallback(() => {
         handlerByEvent.current.forEach((value, key) => {
-            if(ref.current){
+            if ( ref.current )
+            {
                 ref.current.removeEventListener(key, value, false);
             }
         });
@@ -101,17 +103,30 @@ const FuseScrollbars = React.forwardRef(function FuseScrollbars(props, ref) {
         customScrollbars ? createPs() : destroyPs();
     }, [createPs, customScrollbars, destroyPs]);
 
-    useEffect(() => {
-        function scrollToTop()
+    const scrollToTop = useCallback(() => {
+        if ( ref && ref.current )
         {
             ref.current.scrollTop = 0;
         }
+    }, [ref]);
+
+    useEffect(() => {
 
         if ( props.scrollToTopOnChildChange )
         {
             scrollToTop();
         }
-    }, [props.children, props.scrollToTopOnChildChange, ref]);
+
+    }, [scrollToTop, props.children, props.scrollToTopOnChildChange]);
+
+    useEffect(() => props.history.listen(() => {
+
+        if ( props.scrollToTopOnRouteChange )
+        {
+            scrollToTop();
+        }
+
+    }), [scrollToTop, props.history, props.scrollToTopOnRouteChange])
 
     useEffect(() => {
         return () => {
@@ -156,6 +171,7 @@ FuseScrollbars.propTypes = {
     onYReachEnd             : PropTypes.func,
     onXReachStart           : PropTypes.func,
     onXReachEnd             : PropTypes.func,
+    scrollToTopOnRouteChange: PropTypes.bool,
     scrollToTopOnChildChange: PropTypes.bool,
 };
 
@@ -163,6 +179,7 @@ FuseScrollbars.defaultProps = {
     className               : '',
     enable                  : true,
     scrollToTopOnChildChange: false,
+    scrollToTopOnRouteChange: false,
     option                  : {
         wheelPropagation: true
     },
@@ -179,4 +196,4 @@ FuseScrollbars.defaultProps = {
     onXReachEnd             : undefined
 };
 
-export default connect(mapStateToProps, null, null, {forwardRef: true})(React.memo(FuseScrollbars));
+export default connect(mapStateToProps, null, null, {forwardRef: true})(withRouterAndRef(FuseScrollbars));

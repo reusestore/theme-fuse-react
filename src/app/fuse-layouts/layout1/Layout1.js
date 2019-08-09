@@ -104,7 +104,7 @@ function Layout1(props)
                             <ToolbarLayout1/>
                         )}
 
-                        <FuseScrollbars className="overflow-auto" scrollToTopOnChildChange>
+                        <FuseScrollbars className="overflow-auto" scrollToTopOnRouteChange>
 
                             {config.toolbar.display && config.toolbar.style !== 'fixed' && config.toolbar.position === 'above' && (
                                 <ToolbarLayout1/>
@@ -194,7 +194,7 @@ function Layout1(props)
                                     <ToolbarLayout1/>
                                 )}
 
-                                <FuseScrollbars className={classes.content} scrollToTopOnChildChange>
+                                <FuseScrollbars className={classes.content} scrollToTopOnRouteChange>
                                     {config.toolbar.display && config.toolbar.position === 'below' && config.toolbar.style !== 'fixed' && (
                                         <ToolbarLayout1/>
                                     )}

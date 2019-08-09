@@ -91,7 +91,7 @@ function Layout2(props)
                             <ToolbarLayout2/>
                         )}
 
-                        <FuseScrollbars className={classes.content}>
+                        <FuseScrollbars className={classes.content} scrollToTopOnRouteChange>
 
                             <FuseDialog/>
 

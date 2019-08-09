@@ -190,7 +190,7 @@ const FusePageCarded = React.forwardRef(function (props, ref) {
                         )}
 
                         {props.content && (
-                            <FuseScrollbars className={classes.content} enable={props.innerScroll} scrollToTopOnChildChange={props.innerScroll}>
+                            <FuseScrollbars className={classes.content} enable={props.innerScroll} scrollToTopOnRouteChange={props.innerScroll}>
                                 {props.content}
                             </FuseScrollbars>
                         )}
