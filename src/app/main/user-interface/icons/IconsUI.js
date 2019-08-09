@@ -94,6 +94,7 @@ function IconsUI()
                         component="a"
                         href="https://material.io/icons/"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference

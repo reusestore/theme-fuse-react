@@ -27,6 +27,7 @@ function FormsyDoc()
                         component="a"
                         href="https://github.com/formsy/formsy-react"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference

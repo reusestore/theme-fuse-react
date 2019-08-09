@@ -29,6 +29,7 @@ function ReactTableDoc()
                         component="a"
                         href="https://github.com/react-tools/react-table"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference

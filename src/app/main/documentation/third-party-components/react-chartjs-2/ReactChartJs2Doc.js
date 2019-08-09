@@ -27,6 +27,7 @@ function ReactChartJs2Doc()
                         component="a"
                         href="https://github.com/jerairrest/react-chartjs-2"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference

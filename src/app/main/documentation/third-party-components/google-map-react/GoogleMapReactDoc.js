@@ -27,6 +27,7 @@ function GoogleMapReactDoc()
                         component="a"
                         href="https://github.com/google-map-react/google-map-react"
                         target="_blank"
+                        role="button"
                     >
                         <Icon className="mr-4">link</Icon>
                         Reference
