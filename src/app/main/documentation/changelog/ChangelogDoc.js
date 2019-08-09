@@ -5,6 +5,19 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
     {
+        version     : '3.2.2',
+        date        : '2019-08-09',
+        newChanges  : [
+            "withRouterAndRef hoc added for use forwardRef with withRouter.",
+            "scrollToTopOnRouteChange added to FuseScrollbars.",
+            <span>Nested Object support added for useForm hook. <br/>(use with attribute <code>{`name="profile.username" value={form.profile.username}`}</code>)</span>
+        ],
+        fixedChanges: [
+            "scrollToTopOnChildChange changed with scrollToTopOnRouteChange in FusePageCarded.",
+            "Route component theme settings do not applied if the route is the entry path of the app.",
+        ]
+    },
+    {
         version     : '3.2.1',
         date        : '2019-08-08',
         newChanges  : [
