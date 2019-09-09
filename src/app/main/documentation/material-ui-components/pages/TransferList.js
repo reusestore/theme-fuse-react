@@ -53,8 +53,7 @@ function TransferListDoc(props)
                     <Typography className="description">A transfer list (or "shuttle") enables the user to move one or more list items between lists.</Typography>
 
                     <Typography className="text-32 mt-32 mb-8" component="h2">Simple Transfer List</Typography>
-                    <Typography className="mb-16" component="div"> For completeness, this example includes buttons for &quot;move all&quot;, but not every transfer list needs
-                        these.</Typography>
+                    <Typography className="mb-16" component="div"> For completeness, this example includes buttons for &quot;move all&quot;, but not every transfer list needs these.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -62,8 +61,7 @@ function TransferListDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/transfer-list/TransferList.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Enhanced Transfer List</Typography>
-                    <Typography className="mb-16" component="div">This example exchanges the &quot;move all&quot; buttons for a &quot;select all / select none&quot; checkbox, and
-                        adds a counter.</Typography>
+                    <Typography className="mb-16" component="div">This example exchanges the &quot;move all&quot; buttons for a &quot;select all / select none&quot; checkbox, and adds a counter.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}

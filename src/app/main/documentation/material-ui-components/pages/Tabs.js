@@ -52,8 +52,7 @@ function TabsDoc(props)
                     <Typography className="text-44 mt-32 mb-8" component="h1">Tabs</Typography>
                     <Typography className="description">Tabs make it easy to explore and switch between different views.</Typography>
 
-                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/tabs.html">Tabs</a> organize and allow navigation between groups of
-                        content that are related and at the same level of hierarchy.</Typography>
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/tabs.html">Tabs</a> organize and allow navigation between groups of content that are related and at the same level of hierarchy.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Simple Tabs</Typography>
                     <Typography className="mb-16" component="div">A simple example with no frills.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -63,8 +62,7 @@ function TabsDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/SimpleTabs.js')}
                     /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Wrapped Labels</Typography>
-                    <Typography className="mb-16" component="div">Long labels will automatically wrap on tabs. If the label is too long for the tab, it will overflow and the text
-                        will not be visible.</Typography>
+                    <Typography className="mb-16" component="div">Long labels will automatically wrap on tabs. If the label is too long for the tab, it will overflow and the text will not be visible.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -80,12 +78,10 @@ function TabsDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/DisabledTabs.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Fixed Tabs</Typography>
-                    <Typography className="mb-16" component="div">Fixed tabs should be used with a limited number of tabs and when consistent placement will aid muscle
-                        memory.</Typography>
+                    <Typography className="mb-16" component="div">Fixed tabs should be used with a limited number of tabs and when consistent placement will aid muscle memory.</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Full width</Typography>
                     <Typography className="mb-16" component="div">The <code>{`variant="fullWidth"`}</code> property should be used for smaller views.
-                        This demo also uses <a href="https://github.com/oliviertassinari/react-swipeable-views">react-swipeable-views</a> to animate the Tab transition, and
-                        allowing tabs to be swiped on touch devices.</Typography>
+                        This demo also uses <a href="https://github.com/oliviertassinari/react-swipeable-views">react-swipeable-views</a> to animate the Tab transition, and allowing tabs to be swiped on touch devices.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -102,8 +98,7 @@ function TabsDoc(props)
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Scrollable Tabs</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Automatic Scroll Buttons</Typography>
-                    <Typography className="mb-16" component="div">Left and right scroll buttons will automatically be presented on desktop and hidden on mobile. (based on viewport
-                        width)</Typography>
+                    <Typography className="mb-16" component="div">Left and right scroll buttons will automatically be presented on desktop and hidden on mobile. (based on viewport width)</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -119,8 +114,7 @@ function TabsDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/ScrollableTabsButtonForce.js')}
                     /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Prevent Scroll Buttons</Typography>
-                    <Typography className="mb-16" component="div">Left and right scroll buttons will never be presented. All scrolling must be initiated through user agent
-                        scrolling mechanisms (e.g. left/right swipe, shift-mousewheel, etc.)</Typography>
+                    <Typography className="mb-16" component="div">Left and right scroll buttons will never be presented. All scrolling must be initiated through user agent scrolling mechanisms (e.g. left/right swipe, shift-mousewheel, etc.)</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -136,8 +130,7 @@ function TabsDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/tabs/CustomizedTabs.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/CustomizedTabs.js')}
                     /></Typography>
-                    <Typography className="mb-16" component="div">👑 If you are looking for inspiration, you can check <a href="https://mui-treasury.com/components/tabs">MUI
-                        Treasury&#39;s customization examples</a>.</Typography>
+                    <Typography className="mb-16" component="div">👑 If you are looking for inspiration, you can check <a href="https://mui-treasury.com/components/tabs">MUI Treasury&#39;s customization examples</a>.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Vertical tabs</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -146,8 +139,7 @@ function TabsDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/VerticalTabs.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Nav Tabs</Typography>
-                    <Typography className="mb-16" component="div">By default tabs use a <code>{`button`}</code> element, but you can provide your own custom tag or component.
-                        Here&#39;s an example of implementing tabbed navigation:</Typography>
+                    <Typography className="mb-16" component="div">By default tabs use a <code>{`button`}</code> element, but you can provide your own custom tag or component. Here&#39;s an example of implementing tabbed navigation:</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}

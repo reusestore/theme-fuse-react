@@ -52,8 +52,7 @@ function ChipsDoc(props)
                     <Typography className="text-44 mt-32 mb-8" component="h1">Chips</Typography>
                     <Typography className="description">Chips are compact elements that represent an input, attribute, or action.</Typography>
 
-                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/chips.html">Chips</a> allow users to enter information, make
-                        selections, filter content, or trigger actions.</Typography>
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/chips.html">Chips</a> allow users to enter information, make selections, filter content, or trigger actions.</Typography>
                     <Typography className="mb-16" component="div">While included here as a standalone component, the most common use will
                         be in some form of input, so some of the behaviour demonstrated here is
                         not shown in context.</Typography>

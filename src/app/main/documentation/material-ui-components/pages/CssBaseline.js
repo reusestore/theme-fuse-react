@@ -50,11 +50,9 @@ function CssBaselineDoc(props)
             content={
                 <div className="p-24 max-w-2xl">
                     <Typography className="text-44 mt-32 mb-8" component="h1">CSS Baseline</Typography>
-                    <Typography className="description">Material-UI provides a CssBaseline component to kickstart an elegant, consistent, and simple baseline to build
-                        upon.</Typography>
+                    <Typography className="description">Material-UI provides a CssBaseline component to kickstart an elegant, consistent, and simple baseline to build upon.</Typography>
 
-                    <Typography className="mb-16" component="div">You might be familiar with <a href="https://github.com/necolas/normalize.css">normalize.css</a>, a collection of
-                        HTML element and attribute style-normalizations.</Typography>
+                    <Typography className="mb-16" component="div">You might be familiar with <a href="https://github.com/necolas/normalize.css">normalize.css</a>, a collection of HTML element and attribute style-normalizations.</Typography>
 
                     <FuseHighlight component="pre" className="language-jsx">
                         {` 
@@ -75,13 +73,11 @@ export default MyApp;
                     </FuseHighlight>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Approach</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Page</Typography>
-                    <Typography className="mb-16" component="div">The <code>{`<html>`}</code> and <code>{`<body>`}</code> elements are updated to provide better page-wide defaults.
-                        More specifically:</Typography>
+                    <Typography className="mb-16" component="div">The <code>{`<html>`}</code> and <code>{`<body>`}</code> elements are updated to provide better page-wide defaults. More specifically:</Typography>
                     <ul>
                         <li>The margin in all browsers is removed.</li>
                         <li>The default Material Design background color is applied.
-                            It&#39;s using <a href="/customization/default-theme/?expend-path=$.palette.background"><code>{`theme.palette.background.default`}</code></a> for
-                            standard devices and a white background for print devices.
+                            It&#39;s using <a href="/customization/default-theme/?expend-path=$.palette.background"><code>{`theme.palette.background.default`}</code></a> for standard devices and a white background for print devices.
                         </li>
                     </ul>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Layout</Typography>
@@ -94,8 +90,7 @@ export default MyApp;
                     <Typography className="text-24 mt-32 mb-8" component="h3">Typography</Typography>
                     <ul>
                         <li>No base font-size is declared on the <code>{`<html>`}</code>, but 16px is assumed (the browser default).
-                            You can learn more about the implications of changing the <code>{`<html>`}</code> default font size in <a
-                                href="/customization/typography/#typography-html-font-size">the theme documentation</a> page.
+                            You can learn more about the implications of changing the <code>{`<html>`}</code> default font size in <a href="/customization/typography/#typography-html-font-size">the theme documentation</a> page.
                         </li>
                         <li>Set the <code>{`theme.typography.body2`}</code> style on the <code>{`<body>`}</code> element.</li>
                         <li>Set the font-weight to &quot;bolder&quot; for the <code>{`<b>`}</code> and <code>{`<strong>`}</code> elements.

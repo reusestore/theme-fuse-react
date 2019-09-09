@@ -59,7 +59,7 @@ function ListItemLink(props) {
 
 一个选择框既可以是主操作，又可以是辅助操作。
 
-该复选框是列表项的主要操作和状态指示器。 注释按钮是辅助操作和单独的目标。
+The checkbox is the primary action and the state indicator for the list item. The comment button is a secondary action and a separate target.
 
 {{"demo": "pages/components/lists/CheckboxList.js"}}
 
@@ -77,7 +77,7 @@ function ListItemLink(props) {
 
 在滚动列表时，子标题保持固定在屏幕的顶端，直到被下一个子标题推离屏幕。
 
-此功能依赖于 CSS sticky 定位。 可惜, 这一功能并未在我们支持的所有浏览器中 [实现](https://caniuse.com/#search=sticky) 。 如果不支持, 则默认为 `disableSticky`。
+This feature relies on CSS sticky positioning. Unfortunately it's [not implemented](https://caniuse.com/#search=sticky) by all the supported browsers. It defaults to `disableSticky` when not supported.
 
 {{"demo": "pages/components/lists/PinnedSubheaderList.js"}
 
@@ -91,4 +91,4 @@ function ListItemLink(props) {
 
 {{"demo": "pages/components/lists/VirtualizedList.js"}}
 
-我们鼓励尽可能使用 [react-window](https://github.com/bvaughn/react-window)。 如果这个库不包括你的用例，你应该考虑使用 [react-virtualized](https://github.com/bvaughn/react-virtualized)，然后使用 [react-virtuoso](https://github.com/petyosi/react-virtuoso)等替代品。
+The use of [react-window](https://github.com/bvaughn/react-window) when possible is encouraged. 如果这个库不包括你的用例，你应该考虑使用 [react-virtualized](https://github.com/bvaughn/react-virtualized)，然后使用 [react-virtuoso](https://github.com/petyosi/react-virtuoso)等替代品。

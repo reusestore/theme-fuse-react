@@ -52,10 +52,9 @@ function DividersDoc(props)
                     <Typography className="text-44 mt-32 mb-8" component="h1">Dividers</Typography>
                     <Typography className="description">A divider is a thin line that groups content in lists and layouts.</Typography>
 
-                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/dividers.html">Dividers</a> separate content into clear
-                        groups.</Typography>
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/dividers.html">Dividers</a> separate content into clear groups.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">List Dividers</Typography>
-                    <Typography className="mb-16" component="div">The divider renders as a <code>{`<hr>`}</code> by default.
+                    <Typography className="mb-16" component="div">The divider renders as an <code>{`<hr>`}</code> by default.
                         You can save rendering this DOM element by using the <code>{`divider`}</code> property on the <code>{`ListItem`}</code> component.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -64,8 +63,7 @@ function DividersDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dividers/ListDividers.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">HTML5 Specification</Typography>
-                    <Typography className="mb-16" component="div">We need to make sure the <code>{`Divider`}</code> is rendered as a <code>{`li`}</code> to match the HTML5
-                        specification.
+                    <Typography className="mb-16" component="div">In a list, you should ensure the <code>{`Divider`}</code> is rendered as an <code>{`<li>`}</code> to match the HTML5 specification.
                         The examples below show two ways of achieving this.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Inset Dividers</Typography>
                     <Typography className="mb-16" component="div"><FuseExample

@@ -1,5 +1,5 @@
 ---
-title: React的 App Bar（应用栏）组件
+title: React App Bar（应用栏）组件
 components: AppBar, Toolbar, Menu
 ---
 
@@ -11,17 +11,13 @@ components: AppBar, Toolbar, Menu
 
 它可以转换为上下文相关的操作栏或直接用作导航栏。
 
-## 带按钮的应用栏
+## 简单的应用栏
 
 {{"demo": "pages/components/app-bar/ButtonAppBar.js"}}
 
-## 简单的应用栏
-
-{{"demo": "pages/components/app-bar/SimpleAppBar.js"}}
-
 ## 带一个主搜索输入框的应用栏
 
-一个主搜索栏
+一个主要搜索栏。
 
 {{"demo": "pages/components/app-bar/PrimarySearchAppBar.js"}}
 
@@ -45,31 +41,39 @@ components: AppBar, Toolbar, Menu
 
 ## 滚动
 
+您可以使用 `useScrollTrigger()` 挂钩来回应用户的滚动操作。
+
 ### 隐藏应用栏
 
-一个隐藏滚动条的应用栏。
+当向下滚动时，应用栏将会隐藏，这样一来会留有更多的空间进行阅读。
 
 {{"demo": "pages/components/app-bar/HideAppBar.js", "iframe": true, "maxWidth": 500}}
 
 ### 变高的应用栏
 
-一个在滚动时变高的应用栏。
+应用栏会在滚动时提升，以表明用户还未到页面的顶部。
 
 {{"demo": "pages/components/app-bar/ElevateAppBar.js", "iframe": true, "maxWidth": 500}}
+
+### 回到顶部
+
+在滚动的时候，会出现一个浮动操作按钮，这样以便于返回页面的顶部。
+
+{{"demo": "pages/components/app-bar/BackToTop.js", "iframe": true, "maxWidth": 500}}
 
 ### `useScrollTrigger([options]) => trigger`
 
 #### 参数
 
 1. `options` (*Object* [optional]):
-    
-    - `options.disableHysteresis` (*Boolean* [optional]): 默认值为`false`。 禁用迟滞的效果。 在决定 `trigger` 的值时会忽略在滚动的方向。
-    - `options.target` （*Node* [optional]）：默认值时 `window`。
-    - `options.threshold` （*Number* [optional]）：默认值为 `100`。当垂直滚动超过此阈值时，则会更改 ` trigger ` 的值。
+
+- `options.disableHysteresis` (*Boolean* [optional]): 默认值为`false`。 禁用迟滞的效果。 在决定 `trigger` 的值时会忽略在滚动的方向。
+- `options.target` （*Node* [optional]）：默认值时 `window`。
+- `options.threshold` (*Number* [optional]): 默认值是 `100`. 严格来说，当垂直滚动超过（但不包括）此阈值时，请更改 `trigger` 的值。
 
 #### 返回结果
 
-`trigger` ：滚动位置是否符合标准？
+`trigger` ：滚动的位置是否符合标准？
 
 #### 例子
 

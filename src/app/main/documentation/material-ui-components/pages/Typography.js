@@ -53,8 +53,7 @@ function TypographyDoc(props)
                     <Typography className="description">Use typography to present your design and content as clearly and efficiently as possible.</Typography>
 
                     <Typography className="mb-16" component="div">Too many type sizes and styles at once can spoil any layout.
-                        A <a href="https://material.io/design/typography/#type-scale">typographic scale</a> has a limited set of type sizes that work well together along with the
-                        layout grid.</Typography>
+                        A <a href="https://material.io/design/typography/#type-scale">typographic scale</a> has a limited set of type sizes that work well together along with the layout grid.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">General</Typography>
                     <Typography className="mb-16" component="div">The <em>Roboto</em> font will <strong>not</strong> be automatically loaded by Material-UI.
                         The developer is responsible for loading all fonts used in their application.
@@ -69,8 +68,7 @@ function TypographyDoc(props)
 `}
                     </FuseHighlight>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Install with npm</Typography>
-                    <Typography className="mb-16" component="div">You can <a href="https://www.npmjs.com/package/typeface-roboto">install it</a> by typing the below command in your
-                        terminal:</Typography>
+                    <Typography className="mb-16" component="div">You can <a href="https://www.npmjs.com/package/typeface-roboto">install it</a> by typing the below command in your terminal:</Typography>
                     <Typography className="mb-16" component="div"><code>{`npm install typeface-roboto --save`}</code></Typography>
                     <Typography className="mb-16" component="div">Then, you can import it in your entry-point.</Typography>
 
@@ -79,8 +77,7 @@ function TypographyDoc(props)
 import 'typeface-roboto';
 `}
                     </FuseHighlight>
-                    <Typography className="mb-16" component="div">For more info check out the <a
-                        href="https://github.com/KyleAMathews/typefaces/tree/master/packages/roboto">typeface</a> project.</Typography>
+                    <Typography className="mb-16" component="div">For more info check out the <a href="https://github.com/KyleAMathews/typefaces/tree/master/packages/roboto">typeface</a> project.</Typography>
                     <Typography className="mb-16" component="div">⚠️ Be careful when using this approach.
                         Make sure your bundler doesn&#39;t eager load all the font variations (100/300/400/500/700/900, italic/regular, SVG/woff).
                         Inlining all the font files can significantly increase the size of your bundle.
@@ -94,8 +91,7 @@ import 'typeface-roboto';
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Theme</Typography>
                     <Typography className="mb-16" component="div">In some situations you might not be able to use the <code>{`Typography`}</code> component.
-                        Hopefully, you might be able to take advantage of the <a href="/customization/default-theme/?expend-path=$.typography"><code>{`typography`}</code></a> keys
-                        of the theme.</Typography>
+                        Hopefully, you might be able to take advantage of the <a href="/customization/default-theme/?expend-path=$.typography"><code>{`typography`}</code></a> keys of the theme.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -103,8 +99,7 @@ import 'typeface-roboto';
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/typography/TypographyTheme.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Changing the semantic element</Typography>
-                    <Typography className="mb-16" component="div">The Typography component uses the <code>{`variantMapping`}</code> property to associate a UI variant with a
-                        semantic element.
+                    <Typography className="mb-16" component="div">The Typography component uses the <code>{`variantMapping`}</code> property to associate a UI variant with a semantic element.
                         It’s important to realize that the style of a typography is independent from the semantic underlying element.</Typography>
                     <ul>
                         <li>You can change the underlying element for a one time occasion with the <code>{`component`}</code> property:</li>
@@ -112,7 +107,7 @@ import 'typeface-roboto';
 
                     <FuseHighlight component="pre" className="language-jsx">
                         {` 
-{/* We already have an h1 in the page, let's not duplicate it. */}
+{/* There is already an h1 in the page, let's not duplicate it. */}
 <Typography variant="h1" component="h2">
   h1. Heading
 </Typography>

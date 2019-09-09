@@ -1,7 +1,18 @@
 import React, {useRef, useState} from 'react';
 import {Button, FormControlLabel, MenuItem, Radio, Typography} from '@material-ui/core';
-import {TextFieldFormsy, CheckboxFormsy, RadioGroupFormsy, SelectFormsy} from '@fuse';
+import {TextFieldFormsy, CheckboxFormsy, RadioGroupFormsy, SelectFormsy, FuseChipSelectFormsy} from '@fuse';
 import Formsy from 'formsy-react';
+
+const suggestions = [
+    'Sea',
+    'Sky',
+    'Forest',
+    'Aerial',
+    'Art'
+].map(item => ({
+    value: item,
+    label: item
+}));
 
 function SimpleFormExample()
 {
@@ -186,6 +197,26 @@ function SimpleFormExample()
                     label="Accept"
                     validations="equals:true"
                     validationError="You need to accept"
+                />
+
+                <FuseChipSelectFormsy
+                    className="my-16"
+                    name="tags"
+                    placeholder="Select multiple tags"
+                    textFieldProps={{
+                        label          : 'Tags',
+                        InputLabelProps: {
+                            shrink: true
+                        },
+                        variant        : 'standard'
+                    }}
+                    options={suggestions}
+                    isMulti
+                    validations={{minLength: 1}}
+                    validationErrors={{
+                        minLength: "You need to select at least one"
+                    }}
+                    required
                 />
 
                 <Button

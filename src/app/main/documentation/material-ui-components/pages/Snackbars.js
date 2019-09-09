@@ -50,11 +50,9 @@ function SnackbarsDoc(props)
             content={
                 <div className="p-24 max-w-2xl">
                     <Typography className="text-44 mt-32 mb-8" component="h1">Snackbars</Typography>
-                    <Typography className="description">Snackbars provide brief messages about app processes - typically at the bottom of the screen.</Typography>
+                    <Typography className="description">Snackbars provide brief messages about app processes. The component is also known as a toast.</Typography>
 
-                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/snackbars.html">Snackbars</a> inform users of a process that an app
-                        has performed or will perform. They appear temporarily, towards the bottom of the screen. They shouldn’t interrupt the user experience, and they don’t
-                        require user input to disappear.</Typography>
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/snackbars.html">Snackbars</a> inform users of a process that an app has performed or will perform. They appear temporarily, towards the bottom of the screen. They shouldn’t interrupt the user experience, and they don’t require user input to disappear.</Typography>
                     <Typography className="mb-16" component="div">Snackbars contain a single line of text directly related to the operation performed.
                         They may contain a text action, but no icons. You can use them to display notifications.</Typography>
                     <Typography className="text-16 mt-32 mb-8" component="h4">Frequency</Typography>
@@ -110,8 +108,7 @@ function SnackbarsDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/snackbars/FabIntegrationSnackbar.js')}
                     /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Change Transition</Typography>
-                    <Typography className="mb-16" component="div"><a href="/components/transitions/#grow">Grow</a> is the default transition but you can use a different
-                        one.</Typography>
+                    <Typography className="mb-16" component="div"><a href="/components/transitions/#grow">Grow</a> is the default transition but you can use a different one.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -131,10 +128,9 @@ function SnackbarsDoc(props)
                     <Typography className="text-24 mt-32 mb-8" component="h3">notistack</Typography>
                     <Typography className="mb-16" component="div"> src="https://img.shields.io/github/stars/iamhosseindhv/notistack.svg?style=social&label=Stars" alt="stars/>
                         src="https://img.shields.io/npm/dm/notistack.svg" alt="npm downloads/></Typography>
-                    <Typography className="mb-16" component="div">In the following example, we demonstrate how to use <a
-                        href="https://github.com/iamhosseindhv/notistack">notistack</a>.
+                    <Typography className="mb-16" component="div">In the following example, we demonstrate how to use <a href="https://github.com/iamhosseindhv/notistack">notistack</a>.
                         notistack makes it easy to display snackbars (so you don&#39;t have to deal with open/close state of them).
-                        It also enables you to stack them on top of one another (but discouraged by the specification).</Typography>
+                        It also enables you to stack them on top of one another (although this is discouraged by the specification).</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}

@@ -64,8 +64,7 @@ function PopperDoc(props)
                             The placement of the popper updates with the available area in the viewport.
                         </li>
                         <li>Clicking away does not hide the <code>{`Popper`}</code> component.
-                            If you need this behavior, you can use <a href="/components/click-away-listener/"><code>{`ClickAwayListener`}</code></a> - see the example in the <a
-                                href="/components/menus/#menulist-composition">menu documentation section</a>.
+                            If you need this behavior, you can use <a href="/components/click-away-listener/"><code>{`ClickAwayListener`}</code></a> - see the example in the <a href="/components/menus/#menulist-composition">menu documentation section</a>.
                         </li>
                         <li>The <code>{`anchorEl`}</code> is passed as the reference object to create a new <code>{`Popper.js`}</code> instance.</li>
                     </ul>
@@ -107,8 +106,7 @@ function PopperDoc(props)
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Faked reference object</Typography>
                     <Typography className="mb-16" component="div">The <code>{`anchorEl`}</code> property can be a reference to a fake DOM element.
-                        You just need to create an object shaped like the <a
-                            href="https://github.com/FezVrasta/popper.js/blob/0642ce0ddeffe3c7c033a412d4d60ce7ec8193c3/packages/popper/index.d.ts#L118-L123"><code>{`ReferenceObject`}</code></a>.</Typography>
+                        You just need to create an object shaped like the <a href="https://github.com/FezVrasta/popper.js/blob/0642ce0ddeffe3c7c033a412d4d60ce7ec8193c3/packages/popper/index.d.ts#L118-L123"><code>{`ReferenceObject`}</code></a>.</Typography>
                     <Typography className="mb-16" component="div">Highlight part of the text to see the popper:</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -119,8 +117,7 @@ function PopperDoc(props)
                     <Typography className="text-32 mt-32 mb-8" component="h2">Complementary projects</Typography>
                     <Typography className="mb-16" component="div">For more advanced use cases you might be able to take advantage of:</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">PopupState helper</Typography>
-                    <Typography className="mb-16" component="div">There is a 3rd party package <a
-                        href="https://github.com/jcoreio/material-ui-popup-state"><code>{`material-ui-popup-state`}</code></a> that takes care of popper
+                    <Typography className="mb-16" component="div">There is a 3rd party package <a href="https://github.com/jcoreio/material-ui-popup-state"><code>{`material-ui-popup-state`}</code></a> that takes care of popper
                         state for you in most cases.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"

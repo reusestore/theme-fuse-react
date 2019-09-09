@@ -5,6 +5,21 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
     {
+        version     : '3.2.3',
+        date        : '2019-09-09',
+        newChanges  : [
+            "material-ui updated to v4.4.1",
+            "react updated to 16.9.0",
+            "All dependency packages updated.",
+            "FuseChipSelectFormsy Component added.",
+            "Default FuseSuspense loading delay changed to 0.",
+        ],
+        fixedChanges: [
+            "FuseHorizontalNav items minor theming issues.",
+            "Minor fixes for dependency updates.",
+        ]
+    },
+    {
         version     : '3.2.2',
         date        : '2019-08-09',
         newChanges  : [

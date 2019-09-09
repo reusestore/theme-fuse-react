@@ -77,8 +77,7 @@ function PopoverDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/popover/AnchorPlayground.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Mouse over interaction</Typography>
-                    <Typography className="mb-16" component="div">We demonstrate how to use the <code>{`Popover`}</code> component to implement a popover behavior based on the
-                        mouse over event.</Typography>
+                    <Typography className="mb-16" component="div">This demonstrates how to use the <code>{`Popover`}</code> component to implement a popover behavior based on the mouse over event.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -88,8 +87,7 @@ function PopoverDoc(props)
                     <Typography className="text-32 mt-32 mb-8" component="h2">Complementary projects</Typography>
                     <Typography className="mb-16" component="div">For more advanced use cases you might be able to take advantage of:</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">PopupState helper</Typography>
-                    <Typography className="mb-16" component="div">There is a 3rd party package <a
-                        href="https://github.com/jcoreio/material-ui-popup-state"><code>{`material-ui-popup-state`}</code></a> that takes care of popover
+                    <Typography className="mb-16" component="div">There is a 3rd party package <a href="https://github.com/jcoreio/material-ui-popup-state"><code>{`material-ui-popup-state`}</code></a> that takes care of popover
                         state for you in most cases.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"

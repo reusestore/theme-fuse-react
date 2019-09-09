@@ -70,6 +70,7 @@ class FuseUtils {
 
     static searchInObj(itemObj, searchText)
     {
+        // eslint-disable-next-line no-unused-vars
         for ( const prop in itemObj )
         {
             if ( !itemObj.hasOwnProperty(prop) )
@@ -107,6 +108,7 @@ class FuseUtils {
 
     static searchInArray(arr, searchText)
     {
+        // eslint-disable-next-line no-unused-vars
         for ( const value of arr )
         {
             if ( typeof value === 'string' )
@@ -221,6 +223,7 @@ class FuseUtils {
     static getFlatNavigation(navigationItems, flatNavigation)
     {
         flatNavigation = flatNavigation ? flatNavigation : [];
+        // eslint-disable-next-line no-unused-vars
         for ( const navItem of navigationItems )
         {
             if ( navItem.type === 'subheader' )

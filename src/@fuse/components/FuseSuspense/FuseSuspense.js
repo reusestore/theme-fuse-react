@@ -20,7 +20,7 @@ FuseSuspense.propTypes = {
 
 FuseSuspense.defaultProps = {
     loadingProps: {
-        delay: 300
+        delay: 0
     }
 };
 

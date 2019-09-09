@@ -5,19 +5,19 @@ components: Divider
 
 # Dividers
 
-<p class="description">A divider is a thin line that groups content in lists and layouts.</p>
+<p class="description">Divider(区切り線) は、リストおよびレイアウトのコンテンツをグループ化する細い線です。</p>
 
-[Dividers](https://material.io/design/components/dividers.html) separate content into clear groups.
+[Dividers](https://material.io/design/components/dividers.html) は、内容を明確なグループに分けます。
 
 ## List Dividers
 
-The divider renders as a `<hr>` by default. You can save rendering this DOM element by using the `divider` property on the `ListItem` component.
+The divider renders as an `<hr>` by default. このDOM要素のレンダリングを節約するには、 `ListItem` コンポーネントの `divider` プロパティを使用します。
 
 {{"demo": "pages/components/dividers/ListDividers.js"}}
 
-## HTML5 Specification
+## HTML5仕様
 
-We need to make sure the `Divider` is rendered as a `li` to match the HTML5 specification. The examples below show two ways of achieving this.
+In a list, you should ensure the `Divider` is rendered as an `<li>` to match the HTML5 specification. 次の例は、これを実現する2つの方法を示しています。
 
 ## Inset Dividers
 

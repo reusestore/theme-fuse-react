@@ -52,8 +52,7 @@ function SliderDoc(props)
                     <Typography className="text-44 mt-32 mb-8" component="h1">Slider</Typography>
                     <Typography className="description">Sliders allow users to make selections from a range of values.</Typography>
 
-                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/sliders.html">Sliders</a> reflect a range of values along a bar,
-                        from which users may select a single value. They are ideal for adjusting settings such as volume, brightness, or applying image filters.</Typography>
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/sliders.html">Sliders</a> reflect a range of values along a bar, from which users may select a single value. They are ideal for adjusting settings such as volume, brightness, or applying image filters.</Typography>
                     <ul>
                         <li>📦 <a href="/size-snapshot">22 kB gzipped</a> (but only 8 kB without @material-ui/styles).</li>
                     </ul>
@@ -74,8 +73,7 @@ function SliderDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/slider/DiscreteSlider.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Customized sliders</Typography>
-                    <Typography className="mb-16" component="div">Here are some examples of customizing the component. You can learn more about this in the <a
-                        href="/customization/components/">overrides documentation page</a>.</Typography>
+                    <Typography className="mb-16" component="div">Here are some examples of customizing the component. You can learn more about this in the <a href="/customization/components/">overrides documentation page</a>.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -115,8 +113,8 @@ function SliderDoc(props)
                     <Typography className="mb-16" component="div">The component handles most of the work necessary to make it accessible.
                         However, you need to make sure that:</Typography>
                     <ul>
-                        <li>The slider, as a whole, has a label (<code>{`aria-label`}</code> or <code>{`aria-labelledby`}</code> prop).</li>
-                        <li>Each thumb has a user-friendly name for its current value.
+                        <li>Each thumb has a user-friendly label (<code>{`aria-label`}</code>, <code>{`aria-labelledby`}</code> or <code>{`getAriaLabel`}</code> prop).</li>
+                        <li>Each thumb has a user-friendly text for its current value.
                             This is not required if the value matches the semantics of the label.
                             You can change the name with the <code>{`getAriaValueText`}</code> or <code>{`aria-valuetext`}</code> prop.
                         </li>

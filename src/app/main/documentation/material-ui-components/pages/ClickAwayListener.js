@@ -50,8 +50,7 @@ function ClickAwayListenerDoc(props)
             content={
                 <div className="p-24 max-w-2xl">
                     <Typography className="text-44 mt-32 mb-8" component="h1">Click away listener</Typography>
-                    <Typography className="description">Detect if a click event happened outside of an element. It listens for clicks that occur somewhere in the
-                        document.</Typography>
+                    <Typography className="description">Detect if a click event happened outside of an element. It listens for clicks that occur somewhere in the document.</Typography>
 
                     <ul>
                         <li>📦 <a href="/size-snapshot">1.4 kB gzipped</a>.</li>
@@ -64,8 +63,7 @@ function ClickAwayListenerDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/click-away-listener/ClickAway.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/click-away-listener/ClickAway.js')}
                     /></Typography>
-                    <Typography className="mb-16" component="div">You can find a more advanced demo on the <a href="/components/menus/#menulist-composition">menu documentation
-                        section</a>.</Typography>
+                    <Typography className="mb-16" component="div">You can find a more advanced demo on the <a href="/components/menus/#menulist-composition">menu documentation section</a>.</Typography>
 
                 </div>
             }

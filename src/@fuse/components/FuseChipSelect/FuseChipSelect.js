@@ -114,6 +114,7 @@ function Control(props)
         <TextField
             fullWidth
             className={clsx(classes.root, props.selectProps.textFieldProps.variant)}
+            required={props.selectProps.required}
             InputProps={{
                 inputComponent,
                 inputProps: {

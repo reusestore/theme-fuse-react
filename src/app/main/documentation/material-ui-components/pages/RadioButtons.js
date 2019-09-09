@@ -52,12 +52,10 @@ function RadioButtonsDoc(props)
                     <Typography className="text-44 mt-32 mb-8" component="h1">Radio buttons</Typography>
                     <Typography className="description">Radio buttons allow the user to select one option from a set.</Typography>
 
-                    <Typography className="mb-16" component="div">Use <a href="https://material.io/design/components/selection-controls.html#radio-buttons">radio buttons</a> when
-                        the user needs to see all available options.
+                    <Typography className="mb-16" component="div">Use <a href="https://material.io/design/components/selection-controls.html#radio-buttons">radio buttons</a> when the user needs to see all available options.
                         If available options can be collapsed, consider using a dropdown menu because it uses less space.</Typography>
                     <Typography className="mb-16" component="div">Radio buttons should have the most commonly used option selected by default.</Typography>
-                    <Typography className="mb-16" component="div"><code>{`RadioGroup`}</code> is a helpful wrapper used to group <code>{`Radio`}</code> components that provides an
-                        easier API, and proper keyboard accessibility to the group.</Typography>
+                    <Typography className="mb-16" component="div"><code>{`RadioGroup`}</code> is a helpful wrapper used to group <code>{`Radio`}</code> components that provides an easier API, and proper keyboard accessibility to the group.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -80,12 +78,19 @@ function RadioButtonsDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/radio-buttons/FormControlLabelPosition.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/radio-buttons/FormControlLabelPosition.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Customized radios</Typography>
+                    <Typography className="mb-16" component="div">Here is an example of customizing the component. You can learn more about this in the
+                        <a href="/customization/components/">overrides documentation page</a>.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/radio-buttons/CustomizedRadios.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/radio-buttons/CustomizedRadios.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
-                    <Typography className="mb-16" component="div">All form controls should have labels, and this includes radio buttons, checkboxes, and switches. In most cases,
-                        this is done by using the <code>{`<label>`}</code> element (<a href="/api/form-control-label/">FormControlLabel</a>).</Typography>
+                    <Typography className="mb-16" component="div">All form controls should have labels, and this includes radio buttons, checkboxes, and switches. In most cases, this is done by using the <code>{`<label>`}</code> element (<a href="/api/form-control-label/">FormControlLabel</a>).</Typography>
                     <Typography className="mb-16" component="div">When a label can&#39;t be used, it&#39;s necessary to add an attribute directly to the input component.
-                        In this case, you can apply the additional attribute (e.g. <code>{`aria-label`}</code>, <code>{`aria-labelledby`}</code>, <code>{`title`}</code>) via
-                        the <code>{`inputProps`}</code> property.</Typography>
+                        In this case, you can apply the additional attribute (e.g. <code>{`aria-label`}</code>, <code>{`aria-labelledby`}</code>, <code>{`title`}</code>) via the <code>{`inputProps`}</code> property.</Typography>
 
                     <FuseHighlight component="pre" className="language-jsx">
                         {` 

@@ -50,12 +50,9 @@ function DialogsDoc(props)
             content={
                 <div className="p-24 max-w-2xl">
                     <Typography className="text-44 mt-32 mb-8" component="h1">Dialogs</Typography>
-                    <Typography className="description">Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple
-                        tasks.</Typography>
+                    <Typography className="description">Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.</Typography>
 
-                    <Typography className="mb-16" component="div">A <a href="https://material.io/design/components/dialogs.html">Dialog</a> is a type of <a
-                        href="/components/modal/">modal</a> window that appears in front of app content to provide critical information or ask for a decision. Dialogs disable all
-                        app functionality when they appear, and remain on screen until confirmed, dismissed, or a required action has been taken.</Typography>
+                    <Typography className="mb-16" component="div">A <a href="https://material.io/design/components/dialogs.html">Dialog</a> is a type of <a href="/components/modal/">modal</a> window that appears in front of app content to provide critical information or ask for a decision. Dialogs disable all app functionality when they appear, and remain on screen until confirmed, dismissed, or a required action has been taken.</Typography>
                     <Typography className="mb-16" component="div">Dialogs are purposefully interruptive, so they should be used sparingly.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Simple Dialogs</Typography>
                     <Typography className="mb-16" component="div">Simple dialogs can provide additional details or actions about a list item.
@@ -102,8 +99,7 @@ function DialogsDoc(props)
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Form dialogs</Typography>
                     <Typography className="mb-16" component="div">Form dialogs allow users to fill out form fields within a dialog.
-                        For example, if your site prompts for potential subscribers to fill in their email address, they can fill out the email field and
-                        touch &#39;Submit&#39;.</Typography>
+                        For example, if your site prompts for potential subscribers to fill in their email address, they can fill out the email field and touch &#39;Submit&#39;.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -128,8 +124,7 @@ function DialogsDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dialogs/FullScreenDialog.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Optional sizes</Typography>
-                    <Typography className="mb-16" component="div">You can set a dialog maximum width by using the <code>{`maxWidth`}</code> enumerable in combination with
-                        the <code>{`fullWidth`}</code> boolean.
+                    <Typography className="mb-16" component="div">You can set a dialog maximum width by using the <code>{`maxWidth`}</code> enumerable in combination with the <code>{`fullWidth`}</code> boolean.
                         When the <code>{`fullWidth`}</code> property is true, the dialog will adapt based on the <code>{`maxWidth`}</code> value.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -138,8 +133,7 @@ function DialogsDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dialogs/MaxWidthDialog.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Responsive full-screen</Typography>
-                    <Typography className="mb-16" component="div">You may make a dialog responsively full screen using <a
-                        href="/components/use-media-query/#usemediaquery"><code>{`useMediaQuery`}</code></a>.</Typography>
+                    <Typography className="mb-16" component="div">You may make a dialog responsively full screen using <a href="/components/use-media-query/#usemediaquery"><code>{`useMediaQuery`}</code></a>.</Typography>
 
                     <FuseHighlight component="pre" className="language-jsx">
                         {` 
@@ -162,8 +156,7 @@ function MyComponent() {
                     <Typography className="text-32 mt-32 mb-8" component="h2">Confirmation dialogs</Typography>
                     <Typography className="mb-16" component="div">Confirmation dialogs require users to explicitly confirm their choice before an option is committed.
                         For example, users can listen to multiple ringtones but only make a final selection upon touching “OK”.</Typography>
-                    <Typography className="mb-16" component="div">Touching “Cancel” in a confirmation dialog, or pressing Back, cancels the action, discards any changes, and closes
-                        the dialog.</Typography>
+                    <Typography className="mb-16" component="div">Touching “Cancel” in a confirmation dialog, or pressing Back, cancels the action, discards any changes, and closes the dialog.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -186,10 +179,8 @@ function MyComponent() {
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dialogs/ScrollDialog.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Draggable dialog</Typography>
-                    <Typography className="mb-16" component="div">You can create a draggable dialog by using <a
-                        href="https://github.com/mzabriskie/react-draggable">react-draggable</a>.
-                        To do so, you can pass the the imported <code>{`Draggable`}</code> component as the <code>{`PaperComponent`}</code> of
-                        the <code>{`Dialog`}</code> component.
+                    <Typography className="mb-16" component="div">You can create a draggable dialog by using <a href="https://github.com/mzabriskie/react-draggable">react-draggable</a>.
+                        To do so, you can pass the the imported <code>{`Draggable`}</code> component as the <code>{`PaperComponent`}</code> of the <code>{`Dialog`}</code> component.
                         This will make the entire dialog draggable.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"

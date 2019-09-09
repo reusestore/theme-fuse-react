@@ -52,11 +52,9 @@ function ExpansionPanelsDoc(props)
                     <Typography className="text-44 mt-32 mb-8" component="h1">Expansion Panels</Typography>
                     <Typography className="description">Expansion panels contain creation flows and allow lightweight editing of an element.</Typography>
 
-                    <Typography className="mb-16" component="div"><a href="https://material.io/archive/guidelines/components/expansion-panels.html">An expansion panel</a> is a
-                        lightweight container that may either stand alone or be connected to a larger surface, such as a card.</Typography>
+                    <Typography className="mb-16" component="div"><a href="https://material.io/archive/guidelines/components/expansion-panels.html">An expansion panel</a> is a lightweight container that may either stand alone or be connected to a larger surface, such as a card.</Typography>
                     <blockquote>
-                        <Typography className="mb-16" component="div"><strong>Note:</strong> Expansion panels are no longer documented in the <a href="https://material.io/">Material
-                            Design guidelines</a>, but Material-UI will continue to support them.</Typography>
+                        <Typography className="mb-16" component="div"><strong>Note:</strong> Expansion panels are no longer documented in the <a href="https://material.io/">Material Design guidelines</a>, but Material-UI will continue to support them.</Typography>
                     </blockquote>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
                     <Typography className="mb-16" component="div">For optimal accessibility we recommend setting <code>{`id`}</code> and <code>{`aria-controls`}</code> on the
@@ -70,22 +68,21 @@ function ExpansionPanelsDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/expansion-panels/SimpleExpansionPanel.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Controlled Accordion</Typography>
-                    <Typography className="mb-16" component="div">Extend the default panel behavior to create an accordion with
-                        the <code>{`ExpansionPanel`}</code> component.</Typography>
+                    <Typography className="mb-16" component="div">Extend the default panel behavior to create an accordion with the <code>{`ExpansionPanel`}</code> component.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
                         component={require('app/main/documentation/material-ui-components/components/expansion-panels/ControlledExpansionPanels.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/expansion-panels/ControlledExpansionPanels.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Secondary heading and Columns</Typography>
-                    <Typography className="mb-16" component="div">Multiple columns can be used to structure the content, and a helper text may be added to the panel to assist the
-                        user.</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Customized expansion panels</Typography>
+                    <Typography className="mb-16" component="div">Here is an example of customizing the component. You can learn more about this in the
+                        <a href="/customization/components/">overrides documentation page</a>.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
-                        component={require('app/main/documentation/material-ui-components/components/expansion-panels/DetailedExpansionPanel.js').default}
-                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/expansion-panels/DetailedExpansionPanel.js')}
+                        component={require('app/main/documentation/material-ui-components/components/expansion-panels/CustomizedExpansionPanels.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/expansion-panels/CustomizedExpansionPanels.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Performance</Typography>
                     <Typography className="mb-16" component="div">The content of ExpansionPanels is mounted by default even if the panel is not expanded.
@@ -95,14 +92,13 @@ function ExpansionPanelsDoc(props)
                         <code>{`unmountOnExit`}</code> in <code>{`TransitionProps`}</code>: <code>{`<ExpansionPanel TransitionProps={{ unmountOnExit: true }} />`}</code>.
                         As with any performance optimization this is not a silver bullet. Be sure to identify
                         bottlenecks first and then try out these optimization strategies.</Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Customized expansion panels</Typography>
-                    <Typography className="mb-16" component="div">Here is an example of customizing the component. You can learn more about this in the
-                        <a href="/customization/components/">overrides documentation page</a>.</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Secondary heading and Columns</Typography>
+                    <Typography className="mb-16" component="div">Multiple columns can be used to structure the content, and a helper text may be added to the panel to assist the user.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
-                        component={require('app/main/documentation/material-ui-components/components/expansion-panels/CustomizedExpansionPanels.js').default}
-                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/expansion-panels/CustomizedExpansionPanels.js')}
+                        component={require('app/main/documentation/material-ui-components/components/expansion-panels/DetailedExpansionPanel.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/expansion-panels/DetailedExpansionPanel.js')}
                     /></Typography>
 
                 </div>

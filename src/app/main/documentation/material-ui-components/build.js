@@ -432,6 +432,8 @@ function removeExcludedComponents()
         path.resolve(examplesDirectory, './rating'),
         path.resolve(examplesDirectory, './speed-dial'),
         path.resolve(examplesDirectory, './toggle-button'),
+        path.resolve(examplesDirectory, './skeleton'),
+        path.resolve(examplesDirectory, './material-icons'),
         path.resolve(examplesDirectory, './tree-view'),
         path.resolve(examplesDirectory, './icons')
     ];

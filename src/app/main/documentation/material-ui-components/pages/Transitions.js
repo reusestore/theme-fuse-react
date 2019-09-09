@@ -111,8 +111,7 @@ export default Main() {
                     <Typography className="text-32 mt-32 mb-8" component="h2">Slide</Typography>
                     <Typography className="mb-16" component="div">Slide in from the edge of the screen.
                         The <code>{`direction`}</code> property controls which edge of the screen the transition starts from.</Typography>
-                    <Typography className="mb-16" component="div">The Transition component&#39;s <code>{`mountOnEnter`}</code> property prevents the child component from being
-                        mounted
+                    <Typography className="mb-16" component="div">The Transition component&#39;s <code>{`mountOnEnter`}</code> property prevents the child component from being mounted
                         until <code>{`in`}</code> is <code>{`true`}</code>. This prevents the relatively positioned component from scrolling into view
                         from it&#39;s off-screen position. Similarly the <code>{`unmountOnExit`}</code> property removes the component
                         from the DOM after it has been transition off screen.</Typography>

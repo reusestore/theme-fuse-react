@@ -11,8 +11,11 @@ function useForm(initialState, onSubmit)
     }, []);
 
     const resetForm = useCallback(() => {
-        setForm(initialState);
-    }, [initialState]);
+        if ( !_.isEqual(initialState, form) )
+        {
+            setForm(initialState);
+        }
+    }, [form, initialState]);
 
     const setInForm = useCallback((name, value) => {
         setForm(form => _.setIn(form, name, value));

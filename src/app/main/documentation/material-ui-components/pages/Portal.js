@@ -53,11 +53,10 @@ function PortalDoc(props)
                     <Typography className="description">The portal component renders its children into a new "subtree" outside of current component hierarchy.</Typography>
 
                     <ul>
-                        <li>📦 <a href="/size-snapshot">1.5 kB gzipped</a></li>
+                        <li>📦 <a href="/size-snapshot">1.3 kB gzipped</a></li>
                     </ul>
                     <Typography className="mb-16" component="div">The children of the portal component will be appended to the <code>{`container`}</code> specified.</Typography>
-                    <Typography className="mb-16" component="div">The component is used internally by the <a href="/components/modal/"><code>{`Modal`}</code></a> and <a
-                        href="/components/popper/"><code>{`Popper`}</code></a> components.
+                    <Typography className="mb-16" component="div">The component is used internally by the <a href="/components/modal/"><code>{`Modal`}</code></a> and <a href="/components/popper/"><code>{`Popper`}</code></a> components.
                         On the server, the content won&#39;t be rendered.
                         You have to wait for the client-side hydration to see the children.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Simple Portal</Typography>

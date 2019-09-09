@@ -53,7 +53,7 @@ function TextareaAutosizeDoc(props)
                     <Typography className="description">A textarea component for React which grows with content.</Typography>
 
                     <ul>
-                        <li>📦 <a href="/size-snapshot">2.3 kB gzipped</a></li>
+                        <li>📦 <a href="/size-snapshot">2.1 kB gzipped</a></li>
                     </ul>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Empty</Typography>
                     <Typography className="mb-16" component="div"><FuseExample

@@ -52,10 +52,8 @@ function BoxDoc(props)
                     <Typography className="text-44 mt-32 mb-8" component="h1">Box</Typography>
                     <Typography className="description">The Box component serves as a wrapper component for most of the CSS utility needs.</Typography>
 
-                    <Typography className="mb-16" component="div">The Box component packages <a href="/system/basics/#all-inclusive">all the style functions</a> that are exposed
-                        in <code>{`@material-ui/system`}</code>.
-                        It&#39;s created using the <a href="/styles/api/#styled-style-function-component"><code>{`styled()`}</code></a> function
-                        of <code>{`@material-ui/styles`}</code>.</Typography>
+                    <Typography className="mb-16" component="div">The Box component packages <a href="/system/basics/#all-inclusive">all the style functions</a> that are exposed in <code>{`@material-ui/system`}</code>.
+                        It&#39;s created using the <a href="/styles/api/#styled-style-function-component"><code>{`styled()`}</code></a> function of <code>{`@material-ui/styles`}</code>.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Example</Typography>
                     <Typography className="mb-16" component="div"><a href="/system/palette/">The palette</a> style function.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Overriding Material-UI components</Typography>
@@ -131,9 +129,7 @@ import Box from '@material-ui/core/Box';
                                 <td align="left"><span className="prop-name">clone</span></td>
                                 <td align="left"><span className="prop-type">bool</span></td>
                                 <td align="left"><span className="prop-default">false</span></td>
-                                <td align="left">If <code>{`true`}</code>, the box will recycle its children DOM element. It&#39;s
-                                    using <code>{`React.cloneElement`}</code> internally.
-                                </td>
+                                <td align="left">If <code>{`true`}</code>, the box will recycle its children DOM element. It&#39;s using <code>{`React.cloneElement`}</code> internally.</td>
                             </tr>
                             <tr>
                                 <td align="left"><span className="prop-name">component</span></td>
@@ -143,8 +139,7 @@ import Box from '@material-ui/core/Box';
                             </tr>
                         </tbody>
                     </table>
-                    <Typography className="mb-16" component="div">Any other properties supplied will be used by <a href="/system/basics/#all-inclusive">the style functions</a> or
-                        spread to the root element.</Typography>
+                    <Typography className="mb-16" component="div">Any other properties supplied will be used by <a href="/system/basics/#all-inclusive">the style functions</a> or spread to the root element.</Typography>
 
                 </div>
             }

@@ -52,22 +52,14 @@ function AppBarDoc(props)
                     <Typography className="text-44 mt-32 mb-8" component="h1">App Bar</Typography>
                     <Typography className="description">The App Bar displays information and actions relating to the current screen.</Typography>
 
-                    <Typography className="mb-16" component="div">The <a href="https://material.io/design/components/app-bars-top.html">top App Bar</a> provides content and actions
-                        related to the current screen. It’s used for branding, screen titles, navigation, and actions.</Typography>
+                    <Typography className="mb-16" component="div">The <a href="https://material.io/design/components/app-bars-top.html">top App Bar</a> provides content and actions related to the current screen. It’s used for branding, screen titles, navigation, and actions.</Typography>
                     <Typography className="mb-16" component="div">It can transform into a contextual action bar or used as a navbar.</Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">App Bar with buttons</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Simple App Bar</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
                         component={require('app/main/documentation/material-ui-components/components/app-bar/ButtonAppBar.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/app-bar/ButtonAppBar.js')}
-                    /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Simple App Bar</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('app/main/documentation/material-ui-components/components/app-bar/SimpleAppBar.js').default}
-                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/app-bar/SimpleAppBar.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">App Bar with a primary search field</Typography>
                     <Typography className="mb-16" component="div">A primary searchbar.</Typography>
@@ -107,8 +99,9 @@ function AppBarDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/app-bar/BottomAppBar.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Scrolling</Typography>
+                    <Typography className="mb-16" component="div">You can use the <code>{`useScrollTrigger()`}</code> hook to respond to user scroll actions.</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Hide App Bar</Typography>
-                    <Typography className="mb-16" component="div">An App Bar that hides on scroll.</Typography>
+                    <Typography className="mb-16" component="div">The app bar hides on scroll down to leave more space for reading.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={true}
@@ -116,25 +109,29 @@ function AppBarDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/app-bar/HideAppBar.js')}
                     /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Elevate App Bar</Typography>
-                    <Typography className="mb-16" component="div">An App Bar that elevates on scroll.</Typography>
+                    <Typography className="mb-16" component="div">The app bar elevates on scroll to communicate that the user is not at the top of the page.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={true}
                         component={require('app/main/documentation/material-ui-components/components/app-bar/ElevateAppBar.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/app-bar/ElevateAppBar.js')}
                     /></Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Back to top</Typography>
+                    <Typography className="mb-16" component="div">A floating action buttons appears on scroll to make it easy to get back to the top of the page.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={true}
+                        component={require('app/main/documentation/material-ui-components/components/app-bar/BackToTop.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/app-bar/BackToTop.js')}
+                    /></Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3"><code>{`useScrollTrigger([options]) => trigger`}</code></Typography>
                     <Typography className="text-16 mt-32 mb-8" component="h4">Arguments</Typography>
                     <ol>
                         <li><Typography className="mb-16" component="div"><code>{`options`}</code> (<em>Object</em> [optional]):</Typography>
                             <ul>
-                                <li><code>{`options.disableHysteresis`}</code> (<em>Boolean</em> [optional]): Defaults to <code>{`false`}</code>. Disable the hysteresis. Ignore the
-                                    scroll direction when determining the <code>{`trigger`}</code> value.
-                                </li>
+                                <li><code>{`options.disableHysteresis`}</code> (<em>Boolean</em> [optional]): Defaults to <code>{`false`}</code>. Disable the hysteresis. Ignore the scroll direction when determining the <code>{`trigger`}</code> value.</li>
                                 <li><code>{`options.target`}</code> (<em>Node</em> [optional]): Defaults to <code>{`window`}</code>.</li>
-                                <li><code>{`options.threshold`}</code> (<em>Number</em> [optional]): Defaults to <code>{`100`}</code>. Change the <code>{`trigger`}</code> value
-                                    when the vertical scroll strictly crosses this threshold (exclusive).
-                                </li>
+                                <li><code>{`options.threshold`}</code> (<em>Number</em> [optional]): Defaults to <code>{`100`}</code>. Change the <code>{`trigger`}</code> value when the vertical scroll strictly crosses this threshold (exclusive).</li>
                             </ul>
                         </li>
                     </ol>

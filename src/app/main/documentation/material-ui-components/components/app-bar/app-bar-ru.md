@@ -11,13 +11,9 @@ components: AppBar, Toolbar, Menu
 
 Может трансформироваться в контекстную панель действий или использоваться в качестве панели навигации.
 
-## Панель навигации с кнопками
-
-{{"demo": "pages/components/app-bar/ButtonAppBar.js"}}
-
 ## Простая панель навигации
 
-{{"demo": "pages/components/app-bar/SimpleAppBar.js"}}
+{{"demo": "pages/components/app-bar/ButtonAppBar.js"}}
 
 ## Панель навигации с основным полем поиска
 
@@ -39,37 +35,45 @@ components: AppBar, Toolbar, Menu
 
 {{"demo": "pages/components/app-bar/DenseAppBar.js"}}
 
-## Нижняя панели навигации
+## Нижняя панель навигации
 
 {{"demo": "pages/components/app-bar/BottomAppBar.js", "iframe": true, "maxWidth": 500}}
 
-## Scrolling
+## Прокрутка
+
+You can use the `useScrollTrigger()` hook to respond to user scroll actions.
 
 ### Скрытие панели навигации
 
-Панель навигации скрывается при скролле.
+The app bar hides on scroll down to leave more space for reading.
 
 {{"demo": "pages/components/app-bar/HideAppBar.js", "iframe": true, "maxWidth": 500}}
 
 ### Elevate App Bar
 
-An App Bar that elevates on scroll.
+Панель приложения поднимается при прокрутке, сообщая, что пользователь находится не в верхней части страницы.
 
 {{"demo": "pages/components/app-bar/ElevateAppBar.js", "iframe": true, "maxWidth": 500}}
+
+### Вернуться в начало страницы
+
+Появляются плавающие кнопки действий, позволяющие легко вернуться к началу страницы.
+
+{{"demo": "pages/components/app-bar/BackToTop.js", "iframe": true, "maxWidth": 500}}
 
 ### `useScrollTrigger([options]) => trigger`
 
 #### Аргументы
 
 1. `options` (*Object* [optional]):
-    
-    - `options.disableHysteresis` (*Boolean* [optional]): Defaults to `false`. Disable the hysteresis. Игнорирование направления прокрутки когда определено `trigger` значение.
-    - `options.target` (*Node* [optional]): По умолчанию `window`.
-    - `options.threshold` (*Number* [optional]): Defaults to `100`. Change the `trigger` value when the vertical scroll strictly crosses this threshold (exclusive).
+
+- `options.disableHysteresis` (*Boolean* [optional]): Defaults to `false`. Disable the hysteresis. Игнорирование направления прокрутки когда определено `trigger` значение.
+- `options.target` (*Node* [optional]): По умолчанию `window`.
+- `options.threshold` (*Number* [optional]): Defaults to `100`. Change the `trigger` value when the vertical scroll strictly crosses this threshold (exclusive).
 
 #### Возвращает
 
-`trigger`: Соответствует ли положение прокрутки критериям?
+`trigger`: Does the scroll position match the criteria?
 
 #### Примеры
 

@@ -52,8 +52,7 @@ function CheckboxesDoc(props)
                     <Typography className="text-44 mt-32 mb-8" component="h1">Checkboxes</Typography>
                     <Typography className="description">Checkboxes allow the user to select one or more items from a set.</Typography>
 
-                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/selection-controls.html#checkboxes">Checkboxes</a> can be used to
-                        turn an option on or off.</Typography>
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/selection-controls.html#checkboxes">Checkboxes</a> can be used to turn an option on or off.</Typography>
                     <Typography className="mb-16" component="div">If you have multiple options appearing in a list,
                         you can preserve space by using checkboxes instead of on/off switches.
                         If you have a single option, avoid using a checkbox and use an on/off switch instead.</Typography>
@@ -63,8 +62,7 @@ function CheckboxesDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/checkboxes/Checkboxes.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/checkboxes/Checkboxes.js')}
                     /></Typography>
-                    <Typography className="mb-16" component="div"><code>{`Checkbox`}</code> can also be used with a label description thanks to
-                        the <code>{`FormControlLabel`}</code> component.</Typography>
+                    <Typography className="mb-16" component="div"><code>{`Checkbox`}</code> can also be used with a label description thanks to the <code>{`FormControlLabel`}</code> component.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -72,8 +70,7 @@ function CheckboxesDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/checkboxes/CheckboxLabels.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Checkboxes with FormGroup</Typography>
-                    <Typography className="mb-16" component="div"><code>{`FormGroup`}</code> is a helpful wrapper used to group selection controls components that provides an
-                        easier API.</Typography>
+                    <Typography className="mb-16" component="div"><code>{`FormGroup`}</code> is a helpful wrapper used to group selection controls components that provides an easier API.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -88,12 +85,19 @@ function CheckboxesDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/checkboxes/FormControlLabelPosition.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/checkboxes/FormControlLabelPosition.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Customized checkbox</Typography>
+                    <Typography className="mb-16" component="div">Here is an example of customizing the component. You can learn more about this in the
+                        <a href="/customization/components/">overrides documentation page</a>.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/checkboxes/CustomizedCheckbox.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/checkboxes/CustomizedCheckbox.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
-                    <Typography className="mb-16" component="div">All form controls should have labels, and this includes radio buttons, checkboxes, and switches. In most cases,
-                        this is done by using the <code>{`<label>`}</code> element (<a href="/api/form-control-label/">FormControlLabel</a>).</Typography>
+                    <Typography className="mb-16" component="div">All form controls should have labels, and this includes radio buttons, checkboxes, and switches. In most cases, this is done by using the <code>{`<label>`}</code> element (<a href="/api/form-control-label/">FormControlLabel</a>).</Typography>
                     <Typography className="mb-16" component="div">When a label can&#39;t be used, it&#39;s necessary to add an attribute directly to the input component.
-                        In this case, you can apply the additional attribute (e.g. <code>{`aria-label`}</code>, <code>{`aria-labelledby`}</code>, <code>{`title`}</code>) via
-                        the <code>{`inputProps`}</code> property.</Typography>
+                        In this case, you can apply the additional attribute (e.g. <code>{`aria-label`}</code>, <code>{`aria-labelledby`}</code>, <code>{`title`}</code>) via the <code>{`inputProps`}</code> property.</Typography>
 
                     <FuseHighlight component="pre" className="language-jsx">
                         {` 

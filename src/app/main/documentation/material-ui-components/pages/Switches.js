@@ -52,8 +52,7 @@ function SwitchesDoc(props)
                     <Typography className="text-44 mt-32 mb-8" component="h1">Switches</Typography>
                     <Typography className="description">Switches toggle the state of a single setting on or off.</Typography>
 
-                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/selection-controls.html#switches">Switches</a> are the preferred
-                        way to adjust settings on mobile.
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/selection-controls.html#switches">Switches</a> are the preferred way to adjust settings on mobile.
                         The option that the switch controls, as well as the state it’s in,
                         should be made clear from the corresponding inline label.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -63,8 +62,7 @@ function SwitchesDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/switches/Switches.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Switches with FormControlLabel</Typography>
-                    <Typography className="mb-16" component="div"><code>{`Switch`}</code> can also be used with a label description thanks to
-                        the <code>{`FormControlLabel`}</code> component.</Typography>
+                    <Typography className="mb-16" component="div"><code>{`Switch`}</code> can also be used with a label description thanks to the <code>{`FormControlLabel`}</code> component.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -72,8 +70,7 @@ function SwitchesDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/switches/SwitchLabels.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Switches with FormGroup</Typography>
-                    <Typography className="mb-16" component="div"><code>{`FormGroup`}</code> is a helpful wrapper used to group selection controls components that provides an
-                        easier API.
+                    <Typography className="mb-16" component="div"><code>{`FormGroup`}</code> is a helpful wrapper used to group selection controls components that provides an easier API.
                         However, we encourage you to use a <a href="#checkboxes">Checkbox</a> instead.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -107,11 +104,9 @@ function SwitchesDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/switches/FormControlLabelPosition.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
-                    <Typography className="mb-16" component="div">All form controls should have labels, and this includes radio buttons, checkboxes, and switches. In most cases,
-                        this is done by using the <code>{`<label>`}</code> element (<a href="/api/form-control-label/">FormControlLabel</a>).</Typography>
+                    <Typography className="mb-16" component="div">All form controls should have labels, and this includes radio buttons, checkboxes, and switches. In most cases, this is done by using the <code>{`<label>`}</code> element (<a href="/api/form-control-label/">FormControlLabel</a>).</Typography>
                     <Typography className="mb-16" component="div">When a label can&#39;t be used, it&#39;s necessary to add an attribute directly to the input component.
-                        In this case, you can apply the additional attribute (e.g. <code>{`aria-label`}</code>, <code>{`aria-labelledby`}</code>, <code>{`title`}</code>) via
-                        the <code>{`inputProps`}</code> property.</Typography>
+                        In this case, you can apply the additional attribute (e.g. <code>{`aria-label`}</code>, <code>{`aria-labelledby`}</code>, <code>{`title`}</code>) via the <code>{`inputProps`}</code> property.</Typography>
 
                     <FuseHighlight component="pre" className="language-jsx">
                         {` 

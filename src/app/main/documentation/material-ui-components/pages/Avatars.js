@@ -53,8 +53,7 @@ function AvatarsDoc(props)
                     <Typography className="description">Avatars are found throughout material design with uses in everything from tables to dialog menus.</Typography>
 
                     <Typography className="text-32 mt-32 mb-8" component="h2">Image avatars</Typography>
-                    <Typography className="mb-16" component="div">Image avatars can be created by passing
-                        standard <code>{`img`}</code> props <code>{`src`}</code> or <code>{`srcSet`}</code> into the component.</Typography>
+                    <Typography className="mb-16" component="div">Image avatars can be created by passing standard <code>{`img`}</code> props <code>{`src`}</code> or <code>{`srcSet`}</code> into the component.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -62,8 +61,7 @@ function AvatarsDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/avatars/ImageAvatars.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Letter avatars</Typography>
-                    <Typography className="mb-16" component="div">Avatars containing simple characters can be created by passing your string
-                        as <code>{`children`}</code>.</Typography>
+                    <Typography className="mb-16" component="div">Avatars containing simple characters can be created by passing your string as <code>{`children`}</code>.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}

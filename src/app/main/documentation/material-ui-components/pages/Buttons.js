@@ -52,8 +52,7 @@ function ButtonsDoc(props)
                     <Typography className="text-44 mt-32 mb-8" component="h1">Buttons</Typography>
                     <Typography className="description">Buttons allow users to take actions, and make choices, with a single tap.</Typography>
 
-                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/buttons.html">Buttons</a> communicate actions that users can take.
-                        They are typically placed throughout your UI, in places like:</Typography>
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/buttons.html">Buttons</a> communicate actions that users can take. They are typically placed throughout your UI, in places like:</Typography>
                     <ul>
                         <li>Dialogs</li>
                         <li>Modal windows</li>
@@ -108,8 +107,7 @@ function ButtonsDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/GroupedButtons.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Split Button</Typography>
-                    <Typography className="mb-16" component="div">ButtonGroup can also be used to create a split button. The dropdown can change the button action (as in this
-                        example), or be use to immediately trigger a related action.</Typography>
+                    <Typography className="mb-16" component="div">ButtonGroup can also be used to create a split button. The dropdown can change the button action (as in this example), or be used to immediately trigger a related action.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -150,8 +148,7 @@ function ButtonsDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/ButtonSizes.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Buttons with icons and label</Typography>
-                    <Typography className="mb-16" component="div">Sometimes you might want to have icons for certain button to enhance the UX of the application as we recognize
-                        logos more easily than plain text. For example, if you have a delete button you can label it with a dustbin icon.</Typography>
+                    <Typography className="mb-16" component="div">Sometimes you might want to have icons for certain button to enhance the UX of the application as we recognize logos more easily than plain text. For example, if you have a delete button you can label it with a dustbin icon.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -177,11 +174,9 @@ function ButtonsDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/buttons/CustomizedButtons.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/CustomizedButtons.js')}
                     /></Typography>
-                    <Typography className="mb-16" component="div">👑 If you are looking for inspiration, you can check <a href="https://mui-treasury.com/components/button">MUI
-                        Treasury&#39;s customization examples</a>.</Typography>
+                    <Typography className="mb-16" component="div">👑 If you are looking for inspiration, you can check <a href="https://mui-treasury.com/components/button">MUI Treasury&#39;s customization examples</a>.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Complex Buttons</Typography>
-                    <Typography className="mb-16" component="div">The Text Buttons, Contained Buttons, Floating Action Buttons and Icon Buttons are built on top of the same
-                        component: the <code>{`ButtonBase`}</code>.
+                    <Typography className="mb-16" component="div">The Text Buttons, Contained Buttons, Floating Action Buttons and Icon Buttons are built on top of the same component: the <code>{`ButtonBase`}</code>.
                         You can take advantage of this lower level component to build custom interactions.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -195,7 +190,7 @@ function ButtonsDoc(props)
                         However for certain focus polyfills <code>{`ButtonBase`}</code> requires the DOM node of the provided
                         component. This is achieved by attaching a ref to the component and expecting that the
                         component forwards this ref to the underlying DOM node.
-                        Given that a lot of our interactive components rely on <code>{`ButtonBase`}</code>, you should be
+                        Given that many of the interactive components rely on <code>{`ButtonBase`}</code>, you should be
                         able to take advantage of it everywhere.</Typography>
                     <Typography className="mb-16" component="div">Here is an integration example with react-router:</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -205,7 +200,7 @@ function ButtonsDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/ButtonRouter.js')}
                     /></Typography>
                     <Typography className="mb-16" component="div"><em>Note: Creating the Button components is necessary to prevent unexpected unmounting.
-                        You can read more about it in our <a href="/guides/composition/#component-property">component property guide</a>.</em></Typography>
+                        You can read more about it in the <a href="/guides/composition/#component-property">component prop guide</a>.</em></Typography>
 
                 </div>
             }

@@ -61,6 +61,7 @@ function FuseNavVerticalLink(props)
             target={item.target ? item.target : "_blank"}
             className={clsx(classes.item, listItemPadding, 'list-item', active)}
             onClick={ev => dispatch(Actions.navbarCloseMobile())}
+            role='button'
         >
             {item.icon && (
                 <Icon className="list-item-icon text-16 flex-shrink-0 mr-16" color="action">{item.icon}</Icon>

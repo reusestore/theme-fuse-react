@@ -26,6 +26,7 @@ function IconsUI()
                         return true;
                     }
 
+                    // eslint-disable-next-line no-unused-vars
                     for ( let tag of item.tags )
                     {
                         if ( tag.includes(searchText) )

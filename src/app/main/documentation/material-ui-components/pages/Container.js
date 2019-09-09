@@ -68,8 +68,7 @@ function ContainerDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/container/SimpleContainer.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Fixed</Typography>
-                    <Typography className="mb-16" component="div">If you prefer to design for a fixed set of sizes instead of trying to accommodate a fully fluid viewport, you can
-                        set the <code>{`fixed`}</code> property.
+                    <Typography className="mb-16" component="div">If you prefer to design for a fixed set of sizes instead of trying to accommodate a fully fluid viewport, you can set the <code>{`fixed`}</code> property.
                         The max-width matches the min-width of the current breakpoint.</Typography>
 
                     <FuseHighlight component="pre" className="language-jsx">

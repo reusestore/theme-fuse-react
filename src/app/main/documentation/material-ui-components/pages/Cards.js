@@ -52,13 +52,10 @@ function CardsDoc(props)
                     <Typography className="text-44 mt-32 mb-8" component="h1">Cards</Typography>
                     <Typography className="description">Cards contain content and actions about a single subject.</Typography>
 
-                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/cards.html">Cards</a> are surfaces that display content and actions
-                        on a single topic.</Typography>
-                    <Typography className="mb-16" component="div">They should be easy to scan for relevant and actionable information. Elements, like text and images, should be
-                        placed on them in a way that clearly indicates hierarchy.</Typography>
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/cards.html">Cards</a> are surfaces that display content and actions on a single topic.</Typography>
+                    <Typography className="mb-16" component="div">They should be easy to scan for relevant and actionable information. Elements, like text and images, should be placed on them in a way that clearly indicates hierarchy.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Simple Card</Typography>
-                    <Typography className="mb-16" component="div">Although cards can support multiple actions, UI controls, and an overflow menu, use restraint and remember that
-                        cards are entry points to more complex and detailed information.</Typography>
+                    <Typography className="mb-16" component="div">Although cards can support multiple actions, UI controls, and an overflow menu, use restraint and remember that cards are entry points to more complex and detailed information.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -81,9 +78,7 @@ function CardsDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/cards/MediaCard.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/cards/MediaCard.js')}
                     /></Typography>
-                    <Typography className="mb-16" component="div">By default, we use the combination of a <code>{`<div>`}</code> element and a <em>background image</em> to display
-                        the media. It can be problematic in some situations. For instance, you might want to display a video or a responsive image. Use
-                        the <code>{`component`}</code> property for these use cases:</Typography>
+                    <Typography className="mb-16" component="div">By default, we use the combination of a <code>{`<div>`}</code> element and a <em>background image</em> to display the media. It can be problematic in some situations. For instance, you might want to display a video or a responsive image. Use the <code>{`component`}</code> property for these use cases:</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -91,12 +86,10 @@ function CardsDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/cards/ImgMediaCard.js')}
                     /></Typography>
                     <blockquote>
-                        <Typography className="mb-16" component="div">⚠️ When <code>{`component="img"`}</code>, CardMedia relies on <code>{`object-fit`}</code> for centering the
-                            image. It&#39;s not supported by IE 11.</Typography>
+                        <Typography className="mb-16" component="div">⚠️ When <code>{`component="img"`}</code>, CardMedia relies on <code>{`object-fit`}</code> for centering the image. It&#39;s not supported by IE 11.</Typography>
                     </blockquote>
                     <Typography className="text-32 mt-32 mb-8" component="h2">UI Controls</Typography>
-                    <Typography className="mb-16" component="div">Supplemental actions within the card are explicitly called out using icons, text, and UI controls, typically
-                        placed at the bottom of the card.</Typography>
+                    <Typography className="mb-16" component="div">Supplemental actions within the card are explicitly called out using icons, text, and UI controls, typically placed at the bottom of the card.</Typography>
                     <Typography className="mb-16" component="div">Here&#39;s an example of a media control card.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"

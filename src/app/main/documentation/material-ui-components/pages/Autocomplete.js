@@ -52,13 +52,12 @@ function AutocompleteDoc(props)
                     <Typography className="text-44 mt-32 mb-8" component="h1">Autocomplete</Typography>
                     <Typography className="description">The autocomplete is a normal text input enhanced by a panel of suggested options.</Typography>
 
-                    <Typography className="mb-16" component="div">Material-UI doesn&#39;t provide any high-level API for solving this problem.
-                        We encourage people relying on the solutions the React community has built.</Typography>
+                    <Typography className="mb-16" component="div">Material-UI doesn&#39;t provide a high-level API for solving this problem.
+                        You are encouraged to use a solution the React community has built, following one of the examples below.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">downshift</Typography>
                     <Typography className="mb-16" component="div"> src="https://img.shields.io/github/stars/paypal/downshift.svg?style=social&label=Stars" alt="stars/>
                         src="https://img.shields.io/npm/dm/downshift.svg" alt="npm downloads/></Typography>
-                    <Typography className="mb-16" component="div">In the following example, we demonstrate how to use <a
-                        href="https://github.com/downshift-js/downshift">downshift</a>.</Typography>
+                    <Typography className="mb-16" component="div">This example demonstrates how to use <a href="https://github.com/downshift-js/downshift">downshift</a>.</Typography>
                     <Typography className="mb-16" component="div">The last demo allows the user to clear the input and show a number of options on focus.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -69,8 +68,7 @@ function AutocompleteDoc(props)
                     <Typography className="text-32 mt-32 mb-8" component="h2">react-select</Typography>
                     <Typography className="mb-16" component="div"> src="https://img.shields.io/github/stars/JedWatson/react-select.svg?style=social&label=Stars" alt="stars/>
                         src="https://img.shields.io/npm/dm/react-select.svg" alt="npm downloads/></Typography>
-                    <Typography className="mb-16" component="div">In the following example, we demonstrate how to use <a
-                        href="https://github.com/JedWatson/react-select">react-select</a>.</Typography>
+                    <Typography className="mb-16" component="div">This example demonstrates how to use <a href="https://github.com/JedWatson/react-select">react-select</a>.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -80,15 +78,22 @@ function AutocompleteDoc(props)
                     <Typography className="text-32 mt-32 mb-8" component="h2">react-autosuggest</Typography>
                     <Typography className="mb-16" component="div"> src="https://img.shields.io/github/stars/moroshko/react-autosuggest.svg?style=social&label=Stars" alt="stars/>
                         src="https://img.shields.io/npm/dm/react-autosuggest.svg" alt="npm downloads/></Typography>
-                    <Typography className="mb-16" component="div">In the following example, we demonstrate how to use <a
-                        href="https://github.com/moroshko/react-autosuggest">react-autosuggest</a>.
-                        It&#39;s also using <a href="https://www.npmjs.com/package/autosuggest-highlight">autosuggest-highlight</a> for the highlighting logic.</Typography>
+                    <Typography className="mb-16" component="div">This example demonstrates how to use <a href="https://github.com/moroshko/react-autosuggest">react-autosuggest</a>.
+                        It also uses <a href="https://www.npmjs.com/package/autosuggest-highlight">autosuggest-highlight</a> for the highlighting logic.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
                         component={require('app/main/documentation/material-ui-components/components/autocomplete/IntegrationAutosuggest.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/IntegrationAutosuggest.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Complementary projects</Typography>
+                    <Typography className="mb-16" component="div">For more advanced use cases you might be able to take advantage of:</Typography>
+                    <ul>
+                        <li><a href="https://mui.wertarbyte.com/#material-ui-chip-input">material-ui-chip-input</a>: The chip input is used to allow selecting multiple text values.</li>
+                        <li><a href="https://github.com/techniq/mui-downshift">mui-downshift</a>: A thin layer over paypal&#39;s downshift to use Material-UI visual components.</li>
+                        <li><a href="https://github.com/plan-three/material-ui-autosuggest">material-ui-autosuggest</a>: A fuzzy-search component for React and Material-UI.</li>
+                        <li><a href="https://github.com/iulian-radu-at/react-select-material-ui">react-select-material-ui</a>: Extend react-select with Material-UI.</li>
+                    </ul>
 
                 </div>
             }

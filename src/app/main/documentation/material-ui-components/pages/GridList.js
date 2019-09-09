@@ -52,8 +52,7 @@ function GridListDoc(props)
                     <Typography className="text-44 mt-32 mb-8" component="h1">Grid List</Typography>
                     <Typography className="description">Grid lists display a collection of images in an organized grid.</Typography>
 
-                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/image-lists.html">Grid lists</a> represent a collection of items in
-                        a repeated pattern. They help improve the visual comprehension of the content they hold.</Typography>
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/image-lists.html">Grid lists</a> represent a collection of items in a repeated pattern. They help improve the visual comprehension of the content they hold.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Image-only Grid list</Typography>
                     <Typography className="mb-16" component="div">A simple example of a scrollable image <code>{`GridList`}</code>.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -63,10 +62,8 @@ function GridListDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/grid-list/ImageGridList.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Grid list with titlebars</Typography>
-                    <Typography className="mb-16" component="div">This example demonstrates the use of the <code>{`GridListTileBar`}</code> to add an overlay to
-                        each <code>{`GridListTile`}</code>.
-                        The overlay can accommodate a <code>{`title`}</code>, <code>{`subtitle`}</code> and secondary action - in this example
-                        an <code>{`IconButton`}</code>.</Typography>
+                    <Typography className="mb-16" component="div">This example demonstrates the use of the <code>{`GridListTileBar`}</code> to add an overlay to each <code>{`GridListTile`}</code>.
+                        The overlay can accommodate a <code>{`title`}</code>, <code>{`subtitle`}</code> and secondary action - in this example an <code>{`IconButton`}</code>.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -84,8 +81,7 @@ function GridListDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/grid-list/SingleLineGridList.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Advanced Grid list</Typography>
-                    <Typography className="mb-16" component="div">This example demonstrates &quot;featured&quot; tiles, using
-                        the <code>{`rows`}</code> and <code>{`cols`}</code> props to adjust the size of the tile, and the <code>{`padding`}</code> prop to adjust the spacing.
+                    <Typography className="mb-16" component="div">This example demonstrates &quot;featured&quot; tiles, using the <code>{`rows`}</code> and <code>{`cols`}</code> props to adjust the size of the tile, and the <code>{`padding`}</code> prop to adjust the spacing.
                         The tiles have a customized titlebar, positioned at the top and with a custom gradient <code>{`titleBackground`}</code>.
                         The secondary action <code>{`IconButton`}</code> is positioned on the left.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample

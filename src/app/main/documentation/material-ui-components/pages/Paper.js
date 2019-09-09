@@ -52,8 +52,7 @@ function PaperDoc(props)
                     <Typography className="text-44 mt-32 mb-8" component="h1">Paper</Typography>
                     <Typography className="description">In Material Design, the physical properties of paper are translated to the screen. </Typography>
 
-                    <Typography className="mb-16" component="div">The background of an application resembles the flat, opaque texture of a sheet of paper, and an application’s
-                        behavior mimics paper’s ability to be re-sized, shuffled, and bound together in multiple sheets.</Typography>
+                    <Typography className="mb-16" component="div">The background of an application resembles the flat, opaque texture of a sheet of paper, and an application’s behavior mimics paper’s ability to be re-sized, shuffled, and bound together in multiple sheets.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}

@@ -65,14 +65,11 @@ function ModalDoc(props)
                         <li>📦 <a href="/size-snapshot">5 kB gzipped</a>.</li>
                     </ul>
                     <blockquote>
-                        <Typography className="mb-16" component="div"><strong>Terminology note</strong>. The term &quot;modal&quot; is sometimes used to mean &quot;dialog&quot;,
-                            but this is a misnomer.
+                        <Typography className="mb-16" component="div"><strong>Terminology note</strong>. The term &quot;modal&quot; is sometimes used to mean &quot;dialog&quot;, but this is a misnomer.
                             A Modal window describes parts of a UI.
-                            An element is considered modal if <a href="https://en.wikipedia.org/wiki/Modal_window">it blocks interaction with the rest of the
-                                application</a>.</Typography>
+                            An element is considered modal if <a href="https://en.wikipedia.org/wiki/Modal_window">it blocks interaction with the rest of the application</a>.</Typography>
                     </blockquote>
-                    <Typography className="mb-16" component="div">If you are creating a modal dialog, you probably want to use the <a
-                        href="/components/dialogs/">Dialog</a> component rather than directly using Modal.
+                    <Typography className="mb-16" component="div">If you are creating a modal dialog, you probably want to use the <a href="/components/dialogs/">Dialog</a> component rather than directly using Modal.
                         Modal is a lower-level construct that is leveraged by the following components:</Typography>
                     <ul>
                         <li><a href="/components/dialogs/">Dialog</a></li>
@@ -87,55 +84,36 @@ function ModalDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/modal/SimpleModal.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/modal/SimpleModal.js')}
                     /></Typography>
-                    <Typography className="mb-16" component="div">Notice that you can disable the blue outline with the <code>{`outline: 0`}</code> CSS property.</Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Performance</Typography>
-                    <Typography className="mb-16" component="div">The content of the modal is <strong>lazily mounted</strong> into the DOM.
-                        It ensures that having many closed modals in your React tree won&#39;t slow down your page.</Typography>
-                    <Typography className="mb-16" component="div">However, creating React elements has a cost too. Consider the following case:</Typography>
-
-                    <FuseHighlight component="pre" className="language-jsx">
-                        {` 
-<Modal open={false}>
-  <Table>
-    <TableHead>
-      <TableRow>
-        <TableCell>Dessert (100g serving)</TableCell>
-        <TableCell align="right">Calories</TableCell>
-        <TableCell align="right">Fat&nbsp;(g)</TableCell>
-      </TableRow>
-    </TableHead>
-    <TableBody>
-      {rows.map(row => (
-        <TableRow key={row.id}>
-          <TableCell component="th" scope="row">
-            {row.name}
-          </TableCell>
-          <TableCell align="right">{row.calories}</TableCell>
-          <TableCell align="right">{row.fat}</TableCell>
-        </TableRow>
-      ))}
-    </TableBody>
-  </Table>
-</Modal>
-`}
-                    </FuseHighlight>
-                    <Typography className="mb-16" component="div">We create a lot of React elements that will never be mounted. It&#39;s wasteful 🐢.
-                        You can <strong>speed up</strong> the rendering by moving the modal body into its own component.</Typography>
-
-                    <FuseHighlight component="pre" className="language-jsx">
-                        {` 
-<Modal open={false}>
-  <TableComponent />
-</Modal>
-`}
-                    </FuseHighlight>
-                    <Typography className="mb-16" component="div">This way, you take advantage of <a href="https://overreacted.io/react-as-a-ui-runtime/#lazy-evaluation">React
-                        render laziness evaluation</a>.
-                        The <code>{`TableComponent`}</code> render method will only be evaluated when opening the modal.</Typography>
+                    <Typography className="mb-16" component="div">Notice that you can disable the outline (often blue or gold) with the <code>{`outline: 0`}</code> CSS property.</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Transitions</Typography>
+                    <Typography className="mb-16" component="div">The open/close state of the modal can be animated with a transition component.
+                        This component should respect the following conditions:</Typography>
+                    <ul>
+                        <li>Be a direct child descendent of the modal.</li>
+                        <li>Have an <code>{`in`}</code> prop. This corresponds to the open / close state.</li>
+                        <li>Call the <code>{`onEnter`}</code> callback prop when the enter transition starts.</li>
+                        <li>Call the <code>{`onExited`}</code> callback prop when the exit transition is completed.
+                            These two callbacks allow the modal to unmount the child content when closed and fully transitioned.
+                        </li>
+                    </ul>
+                    <Typography className="mb-16" component="div">Modal has built-in support for <a href="https://github.com/reactjs/react-transition-group">react-transition-group</a>.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/modal/TransitionsModal.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/modal/TransitionsModal.js')}
+                    /></Typography>
+                    <Typography className="mb-16" component="div">Alternatively, you can use <a href="https://github.com/react-spring/react-spring">react-spring</a>.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/modal/SpringModal.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/modal/SpringModal.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
                     <ul>
                         <li>Be sure to add <code>{`aria-labelledby="id..."`}</code>, referencing the modal title, to the <code>{`Modal`}</code>.
-                            Additionally, you may give a description of your modal with the <code>{`aria-describedby="id..."`}</code> property on the <code>{`Modal`}</code>.
+                            Additionally, you may give a description of your modal with the <code>{`aria-describedby="id..."`}</code> prop on the <code>{`Modal`}</code>.
                         </li>
                     </ul>
 
@@ -155,14 +133,11 @@ function ModalDoc(props)
 `}
                     </FuseHighlight>
                     <ul>
-                        <li>The <a href="https://www.w3.org/TR/wai-aria-practices/examples/dialog-modal/dialog.html">WAI-ARIA Authoring Practices 1.1</a> can help you set the
-                            initial focus on the most relevant element, based on your modal content.
-                        </li>
+                        <li>The <a href="https://www.w3.org/TR/wai-aria-practices/examples/dialog-modal/dialog.html">WAI-ARIA Authoring Practices 1.1</a> can help you set the initial focus on the most relevant element, based on your modal content.</li>
                     </ul>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Server-side modal</Typography>
-                    <Typography className="mb-16" component="div">React <a href="https://github.com/facebook/react/issues/13097">doesn&#39;t support</a> the <a
-                        href="https://reactjs.org/docs/portals.html"><code>{`createPortal()`}</code></a> API on the server.
-                        In order to make it work, you need to disable this feature with the <code>{`disablePortal`}</code> prop:</Typography>
+                    <Typography className="mb-16" component="div">React <a href="https://github.com/facebook/react/issues/13097">doesn&#39;t support</a> the <a href="https://reactjs.org/docs/portals.html"><code>{`createPortal()`}</code></a> API on the server.
+                        In order to see the modal, you need to disable the portal feature with the <code>{`disablePortal`}</code> prop:</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}

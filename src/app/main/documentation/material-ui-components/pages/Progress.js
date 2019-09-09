@@ -50,20 +50,15 @@ function ProgressDoc(props)
             content={
                 <div className="p-24 max-w-2xl">
                     <Typography className="text-44 mt-32 mb-8" component="h1">Progress</Typography>
-                    <Typography className="description">Progress indicators commonly known as spinners, express an unspecified wait time or display the length of a process. The
-                        animation works with CSS, not JavaScript.</Typography>
+                    <Typography className="description">Progress indicators commonly known as spinners, express an unspecified wait time or display the length of a process. The animation works with CSS, not JavaScript.</Typography>
 
-                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/progress-indicators.html">Progress indicators</a> inform users
-                        about the status of ongoing processes, such as loading an app, submitting a form, or saving updates. They communicate an app’s state and indicate available
-                        actions, such as whether users can navigate away from the current screen.</Typography>
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/progress-indicators.html">Progress indicators</a> inform users about the status of ongoing processes, such as loading an app, submitting a form, or saving updates. They communicate an app’s state and indicate available actions, such as whether users can navigate away from the current screen.</Typography>
                     <Typography className="mb-16" component="div"><strong>Determinate</strong> indicators display how long an operation will take.</Typography>
                     <Typography className="mb-16" component="div"><strong>Indeterminate</strong> indicators visualize an unspecified wait time.</Typography>
                     <Typography className="text-16 mt-32 mb-8" component="h4">Progress as a group</Typography>
-                    <Typography className="mb-16" component="div">When displaying progress for a sequence of processes, indicate overall progress rather than the progress of each
-                        activity.</Typography>
+                    <Typography className="mb-16" component="div">When displaying progress for a sequence of processes, indicate overall progress rather than the progress of each activity.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Circular</Typography>
-                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/progress-indicators.html#circular-progress-indicators">Circular
-                        progress</a> support both determinate and indeterminate processes.</Typography>
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/progress-indicators.html#circular-progress-indicators">Circular progress</a> support both determinate and indeterminate processes.</Typography>
                     <ul>
                         <li><strong>Determinate</strong> circular indicators fill the invisible, circular track with color, as the indicator moves from 0 to 360 degrees.</li>
                         <li><strong>Indeterminate</strong> circular indicators grow and shrink in size while moving along the invisible track.</li>
@@ -97,8 +92,7 @@ function ProgressDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/progress/CircularStatic.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Linear</Typography>
-                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/progress-indicators.html#linear-progress-indicators">Linear
-                        progress</a> indicators.</Typography>
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/progress-indicators.html#linear-progress-indicators">Linear progress</a> indicators.</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Linear Indeterminate</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -128,9 +122,7 @@ function ProgressDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/progress/LinearQuery.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Non-standard ranges</Typography>
-                    <Typography className="mb-16" component="div">The progress components accept a value in the range 0 - 100. This simplifies things for screen-reader users, where
-                        these are the default min / max values. Sometimes, however, you might be working with a data source where the values fall outside this range. Here&#39;s how
-                        you can easily transform a value in any range to a scale of 0 - 100:</Typography>
+                    <Typography className="mb-16" component="div">The progress components accept a value in the range 0 - 100. This simplifies things for screen-reader users, where these are the default min / max values. Sometimes, however, you might be working with a data source where the values fall outside this range. Here&#39;s how you can easily transform a value in any range to a scale of 0 - 100:</Typography>
 
                     <FuseHighlight component="pre" className="language-jsx">
                         {` 
@@ -160,8 +152,7 @@ function Progress(props) {
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/progress/CustomizedProgressBars.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Delaying appearance</Typography>
-                    <Typography className="mb-16" component="div">There are <a href="https://www.nngroup.com/articles/response-times-3-important-limits/">3 important limits</a> to
-                        know around response time.
+                    <Typography className="mb-16" component="div">There are <a href="https://www.nngroup.com/articles/response-times-3-important-limits/">3 important limits</a> to know around response time.
                         The ripple effect of the <code>{`ButtonBase`}</code> component ensures that the user feels that the system is reacting instantaneously.
                         Normally, no special feedback is necessary during delays of more than 0.1 but less than 1.0 second.
                         After 1.0 second, you can display a loader to keep user&#39;s flow of thought uninterrupted.</Typography>

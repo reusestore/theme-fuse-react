@@ -50,17 +50,12 @@ function DrawersDoc(props)
             content={
                 <div className="p-24 max-w-2xl">
                     <Typography className="text-44 mt-32 mb-8" component="h1">Drawer</Typography>
-                    <Typography className="description">Navigation drawers provide access to destinations in your app. Side sheets are surfaces containing supplementary content
-                        that are anchored to the left or right edge of the screen.</Typography>
+                    <Typography className="description">Navigation drawers provide access to destinations in your app. Side sheets are surfaces containing supplementary content that are anchored to the left or right edge of the screen.</Typography>
 
-                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/navigation-drawer.html">Navigation
-                        drawers</a> (or &quot;sidebars&quot;) provide access to destinations and app functionality, such as switching accounts. They can either be permanently
-                        on-screen or controlled by a navigation menu icon.</Typography>
-                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/sheets-side.html">Side sheets</a> are supplementary surfaces
-                        primarily used on tablet and desktop.</Typography>
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/navigation-drawer.html">Navigation drawers</a> (or &quot;sidebars&quot;) provide access to destinations and app functionality, such as switching accounts. They can either be permanently on-screen or controlled by a navigation menu icon.</Typography>
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/sheets-side.html">Side sheets</a> are supplementary surfaces primarily used on tablet and desktop.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Temporary drawer</Typography>
-                    <Typography className="mb-16" component="div">Temporary navigation drawers can toggle open or closed. Closed by default, the drawer opens temporarily above all
-                        other content until a section is selected.</Typography>
+                    <Typography className="mb-16" component="div">Temporary navigation drawers can toggle open or closed. Closed by default, the drawer opens temporarily above all other content until a section is selected.</Typography>
                     <Typography className="mb-16" component="div">The Drawer can be cancelled by clicking the overlay or pressing the Esc key.
                         It closes when an item is selected, handled by controlling the <code>{`open`}</code> prop.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -80,15 +75,14 @@ function DrawersDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/drawers/SwipeableTemporaryDrawer.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/drawers/SwipeableTemporaryDrawer.js')}
                     /></Typography>
-                    <Typography className="mb-16" component="div">We are using the following set of properties on this documentation website for optimal usability of the
-                        component:</Typography>
+                    <Typography className="mb-16" component="div">The following properties are used in this documentation website for optimal usability of the component:</Typography>
                     <ul>
                         <li>iOS is hosted on high-end devices.
-                            We can enable the backdrop transition without dropping frames.
+                            The backdrop transition can be enabled without dropping frames.
                             The performance will be good enough.
                         </li>
-                        <li>iOS has a &quot;swipe to go back&quot; feature that mess
-                            with the discovery feature. We have to disable it.
+                        <li>iOS has a &quot;swipe to go back&quot; feature that interferes
+                            with the discovery feature, so discovery has to be disabled.
                         </li>
                     </ul>
 
@@ -100,8 +94,7 @@ const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 `}
                     </FuseHighlight>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Responsive drawer</Typography>
-                    <Typography className="mb-16" component="div">The <code>{`Hidden`}</code> responsive helper component allows showing different types of drawer depending on the
-                        screen width.
+                    <Typography className="mb-16" component="div">The <code>{`Hidden`}</code> responsive helper component allows showing different types of drawer depending on the screen width.
                         A <code>{`temporary`}</code> drawer is shown for small screens while a <code>{`permanent`}</code> drawer is shown for wider screens.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -114,8 +107,7 @@ const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
                         The drawer sits on the same surface elevation as the content.
                         It is closed by default and opens by selecting the menu icon, and stays open until closed by the user.
                         The state of the drawer is remembered from action to action and session to session.</Typography>
-                    <Typography className="mb-16" component="div">When the drawer is outside of the page grid and opens, the drawer forces other content to change size and adapt to
-                        the smaller viewport.</Typography>
+                    <Typography className="mb-16" component="div">When the drawer is outside of the page grid and opens, the drawer forces other content to change size and adapt to the smaller viewport.</Typography>
                     <Typography className="mb-16" component="div">Persistent navigation drawers are acceptable for all sizes larger than mobile.
                         They are not recommended for apps with multiple levels of hierarchy that require using an up arrow for navigation.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -142,8 +134,7 @@ const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/drawers/MiniDrawer.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Permanent drawer</Typography>
-                    <Typography className="mb-16" component="div">Permanent navigation drawers are always visible and pinned to the left edge, at the same elevation as the content
-                        or background. They cannot be closed.</Typography>
+                    <Typography className="mb-16" component="div">Permanent navigation drawers are always visible and pinned to the left edge, at the same elevation as the content or background. They cannot be closed.</Typography>
                     <Typography className="mb-16" component="div">Permanent navigation drawers are the <strong>recommended default for desktop</strong>.</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Full-height navigation</Typography>
                     <Typography className="mb-16" component="div">Apps focused on information consumption that use a left-to-right hierarchy.</Typography>

@@ -18,7 +18,13 @@ const useStyles = makeStyles(theme => ({
         color                                     : theme.palette.text.primary,
         '&.active, &.active:hover, &.active:focus': {
             backgroundColor: theme.palette.secondary.main + '!important',
-            color          : theme.palette.secondary.contrastText + '!important'
+            color          : theme.palette.secondary.contrastText + '!important',
+            '& .list-item-text-primary': {
+                color: 'inherit'
+            },
+            '& .list-item-icon'        : {
+                color: 'inherit'
+            }
         },
         '& .list-item-text'                       : {
             padding: '0 0 0 16px'
@@ -107,7 +113,7 @@ function FuseNavHorizontalGroup(props)
                             aria-haspopup="true"
                         >
                             {item.icon && (
-                                <Icon color="action" className="text-16 flex-shrink-0">{item.icon}</Icon>
+                                <Icon color="action" className="list-item-icon text-16 flex-shrink-0">{item.icon}</Icon>
                             )}
                             <ListItemText className="list-item-text" primary={item.title} classes={{primary: 'text-14'}}/>
                             {nestedLevel > 0 && (

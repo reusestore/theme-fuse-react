@@ -1,5 +1,5 @@
 ---
-title: Breadcrumbs React component
+title: Breadcrumbs Reactコンポーネント
 components: Breadcrumbs, Link, Typography
 ---
 
@@ -7,29 +7,29 @@ components: Breadcrumbs, Link, Typography
 
 <p class="description">ブレッドクラムを使用すると、値の範囲から選択できます。</p>
 
-## Simple breadcrumbs
+## シンプルなbreadcurmbs
 
-{{"demo":"pages/components/breadcrumbs/SimpleBreadcrumbs.js"}}
+{{"demo": "pages/components/breadcrumbs/SimpleBreadcrumbs.js"}}
 
-## Custom separator
+## カスタムセパレーター (Custom separator）
 
 次の例では、2つの文字列セパレータとSVGアイコンを使用しています。
 
-{{"demo":"pages/components/breadcrumbs/CustomSeparator.js"}}
+{{"demo": "pages/components/breadcrumbs/CustomSeparator.js"}}
 
 ## アイコン付きBreadcrumbs
 
-{{"demo":"pages/components/breadcrumbs/IconBreadcrumbs.js"}}
+{{"demo": "pages/components/breadcrumbs/IconBreadcrumbs.js"}}
 
 ## 折りたたみBreadcrumbs
 
 {{"demo":"pages/components/breadcrumbs/CollapsedBreadcrumbs.js"}}
 
-## カスタマイズBreadcrumbs
+## カスタマイズされた breadcrumbs
 
 コンポーネントのカスタマイズ例を次に示します。 詳細については、 [オーバーライドのドキュメントページ](/customization/components/)を参照してください。
 
-{{"demo":"pages/components/breadcrumbs/CustomizedBreadcrumbs.js"}}
+{{"demo": "pages/components/breadcrumbs/CustomizedBreadcrumbs.js"}}
 
 ## アクセシビリティ
 
@@ -37,10 +37,10 @@ components: Breadcrumbs, Link, Typography
 
 このコンポーネントのアクセシビリティは、
 
-- The set of links is structured using an ordered list (`<ol>` element).
-- To prevent screen reader announcement of the visual separators between links, they are hidden with `aria-hidden`.
-- A nav element labeled with `aria-label` identifies the structure as a breadcrumb trail and makes it a navigation landmark so that it is easy to locate.
+- リンクのセットは、順序付けられたリスト(`<ol>` element) を使用して構造化されます。
+- リンク間のビジュアルセパレータがスクリーンリーダーから通知されないようにするには、 `aria-hidden`を使用します。
+- `aria-label` というラベルが付いたnav要素は、その構造をBreadcrumbs経路として識別し、それをナビゲーション用の目印にして、見つけやすくします。
 
-## Integration with react-router
+## react-routerとの統合
 
 {{"demo": "pages/components/breadcrumbs/RouterBreadcrumbs.js"}}

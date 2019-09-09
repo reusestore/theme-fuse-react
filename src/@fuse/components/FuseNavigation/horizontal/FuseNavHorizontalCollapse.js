@@ -24,8 +24,14 @@ const useStyles = makeStyles(theme => ({
         color                                     : theme.palette.text.primary,
         minHeight                                 : 48,
         '&.active, &.active:hover, &.active:focus': {
-            backgroundColor: theme.palette.secondary.main + '!important',
-            color          : theme.palette.secondary.contrastText + '!important'
+            backgroundColor            : theme.palette.secondary.main + '!important',
+            color                      : theme.palette.secondary.contrastText + '!important',
+            '& .list-item-text-primary': {
+                color: 'inherit'
+            },
+            '& .list-item-icon'        : {
+                color: 'inherit'
+            }
         },
         '&.open'                                  : {
             backgroundColor: 'rgba(0,0,0,.08)'
@@ -104,7 +110,7 @@ function FuseNavHorizontalCollapse(props)
                                 aria-haspopup="true"
                             >
                                 {item.icon && (
-                                    <Icon color="action" className="text-16 flex-shrink-0">{item.icon}</Icon>
+                                    <Icon color="action" className="list-item-icon text-16 flex-shrink-0">{item.icon}</Icon>
                                 )}
                                 <ListItemText className="list-item-text" primary={item.title} classes={{primary: 'text-14'}}/>
                                 {item.badge && (
