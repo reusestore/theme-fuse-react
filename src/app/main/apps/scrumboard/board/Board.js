@@ -72,7 +72,7 @@ function Board(props)
 
     return (
         <div
-            className="flex flex-1 flex-col w-full h-full relative"
+            className="flex flex-1 flex-auto flex-col w-full h-full relative"
             ref={containerRef}
         >
             <AppBar position="static" color="primary">
