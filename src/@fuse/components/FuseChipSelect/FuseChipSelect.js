@@ -222,18 +222,28 @@ const components = {
 
 function FuseChipSelect(props)
 {
+    const handleOnChange = value => {
+        if ( value === null )
+        {
+            value = [];
+        }
+        props.onChange && props.onChange(value);
+    };
+
     return (
         props.variant === 'fixed' ? (
             <Select
                 classNamePrefix="fuse-chip-select"
                 {...props}
                 components={components}
+                onChange={handleOnChange}
             />
         ) : (
             <Creatable
                 classNamePrefix="fuse-chip-select"
                 {...props}
                 components={components}
+                onChange={handleOnChange}
             />
         )
     );
