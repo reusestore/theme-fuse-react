@@ -4,6 +4,7 @@ import {makeStyles, ThemeProvider} from '@material-ui/styles';
 import clsx from 'clsx';
 import * as Actions from 'app/store/actions';
 import NavbarLayout1 from './NavbarLayout1';
+import NavbarMobileToggleFab from 'app/fuse-layouts/shared-components/NavbarMobileToggleFab';
 import {useDispatch, useSelector} from 'react-redux';
 
 const navbarWidth = 280;
@@ -129,51 +130,61 @@ function NavbarWrapperLayout1(props)
     const foldedAndOpened = folded && navbar.foldedOpen;
 
     return (
-        <ThemeProvider theme={navbarTheme}>
-            <div id="fuse-navbar"
-                 className={
-                     clsx(
-                         classes.wrapper,
-                         folded && classes.wrapperFolded
-                     )}
-            >
-                <Hidden mdDown>
-                    <div
-                        className={
-                            clsx(
-                                classes.navbar,
-                                classes[config.navbar.position],
-                                folded && classes.folded,
-                                foldedAndOpened && classes.foldedAndOpened,
-                                foldedAndClosed && classes.foldedAndClosed
-                            )
-                        }
-                        onMouseEnter={() => foldedAndClosed && dispatch(Actions.navbarOpenFolded())}
-                        onMouseLeave={() => foldedAndOpened && dispatch(Actions.navbarCloseFolded())}
-                        style={{backgroundColor: navbarTheme.palette.background.default}}
-                    >
-                        <NavbarLayout1 className={classes.navbarContent}/>
-                    </div>
-                </Hidden>
+        <React.Fragment>
+            <ThemeProvider theme={navbarTheme}>
+                <div id="fuse-navbar"
+                     className={
+                         clsx(
+                             classes.wrapper,
+                             folded && classes.wrapperFolded
+                         )}
+                >
+                    <Hidden mdDown>
+                        <div
+                            className={
+                                clsx(
+                                    classes.navbar,
+                                    classes[config.navbar.position],
+                                    folded && classes.folded,
+                                    foldedAndOpened && classes.foldedAndOpened,
+                                    foldedAndClosed && classes.foldedAndClosed
+                                )
+                            }
+                            onMouseEnter={() => foldedAndClosed && dispatch(Actions.navbarOpenFolded())}
+                            onMouseLeave={() => foldedAndOpened && dispatch(Actions.navbarCloseFolded())}
+                            style={{backgroundColor: navbarTheme.palette.background.default}}
+                        >
+                            <NavbarLayout1 className={classes.navbarContent}/>
+                        </div>
+                    </Hidden>
 
+                    <Hidden lgUp>
+                        <Drawer
+                            anchor={config.navbar.position}
+                            variant="temporary"
+                            open={navbar.mobileOpen}
+                            classes={{
+                                paper: classes.navbar
+                            }}
+                            onClose={() => dispatch(Actions.navbarCloseMobile())}
+                            ModalProps={{
+                                keepMounted: true // Better open performance on mobile.
+                            }}
+                        >
+                            <NavbarLayout1 className={classes.navbarContent}/>
+                        </Drawer>
+                    </Hidden>
+                </div>
+
+            </ThemeProvider>
+
+            {config.navbar.display && !config.toolbar.display && (
                 <Hidden lgUp>
-                    <Drawer
-                        anchor={config.navbar.position}
-                        variant="temporary"
-                        open={navbar.mobileOpen}
-                        classes={{
-                            paper: classes.navbar
-                        }}
-                        onClose={() => dispatch(Actions.navbarCloseMobile())}
-                        ModalProps={{
-                            keepMounted: true // Better open performance on mobile.
-                        }}
-                    >
-                        <NavbarLayout1 className={classes.navbarContent}/>
-                    </Drawer>
+                    <NavbarMobileToggleFab/>
                 </Hidden>
-            </div>
-        </ThemeProvider>
+            )}
+
+        </React.Fragment>
     );
 }
 

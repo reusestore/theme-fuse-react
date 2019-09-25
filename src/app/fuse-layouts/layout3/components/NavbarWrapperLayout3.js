@@ -6,6 +6,7 @@ import clsx from 'clsx';
 import NavbarMobileLayout3 from './NavbarMobileLayout3';
 import NavbarLayout3 from './NavbarLayout3';
 import {useDispatch, useSelector} from 'react-redux';
+import NavbarMobileToggleFab from 'app/fuse-layouts/shared-components//NavbarMobileToggleFab';
 
 const navbarWidth = 280;
 
@@ -38,37 +39,48 @@ const useStyles = makeStyles(theme => ({
 function NavbarWrapperLayout3(props)
 {
     const dispatch = useDispatch();
+    const config = useSelector(({fuse}) => fuse.settings.current.layout.config);
     const navbarTheme = useSelector(({fuse}) => fuse.settings.navbarTheme);
     const navbar = useSelector(({fuse}) => fuse.navbar);
 
     const classes = useStyles(props);
 
     return (
-        <ThemeProvider theme={navbarTheme}>
+        <React.Fragment>
+            <ThemeProvider theme={navbarTheme}>
 
-            <Hidden mdDown>
-                <Paper className={clsx(classes.navbar)} square={true}>
-                    <NavbarLayout3/>
-                </Paper>
-            </Hidden>
+                <Hidden mdDown>
+                    <Paper className={clsx(classes.navbar)} square={true}>
+                        <NavbarLayout3/>
+                    </Paper>
+                </Hidden>
 
-            <Hidden lgUp>
-                <Drawer
-                    anchor="left"
-                    variant="temporary"
-                    open={navbar.mobileOpen}
-                    classes={{
-                        paper: classes.navbarMobile
-                    }}
-                    onClose={ev => dispatch(Actions.navbarCloseMobile())}
-                    ModalProps={{
-                        keepMounted: true // Better open performance on mobile.
-                    }}
-                >
-                    <NavbarMobileLayout3/>
-                </Drawer>
-            </Hidden>
-        </ThemeProvider>
+                <Hidden lgUp>
+                    <Drawer
+                        anchor="left"
+                        variant="temporary"
+                        open={navbar.mobileOpen}
+                        classes={{
+                            paper: classes.navbarMobile
+                        }}
+                        onClose={ev => dispatch(Actions.navbarCloseMobile())}
+                        ModalProps={{
+                            keepMounted: true // Better open performance on mobile.
+                        }}
+                    >
+                        <NavbarMobileLayout3/>
+                    </Drawer>
+                </Hidden>
+
+            </ThemeProvider>
+
+            {config.navbar.display && !config.toolbar.display && (
+                <Hidden lgUp>
+                    <NavbarMobileToggleFab/>
+                </Hidden>
+            )}
+
+        </React.Fragment>
     );
 }
 
