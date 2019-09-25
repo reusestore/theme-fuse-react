@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Button, Tab, Tabs, TextField, InputAdornment, Icon, Typography} from '@material-ui/core';
 import {orange} from '@material-ui/core/colors';
 import {makeStyles} from '@material-ui/styles';
-import {FuseAnimate, FusePageCarded, FuseChipSelect, FuseUtils} from '@fuse';
+import {FuseAnimate, FusePageCarded, FuseChipSelect, FuseUtils, FuseLoading} from '@fuse';
 import {useForm} from '@fuse/hooks';
 import {Link} from 'react-router-dom';
 import clsx from 'clsx';
@@ -134,6 +134,11 @@ function Product(props)
             form.name.length > 0 &&
             !_.isEqual(product.data, form)
         );
+    }
+
+    if ( !product.data || (product.data && props.match.params.productId !== product.data.id) )
+    {
+        return <FuseLoading/>;
     }
 
     return (
