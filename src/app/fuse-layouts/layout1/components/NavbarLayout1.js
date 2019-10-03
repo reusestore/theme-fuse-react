@@ -50,7 +50,7 @@ function NavbarLayout1(props)
                 </Hidden>
             </AppBar>
 
-            <FuseScrollbars className={clsx(classes.content)}>
+            <FuseScrollbars className={clsx(classes.content)} option={{suppressScrollX: true}}>
 
                 <UserNavbarHeader/>
 
