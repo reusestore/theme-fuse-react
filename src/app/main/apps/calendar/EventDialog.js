@@ -10,8 +10,8 @@ const defaultFormState = {
     id    : FuseUtils.generateGUID(),
     title : '',
     allDay: true,
-    start : new Date(),
-    end   : new Date(),
+    start : moment(new Date()).format,
+    end   : moment(new Date()).format,
     desc  : ''
 };
 
