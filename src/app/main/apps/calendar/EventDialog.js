@@ -3,6 +3,7 @@ import {TextField, Button, Dialog, DialogActions, DialogContent, Icon, IconButto
 import FuseUtils from '@fuse/FuseUtils';
 import {useForm} from '@fuse/hooks';
 import {useDispatch, useSelector} from 'react-redux';
+import {DateTimePicker} from "@material-ui/pickers";
 import moment from 'moment';
 import * as Actions from './store/actions';
 
@@ -10,8 +11,8 @@ const defaultFormState = {
     id    : FuseUtils.generateGUID(),
     title : '',
     allDay: true,
-    start : moment(new Date()).format,
-    end   : moment(new Date()).format,
+    start : moment(new Date(), 'MM/DD/YYYY'),
+    end   : moment(new Date(), 'MM/DD/YYYY'),
     desc  : ''
 };
 
@@ -19,10 +20,9 @@ function EventDialog(props)
 {
     const dispatch = useDispatch();
     const eventDialog = useSelector(({calendarApp}) => calendarApp.events.eventDialog);
-
-    const {form, handleChange, setForm} = useForm(defaultFormState);
-    let start = moment(form.start).format(moment.HTML5_FMT.DATETIME_LOCAL_SECONDS);
-    let end = moment(form.end).format(moment.HTML5_FMT.DATETIME_LOCAL_SECONDS);
+    const {form, handleChange, setForm, setInForm} = useForm(defaultFormState);
+    let start = moment(form.start, 'MM/DD/YYYY');
+    let end = moment(form.end, 'MM/DD/YYYY');
 
     const initDialog = useCallback(
         () => {
@@ -112,9 +112,6 @@ function EventDialog(props)
                         InputLabelProps={{
                             shrink: true
                         }}
-                        inputProps={{
-                            max: end
-                        }}
                         name="title"
                         value={form.title}
                         onChange={handleChange}
@@ -136,40 +133,22 @@ function EventDialog(props)
                             />
                         }/>
 
-                    <TextField
-                        id="start"
-                        name="start"
+                    <DateTimePicker
                         label="Start"
-                        type="datetime-local"
-                        className="mt-8 mb-16"
-                        InputLabelProps={{
-                            shrink: true
-                        }}
-                        inputProps={{
-                            max: end
-                        }}
+                        inputVariant="outlined"
                         value={start}
-                        onChange={handleChange}
-                        variant="outlined"
-                        fullWidth
+                        onChange={date => setInForm('start', date)}
+                        className="mt-8 mb-16 w-full"
+                        maxDate={end}
                     />
 
-                    <TextField
-                        id="end"
-                        name="end"
+                    <DateTimePicker
                         label="End"
-                        type="datetime-local"
-                        className="mt-8 mb-16"
-                        InputLabelProps={{
-                            shrink: true
-                        }}
-                        inputProps={{
-                            min: start
-                        }}
+                        inputVariant="outlined"
                         value={end}
-                        onChange={handleChange}
-                        variant="outlined"
-                        fullWidth
+                        onChange={date => setInForm('end', date)}
+                        className="mt-8 mb-16 w-full"
+                        minDate={start}
                     />
 
                     <TextField
