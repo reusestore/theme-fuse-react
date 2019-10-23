@@ -76,6 +76,7 @@ function FuseNavigationDoc(props)
                                         'title'    : 'Applications',
                                         'type'     : 'group',
                                         'icon'     : 'apps',
+                                        'url'      : '/apps/calendar' //optional
                                         'children' : [
                                              {
                                                 'id'       : 'calendar',
@@ -99,6 +100,7 @@ function FuseNavigationDoc(props)
                                         'title'    : 'Dashboards',
                                         'type'     : 'collapse',
                                         'icon'     : 'dashboard',
+                                        'url'      : '/apps/dashboards/project' //optional
                                         'children' : [
                                             {
                                                 'id'   : 'project',

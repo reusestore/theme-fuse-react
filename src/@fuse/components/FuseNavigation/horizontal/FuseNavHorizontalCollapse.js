@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Grow, Paper, Icon, IconButton, ListItem, ListItemText} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
-import {FuseUtils} from '@fuse';
+import {FuseUtils, NavLinkAdapter} from '@fuse';
 import {useDebounce} from '@fuse/hooks';
 import {withRouter} from 'react-router-dom';
 import clsx from 'clsx';
@@ -108,6 +108,9 @@ function FuseNavHorizontalCollapse(props)
                                 onMouseLeave={() => handleToggle(false)}
                                 aria-owns={opened ? 'menu-list-grow' : null}
                                 aria-haspopup="true"
+                                component={item.url ? NavLinkAdapter : 'li'}
+                                to={item.url}
+                                role="button"
                             >
                                 {item.icon && (
                                     <Icon color="action" className="list-item-icon text-16 flex-shrink-0">{item.icon}</Icon>

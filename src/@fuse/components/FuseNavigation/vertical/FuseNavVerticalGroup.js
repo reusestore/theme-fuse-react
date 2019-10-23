@@ -1,27 +1,32 @@
 import React from 'react';
 import {ListSubheader} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
-import {FuseUtils} from '@fuse';
+import {FuseUtils, NavLinkAdapter} from '@fuse';
 import {withRouter} from 'react-router-dom';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import FuseNavVerticalCollapse from './FuseNavVerticalCollapse';
 import FuseNavVerticalItem from './FuseNavVerticalItem';
 import FuseNavVerticalLink from './FuseNavVerticalLink';
+import * as Actions from 'app/store/actions';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
     item: {
-        height      : 40,
-        width       : 'calc(100% - 16px)',
-        borderRadius: '0 20px 20px 0',
-        paddingRight: 12
+        height                           : 40,
+        width                            : 'calc(100% - 16px)',
+        borderRadius                     : '0 20px 20px 0',
+        paddingRight                     : 12,
+        '&.active > .list-subheader-text': {
+            fontWeight: 700
+        }
     }
-});
+}));
 
 function FuseNavVerticalGroup(props)
 {
     const userRole = useSelector(({auth}) => auth.user.role);
+    const dispatch = useDispatch();
 
     const classes = useStyles(props);
     const {item, nestedLevel, active} = props;
@@ -36,7 +41,14 @@ function FuseNavVerticalGroup(props)
     return (
         <React.Fragment>
 
-            <ListSubheader disableSticky={true} className={clsx(classes.item, listItemPadding, "list-subheader flex items-center")}>
+            <ListSubheader
+                disableSticky={true}
+                className={clsx(classes.item, listItemPadding, "list-subheader flex items-center", !item.url && 'cursor-default')}
+                onClick={ev => dispatch(Actions.navbarCloseMobile())}
+                component={item.url ? NavLinkAdapter : 'li'}
+                to={item.url}
+                role="button"
+            >
                 <span className="list-subheader-text uppercase text-12">
                     {item.title}
                 </span>
