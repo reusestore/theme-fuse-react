@@ -10,32 +10,93 @@ import FuseNavHorizontalGroup from './horizontal/FuseNavHorizontalGroup';
 import FuseNavHorizontalCollapse from './horizontal/FuseNavHorizontalCollapse';
 import FuseNavHorizontalItem from './horizontal/FuseNavHorizontalItem';
 import FuseNavHorizontalLink from './horizontal/FuseNavHorizontalLink';
+import {makeStyles} from '@material-ui/styles';
+
+const useStyles = makeStyles(theme => ({
+    navigation          : {},
+    verticalNavigation  : {
+        '&.square': {
+            '& .list-item, & .active.list-item': {
+                width       : '100%',
+                borderRadius: '0'
+            }
+        },
+        '&.dense' : {
+            '& .list-item': {
+                paddingTop   : 0,
+                paddingBottom: 0,
+                height       : 32
+            }
+        }
+    },
+    horizontalNavigation: {
+        '&.square'    : {
+            '& .list-item': {
+                borderRadius: '0'
+            }
+        },
+        '& .list-item': {
+            padding            : '8px 12px 8px 12px',
+            height             : 40,
+            minHeight          : 40,
+            '&.level-0'        : {
+                height   : 44,
+                minHeight: 44,
+            },
+            '& .list-item-text': {
+                padding: '0 0 0 8px'
+            }
+        }
+    },
+    '@global'           : {
+        '.popper-navigation-list': {
+            '& .list-item': {
+                padding            : '8px 12px 8px 12px',
+                height             : 40,
+                minHeight          : 40,
+                '& .list-item-text': {
+                    padding: '0 0 0 8px'
+                }
+            },
+            '&.dense'     : {
+                '& .list-item': {
+                    minHeight          : 32,
+                    height             : 32,
+                    '& .list-item-text': {
+                        padding: '0 0 0 8px'
+                    }
+                }
+            }
+        }
+    }
+}));
 
 function FuseNavigation(props)
 {
-    const {navigation, layout, active, dense, className} = props;
+    const classes = useStyles(props);
+    const {navigation, layout, active, dense, className, square} = props;
 
     const verticalNav = (
-        <List className={clsx("navigation whitespace-no-wrap", className)}>
+        <List className={clsx("navigation whitespace-no-wrap", classes.navigation, classes.verticalNavigation, square && 'square', dense && 'dense', className)}>
             {
                 navigation.map((item) => (
 
                     <React.Fragment key={item.id}>
 
                         {item.type === 'group' && (
-                            <FuseNavVerticalGroup item={item} nestedLevel={0} active={active} dense={dense}/>
+                            <FuseNavVerticalGroup item={item} nestedLevel={0} active={active}/>
                         )}
 
                         {item.type === 'collapse' && (
-                            <FuseNavVerticalCollapse item={item} nestedLevel={0} active={active} dense={dense}/>
+                            <FuseNavVerticalCollapse item={item} nestedLevel={0} active={active}/>
                         )}
 
                         {item.type === 'item' && (
-                            <FuseNavVerticalItem item={item} nestedLevel={0} active={active} dense={dense}/>
+                            <FuseNavVerticalItem item={item} nestedLevel={0} active={active}/>
                         )}
 
                         {item.type === 'link' && (
-                            <FuseNavVerticalLink item={item} nestedLevel={0} active={active} dense={dense}/>
+                            <FuseNavVerticalLink item={item} nestedLevel={0} active={active}/>
                         )}
 
                         {item.type === 'divider' && (
@@ -48,7 +109,7 @@ function FuseNavigation(props)
     );
 
     const horizontalNav = (
-        <List className={clsx("navigation whitespace-no-wrap flex p-0", className)}>
+        <List className={clsx("navigation whitespace-no-wrap flex p-0", classes.navigation, classes.horizontalNavigation, square && 'square', dense && 'dense', className)}>
             {
                 navigation.map((item) => (
 

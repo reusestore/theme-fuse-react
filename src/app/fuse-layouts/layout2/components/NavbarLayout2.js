@@ -13,7 +13,7 @@ function NavbarLayout2()
             </div>
 
             <FuseScrollbars className="flex h-full items-center">
-                <Navigation className="w-full" layout="horizontal" dense/>
+                <Navigation className="w-full" layout="horizontal"/>
             </FuseScrollbars>
         </div>
     );

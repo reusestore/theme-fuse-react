@@ -24,10 +24,6 @@ const useStyles = makeStyles(theme => ({
         borderRadius                       : '0 20px 20px 0',
         paddingRight                       : 12,
         color                              : theme.palette.text.primary,
-        '&.square'                         : {
-            width       : '100%',
-            borderRadius: '0'
-        },
         '&.active > .list-item-text > span': {
             fontWeight: 600
         }

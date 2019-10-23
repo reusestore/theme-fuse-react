@@ -27,10 +27,6 @@ const useStyles = makeStyles(theme => ({
                 color: 'inherit'
             }
         },
-        '&.square, &.active.square': {
-            width       : '100%',
-            borderRadius: '0'
-        },
         '& .list-item-icon'        : {},
         '& .list-item-text'        : {},
         color                      : theme.palette.text.primary,

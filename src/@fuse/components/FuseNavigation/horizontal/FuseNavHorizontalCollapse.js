@@ -36,13 +36,6 @@ const useStyles = makeStyles(theme => ({
         '&.open'                                  : {
             backgroundColor: 'rgba(0,0,0,.08)'
         },
-        '&.dense'                                 : {
-            padding            : '8px 12px 8px 12px',
-            minHeight          : 40,
-            '& .list-item-text': {
-                padding: '0 0 0 8px'
-            }
-        }
     },
     popper     : {
         zIndex: 999
@@ -103,7 +96,7 @@ function FuseNavHorizontalCollapse(props)
                         <div ref={ref}>
                             <ListItem
                                 button
-                                className={clsx("list-item", classes.button, opened && "open", dense && "dense", isUrlInChildren(item, props.location.pathname) && "active")}
+                                className={clsx("list-item", classes.button, opened && "open", isUrlInChildren(item, props.location.pathname) && "active")}
                                 onMouseEnter={() => handleToggle(true)}
                                 onMouseLeave={() => handleToggle(false)}
                                 aria-owns={opened ? 'menu-list-grow' : null}
@@ -149,7 +142,7 @@ function FuseNavHorizontalCollapse(props)
                                             onMouseLeave={() => handleToggle(false)}
                                         >
                                             {item.children && (
-                                                <ul className={clsx(classes.children, "pl-0")}>
+                                                <ul className={clsx(classes.children, "popper-navigation-list", dense && "dense", "pl-0")}>
                                                     {
                                                         item.children.map((item) => (
 

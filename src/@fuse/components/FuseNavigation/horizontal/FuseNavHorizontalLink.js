@@ -28,14 +28,7 @@ const useStyles = makeStyles(theme => ({
             padding: '0 0 0 16px'
         },
         color              : theme.palette.text.primary,
-        textDecoration     : 'none!important',
-        '&.dense'          : {
-            padding            : '8px 12px 8px 12px',
-            minHeight          : 40,
-            '& .list-item-text': {
-                padding: '0 0 0 8px'
-            }
-        }
+        textDecoration     : 'none!important'
     }
 }));
 
@@ -45,7 +38,7 @@ function FuseNavHorizontalLink(props)
     const userRole = useSelector(({auth}) => auth.user.role);
 
     const classes = useStyles(props);
-    const {item, dense} = props;
+    const {item} = props;
 
     if ( !FuseUtils.hasPermission(item.auth, userRole) )
     {
@@ -58,7 +51,7 @@ function FuseNavHorizontalLink(props)
             component="a"
             href={item.url}
             target={item.target ? item.target : "_blank"}
-            className={clsx("list-item", classes.root, dense && "dense")}
+            className={clsx("list-item", classes.root)}
             onClick={ev => dispatch(Actions.navbarCloseMobile())}
         >
             {item.icon && (
