@@ -53,7 +53,7 @@ function ComingSoonPage()
                                 It’s not quite ready yet, but we are working hard and it will be ready in approximately:
                             </Typography>
 
-                            <FuseCountdown endDate="2019-07-28" className="my-48"/>
+                            <FuseCountdown endDate="2020-07-28" className="my-48"/>
 
                             <Divider className="w-48"/>
 

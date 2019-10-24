@@ -9,10 +9,10 @@ function FuseCountdown(props)
     const {onComplete} = props;
     const [endDate] = useState(moment.isMoment(props.endDate) ? props.endDate : moment(props.endDate));
     const [countdown, setCountdown] = useState({
-        days   : '',
-        hours  : '',
-        minutes: '',
-        seconds: ''
+        days   : 0,
+        hours  : 0,
+        minutes: 0,
+        seconds: 0
     });
     const intervalRef = useRef();
 
