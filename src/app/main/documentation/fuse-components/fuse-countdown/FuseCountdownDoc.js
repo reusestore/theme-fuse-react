@@ -33,14 +33,14 @@ function FuseCountdownDoc()
                     <FuseHighlight component="pre" className="language-jsx">
                         {
                             `
-                              <FuseCountdown endDate="2019-07-28" className="my-48"/>
+                              <FuseCountdown endDate="2020-07-28" className="my-48"/>
                             `
                         }
                     </FuseHighlight>
 
                     <Typography className="mt-32 mb-8" variant="h5">Preview</Typography>
 
-                    <FuseCountdown endDate="2019-07-28" className="my-48"/>
+                    <FuseCountdown endDate="2020-07-28" className="my-48"/>
 
                     <Typography className="mt-32 mb-8" variant="h5">Demos</Typography>
 
