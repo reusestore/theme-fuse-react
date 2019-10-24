@@ -15,13 +15,13 @@ import {makeStyles} from '@material-ui/styles';
 const useStyles = makeStyles(theme => ({
     navigation          : {},
     verticalNavigation  : {
-        '&.square': {
+        '&.active-square-list': {
             '& .list-item, & .active.list-item': {
                 width       : '100%',
                 borderRadius: '0'
             }
         },
-        '&.dense' : {
+        '&.dense'        : {
             '& .list-item': {
                 paddingTop   : 0,
                 paddingBottom: 0,
@@ -30,12 +30,12 @@ const useStyles = makeStyles(theme => ({
         }
     },
     horizontalNavigation: {
-        '&.square'    : {
+        '&.active-square-list': {
             '& .list-item': {
                 borderRadius: '0'
             }
         },
-        '& .list-item': {
+        '& .list-item'   : {
             padding            : '8px 12px 8px 12px',
             height             : 40,
             minHeight          : 40,
@@ -74,29 +74,29 @@ const useStyles = makeStyles(theme => ({
 function FuseNavigation(props)
 {
     const classes = useStyles(props);
-    const {navigation, layout, active, dense, className, square} = props;
+    const {navigation, layout, active, dense, className} = props;
 
     const verticalNav = (
-        <List className={clsx("navigation whitespace-no-wrap", classes.navigation, classes.verticalNavigation, square && 'square', dense && 'dense', className)}>
+        <List className={clsx("navigation whitespace-no-wrap", classes.navigation, classes.verticalNavigation, `active-${active}-list`, dense && 'dense', className)}>
             {
                 navigation.map((item) => (
 
                     <React.Fragment key={item.id}>
 
                         {item.type === 'group' && (
-                            <FuseNavVerticalGroup item={item} nestedLevel={0} active={active}/>
+                            <FuseNavVerticalGroup item={item} nestedLevel={0}/>
                         )}
 
                         {item.type === 'collapse' && (
-                            <FuseNavVerticalCollapse item={item} nestedLevel={0} active={active}/>
+                            <FuseNavVerticalCollapse item={item} nestedLevel={0}/>
                         )}
 
                         {item.type === 'item' && (
-                            <FuseNavVerticalItem item={item} nestedLevel={0} active={active}/>
+                            <FuseNavVerticalItem item={item} nestedLevel={0}/>
                         )}
 
                         {item.type === 'link' && (
-                            <FuseNavVerticalLink item={item} nestedLevel={0} active={active}/>
+                            <FuseNavVerticalLink item={item} nestedLevel={0}/>
                         )}
 
                         {item.type === 'divider' && (
@@ -109,7 +109,7 @@ function FuseNavigation(props)
     );
 
     const horizontalNav = (
-        <List className={clsx("navigation whitespace-no-wrap flex p-0", classes.navigation, classes.horizontalNavigation, square && 'square', dense && 'dense', className)}>
+        <List className={clsx("navigation whitespace-no-wrap flex p-0", classes.navigation, classes.horizontalNavigation, `active-${active}-list`, dense && 'dense', className)}>
             {
                 navigation.map((item) => (
 

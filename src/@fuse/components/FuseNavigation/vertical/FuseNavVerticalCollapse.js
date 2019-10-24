@@ -67,7 +67,7 @@ function FuseNavVerticalCollapse(props)
 
     const classes = useStyles(props);
     const [open, setOpen] = useState(() => needsToBeOpened(props.location, props.item));
-    const {item, nestedLevel, active} = props;
+    const {item, nestedLevel} = props;
     let paddingValue = 40 + (nestedLevel * 16);
     const listItemPadding = nestedLevel > 0 ? 'pl-' + (paddingValue > 80 ? 80 : paddingValue) : 'pl-24';
 
@@ -93,7 +93,7 @@ function FuseNavVerticalCollapse(props)
 
             <ListItem
                 button
-                className={clsx(classes.item, listItemPadding, 'list-item', active)}
+                className={clsx(classes.item, listItemPadding, 'list-item')}
                 onClick={handleClick}
                 component={item.url ? NavLinkAdapter : 'li'}
                 to={item.url}
@@ -121,19 +121,19 @@ function FuseNavVerticalCollapse(props)
                             <React.Fragment key={item.id}>
 
                                 {item.type === 'group' && (
-                                    <FuseNavVerticalGroup item={item} nestedLevel={nestedLevel + 1} active={active}/>
+                                    <FuseNavVerticalGroup item={item} nestedLevel={nestedLevel + 1}/>
                                 )}
 
                                 {item.type === 'collapse' && (
-                                    <NavVerticalCollapse item={item} nestedLevel={nestedLevel + 1} active={active}/>
+                                    <NavVerticalCollapse item={item} nestedLevel={nestedLevel + 1}/>
                                 )}
 
                                 {item.type === 'item' && (
-                                    <FuseNavVerticalItem item={item} nestedLevel={nestedLevel + 1} active={active}/>
+                                    <FuseNavVerticalItem item={item} nestedLevel={nestedLevel + 1}/>
                                 )}
 
                                 {item.type === 'link' && (
-                                    <FuseNavVerticalLink item={item} nestedLevel={nestedLevel + 1} active={active}/>
+                                    <FuseNavVerticalLink item={item} nestedLevel={nestedLevel + 1}/>
                                 )}
 
                             </React.Fragment>

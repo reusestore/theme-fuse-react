@@ -52,12 +52,18 @@ function FuseNavigationDoc(props)
                         You can set <b>active</b> to "square" for to use square active item style instead of rounded/circle for <b>vertical layout</b>.
                     </Typography>
 
+                    <Typography className="mt-32 mb-8" variant="h6">[dense]</Typography>
+
+                    <Typography className="mb-16" component="p">
+                        You can use <b>{`dense={true}`}</b> to set dense variation of the navigation.
+                    </Typography>
+
                     <Typography className="mt-32 mb-8" variant="h5">Usage</Typography>
 
                     <FuseHighlight component="pre" className="language-jsx">
                         {
                             `
-                                    <FuseNavigation navigation={navigation} layout="vertical" active="square"/>
+                                    <FuseNavigation navigation={navigation} layout="vertical" active="square" dense={true}/>
                                 `
                         }
                     </FuseHighlight>

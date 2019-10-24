@@ -29,7 +29,7 @@ function FuseNavVerticalGroup(props)
     const dispatch = useDispatch();
 
     const classes = useStyles(props);
-    const {item, nestedLevel, active} = props;
+    const {item, nestedLevel} = props;
     let paddingValue = 40 + (nestedLevel * 16);
     const listItemPadding = nestedLevel > 0 ? 'pl-' + (paddingValue > 80 ? 80 : paddingValue) : 'pl-24';
 
@@ -62,19 +62,19 @@ function FuseNavVerticalGroup(props)
                             <React.Fragment key={item.id}>
 
                                 {item.type === 'group' && (
-                                    <NavVerticalGroup item={item} nestedLevel={nestedLevel} active={active}/>
+                                    <NavVerticalGroup item={item} nestedLevel={nestedLevel}/>
                                 )}
 
                                 {item.type === 'collapse' && (
-                                    <FuseNavVerticalCollapse item={item} nestedLevel={nestedLevel} active={active}/>
+                                    <FuseNavVerticalCollapse item={item} nestedLevel={nestedLevel}/>
                                 )}
 
                                 {item.type === 'item' && (
-                                    <FuseNavVerticalItem item={item} nestedLevel={nestedLevel} active={active}/>
+                                    <FuseNavVerticalItem item={item} nestedLevel={nestedLevel}/>
                                 )}
 
                                 {item.type === 'link' && (
-                                    <FuseNavVerticalLink item={item} nestedLevel={nestedLevel} active={active}/>
+                                    <FuseNavVerticalLink item={item} nestedLevel={nestedLevel}/>
                                 )}
 
                             </React.Fragment>

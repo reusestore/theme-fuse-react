@@ -41,7 +41,7 @@ function FuseNavVerticalItem(props)
     const userRole = useSelector(({auth}) => auth.user.role);
 
     const classes = useStyles(props);
-    const {item, nestedLevel, active} = props;
+    const {item, nestedLevel} = props;
     let paddingValue = 40 + (nestedLevel * 16);
     const listItemPadding = nestedLevel > 0 ? 'pl-' + (paddingValue > 80 ? 80 : paddingValue) : 'pl-24';
 
@@ -56,7 +56,7 @@ function FuseNavVerticalItem(props)
             component={NavLinkAdapter}
             to={item.url}
             activeClassName="active"
-            className={clsx(classes.item, listItemPadding, 'list-item', active)}
+            className={clsx(classes.item, listItemPadding, 'list-item')}
             onClick={ev => dispatch(Actions.navbarCloseMobile())}
             exact={item.exact}
         >
