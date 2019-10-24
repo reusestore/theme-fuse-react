@@ -69,11 +69,45 @@ export default function GroupedButtons() {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} md={6}>
+        <Grid container spacing={1} direction="column" alignItems="center">
+          <Grid item>
+            <ButtonGroup variant="text" size="small" aria-label="small contained button group">
+              <Button>One</Button>
+              <Button>Two</Button>
+              <Button>Three</Button>
+            </ButtonGroup>
+          </Grid>
+          <Grid item>
+            <ButtonGroup
+              variant="text"
+              color="primary"
+              aria-label="full-width contained primary button group"
+            >
+              <Button>One</Button>
+              <Button>Two</Button>
+              <Button>Three</Button>
+            </ButtonGroup>
+          </Grid>
+          <Grid item>
+            <ButtonGroup
+              variant="text"
+              color="secondary"
+              size="large"
+              aria-label="large contained secondary button group"
+            >
+              <Button>One</Button>
+              <Button>Two</Button>
+              <Button>Three</Button>
+            </ButtonGroup>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item xs={12} md={6}>
         <ButtonGroup fullWidth aria-label="full width outlined button group">
           <Button>Full</Button>
           <Button>width</Button>
-          <Button>ButtonGroup</Button>
+          <Button>Group</Button>
         </ButtonGroup>
       </Grid>
     </Grid>

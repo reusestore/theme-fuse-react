@@ -185,22 +185,48 @@ function ButtonsDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/ButtonBases.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Third-party routing library</Typography>
-                    <Typography className="mb-16" component="div">One common use case is to use the button to trigger a navigation to a new page.
+                    <Typography className="mb-16" component="div">One common use case is to use the button to trigger navigation to a new page.
                         The <code>{`ButtonBase`}</code> component provides a property to handle this use case: <code>{`component`}</code>.
                         However for certain focus polyfills <code>{`ButtonBase`}</code> requires the DOM node of the provided
                         component. This is achieved by attaching a ref to the component and expecting that the
                         component forwards this ref to the underlying DOM node.
                         Given that many of the interactive components rely on <code>{`ButtonBase`}</code>, you should be
                         able to take advantage of it everywhere.</Typography>
-                    <Typography className="mb-16" component="div">Here is an integration example with react-router:</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('app/main/documentation/material-ui-components/components/buttons/ButtonRouter.js').default}
-                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/ButtonRouter.js')}
-                    /></Typography>
-                    <Typography className="mb-16" component="div"><em>Note: Creating the Button components is necessary to prevent unexpected unmounting.
-                        You can read more about it in the <a href="/guides/composition/#component-property">component prop guide</a>.</em></Typography>
+                    <Typography className="mb-16" component="div">Here is an <a href="/guides/composition/#button">integration example with react-router</a>.</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Limitations</Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Cursor not-allowed</Typography>
+                    <Typography className="mb-16" component="div">The ButtonBase component sets <code>{`pointer-events: none;`}</code> on disabled buttons.
+                        which prevents the appearance of a disabled cursor.</Typography>
+                    <Typography className="mb-16" component="div">If you wish to use <code>{`not-allowed`}</code>, you have two options:</Typography>
+                    <ol>
+                        <li><strong>CSS only</strong>. You can remove the pointer events style on the disabled state of the <code>{`<button>`}</code> element:</li>
+                    </ol>
+
+                    <FuseHighlight component="pre" className="language-css">
+                        {` 
+.MuiButtonBase-root:disabled {
+  cursor: not-allowed;
+  pointer-events: auto;
+}
+`}
+                    </FuseHighlight>
+                    <Typography className="mb-16" component="div">However:</Typography>
+                    <ul>
+                        <li>You should add <code>{`pointer-events: none;`}</code> back when you need to display <a href="/components/tooltips/#disabled-elements">tooltips on disabled elements</a></li>
+                        <li>The cursor won&#39;t change if you render something other than a button element, for instance, a link <code>{`<a>`}</code> element.</li>
+                    </ul>
+                    <ol start="2">
+                        <li><strong>DOM change</strong>. You can wrap the button:</li>
+                    </ol>
+
+                    <FuseHighlight component="pre" className="language-jsx">
+                        {` 
+<span style={{ cursor: "not-allowed" }}>
+  <Button component={Link} disabled>disabled</Button>
+</span>
+`}
+                    </FuseHighlight>
+                    <Typography className="mb-16" component="div">This has the advantage of supporting any element, for instance, a link <code>{`<a>`}</code> element.</Typography>
 
                 </div>
             }

@@ -66,7 +66,22 @@ function LinksDoc(props)
                         <li><code>{`color="primary"`}</code> as the link needs to stand out.</li>
                         <li><code>{`variant="inherit"`}</code> as the link will, most of the time, be used as a child of a Typography component.</li>
                     </ul>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Security</Typography>
+                    <Typography className="mb-16" component="div">When you use <code>{`target="_blank"`}</code> with Links, it is <a href="https://developers.google.com/web/tools/lighthouse/audits/noopener">recommended</a> to always set <code>{`rel="noopener"`}</code> or <code>{`rel="noreferrer"`}</code> when linking to third party content.</Typography>
+                    <ul>
+                        <li><code>{`rel="noopener"`}</code> prevents the new page from being able to access the <code>{`window.opener`}</code> property and ensures it runs in a separate process.
+                            Without this, the target page can potentially redirect your page to a malicious URL.
+                        </li>
+                        <li><code>{`rel="noreferrer"`}</code> has the same effect, but also prevents the <em>Referer</em> header from being sent to the new page.
+                            ⚠️ Removing the referrer header will affect analytics.
+                        </li>
+                    </ul>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Third-party routing library</Typography>
+                    <Typography className="mb-16" component="div">One common use case is to perform navigation on the client only, without an HTTP round-trip to the server.
+                        The <code>{`Link`}</code> component provides a property to handle this use case: <code>{`component`}</code>.</Typography>
+                    <Typography className="mb-16" component="div">Here is an <a href="/guides/composition/#link">integration example with react-router</a>.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
+                    <Typography className="mb-16" component="div">(WAI-ARIA: <a href="https://www.w3.org/TR/wai-aria-practices/#link">https://www.w3.org/TR/wai-aria-practices/#link</a>)</Typography>
                     <ul>
                         <li>When providing the content for the link, avoid generic descriptions like &quot;click here&quot; or &quot;go to&quot;.
                             Instead, use <a href="https://developers.google.com/web/tools/lighthouse/audits/descriptive-link-text">specific descriptions</a>.
@@ -80,26 +95,6 @@ function LinksDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/links/ButtonLink.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/links/ButtonLink.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Security</Typography>
-                    <Typography className="mb-16" component="div">When you use <code>{`target="_blank"`}</code> with Links, it is <a href="https://developers.google.com/web/tools/lighthouse/audits/noopener">recommended</a> to always set <code>{`rel="noopener"`}</code> or <code>{`rel="noreferrer"`}</code> when linking to third party content.</Typography>
-                    <ul>
-                        <li><code>{`rel="noopener"`}</code> prevents the new page from being able to access the <code>{`window.opener`}</code> property and ensures it runs in a separate process.
-                            Without this, the target page can potentially redirect your page to a malicious URL.
-                        </li>
-                        <li><code>{`rel="noreferrer"`}</code> has the same effect, but also prevents the <em>Referer</em> header from being sent to the new page.
-                            ⚠️ Removing the referrer header will affect analytics.
-                        </li>
-                    </ul>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Third-party routing library</Typography>
-                    <Typography className="mb-16" component="div">One common use case is to perform the navigation on the client only, without doing a .html round-trip with the server. The <code>{`Link`}</code> component provides a property to handle this use case: <code>{`component`}</code>.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('app/main/documentation/material-ui-components/components/links/LinkRouter.js').default}
-                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/links/LinkRouter.js')}
-                    /></Typography>
-                    <Typography className="mb-16" component="div"><em>Note: Creating the Link components is necessary to prevent unexpected unmounting.
-                        You can read more about it in the <a href="/guides/composition/#component-property">component prop guide</a>.</em></Typography>
 
                 </div>
             }

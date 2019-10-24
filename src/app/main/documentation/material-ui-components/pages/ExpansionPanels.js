@@ -56,10 +56,6 @@ function ExpansionPanelsDoc(props)
                     <blockquote>
                         <Typography className="mb-16" component="div"><strong>Note:</strong> Expansion panels are no longer documented in the <a href="https://material.io/">Material Design guidelines</a>, but Material-UI will continue to support them.</Typography>
                     </blockquote>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
-                    <Typography className="mb-16" component="div">For optimal accessibility we recommend setting <code>{`id`}</code> and <code>{`aria-controls`}</code> on the
-                        <code>{`ExpansionPanelSummary`}</code>. The <code>{`ExpansionPanel`}</code> will derive the necessary <code>{`aria-labelledby`}</code>
-                        and <code>{`id`}</code> for the content region of the panel.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Simple Expansion Panel</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -89,8 +85,14 @@ function ExpansionPanelsDoc(props)
                         This default behavior has server-side rendering and SEO in mind.
                         If you render expensive component trees inside your panels or simply render many
                         panels it might be a good idea to change this default behavior by enabling the
-                        <code>{`unmountOnExit`}</code> in <code>{`TransitionProps`}</code>: <code>{`<ExpansionPanel TransitionProps={{ unmountOnExit: true }} />`}</code>.
-                        As with any performance optimization this is not a silver bullet. Be sure to identify
+                        <code>{`unmountOnExit`}</code> in <code>{`TransitionProps`}</code>:</Typography>
+
+                    <FuseHighlight component="pre" className="language-jsx">
+                        {` 
+<ExpansionPanel TransitionProps={{ unmountOnExit: true }} />
+`}
+                    </FuseHighlight>
+                    <Typography className="mb-16" component="div">As with any performance optimization this is not a silver bullet. Be sure to identify
                         bottlenecks first and then try out these optimization strategies.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Secondary heading and Columns</Typography>
                     <Typography className="mb-16" component="div">Multiple columns can be used to structure the content, and a helper text may be added to the panel to assist the user.</Typography>
@@ -100,6 +102,11 @@ function ExpansionPanelsDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/expansion-panels/DetailedExpansionPanel.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/expansion-panels/DetailedExpansionPanel.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
+                    <Typography className="mb-16" component="div">(WAI-ARIA: <a href="https://www.w3.org/TR/wai-aria-practices/#accordion">https://www.w3.org/TR/wai-aria-practices/#accordion</a>)</Typography>
+                    <Typography className="mb-16" component="div">For optimal accessibility we recommend setting <code>{`id`}</code> and <code>{`aria-controls`}</code> on the
+                        <code>{`ExpansionPanelSummary`}</code>. The <code>{`ExpansionPanel`}</code> will derive the necessary <code>{`aria-labelledby`}</code>
+                        and <code>{`id`}</code> for the content region of the panel.</Typography>
 
                 </div>
             }

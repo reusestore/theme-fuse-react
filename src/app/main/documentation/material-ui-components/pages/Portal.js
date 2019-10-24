@@ -55,17 +55,18 @@ function PortalDoc(props)
                     <ul>
                         <li>📦 <a href="/size-snapshot">1.3 kB gzipped</a></li>
                     </ul>
-                    <Typography className="mb-16" component="div">The children of the portal component will be appended to the <code>{`container`}</code> specified.</Typography>
-                    <Typography className="mb-16" component="div">The component is used internally by the <a href="/components/modal/"><code>{`Modal`}</code></a> and <a href="/components/popper/"><code>{`Popper`}</code></a> components.
-                        On the server, the content won&#39;t be rendered.
-                        You have to wait for the client-side hydration to see the children.</Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Simple Portal</Typography>
+                    <Typography className="mb-16" component="div">The children of the portal component will be appended to the <code>{`container`}</code> specified.
+                        The component is used internally by the <a href="/components/modal/"><code>{`Modal`}</code></a> and <a href="/components/popper/"><code>{`Popper`}</code></a> components.</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Example</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
                         component={require('app/main/documentation/material-ui-components/components/portal/SimplePortal.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/portal/SimplePortal.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Server-side</Typography>
+                    <Typography className="mb-16" component="div">React <a href="https://github.com/facebook/react/issues/13097">doesn&#39;t support</a> the <a href="https://reactjs.org/docs/portals.html"><code>{`createPortal()`}</code></a> API on the server.
+                        You have to wait for the client-side hydration to see the children.</Typography>
 
                 </div>
             }

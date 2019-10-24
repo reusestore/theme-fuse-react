@@ -55,6 +55,7 @@ function TextareaAutosizeDoc(props)
                     <ul>
                         <li>📦 <a href="/size-snapshot">2.1 kB gzipped</a></li>
                     </ul>
+                    <Typography className="mb-16" component="div">The <code>{`TextareaAutosize`}</code> component automatically adjust the textarea height on keyboard and window resize events.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Empty</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"

@@ -110,10 +110,38 @@ Les boutons texte, les boutons contained, les bouton d'action flottante et les b
 
 ## Bibliothèque de routage tierce
 
-Un cas d'utilisation courant consiste à utiliser le bouton pour déclencher une navigation vers une nouvelle page. Le composant `ButtonBase` fournit une propriété pour traiter ce cas d'utilisation: `composant`. Cependant, pour certains focus polyfills `ButtonBase` requiert le nœud DOM du composant fourni. Pour ce faire, associez une référence au composant et attendez-vous à ce que le composant transmette cette référence au noeud DOM sous-jacent. Given that many of the interactive components rely on `ButtonBase`, you should be able to take advantage of it everywhere.
+One common use case is to use the button to trigger navigation to a new page. Le composant `ButtonBase` fournit une propriété pour traiter ce cas d'utilisation: `composant`. Cependant, pour certains focus polyfills `ButtonBase` requiert le nœud DOM du composant fourni. Pour ce faire, associez une référence au composant et attendez-vous à ce que le composant transmette cette référence au noeud DOM sous-jacent. Given that many of the interactive components rely on `ButtonBase`, you should be able to take advantage of it everywhere.
 
-Here is an integration example with react-router:
+Here is an [integration example with react-router](/guides/composition/#button).
 
-{{"demo": "pages/components/buttons/ButtonRouter.js", "defaultCodeOpen": true}}
+## Limites
 
-*Note: Creating the Button components is necessary to prevent unexpected unmounting. You can read more about it in the [component prop guide](/guides/composition/#component-property).*
+### Cursor not-allowed
+
+The ButtonBase component sets `pointer-events: none;` on disabled buttons. which prevents the appearance of a disabled cursor.
+
+If you wish to use `not-allowed`, you have two options:
+
+1. **CSS only**. You can remove the pointer events style on the disabled state of the `<button>` element:
+
+```css
+.MuiButtonBase-root:disabled {
+  cursor: not-allowed;
+  pointer-events: auto;
+}
+```
+
+However:
+
+- You should add `pointer-events: none;` back when you need to display [tooltips on disabled elements](/components/tooltips/#disabled-elements)
+- The cursor won't change if you render something other than a button element, for instance, a link `<a>` element.
+
+2. **DOM change**. You can wrap the button:
+
+```jsx
+<span style={{ cursor: "not-allowed" }}>
+  <Button component={Link} disabled>disabled</Button>
+</span>
+```
+
+This has the advantage of supporting any element, for instance, a link `<a>` element.

@@ -87,10 +87,18 @@ function RadioButtonsDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/radio-buttons/CustomizedRadios.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/radio-buttons/CustomizedRadios.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">When to use</Typography>
+                    <ul>
+                        <li><a href="https://www.nngroup.com/articles/checkboxes-vs-radio-buttons/">Checkboxes vs. Radio Buttons</a></li>
+                    </ul>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
-                    <Typography className="mb-16" component="div">All form controls should have labels, and this includes radio buttons, checkboxes, and switches. In most cases, this is done by using the <code>{`<label>`}</code> element (<a href="/api/form-control-label/">FormControlLabel</a>).</Typography>
-                    <Typography className="mb-16" component="div">When a label can&#39;t be used, it&#39;s necessary to add an attribute directly to the input component.
-                        In this case, you can apply the additional attribute (e.g. <code>{`aria-label`}</code>, <code>{`aria-labelledby`}</code>, <code>{`title`}</code>) via the <code>{`inputProps`}</code> property.</Typography>
+                    <Typography className="mb-16" component="div">(WAI-ARIA: <a href="https://www.w3.org/TR/wai-aria-practices/#radiobutton">https://www.w3.org/TR/wai-aria-practices/#radiobutton</a>)</Typography>
+                    <ul>
+                        <li>All form controls should have labels, and this includes radio buttons, checkboxes, and switches. In most cases, this is done by using the <code>{`<label>`}</code> element (<a href="/api/form-control-label/">FormControlLabel</a>).</li>
+                        <li>When a label can&#39;t be used, it&#39;s necessary to add an attribute directly to the input component.
+                            In this case, you can apply the additional attribute (e.g. <code>{`aria-label`}</code>, <code>{`aria-labelledby`}</code>, <code>{`title`}</code>) via the <code>{`inputProps`}</code> property.
+                        </li>
+                    </ul>
 
                     <FuseHighlight component="pre" className="language-jsx">
                         {` 
@@ -100,10 +108,6 @@ function RadioButtonsDoc(props)
 />
 `}
                     </FuseHighlight>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Guidance</Typography>
-                    <ul>
-                        <li><a href="https://www.nngroup.com/articles/checkboxes-vs-radio-buttons/">Checkboxes vs. Radio Buttons</a></li>
-                    </ul>
 
                 </div>
             }

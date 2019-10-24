@@ -163,8 +163,16 @@ function MyComponent() {
                         component={require('app/main/documentation/material-ui-components/components/dialogs/ConfirmationDialog.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dialogs/ConfirmationDialog.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
-                    <Typography className="mb-16" component="div">Follow the <a href="/components/modal/#accessibility">Modal accessibility section</a>.</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Draggable dialog</Typography>
+                    <Typography className="mb-16" component="div">You can create a draggable dialog by using <a href="https://github.com/mzabriskie/react-draggable">react-draggable</a>.
+                        To do so, you can pass the the imported <code>{`Draggable`}</code> component as the <code>{`PaperComponent`}</code> of the <code>{`Dialog`}</code> component.
+                        This will make the entire dialog draggable.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/dialogs/DraggableDialog.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dialogs/DraggableDialog.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Scrolling long content</Typography>
                     <Typography className="mb-16" component="div">When dialogs become too long for the user’s viewport or device, they scroll.</Typography>
                     <ul>
@@ -178,18 +186,8 @@ function MyComponent() {
                         component={require('app/main/documentation/material-ui-components/components/dialogs/ScrollDialog.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dialogs/ScrollDialog.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Draggable dialog</Typography>
-                    <Typography className="mb-16" component="div">You can create a draggable dialog by using <a href="https://github.com/mzabriskie/react-draggable">react-draggable</a>.
-                        To do so, you can pass the the imported <code>{`Draggable`}</code> component as the <code>{`PaperComponent`}</code> of the <code>{`Dialog`}</code> component.
-                        This will make the entire dialog draggable.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('app/main/documentation/material-ui-components/components/dialogs/DraggableDialog.js').default}
-                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dialogs/DraggableDialog.js')}
-                    /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Performance</Typography>
-                    <Typography className="mb-16" component="div">Follow the <a href="/components/modal/#performance">Modal performance section</a>.</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
+                    <Typography className="mb-16" component="div">Follow the <a href="/components/modal/#accessibility">Modal accessibility section</a>.</Typography>
 
                 </div>
             }

@@ -139,6 +139,13 @@ const theme = createMuiTheme({
 });
 `}
                     </FuseHighlight>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
+                    <Typography className="mb-16" component="div">A few key factors to follow for an accessible typography:</Typography>
+                    <ul>
+                        <li><strong>Color</strong>. Provide enough contrast between text and its background, check out the minimum recommended <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html">WCAG 2.0 color contrast ratio</a> (4.5:1).</li>
+                        <li><strong>Font size</strong>. Use <a href="/customization/typography/#font-size">relative units (rem)</a> to accommodate the user&#39;s settings.</li>
+                        <li><strong>Heading hierarchy</strong>. <a href="https://www.w3.org/WAI/tutorials/page-structure/headings/">Don&#39;t skip</a> heading levels. In order to solve this problem, you need to <a href="#changing-the-semantic-element">separate the semantics from the style</a>.</li>
+                    </ul>
 
                 </div>
             }

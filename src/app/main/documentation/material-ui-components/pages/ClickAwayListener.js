@@ -53,9 +53,9 @@ function ClickAwayListenerDoc(props)
                     <Typography className="description">Detect if a click event happened outside of an element. It listens for clicks that occur somewhere in the document.</Typography>
 
                     <ul>
-                        <li>📦 <a href="/size-snapshot">1.4 kB gzipped</a>.</li>
+                        <li>📦 <a href="/size-snapshot">1.5 kB gzipped</a>.</li>
                     </ul>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Simple menu dropdown</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Example</Typography>
                     <Typography className="mb-16" component="div">For instance, if you need to hide a menu dropdown when people click anywhere else on your page:</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -63,7 +63,8 @@ function ClickAwayListenerDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/click-away-listener/ClickAway.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/click-away-listener/ClickAway.js')}
                     /></Typography>
-                    <Typography className="mb-16" component="div">You can find a more advanced demo on the <a href="/components/menus/#menulist-composition">menu documentation section</a>.</Typography>
+                    <Typography className="mb-16" component="div">Notice that the component only accepts one child element.
+                        You can find a more advanced demo on the <a href="/components/menus/#menulist-composition">menu documentation section</a>.</Typography>
 
                 </div>
             }

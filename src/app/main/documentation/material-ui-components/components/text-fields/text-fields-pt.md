@@ -99,7 +99,7 @@ ou
 
 ### Rótulo flutuante
 
-The floating label is absolutely positioned, it won't impact the layout of the page. You need to make sure that the input is larger than the label to display correctly.
+O rótulo flutuante está absolutamente posicionado, não afetará o leiaute da página. Você precisa ter certeza de que o componente de entrada é maior do que o rótulo para a exibição correta.
 
 ## Integração com bibliotecas de input de terceiros
 
@@ -109,7 +109,7 @@ A seguinte demonstração usa as bibliotecas [react-text-mask](https://github.co
 
 {{"demo": "pages/components/text-fields/FormattedInputs.js"}}
 
-The provided input component should handle the `inputRef` property. The property should be called with a value that implements the following interface:
+O componente de entrada fornecido deve manipular a propriedade `inputRef`. A propriedade deve ser chamada com um valor que implemente a seguinte interface:
 
 ```ts
 interface InputElement {
@@ -145,7 +145,7 @@ function MeuInputComponente(props) {
 
 ## Acessibilidade
 
-In order for the text field to be accessible, **the input should be linked to the label and the helper text**. The underlying DOM nodes should have this structure.
+Para que o campo de texto seja acessível, **a entrada deve estar vinculada ao rótulo e ao texto auxiliar**. Os nós DOM subjacentes devem ter essa estrutura.
 
 ```jsx
 <div class="form-control">
@@ -170,6 +170,6 @@ In order for the text field to be accessible, **the input should be linked to th
 
 Para os usos mais avançados, você é capaz de aproveita:
 
-- [redux-form-material-ui](https://github.com/erikras/redux-form-material-ui) Um conjunto de componentes do wrapper para facilitar o uso do Material UI com Redux Form.
 - [formik-material-ui](https://github.com/stackworx/formik-material-ui) Ligações para usar Mateiral-UI com formik.
+- [redux-form-material-ui](https://github.com/erikras/redux-form-material-ui) Um conjunto de componentes do wrapper para facilitar o uso do Material UI com Redux Form.
 - [final-form-material-ui](https://github.com/Deadly0/final-form-material-ui) Um conjunto de componentes wrapper para facilitar o uso do Material UI com Final Form.

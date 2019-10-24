@@ -66,7 +66,7 @@ function ModalDoc(props)
                     </ul>
                     <blockquote>
                         <Typography className="mb-16" component="div"><strong>Terminology note</strong>. The term &quot;modal&quot; is sometimes used to mean &quot;dialog&quot;, but this is a misnomer.
-                            A Modal window describes parts of a UI.
+                            A modal window describes parts of a UI.
                             An element is considered modal if <a href="https://en.wikipedia.org/wiki/Modal_window">it blocks interaction with the rest of the application</a>.</Typography>
                     </blockquote>
                     <Typography className="mb-16" component="div">If you are creating a modal dialog, you probably want to use the <a href="/components/dialogs/">Dialog</a> component rather than directly using Modal.
@@ -110,40 +110,39 @@ function ModalDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/modal/SpringModal.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/modal/SpringModal.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
-                    <ul>
-                        <li>Be sure to add <code>{`aria-labelledby="id..."`}</code>, referencing the modal title, to the <code>{`Modal`}</code>.
-                            Additionally, you may give a description of your modal with the <code>{`aria-describedby="id..."`}</code> prop on the <code>{`Modal`}</code>.
-                        </li>
-                    </ul>
-
-                    <FuseHighlight component="pre" className="language-jsx">
-                        {` 
-<Modal
-  aria-labelledby="modal-title"
-  aria-describedby="modal-description"
->
-  <h2 id="modal-title">
-    My Title
-  </h2>
-  <Typography id="modal-description">
-    My Description
-  </Typography>
-</Modal>
-`}
-                    </FuseHighlight>
-                    <ul>
-                        <li>The <a href="https://www.w3.org/TR/wai-aria-practices/examples/dialog-modal/dialog.html">WAI-ARIA Authoring Practices 1.1</a> can help you set the initial focus on the most relevant element, based on your modal content.</li>
-                    </ul>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Server-side modal</Typography>
                     <Typography className="mb-16" component="div">React <a href="https://github.com/facebook/react/issues/13097">doesn&#39;t support</a> the <a href="https://reactjs.org/docs/portals.html"><code>{`createPortal()`}</code></a> API on the server.
-                        In order to see the modal, you need to disable the portal feature with the <code>{`disablePortal`}</code> prop:</Typography>
+                        In order to display the modal, you need to disable the portal feature with the <code>{`disablePortal`}</code> prop:</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
                         component={require('app/main/documentation/material-ui-components/components/modal/ServerModal.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/modal/ServerModal.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
+                    <Typography className="mb-16" component="div">(WAI-ARIA: <a href="https://www.w3.org/TR/wai-aria-practices/#dialog_modal">https://www.w3.org/TR/wai-aria-practices/#dialog_modal</a>)</Typography>
+                    <ul>
+                        <li>Be sure to add <code>{`aria-labelledby="id..."`}</code>, referencing the modal title, to the <code>{`Modal`}</code>.
+                            Additionally, you may give a description of your modal with the <code>{`aria-describedby="id..."`}</code> prop on the <code>{`Modal`}</code>.
+                            <FuseHighlight component="pre" className="language-jsx">
+                                {` 
+<Modal
+aria-labelledby="modal-title"
+aria-describedby="modal-description"
+>
+<h2 id="modal-title">
+  My Title
+</h2>
+<Typography id="modal-description">
+  My Description
+</Typography>
+</Modal>
+`}
+                            </FuseHighlight>
+                        </li>
+                        <li>The <a href="https://www.w3.org/TR/wai-aria-practices/examples/dialog-modal/dialog.html">WAI-ARIA authoring practices</a> can help you set the initial focus on the most relevant element, based on your modal content.</li>
+                        <li>A modal window overlys on either the primary window or another modal window. Windows under a modal are <strong>inert</strong>. That is, users cannot interact with content outside an active modal window.</li>
+                    </ul>
 
                 </div>
             }

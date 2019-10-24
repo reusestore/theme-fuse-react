@@ -11,12 +11,6 @@ components: ExpansionPanel, ExpansionPanelActions, ExpansionPanelDetails, Expans
 
 > **Note:** Expansion panels are no longer documented in the [Material Design guidelines](https://material.io/), but Material-UI will continue to support them.
 
-## Accessibility
-
-For optimal accessibility we recommend setting `id` and `aria-controls` on the
-`ExpansionPanelSummary`. The `ExpansionPanel` will derive the necessary `aria-labelledby`
-and `id` for the content region of the panel.
-
 ## Simple Expansion Panel
 
 {{"demo": "pages/components/expansion-panels/SimpleExpansionPanel.js"}}
@@ -40,7 +34,12 @@ The content of ExpansionPanels is mounted by default even if the panel is not ex
 This default behavior has server-side rendering and SEO in mind.
 If you render expensive component trees inside your panels or simply render many
 panels it might be a good idea to change this default behavior by enabling the
-`unmountOnExit` in `TransitionProps`: `<ExpansionPanel TransitionProps={{ unmountOnExit: true }} />`.
+`unmountOnExit` in `TransitionProps`:
+
+```jsx
+<ExpansionPanel TransitionProps={{ unmountOnExit: true }} />
+```
+
 As with any performance optimization this is not a silver bullet. Be sure to identify
 bottlenecks first and then try out these optimization strategies.
 
@@ -49,3 +48,11 @@ bottlenecks first and then try out these optimization strategies.
 Multiple columns can be used to structure the content, and a helper text may be added to the panel to assist the user.
 
 {{"demo": "pages/components/expansion-panels/DetailedExpansionPanel.js"}}
+
+## Accessibility
+
+(WAI-ARIA: https://www.w3.org/TR/wai-aria-practices/#accordion)
+
+For optimal accessibility we recommend setting `id` and `aria-controls` on the
+`ExpansionPanelSummary`. The `ExpansionPanel` will derive the necessary `aria-labelledby`
+and `id` for the content region of the panel.

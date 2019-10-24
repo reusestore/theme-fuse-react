@@ -90,14 +90,6 @@ function BreadcrumbsDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/breadcrumbs/CustomizedBreadcrumbs.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/breadcrumbs/CustomizedBreadcrumbs.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
-                    <Typography className="mb-16" component="div">Be sure to add a <code>{`aria-label`}</code> description on the <code>{`Breadcrumbs`}</code> component.</Typography>
-                    <Typography className="mb-16" component="div">The accessibility of this component relies on:</Typography>
-                    <ul>
-                        <li>The set of links is structured using an ordered list (<code>{`<ol>`}</code> element).</li>
-                        <li>To prevent screen reader announcement of the visual separators between links, they are hidden with <code>{`aria-hidden`}</code>.</li>
-                        <li>A nav element labeled with <code>{`aria-label`}</code> identifies the structure as a breadcrumb trail and makes it a navigation landmark so that it is easy to locate.</li>
-                    </ul>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Integration with react-router</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -105,6 +97,15 @@ function BreadcrumbsDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/breadcrumbs/RouterBreadcrumbs.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/breadcrumbs/RouterBreadcrumbs.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
+                    <Typography className="mb-16" component="div">(WAI-ARIA: <a href="https://www.w3.org/TR/wai-aria-practices/#breadcrumb">https://www.w3.org/TR/wai-aria-practices/#breadcrumb</a>)</Typography>
+                    <Typography className="mb-16" component="div">Be sure to add a <code>{`aria-label`}</code> description on the <code>{`Breadcrumbs`}</code> component.</Typography>
+                    <Typography className="mb-16" component="div">The accessibility of this component relies on:</Typography>
+                    <ul>
+                        <li>The set of links is structured using an ordered list (<code>{`<ol>`}</code> element).</li>
+                        <li>To prevent screen reader announcement of the visual separators between links, they are hidden with <code>{`aria-hidden`}</code>.</li>
+                        <li>A nav element labeled with <code>{`aria-label`}</code> identifies the structure as a breadcrumb trail and makes it a navigation landmark so that it is easy to locate.</li>
+                    </ul>
 
                 </div>
             }

@@ -53,7 +53,7 @@ function BoxDoc(props)
                     <Typography className="description">The Box component serves as a wrapper component for most of the CSS utility needs.</Typography>
 
                     <Typography className="mb-16" component="div">The Box component packages <a href="/system/basics/#all-inclusive">all the style functions</a> that are exposed in <code>{`@material-ui/system`}</code>.
-                        It&#39;s created using the <a href="/styles/api/#styled-style-function-component"><code>{`styled()`}</code></a> function of <code>{`@material-ui/styles`}</code>.</Typography>
+                        It&#39;s created using the <a href="/styles/api/#styled-style-function-component"><code>{`styled()`}</code></a> function of <code>{`@material-ui/core/styles`}</code>.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Example</Typography>
                     <Typography className="mb-16" component="div"><a href="/system/palette/">The palette</a> style function.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Overriding Material-UI components</Typography>

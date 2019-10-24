@@ -27,11 +27,11 @@ Aqui estão alguns exemplos de customização do componente. Você pode aprender
 
 ## Elemento filho customizado
 
-A dica precisa aplicar ouvintes de evento DOM ao seu elemento filho. Se o filho for um elemento React personalizado, você precisará garantir que ele estenda suas propriedades para o elemento DOM subjacente.
+A dica precisa aplicar ouvintes de evento DOM ao seu elemento filho. Se o filho for um elemento React personalizado, você precisará garantir que ele repasse suas propriedades para o elemento DOM subjacente.
 
 ```jsx
-function MyComponent(props) {
-  //  Spread the properties to the underlying DOM element.
+function MyComponent (props) {
+  // Distribua as propriedades para o elemento DOM subjacente.
   return <div {...props}>Bin</div>
 }
 
@@ -70,9 +70,21 @@ Uma dica pode ser interativa. Ela não será fechada quando o usuário passar po
 
 ## Elementos Desativados
 
-Por padrão os elementos desativados como `<button>` não disparam interações do usuário, então uma `Tooltip` não será ativada em eventos normais, omo passar o mouse. Para acomodar elementos desativados, adicione um elemento encapsulador simples como um `span`.
+Por padrão os elementos desativados como `<button>` não disparam interações do usuário, então uma `Tooltip` não será ativada em eventos normais, omo passar o mouse. To accommodate disabled elements, add a simple wrapper element, such as a `span`.
 
 {{"demo": "pages/components/tooltips/DisabledTooltips.js"}}
+
+> Se você não estiver manipulando com um componente Material-UI que herde de `ButtonBase`, por exemplo, um elemento `<button>` nativo, você também deve adicionar a propriedade CSS *pointer-events: none;* ao seu elemento quando desativado:
+
+```jsx
+<Tooltip title="Você não tem permissão para esta tarefa">
+  <span>
+    <button disabled={disabled} style={disabled ? { pointerEvents: "none" } : {}}>
+      {'Um botão desabilitado'}
+    </button>
+  </span>
+</Tooltip>
+```
 
 ## Transições
 

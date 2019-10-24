@@ -109,7 +109,26 @@ function SliderDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/slider/VerticalSlider.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/slider/VerticalSlider.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Track</Typography>
+                    <Typography className="mb-16" component="div">The track shows the range available for user selection.</Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Removed track</Typography>
+                    <Typography className="mb-16" component="div">The track can be turned off with <code>{`track={false}`}</code>.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/slider/TrackFalseSlider.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/slider/TrackFalseSlider.js')}
+                    /></Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Inverted track</Typography>
+                    <Typography className="mb-16" component="div">The track can be inverted with <code>{`track="inverted"`}</code>.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/slider/TrackInvertedSlider.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/slider/TrackInvertedSlider.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
+                    <Typography className="mb-16" component="div">(WAI-ARIA: <a href="https://www.w3.org/TR/wai-aria-practices/#slider">https://www.w3.org/TR/wai-aria-practices/#slider</a>)</Typography>
                     <Typography className="mb-16" component="div">The component handles most of the work necessary to make it accessible.
                         However, you need to make sure that:</Typography>
                     <ul>

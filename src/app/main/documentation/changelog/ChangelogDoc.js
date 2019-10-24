@@ -5,6 +5,29 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
     {
+        version     : '3.2.4',
+        date        : '2019-10-24',
+        newChanges  : [
+            "material-ui updated to v4.5.1",
+            "react updated to 16.11.0",
+            "All dependency packages updated.",
+            "Fake-db delay option added for testing purposes (src/@fake-db/mock.js).",
+            "E-Commerce App, shows FuseLoading component while product data is loading.",
+            "Contacts App Contact Dialog Mobile refinement for scroll.",
+            "Calendar App Native date input changed with DateTimePicker.",
+            "FuseNavigation, dense attr added for densed variation."
+        ],
+        fixedChanges: [
+            "NavbarMobileToggleFab Button added for to display absence of the toolbar.",
+            <span>react-select returns null despite of empty array, workaround applied for FuseChipSelect. <a href="https://github.com/intljusticemission/react-big-calendar/issues/1387#issuecomment-531465438" target="_blank" rel="noopener noreferrer">the related issue</a></span>,
+            "Fix for Safari: Contacts App column filter input text is not visible.",
+            "Fix for Firefox: ScrumboardApp scroll issue.",
+            "suppressScrollX for the navigation at layout-1 for to fix showing horizontal scroll while fold.",
+            "Calendar App New Event, moment js deprecation warning - Not in a recognized ISO format",
+            <span>Calendar App drag drop fix: <a href="https://github.com/JedWatson/react-select/issues/3632" target="_blank" rel="noopener noreferrer">the related issue</a></span>,
+        ]
+    },
+    {
         version     : '3.2.3',
         date        : '2019-09-09',
         newChanges  : [

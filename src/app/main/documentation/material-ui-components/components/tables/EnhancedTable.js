@@ -233,22 +233,22 @@ export default function EnhancedTable() {
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
-  function handleRequestSort(event, property) {
+  const handleRequestSort = (event, property) => {
     const isDesc = orderBy === property && order === 'desc';
     setOrder(isDesc ? 'asc' : 'desc');
     setOrderBy(property);
-  }
+  };
 
-  function handleSelectAllClick(event) {
+  const handleSelectAllClick = event => {
     if (event.target.checked) {
       const newSelecteds = rows.map(n => n.name);
       setSelected(newSelecteds);
       return;
     }
     setSelected([]);
-  }
+  };
 
-  function handleClick(event, name) {
+  const handleClick = (event, name) => {
     const selectedIndex = selected.indexOf(name);
     let newSelected = [];
 
@@ -266,20 +266,20 @@ export default function EnhancedTable() {
     }
 
     setSelected(newSelected);
-  }
+  };
 
-  function handleChangePage(event, newPage) {
+  const handleChangePage = (event, newPage) => {
     setPage(newPage);
-  }
+  };
 
-  function handleChangeRowsPerPage(event) {
+  const handleChangeRowsPerPage = event => {
     setRowsPerPage(+event.target.value);
     setPage(0);
-  }
+  };
 
-  function handleChangeDense(event) {
+  const handleChangeDense = event => {
     setDense(event.target.checked);
-  }
+  };
 
   const isSelected = name => selected.indexOf(name) !== -1;
 
@@ -294,6 +294,7 @@ export default function EnhancedTable() {
             className={classes.table}
             aria-labelledby="tableTitle"
             size={dense ? 'small' : 'medium'}
+            aria-label="enhanced table"
           >
             <EnhancedTableHead
               classes={classes}
@@ -338,7 +339,7 @@ export default function EnhancedTable() {
                   );
                 })}
               {emptyRows > 0 && (
-                <TableRow style={{ height: 49 * emptyRows }}>
+                <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
                   <TableCell colSpan={6} />
                 </TableRow>
               )}

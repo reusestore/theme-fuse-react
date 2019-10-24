@@ -151,7 +151,18 @@ function TablesDoc(props)
                     <ul>
                         <li><a href="https://devexpress.github.io/devextreme-reactive/react/grid/">dx-react-grid-material-ui</a>: A data grid for Material-UI with paging, sorting, filtering, grouping and editing features (<a href="https://js.devexpress.com/licensing/">paid license</a>).</li>
                         <li><a href="https://github.com/gregnb/mui-datatables">mui-datatables</a>: Responsive data tables for Material-UI with filtering, sorting, search and more.</li>
+                        <li><a href="https://github.com/unosquare/tubular-react">tubular-react</a>: A Material-UI table with local or remote data-source. Featuring filtering, sorting, free-text search, export to CSV locally, and aggregations.</li>
                     </ul>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
+                    <Typography className="mb-16" component="div">(WAI tutorial: <a href="https://www.w3.org/WAI/tutorials/tables/">https://www.w3.org/WAI/tutorials/tables/</a>)</Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Caption</Typography>
+                    <Typography className="mb-16" component="div">A caption functions like a heading for a table. Most screen readers announce the content of captions. Captions help users to find a table and understand what it’s about and decide if they want to read it.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/tables/AcccessibleTable.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/AcccessibleTable.js')}
+                    /></Typography>
 
                 </div>
             }

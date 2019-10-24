@@ -86,6 +86,14 @@ function DividersDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/dividers/MiddleDividers.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dividers/MiddleDividers.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Vertical Dividers</Typography>
+                    <Typography className="mb-16" component="div">You can also render a divider vertically using the <code>{`orientation`}</code> prop.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/dividers/VerticalDividers.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dividers/VerticalDividers.js')}
+                    /></Typography>
 
                 </div>
             }
