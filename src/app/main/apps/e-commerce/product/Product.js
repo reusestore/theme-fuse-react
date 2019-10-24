@@ -136,7 +136,7 @@ function Product(props)
         );
     }
 
-    if ( !product.data || (product.data && props.match.params.productId !== product.data.id) )
+    if ( (!product.data || (product.data && props.match.params.productId !== product.data.id)) && props.match.params.productId !== 'new' )
     {
         return <FuseLoading/>;
     }
