@@ -38,7 +38,6 @@ function FusePageSimpleSidebar(props, ref)
                         }
                     }}
                     style={{position: 'absolute'}}
-                    onClick={(ev) => handleToggleDrawer()}
                 >
                     <FusePageSimpleSidebarContent {...props}/>
                 </Drawer>

@@ -38,7 +38,6 @@ function FusePageCardedSidebar(props, ref)
                         }
                     }}
                     style={{position: 'absolute'}}
-                    onClick={(ev) => handleToggleDrawer()}
                 >
                     <FusePageCardedSidebarContent {...props}/>
                 </Drawer>
