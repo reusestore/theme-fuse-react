@@ -133,7 +133,10 @@ export default function CustomPaginationActionsTable() {
       <div className={classes.tableWrapper}>
         <Table className={classes.table} aria-label="custom pagination table">
           <TableBody>
-            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => (
+            {(rowsPerPage > 0
+              ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              : rows
+            ).map(row => (
               <TableRow key={row.name}>
                 <TableCell component="th" scope="row">
                   {row.name}
@@ -152,7 +155,7 @@ export default function CustomPaginationActionsTable() {
           <TableFooter>
             <TableRow>
               <TablePagination
-                rowsPerPageOptions={[5, 10, 25]}
+                rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
                 colSpan={3}
                 count={rows.length}
                 rowsPerPage={rowsPerPage}

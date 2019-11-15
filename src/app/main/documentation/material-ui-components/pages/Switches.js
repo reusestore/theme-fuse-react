@@ -109,6 +109,10 @@ function SwitchesDoc(props)
                     </ul>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
                     <ul>
+                        <li>It will render an element with the <code>{`checkbox`}</code> role not <code>{`switch`}</code> role since this
+                            role isn&#39;t widely supported yet. Please test first if assistive technology of your
+                            target audience supports this role properly. Then you can change the role with
+                            <code>{`<Switch inputProps={{ role: 'switch' }}>`}</code></li>
                         <li>All form controls should have labels, and this includes radio buttons, checkboxes, and switches. In most cases, this is done by using the <code>{`<label>`}</code> element (<a href="/api/form-control-label/">FormControlLabel</a>).</li>
                         <li>When a label can&#39;t be used, it&#39;s necessary to add an attribute directly to the input component.
                             In this case, you can apply the additional attribute (e.g. <code>{`aria-label`}</code>, <code>{`aria-labelledby`}</code>, <code>{`title`}</code>) via the <code>{`inputProps`}</code> property.
@@ -117,10 +121,7 @@ function SwitchesDoc(props)
 
                     <FuseHighlight component="pre" className="language-jsx">
                         {` 
-<Switch
-  value="checkedA"
-  inputProps={{ 'aria-label': 'Switch A' 
-/>
+<Switch value="checkedA" inputProps={{ 'aria-label': 'Switch A' }} />
 `}
                     </FuseHighlight>
 

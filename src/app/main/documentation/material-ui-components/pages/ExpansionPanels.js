@@ -80,6 +80,17 @@ function ExpansionPanelsDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/expansion-panels/CustomizedExpansionPanels.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/expansion-panels/CustomizedExpansionPanels.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Additional actions</Typography>
+                    <Typography className="mb-16" component="div">In order to put an action such as a <code>{`Checkbox`}</code> or a button inside of the <code>{`ExpansionPanelSummary`}</code>, you need to stop the propagation of the focus and click events to prevent the panel from
+                        expanding/collapsing when using the action.
+                        You should also provide an <code>{`aria-label`}</code> for the action, otherwise the label of the nested action will be included in
+                        the label of the parent button that controls the panel expansion.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/expansion-panels/ActionsInExpansionPanelSummary.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/expansion-panels/ActionsInExpansionPanelSummary.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Performance</Typography>
                     <Typography className="mb-16" component="div">The content of ExpansionPanels is mounted by default even if the panel is not expanded.
                         This default behavior has server-side rendering and SEO in mind.

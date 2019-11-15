@@ -121,6 +121,14 @@ function MenusDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/menus/FadeMenu.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/menus/FadeMenu.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Context menu</Typography>
+                    <Typography className="mb-16" component="div">Here is an example of a context menu. (Right click to open.)</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/menus/ContextMenu.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/menus/ContextMenu.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Complementary projects</Typography>
                     <Typography className="mb-16" component="div">For more advanced use cases you might be able to take advantage of:</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">PopupState helper</Typography>

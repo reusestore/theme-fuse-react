@@ -98,7 +98,28 @@ function TablesDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/tables/CustomizedTables.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/CustomizedTables.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Custom Table Pagination Action</Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Custom pagination options</Typography>
+                    <Typography className="mb-16" component="div">It&#39;s possible to customise the options shown in the &quot;Rows per page&quot; select using the <code>{`rowsPerPageOptions`}</code> prop.
+                        You should either provide an array of:</Typography>
+                    <ul>
+                        <li><Typography className="mb-16" component="div"><strong>numbers</strong>, each number will be used for the option&#39;s label and value.</Typography>
+
+                            <FuseHighlight component="pre" className="language-jsx">
+                                {` 
+<TablePagination rowsPerPageOptions={[10, 50]} />
+`}
+                            </FuseHighlight>
+                        </li>
+                        <li><Typography className="mb-16" component="div"><strong>objects</strong>, the <code>{`value`}</code> and <code>{`label`}</code> keys will be used respectively for the value and label of the option (useful for language strings such as &#39;All&#39;).</Typography>
+
+                            <FuseHighlight component="pre" className="language-jsx">
+                                {` 
+<TablePagination rowsPerPageOptions={[10, 50, { value: -1, label: 'All' }]} />
+`}
+                            </FuseHighlight>
+                        </li>
+                    </ul>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Custom pagination actions</Typography>
                     <Typography className="mb-16" component="div">The <code>{`Action`}</code> property of the <code>{`TablePagination`}</code> component allows the implementation of
                         custom actions.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample

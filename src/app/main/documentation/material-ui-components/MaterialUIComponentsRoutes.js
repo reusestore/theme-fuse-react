@@ -64,6 +64,9 @@ export const MaterialUIComponentsRoutes = [{
     path: '/documentation/material-ui-components/hidden',
     component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/Hidden'))
 }, {
+    path: '/documentation/material-ui-components/integrated-autocomplete',
+    component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/IntegratedAutocomplete'))
+}, {
     path: '/documentation/material-ui-components/links',
     component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/Links'))
 }, {

@@ -55,33 +55,33 @@ function ContainerDoc(props)
                     <Typography className="mb-16" component="div">While containers can be nested, most layouts do not require a nested container.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Fluid</Typography>
                     <Typography className="mb-16" component="div">A fluid container width is bounded by that <code>{`maxWidth`}</code> property value.</Typography>
-
-                    <FuseHighlight component="pre" className="language-jsx">
-                        {` 
-<Container maxWidth="sm">
-`}
-                    </FuseHighlight>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={true}
                         component={require('app/main/documentation/material-ui-components/components/container/SimpleContainer.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/container/SimpleContainer.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Fixed</Typography>
-                    <Typography className="mb-16" component="div">If you prefer to design for a fixed set of sizes instead of trying to accommodate a fully fluid viewport, you can set the <code>{`fixed`}</code> property.
-                        The max-width matches the min-width of the current breakpoint.</Typography>
 
                     <FuseHighlight component="pre" className="language-jsx">
                         {` 
-<Container fixed>
+<Container maxWidth="sm">
 `}
                     </FuseHighlight>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Fixed</Typography>
+                    <Typography className="mb-16" component="div">If you prefer to design for a fixed set of sizes instead of trying to accommodate a fully fluid viewport, you can set the <code>{`fixed`}</code> property.
+                        The max-width matches the min-width of the current breakpoint.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={true}
                         component={require('app/main/documentation/material-ui-components/components/container/FixedContainer.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/container/FixedContainer.js')}
                     /></Typography>
+
+                    <FuseHighlight component="pre" className="language-jsx">
+                        {` 
+<Container fixed>
+`}
+                    </FuseHighlight>
 
                 </div>
             }

@@ -59,7 +59,7 @@ function CssBaselineDoc(props)
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-function MyApp() {
+export default function MyApp() {
   return (
     <React.Fragment>
       <CssBaseline />
@@ -67,8 +67,6 @@ function MyApp() {
     </React.Fragment>
   );
 }
-
-export default MyApp;
 `}
                     </FuseHighlight>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Approach</Typography>

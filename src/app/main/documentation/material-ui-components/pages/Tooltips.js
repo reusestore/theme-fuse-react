@@ -131,6 +131,9 @@ function MyComponent(props) {
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Disabled Elements</Typography>
                     <Typography className="mb-16" component="div">By default disabled elements like <code>{`<button>`}</code> do not trigger user interactions so a <code>{`Tooltip`}</code> will not activate on normal events like hover. To accommodate disabled elements, add a simple wrapper element, such as a <code>{`span`}</code>.</Typography>
+                    <blockquote>
+                        <Typography className="mb-16" component="div">⚠️ In order to work with Safari, you need at least one display block or flex item below the tooltip wrapper.</Typography>
+                    </blockquote>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}

@@ -55,30 +55,84 @@ function TextFieldsDoc(props)
                     <Typography className="mb-16" component="div"><a href="https://material.io/design/components/text-fields.html">Text fields</a> allow users to enter text into a UI. They typically appear in forms and dialogs.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">TextField</Typography>
                     <Typography className="mb-16" component="div">The <code>{`TextField`}</code> wrapper component is a complete form control including a label, input and help text.</Typography>
+                    <Typography className="mb-16" component="div">It supports standard, outlined and filled styling.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
-                        component={require('app/main/documentation/material-ui-components/components/text-fields/TextFields.js').default}
-                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/TextFields.js')}
+                        component={require('app/main/documentation/material-ui-components/components/text-fields/BasicTextFields.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/BasicTextFields.js')}
                     /></Typography>
                     <blockquote>
-                        <Typography className="mb-16" component="div"><strong>Note:</strong> This version of the text field is no longer documented in the <a href="https://material.io/">Material Design guidelines</a>, but Material-UI will continue to support it.</Typography>
+                        <Typography className="mb-16" component="div"><strong>Note:</strong> The standard variant of the <code>{`TextField`}</code> is no longer documented in the <a href="https://material.io/">Material Design guidelines</a>, but Material-UI will continue to support it.</Typography>
                     </blockquote>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Outlined</Typography>
-                    <Typography className="mb-16" component="div"><code>{`TextField`}</code> supports outlined styling.</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Form props</Typography>
+                    <Typography className="mb-16" component="div">Standard form attributes are supported e.g. <code>{`required`}</code>, <code>{`readOnly`}</code>, <code>{`type`}</code>, etc. as well as a <code>{`helperText`}</code> which is used to give context about a field’s input, such as how the input will be used.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
-                        component={require('app/main/documentation/material-ui-components/components/text-fields/OutlinedTextFields.js').default}
-                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/OutlinedTextFields.js')}
+                        component={require('app/main/documentation/material-ui-components/components/text-fields/FormPropsTextFields.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/FormPropsTextFields.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Filled</Typography>
-                    <Typography className="mb-16" component="div"><code>{`TextField`}</code> supports filled styling.</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Validation</Typography>
+                    <Typography className="mb-16" component="div">The <code>{`error`}</code> prop toggles the error state, the <code>{`helperText`}</code> prop can then be used to provide feedback to the user about the error.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
-                        component={require('app/main/documentation/material-ui-components/components/text-fields/FilledTextFields.js').default}
-                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/FilledTextFields.js')}
+                        component={require('app/main/documentation/material-ui-components/components/text-fields/ValidationTextFields.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/ValidationTextFields.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Multiline</Typography>
+                    <Typography className="mb-16" component="div">The <code>{`multiline`}</code> prop transforms the text field into a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea">textarea</a> or a <a href="/components/textarea-autosize/">TextareaAutosize</a>.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/text-fields/MultilineTextFields.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/MultilineTextFields.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Select</Typography>
+                    <Typography className="mb-16" component="div">The <code>{`select`}</code> prop makes the text field use the <a href="/components/selects/">Select</a> component internally.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/text-fields/SelectTextFields.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/SelectTextFields.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Icons</Typography>
+                    <Typography className="mb-16" component="div">There are multiple ways to display an icon with a text field.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/text-fields/InputWithIcon.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/InputWithIcon.js')}
+                    /></Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Input Adornments</Typography>
+                    <Typography className="mb-16" component="div">The main way is with an <code>{`InputAdornment`}</code>.
+                        These can be used to add a prefix, a suffix or an action to an input.
+                        For instance, you can use an icon button to hide or reveal the password.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/text-fields/InputAdornments.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/InputAdornments.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Layout</Typography>
+                    <Typography className="mb-16" component="div"><code>{`margin`}</code> can be used to alter the vertical spacing of inputs.
+                        Using <code>{`none`}</code> (default) will not apply margins to the <code>{`FormControl`}</code>, whereas <code>{`dense`}</code> and <code>{`normal`}</code> will.
+                        <code>{`dense`}</code> and <code>{`normal`}</code> alter other styles to meet the specification.</Typography>
+                    <Typography className="mb-16" component="div"><code>{`fullWidth`}</code> can be used to make the input take up the full width of its container.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/text-fields/LayoutTextFields.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/LayoutTextFields.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Uncontrolled vs Controlled</Typography>
+                    <Typography className="mb-16" component="div">The component can be controlled or uncontrolled</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/text-fields/StateTextFields.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/StateTextFields.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Components</Typography>
                     <Typography className="mb-16" component="div"><code>{`TextField`}</code> is composed of smaller components (
@@ -105,6 +159,14 @@ function TextFieldsDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/text-fields/Inputs.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/Inputs.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Color</Typography>
+                    <Typography className="mb-16" component="div">The <code>{`color`}</code> prop changes the highlight color of the text field when focused.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/text-fields/ColorTextFields.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/ColorTextFields.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Customized inputs</Typography>
                     <Typography className="mb-16" component="div">Here are some examples of customizing the component. You can learn more about this in the
                         <a href="/customization/components/">overrides documentation page</a>.</Typography>
@@ -121,48 +183,6 @@ function TextFieldsDoc(props)
                         iframe={false}
                         component={require('app/main/documentation/material-ui-components/components/text-fields/CustomizedInputBase.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/CustomizedInputBase.js')}
-                    /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Input Adornments</Typography>
-                    <Typography className="mb-16" component="div"><code>{`Input`}</code> allows the provision of <code>{`InputAdornment`}</code>.
-                        These can be used to add a prefix, a suffix or an action to an input.
-                        For instance, you can use an icon button to hide or reveal the password.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('app/main/documentation/material-ui-components/components/text-fields/InputAdornments.js').default}
-                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/InputAdornments.js')}
-                    /></Typography>
-                    <Typography className="text-24 mt-32 mb-8" component="h3">With icon</Typography>
-                    <Typography className="mb-16" component="div">Icons can be specified as prepended or appended.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('app/main/documentation/material-ui-components/components/text-fields/InputWithIcon.js').default}
-                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/InputWithIcon.js')}
-                    /></Typography>
-                    <Typography className="text-24 mt-32 mb-8" component="h3">Filled Input Adornments</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('app/main/documentation/material-ui-components/components/text-fields/FilledInputAdornments.js').default}
-                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/FilledInputAdornments.js')}
-                    /></Typography>
-                    <Typography className="text-24 mt-32 mb-8" component="h3">Outlined Input Adornments</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('app/main/documentation/material-ui-components/components/text-fields/OutlinedInputAdornments.js').default}
-                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/OutlinedInputAdornments.js')}
-                    /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Layout</Typography>
-                    <Typography className="mb-16" component="div"><code>{`TextField`}</code>, <code>{`FormControl`}</code> allow the specification of <code>{`margin`}</code> to alter the vertical spacing of inputs. Using
-                        <code>{`none`}</code> (default) will not apply margins to the <code>{`FormControl`}</code>, whereas <code>{`dense`}</code> and <code>{`normal`}</code> will as well as alter
-                        other styles to meet the specification.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('app/main/documentation/material-ui-components/components/text-fields/TextFieldMargins.js').default}
-                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/TextFieldMargins.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Limitations</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Shrink</Typography>
@@ -267,6 +287,7 @@ function MyInputComponent(props) {
                         <li><a href="https://github.com/stackworx/formik-material-ui">formik-material-ui</a> Bindings for using Material-UI with formik.</li>
                         <li><a href="https://github.com/erikras/redux-form-material-ui">redux-form-material-ui</a> A set of wrapper components to facilitate using Material UI with Redux Form.</li>
                         <li><a href="https://github.com/Deadly0/final-form-material-ui">final-form-material-ui</a> A set of wrapper components to facilitate using Material UI with Final Form.</li>
+                        <li><a href="https://github.com/lookfirst/mui-rff">mui-rff</a> A set of wrapper components to facilitate using Material UI with React Final Form.</li>
                     </ul>
 
                 </div>
