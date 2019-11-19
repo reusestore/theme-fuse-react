@@ -5,6 +5,17 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
     {
+        version     : '3.2.5',
+        date        : '2019-11-20',
+        newChanges  : [
+            "material-ui updated to v4.6.1",
+            "react updated to v16.12.0",
+            "All dependency packages updated.",
+        ],
+        fixedChanges: [
+            "FusePage layout components: Drawer closes whenever click on it.",
+        ]
+    }, {
         version     : '3.2.4',
         date        : '2019-10-24',
         newChanges  : [
