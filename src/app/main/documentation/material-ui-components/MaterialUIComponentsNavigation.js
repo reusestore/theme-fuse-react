@@ -104,6 +104,11 @@ export const MaterialUIComponentsNavigation = [{
     'type': 'item',
     'url': '/documentation/material-ui-components/hidden'
 }, {
+    'id': 'integratedAutocomplete',
+    'title': 'Integrated Autocomplete',
+    'type': 'item',
+    'url': '/documentation/material-ui-components/integrated-autocomplete'
+}, {
     'id': 'links',
     'title': 'Links',
     'type': 'item',

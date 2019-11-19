@@ -56,7 +56,7 @@ function PopperDoc(props)
                     <ul>
                         <li>🕷 Popper relies on the 3rd party library (<a href="https://github.com/FezVrasta/popper.js">Popper.js</a>) for perfect positioning.</li>
                         <li>💄 It&#39;s an alternative API to react-popper. It aims for simplicity.</li>
-                        <li>📦 <a href="/size-snapshot">10 kB gzipped</a> (7 kB from Popper.js).</li>
+                        <li>📦 <a href="/size-snapshot">10 kB gzipped</a> (<a href="https://bundlephobia.com/result?p=popper.js">7 kB</a> from Popper.js).</li>
                         <li>The children is <a href="/components/portal/"><code>{`Portal`}</code></a> to the body of the document to avoid rendering problems.
                             You can disable this behavior with <code>{`disablePortal`}</code>.
                         </li>
@@ -75,20 +75,29 @@ function PopperDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/popper/SimplePopper.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/popper/SimplePopper.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Minimalist Popper</Typography>
-                    <Typography className="mb-16" component="div">You can use the component with zero extra dependencies.</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Transitions</Typography>
+                    <Typography className="mb-16" component="div">The open/close state of the popper can be animated with a render prop child and a transition component.
+                        This component should respect the following conditions:</Typography>
+                    <ul>
+                        <li>Be a direct child descendent of the popper.</li>
+                        <li>Call the <code>{`onEnter`}</code> callback prop when the enter transition starts.</li>
+                        <li>Call the <code>{`onExited`}</code> callback prop when the exit transition is completed.
+                            These two callbacks allow the popper to unmount the child content when closed and fully transitioned.
+                        </li>
+                    </ul>
+                    <Typography className="mb-16" component="div">Popper has built-in support for <a href="https://github.com/reactjs/react-transition-group">react-transition-group</a>.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
-                        component={require('app/main/documentation/material-ui-components/components/popper/MinimalPopper.js').default}
-                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/popper/MinimalPopper.js')}
+                        component={require('app/main/documentation/material-ui-components/components/popper/TransitionsPopper.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/popper/TransitionsPopper.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Scroll playground</Typography>
+                    <Typography className="mb-16" component="div">Alternatively, you can use <a href="https://github.com/react-spring/react-spring">react-spring</a>.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
-                        component={require('app/main/documentation/material-ui-components/components/popper/ScrollPlayground.js').default}
-                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/popper/ScrollPlayground.js')}
+                        component={require('app/main/documentation/material-ui-components/components/popper/SpringPopper.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/popper/SpringPopper.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Positioned Popper</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -97,12 +106,12 @@ function PopperDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/popper/PositionedPopper.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/popper/PositionedPopper.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Without transition Popper</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Scroll playground</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
-                        component={require('app/main/documentation/material-ui-components/components/popper/NoTransitionPopper.js').default}
-                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/popper/NoTransitionPopper.js')}
+                        component={require('app/main/documentation/material-ui-components/components/popper/ScrollPlayground.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/popper/ScrollPlayground.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Faked reference object</Typography>
                     <Typography className="mb-16" component="div">The <code>{`anchorEl`}</code> property can be a reference to a fake DOM element.

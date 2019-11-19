@@ -18,7 +18,7 @@ export default function SplitButton() {
   const [selectedIndex, setSelectedIndex] = React.useState(1);
 
   const handleClick = () => {
-    alert(`You clicked ${options[selectedIndex]}`);
+    console.info(`You clicked ${options[selectedIndex]}`);
   };
 
   const handleMenuItemClick = (event, index) => {
@@ -39,21 +39,23 @@ export default function SplitButton() {
   };
 
   return (
-    <Grid container>
-      <Grid item xs={12} align="center">
+    <Grid container direction="column" alignItems="center">
+      <Grid item xs={12}>
         <ButtonGroup variant="contained" color="primary" ref={anchorRef} aria-label="split button">
           <Button onClick={handleClick}>{options[selectedIndex]}</Button>
           <Button
             color="primary"
             size="small"
-            aria-owns={open ? 'menu-list-grow' : undefined}
-            aria-haspopup="true"
+            aria-controls={open ? 'split-button-menu' : undefined}
+            aria-expanded={open ? 'true' : undefined}
+            aria-label="select merge strategy"
+            aria-haspopup="menu"
             onClick={handleToggle}
           >
             <ArrowDropDownIcon />
           </Button>
         </ButtonGroup>
-        <Popper open={open} anchorEl={anchorRef.current} transition disablePortal>
+        <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
           {({ TransitionProps, placement }) => (
             <Grow
               {...TransitionProps}
@@ -61,9 +63,9 @@ export default function SplitButton() {
                 transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom',
               }}
             >
-              <Paper id="menu-list-grow">
+              <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
-                  <MenuList>
+                  <MenuList id="split-button-menu">
                     {options.map((option, index) => (
                       <MenuItem
                         key={option}

@@ -69,6 +69,9 @@ function SelectsDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/selects/NativeSelects.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/NativeSelects.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Text Fields</Typography>
+                    <Typography className="mb-16" component="div">The <code>{`TextField`}</code> wrapper component is a complete form control including a label, input and help text.
+                        You can find an example with the select mode <a href="/components/text-fields/#select">in this section</a>.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Customized selects</Typography>
                     <Typography className="mb-16" component="div">Here are some examples of customizing the component. You can learn more about this in the
                         <a href="/customization/components/">overrides documentation page</a>.</Typography>
@@ -105,8 +108,38 @@ function SelectsDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/selects/DialogSelect.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/DialogSelect.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Text Fields</Typography>
-                    <Typography className="mb-16" component="div">The <code>{`TextField`}</code> wrapper component is a complete form control including a label, input and help text. You can find an example with the select mode <a href="/components/text-fields/#textfield">in this section</a>.</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Grouping</Typography>
+                    <Typography className="mb-16" component="div">Display categories with the <code>{`ListSubheader`}</code> component or the native <code>{`<optgroup>`}</code> element.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/selects/GroupedSelect.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/GroupedSelect.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
+                    <Typography className="mb-16" component="div">To properly label your <code>{`Select`}</code> input you need an extra element with an <code>{`id`}</code> that contains a label.
+                        That <code>{`id`}</code> needs to match the <code>{`labelId`}</code> of the <code>{`Select`}</code> e.g.</Typography>
+
+                    <FuseHighlight component="pre" className="language-jsx">
+                        {` 
+<InputLabel id="label">Age</InputLabel>
+<Select labelId="label" id="select" value="20">
+  <MenuItem value="10">Ten</MenuItem>
+  <MenuItem value="20">Twenty</MenuItem>
+</Select>
+`}
+                    </FuseHighlight>
+                    <Typography className="mb-16" component="div">Alternatively a <code>{`TextField`}</code> with an <code>{`id`}</code> and <code>{`label`}</code> creates the proper markup and
+                        ids for you:</Typography>
+
+                    <FuseHighlight component="pre" className="language-jsx">
+                        {` 
+<TextField id="select" label="Age" value="20">
+  <MenuItem value="10">Ten</MenuItem>
+  <MenuItem value="20">Twenty</MenuItem>
+</TextField>
+`}
+                    </FuseHighlight>
 
                 </div>
             }

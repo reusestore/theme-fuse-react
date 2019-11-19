@@ -122,26 +122,29 @@ function ModalDoc(props)
                     <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
                     <Typography className="mb-16" component="div">(WAI-ARIA: <a href="https://www.w3.org/TR/wai-aria-practices/#dialog_modal">https://www.w3.org/TR/wai-aria-practices/#dialog_modal</a>)</Typography>
                     <ul>
-                        <li>Be sure to add <code>{`aria-labelledby="id..."`}</code>, referencing the modal title, to the <code>{`Modal`}</code>.
-                            Additionally, you may give a description of your modal with the <code>{`aria-describedby="id..."`}</code> prop on the <code>{`Modal`}</code>.
+                        <li><Typography className="mb-16" component="div">Be sure to add <code>{`aria-labelledby="id..."`}</code>, referencing the modal title, to the <code>{`Modal`}</code>.
+                            Additionally, you may give a description of your modal with the <code>{`aria-describedby="id..."`}</code> prop on the <code>{`Modal`}</code>.</Typography>
+
                             <FuseHighlight component="pre" className="language-jsx">
                                 {` 
 <Modal
-aria-labelledby="modal-title"
-aria-describedby="modal-description"
+  aria-labelledby="modal-title"
+  aria-describedby="modal-description"
 >
-<h2 id="modal-title">
-  My Title
-</h2>
-<Typography id="modal-description">
-  My Description
-</Typography>
+  <h2 id="modal-title">
+    My Title
+  </h2>
+  <Typography id="modal-description">
+    My Description
+  </Typography>
 </Modal>
 `}
                             </FuseHighlight>
                         </li>
-                        <li>The <a href="https://www.w3.org/TR/wai-aria-practices/examples/dialog-modal/dialog.html">WAI-ARIA authoring practices</a> can help you set the initial focus on the most relevant element, based on your modal content.</li>
-                        <li>A modal window overlys on either the primary window or another modal window. Windows under a modal are <strong>inert</strong>. That is, users cannot interact with content outside an active modal window.</li>
+                        <li><Typography className="mb-16" component="div">The <a href="https://www.w3.org/TR/wai-aria-practices/examples/dialog-modal/dialog.html">WAI-ARIA authoring practices</a> can help you set the initial focus on the most relevant element, based on your modal content.</Typography>
+                        </li>
+                        <li><Typography className="mb-16" component="div">A modal window overlys on either the primary window or another modal window. Windows under a modal are <strong>inert</strong>. That is, users cannot interact with content outside an active modal window.</Typography>
+                        </li>
                     </ul>
 
                 </div>

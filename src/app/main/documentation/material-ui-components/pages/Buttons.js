@@ -195,8 +195,7 @@ function ButtonsDoc(props)
                     <Typography className="mb-16" component="div">Here is an <a href="/guides/composition/#button">integration example with react-router</a>.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Limitations</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Cursor not-allowed</Typography>
-                    <Typography className="mb-16" component="div">The ButtonBase component sets <code>{`pointer-events: none;`}</code> on disabled buttons.
-                        which prevents the appearance of a disabled cursor.</Typography>
+                    <Typography className="mb-16" component="div">The ButtonBase component sets <code>{`pointer-events: none;`}</code> on disabled buttons, which prevents the appearance of a disabled cursor.</Typography>
                     <Typography className="mb-16" component="div">If you wish to use <code>{`not-allowed`}</code>, you have two options:</Typography>
                     <ol>
                         <li><strong>CSS only</strong>. You can remove the pointer events style on the disabled state of the <code>{`<button>`}</code> element:</li>

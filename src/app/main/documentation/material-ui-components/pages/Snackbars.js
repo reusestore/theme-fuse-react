@@ -128,15 +128,47 @@ function SnackbarsDoc(props)
                     <Typography className="text-24 mt-32 mb-8" component="h3">notistack</Typography>
                     <Typography className="mb-16" component="div"> src="https://img.shields.io/github/stars/iamhosseindhv/notistack.svg?style=social&label=Stars" alt="stars/>
                         src="https://img.shields.io/npm/dm/notistack.svg" alt="npm downloads/></Typography>
-                    <Typography className="mb-16" component="div">In the following example, we demonstrate how to use <a href="https://github.com/iamhosseindhv/notistack">notistack</a>.
-                        notistack makes it easy to display snackbars (so you don&#39;t have to deal with open/close state of them).
-                        It also enables you to stack them on top of one another (although this is discouraged by the specification).</Typography>
+                    <Typography className="mb-16" component="div">This example demonstrates how to use <a href="https://github.com/iamhosseindhv/notistack">notistack</a>.
+                        notistack has an <strong>imperative API</strong> that makes it easy to display snackbars, without having to handle their open/close state.
+                        It also enables you to <strong>stack</strong> them on top of one another (although this is discouraged by the Material Design specification).</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
                         component={require('app/main/documentation/material-ui-components/components/snackbars/IntegrationNotistack.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/snackbars/IntegrationNotistack.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
+                    <Typography className="mb-16" component="div">(WAI-ARIA: <a href="https://www.w3.org/TR/wai-aria-1.1/#alert">https://www.w3.org/TR/wai-aria-1.1/#alert</a>)</Typography>
+                    <ul>
+                        <li>Since alerts are not required to receive focus, content authors should not require users to close a Snackbar if the role is set to <code>{`alert`}</code> through the SnackbarContent <code>{`role`}</code> prop. This is the default role.</li>
+                        <li>If a Snackbar requires focus to close it, then content authors should use the <code>{`role`}</code> of <code>{`alertdialog`}</code>.</li>
+                    </ul>
+
+                    <FuseHighlight component="pre" className="language-jsx">
+                        {` 
+<SnackbarContent
+  message="This is a Snackbar message."
+  role="alert"
+/>
+`}
+                    </FuseHighlight>
+
+                    <FuseHighlight component="pre" className="language-jsx">
+                        {` 
+<Snackbar
+  ContentProps={{
+    'aria-describedby': 'snackbar-fab-message-id',
+    'role': 'alertdialog',
+
+  message={<span id="snackbar-fab-message-id">Archived</span>}
+  action={
+    <Button color="inherit" size="small">
+      Undo
+    </Button>
+  }
+/>
+`}
+                    </FuseHighlight>
 
                 </div>
             }
