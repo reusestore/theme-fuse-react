@@ -28,7 +28,15 @@ function ProductsTable(props)
     }, [dispatch]);
 
     useEffect(() => {
-        setData(searchText.length === 0 ? products : _.filter(products, item => item.name.toLowerCase().includes(searchText.toLowerCase())))
+        if ( searchText.length !== 0 )
+        {
+            setData(_.filter(products, item => item.name.toLowerCase().includes(searchText.toLowerCase())));
+            setPage(0);
+        }
+        else
+        {
+            setData(products);
+        }
     }, [products, searchText]);
 
     function handleRequestSort(event, property)

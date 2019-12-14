@@ -28,7 +28,16 @@ function OrdersTable(props)
     }, [dispatch]);
 
     useEffect(() => {
-        setData(searchText.length === 0 ? orders : FuseUtils.filterArrayByString(orders, searchText))
+        if ( searchText.length !== 0 )
+        {
+            setData(FuseUtils.filterArrayByString(orders, searchText));
+            setPage(0);
+        }
+        else
+        {
+            setData(orders);
+        }
+
     }, [orders, searchText]);
 
     function handleRequestSort(event, property)
