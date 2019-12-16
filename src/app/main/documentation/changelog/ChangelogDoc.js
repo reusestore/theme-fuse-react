@@ -5,6 +5,19 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
     {
+        version     : '3.3.0',
+        date        : '2019-12-17',
+        newChanges  : [
+            "material-ui updated to v4.8.0",
+            "Default theme scheme changed.",
+            "All dependency packages updated.",
+        ],
+        fixedChanges: [
+            "E-Commerce App: reset table page when listing search results.",
+            "Project Dashboard: 'scales.[x/y]Axes.categoryPercentage' is deprecated changed with 'dataset.categoryPercentage'",
+        ]
+    },
+    {
         version     : '3.2.5',
         date        : '2019-11-20',
         newChanges  : [
@@ -15,7 +28,8 @@ const changelogData = [
         fixedChanges: [
             "FusePage layout components: Drawer closes whenever click on it.",
         ]
-    }, {
+    },
+    {
         version     : '3.2.4',
         date        : '2019-10-24',
         newChanges  : [
