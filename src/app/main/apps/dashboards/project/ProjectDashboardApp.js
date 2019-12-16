@@ -149,8 +149,8 @@ function ProjectDashboardApp(props)
                 <Tabs
                     value={tabValue}
                     onChange={handleChangeTab}
-                    indicatorColor="secondary"
-                    textColor="secondary"
+                    indicatorColor="primary"
+                    textColor="primary"
                     variant="scrollable"
                     scrollButtons="off"
                     className="w-full border-b-1 px-24"

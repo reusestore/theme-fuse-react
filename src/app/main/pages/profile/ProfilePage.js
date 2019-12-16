@@ -54,8 +54,8 @@ function ProfilePage()
                 <Tabs
                     value={selectedTab}
                     onChange={handleTabChange}
-                    indicatorColor="secondary"
-                    textColor="secondary"
+                    indicatorColor="primary"
+                    textColor="primary"
                     variant="scrollable"
                     scrollButtons="off"
                     classes={{

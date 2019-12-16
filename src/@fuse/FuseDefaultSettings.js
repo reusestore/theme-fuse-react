@@ -134,7 +134,23 @@ export function extendThemeWithMixins(obj)
 export function mainThemeVariations(theme)
 {
     return {
-        mainThemeDark : createMuiTheme(_.merge({}, defaultThemeOptions, theme, {palette: {type: 'dark'}, ...mustHaveThemeOptions})),
-        mainThemeLight: createMuiTheme(_.merge({}, defaultThemeOptions, theme, {palette: {type: 'light'}, ...mustHaveThemeOptions}))
+        mainThemeDark : createMuiTheme(_.merge({}, defaultThemeOptions, theme, {
+            palette: {
+                type      : 'dark',
+                background: {
+                    paper  : "#1E2125",
+                    default: "#121212"
+                }
+            }, ...mustHaveThemeOptions
+        })),
+        mainThemeLight: createMuiTheme(_.merge({}, defaultThemeOptions, theme, {
+            palette: {
+                type      : 'light',
+                background: {
+                    paper  : "#FFFFFF",
+                    default: "#F7F7F7"
+                },
+            }, ...mustHaveThemeOptions
+        }))
     }
 }

@@ -25,7 +25,7 @@ function ToolbarLayout2(props)
 
     return (
         <ThemeProvider theme={toolbarTheme}>
-            <AppBar id="fuse-toolbar" className="flex relative z-10" color="default">
+            <AppBar id="fuse-toolbar" className="flex relative z-10" color="default" style={{backgroundColor: toolbarTheme.palette.background.default}}>
                 <Toolbar className="container p-0 lg:px-24">
 
                     {config.navbar.display && (

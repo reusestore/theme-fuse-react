@@ -2,10 +2,13 @@ import React, {useState} from 'react';
 import {Typography, Paper, Button} from '@material-ui/core';
 import {Bar, Line} from 'react-chartjs-2';
 import _ from 'lodash';
+import {useTheme} from '@material-ui/styles';
 
 function Widget5(props)
 {
     const [currentRange, setCurrentRange] = useState('TW');
+    const theme = useTheme();
+
     const widget = _.merge({}, props.widget);
 
     function handleChangeRange(range)
@@ -38,7 +41,18 @@ function Widget5(props)
                     <Bar
                         data={{
                             labels  : widget.mainChart[currentRange].labels,
-                            datasets: widget.mainChart[currentRange].datasets
+                            datasets: widget.mainChart[currentRange].datasets.map((obj, index) => {
+                                const palette = theme.palette[index === 0 ? 'primary' : 'secondary'];
+                                return {
+                                    ...obj,
+                                    borderColor              : palette.main,
+                                    backgroundColor          : palette.main,
+                                    pointBackgroundColor     : palette.dark,
+                                    pointHoverBackgroundColor: palette.main,
+                                    pointBorderColor         : palette.contrastText,
+                                    pointHoverBorderColor    : palette.contrastText
+                                }
+                            })
                         }}
                         options={widget.mainChart.options}
                     />
@@ -53,7 +67,18 @@ function Widget5(props)
                                     <Line
                                         data={{
                                             labels  : item.chart[currentRange].labels,
-                                            datasets: item.chart[currentRange].datasets
+                                            datasets: item.chart[currentRange].datasets.map((obj, index) => {
+                                                const palette = theme.palette['secondary'];
+                                                return {
+                                                    ...obj,
+                                                    borderColor              : palette.main,
+                                                    backgroundColor          : palette.main,
+                                                    pointBackgroundColor     : palette.dark,
+                                                    pointHoverBackgroundColor: palette.main,
+                                                    pointBorderColor         : palette.contrastText,
+                                                    pointHoverBorderColor    : palette.contrastText
+                                                }
+                                            })
                                         }}
                                         options={item.chart.options}
                                     />

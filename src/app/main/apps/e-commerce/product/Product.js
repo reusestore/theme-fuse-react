@@ -182,8 +182,9 @@ function Product(props)
                         </div>
                         <FuseAnimate animation="transition.slideRightIn" delay={300}>
                             <Button
-                                className="whitespace-no-wrap"
+                                className="whitespace-no-wrap normal-case"
                                 variant="contained"
+                                color="secondary"
                                 disabled={!canBeSubmitted()}
                                 onClick={() => dispatch(Actions.saveProduct(form))}
                             >
@@ -197,8 +198,8 @@ function Product(props)
                 <Tabs
                     value={tabValue}
                     onChange={handleChangeTab}
-                    indicatorColor="secondary"
-                    textColor="secondary"
+                    indicatorColor="primary"
+                    textColor="primary"
                     variant="scrollable"
                     scrollButtons="auto"
                     classes={{root: "w-full h-64"}}

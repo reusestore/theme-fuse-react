@@ -11,9 +11,8 @@ function FooterLayout1(props)
 
     return (
         <ThemeProvider theme={footerTheme}>
-            <AppBar id="fuse-footer" className="relative z-10" color="default">
+            <AppBar id="fuse-footer" className="relative z-10" color="default" style={{backgroundColor: footerTheme.palette.background.default}}>
                 <Toolbar className="px-16 py-0 flex items-center">
-
                     <div className="flex flex-1">
                         <PurchaseButton/>
                     </div>

@@ -79,8 +79,8 @@ function Order(props)
                 <Tabs
                     value={tabValue}
                     onChange={handleChangeTab}
-                    indicatorColor="secondary"
-                    textColor="secondary"
+                    indicatorColor="primary"
+                    textColor="primary"
                     variant="scrollable"
                     scrollButtons="auto"
                     classes={{root: "w-full h-64"}}
