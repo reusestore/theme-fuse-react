@@ -42,6 +42,8 @@ class auth0Service {
     login = () => {
         if ( !this.lock )
         {
+            console.warn("Auth0 Service didn't initialize, check your configuration");
+
             return false;
         }
         // Call the show method to display the widget.
@@ -51,6 +53,8 @@ class auth0Service {
     register = () => {
         if ( !this.lock )
         {
+            console.warn("Auth0 Service didn't initialize, check your configuration");
+
             return false;
         }
 

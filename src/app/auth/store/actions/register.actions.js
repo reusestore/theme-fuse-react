@@ -31,9 +31,16 @@ export function submitRegister({displayName, password, email})
 
 export function registerWithFirebase(model)
 {
+    if ( !firebaseService.auth )
+    {
+        console.warn("Firebase Service didn't initialize, check your configuration");
+
+        return () => false;
+    }
+
     const {email, password, displayName} = model;
     return (dispatch) =>
-        firebaseService.auth && firebaseService.auth.createUserWithEmailAndPassword(email, password)
+        firebaseService.auth.createUserWithEmailAndPassword(email, password)
             .then(response => {
 
                 dispatch(UserActions.createUserSettingsFirebase({

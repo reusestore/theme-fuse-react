@@ -28,14 +28,22 @@ export function submitLogin({email, password})
 
 export function submitLoginWithFireBase({username, password})
 {
+    if ( !firebaseService.auth )
+    {
+        console.warn("Firebase Service didn't initialize, check your configuration");
+
+        return () => false;
+    }
+
     return (dispatch) =>
-        firebaseService.auth && firebaseService.auth.signInWithEmailAndPassword(username, password)
+        firebaseService.auth.signInWithEmailAndPassword(username, password)
             .then(() => {
                 return dispatch({
                     type: LOGIN_SUCCESS
                 });
             })
             .catch(error => {
+                console.info('error')
                 const usernameErrorCodes = [
                     'auth/email-already-in-use',
                     'auth/invalid-email',
