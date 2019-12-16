@@ -32,7 +32,7 @@ function CheckboxesDoc(props)
                             <Icon className="text-16" color="action">chevron_right</Icon>
                             <Typography color="textSecondary">Material UI Components</Typography>
                         </div>
-                        <Typography variant="h6">Checkboxes</Typography>
+                        <Typography variant="h6">Checkbox</Typography>
                     </div>
                     <Button
                         className="normal-case"
@@ -49,7 +49,7 @@ function CheckboxesDoc(props)
             }
             content={
                 <div className="p-24 max-w-2xl">
-                    <Typography className="text-44 mt-32 mb-8" component="h1">Checkboxes</Typography>
+                    <Typography className="text-44 mt-32 mb-8" component="h1">Checkbox</Typography>
                     <Typography className="description">Checkboxes allow the user to select one or more items from a set.</Typography>
 
                     <Typography className="mb-16" component="div"><a href="https://material.io/design/components/selection-controls.html#checkboxes">Checkboxes</a> can be used to turn an option on or off.</Typography>

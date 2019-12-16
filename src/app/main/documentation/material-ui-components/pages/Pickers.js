@@ -68,7 +68,7 @@ function PickersDoc(props)
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Native pickers</Typography>
                     <Typography className="mb-16" component="div">⚠️ Native input controls support by browsers <a href="https://caniuse.com/#feat=input-datetime">isn&#39;t perfect</a>.
-                        Have a look at <a href="#material-ui-pickers">@material-ui/pickers</a> for a richer solution.</Typography>
+                        Have a look at <a href="https://material-ui-pickers.dev/">@material-ui/pickers</a> for a richer solution.</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Datepickers</Typography>
                     <Typography className="mb-16" component="div">A native datepicker example with <code>{`type="date"`}</code>.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample

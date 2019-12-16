@@ -32,7 +32,7 @@ function ButtonsDoc(props)
                             <Icon className="text-16" color="action">chevron_right</Icon>
                             <Typography color="textSecondary">Material UI Components</Typography>
                         </div>
-                        <Typography variant="h6">Buttons</Typography>
+                        <Typography variant="h6">Button</Typography>
                     </div>
                     <Button
                         className="normal-case"
@@ -49,7 +49,7 @@ function ButtonsDoc(props)
             }
             content={
                 <div className="p-24 max-w-2xl">
-                    <Typography className="text-44 mt-32 mb-8" component="h1">Buttons</Typography>
+                    <Typography className="text-44 mt-32 mb-8" component="h1">Button</Typography>
                     <Typography className="description">Buttons allow users to take actions, and make choices, with a single tap.</Typography>
 
                     <Typography className="mb-16" component="div"><a href="https://material.io/design/components/buttons.html">Buttons</a> communicate actions that users can take. They are typically placed throughout your UI, in places like:</Typography>
@@ -71,6 +71,13 @@ function ButtonsDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/buttons/ContainedButtons.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/ContainedButtons.js')}
                     /></Typography>
+                    <Typography className="mb-16" component="div">You can remove the elevation with the <code>{`disableElevation`}</code> prop.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/buttons/DisableElevation.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/DisableElevation.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Text Buttons</Typography>
                     <Typography className="mb-16" component="div"><a href="https://material.io/design/components/buttons.html#text-button">Text buttons</a>
                         are typically used for less-pronounced actions, including those located:</Typography>
@@ -89,7 +96,6 @@ function ButtonsDoc(props)
                     <Typography className="mb-16" component="div"><a href="https://material.io/design/components/buttons.html#outlined-button">Outlined buttons</a>
                         are medium-emphasis buttons. They contain actions that are important,
                         but aren’t the primary action in an app.</Typography>
-                    <Typography className="text-24 mt-32 mb-8" component="h3">Alternatives</Typography>
                     <Typography className="mb-16" component="div">Outlined buttons are also a lower emphasis alternative to contained buttons,
                         or a higher emphasis alternative to text buttons.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -99,14 +105,28 @@ function ButtonsDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/OutlinedButtons.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Grouped Buttons</Typography>
-                    <Typography className="mb-16" component="div">The ButtonGroup component can be used to group outlined (the default) or contained buttons.</Typography>
+                    <Typography className="mb-16" component="div">The <code>{`ButtonGroup`}</code> component can be used to group buttons.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
                         component={require('app/main/documentation/material-ui-components/components/buttons/GroupedButtons.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/GroupedButtons.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Split Button</Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Group sizes and colors</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/buttons/GroupSizesColors.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/GroupSizesColors.js')}
+                    /></Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Group orientation</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/buttons/GroupOrientation.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/GroupOrientation.js')}
+                    /></Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Split Button</Typography>
                     <Typography className="mb-16" component="div">ButtonGroup can also be used to create a split button. The dropdown can change the button action (as in this example), or be used to immediately trigger a related action.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -138,6 +158,13 @@ function ButtonsDoc(props)
                         iframe={false}
                         component={require('app/main/documentation/material-ui-components/components/buttons/FloatingActionButtonZoom.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/FloatingActionButtonZoom.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Upload button</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/buttons/UploadButtons.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/UploadButtons.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Sizes</Typography>
                     <Typography className="mb-16" component="div">Fancy larger or smaller buttons? Use the <code>{`size`}</code> property.</Typography>
@@ -198,34 +225,36 @@ function ButtonsDoc(props)
                     <Typography className="mb-16" component="div">The ButtonBase component sets <code>{`pointer-events: none;`}</code> on disabled buttons, which prevents the appearance of a disabled cursor.</Typography>
                     <Typography className="mb-16" component="div">If you wish to use <code>{`not-allowed`}</code>, you have two options:</Typography>
                     <ol>
-                        <li><strong>CSS only</strong>. You can remove the pointer events style on the disabled state of the <code>{`<button>`}</code> element:</li>
-                    </ol>
+                        <li><Typography className="mb-16" component="div"><strong>CSS only</strong>. You can remove the pointer events style on the disabled state of the <code>{`<button>`}</code> element:</Typography>
 
-                    <FuseHighlight component="pre" className="language-css">
-                        {` 
+                            <FuseHighlight component="pre" className="language-css">
+                                {` 
 .MuiButtonBase-root:disabled {
-  cursor: not-allowed;
-  pointer-events: auto;
+ cursor: not-allowed;
+ pointer-events: auto;
 }
 `}
-                    </FuseHighlight>
-                    <Typography className="mb-16" component="div">However:</Typography>
-                    <ul>
-                        <li>You should add <code>{`pointer-events: none;`}</code> back when you need to display <a href="/components/tooltips/#disabled-elements">tooltips on disabled elements</a></li>
-                        <li>The cursor won&#39;t change if you render something other than a button element, for instance, a link <code>{`<a>`}</code> element.</li>
-                    </ul>
-                    <ol start="2">
-                        <li><strong>DOM change</strong>. You can wrap the button:</li>
-                    </ol>
+                            </FuseHighlight>
+                            <Typography className="mb-16" component="div">However:</Typography>
+                            <ul>
+                                <li>You should add <code>{`pointer-events: none;`}</code> back when you need to display <a href="/components/tooltips/#disabled-elements">tooltips on disabled elements</a></li>
+                                <li>The cursor won&#39;t change if you render something other than a button element, for instance, a link <code>{`<a>`}</code> element.</li>
+                            </ul>
+                        </li>
+                        <li><Typography className="mb-16" component="div"><strong>DOM change</strong>. You can wrap the button:</Typography>
 
-                    <FuseHighlight component="pre" className="language-jsx">
-                        {` 
-<span style={{ cursor: "not-allowed" }}>
-  <Button component={Link} disabled>disabled</Button>
+                            <FuseHighlight component="pre" className="language-jsx">
+                                {` 
+<span style={{ cursor: 'not-allowed' }}>
+ <Button component={Link} disabled>
+   disabled
+ </Button>
 </span>
 `}
-                    </FuseHighlight>
-                    <Typography className="mb-16" component="div">This has the advantage of supporting any element, for instance, a link <code>{`<a>`}</code> element.</Typography>
+                            </FuseHighlight>
+                            <Typography className="mb-16" component="div">This has the advantage of supporting any element, for instance, a link <code>{`<a>`}</code> element.</Typography>
+                        </li>
+                    </ol>
 
                 </div>
             }

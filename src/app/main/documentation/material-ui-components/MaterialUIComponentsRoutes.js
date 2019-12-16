@@ -10,6 +10,9 @@ export const MaterialUIComponentsRoutes = [{
     path: '/documentation/material-ui-components/avatars',
     component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/Avatars'))
 }, {
+    path: '/documentation/material-ui-components/backdrop',
+    component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/Backdrop'))
+}, {
     path: '/documentation/material-ui-components/badges',
     component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/Badges'))
 }, {
@@ -63,9 +66,6 @@ export const MaterialUIComponentsRoutes = [{
 }, {
     path: '/documentation/material-ui-components/hidden',
     component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/Hidden'))
-}, {
-    path: '/documentation/material-ui-components/integrated-autocomplete',
-    component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/IntegratedAutocomplete'))
 }, {
     path: '/documentation/material-ui-components/links',
     component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/Links'))

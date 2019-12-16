@@ -105,7 +105,7 @@ function AutocompleteDoc(props)
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2"><code>{`useAutocomplete`}</code></Typography>
                     <Typography className="mb-16" component="div">For advanced customization use cases, we expose a <code>{`useAutocomplete()`}</code> hook.
-                        It accepts almost the same options as the Autocomplete component minor all the props
+                        It accepts almost the same options as the Autocomplete component minus all the props
                         related to the rendering of JSX.
                         The Autocomplete component uses this hook internally.</Typography>
 
@@ -172,6 +172,14 @@ import useAutocomplete from '@material-ui/lab/useAutocomplete';
                         iframe={false}
                         component={require('app/main/documentation/material-ui-components/components/autocomplete/CheckboxesTags.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/CheckboxesTags.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Sizes</Typography>
+                    <Typography className="mb-16" component="div">Fancy smaller inputs? Use the <code>{`size`}</code> prop.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/autocomplete/Sizes.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/Sizes.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Customized Autocomplete</Typography>
                     <Typography className="mb-16" component="div">This demo reproduces the GitHub&#39;s label picker:</Typography>

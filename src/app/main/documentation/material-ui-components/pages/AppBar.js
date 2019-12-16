@@ -53,7 +53,7 @@ function AppBarDoc(props)
                     <Typography className="description">The App Bar displays information and actions relating to the current screen.</Typography>
 
                     <Typography className="mb-16" component="div">The <a href="https://material.io/design/components/app-bars-top.html">top App Bar</a> provides content and actions related to the current screen. It’s used for branding, screen titles, navigation, and actions.</Typography>
-                    <Typography className="mb-16" component="div">It can transform into a contextual action bar or used as a navbar.</Typography>
+                    <Typography className="mb-16" component="div">It can transform into a contextual action bar or be used as a navbar.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Simple App Bar</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"

@@ -32,7 +32,7 @@ function DialogsDoc(props)
                             <Icon className="text-16" color="action">chevron_right</Icon>
                             <Typography color="textSecondary">Material UI Components</Typography>
                         </div>
-                        <Typography variant="h6">Dialogs</Typography>
+                        <Typography variant="h6">Dialog</Typography>
                     </div>
                     <Button
                         className="normal-case"
@@ -49,7 +49,7 @@ function DialogsDoc(props)
             }
             content={
                 <div className="p-24 max-w-2xl">
-                    <Typography className="text-44 mt-32 mb-8" component="h1">Dialogs</Typography>
+                    <Typography className="text-44 mt-32 mb-8" component="h1">Dialog</Typography>
                     <Typography className="description">Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.</Typography>
 
                     <Typography className="mb-16" component="div">A <a href="https://material.io/design/components/dialogs.html">Dialog</a> is a type of <a href="/components/modal/">modal</a> window that appears in front of app content to provide critical information or ask for a decision. Dialogs disable all app functionality when they appear, and remain on screen until confirmed, dismissed, or a required action has been taken.</Typography>
@@ -186,6 +186,8 @@ function MyComponent() {
                         component={require('app/main/documentation/material-ui-components/components/dialogs/ScrollDialog.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dialogs/ScrollDialog.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Limitations</Typography>
+                    <Typography className="mb-16" component="div">Follow the <a href="/components/modal/#limitations">Modal limitations section</a>.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
                     <Typography className="mb-16" component="div">Follow the <a href="/components/modal/#accessibility">Modal accessibility section</a>.</Typography>
 

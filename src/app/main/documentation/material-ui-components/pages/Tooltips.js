@@ -32,7 +32,7 @@ function TooltipsDoc(props)
                             <Icon className="text-16" color="action">chevron_right</Icon>
                             <Typography color="textSecondary">Material UI Components</Typography>
                         </div>
-                        <Typography variant="h6">Tooltips</Typography>
+                        <Typography variant="h6">Tooltip</Typography>
                     </div>
                     <Button
                         className="normal-case"
@@ -49,7 +49,7 @@ function TooltipsDoc(props)
             }
             content={
                 <div className="p-24 max-w-2xl">
-                    <Typography className="text-44 mt-32 mb-8" component="h1">Tooltips</Typography>
+                    <Typography className="text-44 mt-32 mb-8" component="h1">Tooltip</Typography>
                     <Typography className="description">Tooltips display informative text when users hover over, focus on, or tap an element.</Typography>
 
                     <Typography className="mb-16" component="div">When activated, <a href="https://material.io/design/components/tooltips.html">Tooltips</a> display a text label identifying an element, such as a description of its function.</Typography>
@@ -78,16 +78,24 @@ function TooltipsDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/tooltips/CustomizedTooltips.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tooltips/CustomizedTooltips.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Arrow Tooltips</Typography>
+                    <Typography className="mb-16" component="div">You can use the <code>{`arrow`}</code> prop to give your tooltip an arrow indicating which element it refers to.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/tooltips/ArrowTooltips.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tooltips/ArrowTooltips.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Custom child element</Typography>
                     <Typography className="mb-16" component="div">The tooltip needs to apply DOM event listeners to its child element.
                         If the child is a custom React element, you need to make sure that it spreads its properties to the underlying DOM element.</Typography>
 
                     <FuseHighlight component="pre" className="language-jsx">
                         {` 
-function MyComponent(props) {
-  //  Spread the properties to the underlying DOM element.
-  return <div {...props}>Bin</div>
-}
+const MyComponent = React.forwardRef(function MyComponent(props, ref) {
+  //  Spread the props to the underlying DOM element.
+  return <div {...props} ref={ref}>Bin</div>
+});
 
 // ...
 

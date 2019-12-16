@@ -32,7 +32,7 @@ function BadgesDoc(props)
                             <Icon className="text-16" color="action">chevron_right</Icon>
                             <Typography color="textSecondary">Material UI Components</Typography>
                         </div>
-                        <Typography variant="h6">Badges</Typography>
+                        <Typography variant="h6">Badge</Typography>
                     </div>
                     <Button
                         className="normal-case"
@@ -49,7 +49,7 @@ function BadgesDoc(props)
             }
             content={
                 <div className="p-24 max-w-2xl">
-                    <Typography className="text-44 mt-32 mb-8" component="h1">Badges</Typography>
+                    <Typography className="text-44 mt-32 mb-8" component="h1">Badge</Typography>
                     <Typography className="description">Badge generates a small badge to the top-right of its child(ren).</Typography>
 
                     <Typography className="text-32 mt-32 mb-8" component="h2">Simple Badges</Typography>
@@ -61,7 +61,7 @@ function BadgesDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/badges/SimpleBadge.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Customized badges</Typography>
-                    <Typography className="mb-16" component="div">Here are some examples of customizing the component. You can learn more about this in the <a href="/customization/components/">overrides documentation page</a>.</Typography>
+                    <Typography className="mb-16" component="div">Here is an example of customizing the component. You can learn more about this in the <a href="/customization/components/">overrides documentation page</a>.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}

@@ -47,7 +47,7 @@ Set `freeSolo` to true so the textbox can contain any arbitrary value.
 ## `useAutocomplete`
 
 For advanced customization use cases, we expose a `useAutocomplete()` hook.
-It accepts almost the same options as the Autocomplete component minor all the props
+It accepts almost the same options as the Autocomplete component minus all the props
 related to the rendering of JSX.
 The Autocomplete component uses this hook internally.
 
@@ -94,6 +94,12 @@ In the event that you need to lock certain tag so that they can't be removed in 
 ### Checkboxes
 
 {{"demo": "pages/components/autocomplete/CheckboxesTags.js"}}
+
+## Sizes
+
+Fancy smaller inputs? Use the `size` prop.
+
+{{"demo": "pages/components/autocomplete/Sizes.js"}}
 
 ## Customized Autocomplete
 

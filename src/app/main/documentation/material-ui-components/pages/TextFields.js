@@ -32,7 +32,7 @@ function TextFieldsDoc(props)
                             <Icon className="text-16" color="action">chevron_right</Icon>
                             <Typography color="textSecondary">Material UI Components</Typography>
                         </div>
-                        <Typography variant="h6">Text Fields</Typography>
+                        <Typography variant="h6">Text Field</Typography>
                     </div>
                     <Button
                         className="normal-case"
@@ -49,7 +49,7 @@ function TextFieldsDoc(props)
             }
             content={
                 <div className="p-24 max-w-2xl">
-                    <Typography className="text-44 mt-32 mb-8" component="h1">Text Fields</Typography>
+                    <Typography className="text-44 mt-32 mb-8" component="h1">Text Field</Typography>
                     <Typography className="description">Text fields let users enter and edit text.</Typography>
 
                     <Typography className="mb-16" component="div"><a href="https://material.io/design/components/text-fields.html">Text fields</a> allow users to enter text into a UI. They typically appear in forms and dialogs.</Typography>
@@ -62,11 +62,11 @@ function TextFieldsDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/text-fields/BasicTextFields.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/BasicTextFields.js')}
                     /></Typography>
-                    <blockquote>
-                        <Typography className="mb-16" component="div"><strong>Note:</strong> The standard variant of the <code>{`TextField`}</code> is no longer documented in the <a href="https://material.io/">Material Design guidelines</a>, but Material-UI will continue to support it.</Typography>
-                    </blockquote>
+                    <Typography className="mb-16" component="div"><strong>Note:</strong> The standard variant of the <code>{`TextField`}</code> is no longer documented in the <a href="https://material.io/">Material Design guidelines</a>
+                        (<a href="https://medium.com/google-design/the-evolution-of-material-designs-text-fields-603688b3fe03">here&#39;s why</a>),
+                        but Material-UI will continue to support it.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Form props</Typography>
-                    <Typography className="mb-16" component="div">Standard form attributes are supported e.g. <code>{`required`}</code>, <code>{`readOnly`}</code>, <code>{`type`}</code>, etc. as well as a <code>{`helperText`}</code> which is used to give context about a field’s input, such as how the input will be used.</Typography>
+                    <Typography className="mb-16" component="div">Standard form attributes are supported e.g. <code>{`required`}</code>, <code>{`disabled`}</code>, <code>{`type`}</code>, etc. as well as a <code>{`helperText`}</code> which is used to give context about a field’s input, such as how the input will be used.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -114,6 +114,14 @@ function TextFieldsDoc(props)
                         iframe={false}
                         component={require('app/main/documentation/material-ui-components/components/text-fields/InputAdornments.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/InputAdornments.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Sizes</Typography>
+                    <Typography className="mb-16" component="div">Fancy smaller inputs? Use the <code>{`size`}</code> prop.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/text-fields/TextFieldSizes.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/TextFieldSizes.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Layout</Typography>
                     <Typography className="mb-16" component="div"><code>{`margin`}</code> can be used to alter the vertical spacing of inputs.

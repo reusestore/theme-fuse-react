@@ -32,7 +32,7 @@ function RadioButtonsDoc(props)
                             <Icon className="text-16" color="action">chevron_right</Icon>
                             <Typography color="textSecondary">Material UI Components</Typography>
                         </div>
-                        <Typography variant="h6">Radio buttons</Typography>
+                        <Typography variant="h6">Radio</Typography>
                     </div>
                     <Button
                         className="normal-case"
@@ -49,7 +49,7 @@ function RadioButtonsDoc(props)
             }
             content={
                 <div className="p-24 max-w-2xl">
-                    <Typography className="text-44 mt-32 mb-8" component="h1">Radio buttons</Typography>
+                    <Typography className="text-44 mt-32 mb-8" component="h1">Radio</Typography>
                     <Typography className="description">Radio buttons allow the user to select one option from a set.</Typography>
 
                     <Typography className="mb-16" component="div">Use <a href="https://material.io/design/components/selection-controls.html#radio-buttons">radio buttons</a> when the user needs to see all available options.

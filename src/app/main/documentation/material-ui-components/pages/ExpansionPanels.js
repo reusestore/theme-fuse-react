@@ -32,7 +32,7 @@ function ExpansionPanelsDoc(props)
                             <Icon className="text-16" color="action">chevron_right</Icon>
                             <Typography color="textSecondary">Material UI Components</Typography>
                         </div>
-                        <Typography variant="h6">Expansion Panels</Typography>
+                        <Typography variant="h6">Expansion Panel</Typography>
                     </div>
                     <Button
                         className="normal-case"
@@ -49,7 +49,7 @@ function ExpansionPanelsDoc(props)
             }
             content={
                 <div className="p-24 max-w-2xl">
-                    <Typography className="text-44 mt-32 mb-8" component="h1">Expansion Panels</Typography>
+                    <Typography className="text-44 mt-32 mb-8" component="h1">Expansion Panel</Typography>
                     <Typography className="description">Expansion panels contain creation flows and allow lightweight editing of an element.</Typography>
 
                     <Typography className="mb-16" component="div"><a href="https://material.io/archive/guidelines/components/expansion-panels.html">An expansion panel</a> is a lightweight container that may either stand alone or be connected to a larger surface, such as a card.</Typography>

@@ -14,6 +14,11 @@ export const MaterialUIComponentsNavigation = [{
     'type': 'item',
     'url': '/documentation/material-ui-components/avatars'
 }, {
+    'id': 'backdrop',
+    'title': 'Backdrop',
+    'type': 'item',
+    'url': '/documentation/material-ui-components/backdrop'
+}, {
     'id': 'badges',
     'title': 'Badges',
     'type': 'item',
@@ -103,11 +108,6 @@ export const MaterialUIComponentsNavigation = [{
     'title': 'Hidden',
     'type': 'item',
     'url': '/documentation/material-ui-components/hidden'
-}, {
-    'id': 'integratedAutocomplete',
-    'title': 'Integrated Autocomplete',
-    'type': 'item',
-    'url': '/documentation/material-ui-components/integrated-autocomplete'
 }, {
     'id': 'links',
     'title': 'Links',

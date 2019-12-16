@@ -32,7 +32,7 @@ function SteppersDoc(props)
                             <Icon className="text-16" color="action">chevron_right</Icon>
                             <Typography color="textSecondary">Material UI Components</Typography>
                         </div>
-                        <Typography variant="h6">Steppers</Typography>
+                        <Typography variant="h6">Stepper</Typography>
                     </div>
                     <Button
                         className="normal-case"
@@ -49,7 +49,7 @@ function SteppersDoc(props)
             }
             content={
                 <div className="p-24 max-w-2xl">
-                    <Typography className="text-44 mt-32 mb-8" component="h1">Steppers</Typography>
+                    <Typography className="text-44 mt-32 mb-8" component="h1">Stepper</Typography>
                     <Typography className="description">Steppers convey progress through numbered steps. It provides a wizard-like workflow.</Typography>
 
                     <Typography className="mb-16" component="div"><a href="https://material.io/archive/guidelines/components/steppers.html">Steppers</a> display progress through a sequence of logical and numbered steps. They may also be used for navigation.

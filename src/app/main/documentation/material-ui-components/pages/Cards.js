@@ -32,7 +32,7 @@ function CardsDoc(props)
                             <Icon className="text-16" color="action">chevron_right</Icon>
                             <Typography color="textSecondary">Material UI Components</Typography>
                         </div>
-                        <Typography variant="h6">Cards</Typography>
+                        <Typography variant="h6">Card</Typography>
                     </div>
                     <Button
                         className="normal-case"
@@ -49,7 +49,7 @@ function CardsDoc(props)
             }
             content={
                 <div className="p-24 max-w-2xl">
-                    <Typography className="text-44 mt-32 mb-8" component="h1">Cards</Typography>
+                    <Typography className="text-44 mt-32 mb-8" component="h1">Card</Typography>
                     <Typography className="description">Cards contain content and actions about a single subject.</Typography>
 
                     <Typography className="mb-16" component="div"><a href="https://material.io/design/components/cards.html">Cards</a> are surfaces that display content and actions on a single topic.</Typography>

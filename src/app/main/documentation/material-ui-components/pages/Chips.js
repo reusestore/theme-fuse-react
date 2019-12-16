@@ -32,7 +32,7 @@ function ChipsDoc(props)
                             <Icon className="text-16" color="action">chevron_right</Icon>
                             <Typography color="textSecondary">Material UI Components</Typography>
                         </div>
-                        <Typography variant="h6">Chips</Typography>
+                        <Typography variant="h6">Chip</Typography>
                     </div>
                     <Button
                         className="normal-case"
@@ -49,7 +49,7 @@ function ChipsDoc(props)
             }
             content={
                 <div className="p-24 max-w-2xl">
-                    <Typography className="text-44 mt-32 mb-8" component="h1">Chips</Typography>
+                    <Typography className="text-44 mt-32 mb-8" component="h1">Chip</Typography>
                     <Typography className="description">Chips are compact elements that represent an input, attribute, or action.</Typography>
 
                     <Typography className="mb-16" component="div"><a href="https://material.io/design/components/chips.html">Chips</a> allow users to enter information, make selections, filter content, or trigger actions.</Typography>
@@ -93,7 +93,7 @@ function ChipsDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/chips/ChipsArray.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Small Chip</Typography>
-                    <Typography className="mb-16" component="div">You can use the <code>{`size`}</code> prop to define a small Chip. </Typography>
+                    <Typography className="mb-16" component="div">You can use the <code>{`size`}</code> prop to define a small Chip.</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Default variant</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -115,6 +115,8 @@ function ChipsDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/chips/ChipsPlayground.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/chips/ChipsPlayground.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
+                    <Typography className="mb-16" component="div">If the Chip is deletable or clickable then it is a button in tab order. When the Chip is focused (e.g. when tabbing) releasing (<code>{`keyup`}</code> event) <code>{`Backspace`}</code> or <code>{`Delete`}</code> will call the <code>{`onDelete`}</code> handler while releasing <code>{`Escape`}</code> will blur the Chip.</Typography>
 
                 </div>
             }

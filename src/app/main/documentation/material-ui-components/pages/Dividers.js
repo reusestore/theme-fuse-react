@@ -32,7 +32,7 @@ function DividersDoc(props)
                             <Icon className="text-16" color="action">chevron_right</Icon>
                             <Typography color="textSecondary">Material UI Components</Typography>
                         </div>
-                        <Typography variant="h6">Dividers</Typography>
+                        <Typography variant="h6">Divider</Typography>
                     </div>
                     <Button
                         className="normal-case"
@@ -49,7 +49,7 @@ function DividersDoc(props)
             }
             content={
                 <div className="p-24 max-w-2xl">
-                    <Typography className="text-44 mt-32 mb-8" component="h1">Dividers</Typography>
+                    <Typography className="text-44 mt-32 mb-8" component="h1">Divider</Typography>
                     <Typography className="description">A divider is a thin line that groups content in lists and layouts.</Typography>
 
                     <Typography className="mb-16" component="div"><a href="https://material.io/design/components/dividers.html">Dividers</a> separate content into clear groups.</Typography>

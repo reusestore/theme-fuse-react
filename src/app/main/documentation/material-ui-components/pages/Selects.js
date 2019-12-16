@@ -32,7 +32,7 @@ function SelectsDoc(props)
                             <Icon className="text-16" color="action">chevron_right</Icon>
                             <Typography color="textSecondary">Material UI Components</Typography>
                         </div>
-                        <Typography variant="h6">Selects</Typography>
+                        <Typography variant="h6">Select</Typography>
                     </div>
                     <Button
                         className="normal-case"
@@ -49,7 +49,7 @@ function SelectsDoc(props)
             }
             content={
                 <div className="p-24 max-w-2xl">
-                    <Typography className="text-44 mt-32 mb-8" component="h1">Selects</Typography>
+                    <Typography className="text-44 mt-32 mb-8" component="h1">Select</Typography>
                     <Typography className="description">Select components are used for collecting user provided information from a list of options.</Typography>
 
                     <Typography className="text-32 mt-32 mb-8" component="h2">Simple Select</Typography>

@@ -3,7 +3,7 @@ title: Text Field React component
 components: FilledInput, FormControl, FormHelperText, Input, InputAdornment, InputBase, InputLabel, OutlinedInput, TextField
 ---
 
-# Text Fields
+# Text Field
 
 <p class="description">Text fields let users enter and edit text.</p>
 
@@ -17,11 +17,13 @@ It supports standard, outlined and filled styling.
 
 {{"demo": "pages/components/text-fields/BasicTextFields.js"}}
 
-> **Note:** The standard variant of the `TextField` is no longer documented in the [Material Design guidelines](https://material.io/), but Material-UI will continue to support it.
+**Note:** The standard variant of the `TextField` is no longer documented in the [Material Design guidelines](https://material.io/)
+([here's why](https://medium.com/google-design/the-evolution-of-material-designs-text-fields-603688b3fe03)),
+but Material-UI will continue to support it.
 
 ## Form props
 
-Standard form attributes are supported e.g. `required`, `readOnly`, `type`, etc. as well as a `helperText` which is used to give context about a field’s input, such as how the input will be used.
+Standard form attributes are supported e.g. `required`, `disabled`, `type`, etc. as well as a `helperText` which is used to give context about a field’s input, such as how the input will be used.
 
 {{"demo": "pages/components/text-fields/FormPropsTextFields.js"}}
 
@@ -56,6 +58,12 @@ These can be used to add a prefix, a suffix or an action to an input.
 For instance, you can use an icon button to hide or reveal the password.
 
 {{"demo": "pages/components/text-fields/InputAdornments.js"}}
+
+## Sizes
+
+Fancy smaller inputs? Use the `size` prop.
+
+{{"demo": "pages/components/text-fields/TextFieldSizes.js"}}
 
 ## Layout
 
@@ -110,7 +118,7 @@ Here are some examples of customizing the component. You can learn more about th
 Customization does not stop at CSS, you can use composition to build custom components and give your app a unique feel.
 Below is an example using the [`InputBase`](/api/input-base/) component, inspired by Google Maps.
 
-{{"demo": "pages/components/text-fields/CustomizedInputBase.js"}}
+{{"demo": "pages/components/text-fields/CustomizedInputBase.js", "bg": true}}
 
 ## Limitations
 

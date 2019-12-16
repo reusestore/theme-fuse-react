@@ -32,7 +32,7 @@ function TablesDoc(props)
                             <Icon className="text-16" color="action">chevron_right</Icon>
                             <Typography color="textSecondary">Material UI Components</Typography>
                         </div>
-                        <Typography variant="h6">Tables</Typography>
+                        <Typography variant="h6">Table</Typography>
                     </div>
                     <Button
                         className="normal-case"
@@ -49,11 +49,11 @@ function TablesDoc(props)
             }
             content={
                 <div className="p-24 max-w-2xl">
-                    <Typography className="text-44 mt-32 mb-8" component="h1">Tables</Typography>
-                    <Typography className="description">Data tables display sets of data. They can be fully customized.</Typography>
+                    <Typography className="text-44 mt-32 mb-8" component="h1">Table</Typography>
+                    <Typography className="description">Tables display sets of data. They can be fully customized.</Typography>
 
-                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/data-tables.html">Data tables</a> display information in a way that’s easy to scan, so that users can look for patterns and insights. They can be embedded in primary content, such as cards.</Typography>
-                    <Typography className="mb-16" component="div">Data tables can include:</Typography>
+                    <Typography className="mb-16" component="div"><a href="https://material.io/design/components/data-tables.html">Tables</a> display information in a way that’s easy to scan, so that users can look for patterns and insights. They can be embedded in primary content, such as cards.</Typography>
+                    <Typography className="mb-16" component="div">Tables can include:</Typography>
                     <ul>
                         <li>A corresponding visualization</li>
                         <li>Navigation</li>

@@ -32,7 +32,7 @@ function SwitchesDoc(props)
                             <Icon className="text-16" color="action">chevron_right</Icon>
                             <Typography color="textSecondary">Material UI Components</Typography>
                         </div>
-                        <Typography variant="h6">Switches</Typography>
+                        <Typography variant="h6">Switch</Typography>
                     </div>
                     <Button
                         className="normal-case"
@@ -49,7 +49,7 @@ function SwitchesDoc(props)
             }
             content={
                 <div className="p-24 max-w-2xl">
-                    <Typography className="text-44 mt-32 mb-8" component="h1">Switches</Typography>
+                    <Typography className="text-44 mt-32 mb-8" component="h1">Switch</Typography>
                     <Typography className="description">Switches toggle the state of a single setting on or off.</Typography>
 
                     <Typography className="mb-16" component="div"><a href="https://material.io/design/components/selection-controls.html#switches">Switches</a> are the preferred way to adjust settings on mobile.

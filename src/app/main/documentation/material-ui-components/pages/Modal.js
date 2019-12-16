@@ -119,6 +119,17 @@ function ModalDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/modal/ServerModal.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/modal/ServerModal.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Limitations</Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Focus trap</Typography>
+                    <Typography className="mb-16" component="div">The modal moves the focus back to the body of the component if the focus tries to escape it.</Typography>
+                    <Typography className="mb-16" component="div">This is done for accessibility purposes, however, it might create issues.
+                        In the event the users need to interact with another part of the page, e.g. with a chatbot window, you can disable the behavior:</Typography>
+
+                    <FuseHighlight component="pre" className="language-jsx">
+                        {` 
+<Modal disableEnforceFocus />
+`}
+                    </FuseHighlight>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
                     <Typography className="mb-16" component="div">(WAI-ARIA: <a href="https://www.w3.org/TR/wai-aria-practices/#dialog_modal">https://www.w3.org/TR/wai-aria-practices/#dialog_modal</a>)</Typography>
                     <ul>

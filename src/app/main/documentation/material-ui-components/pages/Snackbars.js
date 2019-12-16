@@ -32,7 +32,7 @@ function SnackbarsDoc(props)
                             <Icon className="text-16" color="action">chevron_right</Icon>
                             <Typography color="textSecondary">Material UI Components</Typography>
                         </div>
-                        <Typography variant="h6">Snackbars</Typography>
+                        <Typography variant="h6">Snackbar</Typography>
                     </div>
                     <Button
                         className="normal-case"
@@ -49,7 +49,7 @@ function SnackbarsDoc(props)
             }
             content={
                 <div className="p-24 max-w-2xl">
-                    <Typography className="text-44 mt-32 mb-8" component="h1">Snackbars</Typography>
+                    <Typography className="text-44 mt-32 mb-8" component="h1">Snackbar</Typography>
                     <Typography className="description">Snackbars provide brief messages about app processes. The component is also known as a toast.</Typography>
 
                     <Typography className="mb-16" component="div"><a href="https://material.io/design/components/snackbars.html">Snackbars</a> inform users of a process that an app has performed or will perform. They appear temporarily, towards the bottom of the screen. They shouldn’t interrupt the user experience, and they don’t require user input to disappear.</Typography>

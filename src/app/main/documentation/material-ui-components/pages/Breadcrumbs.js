@@ -59,6 +59,14 @@ function BreadcrumbsDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/breadcrumbs/SimpleBreadcrumbs.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/breadcrumbs/SimpleBreadcrumbs.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Active last breadcrumb</Typography>
+                    <Typography className="mb-16" component="div">Keep the last breadcrumb interactive.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/breadcrumbs/ActiveLastBreadcrumb.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/breadcrumbs/ActiveLastBreadcrumb.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Custom separator</Typography>
                     <Typography className="mb-16" component="div">In the following examples, we are using two string separators, and an SVG icon.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
