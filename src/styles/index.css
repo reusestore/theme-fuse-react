@@ -1,3 +1,5 @@
+/* purgecss start ignore */
+
 @import-normalize ;
 
 @import 'tailwind-preflight.css';
@@ -95,5 +97,7 @@ form label {
 @import 'react-table.css';
 
 @import 'prism.css';
+
+/* purgecss end ignore */
 
 @import 'tailwind.css';
