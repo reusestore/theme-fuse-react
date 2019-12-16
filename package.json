@@ -83,7 +83,7 @@
     "scripts": {
         "start": "yarn run tailwind && react-scripts start",
         "build": "yarn run tailwind && node ./purge-tailwindcss.js && cross-env GENERATE_SOURCEMAP=false react-scripts build",
-        "tailwind": "./node_modules/.bin/tailwind build ./src/styles/tailwind.base.css -c ./tailwind.js -o ./src/styles/tailwind.css",
+        "tailwind": "./node_modules/.bin/tailwind build ./src/styles/tailwind-config.css -c ./tailwind.config.js -o ./src/styles/tailwind.css",
         "test": "react-scripts test --env=node",
         "eject": "react-scripts eject",
         "build-docs": "find ./src/app/main/documentation/material-ui-components \\( -name '*.ts' -o -name '*.tsx' \\) -type f -delete && babel-node src/app/main/documentation/material-ui-components/build.js",

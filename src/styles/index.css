@@ -1,8 +1,6 @@
-/* purgecss start ignore */
-
 @import-normalize ;
 
-@import 'tailwind-preflight.css';
+@import 'tailwind-base.css';
 
 html {
     font-size: 62.5%;
@@ -97,7 +95,5 @@ form label {
 @import 'react-table.css';
 
 @import 'prism.css';
-
-/* purgecss end ignore */
 
 @import 'tailwind.css';
