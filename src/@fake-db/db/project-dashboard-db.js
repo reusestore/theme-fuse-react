@@ -80,14 +80,16 @@ const projectDashboardAppDB = {
                             label               : 'Issues',
                             data                : [42, 28, 43, 34, 20, 25, 22],
                             backgroundColor     : '#42BFF7',
-                            hoverBackgroundColor: '#87cdf7'
+                            hoverBackgroundColor: '#87CDF7',
+                            categoryPercentage  : 1
                         },
                         {
                             type                : 'bar',
                             label               : 'Closed issues',
                             data                : [11, 10, 8, 11, 8, 10, 17],
-                            backgroundColor     : '#c6ecfd',
-                            hoverBackgroundColor: '#d7effd'
+                            backgroundColor     : '#C6ECFD',
+                            hoverBackgroundColor: '#D7EFFD',
+                            categoryPercentage  : 1
                         }
                     ]
                 },
@@ -99,14 +101,16 @@ const projectDashboardAppDB = {
                             label               : 'Issues',
                             data                : [37, 32, 39, 27, 18, 24, 20],
                             backgroundColor     : '#42BFF7',
-                            hoverBackgroundColor: '#87cdf7'
+                            hoverBackgroundColor: '#87CDF7',
+                            categoryPercentage  : 1
                         },
                         {
                             type                : 'bar',
                             label               : 'Closed issues',
                             data                : [9, 12, 9, 12, 7, 8, 16],
-                            backgroundColor     : '#c6ecfd',
-                            hoverBackgroundColor: '#d7effd'
+                            backgroundColor     : '#C6ECFD',
+                            hoverBackgroundColor: '#D7EFFD',
+                            categoryPercentage  : 1
                         }
                     ]
                 },
@@ -118,14 +122,16 @@ const projectDashboardAppDB = {
                             label               : 'Issues',
                             data                : [37, 24, 51, 31, 29, 17, 31],
                             backgroundColor     : '#42BFF7',
-                            hoverBackgroundColor: '#87cdf7'
+                            hoverBackgroundColor: '#87CDF7',
+                            categoryPercentage  : 1
                         },
                         {
                             type                : 'bar',
                             label               : 'Closed issues',
                             data                : [12, 8, 7, 13, 7, 6, 10],
-                            backgroundColor     : '#c6ecfd',
-                            hoverBackgroundColor: '#d7effd'
+                            backgroundColor     : '#C6ECFD',
+                            hoverBackgroundColor: '#D7EFFD',
+                            categoryPercentage  : 1
                         }
                     ]
                 },
@@ -141,13 +147,12 @@ const projectDashboardAppDB = {
                     scales             : {
                         xAxes: [
                             {
-                                stacked           : true,
-                                display           : true,
-                                gridLines         : {
+                                stacked  : true,
+                                display  : true,
+                                gridLines: {
                                     display: false
                                 },
-                                labels            : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                                categoryPercentage: 1
+                                labels   : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
                             }
                         ],
                         yAxes: [
@@ -645,16 +650,16 @@ const projectDashboardAppDB = {
                         {
                             data                : [15, 20, 38, 27],
                             backgroundColor     : [
-                                '#f44336',
-                                '#9c27b0',
-                                '#03a9f4',
-                                '#e91e63'
+                                '#F44336',
+                                '#9C27B0',
+                                '#03A9F4',
+                                '#E91E63'
                             ],
                             hoverBackgroundColor: [
-                                '#f45a4d',
-                                '#a041b0',
-                                '#25b6f4',
-                                '#e9487f'
+                                '#F45A4D',
+                                '#A041B0',
+                                '#25B6F4',
+                                '#E9487F'
                             ]
                         }
                     ],
@@ -662,16 +667,16 @@ const projectDashboardAppDB = {
                         {
                             data                : [19, 16, 42, 23],
                             backgroundColor     : [
-                                '#f44336',
-                                '#9c27b0',
-                                '#03a9f4',
-                                '#e91e63'
+                                '#F44336',
+                                '#9C27B0',
+                                '#03A9F4',
+                                '#E91E63'
                             ],
                             hoverBackgroundColor: [
-                                '#f45a4d',
-                                '#a041b0',
-                                '#25b6f4',
-                                '#e9487f'
+                                '#F45A4D',
+                                '#A041B0',
+                                '#25B6F4',
+                                '#E9487F'
                             ]
                         }
                     ],
@@ -679,16 +684,16 @@ const projectDashboardAppDB = {
                         {
                             data                : [18, 17, 40, 25],
                             backgroundColor     : [
-                                '#f44336',
-                                '#9c27b0',
-                                '#03a9f4',
-                                '#e91e63'
+                                '#F44336',
+                                '#9C27B0',
+                                '#03A9F4',
+                                '#E91E63'
                             ],
                             hoverBackgroundColor: [
-                                '#f45a4d',
-                                '#a041b0',
-                                '#25b6f4',
-                                '#e9487f'
+                                '#F45A4D',
+                                '#A041B0',
+                                '#25B6F4',
+                                '#E9487F'
                             ]
                         }
                     ]
@@ -822,18 +827,18 @@ const projectDashboardAppDB = {
                     {
                         data                : [12, 17, 28, 25, 15],
                         backgroundColor     : [
-                            '#f44336',
-                            '#9c27b0',
-                            '#03a9f4',
-                            '#e91e63',
-                            '#ffc107'
+                            '#F44336',
+                            '#9C27B0',
+                            '#03A9F4',
+                            '#E91E63',
+                            '#FFC107'
                         ],
                         hoverBackgroundColor: [
-                            '#f45a4d',
-                            '#a041b0',
-                            '#25b6f4',
-                            '#e9487f',
-                            '#ffd341'
+                            '#F45A4D',
+                            '#A041B0',
+                            '#25B6F4',
+                            '#E9487F',
+                            '#FFD341'
                         ]
                     }
                 ],
