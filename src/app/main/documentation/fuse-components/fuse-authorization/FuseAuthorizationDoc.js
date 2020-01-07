@@ -76,7 +76,7 @@ function FuseAuthorizationDoc()
                             </TableHead>
                             <TableBody>
                                 <TableRow>
-                                    <TableCell><code>null</code> or <code>undefined</code></TableCell>
+                                    <TableCell><code>null</code></TableCell>
                                     <TableCell>Do not check, allow everyone</TableCell>
                                 </TableRow>
                                 <TableRow>
@@ -170,7 +170,7 @@ function FuseAuthorizationDoc()
                             `}
                     </FuseHighlight>
 
-                    <Typography className="mt-48 mb-4" variant="h6">Making the whole app auth protected:</Typography>
+                    <Typography className="mt-48 mb-4" variant="h5">Making the whole app auth protected:</Typography>
                     <Typography className="mb-12" variant="subtitle2">On routesConfig.js file</Typography>
 
                     <Typography className="mb-16" component="p">
@@ -222,6 +222,60 @@ function FuseAuthorizationDoc()
                                 ];
                                 
                                 export default routes;
+
+                            `}
+                    </FuseHighlight>
+                    <Typography className="mt-48 mb-4" variant="h5">Allow everyone(guest,user) for accessing root (/) page as a landing page</Typography>
+                    <Typography className="mb-16" component="p">
+                        After configuring to make whole app protected as above, we need to set <code>auth:null</code> at the route: <code>/</code> for to make it accesible for everyone.
+                        <br/>If you redirect main route (/), also make sure to set the redirected route config <code>auth:null</code>.
+                    </Typography>
+                    <FuseHighlight component="pre" className="language-js">
+                        {`
+                                import React from 'react';
+                                import {Redirect} from 'react-router-dom';
+                                import {FuseUtils} from '@fuse/index';
+                                import {appsConfigs} from 'app/main/apps/appsConfigs';
+                                import {pagesConfigs} from 'app/main/pages/pagesConfigs';
+                                import {authRoleExamplesConfigs} from 'app/main/auth/authRoleExamplesConfigs';
+                                import {UserInterfaceConfig} from 'app/main/user-interface/UserInterfaceConfig';
+                                import {DocumentationConfig} from 'app/main/documentation/DocumentationConfig';
+                                import {LoginConfig} from 'app/main/login/LoginConfig';
+                                import {RegisterConfig} from 'app/main/register/RegisterConfig';
+                                import {LogoutConfig} from 'app/main/logout/LogoutConfig';
+                                import {CallbackConfig} from 'app/main/callback/CallbackConfig';
+                                
+                                const routeConfigs = [
+                                    ...appsConfigs,
+                                    ...pagesConfigs,
+                                    ...authRoleExamplesConfigs,
+                                    UserInterfaceConfig,
+                                    DocumentationConfig,
+                                    LogoutConfig,
+                                    LoginConfig,
+                                    RegisterConfig,
+                                    LogoutConfig,
+                                    CallbackConfig
+                                ];
+                                
+                                const routes = [
+                                    //if you want to make whole app auth protected by default change defaultAuth for example:
+                                    // ...FuseUtils.generateRoutesFromConfigs(routeConfigs, ['admin','staff','user']),
+                                    // The individual route configs which has auth option won't be overridden.
+                                    ...FuseUtils.generateRoutesFromConfigs(routeConfigs, ['admin', 'staff', 'user']),
+                                    {
+                                        path     : '/',
+                                        exact    : true,
+                                        auth     : null,
+                                        component: LandingPage
+                                    },
+                                    {
+                                        component: () => <Redirect to="/pages/errors/error-404"/>
+                                    }
+                                ];
+                                
+                                export default routes;
+
 
                             `}
                     </FuseHighlight>
