@@ -12,8 +12,8 @@ function PurchaseButton()
                 className="normal-case"
                 variant="contained"
                 color="secondary">
-            <Icon className="text-16 mr-4">shopping_cart</Icon>
-            <span>Purchase FUSE React</span>
+            <Icon className="text-16">shopping_cart</Icon>
+            <span className="mx-4">Purchase FUSE React</span>
         </Button>
     );
 }

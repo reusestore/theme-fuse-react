@@ -10,6 +10,7 @@ import OrderInvoice from './OrderInvoice';
 import * as Actions from '../store/actions';
 import reducer from '../store/reducers';
 import {useDispatch, useSelector} from 'react-redux';
+import {useTheme} from '@material-ui/styles';
 
 function Marker(props)
 {
@@ -24,6 +25,7 @@ function Order(props)
 {
     const dispatch = useDispatch();
     const order = useSelector(({eCommerceApp}) => eCommerceApp.order);
+    const theme = useTheme();
 
     const [tabValue, setTabValue] = useState(0);
     const [map, setMap] = useState('shipping');
@@ -51,8 +53,8 @@ function Order(props)
 
                             <FuseAnimate animation="transition.slideRightIn" delay={300}>
                                 <Typography className="normal-case flex items-center sm:mb-12" component={Link} role="button" to="/apps/e-commerce/orders" color="inherit">
-                                    <Icon className="mr-4 text-20">arrow_back</Icon>
-                                    Orders
+                                    <Icon className="text-20">{theme.direction === "ltr" ? "arrow_back" : "arrow_forward"}</Icon>
+                                    <span className="mx-4">Orders</span>
                                 </Typography>
                             </FuseAnimate>
 
@@ -100,8 +102,8 @@ function Order(props)
                                 <div className="pb-48">
 
                                     <div className="pb-16 flex items-center">
-                                        <Icon className="mr-16" color="action">account_circle</Icon>
-                                        <Typography className="h2" color="textSecondary">Customer</Typography>
+                                        <Icon color="action">account_circle</Icon>
+                                        <Typography className="h2 mx-16" color="textSecondary">Customer</Typography>
                                     </div>
 
                                     <div className="mb-24">
@@ -120,8 +122,8 @@ function Order(props)
                                                     <tr>
                                                         <td>
                                                             <div className="flex items-center">
-                                                                <Avatar className="mr-8" src={order.customer.avatar}/>
-                                                                <Typography className="truncate">
+                                                                <Avatar src={order.customer.avatar}/>
+                                                                <Typography className="truncate mx-8">
                                                                     {order.customer.firstName + ' ' + order.customer.lastName}
                                                                 </Typography>
                                                             </div>
@@ -201,8 +203,8 @@ function Order(props)
                                 <div className="pb-48">
 
                                     <div className="pb-16 flex items-center">
-                                        <Icon className="mr-16" color="action">access_time</Icon>
-                                        <Typography className="h2" color="textSecondary">Order Status</Typography>
+                                        <Icon color="action">access_time</Icon>
+                                        <Typography className="h2 mx-16" color="textSecondary">Order Status</Typography>
                                     </div>
 
                                     <div className="table-responsive">
@@ -232,8 +234,8 @@ function Order(props)
                                 <div className="pb-48">
 
                                     <div className="pb-16 flex items-center">
-                                        <Icon className="mr-16" color="action">attach_money</Icon>
-                                        <Typography className="h2" color="textSecondary">Payment</Typography>
+                                        <Icon color="action">attach_money</Icon>
+                                        <Typography className="h2 mx-16" color="textSecondary">Payment</Typography>
                                     </div>
 
                                     <div className="table-responsive">
@@ -277,8 +279,8 @@ function Order(props)
                                 <div className="pb-48">
 
                                     <div className="pb-16 flex items-center">
-                                        <Icon className="mr-16" color="action">local_shipping</Icon>
-                                        <Typography className="h2" color="textSecondary">Shipping</Typography>
+                                        <Icon color="action">local_shipping</Icon>
+                                        <Typography className="h2 mx-12" color="textSecondary">Shipping</Typography>
                                     </div>
 
                                     <div className="table-responsive">

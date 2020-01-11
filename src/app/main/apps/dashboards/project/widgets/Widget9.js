@@ -43,10 +43,10 @@ function Widget9(props)
                             {widget[id].title}
                         </Typography>
                         <div className="flex items-center">
-                            <Typography className="text-32 mr-4" color="textSecondary">
+                            <Typography className="text-32" color="textSecondary">
                                 $
                             </Typography>
-                            <Typography className="text-32">
+                            <Typography className="text-32 mx-4">
                                 {widget[id].count[currentRange]}
                             </Typography>
                         </div>
@@ -81,10 +81,10 @@ function Widget9(props)
                     {widget.totalBudget.title}
                 </Typography>
                 <div className="flex items-center">
-                    <Typography className="text-32 mr-4" color="textSecondary">
+                    <Typography className="text-32" color="textSecondary">
                         $
                     </Typography>
-                    <Typography className="text-32">
+                    <Typography className="text-32 mx-4">
                         {widget.totalBudget.count}
                     </Typography>
                 </div>

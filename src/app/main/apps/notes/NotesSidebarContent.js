@@ -42,7 +42,7 @@ function NotesSidebarContent(props)
     const classes = useStyles(props);
 
     return (
-        <div className="py-24 lg:p-24 lg:pr-4">
+        <div className="p-0 lg:p-24 lg:ltr:pr-4 lg:rtl:pl-4">
             <FuseAnimate animation="transition.slideLeftIn" delay={200}>
                 <Paper elevation={1} className={clsx(classes.paper, "rounded-8")}>
                     <List>
@@ -55,7 +55,7 @@ function NotesSidebarContent(props)
                             className={classes.listItem}
                         >
                             <Icon className="list-item-icon text-16" color="action">label</Icon>
-                            <ListItemText className="truncate pr-0" primary="Notes" disableTypography={true}/>
+                            <ListItemText className="truncate" primary="Notes" disableTypography={true}/>
                         </ListItem>
                         <ListItem
                             button
@@ -66,7 +66,7 @@ function NotesSidebarContent(props)
                             className={classes.listItem}
                         >
                             <Icon className="list-item-icon text-16" color="action">notifications</Icon>
-                            <ListItemText className="truncate pr-0" primary="Reminders" disableTypography={true}/>
+                            <ListItemText className="truncate" primary="Reminders" disableTypography={true}/>
                         </ListItem>
                     </List>
                     <Divider/>
@@ -86,7 +86,7 @@ function NotesSidebarContent(props)
                                 className={classes.listItem}
                             >
                                 <Icon className="list-item-icon text-16" color="action">label</Icon>
-                                <ListItemText className="truncate pr-0" primary={label.name} disableTypography={true}/>
+                                <ListItemText className="truncate" primary={label.name} disableTypography={true}/>
                             </ListItem>
                         ))}
                         <ListItem
@@ -95,7 +95,7 @@ function NotesSidebarContent(props)
                             onClick={ev => dispatch(Actions.openLabelsDialog())}
                         >
                             <Icon className="list-item-icon text-16" color="action">edit</Icon>
-                            <ListItemText className="truncate pr-0" primary="Edit Labels" disableTypography={true}/>
+                            <ListItemText className="truncate" primary="Edit Labels" disableTypography={true}/>
                         </ListItem>
                     </List>
                     <Divider/>
@@ -108,7 +108,7 @@ function NotesSidebarContent(props)
                             className={classes.listItem}
                         >
                             <Icon className="list-item-icon text-16" color="action">archive</Icon>
-                            <ListItemText className="truncate pr-0" primary="Archive" disableTypography={true}/>
+                            <ListItemText className="truncate" primary="Archive" disableTypography={true}/>
                         </ListItem>
                     </List>
                 </Paper>

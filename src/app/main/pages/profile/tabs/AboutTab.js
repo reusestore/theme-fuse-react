@@ -23,7 +23,8 @@ function AboutTab()
     return (
         <div className="md:flex max-w-2xl">
 
-            <div className="flex flex-col flex-1 md:pr-32">
+            <div className="flex flex-col flex-1 md:ltr:pr-32 md:rtl:pl-32">
+
                 <FuseAnimateGroup
                     enter={{
                         animation: "transition.slideUpBigIn"
@@ -31,8 +32,8 @@ function AboutTab()
                 >
                     <Card className="w-full mb-16">
                         <AppBar position="static" elevation={0}>
-                            <Toolbar className="pl-16 pr-8">
-                                <Typography variant="subtitle1" color="inherit" className="flex-1">
+                            <Toolbar className="px-8">
+                                <Typography variant="subtitle1" color="inherit" className="flex-1 px-12">
                                     General Information
                                 </Typography>
                             </Toolbar>
@@ -55,7 +56,7 @@ function AboutTab()
                                 {general.locations.map((location) => (
                                     <div className="flex items-center" key={location}>
                                         <Typography>{location}</Typography>
-                                        <Icon className="text-16 ml-4" color="action">location_on</Icon>
+                                        <Icon className="text-16 mx-4" color="action">location_on</Icon>
                                     </div>
                                 ))}
                             </div>
@@ -70,8 +71,8 @@ function AboutTab()
 
                     <Card className="w-full mb-16">
                         <AppBar position="static" elevation={0}>
-                            <Toolbar className="pl-16 pr-8">
-                                <Typography variant="subtitle1" color="inherit" className="flex-1">
+                            <Toolbar className="px-8">
+                                <Typography variant="subtitle1" color="inherit" className="flex-1 px-12">
                                     Work
                                 </Typography>
                             </Toolbar>
@@ -94,10 +95,10 @@ function AboutTab()
                                     <tbody>
                                         {work.jobs.map((job) => (
                                             <tr key={job.company}>
-                                                <td className="pr-16">
+                                                <td>
                                                     <Typography>{job.company}</Typography>
                                                 </td>
-                                                <td>
+                                                <td className="px-16">
                                                     <Typography color="textSecondary">{job.date}</Typography>
                                                 </td>
                                             </tr>
@@ -110,8 +111,8 @@ function AboutTab()
 
                     <Card className="w-full mb-16">
                         <AppBar position="static" elevation={0}>
-                            <Toolbar className="pl-16 pr-8">
-                                <Typography variant="subtitle1" color="inherit" className="flex-1">
+                            <Toolbar className="px-8">
+                                <Typography variant="subtitle1" color="inherit" className="flex-1 px-12">
                                     Contact
                                 </Typography>
                             </Toolbar>
@@ -166,26 +167,24 @@ function AboutTab()
                 >
                     <Card className="w-full mb-16">
                         <AppBar position="static" elevation={0}>
-                            <Toolbar className="pl-16 pr-8">
-                                <Typography variant="subtitle1" color="inherit" className="flex-1">
+                            <Toolbar className="px-8">
+                                <Typography variant="subtitle1" color="inherit" className="flex-1 px-12">
                                     Friends
                                 </Typography>
                                 <Button className="normal-case" color="inherit" size="small">See 454 more</Button>
                             </Toolbar>
                         </AppBar>
-                        <CardContent className="p-0">
-                            <List className="p-8">
-                                {friends.map((friend) => (
-                                    <img key={friend.id} className="w-64 m-4" src={friend.avatar} alt={friend.name}/>
-                                ))}
-                            </List>
+                        <CardContent className="flex flex-wrap p-8">
+                            {friends.map((friend) => (
+                                <img key={friend.id} className="w-64 m-4 rounded-4 block" src={friend.avatar} alt={friend.name}/>
+                            ))}
                         </CardContent>
                     </Card>
 
                     <Card className="w-full mb-16">
                         <AppBar position="static" elevation={0}>
-                            <Toolbar className="pl-16 pr-8">
-                                <Typography variant="subtitle1" color="inherit" className="flex-1">
+                            <Toolbar className="px-8">
+                                <Typography variant="subtitle1" color="inherit" className="flex-1 px-12">
                                     Joined Groups
                                 </Typography>
                                 <Button className="normal-case" color="inherit" size="small">See 6 more</Button>
@@ -194,16 +193,16 @@ function AboutTab()
                         <CardContent className="p-0">
                             <List className="p-0">
                                 {groups.map((group) => (
-                                    <ListItem key={group.id}>
-                                        <Avatar alt={group.name}>{group.name[0]}</Avatar>
+                                    <ListItem key={group.id} className="px-8">
+                                        <Avatar className="mx-8" alt={group.name}>{group.name[0]}</Avatar>
                                         <ListItemText
                                             primary={(
-                                                <div className="">
-                                                    <Typography className="inline font-medium" color="secondary" paragraph={false}>
+                                                <div className="flex">
+                                                    <Typography className="font-medium" color="secondary" paragraph={false}>
                                                         {group.name}
                                                     </Typography>
 
-                                                    <Typography className="inline ml-4" paragraph={false}>
+                                                    <Typography className="mx-4" paragraph={false}>
                                                         {group.category}
                                                     </Typography>
                                                 </div>

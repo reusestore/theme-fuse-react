@@ -34,9 +34,9 @@ function MailDetails(props)
                     </FuseAnimate>
 
                     {labels && mail.labels.length > 0 && (
-                        <div className="flex flex-wrap mt-8">
+                        <div className="flex flex-wrap mt-8 -mx-2">
                             {mail.labels.map(label => (
-                                <MailChip className="mt-4 mr-4" title={_.find(labels, {id: label}).title} color={_.find(labels, {id: label}).color} key={label}/>
+                                <MailChip className="mt-4 mx-2" title={_.find(labels, {id: label}).title} color={_.find(labels, {id: label}).color} key={label}/>
                             ))}
                         </div>
                     )}
@@ -54,21 +54,21 @@ function MailDetails(props)
                         <div className="flex items-center justify-start">
                             {mail.from.avatar ?
                                 (
-                                    <Avatar className="mr-8" alt={mail.from.name} src={mail.from.avatar}/>
+                                    <Avatar alt={mail.from.name} src={mail.from.avatar}/>
                                 )
                                 :
                                 (
-                                    <Avatar className="mr-8">
+                                    <Avatar>
                                         {mail.from.name[0]}
                                     </Avatar>
                                 )
                             }
 
-                            <div className="flex flex-col">
+                            <div className="flex flex-col mx-8">
                                 <span>{mail.from.name}</span>
                                 <Typography component="div" color="textSecondary" variant="body1" className="flex items-center justify-start">
                                     <div>to</div>
-                                    <div className="ml-4">{mail.to[0].name}</div>
+                                    <div className="mx-4">{mail.to[0].name}</div>
                                 </Typography>
                             </div>
                         </div>
@@ -104,7 +104,7 @@ function MailDetails(props)
                                     <span>Date:</span>
                                 </Typography>
 
-                                <Typography variant="body2" color="textSecondary" className="pl-4 flex flex-col">
+                                <Typography variant="body2" color="textSecondary" className="px-4 flex flex-col">
                                     <span>{mail.from.email}</span>
                                     <span>{mail.to[0].email}</span>
                                     <span>{mail.time}</span>
@@ -120,13 +120,13 @@ function MailDetails(props)
                     {mail.attachments && (
                         <div>
                             <Typography variant="subtitle1" className="mb-16">
-                                <span>Attachments</span>
-                                <span className="ml-4">({mail.attachments.length})</span>
+                                <span className="mx-4">Attachments</span>
+                                <span>({mail.attachments.length})</span>
                             </Typography>
 
-                            <div className="flex flex-wrap">
+                            <div className="flex flex-wrap -mx-8">
                                 {mail.attachments.map(attachment => (
-                                    <div className="w-192 pr-16 pb-16" key={attachment.fileName}>
+                                    <div className="w-192 px-8 pb-16" key={attachment.fileName}>
                                         <img className="w-full rounded-4" src={attachment.preview} alt={attachment.fileName}/>
                                         <div className="flex flex-col">
                                             <Typography color="primary" className="underline cursor-pointer" onClick={event => event.preventDefault()}>View</Typography>

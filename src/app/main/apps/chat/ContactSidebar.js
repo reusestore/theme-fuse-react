@@ -20,8 +20,8 @@ function ContactSidebar(props)
 
             <AppBar position="static" color="primary" elevation={1}>
 
-                <Toolbar className="flex justify-between items-center px-16 pr-4">
-                    <Typography color="inherit" variant="subtitle1">Contact Info</Typography>
+                <Toolbar className="flex justify-between items-center px-4">
+                    <Typography className="px-12" color="inherit" variant="subtitle1">Contact Info</Typography>
                     <IconButton onClick={() => dispatch(Actions.closeContactSidebar())} color="inherit">
                         <Icon>close</Icon>
                     </IconButton>

@@ -30,14 +30,14 @@ function renderInputComponent(inputProps)
                                     inputRef(node);
                                 },
                                 classes : {
-                                    input         : clsx(classes.input, "py-0 px-16 h-48 pr-48"),
+                                    input         : clsx(classes.input, "py-0 px-16 h-48 ltr:pr-48 rtl:pl-48"),
                                     notchedOutline: "rounded-8"
                                 }
                             }}
                             variant="outlined"
                             {...other}
                         />
-                        <Icon className="absolute top-0 right-0 h-48 w-48 p-12 pointer-events-none" color="action">search</Icon>
+                        <Icon className="absolute top-0 ltr:right-0 rtl:left-0 h-48 w-48 p-12 pointer-events-none" color="action">search</Icon>
                     </React.Fragment>
                 )
                 :
@@ -81,7 +81,6 @@ function renderSuggestion(suggestion, {query, isHighlighted})
                 }
             </ListItemIcon>
             <ListItemText
-                className="pl-0"
                 primary={
                     parts.map((part, index) => {
                         return part.highlight ? (

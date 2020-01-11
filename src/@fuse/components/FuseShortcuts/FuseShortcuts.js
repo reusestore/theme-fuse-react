@@ -92,7 +92,7 @@ function FuseShortcuts(props)
                             )
                         }
                     </ListItemIcon>
-                    <ListItemText className="pl-0" primary={item.title}/>
+                    <ListItemText primary={item.title}/>
                     <IconButton
                         onClick={(ev) => {
                             ev.preventDefault();

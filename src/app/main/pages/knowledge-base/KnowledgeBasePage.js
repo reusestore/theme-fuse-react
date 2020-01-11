@@ -91,14 +91,14 @@ function KnowledgeBasePage()
                                         <List component="nav">
                                             {category.featuredArticles.map(article => (
                                                 <ListItem key={article.id} button onClick={() => handleOpenDialog(article)}>
-                                                    <ListItemIcon className="mr-0 min-w-40">
+                                                    <ListItemIcon className="min-w-40">
                                                         <Icon>note</Icon>
                                                     </ListItemIcon>
                                                     <ListItemText primary={article.title}/>
                                                 </ListItem>
                                             ))}
                                         </List>
-                                        <Button className="normal-case w-full justify-start" color="secondary">See all articles ({category.articlesCount})</Button>
+                                        <Button className="normal-case w-full justify-start" color="secondary">{`See all articles (${category.articlesCount})`}</Button>
                                     </CardContent>
                                 </Card>
                             </div>

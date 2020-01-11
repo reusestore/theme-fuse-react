@@ -163,15 +163,15 @@ function NoteForm(props)
                     )}
 
                     {(noteForm.labels || noteForm.reminder || noteForm.time) && (
-                        <div className="flex flex-wrap w-full p-16 pb-12">
+                        <div className="flex flex-wrap w-full p-16 pb-12 -mx-4">
                             {noteForm.reminder && (
-                                <NoteReminderLabel className="mt-4 mr-4" date={noteForm.reminder}/>
+                                <NoteReminderLabel className="mt-4 mx-4" date={noteForm.reminder}/>
                             )}
                             {noteForm.labels && noteForm.labels.map(id => (
-                                <NoteLabel id={id} key={id} className="mt-4 mr-4" onDelete={() => handleRemoveLabel(id)}/>
+                                <NoteLabel id={id} key={id} className="mt-4 mx-4" onDelete={() => handleRemoveLabel(id)}/>
                             ))}
                             {noteForm.time && (
-                                <Typography color="textSecondary" className="text-12 ml-auto mt-8 mr-4">
+                                <Typography color="textSecondary" className="text-12 mt-8 mx-4">
                                     Edited: {moment(noteForm.time).format('MMM DD YY, h:mm A')}
                                 </Typography>
                             )}

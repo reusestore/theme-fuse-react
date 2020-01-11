@@ -25,10 +25,10 @@ function NotesHeader(props)
 
                 <div className="flex items-center">
                     <FuseAnimate animation="transition.expandIn" delay={300}>
-                        <Icon className="text-32 mr-12">account_box</Icon>
+                        <Icon className="text-32">account_box</Icon>
                     </FuseAnimate>
                     <FuseAnimate animation="transition.slideLeftIn" delay={300}>
-                        <Typography variant="h6" className="hidden sm:flex">Notes</Typography>
+                        <Typography variant="h6" className="mx-12 hidden sm:flex">Notes</Typography>
                     </FuseAnimate>
                 </div>
             </div>

@@ -94,28 +94,28 @@ function ChatPanel(props)
             <ClickAwayListener onClickAway={() => state && dispatch(Actions.closeChatPanel())}>
                 <div className={clsx(classes.panel, {'opened': state}, "flex flex-col")}>
                     <AppBar position="static" elevation={1}>
-                        <Toolbar className="pl-12 pr-8">
-                            <div className="flex flex-1 items-center">
-                                {(!state || !selectedContactId) && (
-                                    <React.Fragment>
-                                        <IconButton color="inherit" onClick={ev => dispatch(Actions.openChatPanel())}>
-                                            <Icon className="text-32">chat</Icon>
-                                        </IconButton>
-                                        {!selectedContactId && (
-                                            <Typography className="ml-16 text-16" color="inherit">Team Chat</Typography>
-                                        )}
-                                    </React.Fragment>
-                                )}
-                                {state && selectedContact && (
-                                    <React.Fragment>
-                                        <Avatar className="ml-4" src={selectedContact.avatar}/>
-                                        <Typography className="ml-16 text-16" color="inherit">{selectedContact.name}</Typography>
-                                    </React.Fragment>
-                                )}
+                        <Toolbar className="px-4">
+                            {(!state || !selectedContactId) && (
+                                <div className="flex flex-1 items-center px-4">
+                                    <IconButton className="" color="inherit" onClick={ev => dispatch(Actions.openChatPanel())}>
+                                        <Icon className="text-32">chat</Icon>
+                                    </IconButton>
+                                    {!selectedContactId && (
+                                        <Typography className="mx-8 text-16" color="inherit">Team Chat</Typography>
+                                    )}
+                                </div>
+                            )}
+                            {state && selectedContact && (
+                                <div className="flex flex-1 items-center px-12">
+                                    <Avatar src={selectedContact.avatar}/>
+                                    <Typography className="mx-16 text-16" color="inherit">{selectedContact.name}</Typography>
+                                </div>
+                            )}
+                            <div className="flex px-4">
+                                <IconButton onClick={ev => dispatch(Actions.closeChatPanel())} color="inherit">
+                                    <Icon>close</Icon>
+                                </IconButton>
                             </div>
-                            <IconButton onClick={ev => dispatch(Actions.closeChatPanel())} color="inherit">
-                                <Icon>close</Icon>
-                            </IconButton>
                         </Toolbar>
                     </AppBar>
                     <Paper className="flex flex-1 flex-row min-h-px">

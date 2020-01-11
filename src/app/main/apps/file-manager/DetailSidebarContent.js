@@ -63,7 +63,7 @@ function DetailSidebarContent(props)
 
                 <Typography variant="subtitle1" className="py-16">Info</Typography>
 
-                <table className={clsx(classes.table, "w-full, text-left")}>
+                <table className={clsx(classes.table, "w-full text-justify")}>
 
                     <tbody>
 

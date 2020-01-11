@@ -20,17 +20,17 @@ function CardAttachment(props)
         case 'image':
         {
             return (
-                <div className="flex w-full sm:w-1/2 mb-16" key={props.item.id}>
-                    <div className="flex items-center justify-center w-128 h-128 mr-16">
+                <div className="flex w-full sm:w-1/2 mb-16 px-16" key={props.item.id}>
+                    <div className="flex items-center justify-center min-w-128 w-128 h-128">
                         <Paper className="rounded-4 overflow-hidden" elevation={1}>
                             <img className="block max-h-full max-h-full" src={props.item.src} alt="attachment"/>
                         </Paper>
                     </div>
-                    <div className="flex flex-auto flex-col justify-center items-start min-w-0">
+                    <div className="flex flex-auto flex-col justify-center items-start min-w-0 px-16">
                         <div className="flex items-center w-full">
                             <Typography className="text-16 font-600 truncate flex-shrink">{props.item.name}</Typography>
                             {props.card.idAttachmentCover === props.item.id && (
-                                <Icon className="text-orange-300 text-20 ml-4">star</Icon>
+                                <Icon className="text-orange-300 text-20 mx-4">star</Icon>
                             )}
                         </div>
                         <Typography className="truncate w-full mb-12" color="textSecondary">{props.item.time}</Typography>
@@ -85,11 +85,11 @@ function CardAttachment(props)
         case 'link':
         {
             return (
-                <div className="flex w-full sm:w-1/2 mb-16" key={props.item.id}>
-                    <Paper className="min-w-128 w-128 h-128 mr-16 flex items-center justify-center rounded-4 overflow-hidden" elevation={1}>
+                <div className="flex w-full sm:w-1/2 mb-16 px-16" key={props.item.id}>
+                    <Paper className="min-w-128 w-128 h-128 flex items-center justify-center rounded-4 overflow-hidden" elevation={1}>
                         <Typography className="font-600">LINK</Typography>
                     </Paper>
-                    <div className="flex flex-auto flex-col justify-center items-start min-w-0">
+                    <div className="flex flex-auto flex-col justify-center items-start min-w-0 px-16">
                         <Typography className="text-16 font-600 truncate w-full">{props.item.url}</Typography>
                         <Typography className="truncate w-full mb-12" color="textSecondary">{props.item.time}</Typography>
                         <Button

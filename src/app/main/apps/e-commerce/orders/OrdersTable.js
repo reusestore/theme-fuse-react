@@ -167,7 +167,7 @@ function OrdersTable(props)
                                             selected={isSelected}
                                             onClick={event => handleClick(n)}
                                         >
-                                            <TableCell className="w-48 pl-4 sm:pl-12" padding="checkbox">
+                                            <TableCell className="w-64 text-center" padding="none">
                                                 <Checkbox
                                                     checked={isSelected}
                                                     onClick={event => event.stopPropagation()}
@@ -212,6 +212,7 @@ function OrdersTable(props)
             </FuseScrollbars>
 
             <TablePagination
+                className="overflow-hidden"
                 component="div"
                 count={data.length}
                 rowsPerPage={rowsPerPage}

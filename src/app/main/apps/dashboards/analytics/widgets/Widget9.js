@@ -6,9 +6,9 @@ function Widget9(props)
     return (
         <Card className="w-full rounded-8 shadow-none border-1">
 
-            <div className="p-16 pr-4 flex flex-row items-center justify-between">
+            <div className="p-16 px-4 flex flex-row items-center justify-between">
 
-                <Typography className="h1 pr-16">Top campaigns</Typography>
+                <Typography className="h1 px-12">Top campaigns</Typography>
 
                 <div>
                     <IconButton aria-label="more">

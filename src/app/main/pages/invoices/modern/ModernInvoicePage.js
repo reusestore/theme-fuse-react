@@ -126,12 +126,12 @@ function ModernInvoicePage()
                                 <table>
                                     <tbody>
                                         <tr>
-                                            <td className="pr-16 pb-32">
+                                            <td className="pb-32">
                                                 <Typography className="font-light" variant="h4" color="textSecondary">
                                                     INVOICE
                                                 </Typography>
                                             </td>
-                                            <td className="pb-32">
+                                            <td className="pb-32 px-16">
                                                 <Typography className="font-light" variant="h4">
                                                     {invoice.number}
                                                 </Typography>
@@ -139,12 +139,12 @@ function ModernInvoicePage()
                                         </tr>
 
                                         <tr>
-                                            <td className="text-right pr-16">
+                                            <td className="text-right">
                                                 <Typography color="textSecondary">
                                                     INVOICE DATE
                                                 </Typography>
                                             </td>
-                                            <td>
+                                            <td className="px-16">
                                                 <Typography>
                                                     {invoice.date}
                                                 </Typography>
@@ -152,12 +152,12 @@ function ModernInvoicePage()
                                         </tr>
 
                                         <tr>
-                                            <td className="text-right pr-16">
+                                            <td className="text-right">
                                                 <Typography color="textSecondary">
                                                     DUE DATE
                                                 </Typography>
                                             </td>
-                                            <td>
+                                            <td className="px-16">
                                                 <Typography>
                                                     {invoice.dueDate}
                                                 </Typography>
@@ -165,12 +165,12 @@ function ModernInvoicePage()
                                         </tr>
 
                                         <tr>
-                                            <td className="text-right pr-16">
+                                            <td className="text-right">
                                                 <Typography color="textSecondary">
                                                     TOTAL DUE
                                                 </Typography>
                                             </td>
-                                            <td>
+                                            <td className="px-16">
                                                 <Typography>
                                                     {formatter.format(invoice.total)}
                                                 </Typography>
@@ -279,11 +279,11 @@ function ModernInvoicePage()
 
                                 <div className="flex">
 
-                                    <div className="flex-shrink-0 mr-24">
+                                    <div className="flex-shrink-0">
                                         <img className="w-32" src="assets/images/logos/fuse.svg" alt="logo"/>
                                     </div>
 
-                                    <Typography className="font-medium mb-64" variant="caption" color="textSecondary">
+                                    <Typography className="font-medium mb-64 px-24" variant="caption" color="textSecondary">
                                         In condimentum malesuada efficitur. Mauris volutpat placerat auctor. Ut ac congue dolor. Quisque
                                         scelerisque lacus sed feugiat fermentum. Cras aliquet facilisis pellentesque. Nunc hendrerit
                                         quam at leo commodo, a suscipit tellus dapibus. Etiam at felis volutpat est mollis lacinia.

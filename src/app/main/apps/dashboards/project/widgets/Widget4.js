@@ -5,8 +5,8 @@ function Widget4(props)
 {
     return (
         <Paper className="w-full rounded-8 shadow-none border-1">
-            <div className="flex items-center justify-between pr-4 pl-16 pt-4">
-                <Typography className="text-16">{props.widget.title}</Typography>
+            <div className="flex items-center justify-between px-4 pt-4">
+                <Typography className="text-16 px-12">{props.widget.title}</Typography>
                 <IconButton aria-label="more">
                     <Icon>more_vert</Icon>
                 </IconButton>
@@ -20,7 +20,7 @@ function Widget4(props)
                 <Typography className="text-15 flex w-full" color="textSecondary">
                     <span className="truncate">{props.widget.data.extra.label}</span>
                     :
-                    <b className="pl-8">{props.widget.data.extra.count}</b>
+                    <b className="px-8">{props.widget.data.extra.count}</b>
                 </Typography>
             </div>
         </Paper>

@@ -56,7 +56,7 @@ function BoardAddList(props)
     return (
         <div>
             <Card
-                className={clsx(classes.card, "w-320 mr-24")}
+                className={clsx(classes.card, "w-320 mx-8 sm:mx-12")}
                 square={true}
             >
                 {formOpen ? (
@@ -105,8 +105,9 @@ function BoardAddList(props)
                             label: "justify-start"
                         }}
                     >
-                        <Icon className="text-32 text-red mr-8">add_circle</Icon>
-                        Add a list
+                        <Icon className="text-32 text-red">add_circle</Icon>
+                        <span className="mx-8">Add a list</span>
+
                     </Button>
                 )}
             </Card>

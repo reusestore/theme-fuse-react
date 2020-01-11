@@ -83,10 +83,10 @@ function FaqPage()
                 </FuseAnimate>
 
                 <Paper className={"flex items-center h-56 w-full max-w-md mt-16 sm:mt-32"} elevation={1}>
-                    <Icon color="action" className="ml-16">search</Icon>
+                    <Icon color="action" className="mx-16">search</Icon>
                     <Input
                         placeholder="Search in faqs..."
-                        className="px-16"
+                        className=""
                         disableUnderline
                         fullWidth
                         inputProps={{
@@ -129,8 +129,8 @@ function FaqPage()
 
                                 <ExpansionPanelSummary expandIcon={<Icon>expand_more</Icon>}>
                                     <div className="flex items-center">
-                                        <Icon className="mr-8" color="action">help_outline</Icon>
-                                        <Typography className="">{faq.question}</Typography>
+                                        <Icon color="action">help_outline</Icon>
+                                        <Typography className="px-8">{faq.question}</Typography>
                                     </div>
                                 </ExpansionPanelSummary>
 

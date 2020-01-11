@@ -65,7 +65,7 @@ function NotesSearch(props)
 
                             <Input
                                 placeholder="Search for anything"
-                                className="flex flex-1 py-0 pr-16 h-64"
+                                className="flex flex-1 py-0 px-16 h-64"
                                 disableUnderline
                                 fullWidth
                                 value={searchText}

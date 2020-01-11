@@ -94,8 +94,8 @@ function BoardAddCard(props)
                         label: "justify-start"
                     }}
                 >
-                    <Icon className="text-20 mr-8">add</Icon>
-                    Add a card
+                    <Icon className="text-20">add</Icon>
+                    <span className="mx-8">Add a card</span>
                 </Button>
             )}
         </div>

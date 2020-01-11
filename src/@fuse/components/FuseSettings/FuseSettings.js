@@ -130,6 +130,27 @@ function FuseSettings(props)
         );
     };
 
+    const DirectionSelect = () => {
+        return (
+            <FormControl component="fieldset" className={classes.formControl}>
+
+                <FormLabel component="legend" className="text-14">Direction</FormLabel>
+
+                <RadioGroup
+                    aria-label="Layout Style"
+                    name="direction"
+                    className={classes.group}
+                    value={settings.direction}
+                    onChange={handleChange}
+                    row={true}
+                >
+                    <FormControlLabel key="rtl" value="rtl" control={<Radio/>} label="RTL"/>
+                    <FormControlLabel key="ltr" value="ltr" control={<Radio/>} label="LTR"/>
+                </RadioGroup>
+            </FormControl>
+        );
+    };
+
     const getForm = (form, prefix) => {
         return Object.entries(form).map(([key, formControl]) => {
             const target = prefix ? prefix + '.' + key : key;
@@ -257,6 +278,8 @@ function FuseSettings(props)
                     name="customScrollbars"
                 />
             </FormControl>
+
+            <DirectionSelect/>
         </div>
     );
 }

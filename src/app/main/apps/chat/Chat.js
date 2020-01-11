@@ -156,7 +156,7 @@ function Chat(props)
             >
                 {chat && chat.dialog.length > 0 ?
                     (
-                        <div className="flex flex-col pt-16 pl-56 pr-16 pb-40">
+                        <div className="flex flex-col pt-16 px-16 ltr:pl-56 rtl:pr-56 pb-40">
                             {chat.dialog.map((item, i) => {
                                 const contact = item.who === user.id ? user : contacts.find(_contact => _contact.id === item.who);
                                 return (
@@ -164,7 +164,7 @@ function Chat(props)
                                         key={item.time}
                                         className={clsx(
                                             classes.messageRow,
-                                            "flex flex-col flex-grow-0 flex-shrink-0 items-start justify-end relative pr-16 pb-4 pl-16",
+                                            "flex flex-col flex-grow-0 flex-shrink-0 items-start justify-end relative px-16 pb-4",
                                             {'me': item.who === user.id},
                                             {'contact': item.who !== user.id},
                                             {'first-of-group': isFirstMessageOfGroup(item, i)},
@@ -173,11 +173,11 @@ function Chat(props)
                                         )}
                                     >
                                         {shouldShowContactAvatar(item, i) && (
-                                            <Avatar className="avatar absolute left-0 m-0 -ml-32" src={contact.avatar}/>
+                                            <Avatar className="avatar absolute ltr:left-0 rtl:right-0 m-0 -mx-32" src={contact.avatar}/>
                                         )}
                                         <div className="bubble flex relative items-center justify-center p-12 max-w-full">
                                             <div className="leading-tight whitespace-pre-wrap">{item.message}</div>
-                                            <Typography className="time absolute hidden w-full text-11 mt-8 -mb-24 left-0 bottom-0 whitespace-no-wrap"
+                                            <Typography className="time absolute hidden w-full text-11 mt-8 -mb-24 ltr:left-0 rtl:right-0 bottom-0 whitespace-no-wrap"
                                                         color="textSecondary">{moment(item.time).format('MMMM Do YYYY, h:mm:ss a')}</Typography>
                                         </div>
                                     </div>
@@ -207,7 +207,7 @@ function Chat(props)
                             InputProps={{
                                 disableUnderline: true,
                                 classes         : {
-                                    root : "flex flex-grow flex-shrink-0 ml-16 mr-48 my-8",
+                                    root : "flex flex-grow flex-shrink-0 mx-16 ltr:mr-48 rtl:ml-48 my-8",
                                     input: ""
                                 },
                                 placeholder     : "Type your message"
@@ -219,7 +219,7 @@ function Chat(props)
                             onChange={onInputChange}
                             value={messageText}
                         />
-                        <IconButton className="absolute right-0 top-0" type="submit">
+                        <IconButton className="absolute ltr:right-0 rtl:left-0 top-0" type="submit">
                             <Icon className="text-24" color="action">send</Icon>
                         </IconButton>
                     </Paper>

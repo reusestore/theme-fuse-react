@@ -125,7 +125,7 @@ function ChatApp(props)
                             open={mobileChatsSidebarOpen}
                             onClose={() => dispatch(Actions.closeMobileChatsSidebar())}
                             classes={{
-                                paper: clsx(classes.drawerPaper, "absolute left-0")
+                                paper: clsx(classes.drawerPaper, "absolute ltr:left-0 rtl:right-0")
                             }}
                             style={{position: 'absolute'}}
                             ModalProps={{
@@ -204,7 +204,7 @@ function ChatApp(props)
                                                 <Icon>chat</Icon>
                                             </IconButton>
                                             <div className="flex items-center cursor-pointer" onClick={() => dispatch(Actions.openContactSidebar())}>
-                                                <div className="relative ml-8 mr-12">
+                                                <div className="relative mx-8">
                                                     <div className="absolute right-0 bottom-0 -m-4 z-10">
                                                         <StatusIcon status={selectedContact.status}/>
                                                     </div>
@@ -213,7 +213,7 @@ function ChatApp(props)
                                                         {!selectedContact.avatar || selectedContact.avatar === '' ? selectedContact.name[0] : ''}
                                                     </Avatar>
                                                 </div>
-                                                <Typography color="inherit" className="text-18 font-600">{selectedContact.name}</Typography>
+                                                <Typography color="inherit" className="text-18 font-600 px-4">{selectedContact.name}</Typography>
                                             </div>
                                         </Toolbar>
                                     </AppBar>
@@ -233,7 +233,7 @@ function ChatApp(props)
                         open={contactSidebarOpen}
                         onClose={() => dispatch(Actions.closeContactSidebar())}
                         classes={{
-                            paper: clsx(classes.drawerPaper, "absolute right-0")
+                            paper: clsx(classes.drawerPaper, "absolute ltr:right-0 rtl:left-0")
                         }}
                         style={{position: 'absolute'}}
                         ModalProps={{

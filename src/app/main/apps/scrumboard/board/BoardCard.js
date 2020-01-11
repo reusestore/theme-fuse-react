@@ -70,12 +70,12 @@ function BoardCard(props)
                         <div className="p-16 pb-0">
 
                             {card.idLabels.length > 0 && (
-                                <div className="flex flex-wrap mb-8">
+                                <div className="flex flex-wrap mb-8 -mx-4">
                                     {card.idLabels.map(id => {
                                         const label = _.find(board.labels, {id});
                                         return (
                                             <Tooltip title={label.name} key={id}>
-                                                <div className={clsx(label.class, "w-32  h-6 rounded-6 mr-6 mb-6")}/>
+                                                <div className={clsx(label.class, "w-32  h-6 rounded-6 mx-4 mb-6")}/>
                                             </Tooltip>
                                         );
                                     })}
@@ -85,23 +85,18 @@ function BoardCard(props)
                             <Typography className="font-600 mb-12">{card.name}</Typography>
 
                             {(card.due || checkItems > 0) && (
-                                <div className="flex items-center mb-12">
+                                <div className="flex items-center mb-12 -mx-4">
                                     {card.due && (
-                                        <div
-                                            className={clsx("flex items-center px-8 py-4 mr-8 rounded-sm", moment() > moment(card.due) ? "bg-red text-white" : "bg-green text-white")}>
-                                            <Icon className="text-16 mr-4">access_time</Icon>
-                                            <span>{moment(card.due).format("MMM Do YY")}</span>
+                                        <div className={clsx("flex items-center px-8 py-4 mx-4 rounded-sm", moment() > moment(card.due) ? "bg-red text-white" : "bg-green text-white")}>
+                                            <Icon className="text-16">access_time</Icon>
+                                            <span className="mx-4">{moment(card.due).format("MMM Do YY")}</span>
                                         </div>
                                     )}
 
                                     {checkItems > 0 && (
-                                        <div
-                                            className={clsx("flex items-center px-8 py-4 mr-8 rounded-sm", checkItemsChecked === checkItems ? "bg-green text-white" : "bg-grey-700 text-white")}
-                                        >
-                                            <Icon className="text-16 mr-4">check_circle</Icon>
-                                            <span>{checkItemsChecked}</span>
-                                            <span>/</span>
-                                            <span>{checkItems}</span>
+                                        <div className={clsx("flex items-center px-8 py-4 mx-4 rounded-sm", checkItemsChecked === checkItems ? "bg-green text-white" : "bg-grey-700 text-white")}>
+                                            <Icon className="text-16">check_circle</Icon>
+                                            <span className="mx-4">{`${checkItemsChecked}/${checkItems}`}</span>
                                         </div>
                                     )}
 
@@ -109,45 +104,45 @@ function BoardCard(props)
                             )}
 
                             {card.idMembers.length > 0 && (
-                                <div className="flex flex-wrap mb-12">
+                                <div className="flex flex-wrap mb-12 -mx-4">
                                     {card.idMembers.map(id => {
                                         const member = _.find(board.members, {id});
                                         return (
                                             <Tooltip title={member.name} key={id}>
-                                                <Avatar className="mr-8 w-32 h-32" src={member.avatar}/>
+                                                <Avatar className="mx-4 w-32 h-32" src={member.avatar}/>
                                             </Tooltip>
                                         )
                                     })}
-                                    <div className="">
-                                    </div>
+                                    <div/>
                                 </div>
                             )}
 
                         </div>
 
                         <div className="flex justify-between h-48 px-16 border-t-1">
-                            <div className="flex items-center">
+
+                            <div className="flex items-center -mx-6">
                                 {card.subscribed && (
-                                    <Icon className="text-18 mr-12" color="action">remove_red_eye</Icon>
+                                    <Icon className="text-18 mx-6" color="action">remove_red_eye</Icon>
                                 )}
 
                                 {card.description !== '' && (
-                                    <Icon className="text-18 mr-12" color="action">description</Icon>
+                                    <Icon className="text-18 mx-6" color="action">description</Icon>
                                 )}
                             </div>
 
-                            <div className="flex items-center justify-end">
+                            <div className="flex items-center justify-end -mx-6">
                                 {card.attachments && (
-                                    <span className="flex items-center ml-12">
-                                            <Icon className="text-18 mr-8" color="action">attachment</Icon>
-                                            <Typography color="textSecondary">{card.attachments.length}</Typography>
-                                        </span>
+                                    <span className="flex items-center mx-6">
+                                        <Icon className="text-18" color="action">attachment</Icon>
+                                        <Typography className="mx-8" color="textSecondary">{card.attachments.length}</Typography>
+                                    </span>
                                 )}
                                 {commentsCount > 0 && (
-                                    <span className="flex items-center ml-12">
-                                            <Icon className="text-18 mr-8" color="action">comment</Icon>
-                                            <Typography color="textSecondary">{commentsCount}</Typography>
-                                        </span>
+                                    <span className="flex items-center mx-6">
+                                        <Icon className="text-18" color="action">comment</Icon>
+                                        <Typography className="mx-8" color="textSecondary">{commentsCount}</Typography>
+                                    </span>
                                 )}
                             </div>
                         </div>

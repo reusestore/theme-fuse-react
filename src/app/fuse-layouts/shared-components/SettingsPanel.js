@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import {Button, Typography, Dialog, Icon, IconButton, Slide} from '@material-ui/core';
-import {makeStyles} from '@material-ui/styles';
+import {makeStyles, useTheme} from '@material-ui/styles';
 import {red} from '@material-ui/core/colors';
 import {FuseScrollbars, FuseSettings} from '@fuse';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
-    return <Slide direction="left" ref={ref} {...props} />;
+    const theme = useTheme();
+    return <Slide direction={theme.direction === "ltr" ? "left" : "right"} ref={ref} {...props} />;
 });
 
 const useStyles = makeStyles(theme => ({
@@ -88,7 +89,7 @@ function SettingsPanel()
                 }}
             >
                 <FuseScrollbars className="p-24 sm:p-32">
-                    <IconButton className="fixed top-0 right-0 z-10" onClick={handleClose}>
+                    <IconButton className="fixed top-0 ltr:right-0 rtl:left-0 z-10" onClick={handleClose}>
                         <Icon>close</Icon>
                     </IconButton>
 

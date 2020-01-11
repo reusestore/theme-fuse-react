@@ -50,7 +50,7 @@ function Widget10(props)
                                                     >
                                                         <Typography className={clsx(cell.classes, "flex items-center")}>
                                                             {cell.value}
-                                                            <Icon className="text-14 ml-4">{cell.icon}</Icon>
+                                                            <Icon className="text-14 mx-4">{cell.icon}</Icon>
                                                         </Typography>
                                                     </TableCell>
                                                 )

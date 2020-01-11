@@ -31,17 +31,16 @@ function ModernSearchPage()
             header={
                 <div className="flex flex-1 items-center p-16 sm:p-24 max-w-md">
                     <ThemeProvider theme={theme}>
-                        <Paper className={"flex items-center h-44 w-full"} elevation={1}>
+                        <Paper className="flex items-center h-44 w-full px-16" elevation={1}>
                             <Input
                                 placeholder="Search..."
-                                className="pl-16"
                                 disableUnderline
                                 fullWidth
                                 inputProps={{
                                     'aria-label': 'Search'
                                 }}
                             />
-                            <Icon color="action" className="mr-16">search</Icon>
+                            <Icon color="action">search</Icon>
                         </Paper>
                     </ThemeProvider>
                 </div>
@@ -50,7 +49,7 @@ function ModernSearchPage()
                 <div className="p-16 pt-0 sm:p-24 sm:pt-0 max-w-md">
 
                     <FuseAnimate delay={200}>
-                        <Typography color="textSecondary" className="text-13 ml-16 my-24">{data.length} results</Typography>
+                        <Typography color="textSecondary" className="text-13 mx-16 my-24">{data.length} results</Typography>
                     </FuseAnimate>
 
                     <FuseAnimateGroup
@@ -69,7 +68,7 @@ function ModernSearchPage()
                     <div className="flex justify-center mt-48">
                         <Paper elevation={1}>
                             <IconButton>
-                                <Icon>chevron_left</Icon>
+                                <Icon className="text-20">{theme.direction === "ltr" ? "chevron_left" : "chevron_right"}</Icon>
                             </IconButton>
                             <Button className="min-w-48 h-48 p-0 px-16">1</Button>
                             <Button className="min-w-48 h-48 p-0 px-16">2</Button>
@@ -77,7 +76,7 @@ function ModernSearchPage()
                             <Button className="min-w-48 h-48 p-0 px-16">4</Button>
                             <Button className="min-w-48 h-48 p-0 px-16">5</Button>
                             <IconButton>
-                                <Icon>chevron_right</Icon>
+                                <Icon className="text-20">{theme.direction === "ltr" ? "chevron_right" : "chevron_left"}</Icon>
                             </IconButton>
                         </Paper>
                     </div>

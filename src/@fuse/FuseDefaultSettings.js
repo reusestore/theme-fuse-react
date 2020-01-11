@@ -9,6 +9,7 @@ import qs from 'qs';
  */
 export const defaultSettings = {
     customScrollbars: true,
+    direction       : 'ltr',
     theme           : {
         main   : 'default',
         navbar : 'mainThemeDark',

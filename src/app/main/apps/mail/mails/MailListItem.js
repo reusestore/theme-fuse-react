@@ -53,7 +53,7 @@ const MailListItem = (props) => {
                     mailId: props.mail.id
                 }
             ))}
-            className={clsx(classes.mailItem, checked && "selected", !props.mail.read && "unread", "py-16 pl-0 pr-8 sm:pl-8 sm:pr-24")}>
+            className={clsx(classes.mailItem, checked && "selected", !props.mail.read && "unread", "py-16 px-8")}>
 
             <Checkbox
                 tabIndex={-1}
@@ -68,13 +68,13 @@ const MailListItem = (props) => {
                 <div className="flex items-center justify-between px-16 pb-8">
                     <div className="flex items-center">
                         {props.mail.from.avatar ? (
-                            <Avatar className="mr-8" alt={props.mail.from.name} src={props.mail.from.avatar}/>
+                            <Avatar alt={props.mail.from.name} src={props.mail.from.avatar}/>
                         ) : (
-                            <Avatar className={clsx(classes.avatar, "mr-8")}>
+                            <Avatar className={classes.avatar}>
                                 {props.mail.from.name[0]}
                             </Avatar>
                         )}
-                        <Typography variant="subtitle1">{props.mail.from.name}</Typography>
+                        <Typography variant="subtitle1" className="mx-8">{props.mail.from.name}</Typography>
                     </div>
                     <Typography variant="subtitle1">{props.mail.time}</Typography>
                 </div>
@@ -84,9 +84,9 @@ const MailListItem = (props) => {
                     <Typography color="textSecondary" className="truncate">{_.truncate(props.mail.message.replace(/<(?:.|\n)*?>/gm, ''), {'length': 180})}</Typography>
                 </div>
 
-                <div className="flex justify-end">
+                <div className="flex justify-end px-12">
                     {labels && props.mail.labels.map(label => (
-                        <MailChip className="mr-4" title={_.find(labels, {id: label}).title} color={_.find(labels, {id: label}).color} key={label}/>
+                        <MailChip className="mx-2 mt-4" title={_.find(labels, {id: label}).title} color={_.find(labels, {id: label}).color} key={label}/>
                     ))}
                 </div>
             </div>

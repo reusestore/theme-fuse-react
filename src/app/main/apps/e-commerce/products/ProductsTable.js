@@ -153,7 +153,7 @@ function ProductsTable(props)
                                         selected={isSelected}
                                         onClick={event => handleClick(n)}
                                     >
-                                        <TableCell className="w-48 px-4 sm:px-12" padding="checkbox">
+                                        <TableCell className="w-64 text-center" padding="none">
                                             <Checkbox
                                                 checked={isSelected}
                                                 onClick={event => event.stopPropagation()}
@@ -184,7 +184,7 @@ function ProductsTable(props)
 
                                         <TableCell component="th" scope="row" align="right">
                                             {n.quantity}
-                                            <i className={clsx("inline-block w-8 h-8 rounded ml-8", n.quantity <= 5 && "bg-red", n.quantity > 5 && n.quantity <= 25 && "bg-orange", n.quantity > 25 && "bg-green")}/>
+                                            <i className={clsx("inline-block w-8 h-8 rounded mx-8", n.quantity <= 5 && "bg-red", n.quantity > 5 && n.quantity <= 25 && "bg-orange", n.quantity > 25 && "bg-green")}/>
                                         </TableCell>
 
                                         <TableCell component="th" scope="row" align="right">
@@ -205,6 +205,7 @@ function ProductsTable(props)
             </FuseScrollbars>
 
             <TablePagination
+                className="overflow-hidden"
                 component="div"
                 count={data.length}
                 rowsPerPage={rowsPerPage}

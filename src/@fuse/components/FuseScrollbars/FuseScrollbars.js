@@ -82,6 +82,12 @@ const FuseScrollbars = React.forwardRef(function FuseScrollbars(props, ref) {
 
         ps.current = new PerfectScrollbar(ref.current, props.option);
 
+        /**
+         * This is for the issue which is not solved already:
+         * https://github.com/mdbootstrap/perfect-scrollbar/issues/689
+         */
+        ps.current.isRtl = false;
+
         hookUpEvents();
     }, [hookUpEvents, props.option, ref]);
 

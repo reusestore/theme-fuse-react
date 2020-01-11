@@ -166,13 +166,13 @@ class CalendarHeader extends Toolbar {
                             <div className="flex items-center justify-center">
                                 <Tooltip title="Previous">
                                     <IconButton aria-label="Previous" onClick={this.navigate.bind(null, navigate.PREVIOUS)}>
-                                        <Icon>chevron_left</Icon>
+                                        <Icon>{mainThemeDark.direction === "ltr" ? "chevron_left" : "chevron_right"}</Icon>
                                     </IconButton>
                                 </Tooltip>
                                 <Typography variant="h6">{label}</Typography>
                                 <Tooltip title="Next">
                                     <IconButton aria-label="Next" onClick={this.navigate.bind(null, navigate.NEXT)}>
-                                        <Icon>chevron_right</Icon>
+                                        <Icon>{mainThemeDark.direction === "ltr" ? "chevron_right" : "chevron_left"}</Icon>
                                     </IconButton>
                                 </Tooltip>
                             </div>

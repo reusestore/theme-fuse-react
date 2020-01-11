@@ -40,7 +40,7 @@ function TimelineTab()
     return (
         <div className="md:flex max-w-2xl">
 
-            <div className="flex flex-col flex-1 md:pr-32">
+            <div className="flex flex-col flex-1 md:ltr:pr-32 md:rtl:pl-32">
 
                 <FuseAnimateGroup
                     enter={{
@@ -95,15 +95,17 @@ function TimelineTab()
                                         </IconButton>
                                     }
                                     title={(
-                                        <span>
-                                                <Typography className="inline font-medium mr-4" color="primary" paragraph={false}>
-                                                    {post.user.name}
-                                                </Typography>
-                                            {post.type === 'post' && "posted on your timeline"}
-                                            {post.type === 'something' && "shared something with you"}
-                                            {post.type === 'video' && "shared a video with you"}
-                                            {post.type === 'article' && "shared an article with you"}
+                                        <span className="flex">
+                                            <Typography className="font-medium" color="primary" paragraph={false}>
+                                                {post.user.name}
+                                            </Typography>
+                                            <span className="mx-4">
+                                                {post.type === 'post' && "posted on your timeline"}
+                                                {post.type === 'something' && "shared something with you"}
+                                                {post.type === 'video' && "shared a video with you"}
+                                                {post.type === 'article' && "shared an article with you"}
                                             </span>
+                                        </span>
                                     )}
                                     subheader={post.time}
                                 />
@@ -134,16 +136,16 @@ function TimelineTab()
                                     )}
                                 </CardContent>
 
-                                <CardActions disableSpacing>
+                                <CardActions disableSpacing className="px-12">
                                     <Button size="small" aria-label="Add to favorites">
-                                        <Icon className="text-16 mr-8" color="action">favorite</Icon>
-                                        <Typography className="normal-case">Like</Typography>
-                                        <Typography className="normal-case ml-4">({post.like})</Typography>
+                                        <Icon className="text-16" color="action">favorite</Icon>
+                                        <Typography className="normal-case mx-4">Like</Typography>
+                                        <Typography className="normal-case">({post.like})</Typography>
                                     </Button>
                                     <Button aria-label="Share">
-                                        <Icon className="text-16 mr-8" color="action">share</Icon>
-                                        <Typography className="normal-case">Share</Typography>
-                                        <Typography className="normal-case ml-4">({post.share})</Typography>
+                                        <Icon className="text-16" color="action">share</Icon>
+                                        <Typography className="normal-case mx-4">Share</Typography>
+                                        <Typography className="normal-case">({post.share})</Typography>
                                     </Button>
                                 </CardActions>
 
@@ -155,21 +157,22 @@ function TimelineTab()
                                                 <Typography>
                                                     {post.comments.length} comments
                                                 </Typography>
-                                                <Icon className="text-16 ml-4" color="action">keyboard_arrow_down</Icon>
+                                                <Icon className="text-16 mx-4" color="action">keyboard_arrow_down</Icon>
                                             </div>
 
                                             <List>
                                                 {post.comments.map((comment) => (
                                                     <div key={comment.id}>
-                                                        <ListItem className="px-0">
-                                                            <Avatar alt={comment.user.name} src={comment.user.avatar} className="mr-16"/>
+                                                        <ListItem className="px-0 -mx-8">
+                                                            <Avatar alt={comment.user.name} src={comment.user.avatar} className="mx-8"/>
                                                             <ListItemText
+                                                                className="px-4"
                                                                 primary={(
-                                                                    <div>
-                                                                        <Typography className="inline font-medium" color="initial" paragraph={false}>
+                                                                    <div className="flex">
+                                                                        <Typography className="font-medium" color="initial" paragraph={false}>
                                                                             {comment.user.name}
                                                                         </Typography>
-                                                                        <Typography className="inline ml-4" variant="caption">
+                                                                        <Typography className="mx-4" variant="caption">
                                                                             {comment.time}
                                                                         </Typography>
                                                                     </div>
@@ -177,9 +180,9 @@ function TimelineTab()
                                                                 secondary={comment.message}
                                                             />
                                                         </ListItem>
-                                                        <div className="flex items-center ml-56 mb-8">
-                                                            <Link to="#" className="mr-8">Reply</Link>
-                                                            <Icon className="text-14 cursor-pointer">flag</Icon>
+                                                        <div className="flex items-center mx-52 mb-8">
+                                                            <Link to="#">Reply</Link>
+                                                            <Icon className="text-14 mx-8 cursor-pointer">flag</Icon>
                                                         </div>
                                                     </div>
                                                 ))}
@@ -187,9 +190,9 @@ function TimelineTab()
                                         </div>
                                     )}
 
-                                    <div className="flex flex-auto">
-                                        <Avatar src="assets/images/avatars/profile.jpg"/>
-                                        <div className="flex-1 pl-8">
+                                    <div className="flex flex-auto -mx-4">
+                                        <Avatar className="mx-4" src="assets/images/avatars/profile.jpg"/>
+                                        <div className="flex-1 mx-4">
                                             <Paper elevation={0} className="w-full mb-16">
                                                 <Input
                                                     className="p-8 w-full border-1"
@@ -220,8 +223,8 @@ function TimelineTab()
                 >
                     <Card className="w-full">
                         <AppBar position="static" elevation={0}>
-                            <Toolbar className="pl-16 pr-8">
-                                <Typography variant="subtitle1" color="inherit" className="flex-1">
+                            <Toolbar className="px-8">
+                                <Typography variant="subtitle1" color="inherit" className="flex-1 px-12">
                                     Latest Activity
                                 </Typography>
                                 <Button color="inherit" size="small">See All</Button>
@@ -230,17 +233,17 @@ function TimelineTab()
                         <CardContent className="p-0">
                             <List>
                                 {data.activities.map((activity) => (
-                                    <ListItem key={activity.id} className="">
-                                        <Avatar alt={activity.user.name} src={activity.user.avatar}/>
+                                    <ListItem key={activity.id} className="px-12">
+                                        <Avatar className="mx-4" alt={activity.user.name} src={activity.user.avatar}/>
                                         <ListItemText
-                                            className="flex-1"
+                                            className="flex-1 mx-4"
                                             primary={(
-                                                <div className="truncate">
-                                                    <Typography className="inline font-medium" color="primary" paragraph={false}>
+                                                <div className="flex">
+                                                    <Typography className="font-medium whitespace-no-wrap" color="primary" paragraph={false}>
                                                         {activity.user.name}
                                                     </Typography>
 
-                                                    <Typography className="inline ml-4" paragraph={false}>
+                                                    <Typography className="px-4 truncate" paragraph={false}>
                                                         {activity.message}
                                                     </Typography>
                                                 </div>

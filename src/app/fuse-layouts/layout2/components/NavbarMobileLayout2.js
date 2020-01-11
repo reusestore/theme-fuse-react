@@ -1,6 +1,6 @@
 import React from 'react';
 import {AppBar, Hidden, Icon} from '@material-ui/core';
-import {makeStyles} from '@material-ui/styles';
+import {makeStyles, useTheme} from '@material-ui/styles';
 import {FuseScrollbars} from '@fuse';
 import clsx from 'clsx';
 import UserNavbarHeader from 'app/fuse-layouts/shared-components/UserNavbarHeader';
@@ -24,6 +24,7 @@ const useStyles = makeStyles({
 function NavbarMobileLayout2(props)
 {
     const classes = useStyles(props);
+    const theme = useTheme();
 
     return (
         <div className="flex flex-col h-full overflow-hidden">
@@ -31,9 +32,10 @@ function NavbarMobileLayout2(props)
                 color="primary"
                 position="static"
                 elevation={0}
-                className="flex flex-row items-center flex-shrink h-64 min-h-64 pl-20 pr-12"
+                className="flex flex-row items-center flex-shrink h-64 min-h-64 px-12"
             >
-                <div className="flex flex-1 pr-8">
+
+                <div className="flex flex-1 mx-8">
                     <Logo/>
                 </div>
 
@@ -43,7 +45,7 @@ function NavbarMobileLayout2(props)
 
                 <Hidden lgUp>
                     <NavbarMobileToggleButton className="w-40 h-40 p-0">
-                        <Icon>arrow_back</Icon>
+                        <Icon>{theme.direction === "ltr" ? "arrow_back" : "arrow_forward"}"</Icon>
                     </NavbarMobileToggleButton>
                 </Hidden>
             </AppBar>

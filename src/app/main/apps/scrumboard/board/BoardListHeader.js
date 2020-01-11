@@ -69,8 +69,8 @@ function BoardListHeader(props)
 
     return (
         <div {...props.handleProps}>
-            <div className="flex items-center justify-between h-64 pl-16 pr-8">
-                <div className="flex items-center min-w-0">
+            <div className="flex items-center justify-between h-64 px-8">
+                <div className="flex items-center min-w-0 px-12">
                     {formOpen ? (
                         <ClickAwayListener onClickAway={() => handleCloseForm()}>
                             <form className="flex w-full" onSubmit={handleSubmit}>

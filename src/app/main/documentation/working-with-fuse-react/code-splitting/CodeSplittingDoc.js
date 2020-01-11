@@ -39,9 +39,9 @@ function CodeSplittingDoc()
                         Checkout the examples below to see dynamically or regular way of importing the components.
                     </Typography>
 
-                    <div className="flex flex-wrap">
+                    <div className="flex flex-wrap lg:-mx-4">
 
-                        <div className="w-full lg:w-1/2 lg:pr-8">
+                        <div className="w-full lg:w-1/2 lg:px-4">
                             <Typography className="mt-32 mb-8" variant="h6">Lazy Loaded Component:</Typography>
 
                             <FuseHighlight component="pre" className="language-jsx my-16">
@@ -65,7 +65,7 @@ function CodeSplittingDoc()
                             </FuseHighlight>
                         </div>
 
-                        <div className="w-full lg:w-1/2 lg:pl-8">
+                        <div className="w-full lg:w-1/2 lg:px-4">
                             <Typography className="mt-32 mb-8" variant="h6">Regular Loaded Component:</Typography>
 
                             <FuseHighlight component="pre" className="language-jsx my-16">

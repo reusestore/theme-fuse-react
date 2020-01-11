@@ -35,7 +35,7 @@ function UserMenu(props)
                     )
                 }
 
-                <div className="hidden md:flex flex-col ml-12 items-start">
+                <div className="hidden md:flex flex-col mx-12 items-start">
                     <Typography component="span" className="normal-case font-600 flex">
                         {user.data.displayName}
                     </Typography>
@@ -44,7 +44,7 @@ function UserMenu(props)
                     </Typography>
                 </div>
 
-                <Icon className="text-16 ml-12 hidden sm:flex" variant="action">keyboard_arrow_down</Icon>
+                <Icon className="text-16 hidden sm:flex" variant="action">keyboard_arrow_down</Icon>
             </Button>
 
             <Popover
@@ -69,13 +69,13 @@ function UserMenu(props)
                             <ListItemIcon className="min-w-40">
                                 <Icon>lock</Icon>
                             </ListItemIcon>
-                            <ListItemText className="pl-0" primary="Login"/>
+                            <ListItemText primary="Login"/>
                         </MenuItem>
                         <MenuItem component={Link} to="/register">
                             <ListItemIcon className="min-w-40">
                                 <Icon>person_add</Icon>
                             </ListItemIcon>
-                            <ListItemText className="pl-0" primary="Register"/>
+                            <ListItemText primary="Register"/>
                         </MenuItem>
                     </React.Fragment>
                 ) : (
@@ -84,13 +84,13 @@ function UserMenu(props)
                             <ListItemIcon className="min-w-40">
                                 <Icon>account_circle</Icon>
                             </ListItemIcon>
-                            <ListItemText className="pl-0" primary="My Profile"/>
+                            <ListItemText primary="My Profile"/>
                         </MenuItem>
                         <MenuItem component={Link} to="/apps/mail" onClick={userMenuClose}>
                             <ListItemIcon className="min-w-40">
                                 <Icon>mail</Icon>
                             </ListItemIcon>
-                            <ListItemText className="pl-0" primary="Inbox"/>
+                            <ListItemText primary="Inbox"/>
                         </MenuItem>
                         <MenuItem
                             onClick={() => {
@@ -101,7 +101,7 @@ function UserMenu(props)
                             <ListItemIcon className="min-w-40">
                                 <Icon>exit_to_app</Icon>
                             </ListItemIcon>
-                            <ListItemText className="pl-0" primary="Logout"/>
+                            <ListItemText primary="Logout"/>
                         </MenuItem>
                     </React.Fragment>
                 )}

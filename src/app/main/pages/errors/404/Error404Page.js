@@ -26,7 +26,7 @@ function Error404Page()
                     <Icon color="action">search</Icon>
                     <Input
                         placeholder="Search for anything"
-                        className="pl-16"
+                        className="px-16"
                         disableUnderline
                         fullWidth
                         inputProps={{

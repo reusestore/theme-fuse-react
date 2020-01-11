@@ -28,6 +28,9 @@ const useStyles = makeStyles(theme => ({
             height     : 16,
             marginRight: 16
         }
+    },
+    listSubheader: {
+        paddingLeft: 24
     }
 }));
 
@@ -95,7 +98,7 @@ function TodoSidebarContent(props)
 
                     <List>
 
-                        <ListSubheader className="pr-24 pl-24" disableSticky>LABELS</ListSubheader>
+                        <ListSubheader className={classes.listSubheader} disableSticky>LABELS</ListSubheader>
 
                         {labels.length > 0 && labels.map((label) => (
                             <ListItem

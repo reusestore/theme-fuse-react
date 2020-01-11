@@ -50,17 +50,17 @@ function Widget7(props)
                         <div className="flex flex-row items-center justify-center">
 
                             {data.datasets[dataset][0].change[index] < 0 && (
-                                <Icon className="text-18 pr-4 text-red">
+                                <Icon className="text-18 text-red">
                                     arrow_downward
                                 </Icon>
                             )}
 
                             {data.datasets[dataset][0].change[index] > 0 && (
-                                <Icon className="text-18 pr-4 text-green">
+                                <Icon className="text-18 text-green">
                                     arrow_upward
                                 </Icon>
                             )}
-                            <div className="h5">
+                            <div className="h5 px-4">
                                 {data.datasets[dataset][0].change[index]}%
                             </div>
                         </div>

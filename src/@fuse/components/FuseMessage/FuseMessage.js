@@ -1,5 +1,5 @@
 import React from 'react';
-import {Snackbar, IconButton, Icon, SnackbarContent} from '@material-ui/core';
+import {Snackbar, IconButton, Icon, SnackbarContent, Typography} from '@material-ui/core';
 import {green, amber, blue} from '@material-ui/core/colors';
 import {useDispatch, useSelector} from 'react-redux';
 import clsx from 'clsx';
@@ -62,9 +62,9 @@ function FuseMessage(props)
                 message={
                     <div className="flex items-center">
                         {variantIcon[options.variant] && (
-                            <Icon className="mr-8" color="inherit">{variantIcon[options.variant]}</Icon>
+                            <Icon color="inherit">{variantIcon[options.variant]}</Icon>
                         )}
-                        {options.message}
+                        <Typography className="mx-8">{options.message}</Typography>
                     </div>
                 }
                 action={[

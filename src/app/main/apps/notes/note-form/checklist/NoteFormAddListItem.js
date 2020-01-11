@@ -31,7 +31,7 @@ function NoteFormAddListItem(props)
         <form onSubmit={handleSubmit}>
             <ListItem className="p-0" dense>
                 <IconButton
-                    className="w-32 h-32 -ml-4 mr-4 p-0"
+                    className="w-32 h-32 p-0 -mx-4"
                     aria-label="Add"
                     type="submit"
                     disabled={isFormInValid()}
@@ -39,7 +39,7 @@ function NoteFormAddListItem(props)
                     <Icon fontSize="small">add</Icon>
                 </IconButton>
                 <Input
-                    className="flex flex-1"
+                    className="flex flex-1 px-8"
                     name="text"
                     value={form.text}
                     onChange={handleChange}

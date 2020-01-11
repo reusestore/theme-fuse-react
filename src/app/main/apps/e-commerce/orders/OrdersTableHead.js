@@ -85,14 +85,14 @@ function OrdersTableHead(props)
     return (
         <TableHead>
             <TableRow className="h-64">
-                <TableCell padding="checkbox" className="relative pl-4 sm:pl-12">
+                <TableCell padding="none" className="relative w-64 text-center">
                     <Checkbox
                         indeterminate={props.numSelected > 0 && props.numSelected < props.rowCount}
                         checked={props.numSelected === props.rowCount}
                         onChange={props.onSelectAllClick}
                     />
                     {props.numSelected > 0 && (
-                        <div className={clsx("flex items-center justify-center absolute w-64 top-0 left-0 ml-68 h-64 z-10", classes.actionsButtonWrapper)}>
+                        <div className={clsx("flex items-center justify-center absolute w-64 top-0 ltr:left-0 rtl:right-0 mx-56 h-64 z-10", classes.actionsButtonWrapper)}>
                             <IconButton
                                 aria-owns={selectedOrdersMenu ? 'selectedOrdersMenu' : null}
                                 aria-haspopup="true"

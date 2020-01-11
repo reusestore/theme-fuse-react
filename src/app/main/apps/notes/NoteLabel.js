@@ -34,8 +34,8 @@ function NoteLabel(props)
             label={label.name}
             classes={{
                 root      : clsx("h-24", props.className),
-                label     : "px-6 py-4 text-11",
-                deleteIcon: "w-16 ml-0",
+                label     : "px-12 py-4 text-11",
+                deleteIcon: "w-16",
                 ...props.classes
             }}
             variant="outlined"

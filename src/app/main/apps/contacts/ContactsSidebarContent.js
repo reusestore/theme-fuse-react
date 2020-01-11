@@ -34,12 +34,12 @@ function ContactsSidebarContent(props)
     const classes = useStyles(props);
 
     return (
-        <div className="p-0 lg:p-24 lg:pr-4">
+        <div className="p-0 lg:p-24 lg:ltr:pr-4 lg:rtl:pl-4">
             <FuseAnimate animation="transition.slideLeftIn" delay={200}>
                 <Paper className="rounded-0 shadow-none lg:rounded-8 lg:shadow-1">
                     <div className="p-24 flex items-center">
-                        <Avatar className="mr-12" alt={user.name} src={user.avatar}/>
-                        <Typography>{user.name}</Typography>
+                        <Avatar alt={user.name} src={user.avatar}/>
+                        <Typography className="mx-12">{user.name}</Typography>
                     </div>
                     <Divider/>
                     <List>
@@ -51,7 +51,7 @@ function ContactsSidebarContent(props)
                             className={classes.listItem}
                         >
                             <Icon className="list-item-icon text-16" color="action">people</Icon>
-                            <ListItemText className="truncate pr-0" primary="All contacts" disableTypography={true}/>
+                            <ListItemText className="truncate" primary="All contacts" disableTypography={true}/>
                         </ListItem>
                         <ListItem
                             button
@@ -61,7 +61,7 @@ function ContactsSidebarContent(props)
                             className={classes.listItem}
                         >
                             <Icon className="list-item-icon text-16" color="action">restore</Icon>
-                            <ListItemText className="truncate pr-0" primary="Frequently contacted" disableTypography={true}/>
+                            <ListItemText className="truncate" primary="Frequently contacted" disableTypography={true}/>
                         </ListItem>
                         <ListItem
                             button
@@ -71,7 +71,7 @@ function ContactsSidebarContent(props)
                             className={classes.listItem}
                         >
                             <Icon className="list-item-icon text-16" color="action">star</Icon>
-                            <ListItemText className="truncate pr-0" primary="Starred contacts" disableTypography={true}/>
+                            <ListItemText className="truncate" primary="Starred contacts" disableTypography={true}/>
                         </ListItem>
                     </List>
                 </Paper>

@@ -28,8 +28,8 @@ function StaffRoleExample(props)
                         variant="contained"
                         onClick={ev => dispatch(authActions.logoutUser())}
                     >
-                        <Icon className="mr-4">exit_to_app</Icon>
-                        Logout
+                        <Icon>exit_to_app</Icon>
+                        <span className="mx-4">Logout</span>
                     </Button>
                 </div>
             }

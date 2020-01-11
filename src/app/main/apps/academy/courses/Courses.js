@@ -192,7 +192,7 @@ function Courses(props)
                                                     >
                                                         <Typography className="font-medium truncate" color="inherit">{category.label}</Typography>
                                                         <div className="flex items-center justify-center opacity-75">
-                                                            <Icon className="text-20 mr-8" color="inherit">access_time</Icon>
+                                                            <Icon className="text-20 mx-8" color="inherit">access_time</Icon>
                                                             <div className="text-16 whitespace-no-wrap">{course.length} min</div>
                                                         </div>
                                                     </div>

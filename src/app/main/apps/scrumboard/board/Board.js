@@ -79,8 +79,8 @@ function Board(props)
                 <Toolbar className="flex items-center justify-between px-4 sm:px-24 h-64 sm:h-96 container">
                     <Hidden xsDown>
                         <Button to="/apps/scrumboard/boards/" component={Link} variant="contained" color="secondary" className="normal-case">
-                            <Icon className="mr-8">assessment</Icon>
-                            Boards
+                            <Icon>assessment</Icon>
+                            <span className="px-8">Boards</span>
                         </Button>
                     </Hidden>
 
@@ -109,7 +109,7 @@ function Board(props)
                         direction="horizontal"
                     >
                         {(provided) => (
-                            <div ref={provided.innerRef} className="flex container p-16 md:p-24">
+                            <div ref={provided.innerRef} className="flex container py-16 md:py-24 px-8 md:px-12">
                                 {board.lists.map((list, index) => (
                                     <BoardList
                                         key={list.id}

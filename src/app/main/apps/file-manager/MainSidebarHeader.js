@@ -6,7 +6,7 @@ function MainSidebarHeader()
     return (
         <div className="flex items-center h-full p-12">
             <Icon>folder</Icon>
-            <Typography variant="h6" className="ml-12">File Manager</Typography>
+            <Typography variant="h6" className="mx-12">File Manager</Typography>
         </div>
     );
 }

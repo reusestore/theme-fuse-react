@@ -31,17 +31,16 @@ function ClassicSearchPage()
             header={
                 <div className="flex flex-1 items-center p-16 sm:p-24 max-w-md">
                     <ThemeProvider theme={theme}>
-                        <Paper className={"flex items-center h-44 w-full"} elevation={1}>
+                        <Paper className="flex items-center h-44 w-full px-16" elevation={1}>
                             <Input
                                 placeholder="Search..."
-                                className="pl-16"
                                 disableUnderline
                                 fullWidth
                                 inputProps={{
                                     'aria-label': 'Search'
                                 }}
                             />
-                            <Icon color="action" className="mr-16">search</Icon>
+                            <Icon color="action">search</Icon>
                         </Paper>
                     </ThemeProvider>
                 </div>
@@ -69,7 +68,7 @@ function ClassicSearchPage()
                     <div className="flex justify-center mt-32">
                         <div className="flex item-center">
                             <IconButton className="w-32">
-                                <Icon>chevron_left</Icon>
+                                <Icon className="text-20">{theme.direction === "ltr" ? "chevron_left" : "chevron_right"}</Icon>
                             </IconButton>
                             <Button className="font-normal min-w-32 h-48 p-0 px-8">1</Button>
                             <Button className="font-normal min-w-32 h-48 p-0 px-8">2</Button>
@@ -77,7 +76,7 @@ function ClassicSearchPage()
                             <Button className="font-normal min-w-32 h-48 p-0 px-8">4</Button>
                             <Button className="font-normal min-w-32 h-48 p-0 px-8">5</Button>
                             <IconButton className="w-32">
-                                <Icon>chevron_right</Icon>
+                                <Icon className="text-20">{theme.direction === "ltr" ? "chevron_right" : "chevron_left"}</Icon>
                             </IconButton>
                         </div>
                     </div>

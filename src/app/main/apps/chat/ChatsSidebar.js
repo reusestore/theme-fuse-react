@@ -81,10 +81,11 @@ function ChatsSidebar(props)
                 position="static"
                 color="default"
                 elevation={1}
+                className=""
             >
-                <Toolbar className="flex justify-between items-center px-16 pr-4">
+                <Toolbar className="flex justify-between items-center px-4">
                     {user && (
-                        <div className="relative w-40 h-40 p-0 cursor-pointer" onClick={() => dispatch(Actions.openUserSidebar())}>
+                        <div className="relative w-40 h-40 p-0 mx-12 cursor-pointer" onClick={() => dispatch(Actions.openUserSidebar())}>
 
                             <Avatar src={user.avatar} alt={user.name} className="w-40 h-40">
                                 {(!user.avatar || user.avatar === '') ? user.name[0] : ''}
@@ -140,11 +141,11 @@ function ChatsSidebar(props)
                     <Toolbar className="px-16">
                         <Paper className="flex p-4 items-center w-full px-8 py-4 rounded-8" elevation={1}>
 
-                            <Icon className="mr-8" color="action">search</Icon>
+                            <Icon color="action">search</Icon>
 
                             <Input
                                 placeholder="Search or start new chat"
-                                className="flex flex-1"
+                                className="flex flex-1 px-8"
                                 disableUnderline
                                 fullWidth
                                 value={searchText}

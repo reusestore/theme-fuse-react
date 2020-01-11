@@ -82,10 +82,10 @@ function BoardTitle(props)
             ) : (
                 <div className="flex items-center justify-center">
                     {board.settings.subscribed && (
-                        <Icon className="text-16 mr-8">remove_red_eye</Icon>
+                        <Icon className="text-16">remove_red_eye</Icon>
                     )}
                     <Typography
-                        className="text-16 font-600 cursor-pointer"
+                        className="text-16 font-600 cursor-pointer mx-8"
                         onClick={() => handleOpenForm()}
                         color="inherit"
                     >

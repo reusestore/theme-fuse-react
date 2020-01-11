@@ -203,14 +203,14 @@ function TodoDialog(props)
                                 >
                                     {labels.length > 0 && labels.map((label) => (
                                         <MenuItem onClick={(ev) => handleToggleLabel(ev, label.id)} key={label.id}>
-                                            <ListItemIcon className="min-w-40">
-                                                <Icon className="mr-0" color="action">
+                                            <ListItemIcon className="min-w-24">
+                                                <Icon  color="action">
                                                     {form.labels.includes(label.id) ? 'check_box' : 'check_box_outline_blank'}
                                                 </Icon>
                                             </ListItemIcon>
-                                            <ListItemText primary={label.title} disableTypography={true}/>
-                                            <ListItemIcon className="min-w-40">
-                                                <Icon className="mr-0" style={{color: label.color}} color="action">
+                                            <ListItemText className="mx-8" primary={label.title} disableTypography={true}/>
+                                            <ListItemIcon className="min-w-24">
+                                                <Icon style={{color: label.color}} color="action">
                                                     label
                                                 </Icon>
                                             </ListItemIcon>
@@ -224,7 +224,7 @@ function TodoDialog(props)
                 </div>
 
                 {form.labels.length > 0 && (
-                    <div className="flex flex-wrap  px-16 sm:px-24 mb-16">
+                    <div className="flex flex-wrap w-full px-12 sm:px-20 mb-16">
                         {form.labels.map(label => (
                             <Chip
                                 avatar={(
@@ -240,8 +240,8 @@ function TodoDialog(props)
                                 )}
                                 label={_.find(labels, {id: label}).title}
                                 onDelete={(ev) => handleToggleLabel(ev, label)}
-                                className="mr-8 my-8"
-                                classes={{label: "pl-4"}}
+                                className="mx-4 my-4"
+                                classes={{label: "px-8"}}
                                 key={label}
                             />
                         ))}
@@ -272,12 +272,12 @@ function TodoDialog(props)
                             variant="outlined"
                         />
                     </FormControl>
-                    <div className="flex">
+                    <div className="flex -mx-4">
                         <TextField
                             name="startDate"
                             label="Start Date"
                             type="datetime-local"
-                            className="mt-8 mb-16 mr-8"
+                            className="mt-8 mb-16 mx-4"
                             InputLabelProps={{
                                 shrink: true
                             }}
@@ -292,7 +292,7 @@ function TodoDialog(props)
                             name="dueDate"
                             label="Due Date"
                             type="datetime-local"
-                            className="mt-8 mb-16 ml-8"
+                            className="mt-8 mb-16 mx-4"
                             InputLabelProps={{
                                 shrink: true
                             }}
@@ -309,32 +309,36 @@ function TodoDialog(props)
             </DialogContent>
 
             {todoDialog.type === 'new' ? (
-                <DialogActions className="justify-between pl-8 sm:pl-16">
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        onClick={() => {
-                            dispatch(Actions.addTodo(form));
-                            closeTodoDialog();
-                        }}
-                        disabled={!canBeSubmitted()}
-                    >
-                        Add
-                    </Button>
+                <DialogActions className="justify-between p-8">
+                    <div className="px-16">
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            onClick={() => {
+                                dispatch(Actions.addTodo(form));
+                                closeTodoDialog();
+                            }}
+                            disabled={!canBeSubmitted()}
+                        >
+                            Add
+                        </Button>
+                    </div>
                 </DialogActions>
             ) : (
-                <DialogActions className="justify-between pl-8 sm:pl-16">
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        onClick={() => {
-                            dispatch(Actions.updateTodo(form));
-                            closeTodoDialog();
-                        }}
-                        disabled={!canBeSubmitted()}
-                    >
-                        Save
-                    </Button>
+                <DialogActions className="justify-between p-8">
+                    <div className="px-16">
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            onClick={() => {
+                                dispatch(Actions.updateTodo(form));
+                                closeTodoDialog();
+                            }}
+                            disabled={!canBeSubmitted()}
+                        >
+                            Save
+                        </Button>
+                    </div>
                     <IconButton
                         className="min-w-auto"
                         onClick={() => {

@@ -165,7 +165,7 @@ function EventDialog(props)
                 </DialogContent>
 
                 {eventDialog.type === 'new' ? (
-                    <DialogActions className="justify-between pl-8 sm:pl-16">
+                    <DialogActions className="justify-between px-8 sm:px-16">
                         <Button
                             variant="contained"
                             color="primary"
@@ -176,7 +176,7 @@ function EventDialog(props)
                         </Button>
                     </DialogActions>
                 ) : (
-                    <DialogActions className="justify-between pl-8 sm:pl-16">
+                    <DialogActions className="justify-between px-8 sm:px-16">
                         <Button
                             variant="contained"
                             color="primary"

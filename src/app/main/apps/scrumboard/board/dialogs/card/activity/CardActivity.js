@@ -23,10 +23,10 @@ function CardActivity(props)
             return (
                 <ListItem dense className="px-0">
                     <Avatar alt={user.name} src={user.avatar} className="w-32 h-32"/>
-                    <div className={clsx(classes.commentBubble, "flex flex-col ml-16 p-12")}>
+                    <div className={clsx(classes.commentBubble, "flex flex-col mx-16 p-12")}>
                         <div className="flex items-center">
                             <Typography>{user.name}</Typography>
-                            <Typography className="ml-8 text-12" color="textSecondary">{props.item.time}</Typography>
+                            <Typography className="mx-8 text-12" color="textSecondary">{props.item.time}</Typography>
                         </div>
                         <Typography>{props.item.message}</Typography>
                     </div>
@@ -38,11 +38,11 @@ function CardActivity(props)
             return (
                 <ListItem dense className="px-0">
                     <Avatar alt={user.name} src={user.avatar} className="w-32 h-32"/>
-                    <div className="flex items-center ml-16">
+                    <div className="flex items-center mx-16">
                         <Typography>{user.name},</Typography>
-                        <Typography className="ml-8">{props.item.message}</Typography>
+                        <Typography className="mx-8">{props.item.message}</Typography>
+                        <Typography className="text-12" color="textSecondary">{props.item.time}</Typography>
                     </div>
-                    <Typography className="ml-8 text-12" color="textSecondary">{props.item.time}</Typography>
                 </ListItem>
             )
         }

@@ -30,12 +30,12 @@ function CardAddChecklistItem(props)
     return (
         <form onSubmit={handleSubmit}>
             <ListItem
-                className="pr-0"
-                style={{paddingLeft: 50}}
+                className="px-0"
                 dense
             >
+                <span className="w-40"/>
                 <TextField
-                    className="flex flex-1"
+                    className="flex flex-1 mx-8"
                     name="name"
                     value={form.name}
                     onChange={handleChange}
@@ -43,7 +43,7 @@ function CardAddChecklistItem(props)
                     placeholder="Add an item"
                 />
                 <Fab
-                    className="ml-16"
+                    className="mx-4"
                     aria-label="Add"
                     size="small"
                     color="secondary"

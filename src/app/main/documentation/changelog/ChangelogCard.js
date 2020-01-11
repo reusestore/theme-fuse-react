@@ -39,13 +39,13 @@ function ChangelogCard(props)
                     <Typography className="text-24" component="h2">{`v${props.version}`}</Typography>
                 )}
                 {props.date && (
-                    <Typography className="text-17 ml-8" color="textSecondary" component="h3">({props.date})</Typography>
+                    <Typography className="text-17 mx-8" color="textSecondary" component="h3">({props.date})</Typography>
                 )}
             </div>
             {props.newChanges.length > 0 && (
                 <div className="mt-24">
                     <div className={clsx(classes.badge, "new")}>New</div>
-                    <ul className="my-16 pl-24">
+                    <ul className="my-16 px-24">
                         {props.newChanges.map((change, index) => (
                             <li key={index} className="mb-6">
                                 <Typography>{change}</Typography>
@@ -57,7 +57,7 @@ function ChangelogCard(props)
             {props.fixedChanges.length > 0 && (
                 <div className="mt-24">
                     <div className={clsx(classes.badge, "fix")}>Fixed</div>
-                    <ul className="my-16 pl-24">
+                    <ul className="my-16 px-24">
                         {props.fixedChanges.map((change, index) => (
                             <li key={index} className="mb-6">
                                 <Typography>{change}</Typography>
@@ -69,7 +69,7 @@ function ChangelogCard(props)
             {props.breakingChanges.length > 0 && (
                 <div className="mt-24">
                     <div className={clsx(classes.badge, "breaking")}>Breaking Changes</div>
-                    <ul className="my-16 pl-24">
+                    <ul className="my-16 px-24">
                         {props.breakingChanges.map((change, index) => (
                             <li key={index} className="mb-6">
                                 <Typography>{change}</Typography>

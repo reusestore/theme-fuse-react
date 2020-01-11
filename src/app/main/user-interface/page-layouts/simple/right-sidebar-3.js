@@ -19,12 +19,12 @@ function SimpleRightSidebar3Sample()
             }}
             header={
                 <div className="flex flex-col flex-1">
-                    <div className="flex items-center pr-12 lg:pr-24 p-24">
-                        <div className="flex-1"><h4>Header</h4></div>
+                    <div className="flex items-center p-24 px-12">
+                        <div className="flex-1 lg:px-12"><h4>Header</h4></div>
                         <Hidden lgUp>
                             <IconButton
                                 onClick={(ev) => pageLayout.current.toggleRightSidebar()}
-                                aria-label="open left sidebar"
+                                aria-label="open right sidebar"
                             >
                                 <Icon>menu</Icon>
                             </IconButton>

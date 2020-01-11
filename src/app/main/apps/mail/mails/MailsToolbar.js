@@ -48,7 +48,8 @@ function MailToolbar(props)
             />
 
             <IconButton
-                className="w-24"
+                className=""
+                size="small"
                 aria-label="More"
                 aria-owns={menu.select ? 'select-menu' : null}
                 aria-haspopup="true"

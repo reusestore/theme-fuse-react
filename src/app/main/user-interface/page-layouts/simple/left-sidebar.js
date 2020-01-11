@@ -19,7 +19,7 @@ function SimpleLeftSidebarSample()
             }}
             header={
                 <div className="flex flex-col flex-1">
-                    <div className="flex items-center pl-12 lg:pl-24 p-24">
+                    <div className="flex items-center p-24 px-12">
                         <Hidden lgUp>
                             <IconButton
                                 onClick={(ev) => pageLayout.current.toggleLeftSidebar()}
@@ -28,7 +28,7 @@ function SimpleLeftSidebarSample()
                                 <Icon>menu</Icon>
                             </IconButton>
                         </Hidden>
-                        <div className="flex-1"><h4>Header</h4></div>
+                        <div className="flex-1 lg:px-12"><h4>Header</h4></div>
                     </div>
                 </div>
             }

@@ -4,6 +4,7 @@ import {FuseAnimate} from '@fuse';
 import {useDispatch, useSelector} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import * as Actions from '../store/actions/index';
+import {useTheme} from '@material-ui/styles';
 
 const pathToRegexp = require('path-to-regexp');
 
@@ -11,6 +12,7 @@ function MailToolbar(props)
 {
     const dispatch = useDispatch();
     const mail = useSelector(({mailApp}) => mailApp.mail);
+    const theme = useTheme();
 
     const toPath = pathToRegexp.compile(props.match.path);
     const matchParams = {...props.match.params};
@@ -26,7 +28,7 @@ function MailToolbar(props)
         <div className="flex flex-1 items-center justify-between overflow-hidden sm:px-16">
 
             <IconButton onClick={() => props.history.push(deselectUrl)}>
-                <Icon>arrow_back</Icon>
+                <Icon>{theme.direction === "ltr" ? "arrow_back" : "arrow_forward"}</Icon>
             </IconButton>
 
             <div className="flex items-center justify-start" aria-label="Toggle star">

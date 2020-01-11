@@ -293,28 +293,32 @@ function ContactDialog(props)
                 </DialogContent>
 
                 {contactDialog.type === 'new' ? (
-                    <DialogActions className="justify-between pl-16">
-                        <Button
-                            variant="contained"
-                            color="primary"
-                            onClick={handleSubmit}
-                            type="submit"
-                            disabled={!canBeSubmitted()}
-                        >
-                            Add
-                        </Button>
+                    <DialogActions className="justify-between p-8">
+                        <div className="px-16">
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                onClick={handleSubmit}
+                                type="submit"
+                                disabled={!canBeSubmitted()}
+                            >
+                                Add
+                            </Button>
+                        </div>
                     </DialogActions>
                 ) : (
-                    <DialogActions className="justify-between pl-16">
-                        <Button
-                            variant="contained"
-                            color="primary"
-                            type="submit"
-                            onClick={handleSubmit}
-                            disabled={!canBeSubmitted()}
-                        >
-                            Save
-                        </Button>
+                    <DialogActions className="justify-between p-8">
+                        <div className="px-16">
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                type="submit"
+                                onClick={handleSubmit}
+                                disabled={!canBeSubmitted()}
+                            >
+                                Save
+                            </Button>
+                        </div>
                         <IconButton
                             onClick={handleRemove}
                         >

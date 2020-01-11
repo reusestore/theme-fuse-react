@@ -22,8 +22,8 @@ function WidgetNow()
 
     return (
         <Paper className="w-full rounded-8 shadow-none border-1">
-            <div className="flex items-center justify-between pr-4 pl-16 pt-4">
-                <Typography className="text-16">
+            <div className="flex items-center justify-between px-4 pt-4">
+                <Typography className="text-16 px-12">
                     {time.format('dddd, HH:mm:ss')}
                 </Typography>
                 <IconButton aria-label="more">

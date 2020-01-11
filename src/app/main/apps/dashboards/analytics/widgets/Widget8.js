@@ -13,9 +13,9 @@ function Widget8(props)
 
             <AppBar position="static">
 
-                <div className="p-16 pr-4 flex flex-row items-center justify-between">
+                <div className="p-16 px-4 flex flex-row items-center justify-between">
 
-                    <div className="pr-16">
+                    <div className="px-12">
                         <Typography className="h1 font-300" color="inherit">Sales</Typography>
                         <Typography className="h5" color="inherit">Lifetime sum of your sales</Typography>
                     </div>
@@ -35,7 +35,7 @@ function Widget8(props)
                         {props.data.change.value < 0 && (
                             <Icon className="text-red">trending_down</Icon>
                         )}
-                        <div className="ml-8">
+                        <div className="mx-8">
                             {props.data.change.value}
                             ({props.data.change.percentage}%)
                         </div>

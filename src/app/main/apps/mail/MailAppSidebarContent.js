@@ -6,7 +6,7 @@ import {useSelector} from 'react-redux';
 import MailCompose from './MailCompose';
 
 const useStyles = makeStyles(theme => ({
-    listItem: {
+    listItem     : {
         color              : 'inherit!important',
         textDecoration     : 'none!important',
         height             : 40,
@@ -28,6 +28,9 @@ const useStyles = makeStyles(theme => ({
             height     : 16,
             marginRight: 16
         }
+    },
+    listSubheader: {
+        paddingLeft: 24
     }
 }));
 
@@ -86,7 +89,7 @@ function MailAppSidebarContent(props)
 
                     <List>
 
-                        <ListSubheader className="pr-24 pl-24" disableSticky>LABELS</ListSubheader>
+                        <ListSubheader className={classes.listSubheader} disableSticky>LABELS</ListSubheader>
 
                         {labels && labels.map((label) => (
                             <ListItem

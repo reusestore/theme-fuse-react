@@ -199,7 +199,7 @@ function Chat(props)
                                 ) :
                                 chat.dialog.length > 0 ?
                                     (
-                                        <div className="flex flex-col pt-16 pl-40 pb-40">
+                                        <div className="flex flex-col pt-16 ltr:pl-40 rtl:pr-40 pb-40">
                                             {chat.dialog.map((item, i) => {
                                                 const contact = item.who === user.id ? user : contacts.find(_contact => _contact.id === item.who);
                                                 return (
@@ -250,7 +250,7 @@ function Chat(props)
                             InputProps={{
                                 disableUnderline: true,
                                 classes         : {
-                                    root : "flex flex-grow flex-shrink-0 ml-16 mr-48 my-8",
+                                    root : "flex flex-grow flex-shrink-0 mx-16 ltr:mr-48 rtl:ml-48 my-8",
                                     input: ""
                                 },
                                 placeholder     : "Type your message"
@@ -262,7 +262,7 @@ function Chat(props)
                             onChange={onInputChange}
                             value={messageText}
                         />
-                        <IconButton className="absolute right-0 top-0" type="submit">
+                        <IconButton className="absolute ltr:right-0 rtl:left-0 top-0" type="submit">
                             <Icon className="text-24" color="action">send</Icon>
                         </IconButton>
                     </Paper>

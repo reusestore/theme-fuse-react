@@ -52,8 +52,8 @@ function UserSidebar(props)
                 color="primary"
                 elevation={1}
             >
-                <Toolbar className="flex justify-between items-center px-16 pr-4">
-                    <Typography color="inherit" variant="subtitle1">User Info</Typography>
+                <Toolbar className="flex justify-between items-center px-4">
+                    <Typography className="px-12" color="inherit" variant="subtitle1">User Info</Typography>
                     <IconButton onClick={() => dispatch(Actions.closeUserSidebar())} color="inherit">
                         <Icon>close</Icon>
                     </IconButton>
@@ -95,7 +95,7 @@ function UserSidebar(props)
                                     label={(
                                         <div className="flex items-center">
                                             <StatusIcon status={status.value}/>
-                                            <span className="ml-8">{status.title}</span>
+                                            <span className="mx-8">{status.title}</span>
                                         </div>
                                     )}
                                 />

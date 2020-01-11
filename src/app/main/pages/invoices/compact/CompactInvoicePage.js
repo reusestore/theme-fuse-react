@@ -61,12 +61,12 @@ function CompactInvoicePage()
                                     <table className="mb-16">
                                         <tbody>
                                             <tr>
-                                                <td className="pr-16 pb-4">
+                                                <td className="pb-4">
                                                     <Typography className="font-light" variant="h6" color="textSecondary">
                                                         INVOICE
                                                     </Typography>
                                                 </td>
-                                                <td className="pb-4">
+                                                <td className="pb-4 px-16">
                                                     <Typography className="font-light" variant="h6">
                                                         {invoice.number}
                                                     </Typography>
@@ -74,12 +74,12 @@ function CompactInvoicePage()
                                             </tr>
 
                                             <tr>
-                                                <td className="pr-16">
+                                                <td>
                                                     <Typography color="textSecondary">
                                                         INVOICE DATE
                                                     </Typography>
                                                 </td>
-                                                <td>
+                                                <td className="px-16">
                                                     <Typography>
                                                         {invoice.date}
                                                     </Typography>
@@ -87,12 +87,12 @@ function CompactInvoicePage()
                                             </tr>
 
                                             <tr>
-                                                <td className="pr-16">
+                                                <td>
                                                     <Typography color="textSecondary">
                                                         DUE DATE
                                                     </Typography>
                                                 </td>
-                                                <td>
+                                                <td className="px-16">
                                                     <Typography>
                                                         {invoice.dueDate}
                                                     </Typography>
@@ -129,9 +129,9 @@ function CompactInvoicePage()
 
                                     <img className="w-80" src="assets/images/logos/fuse.svg" alt="logo"/>
 
-                                    <div className={clsx(classes.divider, "w-px ml-8 mr-16 h-96 opacity-50")}/>
+                                    <div className={clsx(classes.divider, "w-px mx-8 h-96 opacity-50")}/>
 
-                                    <div>
+                                    <div className="px-8">
                                         <Typography color="inherit">{invoice.from.title}</Typography>
 
                                         {invoice.from.address && (
@@ -256,11 +256,11 @@ function CompactInvoicePage()
 
                                 <div className="flex">
 
-                                    <div className="flex-shrink-0 mr-24">
+                                    <div className="flex-shrink-0">
                                         <img className="w-32" src="assets/images/logos/fuse.svg" alt="logo"/>
                                     </div>
 
-                                    <Typography className="font-medium mb-64" variant="caption" color="textSecondary">
+                                    <Typography className="font-medium mb-64 px-24" variant="caption" color="textSecondary">
                                         In condimentum malesuada efficitur. Mauris volutpat placerat auctor. Ut ac congue dolor. Quisque
                                         scelerisque lacus sed feugiat fermentum. Cras aliquet facilisis pellentesque. Nunc hendrerit
                                         quam at leo commodo, a suscipit tellus dapibus. Etiam at felis volutpat est mollis lacinia.

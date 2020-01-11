@@ -13,10 +13,11 @@ import {create} from 'jss';
 import {StylesProvider, jssPreset, createGenerateClassName} from '@material-ui/styles';
 import {MuiPickersUtilsProvider} from '@material-ui/pickers';
 import MomentUtils from '@date-io/moment';
+import rtl from 'jss-rtl';
 
 const jss = create({
     ...jssPreset(),
-    plugins       : [...jssPreset().plugins, jssExtend()],
+    plugins       : [...jssPreset().plugins, jssExtend(), rtl()],
     insertionPoint: document.getElementById('jss-insertion-point'),
 });
 

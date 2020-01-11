@@ -21,10 +21,10 @@ function MailAppSidebarHeader(props)
 
             <div className="flex items-center flex-1">
                 <FuseAnimate animation="transition.expandIn" delay={300}>
-                    <Icon className="mr-16 text-32">mail</Icon>
+                    <Icon className="text-32">mail</Icon>
                 </FuseAnimate>
                 <FuseAnimate animation="transition.slideLeftIn" delay={300}>
-                    <span className="text-24">Mailbox</span>
+                    <span className="text-24 mx-16">Mailbox</span>
                 </FuseAnimate>
             </div>
 

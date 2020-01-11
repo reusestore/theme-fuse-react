@@ -35,7 +35,7 @@ function BoardList(props)
                     {...provided.draggableProps}
                 >
                     <Card
-                        className={clsx(classes.list, "w-256 sm:w-320 mr-16 sm:mr-24 max-h-full flex flex-col")}
+                        className={clsx(classes.list, "w-256 sm:w-320 mx-8 sm:mx-12 max-h-full flex flex-col")}
                         square={true}
                         elevation={snapshot.isDragging ? 3 : 1}
                     >

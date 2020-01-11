@@ -14,6 +14,7 @@ import {
     mainThemeVariations
 } from '@fuse/FuseDefaultSettings';
 
+const themesObjRaw = Object.keys(FuseThemesConfig).length !== 0 ? FuseThemesConfig : defaultThemes;
 const initialSettings = getInitialSettings();
 const initialThemes = getInitialThemes();
 
@@ -31,7 +32,7 @@ const settings = function (state = initialState, action) {
         case Actions.SET_SETTINGS:
         {
             const current = generateSettings(state.defaults, action.value);
-            const themes = current.theme.main !== state.current.theme.main ? {...state.themes, ...updateMainThemeVariations(current.theme.main)} : state.themes;
+            const themes = current.theme.main !== state.current.theme.main ? {...state.themes, ...updateMainThemeVariations(current.theme.main, state.themes)} : state.themes;
             return {
                 ...state,
                 current,
@@ -46,7 +47,8 @@ const settings = function (state = initialState, action) {
         case Actions.SET_DEFAULT_SETTINGS:
         {
             const defaults = generateSettings(state.defaults, action.value);
-            const themes = defaults.theme.main !== state.defaults.theme.main ? {...state.themes, ...updateMainThemeVariations(defaults.theme.main)} : state.themes;
+            let themes = defaults.theme.main !== state.defaults.theme.main ? {...state.themes, ...updateMainThemeVariations(defaults.theme.main, state.themes)} : state.themes;
+            themes = defaults.direction !== state.defaults.direction ? updateThemeDirections(themes, defaults.direction) : themes;
             return {
                 ...state,
                 defaults: _.merge({}, defaults),
@@ -57,7 +59,7 @@ const settings = function (state = initialState, action) {
         }
         case Actions.RESET_DEFAULT_SETTINGS:
         {
-            const themes = {...state.themes, ...updateMainThemeVariations(state.defaults.theme.main)};
+            const themes = {...state.themes, ...updateMainThemeVariations(state.defaults.theme.main, state.themes)};
             return {
                 ...state,
                 defaults: _.merge({}, state.defaults),
@@ -93,26 +95,35 @@ function getInitialSettings()
  */
 function getInitialThemes()
 {
-    const themesObj = Object.keys(FuseThemesConfig).length !== 0 ? FuseThemesConfig : defaultThemes;
+    const direction = initialSettings.direction;
 
-    const themes = Object.assign({}, ...Object.entries(themesObj).map(([key, value]) => {
+    const themes = Object.assign({}, ...Object.entries(themesObjRaw).map(([key, value]) => {
             const muiTheme = _.merge({}, defaultThemeOptions, value, mustHaveThemeOptions);
             return {
-                [key]: createMuiTheme(_.merge({}, muiTheme, {mixins: extendThemeWithMixins(muiTheme)}))
+                [key]: createMuiTheme(_.merge({}, muiTheme, {
+                    mixins: extendThemeWithMixins(muiTheme),
+                    direction
+                }))
             }
         }
     ));
 
     return {
         ...themes,
-        ...mainThemeVariations(themesObj[initialSettings.theme.main])
+        ...mainThemeVariations(
+            {
+                ...themesObjRaw[initialSettings.theme.main],
+                direction
+            })
     }
 }
 
-function updateMainThemeVariations(mainTheme)
+function updateMainThemeVariations(mainTheme, themes)
 {
-    const themesObj = Object.keys(FuseThemesConfig).length !== 0 ? FuseThemesConfig : defaultThemes;
-    return mainThemeVariations(themesObj[mainTheme])
+    return mainThemeVariations({
+        ...themesObjRaw[mainTheme],
+        direction: themes[mainTheme].direction
+    })
 }
 
 function getThemeOptions(themes, settings)
@@ -122,8 +133,20 @@ function getThemeOptions(themes, settings)
         navbarTheme : themes[settings.theme.navbar],
         toolbarTheme: themes[settings.theme.toolbar],
         footerTheme : themes[settings.theme.footer],
-        ...updateMainThemeVariations(settings.theme.main)
+        ...updateMainThemeVariations(settings.theme.main, themes)
     }
+}
+
+function updateThemeDirections(themes, direction)
+{
+    const response = {};
+    Object.entries(themes).map(([key, value]) => {
+        return response[key] = {
+            ...value,
+            direction
+        }
+    });
+    return response;
 }
 
 export function generateSettings(defaultSettings, newSettings)

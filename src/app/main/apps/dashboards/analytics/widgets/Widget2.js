@@ -12,7 +12,7 @@ function Widget2(props)
 
             <div className="p-16 pb-0 flex flex-row flex-wrap items-end">
 
-                <div className="pr-16">
+                <div className="">
                     <Typography className="h3" color="textSecondary">Conversion</Typography>
                     <Typography className="text-56 font-300 leading-none mt-8">
                         {props.data.conversion.value}
@@ -22,14 +22,14 @@ function Widget2(props)
                 <div className="py-4 text-16 flex flex-row items-center">
                     <div className="flex flex-row items-center">
                         {props.data.conversion.ofTarget > 0 && (
-                            <Icon className="text-green mr-4">trending_up</Icon>
+                            <Icon className="text-green">trending_up</Icon>
                         )}
                         {props.data.conversion.ofTarget < 0 && (
-                            <Icon className="text-red mr-4">trending_down</Icon>
+                            <Icon className="text-red">trending_down</Icon>
                         )}
-                        <Typography>{props.data.conversion.ofTarget}%</Typography>
+                        <Typography className="mx-4">{props.data.conversion.ofTarget}%</Typography>
                     </div>
-                    <Typography className="ml-4 whitespace-no-wrap">of target</Typography>
+                    <Typography className="whitespace-no-wrap">of target</Typography>
                 </div>
 
             </div>

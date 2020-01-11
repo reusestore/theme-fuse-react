@@ -142,8 +142,8 @@ function MailCompose()
                         </div>
                     </DialogContent>
 
-                    <DialogActions className="justify-between pl-8 sm:pl-16">
-                        <div>
+                    <DialogActions className="justify-between p-8">
+                        <div className="px-16">
                             <Button variant="contained" color="primary" type="submit">
                                 Send
                             </Button>

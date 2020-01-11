@@ -66,7 +66,7 @@ function CardChecklist(props)
 
             <div className="flex items-center justify-between mt-16 mb-12">
                 <div className="flex items-center">
-                    <Icon className="text-20 mr-8">check_box</Icon>
+                    <Icon className="text-20">check_box</Icon>
                     <CardChecklistName name={form.name} onNameChange={handleNameChange} ref={checkListNameRef}/>
                 </div>
                 <div className="">
@@ -102,12 +102,12 @@ function CardChecklist(props)
             </div>
 
             <div className="">
-                <div className="flex items-center pl-16">
-                    <Typography className="flex font-600 mr-12">
+                <div className="flex items-center -mx-6">
+                    <Typography className="flex font-600 mx-6">
                         {checkItemsChecked() + ' / ' + form.checkItems.length}
                     </Typography>
                     <LinearProgress
-                        className="flex flex-1"
+                        className="flex flex-1 mx-6"
                         variant="determinate"
                         color="secondary"
                         value={100 * checkItemsChecked() / form.checkItems.length}

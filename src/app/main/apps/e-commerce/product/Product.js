@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Tab, Tabs, TextField, InputAdornment, Icon, Typography} from '@material-ui/core';
 import {orange} from '@material-ui/core/colors';
-import {makeStyles} from '@material-ui/styles';
+import {makeStyles, useTheme} from '@material-ui/styles';
 import {FuseAnimate, FusePageCarded, FuseChipSelect, FuseUtils, FuseLoading} from '@fuse';
 import {useForm} from '@fuse/hooks';
 import {Link} from 'react-router-dom';
@@ -51,6 +51,7 @@ function Product(props)
 {
     const dispatch = useDispatch();
     const product = useSelector(({eCommerceApp}) => eCommerceApp.product);
+    const theme = useTheme();
 
     const classes = useStyles(props);
     const [tabValue, setTabValue] = useState(0);
@@ -155,20 +156,20 @@ function Product(props)
 
                             <FuseAnimate animation="transition.slideRightIn" delay={300}>
                                 <Typography className="normal-case flex items-center sm:mb-12" component={Link} role="button" to="/apps/e-commerce/products" color="inherit">
-                                    <Icon className="mr-4 text-20">arrow_back</Icon>
-                                    Products
+                                    <Icon className="text-20">{theme.direction === "ltr" ? "arrow_back" : "arrow_forward"}</Icon>
+                                    <span className="mx-4">Products</span>
                                 </Typography>
                             </FuseAnimate>
 
                             <div className="flex items-center max-w-full">
                                 <FuseAnimate animation="transition.expandIn" delay={300}>
                                     {form.images.length > 0 && form.featuredImageId ? (
-                                        <img className="w-32 sm:w-48 mr-8 sm:mr-16 rounded" src={_.find(form.images, {id: form.featuredImageId}).url} alt={form.name}/>
+                                        <img className="w-32 sm:w-48 rounded" src={_.find(form.images, {id: form.featuredImageId}).url} alt={form.name}/>
                                     ) : (
-                                        <img className="w-32 sm:w-48 mr-8 sm:mr-16 rounded" src="assets/images/ecommerce/product-image-placeholder.png" alt={form.name}/>
+                                        <img className="w-32 sm:w-48 rounded" src="assets/images/ecommerce/product-image-placeholder.png" alt={form.name}/>
                                     )}
                                 </FuseAnimate>
-                                <div className="flex flex-col min-w-0">
+                                <div className="flex flex-col min-w-0 mx-8 sm:mc-16">
                                     <FuseAnimate animation="transition.slideLeftIn" delay={300}>
                                         <Typography className="text-16 sm:text-20 truncate">
                                             {form.name ? form.name : 'New Product'}
@@ -296,13 +297,13 @@ function Product(props)
                                     type="file"
                                     onChange={handleUploadChange}
                                 />
-                                <div className="flex justify-center sm:justify-start flex-wrap">
+                                <div className="flex justify-center sm:justify-start flex-wrap -mx-8">
                                     <label
                                         htmlFor="button-file"
                                         className={
                                             clsx(
                                                 classes.productImageUpload,
-                                                "flex items-center justify-center relative w-128 h-128 rounded-4 mr-16 mb-16 overflow-hidden cursor-pointer shadow-1 hover:shadow-5"
+                                                "flex items-center justify-center relative w-128 h-128 rounded-4 mx-8 mb-16 overflow-hidden cursor-pointer shadow-1 hover:shadow-5"
                                             )}
                                     >
                                         <Icon fontSize="large" color="action">cloud_upload</Icon>
@@ -313,7 +314,7 @@ function Product(props)
                                             className={
                                                 clsx(
                                                     classes.productImageItem,
-                                                    "flex items-center justify-center relative w-128 h-128 rounded-4 mr-16 mb-16 overflow-hidden cursor-pointer shadow-1 hover:shadow-5",
+                                                    "flex items-center justify-center relative w-128 h-128 rounded-4 mx-8 mb-16 overflow-hidden cursor-pointer shadow-1 hover:shadow-5",
                                                     (media.id === form.featuredImageId) && 'featured')
                                             }
                                             key={media.id}
@@ -423,9 +424,9 @@ function Product(props)
                         )}
                         {tabValue === 4 && (
                             <div>
-                                <div className="flex">
+                                <div className="flex -mx-4">
                                     <TextField
-                                        className="mt-8 mb-16 mr-8"
+                                        className="mt-8 mb-16 mx-4"
                                         label="Width"
                                         autoFocus
                                         id="width"
@@ -437,7 +438,7 @@ function Product(props)
                                     />
 
                                     <TextField
-                                        className="mt-8 mb-16 mr-8"
+                                        className="mt-8 mb-16 mx-4"
                                         label="Height"
                                         id="height"
                                         name="height"
@@ -448,7 +449,7 @@ function Product(props)
                                     />
 
                                     <TextField
-                                        className="mt-8 mb-16 mr-8"
+                                        className="mt-8 mb-16 mx-4"
                                         label="Depth"
                                         id="depth"
                                         name="depth"

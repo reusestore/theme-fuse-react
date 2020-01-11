@@ -42,8 +42,8 @@ function BoxDoc(props)
                         target="_blank"
                         role="button"
                     >
-                        <Icon className="mr-4">link</Icon>
-                        Reference
+                        <Icon>link</Icon>
+                        <span className="mx-4">Reference</span>
                     </Button>
                 </div>
             }

@@ -28,7 +28,7 @@ function TodoListItem(props)
 
     return (
         <ListItem
-            className={clsx(classes.todoItem, {"completed": props.todo.completed}, "border-solid border-b-1 py-16  px-0 sm:px-8")}
+            className={clsx(classes.todoItem, {"completed": props.todo.completed}, "border-solid border-b-1 py-16 px-0 sm:px-8")}
             onClick={(ev) => {
                 ev.preventDefault();
                 dispatch(Actions.openEditTodoDialog(props.todo));
@@ -45,7 +45,7 @@ function TodoListItem(props)
                 onClick={(ev) => ev.stopPropagation()}
             />
 
-            <div className="flex flex-1 flex-col relative overflow-hidden pl-8">
+            <div className="flex flex-1 flex-col relative overflow-hidden px-8">
 
                 <Typography
                     variant="subtitle1"
@@ -62,10 +62,10 @@ function TodoListItem(props)
                     {_.truncate(props.todo.notes.replace(/<(?:.|\n)*?>/gm, ''), {'length': 180})}
                 </Typography>
 
-                <div className={clsx(classes.labels, "flex mt-8")}>
+                <div className={clsx(classes.labels, "flex -mx-2")}>
                     {props.todo.labels.map(label => (
                         <TodoChip
-                            className="mr-4"
+                            className="mx-2 mt-4"
                             title={_.find(labels, {id: label}).title}
                             color={_.find(labels, {id: label}).color}
                             key={label}

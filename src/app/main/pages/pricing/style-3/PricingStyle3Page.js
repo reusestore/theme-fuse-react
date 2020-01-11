@@ -76,9 +76,9 @@ function PricingStyle3Page()
                                     <div className={clsx(classes.price, "flex items-end justify-center py-16 px-32")}>
                                         <div className="flex justify-center">
                                             <Typography color="inherit" className="font-medium">$</Typography>
-                                            <Typography color="inherit" className="text-32 ml-4 mr-8 font-light leading-none">29</Typography>
+                                            <Typography color="inherit" className="text-32 mx-4 font-light leading-none">29</Typography>
                                         </div>
-                                        <Typography color="inherit">
+                                        <Typography color="inherit" className="mx-4">
                                             monthly per user
                                         </Typography>
                                     </div>
@@ -126,10 +126,10 @@ function PricingStyle3Page()
                                     <div className={clsx(classes.price, "flex items-end justify-center py-16 px-32")}>
                                         <div className="flex justify-center">
                                             <Typography color="inherit" className="font-medium">$</Typography>
-                                            <Typography color="inherit" className="text-32 ml-4 mr-8 font-light leading-none">59</Typography>
+                                            <Typography color="inherit" className="text-32 mx-4 font-light leading-none">59</Typography>
                                         </div>
-                                        <Typography color="inherit">
-                                            monthly per user
+                                        <Typography color="inherit" className="mx-4">
+                                        monthly per user
                                         </Typography>
                                     </div>
 
@@ -184,10 +184,10 @@ function PricingStyle3Page()
                                     <div className={clsx(classes.price, "flex items-end justify-center py-16 px-32")}>
                                         <div className="flex justify-center">
                                             <Typography color="inherit" className="font-medium">$</Typography>
-                                            <Typography color="inherit" className="text-32 ml-4 mr-8 font-light leading-none">29</Typography>
+                                            <Typography color="inherit" className="text-32 mx-4 font-light leading-none">29</Typography>
                                         </div>
-                                        <Typography color="inherit">
-                                            monthly per user
+                                        <Typography color="inherit" className="mx-4">
+                                        monthly per user
                                         </Typography>
                                     </div>
 
@@ -216,7 +216,7 @@ function PricingStyle3Page()
                             </Card>
                         </div>
                     </FuseAnimateGroup>
-                    <div className="flex flex-col items-center py-96 text-center sm:text-left max-w-xl mx-auto">
+                    <div className="flex flex-col items-center py-96 text-center sm:ltr:text-left sm:rtl:text-right max-w-xl mx-auto">
 
                         <Typography variant="h4" className="pb-32 font-light">Frequently Asked Questions</Typography>
 

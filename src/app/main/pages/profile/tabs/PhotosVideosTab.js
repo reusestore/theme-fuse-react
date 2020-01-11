@@ -20,8 +20,9 @@ function PhotosVideosTab()
 
     return (
         <div className="md:flex max-w-2xl">
-            <div className="flex flex-col flex-1 md:pr-32">
-                <FuseAnimateGroup
+            <div className="flex flex-col flex-1 md:ltr:pr-32 md:rtl:pl-32">
+
+            <FuseAnimateGroup
                     enter={{
                         animation: "transition.slideUpBigIn"
                     }}
@@ -29,9 +30,9 @@ function PhotosVideosTab()
                     {data.map((period) => (
                         <div key={period.id} className="mb-48">
 
-                            <ListSubheader component="div" className="flex items-center pl-0 mb-24">
-                                <Typography className="mr-16" variant="h6">{period.name}</Typography>
-                                <Typography variant="subtitle1" color="textSecondary">{period.info}</Typography>
+                            <ListSubheader component="div" className="flex items-center px-0 mb-24">
+                                <Typography variant="h6">{period.name}</Typography>
+                                <Typography className="mx-16" variant="subtitle1" color="textSecondary">{period.info}</Typography>
                             </ListSubheader>
 
                             <GridList className="" spacing={8} cols={0}>

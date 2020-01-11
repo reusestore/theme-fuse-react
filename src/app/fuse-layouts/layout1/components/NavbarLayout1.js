@@ -7,7 +7,7 @@ import Logo from 'app/fuse-layouts/shared-components/Logo';
 import NavbarFoldedToggleButton from 'app/fuse-layouts/shared-components/NavbarFoldedToggleButton';
 import NavbarMobileToggleButton from 'app/fuse-layouts/shared-components/NavbarMobileToggleButton';
 import Navigation from 'app/fuse-layouts/shared-components/Navigation';
-import {makeStyles} from '@material-ui/styles';
+import {makeStyles, useTheme} from '@material-ui/styles';
 
 const useStyles = makeStyles({
     content: {
@@ -24,6 +24,7 @@ const useStyles = makeStyles({
 function NavbarLayout1(props)
 {
     const classes = useStyles();
+    const theme = useTheme();
 
     return (
         <div className={clsx("flex flex-col overflow-hidden h-full", props.className)}>
@@ -32,10 +33,10 @@ function NavbarLayout1(props)
                 color="primary"
                 position="static"
                 elevation={0}
-                className="flex flex-row items-center flex-shrink h-64 min-h-64 pl-20 pr-12"
+                className="flex flex-row items-center flex-shrink h-64 min-h-64 px-12"
             >
 
-                <div className="flex flex-1 pr-8">
+                <div className="flex flex-1 mx-8">
                     <Logo/>
                 </div>
 
@@ -45,7 +46,7 @@ function NavbarLayout1(props)
 
                 <Hidden lgUp>
                     <NavbarMobileToggleButton className="w-40 h-40 p-0">
-                        <Icon>arrow_back</Icon>
+                        <Icon>{theme.direction === "ltr" ? "arrow_back" : "arrow_forward"}"</Icon>
                     </NavbarMobileToggleButton>
                 </Hidden>
             </AppBar>

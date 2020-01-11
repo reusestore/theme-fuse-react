@@ -44,9 +44,9 @@ function NoteListItem(props)
                     <ul className="py-8 px-16 flex flex-wrap list-reset">
                         {props.note.checklist.map(item => (
                             <li key={item.id} className="flex items-center w-full">
-                                <Icon color="action" className="mr-8 text-16">{item.checked ? "check_box_outline" : "check_box_outline_blank"}</Icon>
+                                <Icon color="action" className="text-16">{item.checked ? "check_box_outline" : "check_box_outline_blank"}</Icon>
                                 <Typography
-                                    className={clsx("truncate", item.checked && "line-through")}
+                                    className={clsx("truncate mx-8", item.checked && "line-through")}
                                     color={item.checked ? "textSecondary" : "inherit"}
                                 >
                                     {item.text}
@@ -57,12 +57,12 @@ function NoteListItem(props)
                 )}
 
                 {(props.note.labels.length > 0 || props.note.reminder) && (
-                    <div className="py-8 px-16 flex flex-wrap w-full">
+                    <div className="py-8 px-16 flex flex-wrap w-full -mx-2">
                         {props.note.reminder && (
-                            <NoteReminderLabel className="mt-4 mr-4" date={props.note.reminder}/>
+                            <NoteReminderLabel className="mt-4 mx-2" date={props.note.reminder}/>
                         )}
                         {props.note.labels.map(id => (
-                            <NoteLabel id={id} key={id} className="mt-4 mr-4" linkable/>
+                            <NoteLabel id={id} key={id} className="mt-4 mx-2" linkable/>
                         ))}
                     </div>
                 )}

@@ -7,31 +7,31 @@ function MainSidebarContent()
         <List component="nav">
             <ListItem button dense>
                 <ListItemIcon className="min-w-40">
-                    <Icon className="text-20 mr-0">folder</Icon>
+                    <Icon className="text-20">folder</Icon>
                 </ListItemIcon>
                 <ListItemText primary="My Files"/>
             </ListItem>
             <ListItem button dense>
                 <ListItemIcon className="min-w-40">
-                    <Icon className="text-20 mr-0">star</Icon>
+                    <Icon className="text-20">star</Icon>
                 </ListItemIcon>
                 <ListItemText primary="Starred"/>
             </ListItem>
             <ListItem button dense>
                 <ListItemIcon className="min-w-40">
-                    <Icon className="text-20 mr-0">folder_shared</Icon>
+                    <Icon className="text-20">folder_shared</Icon>
                 </ListItemIcon>
                 <ListItemText primary="Sharred with me"/>
             </ListItem>
             <ListItem button dense>
                 <ListItemIcon className="min-w-40">
-                    <Icon className="text-20 mr-0">access_time</Icon>
+                    <Icon className="text-20">access_time</Icon>
                 </ListItemIcon>
                 <ListItemText primary="Recent"/>
             </ListItem>
             <ListItem button dense>
                 <ListItemIcon className="min-w-40">
-                    <Icon className="text-20 mr-0">not_interested</Icon>
+                    <Icon className="text-20">not_interested</Icon>
                 </ListItemIcon>
                 <ListItemText primary="Offline"/>
             </ListItem>

@@ -12,26 +12,26 @@ import FuseNavVerticalLink from './FuseNavVerticalLink';
 import * as Actions from 'app/store/actions';
 
 const useStyles = makeStyles(theme => ({
-    item: {
+    item: props => ({
         height                           : 40,
         width                            : 'calc(100% - 16px)',
         borderRadius                     : '0 20px 20px 0',
         paddingRight                     : 12,
+        paddingLeft                      : props.itemPadding > 80 ? 80 : props.itemPadding,
         '&.active > .list-subheader-text': {
             fontWeight: 700
         }
-    }
+    })
 }));
 
 function FuseNavVerticalGroup(props)
 {
     const userRole = useSelector(({auth}) => auth.user.role);
     const dispatch = useDispatch();
-
-    const classes = useStyles(props);
     const {item, nestedLevel} = props;
-    let paddingValue = 40 + (nestedLevel * 16);
-    const listItemPadding = nestedLevel > 0 ? 'pl-' + (paddingValue > 80 ? 80 : paddingValue) : 'pl-24';
+    const classes = useStyles({
+        itemPadding: nestedLevel > 0 ? 40 + (nestedLevel * 16) : 24
+    });
 
     if ( !FuseUtils.hasPermission(item.auth, userRole) )
     {
@@ -43,7 +43,7 @@ function FuseNavVerticalGroup(props)
 
             <ListSubheader
                 disableSticky={true}
-                className={clsx(classes.item, listItemPadding, "list-subheader flex items-center", !item.url && 'cursor-default')}
+                className={clsx(classes.item, "list-subheader flex items-center", !item.url && 'cursor-default')}
                 onClick={ev => dispatch(Actions.navbarCloseMobile())}
                 component={item.url ? NavLinkAdapter : 'li'}
                 to={item.url}

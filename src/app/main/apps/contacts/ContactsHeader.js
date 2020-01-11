@@ -28,25 +28,26 @@ function ContactsHeader(props)
 
                 <div className="flex items-center">
                     <FuseAnimate animation="transition.expandIn" delay={300}>
-                        <Icon className="text-32 mr-12">account_box</Icon>
+                        <Icon className="text-32">account_box</Icon>
                     </FuseAnimate>
                     <FuseAnimate animation="transition.slideLeftIn" delay={300}>
-                        <Typography variant="h6" className="hidden sm:flex">Contacts</Typography>
+                        <Typography variant="h6" className="mx-12 hidden sm:flex">Contacts</Typography>
                     </FuseAnimate>
                 </div>
             </div>
 
-            <div className="flex flex-1 items-center justify-center pr-8 sm:px-12">
+            <div className="flex flex-1 items-center justify-center px-8 sm:px-12">
 
                 <ThemeProvider theme={mainTheme}>
                     <FuseAnimate animation="transition.slideLeftIn" delay={300}>
-                        <Paper className="flex p-4 items-center w-full max-w-512 px-8 py-4" elevation={1}>
 
-                            <Icon className="mr-8" color="action">search</Icon>
+                        <Paper className="flex p-4 items-center w-full max-w-512 h-48 px-8 py-4" elevation={1}>
+
+                            <Icon color="action">search</Icon>
 
                             <Input
                                 placeholder="Search for anything"
-                                className="flex flex-1"
+                                className="flex flex-1 px-16"
                                 disableUnderline
                                 fullWidth
                                 value={searchText}

@@ -216,15 +216,15 @@ function BoardCardForm(props)
                     />
                 </div>
 
-                <div className="flex flex-col sm:flex-row">
+                <div className="flex flex-col sm:flex-row -mx-8">
                     {cardForm.idLabels.length > 0 && (
-                        <div className="flex-1 mb-24">
+                        <div className="flex-1 mb-24 mx-8">
                             <div className="flex items-center mt-16 mb-12">
-                                <Icon className="text-20 mr-8" color="inherit">label</Icon>
-                                <Typography className="font-600 text-16">Labels</Typography>
+                                <Icon className="text-20" color="inherit">label</Icon>
+                                <Typography className="font-600 text-16 mx-8">Labels</Typography>
                             </div>
                             <FuseChipSelect
-                                className={cardForm.idMembers.length > 0 && 'sm:mr-8'}
+                                className=""
                                 value={
                                     cardForm.idLabels.map(labelId => {
                                         const label = _.find(board.labels, {id: labelId});
@@ -265,19 +265,19 @@ function BoardCardForm(props)
                     )}
 
                     {cardForm.idMembers.length > 0 && (
-                        <div className="flex-1 mb-24">
+                        <div className="flex-1 mb-24 mx-8">
                             <div className="flex items-center mt-16 mb-12">
-                                <Icon className="text-20 mr-8" color="inherit">supervisor_account</Icon>
-                                <Typography className="font-600 text-16">Members</Typography>
+                                <Icon className="text-20" color="inherit">supervisor_account</Icon>
+                                <Typography className="font-600 text-16 mx-8">Members</Typography>
                             </div>
                             <FuseChipSelect
-                                className={cardForm.idLabels.length > 0 && 'sm:ml-8'}
+                                className=""
                                 value={
                                     cardForm.idMembers.map(memberId => {
                                         const member = _.find(board.members, {id: memberId});
                                         return member && {
                                             value: member.id,
-                                            label: (<Tooltip title={member.name}><Avatar className="-ml-12 w-32 h-32" src={member.avatar}/></Tooltip>)
+                                            label: (<Tooltip title={member.name}><Avatar className="ltr:-ml-12 rtl:-mr-12 w-32 h-32" src={member.avatar}/></Tooltip>)
                                         }
                                     })
                                 }
@@ -290,7 +290,7 @@ function BoardCardForm(props)
                                 options={board.members.map((member) => (
                                     {
                                         value: member.id,
-                                        label: (<span className="flex items-center"><Avatar className="w-32 h-32 mr-8" src={member.avatar}/>{member.name}</span>)
+                                        label: (<span className="flex items-center"><Avatar className="w-32 h-32" src={member.avatar}/><span className="mx-8">{member.name}</span></span>)
                                     }
                                 ))}
                                 variant="fixed"
@@ -302,10 +302,10 @@ function BoardCardForm(props)
                 {cardForm.attachments.length > 0 && (
                     <div className="mb-24">
                         <div className="flex items-center mt-16 mb-12">
-                            <Icon className="text-20 mr-8" color="inherit">attachment</Icon>
-                            <Typography className="font-600 text-16">Attachments</Typography>
+                            <Icon className="text-20" color="inherit">attachment</Icon>
+                            <Typography className="font-600 text-16 mx-8">Attachments</Typography>
                         </div>
-                        <div className="flex flex-col sm:flex-row flex-wrap">
+                        <div className="flex flex-col sm:flex-row flex-wrap -mx-16">
                             {cardForm.attachments.map(item => (
                                     <CardAttachment
                                         item={item}
@@ -333,8 +333,8 @@ function BoardCardForm(props)
 
                 <div className="mb-24">
                     <div className="flex items-center mt-16 mb-12">
-                        <Icon className="text-20 mr-8" color="inherit">comment</Icon>
-                        <Typography className="font-600 text-16">Comment</Typography>
+                        <Icon className="text-20" color="inherit">comment</Icon>
+                        <Typography className="font-600 text-16 mx-8">Comment</Typography>
                     </div>
                     <div>
                         <CardComment
@@ -347,8 +347,8 @@ function BoardCardForm(props)
                 {cardForm.activities.length > 0 && (
                     <div className="mb-24">
                         <div className="flex items-center mt-16">
-                            <Icon className="text-20 mr-8" color="inherit">list</Icon>
-                            <Typography className="font-600 text-16">Activity</Typography>
+                            <Icon className="text-20" color="inherit">list</Icon>
+                            <Typography className="font-600 text-16 mx-8">Activity</Typography>
                         </div>
                         <List className="">
                             {cardForm.activities.map(item => (

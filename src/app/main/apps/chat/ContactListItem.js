@@ -28,7 +28,7 @@ function ContactListItem(props)
             className={clsx(classes.contactListItem, "px-16 py-12 min-h-92", {'active': (props.selectedContactId === props.contact.id)})}
             onClick={() => props.onContactClick(props.contact.id)}
         >
-            <div className="relative mr-16">
+            <div className="relative">
 
                 <div className="absolute right-0 bottom-0 -m-4 z-10">
                     <StatusIcon status={props.contact.status}/>
@@ -41,7 +41,7 @@ function ContactListItem(props)
 
             <ListItemText
                 classes={{
-                    root     : "min-w-px",
+                    root     : "min-w-px px-16",
                     secondary: "truncate"
                 }}
                 primary={props.contact.name}

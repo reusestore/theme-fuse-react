@@ -70,7 +70,7 @@ function PricingStyle2Page()
                                     <div className="flex flex-col">
                                         <div className="flex justify-center mb-8">
                                             <Typography variant="h5" color="textSecondary" className="font-medium">$</Typography>
-                                            <Typography className="text-56 ml-4 font-light leading-none">4</Typography>
+                                            <Typography className="text-56 mx-4 font-light leading-none">4</Typography>
                                         </div>
                                         <Typography color="textSecondary" className="font-medium text-16">
                                             PER MONTH
@@ -79,15 +79,15 @@ function PricingStyle2Page()
 
                                     <div className="flex flex-col p-32">
                                         <Typography variant="subtitle1" className="mb-8">
-                                            <span className="font-bold mr-4">10</span>
-                                            Projects
+                                            <span className="font-bold mx-4">10</span>
+                                            <span>Projects</span>
                                         </Typography>
                                         <Typography variant="subtitle1" className="mb-8">
-                                            <span className="font-bold mr-4">10</span>
+                                            <span className="font-bold mx-4">10</span>
                                             Pages
                                         </Typography>
                                         <Typography variant="subtitle1" className="mb-8">
-                                            <span className="font-bold mr-4">100</span>
+                                            <span className="font-bold mx-4">100</span>
                                             Mb Disk Space
                                         </Typography>
                                     </div>
@@ -119,7 +119,7 @@ function PricingStyle2Page()
                                     <div className="flex flex-col">
                                         <div className="flex justify-center mb-8">
                                             <Typography variant="h5" color="textSecondary" className="font-medium">$</Typography>
-                                            <Typography className="text-56 ml-4 font-light leading-none">299</Typography>
+                                            <Typography className="text-56 mx-4 font-light leading-none">299</Typography>
                                         </div>
                                         <Typography color="textSecondary" className="font-medium text-16">
                                             PER MONTH
@@ -128,15 +128,15 @@ function PricingStyle2Page()
 
                                     <div className="flex flex-col p-32">
                                         <Typography variant="subtitle1" className="mb-8">
-                                            <span className="font-bold mr-4">20</span>
+                                            <span className="font-bold mx-4">20</span>
                                             Projects
                                         </Typography>
                                         <Typography variant="subtitle1" className="mb-8">
-                                            <span className="font-bold mr-4">20</span>
+                                            <span className="font-bold mx-4">20</span>
                                             Pages
                                         </Typography>
                                         <Typography variant="subtitle1" className="mb-8">
-                                            <span className="font-bold mr-4">200</span>
+                                            <span className="font-bold mx-4">200</span>
                                             Mb Disk Space
                                         </Typography>
                                     </div>
@@ -162,7 +162,7 @@ function PricingStyle2Page()
                                     <div className="flex flex-col">
                                         <div className="flex justify-center mb-8">
                                             <Typography variant="h5" color="textSecondary" className="font-medium">$</Typography>
-                                            <Typography className="text-56 ml-4 font-light leading-none">499</Typography>
+                                            <Typography className="text-56 mx-4 font-light leading-none">499</Typography>
                                         </div>
                                         <Typography color="textSecondary" className="font-medium text-16">
                                             PER MONTH
@@ -171,15 +171,15 @@ function PricingStyle2Page()
 
                                     <div className="flex flex-col p-32">
                                         <Typography variant="subtitle1" className="mb-8">
-                                            <span className="font-bold mr-4">40</span>
+                                            <span className="font-bold mx-4">40</span>
                                             Projects
                                         </Typography>
                                         <Typography variant="subtitle1" className="mb-8">
-                                            <span className="font-bold mr-4">40</span>
+                                            <span className="font-bold mx-4">40</span>
                                             Pages
                                         </Typography>
                                         <Typography variant="subtitle1" className="mb-8">
-                                            <span className="font-bold mr-4">500</span>
+                                            <span className="font-bold mx-4">500</span>
                                             Mb Disk Space
                                         </Typography>
                                     </div>
@@ -192,7 +192,7 @@ function PricingStyle2Page()
                         </div>
                     </FuseAnimateGroup>
 
-                    <div className="flex flex-col items-center py-96 text-center sm:text-left max-w-xl mx-auto">
+                    <div className="flex flex-col items-center py-96 text-center sm:ltr:text-left sm:rtl:text-right max-w-xl mx-auto">
 
                         <Typography variant="h4" className="pb-32 font-light">Frequently Asked Questions</Typography>
 

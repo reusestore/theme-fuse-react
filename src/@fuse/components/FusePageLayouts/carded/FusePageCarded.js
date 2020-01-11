@@ -176,7 +176,7 @@ const FusePageCarded = React.forwardRef(function (props, ref) {
                 )}
 
                 <div
-                    className={clsx(classes.contentWrapper, isLeftSidebar && (props.leftSidebarVariant === undefined || props.leftSidebarVariant === 'permanent') && 'lg:pl-0', isRightSidebar && (props.rightSidebarVariant === undefined || props.rightSidebarVariant === 'permanent') && 'lg:pr-0')}
+                    className={clsx(classes.contentWrapper, isLeftSidebar && (props.leftSidebarVariant === undefined || props.leftSidebarVariant === 'permanent') && 'lg:ltr:pl-0 lg:rtl:pr-0', isRightSidebar && (props.rightSidebarVariant === undefined || props.rightSidebarVariant === 'permanent') && 'lg:pr-0')}
                 >
 
                     <FusePageCardedHeader header={props.header} classes={classes}/>

@@ -8,7 +8,7 @@ import {green} from '@material-ui/core/colors';
 import {Link} from 'react-router-dom';
 import reducer from '../store/reducers';
 import * as Actions from '../store/actions';
-import {makeStyles} from '@material-ui/styles';
+import {makeStyles, useTheme} from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
     stepLabel : {
@@ -24,6 +24,7 @@ function Course(props)
 {
     const dispatch = useDispatch();
     const course = useSelector(({academyApp}) => academyApp.course);
+    const theme = useTheme();
 
     const classes = useStyles(props);
     const pageLayout = useRef(null);
@@ -80,14 +81,13 @@ function Course(props)
                         </IconButton>
                     </Hidden>
                     <IconButton
-                        className="mr-16"
                         to="/apps/academy/courses"
                         component={Link}
                     >
-                        <Icon>arrow_back</Icon>
+                        <Icon>{theme.direction === "ltr" ? "arrow_back" : "arrow_forward"}</Icon>
                     </IconButton>
                     {course && (
-                        <Typography className="flex-1 text-20">{course.title}</Typography>
+                        <Typography className="flex-1 text-20 mx-16">{course.title}</Typography>
                     )}
                 </div>
             }
@@ -104,7 +104,7 @@ function Course(props)
                                 {course.steps.map((step, index) => (
                                     <div className="flex justify-center p-16 pb-64 sm:p-24 sm:pb-64 md:p-48 md:pb-64" key={step.id}>
                                         <Paper className="w-full max-w-lg rounded-8 p-16 md:p-24" elevation={1}>
-                                            <div dangerouslySetInnerHTML={{__html: step.content}}/>
+                                            <div dangerouslySetInnerHTML={{__html: step.content}} dir={theme.direction}/>
                                         </Paper>
                                     </div>
                                 ))}
@@ -116,14 +116,14 @@ function Course(props)
                                 <div>
                                     {activeStep !== 1 && (
                                         <Fab className="" color="secondary" onClick={handleBack}>
-                                            <Icon>chevron_left</Icon>
+                                            <Icon>{theme.direction === "ltr" ? "chevron_left" : "chevron_right"}</Icon>
                                         </Fab>
                                     )}
                                 </div>
                                 <div>
                                     {activeStep < course.steps.length ? (
                                             <Fab className="" color="secondary" onClick={handleNext}>
-                                                <Icon>chevron_right</Icon>
+                                                <Icon>{theme.direction === "ltr" ? "chevron_right" : "chevron_left"}</Icon>
                                             </Fab>
                                         ) :
                                         (

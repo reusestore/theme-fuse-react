@@ -33,10 +33,10 @@ function LabelsMenu(props)
                                 }}
                             >
                                 <Checkbox checked={props.idLabels.includes(label.id)}/>
-                                <ListItemText>
+                                <ListItemText className="mx-8">
                                     {label.name}
                                 </ListItemText>
-                                <ListItemIcon className="min-w-40">
+                                <ListItemIcon className="min-w-24">
                                     <Icon>label</Icon>
                                 </ListItemIcon>
                             </MenuItem>

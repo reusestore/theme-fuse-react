@@ -34,7 +34,7 @@ function MembersMenu(props)
                             >
                                 <Checkbox checked={props.idMembers.includes(member.id)}/>
                                 <Avatar className="w-32 h-32" src={member.avatar}/>
-                                <ListItemText>
+                                <ListItemText className="mx-8">
                                     {member.name}
                                 </ListItemText>
                             </MenuItem>

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Grow, Paper, Icon, IconButton, ListItem, ListItemText} from '@material-ui/core';
-import {makeStyles} from '@material-ui/styles';
+import {makeStyles, useTheme} from '@material-ui/styles';
 import {FuseUtils, NavLinkAdapter} from '@fuse';
 import {useDebounce} from '@fuse/hooks';
 import {withRouter} from 'react-router-dom';
@@ -53,6 +53,7 @@ function FuseNavHorizontalGroup(props)
     const classes = useStyles(props);
     const [opened, setOpened] = useState(false);
     const {item, nestedLevel, dense} = props;
+    const theme = useTheme();
 
     const handleToggle = useDebounce((open) => {
         setOpened(open);
@@ -110,8 +111,8 @@ function FuseNavHorizontalGroup(props)
                             )}
                             <ListItemText className="list-item-text" primary={item.title} classes={{primary: 'text-14'}}/>
                             {nestedLevel > 0 && (
-                                <IconButton disableRipple className="w-16 h-16 ml-4 p-0">
-                                    <Icon className="text-16 arrow-icon">keyboard_arrow_right</Icon>
+                                <IconButton disableRipple className="w-16 h-16 ltr:ml-4 rtl:mr-4 p-0">
+                                    <Icon className="text-16 arrow-icon">{theme.direction === "ltr" ? "keyboard_arrow_right" : "keyboard_arrow_left"}</Icon>
                                 </IconButton>
                             )}
                         </ListItem>
@@ -120,7 +121,7 @@ function FuseNavHorizontalGroup(props)
             </Reference>
             {ReactDOM.createPortal(
                 <Popper
-                    placement={nestedLevel === 0 ? "bottom-start" : "right"}
+                    placement={nestedLevel === 0 ? (theme.direction === "ltr" ? "bottom-start" : "bottom-end") : (theme.direction === "ltr" ? "right" : "left")}
                     eventsEnabled={opened}
                     positionFixed
                 >
@@ -141,7 +142,7 @@ function FuseNavHorizontalGroup(props)
                                         onMouseLeave={() => handleToggle(false)}
                                     >
                                         {item.children && (
-                                            <ul className={clsx(classes.children, "popper-navigation-list", dense && "dense", "pl-0")}>
+                                            <ul className={clsx(classes.children, "popper-navigation-list", dense && "dense", "px-0")}>
                                                 {
                                                     item.children.map((item) => (
                                                         <React.Fragment key={item.id}>

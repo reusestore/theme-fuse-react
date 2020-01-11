@@ -21,7 +21,7 @@ function Widget11(props)
                                         return (
                                             <TableCell
                                                 key={column.id}
-                                                className="whitespace-no-wrap p-8 pl-16"
+                                                className="whitespace-no-wrap p-8 px-16"
                                             >
                                                 {column.title}
                                             </TableCell>
@@ -55,7 +55,7 @@ function Widget11(props)
                                                         key={cell.id}
                                                         component="th"
                                                         scope="row"
-                                                        className="pl-16 pr-0"
+                                                        className="px-16"
                                                     >
                                                         <Avatar src={cell.value}/>
                                                     </TableCell>

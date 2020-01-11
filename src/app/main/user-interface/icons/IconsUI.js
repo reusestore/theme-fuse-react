@@ -69,12 +69,12 @@ function IconsUI()
 
                             <Paper className="flex items-center w-full max-w-512 px-8 py-4 rounded-8" elevation={1}>
 
-                                <Icon className="mr-8" color="action">search</Icon>
+                                <Icon color="action">search</Icon>
 
                                 {useMemo(() => (
                                     <Input
                                         placeholder="Search..."
-                                        className="flex flex-1"
+                                        className="flex flex-1 px-8"
                                         disableUnderline
                                         fullWidth
                                         value={searchText}
@@ -97,8 +97,8 @@ function IconsUI()
                         target="_blank"
                         role="button"
                     >
-                        <Icon className="mr-4">link</Icon>
-                        Reference
+                        <Icon>link</Icon>
+                        <span className="mx-4">Reference</span>
                     </Button>
                 </div>
             }

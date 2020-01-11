@@ -103,7 +103,7 @@ function ContactsList(props)
                         ),
                         accessor : "avatar",
                         Cell     : row => (
-                            <Avatar className="mr-8" alt={row.original.name} src={row.value}/>
+                            <Avatar className="mx-8" alt={row.original.name} src={row.value}/>
                         ),
                         className: "justify-center",
                         width    : 64,
