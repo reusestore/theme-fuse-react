@@ -20,12 +20,14 @@ function BoardListHeader(props)
         {
             resetForm();
         }
-        if ( anchorEl )
+    }, [formOpen, resetForm]);
+
+    useEffect(() => {
+        if ( formOpen && anchorEl )
         {
             setAnchorEl(null);
         }
-
-    }, [anchorEl, formOpen, resetForm]);
+    }, [anchorEl, formOpen]);
 
     useEffect(() => {
         setForm({title: props.list.name});
