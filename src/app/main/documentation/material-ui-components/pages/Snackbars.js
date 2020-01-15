@@ -140,35 +140,8 @@ function SnackbarsDoc(props)
                     <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
                     <Typography className="mb-16" component="div">(WAI-ARIA: <a href="https://www.w3.org/TR/wai-aria-1.1/#alert">https://www.w3.org/TR/wai-aria-1.1/#alert</a>)</Typography>
                     <ul>
-                        <li>Since alerts are not required to receive focus, content authors should not require users to close a Snackbar if the role is set to <code>{`alert`}</code> through the SnackbarContent <code>{`role`}</code> prop. This is the default role.</li>
-                        <li>If a Snackbar requires focus to close it, then content authors should use the <code>{`role`}</code> of <code>{`alertdialog`}</code>.</li>
+                        <li>By default, the snackbar won&#39;t auto-hide. However, if you decide to use the <code>{`autoHideDuration`}</code> prop, it&#39;s recommended to give the user <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits.html">sufficient time</a> to respond.</li>
                     </ul>
-
-                    <FuseHighlight component="pre" className="language-jsx">
-                        {` 
-<SnackbarContent
-  message="This is a Snackbar message."
-  role="alert"
-/>
-`}
-                    </FuseHighlight>
-
-                    <FuseHighlight component="pre" className="language-jsx">
-                        {` 
-<Snackbar
-  ContentProps={{
-    'aria-describedby': 'snackbar-fab-message-id',
-    'role': 'alertdialog',
-
-  message={<span id="snackbar-fab-message-id">Archived</span>}
-  action={
-    <Button color="inherit" size="small">
-      Undo
-    </Button>
-  }
-/>
-`}
-                    </FuseHighlight>
 
                 </div>
             }

@@ -75,7 +75,7 @@ export default function MyApp() {
                     <ul>
                         <li>The margin in all browsers is removed.</li>
                         <li>The default Material Design background color is applied.
-                            It&#39;s using <a href="/customization/default-theme/?expend-path=$.palette.background"><code>{`theme.palette.background.default`}</code></a> for standard devices and a white background for print devices.
+                            It&#39;s using <a href="/customization/default-theme/?expand-path=$.palette.background"><code>{`theme.palette.background.default`}</code></a> for standard devices and a white background for print devices.
                         </li>
                     </ul>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Layout</Typography>

@@ -1,4 +1,9 @@
 export const MaterialUIComponentsNavigation = [{
+    'id': 'alert',
+    'title': 'Alert',
+    'type': 'item',
+    'url': '/documentation/material-ui-components/alert'
+}, {
     'id': 'appBar',
     'title': 'App Bar',
     'type': 'item',

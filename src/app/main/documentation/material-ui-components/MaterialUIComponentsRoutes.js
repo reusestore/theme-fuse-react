@@ -1,6 +1,9 @@
 import React from 'react';
 
 export const MaterialUIComponentsRoutes = [{
+    path: '/documentation/material-ui-components/alert',
+    component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/Alert'))
+}, {
     path: '/documentation/material-ui-components/app-bar',
     component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/AppBar'))
 }, {

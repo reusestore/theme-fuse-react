@@ -52,7 +52,7 @@ function BadgesDoc(props)
                     <Typography className="text-44 mt-32 mb-8" component="h1">Badge</Typography>
                     <Typography className="description">Badge generates a small badge to the top-right of its child(ren).</Typography>
 
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Simple Badges</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Basic badges</Typography>
                     <Typography className="mb-16" component="div">Examples of badges containing text, using primary and secondary colors. The badge is applied to its children.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -70,14 +70,20 @@ function BadgesDoc(props)
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Badge visibility</Typography>
                     <Typography className="mb-16" component="div">The visibility of badges can be controlled using the <code>{`invisible`}</code> property.</Typography>
-                    <Typography className="mb-16" component="div">The badge auto hides with badgeContent is zero. You can override this with the <code>{`showZero`}</code> property.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
                         component={require('app/main/documentation/material-ui-components/components/badges/BadgeVisibility.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/badges/BadgeVisibility.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Maximum Value</Typography>
+                    <Typography className="mb-16" component="div">The badge auto hides with badgeContent is zero. You can override this with the <code>{`showZero`}</code> property.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/badges/ShowZeroBadge.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/badges/ShowZeroBadge.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Maximum value</Typography>
                     <Typography className="mb-16" component="div">You can use the <code>{`max`}</code> property to cap the value of the badge content.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -85,7 +91,7 @@ function BadgesDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/badges/BadgeMax.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/badges/BadgeMax.js')}
                     /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Dot Badge</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Dot badge</Typography>
                     <Typography className="mb-16" component="div">The <code>{`dot`}</code> property changes a badge into a small dot. This can be used as a notification that something has changed without giving a count.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -102,7 +108,7 @@ function BadgesDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/badges/BadgeOverlap.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Badge alignment</Typography>
-                    <Typography className="mb-16" component="div">You can use the <code>{`horizontalAlignment`}</code> and <code>{`verticalAlignment`}</code> properties to move the badge to any corner of the wrapped element.</Typography>
+                    <Typography className="mb-16" component="div">You can use the <code>{`anchorOrigin`}</code> prop to move the badge to any corner of the wrapped element.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}

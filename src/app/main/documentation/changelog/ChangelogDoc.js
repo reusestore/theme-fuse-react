@@ -5,6 +5,20 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
     {
+        version     : '3.4.0',
+        date        : '2020-01-15',
+        newChanges  : [
+            "RTL language support added.",
+            "Multi language support added.",
+            "All dependency packages updated.",
+            "Allow everyone(guest,user) for accessing root (/) page as a landing page while whole app auth protected."
+        ],
+        fixedChanges: [
+            "Scrumboard App: Board list header menu not working.",
+            "Chat Panel: Toggle Button not working on mobile; ClickAwayListener changed with custom event handler.",
+        ]
+    },
+    {
         version     : '3.3.0',
         date        : '2019-12-17',
         newChanges  : [
