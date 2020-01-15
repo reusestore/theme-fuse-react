@@ -93,6 +93,14 @@ export function setUserData(user)
     return (dispatch) => {
 
         /*
+        You can redirect the logged-in user to a specific route depending on his role
+         */
+
+        // history.location.state = {
+        //     redirectUrl: user.redirectUrl // for example 'apps/academy'
+        // }
+
+        /*
         Set User Settings
          */
         dispatch(setDefaultSettings(user.data.settings));

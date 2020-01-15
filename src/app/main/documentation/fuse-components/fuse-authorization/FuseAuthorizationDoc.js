@@ -36,7 +36,7 @@ function FuseAuthorizationDoc()
                         The component should wraps the FuseTheme component.
                     </Typography>
 
-                    <Typography className="mb-16 italic" component="code">
+                    <Typography className="inline-block mb-8 italic" component="code">
                         src/app/App.js
                     </Typography>
 
@@ -54,7 +54,7 @@ function FuseAuthorizationDoc()
 
                     <Typography className="mt-32 mb-8" variant="subtitle2">Example Usage:</Typography>
 
-                    <Typography className="mb-16 italic" component="code">
+                    <Typography className="inline-block mb-8 italic" component="code">
                         src/app/main/auth/admin-role-example/AdminRoleExampleConfig.js
                     </Typography>
 
@@ -101,7 +101,7 @@ function FuseAuthorizationDoc()
                         After successful login user.role will be updated and the FuseAuthorization automatically redirects the authorized user.
                     </Typography>
 
-                    <Typography className="mb-16 italic" component="code">
+                    <Typography className="inline-block mb-8 italic" component="code">
                         src/app/auth/store/reducers/user.reducer.js (initial user state)
                     </Typography>
 
@@ -171,6 +171,7 @@ function FuseAuthorizationDoc()
                     </FuseHighlight>
 
                     <Typography className="mt-48 mb-4" variant="h5">Making the whole app auth protected:</Typography>
+
                     <Typography className="mb-12" variant="subtitle2">On routesConfig.js file</Typography>
 
                     <Typography className="mb-16" component="p">
@@ -225,11 +226,14 @@ function FuseAuthorizationDoc()
 
                             `}
                     </FuseHighlight>
+
                     <Typography className="mt-48 mb-4" variant="h5">Allow everyone(guest,user) for accessing root (/) page as a landing page</Typography>
+
                     <Typography className="mb-16" component="p">
                         After configuring to make whole app protected as above, we need to set <code>auth:null</code> at the route: <code>/</code> for to make it accesible for everyone.
                         <br/>If you redirect main route (/), also make sure to set the redirected route config <code>auth:null</code>.
                     </Typography>
+
                     <FuseHighlight component="pre" className="language-js">
                         {`
                                 import React from 'react';
@@ -280,6 +284,49 @@ function FuseAuthorizationDoc()
                             `}
                     </FuseHighlight>
 
+                    <Typography className="mt-48 mb-4" variant="h5">Redirect the logged-in user to a specific route depending on his role</Typography>
+
+                    <Typography className="mb-16" component="p">
+                        Before dispatching <b>SET_USER_DATA</b> action you can set redirectUrl on
+                    </Typography>
+
+                    <Typography className="inline-block mb-8 italic" component="code">
+                        src/app/auth/store/actions/user.actions.js
+                    </Typography>
+
+                    <FuseHighlight component="pre" className="language-js">
+                        {`
+                            /**
+                             * Set User Data
+                             */
+                            export function setUserData(user)
+                            {
+                                return (dispatch) => {
+                            
+                                    /*
+                                    You can redirect the logged-in user to a specific route depending on his role
+                                     */
+                            
+                                    history.location.state = {
+                                        redirectUrl: user.redirectUrl // for example 'apps/academy'
+                                    }
+                            
+                                    /*
+                                    Set User Settings
+                                     */
+                                    dispatch(setDefaultSettings(user.data.settings));
+                            
+                                    /*
+                                    Set User Data
+                                     */
+                                    dispatch({
+                                        type   : SET_USER_DATA,
+                                        payload: user
+                                    })
+                                }
+                            }
+                        `}
+                    </FuseHighlight>
                 </div>
             }
         />

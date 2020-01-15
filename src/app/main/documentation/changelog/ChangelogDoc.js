@@ -6,12 +6,13 @@ import ChangelogCard from './ChangelogCard';
 const changelogData = [
     {
         version     : '3.4.0',
-        date        : '2020-01-15',
+        date        : '2020-01-16',
         newChanges  : [
             "RTL language support added.",
             "Multi language support added.",
             "All dependency packages updated.",
-            "Allow everyone(guest,user) for accessing root (/) page as a landing page while whole app auth protected."
+            "Allow everyone(guest,user) for accessing root (/) page as a landing page while whole app auth protected.",
+            "\"redirect the logged-in user to a specific route depending on his role\" title added into the FuseAuthorization Doc."
         ],
         fixedChanges: [
             "react-scripts reverted back to v3.2.0 : v3.3.0 doesn't work in development mode on IE or edge",
