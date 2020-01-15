@@ -97,7 +97,7 @@ function LanguageSwitcher(props)
                     </MenuItem>
                 ))}
 
-                <MenuItem component={Link} to="/documentation/working-with-fuse-react/multi-language" onClick={userMenuClose}>
+                <MenuItem component={Link} to="/documentation/working-with-fuse-react/multi-language" onClick={userMenuClose} role="button">
                     <ListItemText primary="Learn More"/>
                 </MenuItem>
             </Popover>

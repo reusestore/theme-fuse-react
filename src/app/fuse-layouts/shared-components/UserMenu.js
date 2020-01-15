@@ -65,13 +65,13 @@ function UserMenu(props)
             >
                 {!user.role || user.role.length === 0 ? (
                     <React.Fragment>
-                        <MenuItem component={Link} to="/login">
+                        <MenuItem component={Link} to="/login" role="button">
                             <ListItemIcon className="min-w-40">
                                 <Icon>lock</Icon>
                             </ListItemIcon>
                             <ListItemText primary="Login"/>
                         </MenuItem>
-                        <MenuItem component={Link} to="/register">
+                        <MenuItem component={Link} to="/register" role="button">
                             <ListItemIcon className="min-w-40">
                                 <Icon>person_add</Icon>
                             </ListItemIcon>
@@ -80,13 +80,13 @@ function UserMenu(props)
                     </React.Fragment>
                 ) : (
                     <React.Fragment>
-                        <MenuItem component={Link} to="/pages/profile" onClick={userMenuClose}>
+                        <MenuItem component={Link} to="/pages/profile" onClick={userMenuClose} role="button">
                             <ListItemIcon className="min-w-40">
                                 <Icon>account_circle</Icon>
                             </ListItemIcon>
                             <ListItemText primary="My Profile"/>
                         </MenuItem>
-                        <MenuItem component={Link} to="/apps/mail" onClick={userMenuClose}>
+                        <MenuItem component={Link} to="/apps/mail" onClick={userMenuClose} role="button">
                             <ListItemIcon className="min-w-40">
                                 <Icon>mail</Icon>
                             </ListItemIcon>
