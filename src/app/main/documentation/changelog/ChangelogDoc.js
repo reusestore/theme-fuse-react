@@ -14,6 +14,7 @@ const changelogData = [
             "Allow everyone(guest,user) for accessing root (/) page as a landing page while whole app auth protected."
         ],
         fixedChanges: [
+            "react-scripts reverted back to v3.2.0 : v3.3.0 doesn't work in development mode on IE or edge",
             "Scrumboard App: Board list header menu not working.",
             "Chat Panel: Toggle Button not working on mobile; ClickAwayListener changed with custom event handler.",
         ]
