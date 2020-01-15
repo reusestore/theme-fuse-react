@@ -1,19 +1,29 @@
 import {MaterialUIComponentsNavigation} from 'app/main/documentation/material-ui-components/MaterialUIComponentsNavigation';
 import {authRoles} from 'app/auth';
+import i18next from 'i18next';
+import en from './navigation-i18n/en';
+import tr from './navigation-i18n/tr';
+import ar from './navigation-i18n/ar';
+
+i18next.addResourceBundle('en', 'navigation', en);
+i18next.addResourceBundle('tr', 'navigation', tr);
+i18next.addResourceBundle('ar', 'navigation', ar);
 
 const navigationConfig = [
     {
-        'id'      : 'applications',
-        'title'   : 'Applications',
-        'type'    : 'group',
-        'icon'    : 'apps',
-        'children': [
+        'id'       : 'applications',
+        'title'    : 'Applications',
+        'translate': 'APPLICATIONS',
+        'type'     : 'group',
+        'icon'     : 'apps',
+        'children' : [
             {
-                'id'      : 'dashboards',
-                'title'   : 'Dashboards',
-                'type'    : 'collapse',
-                'icon'    : 'dashboard',
-                'children': [
+                'id'       : 'dashboards',
+                'title'    : 'Dashboards',
+                'translate': 'DASHBOARDS',
+                'type'     : 'collapse',
+                'icon'     : 'dashboard',
+                'children' : [
                     {
                         'id'   : 'analytics-dashboard',
                         'title': 'Analytics',
@@ -29,19 +39,21 @@ const navigationConfig = [
                 ]
             },
             {
-                'id'   : 'calendar',
-                'title': 'Calendar',
-                'type' : 'item',
-                'icon' : 'today',
-                'url'  : '/apps/calendar'
+                'id'       : 'calendar',
+                'title'    : 'Calendar',
+                'translate': 'CALENDAR',
+                'type'     : 'item',
+                'icon'     : 'today',
+                'url'      : '/apps/calendar'
             },
             {
-                'id'      : 'e-commerce',
-                'title'   : 'E-Commerce',
-                'type'    : 'collapse',
-                'icon'    : 'shopping_cart',
-                'url'     : '/apps/e-commerce',
-                'children': [
+                'id'       : 'e-commerce',
+                'title'    : 'E-Commerce',
+                'translate': 'ECOMMERCE',
+                'type'     : 'collapse',
+                'icon'     : 'shopping_cart',
+                'url'      : '/apps/e-commerce',
+                'children' : [
                     {
                         'id'   : 'e-commerce-products',
                         'title': 'Products',
@@ -80,75 +92,83 @@ const navigationConfig = [
                 ]
             },
             {
-                'id'   : 'academy',
-                'title': 'Academy',
-                'type' : 'item',
-                'icon' : 'school',
-                'url'  : '/apps/academy'
+                'id'       : 'academy',
+                'title'    : 'Academy',
+                'translate': 'ACADEMY',
+                'type'     : 'item',
+                'icon'     : 'school',
+                'url'      : '/apps/academy'
             },
             {
-                'id'   : 'mail',
-                'title': 'Mail',
-                'type' : 'item',
-                'icon' : 'email',
-                'url'  : '/apps/mail',
-                'badge': {
+                'id'       : 'mail',
+                'title'    : 'Mail',
+                'translate': 'MAIL',
+                'type'     : 'item',
+                'icon'     : 'email',
+                'url'      : '/apps/mail',
+                'badge'    : {
                     'title': 25,
                     'bg'   : '#F44336',
                     'fg'   : '#FFFFFF'
                 }
             },
             {
-                'id'   : 'todo',
-                'title': 'To-Do',
-                'type' : 'item',
-                'icon' : 'check_box',
-                'url'  : '/apps/todo',
-                'badge': {
+                'id'       : 'todo',
+                'title'    : 'To-Do',
+                'translate': 'TODO',
+                'type'     : 'item',
+                'icon'     : 'check_box',
+                'url'      : '/apps/todo',
+                'badge'    : {
                     'title': 3,
                     'bg'   : 'rgb(255, 111, 0)',
                     'fg'   : '#FFFFFF'
                 }
             },
             {
-                'id'   : 'file-manager',
-                'title': 'File Manager',
-                'type' : 'item',
-                'icon' : 'folder',
-                'url'  : '/apps/file-manager'
+                'id'       : 'file-manager',
+                'title'    : 'File Manager',
+                'translate': 'FILE_MANAGER',
+                'type'     : 'item',
+                'icon'     : 'folder',
+                'url'      : '/apps/file-manager'
             },
             {
-                'id'   : 'contacts',
-                'title': 'Contacts',
-                'type' : 'item',
-                'icon' : 'account_box',
-                'url'  : '/apps/contacts/all'
+                'id'       : 'contacts',
+                'title'    : 'Contacts',
+                'translate': 'CONTACTS',
+                'type'     : 'item',
+                'icon'     : 'account_box',
+                'url'      : '/apps/contacts/all'
             },
             {
-                'id'   : 'chat',
-                'title': 'Chat',
-                'type' : 'item',
-                'icon' : 'chat',
-                'url'  : '/apps/chat',
-                'badge': {
+                'id'       : 'chat',
+                'title'    : 'Chat',
+                'translate': 'CHAT',
+                'type'     : 'item',
+                'icon'     : 'chat',
+                'url'      : '/apps/chat',
+                'badge'    : {
                     'title': 13,
                     'bg'   : 'rgb(9, 210, 97)',
                     'fg'   : '#FFFFFF'
                 }
             },
             {
-                'id'   : 'scrumboard',
-                'title': 'Scrumboard',
-                'type' : 'item',
-                'icon' : 'assessment',
-                'url'  : '/apps/scrumboard'
+                'id'       : 'scrumboard',
+                'title'    : 'Scrumboard',
+                'translate': 'SCRUMBOARD',
+                'type'     : 'item',
+                'icon'     : 'assessment',
+                'url'      : '/apps/scrumboard'
             },
             {
-                'id'   : 'notes',
-                'title': 'Notes',
-                'type' : 'item',
-                'icon' : 'note',
-                'url'  : '/apps/notes'
+                'id'       : 'notes',
+                'title'    : 'Notes',
+                'translate': 'NOTES',
+                'type'     : 'item',
+                'icon'     : 'note',
+                'url'      : '/apps/notes'
             }
         ]
     },

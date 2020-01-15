@@ -10,6 +10,7 @@ import FuseNavVerticalCollapse from './FuseNavVerticalCollapse';
 import FuseNavVerticalItem from './FuseNavVerticalItem';
 import FuseNavVerticalLink from './FuseNavVerticalLink';
 import * as Actions from 'app/store/actions';
+import {useTranslation} from 'react-i18next';
 
 const useStyles = makeStyles(theme => ({
     item: props => ({
@@ -32,6 +33,8 @@ function FuseNavVerticalGroup(props)
     const classes = useStyles({
         itemPadding: nestedLevel > 0 ? 40 + (nestedLevel * 16) : 24
     });
+    const {t} = useTranslation('navigation');
+
 
     if ( !FuseUtils.hasPermission(item.auth, userRole) )
     {
@@ -50,7 +53,7 @@ function FuseNavVerticalGroup(props)
                 role="button"
             >
                 <span className="list-subheader-text uppercase text-12">
-                    {item.title}
+                    {item.translate ? t(item.translate) : item.title}
                 </span>
             </ListSubheader>
 

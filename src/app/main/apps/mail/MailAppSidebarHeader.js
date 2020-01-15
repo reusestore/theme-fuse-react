@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Icon, MenuItem, TextField} from '@material-ui/core';
 import {FuseAnimate} from '@fuse';
+import {useTranslation} from 'react-i18next';
 
 const accounts = {
     'creapond'    : 'johndoe@creapond.com',
@@ -10,6 +11,7 @@ const accounts = {
 function MailAppSidebarHeader(props)
 {
     const [selectedAccount, setSelectedCount] = useState('creapond');
+    const {t} = useTranslation('mailApp');
 
     function handleAccountChange(ev)
     {
@@ -24,7 +26,7 @@ function MailAppSidebarHeader(props)
                     <Icon className="text-32">mail</Icon>
                 </FuseAnimate>
                 <FuseAnimate animation="transition.slideLeftIn" delay={300}>
-                    <span className="text-24 mx-16">Mailbox</span>
+                    <span className="text-24 mx-16">{t('APP_TITLE')}</span>
                 </FuseAnimate>
             </div>
 

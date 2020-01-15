@@ -10,6 +10,7 @@ import FuseNavVerticalGroup from './FuseNavVerticalGroup';
 import FuseNavVerticalItem from './FuseNavVerticalItem';
 import FuseNavBadge from './../FuseNavBadge';
 import FuseNavVerticalLink from './FuseNavVerticalLink';
+import {useTranslation} from 'react-i18next';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -73,6 +74,7 @@ function FuseNavVerticalCollapse(props)
     const classes = useStyles({
         itemPadding: nestedLevel > 0 ? 40 + (nestedLevel * 16) : 24
     });
+    const {t} = useTranslation('navigation');
 
     useEffect(() => {
         if ( needsToBeOpened(props.location, props.item) )
@@ -106,7 +108,11 @@ function FuseNavVerticalCollapse(props)
                     <Icon color="action" className="list-item-icon text-16 flex-shrink-0">{item.icon}</Icon>
                 )}
 
-                <ListItemText className="list-item-text" primary={item.title} classes={{primary: 'text-14'}}/>
+                <ListItemText
+                    className="list-item-text"
+                    primary={item.translate ? t(item.translate) : item.title}
+                    classes={{primary: 'text-14'}}
+                />
 
                 {item.badge && (
                     <FuseNavBadge className="mx-4" badge={item.badge}/>

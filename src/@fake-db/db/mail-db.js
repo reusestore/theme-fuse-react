@@ -406,48 +406,55 @@ const mailDB = {
     ],
     folders: [
         {
-            'id'    : 0,
-            'handle': 'inbox',
-            'title' : 'Inbox',
-            'icon'  : 'inbox'
+            'id'       : 0,
+            'handle'   : 'inbox',
+            'title'    : 'Inbox',
+            'translate': 'INBOX',
+            'icon'     : 'inbox'
         },
         {
-            'id'    : 1,
-            'handle': 'sent',
-            'title' : 'Sent',
-            'icon'  : 'send'
+            'id'       : 1,
+            'handle'   : 'sent',
+            'title'    : 'Sent',
+            'translate': 'SENT',
+            'icon'     : 'send'
         },
         {
-            'id'    : 2,
-            'handle': 'drafts',
-            'title' : 'Drafts',
-            'icon'  : 'email_open'
+            'id'       : 2,
+            'handle'   : 'drafts',
+            'title'    : 'Drafts',
+            'translate': 'DRAFTS',
+            'icon'     : 'email_open'
         },
         {
-            'id'    : 3,
-            'handle': 'spam',
-            'title' : 'Spam',
-            'icon'  : 'error'
+            'id'       : 3,
+            'handle'   : 'spam',
+            'title'    : 'Spam',
+            'translate': 'SPAM',
+            'icon'     : 'error'
         },
         {
-            'id'    : 4,
-            'handle': 'trash',
-            'title' : 'Trash',
-            'icon'  : 'delete'
+            'id'       : 4,
+            'handle'   : 'trash',
+            'title'    : 'Trash',
+            'translate': 'TRASH',
+            'icon'     : 'delete'
         }
     ],
     filters: [
         {
-            'id'    : 0,
-            'handle': 'starred',
-            'title' : 'Starred',
-            'icon'  : 'star'
+            'id'       : 0,
+            'handle'   : 'starred',
+            'title'    : 'Starred',
+            'translate': 'STARRED',
+            'icon'     : 'star'
         },
         {
-            'id'    : 1,
-            'handle': 'important',
-            'title' : 'Important',
-            'icon'  : 'label'
+            'id'       : 1,
+            'handle'   : 'important',
+            'title'    : 'Important',
+            'translate': 'IMPORTANT',
+            'icon'     : 'label'
         }
     ],
     labels : [
@@ -455,25 +462,25 @@ const mailDB = {
             'id'    : 0,
             'handle': 'note',
             'title' : 'Note',
-            'color' : '#7cb342'
+            'color' : '#7CB342'
         },
         {
             'id'    : 1,
             'handle': 'paypal',
             'title' : 'Paypal',
-            'color' : '#d84315'
+            'color' : '#D84315'
         },
         {
             'id'    : 2,
             'handle': 'invoice',
             'title' : 'Invoice',
-            'color' : '#607d8b'
+            'color' : '#607D8B'
         },
         {
             'id'    : 3,
             'handle': 'amazon',
             'title' : 'Amazon',
-            'color' : '#03a9f4'
+            'color' : '#03A9F4'
         }
     ]
 };

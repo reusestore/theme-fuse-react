@@ -5,6 +5,7 @@ import {withRouter} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from '../store/actions';
 import MailListItem from './MailListItem';
+import {useTranslation} from 'react-i18next';
 
 function MailList(props)
 {
@@ -13,6 +14,7 @@ function MailList(props)
     const searchText = useSelector(({mailApp}) => mailApp.mails.searchText);
 
     const [filteredData, setFilteredData] = useState(null);
+    const {t} = useTranslation('mailApp');
 
     useEffect(() => {
         dispatch(Actions.getMails(props.match.params));
@@ -46,7 +48,7 @@ function MailList(props)
             <FuseAnimate delay={100}>
                 <div className="flex flex-1 items-center justify-center h-full">
                     <Typography color="textSecondary" variant="h5">
-                        There are no messages!
+                        {t('NO_MESSAGES')}
                     </Typography>
                 </div>
             </FuseAnimate>

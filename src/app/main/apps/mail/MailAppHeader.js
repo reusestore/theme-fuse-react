@@ -3,12 +3,14 @@ import {Hidden, Icon, IconButton, Input, Paper} from '@material-ui/core';
 import {ThemeProvider} from '@material-ui/styles';
 import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from './store/actions';
+import {useTranslation} from 'react-i18next';
 
 function MailAppHeader(props)
 {
     const dispatch = useDispatch();
     const searchText = useSelector(({mailApp}) => mailApp.mails.searchText);
     const mainTheme = useSelector(({fuse}) => fuse.settings.mainTheme);
+    const {t} = useTranslation('mailApp');
 
     return (
         <ThemeProvider theme={mainTheme}>
@@ -27,7 +29,7 @@ function MailAppHeader(props)
                     <Icon color="action">search</Icon>
 
                     <Input
-                        placeholder="Search"
+                        placeholder={t('SEARCH_PLACEHOLDER')}
                         className="px-16"
                         disableUnderline
                         fullWidth

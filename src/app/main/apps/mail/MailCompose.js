@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {TextField, Button, Dialog, DialogActions, DialogContent, Icon, IconButton, Typography, Toolbar, AppBar} from '@material-ui/core';
 import {useForm} from '@fuse/hooks';
 import MailAttachment from './MailAttachment';
+import {useTranslation} from 'react-i18next';
 
 function MailCompose()
 {
@@ -14,6 +15,8 @@ function MailCompose()
         subject: '',
         message: ''
     });
+
+    const {t} = useTranslation('mailApp');
 
     function handleOpenDialog()
     {
@@ -45,7 +48,7 @@ function MailCompose()
                 className="w-full"
                 onClick={handleOpenDialog}
             >
-                COMPOSE
+                {t('COMPOSE')}
             </Button>
 
             <Dialog

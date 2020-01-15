@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from 'app/store/actions';
 import FuseNavBadge from './../FuseNavBadge';
+import {useTranslation} from 'react-i18next';
 
 const useStyles = makeStyles(theme => ({
     item: props => ({
@@ -45,6 +46,7 @@ function FuseNavVerticalLink(props)
     const classes = useStyles({
         itemPadding: nestedLevel > 0 ? 40 + (nestedLevel * 16) : 24
     });
+    const {t} = useTranslation('navigation');
 
     if ( !FuseUtils.hasPermission(item.auth, userRole) )
     {
@@ -65,7 +67,11 @@ function FuseNavVerticalLink(props)
                 <Icon className="list-item-icon text-16 flex-shrink-0" color="action">{item.icon}</Icon>
             )}
 
-            <ListItemText className="list-item-text" primary={item.title} classes={{primary: 'text-14 list-item-text-primary'}}/>
+            <ListItemText
+                className="list-item-text"
+                primary={item.translate ? t(item.translate) : item.title}
+                classes={{primary: 'text-14 list-item-text-primary'}}
+            />
 
             {item.badge && (
                 <FuseNavBadge badge={item.badge}/>

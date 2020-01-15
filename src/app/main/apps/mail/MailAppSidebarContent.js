@@ -4,6 +4,7 @@ import {makeStyles} from '@material-ui/styles';
 import {FuseAnimate, NavLinkAdapter} from '@fuse';
 import {useSelector} from 'react-redux';
 import MailCompose from './MailCompose';
+import {useTranslation} from 'react-i18next';
 
 const useStyles = makeStyles(theme => ({
     listItem     : {
@@ -41,6 +42,7 @@ function MailAppSidebarContent(props)
     const filters = useSelector(({mailApp}) => mailApp.filters);
 
     const classes = useStyles();
+    const {t} = useTranslation('mailApp');
 
     return (
         <FuseAnimate animation="transition.slideUpIn" delay={400}>
@@ -52,7 +54,7 @@ function MailAppSidebarContent(props)
                 <div>
 
                     <List>
-                        <ListSubheader className={classes.listSubheader} disableSticky>FOLDERS</ListSubheader>
+                        <ListSubheader className={classes.listSubheader} disableSticky>{t('FOLDERS')}</ListSubheader>
 
                         {folders.length > 0 && folders.map((folder) => (
                             <ListItem
@@ -63,14 +65,14 @@ function MailAppSidebarContent(props)
                                 className={classes.listItem}
                             >
                                 <Icon className="list-item-icon" color="action">{folder.icon}</Icon>
-                                <ListItemText primary={folder.title} disableTypography={true}/>
+                                <ListItemText primary={folder.translate ? t(folder.translate) : folder.title} disableTypography={true}/>
                             </ListItem>
                         ))}
                     </List>
 
                     <List>
 
-                        <ListSubheader className={classes.listSubheader} disableSticky>FILTERS</ListSubheader>
+                        <ListSubheader className={classes.listSubheader} disableSticky>{t('FILTERS')}</ListSubheader>
 
                         {filters.length > 0 && filters.map((filter) => (
                             <ListItem
@@ -82,14 +84,14 @@ function MailAppSidebarContent(props)
                                 key={filter.id}
                             >
                                 <Icon className="list-item-icon" color="action">{filter.icon}</Icon>
-                                <ListItemText primary={filter.title} disableTypography={true}/>
+                                <ListItemText primary={filter.translate ? t(filter.translate) : filter.title} disableTypography={true}/>
                             </ListItem>
                         ))}
                     </List>
 
                     <List>
 
-                        <ListSubheader className={classes.listSubheader} disableSticky>LABELS</ListSubheader>
+                        <ListSubheader className={classes.listSubheader} disableSticky>{t('LABELS')}</ListSubheader>
 
                         {labels && labels.map((label) => (
                             <ListItem

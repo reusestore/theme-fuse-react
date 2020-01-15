@@ -7,6 +7,7 @@ import QuickPanelToggleButton from 'app/fuse-layouts/shared-components/quickPane
 import ChatPanelToggleButton from 'app/fuse-layouts/shared-components/chatPanel/ChatPanelToggleButton';
 import UserMenu from 'app/fuse-layouts/shared-components/UserMenu';
 import {useSelector} from 'react-redux';
+import LanguageSwitcher from '../../shared-components/LanguageSwitcher';
 
 const useStyles = makeStyles(theme => ({
     separator: {
@@ -55,6 +56,10 @@ function ToolbarLayout1(props)
 
                             <ChatPanelToggleButton/>
                         </Hidden>
+
+                        <div className={classes.separator}/>
+
+                        <LanguageSwitcher/>
 
                         <div className={classes.separator}/>
 

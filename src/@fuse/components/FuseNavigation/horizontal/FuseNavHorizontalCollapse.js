@@ -13,6 +13,7 @@ import FuseNavHorizontalGroup from './FuseNavHorizontalGroup';
 import FuseNavHorizontalItem from './FuseNavHorizontalItem';
 import FuseNavHorizontalLink from './FuseNavHorizontalLink';
 import FuseNavBadge from './../FuseNavBadge';
+import {useTranslation} from 'react-i18next';
 
 const useStyles = makeStyles(theme => ({
     root       : {
@@ -52,7 +53,8 @@ function FuseNavHorizontalCollapse(props)
     const classes = useStyles(props);
     const [opened, setOpened] = useState(false);
     const {item, nestedLevel, dense} = props;
-    const theme = useTheme();
+    const theme = useTheme()
+    const {t} = useTranslation('navigation');
 
     const handleToggle = useDebounce((open) => {
         setOpened(open);
@@ -109,7 +111,13 @@ function FuseNavHorizontalCollapse(props)
                                 {item.icon && (
                                     <Icon color="action" className="list-item-icon text-16 flex-shrink-0">{item.icon}</Icon>
                                 )}
-                                <ListItemText className="list-item-text" primary={item.title} classes={{primary: 'text-14'}}/>
+
+                                <ListItemText
+                                    className="list-item-text"
+                                    primary={item.translate ? t(item.translate) : item.title}
+                                    classes={{primary: 'text-14'}}
+                                />
+
                                 {item.badge && (
                                     <FuseNavBadge className="mx-4" badge={item.badge}/>
                                 )}
