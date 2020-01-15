@@ -11,35 +11,37 @@ import AppContext from 'app/AppContext';
 import {generateSettings} from 'app/store/reducers/fuse/settings.reducer';
 
 const styles = theme => ({
-    root: {
-        backgroundColor                   : theme.palette.background.default,
-        color                             : theme.palette.text.primary,
-        '& code:not([class*="language-"])': {
+    '@global': {
+        'code:not([class*="language-"])': {
             color          : theme.palette.secondary.dark,
             backgroundColor: theme.palette.type === 'light' ? 'rgba(255, 255, 255, .9)' : 'rgba(0, 0, 0, .9)',
             padding        : '2px 3px',
             borderRadius   : 2,
             lineHeight     : 1.7
         },
-        '& table.simple tbody tr td'      : {
+        'table.simple tbody tr td'      : {
             borderColor: theme.palette.divider
         },
-        '& table.simple thead tr th'      : {
+        'table.simple thead tr th'      : {
             borderColor: theme.palette.divider
         },
-        '& a:not([role=button])'          : {
+        'a:not([role=button])'          : {
             color         : theme.palette.secondary.main,
             textDecoration: 'none',
             '&:hover'     : {
                 textDecoration: 'underline'
             }
         },
-        '& [class^="border-"]'            : {
+        '[class^="border-"]'            : {
             borderColor: theme.palette.divider
         },
-        '& [class*="border-"]'            : {
+        '[class*="border-"]'            : {
             borderColor: theme.palette.divider
         }
+    },
+    root     : {
+        backgroundColor: theme.palette.background.default,
+        color          : theme.palette.text.primary,
     }
 });
 
