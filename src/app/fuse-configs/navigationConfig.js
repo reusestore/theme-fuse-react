@@ -664,6 +664,18 @@ const navigationConfig = [
                         'title': 'Code Splitting',
                         'type' : 'item',
                         'url'  : '/documentation/working-with-fuse-react/code-splitting'
+                    },
+                    {
+                        'id'   : 'fuse-react-rtl-doc',
+                        'title': 'RTL Support',
+                        'type' : 'item',
+                        'url'  : '/documentation/working-with-fuse-react/rtl-support'
+                    },
+                    {
+                        'id'   : 'fuse-react-multi-language-doc',
+                        'title': 'Multi Language',
+                        'type' : 'item',
+                        'url'  : '/documentation/working-with-fuse-react/multi-language'
                     }
                 ]
             },

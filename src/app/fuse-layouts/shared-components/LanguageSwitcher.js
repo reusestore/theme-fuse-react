@@ -4,6 +4,7 @@ import {useDispatch} from 'react-redux';
 import {useTranslation} from 'react-i18next';
 import {useTheme} from '@material-ui/styles';
 import * as Actions from 'app/store/actions';
+import {Link} from 'react-router-dom';
 
 const languages = [
     {
@@ -96,7 +97,7 @@ function LanguageSwitcher(props)
                     </MenuItem>
                 ))}
 
-                <MenuItem>
+                <MenuItem component={Link} to="/documentation/working-with-fuse-react/multi-language" onClick={userMenuClose}>
                     <ListItemText primary="Learn More"/>
                 </MenuItem>
             </Popover>

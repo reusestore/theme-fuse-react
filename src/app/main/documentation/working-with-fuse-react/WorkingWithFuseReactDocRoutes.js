@@ -40,5 +40,13 @@ export const WorkingWithFuseReactDocRoutes = [
     {
         path     : '/documentation/working-with-fuse-react/code-splitting',
         component: React.lazy(() => import('./code-splitting/CodeSplittingDoc'))
+    },
+    {
+        path     : '/documentation/working-with-fuse-react/rtl-support',
+        component: React.lazy(() => import('./rtl-support/RTLSupportDoc'))
+    },
+    {
+        path     : '/documentation/working-with-fuse-react/multi-language',
+        component: React.lazy(() => import('./multi-language/MultiLanguageDoc'))
     }
 ];
