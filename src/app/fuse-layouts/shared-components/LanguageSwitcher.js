@@ -67,7 +67,7 @@ function LanguageSwitcher(props)
 
             <Button className="h-64 w-64" onClick={userMenuClick}>
 
-                <img className="mx-4" src={`assets/images/flags/${currentLng.flag}.png`} alt={currentLng.title}/>
+                <img className="mx-4 min-w-20" src={`assets/images/flags/${currentLng.flag}.png`} alt={currentLng.title}/>
 
                 <Typography className="mx-4 font-600">{currentLng.id}</Typography>
             </Button>
@@ -91,7 +91,7 @@ function LanguageSwitcher(props)
                 {languages.map(lng => (
                     <MenuItem key={lng.id} onClick={() => handleLanguageChange(lng)}>
                         <ListItemIcon className="min-w-40">
-                            <img className="" src={`assets/images/flags/${lng.flag}.png`} alt={lng.title}/>
+                            <img className="min-w-20" src={`assets/images/flags/${lng.flag}.png`} alt={lng.title}/>
                         </ListItemIcon>
                         <ListItemText primary={lng.title}/>
                     </MenuItem>
