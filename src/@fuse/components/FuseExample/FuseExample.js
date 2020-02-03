@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import DemoFrame from './DemoFrame';
 
 const propTypes = {
-    raw            : PropTypes.string,
+    raw            : PropTypes.object,
     currentTabIndex: PropTypes.number
 };
 
@@ -61,7 +61,7 @@ function FuseExample(props)
                     {raw && (
                         <div className="flex flex-1">
                             <FuseHighlight component="pre" className="language-javascript w-full">
-                                {raw}
+                                {raw.default}
                             </FuseHighlight>
                         </div>
                     )}

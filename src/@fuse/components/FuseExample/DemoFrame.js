@@ -1,6 +1,6 @@
 import React from 'react';
 import {create} from 'jss';
-import jssExtend from 'jss-extend';
+import jssExtend from 'jss-plugin-extend';
 import Frame from 'react-frame-component';
 import PropTypes from 'prop-types';
 import {StylesProvider, jssPreset, ThemeProvider, createGenerateClassName} from '@material-ui/styles';
