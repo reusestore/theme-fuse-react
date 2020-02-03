@@ -173,7 +173,7 @@ class FuseUtils {
         routes = routes.map((route) => {
             let auth = config.auth || config.auth === null ? config.auth : defaultAuth || null;
             auth = route.auth || route.auth === null ? route.auth : auth;
-            const settings = _.merge(config.settings, route.settings);
+            const settings = _.merge({},config.settings, route.settings);
 
             return {
                 ...route,
