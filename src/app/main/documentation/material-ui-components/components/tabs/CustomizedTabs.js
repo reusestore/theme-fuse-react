@@ -1,8 +1,8 @@
-import React from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import Tabs from '@material-ui/core/Tabs';
+import {makeStyles, withStyles} from '@material-ui/core/styles';
 import Tab from '@material-ui/core/Tab';
+import Tabs from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
+import React from 'react';
 
 const AntTabs = withStyles({
   root: {

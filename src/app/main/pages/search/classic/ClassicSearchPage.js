@@ -1,16 +1,24 @@
-import React, {useEffect, useState} from 'react';
-import {Button, colors, Icon, IconButton, Input, Paper, Typography} from '@material-ui/core';
-import {makeStyles, useTheme, ThemeProvider} from '@material-ui/styles';
-import {FusePageSimple, FuseAnimate, FuseAnimateGroup} from '@fuse';
-import clsx from 'clsx';
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
+import FusePageSimple from '@fuse/core/FusePageSimple';
+import Button from '@material-ui/core/Button';
+import {blue, green} from '@material-ui/core/colors';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import Input from '@material-ui/core/Input';
+import Paper from '@material-ui/core/Paper';
+import {makeStyles, ThemeProvider, useTheme} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
+import clsx from 'clsx';
+import React, {useEffect, useState} from 'react';
 
 const useStyles = makeStyles({
     title: {
-        color: colors.blue[800]
+        color: blue[800]
     },
     url  : {
-        color: colors.green[800]
+        color: green[800]
     }
 });
 

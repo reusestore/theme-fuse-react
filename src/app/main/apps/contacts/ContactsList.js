@@ -1,10 +1,15 @@
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import FuseUtils from '@fuse/utils';
+import Avatar from '@material-ui/core/Avatar';
+import Checkbox from '@material-ui/core/Checkbox';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
 import React, {useEffect, useState} from 'react';
-import {Avatar, Checkbox, Icon, IconButton, Typography} from '@material-ui/core';
-import {FuseUtils, FuseAnimate} from '@fuse';
 import {useDispatch, useSelector} from 'react-redux';
 import ReactTable from "react-table";
-import * as Actions from './store/actions';
 import ContactsMultiSelectMenu from './ContactsMultiSelectMenu';
+import * as Actions from './store/actions';
 
 function ContactsList(props)
 {

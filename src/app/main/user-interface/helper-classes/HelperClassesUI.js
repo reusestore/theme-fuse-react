@@ -1,6 +1,8 @@
+import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
+import FusePageSimple from '@fuse/core/FusePageSimple';
+import Icon from '@material-ui/core/Icon';
+import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import {Icon, Typography} from '@material-ui/core';
-import {FusePageSimple, FuseAnimateGroup} from '@fuse';
 
 function HelperClassesUI()
 {

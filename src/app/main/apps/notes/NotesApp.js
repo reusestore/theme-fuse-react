@@ -1,15 +1,15 @@
-import React, {useEffect, useRef} from 'react';
-import {FusePageSimple} from '@fuse';
-import {useDispatch} from 'react-redux';
+import FusePageSimple from '@fuse/core/FusePageSimple';
 import withReducer from 'app/store/withReducer';
-import * as Actions from './store/actions';
-import reducer from './store/reducers';
-import NoteDialog from './dialogs/note/NoteDialog';
+import React, {useEffect, useRef} from 'react';
+import {useDispatch} from 'react-redux';
 import LabelsDialog from './dialogs/labels/LabelsDialog';
+import NoteDialog from './dialogs/note/NoteDialog';
+import NewNote from './NewNote';
 import NoteList from './NoteList';
 import NotesHeader from './NotesHeader';
 import NotesSidebarContent from './NotesSidebarContent';
-import NewNote from './NewNote';
+import * as Actions from './store/actions';
+import reducer from './store/reducers';
 
 function NotesApp(props)
 {

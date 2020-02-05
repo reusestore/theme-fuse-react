@@ -1,6 +1,6 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Popper from '@material-ui/core/Popper';
+import {makeStyles} from '@material-ui/core/styles';
+import React from 'react';
 
 const useStyles = makeStyles(theme => ({
   paper: {

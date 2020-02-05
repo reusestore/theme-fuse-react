@@ -1,11 +1,14 @@
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
+import FuseUtils from '@fuse/utils';
+import List from '@material-ui/core/List';
+import Typography from '@material-ui/core/Typography';
 import React, {useEffect, useState} from 'react';
-import {List, Typography} from '@material-ui/core';
-import {FuseUtils, FuseAnimate, FuseAnimateGroup} from '@fuse';
-import {withRouter} from 'react-router-dom';
+import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 import * as Actions from '../store/actions';
 import MailListItem from './MailListItem';
-import {useTranslation} from 'react-i18next';
 
 function MailList(props)
 {

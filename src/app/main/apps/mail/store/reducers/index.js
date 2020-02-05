@@ -1,9 +1,9 @@
 import {combineReducers} from 'redux';
-import mails from './mails.reducer';
-import mail from './mail.reducer';
+import filters from './filters.reducer';
 import folders from './folders.reducer';
 import labels from './labels.reducer';
-import filters from './filters.reducer';
+import mail from './mail.reducer';
+import mails from './mails.reducer';
 
 const reducer = combineReducers({
     mails,

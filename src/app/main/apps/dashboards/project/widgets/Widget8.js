@@ -1,5 +1,6 @@
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import {Typography, Paper} from '@material-ui/core';
 import {Doughnut} from 'react-chartjs-2';
 
 function Widget8(props)

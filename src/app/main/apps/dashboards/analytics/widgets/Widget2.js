@@ -1,6 +1,8 @@
+import Card from '@material-ui/core/Card';
+import Icon from '@material-ui/core/Icon';
+import {useTheme} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import {Card, Icon, Typography} from '@material-ui/core';
-import {useTheme} from '@material-ui/styles';
 import {Bar} from 'react-chartjs-2';
 
 function Widget2(props)

@@ -1,12 +1,15 @@
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import {ThemeProvider, withStyles} from '@material-ui/core/styles';
+import Tooltip from '@material-ui/core/Tooltip';
+import Typography from '@material-ui/core/Typography';
+import clsx from 'clsx';
+import moment from 'moment';
 import React from 'react';
-import {withStyles, Icon, IconButton, Tooltip, Typography} from '@material-ui/core';
-import {ThemeProvider} from '@material-ui/styles';
-import {FuseAnimate} from '@fuse';
 import Toolbar from 'react-big-calendar/lib/Toolbar';
 import {navigate} from 'react-big-calendar/lib/utils/constants';
 import connect from 'react-redux/es/connect/connect';
-import clsx from 'clsx';
-import moment from 'moment';
 
 const styles = theme => ({
     root: {

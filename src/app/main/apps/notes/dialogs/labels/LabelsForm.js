@@ -1,11 +1,16 @@
-import React, {useEffect, useMemo, useState} from 'react';
-import {Typography, ListItem, Input, IconButton, Icon, List} from '@material-ui/core';
 import {useDebounce, useForm} from '@fuse/hooks';
-import {useDispatch, useSelector} from 'react-redux';
-import clsx from 'clsx';
 import _ from '@lodash';
-import * as Actions from 'app/main/apps/notes/store/actions';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import Input from '@material-ui/core/Input';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import Typography from '@material-ui/core/Typography';
 import LabelModel from 'app/main/apps/notes/model/LabelModel';
+import * as Actions from 'app/main/apps/notes/store/actions';
+import clsx from 'clsx';
+import React, {useEffect, useMemo, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 
 function LabelsForm(props)
 {

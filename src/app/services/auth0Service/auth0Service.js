@@ -1,6 +1,6 @@
 import Auth0Lock from 'auth0-lock';
-import jwtDecode from 'jwt-decode';
 import axios from 'axios';
+import jwtDecode from 'jwt-decode';
 import AUTH_CONFIG from './auth0ServiceConfig';
 
 class auth0Service {

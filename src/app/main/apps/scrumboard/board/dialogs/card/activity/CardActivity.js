@@ -1,8 +1,10 @@
-import React from 'react';
-import {Avatar, ListItem, Typography} from '@material-ui/core';
-import clsx from 'clsx';
 import _ from '@lodash';
-import {makeStyles} from '@material-ui/styles';
+import Avatar from '@material-ui/core/Avatar';
+import ListItem from '@material-ui/core/ListItem';
+import {makeStyles} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import clsx from 'clsx';
+import React from 'react';
 
 const useStyles = makeStyles(theme => ({
     commentBubble: {

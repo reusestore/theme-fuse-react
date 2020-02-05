@@ -1,15 +1,15 @@
-import React, {useEffect, useRef} from 'react';
-import {FusePageCarded} from '@fuse';
-import {useDispatch} from 'react-redux';
+import FusePageCarded from '@fuse/core/FusePageCarded';
 import withReducer from 'app/store/withReducer';
-import TodoList from './TodoList';
-import TodoToolbar from './TodoToolbar';
-import TodoHeader from './TodoHeader';
-import TodoSidebarHeader from './TodoSidebarHeader';
-import TodoSidebarContent from './TodoSidebarContent';
-import TodoDialog from './TodoDialog';
+import React, {useEffect, useRef} from 'react';
+import {useDispatch} from 'react-redux';
 import * as Actions from './store/actions';
 import reducer from './store/reducers';
+import TodoDialog from './TodoDialog';
+import TodoHeader from './TodoHeader';
+import TodoList from './TodoList';
+import TodoSidebarContent from './TodoSidebarContent';
+import TodoSidebarHeader from './TodoSidebarHeader';
+import TodoToolbar from './TodoToolbar';
 
 function TodoApp(props)
 {

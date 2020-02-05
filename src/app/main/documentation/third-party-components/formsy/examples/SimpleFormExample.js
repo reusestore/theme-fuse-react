@@ -1,7 +1,11 @@
-import React, {useRef, useState} from 'react';
-import {Button, FormControlLabel, MenuItem, Radio, Typography} from '@material-ui/core';
-import {TextFieldFormsy, CheckboxFormsy, RadioGroupFormsy, SelectFormsy, FuseChipSelectFormsy} from '@fuse';
+import {CheckboxFormsy, FuseChipSelectFormsy, RadioGroupFormsy, SelectFormsy, TextFieldFormsy} from '@fuse/core/formsy';
+import Button from '@material-ui/core/Button';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import Radio from '@material-ui/core/Radio';
+import Typography from '@material-ui/core/Typography';
 import Formsy from 'formsy-react';
+import React, {useRef, useState} from 'react';
 
 const suggestions = [
     'Sea',

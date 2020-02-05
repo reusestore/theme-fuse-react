@@ -1,12 +1,15 @@
-import React from 'react';
-import {Avatar, Typography, Checkbox, ListItem} from '@material-ui/core';
-import {makeStyles} from '@material-ui/styles';
-import {withRouter} from 'react-router-dom';
-import {useDispatch, useSelector} from 'react-redux';
-import clsx from 'clsx';
 import _ from '@lodash';
-import * as Actions from '../store/actions/index';
+import Avatar from '@material-ui/core/Avatar';
+import Checkbox from '@material-ui/core/Checkbox';
+import ListItem from '@material-ui/core/ListItem';
+import {makeStyles} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import clsx from 'clsx';
+import React from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 import MailChip from '../MailChip';
+import * as Actions from '../store/actions/index';
 
 const pathToRegexp = require('path-to-regexp');
 

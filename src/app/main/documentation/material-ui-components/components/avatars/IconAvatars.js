@@ -1,10 +1,10 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { green, pink } from '@material-ui/core/colors';
 import Avatar from '@material-ui/core/Avatar';
+import {green, pink} from '@material-ui/core/colors';
+import {makeStyles} from '@material-ui/core/styles';
+import AssignmentIcon from '@material-ui/icons/Assignment';
 import FolderIcon from '@material-ui/icons/Folder';
 import PageviewIcon from '@material-ui/icons/Pageview';
-import AssignmentIcon from '@material-ui/icons/Assignment';
+import React from 'react';
 
 const useStyles = makeStyles(theme => ({
   root: {

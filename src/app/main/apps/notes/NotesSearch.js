@@ -1,9 +1,12 @@
-import {useState} from 'react';
-import {ClickAwayListener, Icon, IconButton, Input, Tooltip} from '@material-ui/core';
-import {makeStyles} from '@material-ui/styles';
-import {useDispatch, useSelector} from 'react-redux';
-import React from 'react';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import Input from '@material-ui/core/Input';
+import {makeStyles} from '@material-ui/core/styles';
+import Tooltip from '@material-ui/core/Tooltip';
 import clsx from 'clsx';
+import React, {useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from './store/actions';
 
 const useStyles = makeStyles(theme => ({

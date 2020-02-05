@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import { withStyles } from '@material-ui/core/styles';
-import TableCell from '@material-ui/core/TableCell';
 import Paper from '@material-ui/core/Paper';
-import { AutoSizer, Column, Table } from 'react-virtualized';
+import {withStyles} from '@material-ui/core/styles';
+import TableCell from '@material-ui/core/TableCell';
+import clsx from 'clsx';
+import PropTypes from 'prop-types';
+import React from 'react';
+import {AutoSizer, Column, Table} from 'react-virtualized';
 
 const styles = theme => ({
   flexContainer: {

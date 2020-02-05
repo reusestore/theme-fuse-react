@@ -1,20 +1,21 @@
-import React, {useEffect, useRef} from 'react';
-import {Fab, Icon} from '@material-ui/core';
-import {makeStyles} from '@material-ui/styles';
-import {FuseAnimate} from '@fuse';
-import {useDispatch, useSelector} from 'react-redux';
-import {Calendar, momentLocalizer, Views} from 'react-big-calendar'
-import 'react-big-calendar/lib/css/react-big-calendar.css';
-import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
-import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
-import moment from 'moment'
-import clsx from 'clsx';
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import Fab from '@material-ui/core/Fab';
+import Icon from '@material-ui/core/Icon';
+import {makeStyles} from '@material-ui/core/styles';
 import withReducer from 'app/store/withReducer';
+import clsx from 'clsx';
+import moment from 'moment'
+import React, {useEffect, useRef} from 'react';
+import {Calendar, momentLocalizer, Views} from 'react-big-calendar'
+import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop'
+import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+import * as ReactDOM from 'react-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import CalendarHeader from './CalendarHeader';
+import EventDialog from './EventDialog';
 import * as Actions from './store/actions';
 import reducer from './store/reducers';
-import EventDialog from './EventDialog';
-import CalendarHeader from './CalendarHeader';
-import * as ReactDOM from 'react-dom';
 
 const localizer = momentLocalizer(moment);
 
@@ -252,18 +253,21 @@ export default withReducer('calendarApp', reducer)(CalendarApp);
 /*
 IE 11 Fix
 */
-if (!Element.prototype.matches) {
+if ( !Element.prototype.matches )
+{
     Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
 }
-  
-if (!Element.prototype.closest) {
-Element.prototype.closest = function(s) {
-    var el = this;
 
-    do {
-    if (el.matches(s)) return el;
-    el = el.parentElement || el.parentNode;
-    } while (el !== null && el.nodeType === 1);
-    return null;
-};
+if ( !Element.prototype.closest )
+{
+    Element.prototype.closest = function (s) {
+        var el = this;
+
+        do
+        {
+            if ( el.matches(s) ) return el;
+            el = el.parentElement || el.parentNode;
+        } while ( el !== null && el.nodeType === 1 );
+        return null;
+    };
 }

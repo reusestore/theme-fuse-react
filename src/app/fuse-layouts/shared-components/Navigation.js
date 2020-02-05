@@ -1,6 +1,6 @@
-import React from 'react';
-import {FuseNavigation} from '@fuse';
+import FuseNavigation from '@fuse/core/FuseNavigation';
 import clsx from 'clsx';
+import React from 'react';
 import {useSelector} from 'react-redux';
 
 function Navigation(props)

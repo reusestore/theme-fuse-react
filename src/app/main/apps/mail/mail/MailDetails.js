@@ -1,11 +1,15 @@
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import _ from '@lodash';
+import Avatar from '@material-ui/core/Avatar';
+import Divider from '@material-ui/core/Divider';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
 import React, {useEffect, useState} from 'react';
-import {Avatar, Divider, Icon, IconButton, Typography} from '@material-ui/core';
-import {FuseAnimate} from '@fuse';
 import {useDispatch, useSelector} from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import _ from '@lodash';
-import * as Actions from '../store/actions/index';
 import MailChip from '../MailChip';
+import * as Actions from '../store/actions/index';
 
 function MailDetails(props)
 {

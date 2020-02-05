@@ -1,17 +1,23 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {Button, Icon, IconButton, AppBar, Toolbar, Drawer, Hidden} from '@material-ui/core';
-import {Link, withRouter} from 'react-router-dom';
-import {DragDropContext, Droppable} from 'react-beautiful-dnd';
+import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
+import Drawer from '@material-ui/core/Drawer';
+import Hidden from '@material-ui/core/Hidden';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import Toolbar from '@material-ui/core/Toolbar';
 import withReducer from 'app/store/withReducer';
+import clsx from 'clsx';
+import React, {useEffect, useRef, useState} from 'react';
+import {DragDropContext, Droppable} from 'react-beautiful-dnd';
+import {useDispatch, useSelector} from 'react-redux';
+import {Link, withRouter} from 'react-router-dom';
 import * as Actions from '../store/actions';
 import reducer from '../store/reducers';
-import clsx from 'clsx';
-import BoardTitle from './BoardTitle';
-import BoardList from './BoardList';
 import BoardAddList from './BoardAddList';
+import BoardList from './BoardList';
+import BoardTitle from './BoardTitle';
 import BoardCardDialog from './dialogs/card/BoardCardDialog';
 import BoardSettingsSidebar from './sidebars/settings/BoardSettingsSidebar';
-import {useDispatch, useSelector} from 'react-redux';
 
 function Board(props)
 {

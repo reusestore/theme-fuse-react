@@ -1,7 +1,8 @@
+import FuseHighlight from '@fuse/core/FuseHighlight';
+import FusePageSimple from '@fuse/core/FusePageSimple';
+import {makeStyles} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import {Typography} from '@material-ui/core';
-import {FusePageSimple, FuseHighlight} from '@fuse';
-import {makeStyles} from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
     layoutRoot: {}

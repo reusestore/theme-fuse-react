@@ -1,7 +1,7 @@
 import * as reduxModule from 'redux';
 import {applyMiddleware, compose, createStore} from 'redux';
-import createReducer from './reducers';
 import thunk from 'redux-thunk';
+import createReducer from './reducers';
 
 /*
 Fix for Firefox redux dev tools extension

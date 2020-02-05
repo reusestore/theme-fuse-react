@@ -1,9 +1,17 @@
-import React, {useState, useRef, useCallback} from 'react';
-import {Icon, Typography, Menu, MenuItem, LinearProgress, List, ListItemText, ListItemIcon, IconButton} from '@material-ui/core';
-import CardChecklistItem from './CardChecklistItem';
-import CardAddChecklistItem from './CardAddChecklistItem';
-import _ from '@lodash';
 import {useForm, useUpdateEffect} from '@fuse/hooks';
+import _ from '@lodash';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import LinearProgress from '@material-ui/core/LinearProgress';
+import List from '@material-ui/core/List';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import Typography from '@material-ui/core/Typography';
+import React, {useCallback, useRef, useState} from 'react';
+import CardAddChecklistItem from './CardAddChecklistItem';
+import CardChecklistItem from './CardChecklistItem';
 import CardChecklistName from './CardChecklistName';
 
 function CardChecklist(props)

@@ -1,8 +1,15 @@
-import React, {useState} from 'react';
-import {Select, Button, Card, Divider, FormControl, Icon, MenuItem, Typography} from '@material-ui/core';
-import {useTheme} from '@material-ui/styles';
-import {Doughnut} from 'react-chartjs-2';
 import _ from '@lodash';
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import Divider from '@material-ui/core/Divider';
+import FormControl from '@material-ui/core/FormControl';
+import Icon from '@material-ui/core/Icon';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+import {useTheme} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import React, {useState} from 'react';
+import {Doughnut} from 'react-chartjs-2';
 
 function Widget7(props)
 {

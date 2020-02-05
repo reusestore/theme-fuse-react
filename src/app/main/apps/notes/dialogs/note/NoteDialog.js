@@ -1,9 +1,10 @@
-import React from 'react';
-import {Slide, Dialog} from '@material-ui/core';
 import {useDebounce} from '@fuse/hooks';
-import {useDispatch, useSelector} from 'react-redux';
-import * as Actions from 'app/main/apps/notes/store/actions';
+import Dialog from '@material-ui/core/Dialog';
+import Slide from '@material-ui/core/Slide';
 import NoteForm from 'app/main/apps/notes/note-form/NoteForm';
+import * as Actions from 'app/main/apps/notes/store/actions';
+import React from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;

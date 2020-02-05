@@ -1,7 +1,10 @@
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import Typography from '@material-ui/core/Typography';
+import withReducer from 'app/store/withReducer';
 import React, {useEffect} from 'react';
-import {Typography} from '@material-ui/core';
-import {FuseAnimate} from '@fuse';
 import {useDispatch, useSelector} from 'react-redux';
+import * as Actions from './store/actions'
+import reducer from './store/reducers';
 import Widget1 from './widgets/Widget1';
 import Widget2 from './widgets/Widget2';
 import Widget3 from './widgets/Widget3';
@@ -11,9 +14,6 @@ import Widget6 from './widgets/Widget6';
 import Widget7 from './widgets/Widget7';
 import Widget8 from './widgets/Widget8';
 import Widget9 from './widgets/Widget9';
-import withReducer from 'app/store/withReducer';
-import * as Actions from './store/actions'
-import reducer from './store/reducers';
 
 function AnalyticsDashboardApp()
 {

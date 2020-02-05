@@ -1,8 +1,10 @@
-import React, {useEffect, useRef, useState} from 'react';
-import Formsy from 'formsy-react';
-import {TextFieldFormsy} from '@fuse';
-import {Button, InputAdornment, Icon} from '@material-ui/core';
+import {TextFieldFormsy} from '@fuse/core/formsy';
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
+import InputAdornment from '@material-ui/core/InputAdornment';
 import * as authActions from 'app/auth/store/actions';
+import Formsy from 'formsy-react';
+import React, {useEffect, useRef, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
 function FirebaseRegisterTab(props)

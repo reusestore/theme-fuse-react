@@ -1,7 +1,16 @@
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import FuseHighlight from '@fuse/core/FuseHighlight';
+import FusePageSimple from '@fuse/core/FusePageSimple';
+import Card from '@material-ui/core/Card';
+import FormControl from '@material-ui/core/FormControl';
+import Icon from '@material-ui/core/Icon';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+import {makeStyles} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import React, {useEffect, useRef, useState} from 'react';
-import {Typography, Card, Input, MenuItem, Select, FormControl, InputLabel, Icon} from '@material-ui/core';
-import {makeStyles} from '@material-ui/styles';
-import {FuseAnimate, FuseHighlight, FusePageSimple} from '@fuse';
 
 const EFFECTS = [
     'fade',

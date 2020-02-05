@@ -1,6 +1,7 @@
-import React from 'react';
-import {Icon, IconButton} from '@material-ui/core';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
 import * as Actions from 'app/store/actions';
+import React from 'react';
 import {useDispatch} from 'react-redux';
 
 function NavbarMobileToggleButton(props)

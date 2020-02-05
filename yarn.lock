@@ -2168,7 +2168,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@material-ui/styles@npm:*, @material-ui/styles@npm:4.9.0, @material-ui/styles@npm:^4.8.2":
+"@material-ui/styles@npm:*, @material-ui/styles@npm:^4.8.2":
   version: 4.9.0
   resolution: "@material-ui/styles@npm:4.9.0"
   dependencies:
@@ -7388,7 +7388,6 @@ fsevents@^1.2.7:
     "@material-ui/icons": 4.5.1
     "@material-ui/lab": 4.0.0-alpha.39
     "@material-ui/pickers": 3.2.10
-    "@material-ui/styles": 4.9.0
     auth0-lock: 11.20.2
     autosuggest-highlight: 3.1.1
     axios: 0.19.1
@@ -7421,6 +7420,7 @@ fsevents@^1.2.7:
     path-to-regexp: 3.1.0
     perfect-scrollbar: 1.4.0
     prismjs: 1.19.0
+    promise: 8.0.3
     prop-types: 15.7.2
     purgecss: 1.4.2
     qs: 6.9.1
@@ -13007,21 +13007,21 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"promise@npm:8.0.3, promise@npm:^8.0.3":
+  version: 8.0.3
+  resolution: "promise@npm:8.0.3"
+  dependencies:
+    asap: ~2.0.6
+  checksum: 4250b8b9b386e1c628b2556be9b4785f9394c3704bab0a19e7386b756ebbd91c8102e08d36d65605e629d1724e68eb9d44e7f16c3c4312461e04d51416ac7971
+  languageName: node
+  linkType: hard
+
 "promise@npm:^7.1.1":
   version: 7.3.1
   resolution: "promise@npm:7.3.1"
   dependencies:
     asap: ~2.0.3
   checksum: 55567d002fb90247e300661031c073cb7d7ac1861861a6e9b2ae26323096a22aaf8181b38406d1d488ae4f59cc14be1210ec2b7b393943eac7faad35cdd0e313
-  languageName: node
-  linkType: hard
-
-"promise@npm:^8.0.3":
-  version: 8.0.3
-  resolution: "promise@npm:8.0.3"
-  dependencies:
-    asap: ~2.0.6
-  checksum: 4250b8b9b386e1c628b2556be9b4785f9394c3704bab0a19e7386b756ebbd91c8102e08d36d65605e629d1724e68eb9d44e7f16c3c4312461e04d51416ac7971
   languageName: node
   linkType: hard
 

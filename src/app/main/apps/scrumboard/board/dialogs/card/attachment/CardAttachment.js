@@ -1,5 +1,10 @@
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 import React, {useState} from 'react';
-import {Icon, Typography, Paper, Button, Menu, MenuItem} from '@material-ui/core';
 
 function CardAttachment(props)
 {

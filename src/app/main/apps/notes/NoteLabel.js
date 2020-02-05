@@ -1,7 +1,7 @@
-import React from 'react';
-import {Chip} from '@material-ui/core';
-import {useSelector} from 'react-redux';
+import Chip from '@material-ui/core/Chip';
 import clsx from 'clsx';
+import React from 'react';
+import {useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 function NoteLabel(props)

@@ -1,21 +1,32 @@
-import React, {useCallback} from 'react';
-import {TextField, DialogContent, DialogTitle, Icon, IconButton, Typography, Toolbar, AppBar, Avatar, InputAdornment, Tooltip, List} from '@material-ui/core';
-import {FuseChipSelect} from '@fuse';
-import {useForm, useDebounce, useUpdateEffect} from '@fuse/hooks';
+import FuseChipSelect from '@fuse/core/FuseChipSelect';
+import {useDebounce, useForm, useUpdateEffect} from '@fuse/hooks';
 import _ from '@lodash';
-import moment from 'moment';
-import {useDispatch, useSelector} from 'react-redux';
-import * as Actions from 'app/main/apps/scrumboard/store/actions/index';
+import AppBar from '@material-ui/core/AppBar';
+import Avatar from '@material-ui/core/Avatar';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import List from '@material-ui/core/List';
+import TextField from '@material-ui/core/TextField';
+import Toolbar from '@material-ui/core/Toolbar';
+import Tooltip from '@material-ui/core/Tooltip';
+import Typography from '@material-ui/core/Typography';
 import LabelModel from 'app/main/apps/scrumboard/model/LabelModel';
+import * as Actions from 'app/main/apps/scrumboard/store/actions/index';
+import moment from 'moment';
+import React, {useCallback} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import CardActivity from './activity/CardActivity';
 import CardAttachment from './attachment/CardAttachment';
+import CardChecklist from './checklist/CardChecklist';
+import CardComment from './comment/CardComment';
+import CheckListMenu from './toolbar/CheckListMenu';
 import DueMenu from './toolbar/DueMenu';
 import LabelsMenu from './toolbar/LabelsMenu';
 import MembersMenu from './toolbar/MembersMenu';
-import CheckListMenu from './toolbar/CheckListMenu';
 import OptionsMenu from './toolbar/OptionsMenu';
-import CardChecklist from './checklist/CardChecklist';
-import CardActivity from './activity/CardActivity';
-import CardComment from './comment/CardComment';
 
 function BoardCardForm(props)
 {

@@ -1,10 +1,16 @@
-import React from 'react';
-import {Avatar, Button, Card, CardContent, Icon, TextField, Typography} from '@material-ui/core';
-import {darken} from '@material-ui/core/styles/colorManipulator';
-import {makeStyles} from '@material-ui/styles';
-import {FuseAnimate} from '@fuse';
+import FuseAnimate from '@fuse/core/FuseAnimate';
 import {useForm} from '@fuse/hooks';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Icon from '@material-ui/core/Icon';
+import {makeStyles} from '@material-ui/core/styles';
+import {darken} from '@material-ui/core/styles/colorManipulator';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
+import React from 'react';
 import {Link} from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({

@@ -1,6 +1,11 @@
-import React, {useState} from 'react';
 import {useForm} from '@fuse/hooks';
-import {ClickAwayListener, Icon, IconButton, InputAdornment, TextField, Typography} from '@material-ui/core';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+import React, {useState} from 'react';
 
 const CardChecklistName = React.forwardRef(function CardChecklistName(props, ref) {
     const [formOpen, setFormOpen] = useState(false);

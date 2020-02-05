@@ -1,6 +1,10 @@
+import FuseExample from '@fuse/core/FuseExample';
+import FusePageSimple from '@fuse/core/FusePageSimple';
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
+import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import {Button, Icon, Typography} from '@material-ui/core';
-import {FuseExample, FusePageSimple} from '@fuse';
+
 import {Link} from 'react-router-dom';
 
 /* eslint import/no-webpack-loader-syntax: off */

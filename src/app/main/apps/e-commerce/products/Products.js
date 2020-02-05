@@ -1,9 +1,9 @@
-import React from 'react';
-import {FusePageCarded} from '@fuse';
+import FusePageCarded from '@fuse/core/FusePageCarded';
 import withReducer from 'app/store/withReducer';
-import ProductsTable from './ProductsTable';
-import ProductsHeader from './ProductsHeader';
+import React from 'react';
 import reducer from '../store/reducers';
+import ProductsHeader from './ProductsHeader';
+import ProductsTable from './ProductsTable';
 
 function Products()
 {

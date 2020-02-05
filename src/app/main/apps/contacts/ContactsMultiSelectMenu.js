@@ -1,7 +1,13 @@
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import MenuList from '@material-ui/core/MenuList';
 import React, {useState} from 'react';
-import {Icon, IconButton, ListItemIcon, ListItemText, Menu, MenuItem, MenuList} from '@material-ui/core';
-import * as Actions from './store/actions';
 import {useDispatch, useSelector} from 'react-redux';
+import * as Actions from './store/actions';
 
 function ContactsMultiSelectMenu(props)
 {

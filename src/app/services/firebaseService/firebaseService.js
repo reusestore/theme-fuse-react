@@ -1,7 +1,7 @@
-import config from './firebaseServiceConfig';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
+import config from './firebaseServiceConfig';
 
 class firebaseService {
 

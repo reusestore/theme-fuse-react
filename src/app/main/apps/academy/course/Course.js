@@ -1,14 +1,23 @@
-import React, {useEffect, useRef} from 'react';
-import {Paper, Hidden, Icon, IconButton, Fab, Typography, Stepper, Step, StepLabel} from '@material-ui/core';
-import {FusePageSimple, FuseScrollbars} from '@fuse';
-import {useDispatch, useSelector} from 'react-redux';
-import withReducer from 'app/store/withReducer';
-import SwipeableViews from 'react-swipeable-views';
+import FusePageSimple from '@fuse/core/FusePageSimple';
+import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import {green} from '@material-ui/core/colors';
+import Fab from '@material-ui/core/Fab';
+import Hidden from '@material-ui/core/Hidden';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import Paper from '@material-ui/core/Paper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
+import Stepper from '@material-ui/core/Stepper';
+import {makeStyles, useTheme} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import withReducer from 'app/store/withReducer';
+import React, {useEffect, useRef} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
-import reducer from '../store/reducers';
+import SwipeableViews from 'react-swipeable-views';
 import * as Actions from '../store/actions';
-import {makeStyles, useTheme} from '@material-ui/styles';
+import reducer from '../store/reducers';
 
 const useStyles = makeStyles(theme => ({
     stepLabel : {

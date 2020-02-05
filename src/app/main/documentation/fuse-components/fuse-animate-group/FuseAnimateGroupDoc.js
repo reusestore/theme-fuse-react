@@ -1,6 +1,11 @@
+import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
+import FuseHighlight from '@fuse/core/FuseHighlight';
+import FusePageSimple from '@fuse/core/FusePageSimple';
+import Icon from '@material-ui/core/Icon';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import Typography from '@material-ui/core/Typography';
 import React, {useEffect, useRef, useState} from 'react';
-import {Typography, List, ListItem, Icon} from '@material-ui/core';
-import {FuseAnimateGroup, FuseHighlight, FusePageSimple} from '@fuse';
 
 const initialList = [
     'List Item 1',

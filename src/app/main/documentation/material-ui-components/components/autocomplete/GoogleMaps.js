@@ -1,12 +1,12 @@
-import React from 'react';
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
 import Grid from '@material-ui/core/Grid';
+import {makeStyles} from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 import parse from 'autosuggest-highlight/parse';
-import throttle from 'lodash/throttle';
+import _ from '@lodash';
+import React from 'react';
 
 function loadScript(src, position, id) {
   if (!position) {
@@ -53,7 +53,7 @@ export default function GoogleMaps() {
 
   const fetch = React.useMemo(
     () =>
-      throttle((input, callback) => {
+      _.throttle((input, callback) => {
         autocompleteService.current.getPlacePredictions(input, callback);
       }, 200),
     [],

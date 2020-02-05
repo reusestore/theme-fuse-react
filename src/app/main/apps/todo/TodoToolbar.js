@@ -1,5 +1,9 @@
+import FormControl from '@material-ui/core/FormControl';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
 import React from 'react';
-import {Icon, IconButton, MenuItem, FormControl, Select} from '@material-ui/core';
 import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from './store/actions';
 

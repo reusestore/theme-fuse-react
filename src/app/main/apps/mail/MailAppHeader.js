@@ -1,9 +1,13 @@
+import Hidden from '@material-ui/core/Hidden';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import Input from '@material-ui/core/Input';
+import Paper from '@material-ui/core/Paper';
+import {ThemeProvider} from '@material-ui/core/styles';
 import React from 'react';
-import {Hidden, Icon, IconButton, Input, Paper} from '@material-ui/core';
-import {ThemeProvider} from '@material-ui/styles';
+import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from './store/actions';
-import {useTranslation} from 'react-i18next';
 
 function MailAppHeader(props)
 {

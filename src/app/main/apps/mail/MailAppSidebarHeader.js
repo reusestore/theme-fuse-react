@@ -1,6 +1,8 @@
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import Icon from '@material-ui/core/Icon';
+import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
 import React, {useState} from 'react';
-import {Icon, MenuItem, TextField} from '@material-ui/core';
-import {FuseAnimate} from '@fuse';
 import {useTranslation} from 'react-i18next';
 
 const accounts = {

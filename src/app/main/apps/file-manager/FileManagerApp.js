@@ -1,16 +1,19 @@
-import React, {useEffect, useRef} from 'react';
-import {Fab, Icon, IconButton} from '@material-ui/core';
-import {FuseAnimate, FusePageSimple} from '@fuse';
-import {useDispatch, useSelector} from 'react-redux';
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import FusePageSimple from '@fuse/core/FusePageSimple';
+import Fab from '@material-ui/core/Fab';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
 import withReducer from 'app/store/withReducer';
+import React, {useEffect, useRef} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import Breadcrumb from './Breadcrumb';
+import DetailSidebarContent from './DetailSidebarContent';
+import DetailSidebarHeader from './DetailSidebarHeader';
+import FileList from './FileList';
+import MainSidebarContent from './MainSidebarContent';
+import MainSidebarHeader from './MainSidebarHeader';
 import * as Actions from './store/actions';
 import reducer from './store/reducers';
-import FileList from './FileList';
-import DetailSidebarHeader from './DetailSidebarHeader';
-import DetailSidebarContent from './DetailSidebarContent';
-import MainSidebarHeader from './MainSidebarHeader';
-import MainSidebarContent from './MainSidebarContent';
-import Breadcrumb from './Breadcrumb';
 
 function FileManagerApp()
 {

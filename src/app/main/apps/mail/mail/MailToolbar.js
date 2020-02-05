@@ -1,10 +1,11 @@
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import {useTheme} from '@material-ui/core/styles';
 import React from 'react';
-import {Icon, IconButton} from '@material-ui/core';
-import {FuseAnimate} from '@fuse';
 import {useDispatch, useSelector} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import * as Actions from '../store/actions/index';
-import {useTheme} from '@material-ui/styles';
 
 const pathToRegexp = require('path-to-regexp');
 

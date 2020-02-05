@@ -1,4 +1,4 @@
-import {FuseUtils} from '@fuse';
+import FuseUtils from '@fuse/utils';
 import moment from 'moment';
 
 class CommentModel {

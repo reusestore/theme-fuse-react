@@ -1,18 +1,10 @@
-import {createMuiTheme} from '@material-ui/core';
-import * as Actions from 'app/store/actions/fuse';
-import FuseLayoutConfigs from 'app/fuse-layouts/FuseLayoutConfigs';
+import {defaultSettings, defaultThemeOptions, defaultThemes, extendThemeWithMixins, getParsedQuerySettings, mainThemeVariations, mustHaveThemeOptions} from '@fuse/default-settings';
+import _ from '@lodash';
+import {createMuiTheme} from '@material-ui/core/styles';
 import FuseSettingsConfig from 'app/fuse-configs/settingsConfig';
 import FuseThemesConfig from 'app/fuse-configs/themesConfig';
-import _ from '@lodash';
-import {
-    defaultSettings,
-    getParsedQuerySettings,
-    defaultThemes,
-    defaultThemeOptions,
-    mustHaveThemeOptions,
-    extendThemeWithMixins,
-    mainThemeVariations
-} from '@fuse/FuseDefaultSettings';
+import FuseLayoutConfigs from 'app/fuse-layouts/FuseLayoutConfigs';
+import * as Actions from 'app/store/actions/fuse';
 
 const themesObjRaw = Object.keys(FuseThemesConfig).length !== 0 ? FuseThemesConfig : defaultThemes;
 const initialSettings = getInitialSettings();

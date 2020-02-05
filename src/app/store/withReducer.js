@@ -1,5 +1,5 @@
-import React from "react";
 import {injectReducer} from 'app/store';
+import React from "react";
 
 const withReducer = (key, reducer) => WrappedComponent =>
     class extends React.PureComponent {

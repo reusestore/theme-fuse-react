@@ -1,9 +1,13 @@
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import Hidden from '@material-ui/core/Hidden';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import Tooltip from '@material-ui/core/Tooltip';
+import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import {Hidden, Icon, IconButton, Tooltip, Typography} from '@material-ui/core';
-import {FuseAnimate} from '@fuse';
 import {useDispatch, useSelector} from 'react-redux';
-import * as Actions from './store/actions';
 import NotesSearch from './NotesSearch';
+import * as Actions from './store/actions';
 
 function NotesHeader(props)
 {

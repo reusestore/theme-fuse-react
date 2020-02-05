@@ -1,7 +1,8 @@
-import React from 'react';
-import {Chip, Icon} from '@material-ui/core';
+import Chip from '@material-ui/core/Chip';
+import Icon from '@material-ui/core/Icon';
 import clsx from 'clsx';
 import moment from 'moment';
+import React from 'react';
 
 function NoteLabel(props)
 {

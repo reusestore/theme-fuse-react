@@ -1,5 +1,5 @@
-import mock from './../mock';
 import _ from '@lodash';
+import mock from './../mock';
 
 const scrumboardDB = {
     boards: [

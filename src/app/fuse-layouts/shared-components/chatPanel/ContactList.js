@@ -1,10 +1,14 @@
-import React, {useRef} from 'react';
-import {Button, Avatar, Divider, Tooltip} from '@material-ui/core';
-import {FuseScrollbars, FuseAnimateGroup} from '@fuse';
+import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
+import FuseScrollbars from '@fuse/core/FuseScrollbars';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
+import {makeStyles} from '@material-ui/core/styles';
+import Tooltip from '@material-ui/core/Tooltip';
 import clsx from 'clsx';
+import React, {useRef} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from './store/actions';
-import {makeStyles} from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
     root         : {
@@ -137,7 +141,8 @@ function ContactList(props)
                         <Divider className="mx-24 my-8"/>
                         {contacts.map(contact => {
                             const chatContact = user.chatList.find((_chat) => _chat.contactId === contact.id);
-                            return !chatContact ? <ContactButton key={contact.id} contact={contact}/> : '';
+                            return !chatContact ?
+                                <ContactButton key={contact.id} contact={contact}/> : '';
                         })}
                     </FuseAnimateGroup>
                 </React.Fragment>

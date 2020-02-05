@@ -1,14 +1,20 @@
-import React, {useCallback, useEffect, useRef} from 'react';
-import {AppBar, Toolbar, Icon, IconButton, Paper, Avatar, Typography} from '@material-ui/core';
-import {makeStyles} from '@material-ui/styles';
-import keycode from 'keycode';
-import {useDispatch, useSelector} from 'react-redux';
+import AppBar from '@material-ui/core/AppBar';
+import Avatar from '@material-ui/core/Avatar';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import Paper from '@material-ui/core/Paper';
+import {makeStyles} from '@material-ui/core/styles';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import withReducer from 'app/store/withReducer';
 import clsx from 'clsx';
+import keycode from 'keycode';
+import React, {useCallback, useEffect, useRef} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import Chat from './Chat';
+import ContactList from './ContactList';
 import * as Actions from './store/actions';
 import reducer from './store/reducers';
-import withReducer from 'app/store/withReducer';
-import ContactList from './ContactList';
-import Chat from './Chat';
 
 const useStyles = makeStyles(theme => ({
     root : {

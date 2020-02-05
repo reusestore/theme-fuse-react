@@ -1,7 +1,15 @@
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
+import Avatar from '@material-ui/core/Avatar';
+import Divider from '@material-ui/core/Divider';
+import Icon from '@material-ui/core/Icon';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Paper from '@material-ui/core/Paper';
+import {makeStyles} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import {Avatar, Divider, Icon, List, ListItem, ListItemText, Paper, Typography} from '@material-ui/core';
-import {makeStyles} from '@material-ui/styles';
-import {FuseAnimate, NavLinkAdapter} from '@fuse';
 import {useSelector} from 'react-redux';
 
 const useStyles = makeStyles(theme => ({

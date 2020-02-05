@@ -1,9 +1,14 @@
-import React, {useState} from 'react';
-import {Button, ListItemIcon, ListItemText, Popover, MenuItem, Typography} from '@material-ui/core';
-import {useDispatch} from 'react-redux';
-import {useTranslation} from 'react-i18next';
-import {useTheme} from '@material-ui/styles';
+import Button from '@material-ui/core/Button';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import MenuItem from '@material-ui/core/MenuItem';
+import Popover from '@material-ui/core/Popover';
+import {useTheme} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import * as Actions from 'app/store/actions';
+import React, {useState} from 'react';
+import {useTranslation} from 'react-i18next';
+import {useDispatch} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 const languages = [

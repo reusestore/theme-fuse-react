@@ -1,6 +1,12 @@
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import FuseHighlight from '@fuse/core/FuseHighlight';
+import FusePageSimple from '@fuse/core/FusePageSimple';
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Icon from '@material-ui/core/Icon';
+import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import {Button, Card, CardContent, Icon, Typography} from '@material-ui/core';
-import {FuseHighlight, FusePageSimple, FuseAnimate} from '@fuse';
 
 function TypographyUI()
 {

@@ -1,9 +1,12 @@
-import React from 'react';
-import {Avatar, ListItem, ListItemText, Typography} from '@material-ui/core';
-import moment from "moment";
+import Avatar from '@material-ui/core/Avatar';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import {makeStyles} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
+import moment from "moment";
+import React from 'react';
 import StatusIcon from './StatusIcon';
-import {makeStyles} from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
     contactListItem: {

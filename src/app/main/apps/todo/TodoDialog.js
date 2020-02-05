@@ -1,31 +1,29 @@
-import React, {useCallback, useEffect, useState} from 'react';
-import {
-    TextField,
-    Button,
-    Dialog,
-    DialogActions,
-    DialogContent,
-    FormControl,
-    Chip,
-    Icon,
-    IconButton,
-    Typography,
-    Toolbar,
-    AppBar,
-    Avatar,
-    Checkbox,
-    Menu,
-    MenuItem,
-    ListItemIcon,
-    ListItemText,
-    Divider
-} from '@material-ui/core';
-import {amber, red} from '@material-ui/core/colors';
-import {FuseUtils} from '@fuse';
 import {useForm} from '@fuse/hooks';
-import {useDispatch, useSelector} from 'react-redux';
-import moment from 'moment/moment';
+import FuseUtils from '@fuse/utils';
 import _ from '@lodash';
+import AppBar from '@material-ui/core/AppBar';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import Checkbox from '@material-ui/core/Checkbox';
+import Chip from '@material-ui/core/Chip';
+import {amber, red} from '@material-ui/core/colors';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import Divider from '@material-ui/core/Divider';
+import FormControl from '@material-ui/core/FormControl';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import moment from 'moment/moment';
+import React, {useCallback, useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from './store/actions';
 
 const defaultFormState = {

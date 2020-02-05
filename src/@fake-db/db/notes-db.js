@@ -1,5 +1,5 @@
+import FuseUtils from '@fuse/utils';
 import mock from './../mock';
-import {FuseUtils} from '@fuse';
 
 const notesDB = {
     notes : [

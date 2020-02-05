@@ -1,19 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import Radio from '@material-ui/core/Radio';
-import MarkdownElement from 'app/main/documentation/material-ui-components/MarkdownElement';
-import Grid from '@material-ui/core/Grid';
-import { green } from '@material-ui/core/colors';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import Popover from '@material-ui/core/Popover';
+import {green} from '@material-ui/core/colors';
+import FormControl from '@material-ui/core/FormControl';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormLabel from '@material-ui/core/FormLabel';
+import Grid from '@material-ui/core/Grid';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
+import Popover from '@material-ui/core/Popover';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import {withStyles} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import MarkdownElement from 'app/main/documentation/material-ui-components/MarkdownElement';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const styles = theme => ({
   buttonWrapper: {

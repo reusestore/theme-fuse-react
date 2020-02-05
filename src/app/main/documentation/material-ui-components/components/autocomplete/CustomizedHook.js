@@ -1,8 +1,8 @@
 /* eslint-disable no-use-before-define */
-import React from 'react';
-import useAutocomplete from '@material-ui/lab/useAutocomplete';
 import CheckIcon from '@material-ui/icons/Check';
 import CloseIcon from '@material-ui/icons/Close';
+import useAutocomplete from '@material-ui/lab/useAutocomplete';
+import React from 'react';
 import styled from 'styled-components';
 
 const Label = styled('label')`

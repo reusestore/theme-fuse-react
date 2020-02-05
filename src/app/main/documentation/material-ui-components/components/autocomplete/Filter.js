@@ -1,7 +1,7 @@
 /* eslint-disable no-use-before-define */
-import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete';
+import Autocomplete, {createFilterOptions} from '@material-ui/lab/Autocomplete';
+import React from 'react';
 
 const filterOptions = createFilterOptions({
   matchFrom: 'start',

@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
+import {makeStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import React from 'react';
 
 const useStyles = makeStyles(theme => ({
   root: {

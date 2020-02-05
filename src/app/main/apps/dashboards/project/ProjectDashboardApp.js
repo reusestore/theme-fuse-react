@@ -1,13 +1,24 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {Menu, MenuItem, Hidden, Icon, IconButton, Tab, Tabs, Typography} from '@material-ui/core';
-import {FuseAnimateGroup, FusePageSimple} from '@fuse';
-import {useDispatch, useSelector} from 'react-redux';
+import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
+import FusePageSimple from '@fuse/core/FusePageSimple';
+import Hidden from '@material-ui/core/Hidden';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import {makeStyles} from '@material-ui/core/styles';
+import Tab from '@material-ui/core/Tab';
+import Tabs from '@material-ui/core/Tabs';
+import Typography from '@material-ui/core/Typography';
 import withReducer from 'app/store/withReducer';
+import clsx from 'clsx';
+import _ from '@lodash';
+import React, {useEffect, useRef, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from './store/actions'
 import reducer from './store/reducers';
-import _ from 'lodash';
-import clsx from 'clsx';
 import Widget1 from './widgets/Widget1';
+import Widget10 from './widgets/Widget10';
+import Widget11 from './widgets/Widget11';
 import Widget2 from './widgets/Widget2';
 import Widget3 from './widgets/Widget3';
 import Widget4 from './widgets/Widget4';
@@ -16,11 +27,8 @@ import Widget6 from './widgets/Widget6';
 import Widget7 from './widgets/Widget7';
 import Widget8 from './widgets/Widget8';
 import Widget9 from './widgets/Widget9';
-import Widget10 from './widgets/Widget10';
-import Widget11 from './widgets/Widget11';
 import WidgetNow from './widgets/WidgetNow';
 import WidgetWeather from './widgets/WidgetWeather';
-import {makeStyles} from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
     content          : {

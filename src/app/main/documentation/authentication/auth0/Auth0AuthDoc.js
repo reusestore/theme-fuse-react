@@ -1,6 +1,8 @@
+import FuseHighlight from '@fuse/core/FuseHighlight';
+import FusePageSimple from '@fuse/core/FusePageSimple';
+import Icon from '@material-ui/core/Icon';
+import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import {Icon, Typography} from '@material-ui/core';
-import {FuseHighlight, FusePageSimple} from '@fuse';
 import {Link} from 'react-router-dom';
 
 function Auth0AuthDoc()

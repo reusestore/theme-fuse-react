@@ -1,9 +1,9 @@
-import React from 'react';
-import {Dialog} from '@material-ui/core';
-import {makeStyles} from '@material-ui/styles';
-import {useDispatch, useSelector} from 'react-redux';
+import Dialog from '@material-ui/core/Dialog';
+import {makeStyles} from '@material-ui/core/styles';
 import * as Actions from 'app/main/apps/scrumboard/store/actions';
 import clsx from 'clsx';
+import React from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import BoardCardForm from './BoardCardForm';
 
 const useStyles = makeStyles(theme => ({

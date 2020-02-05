@@ -1,6 +1,8 @@
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import {Icon, IconButton, Typography} from '@material-ui/core';
-import {FuseAnimate} from '@fuse';
 import {useSelector} from 'react-redux';
 
 function DetailSidebarHeader(props)

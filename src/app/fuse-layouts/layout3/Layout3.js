@@ -1,16 +1,19 @@
-import React from 'react';
-import {FuseScrollbars, FuseMessage, FuseDialog, FuseSuspense} from '@fuse';
-import {makeStyles} from '@material-ui/styles';
-import {renderRoutes} from 'react-router-config'
-import {useSelector} from 'react-redux';
-import clsx from 'clsx';
+import FuseDialog from '@fuse/core/FuseDialog';
+import FuseMessage from '@fuse/core/FuseMessage';
+import FuseScrollbars from '@fuse/core/FuseScrollbars';
+import FuseSuspense from '@fuse/core/FuseSuspense';
+import {makeStyles} from '@material-ui/core/styles';
 import AppContext from 'app/AppContext';
-import LeftSideLayout3 from './components/LeftSideLayout3';
-import ToolbarLayout3 from './components/ToolbarLayout3';
-import NavbarWrapperLayout3 from './components/NavbarWrapperLayout3';
-import FooterLayout3 from './components/FooterLayout3';
-import RightSideLayout3 from './components/RightSideLayout3';
 import SettingsPanel from 'app/fuse-layouts/shared-components/SettingsPanel';
+import clsx from 'clsx';
+import React from 'react';
+import {useSelector} from 'react-redux';
+import {renderRoutes} from 'react-router-config'
+import FooterLayout3 from './components/FooterLayout3';
+import LeftSideLayout3 from './components/LeftSideLayout3';
+import NavbarWrapperLayout3 from './components/NavbarWrapperLayout3';
+import RightSideLayout3 from './components/RightSideLayout3';
+import ToolbarLayout3 from './components/ToolbarLayout3';
 
 const useStyles = makeStyles(theme => ({
     root          : {

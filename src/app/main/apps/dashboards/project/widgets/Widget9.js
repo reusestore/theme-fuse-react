@@ -1,8 +1,11 @@
+import Divider from '@material-ui/core/Divider';
+import Paper from '@material-ui/core/Paper';
+import Select from '@material-ui/core/Select';
+import {useTheme} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import _ from '@lodash';
 import React, {useState} from 'react';
-import {Typography, Select, Paper, Divider} from '@material-ui/core';
 import {Line} from 'react-chartjs-2';
-import _ from 'lodash';
-import {useTheme} from '@material-ui/styles';
 
 function Widget9(props)
 {

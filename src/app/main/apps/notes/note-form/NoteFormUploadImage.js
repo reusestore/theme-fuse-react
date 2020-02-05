@@ -1,5 +1,6 @@
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
 import React, {Fragment} from 'react';
-import {Icon, IconButton} from '@material-ui/core';
 
 function NoteFormUploadImage(props)
 {

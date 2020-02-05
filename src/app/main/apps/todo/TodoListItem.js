@@ -1,10 +1,14 @@
-import React from 'react';
-import {IconButton, Icon, Typography, Checkbox, ListItem} from '@material-ui/core';
-import {red, amber} from '@material-ui/core/colors';
-import {makeStyles} from '@material-ui/styles';
-import {useDispatch, useSelector} from 'react-redux';
-import clsx from 'clsx';
 import _ from '@lodash';
+import Checkbox from '@material-ui/core/Checkbox';
+import {amber, red} from '@material-ui/core/colors';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import ListItem from '@material-ui/core/ListItem';
+import {makeStyles} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import clsx from 'clsx';
+import React from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from './store/actions';
 import TodoChip from './TodoChip';
 

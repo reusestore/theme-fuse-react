@@ -1,9 +1,9 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
-import DeleteIcon from '@material-ui/icons/Delete';
-import AlarmIcon from '@material-ui/icons/Alarm';
+import {makeStyles} from '@material-ui/core/styles';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import AlarmIcon from '@material-ui/icons/Alarm';
+import DeleteIcon from '@material-ui/icons/Delete';
+import React from 'react';
 
 const useStyles = makeStyles(theme => ({
   root: {

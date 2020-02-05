@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
-import {Button, Card, Typography} from '@material-ui/core';
-import {Line} from 'react-chartjs-2';
 import _ from '@lodash';
-import {useTheme} from '@material-ui/styles';
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import {useTheme} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import React, {useState} from 'react';
+import {Line} from 'react-chartjs-2';
 
 function Widget5(props)
 {

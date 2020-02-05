@@ -1,6 +1,6 @@
-import axios from 'axios';
-import {FuseUtils} from '@fuse';
+import FuseUtils from '@fuse/utils';
 import {showMessage} from 'app/store/actions/fuse';
+import axios from 'axios';
 
 export const GET_PRODUCT = '[E-COMMERCE APP] GET PRODUCT';
 export const SAVE_PRODUCT = '[E-COMMERCE APP] SAVE PRODUCT';

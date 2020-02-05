@@ -1,7 +1,11 @@
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
+import Input from '@material-ui/core/Input';
+import Paper from '@material-ui/core/Paper';
+import {ThemeProvider} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import {Paper, Button, Input, Icon, Typography} from '@material-ui/core';
-import {ThemeProvider} from '@material-ui/styles';
-import {FuseAnimate} from '@fuse';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 import * as Actions from '../store/actions';

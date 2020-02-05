@@ -1,8 +1,9 @@
-import React from 'react';
-import {Card, Typography} from '@material-ui/core';
-import clsx from 'clsx';
+import Card from '@material-ui/core/Card';
 import {blue, green, red} from '@material-ui/core/colors';
-import {makeStyles} from '@material-ui/styles';
+import {makeStyles} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import clsx from 'clsx';
+import React from 'react';
 
 const useStyles = makeStyles(theme => ({
     root : {

@@ -1,6 +1,6 @@
-import mock from './../mock';
 import _ from '@lodash';
 import {amber, blue, blueGrey, green} from '@material-ui/core/colors';
+import mock from './../mock';
 
 const demoSteps = [
     {

@@ -1,5 +1,10 @@
+import Checkbox from '@material-ui/core/Checkbox';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import MenuItem from '@material-ui/core/MenuItem';
 import React, {useState} from 'react';
-import {Checkbox, Icon, IconButton, ListItemIcon, ListItemText, MenuItem} from '@material-ui/core';
 import ToolbarMenu from './ToolbarMenu';
 
 function LabelsMenu(props)

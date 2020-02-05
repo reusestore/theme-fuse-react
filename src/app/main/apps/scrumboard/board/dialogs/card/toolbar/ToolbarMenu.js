@@ -1,5 +1,5 @@
+import Popover from '@material-ui/core/Popover';
 import React from 'react';
-import {Popover} from '@material-ui/core';
 
 function ToolbarMenu(props)
 {

@@ -1,7 +1,7 @@
+import List from '@material-ui/core/List';
 import React from 'react';
-import {List} from '@material-ui/core';
-import NoteFormListItem from './NoteFormListItem';
 import NoteFormAddListItem from './NoteFormAddListItem';
+import NoteFormListItem from './NoteFormListItem';
 
 function NoteFormList(props)
 {

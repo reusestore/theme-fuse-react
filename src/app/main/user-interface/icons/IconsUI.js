@@ -1,8 +1,13 @@
-import React, {useEffect, useMemo, useState} from 'react';
-import {Button, Icon, Input, Paper, Typography} from '@material-ui/core';
-import {useTheme, ThemeProvider} from '@material-ui/styles';
-import {FusePageSimple, FuseAnimate} from '@fuse';
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import FusePageSimple from '@fuse/core/FusePageSimple';
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
+import Input from '@material-ui/core/Input';
+import Paper from '@material-ui/core/Paper';
+import {ThemeProvider, useTheme} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
+import React, {useEffect, useMemo, useState} from 'react';
 
 function IconsUI()
 {

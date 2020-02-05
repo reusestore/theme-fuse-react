@@ -1,8 +1,8 @@
-import React, {useEffect} from 'react';
-import {Button} from '@material-ui/core';
-import auth0Service from 'app/services/auth0Service';
+import Button from '@material-ui/core/Button';
 import * as authActions from 'app/auth/store/actions';
+import auth0Service from 'app/services/auth0Service';
 import * as Actions from 'app/store/actions';
+import React, {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 
 function Auth0LoginTab(props)

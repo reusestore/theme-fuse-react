@@ -1,4 +1,4 @@
-import {FuseUtils} from '@fuse';
+import FuseUtils from '@fuse/utils';
 
 function NoteModel(data)
 {

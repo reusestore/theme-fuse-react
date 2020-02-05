@@ -1,12 +1,18 @@
-import React, {useEffect, useState} from 'react';
-import {Icon, Table, TableBody, TableCell, TablePagination, TableRow, Checkbox} from '@material-ui/core';
-import {FuseScrollbars} from '@fuse';
-import {withRouter} from 'react-router-dom';
-import clsx from 'clsx';
+import FuseScrollbars from '@fuse/core/FuseScrollbars'
 import _ from '@lodash';
-import ProductsTableHead from './ProductsTableHead';
-import * as Actions from '../store/actions';
+import Checkbox from '@material-ui/core/Checkbox';
+import Icon from '@material-ui/core/Icon';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TablePagination from '@material-ui/core/TablePagination';
+import TableRow from '@material-ui/core/TableRow';
+import clsx from 'clsx';
+import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import {withRouter} from 'react-router-dom';
+import * as Actions from '../store/actions';
+import ProductsTableHead from './ProductsTableHead';
 
 function ProductsTable(props)
 {

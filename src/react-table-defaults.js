@@ -1,8 +1,15 @@
-import "react-table/react-table.css";
-import React, {Component} from 'react';
-import {FormControl, FormHelperText, Icon, IconButton, Input, InputAdornment, Menu, MenuItem} from '@material-ui/core';
-import {ReactTableDefaults} from 'react-table'
 import _ from '@lodash';
+import FormControl from '@material-ui/core/FormControl';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import Input from '@material-ui/core/Input';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import React, {Component} from 'react';
+import {ReactTableDefaults} from 'react-table'
+import "react-table/react-table.css";
 
 const filterTypes = [
     {

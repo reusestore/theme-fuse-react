@@ -1,8 +1,8 @@
-import React from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
+import PopupState, {bindMenu, bindTrigger} from 'material-ui-popup-state';
+import React from 'react';
 
 export default function MenuPopupState() {
   return (

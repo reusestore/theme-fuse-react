@@ -1,16 +1,10 @@
-import React from 'react';
-import {
-  fade,
-  ThemeProvider,
-  withStyles,
-  makeStyles,
-  createMuiTheme,
-} from '@material-ui/core/styles';
+import {green} from '@material-ui/core/colors';
+import FormControl from '@material-ui/core/FormControl';
 import InputBase from '@material-ui/core/InputBase';
 import InputLabel from '@material-ui/core/InputLabel';
+import {createMuiTheme, fade, makeStyles, ThemeProvider, withStyles,} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import FormControl from '@material-ui/core/FormControl';
-import { green } from '@material-ui/core/colors';
+import React from 'react';
 
 const CssTextField = withStyles({
   root: {

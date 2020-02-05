@@ -1,5 +1,5 @@
-import * as Actions from '../actions';
 import _ from '@lodash';
+import * as Actions from '../actions';
 
 const initialState = {
     entities       : null,

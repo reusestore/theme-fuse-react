@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import courses from './courses.reducer';
 import course from './course.reducer';
+import courses from './courses.reducer';
 
 const reducer = combineReducers({
     courses,

@@ -1,6 +1,7 @@
+import FusePageSimple from '@fuse/core/FusePageSimple';
+import Icon from '@material-ui/core/Icon';
+import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import {Typography, Icon} from '@material-ui/core';
-import {FusePageSimple} from '@fuse';
 
 function IntroductionDoc()
 {

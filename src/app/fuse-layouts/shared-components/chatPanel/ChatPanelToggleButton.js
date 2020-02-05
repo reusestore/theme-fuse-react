@@ -1,5 +1,6 @@
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
 import React from 'react';
-import {Icon, IconButton} from '@material-ui/core';
 import {useDispatch} from 'react-redux';
 import * as Actions from './store/actions/state.actions';
 

@@ -1,5 +1,9 @@
+import Divider from '@material-ui/core/Divider';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import {Icon, Typography, Paper, IconButton, Divider} from '@material-ui/core';
 
 function WidgetWeather(props)
 {

@@ -1,17 +1,23 @@
-import React, {Fragment, useState} from 'react';
-import {Tooltip, Button, Icon, Input, Typography, IconButton, Fab} from '@material-ui/core';
-import {FuseScrollbars} from '@fuse';
+import FuseScrollbars from '@fuse/core/FuseScrollbars'
 import {useForm, useUpdateEffect} from '@fuse/hooks';
-import moment from 'moment';
 import _ from '@lodash';
-import {withRouter} from 'react-router-dom';
-import NoteReminderLabel from 'app/main/apps/notes/NoteReminderLabel';
-import NoteLabel from 'app/main/apps/notes/NoteLabel';
+import Button from '@material-ui/core/Button';
+import Fab from '@material-ui/core/Fab';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import Input from '@material-ui/core/Input';
+import Tooltip from '@material-ui/core/Tooltip';
+import Typography from '@material-ui/core/Typography';
 import NoteModel from 'app/main/apps/notes/model/NoteModel';
+import NoteLabel from 'app/main/apps/notes/NoteLabel';
+import NoteReminderLabel from 'app/main/apps/notes/NoteReminderLabel';
+import moment from 'moment';
+import React, {Fragment, useState} from 'react';
+import {withRouter} from 'react-router-dom';
 import NoteFormList from './checklist/NoteFormList';
+import NoteFormLabelMenu from './NoteFormLabelMenu';
 import NoteFormReminder from './NoteFormReminder';
 import NoteFormUploadImage from './NoteFormUploadImage';
-import NoteFormLabelMenu from './NoteFormLabelMenu';
 
 function NoteForm(props)
 {

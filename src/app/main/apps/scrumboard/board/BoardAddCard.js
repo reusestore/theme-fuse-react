@@ -1,8 +1,13 @@
-import React, {useEffect, useState} from 'react';
-import {Button, IconButton, Icon, TextField, ClickAwayListener, InputAdornment} from '@material-ui/core';
-import * as Actions from '../store/actions';
 import {useForm} from '@fuse/hooks';
+import Button from '@material-ui/core/Button';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import TextField from '@material-ui/core/TextField';
+import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import * as Actions from '../store/actions';
 
 function BoardAddCard(props)
 {

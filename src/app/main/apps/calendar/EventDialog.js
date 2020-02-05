@@ -1,10 +1,21 @@
-import React, {useCallback, useEffect} from 'react';
-import {TextField, Button, Dialog, DialogActions, DialogContent, Icon, IconButton, Typography, Toolbar, AppBar, FormControlLabel, Switch} from '@material-ui/core';
-import FuseUtils from '@fuse/FuseUtils';
 import {useForm} from '@fuse/hooks';
-import {useDispatch, useSelector} from 'react-redux';
+import FuseUtils from '@fuse/utils/FuseUtils';
+import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import Switch from '@material-ui/core/Switch';
+import TextField from '@material-ui/core/TextField';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 import {DateTimePicker} from "@material-ui/pickers";
 import moment from 'moment';
+import React, {useCallback, useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from './store/actions';
 
 const defaultFormState = {

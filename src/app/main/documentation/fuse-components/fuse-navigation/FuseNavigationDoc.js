@@ -1,9 +1,13 @@
-import React from 'react';
-import {Icon, Typography, Button} from '@material-ui/core';
-import {FuseHighlight, FusePageSimple, FuseUtils} from '@fuse';
-import * as Actions from 'app/store/actions';
-import {useDispatch} from 'react-redux';
+import FuseHighlight from '@fuse/core/FuseHighlight';
+import FusePageSimple from '@fuse/core/FusePageSimple';
+import FuseUtils from '@fuse/utils';
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
+import Typography from '@material-ui/core/Typography';
 import {authRoles} from 'app/auth';
+import * as Actions from 'app/store/actions';
+import React from 'react';
+import {useDispatch} from 'react-redux';
 
 function FuseNavigationDoc(props)
 {

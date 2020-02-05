@@ -1,7 +1,7 @@
-import React from 'react';
-import {Dialog} from '@material-ui/core';
-import {useDispatch, useSelector} from 'react-redux';
+import Dialog from '@material-ui/core/Dialog';
 import * as Actions from 'app/main/apps/notes/store/actions';
+import React from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import LabelsForm from './LabelsForm';
 
 function LabelsDialog(props)

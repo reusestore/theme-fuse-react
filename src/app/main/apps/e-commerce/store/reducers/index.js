@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-import products from './products.reducer';
-import product from './product.reducer';
-import orders from './orders.reducer';
 import order from './order.reducer';
+import orders from './orders.reducer';
+import product from './product.reducer';
+import products from './products.reducer';
 
 const reducer = combineReducers({
     products,

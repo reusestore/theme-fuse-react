@@ -1,8 +1,11 @@
-import React from 'react';
-import {Card, CardContent, Grow, Typography} from '@material-ui/core';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Grow from '@material-ui/core/Grow';
+import {makeStyles} from '@material-ui/core/styles';
 import {darken} from '@material-ui/core/styles/colorManipulator';
-import {makeStyles} from '@material-ui/styles';
+import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
+import React from 'react';
 
 const useStyles = makeStyles(theme => ({
     root: {

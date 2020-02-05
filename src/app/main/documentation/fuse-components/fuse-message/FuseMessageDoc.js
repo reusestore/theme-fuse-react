@@ -1,8 +1,11 @@
-import React from 'react';
-import {Typography, Button, Icon} from '@material-ui/core';
-import {FuseHighlight, FusePageSimple} from '@fuse';
-import {useDispatch} from 'react-redux';
+import FuseHighlight from '@fuse/core/FuseHighlight';
+import FusePageSimple from '@fuse/core/FusePageSimple';
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
+import Typography from '@material-ui/core/Typography';
 import * as Actions from 'app/store/actions';
+import React from 'react';
+import {useDispatch} from 'react-redux';
 
 function FuseMessageDoc(props)
 {

@@ -1,7 +1,11 @@
+import DemoContent from '@fuse/core/DemoContent';
+import DemoSidebarContent from '@fuse/core/DemoSidebarContent';
+import FusePageCarded from '@fuse/core/FusePageCarded';
+import Hidden from '@material-ui/core/Hidden';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import {makeStyles} from '@material-ui/core/styles';
 import React, {useRef} from 'react';
-import {Hidden, Icon, IconButton} from '@material-ui/core';
-import {makeStyles} from '@material-ui/styles';
-import {FusePageCarded, DemoContent, DemoSidebarContent} from '@fuse';
 
 const useStyles = makeStyles({
     layoutRoot: {}

@@ -1,8 +1,9 @@
-import React from 'react';
-import {AppBar, Toolbar} from '@material-ui/core';
-import {ThemeProvider} from '@material-ui/styles';
-import PurchaseButton from 'app/fuse-layouts/shared-components/PurchaseButton';
+import AppBar from '@material-ui/core/AppBar';
+import {ThemeProvider} from '@material-ui/core/styles';
+import Toolbar from '@material-ui/core/Toolbar';
 import PoweredByLinks from 'app/fuse-layouts/shared-components/PoweredByLinks';
+import PurchaseButton from 'app/fuse-layouts/shared-components/PurchaseButton';
+import React from 'react';
 import {useSelector} from 'react-redux';
 
 function FooterLayout2(props)

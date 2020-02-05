@@ -1,26 +1,25 @@
-import React, {useEffect, useMemo, useState} from 'react';
-import {
-    Button,
-    Card,
-    CardContent,
-    OutlinedInput,
-    Icon,
-    TextField,
-    Typography,
-    CardActions,
-    Divider,
-    Select,
-    InputLabel,
-    FormControl,
-    MenuItem,
-    LinearProgress
-} from '@material-ui/core';
-import {makeStyles, useTheme} from '@material-ui/styles';
-import {FuseAnimate, FuseAnimateGroup} from '@fuse';
-import {useDispatch, useSelector} from 'react-redux';
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
+import _ from '@lodash';
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Divider from '@material-ui/core/Divider';
+import FormControl from '@material-ui/core/FormControl';
+import Icon from '@material-ui/core/Icon';
+import InputLabel from '@material-ui/core/InputLabel';
+import LinearProgress from '@material-ui/core/LinearProgress';
+import MenuItem from '@material-ui/core/MenuItem';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import Select from '@material-ui/core/Select';
+import {makeStyles, useTheme} from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 import withReducer from 'app/store/withReducer';
 import clsx from 'clsx';
-import _ from '@lodash';
+import React, {useEffect, useMemo, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 import * as Actions from '../store/actions';
 import reducer from '../store/reducers';

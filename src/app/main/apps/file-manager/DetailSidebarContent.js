@@ -1,9 +1,12 @@
-import React from 'react';
-import {FormControlLabel, Icon, Switch, Typography} from '@material-ui/core';
-import {makeStyles} from '@material-ui/styles';
-import {FuseAnimate} from '@fuse';
-import {useSelector} from 'react-redux';
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Icon from '@material-ui/core/Icon';
+import {makeStyles} from '@material-ui/core/styles';
+import Switch from '@material-ui/core/Switch';
+import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
+import React from 'react';
+import {useSelector} from 'react-redux';
 
 const useStyles = makeStyles({
     table   : {

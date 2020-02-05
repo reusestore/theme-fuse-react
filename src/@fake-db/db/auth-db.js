@@ -1,7 +1,7 @@
-import mock from './../mock';
+import FuseUtils from '@fuse/utils';
 import _ from '@lodash';
-import {FuseUtils} from '@fuse';
 import jwt from 'jsonwebtoken';
+import mock from './../mock';
 
 const jwtConfig = {
     "secret"   : "some-secret-code-goes-here",

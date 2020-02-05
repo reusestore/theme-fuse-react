@@ -1,7 +1,7 @@
-import React from 'react';
 import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
+import {makeStyles} from '@material-ui/core/styles';
+import React from 'react';
 
 const action = (
   <Button color="secondary" size="small">

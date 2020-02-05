@@ -1,12 +1,22 @@
-import React, {useEffect, useState} from 'react';
-import {Divider, Drawer, Icon, List, ListItem, ListItemIcon, ListItemSecondaryAction, ListItemText, ListSubheader, Switch, Typography} from '@material-ui/core';
-import {FuseScrollbars} from '@fuse';
-import moment from 'moment';
-import {useSelector, useDispatch} from 'react-redux';
-import * as Actions from './store/actions/index'
+import FuseScrollbars from '@fuse/core/FuseScrollbars'
+import Divider from '@material-ui/core/Divider';
+import Drawer from '@material-ui/core/Drawer';
+import Icon from '@material-ui/core/Icon';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import {makeStyles} from '@material-ui/core/styles';
+import Switch from '@material-ui/core/Switch';
+import Typography from '@material-ui/core/Typography';
 import withReducer from 'app/store/withReducer';
+import moment from 'moment';
+import React, {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import * as Actions from './store/actions/index'
 import reducer from './store/reducers';
-import {makeStyles} from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
     root: {

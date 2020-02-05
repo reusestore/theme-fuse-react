@@ -1,13 +1,13 @@
-import React from 'react';
 import Badge from '@material-ui/core/Badge';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import MailIcon from '@material-ui/icons/Mail';
 import MarkdownElement from 'app/main/documentation/material-ui-components/MarkdownElement';
+import React from 'react';
 
 const useStyles = makeStyles(theme => ({
   root: {

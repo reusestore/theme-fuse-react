@@ -1,9 +1,9 @@
+import FuseUtils from '@fuse/utils';
+import Typography from '@material-ui/core/Typography';
 import React, {useEffect, useState} from 'react';
-import {Typography} from '@material-ui/core';
-import {FuseUtils} from '@fuse';
+import Masonry from 'react-masonry-css';
 import {useSelector} from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import Masonry from 'react-masonry-css';
 import NoteListItem from './NoteListItem';
 
 function NoteList(props)

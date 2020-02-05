@@ -1,13 +1,13 @@
 /* eslint-disable no-use-before-define */
-import React from 'react';
-import { useTheme, fade, makeStyles } from '@material-ui/core/styles';
-import Popper from '@material-ui/core/Popper';
-import SettingsIcon from '@material-ui/icons/Settings';
-import CloseIcon from '@material-ui/icons/Close';
-import DoneIcon from '@material-ui/icons/Done';
-import Autocomplete from '@material-ui/lab/Autocomplete';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import InputBase from '@material-ui/core/InputBase';
+import Popper from '@material-ui/core/Popper';
+import {fade, makeStyles, useTheme} from '@material-ui/core/styles';
+import CloseIcon from '@material-ui/icons/Close';
+import DoneIcon from '@material-ui/icons/Done';
+import SettingsIcon from '@material-ui/icons/Settings';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import React from 'react';
 
 const useStyles = makeStyles(theme => ({
   root: {

@@ -1,9 +1,15 @@
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import {makeStyles} from '@material-ui/core/styles';
 import React from 'react';
-import {Icon, List, ListItem, ListItemText, ListSubheader, Button} from '@material-ui/core';
-import {FuseAnimate, NavLinkAdapter} from '@fuse';
 import {useDispatch, useSelector} from 'react-redux';
 import * as Actions from './store/actions';
-import {makeStyles} from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
     listItem: {

@@ -1,7 +1,7 @@
 import firebaseService from 'app/services/firebaseService';
-import * as UserActions from './user.actions';
-import * as Actions from 'app/store/actions';
 import jwtService from 'app/services/jwtService';
+import * as Actions from 'app/store/actions';
+import * as UserActions from './user.actions';
 
 export const REGISTER_ERROR = 'REGISTER_ERROR';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';

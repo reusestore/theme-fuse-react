@@ -1,7 +1,9 @@
+import DemoContent from '@fuse/core/DemoContent';
+import FusePageCarded from '@fuse/core/FusePageCarded';
+import {makeStyles} from '@material-ui/core/styles';
+import Tab from '@material-ui/core/Tab';
+import Tabs from '@material-ui/core/Tabs';
 import React, {useState} from 'react';
-import {Tab, Tabs} from '@material-ui/core';
-import {makeStyles} from '@material-ui/styles';
-import {FusePageCarded, DemoContent} from '@fuse';
 
 const useStyles = makeStyles({
     layoutRoot: {}

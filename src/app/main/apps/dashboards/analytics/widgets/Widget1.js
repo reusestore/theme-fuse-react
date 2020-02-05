@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
-import {Button, Typography} from '@material-ui/core';
-import {makeStyles, useTheme, ThemeProvider} from '@material-ui/styles';
-import {FuseAnimate} from '@fuse';
-import {useSelector} from 'react-redux';
-import {Line} from 'react-chartjs-2';
+import FuseAnimate from '@fuse/core/FuseAnimate';
 import _ from '@lodash';
+import Button from '@material-ui/core/Button';
+import {makeStyles, ThemeProvider, useTheme} from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import React, {useState} from 'react';
+import {Line} from 'react-chartjs-2';
+import {useSelector} from 'react-redux';
 
 const useStyles = makeStyles(theme => ({
     root: {

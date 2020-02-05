@@ -1,13 +1,15 @@
-import React from 'react';
-import {AppBar, Hidden, Toolbar} from '@material-ui/core';
-import {makeStyles, ThemeProvider} from '@material-ui/styles';
-import {FuseSearch} from '@fuse';
-import clsx from 'clsx';
+import FuseSearch from '@fuse/core/FuseSearch';
+import AppBar from '@material-ui/core/AppBar';
+import Hidden from '@material-ui/core/Hidden';
+import {makeStyles, ThemeProvider} from '@material-ui/core/styles';
+import Toolbar from '@material-ui/core/Toolbar';
+import ChatPanelToggleButton from 'app/fuse-layouts/shared-components/chatPanel/ChatPanelToggleButton';
+import Logo from 'app/fuse-layouts/shared-components/Logo';
 import NavbarMobileToggleButton from 'app/fuse-layouts/shared-components/NavbarMobileToggleButton';
 import QuickPanelToggleButton from 'app/fuse-layouts/shared-components/quickPanel/QuickPanelToggleButton';
-import ChatPanelToggleButton from 'app/fuse-layouts/shared-components/chatPanel/ChatPanelToggleButton';
 import UserMenu from 'app/fuse-layouts/shared-components/UserMenu';
-import Logo from 'app/fuse-layouts/shared-components/Logo';
+import clsx from 'clsx';
+import React from 'react';
 import {useSelector} from 'react-redux';
 import LanguageSwitcher from '../../shared-components/LanguageSwitcher';
 

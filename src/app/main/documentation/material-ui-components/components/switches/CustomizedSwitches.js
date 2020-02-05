@@ -1,11 +1,11 @@
-import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import { purple } from '@material-ui/core/colors';
-import FormGroup from '@material-ui/core/FormGroup';
+import {purple} from '@material-ui/core/colors';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
+import FormGroup from '@material-ui/core/FormGroup';
 import Grid from '@material-ui/core/Grid';
+import {withStyles} from '@material-ui/core/styles';
+import Switch from '@material-ui/core/Switch';
 import Typography from '@material-ui/core/Typography';
+import React from 'react';
 
 const PurpleSwitch = withStyles({
   switchBase: {

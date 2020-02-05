@@ -1,6 +1,6 @@
+import FuseChipSelect from '@fuse/core/FuseChipSelect';
+import Typography from '@material-ui/core/Typography';
 import React, {useState} from 'react';
-import {Typography} from '@material-ui/core';
-import {FuseChipSelect} from '@fuse';
 
 const suggestions = [
     'Sea',

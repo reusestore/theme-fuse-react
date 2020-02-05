@@ -1,6 +1,6 @@
+import DemoContent from '@fuse/core/DemoContent';
+import {makeStyles} from '@material-ui/core/styles';
 import React from 'react';
-import {makeStyles} from '@material-ui/styles';
-import {DemoContent} from '@fuse';
 
 const useStyles = makeStyles({
     root: {

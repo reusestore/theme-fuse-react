@@ -1,12 +1,14 @@
-import React from 'react';
-import {Card, Typography, Icon} from '@material-ui/core';
-import {FuseAnimate} from '@fuse';
-import {useDispatch} from 'react-redux';
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import Card from '@material-ui/core/Card';
+import Icon from '@material-ui/core/Icon';
+import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
-import * as Actions from './store/actions';
-import setDescriptionStyle from './setDescriptionStyle';
-import NoteReminderLabel from './NoteReminderLabel';
+import React from 'react';
+import {useDispatch} from 'react-redux';
 import NoteLabel from './NoteLabel';
+import NoteReminderLabel from './NoteReminderLabel';
+import setDescriptionStyle from './setDescriptionStyle';
+import * as Actions from './store/actions';
 
 function NoteListItem(props)
 {

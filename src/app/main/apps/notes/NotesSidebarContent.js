@@ -1,10 +1,17 @@
-import React from 'react';
-import {Divider, Icon, List, ListItem, ListItemText, Paper, ListSubheader} from '@material-ui/core';
-import {FuseAnimate, NavLinkAdapter} from '@fuse';
-import {useDispatch, useSelector} from 'react-redux';
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
+import Divider from '@material-ui/core/Divider';
+import Icon from '@material-ui/core/Icon';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import Paper from '@material-ui/core/Paper';
+import {makeStyles} from '@material-ui/core/styles';
 import * as Actions from 'app/main/apps/notes/store/actions';
 import clsx from 'clsx';
-import {makeStyles} from '@material-ui/styles';
+import React from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 
 const useStyles = makeStyles(theme => ({
     paper   : {

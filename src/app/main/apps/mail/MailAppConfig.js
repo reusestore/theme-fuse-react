@@ -1,9 +1,9 @@
+import i18next from 'i18next';
 import React from 'react';
 import {Redirect} from 'react-router-dom';
-import i18next from 'i18next';
+import ar from './i18n/ar';
 import en from './i18n/en';
 import tr from './i18n/tr';
-import ar from './i18n/ar';
 
 i18next.addResourceBundle('en', 'mailApp', en);
 i18next.addResourceBundle('tr', 'mailApp', tr);

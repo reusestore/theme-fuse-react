@@ -1,9 +1,12 @@
-import React from 'react';
-import {Card, CardContent, Icon, Typography} from '@material-ui/core';
+import FuseAnimate from '@fuse/core/FuseAnimate';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Icon from '@material-ui/core/Icon';
+import {makeStyles} from '@material-ui/core/styles';
 import {darken} from '@material-ui/core/styles/colorManipulator';
-import {makeStyles} from '@material-ui/styles';
-import {FuseAnimate} from '@fuse';
+import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
+import React from 'react';
 import {Link} from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({

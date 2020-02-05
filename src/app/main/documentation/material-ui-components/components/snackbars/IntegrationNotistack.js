@@ -1,6 +1,6 @@
-import React from 'react';
 import Button from '@material-ui/core/Button';
-import { SnackbarProvider, useSnackbar } from 'notistack';
+import {SnackbarProvider, useSnackbar} from 'notistack';
+import React from 'react';
 
 function MyApp() {
   const { enqueueSnackbar } = useSnackbar();

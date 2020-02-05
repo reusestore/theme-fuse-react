@@ -1,6 +1,7 @@
+import FuseHighlight from '@fuse/core/FuseHighlight';
+import FusePageSimple from '@fuse/core/FusePageSimple';
+import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import {Typography} from '@material-ui/core';
-import {FuseHighlight, FusePageSimple} from '@fuse';
 
 function RoutingDoc()
 {
@@ -96,7 +97,7 @@ function RoutingDoc()
                     <FuseHighlight component="pre" className="language-jsx my-16">
                         {`
                                 import {appsRoutes} from 'app/main/apps/mail/MailAppConfig.js';
-                                import {FuseUtils} from '@fuse';
+                                import FuseUtils from '@fuse/utils';
                                 import {Redirect} from 'react-router-dom';
                                 import React from 'react';
 

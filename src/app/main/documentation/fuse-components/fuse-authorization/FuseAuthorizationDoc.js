@@ -1,6 +1,14 @@
+import FuseHighlight from '@fuse/core/FuseHighlight';
+import FusePageSimple from '@fuse/core/FusePageSimple';
+import Icon from '@material-ui/core/Icon';
+import Paper from '@material-ui/core/Paper';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import {Icon, Typography, Table, TableBody, TableCell, TableRow, TableHead, Paper} from '@material-ui/core';
-import {FuseHighlight, FusePageSimple} from '@fuse';
 
 /* eslint import/no-webpack-loader-syntax: off */
 
@@ -186,7 +194,7 @@ function FuseAuthorizationDoc()
                         {`
                                 import React from 'react';
                                 import {Redirect} from 'react-router-dom';
-                                import {FuseUtils} from '@fuse/index';
+                                import FuseUtils from '@fuse/utils';
                                 import {appsConfigs} from 'app/main/apps/appsConfigs';
                                 import {pagesConfigs} from 'app/main/pages/pagesConfigs';
                                 import {authRoleExamplesConfigs} from 'app/main/auth/authRoleExamplesConfigs';
@@ -238,7 +246,7 @@ function FuseAuthorizationDoc()
                         {`
                                 import React from 'react';
                                 import {Redirect} from 'react-router-dom';
-                                import {FuseUtils} from '@fuse/index';
+                                import FuseUtils from '@fuse/utils';
                                 import {appsConfigs} from 'app/main/apps/appsConfigs';
                                 import {pagesConfigs} from 'app/main/pages/pagesConfigs';
                                 import {authRoleExamplesConfigs} from 'app/main/auth/authRoleExamplesConfigs';

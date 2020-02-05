@@ -1,5 +1,5 @@
-import axios from 'axios';
 import history from '@history';
+import axios from 'axios';
 import BoardModel from '../../model/BoardModel';
 
 export const GET_BOARDS = '[SCRUMBOARD APP] GET BOARDS';

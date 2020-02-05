@@ -1,9 +1,11 @@
-import React from 'react';
-import {Fab, Icon, Tooltip} from '@material-ui/core';
+import Fab from '@material-ui/core/Fab';
+import Icon from '@material-ui/core/Icon';
+import {makeStyles} from '@material-ui/core/styles';
+import Tooltip from '@material-ui/core/Tooltip';
 import * as Actions from 'app/store/actions';
-import {useDispatch, useSelector} from 'react-redux';
 import clsx from 'clsx';
-import {makeStyles} from '@material-ui/styles';
+import React from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 
 const useStyles = makeStyles(theme => ({
     buttonIcon  : {

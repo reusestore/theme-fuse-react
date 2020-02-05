@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
-import {FuseSplashScreen} from '@fuse';
-import {connect} from 'react-redux';
+import FuseSplashScreen from '@fuse/core/FuseSplashScreen';
 import * as userActions from 'app/auth/store/actions';
-import {bindActionCreators} from 'redux';
-import * as Actions from 'app/store/actions';
-import firebaseService from 'app/services/firebaseService';
 import auth0Service from 'app/services/auth0Service';
+import firebaseService from 'app/services/firebaseService';
 import jwtService from 'app/services/jwtService';
+import * as Actions from 'app/store/actions';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
 class Auth extends Component {
 

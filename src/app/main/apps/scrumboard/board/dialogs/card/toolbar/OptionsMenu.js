@@ -1,5 +1,7 @@
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import MenuItem from '@material-ui/core/MenuItem';
 import React, {useState} from 'react';
-import {Icon, IconButton, MenuItem} from '@material-ui/core';
 import ToolbarMenu from './ToolbarMenu';
 
 function OptionsMenu(props)

@@ -1,9 +1,9 @@
-import React from 'react';
-import { emphasize, withStyles } from '@material-ui/core/styles';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Chip from '@material-ui/core/Chip';
-import HomeIcon from '@material-ui/icons/Home';
+import {emphasize, withStyles} from '@material-ui/core/styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import HomeIcon from '@material-ui/icons/Home';
+import React from 'react';
 
 const StyledBreadcrumb = withStyles(theme => ({
   root: {

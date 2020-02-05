@@ -1,9 +1,9 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Chip from '@material-ui/core/Chip';
-import FaceIcon from '@material-ui/icons/Face';
+import {makeStyles} from '@material-ui/core/styles';
 import DoneIcon from '@material-ui/icons/Done';
+import FaceIcon from '@material-ui/icons/Face';
+import React from 'react';
 
 const useStyles = makeStyles(theme => ({
   root: {

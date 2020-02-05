@@ -1,6 +1,13 @@
-import React from 'react';
-import {Icon, Table, TableHead, TableCell, TableRow, Typography, Paper, TableBody} from '@material-ui/core';
+import Icon from '@material-ui/core/Icon';
+import Paper from '@material-ui/core/Paper';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
+import React from 'react';
 
 function Widget10(props)
 {

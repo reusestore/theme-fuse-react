@@ -1,6 +1,10 @@
-import {Icon, IconButton, TextField, Checkbox, ListItem} from '@material-ui/core';
-import React from 'react';
 import {useForm, useUpdateEffect} from '@fuse/hooks';
+import Checkbox from '@material-ui/core/Checkbox';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import ListItem from '@material-ui/core/ListItem';
+import TextField from '@material-ui/core/TextField';
+import React from 'react';
 
 function CardChecklistItem(props)
 {
