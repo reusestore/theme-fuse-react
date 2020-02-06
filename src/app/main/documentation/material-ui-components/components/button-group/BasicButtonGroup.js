@@ -1,7 +1,7 @@
+import React from 'react';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-import {makeStyles} from '@material-ui/core/styles';
-import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function GroupedButtons() {
+export default function BasicButtonGroup() {
   const classes = useStyles();
 
   return (

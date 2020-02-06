@@ -6,6 +6,26 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
     {
+        version        : '3.5.0',
+        date           : '2020-02-06',
+        newChanges     : [
+            "Yarn v2 (package-manager) support",
+            ".yarnrc.yml created for to resolve dependency issues (missing dependencies etc) for PnP",
+            "All dependency packages updated.",
+        ],
+        fixedChanges   : [
+            "Mutation fixed on route settings.",
+            "RTL FuseScrollbars issue solved."
+        ],
+        breakingChanges: [
+            <span>Bundle Size optimizations: top level imports changed with path imports: <a href="https://material-ui.com/guides/minimizing-bundle-size/#how-to-reduce-the-bundle-size" target="_blank" rel="noopener noreferrer">#how-to-reduce-the-bundle-size</a></span>,
+            "@fuse directories re-structured (@fuse/components > @fuse/core etc.), top level imports removed from @fuse/index, import paths updated.",
+            "All Import paths re-ordered.",
+            "jss-extend changed with jss-plugin-extend",
+            "webpack-bundle-analyzer changed with source-map-explorer"
+        ]
+    },
+    {
         version     : '3.4.0',
         date        : '2020-01-16',
         newChanges  : [

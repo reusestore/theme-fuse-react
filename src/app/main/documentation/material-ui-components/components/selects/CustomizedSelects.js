@@ -1,11 +1,11 @@
-import FormControl from '@material-ui/core/FormControl';
-import InputBase from '@material-ui/core/InputBase';
+import React from 'react';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import NativeSelect from '@material-ui/core/NativeSelect';
+import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import {makeStyles, withStyles} from '@material-ui/core/styles';
-import React from 'react';
+import NativeSelect from '@material-ui/core/NativeSelect';
+import InputBase from '@material-ui/core/InputBase';
 
 const BootstrapInput = withStyles(theme => ({
   root: {

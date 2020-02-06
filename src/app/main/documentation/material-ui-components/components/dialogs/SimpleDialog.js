@@ -1,18 +1,18 @@
-import Avatar from '@material-ui/core/Avatar';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import {blue} from '@material-ui/core/colors';
-import Dialog from '@material-ui/core/Dialog';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import Avatar from '@material-ui/core/Avatar';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
-import {makeStyles} from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import AddIcon from '@material-ui/icons/Add';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Dialog from '@material-ui/core/Dialog';
 import PersonIcon from '@material-ui/icons/Person';
-import PropTypes from 'prop-types';
-import React from 'react';
+import AddIcon from '@material-ui/icons/Add';
+import Typography from '@material-ui/core/Typography';
+import { blue } from '@material-ui/core/colors';
 
 const emails = ['username@gmail.com', 'user02@gmail.com'];
 const useStyles = makeStyles({
@@ -55,7 +55,7 @@ function SimpleDialog(props) {
               <AddIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary="add account" />
+          <ListItemText primary="Add account" />
         </ListItem>
       </List>
     </Dialog>

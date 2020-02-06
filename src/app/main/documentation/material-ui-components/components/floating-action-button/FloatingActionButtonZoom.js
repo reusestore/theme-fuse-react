@@ -1,19 +1,19 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import clsx from 'clsx';
+import SwipeableViews from 'react-swipeable-views';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import Box from '@material-ui/core/Box';
-import {green} from '@material-ui/core/colors';
-import Fab from '@material-ui/core/Fab';
-import {makeStyles, useTheme} from '@material-ui/core/styles';
-import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Zoom from '@material-ui/core/Zoom';
+import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import EditIcon from '@material-ui/icons/Edit';
 import UpIcon from '@material-ui/icons/KeyboardArrowUp';
-import clsx from 'clsx';
-import PropTypes from 'prop-types';
-import React from 'react';
-import SwipeableViews from 'react-swipeable-views';
+import { green } from '@material-ui/core/colors';
+import Box from '@material-ui/core/Box';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;

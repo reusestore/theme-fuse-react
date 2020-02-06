@@ -1,7 +1,7 @@
-import Badge from '@material-ui/core/Badge';
-import {makeStyles} from '@material-ui/core/styles';
-import clsx from 'clsx';
 import React from 'react';
+import clsx from 'clsx';
+import { makeStyles } from '@material-ui/core/styles';
+import Badge from '@material-ui/core/Badge';
 
 const useStyles = makeStyles(theme => ({
   root: {

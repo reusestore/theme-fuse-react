@@ -1,11 +1,11 @@
+import React from 'react';
 import FuseExample from '@fuse/core/FuseExample';
 import FuseHighlight from '@fuse/core/FuseHighlight';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
-import {makeStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
+import {makeStyles} from '@material-ui/core/styles';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint no-unused-vars: off */
 /* eslint-disable jsx-a11y/accessible-emoji */
@@ -86,7 +86,8 @@ function AutocompleteDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/CountrySelect.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Free solo</Typography>
-                    <Typography className="mb-16" component="div">Set <code>{`freeSolo`}</code> to true so the textbox can contain any arbitrary value.</Typography>
+                    <Typography className="mb-16" component="div">Set <code>{`freeSolo`}</code> to true so the textbox can contain any arbitrary value. The prop is designed to cover the primary use case of a search box with suggestions, e.g. Google search.</Typography>
+                    <Typography className="mb-16" component="div">However, if you intend to use it for a <a href="#combo-box">combo box</a> like experience (an enhanced version of a select element) we recommend setting <code>{`selectOnFocus`}</code>.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -263,9 +264,37 @@ const filterOptions = (options, { inputValue }) =>
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/Virtualize.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Limitations</Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">autocomplete/autofill</Typography>
+                    <Typography className="mb-16" component="div">The browsers have heuristics to help the users fill the form inputs.
+                        However, it can harm the UX of the component.</Typography>
+                    <Typography className="mb-16" component="div">By default, the component disable the <strong>autocomplete</strong> feature (remembering what the user has typed for a given field in a previous session) with the <code>{`autoComplete="off"`}</code> attribute.</Typography>
+                    <Typography className="mb-16" component="div">However, in addition to remembering past entered values, the browser might also propose <strong>autofill</strong> suggestions (saved login, address, or payment details).
+                        In the event you want the avoid autofill, you can try the following:</Typography>
+                    <ul>
+                        <li><Typography className="mb-16" component="div">Name the input without leaking any information the browser can use. e.g. <code>{`id="field1"`}</code> instead of <code>{`id="country"`}</code>. If you leave the id empty, the component uses a random id.</Typography>
+                        </li>
+                        <li><Typography className="mb-16" component="div">Set <code>{`autoComplete="new-password"`}</code>:</Typography>
+
+                            <FuseHighlight component="pre" className="language-jsx">
+                                {` 
+<TextField
+  {...params}
+  inputProps={{
+    ...params.inputProps,
+    autoComplete: 'new-password',
+
+/>
+`}
+                            </FuseHighlight>
+                        </li>
+                    </ul>
                     <Typography className="text-24 mt-32 mb-8" component="h3">iOS VoiceOver</Typography>
                     <Typography className="mb-16" component="div">VoiceOver on iOS Safari doesn&#39;t support the <code>{`aria-owns`}</code> attribute very well.
                         You can work around the issue with the <code>{`disablePortal`}</code> prop.</Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">TypeScript</Typography>
+                    <Typography className="mb-16" component="div">To fully take advantage of type inference, you need to set the <code>{`multiple`}</code> prop to <code>{`undefined`}</code>, <code>{`false`}</code> or <code>{`true`}</code>.
+                        See <a href="https://github.com/mui-org/material-ui/pull/18854#discussion_r364215153">this discussion</a> for more details.
+                        TypeScript might solve this bug in the future.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
                     <Typography className="mb-16" component="div">(WAI-ARIA: <a href="https://www.w3.org/TR/wai-aria-practices/#combobox">https://www.w3.org/TR/wai-aria-practices/#combobox</a>)</Typography>
                     <Typography className="mb-16" component="div">We encourage the usage of a label for the textbox.

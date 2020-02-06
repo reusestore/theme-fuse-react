@@ -1,11 +1,11 @@
+import React from 'react';
 import FuseExample from '@fuse/core/FuseExample';
 import FuseHighlight from '@fuse/core/FuseHighlight';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
-import {makeStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
+import {makeStyles} from '@material-ui/core/styles';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint no-unused-vars: off */
 /* eslint-disable jsx-a11y/accessible-emoji */
@@ -68,7 +68,6 @@ function ButtonsDoc(props)
                     <Typography className="mb-16" component="div"><a href="https://material.io/design/components/buttons.html#contained-button">Contained buttons</a>
                         are high-emphasis, distinguished by their use of elevation and fill.
                         They contain actions that are primary to your app.</Typography>
-                    <Typography className="mb-16" component="div">The last example of this demo show how to use an upload button.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -107,61 +106,6 @@ function ButtonsDoc(props)
                         iframe={false}
                         component={require('app/main/documentation/material-ui-components/components/buttons/OutlinedButtons.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/OutlinedButtons.js')}
-                    /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Grouped Buttons</Typography>
-                    <Typography className="mb-16" component="div">The <code>{`ButtonGroup`}</code> component can be used to group buttons.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('app/main/documentation/material-ui-components/components/buttons/GroupedButtons.js').default}
-                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/GroupedButtons.js')}
-                    /></Typography>
-                    <Typography className="text-24 mt-32 mb-8" component="h3">Group sizes and colors</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('app/main/documentation/material-ui-components/components/buttons/GroupSizesColors.js').default}
-                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/GroupSizesColors.js')}
-                    /></Typography>
-                    <Typography className="text-24 mt-32 mb-8" component="h3">Group orientation</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('app/main/documentation/material-ui-components/components/buttons/GroupOrientation.js').default}
-                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/GroupOrientation.js')}
-                    /></Typography>
-                    <Typography className="text-24 mt-32 mb-8" component="h3">Split Button</Typography>
-                    <Typography className="mb-16" component="div">ButtonGroup can also be used to create a split button. The dropdown can change the button action (as in this example), or be used to immediately trigger a related action.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('app/main/documentation/material-ui-components/components/buttons/SplitButton.js').default}
-                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/SplitButton.js')}
-                    /></Typography>
-                    <Typography className="text-32 mt-32 mb-8" component="h2">Floating Action Buttons</Typography>
-                    <Typography className="mb-16" component="div">A <a href="https://material.io/design/components/buttons-floating-action-button.html">floating action button</a>
-                        (FAB) performs the primary, or most common, action on a screen.
-                        It appears in front of all screen content, typically as a circular shape with an icon in its center.
-                        FABs come in two types: regular, and extended.</Typography>
-                    <Typography className="mb-16" component="div">Only use a FAB if it is the most suitable way to present a screen’s primary action.</Typography>
-                    <Typography className="mb-16" component="div">Only one floating action button is recommended per screen to represent the most common action.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('app/main/documentation/material-ui-components/components/buttons/FloatingActionButtons.js').default}
-                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/FloatingActionButtons.js')}
-                    /></Typography>
-                    <Typography className="mb-16" component="div">The floating action button animates onto the screen as an expanding piece of material, by default.</Typography>
-                    <Typography className="mb-16" component="div">A floating action button that spans multiple lateral screens (such as tabbed screens) should briefly disappear,
-                        then reappear if its action changes.</Typography>
-                    <Typography className="mb-16" component="div">The Zoom transition can be used to achieve this. Note that since both the exiting and entering
-                        animations are triggered at the same time, we use <code>{`enterDelay`}</code> to allow the outgoing Floating Action Button&#39;s
-                        animation to finish before the new one enters.</Typography>
-                    <Typography className="mb-16" component="div"><FuseExample
-                        className="my-24"
-                        iframe={false}
-                        component={require('app/main/documentation/material-ui-components/components/buttons/FloatingActionButtonZoom.js').default}
-                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/FloatingActionButtonZoom.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Upload button</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -212,8 +156,8 @@ function ButtonsDoc(props)
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
-                        component={require('app/main/documentation/material-ui-components/components/buttons/ButtonBases.js').default}
-                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/ButtonBases.js')}
+                        component={require('app/main/documentation/material-ui-components/components/buttons/ButtonBase.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/ButtonBase.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Third-party routing library</Typography>
                     <Typography className="mb-16" component="div">One common use case is to use the button to trigger navigation to a new page.

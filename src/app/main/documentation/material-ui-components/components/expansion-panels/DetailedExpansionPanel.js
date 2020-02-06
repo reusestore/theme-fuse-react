@@ -1,15 +1,15 @@
-import Button from '@material-ui/core/Button';
-import Chip from '@material-ui/core/Chip';
-import Divider from '@material-ui/core/Divider';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import clsx from 'clsx';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelActions from '@material-ui/core/ExpansionPanelActions';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import {makeStyles} from '@material-ui/core/styles';
+import ExpansionPanelActions from '@material-ui/core/ExpansionPanelActions';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import clsx from 'clsx';
-import React from 'react';
+import Chip from '@material-ui/core/Chip';
+import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles(theme => ({
   root: {

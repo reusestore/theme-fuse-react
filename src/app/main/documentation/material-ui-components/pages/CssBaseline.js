@@ -1,10 +1,11 @@
+import React from 'react';
+import FuseExample from '@fuse/core/FuseExample';
 import FuseHighlight from '@fuse/core/FuseHighlight';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
-import {makeStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
+import {makeStyles} from '@material-ui/core/styles';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint no-unused-vars: off */
 /* eslint-disable jsx-a11y/accessible-emoji */

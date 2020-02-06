@@ -9,7 +9,7 @@ components: Snackbar, SnackbarContent
 
 [Snackbars](https://material.io/design/components/snackbars.html) informieren Benutzer über einen Prozess, den eine App ausgeführt hat oder ausführen wird. Sie erscheinen vorübergehend am unteren Rand des Bildschirms. Sie sollten die Benutzererfahrung nicht unterbrechen und erfordern keine Benutzereingaben, um verschwinden zu können.
 
-Snackbars contain a single line of text directly related to the operation performed. They may contain a text action, but no icons. You can use them to display notifications.
+Snackbars contain a single line of text directly related to the operation performed. They may contain a text action, but no icons. Sie können diese verwenden, um Benachrichtigungen anzuzeigen.
 
 #### Häufigkeit
 
@@ -51,7 +51,7 @@ Wenn mehrere Snackbar-Aktualisierungen erforderlich sind, sollten diese einzeln 
 
 Snackbars sollten (auf dem Handy) über FABs angezeigt werden.
 
-{{"demo": "pages/components/snackbars/FabIntegrationSnackbar.js", "iframe": true, "maxWidth": 500}}
+{{"demo": "pages/components/snackbars/FabIntegrationSnackbar.js", "iframe": true, "maxWidth": 400}}
 
 ### Übergang ändern
 
@@ -81,27 +81,4 @@ This example demonstrates how to use [notistack](https://github.com/iamhosseindh
 
 (WAI-ARIA: https://www.w3.org/TR/wai-aria-1.1/#alert)
 
-- Since alerts are not required to receive focus, content authors should not require users to close a Snackbar if the role is set to `alert` through the SnackbarContent `role` prop. This is the default role.
-- If a Snackbar requires focus to close it, then content authors should use the `role` of `alertdialog`.
-
-```jsx
-<SnackbarContent
-  message="This is a Snackbar message."
-  role="alert"
-/>
-```
-
-```jsx
-<Snackbar
-  ContentProps={{
-    'aria-describedby': 'snackbar-fab-message-id',
-    'role': 'alertdialog',
-  }}
-  message={<span id="snackbar-fab-message-id">Archived</span>}
-  action={
-    <Button color="inherit" size="small">
-      Undo
-    </Button>
-  }
-/>
-```
+- By default, the snackbar won't auto-hide. However, if you decide to use the `autoHideDuration` prop, it's recommended to give the user [sufficient time](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits.html) to respond.

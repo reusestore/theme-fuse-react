@@ -1,12 +1,12 @@
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
+import StepContent from '@material-ui/core/StepContent';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
-import Step from '@material-ui/core/Step';
-import StepContent from '@material-ui/core/StepContent';
-import StepLabel from '@material-ui/core/StepLabel';
-import Stepper from '@material-ui/core/Stepper';
-import {makeStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
 
 const useStyles = makeStyles(theme => ({
   root: {

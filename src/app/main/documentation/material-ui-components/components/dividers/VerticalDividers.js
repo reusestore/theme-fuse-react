@@ -1,13 +1,13 @@
-import Divider from '@material-ui/core/Divider';
-import Grid from '@material-ui/core/Grid';
-import {makeStyles} from '@material-ui/core/styles';
-import FormatAlignCenterIcon from '@material-ui/icons/FormatAlignCenter';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import FormatAlignLeftIcon from '@material-ui/icons/FormatAlignLeft';
+import FormatAlignCenterIcon from '@material-ui/icons/FormatAlignCenter';
 import FormatAlignRightIcon from '@material-ui/icons/FormatAlignRight';
 import FormatBoldIcon from '@material-ui/icons/FormatBold';
 import FormatItalicIcon from '@material-ui/icons/FormatItalic';
 import FormatUnderlinedIcon from '@material-ui/icons/FormatUnderlined';
-import React from 'react';
+import Grid from '@material-ui/core/Grid';
+import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles(theme => ({
   root: {

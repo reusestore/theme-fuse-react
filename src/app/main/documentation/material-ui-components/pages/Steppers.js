@@ -1,10 +1,11 @@
+import React from 'react';
 import FuseExample from '@fuse/core/FuseExample';
+import FuseHighlight from '@fuse/core/FuseHighlight';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
-import {makeStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
+import {makeStyles} from '@material-ui/core/styles';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint no-unused-vars: off */
 /* eslint-disable jsx-a11y/accessible-emoji */
@@ -103,7 +104,7 @@ function SteppersDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/steppers/HorizontalNonLinearStepper.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/steppers/HorizontalNonLinearStepper.js')}
                     /></Typography>
-                    <Typography className="text-24 mt-32 mb-8" component="h3">Non Linear - Alternative Label</Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Non-linear - Alternative Label</Typography>
                     <Typography className="mb-16" component="div">Labels can be placed below the step icon by setting the <code>{`alternativeLabel`}</code> prop on the <code>{`Stepper`}</code> component.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -111,7 +112,7 @@ function SteppersDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/steppers/HorizontalNonLinearAlternativeLabelStepper.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/steppers/HorizontalNonLinearAlternativeLabelStepper.js')}
                     /></Typography>
-                    <Typography className="text-24 mt-32 mb-8" component="h3">Non Linear - Error Step</Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Non-linear - Error Step</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}

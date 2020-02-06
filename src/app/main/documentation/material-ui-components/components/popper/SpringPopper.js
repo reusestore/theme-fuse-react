@@ -1,8 +1,8 @@
-import Popper from '@material-ui/core/Popper';
-import {makeStyles} from '@material-ui/core/styles';
-import PropTypes from 'prop-types';
 import React from 'react';
-import {animated, useSpring} from 'react-spring/web.cjs'; // web.cjs is required for IE 11 support
+import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core/styles';
+import Popper from '@material-ui/core/Popper';
+import { useSpring, animated } from 'react-spring/web.cjs'; // web.cjs is required for IE 11 support
 
 const useStyles = makeStyles(theme => ({
   paper: {

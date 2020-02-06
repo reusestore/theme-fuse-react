@@ -1,6 +1,6 @@
 import fs from 'fs';
 import Beautify from 'js-beautify';
-import _ from '@lodash';
+import _ from 'lodash';
 import marked from 'marked';
 import path from 'path';
 

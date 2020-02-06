@@ -28,6 +28,9 @@ export const MaterialUIComponentsRoutes = [{
     path: '/documentation/material-ui-components/breadcrumbs',
     component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/Breadcrumbs'))
 }, {
+    path: '/documentation/material-ui-components/button-group',
+    component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/ButtonGroup'))
+}, {
     path: '/documentation/material-ui-components/buttons',
     component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/Buttons'))
 }, {
@@ -60,6 +63,9 @@ export const MaterialUIComponentsRoutes = [{
 }, {
     path: '/documentation/material-ui-components/expansion-panels',
     component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/ExpansionPanels'))
+}, {
+    path: '/documentation/material-ui-components/floating-action-button',
+    component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/FloatingActionButton'))
 }, {
     path: '/documentation/material-ui-components/grid',
     component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/Grid'))

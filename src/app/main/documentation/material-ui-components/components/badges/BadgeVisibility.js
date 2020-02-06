@@ -1,13 +1,13 @@
-import Badge from '@material-ui/core/Badge';
-import Button from '@material-ui/core/Button';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import {makeStyles} from '@material-ui/core/styles';
-import Switch from '@material-ui/core/Switch';
-import AddIcon from '@material-ui/icons/Add';
-import MailIcon from '@material-ui/icons/Mail';
-import RemoveIcon from '@material-ui/icons/Remove';
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Badge from '@material-ui/core/Badge';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
+import MailIcon from '@material-ui/icons/Mail';
+import Switch from '@material-ui/core/Switch';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 const useStyles = makeStyles(theme => ({
   root: {

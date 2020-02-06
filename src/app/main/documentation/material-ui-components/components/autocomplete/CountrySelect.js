@@ -1,8 +1,8 @@
 /* eslint-disable no-use-before-define */
-import {makeStyles} from '@material-ui/core/styles';
+import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 
 // ISO 3166-1 alpha-2
 // ⚠️ No support for IE 11
@@ -49,7 +49,7 @@ export default function CountrySelect() {
           fullWidth
           inputProps={{
             ...params.inputProps,
-            autoComplete: 'disabled', // disable autocomplete and autofill
+            autoComplete: 'new-password', // disable autocomplete and autofill
           }}
         />
       )}

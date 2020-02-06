@@ -1,13 +1,13 @@
-import Avatar from '@material-ui/core/Avatar';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
-import {makeStyles} from '@material-ui/core/styles';
-import BeachAccessIcon from '@material-ui/icons/BeachAccess';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
 import ImageIcon from '@material-ui/icons/Image';
 import WorkIcon from '@material-ui/icons/Work';
-import React from 'react';
+import BeachAccessIcon from '@material-ui/icons/BeachAccess';
 
 const useStyles = makeStyles(theme => ({
   root: {

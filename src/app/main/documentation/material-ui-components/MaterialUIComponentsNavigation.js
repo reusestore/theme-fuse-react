@@ -44,6 +44,11 @@ export const MaterialUIComponentsNavigation = [{
     'type': 'item',
     'url': '/documentation/material-ui-components/breadcrumbs'
 }, {
+    'id': 'buttonGroup',
+    'title': 'Button Group',
+    'type': 'item',
+    'url': '/documentation/material-ui-components/button-group'
+}, {
     'id': 'buttons',
     'title': 'Buttons',
     'type': 'item',
@@ -98,6 +103,11 @@ export const MaterialUIComponentsNavigation = [{
     'title': 'Expansion Panels',
     'type': 'item',
     'url': '/documentation/material-ui-components/expansion-panels'
+}, {
+    'id': 'floatingActionButton',
+    'title': 'Floating Action Button',
+    'type': 'item',
+    'url': '/documentation/material-ui-components/floating-action-button'
 }, {
     'id': 'grid',
     'title': 'Grid',

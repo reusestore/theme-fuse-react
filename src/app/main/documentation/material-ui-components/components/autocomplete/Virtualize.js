@@ -1,12 +1,12 @@
-import ListSubheader from '@material-ui/core/ListSubheader';
-import {makeStyles, useTheme} from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import PropTypes from 'prop-types';
 import React from 'react';
-import {VariableSizeList} from 'react-window';
+import PropTypes from 'prop-types';
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import { useTheme, makeStyles } from '@material-ui/core/styles';
+import { VariableSizeList } from 'react-window';
+import { Typography } from '@material-ui/core';
 
 const LISTBOX_PADDING = 8; // px
 

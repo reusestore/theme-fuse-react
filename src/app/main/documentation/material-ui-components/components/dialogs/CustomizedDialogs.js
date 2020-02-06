@@ -1,13 +1,13 @@
+import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import MuiDialogActions from '@material-ui/core/DialogActions';
-import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
+import MuiDialogContent from '@material-ui/core/DialogContent';
+import MuiDialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
-import {withStyles} from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
-import React from 'react';
+import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
   root: {
@@ -61,7 +61,7 @@ export default function CustomizedDialogs() {
 
   return (
     <div>
-      <Button variant="outlined" color="secondary" onClick={handleClickOpen}>
+      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
         Open dialog
       </Button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>

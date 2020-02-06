@@ -1,10 +1,11 @@
+import React from 'react';
 import FuseExample from '@fuse/core/FuseExample';
+import FuseHighlight from '@fuse/core/FuseHighlight';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
-import {makeStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
+import {makeStyles} from '@material-ui/core/styles';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint no-unused-vars: off */
 /* eslint-disable jsx-a11y/accessible-emoji */
@@ -129,6 +130,15 @@ function SliderDoc(props)
                         iframe={false}
                         component={require('app/main/documentation/material-ui-components/components/slider/TrackInvertedSlider.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/slider/TrackInvertedSlider.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Non-linear scale</Typography>
+                    <Typography className="mb-16" component="div">You can use the <code>{`scale`}</code> prop to represent the <code>{`value`}</code> on a different scale.
+                        For instance, in the following demo, the value <em>x</em> represents the power of <em>10^x</em>.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/slider/NonLinearSlider.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/slider/NonLinearSlider.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
                     <Typography className="mb-16" component="div">(WAI-ARIA: <a href="https://www.w3.org/TR/wai-aria-practices/#slider">https://www.w3.org/TR/wai-aria-practices/#slider</a>)</Typography>

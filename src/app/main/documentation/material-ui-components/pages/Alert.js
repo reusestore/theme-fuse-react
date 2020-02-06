@@ -1,10 +1,11 @@
+import React from 'react';
 import FuseExample from '@fuse/core/FuseExample';
+import FuseHighlight from '@fuse/core/FuseHighlight';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
-import {makeStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
+import {makeStyles} from '@material-ui/core/styles';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint no-unused-vars: off */
 /* eslint-disable jsx-a11y/accessible-emoji */
@@ -55,6 +56,7 @@ function AlertDoc(props)
                     <Typography className="text-44 mt-32 mb-8" component="h1">Alert</Typography>
                     <Typography className="description">An alert displays a short, important message in a way that attracts the user's attention without interrupting the user's task.</Typography>
 
+                    <Typography className="mb-16" component="div"><strong>Note:</strong> This component is not documented in the <a href="https://material.io/">Material Design guidelines</a>, but Material-UI supports it.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Simple alerts</Typography>
                     <Typography className="mb-16" component="div">The alert offers four severity levels that set a distinctive icon and color.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample

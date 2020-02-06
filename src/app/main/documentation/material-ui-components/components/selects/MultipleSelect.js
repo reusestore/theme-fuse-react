@@ -1,14 +1,14 @@
-import Checkbox from '@material-ui/core/Checkbox';
-import Chip from '@material-ui/core/Chip';
-import FormControl from '@material-ui/core/FormControl';
+import React from 'react';
+import clsx from 'clsx';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
-import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import ListItemText from '@material-ui/core/ListItemText';
 import Select from '@material-ui/core/Select';
-import {makeStyles, useTheme} from '@material-ui/core/styles';
-import clsx from 'clsx';
-import React from 'react';
+import Checkbox from '@material-ui/core/Checkbox';
+import Chip from '@material-ui/core/Chip';
 
 const useStyles = makeStyles(theme => ({
   formControl: {

@@ -1,8 +1,8 @@
 /* eslint-disable no-use-before-define */
+import React from 'react';
+import useAutocomplete from '@material-ui/lab/useAutocomplete';
 import CheckIcon from '@material-ui/icons/Check';
 import CloseIcon from '@material-ui/icons/Close';
-import useAutocomplete from '@material-ui/lab/useAutocomplete';
-import React from 'react';
 import styled from 'styled-components';
 
 const Label = styled('label')`
@@ -31,10 +31,14 @@ const InputWrapper = styled('div')`
 
   & input {
     font-size: 14px;
-    line-height: 26px;
-    padding: 2px 6px;
+    height: 30px;
+    box-sizing: border-box;
+    padding: 4px 6px;
+    width: 0;
+    min-width: 30px;
     flex-grow: 1;
     border: 0;
+    margin: 0;
     outline: 0;
   }
 `;
@@ -78,8 +82,7 @@ const Tag = styled(({ label, onDelete, ...props }) => (
 
 const Listbox = styled('ul')`
   width: 300px;
-  margin: 0;
-  margin-top: 2px;
+  margin: 2px 0 0;
   padding: 0;
   position: absolute;
   list-style: none;

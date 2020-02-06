@@ -1,11 +1,11 @@
+import React from 'react';
 import FuseExample from '@fuse/core/FuseExample';
 import FuseHighlight from '@fuse/core/FuseHighlight';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
-import {makeStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
+import {makeStyles} from '@material-ui/core/styles';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint no-unused-vars: off */
 /* eslint-disable jsx-a11y/accessible-emoji */
@@ -134,6 +134,17 @@ export default Main() {
                         component={require('app/main/documentation/material-ui-components/components/transitions/SimpleZoom.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/transitions/SimpleZoom.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">TransitionComponent prop</Typography>
+                    <Typography className="mb-16" component="div">The components accept a <code>{`TransitionComponent`}</code> prop to customize the default transitions.
+                        You can use any of the above components or your own.
+                        It should respect the following conditions:</Typography>
+                    <ul>
+                        <li>Accepts an <code>{`in`}</code> prop. This corresponds to the open/close state.</li>
+                        <li>Call the <code>{`onEnter`}</code> callback prop when the enter transition starts.</li>
+                        <li>Call the <code>{`onExited`}</code> callback prop when the exit transition is completed.
+                            These two callbacks allow to unmount the children when in a closed state and fully transitioned.
+                        </li>
+                    </ul>
 
                 </div>
             }

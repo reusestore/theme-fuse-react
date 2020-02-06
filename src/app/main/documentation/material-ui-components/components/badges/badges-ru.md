@@ -23,30 +23,32 @@ components: Badge
 
 Видимость значков можно контролировать с помощью свойства `invisible`.
 
-Значок автоматически скрывается, когда свойство badgeContent равно нулю. You can override this with the `showZero` property.
-
 {{"demo": "pages/components/badges/BadgeVisibility.js"}}
+
+Значок автоматически скрывается, когда свойство badgeContent равно нулю. Вы можете переопределить это с помощью пропа `showZero`.
+
+{{"demo": "pages/components/badges/ShowZeroBadge.js"}}
 
 ## Максимальное значение
 
-Вы можете использовать свойство `max` чтобы ограничить значение содержимого значка.
+Вы можете использовать проп `max`, чтобы ограничить значение значка.
 
 {{"demo": "pages/components/badges/BadgeMax.js"}}
 
-## Точечный значок
+## Значок-точка
 
-Свойство `точка` превращает значок в маленькую точку. Это можно использовать как уведомление о том, что что-то изменилось без подсчета.
+Проп `dot` превращает значок в маленькую точку. Это можно использовать как уведомление о том, что что-то изменилось без количества.
 
 {{"demo": "pages/components/badges/DotBadge.js"}}
 
-## Badge overlap
+## Наложение значка
 
-You can use the `overlap` property to place the badge relative to the corner of the wrapped element.
+Вы можете использовать проп `overlap` для размещения значка относительно краев элемента.
 
 {{"demo": "pages/components/badges/BadgeOverlap.js"}}
 
 ## Выравнивание значка
 
-You can use the `horizontalAlignment` and `verticalAlignment` properties to move the badge to any corner of the wrapped element.
+Вы можете использовать проп `anchorOrigin` для перемещения значка в любой угол элемента.
 
 {{"demo": "pages/components/badges/BadgeAlignment.js", "hideHeader": true}}

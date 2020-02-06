@@ -1,16 +1,13 @@
-import FormControl from '@material-ui/core/FormControl';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import {makeStyles} from '@material-ui/core/styles';
-// We don't have a typescript version of MarkdownElement
-// tslint:disable-next-line: ban-ts-ignore
-// @ts-ignore
-import MarkdownElement from 'app/main/documentation/material-ui-components/MarkdownElement';
 import React from 'react';
+import Grid from '@material-ui/core/Grid';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import Radio from '@material-ui/core/Radio';
+import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
+import MarkdownElement from 'app/main/documentation/material-ui-components/MarkdownElement';
 
 const useStyles = makeStyles(theme => ({
   root: {

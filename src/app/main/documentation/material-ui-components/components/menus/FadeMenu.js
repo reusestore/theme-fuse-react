@@ -1,8 +1,8 @@
+import React from 'react';
 import Button from '@material-ui/core/Button';
-import Fade from '@material-ui/core/Fade';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import React from 'react';
+import Fade from '@material-ui/core/Fade';
 
 export default function FadeMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);

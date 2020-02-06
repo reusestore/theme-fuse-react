@@ -1,10 +1,10 @@
-import Button from '@material-ui/core/Button';
-import Chip from '@material-ui/core/Chip';
-import Divider from '@material-ui/core/Divider';
-import Grid from '@material-ui/core/Grid';
-import {makeStyles} from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Chip from '@material-ui/core/Chip';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
   },
   chip: {
-    marginRight: theme.spacing(1),
+    margin: theme.spacing(0.5),
   },
   section1: {
     margin: theme.spacing(3, 2),

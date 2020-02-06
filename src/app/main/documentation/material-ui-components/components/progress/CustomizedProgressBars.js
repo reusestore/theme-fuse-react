@@ -1,7 +1,7 @@
+import React from 'react';
+import { lighten, makeStyles, withStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import {lighten, makeStyles, withStyles} from '@material-ui/core/styles';
-import React from 'react';
 
 const ColorCircularProgress = withStyles({
   root: {

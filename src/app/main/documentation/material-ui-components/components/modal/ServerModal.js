@@ -1,11 +1,12 @@
-import Modal from '@material-ui/core/Modal';
-import {makeStyles} from '@material-ui/core/styles';
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Modal from '@material-ui/core/Modal';
 
 const useStyles = makeStyles(theme => ({
   root: {
     height: 300,
     flexGrow: 1,
+    minWidth: 300,
     transform: 'translateZ(0)',
     // The position fixed scoping doesn't work in IE 11.
     // Disable this demo to preserve the others.

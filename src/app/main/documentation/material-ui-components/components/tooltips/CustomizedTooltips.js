@@ -1,8 +1,8 @@
+import React from 'react';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import {makeStyles, withStyles} from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
 
 const LightTooltip = withStyles(theme => ({
   tooltip: {

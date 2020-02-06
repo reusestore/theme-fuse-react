@@ -1,8 +1,8 @@
-import Badge from '@material-ui/core/Badge';
-import {makeStyles} from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import MailIcon from '@material-ui/icons/Mail';
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Badge from '@material-ui/core/Badge';
+import MailIcon from '@material-ui/icons/Mail';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
   root: {

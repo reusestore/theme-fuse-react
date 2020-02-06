@@ -1,9 +1,9 @@
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Grow from '@material-ui/core/Grow';
-import Paper from '@material-ui/core/Paper';
-import {makeStyles} from '@material-ui/core/styles';
-import Switch from '@material-ui/core/Switch';
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Switch from '@material-ui/core/Switch';
+import Paper from '@material-ui/core/Paper';
+import Grow from '@material-ui/core/Grow';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 const useStyles = makeStyles(theme => ({
   root: {

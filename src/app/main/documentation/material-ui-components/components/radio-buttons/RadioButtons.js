@@ -1,7 +1,7 @@
-import {green} from '@material-ui/core/colors';
-import Radio from '@material-ui/core/Radio';
-import {withStyles} from '@material-ui/core/styles';
 import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import { green } from '@material-ui/core/colors';
+import Radio from '@material-ui/core/Radio';
 
 const GreenRadio = withStyles({
   root: {
