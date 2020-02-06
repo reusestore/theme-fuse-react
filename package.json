@@ -89,10 +89,11 @@
         "marked": "0.8.0",
         "promise": "8.0.3",
         "purgecss": "1.4.2",
+        "source-map-explorer": "2.1.2",
         "tailwindcss": "1.1.4",
-        "tailwindcss-dir": "4.0.0",
-        "webpack-bundle-analyzer": "3.6.0"
+        "tailwindcss-dir": "4.0.0"
     },
+    "peerDependencies": {
     "peerDependencies": {
         "webpack": "^4.0.0 || ^5.0.0"
     },
@@ -103,8 +104,7 @@
         "test": "react-scripts test --env=node",
         "eject": "react-scripts eject",
         "build-docs": "find ./src/app/main/documentation/material-ui-components \\( -name '*.ts' -o -name '*.tsx' \\) -type f -delete && babel-node src/app/main/documentation/material-ui-components/build.js",
-        "build-stats": "yarn run build --stats",
-        "bundle-report": "yarn run build-stats && webpack-bundle-analyzer build/bundle-stats.json -m static -r build/bundle-stats.html -O"
+        "analyze": "yarn run tailwind && node ./purge-tailwindcss.js && react-scripts build && source-map-explorer 'build/static/js/*.js' --html analyze-result.html"
     },
     "eslintConfig": {
         "extends": "react-app"
