@@ -52,7 +52,7 @@ function SelectFormsy(props)
     }
 
     return (
-        <FormControl error={Boolean(errorMessage)} className={props.className} variant={importedProps.variant}>
+        <FormControl error={Boolean(errorMessage)} className={props.className} variant={importedProps.variant} required={props.required}>
             {props.label && (
                 <InputLabel htmlFor={props.name}>{props.label}</InputLabel>
             )}
