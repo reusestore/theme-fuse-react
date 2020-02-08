@@ -6,11 +6,15 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
 	{
-		version: '3.5.0',
-		date: '2020-02-06',
+		version: '4.0.0',
+		date: '2020-02-08',
 		newChanges: [
+			'Eslint, Prettier configuration based on Airbnb javascript style guide.',
 			'Yarn v2 (package-manager) support',
 			'.yarnrc.yml created for to resolve dependency issues (missing dependencies etc) for PnP',
+			'IDEs (Webstorm, VSCode) titled documentation created.',
+			'Codebase improved.',
+			'material-ui updated to v4.9.1',
 			'All dependency packages updated.'
 		],
 		fixedChanges: ['Mutation fixed on route settings.', 'RTL FuseScrollbars issue solved.'],
@@ -27,6 +31,7 @@ const changelogData = [
 			</span>,
 			'@fuse directories re-structured (@fuse/components > @fuse/core etc.), top level imports removed from @fuse/index, import paths updated.',
 			'All Import paths re-ordered.',
+			'All project reformated with the eslint, prettier configuration',
 			'jss-extend changed with jss-plugin-extend',
 			'webpack-bundle-analyzer changed with source-map-explorer'
 		]

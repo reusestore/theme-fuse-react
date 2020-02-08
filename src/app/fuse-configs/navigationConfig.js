@@ -574,7 +574,7 @@ const navigationConfig = [
 				icon: 'history',
 				url: '/documentation/changelog',
 				badge: {
-					title: '3.5.0',
+					title: '4.0.0',
 					bg: 'rgb(236, 12, 142)',
 					fg: '#FFFFFF'
 				}
@@ -601,7 +601,7 @@ const navigationConfig = [
 			},
 			{
 				id: 'working-with-fuse-react-doc',
-				title: 'Working with Fuse',
+				title: 'Working with Fuse React',
 				type: 'collapse',
 				icon: 'import_contacts',
 				children: [
@@ -676,6 +676,12 @@ const navigationConfig = [
 						title: 'Multi Language',
 						type: 'item',
 						url: '/documentation/working-with-fuse-react/multi-language'
+					},
+					{
+						id: 'fuse-react-ides-vscode-webstorm-doc',
+						title: 'IDEs (Webstorm, VsCode)',
+						type: 'item',
+						url: '/documentation/working-with-fuse-react/ides-vscode-webstorm'
 					}
 				]
 			},

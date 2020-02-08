@@ -48,6 +48,10 @@ const WorkingWithFuseReactDocRoutes = [
 	{
 		path: '/documentation/working-with-fuse-react/multi-language',
 		component: React.lazy(() => import('./multi-language/MultiLanguageDoc'))
+	},
+	{
+		path: '/documentation/working-with-fuse-react/ides-vscode-webstorm',
+		component: React.lazy(() => import('./ides-vscode-webstorm/IDEsDoc'))
 	}
 ];
 

@@ -51,12 +51,12 @@ function RTLSupportDoc() {
 						</a>
 						and
 						<a
-							href="https://github.com/RonMelkhior/tailwindcss-dir"
+							href="https://github.com/alitaheri/jss-rtl"
 							target="_blank"
 							rel="noopener noreferrer"
 							className="font-bold"
 						>
-							<code>tailwindcss-dir</code>
+							<code>jss-rtl</code>
 						</a>
 						that we use to develop rtl support of the Fuse React.
 					</Typography>

@@ -104,7 +104,7 @@ function InstallationDoc() {
 								>
 									Yarn
 								</a>
-								from its web site.
+								with the directions at their web site.
 							</li>
 						</ol>
 					</Typography>
