@@ -2,16 +2,14 @@ import ChatPanel from 'app/fuse-layouts/shared-components/chatPanel/ChatPanel';
 import QuickPanel from 'app/fuse-layouts/shared-components/quickPanel/QuickPanel';
 import React from 'react';
 
-function RightSideLayout2()
-{
-    return (
-        <React.Fragment>
+function RightSideLayout2() {
+	return (
+		<>
+			<ChatPanel />
 
-            <ChatPanel/>
-
-            <QuickPanel/>
-        </React.Fragment>
-    );
+			<QuickPanel />
+		</>
+	);
 }
 
 export default RightSideLayout2;

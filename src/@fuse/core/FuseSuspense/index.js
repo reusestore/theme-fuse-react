@@ -1,1 +1,1 @@
-export {default} from './FuseSuspense';
+export { default } from './FuseSuspense';

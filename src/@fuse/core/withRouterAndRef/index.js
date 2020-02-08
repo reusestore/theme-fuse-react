@@ -1,1 +1,1 @@
-export {default} from './withRouterAndRef';
+export { default } from './withRouterAndRef';

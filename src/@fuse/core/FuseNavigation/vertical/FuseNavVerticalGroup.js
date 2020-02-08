@@ -1,102 +1,87 @@
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import FuseUtils from '@fuse/utils';
 import ListSubheader from '@material-ui/core/ListSubheader';
-import {makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import * as Actions from 'app/store/actions';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {useTranslation} from 'react-i18next';
-import {useDispatch, useSelector} from 'react-redux';
-import {withRouter} from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+// eslint-disable-next-line import/no-cycle
 import FuseNavVerticalCollapse from './FuseNavVerticalCollapse';
 import FuseNavVerticalItem from './FuseNavVerticalItem';
 import FuseNavVerticalLink from './FuseNavVerticalLink';
 
 const useStyles = makeStyles(theme => ({
-    item: props => ({
-        height                           : 40,
-        width                            : 'calc(100% - 16px)',
-        borderRadius                     : '0 20px 20px 0',
-        paddingRight                     : 12,
-        paddingLeft                      : props.itemPadding > 80 ? 80 : props.itemPadding,
-        '&.active > .list-subheader-text': {
-            fontWeight: 700
-        }
-    })
+	item: props => ({
+		height: 40,
+		width: 'calc(100% - 16px)',
+		borderRadius: '0 20px 20px 0',
+		paddingRight: 12,
+		paddingLeft: props.itemPadding > 80 ? 80 : props.itemPadding,
+		'&.active > .list-subheader-text': {
+			fontWeight: 700
+		}
+	})
 }));
 
-function FuseNavVerticalGroup(props)
-{
-    const userRole = useSelector(({auth}) => auth.user.role);
-    const dispatch = useDispatch();
-    const {item, nestedLevel} = props;
-    const classes = useStyles({
-        itemPadding: nestedLevel > 0 ? 40 + (nestedLevel * 16) : 24
-    });
-    const {t} = useTranslation('navigation');
+function FuseNavVerticalGroup(props) {
+	const userRole = useSelector(({ auth }) => auth.user.role);
+	const dispatch = useDispatch();
+	const { item, nestedLevel } = props;
+	const classes = useStyles({
+		itemPadding: nestedLevel > 0 ? 40 + nestedLevel * 16 : 24
+	});
+	const { t } = useTranslation('navigation');
 
+	if (!FuseUtils.hasPermission(item.auth, userRole)) {
+		return null;
+	}
 
-    if ( !FuseUtils.hasPermission(item.auth, userRole) )
-    {
-        return null;
-    }
+	return (
+		<>
+			<ListSubheader
+				disableSticky
+				className={clsx(classes.item, 'list-subheader flex items-center', !item.url && 'cursor-default')}
+				onClick={ev => dispatch(Actions.navbarCloseMobile())}
+				component={item.url ? NavLinkAdapter : 'li'}
+				to={item.url}
+				role="button"
+			>
+				<span className="list-subheader-text uppercase text-12">
+					{item.translate ? t(item.translate) : item.title}
+				</span>
+			</ListSubheader>
 
-    return (
-        <React.Fragment>
+			{item.children && (
+				<>
+					{item.children.map(_item => (
+						<React.Fragment key={_item.id}>
+							{_item.type === 'group' && <NavVerticalGroup item={_item} nestedLevel={nestedLevel} />}
 
-            <ListSubheader
-                disableSticky={true}
-                className={clsx(classes.item, "list-subheader flex items-center", !item.url && 'cursor-default')}
-                onClick={ev => dispatch(Actions.navbarCloseMobile())}
-                component={item.url ? NavLinkAdapter : 'li'}
-                to={item.url}
-                role="button"
-            >
-                <span className="list-subheader-text uppercase text-12">
-                    {item.translate ? t(item.translate) : item.title}
-                </span>
-            </ListSubheader>
+							{_item.type === 'collapse' && (
+								<FuseNavVerticalCollapse item={_item} nestedLevel={nestedLevel} />
+							)}
 
-            {item.children && (
-                <React.Fragment>
-                    {
-                        item.children.map((item) => (
+							{_item.type === 'item' && <FuseNavVerticalItem item={_item} nestedLevel={nestedLevel} />}
 
-                            <React.Fragment key={item.id}>
-
-                                {item.type === 'group' && (
-                                    <NavVerticalGroup item={item} nestedLevel={nestedLevel}/>
-                                )}
-
-                                {item.type === 'collapse' && (
-                                    <FuseNavVerticalCollapse item={item} nestedLevel={nestedLevel}/>
-                                )}
-
-                                {item.type === 'item' && (
-                                    <FuseNavVerticalItem item={item} nestedLevel={nestedLevel}/>
-                                )}
-
-                                {item.type === 'link' && (
-                                    <FuseNavVerticalLink item={item} nestedLevel={nestedLevel}/>
-                                )}
-
-                            </React.Fragment>
-                        ))
-                    }
-                </React.Fragment>
-            )}
-        </React.Fragment>
-    );
+							{_item.type === 'link' && <FuseNavVerticalLink item={_item} nestedLevel={nestedLevel} />}
+						</React.Fragment>
+					))}
+				</>
+			)}
+		</>
+	);
 }
 
 FuseNavVerticalGroup.propTypes = {
-    item: PropTypes.shape(
-        {
-            id      : PropTypes.string.isRequired,
-            title   : PropTypes.string,
-            children: PropTypes.array
-        })
+	item: PropTypes.shape({
+		id: PropTypes.string.isRequired,
+		title: PropTypes.string,
+		children: PropTypes.array
+	})
 };
 
 FuseNavVerticalGroup.defaultProps = {};

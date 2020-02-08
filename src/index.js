@@ -8,13 +8,10 @@ import './i18n';
 import './react-chartjs-2-defaults';
 import './react-table-defaults';
 import './styles/index.css';
-import * as serviceWorker from './serviceWorker';
 import App from 'app/App';
+import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-    <App/>,
-    document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

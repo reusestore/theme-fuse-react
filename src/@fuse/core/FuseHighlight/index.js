@@ -1,1 +1,1 @@
-export {default} from './FuseHighlight';
+export { default } from './FuseHighlight';

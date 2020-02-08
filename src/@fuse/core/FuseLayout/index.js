@@ -1,1 +1,1 @@
-export {default} from './FuseLayout';
+export { default } from './FuseLayout';

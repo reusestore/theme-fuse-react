@@ -1,1 +1,1 @@
-export {default} from './FuseDialog';
+export { default } from './FuseDialog';

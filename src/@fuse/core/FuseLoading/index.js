@@ -1,1 +1,1 @@
-export {default} from './FuseLoading';
+export { default } from './FuseLoading';

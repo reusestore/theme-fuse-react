@@ -1,1 +1,1 @@
-export {default} from './FuseScrollbars';
+export { default } from './FuseScrollbars';

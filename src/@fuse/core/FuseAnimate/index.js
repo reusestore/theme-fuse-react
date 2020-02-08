@@ -1,1 +1,1 @@
-export {default} from './FuseAnimate';
+export { default } from './FuseAnimate';

@@ -1,1 +1,1 @@
-export {default} from './FuseChipSelect';
+export { default } from './FuseChipSelect';

@@ -1,1 +1,1 @@
-export {default} from './FusePageSimple';
+export { default } from './FusePageSimple';

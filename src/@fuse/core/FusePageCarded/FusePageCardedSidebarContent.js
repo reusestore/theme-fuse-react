@@ -1,32 +1,29 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
-import {ThemeProvider} from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import React from 'react';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 
-function FusePageCardedSidebarContent(props)
-{
-    const mainThemeDark = useSelector(({fuse}) => fuse.settings.mainThemeDark);
+function FusePageCardedSidebarContent(props) {
+	const mainThemeDark = useSelector(({ fuse }) => fuse.settings.mainThemeDark);
 
-    const classes = props.classes;
+	const { classes } = props;
 
-    return (
-        <React.Fragment>
-            {props.header && (
-                <ThemeProvider theme={mainThemeDark}>
-                    <div className={clsx(classes.sidebarHeader, props.variant)}>
-                        {props.header}
-                    </div>
-                </ThemeProvider>
-            )}
+	return (
+		<>
+			{props.header && (
+				<ThemeProvider theme={mainThemeDark}>
+					<div className={clsx(classes.sidebarHeader, props.variant)}>{props.header}</div>
+				</ThemeProvider>
+			)}
 
-            {props.content && (
-                <FuseScrollbars className={classes.sidebarContent} enable={props.innerScroll}>
-                    {props.content}
-                </FuseScrollbars>
-            )}
-        </React.Fragment>
-    )
+			{props.content && (
+				<FuseScrollbars className={classes.sidebarContent} enable={props.innerScroll}>
+					{props.content}
+				</FuseScrollbars>
+			)}
+		</>
+	);
 }
 
 export default FusePageCardedSidebarContent;

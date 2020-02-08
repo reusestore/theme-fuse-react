@@ -1,1 +1,1 @@
-export {default} from './FuseUtils';
+export { default } from './FuseUtils';

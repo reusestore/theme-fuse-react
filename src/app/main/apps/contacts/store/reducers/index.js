@@ -1,10 +1,10 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 import contacts from './contacts.reducer';
 import user from './user.reducer';
 
 const reducer = combineReducers({
-    contacts,
-    user
+	contacts,
+	user
 });
 
 export default reducer;

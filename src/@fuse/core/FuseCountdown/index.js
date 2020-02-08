@@ -1,1 +1,1 @@
-export {default} from './FuseCountdown';
+export { default } from './FuseCountdown';

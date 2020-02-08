@@ -1,1 +1,1 @@
-export {default} from './FuseAuthorization';
+export { default } from './FuseAuthorization';

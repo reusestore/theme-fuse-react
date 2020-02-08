@@ -4,9 +4,9 @@ import _ from 'lodash';
 import marked from 'marked';
 import path from 'path';
 
-const Promise = require("promise");
+const Promise = require('promise');
 
-const demoDir = ('src/app/main/documentation/material-ui-components/components');
+const demoDir = 'src/app/main/documentation/material-ui-components/components';
 const rootDirectory = path.resolve(__dirname);
 const examplesDirectory = path.resolve(rootDirectory, './components');
 const pagesDirectory = path.resolve(rootDirectory, './pages');
@@ -20,27 +20,27 @@ const titleRegExp = /# (.*)[\r\n]/;
 const emptyRegExp = /^\s*$/;
 
 marked.Lexer.prototype.lex = function lex(src) {
-    src = src
-        .replace(/\r\n|\r/g, '\n')
-        .replace(/\t/g, '    ')
-        .replace(/\u2424/g, '\n');
-    return this.token(src, true);
+	src = src
+		.replace(/\r\n|\r/g, '\n')
+		.replace(/\t/g, '    ')
+		.replace(/\u2424/g, '\n');
+	return this.token(src, true);
 };
 
 const renderer = new marked.Renderer();
 
 marked.setOptions({
-    gfm        : true,
-    tables     : true,
-    breaks     : false,
-    pedantic   : false,
-    sanitize   : false,
-    smartLists : true,
-    smartypants: false,
-    renderer
+	gfm: true,
+	tables: true,
+	breaks: false,
+	pedantic: false,
+	sanitize: false,
+	smartLists: true,
+	smartypants: false,
+	renderer
 });
 
-/*const BeautifyConfig = {
+/* const BeautifyConfig = {
     "indent_size": 2,
     "e4x"        : true,
     "js"         : {
@@ -64,173 +64,151 @@ marked.setOptions({
         "unescape_strings"         : false,
         "wrap_line_length"         : 120
     }
-};*/
+}; */
 
 renderer.heading = (text, level) => {
-    let className = '';
-    switch ( level )
-    {
-        case 1:
-            className = 'text-44 mt-32 mb-8';
-            break;
-        case 2:
-            className = 'text-32 mt-32 mb-8';
-            break;
-        case 3:
-            className = 'text-24 mt-32 mb-8';
-            break;
-        default:
-            className = 'text-16 mt-32 mb-8';
-    }
+	let className = '';
+	switch (level) {
+		case 1:
+			className = 'text-44 mt-32 mb-8';
+			break;
+		case 2:
+			className = 'text-32 mt-32 mb-8';
+			break;
+		case 3:
+			className = 'text-24 mt-32 mb-8';
+			break;
+		default:
+			className = 'text-16 mt-32 mb-8';
+	}
 
-    return `<Typography className="${className}" component="h${level}">${text}</Typography>\n`;
+	return `<Typography className="${className}" component="h${level}">${text}</Typography>\n`;
 };
 
-renderer.paragraph = (text) => {
-    let className = 'mb-16';
-    return `<Typography className="${className}" component="div">${text}</Typography>\n`;
+renderer.paragraph = text => {
+	const className = 'mb-16';
+	return `<Typography className="${className}" component="div">${text}</Typography>\n`;
 };
 
 renderer.code = (code, lang) => {
-    const response = `
+	const response = `
 <FuseHighlight component="pre" className="language-${lang}">
 {%% 
 ${code}
 %%}
 </FuseHighlight>
 `;
-    return response
-        .replace(new RegExp('`', 'g'), '\\`')
-        .replace(new RegExp('%%', 'g'), '`');
+	return response.replace(new RegExp('`', 'g'), '\\`').replace(new RegExp('%%', 'g'), '`');
 };
 
 renderer.codespan = (code, lang) => {
-    const response = `<code>{%%${_.unescape(code)}%%}</code>`;
-    return response.replace(new RegExp('%%', 'g'), '`');
+	const response = `<code>{%%${_.unescape(code)}%%}</code>`;
+	return response.replace(new RegExp('%%', 'g'), '`');
 };
 
-const rmDir = function (dirPath) {
-    try
-    {
-        var files = fs.readdirSync(dirPath);
-    } catch ( e )
-    {
-        return;
-    }
-    if ( files.length > 0 )
-        for ( let i = 0; i < files.length; i++ )
-        {
-            const filePath = dirPath + '/' + files[i];
-            if ( fs.statSync(filePath).isFile() )
-                fs.unlinkSync(filePath);
-            else
-                rmDir(filePath);
-        }
-    fs.rmdirSync(dirPath);
+const rmDir = function(dirPath) {
+	try {
+		var files = fs.readdirSync(dirPath);
+	} catch (e) {
+		return;
+	}
+	if (files.length > 0)
+		for (let i = 0; i < files.length; i++) {
+			const filePath = `${dirPath}/${files[i]}`;
+			if (fs.statSync(filePath).isFile()) fs.unlinkSync(filePath);
+			else rmDir(filePath);
+		}
+	fs.rmdirSync(dirPath);
 };
 
 // eslint-disable-next-line
 String.prototype.allReplace = function (obj) {
-    let retStr = this;
-    for ( let x in obj )
-    {
-        retStr = retStr.replace(new RegExp(x, 'g'), obj[x]);
-    }
-    return retStr;
+	let retStr = this;
+	for (const x in obj) {
+		retStr = retStr.replace(new RegExp(x, 'g'), obj[x]);
+	}
+	return retStr;
 };
 
-function getContents(markdown)
-{
-    return markdown
-        .replace(headerRegExp, '') // Remove header information
-        .split(/^{{|}}$/gm) // Split markdown into an array, separating demos
-        .filter(content => !emptyRegExp.test(content)); // Remove empty lines
+function getContents(markdown) {
+	return markdown
+		.replace(headerRegExp, '') // Remove header information
+		.split(/^{{|}}$/gm) // Split markdown into an array, separating demos
+		.filter(content => !emptyRegExp.test(content)); // Remove empty lines
 }
 
-function getTitle(markdownSource)
-{
-    const matches = markdownSource.match(titleRegExp);
+function getTitle(markdownSource) {
+	const matches = markdownSource.match(titleRegExp);
 
-    return matches ? matches[1] : 'Material-UI';
+	return matches ? matches[1] : 'Material-UI';
 }
 
-function getHtmlCode(markdownSource)
-{
-    let contentsArr = getContents(markdownSource);
-    contentsArr = contentsArr.map((content, index) => {
-        const match = content.match(demoRegexp);
-        if ( match )
-        {
-            const demoOptions = JSON.parse(`{${content}}`);
-            const name = demoOptions.demo;
-            const iframe = demoOptions.iframe ? true : false;
-            const path = name.replace('pages/components/', 'app/main/documentation/material-ui-components/components/');
-            return (
-                `\n<FuseExample
+function getHtmlCode(markdownSource) {
+	let contentsArr = getContents(markdownSource);
+	contentsArr = contentsArr.map((content, index) => {
+		const match = content.match(demoRegexp);
+		if (match) {
+			const demoOptions = JSON.parse(`{${content}}`);
+			const name = demoOptions.demo;
+			const iframe = !!demoOptions.iframe;
+			const path = name.replace('pages/components/', 'app/main/documentation/material-ui-components/components/');
+			return `\n<FuseExample
                     className="my-24"
                     iframe={${iframe}}
                     component="{require('${path}').default}" 
                     raw="{require('!raw-loader!${path}')}"
-                    />`
-            );
-        }
-        return content;
-    });
-    const response = marked(contentsArr.join(''))
-        .replace(new RegExp('"{', 'g'), '{')
-        .replace(new RegExp('}"', 'g'), '}')
-        .replace(new RegExp('(<\\s*\\/?\\s*)p(\\s*([^>]*)?\\s*>)', 'g'), '$1Typography$2')
-        .replace(new RegExp('class=', 'g'), "className=")
-        .replace(new RegExp('<img([^>]+)(\\s*[^\\/])>', 'gm'), '$1/>')
-        .replace(new RegExp('<br>', 'g'), '<br/>')
-        .replace(new RegExp('/static/', 'g'), "/material-ui-static/")
-    return response;
+                    />`;
+		}
+		return content;
+	});
+	const response = marked(contentsArr.join(''))
+		.replace(new RegExp('"{', 'g'), '{')
+		.replace(new RegExp('}"', 'g'), '}')
+		.replace(new RegExp('(<\\s*\\/?\\s*)p(\\s*([^>]*)?\\s*>)', 'g'), '$1Typography$2')
+		.replace(new RegExp('class=', 'g'), 'className=')
+		.replace(new RegExp('<img([^>]+)(\\s*[^\\/])>', 'gm'), '$1/>')
+		.replace(new RegExp('<br>', 'g'), '<br/>')
+		.replace(new RegExp('/static/', 'g'), '/material-ui-static/');
+	return response;
 }
 
-
-function readDir(dir)
-{
-    return new Promise(function (resolve, reject) {
-
-        fs.readdir(dir, function (err, list) {
-            if ( err )
-            {
-                reject(err);
-            }
-            resolve({
-                dir,
-                list
-            });
-        });
-    });
+function readDir(dir) {
+	return new Promise(function(resolve, reject) {
+		fs.readdir(dir, function(err, list) {
+			if (err) {
+				reject(err);
+			}
+			resolve({
+				dir,
+				list
+			});
+		});
+	});
 }
 
-function writePages(dir, list)
-{
-    let pages = [];
-    return new Promise(function (resolve, reject) {
-        list.forEach(function (file) {
-            file = path.resolve(dir, file);
-            pages.push(path.basename(file));
-            fs.stat(file, function (err, stat) {
-                if ( stat && stat.isDirectory() )
-                {
-                    writePage(file);
-                }
-            });
-        });
-        resolve(pages);
-    });
+function writePages(dir, list) {
+	const pages = [];
+	return new Promise(function(resolve, reject) {
+		list.forEach(function(file) {
+			file = path.resolve(dir, file);
+			pages.push(path.basename(file));
+			fs.stat(file, function(err, stat) {
+				if (stat && stat.isDirectory()) {
+					writePage(file);
+				}
+			});
+		});
+		resolve(pages);
+	});
 }
 
-function writePage(file)
-{
-    const markdownSource = fs.readFileSync(file + '/' + path.basename(file) + '.md', 'utf8');
-    const fileName = _.upperFirst(_.camelCase(path.basename(file)));
-    const htmlCode = getHtmlCode(markdownSource);
-    const title = getTitle(markdownSource);
+function writePage(file) {
+	const markdownSource = fs.readFileSync(`${file}/${path.basename(file)}.md`, 'utf8');
+	const fileName = _.upperFirst(_.camelCase(path.basename(file)));
+	const htmlCode = getHtmlCode(markdownSource);
+	const title = getTitle(markdownSource);
 
-    let contentJSX = `
+	const contentJSX = `
          <FusePageSimple
             classes={{
                 root: classes.layoutRoot
@@ -268,9 +246,9 @@ function writePage(file)
         />
     `;
 
-    // contentJSX = Beautify(contentJSX, BeautifyConfig);
+	// contentJSX = Beautify(contentJSX, BeautifyConfig);
 
-    let content = `import React from 'react';
+	const content = `import React from 'react';
                    import FuseExample from '@fuse/core/FuseExample';
                    import FuseHighlight from '@fuse/core/FuseHighlight';
                    import FusePageSimple from '@fuse/core/FusePageSimple';
@@ -298,58 +276,62 @@ function writePage(file)
                    export default ${fileName}Doc;
                    `;
 
-    //content = Beautify(content, BeautifyConfig);
+	// content = Beautify(content, BeautifyConfig);
 
-    fs.writeFileSync(path.resolve(pagesDirectory, fileName + '.js'), content);
+	fs.writeFileSync(path.resolve(pagesDirectory, `${fileName}.js`), content);
 }
 
-function writeRouteFile(pages)
-{
-    // const importPath = 'import %s from \'app/main/documentation/material-ui-components/pages/%s\';';
-    // const imports = pages.map(page => {
-    //     const componentName = _.upperFirst(_.camelCase(page));
-    //     return importPath.replace(/%s/g, componentName, componentName);
-    // });
+function writeRouteFile(pages) {
+	// const importPath = 'import %s from \'app/main/documentation/material-ui-components/pages/%s\';';
+	// const imports = pages.map(page => {
+	//     const componentName = _.upperFirst(_.camelCase(page));
+	//     return importPath.replace(/%s/g, componentName, componentName);
+	// });
 
-    const routeObject = "{ path     : '/documentation/material-ui-components/%s', component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/%p'))}";
-    const routes = pages.map(page => {
-        const componentName = _.upperFirst(_.camelCase(page));
-        return routeObject.allReplace({
-            '%s': page,
-            '%p': componentName
-        });
-    });
-    const content = Beautify(
-        `
+	const routeObject =
+		"{ path     : '/documentation/material-ui-components/%s', component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/%p'))}";
+	const routes = pages.map(page => {
+		const componentName = _.upperFirst(_.camelCase(page));
+		return routeObject.allReplace({
+			'%s': page,
+			'%p': componentName
+		});
+	});
+	const content = Beautify(
+		`
         import React from 'react';
         
-        export const MaterialUIComponentsRoutes =  [${routes.join()}];
+        const MaterialUIComponentsRoutes =  [${routes.join()}];
+        
+        export default MaterialUIComponentsRoutes;
+        
         `
-    );
-    fs.writeFileSync(path.resolve(routesFilePath), content);
+	);
+	fs.writeFileSync(path.resolve(routesFilePath), content);
 }
 
-function writeNavigationFile(pages)
-{
-    const navigationObject = "{ 'id'   : '%id', 'title': '%title', 'type' : 'item', 'url'  : '/documentation/material-ui-components/%url' }";
-    const navigation = pages.map(page => {
-        const componentName = _.startCase(page);
-        return navigationObject.allReplace({
-            '%id'   : _.camelCase(page),
-            '%title': componentName,
-            '%url'  : page
-        });
-    });
-    const content = Beautify(
+function writeNavigationFile(pages) {
+	const navigationObject =
+		"{ 'id'   : '%id', 'title': '%title', 'type' : 'item', 'url'  : '/documentation/material-ui-components/%url' }";
+	const navigation = pages.map(page => {
+		const componentName = _.startCase(page);
+		return navigationObject.allReplace({
+			'%id': _.camelCase(page),
+			'%title': componentName,
+			'%url': page
+		});
+	});
+	const content = Beautify(
+		`
+        const MaterialUIComponentsNavigation =  [${navigation.join()}];
+        export default MaterialUIComponentsNavigation;
+        
         `
-        export const MaterialUIComponentsNavigation =  [${navigation.join()}];
-        `
-    );
-    fs.writeFileSync(path.resolve(navigationFilePath), content);
+	);
+	fs.writeFileSync(path.resolve(navigationFilePath), content);
 }
 
-
-/*function walkSync(dir, filelist = [])
+/* function walkSync(dir, filelist = [])
 {
     return new Promise(function (resolve, reject) {
         fs.readdirSync(dir).forEach(file => {
@@ -368,102 +350,99 @@ function writeNavigationFile(pages)
             filelist
         });
     });
-}*/
+} */
 
-function filewalker(dir, done)
-{
-    let results = [];
+function filewalker(dir, done) {
+	let results = [];
 
-    fs.readdir(dir, function (err, list) {
-        if ( err ) return done(err);
+	fs.readdir(dir, function(err, list) {
+		if (err) return done(err);
 
-        var pending = list.length;
+		let pending = list.length;
 
-        if ( !pending ) return done(null, results);
+		if (!pending) return done(null, results);
 
-        list.forEach(function (file) {
-            file = path.resolve(dir, file);
+		list.forEach(function(file) {
+			file = path.resolve(dir, file);
 
-            fs.stat(file, function (err, stat) {
-                // If directorute a recursive call
-                if ( stat && stat.isDirectory() )
-                {
-                    // Add directory to array [comment if you need to remove the directories from the array]
-                    // results.push(file);
+			fs.stat(file, function(err, stat) {
+				// If directorute a recursive call
+				if (stat && stat.isDirectory()) {
+					// Add directory to array [comment if you need to remove the directories from the array]
+					// results.push(file);
 
-                    filewalker(file, function (err, res) {
-                        results = results.concat(res);
-                        if ( !--pending ) done(null, results);
-                    });
-                }
-                else
-                {
-                    results.push(file);
+					filewalker(file, function(err, res) {
+						results = results.concat(res);
+						if (!--pending) done(null, results);
+					});
+				} else {
+					results.push(file);
 
-                    if ( !--pending ) done(null, results);
-                }
-            });
-        });
-    });
+					if (!--pending) done(null, results);
+				}
+			});
+		});
+	});
 }
 
-function replaceInExamples()
-{
-    filewalker(demoDir, function (err, list) {
-        if ( err )
-        {
-            throw err;
-        }
-        list.forEach(function (file) {
-            const fileSource = fs.readFileSync(file, 'utf8');
-            const result = fileSource
-                .replace(new RegExp('docs/src/modules/utils/compose', 'g'), 'app/main/documentation/material-ui-components/compose')
-                .replace(new RegExp('docs/src/modules/components/MarkdownElement', 'g'), "app/main/documentation/material-ui-components/MarkdownElement")
-                .replace(new RegExp('/static/', 'g'), "/material-ui-static/");
-            fs.writeFileSync(file, result, 'utf8', function (err) {
-                if ( err ) return console.log(err);
-            });
-        });
-    });
+function replaceInExamples() {
+	filewalker(demoDir, function(err, list) {
+		if (err) {
+			throw err;
+		}
+		list.forEach(function(file) {
+			const fileSource = fs.readFileSync(file, 'utf8');
+			const result = fileSource
+				.replace(
+					new RegExp('docs/src/modules/utils/compose', 'g'),
+					'app/main/documentation/material-ui-components/compose'
+				)
+				.replace(
+					new RegExp('docs/src/modules/components/MarkdownElement', 'g'),
+					'app/main/documentation/material-ui-components/MarkdownElement'
+				)
+				.replace(new RegExp('/static/', 'g'), '/material-ui-static/');
+			fs.writeFileSync(file, result, 'utf8', function(err) {
+				if (err) return console.log(err);
+			});
+		});
+	});
 }
 
-function removeExcludedComponents()
-{
-    const excludedComponents = [
-        path.resolve(examplesDirectory, './breakpoints'),
-        path.resolve(examplesDirectory, './use-media-query'),
-        path.resolve(examplesDirectory, './about-the-lab'),
-        path.resolve(examplesDirectory, './rating'),
-        path.resolve(examplesDirectory, './speed-dial'),
-        path.resolve(examplesDirectory, './toggle-button'),
-        path.resolve(examplesDirectory, './skeleton'),
-        path.resolve(examplesDirectory, './material-icons'),
-        path.resolve(examplesDirectory, './tree-view'),
-        path.resolve(examplesDirectory, './icons')
-    ];
+function removeExcludedComponents() {
+	const excludedComponents = [
+		path.resolve(examplesDirectory, './breakpoints'),
+		path.resolve(examplesDirectory, './use-media-query'),
+		path.resolve(examplesDirectory, './about-the-lab'),
+		path.resolve(examplesDirectory, './rating'),
+		path.resolve(examplesDirectory, './speed-dial'),
+		path.resolve(examplesDirectory, './toggle-button'),
+		path.resolve(examplesDirectory, './skeleton'),
+		path.resolve(examplesDirectory, './material-icons'),
+		path.resolve(examplesDirectory, './tree-view'),
+		path.resolve(examplesDirectory, './icons')
+	];
 
-    excludedComponents.forEach(path => rmDir(path));
+	excludedComponents.forEach(path => rmDir(path));
 }
 
-function build(dir)
-{
-    fs.unlink(path.resolve(examplesDirectory, './.eslintrc.js'), (err) => {
-    })
+function build(dir) {
+	fs.unlink(path.resolve(examplesDirectory, './.eslintrc.js'), err => {});
 
-    removeExcludedComponents();
+	removeExcludedComponents();
 
-    replaceInExamples();
+	replaceInExamples();
 
-    rmDir(pagesDirectory);
+	rmDir(pagesDirectory);
 
-    fs.mkdirSync(pagesDirectory);
+	fs.mkdirSync(pagesDirectory);
 
-    readDir(examplesDirectory).then(({dir, list}) => {
-        writePages(dir, list).then(pages => {
-            writeRouteFile(pages);
-            writeNavigationFile(pages);
-        })
-    })
+	readDir(examplesDirectory).then(({ dir, list }) => {
+		writePages(dir, list).then(pages => {
+			writeRouteFile(pages);
+			writeNavigationFile(pages);
+		});
+	});
 }
 
 build();

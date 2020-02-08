@@ -1,1 +1,1 @@
-export {default} from './FuseSettings';
+export { default } from './FuseSettings';

@@ -1,1 +1,1 @@
-export {default} from './FuseSplashScreen';
+export { default } from './FuseSplashScreen';

@@ -1,1 +1,1 @@
-export {default} from './FuseExample';
+export { default } from './FuseExample';

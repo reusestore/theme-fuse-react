@@ -1,1 +1,1 @@
-export {default} from './DemoSidebarContent';
+export { default } from './DemoSidebarContent';

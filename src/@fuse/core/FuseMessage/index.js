@@ -1,1 +1,1 @@
-export {default} from './FuseMessage';
+export { default } from './FuseMessage';

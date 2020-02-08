@@ -1,1 +1,1 @@
-export {default} from './FuseNavigation';
+export { default } from './FuseNavigation';

@@ -1,1 +1,1 @@
-export {default} from './FuseShortcuts';
+export { default } from './FuseShortcuts';

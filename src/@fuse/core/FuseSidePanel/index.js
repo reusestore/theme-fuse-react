@@ -1,1 +1,1 @@
-export {default} from './FuseSidePanel';
+export { default } from './FuseSidePanel';

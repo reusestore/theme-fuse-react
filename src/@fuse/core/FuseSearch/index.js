@@ -1,1 +1,1 @@
-export {default} from './FuseSearch';
+export { default } from './FuseSearch';

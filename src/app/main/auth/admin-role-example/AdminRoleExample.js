@@ -2,52 +2,50 @@ import FuseHighlight from '@fuse/core/FuseHighlight';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
-import {makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import * as authActions from 'app/auth/store/actions';
 import React from 'react';
-import {useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const useStyles = makeStyles(theme => ({
-    layoutRoot: {}
+	layoutRoot: {}
 }));
 
-function AdminRoleExample(props)
-{
-    const dispatch = useDispatch();
+function AdminRoleExample(props) {
+	const dispatch = useDispatch();
 
-    const classes = useStyles();
+	const classes = useStyles();
 
-    return (
-        <FusePageSimple
-            classes={{
-                root: classes.layoutRoot
-            }}
-            header={
-                <div className="flex flex-1 items-center justify-between p-24">
-                    <Typography className="h2">Admin: Auth role example page</Typography>
-                    <Button
-                        className="normal-case"
-                        variant="contained"
-                        onClick={ev => dispatch(authActions.logoutUser())}
-                    >
-                        <Icon>exit_to_app</Icon>
-                        <span className="mx-4">Logout</span>
-                    </Button>
-                </div>
-            }
-            content={
-                <div className="p-24">
-                    <Typography className="mb-24">
-                        You can see this page because you have logged in and have permission. Otherwise you should be redirected to login page.
-                    </Typography>
+	return (
+		<FusePageSimple
+			classes={{
+				root: classes.layoutRoot
+			}}
+			header={
+				<div className="flex flex-1 items-center justify-between p-24">
+					<Typography className="h2">Admin: Auth role example page</Typography>
+					<Button
+						className="normal-case"
+						variant="contained"
+						onClick={ev => dispatch(authActions.logoutUser())}
+					>
+						<Icon>exit_to_app</Icon>
+						<span className="mx-4">Logout</span>
+					</Button>
+				</div>
+			}
+			content={
+				<div className="p-24">
+					<Typography className="mb-24">
+						You can see this page because you have logged in and have permission. Otherwise you should be
+						redirected to login page.
+					</Typography>
 
-                    <Typography className="mb-24">
-                        This is the page's config file:
-                    </Typography>
+					<Typography className="mb-24">This is the page's config file:</Typography>
 
-                    <FuseHighlight component="pre" className="language-js">
-                        {`
+					<FuseHighlight component="pre" className="language-js">
+						{`
                             import {authRoles} from 'auth';
                             import AdminRoleExample from 'app/main/auth/admin-role-example/AdminRoleExample';
 
@@ -66,14 +64,14 @@ function AdminRoleExample(props)
                                 ]
                             };
                             `}
-                    </FuseHighlight>
+					</FuseHighlight>
 
-                    <Typography className="my-24">
-                        You can also hide the navigation item/collapse/group with user roles by giving auth property.
-                    </Typography>
+					<Typography className="my-24">
+						You can also hide the navigation item/collapse/group with user roles by giving auth property.
+					</Typography>
 
-                    <FuseHighlight component="pre" className="language-json">
-                        {`
+					<FuseHighlight component="pre" className="language-json">
+						{`
                                 export const fuseNavigationConfig = [
                                    {
                                         'id'   : 'only-admin-navigation-item',
@@ -85,11 +83,11 @@ function AdminRoleExample(props)
                                     }
                                 ];
                             `}
-                    </FuseHighlight>
-                </div>
-            }
-        />
-    )
+					</FuseHighlight>
+				</div>
+			}
+		/>
+	);
 }
 
 export default AdminRoleExample;

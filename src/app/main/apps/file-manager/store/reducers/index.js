@@ -1,10 +1,10 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 import files from './files.reducer';
 import selectedItemId from './selectedItemIdReducer';
 
 const reducer = combineReducers({
-    files,
-    selectedItemId
+	files,
+	selectedItemId
 });
 
 export default reducer;
