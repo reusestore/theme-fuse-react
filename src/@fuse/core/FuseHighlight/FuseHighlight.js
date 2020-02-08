@@ -16,8 +16,14 @@ function FuseHighlight(props) {
 	}, [props.async]);
 
 	function trimCode() {
+		let sourceString = props.children;
+
+		if (typeof sourceString === 'object' && sourceString.default) {
+			sourceString = sourceString.default;
+		}
+
 		// Split the source into lines
-		const sourceLines = props.children.split('\n');
+		const sourceLines = sourceString.split('\n');
 
 		// Remove the first and the last line of the source
 		// code if they are blank lines. This way, the html
