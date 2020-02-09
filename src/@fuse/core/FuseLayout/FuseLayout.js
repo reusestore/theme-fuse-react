@@ -9,6 +9,8 @@ import { connect } from 'react-redux';
 import { matchRoutes } from 'react-router-config';
 import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
+import * as Velocity from 'velocity-animate';
+import { defaults as Chartjs2Defaults } from 'react-chartjs-2';
 
 const styles = theme => ({
 	'@global': {
@@ -76,6 +78,20 @@ class FuseLayout extends Component {
 				props.resetSettings();
 			}
 		}
+
+		function AnimationToggle(settings) {
+			if (!settings.animations) {
+				document.body.classList.add('no-animate');
+				Velocity.mock = true;
+				Chartjs2Defaults.global.animation = true;
+			} else {
+				document.body.classList.remove('no-animate');
+				Velocity.mock = false;
+				Chartjs2Defaults.global.animation = false;
+			}
+		}
+
+		AnimationToggle(newSettings);
 
 		return {
 			awaitRender: !_.isEqual(props.settings, newSettings),

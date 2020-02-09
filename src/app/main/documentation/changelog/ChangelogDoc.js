@@ -13,6 +13,7 @@ const changelogData = [
 			'Yarn v2 (package-manager) support',
 			'.yarnrc.yml created for to resolve dependency issues (missing dependencies etc) for PnP',
 			'IDEs (Webstorm, VSCode) titled documentation created.',
+			'Toggle animations setting added.',
 			'Codebase improved.',
 			'material-ui updated to v4.9.1',
 			'All dependency packages updated.'

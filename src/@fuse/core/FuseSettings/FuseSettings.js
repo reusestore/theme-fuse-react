@@ -285,6 +285,18 @@ function FuseSettings(props) {
 				/>
 			</FormControl>
 
+			<FormControl component="fieldset" className={classes.formControl}>
+				<FormLabel component="legend" className="text-14">
+					Animations
+				</FormLabel>
+				<Switch
+					checked={settings.animations}
+					onChange={handleChange}
+					aria-label="Animations"
+					name="animations"
+				/>
+			</FormControl>
+
 			<DirectionSelect />
 		</div>
 	);
