@@ -320,7 +320,7 @@ __metadata:
   version: 7.8.3
   resolution: "@babel/highlight@npm:7.8.3"
   dependencies:
-    chalk: ^2.0.0
+    chalk: "npm:2.4.2"
     esutils: ^2.0.2
     js-tokens: ^4.0.0
   checksum: 45074f1f6a9d79d3af6c6d20bd08cf2fa139bba6db0ad9224cba8835b4c49dc385c77e249f8a83ffa7a1bda3d72a382ba0e789e39a5ea8c5531cc35e06db2de4
@@ -1893,7 +1893,7 @@ __metadata:
   resolution: "@jest/console@npm:24.9.0"
   dependencies:
     "@jest/source-map": ^24.9.0
-    chalk: ^2.0.1
+    chalk: "npm:2.4.2"
     slash: ^2.0.0
   checksum: 34bd1a4bc145037ce202a4e46bcec331cc522091fa0dfe1c8e26b57055a13ec1842f1b688ba916577d642d89a1b4d90809e5b4e8e20ee2c7125a4277eb0073ff
   languageName: node
@@ -1909,7 +1909,7 @@ __metadata:
     "@jest/transform": ^24.9.0
     "@jest/types": ^24.9.0
     ansi-escapes: ^3.0.0
-    chalk: ^2.0.1
+    chalk: "npm:2.4.2"
     exit: ^0.1.2
     graceful-fs: ^4.1.15
     jest-changed-files: ^24.9.0
@@ -1966,7 +1966,7 @@ __metadata:
     "@jest/test-result": ^24.9.0
     "@jest/transform": ^24.9.0
     "@jest/types": ^24.9.0
-    chalk: ^2.0.1
+    chalk: "npm:2.4.2"
     exit: ^0.1.2
     glob: ^7.1.2
     istanbul-lib-coverage: ^2.0.2
@@ -2028,7 +2028,7 @@ __metadata:
     "@babel/core": ^7.1.0
     "@jest/types": ^24.9.0
     babel-plugin-istanbul: ^5.1.0
-    chalk: ^2.0.1
+    chalk: "npm:2.4.2"
     convert-source-map: ^1.4.0
     fast-json-stable-stringify: ^2.0.0
     graceful-fs: ^4.1.15
@@ -3200,13 +3200,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ansi-styles@npm:^2.2.1":
-  version: 2.2.1
-  resolution: "ansi-styles@npm:2.2.1"
-  checksum: 692cd0bf0d8f141fd219dc1d8f1fe93e0de96017f0f4ce4c6890d6f0985290988d394d9b74768a9b45e923c6bc29eff9f7de92dff4d964125b19c3276c655df7
-  languageName: node
-  linkType: hard
-
 "ansi-styles@npm:^3.2.0, ansi-styles@npm:^3.2.1":
   version: 3.2.1
   resolution: "ansi-styles@npm:3.2.1"
@@ -3216,7 +3209,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ansi-styles@npm:^4.0.0, ansi-styles@npm:^4.1.0":
+"ansi-styles@npm:^4.0.0":
   version: 4.2.1
   resolution: "ansi-styles@npm:4.2.1"
   dependencies:
@@ -3556,7 +3549,7 @@ __metadata:
   dependencies:
     browserslist: ^4.8.3
     caniuse-lite: ^1.0.30001020
-    chalk: ^2.4.2
+    chalk: "npm:2.4.2"
     normalize-range: ^0.1.2
     num2fraction: ^1.2.2
     postcss: ^7.0.26
@@ -3626,7 +3619,7 @@ __metadata:
   version: 6.26.0
   resolution: "babel-code-frame@npm:6.26.0"
   dependencies:
-    chalk: ^1.1.3
+    chalk: "npm:2.4.2"
     esutils: ^2.0.2
     js-tokens: ^3.0.2
   checksum: f7a5a46ddc914d7cd1d1d96a811416c4f3464f4a07f5583b3236cd8379a7b0c2ad61ab2494a3ed15731111c902467e3a17b7615cbaba1189c2ff563c2c114166
@@ -3667,7 +3660,7 @@ __metadata:
     "@types/babel__core": ^7.1.0
     babel-plugin-istanbul: ^5.1.0
     babel-preset-jest: ^24.9.0
-    chalk: ^2.4.2
+    chalk: "npm:2.4.2"
     slash: ^2.0.0
   peerDependencies:
     "@babel/core": ^7.0.0
@@ -4413,30 +4406,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:3.0.0, chalk@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "chalk@npm:3.0.0"
-  dependencies:
-    ansi-styles: ^4.1.0
-    supports-color: ^7.1.0
-  checksum: 366bfad255e1ee49a8944a434c94772195d206f2fdd0d132b2a4aab199c4f7ff696312522735613c0a92d69a1afda70c0284a0a9612234ce8034b19be83b6543
-  languageName: node
-  linkType: hard
-
-"chalk@npm:^1.1.3":
-  version: 1.1.3
-  resolution: "chalk@npm:1.1.3"
-  dependencies:
-    ansi-styles: ^2.2.1
-    escape-string-regexp: ^1.0.2
-    has-ansi: ^2.0.0
-    strip-ansi: ^3.0.0
-    supports-color: ^2.0.0
-  checksum: a64f7174f2ecacbec390514d3e545662965cbe3aaad5c242308ed2317b5e3e4286bc305d25782e132cb1935598979388b0d7f4ddf940c7f9b4ae03af9a19eb44
-  languageName: node
-  linkType: hard
-
-"chalk@npm:^2.0.0, chalk@npm:^2.0.1, chalk@npm:^2.1.0, chalk@npm:^2.4.1, chalk@npm:^2.4.2":
+"chalk@npm:2.4.2":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2"
   dependencies:
@@ -4714,7 +4684,7 @@ __metadata:
   resolution: "coa@npm:2.0.2"
   dependencies:
     "@types/q": ^1.5.1
-    chalk: ^2.4.1
+    chalk: "npm:2.4.2"
     q: ^1.1.2
   checksum: b050a1edac31a3e6208020bce9076e454c784fe048c6f12edf20fd82316638616c91158903270977d9a946a28cbf1378fa32c23616da879a6ae1813486ccd5e8
   languageName: node
@@ -6359,7 +6329,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"escape-string-regexp@npm:^1.0.2, escape-string-regexp@npm:^1.0.5":
+"escape-string-regexp@npm:^1.0.5":
   version: 1.0.5
   resolution: "escape-string-regexp@npm:1.0.5"
   checksum: 31da9adff9694f7b63c0542462267656e1d4dcac66a91551781d1ad2554d6641685ff812acc717cd467676af57be458a466d34b086e900354b38dde8724c8046
@@ -6660,7 +6630,7 @@ __metadata:
   dependencies:
     "@babel/code-frame": ^7.0.0
     ajv: ^6.10.0
-    chalk: ^2.1.0
+    chalk: "npm:2.4.2"
     cross-spawn: ^6.0.5
     debug: ^4.0.1
     doctrine: ^3.0.0
@@ -7331,7 +7301,7 @@ __metadata:
   resolution: "fork-ts-checker-webpack-plugin@npm:3.1.1"
   dependencies:
     babel-code-frame: ^6.22.0
-    chalk: ^2.4.1
+    chalk: "npm:2.4.2"
     chokidar: ^3.3.0
     micromatch: ^3.1.10
     minimatch: ^3.0.4
@@ -7928,15 +7898,6 @@ fsevents@^1.2.7:
   version: 1.6.1
   resolution: "harmony-reflect@npm:1.6.1"
   checksum: 15b389e2421a03505a44c7d50b6447120913c5a5398765df014e04e8b90f5a92ec208061616ba11e06d9a12e66de3318de46970887d79fcf860ad800f213c097
-  languageName: node
-  linkType: hard
-
-"has-ansi@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "has-ansi@npm:2.0.0"
-  dependencies:
-    ansi-regex: ^2.0.0
-  checksum: 8473b02173f6c5a7fc2c80906bfb2497cc9117dbcf6d8357734d044815bc923ac29bc6f12658f77bc472a83fe983bfe7d34975b3fa5051158ed0b3e3c31fc4a0
   languageName: node
   linkType: hard
 
@@ -8550,7 +8511,7 @@ fsevents@^1.2.7:
   resolution: "inquirer@npm:7.0.4"
   dependencies:
     ansi-escapes: ^4.2.1
-    chalk: ^2.4.2
+    chalk: "npm:2.4.2"
     cli-cursor: ^3.1.0
     cli-width: ^2.0.0
     external-editor: ^3.0.3
@@ -9175,7 +9136,7 @@ fsevents@^1.2.7:
     "@jest/core": ^24.9.0
     "@jest/test-result": ^24.9.0
     "@jest/types": ^24.9.0
-    chalk: ^2.0.1
+    chalk: "npm:2.4.2"
     exit: ^0.1.2
     import-local: ^2.0.0
     is-ci: ^2.0.0
@@ -9199,7 +9160,7 @@ fsevents@^1.2.7:
     "@jest/test-sequencer": ^24.9.0
     "@jest/types": ^24.9.0
     babel-jest: ^24.9.0
-    chalk: ^2.0.1
+    chalk: "npm:2.4.2"
     glob: ^7.1.1
     jest-environment-jsdom: ^24.9.0
     jest-environment-node: ^24.9.0
@@ -9220,7 +9181,7 @@ fsevents@^1.2.7:
   version: 24.9.0
   resolution: "jest-diff@npm:24.9.0"
   dependencies:
-    chalk: ^2.0.1
+    chalk: "npm:2.4.2"
     diff-sequences: ^24.9.0
     jest-get-type: ^24.9.0
     pretty-format: ^24.9.0
@@ -9242,7 +9203,7 @@ fsevents@^1.2.7:
   resolution: "jest-each@npm:24.9.0"
   dependencies:
     "@jest/types": ^24.9.0
-    chalk: ^2.0.1
+    chalk: "npm:2.4.2"
     jest-get-type: ^24.9.0
     jest-util: ^24.9.0
     pretty-format: ^24.9.0
@@ -9329,7 +9290,7 @@ fsevents@^1.2.7:
     "@jest/environment": ^24.9.0
     "@jest/test-result": ^24.9.0
     "@jest/types": ^24.9.0
-    chalk: ^2.0.1
+    chalk: "npm:2.4.2"
     co: ^4.6.0
     expect: ^24.9.0
     is-generator-fn: ^2.0.0
@@ -9359,7 +9320,7 @@ fsevents@^1.2.7:
   version: 24.9.0
   resolution: "jest-matcher-utils@npm:24.9.0"
   dependencies:
-    chalk: ^2.0.1
+    chalk: "npm:2.4.2"
     jest-diff: ^24.9.0
     jest-get-type: ^24.9.0
     pretty-format: ^24.9.0
@@ -9375,7 +9336,7 @@ fsevents@^1.2.7:
     "@jest/test-result": ^24.9.0
     "@jest/types": ^24.9.0
     "@types/stack-utils": ^1.0.1
-    chalk: ^2.0.1
+    chalk: "npm:2.4.2"
     micromatch: ^3.1.10
     slash: ^2.0.0
     stack-utils: ^1.0.1
@@ -9428,7 +9389,7 @@ fsevents@^1.2.7:
   dependencies:
     "@jest/types": ^24.9.0
     browser-resolve: ^1.11.3
-    chalk: ^2.0.1
+    chalk: "npm:2.4.2"
     jest-pnp-resolver: ^1.2.1
     realpath-native: ^1.1.0
   checksum: 27d3849649dde604c5aacca4b0fbb75f2d5236fd8c5d03be9116de779e25afec0439f5aeb9ad6ed302329f51319047d36756c1ed3fdca99a67a7b94420941a55
@@ -9443,7 +9404,7 @@ fsevents@^1.2.7:
     "@jest/environment": ^24.9.0
     "@jest/test-result": ^24.9.0
     "@jest/types": ^24.9.0
-    chalk: ^2.4.2
+    chalk: "npm:2.4.2"
     exit: ^0.1.2
     graceful-fs: ^4.1.15
     jest-config: ^24.9.0
@@ -9472,7 +9433,7 @@ fsevents@^1.2.7:
     "@jest/transform": ^24.9.0
     "@jest/types": ^24.9.0
     "@types/yargs": ^13.0.0
-    chalk: ^2.0.1
+    chalk: "npm:2.4.2"
     exit: ^0.1.2
     glob: ^7.1.3
     graceful-fs: ^4.1.15
@@ -9508,7 +9469,7 @@ fsevents@^1.2.7:
   dependencies:
     "@babel/types": ^7.0.0
     "@jest/types": ^24.9.0
-    chalk: ^2.0.1
+    chalk: "npm:2.4.2"
     expect: ^24.9.0
     jest-diff: ^24.9.0
     jest-get-type: ^24.9.0
@@ -9533,7 +9494,7 @@ fsevents@^1.2.7:
     "@jest/test-result": ^24.9.0
     "@jest/types": ^24.9.0
     callsites: ^3.0.0
-    chalk: ^2.0.1
+    chalk: "npm:2.4.2"
     graceful-fs: ^4.1.15
     is-ci: ^2.0.0
     mkdirp: ^0.5.1
@@ -9549,7 +9510,7 @@ fsevents@^1.2.7:
   dependencies:
     "@jest/types": ^24.9.0
     camelcase: ^5.3.1
-    chalk: ^2.0.1
+    chalk: "npm:2.4.2"
     jest-get-type: ^24.9.0
     leven: ^3.1.0
     pretty-format: ^24.9.0
@@ -9562,7 +9523,7 @@ fsevents@^1.2.7:
   resolution: "jest-watch-typeahead@npm:0.4.2"
   dependencies:
     ansi-escapes: ^4.2.1
-    chalk: ^2.4.1
+    chalk: "npm:2.4.2"
     jest-regex-util: ^24.9.0
     jest-watcher: ^24.3.0
     slash: ^3.0.0
@@ -9580,7 +9541,7 @@ fsevents@^1.2.7:
     "@jest/types": ^24.9.0
     "@types/yargs": ^13.0.0
     ansi-escapes: ^3.0.0
-    chalk: ^2.0.1
+    chalk: "npm:2.4.2"
     jest-util: ^24.9.0
     string-length: ^2.0.0
   checksum: 9026c0746246185043b7655c2a70266e74ca02f4a31c334cd5ce1a825a613ada9027dfc7ceafd991acad76856aa582d636db67eba1783f9be8dc6ab83bfb6173
@@ -13077,7 +13038,7 @@ fsevents@^1.2.7:
   version: 7.0.21
   resolution: "postcss@npm:7.0.21"
   dependencies:
-    chalk: ^2.4.2
+    chalk: "npm:2.4.2"
     source-map: ^0.6.1
     supports-color: ^6.1.0
   checksum: 418b07f6af25dd7665622f90767cffd590cd92137a7aad2898bccf712441450a3489f9f92f61741e69a3b2f990a346ffc0d74a1ce950c94da71080da14949074
@@ -13088,7 +13049,7 @@ fsevents@^1.2.7:
   version: 6.0.23
   resolution: "postcss@npm:6.0.23"
   dependencies:
-    chalk: ^2.4.1
+    chalk: "npm:2.4.2"
     source-map: ^0.6.1
     supports-color: ^5.4.0
   checksum: c0771d3f3d41039eea9b58fc51d9433de9e0cae41a796cb0cad4478bb2cddfc9978779ed3d04fd17e29a00a706da0a6c15fa4e0a37e3ec9586bbbb87588f5a98
@@ -13099,7 +13060,7 @@ fsevents@^1.2.7:
   version: 7.0.26
   resolution: "postcss@npm:7.0.26"
   dependencies:
-    chalk: ^2.4.2
+    chalk: "npm:2.4.2"
     source-map: ^0.6.1
     supports-color: ^6.1.0
   checksum: d778166d9426f1c73fdd99d03fcc4362a3b1d439906b27b17636ddf310b7d663a9bc4f4657bcc1b846a441022f9dce8ec96dd1f2d00a49e29a14dbac8f11f4a3
@@ -13682,7 +13643,7 @@ fsevents@^1.2.7:
     "@babel/code-frame": 7.8.3
     address: 1.1.2
     browserslist: 4.8.6
-    chalk: 3.0.0
+    chalk: "npm:2.4.2"
     cross-spawn: 7.0.1
     detect-port-alt: 1.1.6
     escape-string-regexp: 2.0.0
@@ -15319,7 +15280,7 @@ resolve@1.1.7:
   resolution: "source-map-explorer@npm:2.1.2"
   dependencies:
     btoa: ^1.2.1
-    chalk: ^3.0.0
+    chalk: "npm:2.4.2"
     convert-source-map: ^1.7.0
     ejs: ^3.0.1
     escape-html: ^1.0.3
@@ -15851,13 +15812,6 @@ resolve@1.1.7:
   languageName: node
   linkType: hard
 
-"supports-color@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "supports-color@npm:2.0.0"
-  checksum: da6ddb4aac2fe5e095a1fdc293010d50ac86cfb41b84e5d82087cbc38f66a8ac106a5abfe80eb54e1e959d21a941df7b7dd9f3e999752465827ff80d7f5f3606
-  languageName: node
-  linkType: hard
-
 "supports-color@npm:^5.3.0, supports-color@npm:^5.4.0, supports-color@npm:^5.5.0":
   version: 5.5.0
   resolution: "supports-color@npm:5.5.0"
@@ -15876,7 +15830,7 @@ resolve@1.1.7:
   languageName: node
   linkType: hard
 
-"supports-color@npm:^7.0.0, supports-color@npm:^7.1.0":
+"supports-color@npm:^7.0.0":
   version: 7.1.0
   resolution: "supports-color@npm:7.1.0"
   dependencies:
@@ -15896,7 +15850,7 @@ resolve@1.1.7:
   version: 1.3.2
   resolution: "svgo@npm:1.3.2"
   dependencies:
-    chalk: ^2.4.1
+    chalk: "npm:2.4.2"
     coa: ^2.0.2
     css-select: ^2.0.0
     css-select-base-adapter: ^0.1.1
@@ -15956,7 +15910,7 @@ resolve@1.1.7:
   dependencies:
     autoprefixer: ^9.4.5
     bytes: ^3.0.0
-    chalk: ^3.0.0
+    chalk: "npm:2.4.2"
     detective: ^5.2.0
     fs-extra: ^8.0.0
     lodash: ^4.17.15
@@ -15983,7 +15937,7 @@ resolve@1.1.7:
   dependencies:
     autoprefixer: ^9.4.5
     bytes: ^3.0.0
-    chalk: ^2.4.1
+    chalk: "npm:2.4.2"
     fs-extra: ^8.0.0
     lodash: ^4.17.11
     node-emoji: ^1.8.1
