@@ -9,10 +9,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-// eslint-disable-next-line import/no-cycle
-import FuseNavVerticalCollapse from './FuseNavVerticalCollapse';
-import FuseNavVerticalItem from './FuseNavVerticalItem';
-import FuseNavVerticalLink from './FuseNavVerticalLink';
+import FuseNavItem from '../FuseNavItem';
 
 const useStyles = makeStyles(theme => ({
 	item: props => ({
@@ -58,17 +55,12 @@ function FuseNavVerticalGroup(props) {
 			{item.children && (
 				<>
 					{item.children.map(_item => (
-						<React.Fragment key={_item.id}>
-							{_item.type === 'group' && <NavVerticalGroup item={_item} nestedLevel={nestedLevel} />}
-
-							{_item.type === 'collapse' && (
-								<FuseNavVerticalCollapse item={_item} nestedLevel={nestedLevel} />
-							)}
-
-							{_item.type === 'item' && <FuseNavVerticalItem item={_item} nestedLevel={nestedLevel} />}
-
-							{_item.type === 'link' && <FuseNavVerticalLink item={_item} nestedLevel={nestedLevel} />}
-						</React.Fragment>
+						<FuseNavItem
+							key={_item.id}
+							type={`vertical-${_item.type}`}
+							item={_item}
+							nestedLevel={nestedLevel + 1}
+						/>
 					))}
 				</>
 			)}

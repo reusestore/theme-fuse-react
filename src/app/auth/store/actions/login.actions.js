@@ -1,7 +1,7 @@
 import firebaseService from 'app/services/firebaseService';
 import jwtService from 'app/services/jwtService';
 import * as Actions from 'app/store/actions';
-import { setUserData } from './user.actions';
+import * as UserActions from './user.actions';
 
 export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -11,7 +11,7 @@ export function submitLogin({ email, password }) {
 		jwtService
 			.signInWithEmailAndPassword(email, password)
 			.then(user => {
-				dispatch(setUserData(user));
+				dispatch(UserActions.setUserData(user));
 
 				return dispatch({
 					type: LOGIN_SUCCESS

@@ -17,10 +17,7 @@ import { Manager, Popper, Reference } from 'react-popper';
 import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import FuseNavBadge from '../FuseNavBadge';
-// eslint-disable-next-line import/no-cycle
-import FuseNavHorizontalGroup from './FuseNavHorizontalGroup';
-import FuseNavHorizontalItem from './FuseNavHorizontalItem';
-import FuseNavHorizontalLink from './FuseNavHorizontalLink';
+import FuseNavItem from '../FuseNavItem';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -125,7 +122,7 @@ function FuseNavHorizontalCollapse(props) {
 								/>
 
 								{item.badge && <FuseNavBadge className="mx-4" badge={item.badge} />}
-								<IconButton disableRipple className="w-16 h-16 ltr:ml-4 rtl:mr-4 p-0">
+								<IconButton disableRipple className="w-16 h-16 ltr:ml-4 rtl:mr-4 p-0" color="inherit">
 									<Icon className="text-16 arrow-icon">
 										{theme.direction === 'ltr' ? 'keyboard_arrow_right' : 'keyboard_arrow_left'}
 									</Icon>
@@ -166,39 +163,13 @@ function FuseNavHorizontalCollapse(props) {
 													)}
 												>
 													{item.children.map(_item => (
-														<React.Fragment key={_item.id}>
-															{_item.type === 'group' && (
-																<FuseNavHorizontalGroup
-																	item={_item}
-																	nestedLevel={nestedLevel + 1}
-																	dense={dense}
-																/>
-															)}
-
-															{_item.type === 'collapse' && (
-																<NavHorizontalCollapse
-																	item={_item}
-																	nestedLevel={nestedLevel + 1}
-																	dense={dense}
-																/>
-															)}
-
-															{_item.type === 'item' && (
-																<FuseNavHorizontalItem
-																	item={_item}
-																	nestedLevel={nestedLevel + 1}
-																	dense={dense}
-																/>
-															)}
-
-															{_item.type === 'link' && (
-																<FuseNavHorizontalLink
-																	item={_item}
-																	nestedLevel={nestedLevel + 1}
-																	dense={dense}
-																/>
-															)}
-														</React.Fragment>
+														<FuseNavItem
+															key={_item.id}
+															type={`horizontal-${_item.type}`}
+															item={_item}
+															nestedLevel={nestedLevel + 1}
+															dense={dense}
+														/>
 													))}
 												</ul>
 											)}

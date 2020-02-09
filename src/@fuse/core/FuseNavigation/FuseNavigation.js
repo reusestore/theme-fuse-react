@@ -12,6 +12,21 @@ import FuseNavVerticalCollapse from './vertical/FuseNavVerticalCollapse';
 import FuseNavVerticalGroup from './vertical/FuseNavVerticalGroup';
 import FuseNavVerticalItem from './vertical/FuseNavVerticalItem';
 import FuseNavVerticalLink from './vertical/FuseNavVerticalLink';
+import FuseNavItem, { registerComponent } from './FuseNavItem';
+
+/*
+Register Fuse Navigation Components
+ */
+registerComponent('vertical-group', FuseNavVerticalGroup);
+registerComponent('vertical-collapse', FuseNavVerticalCollapse);
+registerComponent('vertical-item', FuseNavVerticalItem);
+registerComponent('vertical-link', FuseNavVerticalLink);
+registerComponent('horizontal-group', FuseNavHorizontalGroup);
+registerComponent('horizontal-collapse', FuseNavHorizontalCollapse);
+registerComponent('horizontal-item', FuseNavHorizontalItem);
+registerComponent('horizontal-link', FuseNavHorizontalLink);
+registerComponent('vertical-divider', () => <Divider className="my-16" />);
+registerComponent('horizontal-divider', () => <Divider className="my-16" />);
 
 const useStyles = makeStyles(theme => ({
 	navigation: {
@@ -96,18 +111,8 @@ function FuseNavigation(props) {
 				className
 			)}
 		>
-			{navigation.map(item => (
-				<React.Fragment key={item.id}>
-					{item.type === 'group' && <FuseNavVerticalGroup item={item} nestedLevel={0} />}
-
-					{item.type === 'collapse' && <FuseNavVerticalCollapse item={item} nestedLevel={0} />}
-
-					{item.type === 'item' && <FuseNavVerticalItem item={item} nestedLevel={0} />}
-
-					{item.type === 'link' && <FuseNavVerticalLink item={item} nestedLevel={0} />}
-
-					{item.type === 'divider' && <Divider className="my-16" />}
-				</React.Fragment>
+			{navigation.map(_item => (
+				<FuseNavItem key={_item.id} type={`vertical-${_item.type}`} item={_item} nestedLevel={0} />
 			))}
 		</List>
 	);
@@ -123,20 +128,14 @@ function FuseNavigation(props) {
 				className
 			)}
 		>
-			{navigation.map(item => (
-				<React.Fragment key={item.id}>
-					{item.type === 'group' && <FuseNavHorizontalGroup item={item} nestedLevel={0} dense={dense} />}
-
-					{item.type === 'collapse' && (
-						<FuseNavHorizontalCollapse item={item} nestedLevel={0} dense={dense} />
-					)}
-
-					{item.type === 'item' && <FuseNavHorizontalItem item={item} nestedLevel={0} dense={dense} />}
-
-					{item.type === 'link' && <FuseNavHorizontalLink item={item} nestedLevel={0} dense={dense} />}
-
-					{item.type === 'divider' && <Divider className="my-16" />}
-				</React.Fragment>
+			{navigation.map(_item => (
+				<FuseNavItem
+					key={_item.id}
+					type={`horizontal-${_item.type}`}
+					item={_item}
+					nestedLevel={0}
+					dense={dense}
+				/>
 			))}
 		</List>
 	);

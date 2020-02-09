@@ -1,4 +1,4 @@
-import { FuseLayoutConfigs } from '@fuse/layouts';
+import FuseLayoutConfigs from '@fuse/layouts/FuseLayoutConfigs';
 import _ from '@lodash';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';

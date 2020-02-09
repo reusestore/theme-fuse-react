@@ -55,6 +55,7 @@ function FuseNavHorizontalLink(props) {
 			target={item.target ? item.target : '_blank'}
 			className={clsx('list-item', classes.root)}
 			onClick={ev => dispatch(Actions.navbarCloseMobile())}
+			role="button"
 		>
 			{item.icon && (
 				<Icon className="list-item-icon text-16 flex-shrink-0" color="action">

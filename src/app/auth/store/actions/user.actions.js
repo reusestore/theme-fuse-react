@@ -3,9 +3,8 @@ import _ from '@lodash';
 import auth0Service from 'app/services/auth0Service';
 import firebaseService from 'app/services/firebaseService';
 import jwtService from 'app/services/jwtService';
-import store from 'app/store';
-import * as Actions from 'app/store/actions';
-import { setDefaultSettings, setInitialSettings } from 'app/store/actions/fuse';
+import * as MessageActions from 'app/store/actions/fuse/message.actions';
+import * as FuseActions from 'app/store/actions/fuse';
 import firebase from 'firebase/app';
 
 export const SET_USER_DATA = '[USER] SET DATA';
@@ -77,7 +76,7 @@ export function createUserSettingsFirebase(authUser) {
 		});
 		currentUser.updateProfile(user.data);
 
-		updateUserData(user);
+		updateUserData(user, dispatch);
 		return dispatch(setUserData(user));
 	};
 }
@@ -98,7 +97,7 @@ export function setUserData(user) {
 		/*
         Set User Settings
          */
-		dispatch(setDefaultSettings(user.data.settings));
+		dispatch(FuseActions.setDefaultSettings(user.data.settings));
 
 		/*
         Set User Data
@@ -118,7 +117,7 @@ export function updateUserSettings(settings) {
 		const oldUser = getState().auth.user;
 		const user = _.merge({}, oldUser, { data: { settings } });
 
-		updateUserData(user);
+		updateUserData(user, dispatch);
 
 		return dispatch(setUserData(user));
 	};
@@ -138,7 +137,7 @@ export function updateUserShortcuts(shortcuts) {
 			}
 		};
 
-		updateUserData(newUser);
+		updateUserData(newUser, dispatch);
 
 		return dispatch(setUserData(newUser));
 	};
@@ -183,7 +182,7 @@ export function logoutUser() {
 			}
 		}
 
-		dispatch(setInitialSettings());
+		dispatch(FuseActions.setInitialSettings());
 
 		return dispatch({
 			type: USER_LOGGED_OUT
@@ -194,7 +193,7 @@ export function logoutUser() {
 /**
  * Update User Data
  */
-function updateUserData(user) {
+function updateUserData(user, dispatch) {
 	if (!user.role || user.role.length === 0) {
 		// is guest
 		return;
@@ -205,10 +204,10 @@ function updateUserData(user) {
 			firebaseService
 				.updateUserData(user)
 				.then(() => {
-					store.dispatch(Actions.showMessage({ message: 'User data saved to firebase' }));
+					dispatch(MessageActions.showMessage({ message: 'User data saved to firebase' }));
 				})
 				.catch(error => {
-					store.dispatch(Actions.showMessage({ message: error.message }));
+					dispatch(MessageActions.showMessage({ message: error.message }));
 				});
 			break;
 		}
@@ -219,10 +218,10 @@ function updateUserData(user) {
 					shortcuts: user.data.shortcuts
 				})
 				.then(() => {
-					store.dispatch(Actions.showMessage({ message: 'User data saved to auth0' }));
+					dispatch(MessageActions.showMessage({ message: 'User data saved to auth0' }));
 				})
 				.catch(error => {
-					store.dispatch(Actions.showMessage({ message: error.message }));
+					dispatch(MessageActions.showMessage({ message: error.message }));
 				});
 			break;
 		}
@@ -230,10 +229,10 @@ function updateUserData(user) {
 			jwtService
 				.updateUserData(user)
 				.then(() => {
-					store.dispatch(Actions.showMessage({ message: 'User data saved with api' }));
+					dispatch(MessageActions.showMessage({ message: 'User data saved with api' }));
 				})
 				.catch(error => {
-					store.dispatch(Actions.showMessage({ message: error.message }));
+					dispatch(MessageActions.showMessage({ message: error.message }));
 				});
 			break;
 		}

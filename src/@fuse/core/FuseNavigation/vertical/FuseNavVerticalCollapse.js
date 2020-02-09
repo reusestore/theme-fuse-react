@@ -13,10 +13,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import FuseNavBadge from '../FuseNavBadge';
-// eslint-disable-next-line import/no-cycle
-import FuseNavVerticalGroup from './FuseNavVerticalGroup';
-import FuseNavVerticalItem from './FuseNavVerticalItem';
-import FuseNavVerticalLink from './FuseNavVerticalLink';
+import FuseNavItem from '../FuseNavItem';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -126,23 +123,12 @@ function FuseNavVerticalCollapse(props) {
 			{item.children && (
 				<Collapse in={open} className="collapse-children">
 					{item.children.map(_item => (
-						<React.Fragment key={_item.id}>
-							{_item.type === 'group' && (
-								<FuseNavVerticalGroup item={_item} nestedLevel={nestedLevel + 1} />
-							)}
-
-							{_item.type === 'collapse' && (
-								<NavVerticalCollapse item={_item} nestedLevel={nestedLevel + 1} />
-							)}
-
-							{_item.type === 'item' && (
-								<FuseNavVerticalItem item={_item} nestedLevel={nestedLevel + 1} />
-							)}
-
-							{_item.type === 'link' && (
-								<FuseNavVerticalLink item={_item} nestedLevel={nestedLevel + 1} />
-							)}
-						</React.Fragment>
+						<FuseNavItem
+							key={_item.id}
+							type={`vertical-${_item.type}`}
+							item={_item}
+							nestedLevel={nestedLevel + 1}
+						/>
 					))}
 				</Collapse>
 			)}

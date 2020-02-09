@@ -7,7 +7,7 @@ import ChangelogCard from './ChangelogCard';
 const changelogData = [
 	{
 		version: '4.0.0',
-		date: '2020-02-08',
+		date: '2020-02-10',
 		newChanges: [
 			'Eslint, Prettier configuration based on Airbnb javascript style guide.',
 			'Yarn v2 (package-manager) support',
@@ -17,7 +17,11 @@ const changelogData = [
 			'material-ui updated to v4.9.1',
 			'All dependency packages updated.'
 		],
-		fixedChanges: ['Mutation fixed on route settings.', 'RTL FuseScrollbars issue solved.'],
+		fixedChanges: [
+			'Mutation fixed on route settings.',
+			'Circular Dependency issues.',
+			'RTL FuseScrollbars issue solved.'
+		],
 		breakingChanges: [
 			<span>
 				Bundle Size optimizations: top level imports changed with path imports:

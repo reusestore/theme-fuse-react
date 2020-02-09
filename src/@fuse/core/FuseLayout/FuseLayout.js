@@ -1,4 +1,4 @@
-import { FuseLayouts } from '@fuse/layouts';
+import FuseLayouts from '@fuse/layouts/FuseLayouts';
 import _ from '@lodash';
 import { withStyles } from '@material-ui/core/styles';
 import AppContext from 'app/AppContext';
