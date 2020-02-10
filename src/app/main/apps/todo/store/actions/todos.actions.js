@@ -16,173 +16,142 @@ export const CLOSE_EDIT_TODO_DIALOG = '[TODO APP] CLOSE EDIT TODO DIALOG';
 export const TOGGLE_ORDER_DESCENDING = '[TODO APP] TOGGLE ORDER DESCENDING';
 export const CHANGE_ORDER = '[TODO APP] CHANGE ORDER';
 
-export function getTodos(params)
-{
-    const request = axios.get('/api/todo-app/todos', {params});
+export function getTodos(params) {
+	const request = axios.get('/api/todo-app/todos', { params });
 
-    return (dispatch) =>
-        request.then((response) =>
-            dispatch({
-                type       : GET_TODOS,
-                routeParams: params,
-                payload    : response.data
-            })
-        );
+	return dispatch =>
+		request.then(response =>
+			dispatch({
+				type: GET_TODOS,
+				routeParams: params,
+				payload: response.data
+			})
+		);
 }
 
-export function updateTodos()
-{
-    return (dispatch, getState) => {
+export function updateTodos() {
+	return (dispatch, getState) => {
+		const { routeParams } = getState().todoApp.todos;
 
-        const {routeParams} = getState().todoApp.todos;
+		const request = axios.get('/api/todo-app/todos', {
+			params: routeParams
+		});
 
-        const request = axios.get('/api/todo-app/todos', {
-            params: routeParams
-        });
-
-        return request.then((response) =>
-            dispatch({
-                type   : UPDATE_TODOS,
-                payload: response.data
-            })
-        );
-    }
+		return request.then(response =>
+			dispatch({
+				type: UPDATE_TODOS,
+				payload: response.data
+			})
+		);
+	};
 }
 
-export function toggleCompleted(todo)
-{
-    const newTodo = {
-        ...todo,
-        completed: !todo.completed
-    };
-    return (dispatch) => (
-        Promise.all([
-            dispatch({type: TOGGLE_COMPLETED})
-        ]).then(() => dispatch(updateTodo(newTodo)))
-    )
+export function toggleCompleted(todo) {
+	const newTodo = {
+		...todo,
+		completed: !todo.completed
+	};
+	return dispatch => Promise.all([dispatch({ type: TOGGLE_COMPLETED })]).then(() => dispatch(updateTodo(newTodo)));
 }
 
-export function toggleStarred(todo)
-{
-    const newTodo = {
-        ...todo,
-        starred: !todo.starred
-    };
-    return (dispatch) => (
-        Promise.all([
-            dispatch({type: TOGGLE_STARRED})
-        ]).then(() => dispatch(updateTodo(newTodo)))
-    )
+export function toggleStarred(todo) {
+	const newTodo = {
+		...todo,
+		starred: !todo.starred
+	};
+	return dispatch => Promise.all([dispatch({ type: TOGGLE_STARRED })]).then(() => dispatch(updateTodo(newTodo)));
 }
 
-export function toggleImportant(todo)
-{
-    const newTodo = {
-        ...todo,
-        important: !todo.important
-    };
+export function toggleImportant(todo) {
+	const newTodo = {
+		...todo,
+		important: !todo.important
+	};
 
-    return (dispatch) => (
-        Promise.all([
-            dispatch({type: TOGGLE_IMPORTANT})
-        ]).then(() => dispatch(updateTodo(newTodo)))
-    )
+	return dispatch => Promise.all([dispatch({ type: TOGGLE_IMPORTANT })]).then(() => dispatch(updateTodo(newTodo)));
 }
 
-export function updateTodo(todo)
-{
-    const request = axios.post('/api/todo-app/update-todo', todo);
+export function updateTodo(todo) {
+	const request = axios.post('/api/todo-app/update-todo', todo);
 
-    return (dispatch) =>
-        request.then((response) => {
-                Promise.all([
-                    dispatch({
-                        type   : UPDATE_TODO,
-                        payload: response.data
-                    })
-                ]).then(() => dispatch(updateTodos()))
-            }
-        );
+	return dispatch =>
+		request.then(response => {
+			Promise.all([
+				dispatch({
+					type: UPDATE_TODO,
+					payload: response.data
+				})
+			]).then(() => dispatch(updateTodos()));
+		});
 }
 
-export function openNewTodoDialog()
-{
-    return {
-        type: OPEN_NEW_TODO_DIALOG
-    }
+export function openNewTodoDialog() {
+	return {
+		type: OPEN_NEW_TODO_DIALOG
+	};
 }
 
-export function closeNewTodoDialog()
-{
-    return {
-        type: CLOSE_NEW_TODO_DIALOG
-    }
+export function closeNewTodoDialog() {
+	return {
+		type: CLOSE_NEW_TODO_DIALOG
+	};
 }
 
-export function openEditTodoDialog(data)
-{
-    return {
-        type: OPEN_EDIT_TODO_DIALOG,
-        data
-    }
+export function openEditTodoDialog(data) {
+	return {
+		type: OPEN_EDIT_TODO_DIALOG,
+		data
+	};
 }
 
-export function closeEditTodoDialog()
-{
-    return {
-        type: CLOSE_EDIT_TODO_DIALOG
-    }
+export function closeEditTodoDialog() {
+	return {
+		type: CLOSE_EDIT_TODO_DIALOG
+	};
 }
 
-export function addTodo(todo)
-{
-    const request = axios.post('/api/todo-app/new-todo', todo);
+export function addTodo(todo) {
+	const request = axios.post('/api/todo-app/new-todo', todo);
 
-    return (dispatch) =>
-        request.then((response) => (
-                Promise.all([
-                    dispatch({
-                        type: ADD_TODO
-                    })
-                ]).then(() => dispatch(updateTodos()))
-            )
-        );
+	return dispatch =>
+		request.then(response =>
+			Promise.all([
+				dispatch({
+					type: ADD_TODO
+				})
+			]).then(() => dispatch(updateTodos()))
+		);
 }
 
-export function removeTodo(todoId)
-{
-    const request = axios.post('/api/todo-app/remove-todo', todoId);
+export function removeTodo(todoId) {
+	const request = axios.post('/api/todo-app/remove-todo', todoId);
 
-    return (dispatch) =>
-        request.then((response) => (
-                Promise.all([
-                    dispatch({
-                        type: REMOVE_TODO
-                    })
-                ]).then(() => dispatch(updateTodos()))
-            )
-        );
+	return dispatch =>
+		request.then(response =>
+			Promise.all([
+				dispatch({
+					type: REMOVE_TODO
+				})
+			]).then(() => dispatch(updateTodos()))
+		);
 }
 
-export function setSearchText(event)
-{
-    return {
-        type      : SET_SEARCH_TEXT,
-        searchText: event.target.value.toLowerCase()
-    }
+export function setSearchText(event) {
+	return {
+		type: SET_SEARCH_TEXT,
+		searchText: event.target.value.toLowerCase()
+	};
 }
 
-export function toggleOrderDescending()
-{
-    return {
-        type: TOGGLE_ORDER_DESCENDING
-    }
+export function toggleOrderDescending() {
+	return {
+		type: TOGGLE_ORDER_DESCENDING
+	};
 }
 
-export function changeOrder(orderBy)
-{
-    return {
-        type: CHANGE_ORDER,
-        orderBy
-    }
+export function changeOrder(orderBy) {
+	return {
+		type: CHANGE_ORDER,
+		orderBy
+	};
 }

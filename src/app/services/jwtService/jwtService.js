@@ -1,164 +1,146 @@
+import FuseUtils from '@fuse/utils/FuseUtils';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import FuseUtils from '@fuse/FuseUtils';
+/* eslint-disable camelcase */
 
-class jwtService extends FuseUtils.EventEmitter {
+class JwtService extends FuseUtils.EventEmitter {
+	init() {
+		this.setInterceptors();
+		this.handleAuthentication();
+	}
 
-    init()
-    {
-        this.setInterceptors();
-        this.handleAuthentication();
-    }
+	setInterceptors = () => {
+		axios.interceptors.response.use(
+			response => {
+				return response;
+			},
+			err => {
+				return new Promise((resolve, reject) => {
+					if (err.response.status === 401 && err.config && !err.config.__isRetryRequest) {
+						// if you ever get an unauthorized response, logout the user
+						this.emit('onAutoLogout', 'Invalid access_token');
+						this.setSession(null);
+					}
+					throw err;
+				});
+			}
+		);
+	};
 
-    setInterceptors = () => {
-        axios.interceptors.response.use(response => {
-            return response;
-        }, err => {
-            return new Promise((resolve, reject) => {
-                if ( err.response.status === 401 && err.config && !err.config.__isRetryRequest )
-                {
-                    // if you ever get an unauthorized response, logout the user
-                    this.emit('onAutoLogout', 'Invalid access_token');
-                    this.setSession(null);
-                }
-                throw err;
-            });
-        });
-    };
+	handleAuthentication = () => {
+		const access_token = this.getAccessToken();
 
-    handleAuthentication = () => {
+		if (!access_token) {
+			this.emit('onNoAccessToken');
 
-        let access_token = this.getAccessToken();
+			return;
+		}
 
-        if ( !access_token )
-        {
-            this.emit('onNoAccessToken');
+		if (this.isAuthTokenValid(access_token)) {
+			this.setSession(access_token);
+			this.emit('onAutoLogin', true);
+		} else {
+			this.setSession(null);
+			this.emit('onAutoLogout', 'access_token expired');
+		}
+	};
 
-            return;
-        }
+	createUser = data => {
+		return new Promise((resolve, reject) => {
+			axios.post('/api/auth/register', data).then(response => {
+				if (response.data.user) {
+					this.setSession(response.data.access_token);
+					resolve(response.data.user);
+				} else {
+					reject(response.data.error);
+				}
+			});
+		});
+	};
 
-        if ( this.isAuthTokenValid(access_token) )
-        {
-            this.setSession(access_token);
-            this.emit('onAutoLogin', true);
-        }
-        else
-        {
-            this.setSession(null);
-            this.emit('onAutoLogout', 'access_token expired');
-        }
-    };
+	signInWithEmailAndPassword = (email, password) => {
+		return new Promise((resolve, reject) => {
+			axios
+				.get('/api/auth', {
+					data: {
+						email,
+						password
+					}
+				})
+				.then(response => {
+					if (response.data.user) {
+						this.setSession(response.data.access_token);
+						resolve(response.data.user);
+					} else {
+						reject(response.data.error);
+					}
+				});
+		});
+	};
 
-    createUser = (data) => {
-        return new Promise((resolve, reject) => {
-            axios.post('/api/auth/register', data)
-                .then(response => {
-                    if ( response.data.user )
-                    {
-                        this.setSession(response.data.access_token);
-                        resolve(response.data.user);
-                    }
-                    else
-                    {
-                        reject(response.data.error);
-                    }
-                });
-        });
-    };
+	signInWithToken = () => {
+		return new Promise((resolve, reject) => {
+			axios
+				.get('/api/auth/access-token', {
+					data: {
+						access_token: this.getAccessToken()
+					}
+				})
+				.then(response => {
+					if (response.data.user) {
+						this.setSession(response.data.access_token);
+						resolve(response.data.user);
+					} else {
+						this.logout();
+						Promise.reject(new Error('Failed to login with token.'));
+					}
+				})
+				.catch(error => {
+					this.logout();
+					Promise.reject(new Error('Failed to login with token.'));
+				});
+		});
+	};
 
-    signInWithEmailAndPassword = (email, password) => {
-        return new Promise((resolve, reject) => {
-            axios.get('/api/auth', {
-                data: {
-                    email,
-                    password
-                }
-            }).then(response => {
-                if ( response.data.user )
-                {
-                    this.setSession(response.data.access_token);
-                    resolve(response.data.user);
-                }
-                else
-                {
-                    reject(response.data.error);
-                }
-            });
-        });
-    };
+	updateUserData = user => {
+		return axios.post('/api/auth/user/update', {
+			user
+		});
+	};
 
-    signInWithToken = () => {
-        return new Promise((resolve, reject) => {
-            axios.get('/api/auth/access-token', {
-                data: {
-                    access_token: this.getAccessToken()
-                }
-            })
-                .then(response => {
-                    if ( response.data.user )
-                    {
-                        this.setSession(response.data.access_token);
-                        resolve(response.data.user);
-                    }
-                    else
-                    {
-                        this.logout();
-                        reject('Failed to login with token.');
-                    }
-                })
-                .catch(error => {
-                    this.logout();
-                    reject('Failed to login with token.');
-                });
-        });
-    };
+	setSession = access_token => {
+		if (access_token) {
+			localStorage.setItem('jwt_access_token', access_token);
+			axios.defaults.headers.common.Authorization = `Bearer ${access_token}`;
+		} else {
+			localStorage.removeItem('jwt_access_token');
+			delete axios.defaults.headers.common.Authorization;
+		}
+	};
 
-    updateUserData = (user) => {
-        return axios.post('/api/auth/user/update', {
-            user: user
-        });
-    };
+	logout = () => {
+		this.setSession(null);
+	};
 
-    setSession = access_token => {
-        if ( access_token )
-        {
-            localStorage.setItem('jwt_access_token', access_token);
-            axios.defaults.headers.common['Authorization'] = 'Bearer ' + access_token;
-        }
-        else
-        {
-            localStorage.removeItem('jwt_access_token');
-            delete axios.defaults.headers.common['Authorization'];
-        }
-    };
+	isAuthTokenValid = access_token => {
+		if (!access_token) {
+			return false;
+		}
+		const decoded = jwtDecode(access_token);
+		const currentTime = Date.now() / 1000;
+		if (decoded.exp < currentTime) {
+			console.warn('access token expired');
+			return false;
+		}
 
-    logout = () => {
-        this.setSession(null);
-    };
+		return true;
+	};
 
-    isAuthTokenValid = access_token => {
-        if ( !access_token )
-        {
-            return false;
-        }
-        const decoded = jwtDecode(access_token);
-        const currentTime = Date.now() / 1000;
-        if ( decoded.exp < currentTime )
-        {
-            console.warn('access token expired');
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    };
-
-    getAccessToken = () => {
-        return window.localStorage.getItem('jwt_access_token');
-    };
+	getAccessToken = () => {
+		return window.localStorage.getItem('jwt_access_token');
+	};
 }
 
-const instance = new jwtService();
+const instance = new JwtService();
 
 export default instance;

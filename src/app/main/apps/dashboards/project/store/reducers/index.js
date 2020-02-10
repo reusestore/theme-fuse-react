@@ -1,10 +1,10 @@
-import {combineReducers} from 'redux';
-import widgets from './widgets.reducer';
+import { combineReducers } from 'redux';
 import projects from './projects.reducer';
+import widgets from './widgets.reducer';
 
 const reducer = combineReducers({
-    widgets,
-    projects
+	widgets,
+	projects
 });
 
 export default reducer;

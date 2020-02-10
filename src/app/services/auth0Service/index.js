@@ -1,3 +1,3 @@
-import auth0Service from './auth0Service.js';
+import Auth0Service from './auth0Service';
 
-export default auth0Service;
+export default Auth0Service;

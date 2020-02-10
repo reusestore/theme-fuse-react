@@ -2,6 +2,13 @@
 
 @import 'tailwind-base.css';
 
+body.no-animate *,
+body.no-animate *::before,
+body.no-animate *::after {
+    transition: none !important;
+    animation: none !important;
+}
+
 html {
     font-size: 62.5%;
     font-family: Muli, Roboto, Helvetica Neue, Arial, sans-serif;

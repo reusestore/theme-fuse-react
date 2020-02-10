@@ -1,8 +1,8 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 import widgets from './widgets.reducer';
 
 const reducer = combineReducers({
-    widgets
+	widgets
 });
 
 export default reducer;

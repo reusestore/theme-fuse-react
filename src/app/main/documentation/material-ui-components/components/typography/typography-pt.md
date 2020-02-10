@@ -42,7 +42,7 @@ Para mais informações confira o projeto [typeface](https://github.com/KyleAMat
 
 ## Tema
 
-Em algumas situações, talvez você não consiga usar o componente `Tipografia`. Com sorte, você possa talvez tirar proveito das chaves de [`typography`](/customization/default-theme/?expand-path=$.typography) do tema.
+Em algumas situações, talvez você não consiga usar o componente `Tipografia`. Hopefully, you might be able to take advantage of the [`typography`](/customization/default-theme/?expand-path=$.typography) keys of the theme.
 
 {{"demo": "pages/components/typography/TypographyTheme.js"}}
 
@@ -84,8 +84,8 @@ const theme = createMuiTheme({
 
 ## Acessibilidade
 
-A few key factors to follow for an accessible typography:
+Alguns fatores chave a seguir para uma tipografia acessível:
 
-- **Color**. Provide enough contrast between text and its background, check out the minimum recommended [WCAG 2.0 color contrast ratio](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html) (4.5:1).
-- **Font size**. Use [relative units (rem)](/customization/typography/#font-size) to accommodate the user's settings.
-- **Heading hierarchy**. [Don't skip](https://www.w3.org/WAI/tutorials/page-structure/headings/) heading levels. In order to solve this problem, you need to [separate the semantics from the style](#changing-the-semantic-element).
+- **Cor**. Forneça contraste suficiente entre o texto e seu fundo, confira a [razão de contraste de cor WCAG 2.0 mínima recomendada](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html) (4.5:1).
+- **Tamanho da fonte**. Use [unidades relativas (rem)](/customization/typography/#font-size) para acomodar as configurações do usuário.
+- **Hierarquia de títulos**. [Não pule](https://www.w3.org/WAI/tutorials/page-structure/headings/) níveis de título. Para resolver esse problema, você precisa [separar a semântica do estilo](#changing-the-semantic-element).

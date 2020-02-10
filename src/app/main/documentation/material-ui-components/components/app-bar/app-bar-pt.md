@@ -9,9 +9,9 @@ components: AppBar, Toolbar, Menu
 
 A [barra de aplicativos superior](https://material.io/design/components/app-bars-top.html) provê conteúdo e ações relacionados à tela atual. Ela é utilizada para a identidade visual, títulos de tela, navegação, e ações.
 
-It can transform into a contextual action bar or be used as a navbar.
+Ela pode se transformar em uma barra de ações contextual ou ser utilizada como uma barra de navegação.
 
-## App Bar simples
+## Barra de Aplicativos Simples
 
 {{"demo": "pages/components/app-bar/ButtonAppBar.js", "bg": true}}
 
@@ -43,7 +43,7 @@ Uma barra de aplicativos proeminente.
 
 ## Barra de Aplicativos inferior
 
-{{"demo": "pages/components/app-bar/BottomAppBar.js", "iframe": true, "maxWidth": 500}}
+{{"demo": "pages/components/app-bar/BottomAppBar.js", "iframe": true, "maxWidth": 400}}
 
 ## Local de filtros
 
@@ -93,19 +93,19 @@ Você pode usar o hook `useScrollTrigger()` para responder às ações de rolage
 
 A barra de aplicativos sumirá ao descer a página para deixar mais espaço de leitura.
 
-{{"demo": "pages/components/app-bar/HideAppBar.js", "iframe": true, "maxWidth": 500}}
+{{"demo": "pages/components/app-bar/HideAppBar.js", "iframe": true}}
 
 ### Barra de aplicativos elevada
 
 A barra de aplicativos eleva-se na rolagem para comunicar que o usuário não está na parte superior da página.
 
-{{"demo": "pages/components/app-bar/ElevateAppBar.js", "iframe": true, "maxWidth": 500}}
+{{"demo": "pages/components/app-bar/ElevateAppBar.js", "iframe": true}}
 
 ### Voltar ao topo
 
 Um botão de ação flutuante aparece na rolagem para facilitar o retorno ao topo da página.
 
-{{"demo": "pages/components/app-bar/BackToTop.js", "iframe": true, "maxWidth": 500}}
+{{"demo": "pages/components/app-bar/BackToTop.js", "iframe": true}}
 
 ### `useScrollTrigger([options]) => trigger`
 

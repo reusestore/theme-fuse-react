@@ -1,1 +1,1 @@
-export {default} from './MarkdownElement';
+export { default } from './MarkdownElement';
