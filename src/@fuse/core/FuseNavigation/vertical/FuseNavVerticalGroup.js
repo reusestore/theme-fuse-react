@@ -59,7 +59,7 @@ function FuseNavVerticalGroup(props) {
 							key={_item.id}
 							type={`vertical-${_item.type}`}
 							item={_item}
-							nestedLevel={nestedLevel + 1}
+							nestedLevel={nestedLevel}
 						/>
 					))}
 				</>
