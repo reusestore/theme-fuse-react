@@ -1,6 +1,6 @@
 {
     "name": "fuse-react-app",
-    "version": "4.0.0",
+    "version": "4.0.1",
     "private": true,
     "dependencies": {
         "@date-io/core": "1.3.6",

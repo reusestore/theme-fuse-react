@@ -6,6 +6,11 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
 	{
+		version: '4.0.1',
+		date: '2020-02-16',
+		fixedChanges: ['react-scripts updated to v3.4.0 which is minor release and included mostly bug fixes.']
+	},
+	{
 		version: '4.0.0',
 		date: '2020-02-10',
 		newChanges: [
