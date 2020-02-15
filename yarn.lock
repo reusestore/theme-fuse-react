@@ -7600,7 +7600,7 @@ fsevents@^1.2.7:
     react-router: 5.1.2
     react-router-config: 5.1.1
     react-router-dom: 5.1.2
-    react-scripts: 3.3.1
+    react-scripts: 3.4.0
     react-select: 3.0.8
     react-spring: 8.0.27
     react-swipeable-views: 0.13.8
@@ -11559,16 +11559,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"open@npm:^6.4.0":
-  version: 6.4.0
-  resolution: "open@npm:6.4.0"
-  dependencies:
-    is-wsl: ^1.1.0
-  checksum: 679fd55d5234fca7c74b8f1e3bdd6de9a8719a4341ae5dfa68a5846b790c12813004e80aa1c57b026a57cd373c64eabc96804b5f96b648f22489a1a05e496741
-  languageName: node
-  linkType: hard
-
-"open@npm:^7.0.0":
+"open@npm:^7.0.0, open@npm:^7.0.2":
   version: 7.0.2
   resolution: "open@npm:7.0.2"
   dependencies:
@@ -13636,9 +13627,9 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-dev-utils@npm:^10.1.0":
-  version: 10.1.0
-  resolution: "react-dev-utils@npm:10.1.0"
+"react-dev-utils@npm:^10.2.0":
+  version: 10.2.0
+  resolution: "react-dev-utils@npm:10.2.0"
   dependencies:
     "@babel/code-frame": 7.8.3
     address: 1.1.2
@@ -13657,14 +13648,14 @@ fsevents@^1.2.7:
     inquirer: 7.0.4
     is-root: 2.1.0
     loader-utils: 1.2.3
-    open: ^6.4.0
+    open: ^7.0.2
     pkg-up: 3.1.0
-    react-error-overlay: ^6.0.5
+    react-error-overlay: ^6.0.6
     recursive-readdir: 2.2.2
     shell-quote: 1.7.2
     strip-ansi: 6.0.0
     text-table: 0.2.0
-  checksum: 858d051577ce14a0a4e3c95227841ab6364094eb349929db96e2826186849cd1651bbef0514152a382474903df965bc084124ebc70f49b91bcc43e0245f6ceea
+  checksum: 3492cf6c62e6035decae4ce58bf97ae055339d4a6e43fe9464f8967e57b4354fb06afe43888d915c38dc53c702feb36582c300d365d84e84545c3457e307d36c
   languageName: node
   linkType: hard
 
@@ -13701,10 +13692,10 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-error-overlay@npm:^6.0.5":
-  version: 6.0.5
-  resolution: "react-error-overlay@npm:6.0.5"
-  checksum: c8f9f39bbe5448db2b57d2936702417f273f9588eb282ca171d56068259c9beef79154ea28ad0a1fe3e3dd596bcf8d2d3c9eea843e58498801c83401cabb388d
+"react-error-overlay@npm:^6.0.6":
+  version: 6.0.6
+  resolution: "react-error-overlay@npm:6.0.6"
+  checksum: 56303daa3d1922e09450b09f33ce4c914977212dde96e070dde89e71918710179f81bd4afc05bbb1f49a196ab86065706073d7638159a1654365706d9df3803b
   languageName: node
   linkType: hard
 
@@ -13899,9 +13890,9 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-scripts@npm:3.3.1":
-  version: 3.3.1
-  resolution: "react-scripts@npm:3.3.1"
+"react-scripts@npm:3.4.0":
+  version: 3.4.0
+  resolution: "react-scripts@npm:3.4.0"
   dependencies:
     "@babel/core": 7.8.4
     "@svgr/webpack": 4.3.3
@@ -13943,17 +13934,17 @@ fsevents@^1.2.7:
     postcss-preset-env: 6.7.0
     postcss-safe-parser: 4.0.1
     react-app-polyfill: ^1.0.6
-    react-dev-utils: ^10.1.0
+    react-dev-utils: ^10.2.0
     resolve: 1.15.0
     resolve-url-loader: 3.1.1
     sass-loader: 8.0.2
     semver: 6.3.0
-    style-loader: 1.1.3
+    style-loader: 0.23.1
     terser-webpack-plugin: 2.3.4
     ts-pnp: 1.1.5
     url-loader: 2.3.0
-    webpack: "npm:*"
-    webpack-dev-server: 3.10.1
+    webpack: 4.41.5
+    webpack-dev-server: 3.10.2
     webpack-manifest-plugin: 2.2.0
     workbox-webpack-plugin: 4.3.1
   peerDependencies:
@@ -13966,7 +13957,7 @@ fsevents@^1.2.7:
       optional: true
   bin:
     react-scripts: ./bin/react-scripts.js
-  checksum: 6cf9156845a5721d7d49715c51eca5c1b980541275c4a2917327de668bec5bec11d902d335c9597f1ae1f42e8478c91ecdd85362bc713a7c57a6578e5e2bc90c
+  checksum: 3811e185f2838877708b28fe2f87246c66c48f0e890f394df8d8e84f3bc94c0e8e85da1aa8cdfe1b9b1c5fe410c327fd3354f685a8e6016623a79646cf1a1a49
   languageName: node
   linkType: hard
 
@@ -15749,15 +15740,13 @@ resolve@1.1.7:
   languageName: node
   linkType: hard
 
-"style-loader@npm:1.1.3":
-  version: 1.1.3
-  resolution: "style-loader@npm:1.1.3"
+"style-loader@npm:0.23.1":
+  version: 0.23.1
+  resolution: "style-loader@npm:0.23.1"
   dependencies:
-    loader-utils: ^1.2.3
-    schema-utils: ^2.6.4
-  peerDependencies:
-    webpack: ^4.0.0 || ^5.0.0
-  checksum: 29d91ee77e1669ad0cc38a9e0dd67f02c3d3096e52d3d16e9726d9f4ff758cc0729f32c6b7f2d1a374c68fcbe36774fba0d38596375f00d93bd8337e188c66b5
+    loader-utils: ^1.1.0
+    schema-utils: ^1.0.0
+  checksum: 6b8ab8eadd1bba1772c427e94f7d5c091d470339d2ef36d53abe48dee27223998d962111b4332a6a91ef0df42e159aef1089a300fe4e9197945faa6a30722dda
   languageName: node
   linkType: hard
 
@@ -16823,9 +16812,9 @@ resolve@1.1.7:
   languageName: node
   linkType: hard
 
-"webpack-dev-server@npm:3.10.1":
-  version: 3.10.1
-  resolution: "webpack-dev-server@npm:3.10.1"
+"webpack-dev-server@npm:3.10.2":
+  version: 3.10.2
+  resolution: "webpack-dev-server@npm:3.10.2"
   dependencies:
     ansi-html: 0.0.7
     bonjour: ^3.5.0
@@ -16862,9 +16851,13 @@ resolve@1.1.7:
     yargs: 12.0.5
   peerDependencies:
     webpack: ^4.0.0 || ^5.0.0
+    webpack-cli: "*"
+  peerDependenciesMeta:
+    webpack-cli:
+      optional: true
   bin:
     webpack-dev-server: bin/webpack-dev-server.js
-  checksum: a4f64363a1a7b20938f3201ebae9aa56f5b9ca61bf649a1f44a57357b0f813ebc1181140fb06949517cdef35280f863fb118636df318916b354a433be62ad9ad
+  checksum: 76e1f768b60b64b6b3ce67c4c425a490107ad2fe09f3fdfc60dfdfa5419717438c3d7dd4f13989bc695530ca13eada8b16ea2987be057a62ffb4c30130cb1df1
   languageName: node
   linkType: hard
 
