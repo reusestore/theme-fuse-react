@@ -2,7 +2,7 @@ import FuseAnimate from '@fuse/core/FuseAnimate';
 import FuseChipSelect from '@fuse/core/FuseChipSelect';
 import FuseLoading from '@fuse/core/FuseLoading';
 import FusePageCarded from '@fuse/core/FusePageCarded';
-import { useForm } from '@fuse/hooks';
+import { useForm, useDeepCompareEffect } from '@fuse/hooks';
 import FuseUtils from '@fuse/utils';
 import _ from '@lodash';
 import Button from '@material-ui/core/Button';
@@ -18,7 +18,7 @@ import withReducer from 'app/store/withReducer';
 import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import * as Actions from '../store/actions';
 import reducer from '../store/reducers';
 
@@ -65,20 +65,21 @@ function Product(props) {
 	const classes = useStyles(props);
 	const [tabValue, setTabValue] = useState(0);
 	const { form, handleChange, setForm } = useForm(null);
+	const routeParams = useParams();
 
-	useEffect(() => {
+	useDeepCompareEffect(() => {
 		function updateProductState() {
-			const { productId } = props.match.params;
+			const { productId } = routeParams;
 
 			if (productId === 'new') {
 				dispatch(Actions.newProduct());
 			} else {
-				dispatch(Actions.getProduct(props.match.params));
+				dispatch(Actions.getProduct(routeParams));
 			}
 		}
 
 		updateProductState();
-	}, [dispatch, props.match.params]);
+	}, [dispatch, routeParams]);
 
 	useEffect(() => {
 		if ((product.data && !form) || (product.data && form && product.data.id !== form.id)) {
@@ -135,8 +136,8 @@ function Product(props) {
 	}
 
 	if (
-		(!product.data || (product.data && props.match.params.productId !== product.data.id)) &&
-		props.match.params.productId !== 'new'
+		(!product.data || (product.data && routeParams.productId !== product.data.id)) &&
+		routeParams.productId !== 'new'
 	) {
 		return <FuseLoading />;
 	}

@@ -5,9 +5,10 @@ import Divider from '@material-ui/core/Divider';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, useParams } from 'react-router-dom';
+import { useDeepCompareEffect } from '@fuse/hooks';
 import MailChip from '../MailChip';
 import * as Actions from '../store/actions/index';
 
@@ -16,11 +17,12 @@ function MailDetails(props) {
 	const mail = useSelector(({ mailApp }) => mailApp.mail);
 	const labels = useSelector(({ mailApp }) => mailApp.labels);
 
+	const routeParams = useParams();
 	const [showDetails, setShowDetails] = useState(false);
 
-	useEffect(() => {
-		dispatch(Actions.getMail(props.match.params));
-	}, [dispatch, props.match.params]);
+	useDeepCompareEffect(() => {
+		dispatch(Actions.getMail(routeParams));
+	}, [dispatch, routeParams]);
 
 	if (!mail) {
 		return null;

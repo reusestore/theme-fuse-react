@@ -4,7 +4,7 @@ import IconButton from '@material-ui/core/IconButton';
 import { useTheme } from '@material-ui/core/styles';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, useParams } from 'react-router-dom';
 import * as Actions from '../store/actions/index';
 
 const pathToRegexp = require('path-to-regexp');
@@ -15,7 +15,9 @@ function MailToolbar(props) {
 	const theme = useTheme();
 
 	const toPath = pathToRegexp.compile(props.match.path);
-	const matchParams = { ...props.match.params };
+
+	const routeParams = useParams();
+	const matchParams = { ...routeParams };
 	delete matchParams.mailId;
 	const deselectUrl = toPath(matchParams);
 

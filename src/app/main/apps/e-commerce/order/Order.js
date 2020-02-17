@@ -13,9 +13,10 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import withReducer from 'app/store/withReducer';
 import GoogleMap from 'google-map-react';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { useDeepCompareEffect } from '@fuse/hooks';
 import * as Actions from '../store/actions';
 import reducer from '../store/reducers';
 import OrderInvoice from './OrderInvoice';
@@ -34,12 +35,13 @@ function Order(props) {
 	const order = useSelector(({ eCommerceApp }) => eCommerceApp.order);
 	const theme = useTheme();
 
+	const routeParams = useParams();
 	const [tabValue, setTabValue] = useState(0);
 	const [map, setMap] = useState('shipping');
 
-	useEffect(() => {
-		dispatch(Actions.getOrder(props.match.params));
-	}, [dispatch, props.match.params]);
+	useDeepCompareEffect(() => {
+		dispatch(Actions.getOrder(routeParams));
+	}, [dispatch, routeParams]);
 
 	function handleChangeTab(event, value) {
 		setTabValue(value);

@@ -13,7 +13,7 @@ import NoteLabel from 'app/main/apps/notes/NoteLabel';
 import NoteReminderLabel from 'app/main/apps/notes/NoteReminderLabel';
 import moment from 'moment';
 import React, { useState } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, useParams } from 'react-router-dom';
 import NoteFormList from './checklist/NoteFormList';
 import NoteFormLabelMenu from './NoteFormLabelMenu';
 import NoteFormReminder from './NoteFormReminder';
@@ -21,13 +21,14 @@ import NoteFormUploadImage from './NoteFormUploadImage';
 
 function NoteForm(props) {
 	const [showList, setShowList] = useState(false);
+	const routeParams = useParams();
 	const { form: noteForm, handleChange, setForm } = useForm(
 		_.merge(
 			{},
 			new NoteModel(),
 			props.note,
-			props.match.params.labelId ? { labels: [props.match.params.labelId] } : null,
-			props.match.params.id === 'archive' ? { archive: true } : null
+			routeParams.labelId ? { labels: [routeParams.labelId] } : null,
+			routeParams.id === 'archive' ? { archive: true } : null
 		)
 	);
 	const { onChange } = props;
