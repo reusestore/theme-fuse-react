@@ -19,7 +19,7 @@
         "cross-fetch": "3.0.4",
         "date-fns": "2.1.0",
         "downshift": "4.1.0",
-        "firebase": "7.10.0",
+        "firebase": "7.11.0",
         "formsy-react": "2.0.2",
         "google-map-react": "1.1.6",
         "history": "4.10.1",
