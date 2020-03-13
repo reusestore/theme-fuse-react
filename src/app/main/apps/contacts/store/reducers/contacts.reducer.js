@@ -4,7 +4,6 @@ import * as Actions from '../actions';
 const initialState = {
 	entities: null,
 	searchText: '',
-	selectedContactIds: [],
 	routeParams: {},
 	contactDialog: {
 		type: 'new',
@@ -28,38 +27,6 @@ const contactsReducer = (state = initialState, action) => {
 			return {
 				...state,
 				searchText: action.searchText
-			};
-		}
-		case Actions.TOGGLE_IN_SELECTED_CONTACTS: {
-			const { contactId } = action;
-
-			let selectedContactIds = [...state.selectedContactIds];
-
-			if (selectedContactIds.find(id => id === contactId) !== undefined) {
-				selectedContactIds = selectedContactIds.filter(id => id !== contactId);
-			} else {
-				selectedContactIds = [...selectedContactIds, contactId];
-			}
-
-			return {
-				...state,
-				selectedContactIds
-			};
-		}
-		case Actions.SELECT_ALL_CONTACTS: {
-			const arr = Object.keys(state.entities).map(k => state.entities[k]);
-
-			const selectedContactIds = arr.map(contact => contact.id);
-
-			return {
-				...state,
-				selectedContactIds
-			};
-		}
-		case Actions.DESELECT_ALL_CONTACTS: {
-			return {
-				...state,
-				selectedContactIds: []
 			};
 		}
 		case Actions.OPEN_NEW_CONTACT_DIALOG: {

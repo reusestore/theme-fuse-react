@@ -122,6 +122,10 @@ const MaterialUIComponentsRoutes = [
 		component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/NoSsr'))
 	},
 	{
+		path: '/documentation/material-ui-components/pagination',
+		component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/Pagination'))
+	},
+	{
 		path: '/documentation/material-ui-components/paper',
 		component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/Paper'))
 	},

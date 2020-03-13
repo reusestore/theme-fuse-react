@@ -10,8 +10,7 @@ function RadioGroupFormsy(props) {
 	const importedProps = _.pick(props, ['children', 'name', 'onBlur', 'onChange', 'onKeyDown', 'variant']);
 
 	// An error message is returned only if the component is invalid
-	const errorMessage = props.getErrorMessage();
-	const value = props.getValue();
+	const { errorMessage, value } = props;
 
 	function changeValue(event, val) {
 		props.setValue(val);
@@ -21,10 +20,13 @@ function RadioGroupFormsy(props) {
 	}
 
 	return (
-		<FormControl error={Boolean(errorMessage)} className={props.className}>
+		<FormControl
+			error={Boolean((!props.isPristine && props.showRequired) || errorMessage)}
+			className={props.className}
+		>
 			<FormControl component="fieldset" required={props.required} error={Boolean(errorMessage)}>
 				{props.label && <FormLabel component="legend">{props.label}</FormLabel>}
-				<RadioGroup {...importedProps} value={value} onChange={changeValue} />
+				<RadioGroup {...importedProps} value={value || null} onChange={changeValue} />
 				{Boolean(errorMessage) && <FormHelperText>{errorMessage}</FormHelperText>}
 			</FormControl>
 		</FormControl>

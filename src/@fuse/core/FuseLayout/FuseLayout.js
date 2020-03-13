@@ -1,18 +1,18 @@
+import { useDeepCompareEffect } from '@fuse/hooks';
 import FuseLayouts from '@fuse/layouts/FuseLayouts';
 import _ from '@lodash';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import AppContext from 'app/AppContext';
 import * as Actions from 'app/store/actions';
 import { generateSettings } from 'app/store/reducers/fuse/settings.reducer';
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { useContext, useMemo, useCallback, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { matchRoutes } from 'react-router-config';
-import { withRouter } from 'react-router-dom';
-import { bindActionCreators } from 'redux';
+import { useLocation } from 'react-router-dom';
 import * as Velocity from 'velocity-animate';
 import { defaults as Chartjs2Defaults } from 'react-chartjs-2';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
 	'@global': {
 		'code:not([class*="language-"])': {
 			color: theme.palette.secondary.dark,
@@ -39,95 +39,87 @@ const styles = theme => ({
 		},
 		'[class*="border-"]': {
 			borderColor: theme.palette.divider
+		},
+		hr: {
+			borderColor: theme.palette.divider
 		}
 	},
 	root: {
 		backgroundColor: theme.palette.background.default,
 		color: theme.palette.text.primary
 	}
-});
+}));
 
-class FuseLayout extends Component {
-	constructor(props, context) {
-		super(props);
-		const { routes } = context;
+function FuseLayout(props) {
+	const dispatch = useDispatch();
+	const settings = useSelector(({ fuse }) => fuse.settings.current);
+	const defaultSettings = useSelector(({ fuse }) => fuse.settings.defaults);
 
-		this.state = {
-			awaitRender: false,
-			routes
-		};
-	}
+	const appContext = useContext(AppContext);
+	const { routes } = appContext;
+	const classes = useStyles(props);
+	const location = useLocation();
+	const { pathname } = location;
+	const matched = matchRoutes(routes, pathname)[0];
+	const newSettings = useRef(null);
 
-	static getDerivedStateFromProps(props, state) {
-		const { pathname } = props.location;
-		const matched = matchRoutes(state.routes, pathname)[0];
-		let newSettings = props.settings;
+	const shouldAwaitRender = useCallback(() => {
+		let _newSettings;
+		/**
+		 * On Path changed
+		 */
+		// if (prevPathname !== pathname) {
+		if (matched && matched.route.settings) {
+			/**
+			 * if matched route has settings
+			 */
 
-		if (state.pathname !== pathname) {
-			if (matched && matched.route.settings) {
-				const routeSettings = matched.route.settings;
+			const routeSettings = matched.route.settings;
 
-				newSettings = generateSettings(props.defaultSettings, routeSettings);
-
-				if (!_.isEqual(props.settings, newSettings)) {
-					props.setSettings(newSettings);
-				}
-			} else if (!_.isEqual(props.settings, props.defaultSettings)) {
-				newSettings = _.merge({}, props.defaultSettings);
-
-				props.resetSettings();
-			}
+			_newSettings = generateSettings(defaultSettings, routeSettings);
+		} else if (!_.isEqual(newSettings.current, defaultSettings)) {
+			/**
+			 * Reset to default settings on the new path
+			 */
+			_newSettings = _.merge({}, defaultSettings);
+		} else {
+			_newSettings = newSettings.current;
 		}
 
-		function AnimationToggle(settings) {
-			if (!settings.animations) {
+		if (!_.isEqual(newSettings.current, _newSettings)) {
+			newSettings.current = _newSettings;
+		}
+
+		function AnimationToggle(_settings) {
+			if (!_settings.animations) {
 				document.body.classList.add('no-animate');
 				Velocity.mock = true;
-				Chartjs2Defaults.global.animation = true;
+				Chartjs2Defaults.global.animation.duration = 0;
+				Chartjs2Defaults.global.hover.animationDuration = 0;
 			} else {
 				document.body.classList.remove('no-animate');
 				Velocity.mock = false;
-				Chartjs2Defaults.global.animation = false;
+				Chartjs2Defaults.global.animation.duration = 1000;
+				Chartjs2Defaults.global.hover.animationDuration = 400;
 			}
 		}
 
-		AnimationToggle(newSettings);
+		AnimationToggle(_newSettings);
+	}, [defaultSettings, matched]);
 
-		return {
-			awaitRender: !_.isEqual(props.settings, newSettings),
-			pathname
-		};
-	}
+	shouldAwaitRender();
 
-	render() {
-		const { settings, classes } = this.props;
-		// console.warn('FuseLayout:: rendered');
+	useDeepCompareEffect(() => {
+		if (!_.isEqual(newSettings.current, settings)) {
+			dispatch(Actions.setSettings(newSettings.current));
+		}
+	}, [dispatch, newSettings.current, settings]);
 
-		const Layout = FuseLayouts[settings.layout.style];
+	// console.warn('::FuseLayout:: rendered');
 
-		return !this.state.awaitRender ? <Layout classes={{ root: classes.root }} {...this.props} /> : null;
-	}
+	const Layout = useMemo(() => FuseLayouts[settings.layout.style], [settings.layout.style]);
+
+	return _.isEqual(newSettings.current, settings) ? <Layout classes={{ root: classes.root }} {...props} /> : null;
 }
 
-function mapDispatchToProps(dispatch) {
-	return bindActionCreators(
-		{
-			setSettings: Actions.setSettings,
-			resetSettings: Actions.resetSettings
-		},
-		dispatch
-	);
-}
-
-function mapStateToProps({ fuse }) {
-	return {
-		defaultSettings: fuse.settings.defaults,
-		settings: fuse.settings.current
-	};
-}
-
-FuseLayout.contextType = AppContext;
-
-export default withStyles(styles, { withTheme: true })(
-	withRouter(connect(mapStateToProps, mapDispatchToProps)(React.memo(FuseLayout)))
-);
+export default React.memo(FuseLayout);

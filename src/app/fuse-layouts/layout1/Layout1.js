@@ -202,4 +202,4 @@ function Layout1(props) {
 	}
 }
 
-export default Layout1;
+export default React.memo(Layout1);

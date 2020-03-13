@@ -143,4 +143,4 @@ function ContactList(props) {
 	);
 }
 
-export default ContactList;
+export default React.memo(ContactList);

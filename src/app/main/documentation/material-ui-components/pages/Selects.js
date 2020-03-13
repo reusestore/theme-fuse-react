@@ -62,6 +62,10 @@ import React from 'react';
                     component={require('app/main/documentation/material-ui-components/components/selects/SimpleSelect.js').default} 
                     raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/SimpleSelect.js')}
                     /></Typography>
+<Typography className="text-32 mt-32 mb-8" component="h2">Advanced features</Typography>
+<Typography className="mb-16" component="div">The Select component is meant to be interchangeable with a native <code>{`<select>`}</code> element.</Typography>
+<Typography className="mb-16" component="div">If you are looking for more advanced features, like combobox, multiselect, autocomplete, async or creatable support, head to the <a href="/components/autocomplete/"><code>{`Autocomplete`}</code> component</a>.
+It&#39;s also meant to be an improved version of the &quot;react-select&quot; package.</Typography>
 <Typography className="text-32 mt-32 mb-8" component="h2">Native Select</Typography>
 <Typography className="mb-16" component="div">As the user experience can be improved on mobile using the native select of the platform,
 we allow such pattern.</Typography>

@@ -1,24 +1,105 @@
 import FuseAnimate from '@fuse/core/FuseAnimate';
 import FuseUtils from '@fuse/utils';
 import Avatar from '@material-ui/core/Avatar';
-import Checkbox from '@material-ui/core/Checkbox';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ReactTable from 'react-table';
 import ContactsMultiSelectMenu from './ContactsMultiSelectMenu';
+import ContactsTable from './ContactsTable';
 import * as Actions from './store/actions';
 
 function ContactsList(props) {
 	const dispatch = useDispatch();
 	const contacts = useSelector(({ contactsApp }) => contactsApp.contacts.entities);
-	const selectedContactIds = useSelector(({ contactsApp }) => contactsApp.contacts.selectedContactIds);
 	const searchText = useSelector(({ contactsApp }) => contactsApp.contacts.searchText);
 	const user = useSelector(({ contactsApp }) => contactsApp.user);
 
 	const [filteredData, setFilteredData] = useState(null);
+
+	const columns = React.useMemo(
+		() => [
+			{
+				Header: ({ selectedFlatRows }) => {
+					const selectedRowIds = selectedFlatRows.map(row => row.original.id);
+
+					return (
+						selectedFlatRows.length > 0 && <ContactsMultiSelectMenu selectedContactIds={selectedRowIds} />
+					);
+				},
+				accessor: 'avatar',
+				Cell: ({ row }) => {
+					return <Avatar className="mx-8" alt={row.original.name} src={row.original.avatar} />;
+				},
+				className: 'justify-center',
+				width: 64,
+				sortable: false
+			},
+			{
+				Header: 'First Name',
+				accessor: 'name',
+				className: 'font-bold',
+				sortable: true
+			},
+			{
+				Header: 'Last Name',
+				accessor: 'lastName',
+				className: 'font-bold',
+				sortable: true
+			},
+			{
+				Header: 'Company',
+				accessor: 'company',
+				sortable: true
+			},
+			{
+				Header: 'Job Title',
+				accessor: 'jobTitle',
+				sortable: true
+			},
+			{
+				Header: 'Email',
+				accessor: 'email',
+				sortable: true
+			},
+			{
+				Header: 'Phone',
+				accessor: 'phone',
+				sortable: true
+			},
+			{
+				id: 'action',
+				width: 128,
+				sortable: false,
+				Cell: ({ row }) => (
+					<div className="flex items-center">
+						<IconButton
+							onClick={ev => {
+								ev.stopPropagation();
+								dispatch(Actions.toggleStarredContact(row.original.id));
+							}}
+						>
+							{user.starred && user.starred.includes(row.original.id) ? (
+								<Icon>star</Icon>
+							) : (
+								<Icon>star_border</Icon>
+							)}
+						</IconButton>
+						<IconButton
+							onClick={ev => {
+								ev.stopPropagation();
+								dispatch(Actions.removeContact(row.original.id));
+							}}
+						>
+							<Icon>delete</Icon>
+						</IconButton>
+					</div>
+				)
+			}
+		],
+		[dispatch, user.starred]
+	);
 
 	useEffect(() => {
 		function getFilteredArray(entities, _searchText) {
@@ -50,128 +131,14 @@ function ContactsList(props) {
 
 	return (
 		<FuseAnimate animation="transition.slideUpIn" delay={300}>
-			<ReactTable
-				className="-striped -highlight h-full sm:rounded-16 overflow-hidden"
-				getTrProps={(state, rowInfo, column) => {
-					return {
-						className: 'cursor-pointer',
-						onClick: (e, handleOriginal) => {
-							if (rowInfo) {
-								dispatch(Actions.openEditContactDialog(rowInfo.original));
-							}
-						}
-					};
-				}}
+			<ContactsTable
+				columns={columns}
 				data={filteredData}
-				columns={[
-					{
-						Header: () => (
-							<Checkbox
-								onClick={event => {
-									event.stopPropagation();
-								}}
-								onChange={event => {
-									return event.target.checked
-										? dispatch(Actions.selectAllContacts())
-										: dispatch(Actions.deSelectAllContacts());
-								}}
-								checked={
-									selectedContactIds.length === Object.keys(contacts).length &&
-									selectedContactIds.length > 0
-								}
-								indeterminate={
-									selectedContactIds.length !== Object.keys(contacts).length &&
-									selectedContactIds.length > 0
-								}
-							/>
-						),
-						accessor: '',
-						Cell: row => {
-							return (
-								<Checkbox
-									onClick={event => {
-										event.stopPropagation();
-									}}
-									checked={selectedContactIds.includes(row.value.id)}
-									onChange={() => dispatch(Actions.toggleInSelectedContacts(row.value.id))}
-								/>
-							);
-						},
-						className: 'justify-center',
-						sortable: false,
-						width: 64
-					},
-					{
-						Header: () => selectedContactIds.length > 0 && <ContactsMultiSelectMenu />,
-						accessor: 'avatar',
-						Cell: row => <Avatar className="mx-8" alt={row.original.name} src={row.value} />,
-						className: 'justify-center',
-						width: 64,
-						sortable: false
-					},
-					{
-						Header: 'First Name',
-						accessor: 'name',
-						filterable: true,
-						className: 'font-bold'
-					},
-					{
-						Header: 'Last Name',
-						accessor: 'lastName',
-						filterable: true,
-						className: 'font-bold'
-					},
-					{
-						Header: 'Company',
-						accessor: 'company',
-						filterable: true
-					},
-					{
-						Header: 'Job Title',
-						accessor: 'jobTitle',
-						filterable: true
-					},
-					{
-						Header: 'Email',
-						accessor: 'email',
-						filterable: true
-					},
-					{
-						Header: 'Phone',
-						accessor: 'phone',
-						filterable: true
-					},
-					{
-						Header: '',
-						width: 128,
-						Cell: row => (
-							<div className="flex items-center">
-								<IconButton
-									onClick={ev => {
-										ev.stopPropagation();
-										dispatch(Actions.toggleStarredContact(row.original.id));
-									}}
-								>
-									{user.starred && user.starred.includes(row.original.id) ? (
-										<Icon>star</Icon>
-									) : (
-										<Icon>star_border</Icon>
-									)}
-								</IconButton>
-								<IconButton
-									onClick={ev => {
-										ev.stopPropagation();
-										dispatch(Actions.removeContact(row.original.id));
-									}}
-								>
-									<Icon>delete</Icon>
-								</IconButton>
-							</div>
-						)
+				onRowClick={(ev, row) => {
+					if (row) {
+						dispatch(Actions.openEditContactDialog(row.original));
 					}
-				]}
-				defaultPageSize={10}
-				noDataText="No contacts found"
+				}}
 			/>
 		</FuseAnimate>
 	);

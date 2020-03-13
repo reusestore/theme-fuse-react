@@ -6,12 +6,12 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import * as Actions from './store/actions';
 
 function ContactsMultiSelectMenu(props) {
 	const dispatch = useDispatch();
-	const selectedContactIds = useSelector(({ contactsApp }) => contactsApp.contacts.selectedContactIds);
+	const { selectedContactIds } = props;
 
 	const [anchorEl, setAnchorEl] = useState(null);
 

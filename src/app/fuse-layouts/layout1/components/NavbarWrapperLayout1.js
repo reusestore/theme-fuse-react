@@ -178,4 +178,4 @@ function NavbarWrapperLayout1(props) {
 	);
 }
 
-export default NavbarWrapperLayout1;
+export default React.memo(NavbarWrapperLayout1);

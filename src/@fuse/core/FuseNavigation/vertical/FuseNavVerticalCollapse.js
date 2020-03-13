@@ -8,7 +8,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -73,15 +73,20 @@ function FuseNavVerticalCollapse(props) {
 
 	useEffect(() => {
 		if (needsToBeOpened(props.location, props.item)) {
-			setOpen(true);
+			if (!open) {
+				setOpen(true);
+			}
 		}
+		// eslint-disable-next-line
 	}, [props.location, props.item]);
 
 	function handleClick() {
 		setOpen(!open);
 	}
 
-	if (!FuseUtils.hasPermission(item.auth, userRole)) {
+	const hasPermission = useMemo(() => FuseUtils.hasPermission(item.auth, userRole), [item.auth, userRole]);
+
+	if (!hasPermission) {
 		return null;
 	}
 

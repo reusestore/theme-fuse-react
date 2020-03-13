@@ -17,4 +17,4 @@ function NavbarLayout2() {
 	);
 }
 
-export default NavbarLayout2;
+export default React.memo(NavbarLayout2);

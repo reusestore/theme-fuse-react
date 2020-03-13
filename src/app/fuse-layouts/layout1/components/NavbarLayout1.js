@@ -60,4 +60,4 @@ function NavbarLayout1(props) {
 	);
 }
 
-export default NavbarLayout1;
+export default React.memo(NavbarLayout1);

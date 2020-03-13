@@ -98,7 +98,7 @@ import React from 'react';
 <Typography className="mb-16" component="div">If there is an error loading the avatar image, the component falls back to an alternative in the following order:</Typography>
 <ul>
 <li>the provided children</li>
-<li>the first letter of tha <code>{`alt`}</code> text</li>
+<li>the first letter of the <code>{`alt`}</code> text</li>
 <li>a generic avatar icon</li>
 </ul>
 <Typography className="mb-16" component="div"><FuseExample

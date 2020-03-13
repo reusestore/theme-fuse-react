@@ -12,4 +12,4 @@ function NavbarLayout3() {
 	);
 }
 
-export default NavbarLayout3;
+export default React.memo(NavbarLayout3);

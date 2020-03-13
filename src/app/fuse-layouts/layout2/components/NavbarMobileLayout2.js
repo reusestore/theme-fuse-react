@@ -60,4 +60,4 @@ function NavbarMobileLayout2(props) {
 	);
 }
 
-export default NavbarMobileLayout2;
+export default React.memo(NavbarMobileLayout2);

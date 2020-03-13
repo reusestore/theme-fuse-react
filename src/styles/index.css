@@ -95,11 +95,21 @@ form label {
     z-index: 99;
 }
 
+@keyframes autofill {
+    0%,100% {
+        background: transparent;
+    }
+}
+input:-webkit-autofill {
+    animation-delay: 1s;
+    animation-name: autofill!important;
+    animation-fill-mode: both;
+    -webkit-box-shadow:0 0 0 100px transparent inset!important;
+}
+
 @import 'print.css';
 
 @import 'tables.css';
-
-@import 'react-table.css';
 
 @import 'prism.css';
 

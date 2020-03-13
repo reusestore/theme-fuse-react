@@ -31,8 +31,7 @@ function SelectFormsy(props) {
 	]);
 
 	// An error message is returned only if the component is invalid
-	const errorMessage = props.getErrorMessage();
-	const value = props.getValue();
+	const { errorMessage, value } = props;
 
 	function input() {
 		switch (importedProps.variant) {
@@ -53,7 +52,11 @@ function SelectFormsy(props) {
 	}
 
 	return (
-		<FormControl error={Boolean(errorMessage)} className={props.className} variant={importedProps.variant}>
+		<FormControl
+			error={Boolean((!props.isPristine && props.showRequired) || errorMessage)}
+			className={props.className}
+			variant={importedProps.variant}
+		>
 			{props.label && <InputLabel htmlFor={props.name}>{props.label}</InputLabel>}
 			<Select {...importedProps} value={value} onChange={changeValue} input={input()} />
 			{Boolean(errorMessage) && <FormHelperText>{errorMessage}</FormHelperText>}

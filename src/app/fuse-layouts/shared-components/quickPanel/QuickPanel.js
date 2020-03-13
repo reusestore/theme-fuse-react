@@ -143,4 +143,4 @@ function QuickPanel(props) {
 	);
 }
 
-export default withReducer('quickPanel', reducer)(QuickPanel);
+export default withReducer('quickPanel', reducer)(React.memo(QuickPanel));

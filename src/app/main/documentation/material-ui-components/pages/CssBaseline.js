@@ -54,6 +54,7 @@ import React from 'react';
                      <Typography className="text-44 mt-32 mb-8" component="h1">CSS Baseline</Typography>
 <Typography className="description">Material-UI provides a CssBaseline component to kickstart an elegant, consistent, and simple baseline to build upon.</Typography>
 
+<Typography className="text-32 mt-32 mb-8" component="h2">Global reset</Typography>
 <Typography className="mb-16" component="div">You might be familiar with <a href="https://github.com/necolas/normalize.css">normalize.css</a>, a collection of HTML element and attribute style-normalizations.</Typography>
 
 <FuseHighlight component="pre" className="language-jsx">
@@ -67,6 +68,24 @@ export default function MyApp() {
       <CssBaseline />
       {/* The rest of your application */}
     </React.Fragment>
+  );
+}
+`}
+</FuseHighlight>
+<Typography className="text-32 mt-32 mb-8" component="h2">Scoping on children</Typography>
+<Typography className="mb-16" component="div">However, you might be progressively migrating a website to Material-UI, using a global reset might not be an option.
+It&#39;s possible to apply the baseline only to the children by using the <code>{`ScopedCssBaseline`}</code> component.</Typography>
+
+<FuseHighlight component="pre" className="language-jsx">
+{` 
+import React from 'react';
+import ScopedCssBaseline from '@material-ui/core/ScopedCssBaseline';
+
+export default function MyApp() {
+  return (
+    <ScopedCssBaseline>
+      {/* The rest of your application */}
+    </ScopedCssBaseline>
   );
 }
 `}
@@ -90,8 +109,7 @@ which ensures that the declared width of the element is never exceeded due to pa
 <li>No base font-size is declared on the <code>{`<html>`}</code>, but 16px is assumed (the browser default).
 You can learn more about the implications of changing the <code>{`<html>`}</code> default font size in <a href="/customization/typography/#typography-html-font-size">the theme documentation</a> page.</li>
 <li>Set the <code>{`theme.typography.body2`}</code> style on the <code>{`<body>`}</code> element.</li>
-<li>Set the font-weight to &quot;bolder&quot; for the <code>{`<b>`}</code> and <code>{`<strong>`}</code> elements.
-Bolder is one font weight heavier than the parent element (among the available weights of the font).</li>
+<li>Set the font-weight to <code>{`theme.typography.fontWeightBold`}</code> for the <code>{`<b>`}</code> and <code>{`<strong>`}</code> elements.</li>
 <li>Font antialiasing is enabled for better display of the Roboto font.</li>
 </ul>
 

@@ -109,4 +109,4 @@ function Layout2(props) {
 	);
 }
 
-export default Layout2;
+export default React.memo(Layout2);

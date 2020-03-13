@@ -60,4 +60,4 @@ function NavbarMobileLayout3(props) {
 	);
 }
 
-export default NavbarMobileLayout3;
+export default React.memo(NavbarMobileLayout3);

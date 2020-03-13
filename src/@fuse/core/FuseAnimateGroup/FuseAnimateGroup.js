@@ -1,4 +1,3 @@
-import _ from '@lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { VelocityTransitionGroup } from 'velocity-react';
@@ -22,16 +21,13 @@ const leaveAnimationDefaults = {
 };
 
 function FuseAnimateGroup(props) {
-	const newProps = _.merge(
-		{},
-		{
-			enter: enterAnimationDefaults,
-			leave: leaveAnimationDefaults
-		},
-		props
+	return (
+		<VelocityTransitionGroup
+			{...props}
+			enter={{ ...enterAnimationDefaults, ...props.enter }}
+			leave={{ ...leaveAnimationDefaults, ...props.leave }}
+		/>
 	);
-
-	return <VelocityTransitionGroup {...newProps}>{props.children}</VelocityTransitionGroup>;
 }
 
 FuseAnimateGroup.propTypes = {

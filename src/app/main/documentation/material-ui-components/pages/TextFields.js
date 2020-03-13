@@ -295,10 +295,9 @@ function MyInputComponent(props) {
 <Typography className="text-32 mt-32 mb-8" component="h2">Complementary projects</Typography>
 <Typography className="mb-16" component="div">For more advanced use cases you might be able to take advantage of:</Typography>
 <ul>
-<li><a href="https://github.com/stackworx/formik-material-ui">formik-material-ui</a> Bindings for using Material-UI with formik.</li>
-<li><a href="https://github.com/erikras/redux-form-material-ui">redux-form-material-ui</a> A set of wrapper components to facilitate using Material UI with Redux Form.</li>
-<li><a href="https://github.com/Deadly0/final-form-material-ui">final-form-material-ui</a> A set of wrapper components to facilitate using Material UI with Final Form.</li>
-<li><a href="https://github.com/lookfirst/mui-rff">mui-rff</a> A set of wrapper components to facilitate using Material UI with React Final Form.</li>
+<li><a href="https://github.com/stackworx/formik-material-ui">formik-material-ui</a> Bindings for using Material-UI with <a href="https://jaredpalmer.com/formik">formik</a>.</li>
+<li><a href="https://github.com/erikras/redux-form-material-ui">redux-form-material-ui</a> Bindings for using Material-UI with <a href="https://redux-form.com/">Redux Form</a>.</li>
+<li><a href="https://github.com/lookfirst/mui-rff">mui-rff</a> Bindings for using Material-UI with <a href="https://final-form.org/react">React Final Form</a>.</li>
 </ul>
 
                 </div>

@@ -3,12 +3,11 @@ import Icon from '@material-ui/core/Icon';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
-import * as Actions from 'app/store/actions';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import FuseNavBadge from '../FuseNavBadge';
 
@@ -36,14 +35,15 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function FuseNavHorizontalLink(props) {
-	const dispatch = useDispatch();
 	const userRole = useSelector(({ auth }) => auth.user.role);
 
 	const classes = useStyles(props);
 	const { item } = props;
 	const { t } = useTranslation('navigation');
 
-	if (!FuseUtils.hasPermission(item.auth, userRole)) {
+	const hasPermission = useMemo(() => FuseUtils.hasPermission(item.auth, userRole), [item.auth, userRole]);
+
+	if (!hasPermission) {
 		return null;
 	}
 
@@ -54,7 +54,6 @@ function FuseNavHorizontalLink(props) {
 			href={item.url}
 			target={item.target ? item.target : '_blank'}
 			className={clsx('list-item', classes.root)}
-			onClick={ev => dispatch(Actions.navbarCloseMobile())}
 			role="button"
 		>
 			{item.icon && (
