@@ -180,6 +180,12 @@ const MaterialUIComponentsNavigation = [
 		url: '/documentation/material-ui-components/no-ssr'
 	},
 	{
+		id: 'pagination',
+		title: 'Pagination',
+		type: 'item',
+		url: '/documentation/material-ui-components/pagination'
+	},
+	{
 		id: 'paper',
 		title: 'Paper',
 		type: 'item',

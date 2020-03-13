@@ -109,4 +109,4 @@ function Layout3(props) {
 	);
 }
 
-export default Layout3;
+export default React.memo(Layout3);

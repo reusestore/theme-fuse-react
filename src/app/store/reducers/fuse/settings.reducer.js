@@ -121,6 +121,7 @@ function getInitialThemes() {
 		...themes,
 		...mainThemeVariations({
 			...themesObjRaw[initialSettings.theme.main],
+			mixins: extendThemeWithMixins(themesObjRaw[initialSettings.theme.main]),
 			direction
 		})
 	};
@@ -129,6 +130,7 @@ function getInitialThemes() {
 function updateMainThemeVariations(mainTheme, themes) {
 	return mainThemeVariations({
 		...themesObjRaw[mainTheme],
+		mixins: extendThemeWithMixins(themesObjRaw[mainTheme]),
 		direction: themes[mainTheme].direction
 	});
 }

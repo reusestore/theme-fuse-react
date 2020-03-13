@@ -56,7 +56,7 @@ function ReactTableDoc() {
 					<hr />
 
 					<Typography className="text-32 mt-32 mb-8" component="h2">
-						Example Usages
+						Example Usage
 					</Typography>
 
 					<FuseExample
@@ -64,6 +64,21 @@ function ReactTableDoc() {
 						component={require('./examples/simple.js').default}
 						raw={require('!raw-loader!./examples/simple.js')}
 					/>
+
+					<Typography className="text-32 mt-32 mb-8" component="h2">
+						Enhanced examples
+					</Typography>
+
+					<Typography className="mt-32 mb-8" component="p">
+						Checkout for enhanced examples at{' '}
+						<a
+							href="https://github.com/tannerlinsley/react-table/blob/master/docs/examples.md"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							react-table docs
+						</a>
+					</Typography>
 
 					<Typography className="text-32 mt-32 mb-8" component="h2">
 						Demos

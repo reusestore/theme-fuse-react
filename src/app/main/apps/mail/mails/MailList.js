@@ -6,7 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, useParams } from 'react-router-dom';
+import { useDeepCompareEffect } from '@fuse/hooks';
 import * as Actions from '../store/actions';
 import MailListItem from './MailListItem';
 
@@ -15,12 +16,13 @@ function MailList(props) {
 	const mails = useSelector(({ mailApp }) => mailApp.mails.entities);
 	const searchText = useSelector(({ mailApp }) => mailApp.mails.searchText);
 
+	const routeParams = useParams();
 	const [filteredData, setFilteredData] = useState(null);
 	const { t } = useTranslation('mailApp');
 
-	useEffect(() => {
-		dispatch(Actions.getMails(props.match.params));
-	}, [dispatch, props.match.params]);
+	useDeepCompareEffect(() => {
+		dispatch(Actions.getMails(routeParams));
+	}, [dispatch, routeParams]);
 
 	useEffect(() => {
 		function getFilteredArray() {

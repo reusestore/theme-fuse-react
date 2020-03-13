@@ -6,6 +6,20 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
 	{
+		version: '4.1.0',
+		date: '2020-03-13',
+		newChanges: [
+			'react updated to v16.13.0',
+			'react-table updated to v7, also react-table docs and Contacts App table updated.',
+			'formsy-react and its HOC`s updated',
+			'material-ui updated to v4.9.5',
+			'All dependency packages updated.',
+			'performance improvements.',
+			'input autofill backgroundColor changed to transparent.'
+		],
+		fixedChanges: ['FuseChipSelect error highligting.']
+	},
+	{
 		version: '4.0.1',
 		date: '2020-02-16',
 		fixedChanges: ['react-scripts updated to v3.4.0 which is minor release and included mostly bug fixes.']

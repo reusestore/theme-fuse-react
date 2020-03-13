@@ -3,9 +3,6 @@ import axios from 'axios';
 
 export const GET_CONTACTS = '[CONTACTS APP] GET CONTACTS';
 export const SET_SEARCH_TEXT = '[CONTACTS APP] SET SEARCH TEXT';
-export const TOGGLE_IN_SELECTED_CONTACTS = '[CONTACTS APP] TOGGLE IN SELECTED CONTACTS';
-export const SELECT_ALL_CONTACTS = '[CONTACTS APP] SELECT ALL CONTACTS';
-export const DESELECT_ALL_CONTACTS = '[CONTACTS APP] DESELECT ALL CONTACTS';
 export const OPEN_NEW_CONTACT_DIALOG = '[CONTACTS APP] OPEN NEW CONTACT DIALOG';
 export const CLOSE_NEW_CONTACT_DIALOG = '[CONTACTS APP] CLOSE NEW CONTACT DIALOG';
 export const OPEN_EDIT_CONTACT_DIALOG = '[CONTACTS APP] OPEN EDIT CONTACT DIALOG';
@@ -37,25 +34,6 @@ export function setSearchText(event) {
 	return {
 		type: SET_SEARCH_TEXT,
 		searchText: event.target.value
-	};
-}
-
-export function toggleInSelectedContacts(contactId) {
-	return {
-		type: TOGGLE_IN_SELECTED_CONTACTS,
-		contactId
-	};
-}
-
-export function selectAllContacts() {
-	return {
-		type: SELECT_ALL_CONTACTS
-	};
-}
-
-export function deSelectAllContacts() {
-	return {
-		type: DESELECT_ALL_CONTACTS
 	};
 }
 
@@ -150,9 +128,6 @@ export function removeContacts(contactIds) {
 			Promise.all([
 				dispatch({
 					type: REMOVE_CONTACTS
-				}),
-				dispatch({
-					type: DESELECT_ALL_CONTACTS
 				})
 			]).then(() => dispatch(getContacts(routeParams)))
 		);
@@ -191,9 +166,6 @@ export function toggleStarredContacts(contactIds) {
 				dispatch({
 					type: TOGGLE_STARRED_CONTACTS
 				}),
-				dispatch({
-					type: DESELECT_ALL_CONTACTS
-				}),
 				dispatch(getUserData())
 			]).then(() => dispatch(getContacts(routeParams)))
 		);
@@ -213,9 +185,6 @@ export function setContactsStarred(contactIds) {
 				dispatch({
 					type: SET_CONTACTS_STARRED
 				}),
-				dispatch({
-					type: DESELECT_ALL_CONTACTS
-				}),
 				dispatch(getUserData())
 			]).then(() => dispatch(getContacts(routeParams)))
 		);
@@ -234,9 +203,6 @@ export function setContactsUnstarred(contactIds) {
 			Promise.all([
 				dispatch({
 					type: SET_CONTACTS_STARRED
-				}),
-				dispatch({
-					type: DESELECT_ALL_CONTACTS
 				}),
 				dispatch(getUserData())
 			]).then(() => dispatch(getContacts(routeParams)))

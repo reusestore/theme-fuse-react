@@ -12,4 +12,4 @@ function LeftSideLayout3() {
 	);
 }
 
-export default LeftSideLayout3;
+export default React.memo(LeftSideLayout3);

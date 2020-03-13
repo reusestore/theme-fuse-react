@@ -159,4 +159,4 @@ function ChatPanel(props) {
 	);
 }
 
-export default withReducer('chatPanel', reducer)(ChatPanel);
+export default withReducer('chatPanel', reducer)(React.memo(ChatPanel));

@@ -14,7 +14,8 @@ import Typography from '@material-ui/core/Typography';
 import withReducer from 'app/store/withReducer';
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { useDeepCompareEffect } from '@fuse/hooks';
 import SwipeableViews from 'react-swipeable-views';
 import * as Actions from '../store/actions';
 import reducer from '../store/reducers';
@@ -34,15 +35,16 @@ function Course(props) {
 	const course = useSelector(({ academyApp }) => academyApp.course);
 	const theme = useTheme();
 
+	const routeParams = useParams();
 	const classes = useStyles(props);
 	const pageLayout = useRef(null);
 
-	useEffect(() => {
+	useDeepCompareEffect(() => {
 		/**
 		 * Get the Course Data
 		 */
-		dispatch(Actions.getCourse(props.match.params));
-	}, [dispatch, props.match.params]);
+		dispatch(Actions.getCourse(routeParams));
+	}, [dispatch, routeParams]);
 
 	useEffect(() => {
 		/**

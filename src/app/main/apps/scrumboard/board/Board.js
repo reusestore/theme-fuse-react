@@ -7,10 +7,11 @@ import IconButton from '@material-ui/core/IconButton';
 import Toolbar from '@material-ui/core/Toolbar';
 import withReducer from 'app/store/withReducer';
 import clsx from 'clsx';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, withRouter, useParams } from 'react-router-dom';
+import { useDeepCompareEffect } from '@fuse/hooks';
 import * as Actions from '../store/actions';
 import reducer from '../store/reducers';
 import BoardAddList from './BoardAddList';
@@ -23,15 +24,16 @@ function Board(props) {
 	const dispatch = useDispatch();
 	const board = useSelector(({ scrumboardApp }) => scrumboardApp.board);
 
+	const routeParams = useParams();
 	const containerRef = useRef(null);
 	const [settingsDrawerOpen, setSettingsDrawerOpen] = useState(false);
 
-	useEffect(() => {
-		dispatch(Actions.getBoard(props.match.params));
+	useDeepCompareEffect(() => {
+		dispatch(Actions.getBoard(routeParams));
 		return () => {
 			dispatch(Actions.resetBoard());
 		};
-	}, [dispatch, props.match.params]);
+	}, [dispatch, routeParams]);
 
 	function onDragEnd(result) {
 		const { source, destination } = result;

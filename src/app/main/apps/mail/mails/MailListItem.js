@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, useParams } from 'react-router-dom';
 import MailChip from '../MailChip';
 import * as Actions from '../store/actions/index';
 
@@ -41,6 +41,7 @@ const MailListItem = props => {
 	const dispatch = useDispatch();
 	const selectedMailIds = useSelector(({ mailApp }) => mailApp.mails.selectedMailIds);
 	const labels = useSelector(({ mailApp }) => mailApp.labels);
+	const routeParams = useParams();
 
 	const classes = useStyles(props);
 	const toPath = pathToRegexp.compile(props.match.path);
@@ -53,7 +54,7 @@ const MailListItem = props => {
 			onClick={() =>
 				props.history.push(
 					toPath({
-						...props.match.params,
+						...routeParams,
 						mailId: props.mail.id
 					})
 				)

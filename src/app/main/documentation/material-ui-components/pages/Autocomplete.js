@@ -85,12 +85,28 @@ import React from 'react';
                     /></Typography>
 <Typography className="text-32 mt-32 mb-8" component="h2">Free solo</Typography>
 <Typography className="mb-16" component="div">Set <code>{`freeSolo`}</code> to true so the textbox can contain any arbitrary value. The prop is designed to cover the primary use case of a search box with suggestions, e.g. Google search.</Typography>
-<Typography className="mb-16" component="div">However, if you intend to use it for a <a href="#combo-box">combo box</a> like experience (an enhanced version of a select element) we recommend setting <code>{`selectOnFocus`}</code>.</Typography>
+<Typography className="mb-16" component="div">However, if you intend to use it for a <a href="#combo-box">combo box</a> like experience (an enhanced version of a select element) we recommend setting <code>{`selectOnFocus`}</code> (it helps the user clear the selected value).</Typography>
 <Typography className="mb-16" component="div"><FuseExample
                     className="my-24"
                     iframe={false}
                     component={require('app/main/documentation/material-ui-components/components/autocomplete/FreeSolo.js').default} 
                     raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/FreeSolo.js')}
+                    /></Typography>
+<Typography className="text-24 mt-32 mb-8" component="h3">Helper message</Typography>
+<Typography className="mb-16" component="div">Sometimes you want to make explicit to the user that he/she can add whatever value he/she wants.
+The following demo adds a last option: <code>{`Add "YOUR SEARCH"`}</code>.</Typography>
+<Typography className="mb-16" component="div"><FuseExample
+                    className="my-24"
+                    iframe={false}
+                    component={require('app/main/documentation/material-ui-components/components/autocomplete/FreeSoloCreateOption.js').default} 
+                    raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/FreeSoloCreateOption.js')}
+                    /></Typography>
+<Typography className="mb-16" component="div">You could also display a dialog when the user wants to add a new value.</Typography>
+<Typography className="mb-16" component="div"><FuseExample
+                    className="my-24"
+                    iframe={false}
+                    component={require('app/main/documentation/material-ui-components/components/autocomplete/FreeSoloCreateOptionDialog.js').default} 
+                    raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/FreeSoloCreateOptionDialog.js')}
                     /></Typography>
 <Typography className="text-32 mt-32 mb-8" component="h2">Grouped</Typography>
 <Typography className="mb-16" component="div"><FuseExample
@@ -218,6 +234,7 @@ import { createFilterOptions } from '@material-ui/lab/Autocomplete';
 <li><code>{`config.matchFrom`}</code> (<em>&#39;any&#39; | &#39;start&#39;</em> [optional]): Defaults to <code>{`'any'`}</code>.</li>
 <li><code>{`config.stringify`}</code> (<em>Func</em> [optional]): Defaults to <code>{`JSON.stringify`}</code>.</li>
 <li><code>{`config.trim`}</code> (<em>Boolean</em> [optional]): Defaults to <code>{`false`}</code>. Remove trailing spaces.</li>
+<li><code>{`config.limit`}</code> (<em>Number</em> [optional]): Default to null. Limit the number of suggested options to be shown. For example, if <code>{`config.limit`}</code> is <code>{`100`}</code>, only the first <code>{`100`}</code> matching options are shown. It can be useful if a lot of options match and virtualization wasn&#39;t set up.</li>
 </ul>
 </li>
 </ol>

@@ -2,6 +2,8 @@ import FusePageCarded from '@fuse/core/FusePageCarded';
 import withReducer from 'app/store/withReducer';
 import React, { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { useDeepCompareEffect } from '@fuse/hooks';
 import * as Actions from './store/actions';
 import reducer from './store/reducers';
 import TodoDialog from './TodoDialog';
@@ -15,6 +17,7 @@ function TodoApp(props) {
 	const dispatch = useDispatch();
 
 	const pageLayout = useRef(null);
+	const routeParams = useParams();
 
 	useEffect(() => {
 		dispatch(Actions.getFilters());
@@ -22,9 +25,9 @@ function TodoApp(props) {
 		dispatch(Actions.getLabels());
 	}, [dispatch]);
 
-	useEffect(() => {
-		dispatch(Actions.getTodos(props.match.params));
-	}, [dispatch, props.match.params]);
+	useDeepCompareEffect(() => {
+		dispatch(Actions.getTodos(routeParams));
+	}, [dispatch, routeParams]);
 
 	return (
 		<>

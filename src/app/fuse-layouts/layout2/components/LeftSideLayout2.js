@@ -4,4 +4,4 @@ function LeftSideLayout2() {
 	return <></>;
 }
 
-export default LeftSideLayout2;
+export default React.memo(LeftSideLayout2);

@@ -24,8 +24,7 @@ function CheckboxFormsy(props) {
 	]);
 
 	// An error message is returned only if the component is invalid
-	const errorMessage = props.getErrorMessage();
-	const value = props.getValue();
+	const { errorMessage, value } = props;
 
 	function changeValue(event) {
 		props.setValue(event.target.checked);
@@ -35,7 +34,10 @@ function CheckboxFormsy(props) {
 	}
 
 	return (
-		<FormControl error={Boolean(errorMessage)} className={props.className}>
+		<FormControl
+			error={Boolean((!props.isPristine && props.showRequired) || errorMessage)}
+			className={props.className}
+		>
 			<FormControlLabel
 				control={<Checkbox {...importedProps} type="checkbox" checked={value} onChange={changeValue} />}
 				label={props.label}

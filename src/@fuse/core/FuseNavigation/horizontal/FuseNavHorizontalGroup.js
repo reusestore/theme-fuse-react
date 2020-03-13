@@ -10,7 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import * as ReactDOM from 'react-dom';
 import { useTranslation } from 'react-i18next';
 import { Manager, Popper, Reference } from 'react-popper';
@@ -64,7 +64,9 @@ function FuseNavHorizontalGroup(props) {
 		setOpened(open);
 	}, 150);
 
-	if (!FuseUtils.hasPermission(item.auth, userRole)) {
+	const hasPermission = useMemo(() => FuseUtils.hasPermission(item.auth, userRole), [item.auth, userRole]);
+
+	if (!hasPermission) {
 		return null;
 	}
 

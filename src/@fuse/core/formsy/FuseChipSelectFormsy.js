@@ -31,8 +31,7 @@ function FuseChipSelectFormsy(props) {
 	]);
 
 	// An error message is returned only if the component is invalid
-	const errorMessage = props.getErrorMessage();
-	const value = props.getValue();
+	const { errorMessage, value } = props;
 
 	function changeValue(val, selectedOptions) {
 		if (props.multiple) {
@@ -44,16 +43,22 @@ function FuseChipSelectFormsy(props) {
 
 	return (
 		<FormControl
-			error={Boolean(errorMessage)}
+			error={Boolean((!props.isPristine && props.showRequired) || errorMessage)}
 			className={clsx(
 				props.className,
-				props.showRequired() ? 'required' : '',
-				props.showError() ? 'error' : null
+				'z-10',
+				props.showRequired ? 'required' : '',
+				props.showError ? 'error' : null
 			)}
 			variant={importedProps.variant}
 		>
 			{props.label && <InputLabel htmlFor={props.name}>{props.label}</InputLabel>}
-			<FuseChipSelect {...importedProps} value={value} onChange={changeValue} />
+			<FuseChipSelect
+				{...importedProps}
+				value={value}
+				onChange={changeValue}
+				error={Boolean((!props.isPristine && props.showRequired) || errorMessage)}
+			/>
 			{Boolean(errorMessage) && <FormHelperText>{errorMessage}</FormHelperText>}
 		</FormControl>
 	);

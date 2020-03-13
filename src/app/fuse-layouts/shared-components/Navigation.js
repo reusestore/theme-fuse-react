@@ -21,4 +21,4 @@ Navigation.defaultProps = {
 	layout: 'vertical'
 };
 
-export default Navigation;
+export default React.memo(Navigation);
