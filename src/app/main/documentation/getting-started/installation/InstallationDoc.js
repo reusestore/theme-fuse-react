@@ -109,6 +109,34 @@ function InstallationDoc() {
 						</ol>
 					</Typography>
 
+					<div className="my-24 px-12 py-8 border-1 border-red rounded-8">
+						<Typography className="mb-8 font-500 text-16 text-red">Important:</Typography>
+						<Typography className="" component="div">
+							If you are planning to use <b>yarn v2</b> and use with{' '}
+							<a
+								href="https://yarnpkg.com/getting-started/install#per-project-install"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="font-bold mr-4"
+							>
+								Per-project install method
+							</a>
+							instead of globally install method.
+							<br /> After running <code>yarn set version berry</code>
+							<br />
+							This line:
+							<code>yarnPath: ".yarn/releases/yarn-berry.js"</code>
+							<br />
+							will be added into the <code>.yarnrc.yml</code> file.
+							<br />
+							Currently it is replacing all of the contents so make sure original
+							<code>.yarnrc.yml</code> contents is in place,
+							<br />
+							if not recover the contents and add <code>yarnPath: ".yarn/releases/yarn-berry.js"</code> at
+							the top.
+						</Typography>
+					</div>
+
 					<Typography className="mt-32 mb-8" variant="h5">
 						B. Installing Fuse React
 					</Typography>

@@ -574,7 +574,7 @@ const navigationConfig = [
 				icon: 'history',
 				url: '/documentation/changelog',
 				badge: {
-					title: '4.1.0',
+					title: '4.1.1',
 					bg: 'rgb(236, 12, 142)',
 					fg: '#FFFFFF'
 				}
