@@ -6,6 +6,12 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
 	{
+		version: '4.1.1',
+		date: '2020-03-14',
+		newChanges: ['important note added into the installation doc for to prevent yarn v2 issues.'],
+		fixedChanges: ['Possible yarn, yarn2 package manager issues.']
+	},
+	{
 		version: '4.1.0',
 		date: '2020-03-13',
 		newChanges: [
