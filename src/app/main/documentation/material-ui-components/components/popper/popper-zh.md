@@ -21,7 +21,7 @@ components: Popper
 
 {{"demo": "pages/components/popper/SimplePopper.js"}}
 
-## Transitions（过渡动画）
+## 过渡动画
 
 The open/close state of the popper can be animated with a render prop child and a transition component. This component should respect the following conditions:
 
@@ -43,7 +43,7 @@ Alternatively, you can use [react-spring](https://github.com/react-spring/react-
 
 ## Scroll playground
 
-{{"demo": "pages/components/popper/ScrollPlayground.js", "hideHeader": true, "bg": true}}
+{{"demo": "pages/components/popper/ScrollPlayground.js", "hideToolbar": true, "bg": true}}
 
 ## Faked reference object
 

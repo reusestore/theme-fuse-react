@@ -19,7 +19,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
   },
@@ -41,6 +41,7 @@ const useStyles = makeStyles(theme => ({
       display: 'none',
     },
   },
+  // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,

@@ -3,13 +3,13 @@ title: React List（列表）组件
 components: Collapse, Divider, List, ListItem, ListItemAvatar, ListItemIcon, ListItemSecondaryAction, ListItemText, ListSubheader
 ---
 
-# Lists 列表
+# List 列表
 
 <p class="description">列表是对文本或图像的连续、垂直的索引。</p>
 
 [列表](https://material.io/design/components/lists.html) 是一组连续的文本或图像。 它们由包含主要和补充操作的项子集组成，而这些操作由图标和文本表示。
 
-## Simple List（简易列表）
+## 简易列表
 
 {{"demo": "pages/components/lists/SimpleList.js", "bg": true}}
 
@@ -29,11 +29,11 @@ function ListItemLink(props) {
 
 你可以从这里查看 [React Router与文档此部分结合使用的相关样例](/guides/composition/#react-router)。
 
-## Nested List（嵌套列表）
+## 嵌套列表
 
 {{"demo": "pages/components/lists/NestedList.js", "bg": true}}
 
-## Folder List（文件夹列表）
+## 文件夹列表
 
 {{"demo": "pages/components/lists/FolderList.js", "bg": true}}
 
@@ -43,7 +43,7 @@ function ListItemLink(props) {
 
 {{"demo": "pages/components/lists/InteractiveList.js", "bg": true}}
 
-## 可选的 ListItem
+## 可选的 
 
 {{"demo": "pages/components/lists/SelectedListItem.js", "bg": true}}
 
@@ -55,7 +55,7 @@ function ListItemLink(props) {
 
 ## 列表控件
 
-### Checkbox（选择框）
+### 选择框
 
 一个选择框既可以是主操作，又可以是辅助操作。
 
@@ -67,7 +67,7 @@ The checkbox is the primary action and the state indicator for the list item. Th
 
 {{"demo": "pages/components/lists/CheckboxListSecondary.js", "bg": true}}
 
-### Switch
+### 开关
 
 该开关是辅助操作和单独的目标。
 
@@ -81,11 +81,11 @@ This feature relies on CSS sticky positioning. Unfortunately it's [not implement
 
 {{"demo": "pages/components/lists/PinnedSubheaderList.js", "bg": true}}
 
-## Inset List（嵌入列表）
+## 嵌入列表
 
 {{"demo": "pages/components/lists/InsetList.js", "bg": true}}
 
-## 大型列表渲染（Virtualized Table）
+## 大型列表渲染
 
 在下面的示例中，我们演示了如何将 [react-window](https://github.com/bvaughn/react-window) 与 `List` 组件一起使用 它渲染了200行，可以轻松处理更多行。 可视化优化了整体的性能。
 
@@ -95,4 +95,4 @@ The use of [react-window](https://github.com/bvaughn/react-window) when possible
 
 ## 个性化
 
-👑 If you are looking for inspiration, you can check [MUI Treasury's customization examples](https://mui-treasury.com/components/menu-list).
+👑如果您还在寻找灵感，您可以看看 [MUI Treasury 特别定制的一些例子](https://mui-treasury.com/components/menu-list)。
