@@ -6,6 +6,16 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
 	{
+		version: '4.1.5',
+		date: '2020-04-16',
+		newChanges: [
+			'material-ui updated to v4.9.10',
+			'react updated to v16.13.1',
+			'All dependency packages updated.',
+			'hide/reveal button added to password input at the login page.'
+		]
+	},
+	{
 		version: '4.1.1',
 		date: '2020-03-14',
 		newChanges: ['important note added into the installation doc for to prevent yarn v2 issues.'],

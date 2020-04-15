@@ -38,6 +38,7 @@ function HelperClassesUI() {
 							<Typography className="mb-16" component="p">
 								Fuse React developed based on Material-UI as ui library.
 								<a
+									className="mx-4"
 									href="https://material-ui-next.com/customization/css-in-js"
 									target="_blank"
 									rel="noopener noreferrer"
@@ -45,7 +46,12 @@ function HelperClassesUI() {
 									Material-UI's styling solution
 								</a>
 								uses JSS at its core. Therefore the Fuse React supports
-								<a href="http://cssinjs.org/" target="_blank" rel="noopener noreferrer">
+								<a
+									className="mx-4"
+									href="http://cssinjs.org/"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
 									JSS (CSSinJS library)
 								</a>
 							</Typography>
@@ -63,7 +69,12 @@ function HelperClassesUI() {
 
 							<Typography className="mb-16" component="p">
 								We are using
-								<a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer">
+								<a
+									className="mx-4"
+									href="https://tailwindcss.com"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
 									TailwindCSS
 								</a>
 								as an engine for generating helper classes. It's not an UI kit and it's customizable.

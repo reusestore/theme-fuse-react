@@ -1,5 +1,5 @@
 ---
-title: React Dialog（对话框）组件
+title: React Dialog 对话框组件
 components: Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Slide
 ---
 
@@ -40,7 +40,7 @@ components: Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions
 
 {{"demo": "pages/components/dialogs/AlertDialog.js"}}
 
-## Transitions（过渡动画）
+## 过渡动画
 
 当然你也可以换掉过渡效果，下面的示例使用了 ` Slide（幻灯片）`。
 

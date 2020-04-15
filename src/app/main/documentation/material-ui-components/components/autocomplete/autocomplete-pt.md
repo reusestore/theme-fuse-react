@@ -7,58 +7,60 @@ components: TextField, Popper, Autocomplete
 
 <p class="description">O autocompletar é uma entrada de texto normal aprimorada por um painel de opções sugeridas.</p>
 
-The widget is useful for setting the value of a single-line textbox in one of two types of scenarios:
+Essa ferramenta é útil para configurar os valores de um campo de texto quando em um dos dois cenários abaixo:
 
-1. The value for the textbox must be chosen from a predefined set of allowed values, e.g., a location field must contain a valid location name: [combo box](#combo-box).
-2. The textbox may contain any arbitrary value, but it is advantageous to suggest possible values to the user, e.g., a search field may suggest similar or previous searches to save the user time: [free solo](#free-solo).
+1. O valor para a caixa de texto deve ser escolhido a partir de um conjunto pré-definido de valores permitidos, por exemplo, um campo de localização deve conter um nome de localização válido: [combo box](#combo-box).
+2. A caixa de texto pode conter qualquer valor arbitrário, mas é vantajoso porque pode sugerir possíveis valores para o usuário, por exemplo, um campo de pesquisa que pode sugerir pesquisas anteriores ou semelhantes para economizar o tempo do usuário: [solo livre](#free-solo).
+
+A ideia dessa ferramenta era para ser uma versão melhorada das bibliotecas "react-select" e "downshift".
 
 ## Combo box
 
-The value must be chosen from a predefined set of allowed values.
+O valor deve ser escolhido a partir de um conjunto predefinido de valores permitidos.
 
 {{"demo": "pages/components/autocomplete/ComboBox.js"}}
 
 ### Playground
 
-Each of the following examples demonstrate one feature of the Autocomplete component.
+Cada um dos exemplos a seguir demonstra uma funcionalidade do componente Autocomplet.
 
 {{"demo": "pages/components/autocomplete/Playground.js"}}
 
 ### Country select
 
-Choose one country between 248.
+Escolha um dos 248 países.
 
 {{"demo": "pages/components/autocomplete/CountrySelect.js"}}
 
 ## Free solo
 
-Set `freeSolo` to true so the textbox can contain any arbitrary value. The prop is designed to cover the primary use case of a search box with suggestions, e.g. Google search.
+Coloque `freeSolo` como true para que o textbox contenha qualquer valor aleatório. Essa prop é focada em cobrir o principal caso de uso que é seria uma caixa de pesquisas com sugestões, e.g. Google search.
 
-However, if you intend to use it for a [combo box](#combo-box) like experience (an enhanced version of a select element) we recommend setting `selectOnFocus` (it helps the user clearning the selected value).
+Entretanto, se você gostaria de usá-lo para trazer ao usuário a experiência de um [combo box](#combo-box) (equivalente a um select aprimorado) nós recomendamos passar `selectOnFocus` (isso ajuda o usuário limpando o valor selecionado).
 
 {{"demo": "pages/components/autocomplete/FreeSolo.js"}}
 
-### Helper message
+### Mensagem de ajuda
 
-Sometimes you want to make explicit to the user that he/she can add whatever value he/she wants. The following demo adds a last option: `Add "YOUR SEARCH"`.
+Às vezes você quer tornar explícito ao usuário que ele pode adicionar qualquer valor que ele/ela quiser. O exemplo a seguir adiciona a última opção: `Adicionar "SUA PESQUISA"`.
 
 {{"demo": "pages/components/autocomplete/FreeSoloCreateOption.js"}}
 
-You could also display a dialog when the user wants to add a new value.
+Você pode também exibir um diálogo quando o usuário quiser adicionar um novo valor.
 
 {{"demo": "pages/components/autocomplete/FreeSoloCreateOptionDialog.js"}}
 
-## Grouped
+## Agrupamento
 
 {{"demo": "pages/components/autocomplete/Grouped.js"}}
 
-## Disabled options
+## Opções desabilitadas
 
 {{"demo": "pages/components/autocomplete/DisabledOptions.js"}}
 
 ## `useAutocomplete`
 
-For advanced customization use cases, we expose a `useAutocomplete()` hook. It accepts almost the same options as the Autocomplete component minus all the props related to the rendering of JSX. The Autocomplete component uses this hook internally.
+Para casos de customização avançada nós expomos o `useAutocomplete()` hook. Ele aceita quase as mesmas opções do componente Autocompletar exceto todas as props relacionadas a renderização do JSX. O componente Autocompletar usa esse hook internamente.
 
 ```jsx
 import useAutocomplete from '@material-ui/lab/useAutocomplete';
@@ -68,41 +70,47 @@ import useAutocomplete from '@material-ui/lab/useAutocomplete';
 
 {{"demo": "pages/components/autocomplete/UseAutocomplete.js", "defaultCodeOpen": false}}
 
-### Customized hook
+### Hook customizado
 
 {{"demo": "pages/components/autocomplete/CustomizedHook.js"}}
 
-Head to the [Customized Autocomplete](#customized-autocomplete) section for a customization example with the `Autocomplete` component instead of the hook.
+Indo para a seção de [Autocompletar customizado](#customized-autocomplete) vemos um exemplo de customização com o componente `Autocompletar` ao invés do hook.
 
-## Asynchronous requests
+## Requisições assíncronas
 
 {{"demo": "pages/components/autocomplete/Asynchronous.js"}}
 
-### Google Maps place
+### Lugares com a API do Google Maps
 
-A customized UI for Google Maps Places Autocomplete.
+Uma customização de UI para o autocompletar de lugares do Google Maps.
 
 {{"demo": "pages/components/autocomplete/GoogleMaps.js"}}
 
-For this demo, we need to load the [Google Maps JavaScript](https://developers.google.com/maps/documentation/javascript/tutorial) API.
+Para esse exemplo, nós precisamos carregar a API de Javascript do [Google Maps](https://developers.google.com/maps/documentation/javascript/tutorial).
 
-> ⚠️ Before you can start using the Google Maps JavaScript API, you must sign up and create a billing account.
+> ⚠️ Antes de você começar a usar a API Javascript do Google Maps você precisará estar cadastrado e ter uma conta.
 
-## Multiple values
+## Múltiplos valores
 
-Also known as tags, the user is allowed to enter more than one value.
+Também conhecidos como tags, o usuário pode inserir mais de um valor.
 
 {{"demo": "pages/components/autocomplete/Tags.js"}}
 
-### Fixed options
+### Opções fixas
 
 In the event that you need to lock certain tag so that they can't be removed in the interface, you can set the chips disabled.
 
 {{"demo": "pages/components/autocomplete/FixedTags.js"}}
 
-### Checkboxes
+### Caixas de Seleção
 
 {{"demo": "pages/components/autocomplete/CheckboxesTags.js"}}
+
+### Limit tags
+
+You can use the `limitTags` prop to limit the number of displayed options when not focused.
+
+{{"demo": "pages/components/autocomplete/LimitTags.js"}}
 
 ## Tamanhos
 
@@ -132,15 +140,22 @@ The component exposes a factory to create a filter method that can provided to t
 import { createFilterOptions } from '@material-ui/lab/Autocomplete';
 ```
 
-It supports the following options:
+### `createFilterOptions(config) => filterOptions`
+
+#### Argumentos
 
 1. `config` (*Object* [optional]): 
   - `config.ignoreAccents` (*Boolean* [optional]): Defaults to `true`. Remove diacritics.
   - `config.ignoreCase` (*Boolean* [optional]): Defaults to `true`. Lowercase everything.
-  - `config.matchFrom` (*'any' | 'start'* [optional]): Defaults to `'any'`.
-  - `config.stringify` (*Func* [optional]): Defaults to `JSON.stringify`.
-  - `config.trim` (*Boolean* [opcional]): Padrão `false`. Remove trailing spaces.
   - `config.limit` (*Number* [optional]): Default to null. Limit the number of suggested options to be shown. For example, if `config.limit` is `100`, only the first `100` matching options are shown. It can be useful if a lot of options match and virtualization wasn't set up.
+  - `config.matchFrom` (*'any' | 'start'* [optional]): Defaults to `'any'`.
+  - `config.startAfter`(*Number* [optional]): Default to `0`. Show the suggested options only after a certain number of letters
+  - `config.stringify` (*Func* [optional]): Controls how an option is converted into a string so that it can be matched against the input text fragment.
+  - `config.trim` (*Boolean* [opcional]): Padrão `false`. Remove trailing spaces.
+
+#### Retornos
+
+`filterOptions`: the returned filter method can be provided directly to the `filterOptions` prop of the `Autocomplete` component, or the parameter of the same name for the hook.
 
 In the following demo, the options need to start with the query prefix:
 
@@ -202,6 +217,10 @@ VoiceOver on iOS Safari doesn't support the `aria-owns` attribute very well. You
 ### TypeScript
 
 To fully take advantage of type inference, you need to set the `multiple` prop to `undefined`, `false` or `true`. See [this discussion](https://github.com/mui-org/material-ui/pull/18854#discussion_r364215153) for more details. TypeScript might solve this bug in the future.
+
+### ListboxComponent
+
+If you provide a custom `ListboxComponent` prop, you need to make sure that the intended scroll container has the `role` attribute set to `listbox`. This ensures the correct behavior of the scroll, for example when using the keyboard to navigate.
 
 ## Acessibilidade
 
