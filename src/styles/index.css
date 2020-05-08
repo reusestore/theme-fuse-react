@@ -62,7 +62,7 @@ a[role=button] {
 }
 
 [role="tooltip"] {
-    z-index: 999;
+    z-index: 9999;
 }
 
 /* Medium Devices, Desktops Only */
