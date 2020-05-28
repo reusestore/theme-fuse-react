@@ -69,7 +69,7 @@ function TablesDoc(props)
                     <Typography className="mb-16" component="div">A data table contains a header row at the top that lists column names, followed by rows for data.</Typography>
                     <Typography className="mb-16" component="div">Checkboxes should accompany each row if the user needs to select or manipulate data.</Typography>
                     <Typography className="mb-16" component="div">For accessibility, the first column is set to be a <code>{`<th>`}</code> element, with
-                        a <code>{`scope`}</code> of <code>{`"row"`}</code>. This enables screen readers to identify a cell&#39;s value by it&#39;s row and column name.</Typography>
+                        a <code>{`scope`}</code> of <code>{`"col"`}</code>. This enables screen readers to identify a cell&#39;s value by it&#39;s row and column name.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Simple Table</Typography>
                     <Typography className="mb-16" component="div">A simple example with no frills.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -147,6 +147,15 @@ function TablesDoc(props)
                         iframe={false}
                         component={require('app/main/documentation/material-ui-components/components/tables/StickyHeadTable.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/StickyHeadTable.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Collapsible table</Typography>
+                    <Typography className="mb-16" component="div">An example of a table with expandable rows, revealing more information.
+                        It utilizes the <a href="/api/collapse/"><code>{`Collapse`}</code></a> component.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/tables/CollapsibleTable.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/CollapsibleTable.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Spanning Table</Typography>
                     <Typography className="mb-16" component="div">A simple example with spanning rows &amp; columns.</Typography>

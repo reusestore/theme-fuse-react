@@ -132,6 +132,18 @@ import { usePagination } from '@material-ui/lab/Pagination';
                         component={require('app/main/documentation/material-ui-components/components/pagination/UsePagination.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/pagination/UsePagination.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Table pagination</Typography>
+                    <Typography className="mb-16" component="div">The <code>{`Pagination`}</code> component was designed to paginate a list of arbitrary items when infinite loading isn&#39;t used.
+                        It&#39;s preferred in contexts where SEO is important, for instance, a blog.</Typography>
+                    <Typography className="mb-16" component="div">For the pagination of a large set of tabular data, you should use the <code>{`TablePagination`}</code> component.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/pagination/TablePagination.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/pagination/TablePagination.js')}
+                    /></Typography>
+                    <Typography className="mb-16" component="div">You can learn more about this use case in the <a href="/components/tables/#custom-pagination-options">table section</a> of the
+                        documentation.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">ARIA</Typography>
                     <Typography className="mb-16" component="div">The root node has a role of &quot;navigation&quot; and aria-label &quot;pagination navigation&quot; by default. The page items have an

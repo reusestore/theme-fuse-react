@@ -8,6 +8,7 @@ components: ClickAwayListener
 <p class="description">用于检测点击事件是否发生在元素之外。 它可以监听文档中某处发生的点击事件。</p>
 
 - 📦 [1.5kB 已压缩的包](/size-snapshot)。
+- ⚛️ Support portals
 
 ## 示例
 
@@ -15,4 +16,18 @@ components: ClickAwayListener
 
 {{"demo": "pages/components/click-away-listener/ClickAway.js"}}
 
-请注意，该组件仅接受一个子元素。 You can find a more advanced demo on the [Menu documentation section](/components/menus/#menulist-composition).
+请注意，该组件仅接受一个子元素。 你可以在 [Menu 的文档部分](/components/menus/#menulist-composition) 找到更高级的样例。
+
+## Portal
+
+下面的演示使用 [`Portal`](/components/portal/) 将下拉菜单渲染到当前DOM层次之外的新的“子树”。
+
+{{"demo": "pages/components/click-away-listener/PortalClickAway.js"}}
+
+## Leading edge
+
+默认情况下，组件响应尾随事件 (trailing events) (点击 + 触摸结束)。 然而，您可以配置它来应对主要事件(leading events) (鼠标按下 + 触摸开始)。
+
+{{"demo": "pages/components/click-away-listener/LeadingClickAway.js"}}
+
+> ⚠️ 在此模式下，仅有文档对象的滚动条上 (the scrollbar of the document) 的交互被忽略。

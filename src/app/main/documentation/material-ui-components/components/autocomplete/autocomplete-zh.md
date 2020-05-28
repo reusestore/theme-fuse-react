@@ -1,48 +1,66 @@
 ---
-title: React Autocomplete（自动补全）组件
+title: React Autocomplete 自动补全组件
 components: TextField, Popper, Autocomplete
 ---
 
-# Autocomplete 自动补全
+# Autocomplete 自动补全组件
 
-<p class="description">自动补全是一个通过一组建议选项来帮助用户输入的普通文本输入框。</p>
+<p class="description">自动补全是一个普通文本输入框，它通过一组建议的选项来帮助用户输入。</p>
 
 该组件常用于以下两个场景中的单行文本框赋值：
 
-1. 文本框必须取值于某个预设值的集合，例如位置字段必须包含合理的位置： [组合框](#combo-box)
-2. 文本框可以设置任何值，但是为用户提供可能的选项会更好，譬如搜索框可以提供近似的或者曾搜索过的选项以节省用户时间：[灵活的单文本框](#free-solo)
+1. 文本框必须取值于某个预设好的，例如：一个位置域必须包含一个有效的位置名称： [组合框](#combo-box)。
+2. 文本框也可以是任何值，但最好能够为用户提供可能的选项，譬如搜索框可以提供近似的或者曾搜索过的选项以节省用户时间：[灵活的单文本框](#free-solo)。
 
-It's meant to be an improved version of the "react-select" and "downshift" packages.
+此组件旨在改进 “react-select” 和 “downshift” 这两个包。
 
-## 组合框
+## Combo box 组合框
 
-必须取值于一个预设的可选值集合
+必须取值于一个预设的可选数据源。
 
 {{"demo": "pages/components/autocomplete/ComboBox.js"}}
 
 ### 练习
 
-下面的每个示例都是自动完成组件的一个功能点的演示。
+以下每个示例演示了自动补全组件的单项功能。
 
 {{"demo": "pages/components/autocomplete/Playground.js"}}
 
-### 国家选择
+### 选择一个国家
 
-Choose one of the 248 countries.
+从248个国家中选择一个。
 
 {{"demo": "pages/components/autocomplete/CountrySelect.js"}}
 
+### 可控的状态
+
+此组件有两种可控的状态：
+
+1. “value” 状态，使用 `value`/`onChange` 属性组合。 这个状态表示用户选择的值，例如，当按 <kbd>Enter</kbd> 键时.
+2. “input value” 状态，使用 `inputValue`/`onInputChange` 属性组合。 这个状态表示展示在文本框中的值。
+
+> ⚠️ 以上两种状态互不干涉，它们应该被单独控制着。
+
+{{"demo": "pages/components/autocomplete/ControllableStates.js"}}
+
 ## 免费工具
 
-将 `freeSolo` 设置为true，以便在文本框中输入任意值。 Prop的设计是为了覆盖搜索框的主要用例，并提出建议，例如谷歌搜索。
+将 `freeSolo` 设置为true，以便在文本框中输入任意值。
 
-然而，仍然存在着这种情况。 如果您打算将它用于一个 [组合框](#combo-box) (一个强化的选定元素版本)，我们建议设置 `selectOnFocus` (它帮助用户清除选定的值)。
+### Search input
+
+The prop is designed to cover the primary use case of a **search input** with suggestions, e.g. Google search or react-autowhatever.
 
 {{"demo": "pages/components/autocomplete/FreeSolo.js"}}
 
-### 帮助信息
+### Creatable
 
-有时您想要向用户显示他/她可以添加自己想要的任何值。 以下的演示增加了一个最新的操作方式：`添加“你的搜索”`
+If you intend to use this mode for a [combo box](#combo-box) like experience (an enhanced version of a select element) we recommend setting:
+
+- `selectOnFocus` to helps the user clear the selected value.
+- `clearOnBlur` to helps the user to enter a new value.
+- `handleHomeEndKeys` to move focus inside the popup with the <kbd>Home</kbd> and <kbd>End</kbd> keys.
+- A last option, for instance `Add "YOUR SEARCH"`.
 
 {{"demo": "pages/components/autocomplete/FreeSoloCreateOption.js"}}
 
@@ -54,11 +72,11 @@ Choose one of the 248 countries.
 
 {{"demo": "pages/components/autocomplete/Grouped.js"}}
 
-## 已禁用的选项
+## 失效的选项
 
 {{"demo": "pages/components/autocomplete/DisabledOptions.js"}}
 
-## `使用自动完成`
+## `useAutocomplete`
 
 作为一种高级定制方式，我们公开了一个 `useAutocomplete()` 钩子方法。 它接受几乎与Autocomplete组件相同的参数，辅以与JSX渲染有关的所有参数。 Autocomplete组件内部也是使用的此钩子方法。
 
@@ -66,7 +84,7 @@ Choose one of the 248 countries.
 import useAutocomplete from '@material-ui/lab/useAutocomplete';
 ```
 
-- 📦 [4.5kB 已压缩的包](/size-snapshot)。
+- 📦 [4.5kB 的压缩包](/size-snapshot)。
 
 {{"demo": "pages/components/autocomplete/UseAutocomplete.js", "defaultCodeOpen": false}}
 
@@ -82,15 +100,15 @@ import useAutocomplete from '@material-ui/lab/useAutocomplete';
 
 ### 谷歌地图位置
 
-A customized UI for Google Maps Places Autocomplete.
+一个为谷歌地图位置自动补全功能设计的 UI。
 
 {{"demo": "pages/components/autocomplete/GoogleMaps.js"}}
 
 对于这个演示，我们需要加载 [谷歌地图JavaScript](https://developers. google. com/maps/documentation/javascript/tutorial) API。
 
-> 在你开始使用谷歌地图javascript API之前，你需要创建一个帐户 (用于使用谷歌地图api).
+> ⚠️在你开始使用 Google Maps JavaScript API 之前，你必须注册并且创建一个可支付的账户。
 
-## 多重值
+## 多个值
 
 这也称为标签，允许用户输入多个值。
 
@@ -98,7 +116,7 @@ A customized UI for Google Maps Places Autocomplete.
 
 ### 固定选项
 
-In the event that you need to lock certain tag so that they can't be removed in the interface, you can set the chips disabled.
+有时候你需要锁定某个标签，这样他们不会被从界面中移除，这时你可以将 chips 设置为禁用。
 
 {{"demo": "pages/components/autocomplete/FixedTags.js"}}
 
@@ -106,9 +124,9 @@ In the event that you need to lock certain tag so that they can't be removed in 
 
 {{"demo": "pages/components/autocomplete/CheckboxesTags.js"}}
 
-### Limit tags
+### 限制标签数量
 
-You can use the `limitTags` prop to limit the number of displayed options when not focused.
+当没有聚焦时，你可以使用 `limitTags` 属性来限制显示选项的数量。
 
 {{"demo": "pages/components/autocomplete/LimitTags.js"}}
 
@@ -118,23 +136,23 @@ You can use the `limitTags` prop to limit the number of displayed options when n
 
 {{"demo": "pages/components/autocomplete/Sizes.js"}}
 
-## 定制的自动完成组件
+## 自定义的自动补全组件
 
 该演示再现了GitHub的标签选择器：
 
 {{"demo": "pages/components/autocomplete/GitHubLabel.js"}}
 
-Head to the [Customized hook](#customized-hook) section for a customization example with the `useAutocomplete` hook instead of the component.
+你也可以转到[自定义 hook](#customized-hook) 章节，查看一下使用 `useAutocomplete` hook 的自定义例子，而不是使用自动补全组件（Autocomplete）。
 
-## 高亮
+## 高亮显示
 
-The following demo relies on [autosuggest-highlight](https://github.com/moroshko/autosuggest-highlight), a small (1 kB) utility for highlighting text in autosuggest and autocomplete components.
+以下的例子通过 [autosuggest-highlight](https://github.com/moroshko/autosuggest-highlight) 这个小型（1 kB）的插件来实现自动推荐和自动补全组件中的高亮文字。
 
 {{"demo": "pages/components/autocomplete/Highlights.js"}}
 
-## 自定义筛选规则
+## 自定义筛选
 
-The component exposes a factory to create a filter method that can provided to the `filerOption` prop. You can use it to change the default option filter behavior.
+此组件提供了一个工厂来构建一个筛选的方法，供给 `filterOptions` 属性使用。 用此你可以更改默认的筛选行为。
 
 ```js
 import { createFilterOptions } from '@material-ui/lab/Autocomplete';
@@ -145,19 +163,18 @@ import { createFilterOptions } from '@material-ui/lab/Autocomplete';
 #### 参数
 
 1. `config` (*Object* [optional]): 
-  - `config.ignoreAccents` (*Boolean* [optional]): Defaults to `true`. Remove diacritics.
-  - `config.ignoreCase` (*Boolean* [optional]): Defaults to `true`. Lowercase everything.
-  - `config.limit` (*Number* [optional]): Default to null. Limit the number of suggested options to be shown. For example, if `config.limit` is `100`, only the first `100` matching options are shown. It can be useful if a lot of options match and virtualization wasn't set up.
-  - `config.matchFrom` (*'any' | 'start'* [optional]): Defaults to `'any'`.
-  - `config.startAfter`(*Number* [optional]): Default to `0`. Show the suggested options only after a certain number of letters
-  - `config.stringify` (*Func* [optional]): Controls how an option is converted into a string so that it can be matched against the input text fragment.
-  - `config.trim` (*Boolean* [optional]): 默认值为`false`。 Remove trailing spaces.
+  - `config.ignoreAccents` (*Boolean* [optional]): 默认值为` true `。 移除字母的变音符号。
+  - `config.ignoreCase` (*Boolean* [optional]): 默认值为` true `。 所有字母都小写。
+  - `config.limit` (*Number* [optional]): 默认值为 null。 显示限定数量的建议选项。 譬如，如果 `config.limit` 为 `100`，那么只显示前`100` 个匹配的选项。 如果存在很多选项匹配，并且虚拟化设置还没建立成时，这样的限制是非常有效的。
+  - `config.matchFrom` (*'any' | 'start'* [optional]): 默认值为 `'any'`。
+  - `config.stringify` (*Func* [optional]): 控制如何将一个选项转换成一个字符串，这样，选项就能够和输入文本的片段相匹配。
+  - `config.trim` (*Boolean* [optional]): 默认值为`false`。 删除尾随空格。
 
 #### 返回结果
 
-`filterOptions`: the returned filter method can be provided directly to the `filterOptions` prop of the `Autocomplete` component, or the parameter of the same name for the hook.
+`过滤选项`: 返回的过滤器方法可以直接提供给`自动补全` 组件的 ` filterOptions ` 属性， 或者可以传给 hook 的同名参数。
 
-In the following demo, the options need to start with the query prefix:
+以下的例子中，选项必须有一个查询的前缀：
 
 ```js
 const filterOptions = createFilterOptions({
@@ -172,7 +189,7 @@ const filterOptions = createFilterOptions({
 
 ### 高级
 
-For richer filtering mechanisms, like fuzzy matching, it's recommended to look at [match-sorter](https://github.com/kentcdodds/match-sorter). 就像这样：
+对于更复杂的过滤机制，譬如模糊匹配（fuzzy matching），我们推荐您看一下 [match-sorter](https://github.com/kentcdodds/match-sorter)。 就像这样：
 
 ```jsx
 import matchSorter from 'match-sorter';
@@ -183,9 +200,9 @@ const filterOptions = (options, { inputValue }) =>
 <Autocomplete filterOptions={filterOptions} />
 ```
 
-## 虚拟滚动
+## 可视化
 
-Search within 10,000 randomly generated options. The list is virtualized thanks to [react-window](https://github.com/bvaughn/react-window).
+在 10000个随机生成的选项中搜索。 多亏了[react-window](https://github.com/bvaughn/react-window)，这个列表得以可视化。
 
 {{"demo": "pages/components/autocomplete/Virtualize.js"}}
 
@@ -193,14 +210,14 @@ Search within 10,000 randomly generated options. The list is virtualized thanks 
 
 ### autocomplete/autofill
 
-The browsers have heuristics to help the users fill the form inputs. However, it can harm the UX of the component.
+浏览器会有启发性的帮助用户填写表格。 然而，这样的功能会削弱的组件用户体验。
 
-By default, the component disable the **autocomplete** feature (remembering what the user has typed for a given field in a previous session) with the `autoComplete="off"` attribute.
+默认情况下，组件通过 `autoComplete="off"` 这个属性，禁用了 **autocomplete** 功能（请注意用户可能在之前已经在给定域输入内容）。
 
-However, in addition to remembering past entered values, the browser might also propose **autofill** suggestions (saved login, address, or payment details). In the event you want the avoid autofill, you can try the following:
+然而，除了记住过去已经输入的值，浏览器可能也会给出 **自动填充（autofill）** 的建议（譬如有保存的登录信息，地址，或者支付方式等）。 若您不需要自动填充，您可以尝试以下的方式：
 
-- Name the input without leaking any information the browser can use. e.g. `id="field1"` instead of `id="country"`. If you leave the id empty, the component uses a random id.
-- Set `autoComplete="new-password"`: 
+- 给输入框一个不同的名字，这样不会泄露任何信息给浏览器使用。 例如：`id="field1"` 而不是 `id="country"`。 若你不填写 id，该组件则会使用一个随机的 id。
+- 设置为 `autoComplete="new-password"`： 
         jsx
         <TextField
         {...params}
@@ -212,18 +229,14 @@ However, in addition to remembering past entered values, the browser might also 
 
 ### iOS VoiceOver
 
-VoiceOver on iOS Safari doesn't support the `aria-owns` attribute very well. You can work around the issue with the `disablePortal` prop.
-
-### TypeScript
-
-To fully take advantage of type inference, you need to set the `multiple` prop to `undefined`, `false` or `true`. See [this discussion](https://github.com/mui-org/material-ui/pull/18854#discussion_r364215153) for more details. TypeScript might solve this bug in the future.
+iOS Safari 中的 VoiceOver 对 `aria-owns` 属性的支持并不是很到位。 你可以用 `disablePortal` 属性来解决这个问题。
 
 ### ListboxComponent
 
-If you provide a custom `ListboxComponent` prop, you need to make sure that the intended scroll container has the `role` attribute set to `listbox`. This ensures the correct behavior of the scroll, for example when using the keyboard to navigate.
+若你提供一共自定义的 `ListboxComponent` 属性，请保证需要滚动功能的容器将 `role` 属性设置为 `listbox`。 这能保证滚动功能在一些情况下，例如当用键盘切换的时候，仍然能够正常显示。
 
-## 可访问性
+## 无障碍设计
 
 (WAI-ARIA: https://www.w3.org/TR/wai-aria-practices/#combobox)
 
-We encourage the usage of a label for the textbox. The component implements the WAI-ARIA authoring practices.
+我们鼓励用户在 textbox 中使用标签。 组件带入了 WAI-ARIA 授权的一些标准。

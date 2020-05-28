@@ -3,7 +3,7 @@ title: Select React component
 components: Select, NativeSelect
 ---
 
-# Select
+# Selección
 
 <p class="description">Los componentes seleccionados se utilizan para recopilar información relegado por el usuario de una lista de opciones.</p>
 
@@ -36,6 +36,8 @@ Here are some examples of customizing the component. You can learn more about th
 The first step is to style the `InputBase` component. Once it's styled, you can either use it directly as a text field or provide it to the select `input` property to have a `select` field.
 
 {{"demo": "pages/components/selects/CustomizedSelects.js"}}
+
+🎨 If you are looking for inspiration, you can check [MUI Treasury's customization examples](https://mui-treasury.com/styles/select).
 
 ## Multiple Select
 
@@ -80,4 +82,14 @@ Alternatively a `TextField` with an `id` and `label` creates the proper markup a
   <MenuItem value="10">Ten</MenuItem>
   <MenuItem value="20">Twenty</MenuItem>
 </TextField>
+```
+
+For a [native select](#native-select), you should mention a label by giving the value of the `id` attribute of the select element to the `InputLabel`'s `htmlFor` attribute:
+
+```jsx
+<InputLabel htmlFor="select">Age</InputLabel>
+<NativeSelect id="select">
+  <option value="10">Ten</option>
+  <option value="20">Twenty</option>
+</NativeSelect>
 ```

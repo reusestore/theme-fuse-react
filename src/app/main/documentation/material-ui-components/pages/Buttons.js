@@ -151,8 +151,8 @@ function ButtonsDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/buttons/CustomizedButtons.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/CustomizedButtons.js')}
                     /></Typography>
-                    <Typography className="mb-16" component="div">👑 If you are looking for inspiration, you can check <a href="https://mui-treasury.com/components/button">MUI Treasury&#39;s
-                        customization examples</a>.</Typography>
+                    <Typography className="mb-16" component="div">🎨 If you are looking for inspiration, you can check <a href="https://mui-treasury.com/styles/button">MUI Treasury&#39;s customization
+                        examples</a>.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Complex Buttons</Typography>
                     <Typography className="mb-16" component="div">The Text Buttons, Contained Buttons, Floating Action Buttons and Icon Buttons are built on top of the same component:
                         the <code>{`ButtonBase`}</code>.

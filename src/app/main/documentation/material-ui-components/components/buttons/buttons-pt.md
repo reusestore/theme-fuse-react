@@ -27,7 +27,7 @@ Você pode remover a sombra com a propriedade `disableElevation`.
 
 ## Botões de Texto
 
-[Botões de texto](https://material.io/design/components/buttons.html#text-button) são utilizados tipicamente para ações menos-pronunciadas, incluindo aquelas localizadas em:
+[Botões de texto](https://material.io/design/components/buttons.html#text-button) são utilizados tipicamente para ações menos significativas, incluindo aquelas localizadas em:
 
 - Caixas de diálogo
 - Cartões
@@ -68,13 +68,13 @@ Botões de ícones são comumente encontrados em barras de aplicativos e barras 
 
 {{"demo": "pages/components/buttons/IconButtons.js"}}
 
-## Botões Personalizados
+## Botões Customizados
 
 Aqui estão alguns exemplos de customização do componente. Você pode aprender mais sobre isso na [página de documentação de sobrescritas](/customization/components/).
 
 {{"demo": "pages/components/buttons/CustomizedButtons.js", "defaultCodeOpen": false}}
 
-👑 Se você está procurando inspiração, você pode verificar [os exemplos de customização de MUI Treasury](https://mui-treasury.com/components/button).
+🎨 Se você está procurando inspiração, você pode verificar [os exemplos de customização de MUI Treasury](https://mui-treasury.com/styles/button).
 
 ## Botões Complexos
 
@@ -90,13 +90,13 @@ Aqui está um [exemplo de integração com react-router](/guides/composition/#bu
 
 ## Limitações
 
-### Cursor não permitido
+### Propriedade CSS Cursor not-allowed
 
-O componente ButtonBase define `pointer-events: none;` ao desabilitar os botões, o que previne que o cursor desabilitado seja exibido.
+O componente ButtonBase define a propriedade CSS `pointer-events: none;` por padrão em botões desabilitados, o que conflita com a exibição de um cursor desabilitado.
 
-Se você deseja usar `not-allowed`, você tem duas opções:
+Se você deseja usar a o cursor como `not-allowed`, você tem duas opções:
 
-1. ** apenas CSS**. Você pode remover o estilo dos eventos do ponteiro no estado "desabilitado" do elemento `<button>` :
+1. **Apenas com CSS**. Você pode modificar os estilos aplicados no seletor de estado disabled do elemento `<button>`:
 
   ```css
   .MuiButtonBase-root:disabled {
@@ -105,20 +105,19 @@ Se você deseja usar `not-allowed`, você tem duas opções:
   }
   ```
 
-Contudo:
+No entanto:
 
-- Você deve adicionar `eventos-ponteiro: nenhum;` novamente quando você precisa exibir dicas [ ferramentas em elementos desabilitados](/components/tooltips/#disabled-elements).</li> 
-    
-    - O cursor não muda se você renderizar algum outro elemento de botão, por exemplo, um elemento link `<a>`.</ul> 
-    
-    2. ** Alteração no DOM** Você pode encapsular o botão:
-    
-      ```jsx
-      <span style={{ cursor: 'not-allowed' }}>
-        <Button component={Link} disabled>
-          disabled
-        </Button>
-      </span>
-      ```
-    
-    Isso tem a vantagem de suportar qualquer elemento, por exemplo, um elemento de link `<a>`.
+- Você deve adicionar `pointer-events: none;` de volta quando você precisar exibir [dicas em elementos desabilitados](/components/tooltips/#disabled-elements).
+- O cursor não irá mudar se você renderizar algum outro elemento que não seja um botão, por exemplo, um elemento link `<a>`.
+
+2. **Alteração no DOM**. Você pode encapsular o botão:
+
+  ```jsx
+  <span style={{ cursor: 'not-allowed' }}>
+    <Button component={Link} disabled>
+      disabled
+    </Button>
+  </span>
+  ```
+
+Isso tem a vantagem de suportar qualquer elemento, por exemplo, um elemento de link `<a>`.

@@ -178,7 +178,7 @@ function ListItemLink(props) {
                         If this library doesn&#39;t cover your use case, you should consider using <a href="https://github.com/bvaughn/react-virtualized">react-virtualized</a>, then alternatives
                         like <a href="https://github.com/petyosi/react-virtuoso">react-virtuoso</a>.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Customization</Typography>
-                    <Typography className="mb-16" component="div">👑 If you are looking for inspiration, you can check <a href="https://mui-treasury.com/components/menu-list">MUI Treasury&#39;s
+                    <Typography className="mb-16" component="div">🎨 If you are looking for inspiration, you can check <a href="https://mui-treasury.com/styles/list-item">MUI Treasury&#39;s
                         customization examples</a>.</Typography>
 
                 </div>

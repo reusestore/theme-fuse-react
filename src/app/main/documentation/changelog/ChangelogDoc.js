@@ -6,6 +6,16 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
 	{
+		version: '4.1.6',
+		date: '2020-05-28',
+		newChanges: [
+			'material-ui updated to v4.10',
+			'tailwindcss updated to v1.4.6',
+			'All dependency packages updated.'
+		],
+		fixedChanges: ['Tooltip z-index issue.']
+	},
+	{
 		version: '4.1.5',
 		date: '2020-04-16',
 		newChanges: [

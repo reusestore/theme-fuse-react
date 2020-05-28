@@ -10,8 +10,7 @@ export default function PaginationLink() {
       <Route>
         {({ location }) => {
           const query = new URLSearchParams(location.search);
-          const page = parseInt(query.get('page'), 10) || 1;
-
+          const page = parseInt(query.get('page') || '1', 10);
           return (
             <Pagination
               page={page}

@@ -31,11 +31,13 @@ Select 组件的设计原理是和一个原生的 `<select>` 元素能够互相�
 
 ## 自定义选择器
 
-你可以参考以下一些例子来自定义组件。 您可以在[重写文档页](/customization/components/)中了解有关此内容的更多信息。
+你可以参考以下一些例子来自定义组件。 您可以在[重写文档页面](/customization/components/)中了解更多有关此内容的信息。
 
 首先，需要设置 `InputBase` 组件的样式。 一旦设置好了样式，您就可以直接将其用作文本字段，也可以将其作为一个 `select` 字段提供给 select 组件的 `input` 属性。
 
 {{"demo": "pages/components/selects/CustomizedSelects.js"}}
+
+🎨 If you are looking for inspiration, you can check [MUI Treasury's customization examples](https://mui-treasury.com/styles/select).
 
 ## 多重选择
 
@@ -51,7 +53,7 @@ Select 组件的设计原理是和一个原生的 `<select>` 元素能够互相�
 
 ## 与对话框组件（Dialog）一起使用
 
-尽管 Material Design 的不鼓励这样使用，您仍然可以在对话框组件内使用一个选择器。
+虽然Material Design的规范不鼓励，但您可以在对话框组件中使用选择。
 
 {{"demo": "pages/components/selects/DialogSelect.js"}}
 
@@ -61,7 +63,7 @@ Select 组件的设计原理是和一个原生的 `<select>` 元素能够互相�
 
 {{"demo": "pages/components/selects/GroupedSelect.js"}}
 
-## 可访问性
+## 无障碍设计
 
 若想正确的给 `Select` 加上标签，你的 input 控件需要一个额外的带有 label 的 `id` 属性。 `id` 的内容需要和 `Select` 的 `labelId` 值相同，例如：
 
@@ -80,4 +82,14 @@ Select 组件的设计原理是和一个原生的 `<select>` 元素能够互相�
   <MenuItem value="10">Ten</MenuItem>
   <MenuItem value="20">Twenty</MenuItem>
 </TextField>
+```
+
+For a [native select](#native-select), you should mention a label by giving the value of the `id` attribute of the select element to the `InputLabel`'s `htmlFor` attribute:
+
+```jsx
+<InputLabel htmlFor="select">Age</InputLabel>
+<NativeSelect id="select">
+  <option value="10">Ten</option>
+  <option value="20">Twenty</option>
+</NativeSelect>
 ```

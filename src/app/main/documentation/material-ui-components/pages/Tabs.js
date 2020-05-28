@@ -138,8 +138,8 @@ function TabsDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/tabs/CustomizedTabs.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/CustomizedTabs.js')}
                     /></Typography>
-                    <Typography className="mb-16" component="div">👑 If you are looking for inspiration, you can check <a href="https://mui-treasury.com/components/tabs">MUI Treasury&#39;s
-                        customization examples</a>.</Typography>
+                    <Typography className="mb-16" component="div">🎨 If you are looking for inspiration, you can check <a href="https://mui-treasury.com/styles/tabs/">MUI Treasury&#39;s customization
+                        examples</a>.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Vertical tabs</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
@@ -170,6 +170,42 @@ function TabsDoc(props)
                             component={require('app/main/documentation/material-ui-components/components/tabs/IconLabelTabs.js').default}
                             raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/IconLabelTabs.js')}
                         /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
+                    <Typography className="mb-16" component="div">(WAI-ARIA: <a
+                        href="https://www.w3.org/TR/wai-aria-practices/#tabpanel">https://www.w3.org/TR/wai-aria-practices/#tabpanel</a>)</Typography>
+                    <Typography className="mb-16" component="div">The following steps are needed in order to provide necessary information for assistive technologies:</Typography>
+                    <ol>
+                        <li>Label <code>{`Tabs`}</code> via <code>{`aria-label`}</code> or <code>{`aria-labelledby`}</code>.</li>
+                        <li><code>{`Tab`}</code>s need to be connected to their
+                            corresponding <code>{`[role="tabpanel"]`}</code> by setting the correct <code>{`id`}</code>, <code>{`aria-controls`}</code> and <code>{`aria-labelledby`}</code>.
+                        </li>
+                    </ol>
+                    <Typography className="mb-16" component="div">An example for the current implementation can be found in the demos on this page. We&#39;ve also published <a
+                        href="#experimental-api">an experimental API</a> in <code>{`@material-ui/lab`}</code> that does not require
+                        extra work.</Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Keyboard navigation</Typography>
+                    <Typography className="mb-16" component="div">The components implement keyboard navigation using the &quot;manual activation&quot; behavior. If you want to switch to the
+                        &quot;selection automatically follows focus&quot; behavior you have pass <code>{`selectionFollowsFocus`}</code> to the <code>{`Tabs`}</code> component. The WAI-ARIA authoring
+                        practices have a detailed guide on <a href="https://www.w3.org/TR/wai-aria-practices/#kbd_selection_follows_focus">how to decide when to make selection automatically follow
+                            focus</a>.</Typography>
+                    <Typography className="text-16 mt-32 mb-8" component="h4"><code>{`selectionFollowsFocus`}</code> Demo</Typography>
+                    <Typography className="mb-16" component="div">The following two demos only differ in their keyboard navigation behavior.
+                        Focus a tab and navigate with arrow keys to notice the difference.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/tabs/AccessibleTabs.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/AccessibleTabs.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Experimental API</Typography>
+                    <Typography className="mb-16" component="div"><code>{`@material-ui/lab`}</code> offers utility components that inject props to implement accessible tabs
+                        following <a href="https://www.w3.org/TR/wai-aria-practices/#tabpanel">WAI-ARIA authoring practices</a>.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/tabs/LabTabs.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/LabTabs.js')}
+                    /></Typography>
 
                 </div>
             }

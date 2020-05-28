@@ -399,7 +399,11 @@ function replaceInExamples() {
 				)
 				.replace(
 					new RegExp('docs/src/modules/components/MarkdownElement', 'g'),
-					'app/main/documentation/material-ui-components/MarkdownElement'
+					'app/main/documentation/material-ui-components/utils/MarkdownElement'
+				)
+				.replace(
+					new RegExp('docs/src/modules/components/HighlightedCode', 'g'),
+					'app/main/documentation/material-ui-components/utils/HighlightedCode'
 				)
 				.replace(new RegExp('/static/', 'g'), '/material-ui-static/');
 			fs.writeFileSync(file, result, 'utf8', function(err) {

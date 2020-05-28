@@ -203,7 +203,7 @@ function TextFieldsDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/text-fields/CustomizedInputBase.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/CustomizedInputBase.js')}
                     /></Typography>
-                    <Typography className="mb-16" component="div">👑 If you are looking for inspiration, you can check <a href="https://mui-treasury.com/components/text-field">MUI Treasury&#39;s
+                    <Typography className="mb-16" component="div">🎨 If you are looking for inspiration, you can check <a href="https://mui-treasury.com/styles/text-field">MUI Treasury&#39;s
                         customization examples</a>.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Limitations</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">Shrink</Typography>

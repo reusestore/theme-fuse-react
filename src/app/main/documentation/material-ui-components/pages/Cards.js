@@ -116,7 +116,7 @@ function CardsDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/cards/MediaControlCard.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Customization</Typography>
-                    <Typography className="mb-16" component="div">👑 If you are looking for inspiration, you can check <a href="https://mui-treasury.com/components/card">MUI Treasury&#39;s
+                    <Typography className="mb-16" component="div">🎨 If you are looking for inspiration, you can check <a href="https://mui-treasury.com/components/card">MUI Treasury&#39;s
                         customization examples</a>.</Typography>
 
                 </div>

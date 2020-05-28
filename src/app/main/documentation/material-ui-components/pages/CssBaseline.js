@@ -121,8 +121,11 @@ export default function MyApp() {
                         </li>
                         <li>Set the <code>{`theme.typography.body2`}</code> style on the <code>{`<body>`}</code> element.</li>
                         <li>Set the font-weight to <code>{`theme.typography.fontWeightBold`}</code> for the <code>{`<b>`}</code> and <code>{`<strong>`}</code> elements.</li>
-                        <li>Font antialiasing is enabled for better display of the Roboto font.</li>
+                        <li>Custom font-smoothing is enabled for better display of the Roboto font.</li>
                     </ul>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Customization</Typography>
+                    <Typography className="mb-16" component="div">Head to the <a href="/customization/globals/#global-css">global customization</a> section of the documentation to change the output of
+                        these components.</Typography>
 
                 </div>
             }

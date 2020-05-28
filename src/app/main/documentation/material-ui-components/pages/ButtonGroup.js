@@ -63,28 +63,36 @@ function ButtonGroupDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/button-group/BasicButtonGroup.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/button-group/BasicButtonGroup.js')}
                     /></Typography>
-                    <Typography className="text-24 mt-32 mb-8" component="h3">Group sizes and colors</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Sizes and colors</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
                         component={require('app/main/documentation/material-ui-components/components/button-group/GroupSizesColors.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/button-group/GroupSizesColors.js')}
                     /></Typography>
-                    <Typography className="text-24 mt-32 mb-8" component="h3">Group orientation</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Vertical group</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
                         component={require('app/main/documentation/material-ui-components/components/button-group/GroupOrientation.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/button-group/GroupOrientation.js')}
                     /></Typography>
-                    <Typography className="text-24 mt-32 mb-8" component="h3">Split Button</Typography>
-                    <Typography className="mb-16" component="div">ButtonGroup can also be used to create a split button. The dropdown can change the button action (as in this example), or be used to
-                        immediately trigger a related action.</Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Split button</Typography>
+                    <Typography className="mb-16" component="div"><code>{`ButtonGroup`}</code> can also be used to create a split button. The dropdown can change the button action (as in this
+                        example), or be used to immediately trigger a related action.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
                         component={require('app/main/documentation/material-ui-components/components/button-group/SplitButton.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/button-group/SplitButton.js')}
+                    /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Disabled elevation</Typography>
+                    <Typography className="mb-16" component="div">You can remove the elevation with the <code>{`disableElevation`}</code> prop.</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/button-group/DisableElevation.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/button-group/DisableElevation.js')}
                     /></Typography>
 
                 </div>

@@ -94,6 +94,8 @@ function SwitchesDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/switches/CustomizedSwitches.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/switches/CustomizedSwitches.js')}
                     /></Typography>
+                    <Typography className="mb-16" component="div">🎨 If you are looking for inspiration, you can check <a href="https://mui-treasury.com/styles/switch">MUI Treasury&#39;s customization
+                        examples</a>.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Sizes</Typography>
                     <Typography className="mb-16" component="div">Fancy smaller switches? Use the <code>{`size`}</code> property.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample

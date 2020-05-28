@@ -106,6 +106,8 @@ function MenusDoc(props)
                     /></Typography>
                     <Typography className="mb-16" component="div">The <code>{`MenuItem`}</code> is a wrapper around <code>{`ListItem`}</code> with some additional styles.
                         You can use the same list composition features with the <code>{`MenuItem`}</code> component:</Typography>
+                    <Typography className="mb-16" component="div">🎨 If you are looking for inspiration, you can check <a href="https://mui-treasury.com/styles/menu">MUI Treasury&#39;s customization
+                        examples</a>.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Max height menus</Typography>
                     <Typography className="mb-16" component="div">If the height of a menu prevents all menu items from being displayed, the menu can scroll internally.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample

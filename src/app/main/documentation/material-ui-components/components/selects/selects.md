@@ -42,6 +42,8 @@ Once it's styled, you can either use it directly as a text field or provide it t
 
 {{"demo": "pages/components/selects/CustomizedSelects.js"}}
 
+🎨 If you are looking for inspiration, you can check [MUI Treasury's customization examples](https://mui-treasury.com/styles/select).
+
 ## Multiple Select
 
 The `Select` component can handle multiple selections.
@@ -88,4 +90,14 @@ ids for you:
   <MenuItem value="10">Ten</MenuItem>
   <MenuItem value="20">Twenty</MenuItem>
 </TextField>
+```
+
+For a [native select](#native-select), you should mention a label by giving the value of the `id` attribute of the select element to the `InputLabel`'s `htmlFor` attribute:
+
+```jsx
+<InputLabel htmlFor="select">Age</InputLabel>
+<NativeSelect id="select">
+  <option value="10">Ten</option>
+  <option value="20">Twenty</option>
+</NativeSelect>
 ```
