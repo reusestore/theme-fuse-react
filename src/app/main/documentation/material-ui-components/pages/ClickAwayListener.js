@@ -79,6 +79,18 @@ function ClickAwayListenerDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/click-away-listener/PortalClickAway.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/click-away-listener/PortalClickAway.js')}
                     /></Typography>
+                    <Typography className="text-32 mt-32 mb-8" component="h2">Leading edge</Typography>
+                    <Typography className="mb-16" component="div">By default, the component responds to the trailing events (click + touch end).
+                        However, you can configure it to respond to the leading events (mouse down + touch start).</Typography>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/click-away-listener/LeadingClickAway.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/click-away-listener/LeadingClickAway.js')}
+                    /></Typography>
+                    <blockquote>
+                        <Typography className="mb-16" component="div">⚠️ In this mode, only interactions on the scrollbar of the document is ignored.</Typography>
+                    </blockquote>
 
                 </div>
             }

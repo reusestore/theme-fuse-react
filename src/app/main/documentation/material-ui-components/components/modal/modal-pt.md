@@ -56,11 +56,11 @@ React [não suporta](https://github.com/facebook/react/issues/13097) a API [`cre
 
 ## Limitações
 
-### Focus trap
+### Captura do foco
 
-The modal moves the focus back to the body of the component if the focus tries to escape it.
+O modal move o foco de volta para o corpo do componente se o foco tentar escapar dele.
 
-This is done for accessibility purposes, however, it might create issues. In the event the users need to interact with another part of the page, e.g. with a chatbot window, you can disable the behavior:
+No entanto, isso é feito para fins de acessibilidade, e pode criar problemas. No caso de os usuários precisarem interagir com outra parte da página, por exemplo, com uma janela de chatbot, você pode desabilitar o comportamento:
 
 ```jsx
 <Modal disableEnforceFocus />
@@ -78,13 +78,13 @@ This is done for accessibility purposes, however, it might create issues. In the
     aria-describedby="modal-description"
     >
     <h2 id="modal-title">
-      My Title
+      Meu Título
     </h2>
     <p id="modal-description">
-      My Description
+      Minha Descrição
     </p>
     </Modal>
     ```
 
 - O [WAI-ARIA authoring practices ](https://www.w3.org/TR/wai-aria-practices/examples/dialog-modal/dialog.html) pode ajudá-lo a definir o foco inicial no elemento mais relevante, com base no seu conteúdo modal.
-- Uma janela modal sobrepõe a janela principal ou outra janela modal. As janelas sob um modal são **inertes**. Ou seja, os usuários não podem interagir com o conteúdo fora de uma janela modal ativa.
+- Esteja ciente que uma "janela modal" sobrepõe a janela primária ou qualquer outra janela modal. As janelas sob um modal são **inertes**. Ou seja, os usuários não podem interagir com o conteúdo fora de uma janela modal ativa. Isso pode criar [comportamentos conflitantes](#focus-trap).

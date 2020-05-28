@@ -81,7 +81,9 @@ function SnackbarsDoc(props)
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/snackbars/CustomizedSnackbars.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Positioned snackbars</Typography>
-                    <Typography className="mb-16" component="div">There may be circumstances when the placement of the snackbar needs to be more flexible.</Typography>
+                    <Typography className="mb-16" component="div">In wide layouts, snackbars can be left-aligned or center-aligned if they are consistently placed on the same spot at the bottom of the
+                        screen, however there may be circumstances where the placement of the snackbar needs to be more flexible.
+                        You can control the position of the snackbar by specifying the <code>{`anchorOrigin`}</code> prop.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}

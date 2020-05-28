@@ -23,7 +23,7 @@ A data table contains a header row at the top that lists column names, followed 
 
 Checkboxes should accompany each row if the user needs to select or manipulate data.
 
-For accessibility, the first column is set to be a `<th>` element, with a `scope` of `"row"`. This enables screen readers to identify a cell's value by it's row and column name.
+For accessibility, the first column is set to be a `<th>` element, with a `scope` of `"col"`. This enables screen readers to identify a cell's value by it's row and column name.
 
 ## Simple Table
 
@@ -62,6 +62,7 @@ You should either provide an array of:
   ```jsx
   <TablePagination rowsPerPageOptions={[10, 50]} />
   ```
+
 - **objects**, the `value` and `label` keys will be used respectively for the value and label of the option (useful for language strings such as 'All').
 
   ```jsx
@@ -81,6 +82,13 @@ An example of a table with scrollable rows and fixed column headers.
 It leverages the `stickyHeader` prop (⚠️ no IE 11 support).
 
 {{"demo": "pages/components/tables/StickyHeadTable.js", "bg": true}}
+
+## Collapsible table
+
+An example of a table with expandable rows, revealing more information.
+It utilizes the [`Collapse`](/api/collapse/) component.
+
+{{"demo": "pages/components/tables/CollapsibleTable.js", "bg": true}}
 
 ## Spanning Table
 

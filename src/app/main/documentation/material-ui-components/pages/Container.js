@@ -58,7 +58,7 @@ function ContainerDoc(props)
 
                     <Typography className="mb-16" component="div">While containers can be nested, most layouts do not require a nested container.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Fluid</Typography>
-                    <Typography className="mb-16" component="div">A fluid container width is bounded by that <code>{`maxWidth`}</code> property value.</Typography>
+                    <Typography className="mb-16" component="div">A fluid container width is bounded by the <code>{`maxWidth`}</code> property value.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={true}

@@ -13,11 +13,11 @@ components: Select, NativeSelect
 
 {{"demo": "pages/components/selects/SimpleSelect.js"}}
 
-## Advanced features
+## 高度な機能
 
-The Select component is meant to be interchangeable with a native `<select>` element.
+選択コンポーネントはネイティブの `<select>` 要素に入れ替えられます。
 
-If you are looking for more advanced features, like combobox, multiselect, autocomplete, async or creatable support, head to the [`Autocomplete` component](/components/autocomplete/). It's meant to be an improved version of the "react-select" and "downshift" packages.
+コンボボックス、複数選択、自動補完、非同期、作成可能のサポートといったさらに高度な機能をお探しなら、[`Autocomplete`コンポーネント](/components/autocomplete/)を参照してください。 It's meant to be an improved version of the "react-select" and "downshift" packages.
 
 ## ネイティブを選択
 
@@ -31,11 +31,13 @@ If you are looking for more advanced features, like combobox, multiselect, autoc
 
 ## カスタマイズされた選択
 
-コンポーネントのカスタマイズの例を次に示します。 詳細については、 [オーバーライドのドキュメントページ](/customization/components/)を参照してください。
+コンポーネントのカスタマイズの例を次に示します。 詳細については、 [overrides documentation page](/customization/components/)を参照してください。
 
 最初のステップは、 `InputBase` コンポーネントのスタイル設定です。 スタイルを設定したら、テキストフィールドとして直接使用するか、select `input` プロパティに提供して、 `select` フィールドを作成できます。
 
 {{"demo": "pages/components/selects/CustomizedSelects.js"}}
+
+🎨 If you are looking for inspiration, you can check [MUI Treasury's customization examples](https://mui-treasury.com/styles/select).
 
 ## 複数選択
 
@@ -80,4 +82,14 @@ Alternatively a `TextField` with an `id` and `label` creates the proper markup a
   <MenuItem value="10">Ten</MenuItem>
   <MenuItem value="20">Twenty</MenuItem>
 </TextField>
+```
+
+For a [native select](#native-select), you should mention a label by giving the value of the `id` attribute of the select element to the `InputLabel`'s `htmlFor` attribute:
+
+```jsx
+<InputLabel htmlFor="select">Age</InputLabel>
+<NativeSelect id="select">
+  <option value="10">Ten</option>
+  <option value="20">Twenty</option>
+</NativeSelect>
 ```

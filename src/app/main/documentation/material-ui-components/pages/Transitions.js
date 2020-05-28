@@ -145,6 +145,8 @@ export default Main() {
                             These two callbacks allow to unmount the children when in a closed state and fully transitioned.
                         </li>
                     </ul>
+                    <Typography className="mb-16" component="div">For more information on creating a custom transition, visit the <a href="http://reactcommunity.org/react-transition-group/transition">React
+                        Transition Group Transition docs</a>.</Typography>
 
                 </div>
             }

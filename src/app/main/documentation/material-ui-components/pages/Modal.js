@@ -162,8 +162,9 @@ function ModalDoc(props)
                         <li><Typography className="mb-16" component="div">The <a href="https://www.w3.org/TR/wai-aria-practices/examples/dialog-modal/dialog.html">WAI-ARIA authoring practices</a> can
                             help you set the initial focus on the most relevant element, based on your modal content.</Typography>
                         </li>
-                        <li><Typography className="mb-16" component="div">A modal window overlys on either the primary window or another modal window. Windows under a modal are <strong>inert</strong>.
-                            That is, users cannot interact with content outside an active modal window.</Typography>
+                        <li><Typography className="mb-16" component="div">Keep in mind that a &quot;modal window&quot; overlays on either the primary window or another modal window. Windows under a
+                            modal are <strong>inert</strong>. That is, users cannot interact with content outside an active modal window. This might create <a href="#focus-trap">conflicting
+                                behaviors</a>.</Typography>
                         </li>
                     </ul>
 

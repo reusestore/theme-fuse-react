@@ -12,19 +12,23 @@ export default function FreeSoloCreateOption() {
     <Autocomplete
       value={value}
       onChange={(event, newValue) => {
-        if (newValue && newValue.inputValue) {
+        if (typeof newValue === 'string') {
+          setValue({
+            title: newValue,
+          });
+        } else if (newValue && newValue.inputValue) {
+          // Create a new value from the user input
           setValue({
             title: newValue.inputValue,
           });
-
-          return;
+        } else {
+          setValue(newValue);
         }
-
-        setValue(newValue);
       }}
       filterOptions={(options, params) => {
         const filtered = filter(options, params);
 
+        // Suggest the creation of a new value
         if (params.inputValue !== '') {
           filtered.push({
             inputValue: params.inputValue,
@@ -34,16 +38,21 @@ export default function FreeSoloCreateOption() {
 
         return filtered;
       }}
+      selectOnFocus
+      clearOnBlur
+      handleHomeEndKeys
       id="free-solo-with-text-demo"
       options={top100Films}
       getOptionLabel={(option) => {
-        // e.g value selected with enter, right from the input
+        // Value selected with enter, right from the input
         if (typeof option === 'string') {
           return option;
         }
+        // Add "xxx" option created dynamically
         if (option.inputValue) {
           return option.inputValue;
         }
+        // Regular option
         return option.title;
       }}
       renderOption={(option) => option.title}

@@ -101,6 +101,8 @@ function CheckboxesDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/checkboxes/CustomizedCheckbox.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/checkboxes/CustomizedCheckbox.js')}
                     /></Typography>
+                    <Typography className="mb-16" component="div">🎨 If you are looking for inspiration, you can check <a href="https://mui-treasury.com/styles/checkbox">MUI Treasury&#39;s
+                        customization examples</a>.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">When to use</Typography>
                     <ul>
                         <li><a href="https://www.nngroup.com/articles/checkboxes-vs-radio-buttons/">Checkboxes vs. Radio Buttons</a></li>

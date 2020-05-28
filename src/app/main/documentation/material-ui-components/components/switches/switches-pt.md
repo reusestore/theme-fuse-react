@@ -3,25 +3,25 @@ title: Componente React para Interruptores
 components: Switch, FormControl, FormGroup, FormLabel, FormControlLabel
 ---
 
-# Switch (seletor)
+# Interruptor
 
 <p class="description">Interruptores alternam o estado de uma única configuração ligado ou desligado.</p>
 
 [Interruptores](https://material.io/design/components/selection-controls.html#switches) são a forma preferida de ajustes de configuração em mobile. A opção que o interruptor controla, juntamente com o estado atual, deve ser claramente explícita no rótulo(label) inline correspondente.
 
-## Basic switches
+## Interruptores básicos
 
 {{"demo": "pages/components/switches/Switches.js"}}
 
-## Switch with FormControlLabel
+## Interruptores com FormControlLabel
 
-`Switch` can be provided with a description thanks to the `FormControlLabel` component.
+`Switch` pode ser fornecido com uma descrição graças ao componente `FormControlLabel`.
 
 {{"demo": "pages/components/switches/SwitchLabels.js"}}
 
 ## Interruptores com FormGroup
 
-`FormGroup` é um componente encapsulador usado para agrupar componentes de seleção para fornecer uma fácil API. However, you are encouraged you to use [Checkboxes](/components/checkboxes/) instead if multiple related controls are required. (See: [When to use](#when-to-use)).
+`FormGroup` é um componente encapsulador usado para agrupar componentes de seleção para fornecer uma fácil API. No entanto, é recomendado usar de [Caixas de seleção](/components/checkboxes/), se vários controles relacionados forem necessários. (Veja: [Quando usar](#when-to-use)).
 
 {{"demo": "pages/components/switches/SwitchesGroup.js"}}
 
@@ -30,6 +30,8 @@ components: Switch, FormControl, FormGroup, FormLabel, FormControlLabel
 Aqui esta um exemplo de customização do componente. Você pode aprender mais sobre isso na [página de documentação de sobrescritas](/customization/components/).
 
 {{"demo": "pages/components/switches/CustomizedSwitches.js"}}
+
+🎨 Se você está procurando inspiração, você pode verificar [os exemplos de customização de MUI Treasury](https://mui-treasury.com/styles/switch).
 
 ## Tamanhos
 
@@ -49,8 +51,8 @@ Você pode alterar o posicionamento do rótulo:
 
 ## Acessibilidade
 
-- It will render an element with the `checkbox` role not `switch` role since this role isn't widely supported yet. Please test first if assistive technology of your target audience supports this role properly. Then you can change the role with `<Switch inputProps={{ role: 'switch' }}>`
-- Todos os controles de formulário devem ter rótulos, e isso inclui os botões de opção, caixas de seleção e seletores. Na maioria dos casos, isso é feito usando o elemento `<label>` ([FormControlLabel](/api/form-control-label/)).
+- Ele irá renderizar um elemento com a regra de `checkbox` não `switch` pois esta regra não é amplamente suportada ainda. Por favor, teste primeiro se a tecnologia assistiva do seu público-alvo suporta essa regra corretamente. Em seguida, você pode alterar a regra com `<Switch inputProps={{ role: 'switch' }}>`
+- Todos os controles de formulário devem ter rótulos, e isso inclui os botões de opção, caixas de seleção e interruptores. Na maioria dos casos, isso é feito usando o elemento `<label>` ([FormControlLabel](/api/form-control-label/)).
 - Quando um rótulo não pode ser usado, é necessário adicionar um atributo diretamente no componente de entrada. Nesse caso você pode aplicar um atributo adicional (e.g.`aria-label`,`aria-labelledby`, `title`) através da propriedade `inputProps`.
 
 ```jsx

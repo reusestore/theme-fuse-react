@@ -94,6 +94,8 @@ function SelectsDoc(props)
                         component={require('app/main/documentation/material-ui-components/components/selects/CustomizedSelects.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/CustomizedSelects.js')}
                     /></Typography>
+                    <Typography className="mb-16" component="div">🎨 If you are looking for inspiration, you can check <a href="https://mui-treasury.com/styles/select">MUI Treasury&#39;s customization
+                        examples</a>.</Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Multiple Select</Typography>
                     <Typography className="mb-16" component="div">The <code>{`Select`}</code> component can handle multiple selections.
                         It&#39;s enabled with the <code>{`multiple`}</code> property.</Typography>
@@ -150,6 +152,18 @@ function SelectsDoc(props)
   <MenuItem value="10">Ten</MenuItem>
   <MenuItem value="20">Twenty</MenuItem>
 </TextField>
+`}
+                    </FuseHighlight>
+                    <Typography className="mb-16" component="div">For a <a href="#native-select">native select</a>, you should mention a label by giving the value of the <code>{`id`}</code> attribute
+                        of the select element to the <code>{`InputLabel`}</code>&#39;s <code>{`htmlFor`}</code> attribute:</Typography>
+
+                    <FuseHighlight component="pre" className="language-jsx">
+                        {` 
+<InputLabel htmlFor="select">Age</InputLabel>
+<NativeSelect id="select">
+  <option value="10">Ten</option>
+  <option value="20">Twenty</option>
+</NativeSelect>
 `}
                     </FuseHighlight>
 

@@ -21,13 +21,13 @@ export default function UsePagination() {
     <nav>
       <ul className={classes.ul}>
         {items.map(({ page, type, selected, ...item }, index) => {
-          let children;
+          let children = null;
 
           if (type === 'start-ellipsis' || type === 'end-ellipsis') {
             children = '…';
           } else if (type === 'page') {
             children = (
-              <button type="button" style={{ fontWeight: selected ? 'bold' : null }} {...item}>
+              <button type="button" style={{ fontWeight: selected ? 'bold' : undefined }} {...item}>
                 {page}
               </button>
             );

@@ -13,11 +13,11 @@ Os menus são posicionados sobre seus elementos emissores, de modo que o item de
 
 {{"demo": "pages/components/selects/SimpleSelect.js"}}
 
-## Advanced features
+## Recursos avançados
 
-The Select component is meant to be interchangeable with a native `<select>` element.
+O componente `Select` é pensado para ser intercambiável com um elemento nativo `<select>`.
 
-If you are looking for more advanced features, like combobox, multiselect, autocomplete, async or creatable support, head to the [`Autocomplete` component](/components/autocomplete/). A ideia dessa ferramenta era para ser uma versão melhorada das bibliotecas "react-select" e "downshift".
+Se você estiver procurando por recursos mais avançados, como combobox, seleção múltipla, autocompletar, uso assíncrono ou com suporte de adição, vá para o [ componente `Autocomplete`](/components/autocomplete/). A ideia dessa ferramenta era para ser uma versão melhorada das bibliotecas "react-select" e "downshift".
 
 ## Seleção Nativa
 
@@ -37,6 +37,8 @@ O primeiro passo é modelar o componente `InputBase`. Uma vez estilizado, você 
 
 {{"demo": "pages/components/selects/CustomizedSelects.js"}}
 
+🎨 Se você está procurando inspiração, você pode verificar [os exemplos de customização de MUI Treasury](https://mui-treasury.com/styles/select).
+
 ## Seleção Múltipla
 
 O componente `Select` pode lidar com várias seleções. É ativado com a propriedade `multiple`.
@@ -55,15 +57,15 @@ Embora não seja recomendado pela especificação do Material Design, você pode
 
 {{"demo": "pages/components/selects/DialogSelect.js"}}
 
-## Grouping
+## Agrupando
 
-Display categories with the `ListSubheader` component or the native `<optgroup>` element.
+Exiba categorias com o componente `ListSubheader` ou com o elemento nativo `<optgroup>`.
 
 {{"demo": "pages/components/selects/GroupedSelect.js"}}
 
 ## Acessibilidade
 
-To properly label your `Select` input you need an extra element with an `id` that contains a label. That `id` needs to match the `labelId` of the `Select` e.g.
+Para rotular corretamente seu campo `Select` você precisa de um elemento extra com um `id` que contenha o rótulo desejado. Esse `id` precisa coincidir com o `labelId` do `Select`, por exemplo.
 
 ```jsx
 <InputLabel id="label">Age</InputLabel>
@@ -73,11 +75,21 @@ To properly label your `Select` input you need an extra element with an `id` tha
 </Select>
 ```
 
-Alternatively a `TextField` with an `id` and `label` creates the proper markup and ids for you:
+Alternativamente, um `TextField` com `id` e `label` cria a marcação adequada e ids para você:
 
 ```jsx
 <TextField id="select" label="Age" value="20" select>
   <MenuItem value="10">Ten</MenuItem>
   <MenuItem value="20">Twenty</MenuItem>
 </TextField>
+```
+
+Para uma [seleção nativa](#native-select), você deve utilizar um rótulo fornecendo o atributo `id` do elemento de seleção para o atributo `htmlFor` do `InputLabel`:
+
+```jsx
+<InputLabel htmlFor="select">Age</InputLabel>
+<NativeSelect id="select">
+  <option value="10">Ten</option>
+  <option value="20">Twenty</option>
+</NativeSelect>
 ```

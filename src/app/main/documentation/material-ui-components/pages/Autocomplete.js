@@ -93,26 +93,42 @@ function AutocompleteDoc(props)
                     <Typography className="text-24 mt-32 mb-8" component="h3">Controllable states</Typography>
                     <Typography className="mb-16" component="div">The component has two states that can be controlled:</Typography>
                     <ol>
-                        <li>the &quot;value&quot; state with the <code>{`value`}</code>/<code>{`onChange`}</code> props combination.</li>
-                        <li>the &quot;input value&quot; state with the <code>{`inputValue`}</code>/<code>{`onInputChange`}</code> props combination.</li>
+                        <li>the &quot;value&quot; state with the <code>{`value`}</code>/<code>{`onChange`}</code> props combination. This state represents the value selected by the user, for instance
+                            when pressing <kbd>Enter</kbd>.
+                        </li>
+                        <li>the &quot;input value&quot; state with the <code>{`inputValue`}</code>/<code>{`onInputChange`}</code> props combination. This state represents the value displayed in the
+                            textbox.
+                        </li>
                     </ol>
                     <blockquote>
                         <Typography className="mb-16" component="div">⚠️ These two state are isolated, they should be controlled independently.</Typography>
                     </blockquote>
+                    <Typography className="mb-16" component="div"><FuseExample
+                        className="my-24"
+                        iframe={false}
+                        component={require('app/main/documentation/material-ui-components/components/autocomplete/ControllableStates.js').default}
+                        raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/ControllableStates.js')}
+                    /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Free solo</Typography>
-                    <Typography className="mb-16" component="div">Set <code>{`freeSolo`}</code> to true so the textbox can contain any arbitrary value. The prop is designed to cover the primary use
-                        case of a search box with suggestions, e.g. Google search.</Typography>
-                    <Typography className="mb-16" component="div">However, if you intend to use it for a <a href="#combo-box">combo box</a> like experience (an enhanced version of a select element) we
-                        recommend setting <code>{`selectOnFocus`}</code> (it helps the user clear the selected value).</Typography>
+                    <Typography className="mb-16" component="div">Set <code>{`freeSolo`}</code> to true so the textbox can contain any arbitrary value.</Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Search input</Typography>
+                    <Typography className="mb-16" component="div">The prop is designed to cover the primary use case of a <strong>search input</strong> with suggestions, e.g. Google search or
+                        react-autowhatever.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
                         component={require('app/main/documentation/material-ui-components/components/autocomplete/FreeSolo.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/FreeSolo.js')}
                     /></Typography>
-                    <Typography className="text-24 mt-32 mb-8" component="h3">Helper message</Typography>
-                    <Typography className="mb-16" component="div">Sometimes you want to make explicit to the user that he/she can add whatever value he/she wants.
-                        The following demo adds a last option: <code>{`Add "YOUR SEARCH"`}</code>.</Typography>
+                    <Typography className="text-24 mt-32 mb-8" component="h3">Creatable</Typography>
+                    <Typography className="mb-16" component="div">If you intend to use this mode for a <a href="#combo-box">combo box</a> like experience (an enhanced version of a select element) we
+                        recommend setting:</Typography>
+                    <ul>
+                        <li><code>{`selectOnFocus`}</code> to helps the user clear the selected value.</li>
+                        <li><code>{`clearOnBlur`}</code> to helps the user to enter a new value.</li>
+                        <li><code>{`handleHomeEndKeys`}</code> to move focus inside the popup with the <kbd>Home</kbd> and <kbd>End</kbd> keys.</li>
+                        <li>A last option, for instance <code>{`Add "YOUR SEARCH"`}</code>.</li>
+                    </ul>
                     <Typography className="mb-16" component="div"><FuseExample
                         className="my-24"
                         iframe={false}
@@ -176,6 +192,7 @@ import useAutocomplete from '@material-ui/lab/useAutocomplete';
                         component={require('app/main/documentation/material-ui-components/components/autocomplete/Asynchronous.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/Asynchronous.js')}
                     /></Typography>
+                    {/*
                     <Typography className="text-24 mt-32 mb-8" component="h3">Google Maps place</Typography>
                     <Typography className="mb-16" component="div">A customized UI for Google Maps Places Autocomplete.</Typography>
                     <Typography className="mb-16" component="div"><FuseExample
@@ -184,6 +201,7 @@ import useAutocomplete from '@material-ui/lab/useAutocomplete';
                         component={require('app/main/documentation/material-ui-components/components/autocomplete/GoogleMaps.js').default}
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/GoogleMaps.js')}
                     /></Typography>
+                    */}
                     <Typography className="mb-16" component="div">For this demo, we need to load the <a href="https://developers.google.com/maps/documentation/javascript/tutorial">Google Maps
                         JavaScript</a> API.</Typography>
                     <blockquote>
@@ -249,7 +267,7 @@ import useAutocomplete from '@material-ui/lab/useAutocomplete';
                         raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/Highlights.js')}
                     /></Typography>
                     <Typography className="text-32 mt-32 mb-8" component="h2">Custom filter</Typography>
-                    <Typography className="mb-16" component="div">The component exposes a factory to create a filter method that can provided to the <code>{`filerOption`}</code> prop.
+                    <Typography className="mb-16" component="div">The component exposes a factory to create a filter method that can provided to the <code>{`filterOptions`}</code> prop.
                         You can use it to change the default option filter behavior.</Typography>
 
                     <FuseHighlight component="pre" className="language-js">
@@ -269,8 +287,6 @@ import { createFilterOptions } from '@material-ui/lab/Autocomplete';
                                     and virtualization wasn&#39;t set up.
                                 </li>
                                 <li><code>{`config.matchFrom`}</code> (<em>&#39;any&#39; | &#39;start&#39;</em> [optional]): Defaults to <code>{`'any'`}</code>.</li>
-                                <li><code>{`config.startAfter`}</code>(<em>Number</em> [optional]): Default to <code>{`0`}</code>. Show the suggested options only after a certain number of letters
-                                </li>
                                 <li><code>{`config.stringify`}</code> (<em>Func</em> [optional]): Controls how an option is converted into a string so that it can be matched against the input text
                                     fragment.
                                 </li>
@@ -353,11 +369,6 @@ const filterOptions = (options, { inputValue }) =>
                     <Typography className="text-24 mt-32 mb-8" component="h3">iOS VoiceOver</Typography>
                     <Typography className="mb-16" component="div">VoiceOver on iOS Safari doesn&#39;t support the <code>{`aria-owns`}</code> attribute very well.
                         You can work around the issue with the <code>{`disablePortal`}</code> prop.</Typography>
-                    <Typography className="text-24 mt-32 mb-8" component="h3">TypeScript</Typography>
-                    <Typography className="mb-16" component="div">To fully take advantage of type inference, you need to set the <code>{`multiple`}</code> prop
-                        to <code>{`undefined`}</code>, <code>{`false`}</code> or <code>{`true`}</code>.
-                        See <a href="https://github.com/mui-org/material-ui/pull/18854#discussion_r364215153">this discussion</a> for more details.
-                        TypeScript might solve this bug in the future.</Typography>
                     <Typography className="text-24 mt-32 mb-8" component="h3">ListboxComponent</Typography>
                     <Typography className="mb-16" component="div">If you provide a custom <code>{`ListboxComponent`}</code> prop, you need to make sure that the intended scroll container has
                         the <code>{`role`}</code> attribute set to <code>{`listbox`}</code>. This ensures the correct behavior of the scroll, for example when using the keyboard to

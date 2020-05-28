@@ -32,17 +32,35 @@ Choose one of the 248 countries.
 
 {{"demo": "pages/components/autocomplete/CountrySelect.js"}}
 
+### Controllable states
+
+The component has two states that can be controlled:
+
+1. the "value" state with the `value`/`onChange` props combination. This state represents the value selected by the user, for instance when pressing <kbd>Enter</kbd>.
+2. the "input value" state with the `inputValue`/`onInputChange` props combination. This state represents the value displayed in the textbox.
+
+> ⚠️ These two state are isolated, they should be controlled independently.
+
+{{"demo": "pages/components/autocomplete/ControllableStates.js"}}
+
 ## Произвольное значение
 
-Установите для `freeSolo` значение true, чтобы текстовое поле могло содержать любое произвольное значение. Это свойство предназначено для использования в качестве поискового окна с подсказками, например как поиск Google.
+Установите для `freeSolo` значение true, чтобы текстовое поле могло содержать любое произвольное значение.
 
-However, if you intend to use it for a [combo box](#combo-box) like experience (an enhanced version of a select element) we recommend setting `selectOnFocus` (it helps the user clear the selected value).
+### Search input
+
+The prop is designed to cover the primary use case of a **search input** with suggestions, e.g. Google search or react-autowhatever.
 
 {{"demo": "pages/components/autocomplete/FreeSolo.js"}}
 
-### Вспомогательное сообщение
+### Creatable
 
-Если вы хотите четко указать пользователю, что он/она может добавить любое значение. Следующее демо добавляет последний вариант: `Add "YOUR SEARCH"`.
+If you intend to use this mode for a [combo box](#combo-box) like experience (an enhanced version of a select element) we recommend setting:
+
+- `selectOnFocus` to helps the user clear the selected value.
+- `clearOnBlur` to helps the user to enter a new value.
+- `handleHomeEndKeys` to move focus inside the popup with the <kbd>Home</kbd> and <kbd>End</kbd> keys.
+- A last option, for instance `Add "YOUR SEARCH"`.
 
 {{"demo": "pages/components/autocomplete/FreeSoloCreateOption.js"}}
 
@@ -134,7 +152,7 @@ The following demo relies on [autosuggest-highlight](https://github.com/moroshko
 
 ## Пользовательский фильтр
 
-The component exposes a factory to create a filter method that can provided to the `filerOption` prop. You can use it to change the default option filter behavior.
+The component exposes a factory to create a filter method that can provided to the `filterOptions` prop. You can use it to change the default option filter behavior.
 
 ```js
 import { createFilterOptions } from '@material-ui/lab/Autocomplete';
@@ -149,7 +167,6 @@ import { createFilterOptions } from '@material-ui/lab/Autocomplete';
   - `config.ignoreCase` (*Boolean* [optional]): Defaults to `true`. Lowercase everything.
   - `config.limit` (*Number* [optional]): Default to null. Limit the number of suggested options to be shown. For example, if `config.limit` is `100`, only the first `100` matching options are shown. It can be useful if a lot of options match and virtualization wasn't set up.
   - `config.matchFrom` (*'any' | 'start'* [optional]): Defaults to `'any'`.
-  - `config.startAfter`(*Number* [optional]): Default to `0`. Show the suggested options only after a certain number of letters
   - `config.stringify` (*Func* [optional]): Controls how an option is converted into a string so that it can be matched against the input text fragment.
   - `config.trim` (*Boolean* [optional]): По умолчанию - `false`. Remove trailing spaces.
 
@@ -213,10 +230,6 @@ However, in addition to remembering past entered values, the browser might also 
 ### iOS VoiceOver
 
 VoiceOver on iOS Safari doesn't support the `aria-owns` attribute very well. You can work around the issue with the `disablePortal` prop.
-
-### TypeScript
-
-To fully take advantage of type inference, you need to set the `multiple` prop to `undefined`, `false` or `true`. See [this discussion](https://github.com/mui-org/material-ui/pull/18854#discussion_r364215153) for more details. TypeScript might solve this bug in the future.
 
 ### ListboxComponent
 
