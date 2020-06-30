@@ -7,10 +7,10 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Typography from '@material-ui/core/Typography';
 import LabelModel from 'app/main/apps/notes/model/LabelModel';
-import * as Actions from 'app/main/apps/notes/store/actions';
 import clsx from 'clsx';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { updateLabels } from '../../store/labelsSlice';
 
 function LabelsForm(props) {
 	const dispatch = useDispatch();
@@ -26,7 +26,7 @@ function LabelsForm(props) {
 	}, [labels]);
 
 	const handleOnChange = useDebounce(_labels => {
-		dispatch(Actions.updateLabels(_labels));
+		dispatch(updateLabels(_labels));
 	}, 600);
 
 	useEffect(() => {

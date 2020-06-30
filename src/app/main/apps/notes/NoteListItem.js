@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import NoteLabel from './NoteLabel';
 import NoteReminderLabel from './NoteReminderLabel';
 import setDescriptionStyle from './setDescriptionStyle';
-import * as Actions from './store/actions';
+import { openNoteDialog } from './store/notesSlice';
 
 function NoteListItem(props) {
 	const dispatch = useDispatch();
@@ -17,7 +17,7 @@ function NoteListItem(props) {
 		<FuseAnimate animation="transition.fadeIn" duration={400} delay={100}>
 			<Card
 				className={clsx('cursor-pointer', props.className)}
-				onClick={() => dispatch(Actions.openNoteDialog(props.note.id))}
+				onClick={() => dispatch(openNoteDialog(props.note.id))}
 			>
 				{props.note.image && props.note.image !== '' && (
 					<img src={props.note.image} className="w-full block" alt="note" />

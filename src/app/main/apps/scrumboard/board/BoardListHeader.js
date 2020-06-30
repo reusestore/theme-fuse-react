@@ -11,7 +11,7 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Actions from '../store/actions';
+import { removeList, renameList } from '../store/boardSlice';
 
 function BoardListHeader(props) {
 	const dispatch = useDispatch();
@@ -64,7 +64,7 @@ function BoardListHeader(props) {
 		if (!isFormInvalid()) {
 			return;
 		}
-		dispatch(Actions.renameList(board.id, props.list.id, form.title));
+		dispatch(renameList({ boardId: board.id, listId: props.list.id, listTitle: form.title }));
 		handleCloseForm();
 	}
 
@@ -113,7 +113,7 @@ function BoardListHeader(props) {
 					<Menu id="actions-menu" anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose}>
 						<MenuItem
 							onClick={() => {
-								dispatch(Actions.removeList(board.id, props.list.id));
+								dispatch(removeList({ boardId: board.id, listId: props.list.id }));
 							}}
 						>
 							<ListItemIcon className="min-w-40">

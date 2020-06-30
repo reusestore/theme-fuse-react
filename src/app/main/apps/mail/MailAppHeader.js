@@ -7,12 +7,13 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Actions from './store/actions';
+import { selectMainTheme } from 'app/store/fuse/settingsSlice';
+import { setMailsSearchText } from './store/mailsSlice';
 
 function MailAppHeader(props) {
 	const dispatch = useDispatch();
 	const searchText = useSelector(({ mailApp }) => mailApp.mails.searchText);
-	const mainTheme = useSelector(({ fuse }) => fuse.settings.mainTheme);
+	const mainTheme = useSelector(selectMainTheme);
 	const { t } = useTranslation('mailApp');
 
 	return (
@@ -42,7 +43,7 @@ function MailAppHeader(props) {
 						inputProps={{
 							'aria-label': 'Search'
 						}}
-						onChange={ev => dispatch(Actions.setSearchText(ev))}
+						onChange={ev => dispatch(setMailsSearchText(ev))}
 					/>
 				</Paper>
 			</div>

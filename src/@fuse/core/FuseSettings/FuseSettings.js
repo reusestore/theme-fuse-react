@@ -10,11 +10,11 @@ import Select from '@material-ui/core/Select';
 import { makeStyles } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
 import Typography from '@material-ui/core/Typography';
-import * as AuthActions from 'app/auth/store/actions';
-import * as Actions from 'app/store/actions';
 import clsx from 'clsx';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { updateUserSettings } from 'app/auth/store/userSlice';
+import { setDefaultSettings } from 'app/store/fuse/settingsSlice';
 
 const useStyles = makeStyles(theme => ({
 	root: {},
@@ -70,40 +70,82 @@ function FuseSettings(props) {
 		}
 
 		if (user.role === 'guest') {
-			dispatch(Actions.setDefaultSettings(newSettings));
+			dispatch(setDefaultSettings(newSettings));
 		} else {
-			dispatch(AuthActions.updateUserSettings(newSettings));
+			dispatch(updateUserSettings(newSettings));
 		}
 	}
 
 	const ThemeSelect = ({ value, name, handleThemeChange }) => {
 		return (
-			<Select className="w-full" value={value} onChange={handleThemeChange} name={name}>
-				{Object.entries(themes).map(([key, val]) => (
-					<MenuItem
-						key={key}
-						value={key}
-						className="m-8 mt-0 rounded-lg"
-						style={{
-							backgroundColor: val.palette.background.default,
-							color: val.palette.text.primary,
-							border: `1px solid ${val.palette.divider}`
-						}}
-					>
-						{_.startCase(key)}
-						<div
-							className="flex w-full h-8 block absolute bottom-0 left-0 right-0"
+			<Select
+				className="w-full rounded-8 h-40 overflow-hidden my-8"
+				value={value}
+				onChange={handleThemeChange}
+				name={name}
+				variant="outlined"
+				style={{
+					backgroundColor: themes[value].palette.background.default,
+					color: themes[value].palette.type === 'light' ? '#000000' : '#ffffff'
+				}}
+			>
+				{Object.entries(themes)
+					.filter(
+						([key, val]) =>
+							!(name === 'theme.main' && (key === 'mainThemeDark' || key === 'mainThemeLight'))
+					)
+					.map(([key, val]) => (
+						<MenuItem
+							key={key}
+							value={key}
+							className="m-8 mt-0 rounded-lg"
 							style={{
-								borderTop: `1px solid ${val.palette.divider}`
+								backgroundColor: val.palette.background.default,
+								color: val.palette.type === 'light' ? '#000000' : '#ffffff',
+								border: `1px solid ${
+									val.palette.type === 'light' ? 'rgba(0, 0, 0, 0.12)' : 'rgba(255, 255, 255, 0.12)'
+								}`
 							}}
 						>
-							<div className="w-1/4 h-8" style={{ backgroundColor: val.palette.primary.main }} />
-							<div className="w-1/4 h-8" style={{ backgroundColor: val.palette.secondary.main }} />
-							<div className="w-1/4 h-8" style={{ backgroundColor: val.palette.error.main }} />
-							<div className="w-1/4 h-8" style={{ backgroundColor: val.palette.background.paper }} />
-						</div>
-					</MenuItem>
-				))}
+							{_.startCase(key)}
+							<div
+								className="flex w-full h-8 block absolute bottom-0 left-0 right-0"
+								style={{
+									borderTop: `1px solid ${
+										val.palette.type === 'light'
+											? 'rgba(0, 0, 0, 0.12)'
+											: 'rgba(255, 255, 255, 0.12)'
+									}`
+								}}
+							>
+								<div
+									className="w-1/4 h-8"
+									style={{
+										backgroundColor: val.palette.primary.main
+											? val.palette.primary.main
+											: val.palette.primary[500]
+									}}
+								/>
+								<div
+									className="w-1/4 h-8"
+									style={{
+										backgroundColor: val.palette.secondary.main
+											? val.palette.secondary.main
+											: val.palette.secondary[500]
+									}}
+								/>
+								<div
+									className="w-1/4 h-8"
+									style={{
+										backgroundColor: val.palette.error.main
+											? val.palette.error.main
+											: val.palette.error[500]
+									}}
+								/>
+								<div className="w-1/4 h-8" style={{ backgroundColor: val.palette.background.paper }} />
+							</div>
+						</MenuItem>
+					))}
 			</Select>
 		);
 	};

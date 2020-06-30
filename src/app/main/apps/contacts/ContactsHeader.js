@@ -8,12 +8,13 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Actions from './store/actions';
+import { selectMainTheme } from 'app/store/fuse/settingsSlice';
+import { setContactsSearchText } from './store/contactsSlice';
 
 function ContactsHeader(props) {
 	const dispatch = useDispatch();
 	const searchText = useSelector(({ contactsApp }) => contactsApp.contacts.searchText);
-	const mainTheme = useSelector(({ fuse }) => fuse.settings.mainTheme);
+	const mainTheme = useSelector(selectMainTheme);
 
 	return (
 		<div className="flex flex-1 items-center justify-between p-8 sm:p-24">
@@ -56,7 +57,7 @@ function ContactsHeader(props) {
 								inputProps={{
 									'aria-label': 'Search'
 								}}
-								onChange={ev => dispatch(Actions.setSearchText(ev))}
+								onChange={ev => dispatch(setContactsSearchText(ev))}
 							/>
 						</Paper>
 					</FuseAnimate>

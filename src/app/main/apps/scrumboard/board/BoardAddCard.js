@@ -7,7 +7,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Actions from '../store/actions';
+import { newCard } from '../store/boardSlice';
 
 function BoardAddCard(props) {
 	const dispatch = useDispatch();
@@ -34,7 +34,7 @@ function BoardAddCard(props) {
 
 	function handleSubmit(ev) {
 		ev.preventDefault();
-		dispatch(Actions.newCard(board.id, props.listId, form.title)).then(() => {
+		dispatch(newCard({ boardId: board.id, listId: props.listId, cardTitle: form.title })).then(() => {
 			props.onCardAdded();
 		});
 		handleCloseForm();

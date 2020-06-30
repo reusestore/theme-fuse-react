@@ -106,7 +106,8 @@ const themesConfig = {
 			background: {
 				paper: '#FFFFFF',
 				default: '#F7F7F7'
-			}
+			},
+			error: red
 		}
 	},
 	tech: {
@@ -126,7 +127,8 @@ const themesConfig = {
 			background: {
 				paper: '#FFFFFF',
 				default: '#F7F7F7'
-			}
+			},
+			error: red
 		}
 	},
 	sweetHues: {
@@ -146,7 +148,8 @@ const themesConfig = {
 			background: {
 				paper: '#FFFFFF',
 				default: '#F7F7F7'
-			}
+			},
+			error: red
 		}
 	},
 	defaultDark: {
@@ -185,7 +188,8 @@ const themesConfig = {
 			background: {
 				paper: '#1E2125',
 				default: '#121212'
-			}
+			},
+			error: red
 		}
 	},
 	slate: {
@@ -205,7 +209,8 @@ const themesConfig = {
 			background: {
 				paper: '#1E2125',
 				default: '#121212'
-			}
+			},
+			error: red
 		}
 	}
 };

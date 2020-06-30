@@ -9,8 +9,8 @@ import clsx from 'clsx';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import * as Actions from '../store/actions';
-import reducer from '../store/reducers';
+import reducer from '../store';
+import { selectBoards, newBoard, getBoards, resetBoards } from '../store/boardsSlice';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -41,14 +41,14 @@ const useStyles = makeStyles(theme => ({
 
 function Boards(props) {
 	const dispatch = useDispatch();
-	const boards = useSelector(({ scrumboardApp }) => scrumboardApp.boards);
+	const boards = useSelector(selectBoards);
 
 	const classes = useStyles(props);
 
 	useEffect(() => {
-		dispatch(Actions.getBoards());
+		dispatch(getBoards());
 		return () => {
-			dispatch(Actions.resetBoards());
+			dispatch(resetBoards());
 		};
 	}, [dispatch]);
 
@@ -93,8 +93,8 @@ function Boards(props) {
 									classes.newBoard,
 									'flex flex-col items-center justify-center w-full h-full rounded py-24'
 								)}
-								onClick={() => dispatch(Actions.newBoard())}
-								onKeyDown={() => dispatch(Actions.newBoard())}
+								onClick={() => dispatch(newBoard())}
+								onKeyDown={() => dispatch(newBoard())}
 								role="button"
 								tabIndex={0}
 							>

@@ -21,8 +21,9 @@ import clsx from 'clsx';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import * as Actions from '../store/actions';
-import reducer from '../store/reducers';
+import reducer from '../store';
+import { getCategories, selectCategories } from '../store/categoriesSlice';
+import { getCourses, selectCourses } from '../store/coursesSlice';
 
 const useStyles = makeStyles(theme => ({
 	header: {
@@ -43,8 +44,8 @@ const useStyles = makeStyles(theme => ({
 
 function Courses(props) {
 	const dispatch = useDispatch();
-	const courses = useSelector(({ academyApp }) => academyApp.courses.data);
-	const categories = useSelector(({ academyApp }) => academyApp.courses.categories);
+	const courses = useSelector(selectCourses);
+	const categories = useSelector(selectCategories);
 
 	const classes = useStyles(props);
 	const theme = useTheme();
@@ -53,8 +54,8 @@ function Courses(props) {
 	const [selectedCategory, setSelectedCategory] = useState('all');
 
 	useEffect(() => {
-		dispatch(Actions.getCategories());
-		dispatch(Actions.getCourses());
+		dispatch(getCategories());
+		dispatch(getCourses());
 	}, [dispatch]);
 
 	useEffect(() => {

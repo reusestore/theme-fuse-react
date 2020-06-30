@@ -1,8 +1,9 @@
 import mock from '../mock';
 
 const projectDashboardAppDB = {
-	widgets: {
-		widget1: {
+	widgets: [
+		{
+			id: 'widget1',
 			ranges: {
 				DY: 'Yesterday',
 				DT: 'Today',
@@ -27,7 +28,8 @@ const projectDashboardAppDB = {
 			},
 			detail: 'You can show some detailed information about this widget in here.'
 		},
-		widget2: {
+		{
+			id: 'widget2',
 			title: 'Overdue',
 			data: {
 				label: 'TASKS',
@@ -39,7 +41,8 @@ const projectDashboardAppDB = {
 			},
 			detail: 'You can show some detailed information about this widget in here.'
 		},
-		widget3: {
+		{
+			id: 'widget3',
 			title: 'Issues',
 			data: {
 				label: 'OPEN',
@@ -51,7 +54,8 @@ const projectDashboardAppDB = {
 			},
 			detail: 'You can show some detailed information about this widget in here.'
 		},
-		widget4: {
+		{
+			id: 'widget4',
 			title: 'Features',
 			data: {
 				label: 'PROPOSALS',
@@ -63,7 +67,8 @@ const projectDashboardAppDB = {
 			},
 			detail: 'You can show some detailed information about this widget in here.'
 		},
-		widget5: {
+		{
+			id: 'widget5',
 			title: 'Github Issues',
 			ranges: {
 				TW: 'This Week',
@@ -629,7 +634,8 @@ const projectDashboardAppDB = {
 				}
 			}
 		},
-		widget6: {
+		{
+			id: 'widget6',
 			title: 'Task Distribution',
 			ranges: {
 				TW: 'This Week',
@@ -693,7 +699,8 @@ const projectDashboardAppDB = {
 				}
 			}
 		},
-		widget7: {
+		{
+			id: 'widget7',
 			title: 'Schedule',
 			currentRange: 'T',
 			ranges: {
@@ -777,7 +784,8 @@ const projectDashboardAppDB = {
 				]
 			}
 		},
-		widget8: {
+		{
+			id: 'widget8',
 			title: 'Budget Distribution',
 			mainChart: {
 				labels: ['Wireframing', 'Design', 'Coding', 'Marketing', 'Extra'],
@@ -803,7 +811,8 @@ const projectDashboardAppDB = {
 				}
 			}
 		},
-		widget9: {
+		{
+			id: 'widget9',
 			title: 'Spent',
 			ranges: {
 				TW: 'This Week',
@@ -1026,7 +1035,8 @@ const projectDashboardAppDB = {
 				count: '124.000,00'
 			}
 		},
-		widget10: {
+		{
+			id: 'widget10',
 			title: 'Budget Details',
 			table: {
 				columns: [
@@ -1264,7 +1274,8 @@ const projectDashboardAppDB = {
 				]
 			}
 		},
-		widget11: {
+		{
+			id: 'widget11',
 			title: 'Team Members',
 			table: {
 				columns: [
@@ -1877,7 +1888,8 @@ const projectDashboardAppDB = {
 				]
 			}
 		},
-		weatherWidget: {
+		{
+			id: 'weatherWidget',
 			locations: {
 				NewYork: {
 					name: 'New York',
@@ -1924,7 +1936,7 @@ const projectDashboardAppDB = {
 			tempUnit: 'C',
 			speedUnit: 'KMH'
 		}
-	},
+	],
 	projects: [
 		{
 			id: 1,

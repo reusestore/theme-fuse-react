@@ -1,4 +1,4 @@
-import { injectReducer } from 'app/store';
+import { injectReducer } from 'app/store/index';
 import React from 'react';
 
 const withReducer = (key, reducer) => WrappedComponent => {

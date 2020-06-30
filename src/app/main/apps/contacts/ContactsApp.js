@@ -12,8 +12,9 @@ import ContactDialog from './ContactDialog';
 import ContactsHeader from './ContactsHeader';
 import ContactsList from './ContactsList';
 import ContactsSidebarContent from './ContactsSidebarContent';
-import * as Actions from './store/actions';
-import reducer from './store/reducers';
+import reducer from './store';
+import { openNewContactDialog, getContacts } from './store/contactsSlice';
+import { getUserData } from './store/userSlice';
 
 const useStyles = makeStyles({
 	addButton: {
@@ -32,8 +33,8 @@ function ContactsApp(props) {
 	const routeParams = useParams();
 
 	useDeepCompareEffect(() => {
-		dispatch(Actions.getContacts(routeParams));
-		dispatch(Actions.getUserData());
+		dispatch(getContacts(routeParams));
+		dispatch(getUserData());
 	}, [dispatch, routeParams]);
 
 	return (
@@ -58,7 +59,7 @@ function ContactsApp(props) {
 					color="primary"
 					aria-label="add"
 					className={classes.addButton}
-					onClick={ev => dispatch(Actions.openNewContactDialog())}
+					onClick={ev => dispatch(openNewContactDialog())}
 				>
 					<Icon>person_add</Icon>
 				</Fab>

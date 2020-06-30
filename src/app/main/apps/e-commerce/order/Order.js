@@ -17,8 +17,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { useDeepCompareEffect } from '@fuse/hooks';
-import * as Actions from '../store/actions';
-import reducer from '../store/reducers';
+import reducer from '../store';
+import { getOrder } from '../store/orderSlice';
 import OrderInvoice from './OrderInvoice';
 import OrdersStatus from './OrdersStatus';
 
@@ -40,7 +40,7 @@ function Order(props) {
 	const [map, setMap] = useState('shipping');
 
 	useDeepCompareEffect(() => {
-		dispatch(Actions.getOrder(routeParams));
+		dispatch(getOrder(routeParams));
 	}, [dispatch, routeParams]);
 
 	function handleChangeTab(event, value) {

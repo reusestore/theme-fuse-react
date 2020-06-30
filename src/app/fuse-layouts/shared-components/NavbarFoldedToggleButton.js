@@ -1,9 +1,9 @@
 import _ from '@lodash';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
-import * as Actions from 'app/store/actions';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { setDefaultSettings } from 'app/store/fuse/settingsSlice';
 
 function NavbarFoldedToggleButton(props) {
 	const dispatch = useDispatch();
@@ -14,9 +14,7 @@ function NavbarFoldedToggleButton(props) {
 			className={props.className}
 			onClick={() => {
 				dispatch(
-					Actions.setDefaultSettings(
-						_.set({}, 'layout.config.navbar.folded', !settings.layout.config.navbar.folded)
-					)
+					setDefaultSettings(_.set({}, 'layout.config.navbar.folded', !settings.layout.config.navbar.folded))
 				);
 			}}
 			color="inherit"

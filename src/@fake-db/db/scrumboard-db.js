@@ -762,14 +762,14 @@ mock.onPost('/api/scrumboard-app/list/rename').reply(request => {
 	const list = _.find(board.lists, { id: listId });
 	_.assign(list, { name: listTitle });
 
-	return [200, listTitle];
+	return [200, { listTitle, listId }];
 });
 
 mock.onPost('/api/scrumboard-app/list/remove').reply(request => {
 	const { boardId, listId } = JSON.parse(request.data);
 	const board = _.find(scrumboardDB.boards, { id: boardId });
 	_.set(board, 'lists', _.reject(board.lists, { id: listId }));
-	return [200, true];
+	return [200, listId];
 });
 
 mock.onPost('/api/scrumboard-app/card/update').reply(request => {

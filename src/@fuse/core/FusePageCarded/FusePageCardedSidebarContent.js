@@ -3,10 +3,10 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { selectMainThemeDark } from 'app/store/fuse/settingsSlice';
 
 function FusePageCardedSidebarContent(props) {
-	const mainThemeDark = useSelector(({ fuse }) => fuse.settings.mainThemeDark);
-
+	const mainThemeDark = useSelector(selectMainThemeDark);
 	const { classes } = props;
 
 	return (

@@ -3,8 +3,7 @@ import FuseLayouts from '@fuse/layouts/FuseLayouts';
 import _ from '@lodash';
 import { makeStyles } from '@material-ui/core/styles';
 import AppContext from 'app/AppContext';
-import * as Actions from 'app/store/actions';
-import { generateSettings } from 'app/store/reducers/fuse/settings.reducer';
+import { generateSettings, setSettings } from 'app/store/fuse/settingsSlice';
 import React, { useContext, useMemo, useCallback, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { matchRoutes } from 'react-router-config';
@@ -111,7 +110,7 @@ function FuseLayout(props) {
 
 	useDeepCompareEffect(() => {
 		if (!_.isEqual(newSettings.current, settings)) {
-			dispatch(Actions.setSettings(newSettings.current));
+			dispatch(setSettings(newSettings.current));
 		}
 	}, [dispatch, newSettings.current, settings]);
 

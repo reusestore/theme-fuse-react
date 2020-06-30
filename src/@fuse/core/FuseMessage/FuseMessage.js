@@ -5,10 +5,10 @@ import Snackbar from '@material-ui/core/Snackbar';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import * as Actions from 'app/store/actions';
 import clsx from 'clsx';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { hideMessage } from 'app/store/fuse/messageSlice';
 
 const useStyles = makeStyles(theme => ({
 	root: {},
@@ -48,7 +48,7 @@ function FuseMessage(props) {
 		<Snackbar
 			{...options}
 			open={state}
-			onClose={() => dispatch(Actions.hideMessage())}
+			onClose={() => dispatch(hideMessage())}
 			classes={{
 				root: classes.root
 			}}
@@ -69,12 +69,7 @@ function FuseMessage(props) {
 					</div>
 				}
 				action={[
-					<IconButton
-						key="close"
-						aria-label="Close"
-						color="inherit"
-						onClick={() => dispatch(Actions.hideMessage())}
-					>
+					<IconButton key="close" aria-label="Close" color="inherit" onClick={() => dispatch(hideMessage())}>
 						<Icon>close</Icon>
 					</IconButton>
 				]}

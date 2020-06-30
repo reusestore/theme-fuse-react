@@ -3,9 +3,10 @@ import clsx from 'clsx';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { selectLabelsEntities } from './store/labelsSlice';
 
 function NoteLabel(props) {
-	const labels = useSelector(({ notesApp }) => notesApp.labels.entities);
+	const labels = useSelector(selectLabelsEntities);
 
 	if (!labels) {
 		return null;

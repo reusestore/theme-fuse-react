@@ -350,14 +350,14 @@ mock.onGet('/api/chat/get-chat').reply(request => {
 	const { contactId, userId } = request.params;
 	const user = chatDb.user.find(_user => _user.id === userId);
 
-	const chat = user.chatList.find(_chat => _chat.contactId === contactId);
-	const chatId = chat ? chat.chatId : createNewChat(contactId, userId);
-	const response = chatDb.chats.find(_chat => _chat.id === chatId);
+	const userChat = user.chatList.find(_chat => _chat.contactId === contactId);
+	const chatId = userChat ? userChat.chatId : createNewChat(contactId, userId);
+
 	return [
 		200,
 		{
-			chat: response,
-			userChatData: user.chatList.find(_chat => _chat.contactId === contactId)
+			chat: chatDb.chats.find(_chat => _chat.id === chatId),
+			userChatList: user.chatList
 		}
 	];
 });
@@ -395,15 +395,22 @@ function createNewChat(contactId, userId) {
 
 mock.onPost('/api/chat/send-message').reply(request => {
 	const data = JSON.parse(request.data);
-	const { chatId, message, contactId } = data;
+	const { chatId, messageText, contactId } = data;
+	const message = {
+		who: chatDb.user[0].id,
+		message: messageText,
+		time: new Date()
+	};
+
 	const chat = chatDb.chats.find(_chat => _chat.id === chatId);
 	chat.dialog = [...chat.dialog, message];
-	chatDb.user[0].chatList.find(_contact => _contact.id === contactId).lastMessageTime = message.time;
+	chatDb.user[0].chatList.find(_contact => _contact.contactId === contactId).lastMessageTime = message.time;
+
 	return [
 		200,
 		{
 			message,
-			userChatData: chatDb.user[0].chatList.find(_contact => _contact.id === contactId)
+			userChatList: chatDb.user[0].chatList
 		}
 	];
 });

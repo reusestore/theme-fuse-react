@@ -9,7 +9,10 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import { makeStyles } from '@material-ui/core/styles';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Actions from './store/actions';
+import { selectFilters } from './store/filtersSlice';
+import { selectFolders } from './store/foldersSlice';
+import { selectLabels } from './store/labelsSlice';
+import { openNewTodoDialog } from './store/todosSlice';
 
 const useStyles = makeStyles(theme => ({
 	listItem: {
@@ -42,9 +45,9 @@ const useStyles = makeStyles(theme => ({
 
 function TodoSidebarContent(props) {
 	const dispatch = useDispatch();
-	const labels = useSelector(({ todoApp }) => todoApp.labels);
-	const folders = useSelector(({ todoApp }) => todoApp.folders);
-	const filters = useSelector(({ todoApp }) => todoApp.filters);
+	const labels = useSelector(selectLabels);
+	const folders = useSelector(selectFolders);
+	const filters = useSelector(selectFilters);
 
 	const classes = useStyles(props);
 
@@ -54,7 +57,7 @@ function TodoSidebarContent(props) {
 				<div className="p-24">
 					<Button
 						onClick={() => {
-							dispatch(Actions.openNewTodoDialog());
+							dispatch(openNewTodoDialog());
 						}}
 						variant="contained"
 						color="primary"

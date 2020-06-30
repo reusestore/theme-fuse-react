@@ -12,11 +12,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { makeStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
-import * as UserActions from 'app/auth/store/actions';
 import clsx from 'clsx';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { updateUserShortcuts } from 'app/auth/store/userSlice';
 
 const useStyles = makeStyles({
 	root: {
@@ -78,7 +78,7 @@ function FuseShortcuts(props) {
 	function toggleInShortcuts(id) {
 		let newShortcuts = [...shortcuts];
 		newShortcuts = newShortcuts.includes(id) ? newShortcuts.filter(_id => id !== _id) : [...newShortcuts, id];
-		dispatch(UserActions.updateUserShortcuts(newShortcuts));
+		dispatch(updateUserShortcuts(newShortcuts));
 	}
 
 	function ShortcutMenuItem({ item, onToggle }) {

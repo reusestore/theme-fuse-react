@@ -4,10 +4,10 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { selectFileById } from './store/filesSlice';
 
 function DetailSidebarHeader(props) {
-	const files = useSelector(({ fileManagerApp }) => fileManagerApp.files);
-	const selectedItem = useSelector(({ fileManagerApp }) => files[fileManagerApp.selectedItemId]);
+	const selectedItem = useSelector(state => selectFileById(state, state.fileManagerApp.files.selectedItemId));
 
 	if (!selectedItem) {
 		return null;

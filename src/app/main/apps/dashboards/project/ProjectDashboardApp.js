@@ -14,8 +14,11 @@ import clsx from 'clsx';
 import _ from '@lodash';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Actions from './store/actions';
-import reducer from './store/reducers';
+import reducer from './store';
+import { selectProjects, getProjects } from './store/projectsSlice';
+
+import { getWidgets, selectWidgets } from './store/widgetsSlice';
+
 import Widget1 from './widgets/Widget1';
 import Widget10 from './widgets/Widget10';
 import Widget11 from './widgets/Widget11';
@@ -51,8 +54,8 @@ const useStyles = makeStyles(theme => ({
 
 function ProjectDashboardApp(props) {
 	const dispatch = useDispatch();
-	const widgets = useSelector(({ projectDashboardApp }) => projectDashboardApp.widgets);
-	const projects = useSelector(({ projectDashboardApp }) => projectDashboardApp.projects);
+	const widgets = useSelector(selectWidgets);
+	const projects = useSelector(selectProjects);
 
 	const classes = useStyles(props);
 	const pageLayout = useRef(null);
@@ -63,8 +66,8 @@ function ProjectDashboardApp(props) {
 	});
 
 	useEffect(() => {
-		dispatch(Actions.getWidgets());
-		dispatch(Actions.getProjects());
+		dispatch(getWidgets());
+		dispatch(getProjects());
 	}, [dispatch]);
 
 	function handleChangeTab(event, value) {
@@ -91,8 +94,8 @@ function ProjectDashboardApp(props) {
 			menuEl: null
 		});
 	}
-
-	if (!widgets || !projects) {
+	// return null;
+	if (_.isEmpty(widgets) || _.isEmpty(projects)) {
 		return null;
 	}
 

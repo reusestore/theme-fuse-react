@@ -15,7 +15,8 @@ import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import StatusIcon from './StatusIcon';
-import * as Actions from './store/actions';
+import { closeUserSidebar } from './store/sidebarsSlice';
+import { updateUserData } from './store/userSlice';
 
 const statusArr = [
 	{
@@ -42,13 +43,13 @@ function UserSidebar(props) {
 
 	const { form, handleChange } = useForm(user ? { ...user } : false);
 
-	const updateUserData = useDebounce(_form => {
-		dispatch(Actions.updateUserData(_form));
+	const updateUser = useDebounce(_form => {
+		dispatch(updateUserData(_form));
 	}, 500);
 
 	useUpdateEffect(() => {
-		updateUserData(form);
-	}, [form, updateUserData]);
+		updateUser(form);
+	}, [form, updateUser]);
 
 	if (!form) {
 		return null;
@@ -61,7 +62,7 @@ function UserSidebar(props) {
 					<Typography className="px-12" color="inherit" variant="subtitle1">
 						User Info
 					</Typography>
-					<IconButton onClick={() => dispatch(Actions.closeUserSidebar())} color="inherit">
+					<IconButton onClick={() => dispatch(closeUserSidebar())} color="inherit">
 						<Icon>close</Icon>
 					</IconButton>
 				</Toolbar>

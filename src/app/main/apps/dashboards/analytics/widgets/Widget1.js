@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import React, { useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import { useSelector } from 'react-redux';
+import { selectMainThemeDark } from 'app/store/fuse/settingsSlice';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -14,7 +15,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Widget1(props) {
-	const mainThemeDark = useSelector(({ fuse }) => fuse.settings.mainThemeDark);
+	const mainThemeDark = useSelector(selectMainThemeDark);
 
 	const classes = useStyles(props);
 	const theme = useTheme();

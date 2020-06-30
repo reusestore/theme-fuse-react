@@ -12,13 +12,18 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
+import { useTheme } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import React, { useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ContactListItem from './ContactListItem';
 import StatusIcon from './StatusIcon';
-import * as Actions from './store/actions';
+import { getChat } from './store/chatSlice';
+import { selectContacts } from './store/contactsSlice';
+import { openUserSidebar } from './store/sidebarsSlice';
+import { updateUserData } from './store/userSlice';
 
 const statusArr = [
 	{
@@ -41,8 +46,10 @@ const statusArr = [
 
 function ChatsSidebar(props) {
 	const dispatch = useDispatch();
-	const contacts = useSelector(({ chatApp }) => chatApp.contacts.entities);
+	const contacts = useSelector(selectContacts);
 	const user = useSelector(({ chatApp }) => chatApp.user);
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
 	const [searchText, setSearchText] = useState('');
 	const [statusMenuEl, setStatusMenuEl] = useState(null);
@@ -66,7 +73,7 @@ function ChatsSidebar(props) {
 		event.preventDefault();
 		event.stopPropagation();
 		dispatch(
-			Actions.updateUserData({
+			updateUserData({
 				...user,
 				status
 			})
@@ -91,15 +98,14 @@ function ChatsSidebar(props) {
 					{user && (
 						<div
 							className="relative w-40 h-40 p-0 mx-12 cursor-pointer"
-							onClick={() => dispatch(Actions.openUserSidebar())}
-							onKeyDown={() => dispatch(Actions.openUserSidebar())}
+							onClick={() => dispatch(openUserSidebar())}
+							onKeyDown={() => dispatch(openUserSidebar())}
 							role="button"
 							tabIndex={0}
 						>
 							<Avatar src={user.avatar} alt={user.name} className="w-40 h-40">
 								{!user.avatar || user.avatar === '' ? user.name[0] : ''}
 							</Avatar>
-
 							<div
 								className="absolute right-0 bottom-0 -m-4 z-10 cursor-pointer"
 								aria-owns={statusMenuEl ? 'switch-menu' : null}
@@ -190,8 +196,8 @@ function ChatsSidebar(props) {
 										...contacts.find(_contact => _contact.id === _chat.contactId)
 								  }))
 								: [];
-						const contactsArr = getFilteredArray([...contacts], searchText);
-						const chatListArr = getFilteredArray([...chatListContacts], searchText);
+						const filteredContacts = getFilteredArray([...contacts], searchText);
+						const filteredChatList = getFilteredArray([...chatListContacts], searchText);
 
 						return (
 							<>
@@ -201,37 +207,37 @@ function ChatsSidebar(props) {
 									}}
 									className="flex flex-col flex-shrink-0"
 								>
-									{chatListArr.length > 0 && (
+									{filteredChatList.length > 0 && (
 										<Typography className="font-300 text-20 px-16 py-24" color="secondary">
 											Chats
 										</Typography>
 									)}
 
-									{chatListArr.map(contact => (
+									{filteredChatList.map(contact => (
 										<ContactListItem
 											key={contact.id}
 											contact={contact}
-											onContactClick={contactId => dispatch(Actions.getChat(contactId))}
+											onContactClick={contactId => dispatch(getChat({ contactId, isMobile }))}
 										/>
 									))}
 
-									{contactsArr.length > 0 && (
+									{filteredContacts.length > 0 && (
 										<Typography className="font-300 text-20 px-16 py-24" color="secondary">
 											Contacts
 										</Typography>
 									)}
 
-									{contactsArr.map(contact => (
+									{filteredContacts.map(contact => (
 										<ContactListItem
 											key={contact.id}
 											contact={contact}
-											onContactClick={contactId => dispatch(Actions.getChat(contactId))}
+											onContactClick={contactId => dispatch(getChat({ contactId, isMobile }))}
 										/>
 									))}
 								</FuseAnimateGroup>
 							</>
 						);
-					}, [contacts, user, searchText, dispatch])}
+					}, [contacts, user, searchText, dispatch, isMobile])}
 				</List>
 			</FuseScrollbars>
 		</div>

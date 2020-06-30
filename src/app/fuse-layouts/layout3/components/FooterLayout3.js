@@ -5,9 +5,10 @@ import PoweredByLinks from 'app/fuse-layouts/shared-components/PoweredByLinks';
 import PurchaseButton from 'app/fuse-layouts/shared-components/PurchaseButton';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { selectFooterTheme } from 'app/store/fuse/settingsSlice';
 
 function FooterLayout3(props) {
-	const footerTheme = useSelector(({ fuse }) => fuse.settings.footerTheme);
+	const footerTheme = useSelector(selectFooterTheme);
 
 	return (
 		<ThemeProvider theme={footerTheme}>

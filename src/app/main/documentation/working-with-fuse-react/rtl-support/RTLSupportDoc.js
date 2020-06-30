@@ -120,7 +120,7 @@ function RTLSupportDoc() {
 
 					<FuseHighlight component="pre" className="language-jsx mb-24">
 						{`
-                            dispatch(Actions.setDefaultSettings({direction: 'rtl'}));
+                            dispatch(setDefaultSettings({direction: 'rtl'}));
                         `}
 					</FuseHighlight>
 

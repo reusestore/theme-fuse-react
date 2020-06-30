@@ -19,8 +19,8 @@ import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import * as Actions from '../store/actions';
-import reducer from '../store/reducers';
+import { saveProduct, newProduct, getProduct } from '../store/productSlice';
+import reducer from '../store';
 
 const useStyles = makeStyles(theme => ({
 	productImageFeaturedStar: {
@@ -72,9 +72,9 @@ function Product(props) {
 			const { productId } = routeParams;
 
 			if (productId === 'new') {
-				dispatch(Actions.newProduct());
+				dispatch(newProduct());
 			} else {
-				dispatch(Actions.getProduct(routeParams));
+				dispatch(getProduct(routeParams));
 			}
 		}
 
@@ -82,10 +82,10 @@ function Product(props) {
 	}, [dispatch, routeParams]);
 
 	useEffect(() => {
-		if ((product.data && !form) || (product.data && form && product.data.id !== form.id)) {
-			setForm(product.data);
+		if ((product && !form) || (product && form && product.id !== form.id)) {
+			setForm(product);
 		}
-	}, [form, product.data, setForm]);
+	}, [form, product, setForm]);
 
 	function handleChangeTab(event, value) {
 		setTabValue(value);
@@ -132,13 +132,10 @@ function Product(props) {
 	}
 
 	function canBeSubmitted() {
-		return form.name.length > 0 && !_.isEqual(product.data, form);
+		return form.name.length > 0 && !_.isEqual(product, form);
 	}
 
-	if (
-		(!product.data || (product.data && routeParams.productId !== product.data.id)) &&
-		routeParams.productId !== 'new'
-	) {
+	if ((!product || (product && routeParams.productId !== product.id)) && routeParams.productId !== 'new') {
 		return <FuseLoading />;
 	}
 
@@ -201,7 +198,7 @@ function Product(props) {
 								variant="contained"
 								color="secondary"
 								disabled={!canBeSubmitted()}
-								onClick={() => dispatch(Actions.saveProduct(form))}
+								onClick={() => dispatch(saveProduct(form))}
 							>
 								Save
 							</Button>

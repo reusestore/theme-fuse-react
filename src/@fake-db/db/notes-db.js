@@ -306,16 +306,16 @@ mock.onPost('/api/notes-app/create-note').reply(request => {
 });
 
 mock.onPost('/api/notes-app/update-note').reply(request => {
-	const data = JSON.parse(request.data);
+	const { note } = JSON.parse(request.data);
 
-	notesDB.notes = notesDB.notes.map(note => {
-		if (data.note.id === note.id) {
-			return data.note;
+	notesDB.notes = notesDB.notes.map(_note => {
+		if (note.id === _note.id) {
+			return note;
 		}
-		return note;
+		return _note;
 	});
 
-	return [200, data.note];
+	return [200, note];
 });
 
 mock.onPost('/api/notes-app/update-labels').reply(request => {
@@ -331,5 +331,5 @@ mock.onPost('/api/notes-app/remove-note').reply(request => {
 
 	notesDB.notes = notesDB.notes.filter(note => data.noteId !== note.id);
 
-	return [200, notesDB.notes];
+	return [200, data.noteId];
 });

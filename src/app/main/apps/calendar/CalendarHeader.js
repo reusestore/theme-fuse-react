@@ -10,6 +10,7 @@ import React from 'react';
 import Toolbar from 'react-big-calendar/lib/Toolbar';
 import { navigate } from 'react-big-calendar/lib/utils/constants';
 import connect from 'react-redux/es/connect/connect';
+import { selectMainThemeDark } from 'app/store/fuse/settingsSlice';
 
 /* eslint-disable react/jsx-no-bind */
 const styles = theme => ({
@@ -191,9 +192,9 @@ class CalendarHeader extends Toolbar {
 	}
 }
 
-function mapStateToProps({ fuse }) {
+function mapStateToProps(state) {
 	return {
-		mainThemeDark: fuse.settings.mainThemeDark
+		mainThemeDark: selectMainThemeDark(state)
 	};
 }
 

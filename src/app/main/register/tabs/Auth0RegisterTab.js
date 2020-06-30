@@ -1,9 +1,9 @@
 import Button from '@material-ui/core/Button';
-import * as authActions from 'app/auth/store/actions';
 import auth0Service from 'app/services/auth0Service';
-import * as Actions from 'app/store/actions';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { setUserDataAuth0 } from 'app/auth/store/userSlice';
+import { showMessage } from 'app/store/fuse/messageSlice';
 
 function Auth0RegisterTab(props) {
 	const dispatch = useDispatch();
@@ -12,12 +12,12 @@ function Auth0RegisterTab(props) {
 		showDialog();
 
 		auth0Service.onAuthenticated(() => {
-			dispatch(Actions.showMessage({ message: 'Logging in with Auth0' }));
+			dispatch(showMessage({ message: 'Logging in with Auth0' }));
 
 			auth0Service.getUserData().then(tokenData => {
-				dispatch(authActions.setUserDataAuth0(tokenData));
+				dispatch(setUserDataAuth0(tokenData));
 
-				dispatch(Actions.showMessage({ message: 'Logged in with Auth0' }));
+				dispatch(showMessage({ message: 'Logged in with Auth0' }));
 			});
 		});
 	}, [dispatch]);

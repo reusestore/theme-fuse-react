@@ -3,9 +3,9 @@ import FusePageSimple from '@fuse/core/FusePageSimple';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import Typography from '@material-ui/core/Typography';
-import * as Actions from 'app/store/actions';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { showMessage } from 'app/store/fuse/messageSlice';
 
 function FuseMessageDoc(props) {
 	const dispatch = useDispatch();
@@ -52,7 +52,7 @@ function FuseMessageDoc(props) {
 						{`
                                     <Button 
                                         onClick={()=> dispatch(
-                                            Actions.showMessage({
+                                            showMessage({
                                                 message     : 'Hi, how are you?',//text or html
                                                 autoHideDuration: 6000,//ms
                                                 anchorOrigin: {
@@ -79,7 +79,7 @@ function FuseMessageDoc(props) {
 						<Button
 							onClick={() =>
 								dispatch(
-									Actions.showMessage({
+									showMessage({
 										message: 'Hi, how are you?',
 										anchorOrigin: {
 											vertical: 'top',
@@ -94,7 +94,7 @@ function FuseMessageDoc(props) {
 						<Button
 							onClick={() =>
 								dispatch(
-									Actions.showMessage({
+									showMessage({
 										message: 'Hi, how are you?',
 										anchorOrigin: {
 											vertical: 'top',
@@ -109,7 +109,7 @@ function FuseMessageDoc(props) {
 						<Button
 							onClick={() =>
 								dispatch(
-									Actions.showMessage({
+									showMessage({
 										message: 'Hi, how are you?',
 										anchorOrigin: {
 											vertical: 'top',
@@ -124,7 +124,7 @@ function FuseMessageDoc(props) {
 						<Button
 							onClick={() =>
 								dispatch(
-									Actions.showMessage({
+									showMessage({
 										message: 'Hi, how are you?',
 										anchorOrigin: {
 											vertical: 'bottom',
@@ -139,7 +139,7 @@ function FuseMessageDoc(props) {
 						<Button
 							onClick={() =>
 								dispatch(
-									Actions.showMessage({
+									showMessage({
 										message: 'Hi, how are you?',
 										anchorOrigin: {
 											vertical: 'bottom',
@@ -154,7 +154,7 @@ function FuseMessageDoc(props) {
 						<Button
 							onClick={() =>
 								dispatch(
-									Actions.showMessage({
+									showMessage({
 										message: 'Hi, how are you?',
 										anchorOrigin: {
 											vertical: 'bottom',
@@ -176,7 +176,7 @@ function FuseMessageDoc(props) {
 						<Button
 							onClick={() =>
 								dispatch(
-									Actions.showMessage({
+									showMessage({
 										message: 'Hi, how are you?'
 									})
 								)
@@ -187,7 +187,7 @@ function FuseMessageDoc(props) {
 						<Button
 							onClick={() =>
 								dispatch(
-									Actions.showMessage({
+									showMessage({
 										message: 'Hi, how are you?',
 										variant: 'success'
 									})
@@ -199,7 +199,7 @@ function FuseMessageDoc(props) {
 						<Button
 							onClick={() =>
 								dispatch(
-									Actions.showMessage({
+									showMessage({
 										message: 'Hi, how are you?',
 										variant: 'warning'
 									})
@@ -211,7 +211,7 @@ function FuseMessageDoc(props) {
 						<Button
 							onClick={() =>
 								dispatch(
-									Actions.showMessage({
+									showMessage({
 										message: 'Hi, how are you?',
 										variant: 'error'
 									})
@@ -223,7 +223,7 @@ function FuseMessageDoc(props) {
 						<Button
 							onClick={() =>
 								dispatch(
-									Actions.showMessage({
+									showMessage({
 										message: 'Hi, how are you?',
 										variant: 'info'
 									})

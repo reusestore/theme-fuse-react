@@ -13,8 +13,11 @@ import React, { useCallback, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Chat from './Chat';
 import ContactList from './ContactList';
-import * as Actions from './store/actions';
-import reducer from './store/reducers';
+import reducer from './store';
+import { getContacts, selectContacts } from './store/contactsSlice';
+import { openChatPanel, closeChatPanel } from './store/stateSlice';
+
+import { getUserData } from './store/userSlice';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -60,7 +63,7 @@ const useStyles = makeStyles(theme => ({
 
 function ChatPanel(props) {
 	const dispatch = useDispatch();
-	const contacts = useSelector(({ chatPanel }) => chatPanel.contacts.entities);
+	const contacts = useSelector(selectContacts);
 	const selectedContactId = useSelector(({ chatPanel }) => chatPanel.contacts.selectedContactId);
 	const state = useSelector(({ chatPanel }) => chatPanel.state);
 	const ref = useRef();
@@ -71,15 +74,15 @@ function ChatPanel(props) {
 	const handleDocumentKeyDown = useCallback(
 		event => {
 			if (keycode(event) === 'esc') {
-				dispatch(Actions.closeChatPanel());
+				dispatch(closeChatPanel());
 			}
 		},
 		[dispatch]
 	);
 
 	useEffect(() => {
-		dispatch(Actions.getUserData());
-		dispatch(Actions.getContacts());
+		dispatch(getUserData());
+		dispatch(getContacts());
 		return () => {
 			document.removeEventListener('keydown', handleDocumentKeyDown);
 		};
@@ -99,7 +102,7 @@ function ChatPanel(props) {
 	useEffect(() => {
 		function handleDocumentClick(ev) {
 			if (ref.current && !ref.current.contains(ev.target)) {
-				dispatch(Actions.closeChatPanel());
+				dispatch(closeChatPanel());
 			}
 		}
 
@@ -121,11 +124,7 @@ function ChatPanel(props) {
 					<Toolbar className="px-4">
 						{(!state || !selectedContactId) && (
 							<div className="flex flex-1 items-center px-4">
-								<IconButton
-									className=""
-									color="inherit"
-									onClick={ev => dispatch(Actions.openChatPanel())}
-								>
+								<IconButton className="" color="inherit" onClick={ev => dispatch(openChatPanel())}>
 									<Icon className="text-32">chat</Icon>
 								</IconButton>
 								{!selectedContactId && (
@@ -144,7 +143,7 @@ function ChatPanel(props) {
 							</div>
 						)}
 						<div className="flex px-4">
-							<IconButton onClick={ev => dispatch(Actions.closeChatPanel())} color="inherit">
+							<IconButton onClick={ev => dispatch(closeChatPanel())} color="inherit">
 								<Icon>close</Icon>
 							</IconButton>
 						</div>

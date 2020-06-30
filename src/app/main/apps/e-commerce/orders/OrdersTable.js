@@ -11,12 +11,12 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import OrdersStatus from '../order/OrdersStatus';
-import * as Actions from '../store/actions';
+import { selectOrders, getOrders } from '../store/ordersSlice';
 import OrdersTableHead from './OrdersTableHead';
 
 function OrdersTable(props) {
 	const dispatch = useDispatch();
-	const orders = useSelector(({ eCommerceApp }) => eCommerceApp.orders.data);
+	const orders = useSelector(selectOrders);
 	const searchText = useSelector(({ eCommerceApp }) => eCommerceApp.orders.searchText);
 
 	const [selected, setSelected] = useState([]);
@@ -29,7 +29,7 @@ function OrdersTable(props) {
 	});
 
 	useEffect(() => {
-		dispatch(Actions.getOrders());
+		dispatch(getOrders());
 	}, [dispatch]);
 
 	useEffect(() => {
@@ -95,7 +95,7 @@ function OrdersTable(props) {
 	return (
 		<div className="w-full flex flex-col">
 			<FuseScrollbars className="flex-grow overflow-x-auto">
-				<Table className="min-w-xl" aria-labelledby="tableTitle">
+				<Table stickyHeader className="min-w-xl" aria-labelledby="tableTitle">
 					<OrdersTableHead
 						numSelected={selected.length}
 						order={order}
@@ -188,7 +188,7 @@ function OrdersTable(props) {
 			</FuseScrollbars>
 
 			<TablePagination
-				className="overflow-hidden"
+				className="overflow-hidden flex-shrink-0"
 				component="div"
 				count={data.length}
 				rowsPerPage={rowsPerPage}

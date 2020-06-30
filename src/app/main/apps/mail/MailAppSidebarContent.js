@@ -10,6 +10,9 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import MailCompose from './MailCompose';
+import { selectFilters } from './store/filtersSlice';
+import { selectFolders } from './store/foldersSlice';
+import { selectLabels } from './store/labelsSlice';
 
 const useStyles = makeStyles(theme => ({
 	listItem: {
@@ -41,9 +44,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function MailAppSidebarContent(props) {
-	const folders = useSelector(({ mailApp }) => mailApp.folders);
-	const labels = useSelector(({ mailApp }) => mailApp.labels);
-	const filters = useSelector(({ mailApp }) => mailApp.filters);
+	const folders = useSelector(selectFolders);
+	const labels = useSelector(selectLabels);
+	const filters = useSelector(selectFilters);
 
 	const classes = useStyles();
 	const { t } = useTranslation('mailApp');

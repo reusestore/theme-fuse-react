@@ -8,12 +8,13 @@ import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import * as Actions from '../store/actions';
+import { selectMainTheme } from 'app/store/fuse/settingsSlice';
+import { setProductsSearchText } from '../store/productsSlice';
 
 function ProductsHeader(props) {
 	const dispatch = useDispatch();
 	const searchText = useSelector(({ eCommerceApp }) => eCommerceApp.products.searchText);
-	const mainTheme = useSelector(({ fuse }) => fuse.settings.mainTheme);
+	const mainTheme = useSelector(selectMainTheme);
 
 	return (
 		<div className="flex flex-1 w-full items-center justify-between">
@@ -43,7 +44,7 @@ function ProductsHeader(props) {
 								inputProps={{
 									'aria-label': 'Search'
 								}}
-								onChange={ev => dispatch(Actions.setProductsSearchText(ev))}
+								onChange={ev => dispatch(setProductsSearchText(ev))}
 							/>
 						</Paper>
 					</FuseAnimate>

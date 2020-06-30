@@ -11,7 +11,7 @@ import TextField from '@material-ui/core/TextField';
 import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Actions from '../store/actions';
+import { newList } from '../store/boardSlice';
 
 const useStyles = makeStyles(theme => ({
 	card: {
@@ -45,7 +45,7 @@ function BoardAddList(props) {
 
 	function handleSubmit(ev) {
 		ev.preventDefault();
-		dispatch(Actions.newList(board.id, form.title));
+		dispatch(newList({ boardId: board.id, listTitle: form.title }));
 		handleCloseForm();
 	}
 

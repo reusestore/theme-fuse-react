@@ -2,9 +2,10 @@ import FuseNavigation from '@fuse/core/FuseNavigation';
 import clsx from 'clsx';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { selectNavigation } from 'app/store/fuse/navigationSlice';
 
 function Navigation(props) {
-	const navigation = useSelector(({ fuse }) => fuse.navigation);
+	const navigation = useSelector(selectNavigation);
 
 	return (
 		<FuseNavigation

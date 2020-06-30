@@ -11,6 +11,7 @@ import UserMenu from 'app/fuse-layouts/shared-components/UserMenu';
 import clsx from 'clsx';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { selectToolbarTheme } from 'app/store/fuse/settingsSlice';
 import LanguageSwitcher from '../../shared-components/LanguageSwitcher';
 
 const useStyles = makeStyles(theme => ({
@@ -23,7 +24,7 @@ const useStyles = makeStyles(theme => ({
 
 function ToolbarLayout3(props) {
 	const config = useSelector(({ fuse }) => fuse.settings.current.layout.config);
-	const toolbarTheme = useSelector(({ fuse }) => fuse.settings.toolbarTheme);
+	const toolbarTheme = useSelector(selectToolbarTheme);
 
 	const classes = useStyles(props);
 

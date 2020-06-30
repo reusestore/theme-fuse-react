@@ -5,9 +5,16 @@ import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import Typography from '@material-ui/core/Typography';
 import { authRoles } from 'app/auth';
-import * as Actions from 'app/store/actions';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import {
+	appendNavigationItem,
+	prependNavigationItem,
+	removeNavigationItem,
+	updateNavigationItem,
+	setNavigation,
+	resetNavigation
+} from 'app/store/fuse/navigationSlice';
 
 function FuseNavigationDoc(props) {
 	const dispatch = useDispatch();
@@ -214,7 +221,7 @@ function FuseNavigationDoc(props) {
 					</Typography>
 
 					<Typography className="mt-32 mb-8" variant="h6">
-						Actions.setNavigation
+						setNavigation
 					</Typography>
 					<Typography className="text-16 mb-8" component="h2">
 						Use <code>setNavigation(navigation{'<Array>'})</code> action to set/change whole navigation.
@@ -228,7 +235,7 @@ function FuseNavigationDoc(props) {
 						<Button
 							onClick={() => {
 								dispatch(
-									Actions.setNavigation([
+									setNavigation([
 										{
 											id: 'auth',
 											title: 'Auth',
@@ -266,7 +273,7 @@ function FuseNavigationDoc(props) {
 							{`
                                 <Button
                                     onClick={()=> {
-                                        dispatch(Actions.setNavigation([
+                                        dispatch(setNavigation([
                                             {
                                                 'id'      : 'auth',
                                                 'title'   : 'Auth',
@@ -303,7 +310,7 @@ function FuseNavigationDoc(props) {
 					</div>
 
 					<Typography className="mt-32 mb-8" variant="h6">
-						Actions.resetNavigation
+						resetNavigation
 					</Typography>
 					<Typography className="text-16 mb-8" component="h2">
 						Use <code>resetNavigation()</code> action to reset navigation to initial state.
@@ -316,7 +323,7 @@ function FuseNavigationDoc(props) {
 
 						<Button
 							onClick={() => {
-								dispatch(Actions.resetNavigation());
+								dispatch(resetNavigation());
 							}}
 							variant="contained"
 							color="primary"
@@ -328,7 +335,7 @@ function FuseNavigationDoc(props) {
 							{`
                                 <Button
                                     onClick={()=> {
-                                        dispatch(Actions.resetNavigation());
+                                        dispatch(resetNavigation());
                                     }}
                                     variant="contained"
                                     color="primary"
@@ -340,7 +347,7 @@ function FuseNavigationDoc(props) {
 					</div>
 
 					<Typography className="mt-32 mb-8" variant="h6">
-						Actions.updateNavigationItem
+						updateNavigationItem
 					</Typography>
 					<Typography className="text-16 mb-8" component="h2">
 						Use
@@ -358,7 +365,7 @@ function FuseNavigationDoc(props) {
 						<Button
 							onClick={() => {
 								dispatch(
-									Actions.updateNavigationItem('dashboards', {
+									updateNavigationItem('dashboards', {
 										title: 'All Dashboards',
 										badge: {
 											title: 2,
@@ -378,7 +385,7 @@ function FuseNavigationDoc(props) {
 							{`
                                 <Button
                                     onClick={()=> {
-                                        dispatch(Actions.updateNavigationItem('dashboards',
+                                        dispatch(updateNavigationItem('dashboards',
                                             {
                                                 'title': 'All Dashboards',
                                                 'badge': {
@@ -399,7 +406,7 @@ function FuseNavigationDoc(props) {
 					</div>
 
 					<Typography className="mt-32 mb-8" variant="h6">
-						Actions.removeNavigationItem
+						removeNavigationItem
 					</Typography>
 					<Typography className="text-16 mb-8" component="h2">
 						Use <code>removeNavigationItem(id)</code> action to remove a navigation item.
@@ -412,7 +419,7 @@ function FuseNavigationDoc(props) {
 
 						<Button
 							onClick={() => {
-								dispatch(Actions.removeNavigationItem('calendar'));
+								dispatch(removeNavigationItem('calendar'));
 							}}
 							variant="contained"
 							color="primary"
@@ -424,7 +431,7 @@ function FuseNavigationDoc(props) {
 							{`
                                   <Button
                                         onClick={()=> {
-                                            dispatch(Actions.removeNavigationItem('calendar'))
+                                            dispatch(removeNavigationItem('calendar'))
                                         }}
                                         variant="contained"
                                         color="primary"
@@ -436,7 +443,7 @@ function FuseNavigationDoc(props) {
 					</div>
 
 					<Typography className="mt-32 mb-8" variant="h6">
-						Actions.prependNavigationItem
+						prependNavigationItem
 					</Typography>
 					<Typography className="text-16 mb-8" component="h2">
 						Use
@@ -455,7 +462,7 @@ function FuseNavigationDoc(props) {
 						<Button
 							onClick={() => {
 								dispatch(
-									Actions.prependNavigationItem({
+									prependNavigationItem({
 										id: `test-link-${FuseUtils.generateGUID()}`,
 										title: 'fusetheme.com',
 										type: 'link',
@@ -475,7 +482,7 @@ function FuseNavigationDoc(props) {
 							{`
                                 <Button
                                     onClick={()=> {
-                                        dispatch(Actions.prependNavigationItem(
+                                        dispatch(prependNavigationItem(
                                             {
                                                 'id'    : 'test-link',
                                                 'title' : 'fusetheme.com',
@@ -504,7 +511,7 @@ function FuseNavigationDoc(props) {
 						<Button
 							onClick={() => {
 								dispatch(
-									Actions.prependNavigationItem(
+									prependNavigationItem(
 										{
 											id: `test-link-${FuseUtils.generateGUID()}`,
 											title: 'fusetheme.com',
@@ -527,7 +534,7 @@ function FuseNavigationDoc(props) {
 							{`
                                 <Button
                                     onClick={()=> {
-                                        dispatch(Actions.prependNavigationItem(
+                                        dispatch(prependNavigationItem(
                                             {
                                                 'id'    : 'test-link',
                                                 'title' : 'fusetheme.com',
@@ -548,7 +555,7 @@ function FuseNavigationDoc(props) {
 					</div>
 
 					<Typography className="mt-32 mb-8" variant="h6">
-						Actions.appendNavigationItem
+						appendNavigationItem
 					</Typography>
 					<Typography className="text-16 mb-8" component="h2">
 						Use
@@ -566,7 +573,7 @@ function FuseNavigationDoc(props) {
 						<Button
 							onClick={() => {
 								dispatch(
-									Actions.appendNavigationItem({
+									appendNavigationItem({
 										id: `test-link-${FuseUtils.generateGUID()}`,
 										title: 'fusetheme.com',
 										type: 'link',
@@ -585,7 +592,7 @@ function FuseNavigationDoc(props) {
 							{`
                                 <Button
                                     onClick={()=> {
-                                        dispatch(Actions.appendNavigationItem(
+                                        dispatch(appendNavigationItem(
                                             {
                                                 'id'    : 'test-link',
                                                 'title' : 'fusetheme.com',
@@ -614,7 +621,7 @@ function FuseNavigationDoc(props) {
 						<Button
 							onClick={() => {
 								dispatch(
-									Actions.appendNavigationItem(
+									appendNavigationItem(
 										{
 											id: `test-link-${FuseUtils.generateGUID()}`,
 											title: 'fusetheme.com',
@@ -637,7 +644,7 @@ function FuseNavigationDoc(props) {
 							{`
                                 <Button
                                     onClick={()=> {
-                                        dispatch(Actions.appendNavigationItem(
+                                        dispatch(appendNavigationItem(
                                             {
                                                 'id'    : 'test-link',
                                                 'title' : 'fusetheme.com',

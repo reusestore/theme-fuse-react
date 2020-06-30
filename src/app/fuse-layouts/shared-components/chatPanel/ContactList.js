@@ -8,7 +8,9 @@ import Tooltip from '@material-ui/core/Tooltip';
 import clsx from 'clsx';
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Actions from './store/actions';
+import { getChat } from './store/chatSlice';
+import { selectContacts } from './store/contactsSlice';
+import { openChatPanel } from './store/stateSlice';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -78,7 +80,7 @@ const useStyles = makeStyles(theme => ({
 
 function ContactList(props) {
 	const dispatch = useDispatch();
-	const contacts = useSelector(({ chatPanel }) => chatPanel.contacts.entities);
+	const contacts = useSelector(selectContacts);
 	const selectedContactId = useSelector(({ chatPanel }) => chatPanel.contacts.selectedContactId);
 	const user = useSelector(({ chatPanel }) => chatPanel.user);
 
@@ -86,8 +88,8 @@ function ContactList(props) {
 	const contactListScroll = useRef(null);
 
 	const handleContactClick = contactId => {
-		dispatch(Actions.openChatPanel());
-		dispatch(Actions.getChat(contactId));
+		dispatch(openChatPanel());
+		dispatch(getChat({ contactId }));
 		scrollToTop();
 	};
 

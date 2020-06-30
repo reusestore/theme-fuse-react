@@ -16,7 +16,7 @@ import { DateTimePicker } from '@material-ui/pickers';
 import moment from 'moment';
 import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Actions from './store/actions';
+import { removeEvent, updateEvent, addEvent, closeNewEventDialog, closeEditEventDialog } from './store/eventsSlice';
 
 const defaultFormState = {
 	id: FuseUtils.generateGUID(),
@@ -31,8 +31,6 @@ function EventDialog(props) {
 	const dispatch = useDispatch();
 	const eventDialog = useSelector(({ calendarApp }) => calendarApp.events.eventDialog);
 	const { form, handleChange, setForm, setInForm } = useForm(defaultFormState);
-	const start = moment(form.start, 'MM/DD/YYYY');
-	const end = moment(form.end, 'MM/DD/YYYY');
 
 	const initDialog = useCallback(() => {
 		/**
@@ -64,9 +62,7 @@ function EventDialog(props) {
 	}, [eventDialog.props.open, initDialog]);
 
 	function closeComposeDialog() {
-		return eventDialog.type === 'edit'
-			? dispatch(Actions.closeEditEventDialog())
-			: dispatch(Actions.closeNewEventDialog());
+		return eventDialog.type === 'edit' ? dispatch(closeEditEventDialog()) : dispatch(closeNewEventDialog());
 	}
 
 	function canBeSubmitted() {
@@ -77,15 +73,15 @@ function EventDialog(props) {
 		event.preventDefault();
 
 		if (eventDialog.type === 'new') {
-			dispatch(Actions.addEvent(form));
+			dispatch(addEvent(form));
 		} else {
-			dispatch(Actions.updateEvent(form));
+			dispatch(updateEvent(form));
 		}
 		closeComposeDialog();
 	}
 
 	function handleRemove() {
-		dispatch(Actions.removeEvent(form.id));
+		dispatch(removeEvent(form.id));
 		closeComposeDialog();
 	}
 
@@ -126,19 +122,19 @@ function EventDialog(props) {
 					<DateTimePicker
 						label="Start"
 						inputVariant="outlined"
-						value={start}
+						value={form.start}
 						onChange={date => setInForm('start', date)}
 						className="mt-8 mb-16 w-full"
-						maxDate={end}
+						maxDate={form.end}
 					/>
 
 					<DateTimePicker
 						label="End"
 						inputVariant="outlined"
-						value={end}
+						value={form.end}
 						onChange={date => setInForm('end', date)}
 						className="mt-8 mb-16 w-full"
-						minDate={start}
+						minDate={form.start}
 					/>
 
 					<TextField

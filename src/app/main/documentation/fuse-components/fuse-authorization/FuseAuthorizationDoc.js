@@ -353,40 +353,27 @@ function FuseAuthorizationDoc() {
 					</Typography>
 
 					<Typography className="inline-block mb-8 italic" component="code">
-						src/app/auth/store/actions/user.actions.js
+						src/app/auth/store/userSlice.js
 					</Typography>
 
 					<FuseHighlight component="pre" className="language-js">
 						{`
-                            /**
-                             * Set User Data
-                             */
-                            export function setUserData(user)
-                            {
-                                return (dispatch) => {
-                            
-                                    /*
-                                    You can redirect the logged-in user to a specific route depending on his role
-                                     */
-                            
-                                    history.location.state = {
-                                        redirectUrl: user.redirectUrl // for example 'apps/academy'
-                                    }
-                            
-                                    /*
-                                    Set User Settings
-                                     */
-                                    dispatch(setDefaultSettings(user.data.settings));
-                            
-                                    /*
-                                    Set User Data
-                                     */
-                                    dispatch({
-                                        type   : SET_USER_DATA,
-                                        payload: user
-                                    })
-                                }
-                            }
+                            export const setUserData = user => async (dispatch, getState) => {
+								/*
+									You can redirect the logged-in user to a specific route depending on his role
+								 */
+								
+								history.location.state = {
+									redirectUrl: user.redirectUrl // for example 'apps/academy'
+								};
+								
+								/*
+									Set User Settings
+								*/
+								dispatch(setDefaultSettings(user.data.settings));
+								
+								dispatch(setUser(user));
+								};
                         `}
 					</FuseHighlight>
 				</div>

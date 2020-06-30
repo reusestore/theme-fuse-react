@@ -8,10 +8,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
-import * as Actions from 'app/main/apps/notes/store/actions';
 import clsx from 'clsx';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { openLabelsDialog, selectLabels } from './store/labelsSlice';
 
 const useStyles = makeStyles(theme => ({
 	paper: {
@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
 
 function NotesSidebarContent(props) {
 	const dispatch = useDispatch();
-	const labels = useSelector(({ notesApp }) => notesApp.labels.entities);
+	const labels = useSelector(selectLabels);
 
 	const classes = useStyles(props);
 
@@ -82,7 +82,7 @@ function NotesSidebarContent(props) {
 					<Divider />
 					<List>
 						<ListSubheader>Labels</ListSubheader>
-						{Object.entries(labels).map(([key, label]) => (
+						{labels.map(label => (
 							<ListItem
 								key={label.id}
 								button
@@ -98,11 +98,7 @@ function NotesSidebarContent(props) {
 								<ListItemText className="truncate" primary={label.name} disableTypography />
 							</ListItem>
 						))}
-						<ListItem
-							button
-							className={classes.listItem}
-							onClick={ev => dispatch(Actions.openLabelsDialog())}
-						>
+						<ListItem button className={classes.listItem} onClick={ev => dispatch(openLabelsDialog())}>
 							<Icon className="list-item-icon text-16" color="action">
 								edit
 							</Icon>

@@ -10,7 +10,8 @@ import clsx from 'clsx';
 import moment from 'moment/moment';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Actions from './store/actions';
+import { selectContacts } from './store/contactsSlice';
+import { sendMessage } from './store/chatSlice';
 
 const useStyles = makeStyles(theme => ({
 	messageRow: {
@@ -94,7 +95,7 @@ const useStyles = makeStyles(theme => ({
 
 function Chat(props) {
 	const dispatch = useDispatch();
-	const contacts = useSelector(({ chatApp }) => chatApp.contacts.entities);
+	const contacts = useSelector(selectContacts);
 	const selectedContactId = useSelector(({ chatApp }) => chatApp.contacts.selectedContactId);
 	const chat = useSelector(({ chatApp }) => chatApp.chat);
 	const user = useSelector(({ chatApp }) => chatApp.user);
@@ -138,7 +139,13 @@ function Chat(props) {
 			return;
 		}
 
-		dispatch(Actions.sendMessage(messageText, chat.id, user.id)).then(() => {
+		dispatch(
+			sendMessage({
+				messageText,
+				chatId: chat.id,
+				contactId: selectedContactId
+			})
+		).then(() => {
 			setMessageText('');
 		});
 	}

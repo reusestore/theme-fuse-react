@@ -3,8 +3,9 @@ import Typography from '@material-ui/core/Typography';
 import withReducer from 'app/store/withReducer';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Actions from './store/actions';
-import reducer from './store/reducers';
+import _ from '@lodash';
+import reducer from './store';
+import { selectWidgetsEntities, getWidgets } from './store/widgetsSlice';
 import Widget1 from './widgets/Widget1';
 import Widget2 from './widgets/Widget2';
 import Widget3 from './widgets/Widget3';
@@ -17,15 +18,16 @@ import Widget9 from './widgets/Widget9';
 
 function AnalyticsDashboardApp() {
 	const dispatch = useDispatch();
-	const widgets = useSelector(({ analyticsDashboardApp }) => analyticsDashboardApp.widgets.data);
+	const widgets = useSelector(selectWidgetsEntities);
 
 	useEffect(() => {
-		dispatch(Actions.getWidgets());
+		dispatch(getWidgets());
 	}, [dispatch]);
 
-	if (!widgets) {
+	if (_.isEmpty(widgets)) {
 		return null;
 	}
+
 	return (
 		<div className="w-full">
 			<Widget1 data={widgets.widget1} />

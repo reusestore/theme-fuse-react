@@ -14,10 +14,12 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import LabelModel from 'app/main/apps/scrumboard/model/LabelModel';
-import * as Actions from 'app/main/apps/scrumboard/store/actions/index';
 import moment from 'moment';
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { addLabel } from '../../../store/boardSlice';
+import { closeCardDialog, removeCard, updateCard } from '../../../store/cardSlice';
+
 import CardActivity from './activity/CardActivity';
 import CardAttachment from './attachment/CardAttachment';
 import CardChecklist from './checklist/CardChecklist';
@@ -34,14 +36,14 @@ function BoardCardForm(props) {
 	const board = useSelector(({ scrumboardApp }) => scrumboardApp.board);
 
 	const { form: cardForm, handleChange, setForm, setInForm } = useForm(card);
-	const updateCard = useDebounce((boardId, newCard) => {
-		dispatch(Actions.updateCard(boardId, { ...newCard }));
+	const updateCardData = useDebounce((boardId, newCard) => {
+		dispatch(updateCard({ boardId, card: { ...newCard } }));
 	}, 600);
 	const dueDate = cardForm && cardForm.due ? moment(cardForm.due).format(moment.HTML5_FMT.DATE) : '';
 
 	useUpdateEffect(() => {
-		updateCard(board.id, cardForm);
-	}, [dispatch, board.id, cardForm, updateCard]);
+		updateCardData(board.id, cardForm);
+	}, [dispatch, board.id, cardForm, updateCardData]);
 
 	function removeDue() {
 		setInForm('due', null);
@@ -127,9 +129,11 @@ function BoardCardForm(props) {
 
 							<CheckListMenu onAddCheckList={addCheckList} />
 
-							<OptionsMenu onRemoveCard={() => dispatch(Actions.removeCard(board.id, cardForm.id))} />
+							<OptionsMenu
+								onRemoveCard={() => dispatch(removeCard({ boardId: board.id, cardId: cardForm.id }))}
+							/>
 						</div>
-						<IconButton color="inherit" onClick={ev => dispatch(Actions.closeCardDialog())}>
+						<IconButton color="inherit" onClick={ev => dispatch(closeCardDialog())}>
 							<Icon>close</Icon>
 						</IconButton>
 					</Toolbar>
@@ -248,7 +252,7 @@ function BoardCardForm(props) {
 									const newLabel = new LabelModel({ name });
 
 									// Ad new Label to board(redux store and server)
-									dispatch(Actions.addLabel(newLabel));
+									dispatch(addLabel(newLabel));
 
 									// Trigger handle chip change
 									addNewChip('idLabels', newLabel.id);

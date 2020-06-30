@@ -5,7 +5,7 @@ import { useTheme } from '@material-ui/core/styles';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter, useParams } from 'react-router-dom';
-import * as Actions from '../store/actions/index';
+import { updateMail } from '../store/mailSlice';
 
 const pathToRegexp = require('path-to-regexp');
 
@@ -33,13 +33,13 @@ function MailToolbar(props) {
 
 			<div className="flex items-center justify-start" aria-label="Toggle star">
 				<FuseAnimate animation="transition.expandIn" delay={100}>
-					<IconButton onClick={() => dispatch(Actions.toggleStar(mail))}>
+					<IconButton onClick={() => dispatch(updateMail({ starred: !mail.starred }))}>
 						{mail.starred ? <Icon>star</Icon> : <Icon>star_border</Icon>}
 					</IconButton>
 				</FuseAnimate>
 				<FuseAnimate animation="transition.expandIn" delay={100}>
-					<IconButton onClick={() => dispatch(Actions.toggleImportant(mail))}>
-						{mail.important ? <Icon>label</Icon> : <Icon>label_outline</Icon>}
+					<IconButton onClick={() => dispatch(updateMail({ important: !mail.important }))}>
+						{mail.important ? <Icon>label</Icon> : <Icon>label_off</Icon>}
 					</IconButton>
 				</FuseAnimate>
 			</div>

@@ -432,68 +432,65 @@ mock.onGet('/api/contacts-app/user').reply(config => {
 });
 
 mock.onPost('/api/contacts-app/add-contact').reply(request => {
-	const data = JSON.parse(request.data);
-	contactsDB.contacts = [
-		...contactsDB.contacts,
-		{
-			...data.newContact,
-			id: FuseUtils.generateGUID()
-		}
-	];
-	return [200, contactsDB.contacts];
+	const { contact } = JSON.parse(request.data);
+	const newContact = {
+		...contact,
+		id: FuseUtils.generateGUID()
+	};
+	contactsDB.contacts = [...contactsDB.contacts, newContact];
+	return [200, newContact];
 });
 
 mock.onPost('/api/contacts-app/update-contact').reply(request => {
-	const data = JSON.parse(request.data);
+	const { contact } = JSON.parse(request.data);
 
-	contactsDB.contacts = contactsDB.contacts.map(contact => {
-		if (data.contact.id === contact.id) {
-			return data.contact;
+	contactsDB.contacts = contactsDB.contacts.map(_contact => {
+		if (contact.id === _contact.id) {
+			return contact;
 		}
-		return contact;
+		return _contact;
 	});
 
-	return [200, contactsDB.contacts];
+	return [200, contact];
 });
 
 mock.onPost('/api/contacts-app/remove-contact').reply(request => {
-	const data = JSON.parse(request.data);
+	const { contactId } = JSON.parse(request.data);
+	contactsDB.contacts = contactsDB.contacts.filter(contact => contactId !== contact.id);
 
-	contactsDB.contacts = contactsDB.contacts.filter(contact => data.contactId !== contact.id);
-
-	return [200, contactsDB.contacts];
+	return [200, contactId];
 });
 
 mock.onPost('/api/contacts-app/remove-contacts').reply(request => {
-	const data = JSON.parse(request.data);
-	contactsDB.contacts = contactsDB.contacts.filter(contact => !data.contactIds.includes(contact.id));
-	return [200, contactsDB.contacts];
+	const { contactIds } = JSON.parse(request.data);
+	contactsDB.contacts = contactsDB.contacts.filter(contact => !contactIds.includes(contact.id));
+	return [200, contactIds];
 });
 
 mock.onPost('/api/contacts-app/toggle-starred-contact').reply(request => {
-	const data = JSON.parse(request.data);
-	contactsDB.user[0].starred = _.xor(contactsDB.user[0].starred, [data.contactId]);
-	return [200, contactsDB.user[0]];
+	const { contactId } = JSON.parse(request.data);
+	contactsDB.user[0].starred = _.xor(contactsDB.user[0].starred, [contactId]);
+	return [200, contactId];
 });
 
 mock.onPost('/api/contacts-app/toggle-starred-contacts').reply(request => {
-	const data = JSON.parse(request.data);
-	contactsDB.user[0].starred = _.xor(contactsDB.user[0].starred, data.contactIds);
-	return [200, contactsDB.user[0]];
+	const { contactIds } = JSON.parse(request.data);
+	contactsDB.user[0].starred = _.xor(contactsDB.user[0].starred, contactIds);
+	return [200, contactIds];
 });
 
 mock.onPost('/api/contacts-app/set-contacts-starred').reply(request => {
-	const data = JSON.parse(request.data);
+	const { contactIds } = JSON.parse(request.data);
 
-	contactsDB.user[0].starred = [...contactsDB.user[0].starred, ...data.contactIds];
+	contactsDB.user[0].starred = [...contactsDB.user[0].starred, ...contactIds];
 
-	return [200, contactsDB.user[0]];
+	return [200, contactIds];
 });
 
 mock.onPost('/api/contacts-app/set-contacts-unstarred').reply(request => {
-	const data = JSON.parse(request.data);
+	const { contactIds } = JSON.parse(request.data);
 
-	contactsDB.user[0].starred = contactsDB.user[0].starred.filter(contactId => !data.contactIds.includes(contactId));
+	contactsDB.user[0].starred = contactsDB.user[0].starred.filter(contactId => !contactIds.includes(contactId));
 
-	return [200, contactsDB.user[0]];
+	return [200, contactIds];
 });

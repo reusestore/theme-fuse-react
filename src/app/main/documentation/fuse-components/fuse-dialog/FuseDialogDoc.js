@@ -7,9 +7,9 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Icon from '@material-ui/core/Icon';
 import Typography from '@material-ui/core/Typography';
-import * as Actions from 'app/store/actions';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { closeDialog, openDialog } from 'app/store/fuse/dialogSlice';
 
 function FuseDialogDoc(props) {
 	const dispatch = useDispatch();
@@ -55,7 +55,7 @@ function FuseDialogDoc(props) {
 					<FuseHighlight component="pre" className="language-jsx">
 						{`
                         <Button
-                            onClick={()=> dispatch(Actions.openDialog({
+                            onClick={()=> dispatch(openDialog({
                                 children: (
                                     <React.Fragment>
                                         <DialogTitle id="alert-dialog-title">Use Google's location service?</DialogTitle>
@@ -66,10 +66,10 @@ function FuseDialogDoc(props) {
                                             </DialogContentText>
                                         </DialogContent>
                                         <DialogActions>
-                                            <Button onClick={()=> dispatch(Actions.closeDialog())} color="primary">
+                                            <Button onClick={()=> dispatch(closeDialog())} color="primary">
                                                 Disagree
                                             </Button>
-                                            <Button onClick={()=> dispatch(Actions.closeDialog())} color="primary" autoFocus>
+                                            <Button onClick={()=> dispatch(closeDialog())} color="primary" autoFocus>
                                                 Agree
                                             </Button>
                                         </DialogActions>
@@ -91,7 +91,7 @@ function FuseDialogDoc(props) {
 					<Button
 						onClick={() =>
 							dispatch(
-								Actions.openDialog({
+								openDialog({
 									children: (
 										<>
 											<DialogTitle id="alert-dialog-title">
@@ -104,11 +104,11 @@ function FuseDialogDoc(props) {
 												</DialogContentText>
 											</DialogContent>
 											<DialogActions>
-												<Button onClick={() => dispatch(Actions.closeDialog())} color="primary">
+												<Button onClick={() => dispatch(closeDialog())} color="primary">
 													Disagree
 												</Button>
 												<Button
-													onClick={() => dispatch(Actions.closeDialog())}
+													onClick={() => dispatch(closeDialog())}
 													color="primary"
 													autoFocus
 												>

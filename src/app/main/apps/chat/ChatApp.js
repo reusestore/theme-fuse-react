@@ -18,8 +18,17 @@ import Chat from './Chat';
 import ChatsSidebar from './ChatsSidebar';
 import ContactSidebar from './ContactSidebar';
 import StatusIcon from './StatusIcon';
-import * as Actions from './store/actions';
-import reducer from './store/reducers';
+import reducer from './store';
+import { getUserData } from './store/userSlice';
+import { selectContactById, getContacts } from './store/contactsSlice';
+import {
+	closeContactSidebar,
+	openContactSidebar,
+	openMobileChatsSidebar,
+	closeUserSidebar,
+	closeMobileChatsSidebar
+} from './store/sidebarsSlice';
+
 import UserSidebar from './UserSidebar';
 
 const drawerWidth = 400;
@@ -105,18 +114,16 @@ const useStyles = makeStyles(theme => ({
 function ChatApp(props) {
 	const dispatch = useDispatch();
 	const chat = useSelector(({ chatApp }) => chatApp.chat);
-	const contacts = useSelector(({ chatApp }) => chatApp.contacts.entities);
-	const selectedContactId = useSelector(({ chatApp }) => chatApp.contacts.selectedContactId);
 	const mobileChatsSidebarOpen = useSelector(({ chatApp }) => chatApp.sidebars.mobileChatsSidebarOpen);
 	const userSidebarOpen = useSelector(({ chatApp }) => chatApp.sidebars.userSidebarOpen);
 	const contactSidebarOpen = useSelector(({ chatApp }) => chatApp.sidebars.contactSidebarOpen);
+	const selectedContact = useSelector(state => selectContactById(state, state.chatApp.contacts.selectedContactId));
 
 	const classes = useStyles(props);
-	const selectedContact = contacts.find(_contact => _contact.id === selectedContactId);
 
 	useEffect(() => {
-		dispatch(Actions.getUserData());
-		dispatch(Actions.getContacts());
+		dispatch(getUserData());
+		dispatch(getContacts());
 	}, [dispatch]);
 
 	return (
@@ -131,7 +138,7 @@ function ChatApp(props) {
 							variant="temporary"
 							anchor="left"
 							open={mobileChatsSidebarOpen}
-							onClose={() => dispatch(Actions.closeMobileChatsSidebar())}
+							onClose={() => dispatch(closeMobileChatsSidebar())}
 							classes={{
 								paper: clsx(classes.drawerPaper, 'absolute ltr:left-0 rtl:right-0')
 							}}
@@ -166,7 +173,7 @@ function ChatApp(props) {
 						variant="temporary"
 						anchor="left"
 						open={userSidebarOpen}
-						onClose={() => dispatch(Actions.closeUserSidebar())}
+						onClose={() => dispatch(closeUserSidebar())}
 						classes={{
 							paper: clsx(classes.drawerPaper, 'absolute left-0')
 						}}
@@ -205,7 +212,7 @@ function ChatApp(props) {
 									variant="outlined"
 									color="primary"
 									className="flex md:hidden normal-case"
-									onClick={() => dispatch(Actions.openMobileChatsSidebar())}
+									onClick={() => dispatch(openMobileChatsSidebar())}
 								>
 									Select a contact to start a conversation!..
 								</Button>
@@ -217,15 +224,15 @@ function ChatApp(props) {
 										<IconButton
 											color="inherit"
 											aria-label="Open drawer"
-											onClick={() => dispatch(Actions.openMobileChatsSidebar())}
+											onClick={() => dispatch(openMobileChatsSidebar())}
 											className="flex md:hidden"
 										>
 											<Icon>chat</Icon>
 										</IconButton>
 										<div
 											className="flex items-center cursor-pointer"
-											onClick={() => dispatch(Actions.openContactSidebar())}
-											onKeyDown={() => dispatch(Actions.openContactSidebar())}
+											onClick={() => dispatch(openContactSidebar())}
+											onKeyDown={() => dispatch(openContactSidebar())}
 											role="button"
 											tabIndex={0}
 										>
@@ -259,7 +266,7 @@ function ChatApp(props) {
 						variant="temporary"
 						anchor="right"
 						open={contactSidebarOpen}
-						onClose={() => dispatch(Actions.closeContactSidebar())}
+						onClose={() => dispatch(closeContactSidebar())}
 						classes={{
 							paper: clsx(classes.drawerPaper, 'absolute ltr:right-0 rtl:left-0')
 						}}

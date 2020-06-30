@@ -8,10 +8,12 @@ import Tabs from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
 import React, { useState } from 'react';
 import { Line } from 'react-chartjs-2';
+import _ from '@lodash';
 
 function Widget8(props) {
 	const theme = useTheme();
 	const [tabIndex, setTabIndex] = useState(0);
+	const data = _.merge({}, props.data);
 
 	return (
 		<Card className="w-full rounded-8 shadow-none border-1">
@@ -34,13 +36,13 @@ function Widget8(props) {
 				</div>
 				<div className="p-16 pt-8 flex flex-row justify-between items-end">
 					<Typography className="text-48 font-300 leading-none" color="inherit">
-						{props.data.today}
+						{data.today}
 					</Typography>
 					<div className="flex flex-row items-center">
-						{props.data.change.value > 0 && <Icon className="text-green">trending_up</Icon>}
-						{props.data.change.value < 0 && <Icon className="text-red">trending_down</Icon>}
+						{data.change.value > 0 && <Icon className="text-green">trending_up</Icon>}
+						{data.change.value < 0 && <Icon className="text-red">trending_down</Icon>}
 						<div className="mx-8">
-							{props.data.change.value}({props.data.change.percentage}%)
+							{data.change.value}({data.change.percentage}%)
 						</div>
 					</div>
 				</div>
@@ -52,13 +54,13 @@ function Widget8(props) {
 			</AppBar>
 			<Line
 				data={{
-					labels: props.data.labels,
-					datasets: props.data.datasets[tabIndex].map(obj => ({
+					labels: data.labels,
+					datasets: data.datasets[tabIndex].map(obj => ({
 						...obj,
 						borderColor: theme.palette.secondary.main
 					}))
 				}}
-				options={props.data.options}
+				options={data.options}
 			/>
 		</Card>
 	);
