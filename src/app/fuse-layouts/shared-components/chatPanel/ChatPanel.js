@@ -113,7 +113,7 @@ function ChatPanel(props) {
 		}
 
 		return () => {
-			document.removeEventListener('click', handleDocumentClick);
+			document.removeEventListener('click', handleDocumentClick, true);
 		};
 	}, [state, dispatch]);
 
