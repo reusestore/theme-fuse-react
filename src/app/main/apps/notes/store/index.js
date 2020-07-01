@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from '@reduxjs/toolkit';
 import labels from './labelsSlice';
 import notes from './notesSlice';
 

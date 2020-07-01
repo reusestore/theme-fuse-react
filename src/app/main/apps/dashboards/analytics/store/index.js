@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from '@reduxjs/toolkit';
 import widgets from './widgetsSlice';
 
 const reducer = combineReducers({

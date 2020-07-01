@@ -4,7 +4,7 @@ import firebaseService from 'app/services/firebaseService';
 import jwtService from 'app/services/jwtService';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { bindActionCreators } from '@reduxjs/toolkit';
 import { hideMessage, showMessage } from 'app/store/fuse/messageSlice';
 
 import { setUserDataFirebase, setUserDataAuth0, setUserData, logoutUser } from './store/userSlice';

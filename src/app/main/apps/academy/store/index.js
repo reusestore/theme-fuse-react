@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from '@reduxjs/toolkit';
 import course from './courseSlice';
 import courses from './coursesSlice';
 import categories from './categoriesSlice';
