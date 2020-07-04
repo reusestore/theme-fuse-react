@@ -17,6 +17,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { updateUserShortcuts } from 'app/auth/store/userSlice';
+import { selectNavigation } from 'app/store/fuse/navigationSlice';
 
 const useStyles = makeStyles({
 	root: {
@@ -37,7 +38,7 @@ const useStyles = makeStyles({
 function FuseShortcuts(props) {
 	const dispatch = useDispatch();
 	const shortcuts = useSelector(({ auth }) => auth.user.data.shortcuts);
-	const navigationData = useSelector(({ fuse }) => fuse.navigation);
+	const navigationData = useSelector(selectNavigation);
 
 	const classes = useStyles(props);
 	const searchInputRef = useRef(null);

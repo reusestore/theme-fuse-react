@@ -19,6 +19,7 @@ import React, { useEffect, useReducer, useRef } from 'react';
 import Autosuggest from 'react-autosuggest';
 import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { selectNavigation } from 'app/store/fuse/navigationSlice';
 
 function renderInputComponent(inputProps) {
 	const { variant, classes, inputRef = () => {}, ref, ...other } = inputProps;
@@ -218,7 +219,7 @@ function reducer(state, action) {
 
 function FuseSearch(props) {
 	const userRole = useSelector(({ auth }) => auth.user.role);
-	const navigation = useSelector(({ fuse }) => fuse.navigation);
+	const navigation = useSelector(selectNavigation);
 
 	const [state, dispatch] = useReducer(reducer, initialState);
 	const classes = useStyles(props);

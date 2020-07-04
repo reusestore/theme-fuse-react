@@ -7,39 +7,27 @@ const emptyInitialState = navigationAdapter.getInitialState();
 const initialState = navigationAdapter.upsertMany(emptyInitialState, navigationConfig);
 
 export const appendNavigationItem = (item, parentId) => (dispatch, getState) => {
-	const { navigation } = getState().fuse;
-	return dispatch(
-		setNavigation({
-			navigation: FuseUtils.appendNavItem(navigation, item, parentId)
-		})
-	);
+	const navigation = selectNavigation(getState());
+
+	return dispatch(setNavigation(FuseUtils.appendNavItem(navigation, item, parentId)));
 };
 
 export const prependNavigationItem = (item, parentId) => (dispatch, getState) => {
-	const { navigation } = getState().fuse;
-	return dispatch(
-		setNavigation({
-			navigation: FuseUtils.prependNavItem(navigation, item, parentId)
-		})
-	);
+	const navigation = selectNavigation(getState());
+
+	return dispatch(setNavigation(FuseUtils.prependNavItem(navigation, item, parentId)));
 };
 
 export const updateNavigationItem = (id, item) => (dispatch, getState) => {
-	const { navigation } = getState().fuse;
-	return dispatch(
-		setNavigation({
-			navigation: FuseUtils.updateNavItem(navigation, id, item)
-		})
-	);
+	const navigation = selectNavigation(getState());
+
+	return dispatch(setNavigation(FuseUtils.updateNavItem(navigation, id, item)));
 };
 
 export const removeNavigationItem = id => (dispatch, getState) => {
-	const { navigation } = getState().fuse;
-	return dispatch(
-		setNavigation({
-			navigation: FuseUtils.removeNavItem(navigation, id)
-		})
-	);
+	const navigation = selectNavigation(getState());
+
+	return dispatch(setNavigation(FuseUtils.removeNavItem(navigation, id)));
 };
 
 export const {
