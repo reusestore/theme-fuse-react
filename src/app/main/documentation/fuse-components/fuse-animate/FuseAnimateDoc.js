@@ -1,9 +1,7 @@
 import FuseAnimate from '@fuse/core/FuseAnimate';
 import FuseHighlight from '@fuse/core/FuseHighlight';
-import FusePageSimple from '@fuse/core/FusePageSimple';
 import Card from '@material-ui/core/Card';
 import FormControl from '@material-ui/core/FormControl';
-import Icon from '@material-ui/core/Icon';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -79,47 +77,26 @@ function FuseAnimateDoc() {
 	}
 
 	return (
-		<FusePageSimple
-			classes={{
-				root: classes.layoutRoot
-			}}
-			header={
-				<div className="flex flex-1 items-center justify-between p-24">
-					<div className="flex flex-col">
-						<div className="flex items-center mb-16">
-							<Icon className="text-18" color="action">
-								home
-							</Icon>
-							<Icon className="text-16" color="action">
-								chevron_right
-							</Icon>
-							<Typography color="textSecondary">Documentation</Typography>
-							<Icon className="text-16" color="action">
-								chevron_right
-							</Icon>
-							<Typography color="textSecondary">Fuse Components</Typography>
-						</div>
-						<Typography variant="h6">FuseAnimate</Typography>
-					</div>
-				</div>
-			}
-			content={
-				<div className="p-24 max-w-2xl">
-					<Typography className="mb-16" component="p">
-						<code>FuseAnimate</code> is a container component which uses <code>VelocityComponent</code> of
-						<code>velocity-react</code> library.
-					</Typography>
+		<>
+			<Typography variant="h4" className="mb-24">
+				Fuse Animate
+			</Typography>
 
-					<Typography className="mt-32 mb-8" variant="h5">
-						Predefined Effects Usage
-					</Typography>
+			<Typography className="mb-16" component="p">
+				<code>FuseAnimate</code> is a container component that uses <code>VelocityComponent</code> of{' '}
+				<code>velocity-react</code> library.
+			</Typography>
 
-					<Typography className="mb-16" component="p">
-						You can use predefined animation effects.
-					</Typography>
+			<Typography className="mt-32 mb-8" variant="h5">
+				Predefined Effects Usage
+			</Typography>
 
-					<FuseHighlight component="pre" className="language-jsx">
-						{`
+			<Typography className="mb-16" component="p">
+				You can use predefined animation effects.
+			</Typography>
+
+			<FuseHighlight component="pre" className="language-jsx">
+				{`
                                 <FuseAnimate
                                     animation="transition.${selectedEffect}In"
                                     duration={400}
@@ -132,49 +109,49 @@ function FuseAnimateDoc() {
                                     </Card>
                                 </FuseAnimate>
                              `}
-					</FuseHighlight>
+			</FuseHighlight>
 
-					<div className="flex flex-wrap p-48">
-						<div className="flex w-full sm:w-1/2 p-24 justify-center">
-							<FormControl className="w-256">
-								<InputLabel htmlFor="effect-helper">Select Effect</InputLabel>
-								<Select
-									value={selectedEffect}
-									onChange={handleChange}
-									input={<Input name="effect" id="effect-helper" />}
-								>
-									{EFFECTS.map(effect => (
-										<MenuItem key={effect} value={effect}>
-											transition.{effect}In
-										</MenuItem>
-									))}
-								</Select>
-							</FormControl>
-						</div>
+			<div className="flex flex-wrap p-48">
+				<div className="flex w-full sm:w-1/2 p-24 justify-center">
+					<FormControl className="w-256">
+						<InputLabel htmlFor="effect-helper">Select Effect</InputLabel>
+						<Select
+							value={selectedEffect}
+							onChange={handleChange}
+							input={<Input name="effect" id="effect-helper" />}
+						>
+							{EFFECTS.map(effect => (
+								<MenuItem key={effect} value={effect}>
+									transition.{effect}In
+								</MenuItem>
+							))}
+						</Select>
+					</FormControl>
+				</div>
 
-						<div className="flex w-full sm:w-1/2 items-center justify-center">
-							<FuseAnimate
-								animation={selectedEffect && `transition.${selectedEffect}In`}
-								duration={400}
-								delay={400}
-							>
-								<Card className={classes.box}>
-									<Typography>{selectedEffect}</Typography>
-								</Card>
-							</FuseAnimate>
-						</div>
-					</div>
+				<div className="flex w-full sm:w-1/2 items-center justify-center">
+					<FuseAnimate
+						animation={selectedEffect && `transition.${selectedEffect}In`}
+						duration={400}
+						delay={400}
+					>
+						<Card className={classes.box}>
+							<Typography>{selectedEffect}</Typography>
+						</Card>
+					</FuseAnimate>
+				</div>
+			</div>
 
-					<Typography className="mt-32 mb-8" variant="h5">
-						Custom Effects Usage
-					</Typography>
+			<Typography className="mt-32 mb-8" variant="h5">
+				Custom Effects Usage
+			</Typography>
 
-					<Typography className="mb-16" component="p">
-						You can create custom effects.
-					</Typography>
+			<Typography className="mb-16" component="p">
+				You can create custom effects.
+			</Typography>
 
-					<FuseHighlight component="pre" className="language-jsx">
-						{`
+			<FuseHighlight component="pre" className="language-jsx">
+				{`
                                 <FuseAnimate
                                     animation={{
                                         translateX: [0, '100%'],
@@ -190,31 +167,29 @@ function FuseAnimateDoc() {
                                     </Card>
                                 </FuseAnimate>
                              `}
-					</FuseHighlight>
+			</FuseHighlight>
 
-					<div className="p-24 flex items-center justify-center">
-						<FuseAnimate animation={customAnimation} duration={400} delay={400}>
-							<Card className={classes.box}>
-								<Typography>Slide left and fade in</Typography>
-							</Card>
-						</FuseAnimate>
-					</div>
+			<div className="p-24 flex items-center justify-center">
+				<FuseAnimate animation={customAnimation} duration={400} delay={400}>
+					<Card className={classes.box}>
+						<Typography>Slide left and fade in</Typography>
+					</Card>
+				</FuseAnimate>
+			</div>
 
-					<Typography className="mb-16" component="p">
-						For more information checkout the
-						<a
-							href="https://github.com/google-fabric/velocity-react"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="ml-8 font-bold"
-						>
-							velocity-react
-						</a>
-						.
-					</Typography>
-				</div>
-			}
-		/>
+			<Typography className="mb-16" component="p">
+				For more information checkout the
+				<a
+					href="https://github.com/google-fabric/velocity-react"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="ml-8 font-bold"
+				>
+					velocity-react
+				</a>
+				.
+			</Typography>
+		</>
 	);
 }
 

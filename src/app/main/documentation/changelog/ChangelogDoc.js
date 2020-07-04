@@ -1,5 +1,3 @@
-import FusePageSimple from '@fuse/core/FusePageSimple';
-import Icon from '@material-ui/core/Icon';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import ChangelogCard from './ChangelogCard';
@@ -704,31 +702,15 @@ const changelogData = [
 
 function ChangelogDoc() {
 	return (
-		<FusePageSimple
-			header={
-				<div className="flex flex-1 items-center justify-between p-24">
-					<div className="flex flex-col">
-						<div className="flex items-center mb-16">
-							<Icon className="text-18" color="action">
-								home
-							</Icon>
-							<Icon className="text-16" color="action">
-								chevron_right
-							</Icon>
-							<Typography color="textSecondary">Documentation</Typography>
-						</div>
-						<Typography variant="h6">Changelog</Typography>
-					</div>
-				</div>
-			}
-			content={
-				<div className="p-24 max-w-xl">
-					{changelogData.map(item => (
-						<ChangelogCard className="mb-24" key={item.version} {...item} />
-					))}
-				</div>
-			}
-		/>
+		<>
+			<Typography variant="h4" className="mb-24">
+				Changelog
+			</Typography>
+
+			{changelogData.map(item => (
+				<ChangelogCard className="mb-24" key={item.version} {...item} />
+			))}
+		</>
 	);
 }
 

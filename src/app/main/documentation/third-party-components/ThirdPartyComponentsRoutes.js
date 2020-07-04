@@ -6,8 +6,8 @@ const ThirdPartyComponentsRoutes = [
 		component: React.lazy(() => import('./formsy/FormsyDoc'))
 	},
 	{
-		path: '/documentation/third-party-components/datatables/react-table',
-		component: React.lazy(() => import('./datatables/react-table/ReactTableDoc'))
+		path: '/documentation/third-party-components/react-table',
+		component: React.lazy(() => import('./react-table/ReactTableDoc'))
 	},
 	{
 		path: '/documentation/third-party-components/google-map-react',
