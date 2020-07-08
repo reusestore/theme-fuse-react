@@ -1,6 +1,5 @@
 import { TextFieldFormsy } from '@fuse/core/formsy';
 import Button from '@material-ui/core/Button';
-import Divider from '@material-ui/core/Divider';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
