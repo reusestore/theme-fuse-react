@@ -203,6 +203,12 @@ const navigationConfig = [
 						url: '/pages/auth/login-2'
 					},
 					{
+						id: 'login-v3',
+						title: 'Login v3',
+						type: 'item',
+						url: '/pages/auth/login-3'
+					},
+					{
 						id: 'authentication-register',
 						title: 'Register',
 						type: 'item',
@@ -213,6 +219,12 @@ const navigationConfig = [
 						title: 'Register v2',
 						type: 'item',
 						url: '/pages/auth/register-2'
+					},
+					{
+						id: 'authentication-register-v3',
+						title: 'Register v3',
+						type: 'item',
+						url: '/pages/auth/register-3'
 					},
 					{
 						id: 'authentication-forgot-password',
