@@ -39,7 +39,7 @@ function ComingSoonPage() {
 		<div className={clsx(classes.root, 'flex flex-col flex-auto flex-shrink-0 items-center justify-center p-32')}>
 			<div className="flex flex-col items-center justify-center w-full">
 				<FuseAnimate animation="transition.expandIn">
-					<Card className="w-full max-w-384">
+					<Card className="w-full max-w-384 rounded-8">
 						<CardContent className="flex flex-col items-center justify-center p-32 text-center">
 							<img className="w-128 m-32" src="assets/images/logos/fuse.svg" alt="logo" />
 

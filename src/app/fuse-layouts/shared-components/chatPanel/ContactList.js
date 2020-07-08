@@ -14,7 +14,7 @@ import { openChatPanel } from './store/stateSlice';
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		background: theme.palette.background.default
+		background: theme.palette.background.paper
 	},
 	contactButton: {
 		width: 70,

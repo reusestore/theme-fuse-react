@@ -98,7 +98,7 @@ function ContactDialog(props) {
 	return (
 		<Dialog
 			classes={{
-				paper: 'm-24'
+				paper: 'm-24 rounded-8'
 			}}
 			{...contactDialog.props}
 			onClose={closeComposeDialog}

@@ -86,7 +86,16 @@ function EventDialog(props) {
 	}
 
 	return (
-		<Dialog {...eventDialog.props} onClose={closeComposeDialog} fullWidth maxWidth="xs" component="form">
+		<Dialog
+			{...eventDialog.props}
+			onClose={closeComposeDialog}
+			fullWidth
+			maxWidth="xs"
+			component="form"
+			classes={{
+				paper: 'rounded-8'
+			}}
+		>
 			<AppBar position="static">
 				<Toolbar className="flex w-full">
 					<Typography variant="subtitle1" color="inherit">

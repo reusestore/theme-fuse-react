@@ -7,7 +7,7 @@ import React from 'react';
 
 function WidgetWeather(props) {
 	return (
-		<Paper className="w-full rounded-8 shadow-none border-1">
+		<Paper className="w-full rounded-8 shadow-1">
 			<div className="flex items-center justify-between px-4 pt-4">
 				<div className="flex items-center px-12">
 					<Icon color="action">location_on</Icon>

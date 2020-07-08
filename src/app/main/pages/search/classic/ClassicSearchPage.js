@@ -38,7 +38,7 @@ function ClassicSearchPage() {
 			header={
 				<div className="flex flex-1 items-center p-16 sm:p-24 max-w-md">
 					<ThemeProvider theme={theme}>
-						<Paper className="flex items-center h-44 w-full px-16" elevation={1}>
+						<Paper className="flex items-center h-44 w-full px-16 rounded-8" elevation={1}>
 							<Input
 								placeholder="Search..."
 								disableUnderline

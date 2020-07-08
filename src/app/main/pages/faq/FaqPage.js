@@ -77,12 +77,6 @@ function FaqPage() {
 					'flex flex-col flex-shrink-0 items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-360'
 				)}
 			>
-				<FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
-					<Typography color="inherit" className="text-36 sm:text-56 font-light">
-						We're here to help
-					</Typography>
-				</FuseAnimate>
-
 				<FuseAnimate duration={400} delay={600}>
 					<Typography
 						variant="subtitle1"
@@ -93,7 +87,13 @@ function FaqPage() {
 					</Typography>
 				</FuseAnimate>
 
-				<Paper className="flex items-center h-56 w-full max-w-md mt-16 sm:mt-32" elevation={1}>
+				<FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
+					<Typography color="inherit" className="text-36 sm:text-56 font-light">
+						We're here to help
+					</Typography>
+				</FuseAnimate>
+
+				<Paper className="flex items-center h-56 w-full max-w-md mt-16 sm:mt-32 rounded-8" elevation={1}>
 					<Icon color="action" className="mx-16">
 						search
 					</Icon>
@@ -134,7 +134,7 @@ function FaqPage() {
 								key={faq.id}
 								expanded={expanded === faq.id}
 								onChange={toggleExpansion(faq.id)}
-								elevation={0}
+								elevation={1}
 							>
 								<ExpansionPanelSummary expandIcon={<Icon>expand_more</Icon>}>
 									<div className="flex items-center">

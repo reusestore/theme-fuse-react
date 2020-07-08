@@ -14,6 +14,9 @@ import { sendMessage } from './store/chatSlice';
 import { selectContacts } from './store/contactsSlice';
 
 const useStyles = makeStyles(theme => ({
+	root: {
+		background: theme.palette.background.default
+	},
 	messageRow: {
 		position: 'relative',
 		display: 'flex',
@@ -24,8 +27,8 @@ const useStyles = makeStyles(theme => ({
 		flex: '0 0 auto',
 		'&.contact': {
 			'& $bubble': {
-				backgroundColor: theme.palette.primary.main,
-				color: theme.palette.primary.contrastText,
+				backgroundColor: theme.palette.background.paper,
+				color: theme.palette.getContrastText(theme.palette.background.paper),
 				borderTopLeftRadius: 5,
 				borderBottomLeftRadius: 5,
 				borderTopRightRadius: 20,
@@ -55,8 +58,8 @@ const useStyles = makeStyles(theme => ({
 
 			'& $bubble': {
 				marginLeft: 'auto',
-				backgroundColor: theme.palette.grey[300],
-				color: theme.palette.getContrastText(theme.palette.grey[300]),
+				backgroundColor: theme.palette.primary.main,
+				color: theme.palette.primary.contrastText,
 				borderTopLeftRadius: 20,
 				borderBottomLeftRadius: 20,
 				borderTopRightRadius: 5,
@@ -110,7 +113,8 @@ const useStyles = makeStyles(theme => ({
 		alignItems: 'center',
 		justifyContent: 'center',
 		padding: 12,
-		maxWidth: '100%'
+		maxWidth: '100%',
+		boxShadow: theme.shadows[1]
 	},
 	message: {
 		whiteSpace: 'pre-wrap',
@@ -127,8 +131,8 @@ const useStyles = makeStyles(theme => ({
 		whiteSpace: 'nowrap'
 	},
 	bottom: {
-		background: theme.palette.background.default,
-		borderTop: '1px solid rgba(0, 0, 0, 0.13)'
+		// background: theme.palette.background.default,
+		// borderTop: '1px solid rgba(0, 0, 0, 0.13)'
 	},
 	inputWrapper: {
 		borderRadius: 24
@@ -178,7 +182,7 @@ function Chat(props) {
 	};
 
 	return (
-		<Paper elevation={3} className={clsx('flex flex-col', props.className)}>
+		<Paper elevation={3} className={clsx(classes.root, 'flex flex-col relative pb-64', props.className)}>
 			{useMemo(() => {
 				const shouldShowContactAvatar = (item, i) => {
 					return (
@@ -252,7 +256,10 @@ function Chat(props) {
 				);
 			}, [chat, classes, contacts, selectedContactId, user])}
 			{chat && (
-				<form onSubmit={onMessageSubmit} className={clsx(classes.bottom, 'py-16 px-8')}>
+				<form
+					onSubmit={onMessageSubmit}
+					className={clsx(classes.bottom, 'pb-16 px-8 absolute bottom-0 left-0 right-0')}
+				>
 					<Paper className={clsx(classes.inputWrapper, 'flex items-center relative')}>
 						<TextField
 							autoFocus={false}

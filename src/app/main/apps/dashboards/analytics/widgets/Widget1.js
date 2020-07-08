@@ -3,6 +3,7 @@ import _ from '@lodash';
 import Button from '@material-ui/core/Button';
 import { makeStyles, ThemeProvider, useTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import clsx from 'clsx';
 import React, { useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import { useSelector } from 'react-redux';
@@ -25,7 +26,7 @@ function Widget1(props) {
 
 	return (
 		<ThemeProvider theme={mainThemeDark}>
-			<div className={classes.root}>
+			<div className={clsx(classes.root)}>
 				<div className="container relative p-16 sm:p-24 flex flex-row justify-between items-center">
 					<FuseAnimate delay={100}>
 						<div className="flex-col">

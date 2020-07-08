@@ -12,7 +12,7 @@ function Widget5(props) {
 	const data = _.merge({}, props.data);
 
 	return (
-		<Card className="w-full rounded-8 shadow-none border-1">
+		<Card className="w-full rounded-8 shadow-1">
 			<div className="relative p-24 flex flex-row items-center justify-between">
 				<div className="flex flex-col">
 					<Typography className="h3 sm:h2">Visitors & Page views</Typography>

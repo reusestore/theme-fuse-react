@@ -9,7 +9,15 @@ function FuseDialog(props) {
 	const options = useSelector(({ fuse }) => fuse.dialog.options);
 
 	return (
-		<Dialog open={state} onClose={ev => dispatch(closeDialog())} aria-labelledby="fuse-dialog-title" {...options} />
+		<Dialog
+			open={state}
+			onClose={ev => dispatch(closeDialog())}
+			aria-labelledby="fuse-dialog-title"
+			classes={{
+				paper: 'rounded-8'
+			}}
+			{...options}
+		/>
 	);
 }
 

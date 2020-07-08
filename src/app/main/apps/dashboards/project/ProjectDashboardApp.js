@@ -165,7 +165,7 @@ function ProjectDashboardApp(props) {
 					textColor="primary"
 					variant="scrollable"
 					scrollButtons="off"
-					className="w-full border-b-1 px-24"
+					className="w-full px-24"
 				>
 					<Tab className="text-14 font-600 normal-case" label="Home" />
 					<Tab className="text-14 font-600 normal-case" label="Budget Summary" />

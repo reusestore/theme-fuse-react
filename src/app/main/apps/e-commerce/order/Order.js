@@ -119,7 +119,7 @@ function Order(props) {
 									</div>
 
 									<div className="mb-24">
-										<div className="table-responsive mb-16">
+										<div className="table-responsive mb-48">
 											<table className="simple">
 												<thead>
 													<tr>

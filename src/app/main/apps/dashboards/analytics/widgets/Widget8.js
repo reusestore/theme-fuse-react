@@ -16,7 +16,7 @@ function Widget8(props) {
 	const data = _.merge({}, props.data);
 
 	return (
-		<Card className="w-full rounded-8 shadow-none border-1">
+		<Card className="w-full rounded-8 shadow-1">
 			<AppBar position="static">
 				<div className="p-16 px-4 flex flex-row items-center justify-between">
 					<div className="px-12">

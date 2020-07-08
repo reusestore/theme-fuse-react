@@ -708,7 +708,7 @@ function ChangelogDoc() {
 			</Typography>
 
 			{changelogData.map(item => (
-				<ChangelogCard className="mb-24" key={item.version} {...item} />
+				<ChangelogCard className="mb-24 rounded-8" key={item.version} {...item} />
 			))}
 		</>
 	);

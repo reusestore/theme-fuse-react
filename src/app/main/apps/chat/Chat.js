@@ -17,8 +17,8 @@ const useStyles = makeStyles(theme => ({
 	messageRow: {
 		'&.contact': {
 			'& .bubble': {
-				backgroundColor: theme.palette.primary.main,
-				color: theme.palette.primary.contrastText,
+				backgroundColor: theme.palette.background.paper,
+				color: theme.palette.getContrastText(theme.palette.background.paper),
 				borderTopLeftRadius: 5,
 				borderBottomLeftRadius: 5,
 				borderTopRightRadius: 20,
@@ -47,8 +47,8 @@ const useStyles = makeStyles(theme => ({
 			},
 			'& .bubble': {
 				marginLeft: 'auto',
-				backgroundColor: theme.palette.grey[300],
-				color: theme.palette.getContrastText(theme.palette.grey[300]),
+				backgroundColor: theme.palette.primary.main,
+				color: theme.palette.primary.contrastText,
 				borderTopLeftRadius: 20,
 				borderBottomLeftRadius: 20,
 				borderTopRightRadius: 5,
@@ -177,7 +177,7 @@ function Chat(props) {
 											src={contact.avatar}
 										/>
 									)}
-									<div className="bubble flex relative items-center justify-center p-12 max-w-full">
+									<div className="bubble flex relative items-center justify-center p-12 max-w-full shadow-1">
 										<div className="leading-tight whitespace-pre-wrap">{item.message}</div>
 										<Typography
 											className="time absolute hidden w-full text-11 mt-8 -mb-24 ltr:left-0 rtl:right-0 bottom-0 whitespace-no-wrap"

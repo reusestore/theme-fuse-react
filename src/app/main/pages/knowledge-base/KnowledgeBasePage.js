@@ -1,6 +1,7 @@
 import FuseAnimate from '@fuse/core/FuseAnimate';
 import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -83,7 +84,7 @@ function KnowledgeBasePage() {
 						>
 							{data.map(category => (
 								<div className="max-w-md w-full max-w-512 pb-24 md:w-1/2 md:p-16" key={category.id}>
-									<div className="border-1 rounded-12">
+									<Card className="rounded-8" elevation={1}>
 										<List component="nav" className="p-0">
 											<Typography className="font-bold pl-32 py-16 text-16">
 												{category.title}
@@ -107,7 +108,7 @@ function KnowledgeBasePage() {
 											className="pl-32 normal-case w-full justify-start my-8 font-500"
 											color="secondary"
 										>{`See all articles (${category.articlesCount})`}</Button>
-									</div>
+									</Card>
 								</div>
 							))}
 						</FuseAnimateGroup>

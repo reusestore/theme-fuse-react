@@ -15,7 +15,7 @@ import { newList } from '../store/boardSlice';
 
 const useStyles = makeStyles(theme => ({
 	card: {
-		backgroundColor: darken(theme.palette.background.default, theme.palette.type === 'light' ? 0.02 : 0.4)
+		backgroundColor: darken(theme.palette.background.paper, theme.palette.type === 'light' ? 0.02 : 0.25)
 	}
 }));
 
@@ -55,7 +55,7 @@ function BoardAddList(props) {
 
 	return (
 		<div>
-			<Card className={clsx(classes.card, 'w-320 mx-8 sm:mx-12')} square>
+			<Card className={clsx(classes.card, 'w-320 mx-8 sm:mx-12 rounded-8')} square>
 				{formOpen ? (
 					<ClickAwayListener onClickAway={handleCloseForm}>
 						<form className="p-16" onSubmit={handleSubmit}>

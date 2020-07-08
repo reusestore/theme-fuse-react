@@ -65,9 +65,18 @@ const useStyles = makeStyles(theme => ({
 				}
 			}
 		},
+		'& .rbc-agenda-table': {
+			'& th': {
+				border: 0
+			},
+			'& th, & td': {
+				padding: '12px 16px!important'
+			}
+		},
 		'& .rbc-time-view': {
 			'& .rbc-time-header': {
-				...theme.mixins.border(1)
+				...theme.mixins.border(1),
+				borderRadius: '12px 12px 0 0'
 			},
 			'& .rbc-time-content': {
 				flex: '0 1 auto',
@@ -75,6 +84,9 @@ const useStyles = makeStyles(theme => ({
 			}
 		},
 		'& .rbc-month-view': {
+			'& > .rbc-month-header': {
+				borderRadius: '12px 12px 0 0'
+			},
 			'& > .rbc-row': {
 				...theme.mixins.border(1)
 			},

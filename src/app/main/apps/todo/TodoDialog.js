@@ -127,7 +127,15 @@ function TodoDialog(props) {
 	}
 
 	return (
-		<Dialog {...todoDialog.props} onClose={closeTodoDialog} fullWidth maxWidth="sm">
+		<Dialog
+			{...todoDialog.props}
+			onClose={closeTodoDialog}
+			fullWidth
+			maxWidth="sm"
+			classes={{
+				paper: 'rounded-8'
+			}}
+		>
 			<AppBar position="static" elevation={1}>
 				<Toolbar className="flex w-full">
 					<Typography variant="subtitle1" color="inherit">

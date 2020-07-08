@@ -42,7 +42,7 @@ function TypographyUI() {
 			content={
 				<div className="p-24 max-w-2xl">
 					<FuseAnimate animation="transition.slideUpBigIn" delay={300}>
-						<Card>
+						<Card className="rounded-8" elevation={1}>
 							<CardContent>
 								<div className="flex flex-wrap mb-16">
 									<div className="flex w-full sm:w-1/2">

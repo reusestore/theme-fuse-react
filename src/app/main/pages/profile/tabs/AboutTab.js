@@ -38,7 +38,7 @@ function AboutTab() {
 						animation: 'transition.slideUpBigIn'
 					}}
 				>
-					<Card className="w-full mb-16">
+					<Card className="w-full mb-16 rounded-8">
 						<AppBar position="static" elevation={0}>
 							<Toolbar className="px-8">
 								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12">
@@ -78,7 +78,7 @@ function AboutTab() {
 						</CardContent>
 					</Card>
 
-					<Card className="w-full mb-16">
+					<Card className="w-full mb-16 rounded-8">
 						<AppBar position="static" elevation={0}>
 							<Toolbar className="px-8">
 								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12">
@@ -118,7 +118,7 @@ function AboutTab() {
 						</CardContent>
 					</Card>
 
-					<Card className="w-full mb-16">
+					<Card className="w-full mb-16 rounded-8">
 						<AppBar position="static" elevation={0}>
 							<Toolbar className="px-8">
 								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12">
@@ -173,7 +173,7 @@ function AboutTab() {
 						animation: 'transition.slideUpBigIn'
 					}}
 				>
-					<Card className="w-full mb-16">
+					<Card className="w-full mb-16 rounded-8">
 						<AppBar position="static" elevation={0}>
 							<Toolbar className="px-8">
 								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12">
@@ -196,7 +196,7 @@ function AboutTab() {
 						</CardContent>
 					</Card>
 
-					<Card className="w-full mb-16">
+					<Card className="w-full mb-16 rounded-8">
 						<AppBar position="static" elevation={0}>
 							<Toolbar className="px-8">
 								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12">

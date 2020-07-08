@@ -8,17 +8,14 @@ import ChatPanelToggleButton from 'app/fuse-layouts/shared-components/chatPanel/
 import NavbarMobileToggleButton from 'app/fuse-layouts/shared-components/NavbarMobileToggleButton';
 import QuickPanelToggleButton from 'app/fuse-layouts/shared-components/quickPanel/QuickPanelToggleButton';
 import UserMenu from 'app/fuse-layouts/shared-components/UserMenu';
+import clsx from 'clsx';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectToolbarTheme } from 'app/store/fuse/settingsSlice';
 import LanguageSwitcher from '../../shared-components/LanguageSwitcher';
 
 const useStyles = makeStyles(theme => ({
-	separator: {
-		width: 1,
-		height: 64,
-		backgroundColor: theme.palette.divider
-	}
+	root: {}
 }));
 
 function ToolbarLayout1(props) {
@@ -31,15 +28,14 @@ function ToolbarLayout1(props) {
 		<ThemeProvider theme={toolbarTheme}>
 			<AppBar
 				id="fuse-toolbar"
-				className="flex relative z-10"
+				className={clsx(classes.root, 'flex relative z-10')}
 				color="default"
-				style={{ backgroundColor: toolbarTheme.palette.background.default }}
+				style={{ backgroundColor: toolbarTheme.palette.background.paper }}
 			>
 				<Toolbar className="p-0">
 					{config.navbar.display && config.navbar.position === 'left' && (
 						<Hidden lgUp>
-							<NavbarMobileToggleButton className="w-64 h-64 p-0" />
-							<div className={classes.separator} />
+							<NavbarMobileToggleButton className="w-48 h-48 p-0" />
 						</Hidden>
 					)}
 
@@ -49,24 +45,16 @@ function ToolbarLayout1(props) {
 						</Hidden>
 					</div>
 
-					<div className="flex">
+					<div className="flex items-center">
 						<UserMenu />
-
-						<div className={classes.separator} />
 
 						<FuseSearch />
 
 						<Hidden lgUp>
-							<div className={classes.separator} />
-
 							<ChatPanelToggleButton />
 						</Hidden>
 
-						<div className={classes.separator} />
-
 						<LanguageSwitcher />
-
-						<div className={classes.separator} />
 
 						<QuickPanelToggleButton />
 					</div>

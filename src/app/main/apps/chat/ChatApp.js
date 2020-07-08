@@ -194,16 +194,16 @@ function ChatApp(props) {
 					<main className={clsx(classes.contentWrapper, 'z-10')}>
 						{!chat ? (
 							<div className="flex flex-col flex-1 items-center justify-center p-24">
-								<Paper className="rounded-full p-48">
-									<Icon className="block text-64" color="secondary">
+								<Paper className="rounded-full p-48 md:p-64">
+									<Icon className="block text-64 md:text-128" color="secondary">
 										chat
 									</Icon>
 								</Paper>
-								<Typography variant="h6" className="my-24">
+								<Typography variant="h6" className="mt-24 mb-12 text-32 font-700">
 									Chat App
 								</Typography>
 								<Typography
-									className="hidden md:flex px-16 pb-24 mt-24 text-center"
+									className="hidden md:flex px-16 pb-24 text-16 text-center"
 									color="textSecondary"
 								>
 									Select a contact to start a conversation!..

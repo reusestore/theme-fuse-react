@@ -300,7 +300,7 @@ function Product(props) {
 										htmlFor="button-file"
 										className={clsx(
 											classes.productImageUpload,
-											'flex items-center justify-center relative w-128 h-128 rounded-4 mx-8 mb-16 overflow-hidden cursor-pointer shadow-1 hover:shadow-5'
+											'flex items-center justify-center relative w-128 h-128 rounded-8 mx-8 mb-16 overflow-hidden cursor-pointer shadow-1 hover:shadow-5'
 										)}
 									>
 										<input
@@ -322,7 +322,7 @@ function Product(props) {
 											tabIndex={0}
 											className={clsx(
 												classes.productImageItem,
-												'flex items-center justify-center relative w-128 h-128 rounded-4 mx-8 mb-16 overflow-hidden cursor-pointer shadow-1 hover:shadow-5',
+												'flex items-center justify-center relative w-128 h-128 rounded-8 mx-8 mb-16 overflow-hidden cursor-pointer shadow-1 hover:shadow-5',
 												media.id === form.featuredImageId && 'featured'
 											)}
 											key={media.id}

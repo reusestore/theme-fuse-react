@@ -38,11 +38,11 @@ function LanguageSwitcher(props) {
 
 	const currentLng = languages.find(lng => lng.id === i18n.language);
 
-	const userMenuClick = event => {
+	const langMenuClick = event => {
 		setMenu(event.currentTarget);
 	};
 
-	const userMenuClose = () => {
+	const langMenuClose = () => {
 		setMenu(null);
 	};
 
@@ -61,12 +61,12 @@ function LanguageSwitcher(props) {
 			dispatch(setDefaultSettings({ direction: newLangDir }));
 		}
 
-		userMenuClose();
+		langMenuClose();
 	}
 
 	return (
 		<>
-			<Button className="h-64 w-64" onClick={userMenuClick}>
+			<Button className="h-64 w-64" onClick={langMenuClick}>
 				<img
 					className="mx-4 min-w-20"
 					src={`assets/images/flags/${currentLng.flag}.png`}
@@ -79,7 +79,7 @@ function LanguageSwitcher(props) {
 			<Popover
 				open={Boolean(menu)}
 				anchorEl={menu}
-				onClose={userMenuClose}
+				onClose={langMenuClose}
 				anchorOrigin={{
 					vertical: 'bottom',
 					horizontal: 'center'
@@ -104,7 +104,7 @@ function LanguageSwitcher(props) {
 				<MenuItem
 					component={Link}
 					to="/documentation/working-with-fuse-react/multi-language"
-					onClick={userMenuClose}
+					onClick={langMenuClose}
 					role="button"
 				>
 					<ListItemText primary="Learn More" />

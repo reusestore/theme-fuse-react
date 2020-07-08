@@ -34,7 +34,7 @@ function UserMenu(props) {
 					<Avatar className="">{user.data.displayName[0]}</Avatar>
 				)}
 
-				<div className="hidden md:flex flex-col mx-12 items-start">
+				<div className="hidden md:flex flex-col mx-8 items-start">
 					<Typography component="span" className="normal-case font-600 flex">
 						{user.data.displayName}
 					</Typography>
