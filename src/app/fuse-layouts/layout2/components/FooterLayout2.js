@@ -18,6 +18,7 @@ function FooterLayout2(props) {
 				className="relative z-10"
 				color="default"
 				style={{ backgroundColor: footerTheme.palette.background.default }}
+				elevation={2}
 			>
 				<Toolbar className="px-12 py-0 flex items-center">
 					<div className="flex flex-1">

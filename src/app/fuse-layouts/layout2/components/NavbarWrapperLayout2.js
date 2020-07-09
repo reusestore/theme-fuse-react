@@ -1,3 +1,4 @@
+import AppBar from '@material-ui/core/AppBar';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import Paper from '@material-ui/core/Paper';
@@ -50,7 +51,7 @@ function NavbarWrapperLayout2(props) {
 		<>
 			<ThemeProvider theme={navbarTheme}>
 				<Hidden mdDown>
-					<Paper className={classes.navbar} square>
+					<Paper className={classes.navbar} square elevation={2}>
 						<NavbarLayout2 />
 					</Paper>
 				</Hidden>

@@ -31,6 +31,7 @@ function ToolbarLayout3(props) {
 				className={clsx(classes.root, 'flex relative z-10')}
 				color="default"
 				style={{ backgroundColor: toolbarTheme.palette.background.paper }}
+				elevation={2}
 			>
 				<Toolbar className="container p-0 lg:px-24">
 					{config.navbar.display && (
