@@ -18,7 +18,7 @@ function DeploymentDoc() {
 					href="https://facebook.github.io/create-react-app/docs/deployment"
 					target="_blank"
 					rel="noreferrer noopener"
-					className="ml-4 font-bold"
+					className="ml-4"
 				>
 					Deployment
 				</a>

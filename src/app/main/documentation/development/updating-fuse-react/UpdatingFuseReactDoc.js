@@ -28,12 +28,7 @@ function UpdatingFuseReactDoc() {
 					</li>
 					<li className="mb-16">
 						Before starting your new project,{' '}
-						<a
-							href="http://support.withinpixels.com/github"
-							target="_blank"
-							rel="noreferrer noopener"
-							className="font-bold"
-						>
+						<a href="http://support.withinpixels.com/github" target="_blank" rel="noreferrer noopener">
 							join our Github repo
 						</a>
 						, fork it and build your app on top of that fork. This way, in the future, you can easily merge

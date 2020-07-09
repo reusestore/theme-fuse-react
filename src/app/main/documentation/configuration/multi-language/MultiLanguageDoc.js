@@ -13,7 +13,7 @@ function MultiLanguageDoc() {
 
 			<Typography className="mb-16" component="p">
 				Fuse React uses{' '}
-				<a href="https://react.i18next.com/" target="_blank" rel="noopener noreferrer" className="font-bold">
+				<a href="https://react.i18next.com/" target="_blank" rel="noopener noreferrer">
 					<code>react-i18next</code>
 				</a>{' '}
 				for to support multiple languages.

@@ -15,7 +15,6 @@ function FuseScrollbarsDoc() {
 					href="http://utatti.github.io/perfect-scrollbar/"
 					target="_blank"
 					rel="noreferrer noopener"
-					className="font-bold"
 				>
 					perfect-scrollbar
 				</a>{' '}

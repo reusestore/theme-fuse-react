@@ -103,7 +103,7 @@ function FuseAnimateGroupDoc() {
 					href="https://github.com/google-fabric/velocity-react"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="ml-8 font-bold"
+					className="ml-8"
 				>
 					velocity-react
 				</a>

@@ -26,7 +26,6 @@ function ThemeShemesDoc() {
 					href="https://material-ui-next.com/customization/themes/"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="font-bold"
 				>
 					Material UI's theme configuration options.
 				</a>

@@ -15,7 +15,6 @@ function RoutingDoc() {
 					href="https://reacttraining.com/react-router/"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="font-bold"
 				>
 					react-router
 				</a>{' '}
@@ -24,7 +23,6 @@ function RoutingDoc() {
 					href="https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="font-bold"
 				>
 					react-router-config
 				</a>

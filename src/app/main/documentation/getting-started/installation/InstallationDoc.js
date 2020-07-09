@@ -23,7 +23,7 @@ function InstallationDoc() {
 
 			<Typography className="mb-16" component="p">
 				To install and use Fuse React, you will need{' '}
-				<a href="https://nodejs.org/" target="_blank" rel="noreferrer noopener" className="font-bold">
+				<a href="https://nodejs.org/" target="_blank" rel="noreferrer noopener" >
 					Node.js
 				</a>{' '}
 				installed on your computer. We won't get into too much detail about Node.js as it's out of the scope of
@@ -35,7 +35,7 @@ function InstallationDoc() {
 			</Typography>
 			<Typography className="mb-16" component="p">
 				Fuse React uses{' '}
-				<a href="https://yarnpkg.com" target="_blank" rel="noreferrer noopener" className="font-bold">
+				<a href="https://yarnpkg.com" target="_blank" rel="noreferrer noopener" >
 					Yarn
 				</a>{' '}
 				package manager to install and manage 3rd party components and libraries.
@@ -53,14 +53,14 @@ function InstallationDoc() {
 				<ol>
 					<li className="mb-16">
 						Download and install <b>at least LTS</b> or the latest version of{' '}
-						<a href="https://nodejs.org/" target="_blank" rel="noreferrer noopener" className="font-bold">
+						<a href="https://nodejs.org/" target="_blank" rel="noreferrer noopener" >
 							Node.js
 						</a>{' '}
 						from its web site.
 					</li>
 					<li className="mb-16">
 						Download and install the latest{' '}
-						<a href="https://yarnpkg.com" target="_blank" rel="noreferrer noopener" className="font-bold">
+						<a href="https://yarnpkg.com" target="_blank" rel="noreferrer noopener" >
 							Yarn (v1)
 						</a>{' '}
 						with the directions at their web site.
@@ -76,7 +76,7 @@ function InstallationDoc() {
 						href="https://yarnpkg.com/getting-started/install#per-project-install"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="font-bold"
+
 					>
 						Per-project install method
 					</a>{' '}

@@ -28,7 +28,6 @@ function IntroductionDoc() {
 					href="https://www.google.com/design/spec/material-design/introduction.html"
 					target="_blank"
 					rel="noreferrer noopener"
-					className="font-bold"
 				>
 					Google's Material Design Specifications.
 				</a>
@@ -37,7 +36,7 @@ function IntroductionDoc() {
 				React
 			</Typography>
 			<Typography className="mb-16" component="p">
-				<a href="https://reactjs.org/" target="_blank" rel="noreferrer noopener" className="font-bold">
+				<a href="https://reactjs.org/" target="_blank" rel="noreferrer noopener" >
 					React
 				</a>{' '}
 				is the core of our template. If you don't know what React is or don't know how to use it, we strongly
@@ -47,7 +46,7 @@ function IntroductionDoc() {
 				Material-UI
 			</Typography>
 			<Typography className="mb-16" component="p">
-				<a href="https://material-ui-next.com" target="_blank" rel="noreferrer noopener" className="font-bold">
+				<a href="https://material-ui-next.com" target="_blank" rel="noreferrer noopener" >
 					Material-UI
 				</a>{' '}
 				is a react UI library that implements Google's Material Design specification.
@@ -60,7 +59,7 @@ function IntroductionDoc() {
 					href="https://github.com/facebook/create-react-app"
 					target="_blank"
 					rel="noreferrer noopener"
-					className="font-bold"
+
 				>
 					Create React App
 				</a>{' '}

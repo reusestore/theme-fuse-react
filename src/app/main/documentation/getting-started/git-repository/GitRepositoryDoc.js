@@ -15,7 +15,7 @@ function GitRepositoryDoc() {
 					href="http://support.withinpixels.com/github"
 					target="_blank"
 					rel="noreferrer noopener"
-					className="font-bold"
+
 				>
 					invitation form
 				</a>

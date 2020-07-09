@@ -25,7 +25,6 @@ function RTLSupportDoc() {
 					href="https://github.com/RonMelkhior/tailwindcss-dir"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="font-bold"
 				>
 					<code>tailwindcss-dir</code>
 				</a>{' '}
@@ -34,7 +33,6 @@ function RTLSupportDoc() {
 					href="https://github.com/alitaheri/jss-rtl"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="font-bold"
 				>
 					<code>jss-rtl</code>
 				</a>{' '}
@@ -46,7 +44,6 @@ function RTLSupportDoc() {
 					href="https://github.com/alitaheri/jss-rtl"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="font-bold"
 				>
 					<code>jss-rtl</code>
 				</a>{' '}
@@ -60,7 +57,6 @@ function RTLSupportDoc() {
 					href="https://github.com/RonMelkhior/tailwindcss-dir"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="font-bold"
 				>
 					<code>tailwindcss-dir</code>
 				</a>{' '}

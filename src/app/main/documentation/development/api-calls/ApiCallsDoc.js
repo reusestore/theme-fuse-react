@@ -11,7 +11,7 @@ function ApiCallsDoc() {
 
 			<Typography className="mb-24" component="p">
 				We are using HTTP request library{' '}
-				<a href="https://github.com/axios" target="_blank" rel="noreferrer noopener" className="font-bold">
+				<a href="https://github.com/axios" target="_blank" rel="noreferrer noopener">
 					Axios
 				</a>{' '}
 				for to make API calls.
@@ -24,12 +24,7 @@ function ApiCallsDoc() {
 			<Typography className="mb-16" component="p">
 				You can config global axios defaults as below. For example you can define baseUrl for the api
 				connection. Check out for more detils at:{' '}
-				<a
-					href="https://github.com/axios/axios#config-defaults"
-					target="_blank"
-					rel="noreferrer noopener"
-					className="font-bold"
-				>
+				<a href="https://github.com/axios/axios#config-defaults" target="_blank" rel="noreferrer noopener">
 					Global axios defaults
 				</a>
 			</Typography>
@@ -47,12 +42,7 @@ function ApiCallsDoc() {
 			</Typography>
 			<Typography className="mb-16" component="p">
 				We are using{' '}
-				<a
-					href="https://github.com/ctimmerm/axios-mock-adapter"
-					target="_blank"
-					rel="noreferrer noopener"
-					className="font-bold"
-				>
+				<a href="https://github.com/ctimmerm/axios-mock-adapter" target="_blank" rel="noreferrer noopener">
 					axios-mock-adapter
 				</a>{' '}
 				to demonstrate http requests, all of the example backend data is located at src/@fake-db.
