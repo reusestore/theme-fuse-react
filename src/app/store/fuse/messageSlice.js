@@ -16,14 +16,14 @@ const messageSlice = createSlice({
 	name: 'message',
 	initialState,
 	reducers: {
-		hideMessage: (state, action) => {
+		showMessage: (state, action) => {
 			state.state = true;
 			state.options = {
 				...initialState.options,
 				...action.payload
 			};
 		},
-		showMessage: (state, action) => {
+		hideMessage: (state, action) => {
 			state.state = null;
 		}
 	}
