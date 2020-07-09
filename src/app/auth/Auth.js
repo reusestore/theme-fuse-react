@@ -43,7 +43,7 @@ class Auth extends Component {
 						this.props.showMessage({ message: 'Logged in with JWT' });
 					})
 					.catch(error => {
-						this.props.showMessage({ message: error });
+						this.props.showMessage({ message: error.message });
 
 						resolve();
 					});
