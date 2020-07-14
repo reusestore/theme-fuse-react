@@ -12,7 +12,7 @@ Essa ferramenta é útil para configurar os valores de um campo de texto quando 
 1. O valor para a caixa de texto deve ser escolhido a partir de um conjunto pré-definido de valores permitidos, por exemplo, um campo de localização deve conter um nome de localização válido: [combo box](#combo-box).
 2. A caixa de texto pode conter qualquer valor arbitrário, mas é vantajoso porque pode sugerir possíveis valores para o usuário, por exemplo, um campo de pesquisa que pode sugerir pesquisas anteriores ou semelhantes para economizar o tempo do usuário: [solo livre](#free-solo).
 
-A ideia dessa ferramenta era para ser uma versão melhorada das bibliotecas "react-select" e "downshift".
+A idéia dessa ferramenta é ser uma versão melhorada das bibliotecas "react-select" e "downshift".
 
 ## Combo box
 
@@ -136,7 +136,15 @@ Gosta mais de campos de texto menores? Use a propriedade `size`.
 
 {{"demo": "pages/components/autocomplete/Sizes.js"}}
 
-## Autocompletar personalizado
+## Customizações
+
+### Input customizado
+
+A propriedade `renderInput` permite que você customize o input renderizado. O primeiro argumento desta propriedade de render, contém propriedades que você precisa repassar. Preste atenção específicamente nas chaves `ref` e `inputProps`.
+
+{{"demo": "pages/components/autocomplete/CustomInputAutocomplete.js"}}
+
+### Seletor do GitHub
 
 Esta demonstração reproduz o rótulo de selecão do GitHub's:
 

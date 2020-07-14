@@ -22,7 +22,7 @@ function ButtonsDoc(props)
     return (
 
         <>
-            <div className="flex flex-1 items-center justify-end">
+            <div className="flex flex-1 flex-grow-0 items-center justify-end">
                 <Button
                     className="normal-case"
                     variant="outlined"
@@ -90,6 +90,16 @@ function ButtonsDoc(props)
                 component={require('app/main/documentation/material-ui-components/components/buttons/OutlinedButtons.js').default}
                 raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/OutlinedButtons.js')}
             /></Typography>
+            <Typography className="text-32 mt-32 mb-8" component="h2">Handling clicks</Typography>
+            <Typography className="mb-16" component="div">All components accept an <code>{`onClick`}</code> handler that is applied to the root DOM element.</Typography>
+
+            <FuseHighlight component="pre" className="language-jsx">
+                {` 
+<Button onClick={() => { alert('clicked') }}>Click me</Button>
+`}
+            </FuseHighlight>
+            <Typography className="mb-16" component="div">Note that the documentation <a href="/guides/api/#native-properties">avoids</a> mentioning native props (there are a lot) in the API section
+                of the components.</Typography>
             <Typography className="text-32 mt-32 mb-8" component="h2">Upload button</Typography>
             <Typography className="mb-16" component="div"><FuseExample
                 className="my-24"

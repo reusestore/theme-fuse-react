@@ -5,6 +5,12 @@ const MaterialUIComponentsNavigation = {
 	icon: 'layers',
 	children: [
 		{
+			id: 'accordion',
+			title: 'Accordion',
+			type: 'item',
+			url: '/documentation/material-ui-components/accordion'
+		},
+		{
 			id: 'alert',
 			title: 'Alert',
 			type: 'item',
@@ -123,12 +129,6 @@ const MaterialUIComponentsNavigation = {
 			title: 'Drawers',
 			type: 'item',
 			url: '/documentation/material-ui-components/drawers'
-		},
-		{
-			id: 'expansionPanels',
-			title: 'Expansion Panels',
-			type: 'item',
-			url: '/documentation/material-ui-components/expansion-panels'
 		},
 		{
 			id: 'floatingActionButton',
@@ -285,6 +285,12 @@ const MaterialUIComponentsNavigation = {
 			title: 'Textarea Autosize',
 			type: 'item',
 			url: '/documentation/material-ui-components/textarea-autosize'
+		},
+		{
+			id: 'timeline',
+			title: 'Timeline',
+			type: 'item',
+			url: '/documentation/material-ui-components/timeline'
 		},
 		{
 			id: 'tooltips',

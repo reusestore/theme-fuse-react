@@ -22,7 +22,7 @@ function RadioButtonsDoc(props)
     return (
 
         <>
-            <div className="flex flex-1 items-center justify-end">
+            <div className="flex flex-1 flex-grow-0 items-center justify-end">
                 <Button
                     className="normal-case"
                     variant="outlined"
@@ -51,6 +51,7 @@ function RadioButtonsDoc(props)
                 component={require('app/main/documentation/material-ui-components/components/radio-buttons/RadioButtonsGroup.js').default}
                 raw={require('!raw-loader!app/main/documentation/material-ui-components/components/radio-buttons/RadioButtonsGroup.js')}
             /></Typography>
+            <Typography className="mb-16" component="div">To lay out the buttons horizontally, set the <code>{`row`}</code> prop: <code>{`<RadioGroup row />`}</code>.</Typography>
             <Typography className="text-32 mt-32 mb-8" component="h2">Standalone radio buttons</Typography>
             <Typography className="mb-16" component="div"><code>{`Radio`}</code> can also be used standalone, without the RadioGroup wrapper.</Typography>
             <Typography className="mb-16" component="div"><FuseExample

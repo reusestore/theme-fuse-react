@@ -22,7 +22,7 @@ function TypographyDoc(props)
     return (
 
         <>
-            <div className="flex flex-1 items-center justify-end">
+            <div className="flex flex-1 flex-grow-0 items-center justify-end">
                 <Button
                     className="normal-case"
                     variant="outlined"
@@ -54,18 +54,20 @@ function TypographyDoc(props)
 `}
             </FuseHighlight>
             <Typography className="text-32 mt-32 mb-8" component="h2">Install with npm</Typography>
-            <Typography className="mb-16" component="div">You can <a href="https://www.npmjs.com/package/typeface-roboto">install it</a> by typing the below command in your terminal:</Typography>
-            <Typography className="mb-16" component="div"><code>{`npm install typeface-roboto --save`}</code></Typography>
+            <Typography className="mb-16" component="div">You can <a href="https://www.npmjs.com/package/fontsource-roboto">install it</a> by typing the below command in your terminal:</Typography>
+            <Typography className="mb-16" component="div"><code>{`npm install fontsource-roboto`}</code></Typography>
             <Typography className="mb-16" component="div">Then, you can import it in your entry-point.</Typography>
 
             <FuseHighlight component="pre" className="language-js">
                 {` 
-import 'typeface-roboto';
+import 'fontsource-roboto';
 `}
             </FuseHighlight>
-            <Typography className="mb-16" component="div">For more info check out the <a href="https://github.com/KyleAMathews/typefaces/tree/master/packages/roboto">typeface</a> project.</Typography>
+            <Typography className="mb-16" component="div">For more info check out <a
+                href="https://github.com/DecliningLotus/fontsource/blob/master/packages/roboto/README.md">Fontsource</a>.</Typography>
             <Typography className="mb-16" component="div">⚠️ Be careful when using this approach.
-                Make sure your bundler doesn&#39;t eager load all the font variations (100/300/400/500/700/900, italic/regular, SVG/woff).
+                Make sure your bundler doesn&#39;t eager load all the font variations (100/300/400/500/700/900, italic/regular, SVG/woff). Fontsource can be configured to load specific subsets,
+                weights and styles.
                 Inlining all the font files can significantly increase the size of your bundle.
                 Material-UI default typography configuration only relies on 300, 400, 500, and 700 font weights.</Typography>
             <Typography className="text-32 mt-32 mb-8" component="h2">Component</Typography>

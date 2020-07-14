@@ -22,7 +22,7 @@ function TablesDoc(props)
     return (
 
         <>
-            <div className="flex flex-1 items-center justify-end">
+            <div className="flex flex-1 flex-grow-0 items-center justify-end">
                 <Button
                     className="normal-case"
                     variant="outlined"
@@ -112,7 +112,7 @@ function TablesDoc(props)
                 </li>
             </ul>
             <Typography className="text-24 mt-32 mb-8" component="h3">Custom pagination actions</Typography>
-            <Typography className="mb-16" component="div">The <code>{`Action`}</code> property of the <code>{`TablePagination`}</code> component allows the implementation of
+            <Typography className="mb-16" component="div">The <code>{`ActionsComponent`}</code> prop of the <code>{`TablePagination`}</code> component allows the implementation of
                 custom actions.</Typography>
             <Typography className="mb-16" component="div"><FuseExample
                 className="my-24"

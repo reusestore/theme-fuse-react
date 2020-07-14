@@ -5,11 +5,11 @@ components: Snackbar, SnackbarContent
 
 # Snackbar 消息条
 
-<p class="description">Snackbars 提供了关于应用流程的简短信息。 该组件也被称为 toast。</p>
+<p class="description">消息条组件提供了关于应用流程的简短信息。 该组件也被称为 toast。</p>
 
-[消息条](https://material.io/design/components/snackbars.html) 将应用程序已执行或即将执行的进程通知用户。 它们会从屏幕底部短暂地出现。 它们不应中断用户体验，也不要求任何用户的操作来关闭。
+[消息条](https://material.io/design/components/snackbars.html)将应用程序已执行或即将执行的进程通知用户。 它们会从屏幕底部短暂地出现。 它们不应中断用户体验，也不要求任何用户的操作来关闭。
 
-Snackbars 包含一行直接与所执行操作相关的文本。 它们可能包含一些文本操作，但没有图标。 您可以使用它们来显示通知。
+消息条包含了一行直接与所执行操作相关的文本。 它们可能包含一些文本操作，但并不会展示图标。 您也可以用他们展示通知。
 
 #### 频率
 
@@ -23,13 +23,13 @@ Snackbars 包含一行直接与所执行操作相关的文本。 它们可能包
 
 ## 自定义的消息条
 
-以下是自定义组件的一些例子。 您可以在[重写文档页](/customization/components/)中了解有关此内容的更多信息。
+你可以参考以下一些例子来自定义组件。 您可以在[重写文档页](/customization/components/)中了解有关此内容的更多信息。
 
 {{"demo": "pages/components/snackbars/CustomizedSnackbars.js"}}
 
 ## 定位的消息条
 
-In wide layouts, snackbars can be left-aligned or center-aligned if they are consistently placed on the same spot at the bottom of the screen, however there may be circumstances where the placement of the snackbar needs to be more flexible. You can control the position of the snackbar by specifying the `anchorOrigin` prop.
+在宽大的布局中，如果消息条始终放在屏幕底部的同一位置，那么可以左对齐或中间对齐，但在某些情况下，消息条的位置可能需要更加灵活。 通过指定 `anchorOrigin` 的属性，您可以控制消息条的位置。
 
 {{"demo": "pages/components/snackbars/PositionedSnackbar.js"}}
 
@@ -47,7 +47,7 @@ In wide layouts, snackbars can be left-aligned or center-aligned if they are con
 
 {{"demo": "pages/components/snackbars/ConsecutiveSnackbars.js"}}
 
-### Snackbars（消息条）和 FABs（悬浮按钮）
+### 消息条（Snackbars）和悬浮按钮（FABs）
 
 消息条应当显示在悬浮按钮的上方（这是在移动设备上）。
 
@@ -55,7 +55,7 @@ In wide layouts, snackbars can be left-aligned or center-aligned if they are con
 
 ### 更改过渡动画
 
-[Grow](/components/transitions/#grow)是默认的过渡动画但你可以使用不同的过渡动画。
+[Grow](/components/transitions/#grow) 是默认的过渡动画，但你可以使用不同的过渡动画。
 
 {{"demo": "pages/components/snackbars/TransitionsSnackbar.js"}}
 
@@ -73,12 +73,12 @@ In wide layouts, snackbars can be left-aligned or center-aligned if they are con
 
 ![评星](https://img.shields.io/github/stars/iamhosseindhv/notistack.svg?style=social&label=Stars) ![npm下载](https://img.shields.io/npm/dm/notistack.svg)
 
-以下例子演示了如何使用 [notistack](https://github.com/iamhosseindhv/notistack)。 notistack has an **imperative API** 可以轻松地显示一串消息条，而无需处理其打开/关闭状态。 It also enables you to **stack** them on top of one another (尽管 Material Design 规范并不鼓励这样做).
+以下例子演示了如何使用 [notistack](https://github.com/iamhosseindhv/notistack)。 notistack 有一个 **imperative API** 可以轻松地显示一串消息条，且无需处理其打开/关闭状态。 您也可以把它们 **堆叠** 在一起（尽管 Material Design 规范不鼓励这样做）。
 
 {{"demo": "pages/components/snackbars/IntegrationNotistack.js", "defaultCodeOpen": false}}
 
-## 可及性
+## 无障碍设计
 
 (WAI-ARIA: https://www.w3.org/TR/wai-aria-1.1/#alert)
 
-- By default, the snackbar won't auto-hide. However, if you decide to use the `autoHideDuration` prop, it's recommended to give the user [sufficient time](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits.html) to respond.
+- 默认情况下，消息条不会自动隐藏。 但是，如果您决定使用 `autoHideDuration` 属性，我们建议给用户提供 [足够的时间](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits.html) 来响应。

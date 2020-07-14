@@ -22,7 +22,7 @@ function TabsDoc(props)
     return (
 
         <>
-            <div className="flex flex-1 items-center justify-end">
+            <div className="flex flex-1 flex-grow-0 items-center justify-end">
                 <Button
                     className="normal-case"
                     variant="outlined"
@@ -169,9 +169,18 @@ function TabsDoc(props)
                 &quot;selection automatically follows focus&quot; behavior you have pass <code>{`selectionFollowsFocus`}</code> to the <code>{`Tabs`}</code> component. The WAI-ARIA authoring practices
                 have a detailed guide on <a href="https://www.w3.org/TR/wai-aria-practices/#kbd_selection_follows_focus">how to decide when to make selection automatically follow
                     focus</a>.</Typography>
-            <Typography className="text-16 mt-32 mb-8" component="h4"><code>{`selectionFollowsFocus`}</code> Demo</Typography>
+            <Typography className="text-16 mt-32 mb-8" component="h4">Demo</Typography>
             <Typography className="mb-16" component="div">The following two demos only differ in their keyboard navigation behavior.
                 Focus a tab and navigate with arrow keys to notice the difference.</Typography>
+
+            <FuseHighlight component="pre" className="language-jsx">
+                {` 
+/* Tabs where selection follows focus */
+<Tabs selectionFollowsFocus />
+/* Tabs where each tab needs to be selected manually */
+<Tabs />
+`}
+            </FuseHighlight>
             <Typography className="mb-16" component="div"><FuseExample
                 className="my-24"
                 iframe={false}

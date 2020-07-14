@@ -210,7 +210,7 @@ function writePage(file) {
 
 	const contentJSX = `
                 <>
-					<div className="flex flex-1 items-center justify-end">
+					<div className="flex flex-1 flex-grow-0 items-center justify-end">
 					  <Button 
 							className="normal-case"
 							variant="outlined" 

@@ -15,7 +15,7 @@ const DocumentationNavigation = {
 			icon: 'history',
 			url: '/documentation/changelog',
 			badge: {
-				title: '4.1.6',
+				title: '5.0.0',
 				bg: 'rgb(236, 12, 142)',
 				fg: '#FFFFFF'
 			}

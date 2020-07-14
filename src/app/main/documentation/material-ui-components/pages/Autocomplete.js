@@ -22,7 +22,7 @@ function AutocompleteDoc(props)
     return (
 
         <>
-            <div className="flex flex-1 items-center justify-end">
+            <div className="flex flex-1 flex-grow-0 items-center justify-end">
                 <Button
                     className="normal-case"
                     variant="outlined"
@@ -225,7 +225,18 @@ import useAutocomplete from '@material-ui/lab/useAutocomplete';
                 component={require('app/main/documentation/material-ui-components/components/autocomplete/Sizes.js').default}
                 raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/Sizes.js')}
             /></Typography>
-            <Typography className="text-32 mt-32 mb-8" component="h2">Customized Autocomplete</Typography>
+            <Typography className="text-32 mt-32 mb-8" component="h2">Customizations</Typography>
+            <Typography className="text-24 mt-32 mb-8" component="h3">Custom input</Typography>
+            <Typography className="mb-16" component="div">The <code>{`renderInput`}</code> prop allows you to customize the rendered input.
+                The first argument of this render prop contains props that you need to forward.
+                Pay specific attention to the <code>{`ref`}</code> and <code>{`inputProps`}</code> keys.</Typography>
+            <Typography className="mb-16" component="div"><FuseExample
+                className="my-24"
+                iframe={false}
+                component={require('app/main/documentation/material-ui-components/components/autocomplete/CustomInputAutocomplete.js').default}
+                raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/CustomInputAutocomplete.js')}
+            /></Typography>
+            <Typography className="text-24 mt-32 mb-8" component="h3">GitHub&#39;s picker</Typography>
             <Typography className="mb-16" component="div">This demo reproduces the GitHub&#39;s label picker:</Typography>
             <Typography className="mb-16" component="div"><FuseExample
                 className="my-24"

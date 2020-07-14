@@ -22,7 +22,7 @@ function ProgressDoc(props)
     return (
 
         <>
-            <div className="flex flex-1 items-center justify-end">
+            <div className="flex flex-1 flex-grow-0 items-center justify-end">
                 <Button
                     className="normal-case"
                     variant="outlined"
@@ -42,75 +42,68 @@ function ProgressDoc(props)
             <Typography className="mb-16" component="div"><a href="https://material.io/design/components/progress-indicators.html">Progress indicators</a> inform users about the status of ongoing
                 processes, such as loading an app, submitting a form, or saving updates. They communicate an app’s state and indicate available actions, such as whether users can navigate away from
                 the current screen.</Typography>
-            <Typography className="mb-16" component="div"><strong>Determinate</strong> indicators display how long an operation will take.</Typography>
-            <Typography className="mb-16" component="div"><strong>Indeterminate</strong> indicators visualize an unspecified wait time.</Typography>
-            <Typography className="text-16 mt-32 mb-8" component="h4">Progress as a group</Typography>
+            <ul>
+                <li><strong>Determinate</strong> indicators display how long an operation will take.</li>
+                <li><strong>Indeterminate</strong> indicators visualize an unspecified wait time.</li>
+            </ul>
             <Typography className="mb-16" component="div">When displaying progress for a sequence of processes, indicate overall progress rather than the progress of each activity.</Typography>
             <Typography className="text-32 mt-32 mb-8" component="h2">Circular</Typography>
-            <Typography className="mb-16" component="div"><a href="https://material.io/design/components/progress-indicators.html#circular-progress-indicators">Circular progress</a> support both
-                determinate and indeterminate processes.</Typography>
-            <ul>
-                <li><strong>Determinate</strong> circular indicators fill the invisible, circular track with color, as the indicator moves from 0 to 360 degrees.</li>
-                <li><strong>Indeterminate</strong> circular indicators grow and shrink in size while moving along the invisible track.</li>
-            </ul>
-            <Typography className="text-24 mt-32 mb-8" component="h3">Circular Indeterminate</Typography>
+            <Typography className="text-24 mt-32 mb-8" component="h3">Circular indeterminate</Typography>
             <Typography className="mb-16" component="div"><FuseExample
                 className="my-24"
                 iframe={false}
                 component={require('app/main/documentation/material-ui-components/components/progress/CircularIndeterminate.js').default}
                 raw={require('!raw-loader!app/main/documentation/material-ui-components/components/progress/CircularIndeterminate.js')}
             /></Typography>
-            <Typography className="text-24 mt-32 mb-8" component="h3">Interactive Integration</Typography>
-            <Typography className="mb-16" component="div"><FuseExample
-                className="my-24"
-                iframe={false}
-                component={require('app/main/documentation/material-ui-components/components/progress/CircularIntegration.js').default}
-                raw={require('!raw-loader!app/main/documentation/material-ui-components/components/progress/CircularIntegration.js')}
-            /></Typography>
-            <Typography className="text-24 mt-32 mb-8" component="h3">Circular Determinate</Typography>
-            <Typography className="mb-16" component="div"><FuseExample
-                className="my-24"
-                iframe={false}
-                component={require('app/main/documentation/material-ui-components/components/progress/CircularDeterminate.js').default}
-                raw={require('!raw-loader!app/main/documentation/material-ui-components/components/progress/CircularDeterminate.js')}
-            /></Typography>
-            <Typography className="text-24 mt-32 mb-8" component="h3">Circular Static</Typography>
+            <Typography className="text-24 mt-32 mb-8" component="h3">Circular determinate</Typography>
             <Typography className="mb-16" component="div"><FuseExample
                 className="my-24"
                 iframe={false}
                 component={require('app/main/documentation/material-ui-components/components/progress/CircularStatic.js').default}
                 raw={require('!raw-loader!app/main/documentation/material-ui-components/components/progress/CircularStatic.js')}
             /></Typography>
+            <Typography className="text-24 mt-32 mb-8" component="h3">Interactive integration</Typography>
+            <Typography className="mb-16" component="div"><FuseExample
+                className="my-24"
+                iframe={false}
+                component={require('app/main/documentation/material-ui-components/components/progress/CircularIntegration.js').default}
+                raw={require('!raw-loader!app/main/documentation/material-ui-components/components/progress/CircularIntegration.js')}
+            /></Typography>
+            <Typography className="text-24 mt-32 mb-8" component="h3">Circular with label</Typography>
+            <Typography className="mb-16" component="div"><FuseExample
+                className="my-24"
+                iframe={false}
+                component={require('app/main/documentation/material-ui-components/components/progress/CircularWithValueLabel.js').default}
+                raw={require('!raw-loader!app/main/documentation/material-ui-components/components/progress/CircularWithValueLabel.js')}
+            /></Typography>
             <Typography className="text-32 mt-32 mb-8" component="h2">Linear</Typography>
-            <Typography className="mb-16" component="div"><a href="https://material.io/design/components/progress-indicators.html#linear-progress-indicators">Linear
-                progress</a> indicators.</Typography>
-            <Typography className="text-24 mt-32 mb-8" component="h3">Linear Indeterminate</Typography>
+            <Typography className="text-24 mt-32 mb-8" component="h3">Linear indeterminate</Typography>
             <Typography className="mb-16" component="div"><FuseExample
                 className="my-24"
                 iframe={false}
                 component={require('app/main/documentation/material-ui-components/components/progress/LinearIndeterminate.js').default}
                 raw={require('!raw-loader!app/main/documentation/material-ui-components/components/progress/LinearIndeterminate.js')}
             /></Typography>
-            <Typography className="text-24 mt-32 mb-8" component="h3">Linear Determinate</Typography>
+            <Typography className="text-24 mt-32 mb-8" component="h3">Linear determinate</Typography>
             <Typography className="mb-16" component="div"><FuseExample
                 className="my-24"
                 iframe={false}
                 component={require('app/main/documentation/material-ui-components/components/progress/LinearDeterminate.js').default}
                 raw={require('!raw-loader!app/main/documentation/material-ui-components/components/progress/LinearDeterminate.js')}
             /></Typography>
-            <Typography className="text-24 mt-32 mb-8" component="h3">Linear Buffer</Typography>
+            <Typography className="text-24 mt-32 mb-8" component="h3">Linear buffer</Typography>
             <Typography className="mb-16" component="div"><FuseExample
                 className="my-24"
                 iframe={false}
                 component={require('app/main/documentation/material-ui-components/components/progress/LinearBuffer.js').default}
                 raw={require('!raw-loader!app/main/documentation/material-ui-components/components/progress/LinearBuffer.js')}
             /></Typography>
-            <Typography className="text-24 mt-32 mb-8" component="h3">Linear Query</Typography>
+            <Typography className="text-24 mt-32 mb-8" component="h3">Linear with label</Typography>
             <Typography className="mb-16" component="div"><FuseExample
                 className="my-24"
                 iframe={false}
-                component={require('app/main/documentation/material-ui-components/components/progress/LinearQuery.js').default}
-                raw={require('!raw-loader!app/main/documentation/material-ui-components/components/progress/LinearQuery.js')}
+                component={require('app/main/documentation/material-ui-components/components/progress/LinearWithValueLabel.js').default}
+                raw={require('!raw-loader!app/main/documentation/material-ui-components/components/progress/LinearWithValueLabel.js')}
             /></Typography>
             <Typography className="text-32 mt-32 mb-8" component="h2">Non-standard ranges</Typography>
             <Typography className="mb-16" component="div">The progress components accept a value in the range 0 - 100. This simplifies things for screen-reader users, where these are the default min /
@@ -135,7 +128,7 @@ function Progress(props) {
 }
 `}
             </FuseHighlight>
-            <Typography className="text-32 mt-32 mb-8" component="h2">Customized progress bars</Typography>
+            <Typography className="text-32 mt-32 mb-8" component="h2">Customized progress</Typography>
             <Typography className="mb-16" component="div">Here are some examples of customizing the component. You can learn more about this in the
                 <a href="/customization/components/">overrides documentation page</a>.</Typography>
             <Typography className="mb-16" component="div"><FuseExample
