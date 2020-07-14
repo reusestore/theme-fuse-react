@@ -76,7 +76,7 @@ export const reorderCard = createAsyncThunk(
 		});
 
 		const data = await response.data;
-		console.info(data);
+
 		dispatch(
 			showMessage({
 				message: 'Card Order Saved',
@@ -155,8 +155,7 @@ export const changeBoardSettings = createAsyncThunk(
 	async (newSettings, { dispatch, getState }) => {
 		const { board } = getState().scrumboardApp;
 		const settings = _.merge({}, board.settings, newSettings);
-		console.info(board.settings);
-		console.info(newSettings);
+
 		const response = await axios.post('/api/scrumboard-app/board/settings/update', {
 			boardId: board.id,
 			settings

@@ -777,7 +777,6 @@ mock.onPost('/api/scrumboard-app/card/update').reply(request => {
 	const board = _.find(scrumboardDB.boards, { id: boardId });
 	const selectedCard = _.find(board.cards, { id: card.id });
 	_.assign(selectedCard, card);
-	// console.info('updated');
 	return [200, card];
 });
 

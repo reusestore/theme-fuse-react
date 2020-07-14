@@ -29,7 +29,6 @@ export const submitLoginWithFireBase = ({ username, password }) => async dispatc
 			return dispatch(loginSuccess());
 		})
 		.catch(error => {
-			console.info('error');
 			const usernameErrorCodes = [
 				'auth/email-already-in-use',
 				'auth/invalid-email',

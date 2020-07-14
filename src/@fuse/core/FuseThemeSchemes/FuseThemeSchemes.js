@@ -83,7 +83,6 @@ function FuseThemeSchemes(props) {
 	const classes = useStyles(props);
 
 	function handleSchemeSelect(themeId) {
-		console.info(themeId);
 		const newSettings = {
 			...settings,
 			theme: {
