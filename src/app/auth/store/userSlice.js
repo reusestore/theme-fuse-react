@@ -13,7 +13,7 @@ export const setUserDataAuth0 = tokenData => async dispatch => {
 		role: ['admin'],
 		from: 'auth0',
 		data: {
-			displayName: tokenData.username,
+			displayName: tokenData.username || tokenData.name,
 			photoURL: tokenData.picture,
 			email: tokenData.email,
 			settings:
