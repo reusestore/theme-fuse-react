@@ -1,4 +1,5 @@
 import { createMuiTheme } from '@material-ui/core/styles';
+import { getContrastRatio } from '@material-ui/core/styles/colorManipulator';
 import { createSlice, createSelector } from '@reduxjs/toolkit';
 import _ from '@lodash';
 import {
@@ -56,6 +57,13 @@ function generateMuiTheme(themes, id, direction) {
 export const selectFuseThemeById = id =>
 	createSelector([getThemes, getDirection], (themes, direction) => generateMuiTheme(themes, id, direction));
 
+export const selectContrastMainTheme = bgColor => {
+	function isDark(color) {
+		return getContrastRatio(color, '#ffffff') >= 3;
+	}
+	return isDark(bgColor) ? selectMainThemeDark : selectMainThemeLight;
+};
+
 export const selectMainTheme = createSelector([getThemes, getDirection, getMainThemeId], (themes, direction, id) =>
 	generateMuiTheme(themes, id, direction)
 );
@@ -63,7 +71,6 @@ export const selectMainTheme = createSelector([getThemes, getDirection, getMainT
 export const selectMainThemeDark = createSelector([getThemes, getDirection], (themes, direction, id) =>
 	generateMuiTheme(themes, 'mainThemeDark', direction)
 );
-
 export const selectMainThemeLight = createSelector([getThemes, getDirection], (themes, direction, id) =>
 	generateMuiTheme(themes, 'mainThemeLight', direction)
 );

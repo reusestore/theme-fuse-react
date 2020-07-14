@@ -117,6 +117,7 @@ function ProjectDashboardApp(props) {
 							<IconButton
 								onClick={ev => pageLayout.current.toggleRightSidebar()}
 								aria-label="open left sidebar"
+								color="inherit"
 							>
 								<Icon>menu</Icon>
 							</IconButton>
@@ -161,8 +162,8 @@ function ProjectDashboardApp(props) {
 				<Tabs
 					value={tabValue}
 					onChange={handleChangeTab}
-					indicatorColor="primary"
-					textColor="primary"
+					indicatorColor="secondary"
+					textColor="secondary"
 					variant="scrollable"
 					scrollButtons="off"
 					className="w-full px-24"

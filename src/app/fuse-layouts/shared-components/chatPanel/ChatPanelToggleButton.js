@@ -8,7 +8,7 @@ const ChatPanelToggleButton = props => {
 	const dispatch = useDispatch();
 
 	return (
-		<IconButton className="w-64 h-64" onClick={ev => dispatch(toggleChatPanel())}>
+		<IconButton className="w-40 h-40" onClick={ev => dispatch(toggleChatPanel())}>
 			{props.children}
 		</IconButton>
 	);

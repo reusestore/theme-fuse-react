@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 	},
 	leftSection: {},
 	rightSection: {
-		background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${darken(
+		background: `linear-gradient(to left, ${theme.palette.primary.dark} 0%, ${darken(
 			theme.palette.primary.dark,
 			0.5
 		)} 100%)`,

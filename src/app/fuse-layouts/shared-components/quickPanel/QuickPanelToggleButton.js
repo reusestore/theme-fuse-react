@@ -8,14 +8,14 @@ function QuickPanelToggleButton(props) {
 	const dispatch = useDispatch();
 
 	return (
-		<IconButton className="w-64 h-64" onClick={ev => dispatch(toggleQuickPanel())}>
+		<IconButton className="w-40 h-40" onClick={ev => dispatch(toggleQuickPanel())}>
 			{props.children}
 		</IconButton>
 	);
 }
 
 QuickPanelToggleButton.defaultProps = {
-	children: <Icon>format_list_bulleted</Icon>
+	children: <Icon>bookmarks</Icon>
 };
 
 export default QuickPanelToggleButton;

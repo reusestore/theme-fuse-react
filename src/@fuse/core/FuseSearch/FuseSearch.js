@@ -429,7 +429,7 @@ function FuseSearch(props) {
 FuseSearch.propTypes = {};
 FuseSearch.defaultProps = {
 	trigger: (
-		<IconButton className="w-64 h-64">
+		<IconButton className="w-40 h-40">
 			<Icon>search</Icon>
 		</IconButton>
 	),

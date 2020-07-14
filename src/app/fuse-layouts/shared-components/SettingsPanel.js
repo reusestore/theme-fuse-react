@@ -8,7 +8,9 @@ import IconButton from '@material-ui/core/IconButton';
 import Slide from '@material-ui/core/Slide';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import clsx from 'clsx';
 import React, { useState } from 'react';
+import FuseThemeSchemes from '@fuse/core/FuseThemeSchemes';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
 	const theme = useTheme();
@@ -16,15 +18,19 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 const useStyles = makeStyles(theme => ({
-	button: {
+	buttonWrapper: {
 		position: 'absolute',
 		right: 0,
 		top: 160,
-		minWidth: 48,
-		width: 48,
-		height: 48,
+		display: 'flex',
+		flexDirection: 'column',
+		items: 'center',
+		justify: 'center',
+		overflow: 'hidden',
 		opacity: 0.9,
 		padding: 0,
+		borderTopLeftRadius: 6,
+		borderBottomLeftRadius: 6,
 		borderBottomRightRadius: 0,
 		borderTopRightRadius: 0,
 		zIndex: 999,
@@ -35,6 +41,18 @@ const useStyles = makeStyles(theme => ({
 			opacity: 1
 		}
 	},
+	button: {
+		minWidth: 40,
+		width: 40,
+		height: 40,
+		margin: 0
+	},
+	settingsButton: {
+		'& $buttonIcon': {
+			animation: '$rotating 3s linear infinite'
+		}
+	},
+	schemesButton: {},
 	'@keyframes rotating': {
 		from: {
 			transform: 'rotate(0deg)'
@@ -44,7 +62,7 @@ const useStyles = makeStyles(theme => ({
 		}
 	},
 	buttonIcon: {
-		animation: '$rotating 3s linear infinite'
+		fontSize: 20
 	},
 	dialogPaper: {
 		position: 'fixed',
@@ -67,8 +85,8 @@ function SettingsPanel() {
 	const classes = useStyles();
 	const [open, setOpen] = useState(false);
 
-	const handleOpen = () => {
-		setOpen(true);
+	const handleOpen = panelId => {
+		setOpen(panelId);
 	};
 
 	const handleClose = () => {
@@ -77,15 +95,31 @@ function SettingsPanel() {
 
 	return (
 		<>
-			<Button id="fuse-settings" className={classes.button} variant="contained" onClick={handleOpen}>
-				<Icon className={classes.buttonIcon}>settings</Icon>
-			</Button>
+			<div className={classes.buttonWrapper} id="fuse-settings-schemes">
+				<Button
+					className={clsx(classes.button, classes.settingsButton)}
+					onClick={() => handleOpen('settings')}
+					variant="text"
+					color="inherit"
+				>
+					<Icon className={classes.buttonIcon}>settings</Icon>
+				</Button>
+
+				<Button
+					className={clsx(classes.button, classes.schemesButton)}
+					onClick={() => handleOpen('schemes')}
+					variant="text"
+					color="inherit"
+				>
+					<Icon className={classes.buttonIcon}>palette</Icon>
+				</Button>
+			</div>
 
 			<Dialog
 				TransitionComponent={Transition}
 				aria-labelledby="settings-panel"
 				aria-describedby="settings"
-				open={open}
+				open={open === 'settings'}
 				keepMounted
 				onClose={handleClose}
 				BackdropProps={{ invisible: true }}
@@ -103,6 +137,36 @@ function SettingsPanel() {
 					</Typography>
 
 					<FuseSettings />
+				</FuseScrollbars>
+			</Dialog>
+
+			<Dialog
+				TransitionComponent={Transition}
+				aria-labelledby="schemes-panel"
+				aria-describedby="schemes"
+				open={open === 'schemes'}
+				keepMounted
+				onClose={handleClose}
+				BackdropProps={{ invisible: true }}
+				classes={{
+					paper: classes.dialogPaper
+				}}
+			>
+				<FuseScrollbars className="p-24 sm:p-32">
+					<IconButton className="fixed top-0 ltr:right-0 rtl:left-0 z-10" onClick={handleClose}>
+						<Icon>close</Icon>
+					</IconButton>
+
+					<Typography className="mb-32" variant="h6">
+						Theme Color Schemes
+					</Typography>
+
+					<Typography className="mb-24 text-12 italic text-justify" color="textSecondary">
+						* Selected color scheme will be applied to all theme layout elements (navbar, toolbar, etc.).
+						You can also select a different color scheme for each layout element at theme settings.
+					</Typography>
+
+					<FuseThemeSchemes />
 				</FuseScrollbars>
 			</Dialog>
 		</>

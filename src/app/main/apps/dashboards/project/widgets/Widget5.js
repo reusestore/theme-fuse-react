@@ -12,6 +12,9 @@ function Widget5(props) {
 
 	const widget = _.merge({}, props.widget);
 
+	_.setWith(widget, 'widget.mainChart.options.scales.xAxes[0].ticks.fontColor', theme.palette.text.secondary);
+	_.setWith(widget, 'widget.mainChart.options.scales.yAxes[0].ticks.fontColor', theme.palette.text.secondary);
+
 	function handleChangeRange(range) {
 		setCurrentRange(range);
 	}

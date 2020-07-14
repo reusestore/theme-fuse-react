@@ -20,7 +20,7 @@ Chart.pluginService.register({
 			if (!meta.hidden) {
 				meta.data.forEach((element, index) => {
 					// Draw the text in black, with the specified font
-					ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+					ctx.fillStyle = chart.options.plugins.xLabelsOnTop.fontColor || 'rgba(0, 0, 0, 0.87)';
 					const fontSize = 13;
 					const fontStyle = 'normal';
 					const fontFamily = 'Muli, Roboto, Helvetica Neue, Arial, sans-serif';
@@ -43,7 +43,8 @@ Chart.pluginService.register({
 					ctx.setLineDash([5, 3]);
 					ctx.moveTo(position.x, startY + padding);
 					ctx.lineTo(position.x, position.y - padding);
-					ctx.strokeStyle = 'rgba(255,255,255,0.54)';
+					ctx.strokeStyle = chart.options.plugins.xLabelsOnTop.borderColor || 'rgba(0, 0, 0, 0.87)';
+
 					ctx.stroke();
 
 					ctx.restore();

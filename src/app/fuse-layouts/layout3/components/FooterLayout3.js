@@ -17,7 +17,7 @@ function FooterLayout3(props) {
 				id="fuse-footer"
 				className="relative z-10"
 				color="default"
-				style={{ backgroundColor: footerTheme.palette.background.default }}
+				style={{ backgroundColor: footerTheme.palette.background.paper }}
 				elevation={2}
 			>
 				<Toolbar className="flex items-center container py-0 px-12 lg:px-20">

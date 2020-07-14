@@ -27,7 +27,7 @@ import { getCourses, selectCourses } from '../store/coursesSlice';
 
 const useStyles = makeStyles(theme => ({
 	header: {
-		background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
+		background: `linear-gradient(to left, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
 		color: theme.palette.getContrastText(theme.palette.primary.main)
 	},
 	headerIcon: {

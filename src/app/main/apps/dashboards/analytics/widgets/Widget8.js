@@ -3,6 +3,7 @@ import Card from '@material-ui/core/Card';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import { useTheme } from '@material-ui/core/styles';
+import { fade } from '@material-ui/core/styles/colorManipulator';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
@@ -14,6 +15,9 @@ function Widget8(props) {
 	const theme = useTheme();
 	const [tabIndex, setTabIndex] = useState(0);
 	const data = _.merge({}, props.data);
+
+	_.setWith(data, 'options.scales.yAxes[0].ticks.fontColor', theme.palette.text.secondary);
+	_.setWith(data, 'options.scales.yAxes[0].gridLines.color', fade(theme.palette.text.secondary, 0.1));
 
 	return (
 		<Card className="w-full rounded-8 shadow-1">

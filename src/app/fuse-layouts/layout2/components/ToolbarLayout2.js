@@ -46,8 +46,8 @@ function ToolbarLayout2(props) {
 						</Hidden>
 					</div>
 
-					<div className="flex items-center">
-						<UserMenu />
+					<div className="flex items-center px-8">
+						<LanguageSwitcher />
 
 						<FuseSearch />
 
@@ -55,9 +55,9 @@ function ToolbarLayout2(props) {
 							<ChatPanelToggleButton />
 						</Hidden>
 
-						<LanguageSwitcher />
-
 						<QuickPanelToggleButton />
+
+						<UserMenu />
 					</div>
 				</Toolbar>
 			</AppBar>

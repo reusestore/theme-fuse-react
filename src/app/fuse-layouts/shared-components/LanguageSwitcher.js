@@ -66,14 +66,16 @@ function LanguageSwitcher(props) {
 
 	return (
 		<>
-			<Button className="h-64 w-64" onClick={langMenuClick}>
+			<Button className="h-40 w-64" onClick={langMenuClick}>
 				<img
 					className="mx-4 min-w-20"
 					src={`assets/images/flags/${currentLng.flag}.png`}
 					alt={currentLng.title}
 				/>
 
-				<Typography className="mx-4 font-600">{currentLng.id}</Typography>
+				<Typography className="mx-4 font-bold" color="textSecondary">
+					{currentLng.id}
+				</Typography>
 			</Button>
 
 			<Popover

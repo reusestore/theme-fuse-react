@@ -57,8 +57,6 @@ function ToolbarLayout3(props) {
 							<FuseSearch />
 						</Hidden>
 
-						<UserMenu />
-
 						<Hidden lgUp>
 							<ChatPanelToggleButton />
 						</Hidden>
@@ -66,6 +64,8 @@ function ToolbarLayout3(props) {
 						<LanguageSwitcher />
 
 						<QuickPanelToggleButton />
+
+						<UserMenu />
 					</div>
 				</Toolbar>
 			</AppBar>
