@@ -1,5 +1,4 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-import logger from 'redux-logger';
+import { configureStore } from '@reduxjs/toolkit';
 import createReducer from './rootReducer';
 
 if (process.env.NODE_ENV === 'development' && module.hot) {
@@ -11,8 +10,16 @@ if (process.env.NODE_ENV === 'development' && module.hot) {
 
 const store = configureStore({
 	reducer: createReducer(),
-	middleware: getDefaultMiddleware().concat(logger),
-	devTools: process.env.NODE_ENV !== 'production'
+	middleware: getDefaultMiddleware => {
+		if (process.env.NODE_ENV === 'development') {
+			const { logger } = require(`redux-logger`);
+
+			return getDefaultMiddleware().concat(logger);
+		}
+
+		return getDefaultMiddleware();
+	},
+	devTools: process.env.NODE_ENV === 'development'
 });
 
 store.asyncReducers = {};
