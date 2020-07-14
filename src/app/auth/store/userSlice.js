@@ -23,7 +23,7 @@ export const setUserDataAuth0 = tokenData => async dispatch => {
 		}
 	};
 
-	return setUserData(user);
+	return dispatch(setUserData(user));
 };
 
 export const setUserDataFirebase = (user, authUser) => async dispatch => {
@@ -36,11 +36,11 @@ export const setUserDataFirebase = (user, authUser) => async dispatch => {
 		user.data.settings.layout.style
 	) {
 		// Set user data but do not update
-		return setUserData(user);
+		return dispatch(setUserData(user));
 	}
 
 	// Create missing user settings
-	return createUserSettingsFirebase(authUser);
+	return dispatch(createUserSettingsFirebase(authUser));
 };
 
 export const createUserSettingsFirebase = authUser => async (dispatch, getState) => {
@@ -63,7 +63,8 @@ export const createUserSettingsFirebase = authUser => async (dispatch, getState)
 	});
 	currentUser.updateProfile(user.data);
 
-	updateUserData(user, dispatch);
+	dispatch(updateUserData(user));
+
 	return dispatch(setUserData(user));
 };
 
@@ -88,7 +89,7 @@ export const updateUserSettings = settings => async (dispatch, getState) => {
 	const oldUser = getState().auth.user;
 	const user = _.merge({}, oldUser, { data: { settings } });
 
-	updateUserData(user, dispatch);
+	dispatch(updateUserData(user));
 
 	return dispatch(setUserData(user));
 };
@@ -103,7 +104,7 @@ export const updateUserShortcuts = shortcuts => async (dispatch, getState) => {
 		}
 	};
 
-	updateUserData(newUser, dispatch);
+	dispatch(updateUserData(user));
 
 	return dispatch(setUserData(newUser));
 };
