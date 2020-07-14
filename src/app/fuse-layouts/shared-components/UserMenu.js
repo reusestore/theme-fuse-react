@@ -27,7 +27,7 @@ function UserMenu(props) {
 
 	return (
 		<>
-			<Button className="h-40" onClick={userMenuClick}>
+			<Button className="min-h-40" onClick={userMenuClick}>
 				<div className="hidden md:flex flex-col mx-4 items-end">
 					<Typography component="span" className="normal-case font-bold flex">
 						{user.data.displayName}

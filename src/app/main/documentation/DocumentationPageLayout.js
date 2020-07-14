@@ -20,7 +20,7 @@ function DocumentationPageLayout({ content, route }) {
 		<FusePageSimple
 			classes={{
 				root: 'h-full',
-				contentWrapper: 'p-24 h-full',
+				contentWrapper: 'p-24',
 				content: 'flex flex-col h-full',
 				leftSidebar: 'w-288 pt-8',
 				header: 'h-64 min-h-64',
