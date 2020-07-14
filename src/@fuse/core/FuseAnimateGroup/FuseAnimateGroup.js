@@ -24,7 +24,6 @@ function FuseAnimateGroup(props) {
 	return (
 		<VelocityTransitionGroup
 			{...props}
-			style={{ visibility: 'hidden', ...props.style }}
 			enter={{ ...enterAnimationDefaults, ...props.enter }}
 			leave={{ ...leaveAnimationDefaults, ...props.leave }}
 		/>
@@ -41,10 +40,10 @@ FuseAnimateGroup.defaultProps = {
 	easing: [0.4, 0.0, 0.2, 1],
 	runOnMount: true,
 	enterHideStyle: {
-		visibility: 'visible'
+		opacity: 1
 	},
 	enterShowStyle: {
-		visibility: 'hidden'
+		opacity: 0
 	}
 };
 
