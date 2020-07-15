@@ -559,7 +559,7 @@ module.exports = {
 				'"Noto Color Emoji"'
 			],
 			serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
-			mono: ['Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace']
+			mono: ['Consolas', '"Liberation Mono"', 'Menlo', 'Courier', 'monospace']
 		},
 		fontSize: {
 			xs: '1.2rem', // 12px

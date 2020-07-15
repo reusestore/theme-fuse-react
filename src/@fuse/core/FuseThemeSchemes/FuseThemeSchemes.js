@@ -25,7 +25,7 @@ function SchemePreview({ theme, className, id, onSelect }) {
 		<div className={clsx(className, 'mb-8')}>
 			<button
 				className={clsx(
-					'flex flex-col items-center justify-center w-full text-left rounded-6 relative font-500 shadow-1 hover:shadow-2 cursor-pointer overflow-hidden'
+					'w-full text-left rounded-6 relative font-500 shadow-1 hover:shadow-2 cursor-pointer overflow-hidden'
 				)}
 				style={{
 					backgroundColor,
