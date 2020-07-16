@@ -26,7 +26,7 @@ function getInitialSettings() {
 }
 
 export function generateSettings(_defaultSettings, _newSettings) {
-	return _.merge(
+	const response = _.merge(
 		{},
 		_defaultSettings,
 		_newSettings && _newSettings.layout && _newSettings.layout.style
@@ -34,6 +34,17 @@ export function generateSettings(_defaultSettings, _newSettings) {
 			: {},
 		_newSettings
 	);
+
+	/**
+	 * Making theme values failsafe
+	 */
+	Object.entries(response.theme).forEach(([key, value]) => {
+		if (!FuseThemesConfig[value]) {
+			response.theme[key] = 'default';
+		}
+	});
+
+	return response;
 }
 
 const getThemes = state => state.fuse.settings.themes;
