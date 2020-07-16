@@ -39,7 +39,7 @@ export function generateSettings(_defaultSettings, _newSettings) {
 	 * Making theme values failsafe
 	 */
 	Object.entries(response.theme).forEach(([key, value]) => {
-		if (!FuseThemesConfig[value]) {
+		if (value !== 'mainThemeDark' && value !== 'mainThemeLight' && !FuseThemesConfig[value]) {
 			response.theme[key] = 'default';
 		}
 	});
