@@ -5,7 +5,7 @@ import ChangelogCard from './ChangelogCard';
 const changelogData = [
 	{
 		version: '5.0.0',
-		date: '2020-07-14',
+		date: '2020-07-18',
 		newChanges: [
 			<>
 				Migrated to the{' '}
