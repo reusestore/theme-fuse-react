@@ -1,9 +1,9 @@
 import FuseAnimate from '@fuse/core/FuseAnimate';
 import FusePageCarded from '@fuse/core/FusePageCarded';
 import Avatar from '@material-ui/core/Avatar';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Icon from '@material-ui/core/Icon';
 import { useTheme } from '@material-ui/core/styles';
 import Tab from '@material-ui/core/Tab';
@@ -157,15 +157,15 @@ function Order(props) {
 											</table>
 										</div>
 
-										<ExpansionPanel
+										<Accordion
 											elevation={1}
 											expanded={map === 'shipping'}
 											onChange={() => setMap(map !== 'shipping' ? 'shipping' : false)}
 										>
-											<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+											<AccordionSummary expandIcon={<ExpandMoreIcon />}>
 												<Typography className="font-600">Shipping Address</Typography>
-											</ExpansionPanelSummary>
-											<ExpansionPanelDetails className="flex flex-col md:flex-row">
+											</AccordionSummary>
+											<AccordionDetails className="flex flex-col md:flex-row">
 												<Typography className="w-full md:max-w-256 mb-16 md:mb-0">
 													{order.customer.shippingAddress.address}
 												</Typography>
@@ -187,18 +187,18 @@ function Order(props) {
 														/>
 													</GoogleMap>
 												</div>
-											</ExpansionPanelDetails>
-										</ExpansionPanel>
+											</AccordionDetails>
+										</Accordion>
 
-										<ExpansionPanel
+										<Accordion
 											elevation={1}
 											expanded={map === 'invoice'}
 											onChange={() => setMap(map !== 'invoice' ? 'invoice' : false)}
 										>
-											<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+											<AccordionSummary expandIcon={<ExpandMoreIcon />}>
 												<Typography className="font-600">Invoice Address</Typography>
-											</ExpansionPanelSummary>
-											<ExpansionPanelDetails className="flex flex-col md:flex-row">
+											</AccordionSummary>
+											<AccordionDetails className="flex flex-col md:flex-row">
 												<Typography className="w-full md:max-w-256 mb-16 md:mb-0">
 													{order.customer.invoiceAddress.address}
 												</Typography>
@@ -220,8 +220,8 @@ function Order(props) {
 														/>
 													</GoogleMap>
 												</div>
-											</ExpansionPanelDetails>
-										</ExpansionPanel>
+											</AccordionDetails>
+										</Accordion>
 									</div>
 								</div>
 
