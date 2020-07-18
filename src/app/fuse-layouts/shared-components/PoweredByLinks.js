@@ -9,7 +9,7 @@ function PoweredByLinks() {
 			enter={{
 				animation: 'transition.expandIn'
 			}}
-			className="hidden sm:flex items-center"
+			className="flex items-center"
 		>
 			<Tooltip title="React" placement="top">
 				<IconButton
