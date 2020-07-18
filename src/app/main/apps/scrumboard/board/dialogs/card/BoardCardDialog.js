@@ -1,9 +1,9 @@
 import Dialog from '@material-ui/core/Dialog';
 import { makeStyles } from '@material-ui/core/styles';
-import * as Actions from 'app/main/apps/scrumboard/store/actions';
 import clsx from 'clsx';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { closeCardDialog } from '../../../store/cardSlice';
 import BoardCardForm from './BoardCardForm';
 
 const useStyles = makeStyles(theme => ({
@@ -23,7 +23,7 @@ function BoardCardDialog(props) {
 			classes={{
 				paper: clsx(classes.paper, 'max-w-lg w-full m-24')
 			}}
-			onClose={ev => dispatch(Actions.closeCardDialog())}
+			onClose={ev => dispatch(closeCardDialog())}
 			open={cardDialogOpen}
 		>
 			<BoardCardForm />

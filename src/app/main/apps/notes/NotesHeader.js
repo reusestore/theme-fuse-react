@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import NotesSearch from './NotesSearch';
-import * as Actions from './store/actions';
+import { toggleVariateDescSize } from './store/notesSlice';
 
 function NotesHeader(props) {
 	const dispatch = useDispatch();
@@ -39,7 +39,7 @@ function NotesHeader(props) {
 
 			<div className="flex flex-1 items-center justify-end">
 				<Tooltip title="Toggle Variate Description Size">
-					<IconButton onClick={ev => dispatch(Actions.toggleVariateDescSize())}>
+					<IconButton onClick={ev => dispatch(toggleVariateDescSize())}>
 						<Icon color={variateDescSize ? 'action' : 'disabled'}>format_size</Icon>
 					</IconButton>
 				</Tooltip>

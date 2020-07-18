@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
 		right: 0,
 		top: 0,
 		height: headerHeight,
-		background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
+		background: `linear-gradient(to left, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
 		backgroundSize: 'cover',
 		pointerEvents: 'none'
 	},

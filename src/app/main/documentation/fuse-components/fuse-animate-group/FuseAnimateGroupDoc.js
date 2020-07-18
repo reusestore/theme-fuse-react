@@ -1,7 +1,5 @@
 import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import FuseHighlight from '@fuse/core/FuseHighlight';
-import FusePageSimple from '@fuse/core/FusePageSimple';
-import Icon from '@material-ui/core/Icon';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Typography from '@material-ui/core/Typography';
@@ -39,60 +37,42 @@ function FuseAnimateGroupDoc() {
 	});
 
 	return (
-		<FusePageSimple
-			header={
-				<div className="flex flex-1 items-center justify-between p-24">
-					<div className="flex flex-col">
-						<div className="flex items-center mb-16">
-							<Icon className="text-18" color="action">
-								home
-							</Icon>
-							<Icon className="text-16" color="action">
-								chevron_right
-							</Icon>
-							<Typography color="textSecondary">Documentation</Typography>
-							<Icon className="text-16" color="action">
-								chevron_right
-							</Icon>
-							<Typography color="textSecondary">Fuse Components</Typography>
-						</div>
-						<Typography variant="h6">FuseAnimateGroup</Typography>
-					</div>
+		<>
+			<Typography variant="h4" className="mb-24">
+				FuseAnimateGroup
+			</Typography>
+
+			<Typography className="mb-16" component="p">
+				<code>FuseAnimateGroup</code> is a container component which uses
+				<code>VelocityTransitionGroup</code> of <code>velocity-react</code>
+				library. Delegates to the React TransitionGroup addon.
+			</Typography>
+
+			<Typography className="mt-32 mb-8" variant="h5">
+				Sample Usage
+			</Typography>
+
+			<div className="flex flex-wrap p-48 items-start">
+				<div className="flex w-full sm:w-1/2 p-24 justify-center">
+					<List>
+						<FuseAnimateGroup
+							enter={{
+								animation: 'transition.slideUpBigIn'
+							}}
+							leave={{
+								animation: 'transition.slideUpBigOut'
+							}}
+						>
+							{list.map((item, id) => (
+								<ListItem key={id}>{item}</ListItem>
+							))}
+						</FuseAnimateGroup>
+					</List>
 				</div>
-			}
-			content={
-				<div className="p-24 max-w-2xl">
-					<Typography className="mb-16" component="p">
-						<code>FuseAnimateGroup</code> is a container component which uses
-						<code>VelocityTransitionGroup</code> of <code>velocity-react</code>
-						library. Delegates to the React TransitionGroup addon.
-					</Typography>
 
-					<Typography className="mt-32 mb-8" variant="h5">
-						Sample Usage
-					</Typography>
-
-					<div className="flex flex-wrap p-48 items-start">
-						<div className="flex w-full sm:w-1/2 p-24 justify-center">
-							<List>
-								<FuseAnimateGroup
-									enter={{
-										animation: 'transition.slideUpBigIn'
-									}}
-									leave={{
-										animation: 'transition.slideUpBigOut'
-									}}
-								>
-									{list.map((item, id) => (
-										<ListItem key={id}>{item}</ListItem>
-									))}
-								</FuseAnimateGroup>
-							</List>
-						</div>
-
-						<div className="flex w-full sm:w-1/2 p-24 justify-center">
-							<FuseHighlight component="pre" className="language-jsx">
-								{`
+				<div className="flex w-full sm:w-1/2 p-24 justify-center">
+					<FuseHighlight component="pre" className="language-jsx">
+						{`
                                      <List>
                                         <FuseAnimateGroup
                                             enter={{
@@ -113,25 +93,23 @@ function FuseAnimateGroupDoc() {
                                         </FuseAnimateGroup>
                                     </List>
                                     `}
-							</FuseHighlight>
-						</div>
-					</div>
-
-					<Typography className="mb-16" component="p">
-						For more information checkout the
-						<a
-							href="https://github.com/google-fabric/velocity-react"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="ml-8 font-bold"
-						>
-							velocity-react
-						</a>
-						.
-					</Typography>
+					</FuseHighlight>
 				</div>
-			}
-		/>
+			</div>
+
+			<Typography className="mb-16" component="p">
+				For more information checkout the
+				<a
+					href="https://github.com/google-fabric/velocity-react"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="ml-8"
+				>
+					velocity-react
+				</a>
+				.
+			</Typography>
+		</>
 	);
 }
 

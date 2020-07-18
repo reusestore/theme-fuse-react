@@ -1,11 +1,11 @@
 ---
 title: Tabs React component
-components: Tabs, Tab, TabScrollButton
+components: Tabs, Tab, TabScrollButton, TabContext, TabList, TabPanel
 ---
 
 # Tabs
 
-<p class="description">タブを使用すると、さまざまなビューを簡単に探索して切り替えることができます。</p>
+<p class="description">タブでは、様々なビューの探索を切り替えを簡単に行うことができます。</p>
 
 [タブ](https://material.io/design/components/tabs.html) は、関連し、同じ階層レベルにあるコンテンツのグループ間のナビゲーションを整理し、許可します。
 
@@ -104,9 +104,16 @@ An example for the current implementation can be found in the demos on this page
 
 The components implement keyboard navigation using the "manual activation" behavior. If you want to switch to the "selection automatically follows focus" behavior you have pass `selectionFollowsFocus` to the `Tabs` component. The WAI-ARIA authoring practices have a detailed guide on [how to decide when to make selection automatically follow focus](https://www.w3.org/TR/wai-aria-practices/#kbd_selection_follows_focus).
 
-#### `selectionFollowsFocus` Demo
+#### Demo
 
 The following two demos only differ in their keyboard navigation behavior. Focus a tab and navigate with arrow keys to notice the difference.
+
+```jsx
+/* Tabs where selection follows focus */
+<Tabs selectionFollowsFocus />
+/* Tabs where each tab needs to be selected manually */
+<Tabs />
+```
 
 {{"demo": "pages/components/tabs/AccessibleTabs.js", "bg": true}}
 

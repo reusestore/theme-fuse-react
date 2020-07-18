@@ -2,6 +2,10 @@ import React from 'react';
 
 const MaterialUIComponentsRoutes = [
 	{
+		path: '/documentation/material-ui-components/accordion',
+		component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/Accordion'))
+	},
+	{
 		path: '/documentation/material-ui-components/alert',
 		component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/Alert'))
 	},
@@ -80,10 +84,6 @@ const MaterialUIComponentsRoutes = [
 	{
 		path: '/documentation/material-ui-components/drawers',
 		component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/Drawers'))
-	},
-	{
-		path: '/documentation/material-ui-components/expansion-panels',
-		component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/ExpansionPanels'))
 	},
 	{
 		path: '/documentation/material-ui-components/floating-action-button',
@@ -188,6 +188,10 @@ const MaterialUIComponentsRoutes = [
 	{
 		path: '/documentation/material-ui-components/textarea-autosize',
 		component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/TextareaAutosize'))
+	},
+	{
+		path: '/documentation/material-ui-components/timeline',
+		component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/Timeline'))
 	},
 	{
 		path: '/documentation/material-ui-components/tooltips',

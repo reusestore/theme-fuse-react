@@ -7,7 +7,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import clsx from 'clsx';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Actions from './store/actions';
+import { resetNotesSearchText, setNotesSearchText } from './store/notesSlice';
 
 const useStyles = makeStyles(theme => ({
 	root: {},
@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
 
 function NotesSearch(props) {
 	const dispatch = useDispatch();
-	const searchText = useSelector(({ notesApp }) => notesApp.notes.searchText);
+	const searchText = useSelector(({ notesApp }) => notesApp.notes.notesSearchText);
 
 	const classes = useStyles(props);
 	const [search, setSearch] = useState(false);
@@ -30,7 +30,7 @@ function NotesSearch(props) {
 
 	function hideSearch() {
 		setSearch(false);
-		dispatch(Actions.resetSearchText());
+		dispatch(resetNotesSearchText());
 		document.removeEventListener('keydown', escFunction, false);
 	}
 
@@ -70,7 +70,7 @@ function NotesSearch(props) {
 								inputProps={{
 									'aria-label': 'Search'
 								}}
-								onChange={ev => dispatch(Actions.setSearchText(ev))}
+								onChange={ev => dispatch(setNotesSearchText(ev))}
 								autoFocus
 							/>
 

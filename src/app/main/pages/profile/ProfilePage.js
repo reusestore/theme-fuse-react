@@ -68,7 +68,7 @@ function ProfilePage() {
 					variant="scrollable"
 					scrollButtons="off"
 					classes={{
-						root: 'h-64 w-full border-b-1'
+						root: 'h-64 w-full'
 					}}
 				>
 					<Tab

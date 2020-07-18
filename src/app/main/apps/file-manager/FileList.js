@@ -11,7 +11,7 @@ import TableRow from '@material-ui/core/TableRow';
 import clsx from 'clsx';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Actions from './store/actions';
+import { setSelectedItem, selectFiles } from './store/filesSlice';
 
 const useStyles = makeStyles({
 	typeIcon: {
@@ -32,8 +32,8 @@ const useStyles = makeStyles({
 
 function FileList(props) {
 	const dispatch = useDispatch();
-	const files = useSelector(({ fileManagerApp }) => fileManagerApp.files);
-	const selectedItemId = useSelector(({ fileManagerApp }) => fileManagerApp.selectedItemId);
+	const files = useSelector(selectFiles);
+	const selectedItemId = useSelector(({ fileManagerApp }) => fileManagerApp.files.selectedItemId);
 
 	const classes = useStyles();
 
@@ -52,25 +52,25 @@ function FileList(props) {
 				</TableHead>
 
 				<TableBody>
-					{Object.entries(files).map(([key, n]) => {
+					{files.map(item => {
 						return (
 							<TableRow
-								key={n.id}
+								key={item.id}
 								hover
-								onClick={event => dispatch(Actions.setSelectedItem(n.id))}
-								selected={n.id === selectedItemId}
+								onClick={event => dispatch(setSelectedItem(item.id))}
+								selected={item.id === selectedItemId}
 								className="cursor-pointer"
 							>
 								<TableCell className="max-w-64 w-64 p-0 text-center">
-									<Icon className={clsx(classes.typeIcon, n.type)} />
+									<Icon className={clsx(classes.typeIcon, item.type)} />
 								</TableCell>
-								<TableCell>{n.name}</TableCell>
-								<TableCell className="hidden sm:table-cell">{n.type}</TableCell>
-								<TableCell className="hidden sm:table-cell">{n.owner}</TableCell>
+								<TableCell>{item.name}</TableCell>
+								<TableCell className="hidden sm:table-cell">{item.type}</TableCell>
+								<TableCell className="hidden sm:table-cell">{item.owner}</TableCell>
 								<TableCell className="text-center hidden sm:table-cell">
-									{n.size === '' ? '-' : n.size}
+									{item.size === '' ? '-' : item.size}
 								</TableCell>
-								<TableCell className="hidden sm:table-cell">{n.modified}</TableCell>
+								<TableCell className="hidden sm:table-cell">{item.modified}</TableCell>
 								<Hidden lgUp>
 									<TableCell>
 										<IconButton

@@ -19,6 +19,7 @@ import React, { useEffect, useReducer, useRef } from 'react';
 import Autosuggest from 'react-autosuggest';
 import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { selectNavigation } from 'app/store/fuse/navigationSlice';
 
 function renderInputComponent(inputProps) {
 	const { variant, classes, inputRef = () => {}, ref, ...other } = inputProps;
@@ -218,7 +219,7 @@ function reducer(state, action) {
 
 function FuseSearch(props) {
 	const userRole = useSelector(({ auth }) => auth.user.role);
-	const navigation = useSelector(({ fuse }) => fuse.navigation);
+	const navigation = useSelector(selectNavigation);
 
 	const [state, dispatch] = useReducer(reducer, initialState);
 	const classes = useStyles(props);
@@ -361,7 +362,7 @@ function FuseSearch(props) {
 
 					{state.opened && (
 						<ClickAwayListener onClickAway={handleClickAway}>
-							<Paper className="absolute left-0 right-0 h-full z-9999" square>
+							<Paper className="absolute left-0 right-0 top-0 h-full z-9999" square>
 								<div className="flex items-center w-full" ref={popperNode}>
 									<Autosuggest
 										{...autosuggestProps}
@@ -428,7 +429,7 @@ function FuseSearch(props) {
 FuseSearch.propTypes = {};
 FuseSearch.defaultProps = {
 	trigger: (
-		<IconButton className="w-64 h-64">
+		<IconButton className="w-40 h-40">
 			<Icon>search</Icon>
 		</IconButton>
 	),

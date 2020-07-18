@@ -69,7 +69,7 @@ components: Table, TableBody, TableCell, TableContainer, TableFooter, TableHead,
 
 ### 自定义表格分页操作
 
-通过 `TablePagination` 组件的 `Action` 属性，可以实现自定义操作。
+`表格分页`组件中的`行为组件`允许实现自定义的行为
 
 {{"demo": "pages/components/tables/CustomPaginationActionsTable.js", "bg": true}}
 
@@ -79,9 +79,9 @@ components: Table, TableBody, TableCell, TableContainer, TableFooter, TableHead,
 
 {{"demo": "pages/components/tables/StickyHeadTable.js", "bg": true}}
 
-## Collapsible table
+## 可折叠表格
 
-An example of a table with expandable rows, revealing more information. It utilizes the [`Collapse`](/api/collapse/) component.
+以可扩展行的表格为例，揭示更多信息。 它利用了 [`Collapse`](/api/collapse/) 组件。
 
 {{"demo": "pages/components/tables/CollapsibleTable.js", "bg": true}}
 
@@ -115,7 +115,7 @@ An example of a table with expandable rows, revealing more information. It utili
 - [mui-datatables](https://github.com/gregnb/mui-datatables)：Material-UI 的响应式数据表格，包括筛选，排序，搜索等功能。
 - [tubular-react](https://github.com/unosquare/tubular-react): 一个带有本地或者远程的数据来源的 Material-UI 表格。 它能够对数据进行筛选、排序、自由搜索、导出为本地 CSV 以及汇总。
 
-## 可访问性
+## 无障碍设计
 
 （WAI 教程：https://www.w3.org/WAI/tutorials/tables/）
 

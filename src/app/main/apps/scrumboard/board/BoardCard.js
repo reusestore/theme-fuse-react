@@ -10,7 +10,7 @@ import moment from 'moment';
 import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Actions from '../store/actions';
+import { openCardDialog } from '../store/cardSlice';
 
 const useStyles = makeStyles(theme => ({
 	card: {
@@ -33,7 +33,7 @@ function BoardCard(props) {
 
 	function handleCardClick(ev, _card) {
 		ev.preventDefault();
-		dispatch(Actions.openCardDialog(_card));
+		dispatch(openCardDialog(_card));
 	}
 
 	function getCheckItemsChecked(_card) {

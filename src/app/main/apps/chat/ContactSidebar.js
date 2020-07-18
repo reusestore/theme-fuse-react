@@ -8,17 +8,20 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Actions from './store/actions';
+import { selectContacts } from './store/contactsSlice';
+import { closeContactSidebar } from './store/sidebarsSlice';
 
 function ContactSidebar(props) {
 	const dispatch = useDispatch();
-	const contacts = useSelector(({ chatApp }) => chatApp.contacts.entities);
+	const contacts = useSelector(selectContacts);
 	const selectedContactId = useSelector(({ chatApp }) => chatApp.contacts.selectedContactId);
 
 	const contact = contacts.find(_contact => _contact.id === selectedContactId);
+
 	if (!contact) {
 		return null;
 	}
+
 	return (
 		<div className="flex flex-col flex-auto h-full">
 			<AppBar position="static" color="primary" elevation={1}>
@@ -26,7 +29,7 @@ function ContactSidebar(props) {
 					<Typography className="px-12" color="inherit" variant="subtitle1">
 						Contact Info
 					</Typography>
-					<IconButton onClick={() => dispatch(Actions.closeContactSidebar())} color="inherit">
+					<IconButton onClick={() => dispatch(closeContactSidebar())} color="inherit">
 						<Icon>close</Icon>
 					</IconButton>
 				</Toolbar>

@@ -3,10 +3,11 @@ import Hidden from '@material-ui/core/Hidden';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import NavbarMobileToggleFab from 'app/fuse-layouts/shared-components//NavbarMobileToggleFab';
-import * as Actions from 'app/store/actions';
 import clsx from 'clsx';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
+import { selectNavbarTheme } from 'app/store/fuse/settingsSlice';
 import NavbarLayout3 from './NavbarLayout3';
 import NavbarMobileLayout3 from './NavbarMobileLayout3';
 
@@ -41,7 +42,7 @@ const useStyles = makeStyles(theme => ({
 function NavbarWrapperLayout3(props) {
 	const dispatch = useDispatch();
 	const config = useSelector(({ fuse }) => fuse.settings.current.layout.config);
-	const navbarTheme = useSelector(({ fuse }) => fuse.settings.navbarTheme);
+	const navbarTheme = useSelector(selectNavbarTheme);
 	const navbar = useSelector(({ fuse }) => fuse.navbar);
 
 	const classes = useStyles(props);
@@ -50,7 +51,7 @@ function NavbarWrapperLayout3(props) {
 		<>
 			<ThemeProvider theme={navbarTheme}>
 				<Hidden mdDown>
-					<Paper className={clsx(classes.navbar)} square>
+					<Paper className={clsx(classes.navbar)} square elevation={2}>
 						<NavbarLayout3 />
 					</Paper>
 				</Hidden>
@@ -63,7 +64,7 @@ function NavbarWrapperLayout3(props) {
 						classes={{
 							paper: classes.navbarMobile
 						}}
-						onClose={ev => dispatch(Actions.navbarCloseMobile())}
+						onClose={ev => dispatch(navbarCloseMobile())}
 						ModalProps={{
 							keepMounted: true // Better open performance on mobile.
 						}}

@@ -40,10 +40,10 @@ FuseAnimateGroup.defaultProps = {
 	easing: [0.4, 0.0, 0.2, 1],
 	runOnMount: true,
 	enterHideStyle: {
-		visibility: 'visible'
+		opacity: 1
 	},
 	enterShowStyle: {
-		visibility: 'hidden'
+		opacity: 0
 	}
 };
 

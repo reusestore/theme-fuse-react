@@ -94,7 +94,7 @@ function OrdersTableHead(props) {
 	return (
 		<TableHead>
 			<TableRow className="h-64">
-				<TableCell padding="none" className="relative w-64 text-center">
+				<TableCell padding="none" className="w-64 text-center z-99">
 					<Checkbox
 						indeterminate={props.numSelected > 0 && props.numSelected < props.rowCount}
 						checked={props.numSelected === props.rowCount}
@@ -103,7 +103,7 @@ function OrdersTableHead(props) {
 					{props.numSelected > 0 && (
 						<div
 							className={clsx(
-								'flex items-center justify-center absolute w-64 top-0 ltr:left-0 rtl:right-0 mx-56 h-64 z-10',
+								'flex items-center justify-center absolute w-64 top-0 ltr:left-0 rtl:right-0 mx-56 h-64 z-10 border-b-1',
 								classes.actionsButtonWrapper
 							)}
 						>

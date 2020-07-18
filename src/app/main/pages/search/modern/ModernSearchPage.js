@@ -38,7 +38,7 @@ function ModernSearchPage() {
 			header={
 				<div className="flex flex-1 items-center p-16 sm:p-24 max-w-md">
 					<ThemeProvider theme={theme}>
-						<Paper className="flex items-center h-44 w-full px-16" elevation={1}>
+						<Paper className="flex items-center h-44 w-full px-16 rounded-8" elevation={1}>
 							<Input
 								placeholder="Search..."
 								disableUnderline
@@ -66,7 +66,7 @@ function ModernSearchPage() {
 						}}
 					>
 						{data.map(item => (
-							<Paper className="p-16 mb-16" elevation={1} key={item.id}>
+							<Paper className="p-16 mb-16 rounded-8" elevation={1} key={item.id}>
 								<Typography className={clsx(classes.title, 'text-18 cursor-pointer')}>
 									{item.title}
 								</Typography>
@@ -76,7 +76,7 @@ function ModernSearchPage() {
 						))}
 					</FuseAnimateGroup>
 					<div className="flex justify-center mt-48">
-						<Paper elevation={1}>
+						<Paper elevation={1} className="rounded-8">
 							<IconButton>
 								<Icon className="text-20">
 									{theme.direction === 'ltr' ? 'chevron_left' : 'chevron_right'}

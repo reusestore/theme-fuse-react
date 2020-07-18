@@ -1,6 +1,6 @@
 import { authRoles } from 'app/auth';
-import { logoutUser } from 'app/auth/store/actions';
 import store from 'app/store';
+import { logoutUser } from 'app/auth/store/userSlice';
 
 const LogoutConfig = {
 	auth: authRoles.user,

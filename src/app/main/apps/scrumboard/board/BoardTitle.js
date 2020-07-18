@@ -8,7 +8,7 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Actions from '../store/actions';
+import { renameBoard } from '../store/boardSlice';
 
 function BoardTitle(props) {
 	const dispatch = useDispatch();
@@ -45,7 +45,7 @@ function BoardTitle(props) {
 		if (isFormInvalid()) {
 			return;
 		}
-		dispatch(Actions.renameBoard(board.id, form.title));
+		dispatch(renameBoard({ boardId: board.id, boardTitle: form.title }));
 		handleCloseForm();
 	}
 

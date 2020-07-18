@@ -11,19 +11,16 @@ import UserMenu from 'app/fuse-layouts/shared-components/UserMenu';
 import clsx from 'clsx';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { selectToolbarTheme } from 'app/store/fuse/settingsSlice';
 import LanguageSwitcher from '../../shared-components/LanguageSwitcher';
 
 const useStyles = makeStyles(theme => ({
-	separator: {
-		width: 1,
-		height: 64,
-		backgroundColor: theme.palette.divider
-	}
+	root: {}
 }));
 
 function ToolbarLayout3(props) {
 	const config = useSelector(({ fuse }) => fuse.settings.current.layout.config);
-	const toolbarTheme = useSelector(({ fuse }) => fuse.settings.toolbarTheme);
+	const toolbarTheme = useSelector(selectToolbarTheme);
 
 	const classes = useStyles(props);
 
@@ -31,15 +28,15 @@ function ToolbarLayout3(props) {
 		<ThemeProvider theme={toolbarTheme}>
 			<AppBar
 				id="fuse-toolbar"
-				className="flex relative z-10"
+				className={clsx(classes.root, 'flex relative z-10')}
 				color="default"
-				style={{ backgroundColor: toolbarTheme.palette.background.default }}
+				style={{ backgroundColor: toolbarTheme.palette.background.paper }}
+				elevation={2}
 			>
 				<Toolbar className="container p-0 lg:px-24">
 					{config.navbar.display && (
 						<Hidden lgUp>
 							<NavbarMobileToggleButton className="w-64 h-64 p-0" />
-							<div className={classes.separator} />
 						</Hidden>
 					)}
 
@@ -58,28 +55,17 @@ function ToolbarLayout3(props) {
 					<div className="flex">
 						<Hidden smUp>
 							<FuseSearch />
-							<div className={classes.separator} />
 						</Hidden>
 
-						<UserMenu />
-
 						<Hidden lgUp>
-							<div className={classes.separator} />
-
 							<ChatPanelToggleButton />
 						</Hidden>
 
-						<div className={classes.separator} />
-
 						<LanguageSwitcher />
-
-						<div className={classes.separator} />
 
 						<QuickPanelToggleButton />
 
-						<Hidden mdDown>
-							<div className={classes.separator} />
-						</Hidden>
+						<UserMenu />
 					</div>
 				</Toolbar>
 			</AppBar>

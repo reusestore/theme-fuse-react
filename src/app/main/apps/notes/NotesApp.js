@@ -8,8 +8,9 @@ import NewNote from './NewNote';
 import NoteList from './NoteList';
 import NotesHeader from './NotesHeader';
 import NotesSidebarContent from './NotesSidebarContent';
-import * as Actions from './store/actions';
-import reducer from './store/reducers';
+import reducer from './store';
+import { getLabels } from './store/labelsSlice';
+import { getNotes } from './store/notesSlice';
 
 function NotesApp(props) {
 	const dispatch = useDispatch();
@@ -17,8 +18,8 @@ function NotesApp(props) {
 	const pageLayout = useRef(null);
 
 	useEffect(() => {
-		dispatch(Actions.getNotes());
-		dispatch(Actions.getLabels());
+		dispatch(getNotes());
+		dispatch(getLabels());
 	}, [dispatch]);
 
 	return (

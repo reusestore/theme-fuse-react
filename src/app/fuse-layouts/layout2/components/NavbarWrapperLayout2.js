@@ -4,9 +4,10 @@ import Paper from '@material-ui/core/Paper';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import NavbarMobileLayout2 from 'app/fuse-layouts/layout2/components/NavbarMobileLayout2';
 import NavbarMobileToggleFab from 'app/fuse-layouts/shared-components/NavbarMobileToggleFab';
-import * as Actions from 'app/store/actions';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
+import { selectNavbarTheme } from 'app/store/fuse/settingsSlice';
 import NavbarLayout2 from './NavbarLayout2';
 
 const navbarWidth = 280;
@@ -40,7 +41,7 @@ const useStyles = makeStyles(theme => ({
 function NavbarWrapperLayout2(props) {
 	const dispatch = useDispatch();
 	const config = useSelector(({ fuse }) => fuse.settings.current.layout.config);
-	const navbarTheme = useSelector(({ fuse }) => fuse.settings.navbarTheme);
+	const navbarTheme = useSelector(selectNavbarTheme);
 	const navbar = useSelector(({ fuse }) => fuse.navbar);
 
 	const classes = useStyles(props);
@@ -49,7 +50,7 @@ function NavbarWrapperLayout2(props) {
 		<>
 			<ThemeProvider theme={navbarTheme}>
 				<Hidden mdDown>
-					<Paper className={classes.navbar} square>
+					<Paper className={classes.navbar} square elevation={2}>
 						<NavbarLayout2 />
 					</Paper>
 				</Hidden>
@@ -62,7 +63,7 @@ function NavbarWrapperLayout2(props) {
 						classes={{
 							paper: classes.navbarMobile
 						}}
-						onClose={ev => dispatch(Actions.navbarCloseMobile())}
+						onClose={ev => dispatch(navbarCloseMobile())}
 						ModalProps={{
 							keepMounted: true // Better open performance on mobile.
 						}}

@@ -10,18 +10,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { withRouter, useParams } from 'react-router-dom';
 import { useDeepCompareEffect } from '@fuse/hooks';
 import MailChip from '../MailChip';
-import * as Actions from '../store/actions/index';
+import { selectLabelsEntities } from '../store/labelsSlice';
+import { getMail } from '../store/mailSlice';
 
 function MailDetails(props) {
 	const dispatch = useDispatch();
 	const mail = useSelector(({ mailApp }) => mailApp.mail);
-	const labels = useSelector(({ mailApp }) => mailApp.labels);
+	const labels = useSelector(selectLabelsEntities);
 
 	const routeParams = useParams();
 	const [showDetails, setShowDetails] = useState(false);
 
 	useDeepCompareEffect(() => {
-		dispatch(Actions.getMail(routeParams));
+		dispatch(getMail(routeParams));
 	}, [dispatch, routeParams]);
 
 	if (!mail) {
@@ -38,13 +39,13 @@ function MailDetails(props) {
 						</Typography>
 					</FuseAnimate>
 
-					{labels && mail.labels.length > 0 && (
+					{!_.isEmpty(labels) && mail.labels.length > 0 && (
 						<div className="flex flex-wrap mt-8 -mx-2">
 							{mail.labels.map(label => (
 								<MailChip
 									className="mt-4 mx-2"
-									title={_.find(labels, { id: label }).title}
-									color={_.find(labels, { id: label }).color}
+									title={labels[label].title}
+									color={labels[label].color}
 									key={label}
 								/>
 							))}

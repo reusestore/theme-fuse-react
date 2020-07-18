@@ -209,41 +209,22 @@ function writePage(file) {
 	const title = getTitle(markdownSource);
 
 	const contentJSX = `
-         <FusePageSimple
-            classes={{
-                root: classes.layoutRoot
-            }}
-            header={
-                <div className="flex flex-1 items-center justify-between p-24">
-                     <div className="flex flex-col">
-                        <div className="flex items-center mb-16">
-                            <Icon className="text-18" color="action">home</Icon>
-                            <Icon className="text-16" color="action">chevron_right</Icon>
-                            <Typography color="textSecondary">Documentation</Typography>
-                            <Icon className="text-16" color="action">chevron_right</Icon>
-                            <Typography color="textSecondary">Material UI Components</Typography>
-                        </div>
-                       <Typography variant="h6">${title}</Typography>
-                    </div>
-                    <Button 
-                        className="normal-case"
-                        variant="contained" 
-                        component="a" 
-                        href="https://material-ui.com/components/${path.basename(file)}" 
-                        target="_blank"
-                        role="button"
-                        >
-                        <Icon>link</Icon>
-                        <span className="mx-4">Reference</span>
-                    </Button>
-                </div>
-            }
-            content={
-                <div className="p-24 max-w-2xl">
+                <>
+					<div className="flex flex-1 flex-grow-0 items-center justify-end">
+					  <Button 
+							className="normal-case"
+							variant="outlined" 
+							component="a" 
+							href="https://material-ui.com/components/${path.basename(file)}" 
+							target="_blank"
+							role="button"
+							>
+							<Icon>link</Icon>
+							<span className="mx-4">Reference</span>
+						</Button>
+					</div>
                      ${htmlCode}
-                </div>
-            }
-        />
+                </>
     `;
 
 	// contentJSX = Beautify(contentJSX, BeautifyConfig);
@@ -251,7 +232,6 @@ function writePage(file) {
 	const content = `import React from 'react';
                    import FuseExample from '@fuse/core/FuseExample';
                    import FuseHighlight from '@fuse/core/FuseHighlight';
-                   import FusePageSimple from '@fuse/core/FusePageSimple';
                    import Button from '@material-ui/core/Button';
                    import Icon from '@material-ui/core/Icon';
                    import Typography from '@material-ui/core/Typography';
@@ -323,7 +303,14 @@ function writeNavigationFile(pages) {
 	});
 	const content = Beautify(
 		`
-        const MaterialUIComponentsNavigation =  [${navigation.join()}];
+        const MaterialUIComponentsNavigation =  {
+													id: 'material-ui-components',
+													title: 'Material UI Components',
+													type: 'collapse',
+													icon: 'layers',
+													children: [${navigation.join()}]
+												};
+												
         export default MaterialUIComponentsNavigation;
         
         `

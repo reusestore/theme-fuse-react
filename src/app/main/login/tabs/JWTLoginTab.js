@@ -1,14 +1,13 @@
 import { TextFieldFormsy } from '@fuse/core/formsy';
 import Button from '@material-ui/core/Button';
-import Divider from '@material-ui/core/Divider';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Typography from '@material-ui/core/Typography';
-import * as authActions from 'app/auth/store/actions';
 import Formsy from 'formsy-react';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { submitLogin } from 'app/auth/store/loginSlice';
 
 function JWTLoginTab(props) {
 	const dispatch = useDispatch();
@@ -37,7 +36,7 @@ function JWTLoginTab(props) {
 	}
 
 	function handleSubmit(model) {
-		dispatch(authActions.submitLogin(model));
+		dispatch(submitLogin(model));
 	}
 
 	return (
@@ -116,57 +115,55 @@ function JWTLoginTab(props) {
 				</Button>
 			</Formsy>
 
-			<div className="flex flex-col items-center pt-24">
-				<Typography className="text-14 font-600 py-8">Credentials</Typography>
-
-				<Divider className="mb-16 w-256" />
-
-				<table className="text-left w-256">
-					<thead>
-						<tr>
-							<th>
-								<Typography className="font-600" color="textSecondary">
-									Role
-								</Typography>
-							</th>
-							<th>
-								<Typography className="font-600" color="textSecondary">
-									Username
-								</Typography>
-							</th>
-							<th>
-								<Typography className="font-600" color="textSecondary">
-									Password
-								</Typography>
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								<Typography>Admin</Typography>
-							</td>
-							<td>
-								<Typography>admin</Typography>
-							</td>
-							<td>
-								<Typography>admin</Typography>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<Typography>Staff</Typography>
-							</td>
-							<td>
-								<Typography>staff</Typography>
-							</td>
-							<td>
-								<Typography>staff</Typography>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
+			<table className="text-center w-full mt-32">
+				<thead>
+					<tr>
+						<th>
+							<Typography className="font-600" color="textSecondary">
+								Role
+							</Typography>
+						</th>
+						<th>
+							<Typography className="font-600" color="textSecondary">
+								Username
+							</Typography>
+						</th>
+						<th>
+							<Typography className="font-600" color="textSecondary">
+								Password
+							</Typography>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<Typography className="font-600" color="textSecondary">
+								Admin
+							</Typography>
+						</td>
+						<td>
+							<Typography>admin</Typography>
+						</td>
+						<td>
+							<Typography>admin</Typography>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<Typography className="font-600" color="textSecondary">
+								Staff
+							</Typography>
+						</td>
+						<td>
+							<Typography>staff</Typography>
+						</td>
+						<td>
+							<Typography>staff</Typography>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	);
 }

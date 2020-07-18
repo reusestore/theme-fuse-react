@@ -45,7 +45,7 @@ function ModernInvoicePage() {
 		<div className={clsx(classes.root, 'flex-grow flex-shrink-0 p-0 sm:p-64 print:p-0')}>
 			{invoice && (
 				<FuseAnimate animation={{ translateY: [0, '100%'] }} duration={600}>
-					<Card className="mx-auto w-xl print:w-full print:shadow-none">
+					<Card className="mx-auto w-xl print:w-full print:shadow-none rounded-8">
 						<CardContent className="p-88 print:p-0">
 							<div className="flex flex-row justify-between items-start">
 								<div className="flex flex-col">

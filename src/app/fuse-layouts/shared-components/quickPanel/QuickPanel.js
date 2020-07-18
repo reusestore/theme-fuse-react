@@ -15,8 +15,9 @@ import withReducer from 'app/store/withReducer';
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Actions from './store/actions/index';
-import reducer from './store/reducers';
+import reducer from './store';
+import { getData } from './store/dataSlice';
+import { toggleQuickPanel } from './store/stateSlice';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -46,7 +47,7 @@ function QuickPanel(props) {
 	};
 
 	useEffect(() => {
-		dispatch(Actions.getQuickPanelData());
+		dispatch(getData());
 	}, [dispatch]);
 
 	return (
@@ -54,7 +55,7 @@ function QuickPanel(props) {
 			classes={{ paper: classes.root }}
 			open={state}
 			anchor="right"
-			onClose={ev => dispatch(Actions.toggleQuickPanel())}
+			onClose={ev => dispatch(toggleQuickPanel())}
 		>
 			<FuseScrollbars>
 				<ListSubheader component="div">Today</ListSubheader>

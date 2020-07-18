@@ -11,7 +11,7 @@ import React from 'react';
 const useStyles = makeStyles(theme => ({
 	header: {
 		height: 600,
-		background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
+		background: `linear-gradient(to left, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
 		color: theme.palette.primary.contrastText
 	},
 	badge: {
@@ -57,7 +57,7 @@ function PricingStyle2Page() {
 						className="flex items-center justify-center flex-wrap"
 					>
 						<div className="w-full max-w-320 sm:w-1/3 p-12">
-							<Card className="relative">
+							<Card className="relative rounded-8">
 								<div className="pt-48 pb-24 text-center">
 									<Typography variant="subtitle1" color="inherit" className="text-20 font-medium">
 										SILVER PACKAGE
@@ -102,7 +102,7 @@ function PricingStyle2Page() {
 						</div>
 
 						<div className="w-full max-w-320 sm:w-1/3 p-12">
-							<Card className="relative" raised>
+							<Card className="relative rounded-8" raised>
 								<div className="absolute top-0 inset-x-0 flex justify-center">
 									<div className={clsx(classes.badge, 'py-4 px-8')}>
 										<Typography variant="caption" color="inherit">
@@ -157,7 +157,7 @@ function PricingStyle2Page() {
 						</div>
 
 						<div className="w-full max-w-320 sm:w-1/3 p-12">
-							<Card className="relative">
+							<Card className="relative rounded-8">
 								<div className="pt-48 pb-24 text-center">
 									<Typography variant="subtitle1" color="inherit" className="text-20 font-medium">
 										PLATINUM PACKAGE

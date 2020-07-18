@@ -9,7 +9,8 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter, useParams } from 'react-router-dom';
 import MailChip from '../MailChip';
-import * as Actions from '../store/actions/index';
+import { toggleInSelectedMails } from '../store/mailsSlice';
+import { selectLabelsEntities } from '../store/labelsSlice';
 
 const pathToRegexp = require('path-to-regexp');
 
@@ -40,7 +41,7 @@ const useStyles = makeStyles(theme => ({
 const MailListItem = props => {
 	const dispatch = useDispatch();
 	const selectedMailIds = useSelector(({ mailApp }) => mailApp.mails.selectedMailIds);
-	const labels = useSelector(({ mailApp }) => mailApp.labels);
+	const labels = useSelector(selectLabelsEntities);
 	const routeParams = useParams();
 
 	const classes = useStyles(props);
@@ -65,7 +66,7 @@ const MailListItem = props => {
 				tabIndex={-1}
 				disableRipple
 				checked={checked}
-				onChange={() => dispatch(Actions.toggleInSelectedMails(props.mail.id))}
+				onChange={() => dispatch(toggleInSelectedMails(props.mail.id))}
 				onClick={ev => ev.stopPropagation()}
 			/>
 
@@ -92,12 +93,12 @@ const MailListItem = props => {
 				</div>
 
 				<div className="flex justify-end px-12">
-					{labels &&
+					{!_.isEmpty(labels) &&
 						props.mail.labels.map(label => (
 							<MailChip
 								className="mx-2 mt-4"
-								title={_.find(labels, { id: label }).title}
-								color={_.find(labels, { id: label }).color}
+								title={labels[label].title}
+								color={labels[label].color}
 								key={label}
 							/>
 						))}

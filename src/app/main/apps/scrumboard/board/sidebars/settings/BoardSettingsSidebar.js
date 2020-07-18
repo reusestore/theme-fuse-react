@@ -7,9 +7,9 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import Switch from '@material-ui/core/Switch';
 import Toolbar from '@material-ui/core/Toolbar';
-import * as Actions from 'app/main/apps/scrumboard/store/actions';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { deleteBoard, copyBoard, changeBoardSettings } from '../../../store/boardSlice';
 
 function BoardSettingsSidebar(props) {
 	const dispatch = useDispatch();
@@ -24,9 +24,7 @@ function BoardSettingsSidebar(props) {
 			<List className="py-16" dense>
 				<ListItem
 					button
-					onClick={() =>
-						dispatch(Actions.changeBoardSettings({ cardCoverImages: !board.settings.cardCoverImages }))
-					}
+					onClick={() => dispatch(changeBoardSettings({ cardCoverImages: !board.settings.cardCoverImages }))}
 				>
 					<ListItemIcon className="min-w-40">
 						<Icon>photo</Icon>
@@ -35,9 +33,7 @@ function BoardSettingsSidebar(props) {
 					<ListItemSecondaryAction>
 						<Switch
 							onChange={() =>
-								dispatch(
-									Actions.changeBoardSettings({ cardCoverImages: !board.settings.cardCoverImages })
-								)
+								dispatch(changeBoardSettings({ cardCoverImages: !board.settings.cardCoverImages }))
 							}
 							checked={board.settings.cardCoverImages}
 						/>
@@ -46,7 +42,7 @@ function BoardSettingsSidebar(props) {
 
 				<ListItem
 					button
-					onClick={() => dispatch(Actions.changeBoardSettings({ subscribed: !board.settings.subscribed }))}
+					onClick={() => dispatch(changeBoardSettings({ subscribed: !board.settings.subscribed }))}
 				>
 					<ListItemIcon className="min-w-40">
 						<Icon>remove_red_eye</Icon>
@@ -54,22 +50,20 @@ function BoardSettingsSidebar(props) {
 					<ListItemText primary="Subscribe" />
 					<ListItemSecondaryAction>
 						<Switch
-							onChange={() =>
-								dispatch(Actions.changeBoardSettings({ subscribed: !board.settings.subscribed }))
-							}
+							onChange={() => dispatch(changeBoardSettings({ subscribed: !board.settings.subscribed }))}
 							checked={board.settings.subscribed}
 						/>
 					</ListItemSecondaryAction>
 				</ListItem>
 
-				<ListItem button onClick={() => dispatch(Actions.copyBoard(board))}>
+				<ListItem button onClick={() => dispatch(copyBoard(board))}>
 					<ListItemIcon className="min-w-40">
 						<Icon>file_copy</Icon>
 					</ListItemIcon>
 					<ListItemText primary="Copy Board" />
 				</ListItem>
 
-				<ListItem button onClick={() => dispatch(Actions.deleteBoard(board.id))}>
+				<ListItem button onClick={() => dispatch(deleteBoard(board.id))}>
 					<ListItemIcon className="min-w-40">
 						<Icon>delete</Icon>
 					</ListItemIcon>

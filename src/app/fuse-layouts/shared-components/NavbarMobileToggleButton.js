@@ -1,8 +1,8 @@
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
-import * as Actions from 'app/store/actions';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { navbarToggleMobile } from 'app/store/fuse/navbarSlice';
 
 function NavbarMobileToggleButton(props) {
 	const dispatch = useDispatch();
@@ -10,7 +10,7 @@ function NavbarMobileToggleButton(props) {
 	return (
 		<IconButton
 			className={props.className}
-			onClick={ev => dispatch(Actions.navbarToggleMobile())}
+			onClick={ev => dispatch(navbarToggleMobile())}
 			color="inherit"
 			disableRipple
 		>

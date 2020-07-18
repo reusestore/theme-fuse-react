@@ -52,7 +52,7 @@ function CompactInvoicePage() {
 		<div className={clsx(classes.root, 'flex-grow flex-shrink-0 p-0 sm:p-64 print:p-0')}>
 			{invoice && (
 				<FuseAnimate animation={{ translateY: [0, '100%'] }} duration={600}>
-					<Card className="mx-auto w-xl print:w-full print:p-8 print:shadow-none">
+					<Card className="mx-auto w-xl print:w-full print:p-8 print:shadow-none rounded-8">
 						<CardContent className="p-88 print:p-0">
 							<Typography color="textSecondary" className="mb-32">
 								{invoice.date}

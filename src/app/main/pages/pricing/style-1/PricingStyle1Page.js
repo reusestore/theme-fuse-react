@@ -12,7 +12,7 @@ import React from 'react';
 const useStyles = makeStyles(theme => ({
 	header: {
 		height: 600,
-		background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
+		background: `linear-gradient(to left, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
 		color: theme.palette.primary.contrastText
 	},
 	cardHeader: {
@@ -58,7 +58,7 @@ function PricingStyle1Page() {
 						className="flex items-center justify-center flex-wrap"
 					>
 						<div className="w-full max-w-320 sm:w-1/3 p-12">
-							<Card square>
+							<Card className="rounded-8">
 								<div className={clsx(classes.cardHeader, 'px-24 py-16')}>
 									<Typography variant="subtitle1" color="inherit">
 										BASIC
@@ -105,7 +105,7 @@ function PricingStyle1Page() {
 						</div>
 
 						<div className="w-full max-w-320 sm:w-1/3 p-12">
-							<Card raised square>
+							<Card className="rounded-8" raised>
 								<div
 									className={clsx(
 										classes.cardHeader,
@@ -160,7 +160,7 @@ function PricingStyle1Page() {
 						</div>
 
 						<div className="w-full max-w-320 sm:w-1/3 p-12">
-							<Card square>
+							<Card className="rounded-8">
 								<div className={clsx(classes.cardHeader, 'px-24 py-16')}>
 									<Typography variant="subtitle1" color="inherit">
 										ADVANCED

@@ -14,8 +14,15 @@ import * as ReactDOM from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import CalendarHeader from './CalendarHeader';
 import EventDialog from './EventDialog';
-import * as Actions from './store/actions';
-import reducer from './store/reducers';
+import reducer from './store';
+import {
+	dateFormat,
+	selectEvents,
+	openNewEventDialog,
+	openEditEventDialog,
+	updateEvent,
+	getEvents
+} from './store/eventsSlice';
 
 const localizer = momentLocalizer(moment);
 
@@ -58,9 +65,18 @@ const useStyles = makeStyles(theme => ({
 				}
 			}
 		},
+		'& .rbc-agenda-table': {
+			'& th': {
+				border: 0
+			},
+			'& th, & td': {
+				padding: '12px 16px!important'
+			}
+		},
 		'& .rbc-time-view': {
 			'& .rbc-time-header': {
-				...theme.mixins.border(1)
+				...theme.mixins.border(1),
+				borderRadius: '12px 12px 0 0'
 			},
 			'& .rbc-time-content': {
 				flex: '0 1 auto',
@@ -68,6 +84,9 @@ const useStyles = makeStyles(theme => ({
 			}
 		},
 		'& .rbc-month-view': {
+			'& > .rbc-month-header': {
+				borderRadius: '12px 12px 0 0'
+			},
 			'& > .rbc-row': {
 				...theme.mixins.border(1)
 			},
@@ -165,18 +184,22 @@ const useStyles = makeStyles(theme => ({
 
 function CalendarApp(props) {
 	const dispatch = useDispatch();
-	const events = useSelector(({ calendarApp }) => calendarApp.events.entities);
+	const events = useSelector(selectEvents).map(event => ({
+		...event,
+		start: moment(event.start, dateFormat).toDate(),
+		end: moment(event.end, dateFormat).toDate()
+	}));
 
 	const classes = useStyles(props);
 	const headerEl = useRef(null);
 
 	useEffect(() => {
-		dispatch(Actions.getEvents());
+		dispatch(getEvents());
 	}, [dispatch]);
 
 	function moveEvent({ event, start, end }) {
 		dispatch(
-			Actions.updateEvent({
+			updateEvent({
 				...event,
 				start,
 				end
@@ -187,7 +210,7 @@ function CalendarApp(props) {
 	function resizeEvent({ event, start, end }) {
 		delete event.type;
 		dispatch(
-			Actions.updateEvent({
+			updateEvent({
 				...event,
 				start,
 				end
@@ -207,7 +230,7 @@ function CalendarApp(props) {
 				resizable
 				onEventResize={resizeEvent}
 				defaultView={Views.MONTH}
-				defaultDate={new Date(2018, 3, 1)}
+				defaultDate={new Date(2020, 3, 1)}
 				startAccessor="start"
 				endAccessor="end"
 				views={allViews}
@@ -222,16 +245,9 @@ function CalendarApp(props) {
 				}}
 				// onNavigate={handleNavigate}
 				onSelectEvent={event => {
-					dispatch(Actions.openEditEventDialog(event));
+					dispatch(openEditEventDialog(event));
 				}}
-				onSelectSlot={slotInfo =>
-					dispatch(
-						Actions.openNewEventDialog({
-							start: slotInfo.start.toLocaleString(),
-							end: slotInfo.end.toLocaleString()
-						})
-					)
-				}
+				onSelectSlot={slotInfo => dispatch(openNewEventDialog(slotInfo))}
 			/>
 			<FuseAnimate animation="transition.expandIn" delay={500}>
 				<Fab
@@ -240,7 +256,7 @@ function CalendarApp(props) {
 					className={classes.addButton}
 					onClick={() =>
 						dispatch(
-							Actions.openNewEventDialog({
+							openNewEventDialog({
 								start: new Date(),
 								end: new Date()
 							})

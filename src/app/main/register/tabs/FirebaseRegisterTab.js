@@ -2,10 +2,10 @@ import { TextFieldFormsy } from '@fuse/core/formsy';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import * as authActions from 'app/auth/store/actions';
 import Formsy from 'formsy-react';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { registerWithFirebase } from 'app/auth/store/registerSlice';
 
 function FirebaseRegisterTab(props) {
 	const dispatch = useDispatch();
@@ -32,7 +32,7 @@ function FirebaseRegisterTab(props) {
 	}
 
 	function handleSubmit(model) {
-		dispatch(authActions.registerWithFirebase(model));
+		dispatch(registerWithFirebase(model));
 	}
 
 	return (

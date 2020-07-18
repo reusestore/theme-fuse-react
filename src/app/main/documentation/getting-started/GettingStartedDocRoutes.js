@@ -8,6 +8,10 @@ const GettingStartedDocRoutes = [
 	{
 		path: '/documentation/getting-started/installation',
 		component: React.lazy(() => import('./installation/InstallationDoc'))
+	},
+	{
+		path: '/documentation/getting-started/git-repository',
+		component: React.lazy(() => import('./git-repository/GitRepositoryDoc'))
 	}
 ];
 

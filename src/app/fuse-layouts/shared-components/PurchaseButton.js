@@ -1,8 +1,9 @@
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
+import clsx from 'clsx';
 import React from 'react';
 
-function PurchaseButton() {
+function PurchaseButton({ className }) {
 	return (
 		<Button
 			component="a"
@@ -10,7 +11,7 @@ function PurchaseButton() {
 			target="_blank"
 			rel="noreferrer noopener"
 			role="button"
-			className="normal-case"
+			className={clsx('normal-case', className)}
 			variant="contained"
 			color="secondary"
 		>

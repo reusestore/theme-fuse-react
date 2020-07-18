@@ -6,12 +6,13 @@ import Paper from '@material-ui/core/Paper';
 import { ThemeProvider } from '@material-ui/core/styles';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Actions from './store/actions';
+import { selectMainTheme } from 'app/store/fuse/settingsSlice';
+import { setTodosSearchText } from './store/todosSlice';
 
 function TodoHeader(props) {
 	const dispatch = useDispatch();
 	const searchText = useSelector(({ todoApp }) => todoApp.todos.searchText);
-	const mainTheme = useSelector(({ fuse }) => fuse.settings.mainTheme);
+	const mainTheme = useSelector(selectMainTheme);
 
 	return (
 		<ThemeProvider theme={mainTheme}>
@@ -40,7 +41,7 @@ function TodoHeader(props) {
 						inputProps={{
 							'aria-label': 'Search'
 						}}
-						onChange={ev => dispatch(Actions.setSearchText(ev))}
+						onChange={ev => dispatch(setTodosSearchText(ev))}
 					/>
 				</Paper>
 			</div>

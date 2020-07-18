@@ -13,7 +13,13 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Actions from './store/actions';
+import {
+	removeContact,
+	updateContact,
+	addContact,
+	closeNewContactDialog,
+	closeEditContactDialog
+} from './store/contactsSlice';
 
 const defaultFormState = {
 	id: '',
@@ -66,9 +72,7 @@ function ContactDialog(props) {
 	}, [contactDialog.props.open, initDialog]);
 
 	function closeComposeDialog() {
-		return contactDialog.type === 'edit'
-			? dispatch(Actions.closeEditContactDialog())
-			: dispatch(Actions.closeNewContactDialog());
+		return contactDialog.type === 'edit' ? dispatch(closeEditContactDialog()) : dispatch(closeNewContactDialog());
 	}
 
 	function canBeSubmitted() {
@@ -79,22 +83,22 @@ function ContactDialog(props) {
 		event.preventDefault();
 
 		if (contactDialog.type === 'new') {
-			dispatch(Actions.addContact(form));
+			dispatch(addContact(form));
 		} else {
-			dispatch(Actions.updateContact(form));
+			dispatch(updateContact(form));
 		}
 		closeComposeDialog();
 	}
 
 	function handleRemove() {
-		dispatch(Actions.removeContact(form.id));
+		dispatch(removeContact(form.id));
 		closeComposeDialog();
 	}
 
 	return (
 		<Dialog
 			classes={{
-				paper: 'm-24'
+				paper: 'm-24 rounded-8'
 			}}
 			{...contactDialog.props}
 			onClose={closeComposeDialog}

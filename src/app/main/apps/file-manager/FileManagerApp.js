@@ -12,18 +12,17 @@ import DetailSidebarHeader from './DetailSidebarHeader';
 import FileList from './FileList';
 import MainSidebarContent from './MainSidebarContent';
 import MainSidebarHeader from './MainSidebarHeader';
-import * as Actions from './store/actions';
-import reducer from './store/reducers';
+import reducer from './store';
+import { selectFileById, getFiles } from './store/filesSlice';
 
 function FileManagerApp() {
 	const dispatch = useDispatch();
-	const files = useSelector(({ fileManagerApp }) => fileManagerApp.files);
-	const selectedItem = useSelector(({ fileManagerApp }) => files[fileManagerApp.selectedItemId]);
+	const selectedItem = useSelector(state => selectFileById(state, state.fileManagerApp.files.selectedItemId));
 
 	const pageLayout = useRef(null);
 
 	useEffect(() => {
-		dispatch(Actions.getFiles());
+		dispatch(getFiles());
 	}, [dispatch]);
 
 	return (

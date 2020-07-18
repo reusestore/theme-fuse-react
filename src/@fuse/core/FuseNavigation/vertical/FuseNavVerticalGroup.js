@@ -2,7 +2,6 @@ import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import FuseUtils from '@fuse/utils';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import * as Actions from 'app/store/actions';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
@@ -10,6 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
 import FuseNavItem from '../FuseNavItem';
 
 const useStyles = makeStyles(theme => ({
@@ -48,7 +48,7 @@ function FuseNavVerticalGroup(props) {
 			<ListSubheader
 				disableSticky
 				className={clsx(classes.item, 'list-subheader flex items-center', !item.url && 'cursor-default')}
-				onClick={ev => mdDown && dispatch(Actions.navbarCloseMobile())}
+				onClick={ev => mdDown && dispatch(navbarCloseMobile())}
 				component={item.url ? NavLinkAdapter : 'li'}
 				to={item.url}
 				role="button"

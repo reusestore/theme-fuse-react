@@ -5,11 +5,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Popover from '@material-ui/core/Popover';
 import { useTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import * as Actions from 'app/store/actions';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { setDefaultSettings } from 'app/store/fuse/settingsSlice';
 
 const languages = [
 	{
@@ -38,11 +38,11 @@ function LanguageSwitcher(props) {
 
 	const currentLng = languages.find(lng => lng.id === i18n.language);
 
-	const userMenuClick = event => {
+	const langMenuClick = event => {
 		setMenu(event.currentTarget);
 	};
 
-	const userMenuClose = () => {
+	const langMenuClose = () => {
 		setMenu(null);
 	};
 
@@ -58,28 +58,30 @@ function LanguageSwitcher(props) {
         If necessary, change theme direction
          */
 		if (newLangDir !== theme.direction) {
-			dispatch(Actions.setDefaultSettings({ direction: newLangDir }));
+			dispatch(setDefaultSettings({ direction: newLangDir }));
 		}
 
-		userMenuClose();
+		langMenuClose();
 	}
 
 	return (
 		<>
-			<Button className="h-64 w-64" onClick={userMenuClick}>
+			<Button className="h-40 w-64" onClick={langMenuClick}>
 				<img
 					className="mx-4 min-w-20"
 					src={`assets/images/flags/${currentLng.flag}.png`}
 					alt={currentLng.title}
 				/>
 
-				<Typography className="mx-4 font-600">{currentLng.id}</Typography>
+				<Typography className="mx-4 font-bold" color="textSecondary">
+					{currentLng.id}
+				</Typography>
 			</Button>
 
 			<Popover
 				open={Boolean(menu)}
 				anchorEl={menu}
-				onClose={userMenuClose}
+				onClose={langMenuClose}
 				anchorOrigin={{
 					vertical: 'bottom',
 					horizontal: 'center'
@@ -104,7 +106,7 @@ function LanguageSwitcher(props) {
 				<MenuItem
 					component={Link}
 					to="/documentation/working-with-fuse-react/multi-language"
-					onClick={userMenuClose}
+					onClick={langMenuClose}
 					role="button"
 				>
 					<ListItemText primary="Learn More" />

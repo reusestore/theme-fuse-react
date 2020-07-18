@@ -21,12 +21,13 @@ import clsx from 'clsx';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import * as Actions from '../store/actions';
-import reducer from '../store/reducers';
+import reducer from '../store';
+import { getCategories, selectCategories } from '../store/categoriesSlice';
+import { getCourses, selectCourses } from '../store/coursesSlice';
 
 const useStyles = makeStyles(theme => ({
 	header: {
-		background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
+		background: `linear-gradient(to left, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
 		color: theme.palette.getContrastText(theme.palette.primary.main)
 	},
 	headerIcon: {
@@ -43,8 +44,8 @@ const useStyles = makeStyles(theme => ({
 
 function Courses(props) {
 	const dispatch = useDispatch();
-	const courses = useSelector(({ academyApp }) => academyApp.courses.data);
-	const categories = useSelector(({ academyApp }) => academyApp.courses.categories);
+	const courses = useSelector(selectCourses);
+	const categories = useSelector(selectCategories);
 
 	const classes = useStyles(props);
 	const theme = useTheme();
@@ -53,8 +54,8 @@ function Courses(props) {
 	const [selectedCategory, setSelectedCategory] = useState('all');
 
 	useEffect(() => {
-		dispatch(Actions.getCategories());
-		dispatch(Actions.getCourses());
+		dispatch(getCategories());
+		dispatch(getCourses());
 	}, [dispatch]);
 
 	useEffect(() => {
@@ -172,7 +173,7 @@ function Courses(props) {
 									const category = categories.find(_cat => _cat.value === course.category);
 									return (
 										<div className="w-full pb-24 sm:w-1/2 lg:w-1/3 sm:p-16" key={course.id}>
-											<Card elevation={1} className="flex flex-col h-256">
+											<Card elevation={1} className="flex flex-col h-256 rounded-8">
 												<div
 													className="flex flex-shrink-0 items-center justify-between px-24 h-64"
 													style={{

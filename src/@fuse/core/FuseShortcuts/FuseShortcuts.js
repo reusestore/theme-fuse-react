@@ -12,11 +12,12 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { makeStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
-import * as UserActions from 'app/auth/store/actions';
 import clsx from 'clsx';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { updateUserShortcuts } from 'app/auth/store/userSlice';
+import { selectNavigation } from 'app/store/fuse/navigationSlice';
 
 const useStyles = makeStyles({
 	root: {
@@ -37,7 +38,7 @@ const useStyles = makeStyles({
 function FuseShortcuts(props) {
 	const dispatch = useDispatch();
 	const shortcuts = useSelector(({ auth }) => auth.user.data.shortcuts);
-	const navigationData = useSelector(({ fuse }) => fuse.navigation);
+	const navigationData = useSelector(selectNavigation);
 
 	const classes = useStyles(props);
 	const searchInputRef = useRef(null);
@@ -78,7 +79,7 @@ function FuseShortcuts(props) {
 	function toggleInShortcuts(id) {
 		let newShortcuts = [...shortcuts];
 		newShortcuts = newShortcuts.includes(id) ? newShortcuts.filter(_id => id !== _id) : [...newShortcuts, id];
-		dispatch(UserActions.updateUserShortcuts(newShortcuts));
+		dispatch(updateUserShortcuts(newShortcuts));
 	}
 
 	function ShortcutMenuItem({ item, onToggle }) {

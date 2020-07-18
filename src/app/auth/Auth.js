@@ -1,12 +1,13 @@
 import FuseSplashScreen from '@fuse/core/FuseSplashScreen';
-import * as userActions from 'app/auth/store/actions';
 import auth0Service from 'app/services/auth0Service';
 import firebaseService from 'app/services/firebaseService';
 import jwtService from 'app/services/jwtService';
-import * as Actions from 'app/store/actions';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { bindActionCreators } from '@reduxjs/toolkit';
+import { hideMessage, showMessage } from 'app/store/fuse/messageSlice';
+
+import { setUserDataFirebase, setUserDataAuth0, setUserData, logoutUser } from './store/userSlice';
 
 class Auth extends Component {
 	state = {
@@ -42,7 +43,7 @@ class Auth extends Component {
 						this.props.showMessage({ message: 'Logged in with JWT' });
 					})
 					.catch(error => {
-						this.props.showMessage({ message: error });
+						this.props.showMessage({ message: error.message });
 
 						resolve();
 					});
@@ -138,12 +139,12 @@ class Auth extends Component {
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators(
 		{
-			logout: userActions.logoutUser,
-			setUserData: userActions.setUserData,
-			setUserDataAuth0: userActions.setUserDataAuth0,
-			setUserDataFirebase: userActions.setUserDataFirebase,
-			showMessage: Actions.showMessage,
-			hideMessage: Actions.hideMessage
+			logout: logoutUser,
+			setUserData,
+			setUserDataAuth0,
+			setUserDataFirebase,
+			showMessage,
+			hideMessage
 		},
 		dispatch
 	);

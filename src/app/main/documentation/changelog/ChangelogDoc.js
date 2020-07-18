@@ -1,10 +1,80 @@
-import FusePageSimple from '@fuse/core/FusePageSimple';
-import Icon from '@material-ui/core/Icon';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
+	{
+		version: '5.0.0',
+		date: '2020-07-18',
+		newChanges: [
+			<>
+				Migrated to the{' '}
+				<a href="https://redux-toolkit.js.org/" target="_blank" rel="noopener noreferrer">
+					Redux-toolkit
+				</a>{' '}
+				(Official Redux library)'
+			</>,
+			'Theme Color Schemes updated',
+			'Color Schemes selection added into the SettingsPanel',
+			'New Documentation layout created, and content updated.',
+			"Default highlighting added to external links ('a.link, a:not([role=button])[target=_blank]').",
+			'New Login/Register page added (LaginPage3, RegisterPage3) default login/register pages updated.',
+			'Style changes applied for better theming',
+			'material-ui updated to v4.11',
+			'All dependency packages updated.'
+		],
+		notes: (
+			<>
+				<Typography className="text-14 p-12 border-2 rounded-8 w-full max-w-lg mt-16" component="div">
+					Migrating to the new major version (v5.0.0) can be difficult because of redux-toolkit integration.
+				</Typography>
+				<Typography
+					className="text-14 p-12 border-2 rounded-8 w-full max-w-lg mt-16 leading-loose"
+					component="div"
+				>
+					Some of the benefits of the redux-toolkit,
+					<ul className="list-disc ml-16">
+						<li>redux-toolkit is an official redux library.</li>
+						<li>The common redux dependencies included in the library</li>
+						<ul className="ml-8">
+							<li>"immer": "^7.0.3",</li>
+							<li>"redux": "^4.0.0",</li>
+							<li>"redux-thunk": "^2.3.0",</li>
+							<li>"reselect": "^4.0.0"</li>
+						</ul>
+						<li>
+							RTK resolves many of the arguments related to boilerplate and unnecessary code.
+							<br />
+							<ul className="ml-8">
+								As mentioned in its official docs, it helps to solve three major problems people had
+								with Redux:
+								<li>“Configuring a Redux store is too complicated.”</li>
+								<li>“I have to add a lot of packages to get Redux to do anything useful.”</li>
+								<li>“Redux requires too much boilerplate code.”</li>
+							</ul>
+						</li>
+						<li>
+							It makes writing redux easier with the best practices. - Includes popular middlewares by
+							default (redux-immutable-state-invariant, serializable-state-invariant-middleware thunk)
+						</li>
+						<li>
+							Redux DevTools are supported by default and with a simple flag true or false - With the
+							CreateSlice function, you don't always have to define action type, action, and reducer
+							separately.
+						</li>
+						<li>It's possible to mutate state with included ImmerJS.</li>
+						<li>
+							With the help of another included library Reselect, the performance can be improved.
+							<br />- createEntityAdapter function generates a set of prebuilt reducers and selectors for
+							performing CRUD operations more easily.
+						</li>
+					</ul>
+					<br />
+					<b>With the changes, We've removed ~57 redux related files from the fuse-react.</b>
+				</Typography>
+			</>
+		)
+	},
 	{
 		version: '4.1.6',
 		date: '2020-05-28',
@@ -704,31 +774,15 @@ const changelogData = [
 
 function ChangelogDoc() {
 	return (
-		<FusePageSimple
-			header={
-				<div className="flex flex-1 items-center justify-between p-24">
-					<div className="flex flex-col">
-						<div className="flex items-center mb-16">
-							<Icon className="text-18" color="action">
-								home
-							</Icon>
-							<Icon className="text-16" color="action">
-								chevron_right
-							</Icon>
-							<Typography color="textSecondary">Documentation</Typography>
-						</div>
-						<Typography variant="h6">Changelog</Typography>
-					</div>
-				</div>
-			}
-			content={
-				<div className="p-24 max-w-xl">
-					{changelogData.map(item => (
-						<ChangelogCard className="mb-24" key={item.version} {...item} />
-					))}
-				</div>
-			}
-		/>
+		<>
+			<Typography variant="h4" className="mb-24">
+				Changelog
+			</Typography>
+
+			{changelogData.map(item => (
+				<ChangelogCard className="mb-24 rounded-8" key={item.version} {...item} />
+			))}
+		</>
 	);
 }
 

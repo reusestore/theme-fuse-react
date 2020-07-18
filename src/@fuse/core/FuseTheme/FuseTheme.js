@@ -1,12 +1,13 @@
 import { ThemeProvider } from '@material-ui/core/styles';
 import React, { useEffect, useLayoutEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { selectMainTheme } from 'app/store/fuse/settingsSlice';
 
 const useEnhancedEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect;
 
 function FuseTheme(props) {
-	const mainTheme = useSelector(({ fuse }) => fuse.settings.mainTheme);
 	const direction = useSelector(({ fuse }) => fuse.settings.defaults.direction);
+	const mainTheme = useSelector(selectMainTheme);
 
 	useEnhancedEffect(() => {
 		document.body.dir = direction;

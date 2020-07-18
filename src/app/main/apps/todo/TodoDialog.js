@@ -24,7 +24,8 @@ import Typography from '@material-ui/core/Typography';
 import moment from 'moment/moment';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Actions from './store/actions';
+import { selectLabels } from './store/labelsSlice';
+import { removeTodo, addTodo, closeNewTodoDialog, closeEditTodoDialog, updateTodo } from './store/todosSlice';
 
 const defaultFormState = {
 	id: '',
@@ -42,7 +43,7 @@ const defaultFormState = {
 function TodoDialog(props) {
 	const dispatch = useDispatch();
 	const todoDialog = useSelector(({ todoApp }) => todoApp.todos.todoDialog);
-	const labels = useSelector(({ todoApp }) => todoApp.labels);
+	const labels = useSelector(selectLabels);
 
 	const [labelMenuEl, setLabelMenuEl] = useState(null);
 	const { form, handleChange, setForm } = useForm({ ...defaultFormState });
@@ -79,9 +80,7 @@ function TodoDialog(props) {
 	}, [todoDialog.props.open, initDialog]);
 
 	function closeTodoDialog() {
-		return todoDialog.type === 'edit'
-			? dispatch(Actions.closeEditTodoDialog())
-			: dispatch(Actions.closeNewTodoDialog());
+		return todoDialog.type === 'edit' ? dispatch(closeEditTodoDialog()) : dispatch(closeNewTodoDialog());
 	}
 
 	function handleLabelMenuOpen(event) {
@@ -128,7 +127,15 @@ function TodoDialog(props) {
 	}
 
 	return (
-		<Dialog {...todoDialog.props} onClose={closeTodoDialog} fullWidth maxWidth="sm">
+		<Dialog
+			{...todoDialog.props}
+			onClose={closeTodoDialog}
+			fullWidth
+			maxWidth="sm"
+			classes={{
+				paper: 'rounded-8'
+			}}
+		>
 			<AppBar position="static" elevation={1}>
 				<Toolbar className="flex w-full">
 					<Typography variant="subtitle1" color="inherit">
@@ -298,8 +305,9 @@ function TodoDialog(props) {
 							variant="contained"
 							color="primary"
 							onClick={() => {
-								dispatch(Actions.addTodo(form));
-								closeTodoDialog();
+								dispatch(addTodo(form)).then(() => {
+									closeTodoDialog();
+								});
 							}}
 							disabled={!canBeSubmitted()}
 						>
@@ -314,8 +322,9 @@ function TodoDialog(props) {
 							variant="contained"
 							color="primary"
 							onClick={() => {
-								dispatch(Actions.updateTodo(form));
-								closeTodoDialog();
+								dispatch(updateTodo(form)).then(() => {
+									closeTodoDialog();
+								});
 							}}
 							disabled={!canBeSubmitted()}
 						>
@@ -325,8 +334,9 @@ function TodoDialog(props) {
 					<IconButton
 						className="min-w-auto"
 						onClick={() => {
-							dispatch(Actions.removeTodo(form.id));
-							closeTodoDialog();
+							dispatch(removeTodo(form.id)).then(() => {
+								closeTodoDialog();
+							});
 						}}
 					>
 						<Icon>delete</Icon>

@@ -1,6 +1,4 @@
 import FuseHighlight from '@fuse/core/FuseHighlight';
-import FusePageSimple from '@fuse/core/FusePageSimple';
-import Icon from '@material-ui/core/Icon';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -58,41 +56,23 @@ const demos = [
 
 function FusePageSimpleDoc() {
 	return (
-		<FusePageSimple
-			header={
-				<div className="flex flex-1 items-center justify-between p-24">
-					<div className="flex flex-col">
-						<div className="flex items-center mb-16">
-							<Icon className="text-18" color="action">
-								home
-							</Icon>
-							<Icon className="text-16" color="action">
-								chevron_right
-							</Icon>
-							<Typography color="textSecondary">Documentation</Typography>
-							<Icon className="text-16" color="action">
-								chevron_right
-							</Icon>
-							<Typography color="textSecondary">Fuse Components</Typography>
-						</div>
-						<Typography variant="h6">FusePageSimple</Typography>
-					</div>
-				</div>
-			}
-			content={
-				<div className="p-24 max-w-2xl">
-					<Typography className="mb-16" component="p">
-						<code>FusePageSimple</code> is the simple page layout component of the Fuse React.
-					</Typography>
-					<Typography className="mb-16" component="p">
-						The component has layout areas to easily enter the contents of the app.
-					</Typography>
-					<Typography className="mb-16" component="p">
-						You can extend the class names injected by the classes property
-					</Typography>
+		<>
+			<Typography variant="h4" className="mb-24">
+				FusePageSimple
+			</Typography>
 
-					<FuseHighlight component="pre" className="language-jsx">
-						{`
+			<Typography className="mb-16" component="p">
+				<code>FusePageSimple</code> is the simple page layout component of the Fuse React.
+			</Typography>
+			<Typography className="mb-16" component="p">
+				The component has layout areas to easily enter the contents of the app.
+			</Typography>
+			<Typography className="mb-16" component="p">
+				You can extend the class names injected by the classes property
+			</Typography>
+
+			<FuseHighlight component="pre" className="language-jsx">
+				{`
                                    <FusePageSimple
                                         classes={{
                                             root: classes.layoutRoot
@@ -123,22 +103,20 @@ function FusePageSimpleDoc() {
                                         sidebarInner
                                     />
                                 `}
-					</FuseHighlight>
+			</FuseHighlight>
 
-					<Typography className="mt-32 mb-8" variant="h5">
-						Demos
-					</Typography>
+			<Typography className="mt-32 mb-8" variant="h5">
+				Demos
+			</Typography>
 
-					<ul>
-						{demos.map(demo => (
-							<li key={demo.url} className="mb-8">
-								<Link to={demo.url}>{demo.title}</Link>
-							</li>
-						))}
-					</ul>
-				</div>
-			}
-		/>
+			<ul>
+				{demos.map(demo => (
+					<li key={demo.url} className="mb-8">
+						<Link to={demo.url}>{demo.title}</Link>
+					</li>
+				))}
+			</ul>
+		</>
 	);
 }
 

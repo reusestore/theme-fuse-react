@@ -1,11 +1,10 @@
 import React from 'react';
 import Checkbox from '@material-ui/core/Checkbox';
-import MaUTable from '@material-ui/core/Table';
+import Table from '@material-ui/core/Table';
 import PropTypes from 'prop-types';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
-import TableFooter from '@material-ui/core/TableFooter';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
@@ -91,79 +90,77 @@ const EnhancedTable = ({ columns, data, onRowClick }) => {
 
 	// Render the UI for your table
 	return (
-		<TableContainer className="min-h-full sm:border-1 sm:rounded-16">
-			<MaUTable {...getTableProps()}>
-				<TableHead>
-					{headerGroups.map(headerGroup => (
-						<TableRow {...headerGroup.getHeaderGroupProps()}>
-							{headerGroup.headers.map(column => (
-								<TableCell
-									className="whitespace-no-wrap p-12"
-									{...(!column.sortable
-										? column.getHeaderProps()
-										: column.getHeaderProps(column.getSortByToggleProps()))}
-								>
-									{column.render('Header')}
-									{column.sortable ? (
-										<TableSortLabel
-											active={column.isSorted}
-											// react-table has a unsorted state which is not treated here
-											direction={column.isSortedDesc ? 'desc' : 'asc'}
-										/>
-									) : null}
-								</TableCell>
-							))}
-						</TableRow>
-					))}
-				</TableHead>
-				<TableBody>
-					{page.map((row, i) => {
-						prepareRow(row);
-						return (
-							<TableRow
-								{...row.getRowProps()}
-								onClick={ev => onRowClick(ev, row)}
-								className="truncate cursor-pointer"
-							>
-								{row.cells.map(cell => {
-									return (
-										<TableCell
-											{...cell.getCellProps()}
-											className={clsx('p-12', cell.column.className)}
-										>
-											{cell.render('Cell')}
-										</TableCell>
-									);
-								})}
+		<div className="flex flex-col min-h-full sm:border-1 sm:rounded-16 overflow-hidden">
+			<TableContainer className="flex flex-1">
+				<Table {...getTableProps()} stickyHeader>
+					<TableHead>
+						{headerGroups.map(headerGroup => (
+							<TableRow {...headerGroup.getHeaderGroupProps()}>
+								{headerGroup.headers.map(column => (
+									<TableCell
+										className="whitespace-no-wrap p-12"
+										{...(!column.sortable
+											? column.getHeaderProps()
+											: column.getHeaderProps(column.getSortByToggleProps()))}
+									>
+										{column.render('Header')}
+										{column.sortable ? (
+											<TableSortLabel
+												active={column.isSorted}
+												// react-table has a unsorted state which is not treated here
+												direction={column.isSortedDesc ? 'desc' : 'asc'}
+											/>
+										) : null}
+									</TableCell>
+								))}
 							</TableRow>
-						);
-					})}
-				</TableBody>
-
-				<TableFooter>
-					<TableRow>
-						<TablePagination
-							classes={{
-								root: 'overflow-hidden',
-								spacer: 'w-0 max-w-0'
-							}}
-							rowsPerPageOptions={[5, 10, 25, { label: 'All', value: data.length + 1 }]}
-							colSpan={5}
-							count={data.length}
-							rowsPerPage={pageSize}
-							page={pageIndex}
-							SelectProps={{
-								inputProps: { 'aria-label': 'rows per page' },
-								native: false
-							}}
-							onChangePage={handleChangePage}
-							onChangeRowsPerPage={handleChangeRowsPerPage}
-							ActionsComponent={ContactsTablePaginationActions}
-						/>
-					</TableRow>
-				</TableFooter>
-			</MaUTable>
-		</TableContainer>
+						))}
+					</TableHead>
+					<TableBody>
+						{page.map((row, i) => {
+							prepareRow(row);
+							return (
+								<TableRow
+									{...row.getRowProps()}
+									onClick={ev => onRowClick(ev, row)}
+									className="truncate cursor-pointer"
+								>
+									{row.cells.map(cell => {
+										return (
+											<TableCell
+												{...cell.getCellProps()}
+												className={clsx('p-12', cell.column.className)}
+											>
+												{cell.render('Cell')}
+											</TableCell>
+										);
+									})}
+								</TableRow>
+							);
+						})}
+					</TableBody>
+				</Table>
+			</TableContainer>
+			<TablePagination
+				component="div"
+				classes={{
+					root: 'overflow-hidden flex-shrink-0 border-0',
+					spacer: 'w-0 max-w-0'
+				}}
+				rowsPerPageOptions={[5, 10, 25, { label: 'All', value: data.length + 1 }]}
+				colSpan={5}
+				count={data.length}
+				rowsPerPage={pageSize}
+				page={pageIndex}
+				SelectProps={{
+					inputProps: { 'aria-label': 'rows per page' },
+					native: false
+				}}
+				onChangePage={handleChangePage}
+				onChangeRowsPerPage={handleChangeRowsPerPage}
+				ActionsComponent={ContactsTablePaginationActions}
+			/>
+		</div>
 	);
 };
 

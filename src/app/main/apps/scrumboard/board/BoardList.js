@@ -13,7 +13,7 @@ import BoardListHeader from './BoardListHeader';
 
 const useStyles = makeStyles(theme => ({
 	list: {
-		backgroundColor: darken(theme.palette.background.default, theme.palette.type === 'light' ? 0.02 : 0.4),
+		backgroundColor: darken(theme.palette.background.paper, theme.palette.type === 'light' ? 0.02 : 0.25),
 		transitionProperty: 'box-shadow',
 		transitionDuration: theme.transitions.duration.short,
 		transitionTimingFunction: theme.transitions.easing.easeInOut
@@ -33,7 +33,10 @@ function BoardList(props) {
 			{(provided, snapshot) => (
 				<div ref={provided.innerRef} {...provided.draggableProps}>
 					<Card
-						className={clsx(classes.list, 'w-256 sm:w-320 mx-8 sm:mx-12 max-h-full flex flex-col')}
+						className={clsx(
+							classes.list,
+							'w-256 sm:w-320 mx-8 sm:mx-12 max-h-full flex flex-col rounded-8'
+						)}
 						square
 						elevation={snapshot.isDragging ? 3 : 1}
 					>

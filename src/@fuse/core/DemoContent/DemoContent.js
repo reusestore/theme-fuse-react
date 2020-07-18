@@ -10,6 +10,7 @@ function DemoContent() {
 					maxWidth: '640px',
 					width: '100%'
 				}}
+				className="rounded-6"
 			/>
 			<h1 className="py-16">Early Sunrise</h1>
 			<h4 className="pb-12">Demo Content</h4>

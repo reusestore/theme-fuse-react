@@ -5,9 +5,10 @@ import Masonry from 'react-masonry-css';
 import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import NoteListItem from './NoteListItem';
+import { selectNotes } from './store/notesSlice';
 
 function NoteList(props) {
-	const notes = useSelector(({ notesApp }) => notesApp.notes.entities);
+	const notes = useSelector(selectNotes);
 	const variateDescSize = useSelector(({ notesApp }) => notesApp.notes.variateDescSize);
 	const searchText = useSelector(({ notesApp }) => notesApp.notes.searchText);
 
@@ -18,7 +19,7 @@ function NoteList(props) {
 			const { params } = props.match;
 			const { id, labelId } = params;
 
-			let data = Object.keys(notes).map(_id => notes[_id]);
+			let data = notes;
 
 			if (labelId) {
 				data = data.filter(note => note.labels.includes(labelId) && !note.archive);
@@ -45,7 +46,7 @@ function NoteList(props) {
 			return data;
 		}
 
-		if (notes) {
+		if (notes.length > 0) {
 			setFilteredData(filterData());
 		}
 	}, [notes, searchText, props.match]);
@@ -76,7 +77,7 @@ function NoteList(props) {
 					<NoteListItem
 						key={note.id}
 						note={note}
-						className="w-full rounded-8 shadow-none border-1 mb-16"
+						className="w-full rounded-8 mb-16"
 						variateDescSize={variateDescSize}
 					/>
 				))}

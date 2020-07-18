@@ -12,12 +12,15 @@ function Widget5(props) {
 
 	const widget = _.merge({}, props.widget);
 
+	_.setWith(widget, 'widget.mainChart.options.scales.xAxes[0].ticks.fontColor', theme.palette.text.secondary);
+	_.setWith(widget, 'widget.mainChart.options.scales.yAxes[0].ticks.fontColor', theme.palette.text.secondary);
+
 	function handleChangeRange(range) {
 		setCurrentRange(range);
 	}
 
 	return (
-		<Paper className="w-full rounded-8 shadow-none border-1">
+		<Paper className="w-full rounded-8 shadow-1">
 			<div className="flex items-center justify-between px-16 py-16 border-b-1">
 				<Typography className="text-16">{widget.title}</Typography>
 				<div className="items-center">

@@ -2,10 +2,10 @@ import { TextFieldFormsy } from '@fuse/core/formsy';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import * as authActions from 'app/auth/store/actions';
 import Formsy from 'formsy-react';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { submitRegister } from 'app/auth/store/registerSlice';
 
 function JWTRegisterTab(props) {
 	const dispatch = useDispatch();
@@ -32,7 +32,7 @@ function JWTRegisterTab(props) {
 	}
 
 	function handleSubmit(model) {
-		dispatch(authActions.submitRegister(model));
+		dispatch(submitRegister(model));
 	}
 
 	return (

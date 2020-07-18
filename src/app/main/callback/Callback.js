@@ -1,23 +1,23 @@
 import FuseSplashScreen from '@fuse/core/FuseSplashScreen';
-import * as userActions from 'app/auth/store/actions';
 import auth0Service from 'app/services/auth0Service';
-import * as Actions from 'app/store/actions';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { setUserDataAuth0 } from 'app/auth/store/userSlice';
+import { showMessage } from 'app/store/fuse/messageSlice';
 
 function Callback(props) {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		auth0Service.onAuthenticated(() => {
-			dispatch(Actions.showMessage({ message: 'Logging in with Auth0' }));
+			dispatch(showMessage({ message: 'Logging in with Auth0' }));
 
 			/**
 			 * Retrieve user data from Auth0
 			 */
 			auth0Service.getUserData().then(tokenData => {
-				dispatch(userActions.setUserDataAuth0(tokenData));
-				dispatch(Actions.showMessage({ message: 'Logged in with Auth0' }));
+				dispatch(setUserDataAuth0(tokenData));
+				dispatch(showMessage({ message: 'Logged in with Auth0' }));
 			});
 		});
 	}, [dispatch]);

@@ -7,7 +7,7 @@ components: Grid
 
 <p class="description">Material Design 响应式布局的栅格可适应屏幕大小和方向，确保布局之间的一致性。</p>
 
-[Grid 栅格组件](https://material.io/design/layout/responsive-layout-grid.html)能确保不同布局间的视觉层面的舒适感，同时在众多不同设计中保持灵活性。 Material Design 的响应式 UI 是基于12列的栅格系统。
+[Grid 栅格组件](https://material.io/design/layout/responsive-layout-grid.html) 能确保不同布局间的视觉层面的舒适感，同时在众多不同设计中保持灵活性。 Material Design 的响应式 UI 是基于12列的栅格系统。
 
 ## 它是如何工作的的呢
 
@@ -21,7 +21,7 @@ components: Grid
 
 若你**对 flexbox 不太熟悉**，我们建议你阅读 [CSS-Tricks flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) 手册。
 
-## Spacing 间距
+## Spacing（间距）
 
 响应式栅格侧重于的一致的水平间距，而不是列宽。 Material design 外边距（margins）和列（col）都遵循** 8px **的方块形基线栅格。 你可以将 spacing 的属性值设置为一个在0和10之间的整数，且并包括0和10。 默认情况下，两个网格项之间的间距遵循这样的线性函数： `output(spacing) = spacing * 8px`，例如 `spacing={2}` 会创建一个 16px 的宽间距。
 

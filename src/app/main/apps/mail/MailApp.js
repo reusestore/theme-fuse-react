@@ -10,8 +10,10 @@ import MailAppSidebarContent from './MailAppSidebarContent';
 import MailAppSidebarHeader from './MailAppSidebarHeader';
 import MailList from './mails/MailList';
 import MailsToolbar from './mails/MailsToolbar';
-import * as Actions from './store/actions';
-import reducer from './store/reducers';
+import reducer from './store';
+import { getFilters } from './store/filtersSlice';
+import { getFolders } from './store/foldersSlice';
+import { getLabels } from './store/labelsSlice';
 
 function MailApp(props) {
 	const dispatch = useDispatch();
@@ -20,9 +22,9 @@ function MailApp(props) {
 	const routeParams = useParams();
 
 	useEffect(() => {
-		dispatch(Actions.getFilters());
-		dispatch(Actions.getFolders());
-		dispatch(Actions.getLabels());
+		dispatch(getFilters());
+		dispatch(getFolders());
+		dispatch(getLabels());
 	}, [dispatch]);
 
 	return (

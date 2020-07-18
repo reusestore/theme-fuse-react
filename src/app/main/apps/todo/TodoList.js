@@ -6,10 +6,11 @@ import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { selectTodos } from './store/todosSlice';
 import TodoListItem from './TodoListItem';
 
 function TodoList(props) {
-	const todos = useSelector(({ todoApp }) => todoApp.todos.entities);
+	const todos = useSelector(selectTodos);
 	const searchText = useSelector(({ todoApp }) => todoApp.todos.searchText);
 	const orderBy = useSelector(({ todoApp }) => todoApp.todos.orderBy);
 	const orderDescending = useSelector(({ todoApp }) => todoApp.todos.orderDescending);
@@ -17,11 +18,10 @@ function TodoList(props) {
 
 	useEffect(() => {
 		function getFilteredArray(entities, _searchText) {
-			const arr = Object.keys(entities).map(id => entities[id]);
 			if (_searchText.length === 0) {
-				return arr;
+				return todos;
 			}
-			return FuseUtils.filterArrayByString(arr, _searchText);
+			return FuseUtils.filterArrayByString(todos, _searchText);
 		}
 
 		if (todos) {

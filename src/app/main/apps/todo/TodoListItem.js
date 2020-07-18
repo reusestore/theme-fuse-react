@@ -9,7 +9,9 @@ import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Actions from './store/actions';
+import { selectLabelsEntities } from './store/labelsSlice';
+import { updateTodo, openEditTodoDialog } from './store/todosSlice';
+
 import TodoChip from './TodoChip';
 
 const useStyles = makeStyles({
@@ -25,7 +27,7 @@ const useStyles = makeStyles({
 
 function TodoListItem(props) {
 	const dispatch = useDispatch();
-	const labels = useSelector(({ todoApp }) => todoApp.labels);
+	const labels = useSelector(selectLabelsEntities);
 
 	const classes = useStyles(props);
 
@@ -38,7 +40,7 @@ function TodoListItem(props) {
 			)}
 			onClick={ev => {
 				ev.preventDefault();
-				dispatch(Actions.openEditTodoDialog(props.todo));
+				dispatch(openEditTodoDialog(props.todo));
 			}}
 			dense
 			button
@@ -47,7 +49,14 @@ function TodoListItem(props) {
 				tabIndex={-1}
 				disableRipple
 				checked={props.todo.completed}
-				onChange={() => dispatch(Actions.toggleCompleted(props.todo))}
+				onChange={() =>
+					dispatch(
+						updateTodo({
+							...props.todo,
+							completed: !props.todo.completed
+						})
+					)
+				}
 				onClick={ev => ev.stopPropagation()}
 			/>
 
@@ -68,8 +77,8 @@ function TodoListItem(props) {
 					{props.todo.labels.map(label => (
 						<TodoChip
 							className="mx-2 mt-4"
-							title={_.find(labels, { id: label }).title}
-							color={_.find(labels, { id: label }).color}
+							title={labels[label].title}
+							color={labels[label].color}
 							key={label}
 						/>
 					))}
@@ -81,7 +90,12 @@ function TodoListItem(props) {
 					onClick={ev => {
 						ev.preventDefault();
 						ev.stopPropagation();
-						dispatch(Actions.toggleImportant(props.todo));
+						dispatch(
+							updateTodo({
+								...props.todo,
+								important: !props.todo.important
+							})
+						);
 					}}
 				>
 					{props.todo.important ? <Icon style={{ color: red[500] }}>error</Icon> : <Icon>error_outline</Icon>}
@@ -90,7 +104,12 @@ function TodoListItem(props) {
 					onClick={ev => {
 						ev.preventDefault();
 						ev.stopPropagation();
-						dispatch(Actions.toggleStarred(props.todo));
+						dispatch(
+							updateTodo({
+								...props.todo,
+								starred: !props.todo.starred
+							})
+						);
 					}}
 				>
 					{props.todo.starred ? <Icon style={{ color: amber[500] }}>star</Icon> : <Icon>star_outline</Icon>}

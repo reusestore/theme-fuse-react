@@ -2,7 +2,6 @@ import FuseAnimate from '@fuse/core/FuseAnimate';
 import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -26,7 +25,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 const useStyles = makeStyles(theme => ({
 	header: {
-		background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
+		background: `linear-gradient(to left, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
 		color: theme.palette.primary.contrastText
 	}
 }));
@@ -84,31 +83,31 @@ function KnowledgeBasePage() {
 							className="flex flex-wrap justify-center max-w-xl w-full mx-auto px-16 sm:px-24 py-32"
 						>
 							{data.map(category => (
-								<div className="w-full max-w-512 pb-24 md:w-1/2 md:p-16" key={category.id}>
-									<Card elevation={1}>
-										<CardContent>
-											<Typography className="font-medium px-16 pt-8" color="textSecondary">
+								<div className="max-w-md w-full max-w-512 pb-24 md:w-1/2 md:p-16" key={category.id}>
+									<Card className="rounded-8" elevation={1}>
+										<List component="nav" className="p-0">
+											<Typography className="font-bold pl-32 py-16 text-16">
 												{category.title}
 											</Typography>
-											<List component="nav">
-												{category.featuredArticles.map(article => (
-													<ListItem
-														key={article.id}
-														button
-														onClick={() => handleOpenDialog(article)}
-													>
-														<ListItemIcon className="min-w-40">
-															<Icon>note</Icon>
-														</ListItemIcon>
-														<ListItemText primary={article.title} />
-													</ListItem>
-												))}
-											</List>
-											<Button
-												className="normal-case w-full justify-start"
-												color="secondary"
-											>{`See all articles (${category.articlesCount})`}</Button>
-										</CardContent>
+
+											{category.featuredArticles.map((article, index) => (
+												<ListItem
+													key={article.id}
+													onClick={() => handleOpenDialog(article)}
+													className="pl-32 border-b-1 border-solid"
+													button
+												>
+													<ListItemIcon className="min-w-40">
+														<Icon className="text-20">import_contacts</Icon>
+													</ListItemIcon>
+													<ListItemText primary={article.title} />
+												</ListItem>
+											))}
+										</List>
+										<Button
+											className="pl-32 normal-case w-full justify-start my-8 font-500"
+											color="secondary"
+										>{`See all articles (${category.articlesCount})`}</Button>
 									</Card>
 								</div>
 							))}

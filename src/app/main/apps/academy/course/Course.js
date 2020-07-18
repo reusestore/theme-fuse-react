@@ -17,8 +17,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { useDeepCompareEffect } from '@fuse/hooks';
 import SwipeableViews from 'react-swipeable-views';
-import * as Actions from '../store/actions';
-import reducer from '../store/reducers';
+import reducer from '../store';
+import { getCourse, updateCourse } from '../store/courseSlice';
 
 const useStyles = makeStyles(theme => ({
 	stepLabel: {
@@ -43,7 +43,7 @@ function Course(props) {
 		/**
 		 * Get the Course Data
 		 */
-		dispatch(Actions.getCourse(routeParams));
+		dispatch(getCourse(routeParams));
 	}, [dispatch, routeParams]);
 
 	useEffect(() => {
@@ -52,20 +52,20 @@ function Course(props) {
 		 * Change ActiveStep to 1
 		 */
 		if (course && course.activeStep === 0) {
-			dispatch(Actions.updateCourse({ activeStep: 1 }));
+			dispatch(updateCourse({ activeStep: 1 }));
 		}
 	}, [dispatch, course]);
 
 	function handleChangeActiveStep(index) {
-		dispatch(Actions.updateCourse({ activeStep: index + 1 }));
+		dispatch(updateCourse({ activeStep: index + 1 }));
 	}
 
 	function handleNext() {
-		dispatch(Actions.updateCourse({ activeStep: course.activeStep + 1 }));
+		dispatch(updateCourse({ activeStep: course.activeStep + 1 }));
 	}
 
 	function handleBack() {
-		dispatch(Actions.updateCourse({ activeStep: course.activeStep - 1 }));
+		dispatch(updateCourse({ activeStep: course.activeStep - 1 }));
 	}
 
 	const activeStep = course && course.activeStep !== 0 ? course.activeStep : 1;

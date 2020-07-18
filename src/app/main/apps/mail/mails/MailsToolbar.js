@@ -5,14 +5,23 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Actions from '../store/actions/index';
+import { selectFolders } from '../store/foldersSlice';
+import { selectLabels } from '../store/labelsSlice';
+import {
+	toggleLabelOnSelectedMails,
+	setFolderOnSelectedMails,
+	selectMailsByParameter,
+	deselectAllMails,
+	selectAllMails,
+	selectMails
+} from '../store/mailsSlice';
 
 function MailToolbar(props) {
 	const dispatch = useDispatch();
 	const selectedMailIds = useSelector(({ mailApp }) => mailApp.mails.selectedMailIds);
-	const mails = useSelector(({ mailApp }) => mailApp.mails.entities);
-	const labels = useSelector(({ mailApp }) => mailApp.labels);
-	const folders = useSelector(({ mailApp }) => mailApp.folders);
+	const mails = useSelector(selectMails);
+	const labels = useSelector(selectLabels);
+	const folders = useSelector(selectFolders);
 
 	const [menu, setMenu] = useState({
 		selectMenu: null,
@@ -35,7 +44,7 @@ function MailToolbar(props) {
 	}
 
 	function handleCheckChange(event) {
-		return event.target.checked ? dispatch(Actions.selectAllMails()) : dispatch(Actions.deselectAllMails());
+		return event.target.checked ? dispatch(selectAllMails()) : dispatch(deselectAllMails());
 	}
 
 	return (
@@ -65,7 +74,7 @@ function MailToolbar(props) {
 			>
 				<MenuItem
 					onClick={ev => {
-						dispatch(Actions.selectAllMails());
+						dispatch(selectAllMails());
 						handleMenuClose(ev, 'select');
 					}}
 				>
@@ -73,7 +82,7 @@ function MailToolbar(props) {
 				</MenuItem>
 				<MenuItem
 					onClick={ev => {
-						dispatch(Actions.deselectAllMails());
+						dispatch(deselectAllMails());
 						handleMenuClose(ev, 'select');
 					}}
 				>
@@ -81,7 +90,7 @@ function MailToolbar(props) {
 				</MenuItem>
 				<MenuItem
 					onClick={ev => {
-						dispatch(Actions.selectMailsByParameter('read', true));
+						dispatch(selectMailsByParameter(['read', true]));
 						handleMenuClose(ev, 'select');
 					}}
 				>
@@ -89,7 +98,7 @@ function MailToolbar(props) {
 				</MenuItem>
 				<MenuItem
 					onClick={ev => {
-						dispatch(Actions.selectMailsByParameter('read', false));
+						dispatch(selectMailsByParameter(['read', false]));
 						handleMenuClose(ev, 'select');
 					}}
 				>
@@ -97,7 +106,7 @@ function MailToolbar(props) {
 				</MenuItem>
 				<MenuItem
 					onClick={ev => {
-						dispatch(Actions.selectMailsByParameter('starred', true));
+						dispatch(selectMailsByParameter(['starred', true]));
 						handleMenuClose(ev, 'select');
 					}}
 				>
@@ -105,7 +114,7 @@ function MailToolbar(props) {
 				</MenuItem>
 				<MenuItem
 					onClick={ev => {
-						dispatch(Actions.selectMailsByParameter('starred', false));
+						dispatch(selectMailsByParameter(['starred', false]));
 						handleMenuClose(ev, 'select');
 					}}
 				>
@@ -113,7 +122,7 @@ function MailToolbar(props) {
 				</MenuItem>
 				<MenuItem
 					onClick={ev => {
-						dispatch(Actions.selectMailsByParameter('important', true));
+						dispatch(selectMailsByParameter(['important', true]));
 						handleMenuClose(ev, 'select');
 					}}
 				>
@@ -121,7 +130,7 @@ function MailToolbar(props) {
 				</MenuItem>
 				<MenuItem
 					onClick={ev => {
-						dispatch(Actions.selectMailsByParameter('important', false));
+						dispatch(selectMailsByParameter(['important', false]));
 						handleMenuClose(ev, 'select');
 					}}
 				>
@@ -133,7 +142,7 @@ function MailToolbar(props) {
 				<>
 					<div className="border-r-1 h-48 w-1 mx-12 my-0" />
 
-					<IconButton onClick={ev => dispatch(Actions.setFolderOnSelectedMails(4))} aria-label="Delete">
+					<IconButton onClick={ev => dispatch(setFolderOnSelectedMails(4))} aria-label="Delete">
 						<Icon>delete</Icon>
 					</IconButton>
 
@@ -156,7 +165,7 @@ function MailToolbar(props) {
 							folders.map(folder => (
 								<MenuItem
 									onClick={ev => {
-										dispatch(Actions.setFolderOnSelectedMails(folder.id));
+										dispatch(setFolderOnSelectedMails(folder.id));
 										handleMenuClose(ev, 'folders');
 									}}
 									key={folder.id}
@@ -185,7 +194,7 @@ function MailToolbar(props) {
 							labels.map(label => (
 								<MenuItem
 									onClick={ev => {
-										dispatch(Actions.toggleLabelOnSelectedMails(label.id));
+										dispatch(toggleLabelOnSelectedMails(label.id));
 										handleMenuClose(ev, 'labels');
 									}}
 									key={label.id}

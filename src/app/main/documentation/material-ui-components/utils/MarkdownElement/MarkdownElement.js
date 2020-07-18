@@ -254,7 +254,6 @@ const useStyles = makeStyles(theme => ({
 function MarkdownElement(props) {
 	const classes = useStyles();
 	const { className, text, ...other } = props;
-	console.info(text);
 	/* eslint-disable react/no-danger */
 	return (
 		<div

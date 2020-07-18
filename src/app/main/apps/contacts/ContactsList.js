@@ -8,11 +8,11 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ContactsMultiSelectMenu from './ContactsMultiSelectMenu';
 import ContactsTable from './ContactsTable';
-import * as Actions from './store/actions';
+import { openEditContactDialog, removeContact, toggleStarredContact, selectContacts } from './store/contactsSlice';
 
 function ContactsList(props) {
 	const dispatch = useDispatch();
-	const contacts = useSelector(({ contactsApp }) => contactsApp.contacts.entities);
+	const contacts = useSelector(selectContacts);
 	const searchText = useSelector(({ contactsApp }) => contactsApp.contacts.searchText);
 	const user = useSelector(({ contactsApp }) => contactsApp.user);
 
@@ -77,7 +77,7 @@ function ContactsList(props) {
 						<IconButton
 							onClick={ev => {
 								ev.stopPropagation();
-								dispatch(Actions.toggleStarredContact(row.original.id));
+								dispatch(toggleStarredContact(row.original.id));
 							}}
 						>
 							{user.starred && user.starred.includes(row.original.id) ? (
@@ -89,7 +89,7 @@ function ContactsList(props) {
 						<IconButton
 							onClick={ev => {
 								ev.stopPropagation();
-								dispatch(Actions.removeContact(row.original.id));
+								dispatch(removeContact(row.original.id));
 							}}
 						>
 							<Icon>delete</Icon>
@@ -103,11 +103,10 @@ function ContactsList(props) {
 
 	useEffect(() => {
 		function getFilteredArray(entities, _searchText) {
-			const arr = Object.keys(entities).map(id => entities[id]);
 			if (_searchText.length === 0) {
-				return arr;
+				return contacts;
 			}
-			return FuseUtils.filterArrayByString(arr, _searchText);
+			return FuseUtils.filterArrayByString(contacts, _searchText);
 		}
 
 		if (contacts) {
@@ -136,7 +135,7 @@ function ContactsList(props) {
 				data={filteredData}
 				onRowClick={(ev, row) => {
 					if (row) {
-						dispatch(Actions.openEditContactDialog(row.original));
+						dispatch(openEditContactDialog(row.original));
 					}
 				}}
 			/>

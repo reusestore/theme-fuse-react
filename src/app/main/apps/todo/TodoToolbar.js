@@ -5,7 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Actions from './store/actions';
+import { toggleOrderDescending, changeOrder } from './store/todosSlice';
 
 function TodoToolbar(props) {
 	const dispatch = useDispatch();
@@ -13,7 +13,7 @@ function TodoToolbar(props) {
 	const orderDescending = useSelector(({ todoApp }) => todoApp.todos.orderDescending);
 
 	function handleOrderChange(ev) {
-		dispatch(Actions.changeOrder(ev.target.value));
+		dispatch(changeOrder(ev.target.value));
 	}
 
 	return (
@@ -30,7 +30,7 @@ function TodoToolbar(props) {
 						<MenuItem value="title">Title</MenuItem>
 					</Select>
 				</FormControl>
-				<IconButton onClick={ev => dispatch(Actions.toggleOrderDescending())}>
+				<IconButton onClick={ev => dispatch(toggleOrderDescending())}>
 					<Icon style={{ transform: orderDescending ? 'scaleY(-1)' : 'scaleY(1)' }}>sort</Icon>
 				</IconButton>
 			</div>

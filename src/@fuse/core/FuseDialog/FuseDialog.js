@@ -1,7 +1,7 @@
 import Dialog from '@material-ui/core/Dialog';
-import * as Actions from 'app/store/actions';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { closeDialog } from 'app/store/fuse/dialogSlice';
 
 function FuseDialog(props) {
 	const dispatch = useDispatch();
@@ -11,8 +11,11 @@ function FuseDialog(props) {
 	return (
 		<Dialog
 			open={state}
-			onClose={ev => dispatch(Actions.closeDialog())}
+			onClose={ev => dispatch(closeDialog())}
 			aria-labelledby="fuse-dialog-title"
+			classes={{
+				paper: 'rounded-8'
+			}}
 			{...options}
 		/>
 	);

@@ -31,7 +31,7 @@ class EventEmitter {
 	emit(eventName, ...args) {
 		this._getEventListByName(eventName).forEach(
 			// eslint-disable-next-line func-names
-			function(fn) {
+			function (fn) {
 				fn.apply(this, args);
 			}.bind(this)
 		);

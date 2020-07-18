@@ -1,8 +1,9 @@
 import mock from '../mock';
 
 const analyticsDashboardAppDB = {
-	widgets: {
-		widget1: {
+	widgets: [
+		{
+			id: 'widget1',
 			chartType: 'line',
 			datasets: {
 				'2015': [
@@ -86,7 +87,8 @@ const analyticsDashboardAppDB = {
 				}
 			}
 		},
-		widget2: {
+		{
+			id: 'widget2',
 			conversion: {
 				value: 492,
 				ofTarget: 13
@@ -131,7 +133,8 @@ const analyticsDashboardAppDB = {
 				}
 			}
 		},
-		widget3: {
+		{
+			id: 'widget3',
 			impressions: {
 				value: '87k',
 				ofTarget: 12
@@ -220,7 +223,8 @@ const analyticsDashboardAppDB = {
 				}
 			}
 		},
-		widget4: {
+		{
+			id: 'widget4',
 			visits: {
 				value: 882,
 				ofTarget: -9
@@ -265,7 +269,8 @@ const analyticsDashboardAppDB = {
 				}
 			}
 		},
-		widget5: {
+		{
+			id: 'widget5',
 			chartType: 'line',
 			datasets: {
 				yesterday: [
@@ -348,7 +353,8 @@ const analyticsDashboardAppDB = {
 				}
 			}
 		},
-		widget6: {
+		{
+			id: 'widget6',
 			markers: [
 				{
 					lat: 52,
@@ -482,7 +488,8 @@ const analyticsDashboardAppDB = {
 				}
 			]
 		},
-		widget7: {
+		{
+			id: 'widget7',
 			labels: ['Desktop', 'Mobile', 'Tablet'],
 			datasets: {
 				Today: [
@@ -525,7 +532,8 @@ const analyticsDashboardAppDB = {
 				maintainAspectRatio: false
 			}
 		},
-		widget8: {
+		{
+			id: 'widget8',
 			datasets: [
 				[
 					{
@@ -601,7 +609,8 @@ const analyticsDashboardAppDB = {
 				percentage: 2.05
 			}
 		},
-		widget9: {
+		{
+			id: 'widget9',
 			rows: [
 				{
 					title: 'Holiday Travel',
@@ -630,7 +639,7 @@ const analyticsDashboardAppDB = {
 				}
 			]
 		}
-	}
+	]
 };
 
 mock.onGet('/api/analytics-dashboard-app/widgets').reply(config => {

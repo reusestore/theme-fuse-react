@@ -12,8 +12,9 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, withRouter, useParams } from 'react-router-dom';
 import { useDeepCompareEffect } from '@fuse/hooks';
-import * as Actions from '../store/actions';
-import reducer from '../store/reducers';
+import reducer from '../store';
+import { reorderCard, reorderList, resetBoard, getBoard } from '../store/boardSlice';
+
 import BoardAddList from './BoardAddList';
 import BoardList from './BoardList';
 import BoardTitle from './BoardTitle';
@@ -29,9 +30,9 @@ function Board(props) {
 	const [settingsDrawerOpen, setSettingsDrawerOpen] = useState(false);
 
 	useDeepCompareEffect(() => {
-		dispatch(Actions.getBoard(routeParams));
+		dispatch(getBoard(routeParams));
 		return () => {
-			dispatch(Actions.resetBoard());
+			dispatch(resetBoard());
 		};
 	}, [dispatch, routeParams]);
 
@@ -50,12 +51,12 @@ function Board(props) {
 
 		// reordering list
 		if (result.type === 'list') {
-			dispatch(Actions.reorderList(result));
+			dispatch(reorderList(result));
 		}
 
 		// reordering card
 		if (result.type === 'card') {
-			dispatch(Actions.reorderCard(result));
+			dispatch(reorderCard(result));
 		}
 	}
 

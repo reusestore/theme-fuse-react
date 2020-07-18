@@ -11,7 +11,7 @@ import React from 'react';
 const useStyles = makeStyles(theme => ({
 	header: {
 		height: 600,
-		background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
+		background: `linear-gradient(to left, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
 		color: theme.palette.primary.contrastText
 	},
 	badge: {
@@ -61,7 +61,7 @@ function PricingStyle3Page() {
 						className="flex items-center justify-center flex-wrap"
 					>
 						<div className="w-full max-w-320 sm:w-1/3 p-12">
-							<Card className="relative">
+							<Card className="relative rounded-8">
 								<div className="p-32 text-center">
 									<Typography className="text-32">Starter</Typography>
 									<Typography color="textSecondary" className="text-16 font-medium">
@@ -113,7 +113,7 @@ function PricingStyle3Page() {
 						</div>
 
 						<div className="w-full max-w-320 sm:w-1/3 p-12">
-							<Card className="relative" raised>
+							<Card className="relative rounded-8" raised>
 								<div className="p-32 text-center">
 									<Typography className="text-32">Pro</Typography>
 									<Typography color="textSecondary" className="text-16 font-medium">
@@ -168,7 +168,7 @@ function PricingStyle3Page() {
 						</div>
 
 						<div className="w-full max-w-320 sm:w-1/3 p-12">
-							<Card className="relative">
+							<Card className="relative rounded-8">
 								<div className="p-32 text-center">
 									<Typography className="text-32">Enterprise</Typography>
 									<Typography color="textSecondary" className="text-16 font-medium">

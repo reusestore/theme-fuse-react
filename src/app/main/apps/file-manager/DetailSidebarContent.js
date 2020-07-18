@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { selectFileById } from './store/filesSlice';
 
 const useStyles = makeStyles({
 	table: {
@@ -31,8 +32,7 @@ const useStyles = makeStyles({
 });
 
 function DetailSidebarContent(props) {
-	const files = useSelector(({ fileManagerApp }) => fileManagerApp.files);
-	const selectedItem = useSelector(({ fileManagerApp }) => files[fileManagerApp.selectedItemId]);
+	const selectedItem = useSelector(state => selectFileById(state, state.fileManagerApp.files.selectedItemId));
 
 	const classes = useStyles();
 

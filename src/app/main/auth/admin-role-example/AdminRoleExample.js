@@ -4,9 +4,9 @@ import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import * as authActions from 'app/auth/store/actions';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { logoutUser } from 'app/auth/store/userSlice';
 
 const useStyles = makeStyles(theme => ({
 	layoutRoot: {}
@@ -25,11 +25,7 @@ function AdminRoleExample(props) {
 			header={
 				<div className="flex flex-1 items-center justify-between p-24">
 					<Typography className="h2">Admin: Auth role example page</Typography>
-					<Button
-						className="normal-case"
-						variant="contained"
-						onClick={ev => dispatch(authActions.logoutUser())}
-					>
+					<Button className="normal-case" variant="contained" onClick={ev => dispatch(logoutUser())}>
 						<Icon>exit_to_app</Icon>
 						<span className="mx-4">Logout</span>
 					</Button>

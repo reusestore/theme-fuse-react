@@ -3,7 +3,6 @@ import Icon from '@material-ui/core/Icon';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import * as Actions from 'app/store/actions';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
@@ -11,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
 import FuseNavBadge from '../FuseNavBadge';
 
 const useStyles = makeStyles(theme => ({
@@ -66,7 +66,7 @@ function FuseNavVerticalLink(props) {
 			href={item.url}
 			target={item.target ? item.target : '_blank'}
 			className={clsx(classes.item, 'list-item')}
-			onClick={ev => mdDown && dispatch(Actions.navbarCloseMobile())}
+			onClick={ev => mdDown && dispatch(navbarCloseMobile())}
 			role="button"
 		>
 			{item.icon && (

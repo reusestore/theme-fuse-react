@@ -21,7 +21,7 @@ components: Button, IconButton, ButtonBase
 
 {{"demo": "pages/components/buttons/ContainedButtons.js"}}
 
-Você pode remover a sombra com a propriedade `disableElevation`.
+Você pode remover a elevação com a propriedade `disableElevation`.
 
 {{"demo": "pages/components/buttons/DisableElevation.js"}}
 
@@ -44,7 +44,17 @@ Botões delineados são uma alternativa de menor ênfase comparado com botões c
 
 {{"demo": "pages/components/buttons/OutlinedButtons.js"}}
 
-## Botão de Upload
+## Manipulando cliques
+
+Todos os componentes aceitam um método manipulador `onClick` que é aplicado ao elemento DOM raiz.
+
+```jsx
+<Button onClick={() => { alert('clicado') }}>Clique aqui</Button>
+```
+
+Note que a documentação [evita](/guides/api/#native-properties) mencionar as propriedades nativas (existem várias) na seção de API dos componentes.
+
+## Botão de upload
 
 {{"demo": "pages/components/buttons/UploadButtons.js"}}
 
@@ -56,7 +66,7 @@ Gosta de botões maiores ou menores? Use a propriedade `size`.
 
 ## Botões com ícones e rótulo
 
-Às vezes você pode querer ter ícones para determinados botão para melhorar o UX do aplicativo como reconhecemos logotipos mais facilmente do que o texto sem formatação. Por exemplo, se você tem um botão com a açõo de "deletar" você pode rotulá-lo com um ícone do caixote de lixo.
+Às vezes você pode querer ter ícones para determinado botão para melhorar o UX do aplicativo, reconhecemos logotipos mais facilmente do que o texto puro. Por exemplo, se você tem um botão com a ação de "deletar", você pode rotulá-lo com o ícone de lata de lixo.
 
 {{"demo": "pages/components/buttons/IconLabelButtons.js"}}
 
@@ -64,11 +74,11 @@ Gosta de botões maiores ou menores? Use a propriedade `size`.
 
 Botões de ícones são comumente encontrados em barras de aplicativos e barras de ferramentas.
 
-Ícones são também adequadas para botões de alternância que permitem uma escolha única para ser selecionado ou desmarcada, como adicionar ou remover uma estrela para um item.
+Ícones são também adequados para botões de alternância que permitem uma escolha única para ser selecionado ou desmarcado, como adicionar ou remover uma estrela para um item.
 
 {{"demo": "pages/components/buttons/IconButtons.js"}}
 
-## Botões Customizados
+## Botões customizados
 
 Aqui estão alguns exemplos de customização do componente. Você pode aprender mais sobre isso na [página de documentação de sobrescritas](/customization/components/).
 
@@ -76,15 +86,15 @@ Aqui estão alguns exemplos de customização do componente. Você pode aprender
 
 🎨 Se você está procurando inspiração, você pode verificar [os exemplos de customização de MUI Treasury](https://mui-treasury.com/styles/button).
 
-## Botões Complexos
+## Botões complexos
 
-O botões de texto, botões contidos, botões de ação flutuante e ícone botões são construídos em cima do mesmo componente: O componente `ButtonBase `. Você pode tirar vantagem deste componente de nível mais abastrato para construir interações personalizadas.
+Os botões de texto, botões contidos, botões de ação flutuante e botões de ícone são construídos com base no mesmo componente: O componente `ButtonBase`. Você pode tirar vantagem deste componente de nível mais abstrato para construir interações customizadas.
 
 {{"demo": "pages/components/buttons/ButtonBase.js"}}
 
 ## Biblioteca de roteamento de terceiros
 
-Um caso de uso comum é usar o botão para acionar uma navegação para uma nova página. O componente `ButtonBase` fornece uma propriedade para lidar com este caso de uso: `componente`. No entanto, para alguns polyfills de foco `ButtonBase` requer o nó DOM do componente fornecido. Isso é obtido anexando-se uma referência ao componente e esperando que o componente envie essa referência para o nó DOM subjacente. Dado que muitos dos componentes interativos dependem do `ButtonBase`, você deve ser capaz de tirar proveito em todos os lugares.
+Um caso de uso comum é usar o botão para acionar uma navegação para uma nova página. O componente `ButtonBase` fornece uma propriedade para lidar com este caso de uso: `component`. No entanto, para alguns polyfills de foco, `ButtonBase` requer o nó DOM do componente fornecido. Isso é obtido anexando-se uma referência ao componente e esperando que o componente envie essa referência para o nó DOM subjacente. Dado que muitos dos componentes interativos dependem do `ButtonBase`, você deve ser capaz de tirar proveito em todos os lugares.
 
 Aqui está um [exemplo de integração com react-router](/guides/composition/#button).
 
@@ -92,9 +102,9 @@ Aqui está um [exemplo de integração com react-router](/guides/composition/#bu
 
 ### Propriedade CSS Cursor not-allowed
 
-O componente ButtonBase define a propriedade CSS `pointer-events: none;` por padrão em botões desabilitados, o que conflita com a exibição de um cursor desabilitado.
+O componente ButtonBase define `pointer-events: none;` ao desabilitar os botões, o que previne que o cursor desabilitado seja exibido.
 
-Se você deseja usar a o cursor como `not-allowed`, você tem duas opções:
+Se você deseja usar `not-allowed`, você tem duas opções:
 
 1. **Apenas com CSS**. Você pode modificar os estilos aplicados no seletor de estado disabled do elemento `<button>`:
 
@@ -105,7 +115,7 @@ Se você deseja usar a o cursor como `not-allowed`, você tem duas opções:
   }
   ```
 
-No entanto:
+Então:
 
 - Você deve adicionar `pointer-events: none;` de volta quando você precisar exibir [dicas em elementos desabilitados](/components/tooltips/#disabled-elements).
 - O cursor não irá mudar se você renderizar algum outro elemento que não seja um botão, por exemplo, um elemento link `<a>`.

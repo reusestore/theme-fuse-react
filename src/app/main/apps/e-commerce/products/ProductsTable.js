@@ -11,12 +11,12 @@ import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import * as Actions from '../store/actions';
+import { getProducts, selectProducts } from '../store/productsSlice';
 import ProductsTableHead from './ProductsTableHead';
 
 function ProductsTable(props) {
 	const dispatch = useDispatch();
-	const products = useSelector(({ eCommerceApp }) => eCommerceApp.products.data);
+	const products = useSelector(selectProducts);
 	const searchText = useSelector(({ eCommerceApp }) => eCommerceApp.products.searchText);
 
 	const [selected, setSelected] = useState([]);
@@ -29,7 +29,7 @@ function ProductsTable(props) {
 	});
 
 	useEffect(() => {
-		dispatch(Actions.getProducts());
+		dispatch(getProducts());
 	}, [dispatch]);
 
 	useEffect(() => {
@@ -95,7 +95,7 @@ function ProductsTable(props) {
 	return (
 		<div className="w-full flex flex-col">
 			<FuseScrollbars className="flex-grow overflow-x-auto">
-				<Table className="min-w-xl" aria-labelledby="tableTitle">
+				<Table stickyHeader className="min-w-xl" aria-labelledby="tableTitle">
 					<ProductsTableHead
 						numSelected={selected.length}
 						order={order}
@@ -199,7 +199,7 @@ function ProductsTable(props) {
 			</FuseScrollbars>
 
 			<TablePagination
-				className="overflow-hidden"
+				className="overflow-hidden flex-shrink-0"
 				component="div"
 				count={data.length}
 				rowsPerPage={rowsPerPage}

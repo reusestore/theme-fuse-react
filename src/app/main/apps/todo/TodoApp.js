@@ -4,8 +4,11 @@ import React, { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useDeepCompareEffect } from '@fuse/hooks';
-import * as Actions from './store/actions';
-import reducer from './store/reducers';
+import reducer from './store';
+import { getLabels } from './store/labelsSlice';
+import { getFilters } from './store/filtersSlice';
+import { getFolders } from './store/foldersSlice';
+import { getTodos } from './store/todosSlice';
 import TodoDialog from './TodoDialog';
 import TodoHeader from './TodoHeader';
 import TodoList from './TodoList';
@@ -20,13 +23,13 @@ function TodoApp(props) {
 	const routeParams = useParams();
 
 	useEffect(() => {
-		dispatch(Actions.getFilters());
-		dispatch(Actions.getFolders());
-		dispatch(Actions.getLabels());
+		dispatch(getFilters());
+		dispatch(getFolders());
+		dispatch(getLabels());
 	}, [dispatch]);
 
 	useDeepCompareEffect(() => {
-		dispatch(Actions.getTodos(routeParams));
+		dispatch(getTodos(routeParams));
 	}, [dispatch, routeParams]);
 
 	return (
