@@ -77,16 +77,17 @@ function MultiLanguageDoc() {
 			</Typography>
 
 			<Typography className="mb-16" component="p">
-				You can also use <code>useTranslation</code> hook to change language:
+				You should use <code>changeLanguage</code> redux action to change language:
 			</Typography>
 
 			<FuseHighlight component="pre" className="language-jsx mb-24">
 				{`
-                            import {useTranslation} from 'react-i18next';
+                           import { changeLanguage } from 'app/store/i18nSlice';
 
-                            const {i18n} = useTranslation();
+                            .
+                            .
 
-                            i18n.changeLanguage('en');
+                            dispatch(changeLanguage(lng.id));
                         `}
 			</FuseHighlight>
 
