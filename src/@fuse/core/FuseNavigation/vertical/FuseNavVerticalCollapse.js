@@ -9,7 +9,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React, { useEffect, useState, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import FuseNavBadge from '../FuseNavBadge';
@@ -69,7 +68,6 @@ function FuseNavVerticalCollapse(props) {
 	const classes = useStyles({
 		itemPadding: nestedLevel > 0 ? 40 + nestedLevel * 16 : 24
 	});
-	const { t } = useTranslation('navigation');
 
 	useEffect(() => {
 		if (needsToBeOpened(props.location, props.item)) {
@@ -106,11 +104,7 @@ function FuseNavVerticalCollapse(props) {
 					</Icon>
 				)}
 
-				<ListItemText
-					className="list-item-text"
-					primary={item.translate ? t(item.translate) : item.title}
-					classes={{ primary: 'text-14' }}
-				/>
+				<ListItemText className="list-item-text" primary={item.title} classes={{ primary: 'text-14' }} />
 
 				{item.badge && <FuseNavBadge className="mx-4" badge={item.badge} />}
 

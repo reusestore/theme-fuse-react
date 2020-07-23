@@ -5,7 +5,6 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -35,7 +34,6 @@ function FuseNavVerticalGroup(props) {
 	const classes = useStyles({
 		itemPadding: nestedLevel > 0 ? 40 + nestedLevel * 16 : 24
 	});
-	const { t } = useTranslation('navigation');
 
 	const hasPermission = useMemo(() => FuseUtils.hasPermission(item.auth, userRole), [item.auth, userRole]);
 
@@ -53,9 +51,7 @@ function FuseNavVerticalGroup(props) {
 				to={item.url}
 				role="button"
 			>
-				<span className="list-subheader-text uppercase text-12">
-					{item.translate ? t(item.translate) : item.title}
-				</span>
+				<span className="list-subheader-text uppercase text-12">{item.title}</span>
 			</ListSubheader>
 
 			{item.children && (
