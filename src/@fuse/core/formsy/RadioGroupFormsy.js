@@ -7,7 +7,7 @@ import { withFormsy } from 'formsy-react';
 import React from 'react';
 
 function RadioGroupFormsy(props) {
-	const importedProps = _.pick(props, ['children', 'name', 'onBlur', 'onChange', 'onKeyDown', 'variant']);
+	const importedProps = _.pick(props, ['children', 'name', 'onBlur', 'onChange', 'onKeyDown', 'variant', 'color']);
 
 	// An error message is returned only if the component is invalid
 	const { errorMessage, value } = props;
