@@ -4,6 +4,24 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
 	{
+		version: '5.1.0',
+		date: '2020-09-09',
+		newChanges: [
+			'FullScreenToggle added into the theme toolbars,',
+			'i18nSlice created to store current language in redux store. changeLanguage action created and used in LanguageSwitcher.js',
+			'Adjustments for better responsive design',
+			'tailwindcss updated to v1.8.6',
+			'All dependency packages updated.'
+		],
+		fixedChanges: [
+			'FuseDialog and FuseMessage actions added into serializableCheck ignoredActions list.',
+			'ScrumboardApp: non-existent board redirect error fixed.',
+			'Formsy components missing color attribute added.',
+			'theme layout footer cannot scroll on mobile.',
+			'FuseSearch, FuseShortcuts cannot find translated navigation item, translation process moved into the redux store.'
+		]
+	},
+	{
 		version: '5.0.0',
 		date: '2020-07-18',
 		newChanges: [
