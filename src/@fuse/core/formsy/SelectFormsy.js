@@ -27,7 +27,8 @@ function SelectFormsy(props) {
 		'renderValue',
 		'SelectDisplayProps',
 		'value',
-		'variant'
+		'variant',
+		'color'
 	]);
 
 	// An error message is returned only if the component is invalid

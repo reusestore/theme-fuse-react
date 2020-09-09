@@ -27,7 +27,8 @@ function FuseChipSelectFormsy(props) {
 		'variant',
 		'isMulti',
 		'options',
-		'errorMessage'
+		'errorMessage',
+		'color'
 	]);
 
 	// An error message is returned only if the component is invalid

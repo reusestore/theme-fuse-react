@@ -3,13 +3,11 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 import Popover from '@material-ui/core/Popover';
-import { useTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { setDefaultSettings } from 'app/store/fuse/settingsSlice';
+import { changeLanguage } from 'app/store/i18nSlice';
 
 const languages = [
 	{
@@ -32,11 +30,10 @@ const languages = [
 function LanguageSwitcher(props) {
 	const dispatch = useDispatch();
 
-	const theme = useTheme();
-	const { i18n } = useTranslation();
-	const [menu, setMenu] = useState(null);
+	const currentLanguageId = useSelector(({ i18n }) => i18n.language);
+	const currentLanguage = languages.find(lng => lng.id === currentLanguageId);
 
-	const currentLng = languages.find(lng => lng.id === i18n.language);
+	const [menu, setMenu] = useState(null);
 
 	const langMenuClick = event => {
 		setMenu(event.currentTarget);
@@ -47,19 +44,7 @@ function LanguageSwitcher(props) {
 	};
 
 	function handleLanguageChange(lng) {
-		const newLangDir = i18n.dir(lng.id);
-
-		/*
-        Change Language
-         */
-		i18n.changeLanguage(lng.id);
-
-		/*
-        If necessary, change theme direction
-         */
-		if (newLangDir !== theme.direction) {
-			dispatch(setDefaultSettings({ direction: newLangDir }));
-		}
+		dispatch(changeLanguage(lng.id));
 
 		langMenuClose();
 	}
@@ -69,12 +54,12 @@ function LanguageSwitcher(props) {
 			<Button className="h-40 w-64" onClick={langMenuClick}>
 				<img
 					className="mx-4 min-w-20"
-					src={`assets/images/flags/${currentLng.flag}.png`}
-					alt={currentLng.title}
+					src={`assets/images/flags/${currentLanguage.flag}.png`}
+					alt={currentLanguage.title}
 				/>
 
 				<Typography className="mx-4 font-bold" color="textSecondary">
-					{currentLng.id}
+					{currentLanguage.id}
 				</Typography>
 			</Button>
 
@@ -105,7 +90,7 @@ function LanguageSwitcher(props) {
 
 				<MenuItem
 					component={Link}
-					to="/documentation/working-with-fuse-react/multi-language"
+					to="/documentation/configuration/multi-language"
 					onClick={langMenuClose}
 					role="button"
 				>

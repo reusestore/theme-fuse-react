@@ -36,7 +36,7 @@ function renderInputComponent(inputProps) {
 								inputRef(node);
 							},
 							classes: {
-								input: clsx(classes.input, 'py-0 px-16 h-48 ltr:pr-48 rtl:pl-48'),
+								input: clsx(classes.input, 'py-0 px-16 h-40 md:h-48 ltr:pr-48 rtl:pl-48'),
 								notchedOutline: 'rounded-8'
 							}
 						}}
@@ -44,7 +44,7 @@ function renderInputComponent(inputProps) {
 						{...other}
 					/>
 					<Icon
-						className="absolute top-0 ltr:right-0 rtl:left-0 h-48 w-48 p-12 pointer-events-none"
+						className="absolute top-0 ltr:right-0 rtl:left-0 h-40 md:h-48 w-48 p-12 pointer-events-none"
 						color="action"
 					>
 						search
@@ -61,7 +61,7 @@ function renderInputComponent(inputProps) {
 							inputRef(node);
 						},
 						classes: {
-							input: clsx(classes.input, 'py-0 px-16 h-64')
+							input: clsx(classes.input, 'py-0 px-16 h-48 md:h-64')
 						}
 					}}
 					variant="standard"
@@ -363,7 +363,7 @@ function FuseSearch(props) {
 					{state.opened && (
 						<ClickAwayListener onClickAway={handleClickAway}>
 							<Paper className="absolute left-0 right-0 top-0 h-full z-9999" square>
-								<div className="flex items-center w-full" ref={popperNode}>
+								<div className="flex items-center w-full h-full" ref={popperNode}>
 									<Autosuggest
 										{...autosuggestProps}
 										inputProps={{

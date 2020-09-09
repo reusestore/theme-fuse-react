@@ -8,17 +8,27 @@ if (process.env.NODE_ENV === 'development' && module.hot) {
 	});
 }
 
+const middlewares = [];
+
+if (process.env.NODE_ENV === 'development') {
+	const { logger } = require(`redux-logger`);
+
+	middlewares.push(logger);
+}
+
 const store = configureStore({
 	reducer: createReducer(),
-	middleware: getDefaultMiddleware => {
-		if (process.env.NODE_ENV === 'development') {
-			const { logger } = require(`redux-logger`);
-
-			return getDefaultMiddleware().concat(logger);
-		}
-
-		return getDefaultMiddleware();
-	},
+	middleware: getDefaultMiddleware =>
+		getDefaultMiddleware({
+			serializableCheck: {
+				ignoredActions: [
+					'dialog/openDialog',
+					'dialog/closeDialog',
+					'message/showMessage',
+					'message/hideMessage'
+				]
+			}
+		}).concat(middlewares),
 	devTools: process.env.NODE_ENV === 'development'
 });
 

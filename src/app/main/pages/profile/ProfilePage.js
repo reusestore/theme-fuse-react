@@ -43,7 +43,11 @@ function ProfilePage() {
 							<Avatar className="w-96 h-96" src="assets/images/avatars/Velazquez.jpg" />
 						</FuseAnimate>
 						<FuseAnimate animation="transition.slideLeftIn" delay={300}>
-							<Typography className="md:mx-24" variant="h4" color="inherit">
+							<Typography
+								className="md:mx-24 text-24 md:text-32 my-8 md:my-0"
+								variant="h4"
+								color="inherit"
+							>
 								John Doe
 							</Typography>
 						</FuseAnimate>

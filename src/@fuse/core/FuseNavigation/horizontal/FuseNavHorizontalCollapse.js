@@ -12,7 +12,6 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React, { useState, useMemo } from 'react';
 import * as ReactDOM from 'react-dom';
-import { useTranslation } from 'react-i18next';
 import { Manager, Popper, Reference } from 'react-popper';
 import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -57,7 +56,6 @@ function FuseNavHorizontalCollapse(props) {
 	const [opened, setOpened] = useState(false);
 	const { item, nestedLevel, dense } = props;
 	const theme = useTheme();
-	const { t } = useTranslation('navigation');
 
 	const handleToggle = useDebounce(open => {
 		setOpened(open);
@@ -119,7 +117,7 @@ function FuseNavHorizontalCollapse(props) {
 
 								<ListItemText
 									className="list-item-text"
-									primary={item.translate ? t(item.translate) : item.title}
+									primary={item.title}
 									classes={{ primary: 'text-14' }}
 								/>
 

@@ -119,7 +119,7 @@ function ChatPanel(props) {
 
 	return (
 		<div className={classes.root}>
-			<div className={clsx(classes.panel, { opened: state }, 'flex flex-col')} ref={ref}>
+			<div className={clsx(classes.panel, { opened: state }, 'flex flex-col max-w-full')} ref={ref}>
 				<AppBar position="static" elevation={1}>
 					<Toolbar className="px-4">
 						{(!state || !selectedContactId) && (

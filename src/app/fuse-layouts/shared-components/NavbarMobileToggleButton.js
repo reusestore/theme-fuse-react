@@ -20,7 +20,7 @@ function NavbarMobileToggleButton(props) {
 }
 
 NavbarMobileToggleButton.defaultProps = {
-	children: <Icon>menu</Icon>
+	children: <Icon color="action">menu</Icon>
 };
 
 export default NavbarMobileToggleButton;

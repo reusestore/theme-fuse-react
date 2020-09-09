@@ -20,14 +20,14 @@ function DocumentationPageLayout({ content, route }) {
 		<FusePageSimple
 			classes={{
 				root: 'h-full',
-				contentWrapper: 'p-24',
+				contentWrapper: 'p-16 md:p-24',
 				content: 'flex flex-col h-full',
 				leftSidebar: 'w-288 pt-8',
 				header: 'h-64 min-h-64',
 				wrapper: 'min-h-0'
 			}}
 			header={
-				<div className="flex items-center justify-center px-12 h-full w-full">
+				<div className="flex items-center justify-center px-4 md:px-12 h-full w-full">
 					<Hidden lgUp>
 						<IconButton
 							onClick={ev => pageLayout.current.toggleLeftSidebar()}
@@ -36,11 +36,11 @@ function DocumentationPageLayout({ content, route }) {
 							<Icon>menu</Icon>
 						</IconButton>
 					</Hidden>
-					<div className="flex flex-1 items-center justify-center lg:px-12">
+					<div className="flex flex-1 items-center sm:justify-center px-8 lg:px-12">
 						<Link
 							color="inherit"
 							to="/documentation"
-							className="text-18 font-500 flex items-center"
+							className="text-16 md:text-18 font-500 flex items-center"
 							role="button"
 						>
 							<Icon className="mr-8">import_contacts</Icon> <span>Fuse React - Documentation</span>

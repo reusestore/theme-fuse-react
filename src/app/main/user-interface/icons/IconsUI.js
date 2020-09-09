@@ -52,8 +52,8 @@ function IconsUI() {
 				content: 'flex'
 			}}
 			header={
-				<div className="flex flex-1 items-center justify-between p-16 sm:p-24">
-					<div className="flex flex-col">
+				<div className="flex flex-wrap flex-1 items-center justify-between p-12 md:p-24">
+					<div className="flex flex-col w-full sm:w-auto">
 						<div className="flex items-center mb-4">
 							<Icon className="text-18" color="action">
 								home
@@ -64,13 +64,18 @@ function IconsUI() {
 							<Typography color="textSecondary">User Interface</Typography>
 						</div>
 						<FuseAnimate>
-							<Typography variant="h6">Icons</Typography>
+							<Typography variant="h6" className="text-18 sm:text-20">
+								Icons
+							</Typography>
 						</FuseAnimate>
 					</div>
 
-					<div className="flex flex-1 items-center justify-center px-12">
+					<div className="flex flex-1 items-center justify-center w-full sm:w-auto sm:px-12">
 						<ThemeProvider theme={theme}>
-							<Paper className="flex items-center w-full max-w-512 px-8 py-4 rounded-8" elevation={1}>
+							<Paper
+								className="flex items-center min-w-full sm:min-w-0 w-full max-w-512 px-8 py-4 rounded-8"
+								elevation={1}
+							>
 								<Icon color="action">search</Icon>
 
 								{useMemo(
@@ -94,15 +99,16 @@ function IconsUI() {
 					</div>
 
 					<Button
-						className="normal-case"
-						variant="contained"
+						className="normal-case ml-8 sm:ml-0"
+						variant="outlined"
 						component="a"
 						href="https://material.io/icons/"
 						target="_blank"
 						role="button"
+						color="default"
 					>
 						<Icon>link</Icon>
-						<span className="mx-4">Reference</span>
+						<span className="mx-4 hidden sm:flex">Reference</span>
 					</Button>
 				</div>
 			}
@@ -116,7 +122,7 @@ function IconsUI() {
 									<div className="flex flex-wrap justify-center">
 										{filteredData.map(item => (
 											<div
-												className="w-160 h-128 p-16 flex flex-col items-center justify-center"
+												className="w-1/3 h-128 p-8 sm:w-160 sm:p-16 flex flex-col items-center justify-center"
 												key={item.id}
 											>
 												<Icon className="text-48" color="action">

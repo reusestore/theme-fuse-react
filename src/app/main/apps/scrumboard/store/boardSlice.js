@@ -29,6 +29,7 @@ export const getBoard = createAsyncThunk('scrumboardApp/board/getBoard', async (
 		history.push({
 			pathname: '/apps/scrumboard/boards'
 		});
+		return null;
 	}
 });
 
@@ -214,7 +215,7 @@ const boardsSlice = createSlice({
 	name: 'scrumboardApp/boards',
 	initialState: null,
 	reducers: {
-		resetBoard: (state, action) => {},
+		resetBoard: (state, action) => null,
 		addLabel: (state, action) => {
 			state.labels = [...state.labels, action.payload];
 		}
