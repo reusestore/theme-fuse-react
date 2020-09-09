@@ -85,7 +85,7 @@ function ProductsTableHead(props) {
 	return (
 		<TableHead>
 			<TableRow className="h-64">
-				<TableCell padding="none" className="w-64 text-center z-99">
+				<TableCell padding="none" className="w-40 md:w-64 text-center z-99">
 					<Checkbox
 						indeterminate={props.numSelected > 0 && props.numSelected < props.rowCount}
 						checked={props.numSelected === props.rowCount}
@@ -130,6 +130,7 @@ function ProductsTableHead(props) {
 				{rows.map(row => {
 					return (
 						<TableCell
+							className="p-4 md:p-16"
 							key={row.id}
 							align={row.align}
 							padding={row.disablePadding ? 'none' : 'default'}

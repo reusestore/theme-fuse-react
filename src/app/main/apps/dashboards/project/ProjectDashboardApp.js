@@ -110,7 +110,7 @@ function ProjectDashboardApp(props) {
 			header={
 				<div className="flex flex-col justify-between flex-1 px-24 pt-24">
 					<div className="flex justify-between items-start">
-						<Typography className="py-0 sm:py-24" variant="h4">
+						<Typography className="py-0 sm:py-24 text-24 md:text-32" variant="h4">
 							Welcome back, John!
 						</Typography>
 						<Hidden lgUp>

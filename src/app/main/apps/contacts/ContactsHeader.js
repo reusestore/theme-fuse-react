@@ -17,7 +17,7 @@ function ContactsHeader(props) {
 	const mainTheme = useSelector(selectMainTheme);
 
 	return (
-		<div className="flex flex-1 items-center justify-between p-8 sm:p-24">
+		<div className="flex flex-1 items-center justify-between p-4 sm:p-24">
 			<div className="flex flex-shrink items-center sm:w-224">
 				<Hidden lgUp>
 					<IconButton

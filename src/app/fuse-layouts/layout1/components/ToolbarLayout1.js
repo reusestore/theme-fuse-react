@@ -37,7 +37,7 @@ function ToolbarLayout1(props) {
 				<Toolbar className="p-0 min-h-48 md:min-h-64">
 					{config.navbar.display && config.navbar.position === 'left' && (
 						<Hidden lgUp>
-							<NavbarMobileToggleButton className="w-40 h-40 p-0 mx-0 md:mx-8" />
+							<NavbarMobileToggleButton className="w-40 h-40 p-0 mx-0 sm:mx-8" />
 						</Hidden>
 					)}
 

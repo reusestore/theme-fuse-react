@@ -1,6 +1,7 @@
 import FuseAnimate from '@fuse/core/FuseAnimate';
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Icon from '@material-ui/core/Icon';
 import List from '@material-ui/core/List';
@@ -10,7 +11,8 @@ import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { openNewContactDialog } from './store/contactsSlice';
 
 const useStyles = makeStyles(theme => ({
 	listItem: {
@@ -38,6 +40,8 @@ const useStyles = makeStyles(theme => ({
 function ContactsSidebarContent(props) {
 	const user = useSelector(({ contactsApp }) => contactsApp.user);
 
+	const dispatch = useDispatch();
+
 	const classes = useStyles(props);
 
 	return (
@@ -48,8 +52,21 @@ function ContactsSidebarContent(props) {
 						<Avatar alt={user.name} src={user.avatar} />
 						<Typography className="mx-12">{user.name}</Typography>
 					</div>
+
 					<Divider />
-					<List>
+
+					<div className="p-24">
+						<Button
+							variant="contained"
+							color="primary"
+							className="w-full"
+							onClick={ev => dispatch(openNewContactDialog())}
+						>
+							New Contact
+						</Button>
+					</div>
+
+					<List className="pt-0">
 						<ListItem
 							button
 							component={NavLinkAdapter}

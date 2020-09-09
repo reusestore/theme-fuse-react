@@ -62,9 +62,9 @@ function NoteListItem(props) {
 
 				{(props.note.labels.length > 0 || props.note.reminder) && (
 					<div className="py-8 px-16 flex flex-wrap w-full -mx-2">
-						{props.note.reminder && <NoteReminderLabel className="mt-4 mx-2" date={props.note.reminder} />}
+						{props.note.reminder && <NoteReminderLabel className="mt-4 mx-2 max-w-full" date={props.note.reminder} />}
 						{props.note.labels.map(id => (
-							<NoteLabel id={id} key={id} className="mt-4 mx-2" linkable />
+							<NoteLabel id={id} key={id} className="mt-4 mx-2 max-w-full" linkable />
 						))}
 					</div>
 				)}

@@ -135,7 +135,7 @@ function ProductsTable(props) {
 										selected={isSelected}
 										onClick={event => handleClick(n)}
 									>
-										<TableCell className="w-64 text-center" padding="none">
+										<TableCell className="w-40 md:w-64 text-center" padding="none">
 											<Checkbox
 												checked={isSelected}
 												onClick={event => event.stopPropagation()}
@@ -143,7 +143,12 @@ function ProductsTable(props) {
 											/>
 										</TableCell>
 
-										<TableCell className="w-52" component="th" scope="row" padding="none">
+										<TableCell
+											className="w-52 px-4 md:px-0"
+											component="th"
+											scope="row"
+											padding="none"
+										>
 											{n.images.length > 0 && n.featuredImageId ? (
 												<img
 													className="w-full block rounded"
@@ -159,20 +164,20 @@ function ProductsTable(props) {
 											)}
 										</TableCell>
 
-										<TableCell component="th" scope="row">
+										<TableCell className="p-4 md:p-16" component="th" scope="row">
 											{n.name}
 										</TableCell>
 
-										<TableCell className="truncate" component="th" scope="row">
+										<TableCell className="p-4 md:p-16 truncate" component="th" scope="row">
 											{n.categories.join(', ')}
 										</TableCell>
 
-										<TableCell component="th" scope="row" align="right">
+										<TableCell className="p-4 md:p-16" component="th" scope="row" align="right">
 											<span>$</span>
 											{n.priceTaxIncl}
 										</TableCell>
 
-										<TableCell component="th" scope="row" align="right">
+										<TableCell className="p-4 md:p-16" component="th" scope="row" align="right">
 											{n.quantity}
 											<i
 												className={clsx(
@@ -184,7 +189,7 @@ function ProductsTable(props) {
 											/>
 										</TableCell>
 
-										<TableCell component="th" scope="row" align="right">
+										<TableCell className="p-4 md:p-16" component="th" scope="row" align="right">
 											{n.active ? (
 												<Icon className="text-green text-20">check_circle</Icon>
 											) : (
@@ -199,7 +204,7 @@ function ProductsTable(props) {
 			</FuseScrollbars>
 
 			<TablePagination
-				className="overflow-hidden flex-shrink-0"
+				className="flex-shrink-0 border-t-1"
 				component="div"
 				count={data.length}
 				rowsPerPage={rowsPerPage}

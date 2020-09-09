@@ -8,7 +8,7 @@ function HelperClassesUI() {
 	return (
 		<FusePageSimple
 			header={
-				<div className="flex flex-1 items-center justify-between p-24">
+				<div className="flex flex-1 items-center justify-between p-12 md:p-24">
 					<div className="flex flex-col">
 						<div className="flex items-center mb-16">
 							<Icon className="text-18" color="action">
@@ -19,12 +19,14 @@ function HelperClassesUI() {
 							</Icon>
 							<Typography color="textSecondary">User Interface</Typography>
 						</div>
-						<Typography variant="h6">Helper Classes</Typography>
+						<Typography variant="h6" className="text-18 sm:text-20">
+							Helper Classes
+						</Typography>
 					</div>
 				</div>
 			}
 			content={
-				<div className="p-24 max-w-2xl">
+				<div className="p-12 md:p-24 max-w-2xl">
 					<FuseAnimateGroup
 						enter={{
 							animation: 'transition.slideUpBigIn'

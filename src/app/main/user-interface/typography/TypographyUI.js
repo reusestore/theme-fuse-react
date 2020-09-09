@@ -12,7 +12,7 @@ function TypographyUI() {
 	return (
 		<FusePageSimple
 			header={
-				<div className="flex flex-1 items-center justify-between p-24">
+				<div className="flex flex-1 items-center justify-between p-12 md:p-24">
 					<div className="flex flex-col">
 						<div className="flex items-center mb-16">
 							<Icon className="text-18" color="action">
@@ -23,24 +23,26 @@ function TypographyUI() {
 							</Icon>
 							<Typography color="textSecondary">User Interface</Typography>
 						</div>
-						<Typography variant="h6">Typography</Typography>
+						<Typography variant="h6" className="text-18 sm:text-20">
+							Typography
+						</Typography>
 					</div>
 
 					<Button
 						className="normal-case"
-						variant="contained"
+						variant="outlined"
 						component="a"
 						href="https://material-ui-next.com/style/typography/"
 						target="_blank"
 						role="button"
 					>
 						<Icon>link</Icon>
-						<span className="mx-4">Reference</span>
+						<span className="mx-4 hidden sm:flex">Reference</span>
 					</Button>
 				</div>
 			}
 			content={
-				<div className="p-24 max-w-2xl">
+				<div className="p-12 md:p-24 max-w-2xl">
 					<FuseAnimate animation="transition.slideUpBigIn" delay={300}>
 						<Card className="rounded-8" elevation={1}>
 							<CardContent>

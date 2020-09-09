@@ -40,15 +40,15 @@ function FuseExample(props) {
 					{raw && <Tab classes={{ root: 'min-w-64' }} icon={<Icon>code</Icon>} />}
 				</Tabs>
 			</AppBar>
-			<div className="flex justify-center">
-				<div className={currentTab === 0 ? 'flex flex-1' : 'hidden'}>
+			<div className="flex justify-center max-w-full">
+				<div className={currentTab === 0 ? 'flex flex-1 max-w-full' : 'hidden'}>
 					{Component &&
 						(iframe ? (
 							<DemoFrame>
 								<Component />
 							</DemoFrame>
 						) : (
-							<div className="p-24 flex flex-1 justify-center">
+							<div className="p-24 flex flex-1 justify-center max-w-full">
 								<Component />
 							</div>
 						))}

@@ -118,21 +118,21 @@ function FuseAuthorizationDoc() {
 
 			<FuseHighlight component="pre" className="language-js">
 				{`  
-                              const initialState = {
-                                role: [],//guest
-                                data: {
-                                    'displayName': 'John Doe',
-                                    'photoURL'   : 'assets/images/avatars/Velazquez.jpg',
-                                    'email'      : 'johndoe@withinpixels.com',
-                                    shortcuts    : [
-                                        'calendar',
-                                        'mail',
-                                        'contacts',
-                                        'todo'
-                                    ]
-                                }
-                            };
-                         `}
+				  	const initialState = {
+						role: [],//guest
+						data: {
+							'displayName': 'John Doe',
+							'photoURL'   : 'assets/images/avatars/Velazquez.jpg',
+							'email'      : 'johndoe@withinpixels.com',
+							shortcuts    : [
+								'calendar',
+								'mail',
+								'contacts',
+								'todo'
+							]
+						}
+					};
+				 `}
 			</FuseHighlight>
 
 			<Paper className="max-w-md my-16">
@@ -181,15 +181,15 @@ function FuseAuthorizationDoc() {
 
 			<FuseHighlight component="pre" className="language-js">
 				{`
-                                  {
-                                    'id'   : 'only-admin-navigation-item',
-                                    'title': 'Nav item only for Admin',
-                                    'type' : 'item',
-                                    'auth' : authRoles.admin,//['admin']
-                                    'url'  : '/auth/admin-role-example',
-                                    'icon' : 'verified_user'
-                                  },
-                            `}
+					 {
+						'id'   : 'only-admin-navigation-item',
+						'title': 'Nav item only for Admin',
+						'type' : 'item',
+						'auth' : authRoles.admin,//['admin']
+						'url'  : '/auth/admin-role-example',
+						'icon' : 'verified_user'
+					  },
+				`}
 			</FuseHighlight>
 
 			<Typography className="mt-48 mb-4" variant="h5">
@@ -217,47 +217,46 @@ function FuseAuthorizationDoc() {
 
 			<FuseHighlight component="pre" className="language-js">
 				{`
-                                import React from 'react';
-                                import {Redirect} from 'react-router-dom';
-                                import FuseUtils from '@fuse/utils';
-                                import {appsConfigs} from 'app/main/apps/appsConfigs';
-                                import {pagesConfigs} from 'app/main/pages/pagesConfigs';
-                                import {authRoleExamplesConfigs} from 'app/main/auth/authRoleExamplesConfigs';
-                                import {UserInterfaceConfig} from 'app/main/user-interface/UserInterfaceConfig';
-                                import {DocumentationConfig} from 'app/main/documentation/DocumentationConfig';
-                                import {LoginConfig} from 'app/main/login/LoginConfig';
-                                import {RegisterConfig} from 'app/main/register/RegisterConfig';
-                                import {LogoutConfig} from 'app/main/logout/LogoutConfig';
-                                import {CallbackConfig} from 'app/main/callback/CallbackConfig';
-                                
-                                const routeConfigs = [
-                                    ...appsConfigs,
-                                    ...pagesConfigs,
-                                    ...authRoleExamplesConfigs,
-                                    UserInterfaceConfig,
-                                    DocumentationConfig,
-                                    LogoutConfig,
-                                    LoginConfig,
-                                    RegisterConfig,
-                                    LogoutConfig,
-                                    CallbackConfig,
-                                ];
-                                
-                                const routes = [
-                                    ...FuseUtils.generateRoutesFromConfigs(routeConfigs, ['admin','staff','user']),
-                                    {
-                                        path     : '/',
-                                        exact    : true,
-                                        component: () => <Redirect to="/apps/dashboards/analytics"/>
-                                    },
-                                    {
-                                        component: () => <Redirect to="/pages/errors/error-404"/>
-                                    }
-                                ];
-                                
-                                export default routes;
-
-                            `}
+					import React from 'react';
+					import {Redirect} from 'react-router-dom';
+					import FuseUtils from '@fuse/utils';
+					import {appsConfigs} from 'app/main/apps/appsConfigs';
+					import {pagesConfigs} from 'app/main/pages/pagesConfigs';
+					import {authRoleExamplesConfigs} from 'app/main/auth/authRoleExamplesConfigs';
+					import {UserInterfaceConfig} from 'app/main/user-interface/UserInterfaceConfig';
+					import {DocumentationConfig} from 'app/main/documentation/DocumentationConfig';
+					import {LoginConfig} from 'app/main/login/LoginConfig';
+					import {RegisterConfig} from 'app/main/register/RegisterConfig';
+					import {LogoutConfig} from 'app/main/logout/LogoutConfig';
+					import {CallbackConfig} from 'app/main/callback/CallbackConfig';
+					
+					const routeConfigs = [
+						...appsConfigs,
+						...pagesConfigs,
+						...authRoleExamplesConfigs,
+						UserInterfaceConfig,
+						DocumentationConfig,
+						LogoutConfig,
+						LoginConfig,
+						RegisterConfig,
+						LogoutConfig,
+						CallbackConfig,
+					];
+					
+					const routes = [
+						...FuseUtils.generateRoutesFromConfigs(routeConfigs, ['admin','staff','user']),
+						{
+							path     : '/',
+							exact    : true,
+							component: () => <Redirect to="/apps/dashboards/analytics"/>
+						},
+						{
+							component: () => <Redirect to="/pages/errors/error-404"/>
+						}
+					];
+					
+					export default routes;
+				`}
 			</FuseHighlight>
 
 			<Typography className="mt-48 mb-4" variant="h5">
@@ -274,52 +273,50 @@ function FuseAuthorizationDoc() {
 
 			<FuseHighlight component="pre" className="language-js">
 				{`
-                                import React from 'react';
-                                import {Redirect} from 'react-router-dom';
-                                import FuseUtils from '@fuse/utils';
-                                import {appsConfigs} from 'app/main/apps/appsConfigs';
-                                import {pagesConfigs} from 'app/main/pages/pagesConfigs';
-                                import {authRoleExamplesConfigs} from 'app/main/auth/authRoleExamplesConfigs';
-                                import {UserInterfaceConfig} from 'app/main/user-interface/UserInterfaceConfig';
-                                import {DocumentationConfig} from 'app/main/documentation/DocumentationConfig';
-                                import {LoginConfig} from 'app/main/login/LoginConfig';
-                                import {RegisterConfig} from 'app/main/register/RegisterConfig';
-                                import {LogoutConfig} from 'app/main/logout/LogoutConfig';
-                                import {CallbackConfig} from 'app/main/callback/CallbackConfig';
-                                
-                                const routeConfigs = [
-                                    ...appsConfigs,
-                                    ...pagesConfigs,
-                                    ...authRoleExamplesConfigs,
-                                    UserInterfaceConfig,
-                                    DocumentationConfig,
-                                    LogoutConfig,
-                                    LoginConfig,
-                                    RegisterConfig,
-                                    LogoutConfig,
-                                    CallbackConfig
-                                ];
-                                
-                                const routes = [
-                                    //if you want to make whole app auth protected by default change defaultAuth for example:
-                                    // ...FuseUtils.generateRoutesFromConfigs(routeConfigs, ['admin','staff','user']),
-                                    // The individual route configs which has auth option won't be overridden.
-                                    ...FuseUtils.generateRoutesFromConfigs(routeConfigs, ['admin', 'staff', 'user']),
-                                    {
-                                        path     : '/',
-                                        exact    : true,
-                                        auth     : null,
-                                        component: LandingPage
-                                    },
-                                    {
-                                        component: () => <Redirect to="/pages/errors/error-404"/>
-                                    }
-                                ];
-                                
-                                export default routes;
-
-
-                            `}
+					import React from 'react';
+					import {Redirect} from 'react-router-dom';
+					import FuseUtils from '@fuse/utils';
+					import {appsConfigs} from 'app/main/apps/appsConfigs';
+					import {pagesConfigs} from 'app/main/pages/pagesConfigs';
+					import {authRoleExamplesConfigs} from 'app/main/auth/authRoleExamplesConfigs';
+					import {UserInterfaceConfig} from 'app/main/user-interface/UserInterfaceConfig';
+					import {DocumentationConfig} from 'app/main/documentation/DocumentationConfig';
+					import {LoginConfig} from 'app/main/login/LoginConfig';
+					import {RegisterConfig} from 'app/main/register/RegisterConfig';
+					import {LogoutConfig} from 'app/main/logout/LogoutConfig';
+					import {CallbackConfig} from 'app/main/callback/CallbackConfig';
+					
+					const routeConfigs = [
+						...appsConfigs,
+						...pagesConfigs,
+						...authRoleExamplesConfigs,
+						UserInterfaceConfig,
+						DocumentationConfig,
+						LogoutConfig,
+						LoginConfig,
+						RegisterConfig,
+						LogoutConfig,
+						CallbackConfig
+					];
+					
+					const routes = [
+						//if you want to make whole app auth protected by default change defaultAuth for example:
+						// ...FuseUtils.generateRoutesFromConfigs(routeConfigs, ['admin','staff','user']),
+						// The individual route configs which has auth option won't be overridden.
+						...FuseUtils.generateRoutesFromConfigs(routeConfigs, ['admin', 'staff', 'user']),
+						{
+							path     : '/',
+							exact    : true,
+							auth     : null,
+							component: LandingPage
+						},
+						{
+							component: () => <Redirect to="/pages/errors/error-404"/>
+						}
+					];
+					
+					export default routes;
+				`}
 			</FuseHighlight>
 
 			<Typography className="mt-48 mb-4" variant="h5">
@@ -336,23 +333,23 @@ function FuseAuthorizationDoc() {
 
 			<FuseHighlight component="pre" className="language-js">
 				{`
-                            export const setUserData = user => async (dispatch, getState) => {
-								/*
-									You can redirect the logged-in user to a specific route depending on his role
-								 */
-								
-								history.location.state = {
-									redirectUrl: user.redirectUrl // for example 'apps/academy'
-								};
-								
-								/*
-									Set User Settings
-								*/
-								dispatch(setDefaultSettings(user.data.settings));
-								
-								dispatch(setUser(user));
-								};
-                        `}
+					export const setUserData = user => async (dispatch, getState) => {
+						/*
+							You can redirect the logged-in user to a specific route depending on his role
+						 */
+						
+						history.location.state = {
+							redirectUrl: user.redirectUrl // for example 'apps/academy'
+						};
+						
+						/*
+							Set User Settings
+						*/
+						dispatch(setDefaultSettings(user.data.settings));
+						
+						dispatch(setUser(user));
+					};
+				`}
 			</FuseHighlight>
 		</>
 	);

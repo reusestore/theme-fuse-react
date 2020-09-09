@@ -60,7 +60,12 @@ const MailListItem = props => {
 					})
 				)
 			}
-			className={clsx(classes.mailItem, checked && 'selected', !props.mail.read && 'unread', 'py-16 px-8')}
+			className={clsx(
+				classes.mailItem,
+				checked && 'selected',
+				!props.mail.read && 'unread',
+				'py-16 px-0 md:px-8'
+			)}
 		>
 			<Checkbox
 				tabIndex={-1}
