@@ -10,6 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import FuseLoading from '@fuse/core/FuseLoading';
 import OrdersStatus from '../order/OrdersStatus';
 import { selectOrders, getOrders } from '../store/ordersSlice';
 import OrdersTableHead from './OrdersTableHead';
@@ -19,6 +20,7 @@ function OrdersTable(props) {
 	const orders = useSelector(selectOrders);
 	const searchText = useSelector(({ eCommerceApp }) => eCommerceApp.orders.searchText);
 
+	const [loading, setLoading] = useState(true);
 	const [selected, setSelected] = useState([]);
 	const [data, setData] = useState(orders);
 	const [page, setPage] = useState(0);
@@ -29,7 +31,7 @@ function OrdersTable(props) {
 	});
 
 	useEffect(() => {
-		dispatch(getOrders());
+		dispatch(getOrders()).then(() => setLoading(false));
 	}, [dispatch]);
 
 	useEffect(() => {
@@ -90,6 +92,10 @@ function OrdersTable(props) {
 
 	function handleChangeRowsPerPage(event) {
 		setRowsPerPage(event.target.value);
+	}
+
+	if (loading) {
+		return <FuseLoading />;
 	}
 
 	return (
