@@ -21,30 +21,18 @@ function RTLSupportDoc() {
 
 			<Typography className="mb-16" component="p">
 				There are two plugins{' '}
-				<a
-					href="https://github.com/RonMelkhior/tailwindcss-dir"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
+				<a href="https://github.com/RonMelkhior/tailwindcss-dir" target="_blank" rel="noopener noreferrer">
 					<code>tailwindcss-dir</code>
 				</a>{' '}
 				and{' '}
-				<a
-					href="https://github.com/alitaheri/jss-rtl"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
+				<a href="https://github.com/alitaheri/jss-rtl" target="_blank" rel="noopener noreferrer">
 					<code>jss-rtl</code>
 				</a>{' '}
 				that we use to develop RTL support of the Fuse React.
 			</Typography>
 
 			<Typography className="mb-16" component="p">
-				<a
-					href="https://github.com/alitaheri/jss-rtl"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
+				<a href="https://github.com/alitaheri/jss-rtl" target="_blank" rel="noopener noreferrer">
 					<code>jss-rtl</code>
 				</a>{' '}
 				enables right-to-left support by flipping every rule of the jss styles on the x-axis. You can write the
@@ -53,11 +41,7 @@ function RTLSupportDoc() {
 			</Typography>
 
 			<Typography className="mb-16" component="p">
-				<a
-					href="https://github.com/RonMelkhior/tailwindcss-dir"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
+				<a href="https://github.com/RonMelkhior/tailwindcss-dir" target="_blank" rel="noopener noreferrer">
 					<code>tailwindcss-dir</code>
 				</a>{' '}
 				adds a custom direction variant to your tailwind project, letting you have custom CSS rules for LTR and

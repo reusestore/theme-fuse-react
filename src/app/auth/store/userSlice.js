@@ -137,7 +137,7 @@ export const logoutUser = () => async (dispatch, getState) => {
 
 	dispatch(setInitialSettings());
 
-	dispatch(userLoggedOut());
+	return dispatch(userLoggedOut());
 };
 
 export const updateUserData = user => async (dispatch, getState) => {

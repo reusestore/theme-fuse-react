@@ -11,11 +11,7 @@ function FuseScrollbarsDoc() {
 
 			<Typography className="mb-16" component="p">
 				<code>FuseScrollbars</code> is a simple{' '}
-				<a
-					href="http://utatti.github.io/perfect-scrollbar/"
-					target="_blank"
-					rel="noreferrer noopener"
-				>
+				<a href="http://utatti.github.io/perfect-scrollbar/" target="_blank" rel="noreferrer noopener">
 					perfect-scrollbar
 				</a>{' '}
 				component for react.
