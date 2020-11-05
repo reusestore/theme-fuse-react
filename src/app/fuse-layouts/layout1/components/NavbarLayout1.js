@@ -11,7 +11,19 @@ import UserNavbarHeader from 'app/fuse-layouts/shared-components/UserNavbarHeade
 import clsx from 'clsx';
 import React from 'react';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
+	root: {
+		'& ::-webkit-scrollbar-thumb': {
+			boxShadow: `inset 0 0 0 20px ${
+				theme.palette.type === 'light' ? 'rgba(0, 0, 0, 0.24)' : 'rgba(255, 255, 255, 0.24)'
+			}`
+		},
+		'& ::-webkit-scrollbar-thumb:active': {
+			boxShadow: `inset 0 0 0 20px ${
+				theme.palette.type === 'light' ? 'rgba(0, 0, 0, 0.37)' : 'rgba(255, 255, 255, 0.37)'
+			}`
+		}
+	},
 	content: {
 		overflowX: 'hidden',
 		overflowY: 'auto',
@@ -22,14 +34,14 @@ const useStyles = makeStyles({
 		backgroundSize: '100% 40px, 100% 10px',
 		backgroundAttachment: 'local, scroll'
 	}
-});
+}));
 
 function NavbarLayout1(props) {
 	const classes = useStyles();
 	const theme = useTheme();
 
 	return (
-		<div className={clsx('flex flex-col overflow-hidden h-full', props.className)}>
+		<div className={clsx('flex flex-col overflow-hidden h-full', classes.root, props.className)}>
 			<AppBar
 				color="primary"
 				position="static"
