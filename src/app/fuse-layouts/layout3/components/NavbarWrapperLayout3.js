@@ -1,12 +1,12 @@
-import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import NavbarMobileToggleFab from 'app/fuse-layouts/shared-components//NavbarMobileToggleFab';
+import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
 import clsx from 'clsx';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
 import { selectNavbarTheme } from 'app/store/fuse/settingsSlice';
 import NavbarLayout3 from './NavbarLayout3';
 import NavbarMobileLayout3 from './NavbarMobileLayout3';
@@ -57,20 +57,22 @@ function NavbarWrapperLayout3(props) {
 				</Hidden>
 
 				<Hidden lgUp>
-					<Drawer
+					<SwipeableDrawer
 						anchor="left"
 						variant="temporary"
 						open={navbar.mobileOpen}
 						classes={{
 							paper: classes.navbarMobile
 						}}
-						onClose={ev => dispatch(navbarCloseMobile())}
+						onClose={() => dispatch(navbarCloseMobile())}
+						onOpen={() => {}}
+						disableSwipeToOpen
 						ModalProps={{
 							keepMounted: true // Better open performance on mobile.
 						}}
 					>
 						<NavbarMobileLayout3 />
-					</Drawer>
+					</SwipeableDrawer>
 				</Hidden>
 			</ThemeProvider>
 

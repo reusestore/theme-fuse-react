@@ -1,11 +1,11 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
-import Drawer from '@material-ui/core/Drawer';
 import Fab from '@material-ui/core/Fab';
 import Hidden from '@material-ui/core/Hidden';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import Tooltip from '@material-ui/core/Tooltip';
 import clsx from 'clsx';
 import React, { useState } from 'react';
@@ -202,16 +202,18 @@ function FuseSidePanel(props) {
 				</Paper>
 			</Hidden>
 			<Hidden lgUp>
-				<Drawer
+				<SwipeableDrawer
 					classes={{
 						paper: clsx(classes.paper, props.className)
 					}}
 					anchor={props.position}
 					open={mobileOpen}
+					onOpen={ev => {}}
 					onClose={toggleMobileDrawer}
+					disableSwipeToOpen
 				>
 					<FuseScrollbars className={clsx('content', classes.content)}>{props.children}</FuseScrollbars>
-				</Drawer>
+				</SwipeableDrawer>
 
 				<Tooltip title="Hide side panel" placement={props.position === 'left' ? 'right' : 'right'}>
 					<Fab

@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
 	root: {
 		minHeight: 48,
 		'&.active': {
-			backgroundColor: theme.palette.secondary.main,
+			backgroundColor: `${theme.palette.secondary.main}!important`,
 			color: `${theme.palette.secondary.contrastText}!important`,
 			pointerEvents: 'none',
 			'& .list-item-text-primary': {

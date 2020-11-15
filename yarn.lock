@@ -11367,10 +11367,10 @@ react-beautiful-dnd@13.0.0, react-beautiful-dnd@^13.0.0:
     redux "^4.0.4"
     use-memo-one "^1.1.1"
 
-react-big-calendar@0.27.0:
-  version "0.27.0"
-  resolved "https://registry.yarnpkg.com/react-big-calendar/-/react-big-calendar-0.27.0.tgz#fcc503c0a8e89e9054e64e89679573114134f45f"
-  integrity sha512-06kYUT/SLn8H/1LwHNXpZtARhMpjOb/IEy8OC/FrcNt//GGSSpAaCpdFz129PaLzhDT0A1JXbJzzP7d52SCn8A==
+react-big-calendar@0.28.2:
+  version "0.28.2"
+  resolved "https://registry.yarnpkg.com/react-big-calendar/-/react-big-calendar-0.28.2.tgz#4922764a8de795b1aaeeeedf907c62edc5d2b4ab"
+  integrity sha512-ld8aLd1t1JPFCOmJ1F/0O7CPqwpshpORVhpzK7nmrHudn46Ta23l02OriP/O7hYUdzb6VjvPc+T8mC7yawDsfg==
   dependencies:
     "@babel/runtime" "^7.1.5"
     clsx "^1.0.4"
@@ -11696,6 +11696,11 @@ react-swipeable-views@0.13.9:
     react-swipeable-views-core "^0.13.7"
     react-swipeable-views-utils "^0.13.9"
     warning "^4.0.1"
+
+react-swipeable@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/react-swipeable/-/react-swipeable-6.0.0.tgz#356ec39d28d6ea19fd27dfee1d5fab5d59d1d060"
+  integrity sha512-0YqtZ6+wQFkii4g9hThPTk5Uof6sbJevUMyr07VwXQux+0mX4n7HJVVizp73+s8ABlxnG0eJiZ8L3BPOjUyF1w==
 
 react-table@7.6.1:
   version "7.6.1"

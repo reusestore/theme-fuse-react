@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import React, { useState } from 'react';
 import FuseThemeSchemes from '@fuse/core/FuseThemeSchemes';
+import { useSwipeable } from 'react-swipeable';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
 	const theme = useTheme();
@@ -83,7 +84,20 @@ const useStyles = makeStyles(theme => ({
 
 function SettingsPanel() {
 	const classes = useStyles();
+	const theme = useTheme();
+
 	const [open, setOpen] = useState(false);
+	const handlerOptions = {
+		onSwipedLeft: () => {
+			return open && theme.direction === 'rtl' && handleClose();
+		},
+		onSwipedRight: () => {
+			return open && theme.direction === 'ltr' && handleClose();
+		}
+	};
+
+	const settingsHandlers = useSwipeable(handlerOptions);
+	const shemesHandlers = useSwipeable(handlerOptions);
 
 	const handleOpen = panelId => {
 		setOpen(panelId);
@@ -126,6 +140,7 @@ function SettingsPanel() {
 				classes={{
 					paper: classes.dialogPaper
 				}}
+				{...settingsHandlers}
 			>
 				<FuseScrollbars className="p-16 sm:p-32">
 					<IconButton className="fixed top-0 ltr:right-0 rtl:left-0 z-10" onClick={handleClose}>
@@ -151,6 +166,7 @@ function SettingsPanel() {
 				classes={{
 					paper: classes.dialogPaper
 				}}
+				{...shemesHandlers}
 			>
 				<FuseScrollbars className="p-16 sm:p-32">
 					<IconButton className="fixed top-0 ltr:right-0 rtl:left-0 z-10" onClick={handleClose}>

@@ -225,6 +225,7 @@ function FuseSearch(props) {
 	const classes = useStyles(props);
 	const suggestionsNode = useRef(null);
 	const popperNode = useRef(null);
+	const buttonNode = useRef(null);
 
 	useEffect(() => {
 		function itemAuthAllowed(item) {
@@ -248,6 +249,7 @@ function FuseSearch(props) {
 
 	function hideSearch() {
 		dispatch({ type: 'close' });
+		console.info('hide');
 		document.removeEventListener('keydown', escFunction, false);
 	}
 
@@ -288,7 +290,11 @@ function FuseSearch(props) {
 	}
 
 	function handleClickAway(event) {
-		return (!suggestionsNode.current || !suggestionsNode.current.contains(event.target)) && hideSearch();
+		return (
+			state.opened &&
+			(!suggestionsNode.current || !suggestionsNode.current.contains(event.target)) &&
+			hideSearch()
+		);
 	}
 
 	const autosuggestProps = {
@@ -353,15 +359,21 @@ function FuseSearch(props) {
 		}
 		case 'full': {
 			return (
-				<div className={clsx(classes.root, 'flex', props.className)}>
-					<Tooltip title="Click to search" placement="bottom">
-						<div onClick={showSearch} onKeyDown={showSearch} role="button" tabIndex={0}>
-							{props.trigger}
-						</div>
-					</Tooltip>
+				<ClickAwayListener onClickAway={handleClickAway}>
+					<div className={clsx(classes.root, 'flex', props.className)}>
+						<Tooltip title="Click to search" placement="bottom">
+							<div
+								onClick={showSearch}
+								onKeyDown={showSearch}
+								role="button"
+								tabIndex={0}
+								ref={buttonNode}
+							>
+								{props.trigger}
+							</div>
+						</Tooltip>
 
-					{state.opened && (
-						<ClickAwayListener onClickAway={handleClickAway}>
+						{state.opened && (
 							<Paper className="absolute left-0 right-0 top-0 h-full z-9999" square>
 								<div className="flex items-center w-full h-full" ref={popperNode}>
 									<Autosuggest
@@ -415,9 +427,9 @@ function FuseSearch(props) {
 									</IconButton>
 								</div>
 							</Paper>
-						</ClickAwayListener>
-					)}
-				</div>
+						)}
+					</div>
+				</ClickAwayListener>
 			);
 		}
 		default: {

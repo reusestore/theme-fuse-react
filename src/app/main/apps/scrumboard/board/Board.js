@@ -1,9 +1,9 @@
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import Toolbar from '@material-ui/core/Toolbar';
 import withReducer from 'app/store/withReducer';
 import clsx from 'clsx';
@@ -118,7 +118,7 @@ function Board(props) {
 				</DragDropContext>
 			</div>
 
-			<Drawer
+			<SwipeableDrawer
 				anchor="right"
 				className="absolute overflow-hidden"
 				classes={{
@@ -134,10 +134,12 @@ function Board(props) {
 					keepMounted: true
 				}}
 				open={settingsDrawerOpen}
+				onOpen={ev => {}}
 				onClose={() => toggleSettingsDrawer(false)}
+				disableSwipeToOpen
 			>
 				<BoardSettingsSidebar />
-			</Drawer>
+			</SwipeableDrawer>
 
 			<BoardCardDialog />
 		</div>
