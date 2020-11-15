@@ -20,6 +20,7 @@ const store = configureStore({
 	reducer: createReducer(),
 	middleware: getDefaultMiddleware =>
 		getDefaultMiddleware({
+			immutableCheck: false,
 			serializableCheck: {
 				ignoredActions: [
 					'dialog/openDialog',
