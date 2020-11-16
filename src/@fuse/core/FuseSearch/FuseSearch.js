@@ -317,7 +317,7 @@ function FuseSearch(props) {
 						inputProps={{
 							variant: props.variant,
 							classes,
-							placeholder: 'Search',
+							placeholder: props.placeholder,
 							value: state.searchText,
 							onChange: handleChange,
 							onFocus: showSearch,
@@ -347,7 +347,7 @@ function FuseSearch(props) {
 									>
 										{options.children}
 										{state.noSuggestions && (
-											<Typography className="px-16 py-12">No results..</Typography>
+											<Typography className="px-16 py-12">{props.noResults}</Typography>
 										)}
 									</Paper>
 								</div>
@@ -380,7 +380,7 @@ function FuseSearch(props) {
 										{...autosuggestProps}
 										inputProps={{
 											classes,
-											placeholder: 'Search',
+											placeholder: props.placeholder,
 											value: state.searchText,
 											onChange: handleChange,
 											InputLabelProps: {
@@ -414,7 +414,7 @@ function FuseSearch(props) {
 														{options.children}
 														{state.noSuggestions && (
 															<Typography className="px-16 py-12">
-																No results..
+																{props.noResults}
 															</Typography>
 														)}
 													</Paper>
@@ -445,7 +445,9 @@ FuseSearch.defaultProps = {
 			<Icon>search</Icon>
 		</IconButton>
 	),
-	variant: 'full' // basic, full
+	variant: 'full',
+	placeholder: 'Search',
+	noResults: 'No results..'
 };
 
 export default withRouter(React.memo(FuseSearch));
