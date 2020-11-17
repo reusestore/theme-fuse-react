@@ -18,6 +18,7 @@ function NavbarFoldedToggleButton(props) {
 				);
 			}}
 			color="inherit"
+			size="small"
 		>
 			{props.children}
 		</IconButton>
@@ -25,7 +26,7 @@ function NavbarFoldedToggleButton(props) {
 }
 
 NavbarFoldedToggleButton.defaultProps = {
-	children: <Icon>menu</Icon>
+	children: <Icon fontSize="inherit">push_pin</Icon>
 };
 
 export default NavbarFoldedToggleButton;
