@@ -1,3 +1,4 @@
+import { fuseReactLatestVersion } from './changelog/ChangelogDoc';
 import FuseComponentsNavigation from './fuse-components/FuseComponentsNavigation';
 import MaterialUIComponentsNavigation from './material-ui-components/MaterialUIComponentsNavigation';
 import ThirdPartyComponentsNavigation from './third-party-components/ThirdPartyComponentsNavigation';
@@ -15,7 +16,7 @@ const DocumentationNavigation = {
 			icon: 'history',
 			url: '/documentation/changelog',
 			badge: {
-				title: '5.1.0',
+				title: fuseReactLatestVersion,
 				bg: 'rgb(236, 12, 142)',
 				fg: '#FFFFFF'
 			}
