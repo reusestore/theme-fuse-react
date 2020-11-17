@@ -1,15 +1,13 @@
 @font-face {
-    font-family: 'material-outline-icons';
-    src: url('./material-outline-icons.ttf?8ot508') format('truetype'),
-    url('./material-outline-icons.woff?8ot508') format('woff'),
-    url('./material-outline-icons.svg?8ot508#material-outline-icons') format('svg');
+    font-family: 'Material Icons Two Tone';
+    src:  url('./MaterialIconsTwoTone-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
 .material-icons {
     /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'material-outline-icons' !important;
+    font-family: 'Material Icons Two Tone' !important;
     font-size: 24px;
     display: inline-block;
     white-space: nowrap;
@@ -21,6 +19,7 @@
     font-variant: normal;
     text-transform: none;
     line-height: 1;
+    filter: contrast(0.1);
 
     /* Enable Ligatures ================ */
     letter-spacing: 0;

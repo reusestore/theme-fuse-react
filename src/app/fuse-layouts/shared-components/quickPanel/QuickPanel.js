@@ -1,6 +1,5 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import Divider from '@material-ui/core/Divider';
-import Drawer from '@material-ui/core/Drawer';
 import Icon from '@material-ui/core/Icon';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -9,6 +8,7 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import { makeStyles } from '@material-ui/core/styles';
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import Switch from '@material-ui/core/Switch';
 import Typography from '@material-ui/core/Typography';
 import withReducer from 'app/store/withReducer';
@@ -51,11 +51,13 @@ function QuickPanel(props) {
 	}, [dispatch]);
 
 	return (
-		<Drawer
+		<SwipeableDrawer
 			classes={{ paper: classes.root }}
 			open={state}
 			anchor="right"
+			onOpen={ev => {}}
 			onClose={ev => dispatch(toggleQuickPanel())}
+			disableSwipeToOpen
 		>
 			<FuseScrollbars>
 				<ListSubheader component="div">Today</ListSubheader>
@@ -140,7 +142,7 @@ function QuickPanel(props) {
 					</ListItem>
 				</List>
 			</FuseScrollbars>
-		</Drawer>
+		</SwipeableDrawer>
 	);
 }
 

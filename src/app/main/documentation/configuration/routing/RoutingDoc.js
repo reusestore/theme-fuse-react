@@ -11,11 +11,7 @@ function RoutingDoc() {
 
 			<Typography className="mb-16" component="p">
 				Fuse React routing system based on{' '}
-				<a
-					href="https://reacttraining.com/react-router/"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
+				<a href="https://reacttraining.com/react-router/" target="_blank" rel="noopener noreferrer">
 					react-router
 				</a>{' '}
 				and its package{' '}

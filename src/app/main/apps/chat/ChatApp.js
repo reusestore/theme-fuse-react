@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import { fade } from '@material-ui/core/styles/colorManipulator';
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import withReducer from 'app/store/withReducer';
@@ -133,12 +134,14 @@ function ChatApp(props) {
 			<div className={clsx(classes.contentCardWrapper, 'container')}>
 				<div className={classes.contentCard}>
 					<Hidden mdUp>
-						<Drawer
+						<SwipeableDrawer
 							className="h-full absolute z-20"
 							variant="temporary"
 							anchor="left"
 							open={mobileChatsSidebarOpen}
+							onOpen={ev => {}}
 							onClose={() => dispatch(closeMobileChatsSidebar())}
+							disableSwipeToOpen
 							classes={{
 								paper: clsx(classes.drawerPaper, 'absolute ltr:left-0 rtl:right-0')
 							}}
@@ -154,7 +157,7 @@ function ChatApp(props) {
 							}}
 						>
 							<ChatsSidebar />
-						</Drawer>
+						</SwipeableDrawer>
 					</Hidden>
 					<Hidden smDown>
 						<Drawer
@@ -168,11 +171,12 @@ function ChatApp(props) {
 							<ChatsSidebar />
 						</Drawer>
 					</Hidden>
-					<Drawer
+					<SwipeableDrawer
 						className="h-full absolute z-30"
 						variant="temporary"
 						anchor="left"
 						open={userSidebarOpen}
+						onOpen={ev => {}}
 						onClose={() => dispatch(closeUserSidebar())}
 						classes={{
 							paper: clsx(classes.drawerPaper, 'absolute left-0')
@@ -189,7 +193,7 @@ function ChatApp(props) {
 						}}
 					>
 						<UserSidebar />
-					</Drawer>
+					</SwipeableDrawer>
 
 					<main className={clsx(classes.contentWrapper, 'z-10')}>
 						{!chat ? (
@@ -261,11 +265,12 @@ function ChatApp(props) {
 						)}
 					</main>
 
-					<Drawer
+					<SwipeableDrawer
 						className="h-full absolute z-30"
 						variant="temporary"
 						anchor="right"
 						open={contactSidebarOpen}
+						onOpen={ev => {}}
 						onClose={() => dispatch(closeContactSidebar())}
 						classes={{
 							paper: clsx(classes.drawerPaper, 'absolute ltr:right-0 rtl:left-0')
@@ -282,7 +287,7 @@ function ChatApp(props) {
 						}}
 					>
 						<ContactSidebar />
-					</Drawer>
+					</SwipeableDrawer>
 				</div>
 			</div>
 		</div>

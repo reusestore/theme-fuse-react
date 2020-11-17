@@ -1,4 +1,4 @@
-import Drawer from '@material-ui/core/Drawer';
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import Hidden from '@material-ui/core/Hidden';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import NavbarMobileToggleFab from 'app/fuse-layouts/shared-components/NavbarMobileToggleFab';
@@ -153,7 +153,7 @@ function NavbarWrapperLayout1(props) {
 					</Hidden>
 
 					<Hidden lgUp>
-						<Drawer
+						<SwipeableDrawer
 							anchor={config.navbar.position}
 							variant="temporary"
 							open={navbar.mobileOpen}
@@ -161,12 +161,14 @@ function NavbarWrapperLayout1(props) {
 								paper: classes.navbar
 							}}
 							onClose={() => dispatch(navbarCloseMobile())}
+							onOpen={() => {}}
+							disableSwipeToOpen
 							ModalProps={{
 								keepMounted: true // Better open performance on mobile.
 							}}
 						>
 							<NavbarLayout1 className={classes.navbarContent} />
-						</Drawer>
+						</SwipeableDrawer>
 					</Hidden>
 				</div>
 			</ThemeProvider>

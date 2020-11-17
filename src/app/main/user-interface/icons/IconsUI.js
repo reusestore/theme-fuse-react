@@ -123,13 +123,13 @@ function IconsUI() {
 										{filteredData.map(item => (
 											<div
 												className="w-1/3 h-128 p-8 sm:w-160 sm:p-16 flex flex-col items-center justify-center"
-												key={item.id}
+												key={item.name}
 											>
 												<Icon className="text-48" color="action">
-													{item.ligatures}
+													{item.name}
 												</Icon>
 												<Typography variant="caption" className="mt-4">
-													{item.ligatures}
+													{item.name}
 												</Typography>
 											</div>
 										))}

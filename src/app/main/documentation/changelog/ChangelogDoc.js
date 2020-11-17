@@ -4,6 +4,31 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
 	{
+		version: '5.2.0',
+		date: '2020-11-17',
+		newChanges: [
+			'react updated to v17.0.1,',
+			'E-commerce App: showing loading indicator while fetching products/orders table data.',
+			'NavbarFoldedToggleButton icon changed with push_pin',
+			'FuseSearch: placeholder and noResults props added for localization.',
+			'material ui icons updated and all variations added for to choose from.',
+			'Mobile refinements: Drawer components changed with SwipeableDrawer, react-swipeable library added.',
+			'Native scrollbar styles updated.',
+			'tailwindcss updated to v1.9.6',
+			'All dependency packages updated.'
+		],
+		fixedChanges: [
+			'Language change dispatching should be called in the callback of the i18n.changeLanguage',
+			'firebase individual SDK import error.'
+		],
+		breakingChanges: [
+			'customScrollbars disabled by default due to performance reasons on development.',
+			'tailwind.config.js updated.',
+			'redux-toolkit immutableCheck middleware disabled by default for development performance.',
+			'material ui icon fonts import location changed, checkout public/index.html'
+		]
+	},
+	{
 		version: '5.1.0',
 		date: '2020-09-09',
 		newChanges: [
@@ -803,5 +828,7 @@ function ChangelogDoc() {
 		</>
 	);
 }
+
+export const fuseReactLatestVersion = changelogData[0].version;
 
 export default ChangelogDoc;

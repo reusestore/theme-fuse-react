@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
 		paddingRight: 12,
 		paddingLeft: props.itemPadding > 80 ? 80 : props.itemPadding,
 		'&.active': {
-			backgroundColor: theme.palette.secondary.main,
+			backgroundColor: `${theme.palette.secondary.main}!important`,
 			color: `${theme.palette.secondary.contrastText}!important`,
 			pointerEvents: 'none',
 			transition: 'border-radius .15s cubic-bezier(0.4,0.0,0.2,1)',

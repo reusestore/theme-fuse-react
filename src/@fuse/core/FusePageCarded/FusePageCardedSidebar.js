@@ -1,5 +1,6 @@
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import clsx from 'clsx';
 import React, { useImperativeHandle, useState } from 'react';
 import FusePageCardedSidebarContent from './FusePageCardedSidebarContent';
@@ -19,11 +20,13 @@ function FusePageCardedSidebar(props, ref) {
 	return (
 		<>
 			<Hidden lgUp={props.variant === 'permanent'}>
-				<Drawer
+				<SwipeableDrawer
 					variant="temporary"
 					anchor={props.position}
 					open={isOpen}
+					onOpen={ev => {}}
 					onClose={ev => handleToggleDrawer()}
+					disableSwipeToOpen
 					classes={{
 						root: clsx(classes.sidebarWrapper, props.variant),
 						paper: clsx(
@@ -44,7 +47,7 @@ function FusePageCardedSidebar(props, ref) {
 					style={{ position: 'absolute' }}
 				>
 					<FusePageCardedSidebarContent {...props} />
-				</Drawer>
+				</SwipeableDrawer>
 			</Hidden>
 			{props.variant === 'permanent' && (
 				<Hidden mdDown>

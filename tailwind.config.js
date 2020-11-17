@@ -1,7 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 module.exports = {
-	prefix: '',
-	important: false,
+	purge: [],
+	presets: [],
+	darkMode: false,
 	separator: ':',
 	theme: {
 		screens: {
@@ -13,8 +14,9 @@ module.exports = {
 		},
 		colors: {
 			transparent: 'transparent',
+			current: 'currentColor',
 			black: '#22292F',
-			white: '#FFF',
+			white: '#fff',
 			grey: {
 				50: '#FAFAFA',
 				100: '#F5F5F5',
@@ -367,53 +369,60 @@ module.exports = {
 			'4xl': '144rem',
 			'5xl': '160rem',
 			px: '1px',
-			'0': '0',
-			'1': '0.1rem',
-			'2': '0.2rem',
-			'3': '0.3rem',
-			'4': '0.4rem',
-			'5': '0.5rem',
-			'6': '0.6rem',
-			'8': '0.8rem',
-			'10': '1.0rem',
-			'12': '1.2rem',
-			'16': '1.6rem',
-			'20': '2rem',
-			'24': '2.4rem',
-			'28': '2.8rem',
-			'32': '3.2rem',
-			'36': '3.6rem',
-			'40': '4rem',
-			'44': '4.4rem',
-			'48': '4.8rem',
-			'52': '5.2rem',
-			'56': '5.6rem',
-			'60': '6rem',
-			'64': '6.4rem',
-			'68': '6.8rem',
-			'72': '7.2rem',
-			'76': '7.6rem',
-			'80': '8rem',
-			'84': '8.4rem',
-			'88': '8.8rem',
-			'92': '9.2rem',
-			'96': '9.6rem',
-			'128': '12.8rem',
-			'136': '13.6rem',
-			'160': '16rem',
-			'192': '19.2rem',
-			'200': '20rem',
-			'208': '20.8rem',
-			'216': '21.6rem',
-			'224': '22.4rem',
-			'256': '25.6rem',
-			'288': '28.8rem',
-			'320': '32rem',
-			'360': '36rem',
-			'384': '38.4rem',
-			'400': '40rem',
-			'512': '51.2rem',
-			'640': '64rem'
+			0: '0',
+			0.5: '0.05rem',
+			1: '0.1rem',
+			1.5: '0.15rem',
+			2: '0.2rem',
+			2.5: '0.25rem',
+			3: '0.3rem',
+			3.5: '0.35rem',
+			4: '0.4rem',
+			5: '0.5rem',
+			6: '0.6rem',
+			7: '0.7rem',
+			8: '0.8rem',
+			9: '0.9rem',
+			10: '1.0rem',
+			12: '1.2rem',
+			14: '1.4rem',
+			16: '1.6rem',
+			20: '2rem',
+			24: '2.4rem',
+			28: '2.8rem',
+			32: '3.2rem',
+			36: '3.6rem',
+			40: '4rem',
+			44: '4.4rem',
+			48: '4.8rem',
+			52: '5.2rem',
+			56: '5.6rem',
+			60: '6rem',
+			64: '6.4rem',
+			68: '6.8rem',
+			72: '7.2rem',
+			76: '7.6rem',
+			80: '8rem',
+			84: '8.4rem',
+			88: '8.8rem',
+			92: '9.2rem',
+			96: '9.6rem',
+			128: '12.8rem',
+			136: '13.6rem',
+			160: '16rem',
+			192: '19.2rem',
+			200: '20rem',
+			208: '20.8rem',
+			216: '21.6rem',
+			224: '22.4rem',
+			256: '25.6rem',
+			288: '28.8rem',
+			320: '32rem',
+			360: '36rem',
+			384: '38.4rem',
+			400: '40rem',
+			512: '51.2rem',
+			640: '64rem'
 		},
 		backgroundColor: theme => theme('colors'),
 		backgroundImage: {
@@ -456,26 +465,29 @@ module.exports = {
 			default: '.4rem',
 			md: '.6rem',
 			lg: '.8rem',
+			xl: '1.2rem',
+			'2xl': '1.6rem',
+			'3xl': '2.4rem',
 			full: '9999px',
-			'2': '.2rem',
-			'4': '.4rem',
-			'6': '.6rem',
-			'8': '.8rem',
-			'12': '1.2rem',
-			'16': '1.6rem',
-			'20': '2rem',
-			'24': '2.4rem',
-			'28': '2.8rem',
-			'32': '3.2rem'
+			2: '.2rem',
+			4: '.4rem',
+			6: '.6rem',
+			8: '.8rem',
+			12: '1.2rem',
+			16: '1.6rem',
+			20: '2rem',
+			24: '2.4rem',
+			28: '2.8rem',
+			32: '3.2rem'
 		},
 		borderWidth: {
 			default: '1px',
-			'0': '0',
-			'1': '1px',
-			'2': '2px',
-			'3': '3px',
-			'4': '4px',
-			'8': '8px'
+			0: '0',
+			1: '1px',
+			2: '2px',
+			3: '3px',
+			4: '4px',
+			8: '8px'
 		},
 		boxShadow: {
 			xs: '0 0 0 1px rgba(0, 0, 0, 0.05)',
@@ -488,46 +500,56 @@ module.exports = {
 			inner: 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',
 			outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
 			none: 'none',
-			'0': 'none',
-			'1': '0px 1px 3px 0px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 2px 1px -1px rgba(0,0,0,0.12)',
-			'2': '0px 1px 5px 0px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 3px 1px -2px rgba(0,0,0,0.12)',
-			'3': '0px 1px 8px 0px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 3px 3px -2px rgba(0,0,0,0.12)',
-			'4': '0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12)',
-			'5': '0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12)',
-			'6': '0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12)',
-			'7': '0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12)',
-			'8': '0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12)',
-			'9': '0px 5px 6px -3px rgba(0,0,0,0.2),0px 9px 12px 1px rgba(0,0,0,0.14),0px 3px 16px 2px rgba(0,0,0,0.12)',
+			'0':
+				'0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12)',
+			'1':
+				'0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12)',
+			'2':
+				'0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12)',
+			'3':
+				'0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12)',
+			'4':
+				'0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12)',
+			'5':
+				'0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12)',
+			'6':
+				'0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12)',
+			'7':
+				'0px 4px 5px -2px rgba(0, 0, 0, 0.2), 0px 7px 10px 1px rgba(0, 0, 0, 0.14), 0px 2px 16px 1px rgba(0, 0, 0, 0.12)',
+			'8':
+				'0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12)',
+			'9':
+				'0px 5px 6px -3px rgba(0, 0, 0, 0.2), 0px 9px 12px 1px rgba(0, 0, 0, 0.14), 0px 3px 16px 2px rgba(0, 0, 0, 0.12)',
 			'10':
-				'0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12)',
+				'0px 6px 6px -3px rgba(0, 0, 0, 0.2), 0px 10px 14px 1px rgba(0, 0, 0, 0.14), 0px 4px 18px 3px rgba(0, 0, 0, 0.12)',
 			'11':
-				'0px 6px 7px -4px rgba(0,0,0,0.2),0px 11px 15px 1px rgba(0,0,0,0.14),0px 4px 20px 3px rgba(0,0,0,0.12)',
+				'0px 6px 7px -4px rgba(0, 0, 0, 0.2), 0px 11px 15px 1px rgba(0, 0, 0, 0.14), 0px 4px 20px 3px rgba(0, 0, 0, 0.12)',
 			'12':
-				'0px 7px 8px -4px rgba(0,0,0,0.2),0px 12px 17px 2px rgba(0,0,0,0.14),0px 5px 22px 4px rgba(0,0,0,0.12)',
+				'0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12)',
 			'13':
-				'0px 7px 8px -4px rgba(0,0,0,0.2),0px 13px 19px 2px rgba(0,0,0,0.14),0px 5px 24px 4px rgba(0,0,0,0.12)',
+				'0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 13px 19px 2px rgba(0, 0, 0, 0.14), 0px 5px 24px 4px rgba(0, 0, 0, 0.12)',
 			'14':
-				'0px 7px 9px -4px rgba(0,0,0,0.2),0px 14px 21px 2px rgba(0,0,0,0.14),0px 5px 26px 4px rgba(0,0,0,0.12)',
+				'0px 7px 9px -4px rgba(0, 0, 0, 0.2), 0px 14px 21px 2px rgba(0, 0, 0, 0.14), 0px 5px 26px 4px rgba(0, 0, 0, 0.12)',
 			'15':
-				'0px 8px 9px -5px rgba(0,0,0,0.2),0px 15px 22px 2px rgba(0,0,0,0.14),0px 6px 28px 5px rgba(0,0,0,0.12)',
+				'0px 8px 9px -5px rgba(0, 0, 0, 0.2), 0px 15px 22px 2px rgba(0, 0, 0, 0.14), 0px 6px 28px 5px rgba(0, 0, 0, 0.12)',
 			'16':
-				'0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12)',
+				'0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12)',
 			'17':
-				'0px 8px 11px -5px rgba(0,0,0,0.2),0px 17px 26px 2px rgba(0,0,0,0.14),0px 6px 32px 5px rgba(0,0,0,0.12)',
+				'0px 8px 11px -5px rgba(0, 0, 0, 0.2), 0px 17px 26px 2px rgba(0, 0, 0, 0.14), 0px 6px 32px 5px rgba(0, 0, 0, 0.12)',
 			'18':
-				'0px 9px 11px -5px rgba(0,0,0,0.2),0px 18px 28px 2px rgba(0,0,0,0.14),0px 7px 34px 6px rgba(0,0,0,0.12)',
+				'0px 9px 11px -5px rgba(0, 0, 0, 0.2), 0px 18px 28px 2px rgba(0, 0, 0, 0.14), 0px 7px 34px 6px rgba(0, 0, 0, 0.12)',
 			'19':
-				'0px 9px 12px -6px rgba(0,0,0,0.2),0px 19px 29px 2px rgba(0,0,0,0.14),0px 7px 36px 6px rgba(0,0,0,0.12)',
+				'0px 9px 12px -6px rgba(0, 0, 0, 0.2), 0px 19px 29px 2px rgba(0, 0, 0, 0.14), 0px 7px 36px 6px rgba(0, 0, 0, 0.12)',
 			'20':
-				'0px 10px 13px -6px rgba(0,0,0,0.2),0px 20px 31px 3px rgba(0,0,0,0.14),0px 8px 38px 7px rgba(0,0,0,0.12)',
+				'0px 10px 13px -6px rgba(0, 0, 0, 0.2), 0px 20px 31px 3px rgba(0, 0, 0, 0.14), 0px 8px 38px 7px rgba(0, 0, 0, 0.12)',
 			'21':
-				'0px 10px 13px -6px rgba(0,0,0,0.2),0px 21px 33px 3px rgba(0,0,0,0.14),0px 8px 40px 7px rgba(0,0,0,0.12)',
+				'0px 10px 13px -6px rgba(0, 0, 0, 0.2), 0px 21px 33px 3px rgba(0, 0, 0, 0.14), 0px 8px 40px 7px rgba(0, 0, 0, 0.12)',
 			'22':
-				'0px 10px 14px -6px rgba(0,0,0,0.2),0px 22px 35px 3px rgba(0,0,0,0.14),0px 8px 42px 7px rgba(0,0,0,0.12)',
+				'0px 10px 14px -6px rgba(0, 0, 0, 0.2), 0px 22px 35px 3px rgba(0, 0, 0, 0.14), 0px 8px 42px 7px rgba(0, 0, 0, 0.12)',
 			'23':
-				'0px 11px 14px -7px rgba(0,0,0,0.2),0px 23px 36px 3px rgba(0,0,0,0.14),0px 9px 44px 8px rgba(0,0,0,0.12)',
+				'0px 11px 14px -7px rgba(0, 0, 0, 0.2), 0px 23px 36px 3px rgba(0, 0, 0, 0.14), 0px 9px 44px 8px rgba(0, 0, 0, 0.12)',
 			'24':
-				'0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12)'
+				'0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12)'
 		},
 		container: {},
 		cursor: {
@@ -546,17 +568,17 @@ module.exports = {
 			current: 'currentColor'
 		},
 		flex: {
-			'1': '1 1 0%',
+			1: '1 1 0%',
 			auto: '1 1 auto',
 			initial: '0 1 auto',
 			none: 'none'
 		},
 		flexGrow: {
-			'0': '0',
+			0: '0',
 			default: '1'
 		},
 		flexShrink: {
-			'0': '0',
+			0: '0',
 			default: '1'
 		},
 		fontFamily: {
@@ -580,45 +602,49 @@ module.exports = {
 			mono: ['Consolas', '"Liberation Mono"', 'Menlo', 'Courier', 'monospace']
 		},
 		fontSize: {
-			xs: '1.2rem', // 12px
-			sm: '2.4rem', // 24px
-			base: '1.6rem', // 16px
-			lg: '1.8rem', // 18px
-			xl: '2rem', // 20px
-			'2xl': '2.4rem', // 24px
-			'3xl': '3rem', // 30px
-			'4xl': '3.6rem', // 36px
-			'5xl': '4.8rem', // 48px,
-			'10': '1rem',
-			'11': '1.1rem',
-			'12': '1.2rem',
-			'13': '1.3rem',
-			'14': '1.4rem',
-			'15': '1.5rem',
-			'16': '1.6rem',
-			'17': '1.7rem',
-			'18': '1.8rem',
-			'19': '1.9rem',
-			'20': '2rem',
-			'24': '2.4rem',
-			'28': '2.8rem',
-			'32': '3.2rem',
-			'36': '3.6rem',
-			'40': '4rem',
-			'44': '4.4rem',
-			'48': '4.8rem',
-			'52': '5.2rem',
-			'56': '5.6rem',
-			'60': '6rem',
-			'64': '6.4rem',
-			'68': '6.8rem',
-			'72': '7.2rem',
-			'96': '9.6rem',
-			'128': '12.8rem'
+			xs: ['1.2rem', { lineHeight: '1.6rem' }],
+			sm: ['1.4rem', { lineHeight: '2rem' }],
+			base: ['1.6rem', { lineHeight: '2.4rem' }],
+			lg: ['1.8rem', { lineHeight: '2.8em' }],
+			xl: ['2rem', { lineHeight: '2.8rem' }],
+			'2xl': ['2.4rem', { lineHeight: '3.2rem' }],
+			'3xl': ['3rem', { lineHeight: '3.6rem' }],
+			'4xl': ['3.6rem', { lineHeight: '4rem' }],
+			'5xl': ['4.8rem', { lineHeight: '1' }],
+			'6xl': ['6rem', { lineHeight: '1' }],
+			'7xl': ['7.2rem', { lineHeight: '1' }],
+			'8xl': ['9.6rem', { lineHeight: '1' }],
+			'9xl': ['12.8rem', { lineHeight: '1' }],
+			'10': ['1rem'],
+			'11': ['1.1rem'],
+			'12': ['1.2rem'],
+			'13': ['1.3rem'],
+			'14': ['1.4rem'],
+			'15': ['1.5rem'],
+			'16': ['1.6rem'],
+			'17': ['1.7rem'],
+			'18': ['1.8rem'],
+			'19': ['1.9rem'],
+			'20': ['2rem'],
+			'24': ['2.4rem'],
+			'28': ['2.8rem'],
+			'32': ['3.2rem'],
+			'36': ['3.6rem'],
+			'40': ['4rem'],
+			'44': ['4.4rem'],
+			'48': ['4.8rem'],
+			'52': ['5.2rem'],
+			'56': ['5.6rem'],
+			'60': ['6rem'],
+			'64': ['6.4rem'],
+			'68': ['6.8rem'],
+			'72': ['7.2rem'],
+			'96': ['9.6rem'],
+			'128': ['12.8rem']
 		},
 		fontWeight: {
-			hairline: '100',
-			thin: '200',
+			thin: '100',
+			extralight: '200',
 			light: '300',
 			normal: '400',
 			medium: '500',
@@ -626,15 +652,15 @@ module.exports = {
 			bold: '700',
 			extrabold: '800',
 			black: '900',
-			'100': '100',
-			'200': '200',
-			'300': '300',
-			'400': '400',
-			'500': '500',
-			'600': '600',
-			'700': '700',
-			'800': '800',
-			'900': '900'
+			100: '100',
+			200: '200',
+			300: '300',
+			400: '400',
+			500: '500',
+			600: '600',
+			700: '700',
+			800: '800',
+			900: '900'
 		},
 		height: theme => ({
 			auto: 'auto',
@@ -642,10 +668,25 @@ module.exports = {
 			full: '100%',
 			screen: '100vh'
 		}),
-		inset: {
-			'0': '0',
-			auto: 'auto'
-		},
+		inset: (theme, { negative }) => ({
+			auto: 'auto',
+			...theme('spacing'),
+			...negative(theme('spacing')),
+			'1/2': '50%',
+			'1/3': '33.333333%',
+			'2/3': '66.666667%',
+			'1/4': '25%',
+			'2/4': '50%',
+			'3/4': '75%',
+			full: '100%',
+			'-1/2': '-50%',
+			'-1/3': '-33.333333%',
+			'-2/3': '-66.666667%',
+			'-1/4': '-25%',
+			'-2/4': '-50%',
+			'-3/4': '-75%',
+			'-full': '-100%'
+		}),
 		letterSpacing: {
 			tighter: '-0.05em',
 			tight: '-0.025em',
@@ -661,14 +702,14 @@ module.exports = {
 			normal: '1.5',
 			relaxed: '1.625',
 			loose: '2',
-			'3': '1.2rem',
-			'4': '1.6rem',
-			'5': '2rem',
-			'6': '2.4rem',
-			'7': '2.8rem',
-			'8': '3.2rem',
-			'9': '3.6rem',
-			'10': '4rem'
+			3: '1.2rem',
+			4: '1.6rem',
+			5: '2rem',
+			6: '2.4rem',
+			7: '2.8rem',
+			8: '3.2rem',
+			9: '3.6rem',
+			10: '4rem'
 		},
 		listStyleType: {
 			none: 'none',
@@ -681,15 +722,19 @@ module.exports = {
 			...negative(theme('spacing'))
 		}),
 		maxHeight: theme => ({
-			auto: 'auto',
 			...theme('spacing'),
 			full: '100%',
-			screen: '100vh'
+			screen: '100vh',
+			auto: 'auto'
 		}),
-		maxWidth: theme => ({
+		maxWidth: (theme, { breakpoints }) => ({
+			none: 'none',
 			...theme('spacing'),
 			full: '100%',
-			screen: '100vw'
+			min: 'min-content',
+			max: 'max-content',
+			prose: '65ch',
+			...breakpoints(theme('screens'))
 		}),
 		minHeight: theme => ({
 			auto: 'auto',
@@ -700,6 +745,8 @@ module.exports = {
 		minWidth: theme => ({
 			...theme('spacing'),
 			full: '100%',
+			min: 'min-content',
+			max: 'max-content',
 			screen: '100vw'
 		}),
 		objectPosition: {
@@ -714,28 +761,41 @@ module.exports = {
 			top: 'top'
 		},
 		opacity: {
-			'0': '0',
-			'25': '0.25',
-			'50': '0.5',
-			'75': '0.75',
-			'100': '1'
+			0: '0',
+			10: '0.1',
+			20: '0.2',
+			25: '0.25',
+			30: '0.3',
+			40: '0.4',
+			50: '0.5',
+			60: '0.6',
+			70: '0.7',
+			75: '0.75',
+			80: '0.8',
+			90: '0.9',
+			100: '1'
 		},
 		order: {
 			first: '-9999',
 			last: '9999',
 			none: '0',
-			'1': '1',
-			'2': '2',
-			'3': '3',
-			'4': '4',
-			'5': '5',
-			'6': '6',
-			'7': '7',
-			'8': '8',
-			'9': '9',
-			'10': '10',
-			'11': '11',
-			'12': '12'
+			1: '1',
+			2: '2',
+			3: '3',
+			4: '4',
+			5: '5',
+			6: '6',
+			7: '7',
+			8: '8',
+			9: '9',
+			10: '10',
+			11: '11',
+			12: '12'
+		},
+		outline: {
+			none: ['2px solid transparent', '2px'],
+			white: ['2px dotted white', '2px'],
+			black: ['2px dotted black', '2px']
 		},
 		padding: theme => theme('spacing'),
 		placeholderColor: theme => theme('colors'),
@@ -748,9 +808,9 @@ module.exports = {
 			current: 'currentColor'
 		},
 		strokeWidth: {
-			'0': '0',
-			'1': '1',
-			'2': '2'
+			0: '0',
+			1: '1',
+			2: '2'
 		},
 		textColor: theme => theme('colors'),
 		textOpacity: theme => theme('opacity'),
@@ -784,35 +844,43 @@ module.exports = {
 			'10/12': '83.333333%',
 			'11/12': '91.666667%',
 			full: '100%',
-			screen: '100vw'
+			screen: '100vw',
+			min: 'min-content',
+			max: 'max-content'
 		}),
 		zIndex: {
 			auto: 'auto',
-			'0': '0',
-			'10': '10',
-			'20': '20',
-			'30': '30',
-			'40': '40',
-			'50': '50',
-			'99': '99',
-			'999': '999',
-			'9999': '9999'
+			0: '0',
+			10: '10',
+			20: '20',
+			30: '30',
+			40: '40',
+			50: '50',
+			99: '99',
+			999: '999',
+			9999: '9999'
 		},
 		gap: theme => theme('spacing'),
 		gridTemplateColumns: {
 			none: 'none',
-			'1': 'repeat(1, minmax(0, 1fr))',
-			'2': 'repeat(2, minmax(0, 1fr))',
-			'3': 'repeat(3, minmax(0, 1fr))',
-			'4': 'repeat(4, minmax(0, 1fr))',
-			'5': 'repeat(5, minmax(0, 1fr))',
-			'6': 'repeat(6, minmax(0, 1fr))',
-			'7': 'repeat(7, minmax(0, 1fr))',
-			'8': 'repeat(8, minmax(0, 1fr))',
-			'9': 'repeat(9, minmax(0, 1fr))',
-			'10': 'repeat(10, minmax(0, 1fr))',
-			'11': 'repeat(11, minmax(0, 1fr))',
-			'12': 'repeat(12, minmax(0, 1fr))'
+			1: 'repeat(1, minmax(0, 1fr))',
+			2: 'repeat(2, minmax(0, 1fr))',
+			3: 'repeat(3, minmax(0, 1fr))',
+			4: 'repeat(4, minmax(0, 1fr))',
+			5: 'repeat(5, minmax(0, 1fr))',
+			6: 'repeat(6, minmax(0, 1fr))',
+			7: 'repeat(7, minmax(0, 1fr))',
+			8: 'repeat(8, minmax(0, 1fr))',
+			9: 'repeat(9, minmax(0, 1fr))',
+			10: 'repeat(10, minmax(0, 1fr))',
+			11: 'repeat(11, minmax(0, 1fr))',
+			12: 'repeat(12, minmax(0, 1fr))'
+		},
+		gridAutoColumns: {
+			auto: 'auto',
+			min: 'min-content',
+			max: 'max-content',
+			fr: 'minmax(0, 1fr)'
 		},
 		gridColumn: {
 			auto: 'auto',
@@ -827,48 +895,55 @@ module.exports = {
 			'span-9': 'span 9 / span 9',
 			'span-10': 'span 10 / span 10',
 			'span-11': 'span 11 / span 11',
-			'span-12': 'span 12 / span 12'
+			'span-12': 'span 12 / span 12',
+			'span-full': '1 / -1'
 		},
 		gridColumnStart: {
 			auto: 'auto',
-			'1': '1',
-			'2': '2',
-			'3': '3',
-			'4': '4',
-			'5': '5',
-			'6': '6',
-			'7': '7',
-			'8': '8',
-			'9': '9',
-			'10': '10',
-			'11': '11',
-			'12': '12',
-			'13': '13'
+			1: '1',
+			2: '2',
+			3: '3',
+			4: '4',
+			5: '5',
+			6: '6',
+			7: '7',
+			8: '8',
+			9: '9',
+			10: '10',
+			11: '11',
+			12: '12',
+			13: '13'
 		},
 		gridColumnEnd: {
 			auto: 'auto',
-			'1': '1',
-			'2': '2',
-			'3': '3',
-			'4': '4',
-			'5': '5',
-			'6': '6',
-			'7': '7',
-			'8': '8',
-			'9': '9',
-			'10': '10',
-			'11': '11',
-			'12': '12',
-			'13': '13'
+			1: '1',
+			2: '2',
+			3: '3',
+			4: '4',
+			5: '5',
+			6: '6',
+			7: '7',
+			8: '8',
+			9: '9',
+			10: '10',
+			11: '11',
+			12: '12',
+			13: '13'
 		},
 		gridTemplateRows: {
 			none: 'none',
-			'1': 'repeat(1, minmax(0, 1fr))',
-			'2': 'repeat(2, minmax(0, 1fr))',
-			'3': 'repeat(3, minmax(0, 1fr))',
-			'4': 'repeat(4, minmax(0, 1fr))',
-			'5': 'repeat(5, minmax(0, 1fr))',
-			'6': 'repeat(6, minmax(0, 1fr))'
+			1: 'repeat(1, minmax(0, 1fr))',
+			2: 'repeat(2, minmax(0, 1fr))',
+			3: 'repeat(3, minmax(0, 1fr))',
+			4: 'repeat(4, minmax(0, 1fr))',
+			5: 'repeat(5, minmax(0, 1fr))',
+			6: 'repeat(6, minmax(0, 1fr))'
+		},
+		gridAutoRows: {
+			auto: 'auto',
+			min: 'min-content',
+			max: 'max-content',
+			fr: 'minmax(0, 1fr)'
 		},
 		gridRow: {
 			auto: 'auto',
@@ -877,27 +952,28 @@ module.exports = {
 			'span-3': 'span 3 / span 3',
 			'span-4': 'span 4 / span 4',
 			'span-5': 'span 5 / span 5',
-			'span-6': 'span 6 / span 6'
+			'span-6': 'span 6 / span 6',
+			'span-full': '1 / -1'
 		},
 		gridRowStart: {
 			auto: 'auto',
-			'1': '1',
-			'2': '2',
-			'3': '3',
-			'4': '4',
-			'5': '5',
-			'6': '6',
-			'7': '7'
+			1: '1',
+			2: '2',
+			3: '3',
+			4: '4',
+			5: '5',
+			6: '6',
+			7: '7'
 		},
 		gridRowEnd: {
 			auto: 'auto',
-			'1': '1',
-			'2': '2',
-			'3': '3',
-			'4': '4',
-			'5': '5',
-			'6': '6',
-			'7': '7'
+			1: '1',
+			2: '2',
+			3: '3',
+			4: '4',
+			5: '5',
+			6: '6',
+			7: '7'
 		},
 		transformOrigin: {
 			center: 'center',
@@ -911,42 +987,66 @@ module.exports = {
 			'top-left': 'top left'
 		},
 		scale: {
-			'0': '0',
-			'50': '.5',
-			'75': '.75',
-			'90': '.9',
-			'95': '.95',
-			'100': '1',
-			'105': '1.05',
-			'110': '1.1',
-			'125': '1.25',
-			'150': '1.5'
+			0: '0',
+			50: '.5',
+			75: '.75',
+			90: '.9',
+			95: '.95',
+			100: '1',
+			105: '1.05',
+			110: '1.1',
+			125: '1.25',
+			150: '1.5'
 		},
 		rotate: {
 			'-180': '-180deg',
 			'-90': '-90deg',
 			'-45': '-45deg',
-			'0': '0',
-			'45': '45deg',
-			'90': '90deg',
-			'180': '180deg'
+			'-12': '-12deg',
+			'-6': '-6deg',
+			'-3': '-3deg',
+			'-2': '-2deg',
+			'-1': '-1deg',
+			0: '0',
+			1: '1deg',
+			2: '2deg',
+			3: '3deg',
+			6: '6deg',
+			12: '12deg',
+			45: '45deg',
+			90: '90deg',
+			180: '180deg'
 		},
 		translate: (theme, { negative }) => ({
 			...theme('spacing'),
 			...negative(theme('spacing')),
-			'-full': '-100%',
-			'-1/2': '-50%',
 			'1/2': '50%',
-			full: '100%'
+			'1/3': '33.333333%',
+			'2/3': '66.666667%',
+			'1/4': '25%',
+			'2/4': '50%',
+			'3/4': '75%',
+			full: '100%',
+			'-1/2': '-50%',
+			'-1/3': '-33.333333%',
+			'-2/3': '-66.666667%',
+			'-1/4': '-25%',
+			'-2/4': '-50%',
+			'-3/4': '-75%',
+			'-full': '-100%'
 		}),
 		skew: {
 			'-12': '-12deg',
 			'-6': '-6deg',
 			'-3': '-3deg',
-			'0': '0',
-			'3': '3deg',
-			'6': '6deg',
-			'12': '12deg'
+			'-2': '-2deg',
+			'-1': '-1deg',
+			0: '0',
+			1: '1deg',
+			2: '2deg',
+			3: '3deg',
+			6: '6deg',
+			12: '12deg'
 		},
 		transitionProperty: {
 			none: 'none',
@@ -964,24 +1064,24 @@ module.exports = {
 			'in-out': 'cubic-bezier(0.4, 0, 0.2, 1)'
 		},
 		transitionDuration: {
-			'75': '75ms',
-			'100': '100ms',
-			'150': '150ms',
-			'200': '200ms',
-			'300': '300ms',
-			'500': '500ms',
-			'700': '700ms',
-			'1000': '1000ms'
+			75: '75ms',
+			100: '100ms',
+			150: '150ms',
+			200: '200ms',
+			300: '300ms',
+			500: '500ms',
+			700: '700ms',
+			1000: '1000ms'
 		},
 		transitionDelay: {
-			'75': '75ms',
-			'100': '100ms',
-			'150': '150ms',
-			'200': '200ms',
-			'300': '300ms',
-			'500': '500ms',
-			'700': '700ms',
-			'1000': '1000ms'
+			75: '75ms',
+			100: '100ms',
+			150: '150ms',
+			200: '200ms',
+			300: '300ms',
+			500: '500ms',
+			700: '700ms',
+			1000: '1000ms'
 		},
 		animation: {
 			none: 'none',
@@ -995,10 +1095,7 @@ module.exports = {
 				to: { transform: 'rotate(360deg)' }
 			},
 			ping: {
-				'75%, 100%': {
-					transform: 'scale(2)',
-					opacity: '0'
-				}
+				'75%, 100%': { transform: 'scale(2)', opacity: '0' }
 			},
 			pulse: {
 				'50%': { opacity: '.5' }
@@ -1015,6 +1112,22 @@ module.exports = {
 			}
 		}
 	},
+	variantOrder: [
+		'first',
+		'last',
+		'odd',
+		'even',
+		'visited',
+		'checked',
+		'group-hover',
+		'group-focus',
+		'focus-within',
+		'hover',
+		'focus',
+		'focus-visible',
+		'active',
+		'disabled'
+	],
 	variants: {
 		accessibility: ['responsive', 'focus'],
 		alignContent: ['responsive'],
@@ -1023,16 +1136,16 @@ module.exports = {
 		appearance: ['responsive'],
 		backgroundAttachment: ['responsive'],
 		backgroundClip: ['responsive'],
-		backgroundColor: ['responsive', 'hover', 'focus'],
+		backgroundColor: ['responsive', 'group-hover', 'hover', 'focus'],
 		backgroundImage: ['responsive'],
 		gradientColorStops: ['responsive', 'hover', 'focus'],
-		backgroundOpacity: ['responsive', 'hover', 'focus'],
+		backgroundOpacity: ['responsive', 'group-hover', 'hover', 'focus'],
 		backgroundPosition: ['responsive'],
 		backgroundRepeat: ['responsive'],
 		backgroundSize: ['responsive'],
 		borderCollapse: ['responsive'],
-		borderColor: ['responsive', 'hover', 'focus'],
-		borderOpacity: ['responsive', 'hover', 'focus'],
+		borderColor: ['responsive', 'group-hover', 'hover', 'focus'],
+		borderOpacity: ['responsive', 'group-hover', 'hover', 'focus'],
 		borderRadius: ['responsive'],
 		borderStyle: ['responsive'],
 		borderWidth: ['responsive'],
@@ -1056,6 +1169,7 @@ module.exports = {
 		fontFamily: ['responsive'],
 		fontSize: ['responsive'],
 		fontSmoothing: ['responsive'],
+		fontVariantNumeric: ['responsive'],
 		fontStyle: ['responsive', 'hover', 'focus'],
 		fontWeight: ['responsive', 'hover', 'focus'],
 		height: ['responsive'],
@@ -1074,7 +1188,7 @@ module.exports = {
 		minWidth: ['responsive'],
 		objectFit: ['responsive'],
 		objectPosition: ['responsive'],
-		opacity: ['responsive', 'hover', 'focus'],
+		opacity: ['responsive', 'group-hover', 'hover', 'focus'],
 		order: ['responsive'],
 		outline: ['responsive', 'focus'],
 		overflow: ['responsive'],
@@ -1093,24 +1207,27 @@ module.exports = {
 		strokeWidth: ['responsive'],
 		tableLayout: ['responsive'],
 		textAlign: ['responsive', 'direction'],
-		textColor: ['responsive', 'hover', 'focus'],
-		textOpacity: ['responsive', 'hover', 'focus'],
+		textColor: ['responsive', 'group-hover', 'hover', 'focus'],
+		textOpacity: ['responsive', 'group-hover', 'hover', 'focus'],
 		textDecoration: ['responsive', 'hover', 'focus'],
 		textTransform: ['responsive'],
+		textOverflow: ['responsive'],
 		userSelect: ['responsive'],
 		verticalAlign: ['responsive'],
 		visibility: ['responsive'],
 		whitespace: ['responsive'],
 		width: ['responsive'],
 		wordBreak: ['responsive'],
-		zIndex: ['responsive'],
+		zIndex: ['responsive', 'focus'],
 		gap: ['responsive'],
 		gridAutoFlow: ['responsive'],
 		gridTemplateColumns: ['responsive'],
+		gridAutoColumns: ['responsive'],
 		gridColumn: ['responsive'],
 		gridColumnStart: ['responsive'],
 		gridColumnEnd: ['responsive'],
 		gridTemplateRows: ['responsive'],
+		gridAutoRows: ['responsive'],
 		gridRow: ['responsive'],
 		gridRowStart: ['responsive'],
 		gridRowEnd: ['responsive'],
@@ -1126,6 +1243,5 @@ module.exports = {
 		transitionDelay: ['responsive'],
 		animation: ['responsive']
 	},
-	corePlugins: {},
 	plugins: [require('tailwindcss-dir')()]
 };

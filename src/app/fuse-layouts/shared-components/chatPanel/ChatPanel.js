@@ -3,7 +3,8 @@ import Avatar from '@material-ui/core/Avatar';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Paper from '@material-ui/core/Paper';
-import { makeStyles } from '@material-ui/core/styles';
+import { useTheme, makeStyles } from '@material-ui/core/styles';
+
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import withReducer from 'app/store/withReducer';
@@ -11,6 +12,7 @@ import clsx from 'clsx';
 import keycode from 'keycode';
 import React, { useCallback, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useSwipeable } from 'react-swipeable';
 import Chat from './Chat';
 import ContactList from './ContactList';
 import reducer from './store';
@@ -66,7 +68,17 @@ function ChatPanel(props) {
 	const contacts = useSelector(selectContacts);
 	const selectedContactId = useSelector(({ chatPanel }) => chatPanel.contacts.selectedContactId);
 	const state = useSelector(({ chatPanel }) => chatPanel.state);
+	const theme = useTheme();
+
 	const ref = useRef();
+	const handlers = useSwipeable({
+		onSwipedLeft: () => {
+			return state && theme.direction === 'rtl' && dispatch(closeChatPanel());
+		},
+		onSwipedRight: () => {
+			return state && theme.direction === 'ltr' && dispatch(closeChatPanel());
+		}
+	});
 
 	const classes = useStyles(props);
 	const selectedContact = contacts.find(_contact => _contact.id === selectedContactId);
@@ -118,7 +130,7 @@ function ChatPanel(props) {
 	}, [state, dispatch]);
 
 	return (
-		<div className={classes.root}>
+		<div className={classes.root} {...handlers}>
 			<div className={clsx(classes.panel, { opened: state }, 'flex flex-col max-w-full')} ref={ref}>
 				<AppBar position="static" elevation={1}>
 					<Toolbar className="px-4">

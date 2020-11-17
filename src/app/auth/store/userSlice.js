@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import history from '@history';
 import _ from '@lodash';
 import { setInitialSettings, setDefaultSettings } from 'app/store/fuse/settingsSlice';
@@ -137,7 +138,7 @@ export const logoutUser = () => async (dispatch, getState) => {
 
 	dispatch(setInitialSettings());
 
-	dispatch(userLoggedOut());
+	return dispatch(userLoggedOut());
 };
 
 export const updateUserData = user => async (dispatch, getState) => {

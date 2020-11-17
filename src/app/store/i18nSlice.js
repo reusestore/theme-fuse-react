@@ -8,18 +8,18 @@ export const changeLanguage = languageId => (dispatch, getState) => {
 	const newLangDirection = i18n.dir(languageId);
 
 	/*
-    Change Language
-     */
-	i18n.changeLanguage(languageId);
-
-	/*
     If necessary, change theme direction
      */
 	if (newLangDirection !== direction) {
 		dispatch(setDefaultSettings({ direction: newLangDirection }));
 	}
 
-	return dispatch(i18nSlice.actions.languageChanged(languageId));
+	/*
+    Change Language
+     */
+	return i18n.changeLanguage(languageId).then(() => {
+		dispatch(i18nSlice.actions.languageChanged(languageId));
+	});
 };
 
 const i18nSlice = createSlice({

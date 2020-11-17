@@ -36,7 +36,7 @@ function IntroductionDoc() {
 				React
 			</Typography>
 			<Typography className="mb-16" component="p">
-				<a href="https://reactjs.org/" target="_blank" rel="noreferrer noopener" >
+				<a href="https://reactjs.org/" target="_blank" rel="noreferrer noopener">
 					React
 				</a>{' '}
 				is the core of our template. If you don't know what React is or don't know how to use it, we strongly
@@ -46,7 +46,7 @@ function IntroductionDoc() {
 				Material-UI
 			</Typography>
 			<Typography className="mb-16" component="p">
-				<a href="https://material-ui-next.com" target="_blank" rel="noreferrer noopener" >
+				<a href="https://material-ui-next.com" target="_blank" rel="noreferrer noopener">
 					Material-UI
 				</a>{' '}
 				is a react UI library that implements Google's Material Design specification.
@@ -55,12 +55,7 @@ function IntroductionDoc() {
 				Create React App (CLI)
 			</Typography>
 			<Typography className="mb-16" component="p">
-				<a
-					href="https://github.com/facebook/create-react-app"
-					target="_blank"
-					rel="noreferrer noopener"
-
-				>
+				<a href="https://github.com/facebook/create-react-app" target="_blank" rel="noreferrer noopener">
 					Create React App
 				</a>{' '}
 				is a tool built by developers at Facebook to help you build React applications. It saves you from

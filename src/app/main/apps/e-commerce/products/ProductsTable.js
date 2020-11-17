@@ -11,6 +11,7 @@ import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import FuseLoading from '@fuse/core/FuseLoading';
 import { getProducts, selectProducts } from '../store/productsSlice';
 import ProductsTableHead from './ProductsTableHead';
 
@@ -19,6 +20,7 @@ function ProductsTable(props) {
 	const products = useSelector(selectProducts);
 	const searchText = useSelector(({ eCommerceApp }) => eCommerceApp.products.searchText);
 
+	const [loading, setLoading] = useState(true);
 	const [selected, setSelected] = useState([]);
 	const [data, setData] = useState(products);
 	const [page, setPage] = useState(0);
@@ -29,7 +31,7 @@ function ProductsTable(props) {
 	});
 
 	useEffect(() => {
-		dispatch(getProducts());
+		dispatch(getProducts()).then(() => setLoading(false));
 	}, [dispatch]);
 
 	useEffect(() => {
@@ -90,6 +92,10 @@ function ProductsTable(props) {
 
 	function handleChangeRowsPerPage(event) {
 		setRowsPerPage(event.target.value);
+	}
+
+	if (loading) {
+		return <FuseLoading />;
 	}
 
 	return (

@@ -24,7 +24,7 @@ const contactsSlice = createSlice({
 		setSelectedContactId: (state, action) => {
 			state.selectedContactId = action.payload;
 		},
-		removeSelectedContactId: (state, action) => (state, action) => {
+		removeSelectedContactId: (state, action) => {
 			state.selectedContactId = null;
 		}
 	},
