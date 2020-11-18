@@ -24,9 +24,9 @@ function CardChecklist(props) {
 		onCheckListChange(form, index);
 	}, [form, index, onCheckListChange]);
 
-	function handleOpenNameForm() {
+	function handleOpenNameForm(ev) {
 		handleMenuClose();
-		checkListNameRef.current.openForm();
+		checkListNameRef.current.openForm(ev);
 	}
 
 	function handleMenuOpen(event) {

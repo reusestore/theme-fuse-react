@@ -23,7 +23,8 @@ function NotesSearch(props) {
 	const classes = useStyles(props);
 	const [search, setSearch] = useState(false);
 
-	function showSearch() {
+	function showSearch(ev) {
+		ev.stopPropagation();
 		setSearch(true);
 		document.addEventListener('keydown', escFunction, false);
 	}

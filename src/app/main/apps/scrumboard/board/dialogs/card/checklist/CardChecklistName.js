@@ -15,13 +15,12 @@ const CardChecklistName = React.forwardRef(function CardChecklistName(props, ref
 
 	React.useImperativeHandle(ref, () => {
 		return {
-			openForm: () => {
-				handleOpenForm();
-			}
+			openForm: handleOpenForm
 		};
 	});
 
-	function handleOpenForm() {
+	function handleOpenForm(ev) {
+		ev.stopPropagation();
 		setFormOpen(true);
 	}
 
@@ -48,7 +47,7 @@ const CardChecklistName = React.forwardRef(function CardChecklistName(props, ref
 	}
 
 	return formOpen ? (
-		<ClickAwayListener onClickAway={() => handleCancelForm()}>
+		<ClickAwayListener onClickAway={handleCancelForm}>
 			<form onSubmit={handleSubmit}>
 				<TextField
 					value={form.name}
@@ -70,7 +69,7 @@ const CardChecklistName = React.forwardRef(function CardChecklistName(props, ref
 			</form>
 		</ClickAwayListener>
 	) : (
-		<Typography className="text-16 font-600 cursor-pointer mx-8" onClick={() => handleOpenForm()}>
+		<Typography className="text-16 font-600 cursor-pointer mx-8" onClick={handleOpenForm}>
 			{form.name}
 		</Typography>
 	);

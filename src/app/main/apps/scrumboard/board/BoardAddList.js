@@ -35,7 +35,8 @@ function BoardAddList(props) {
 		}
 	}, [formOpen, resetForm]);
 
-	function handleOpenForm() {
+	function handleOpenForm(ev) {
+		ev.stopPropagation();
 		setFormOpen(true);
 	}
 
