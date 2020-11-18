@@ -242,7 +242,8 @@ function FuseSearch(props) {
 		setNavigation();
 	}, [userRole, navigation]);
 
-	function showSearch() {
+	function showSearch(ev) {
+		ev.stopPropagation();
 		dispatch({ type: 'open' });
 		document.addEventListener('keydown', escFunction, false);
 	}
@@ -359,21 +360,15 @@ function FuseSearch(props) {
 		}
 		case 'full': {
 			return (
-				<ClickAwayListener onClickAway={handleClickAway}>
-					<div className={clsx(classes.root, 'flex', props.className)}>
-						<Tooltip title="Click to search" placement="bottom">
-							<div
-								onClick={showSearch}
-								onKeyDown={showSearch}
-								role="button"
-								tabIndex={0}
-								ref={buttonNode}
-							>
-								{props.trigger}
-							</div>
-						</Tooltip>
+				<div className={clsx(classes.root, 'flex', props.className)}>
+					<Tooltip title="Click to search" placement="bottom">
+						<div onClick={showSearch} onKeyDown={showSearch} role="button" tabIndex={0} ref={buttonNode}>
+							{props.trigger}
+						</div>
+					</Tooltip>
 
-						{state.opened && (
+					{state.opened && (
+						<ClickAwayListener onClickAway={handleClickAway}>
 							<Paper className="absolute left-0 right-0 top-0 h-full z-9999" square>
 								<div className="flex items-center w-full h-full" ref={popperNode}>
 									<Autosuggest
@@ -427,9 +422,9 @@ function FuseSearch(props) {
 									</IconButton>
 								</div>
 							</Paper>
-						)}
-					</div>
-				</ClickAwayListener>
+						</ClickAwayListener>
+					)}
+				</div>
 			);
 		}
 		default: {

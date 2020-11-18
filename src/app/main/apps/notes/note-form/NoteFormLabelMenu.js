@@ -15,6 +15,7 @@ function NoteFormLabelMenu(props) {
 	const [anchorEl, setAnchorEl] = useState(null);
 
 	function handleMenuClick(event) {
+		event.stopPropagation();
 		setAnchorEl(event.currentTarget);
 	}
 

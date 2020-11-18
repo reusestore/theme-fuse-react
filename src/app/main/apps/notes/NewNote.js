@@ -20,7 +20,8 @@ function NewNote(props) {
 	const classes = useStyles(props);
 	const [formOpen, setFormOpen] = useState(false);
 
-	function handleFormOpen() {
+	function handleFormOpen(ev) {
+		ev.stopPropagation();
 		setFormOpen(true);
 		document.addEventListener('keydown', escFunction, false);
 	}
@@ -54,24 +55,26 @@ function NewNote(props) {
 	}
 
 	return (
-		<ClickAwayListener onClickAway={handleClickAway}>
-			<Paper
-				className={clsx(classes.button, 'flex items-center w-full max-w-512 mt-8 mb-16 min-h-48 rounded-8')}
-				elevation={1}
-			>
-				{formOpen ? (
-					<NoteForm onCreate={handleCreate} variant="new" />
-				) : (
-					<Typography
-						className="w-full px-16 py-12 font-500 text-16 w-full"
-						color="textSecondary"
-						onClick={handleFormOpen}
-					>
-						Take a note..
-					</Typography>
-				)}
-			</Paper>
-		</ClickAwayListener>
+		<Paper
+			className={clsx(classes.button, 'flex items-center w-full max-w-512 mt-8 mb-16 min-h-48 rounded-8')}
+			elevation={1}
+		>
+			{formOpen ? (
+				<ClickAwayListener onClickAway={handleClickAway}>
+					<div>
+						<NoteForm onCreate={handleCreate} variant="new" />
+					</div>
+				</ClickAwayListener>
+			) : (
+				<Typography
+					className="w-full px-16 py-12 font-500 text-16 w-full"
+					color="textSecondary"
+					onClick={handleFormOpen}
+				>
+					Take a note..
+				</Typography>
+			)}
+		</Paper>
 	);
 }
 

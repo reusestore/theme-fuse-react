@@ -4,6 +4,11 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
 	{
+		version: '5.2.1',
+		date: '2020-11-19',
+		fixedChanges: ['ClickAwayListener included components not work.']
+	},
+	{
 		version: '5.2.0',
 		date: '2020-11-17',
 		newChanges: [

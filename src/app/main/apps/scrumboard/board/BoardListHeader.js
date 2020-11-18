@@ -47,7 +47,8 @@ function BoardListHeader(props) {
 		setAnchorEl(null);
 	}
 
-	function handleOpenForm() {
+	function handleOpenForm(ev) {
+		ev.stopPropagation();
 		setFormOpen(true);
 	}
 
@@ -73,7 +74,7 @@ function BoardListHeader(props) {
 			<div className="flex items-center justify-between h-64 px-8">
 				<div className="flex items-center min-w-0 px-12">
 					{formOpen ? (
-						<ClickAwayListener onClickAway={() => handleCloseForm()}>
+						<ClickAwayListener onClickAway={handleCloseForm}>
 							<form className="flex w-full" onSubmit={handleSubmit}>
 								<TextField
 									name="title"
@@ -95,7 +96,7 @@ function BoardListHeader(props) {
 							</form>
 						</ClickAwayListener>
 					) : (
-						<Typography className="text-16 font-600 cursor-pointer" onClick={() => handleOpenForm()}>
+						<Typography className="text-16 font-600 cursor-pointer" onClick={handleOpenForm}>
 							{props.list.name}
 						</Typography>
 					)}
@@ -121,7 +122,7 @@ function BoardListHeader(props) {
 							</ListItemIcon>
 							<ListItemText primary="Remove List" />
 						</MenuItem>
-						<MenuItem onClick={() => handleOpenForm()}>
+						<MenuItem onClick={handleOpenForm}>
 							<ListItemIcon className="min-w-40">
 								<Icon>edit</Icon>
 							</ListItemIcon>

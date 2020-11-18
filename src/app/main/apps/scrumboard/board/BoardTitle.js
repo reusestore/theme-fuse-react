@@ -28,7 +28,8 @@ function BoardTitle(props) {
 		setForm({ title: board.name });
 	}, [board.name, setForm]);
 
-	function handleOpenForm() {
+	function handleOpenForm(ev) {
+		ev.stopPropagation();
 		setFormOpen(true);
 	}
 
@@ -52,7 +53,7 @@ function BoardTitle(props) {
 	return (
 		<div className="flex items-center min-w-0">
 			{formOpen ? (
-				<ClickAwayListener onClickAway={() => handleCloseForm()}>
+				<ClickAwayListener onClickAway={handleCloseForm}>
 					<Paper className="p-4">
 						<form className="flex w-full" onSubmit={handleSubmit}>
 							<TextField
@@ -80,7 +81,7 @@ function BoardTitle(props) {
 					{board.settings.subscribed && <Icon className="text-16">remove_red_eye</Icon>}
 					<Typography
 						className="text-16 font-600 cursor-pointer mx-8"
-						onClick={() => handleOpenForm()}
+						onClick={handleOpenForm}
 						color="inherit"
 					>
 						{board.name}
