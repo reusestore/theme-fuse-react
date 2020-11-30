@@ -6,7 +6,7 @@ export const getProduct = createAsyncThunk('eCommerceApp/product/getProduct', as
 	const response = await axios.get('/api/e-commerce-app/product', { params });
 	const data = await response.data;
 
-	return data;
+	return data === undefined ? null : data;
 });
 
 export const saveProduct = createAsyncThunk('eCommerceApp/product/saveProduct', async product => {
@@ -20,6 +20,7 @@ const productSlice = createSlice({
 	name: 'eCommerceApp/product',
 	initialState: null,
 	reducers: {
+		resetProduct: () => null,
 		newProduct: {
 			reducer: (state, action) => action.payload,
 			prepare: event => ({
@@ -53,6 +54,6 @@ const productSlice = createSlice({
 	}
 });
 
-export const { newProduct } = productSlice.actions;
+export const { newProduct, resetProduct } = productSlice.actions;
 
 export default productSlice.reducer;

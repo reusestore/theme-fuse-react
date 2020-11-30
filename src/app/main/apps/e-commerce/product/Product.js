@@ -19,7 +19,8 @@ import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { saveProduct, newProduct, getProduct } from '../store/productSlice';
+import { resetProduct, saveProduct, newProduct, getProduct } from '../store/productSlice';
+
 import reducer from '../store';
 
 const useStyles = makeStyles(theme => ({
@@ -64,6 +65,7 @@ function Product(props) {
 
 	const classes = useStyles(props);
 	const [tabValue, setTabValue] = useState(0);
+	const [noProduct, setNoProduct] = useState(false);
 	const { form, handleChange, setForm } = useForm(null);
 	const routeParams = useParams();
 
@@ -74,7 +76,11 @@ function Product(props) {
 			if (productId === 'new') {
 				dispatch(newProduct());
 			} else {
-				dispatch(getProduct(routeParams));
+				dispatch(getProduct(routeParams)).then(action => {
+					if (!action.payload) {
+						setNoProduct(true);
+					}
+				});
 			}
 		}
 
@@ -86,6 +92,13 @@ function Product(props) {
 			setForm(product);
 		}
 	}, [form, product, setForm]);
+
+	useEffect(() => {
+		return () => {
+			dispatch(resetProduct());
+			setNoProduct(false);
+		};
+	}, [dispatch]);
 
 	function handleChangeTab(event, value) {
 		setTabValue(value);
@@ -133,6 +146,27 @@ function Product(props) {
 
 	function canBeSubmitted() {
 		return form.name.length > 0 && !_.isEqual(product, form);
+	}
+
+	if (noProduct) {
+		return (
+			<FuseAnimate delay={100}>
+				<div className="flex flex-col flex-1 items-center justify-center h-full">
+					<Typography color="textSecondary" variant="h5">
+						There is no such product!
+					</Typography>
+					<Button
+						className="normal-case mt-24"
+						component={Link}
+						variant="outlined"
+						to="/apps/e-commerce/products"
+						color="inherit"
+					>
+						Go to Products Page
+					</Button>
+				</div>
+			</FuseAnimate>
+		);
 	}
 
 	if ((!product || (product && routeParams.productId !== product.id)) && routeParams.productId !== 'new') {

@@ -3172,6 +3172,12 @@ mock.onGet('/api/e-commerce-app/products').reply(() => {
 	return [200, eCommerceDB.products];
 });
 
+mock.onPost('/api/e-commerce-app/remove-products').reply(request => {
+	const { productIds } = JSON.parse(request.data);
+	eCommerceDB.products = eCommerceDB.products.filter(product => !productIds.includes(product.id));
+	return [200, productIds];
+});
+
 mock.onGet('/api/e-commerce-app/product').reply(request => {
 	const { productId } = request.params;
 	const response = _.find(eCommerceDB.products, { id: productId });
@@ -3200,6 +3206,12 @@ mock.onPost('/api/e-commerce-app/product/save').reply(request => {
 
 mock.onGet('/api/e-commerce-app/orders').reply(() => {
 	return [200, eCommerceDB.orders];
+});
+
+mock.onPost('/api/e-commerce-app/remove-orders').reply(request => {
+	const { orderIds } = JSON.parse(request.data);
+	eCommerceDB.orders = eCommerceDB.orders.filter(order => !orderIds.includes(order.id));
+	return [200, orderIds];
 });
 
 mock.onGet('/api/e-commerce-app/order').reply(request => {

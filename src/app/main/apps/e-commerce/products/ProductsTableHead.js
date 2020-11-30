@@ -14,6 +14,8 @@ import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Tooltip from '@material-ui/core/Tooltip';
 import clsx from 'clsx';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { removeProducts } from '../store/productsSlice';
 
 const rows = [
 	{
@@ -68,7 +70,12 @@ const useStyles = makeStyles(theme => ({
 
 function ProductsTableHead(props) {
 	const classes = useStyles(props);
+	const { selectedProductIds } = props;
+	const numSelected = selectedProductIds.length;
+
 	const [selectedProductsMenu, setSelectedProductsMenu] = useState(null);
+
+	const dispatch = useDispatch();
 
 	const createSortHandler = property => event => {
 		props.onRequestSort(event, property);
@@ -87,11 +94,11 @@ function ProductsTableHead(props) {
 			<TableRow className="h-64">
 				<TableCell padding="none" className="w-40 md:w-64 text-center z-99">
 					<Checkbox
-						indeterminate={props.numSelected > 0 && props.numSelected < props.rowCount}
-						checked={props.numSelected === props.rowCount}
+						indeterminate={numSelected > 0 && numSelected < props.rowCount}
+						checked={props.rowCount !== 0 && numSelected === props.rowCount}
 						onChange={props.onSelectAllClick}
 					/>
-					{props.numSelected > 0 && (
+					{numSelected > 0 && (
 						<div
 							className={clsx(
 								'flex items-center justify-center absolute w-64 top-0 ltr:left-0 rtl:right-0 mx-56 h-64 z-10 border-b-1',
@@ -114,6 +121,8 @@ function ProductsTableHead(props) {
 								<MenuList>
 									<MenuItem
 										onClick={() => {
+											dispatch(removeProducts(selectedProductIds));
+											props.onMenuItemClick();
 											closeSelectedProductsMenu();
 										}}
 									>

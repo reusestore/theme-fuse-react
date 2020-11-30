@@ -8,6 +8,18 @@ export const getProducts = createAsyncThunk('eCommerceApp/products/getProducts',
 	return data;
 });
 
+export const removeProducts = createAsyncThunk(
+	'eCommerceApp/products/removeProducts',
+	async (productIds, { dispatch, getState }) => {
+		const response = await axios.post('/api/e-commerce-app/remove-products', { productIds });
+		const data = await response.data;
+
+		dispatch(getProducts());
+
+		return data;
+	}
+);
+
 const productsAdapter = createEntityAdapter({});
 
 export const { selectAll: selectProducts, selectById: selectProductById } = productsAdapter.getSelectors(

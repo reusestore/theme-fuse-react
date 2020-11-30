@@ -7,11 +7,13 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
+import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import FuseLoading from '@fuse/core/FuseLoading';
+import FuseAnimate from '@fuse/core/FuseAnimate/FuseAnimate';
 import { getProducts, selectProducts } from '../store/productsSlice';
 import ProductsTableHead from './ProductsTableHead';
 
@@ -65,6 +67,10 @@ function ProductsTable(props) {
 		setSelected([]);
 	}
 
+	function handleDeselect() {
+		setSelected([]);
+	}
+
 	function handleClick(item) {
 		props.history.push(`/apps/e-commerce/products/${item.id}/${item.handle}`);
 	}
@@ -98,16 +104,29 @@ function ProductsTable(props) {
 		return <FuseLoading />;
 	}
 
+	if (data.length === 0) {
+		return (
+			<FuseAnimate delay={100}>
+				<div className="flex flex-1 items-center justify-center h-full">
+					<Typography color="textSecondary" variant="h5">
+						There are no products!
+					</Typography>
+				</div>
+			</FuseAnimate>
+		);
+	}
+
 	return (
 		<div className="w-full flex flex-col">
 			<FuseScrollbars className="flex-grow overflow-x-auto">
 				<Table stickyHeader className="min-w-xl" aria-labelledby="tableTitle">
 					<ProductsTableHead
-						numSelected={selected.length}
+						selectedProductIds={selected}
 						order={order}
 						onSelectAllClick={handleSelectAllClick}
 						onRequestSort={handleRequestSort}
 						rowCount={data.length}
+						onMenuItemClick={handleDeselect}
 					/>
 
 					<TableBody>
