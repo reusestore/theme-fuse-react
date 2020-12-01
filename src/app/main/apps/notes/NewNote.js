@@ -60,7 +60,7 @@ function NewNote(props) {
 		>
 			{formOpen ? (
 				<ClickAwayListener onClickAway={handleClickAway}>
-					<div>
+					<div className="w-full">
 						<NoteForm onCreate={handleCreate} variant="new" />
 					</div>
 				</ClickAwayListener>

@@ -22,9 +22,11 @@ export const updateNote = createAsyncThunk('notesApp/notes/updateNote', async no
 	return data;
 });
 
-export const removeNote = createAsyncThunk('notesApp/notes/removeNote', async noteId => {
+export const removeNote = createAsyncThunk('notesApp/notes/removeNote', async (noteId, { dispatch, getState }) => {
 	const response = await axios.post('/api/notes-app/remove-note', { noteId });
 	const data = await response.data;
+
+	dispatch(closeNoteDialog());
 
 	return data;
 });
