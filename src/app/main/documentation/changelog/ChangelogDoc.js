@@ -4,6 +4,18 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
 	{
+		version: '5.3.0',
+		date: '2020-12-02',
+		newChanges: [
+			'tailwindcss updated to v2',
+			'material-ui updated to v4.11.1',
+			'All dependency packages updated.',
+			'E-Commerce App: Removing items functionality added into the Products and Orders Table. No result message created for non existed product/order page routes.',
+			'Smooth shadows: Material design shadows changed with tailwindcss classes.'
+		],
+		fixedChanges: ['NotesApp dialog do not close when item removed.']
+	},
+	{
 		version: '5.2.1',
 		date: '2020-11-19',
 		fixedChanges: ['ClickAwayListener included components not work.']
