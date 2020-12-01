@@ -41,6 +41,10 @@ function GridDoc(props)
             <Typography className="mb-16" component="div">The <a href="https://material.io/design/layout/responsive-layout-grid.html">grid</a> creates visual consistency between layouts while allowing
                 flexibility across a wide variety of designs.
                 Material Design’s responsive UI is based on a 12-column grid layout.</Typography>
+            <blockquote>
+                <Typography className="mb-16" component="div">⚠️ The <code>{`Grid`}</code> component shouldn&#39;t be confused with a data grid; it is closer to a layout grid. For a data grid head
+                    to <a href="/components/data-grid/">the <code>{`DataGrid`}</code> component</a>.</Typography>
+            </blockquote>
             <Typography className="text-32 mt-32 mb-8" component="h2">How it works</Typography>
             <Typography className="mb-16" component="div">The grid system is implemented with the <code>{`Grid`}</code> component:</Typography>
             <ul>

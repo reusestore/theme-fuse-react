@@ -137,7 +137,7 @@ function AutocompleteDoc(props)
                 raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/DisabledOptions.js')}
             /></Typography>
             <Typography className="text-32 mt-32 mb-8" component="h2"><code>{`useAutocomplete`}</code></Typography>
-            <Typography className="mb-16" component="div">For advanced customization use cases, we expose a <code>{`useAutocomplete()`}</code> hook.
+            <Typography className="mb-16" component="div">For advanced customization use cases, we expose a headless <code>{`useAutocomplete()`}</code> hook.
                 It accepts almost the same options as the Autocomplete component minus all the props
                 related to the rendering of JSX.
                 The Autocomplete component uses this hook internally.</Typography>
@@ -180,7 +180,7 @@ import useAutocomplete from '@material-ui/lab/useAutocomplete';
                 component={require('app/main/documentation/material-ui-components/components/autocomplete/GoogleMaps.js').default}
                 raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/GoogleMaps.js')}
             /></Typography>
-            <Typography className="mb-16" component="div">For this demo, we need to load the <a href="https://developers.google.com/maps/documentation/javascript/tutorial">Google Maps
+            {/*<Typography className="mb-16" component="div">For this demo, we need to load the <a href="https://developers.google.com/maps/documentation/javascript/tutorial">Google Maps
                 JavaScript</a> API.</Typography>
             <blockquote>
                 <Typography className="mb-16" component="div">⚠️ Before you can start using the Google Maps JavaScript API, you must sign up and create a billing account.</Typography>
@@ -192,7 +192,7 @@ import useAutocomplete from '@material-ui/lab/useAutocomplete';
                 iframe={false}
                 component={require('app/main/documentation/material-ui-components/components/autocomplete/Tags.js').default}
                 raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/Tags.js')}
-            /></Typography>
+            /></Typography>*/}
             <Typography className="text-24 mt-32 mb-8" component="h3">Fixed options</Typography>
             <Typography className="mb-16" component="div">In the event that you need to lock certain tag so that they can&#39;t be removed in the interface, you can set the chips
                 disabled.</Typography>

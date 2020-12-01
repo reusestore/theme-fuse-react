@@ -59,8 +59,8 @@ function ProgressDoc(props)
             <Typography className="mb-16" component="div"><FuseExample
                 className="my-24"
                 iframe={false}
-                component={require('app/main/documentation/material-ui-components/components/progress/CircularStatic.js').default}
-                raw={require('!raw-loader!app/main/documentation/material-ui-components/components/progress/CircularStatic.js')}
+                component={require('app/main/documentation/material-ui-components/components/progress/CircularDeterminate.js').default}
+                raw={require('!raw-loader!app/main/documentation/material-ui-components/components/progress/CircularDeterminate.js')}
             /></Typography>
             <Typography className="text-24 mt-32 mb-8" component="h3">Interactive integration</Typography>
             <Typography className="mb-16" component="div"><FuseExample

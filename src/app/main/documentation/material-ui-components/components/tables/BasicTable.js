@@ -26,7 +26,7 @@ const rows = [
   createData('Gingerbread', 356, 16.0, 49, 3.9),
 ];
 
-export default function SimpleTable() {
+export default function BasicTable() {
   const classes = useStyles();
 
   return (
