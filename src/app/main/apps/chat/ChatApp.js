@@ -198,7 +198,7 @@ function ChatApp(props) {
 					<main className={clsx(classes.contentWrapper, 'z-10')}>
 						{!chat ? (
 							<div className="flex flex-col flex-1 items-center justify-center p-24">
-								<Paper className="rounded-full p-48 md:p-64">
+								<Paper className="rounded-full p-48 md:p-64 shadow-xl">
 									<Icon className="block text-64 md:text-128" color="secondary">
 										chat
 									</Icon>
@@ -223,7 +223,7 @@ function ChatApp(props) {
 							</div>
 						) : (
 							<>
-								<AppBar className="w-full" position="static" elevation={1}>
+								<AppBar className="w-full shadow-md" position="static">
 									<Toolbar className="px-16">
 										<IconButton
 											color="inherit"

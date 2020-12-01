@@ -5,6 +5,7 @@ import {
 	ThemeProvider,
 	withStyles
 } from '@material-ui/core/styles';
+import clsx from 'clsx';
 import { create } from 'jss';
 import jssExtend from 'jss-plugin-extend';
 import PropTypes from 'prop-types';
@@ -16,8 +17,7 @@ const styles = theme => ({
 		backgroundColor: theme.palette.background.default,
 		flexGrow: 1,
 		height: 400,
-		border: 'none',
-		boxShadow: theme.shadows[1]
+		border: 'none'
 	}
 });
 
@@ -74,7 +74,7 @@ class DemoFrame extends React.Component {
 			<Frame
 				head={this.renderHead()}
 				ref={this.handleRef}
-				className={classes.root}
+				className={clsx(classes.root, 'shadow')}
 				contentDidMount={this.onContentDidMount}
 				contentDidUpdate={this.onContentDidUpdate}
 			>

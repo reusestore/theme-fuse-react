@@ -15,10 +15,9 @@ function FooterLayout1(props) {
 		<ThemeProvider theme={footerTheme}>
 			<AppBar
 				id="fuse-footer"
-				className="relative z-10"
+				className="relative z-10 shadow-md"
 				color="default"
 				style={{ backgroundColor: footerTheme.palette.background.paper }}
-				elevation={2}
 			>
 				<Toolbar className="min-h-48 md:min-h-64 px-8 sm:px-12 py-0 flex items-center overflow-x-auto">
 					<div className="flex flex-grow flex-shrink-0">

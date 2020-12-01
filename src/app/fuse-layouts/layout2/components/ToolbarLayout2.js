@@ -29,10 +29,9 @@ function ToolbarLayout2(props) {
 		<ThemeProvider theme={toolbarTheme}>
 			<AppBar
 				id="fuse-toolbar"
-				className={clsx(classes.root, 'flex relative z-10')}
+				className={clsx(classes.root, 'flex relative z-10 shadow-md')}
 				color="default"
 				style={{ backgroundColor: toolbarTheme.palette.background.paper }}
-				elevation={2}
 			>
 				<Toolbar className="container p-0 lg:px-24 min-h-48 md:min-h-64">
 					{config.navbar.display && (

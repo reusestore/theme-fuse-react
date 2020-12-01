@@ -45,8 +45,7 @@ function NavbarLayout1(props) {
 			<AppBar
 				color="primary"
 				position="static"
-				elevation={0}
-				className="flex flex-row items-center flex-shrink h-48 md:h-64 min-h-48 md:min-h-64 px-12"
+				className="flex flex-row items-center flex-shrink h-48 md:h-64 min-h-48 md:min-h-64 px-12 shadow-0"
 			>
 				<div className="flex flex-1 mx-8">
 					<Logo />

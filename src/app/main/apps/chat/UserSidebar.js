@@ -57,7 +57,7 @@ function UserSidebar(props) {
 
 	return (
 		<div className="flex flex-col flex-auto h-full">
-			<AppBar position="static" color="primary" elevation={1}>
+			<AppBar position="static" color="primary" className="shadow-md">
 				<Toolbar className="flex justify-between items-center px-4">
 					<Typography className="px-12" color="inherit" variant="subtitle1">
 						User Info

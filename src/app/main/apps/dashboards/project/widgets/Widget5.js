@@ -20,7 +20,7 @@ function Widget5(props) {
 	}
 
 	return (
-		<Paper className="w-full rounded-8 shadow-1">
+		<Paper className="w-full rounded-8 shadow">
 			<div className="flex items-center justify-between px-16 py-16 border-b-1">
 				<Typography className="text-16">{widget.title}</Typography>
 				<div className="items-center">
@@ -64,7 +64,7 @@ function Widget5(props) {
 					{Object.entries(widget.supporting).map(([key, item]) => {
 						return (
 							<div key={key} className="w-full sm:w-1/2 p-12">
-								<Typography className="text-15 whitespace-no-wrap" color="textSecondary">
+								<Typography className="text-15 whitespace-nowrap" color="textSecondary">
 									{item.label}
 								</Typography>
 								<Typography className="text-32">{item.count[currentRange]}</Typography>

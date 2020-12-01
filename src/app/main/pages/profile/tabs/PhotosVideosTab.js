@@ -44,7 +44,7 @@ function PhotosVideosTab() {
 									<GridListTile
 										classes={{
 											root: 'w-full sm:w-1/2 md:w-1/4',
-											tile: 'rounded-8'
+											tile: 'rounded-8 shadow'
 										}}
 										key={media.preview}
 									>

@@ -8,7 +8,7 @@ import React from 'react';
 
 function Widget9(props) {
 	return (
-		<Card className="w-full rounded-8 shadow-1">
+		<Card className="w-full rounded-8 shadow">
 			<div className="p-16 px-4 flex flex-row items-center justify-between">
 				<Typography className="h1 px-12">Top campaigns</Typography>
 

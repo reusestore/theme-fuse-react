@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
 		position: 'absolute',
 		width: 360,
 		backgroundColor: theme.palette.background.paper,
-		boxShadow: theme.shadows[3],
+		boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
 		top: 0,
 		height: '100%',
 		minHeight: '100%',
@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
 			transform: 'translate3d(360px,0,0)',
 			boxShadow: 'none',
 			'&.opened': {
-				boxShadow: theme.shadows[5]
+				boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'
 			}
 		},
 		transition: theme.transitions.create(['transform'], {
@@ -132,7 +132,7 @@ function ChatPanel(props) {
 	return (
 		<div className={classes.root} {...handlers}>
 			<div className={clsx(classes.panel, { opened: state }, 'flex flex-col max-w-full')} ref={ref}>
-				<AppBar position="static" elevation={1}>
+				<AppBar position="static" className="shadow-md">
 					<Toolbar className="px-4">
 						{(!state || !selectedContactId) && (
 							<div className="flex flex-1 items-center px-4">

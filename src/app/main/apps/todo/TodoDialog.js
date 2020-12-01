@@ -136,7 +136,7 @@ function TodoDialog(props) {
 				paper: 'rounded-8'
 			}}
 		>
-			<AppBar position="static" elevation={1}>
+			<AppBar position="static" className="shadow-md">
 				<Toolbar className="flex w-full">
 					<Typography variant="subtitle1" color="inherit">
 						{todoDialog.type === 'new' ? 'New Todo' : 'Edit Todo'}

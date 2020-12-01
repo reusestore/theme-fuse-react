@@ -70,10 +70,9 @@ function Register3Page() {
 					<Card
 						className={clsx(
 							classes.leftSection,
-							'flex flex-col w-full max-w-sm items-center justify-center'
+							'flex flex-col w-full max-w-sm items-center justify-center shadow-0'
 						)}
 						square
-						elevation={0}
 					>
 						<CardContent className="flex flex-col items-center justify-center w-full py-96 max-w-320">
 							<FuseAnimate delay={300}>

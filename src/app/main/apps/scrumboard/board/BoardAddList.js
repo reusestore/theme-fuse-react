@@ -56,7 +56,7 @@ function BoardAddList(props) {
 
 	return (
 		<div>
-			<Card className={clsx(classes.card, 'w-320 mx-8 sm:mx-12 rounded-8')} square>
+			<Card className={clsx(classes.card, 'w-320 mx-8 sm:mx-12 rounded-8 shadow')} square>
 				{formOpen ? (
 					<ClickAwayListener onClickAway={handleCloseForm}>
 						<form className="p-16" onSubmit={handleSubmit}>

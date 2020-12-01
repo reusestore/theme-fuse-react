@@ -41,7 +41,7 @@ function TimelineTab() {
 					}}
 				>
 					<div>
-						<Card className="w-full overflow-hidden rounded-8">
+						<Card className="w-full overflow-hidden rounded-8 shadow">
 							<Input
 								className="p-16 w-full"
 								classes={{ root: 'text-14' }}
@@ -87,7 +87,7 @@ function TimelineTab() {
 					</div>
 
 					{data.posts.map(post => (
-						<Card key={post.id} className="mb-32 overflow-hidden rounded-8">
+						<Card key={post.id} className="mb-32 overflow-hidden rounded-8 shadow">
 							<CardHeader
 								avatar={<Avatar aria-label="Recipe" src={post.user.avatar} />}
 								action={
@@ -242,7 +242,7 @@ function TimelineTab() {
 						animation: 'transition.slideUpBigIn'
 					}}
 				>
-					<Card className="w-full rounded-8">
+					<Card className="w-full rounded-8 shadow">
 						<AppBar position="static" elevation={0}>
 							<Toolbar className="px-8">
 								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12">
@@ -263,7 +263,7 @@ function TimelineTab() {
 											primary={
 												<div className="flex">
 													<Typography
-														className="font-medium whitespace-no-wrap"
+														className="font-medium whitespace-nowrap"
 														color="primary"
 														paragraph={false}
 													>

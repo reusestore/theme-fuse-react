@@ -193,7 +193,7 @@ function Order(props) {
 										</div>
 
 										<Accordion
-											elevation={1}
+											className="shadow"
 											expanded={map === 'shipping'}
 											onChange={() => setMap(map !== 'shipping' ? 'shipping' : false)}
 										>
@@ -226,7 +226,7 @@ function Order(props) {
 										</Accordion>
 
 										<Accordion
-											elevation={1}
+											className="shadow"
 											expanded={map === 'invoice'}
 											onChange={() => setMap(map !== 'invoice' ? 'invoice' : false)}
 										>

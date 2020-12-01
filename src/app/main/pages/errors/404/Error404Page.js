@@ -22,7 +22,7 @@ function Error404Page() {
 					</Typography>
 				</FuseAnimate>
 
-				<Paper className="flex items-center w-full h-56 p-16 mt-48 mb-16" elevation={1}>
+				<Paper className="flex items-center w-full h-56 p-16 mt-48 mb-16 shadow">
 					<Icon color="action">search</Icon>
 					<Input
 						placeholder="Search for anything"

@@ -63,7 +63,7 @@ const useStyles = makeStyles(theme => ({
 		flex: '1 1 100%',
 		flexDirection: 'column',
 		backgroundColor: theme.palette.background.paper,
-		boxShadow: theme.shadows[1],
+		boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
 		minHeight: 0,
 		borderRadius: '8px 8px 0 0'
 	},

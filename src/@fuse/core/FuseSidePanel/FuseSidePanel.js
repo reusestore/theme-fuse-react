@@ -185,9 +185,9 @@ function FuseSidePanel(props) {
 						classes.paper,
 						props.className,
 						opened ? 'opened' : 'closed',
-						props.position
+						props.position,
+						'shadow-lg'
 					)}
-					elevation={3}
 					square
 				>
 					<FuseScrollbars className={clsx('content', classes.content)}>{props.children}</FuseScrollbars>

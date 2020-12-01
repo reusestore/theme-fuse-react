@@ -177,10 +177,10 @@ function Chat(props) {
 											src={contact.avatar}
 										/>
 									)}
-									<div className="bubble flex relative items-center justify-center p-12 max-w-full shadow-1">
+									<div className="bubble flex relative items-center justify-center p-12 max-w-full shadow">
 										<div className="leading-tight whitespace-pre-wrap">{item.message}</div>
 										<Typography
-											className="time absolute hidden w-full text-11 mt-8 -mb-24 ltr:left-0 rtl:right-0 bottom-0 whitespace-no-wrap"
+											className="time absolute hidden w-full text-11 mt-8 -mb-24 ltr:left-0 rtl:right-0 bottom-0 whitespace-nowrap"
 											color="textSecondary"
 										>
 											{moment(item.time).format('MMMM Do YYYY, h:mm:ss a')}
@@ -205,7 +205,7 @@ function Chat(props) {
 			</FuseScrollbars>
 			{chat && (
 				<form onSubmit={onMessageSubmit} className="absolute bottom-0 right-0 left-0 py-16 px-8">
-					<Paper className="flex items-center relative rounded-24" elevation={1}>
+					<Paper className="flex items-center relative rounded-24 shadow">
 						<TextField
 							autoFocus={false}
 							id="message-input"

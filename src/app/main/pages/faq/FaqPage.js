@@ -93,7 +93,7 @@ function FaqPage() {
 					</Typography>
 				</FuseAnimate>
 
-				<Paper className="flex items-center h-56 w-full max-w-md mt-16 sm:mt-32 rounded-8" elevation={1}>
+				<Paper className="flex items-center h-56 w-full max-w-md mt-16 sm:mt-32 rounded-8 shadow">
 					<Icon color="action" className="mx-16">
 						search
 					</Icon>
@@ -128,13 +128,12 @@ function FaqPage() {
 						return filteredData.map(faq => (
 							<Accordion
 								classes={{
-									root: classes.panel,
+									root: clsx(classes.panel, 'shadow-0'),
 									expanded: classes.expanded
 								}}
 								key={faq.id}
 								expanded={expanded === faq.id}
 								onChange={toggleAccordion(faq.id)}
-								elevation={1}
 							>
 								<AccordionSummary expandIcon={<Icon>expand_more</Icon>}>
 									<div className="flex items-center">

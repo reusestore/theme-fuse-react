@@ -19,15 +19,11 @@ const useStyles = makeStyles(theme => ({
 	},
 	board: {
 		cursor: 'pointer',
-		boxShadow: theme.shadows[0],
 		transitionProperty: 'box-shadow border-color',
 		transitionDuration: theme.transitions.duration.short,
 		transitionTimingFunction: theme.transitions.easing.easeInOut,
 		background: theme.palette.primary.dark,
-		color: theme.palette.getContrastText(theme.palette.primary.dark),
-		'&:hover': {
-			boxShadow: theme.shadows[6]
-		}
+		color: theme.palette.getContrastText(theme.palette.primary.dark)
 	},
 	newBoard: {
 		borderWidth: 2,
@@ -75,7 +71,7 @@ function Boards(props) {
 									to={`/apps/scrumboard/boards/${board.id}/${board.uri}`}
 									className={clsx(
 										classes.board,
-										'flex flex-col items-center justify-center w-full h-full rounded py-24'
+										'flex flex-col items-center justify-center w-full h-full rounded-8 py-24 shadow hover:shadow-lg'
 									)}
 									role="button"
 								>
@@ -91,7 +87,7 @@ function Boards(props) {
 								className={clsx(
 									classes.board,
 									classes.newBoard,
-									'flex flex-col items-center justify-center w-full h-full rounded py-24'
+									'flex flex-col items-center justify-center w-full h-full rounded-8 py-24 shadow hover:shadow-lg'
 								)}
 								onClick={() => dispatch(newBoard())}
 								onKeyDown={() => dispatch(newBoard())}

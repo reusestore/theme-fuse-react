@@ -54,7 +54,7 @@ function ContactListItem(props) {
 			{props.contact.chatId && (
 				<div className="flex flex-col justify-center items-end">
 					{props.contact.lastMessageTime && (
-						<Typography className="whitespace-no-wrap mb-8">
+						<Typography className="whitespace-nowrap mb-8">
 							{moment(props.contact.lastMessageTime).format('ll')}
 						</Typography>
 					)}
