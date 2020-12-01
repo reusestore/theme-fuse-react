@@ -47,20 +47,27 @@ function TablesDoc(props)
                 <li>Tools to query and manipulate data</li>
             </ul>
             <Typography className="mb-16" component="div">When including tools, they should be placed directly above or below the table.</Typography>
-            <Typography className="text-32 mt-32 mb-8" component="h2">Structure</Typography>
-            <Typography className="mb-16" component="div">A data table contains a header row at the top that lists column names, followed by rows for data.</Typography>
-            <Typography className="mb-16" component="div">Checkboxes should accompany each row if the user needs to select or manipulate data.</Typography>
-            <Typography className="mb-16" component="div">For accessibility, the first column is set to be a <code>{`<th>`}</code> element, with a <code>{`scope`}</code> of <code>{`"col"`}</code>.
-                This enables screen readers to identify a cell&#39;s value by it&#39;s row and column name.</Typography>
-            <Typography className="text-32 mt-32 mb-8" component="h2">Simple Table</Typography>
+            <Typography className="text-32 mt-32 mb-8" component="h2">Basic table</Typography>
             <Typography className="mb-16" component="div">A simple example with no frills.</Typography>
             <Typography className="mb-16" component="div"><FuseExample
                 className="my-24"
                 iframe={false}
-                component={require('app/main/documentation/material-ui-components/components/tables/SimpleTable.js').default}
-                raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/SimpleTable.js')}
+                component={require('app/main/documentation/material-ui-components/components/tables/BasicTable.js').default}
+                raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/BasicTable.js')}
             /></Typography>
-            <Typography className="text-32 mt-32 mb-8" component="h2">Dense Table</Typography>
+            <Typography className="text-32 mt-32 mb-8" component="h2">Data table</Typography>
+            <Typography className="mb-16" component="div">The <code>{`Table`}</code> component has a close mapping to the native <code>{`<table>`}</code> elements.
+                This constraint makes building rich data tables challenging.</Typography>
+            <Typography className="mb-16" component="div">The <a href="/components/data-grid/"><code>{`DataGrid`}</code> component</a> is designed for use-cases that are focused around handling a
+                large amounts of tabular data.
+                While it comes with a more rigid structure, in exchange, you gain more powerful features.</Typography>
+            <Typography className="mb-16" component="div"><FuseExample
+                className="my-24"
+                iframe={false}
+                component={require('app/main/documentation/material-ui-components/components/tables/DataTable.js').default}
+                raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/DataTable.js')}
+            /></Typography>
+            <Typography className="text-32 mt-32 mb-8" component="h2">Dense table</Typography>
             <Typography className="mb-16" component="div">A simple example of a dense table with no frills.</Typography>
             <Typography className="mb-16" component="div"><FuseExample
                 className="my-24"
@@ -68,7 +75,7 @@ function TablesDoc(props)
                 component={require('app/main/documentation/material-ui-components/components/tables/DenseTable.js').default}
                 raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/DenseTable.js')}
             /></Typography>
-            <Typography className="text-32 mt-32 mb-8" component="h2">Sorting &amp; Selecting</Typography>
+            <Typography className="text-32 mt-32 mb-8" component="h2">Sorting &amp; selecting</Typography>
             <Typography className="mb-16" component="div">This example demonstrates the use of <code>{`Checkbox`}</code> and clickable rows for selection, with a custom <code>{`Toolbar`}</code>. It
                 uses the <code>{`TableSortLabel`}</code> component to help style column headings.</Typography>
             <Typography className="mb-16" component="div">The Table has been given a fixed width to demonstrate horizontal scrolling. In order to prevent the pagination controls from scrolling, the
@@ -138,7 +145,7 @@ function TablesDoc(props)
                 component={require('app/main/documentation/material-ui-components/components/tables/CollapsibleTable.js').default}
                 raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/CollapsibleTable.js')}
             /></Typography>
-            <Typography className="text-32 mt-32 mb-8" component="h2">Spanning Table</Typography>
+            <Typography className="text-32 mt-32 mb-8" component="h2">Spanning table</Typography>
             <Typography className="mb-16" component="div">A simple example with spanning rows &amp; columns.</Typography>
             <Typography className="mb-16" component="div"><FuseExample
                 className="my-24"
@@ -146,7 +153,7 @@ function TablesDoc(props)
                 component={require('app/main/documentation/material-ui-components/components/tables/SpanningTable.js').default}
                 raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/SpanningTable.js')}
             /></Typography>
-            <Typography className="text-32 mt-32 mb-8" component="h2">Virtualized Table</Typography>
+            <Typography className="text-32 mt-32 mb-8" component="h2">Virtualized table</Typography>
             <Typography className="mb-16" component="div">In the following example, we demonstrate how to use <a href="https://github.com/bvaughn/react-virtualized">react-virtualized</a> with
                 the <code>{`Table`}</code> component.
                 It renders 200 rows and can easily handle more.
@@ -157,30 +164,6 @@ function TablesDoc(props)
                 component={require('app/main/documentation/material-ui-components/components/tables/ReactVirtualizedTable.js').default}
                 raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/ReactVirtualizedTable.js')}
             /></Typography>
-            <Typography className="text-32 mt-32 mb-8" component="h2">Complementary projects</Typography>
-            <Typography className="mb-16" component="div">For more advanced use cases you might be able to take advantage of:</Typography>
-            <Typography className="text-24 mt-32 mb-8" component="h3">material-table</Typography>
-            <Typography className="mb-16" component="div"> src="https://img.shields.io/github/stars/mbrn/material-table.svg?style=social&label=Stars" alt="stars/>
-                src="https://img.shields.io/npm/dm/material-table.svg" alt="npm downloads/></Typography>
-            <Typography className="mb-16" component="div"><a href="https://github.com/mbrn/material-table">material-table</a> is a simple and powerful Datatable for React based on Material-UI Table
-                with some additional features.
-                They support many different use cases (editable, filtering, grouping, sorting, selection, i18n, tree data and more). You should check it out.</Typography>
-            <Typography className="mb-16" component="div"><FuseExample
-                className="my-24"
-                iframe={false}
-                component={require('app/main/documentation/material-ui-components/components/tables/MaterialTableDemo.js').default}
-                raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/MaterialTableDemo.js')}
-            /></Typography>
-            <Typography className="text-24 mt-32 mb-8" component="h3">Other</Typography>
-            <ul>
-                <li><a href="https://devexpress.github.io/devextreme-reactive/react/grid/">dx-react-grid-material-ui</a>: A data grid for Material-UI with paging, sorting, filtering, grouping and
-                    editing features (<a href="https://js.devexpress.com/licensing/">paid license</a>).
-                </li>
-                <li><a href="https://github.com/gregnb/mui-datatables">mui-datatables</a>: Responsive data tables for Material-UI with filtering, sorting, search and more.</li>
-                <li><a href="https://github.com/unosquare/tubular-react">tubular-react</a>: A Material-UI table with local or remote data-source. Featuring filtering, sorting, free-text search, export
-                    to CSV locally, and aggregations.
-                </li>
-            </ul>
             <Typography className="text-32 mt-32 mb-8" component="h2">Accessibility</Typography>
             <Typography className="mb-16" component="div">(WAI tutorial: <a href="https://www.w3.org/WAI/tutorials/tables/">https://www.w3.org/WAI/tutorials/tables/</a>)</Typography>
             <Typography className="text-24 mt-32 mb-8" component="h3">Caption</Typography>

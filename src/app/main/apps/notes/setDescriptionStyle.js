@@ -1,21 +1,21 @@
 const fontSizes = {
-	'1': {
+	1: {
 		fontSize: 14,
 		lineHeight: 19
 	},
-	'2': {
+	2: {
 		fontSize: 18,
 		lineHeight: 28
 	},
-	'3': {
+	3: {
 		fontSize: 24,
 		lineHeight: 36
 	},
-	'4': {
+	4: {
 		fontSize: 36,
 		lineHeight: 48
 	},
-	'5': {
+	5: {
 		fontSize: 48,
 		lineHeight: 60
 	}

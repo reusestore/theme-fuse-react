@@ -54,7 +54,7 @@ function BoardTitle(props) {
 		<div className="flex items-center min-w-0">
 			{formOpen ? (
 				<ClickAwayListener onClickAway={handleCloseForm}>
-					<Paper className="p-4">
+					<Paper className="p-4 shadow">
 						<form className="flex w-full" onSubmit={handleSubmit}>
 							<TextField
 								name="title"

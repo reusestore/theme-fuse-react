@@ -6,7 +6,7 @@ import React from 'react';
 
 function Widget4(props) {
 	return (
-		<Paper className="w-full rounded-8 shadow-1">
+		<Paper className="w-full rounded-8 shadow">
 			<div className="flex items-center justify-between px-4 pt-4">
 				<Typography className="text-16 px-12">{props.widget.title}</Typography>
 				<IconButton aria-label="more">

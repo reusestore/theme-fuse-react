@@ -35,10 +35,10 @@ function BoardList(props) {
 					<Card
 						className={clsx(
 							classes.list,
+							snapshot.isDragging ? 'shadow-lg' : 'shadow',
 							'w-256 sm:w-320 mx-8 sm:mx-12 max-h-full flex flex-col rounded-8'
 						)}
 						square
-						elevation={snapshot.isDragging ? 3 : 1}
 					>
 						<BoardListHeader
 							list={props.list}

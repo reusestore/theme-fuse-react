@@ -45,10 +45,7 @@ function ContactsHeader(props) {
 			<div className="flex flex-1 items-center justify-center px-8 sm:px-12">
 				<ThemeProvider theme={mainTheme}>
 					<FuseAnimate animation="transition.slideLeftIn" delay={300}>
-						<Paper
-							className="flex p-4 items-center w-full max-w-512 h-48 px-8 py-4 rounded-8"
-							elevation={1}
-						>
+						<Paper className="flex p-4 items-center w-full max-w-512 h-48 px-8 py-4 rounded-8 shadow">
 							<Icon color="action">search</Icon>
 
 							<Input

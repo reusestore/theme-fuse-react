@@ -25,7 +25,7 @@ function SchemePreview({ theme, className, id, onSelect }) {
 		<div className={clsx(className, 'mb-8')}>
 			<button
 				className={clsx(
-					'w-full text-left rounded-6 relative font-500 shadow-1 hover:shadow-2 cursor-pointer overflow-hidden'
+					'w-full text-left rounded-6 relative font-500 shadow hover:shadow-md transition-shadow cursor-pointer overflow-hidden'
 				)}
 				style={{
 					backgroundColor,
@@ -44,7 +44,7 @@ function SchemePreview({ theme, className, id, onSelect }) {
 					<span className="text-12 opacity-75">Header (Primary)</span>
 
 					<div
-						className="flex items-center justify-center w-20 h-20 rounded-full absolute bottom-0 right-0 -mb-10 shadow-1 text-10 mr-4"
+						className="flex items-center justify-center w-20 h-20 rounded-full absolute bottom-0 right-0 -mb-10 shadow text-10 mr-4"
 						style={{
 							backgroundColor: secondaryColor,
 							color: secondaryColorContrast
@@ -55,7 +55,7 @@ function SchemePreview({ theme, className, id, onSelect }) {
 				</div>
 				<div className="pl-8 pr-28 -mt-24 w-full">
 					<div
-						className="w-full h-96 rounded-4 relative shadow-1 p-8"
+						className="w-full h-96 rounded-4 relative shadow p-8"
 						style={{
 							backgroundColor: paperColor,
 							color: paperColorContrast

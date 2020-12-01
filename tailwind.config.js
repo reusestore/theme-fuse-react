@@ -2,8 +2,7 @@
 module.exports = {
 	purge: [],
 	presets: [],
-	darkMode: false,
-	separator: ':',
+	darkMode: false, // or 'media' or 'class'
 	theme: {
 		screens: {
 			sm: '600px',
@@ -24,7 +23,7 @@ module.exports = {
 				300: '#E0E0E0',
 				400: '#BDBDBD',
 				500: '#9E9E9E',
-				default: '#9E9E9E',
+				DEFAULT: '#9E9E9E',
 				600: '#757575',
 				700: '#616161',
 				800: '#424242',
@@ -41,7 +40,7 @@ module.exports = {
 				300: '#E0E0E0',
 				400: '#BDBDBD',
 				500: '#9E9E9E',
-				default: '#9E9E9E',
+				DEFAULT: '#9E9E9E',
 				600: '#757575',
 				700: '#616161',
 				800: '#424242',
@@ -58,7 +57,7 @@ module.exports = {
 				300: '#E57373',
 				400: '#EF5350',
 				500: '#F44336',
-				default: '#F44336',
+				DEFAULT: '#F44336',
 				600: '#E53935',
 				700: '#D32F2F',
 				800: '#C62828',
@@ -75,7 +74,7 @@ module.exports = {
 				300: '#FFB74D',
 				400: '#FFA726',
 				500: '#FF9800',
-				default: '#FF9800',
+				DEFAULT: '#FF9800',
 				600: '#FB8C00',
 				700: '#F57C00',
 				800: '#EF6C00',
@@ -92,7 +91,7 @@ module.exports = {
 				300: '#FF8A65',
 				400: '#FF7043',
 				500: '#FF5722',
-				default: '#FF5722',
+				DEFAULT: '#FF5722',
 				600: '#F4511E',
 				700: '#E64A19',
 				800: '#D84315',
@@ -109,7 +108,7 @@ module.exports = {
 				300: '#FFF176',
 				400: '#FFEE58',
 				500: '#FFEB3B',
-				default: '#FFEB3B',
+				DEFAULT: '#FFEB3B',
 				600: '#FDD835',
 				700: '#FBC02D',
 				800: '#F9A825',
@@ -126,7 +125,7 @@ module.exports = {
 				300: '#81C784',
 				400: '#66BB6A',
 				500: '#4CAF50',
-				default: '#4CAF50',
+				DEFAULT: '#4CAF50',
 				600: '#43A047',
 				700: '#388E3C',
 				800: '#2E7D32',
@@ -143,7 +142,7 @@ module.exports = {
 				300: '#AED581',
 				400: '#9CCC65',
 				500: '#8BC34A',
-				default: '#8BC34A',
+				DEFAULT: '#8BC34A',
 				600: '#7CB342',
 				700: '#689F38',
 				800: '#558B2F',
@@ -160,7 +159,7 @@ module.exports = {
 				300: '#4DB6AC',
 				400: '#26A69A',
 				500: '#009688',
-				default: '#009688',
+				DEFAULT: '#009688',
 				600: '#00897B',
 				700: '#00796B',
 				800: '#00695C',
@@ -177,7 +176,7 @@ module.exports = {
 				300: '#64B5F6',
 				400: '#42A5F5',
 				500: '#2196F3',
-				default: '#2196F3',
+				DEFAULT: '#2196F3',
 				600: '#1E88E5',
 				700: '#1976D2',
 				800: '#1565C0',
@@ -194,7 +193,7 @@ module.exports = {
 				300: '#4FC3F7',
 				400: '#29B6F6',
 				500: '#03A9F4',
-				default: '#03A9F4',
+				DEFAULT: '#03A9F4',
 				600: '#039BE5',
 				700: '#0288D1',
 				800: '#0277BD',
@@ -211,7 +210,7 @@ module.exports = {
 				300: '#7986CB',
 				400: '#5C6BC0',
 				500: '#3F51B5',
-				default: '#3F51B5',
+				DEFAULT: '#3F51B5',
 				600: '#3949AB',
 				700: '#303F9F',
 				800: '#283593',
@@ -228,7 +227,7 @@ module.exports = {
 				300: '#BA68C8',
 				400: '#AB47BC',
 				500: '#9C27B0',
-				default: '#9C27B0',
+				DEFAULT: '#9C27B0',
 				600: '#8E24AA',
 				700: '#7B1FA2',
 				800: '#6A1B9A',
@@ -245,7 +244,7 @@ module.exports = {
 				300: '#9575CD',
 				400: '#7E57C2',
 				500: '#673AB7',
-				default: '#673AB7',
+				DEFAULT: '#673AB7',
 				600: '#5E35B1',
 				700: '#512DA8',
 				800: '#4527A0',
@@ -262,7 +261,7 @@ module.exports = {
 				300: '#F06292',
 				400: '#EC407A',
 				500: '#E91E63',
-				default: '#E91E63',
+				DEFAULT: '#E91E63',
 				600: '#D81B60',
 				700: '#C2185B',
 				800: '#AD1457',
@@ -279,7 +278,7 @@ module.exports = {
 				300: '#DCE775',
 				400: '#D4E157',
 				500: '#CDDC39',
-				default: '#CDDC39',
+				DEFAULT: '#CDDC39',
 				600: '#C0CA33',
 				700: '#AFB42B',
 				800: '#9E9D24',
@@ -296,7 +295,7 @@ module.exports = {
 				300: '#FFD54F',
 				400: '#FFCA28',
 				500: '#FFC107',
-				default: '#FFC107',
+				DEFAULT: '#FFC107',
 				600: '#FFB300',
 				700: '#FFA000',
 				800: '#FF8F00',
@@ -313,7 +312,7 @@ module.exports = {
 				300: '#A1887F',
 				400: '#8D6E63',
 				500: '#795548',
-				default: '#795548',
+				DEFAULT: '#795548',
 				600: '#6D4C41',
 				700: '#5D4037',
 				800: '#4E342E',
@@ -330,7 +329,7 @@ module.exports = {
 				300: '#90A4AE',
 				400: '#78909C',
 				500: '#607D8B',
-				default: '#607D8B',
+				DEFAULT: '#607D8B',
 				600: '#546E7A',
 				700: '#455A64',
 				800: '#37474F',
@@ -347,7 +346,7 @@ module.exports = {
 				300: '#4DD0E1',
 				400: '#26C6DA',
 				500: '#00BCD4',
-				default: '#00BCD4',
+				DEFAULT: '#00BCD4',
 				600: '#00ACC1',
 				700: '#0097A7',
 				800: '#00838F',
@@ -424,6 +423,13 @@ module.exports = {
 			512: '51.2rem',
 			640: '64rem'
 		},
+		animation: {
+			none: 'none',
+			spin: 'spin 1s linear infinite',
+			ping: 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
+			pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+			bounce: 'bounce 1s infinite'
+		},
 		backgroundColor: theme => theme('colors'),
 		backgroundImage: {
 			none: 'none',
@@ -436,7 +442,6 @@ module.exports = {
 			'gradient-to-l': 'linear-gradient(to left, var(--gradient-color-stops))',
 			'gradient-to-tl': 'linear-gradient(to top left, var(--gradient-color-stops))'
 		},
-		gradientColorStops: theme => theme('colors'),
 		backgroundOpacity: theme => theme('opacity'),
 		backgroundPosition: {
 			bottom: 'bottom',
@@ -456,13 +461,13 @@ module.exports = {
 		},
 		borderColor: theme => ({
 			...theme('colors'),
-			default: theme('colors.gray.300', 'currentColor')
+			DEFAULT: theme('colors.gray.300', 'currentColor')
 		}),
 		borderOpacity: theme => theme('opacity'),
 		borderRadius: {
 			none: '0',
 			sm: '.2rem',
-			default: '.4rem',
+			DEFAULT: '.4rem',
 			md: '.6rem',
 			lg: '.8rem',
 			xl: '1.2rem',
@@ -481,8 +486,8 @@ module.exports = {
 			32: '3.2rem'
 		},
 		borderWidth: {
-			default: '1px',
-			0: '0',
+			DEFAULT: '1px',
+			0: '0px',
 			1: '1px',
 			2: '2px',
 			3: '3px',
@@ -490,66 +495,39 @@ module.exports = {
 			8: '8px'
 		},
 		boxShadow: {
-			xs: '0 0 0 1px rgba(0, 0, 0, 0.05)',
 			sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-			default: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+			DEFAULT: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
 			md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
 			lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
 			xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
 			'2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
 			inner: 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',
-			outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
 			none: 'none',
-			'0':
-				'0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12)',
-			'1':
-				'0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12)',
-			'2':
-				'0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12)',
-			'3':
-				'0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12)',
-			'4':
-				'0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12)',
-			'5':
-				'0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12)',
-			'6':
-				'0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12)',
-			'7':
-				'0px 4px 5px -2px rgba(0, 0, 0, 0.2), 0px 7px 10px 1px rgba(0, 0, 0, 0.14), 0px 2px 16px 1px rgba(0, 0, 0, 0.12)',
-			'8':
-				'0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12)',
-			'9':
-				'0px 5px 6px -3px rgba(0, 0, 0, 0.2), 0px 9px 12px 1px rgba(0, 0, 0, 0.14), 0px 3px 16px 2px rgba(0, 0, 0, 0.12)',
-			'10':
-				'0px 6px 6px -3px rgba(0, 0, 0, 0.2), 0px 10px 14px 1px rgba(0, 0, 0, 0.14), 0px 4px 18px 3px rgba(0, 0, 0, 0.12)',
-			'11':
-				'0px 6px 7px -4px rgba(0, 0, 0, 0.2), 0px 11px 15px 1px rgba(0, 0, 0, 0.14), 0px 4px 20px 3px rgba(0, 0, 0, 0.12)',
-			'12':
-				'0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12)',
-			'13':
-				'0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 13px 19px 2px rgba(0, 0, 0, 0.14), 0px 5px 24px 4px rgba(0, 0, 0, 0.12)',
-			'14':
-				'0px 7px 9px -4px rgba(0, 0, 0, 0.2), 0px 14px 21px 2px rgba(0, 0, 0, 0.14), 0px 5px 26px 4px rgba(0, 0, 0, 0.12)',
-			'15':
-				'0px 8px 9px -5px rgba(0, 0, 0, 0.2), 0px 15px 22px 2px rgba(0, 0, 0, 0.14), 0px 6px 28px 5px rgba(0, 0, 0, 0.12)',
-			'16':
-				'0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12)',
-			'17':
-				'0px 8px 11px -5px rgba(0, 0, 0, 0.2), 0px 17px 26px 2px rgba(0, 0, 0, 0.14), 0px 6px 32px 5px rgba(0, 0, 0, 0.12)',
-			'18':
-				'0px 9px 11px -5px rgba(0, 0, 0, 0.2), 0px 18px 28px 2px rgba(0, 0, 0, 0.14), 0px 7px 34px 6px rgba(0, 0, 0, 0.12)',
-			'19':
-				'0px 9px 12px -6px rgba(0, 0, 0, 0.2), 0px 19px 29px 2px rgba(0, 0, 0, 0.14), 0px 7px 36px 6px rgba(0, 0, 0, 0.12)',
-			'20':
-				'0px 10px 13px -6px rgba(0, 0, 0, 0.2), 0px 20px 31px 3px rgba(0, 0, 0, 0.14), 0px 8px 38px 7px rgba(0, 0, 0, 0.12)',
-			'21':
-				'0px 10px 13px -6px rgba(0, 0, 0, 0.2), 0px 21px 33px 3px rgba(0, 0, 0, 0.14), 0px 8px 40px 7px rgba(0, 0, 0, 0.12)',
-			'22':
-				'0px 10px 14px -6px rgba(0, 0, 0, 0.2), 0px 22px 35px 3px rgba(0, 0, 0, 0.14), 0px 8px 42px 7px rgba(0, 0, 0, 0.12)',
-			'23':
-				'0px 11px 14px -7px rgba(0, 0, 0, 0.2), 0px 23px 36px 3px rgba(0, 0, 0, 0.14), 0px 9px 44px 8px rgba(0, 0, 0, 0.12)',
-			'24':
-				'0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12)'
+			0: '0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12)',
+			1: '0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12)',
+			2: '0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12)',
+			3: '0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12)',
+			4: '0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12)',
+			5: '0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12)',
+			6: '0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12)',
+			7: '0px 4px 5px -2px rgba(0, 0, 0, 0.2), 0px 7px 10px 1px rgba(0, 0, 0, 0.14), 0px 2px 16px 1px rgba(0, 0, 0, 0.12)',
+			8: '0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12)',
+			9: '0px 5px 6px -3px rgba(0, 0, 0, 0.2), 0px 9px 12px 1px rgba(0, 0, 0, 0.14), 0px 3px 16px 2px rgba(0, 0, 0, 0.12)',
+			10: '0px 6px 6px -3px rgba(0, 0, 0, 0.2), 0px 10px 14px 1px rgba(0, 0, 0, 0.14), 0px 4px 18px 3px rgba(0, 0, 0, 0.12)',
+			11: '0px 6px 7px -4px rgba(0, 0, 0, 0.2), 0px 11px 15px 1px rgba(0, 0, 0, 0.14), 0px 4px 20px 3px rgba(0, 0, 0, 0.12)',
+			12: '0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12)',
+			13: '0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 13px 19px 2px rgba(0, 0, 0, 0.14), 0px 5px 24px 4px rgba(0, 0, 0, 0.12)',
+			14: '0px 7px 9px -4px rgba(0, 0, 0, 0.2), 0px 14px 21px 2px rgba(0, 0, 0, 0.14), 0px 5px 26px 4px rgba(0, 0, 0, 0.12)',
+			15: '0px 8px 9px -5px rgba(0, 0, 0, 0.2), 0px 15px 22px 2px rgba(0, 0, 0, 0.14), 0px 6px 28px 5px rgba(0, 0, 0, 0.12)',
+			16: '0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12)',
+			17: '0px 8px 11px -5px rgba(0, 0, 0, 0.2), 0px 17px 26px 2px rgba(0, 0, 0, 0.14), 0px 6px 32px 5px rgba(0, 0, 0, 0.12)',
+			18: '0px 9px 11px -5px rgba(0, 0, 0, 0.2), 0px 18px 28px 2px rgba(0, 0, 0, 0.14), 0px 7px 34px 6px rgba(0, 0, 0, 0.12)',
+			19: '0px 9px 12px -6px rgba(0, 0, 0, 0.2), 0px 19px 29px 2px rgba(0, 0, 0, 0.14), 0px 7px 36px 6px rgba(0, 0, 0, 0.12)',
+			20: '0px 10px 13px -6px rgba(0, 0, 0, 0.2), 0px 20px 31px 3px rgba(0, 0, 0, 0.14), 0px 8px 38px 7px rgba(0, 0, 0, 0.12)',
+			21: '0px 10px 13px -6px rgba(0, 0, 0, 0.2), 0px 21px 33px 3px rgba(0, 0, 0, 0.14), 0px 8px 40px 7px rgba(0, 0, 0, 0.12)',
+			22: '0px 10px 14px -6px rgba(0, 0, 0, 0.2), 0px 22px 35px 3px rgba(0, 0, 0, 0.14), 0px 8px 42px 7px rgba(0, 0, 0, 0.12)',
+			23: '0px 11px 14px -7px rgba(0, 0, 0, 0.2), 0px 23px 36px 3px rgba(0, 0, 0, 0.14), 0px 9px 44px 8px rgba(0, 0, 0, 0.12)',
+			24: '0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12)'
 		},
 		container: {},
 		cursor: {
@@ -575,11 +553,11 @@ module.exports = {
 		},
 		flexGrow: {
 			0: '0',
-			default: '1'
+			DEFAULT: '1'
 		},
 		flexShrink: {
 			0: '0',
-			default: '1'
+			DEFAULT: '1'
 		},
 		fontFamily: {
 			sans: [
@@ -615,32 +593,32 @@ module.exports = {
 			'7xl': ['7.2rem', { lineHeight: '1' }],
 			'8xl': ['9.6rem', { lineHeight: '1' }],
 			'9xl': ['12.8rem', { lineHeight: '1' }],
-			'10': ['1rem'],
-			'11': ['1.1rem'],
-			'12': ['1.2rem'],
-			'13': ['1.3rem'],
-			'14': ['1.4rem'],
-			'15': ['1.5rem'],
-			'16': ['1.6rem'],
-			'17': ['1.7rem'],
-			'18': ['1.8rem'],
-			'19': ['1.9rem'],
-			'20': ['2rem'],
-			'24': ['2.4rem'],
-			'28': ['2.8rem'],
-			'32': ['3.2rem'],
-			'36': ['3.6rem'],
-			'40': ['4rem'],
-			'44': ['4.4rem'],
-			'48': ['4.8rem'],
-			'52': ['5.2rem'],
-			'56': ['5.6rem'],
-			'60': ['6rem'],
-			'64': ['6.4rem'],
-			'68': ['6.8rem'],
-			'72': ['7.2rem'],
-			'96': ['9.6rem'],
-			'128': ['12.8rem']
+			10: ['1rem'],
+			11: ['1.1rem'],
+			12: ['1.2rem'],
+			13: ['1.3rem'],
+			14: ['1.4rem'],
+			15: ['1.5rem'],
+			16: ['1.6rem'],
+			17: ['1.7rem'],
+			18: ['1.8rem'],
+			19: ['1.9rem'],
+			20: ['2rem'],
+			24: ['2.4rem'],
+			28: ['2.8rem'],
+			32: ['3.2rem'],
+			36: ['3.6rem'],
+			40: ['4rem'],
+			44: ['4.4rem'],
+			48: ['4.8rem'],
+			52: ['5.2rem'],
+			56: ['5.6rem'],
+			60: ['6rem'],
+			64: ['6.4rem'],
+			68: ['6.8rem'],
+			72: ['7.2rem'],
+			96: ['9.6rem'],
+			128: ['12.8rem']
 		},
 		fontWeight: {
 			thin: '100',
@@ -662,9 +640,151 @@ module.exports = {
 			800: '800',
 			900: '900'
 		},
+		gap: theme => theme('spacing'),
+		gradientColorStops: theme => theme('colors'),
+		gridAutoColumns: {
+			auto: 'auto',
+			min: 'min-content',
+			max: 'max-content',
+			fr: 'minmax(0, 1fr)'
+		},
+		gridAutoRows: {
+			auto: 'auto',
+			min: 'min-content',
+			max: 'max-content',
+			fr: 'minmax(0, 1fr)'
+		},
+		gridColumn: {
+			auto: 'auto',
+			'span-1': 'span 1 / span 1',
+			'span-2': 'span 2 / span 2',
+			'span-3': 'span 3 / span 3',
+			'span-4': 'span 4 / span 4',
+			'span-5': 'span 5 / span 5',
+			'span-6': 'span 6 / span 6',
+			'span-7': 'span 7 / span 7',
+			'span-8': 'span 8 / span 8',
+			'span-9': 'span 9 / span 9',
+			'span-10': 'span 10 / span 10',
+			'span-11': 'span 11 / span 11',
+			'span-12': 'span 12 / span 12',
+			'span-full': '1 / -1'
+		},
+		gridColumnEnd: {
+			auto: 'auto',
+			1: '1',
+			2: '2',
+			3: '3',
+			4: '4',
+			5: '5',
+			6: '6',
+			7: '7',
+			8: '8',
+			9: '9',
+			10: '10',
+			11: '11',
+			12: '12',
+			13: '13'
+		},
+		gridColumnStart: {
+			auto: 'auto',
+			1: '1',
+			2: '2',
+			3: '3',
+			4: '4',
+			5: '5',
+			6: '6',
+			7: '7',
+			8: '8',
+			9: '9',
+			10: '10',
+			11: '11',
+			12: '12',
+			13: '13'
+		},
+		gridRow: {
+			auto: 'auto',
+			'span-1': 'span 1 / span 1',
+			'span-2': 'span 2 / span 2',
+			'span-3': 'span 3 / span 3',
+			'span-4': 'span 4 / span 4',
+			'span-5': 'span 5 / span 5',
+			'span-6': 'span 6 / span 6',
+			'span-full': '1 / -1'
+		},
+		gridRowStart: {
+			auto: 'auto',
+			1: '1',
+			2: '2',
+			3: '3',
+			4: '4',
+			5: '5',
+			6: '6',
+			7: '7'
+		},
+		gridRowEnd: {
+			auto: 'auto',
+			1: '1',
+			2: '2',
+			3: '3',
+			4: '4',
+			5: '5',
+			6: '6',
+			7: '7'
+		},
+		transformOrigin: {
+			center: 'center',
+			top: 'top',
+			'top-right': 'top right',
+			right: 'right',
+			'bottom-right': 'bottom right',
+			bottom: 'bottom',
+			'bottom-left': 'bottom left',
+			left: 'left',
+			'top-left': 'top left'
+		},
+		gridTemplateColumns: {
+			none: 'none',
+			1: 'repeat(1, minmax(0, 1fr))',
+			2: 'repeat(2, minmax(0, 1fr))',
+			3: 'repeat(3, minmax(0, 1fr))',
+			4: 'repeat(4, minmax(0, 1fr))',
+			5: 'repeat(5, minmax(0, 1fr))',
+			6: 'repeat(6, minmax(0, 1fr))',
+			7: 'repeat(7, minmax(0, 1fr))',
+			8: 'repeat(8, minmax(0, 1fr))',
+			9: 'repeat(9, minmax(0, 1fr))',
+			10: 'repeat(10, minmax(0, 1fr))',
+			11: 'repeat(11, minmax(0, 1fr))',
+			12: 'repeat(12, minmax(0, 1fr))'
+		},
+		gridTemplateRows: {
+			none: 'none',
+			1: 'repeat(1, minmax(0, 1fr))',
+			2: 'repeat(2, minmax(0, 1fr))',
+			3: 'repeat(3, minmax(0, 1fr))',
+			4: 'repeat(4, minmax(0, 1fr))',
+			5: 'repeat(5, minmax(0, 1fr))',
+			6: 'repeat(6, minmax(0, 1fr))'
+		},
 		height: theme => ({
 			auto: 'auto',
 			...theme('spacing'),
+			'1/2': '50%',
+			'1/3': '33.333333%',
+			'2/3': '66.666667%',
+			'1/4': '25%',
+			'2/4': '50%',
+			'3/4': '75%',
+			'1/5': '20%',
+			'2/5': '40%',
+			'3/5': '60%',
+			'4/5': '80%',
+			'1/6': '16.666667%',
+			'2/6': '33.333333%',
+			'3/6': '50%',
+			'4/6': '66.666667%',
+			'5/6': '83.333333%',
 			full: '100%',
 			screen: '100vh'
 		}),
@@ -687,10 +807,38 @@ module.exports = {
 			'-3/4': '-75%',
 			'-full': '-100%'
 		}),
+		keyframes: {
+			spin: {
+				to: {
+					transform: 'rotate(360deg)'
+				}
+			},
+			ping: {
+				'75%, 100%': {
+					transform: 'scale(2)',
+					opacity: '0'
+				}
+			},
+			pulse: {
+				'50%': {
+					opacity: '.5'
+				}
+			},
+			bounce: {
+				'0%, 100%': {
+					transform: 'translateY(-25%)',
+					animationTimingFunction: 'cubic-bezier(0.8,0,1,1)'
+				},
+				'50%': {
+					transform: 'none',
+					animationTimingFunction: 'cubic-bezier(0,0,0.2,1)'
+				}
+			}
+		},
 		letterSpacing: {
 			tighter: '-0.05em',
 			tight: '-0.025em',
-			normal: '0',
+			normal: '0em',
 			wide: '0.025em',
 			wider: '0.05em',
 			widest: '0.1em'
@@ -762,6 +910,7 @@ module.exports = {
 		},
 		opacity: {
 			0: '0',
+			5: '0.05',
 			10: '0.1',
 			20: '0.2',
 			25: '0.25',
@@ -773,6 +922,7 @@ module.exports = {
 			75: '0.75',
 			80: '0.8',
 			90: '0.9',
+			95: '0.95',
 			100: '1'
 		},
 		order: {
@@ -800,6 +950,74 @@ module.exports = {
 		padding: theme => theme('spacing'),
 		placeholderColor: theme => theme('colors'),
 		placeholderOpacity: theme => theme('opacity'),
+		ringColor: theme => ({
+			DEFAULT: theme('colors.blue.500', '#3b82f6'),
+			...theme('colors')
+		}),
+		ringOffsetColor: theme => theme('colors'),
+		ringOffsetWidth: {
+			0: '0px',
+			1: '1px',
+			2: '2px',
+			4: '4px',
+			8: '8px'
+		},
+		ringOpacity: theme => ({
+			DEFAULT: '0.5',
+			...theme('opacity')
+		}),
+		ringWidth: {
+			DEFAULT: '3px',
+			0: '0px',
+			1: '1px',
+			2: '2px',
+			4: '4px',
+			8: '8px'
+		},
+		rotate: {
+			'-180': '-180deg',
+			'-90': '-90deg',
+			'-45': '-45deg',
+			'-12': '-12deg',
+			'-6': '-6deg',
+			'-3': '-3deg',
+			'-2': '-2deg',
+			'-1': '-1deg',
+			0: '0deg',
+			1: '1deg',
+			2: '2deg',
+			3: '3deg',
+			6: '6deg',
+			12: '12deg',
+			45: '45deg',
+			90: '90deg',
+			180: '180deg'
+		},
+		scale: {
+			0: '0',
+			50: '.5',
+			75: '.75',
+			90: '.9',
+			95: '.95',
+			100: '1',
+			105: '1.05',
+			110: '1.1',
+			125: '1.25',
+			150: '1.5'
+		},
+		skew: {
+			'-12': '-12deg',
+			'-6': '-6deg',
+			'-3': '-3deg',
+			'-2': '-2deg',
+			'-1': '-1deg',
+			0: '0deg',
+			1: '1deg',
+			2: '2deg',
+			3: '3deg',
+			6: '6deg',
+			12: '12deg'
+		},
 		space: (theme, { negative }) => ({
 			...theme('spacing'),
 			...negative(theme('spacing'))
@@ -814,6 +1032,61 @@ module.exports = {
 		},
 		textColor: theme => theme('colors'),
 		textOpacity: theme => theme('opacity'),
+		transitionDuration: {
+			DEFAULT: '150ms',
+			75: '75ms',
+			100: '100ms',
+			150: '150ms',
+			200: '200ms',
+			300: '300ms',
+			500: '500ms',
+			700: '700ms',
+			1000: '1000ms'
+		},
+		transitionDelay: {
+			75: '75ms',
+			100: '100ms',
+			150: '150ms',
+			200: '200ms',
+			300: '300ms',
+			500: '500ms',
+			700: '700ms',
+			1000: '1000ms'
+		},
+		transitionProperty: {
+			none: 'none',
+			all: 'all',
+			DEFAULT: 'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform',
+			colors: 'background-color, border-color, color, fill, stroke',
+			opacity: 'opacity',
+			shadow: 'box-shadow',
+			transform: 'transform'
+		},
+		transitionTimingFunction: {
+			DEFAULT: 'cubic-bezier(0.4, 0, 0.2, 1)',
+			linear: 'linear',
+			in: 'cubic-bezier(0.4, 0, 1, 1)',
+			out: 'cubic-bezier(0, 0, 0.2, 1)',
+			'in-out': 'cubic-bezier(0.4, 0, 0.2, 1)'
+		},
+		translate: (theme, { negative }) => ({
+			...theme('spacing'),
+			...negative(theme('spacing')),
+			'1/2': '50%',
+			'1/3': '33.333333%',
+			'2/3': '66.666667%',
+			'1/4': '25%',
+			'2/4': '50%',
+			'3/4': '75%',
+			full: '100%',
+			'-1/2': '-50%',
+			'-1/3': '-33.333333%',
+			'-2/3': '-66.666667%',
+			'-1/4': '-25%',
+			'-2/4': '-50%',
+			'-3/4': '-75%',
+			'-full': '-100%'
+		}),
 		width: theme => ({
 			auto: 'auto',
 			...theme('spacing'),
@@ -859,257 +1132,6 @@ module.exports = {
 			99: '99',
 			999: '999',
 			9999: '9999'
-		},
-		gap: theme => theme('spacing'),
-		gridTemplateColumns: {
-			none: 'none',
-			1: 'repeat(1, minmax(0, 1fr))',
-			2: 'repeat(2, minmax(0, 1fr))',
-			3: 'repeat(3, minmax(0, 1fr))',
-			4: 'repeat(4, minmax(0, 1fr))',
-			5: 'repeat(5, minmax(0, 1fr))',
-			6: 'repeat(6, minmax(0, 1fr))',
-			7: 'repeat(7, minmax(0, 1fr))',
-			8: 'repeat(8, minmax(0, 1fr))',
-			9: 'repeat(9, minmax(0, 1fr))',
-			10: 'repeat(10, minmax(0, 1fr))',
-			11: 'repeat(11, minmax(0, 1fr))',
-			12: 'repeat(12, minmax(0, 1fr))'
-		},
-		gridAutoColumns: {
-			auto: 'auto',
-			min: 'min-content',
-			max: 'max-content',
-			fr: 'minmax(0, 1fr)'
-		},
-		gridColumn: {
-			auto: 'auto',
-			'span-1': 'span 1 / span 1',
-			'span-2': 'span 2 / span 2',
-			'span-3': 'span 3 / span 3',
-			'span-4': 'span 4 / span 4',
-			'span-5': 'span 5 / span 5',
-			'span-6': 'span 6 / span 6',
-			'span-7': 'span 7 / span 7',
-			'span-8': 'span 8 / span 8',
-			'span-9': 'span 9 / span 9',
-			'span-10': 'span 10 / span 10',
-			'span-11': 'span 11 / span 11',
-			'span-12': 'span 12 / span 12',
-			'span-full': '1 / -1'
-		},
-		gridColumnStart: {
-			auto: 'auto',
-			1: '1',
-			2: '2',
-			3: '3',
-			4: '4',
-			5: '5',
-			6: '6',
-			7: '7',
-			8: '8',
-			9: '9',
-			10: '10',
-			11: '11',
-			12: '12',
-			13: '13'
-		},
-		gridColumnEnd: {
-			auto: 'auto',
-			1: '1',
-			2: '2',
-			3: '3',
-			4: '4',
-			5: '5',
-			6: '6',
-			7: '7',
-			8: '8',
-			9: '9',
-			10: '10',
-			11: '11',
-			12: '12',
-			13: '13'
-		},
-		gridTemplateRows: {
-			none: 'none',
-			1: 'repeat(1, minmax(0, 1fr))',
-			2: 'repeat(2, minmax(0, 1fr))',
-			3: 'repeat(3, minmax(0, 1fr))',
-			4: 'repeat(4, minmax(0, 1fr))',
-			5: 'repeat(5, minmax(0, 1fr))',
-			6: 'repeat(6, minmax(0, 1fr))'
-		},
-		gridAutoRows: {
-			auto: 'auto',
-			min: 'min-content',
-			max: 'max-content',
-			fr: 'minmax(0, 1fr)'
-		},
-		gridRow: {
-			auto: 'auto',
-			'span-1': 'span 1 / span 1',
-			'span-2': 'span 2 / span 2',
-			'span-3': 'span 3 / span 3',
-			'span-4': 'span 4 / span 4',
-			'span-5': 'span 5 / span 5',
-			'span-6': 'span 6 / span 6',
-			'span-full': '1 / -1'
-		},
-		gridRowStart: {
-			auto: 'auto',
-			1: '1',
-			2: '2',
-			3: '3',
-			4: '4',
-			5: '5',
-			6: '6',
-			7: '7'
-		},
-		gridRowEnd: {
-			auto: 'auto',
-			1: '1',
-			2: '2',
-			3: '3',
-			4: '4',
-			5: '5',
-			6: '6',
-			7: '7'
-		},
-		transformOrigin: {
-			center: 'center',
-			top: 'top',
-			'top-right': 'top right',
-			right: 'right',
-			'bottom-right': 'bottom right',
-			bottom: 'bottom',
-			'bottom-left': 'bottom left',
-			left: 'left',
-			'top-left': 'top left'
-		},
-		scale: {
-			0: '0',
-			50: '.5',
-			75: '.75',
-			90: '.9',
-			95: '.95',
-			100: '1',
-			105: '1.05',
-			110: '1.1',
-			125: '1.25',
-			150: '1.5'
-		},
-		rotate: {
-			'-180': '-180deg',
-			'-90': '-90deg',
-			'-45': '-45deg',
-			'-12': '-12deg',
-			'-6': '-6deg',
-			'-3': '-3deg',
-			'-2': '-2deg',
-			'-1': '-1deg',
-			0: '0',
-			1: '1deg',
-			2: '2deg',
-			3: '3deg',
-			6: '6deg',
-			12: '12deg',
-			45: '45deg',
-			90: '90deg',
-			180: '180deg'
-		},
-		translate: (theme, { negative }) => ({
-			...theme('spacing'),
-			...negative(theme('spacing')),
-			'1/2': '50%',
-			'1/3': '33.333333%',
-			'2/3': '66.666667%',
-			'1/4': '25%',
-			'2/4': '50%',
-			'3/4': '75%',
-			full: '100%',
-			'-1/2': '-50%',
-			'-1/3': '-33.333333%',
-			'-2/3': '-66.666667%',
-			'-1/4': '-25%',
-			'-2/4': '-50%',
-			'-3/4': '-75%',
-			'-full': '-100%'
-		}),
-		skew: {
-			'-12': '-12deg',
-			'-6': '-6deg',
-			'-3': '-3deg',
-			'-2': '-2deg',
-			'-1': '-1deg',
-			0: '0',
-			1: '1deg',
-			2: '2deg',
-			3: '3deg',
-			6: '6deg',
-			12: '12deg'
-		},
-		transitionProperty: {
-			none: 'none',
-			all: 'all',
-			default: 'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform',
-			colors: 'background-color, border-color, color, fill, stroke',
-			opacity: 'opacity',
-			shadow: 'box-shadow',
-			transform: 'transform'
-		},
-		transitionTimingFunction: {
-			linear: 'linear',
-			in: 'cubic-bezier(0.4, 0, 1, 1)',
-			out: 'cubic-bezier(0, 0, 0.2, 1)',
-			'in-out': 'cubic-bezier(0.4, 0, 0.2, 1)'
-		},
-		transitionDuration: {
-			75: '75ms',
-			100: '100ms',
-			150: '150ms',
-			200: '200ms',
-			300: '300ms',
-			500: '500ms',
-			700: '700ms',
-			1000: '1000ms'
-		},
-		transitionDelay: {
-			75: '75ms',
-			100: '100ms',
-			150: '150ms',
-			200: '200ms',
-			300: '300ms',
-			500: '500ms',
-			700: '700ms',
-			1000: '1000ms'
-		},
-		animation: {
-			none: 'none',
-			spin: 'spin 1s linear infinite',
-			ping: 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
-			pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-			bounce: 'bounce 1s infinite'
-		},
-		keyframes: {
-			spin: {
-				to: { transform: 'rotate(360deg)' }
-			},
-			ping: {
-				'75%, 100%': { transform: 'scale(2)', opacity: '0' }
-			},
-			pulse: {
-				'50%': { opacity: '.5' }
-			},
-			bounce: {
-				'0%, 100%': {
-					transform: 'translateY(-25%)',
-					animationTimingFunction: 'cubic-bezier(0.8,0,1,1)'
-				},
-				'50%': {
-					transform: 'none',
-					animationTimingFunction: 'cubic-bezier(0,0,0.2,1)'
-				}
-			}
 		}
 	},
 	variantOrder: [
@@ -1129,28 +1151,29 @@ module.exports = {
 		'disabled'
 	],
 	variants: {
-		accessibility: ['responsive', 'focus'],
+		accessibility: ['responsive', 'focus-within', 'focus'],
 		alignContent: ['responsive'],
 		alignItems: ['responsive'],
 		alignSelf: ['responsive'],
+		animation: ['responsive'],
 		appearance: ['responsive'],
 		backgroundAttachment: ['responsive'],
 		backgroundClip: ['responsive'],
-		backgroundColor: ['responsive', 'group-hover', 'hover', 'focus'],
+		backgroundColor: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
 		backgroundImage: ['responsive'],
-		gradientColorStops: ['responsive', 'hover', 'focus'],
-		backgroundOpacity: ['responsive', 'group-hover', 'hover', 'focus'],
+		backgroundOpacity: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
 		backgroundPosition: ['responsive'],
 		backgroundRepeat: ['responsive'],
 		backgroundSize: ['responsive'],
 		borderCollapse: ['responsive'],
-		borderColor: ['responsive', 'group-hover', 'hover', 'focus'],
-		borderOpacity: ['responsive', 'group-hover', 'hover', 'focus'],
+		borderColor: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
+		borderOpacity: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
 		borderRadius: ['responsive'],
 		borderStyle: ['responsive'],
 		borderWidth: ['responsive'],
-		boxShadow: ['responsive', 'hover', 'focus'],
+		boxShadow: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
 		boxSizing: ['responsive'],
+		clear: ['responsive'],
 		container: ['responsive'],
 		cursor: ['responsive'],
 		display: ['responsive', 'hover', 'focus'],
@@ -1165,13 +1188,25 @@ module.exports = {
 		flexShrink: ['responsive'],
 		flexWrap: ['responsive'],
 		float: ['responsive', 'direction'],
-		clear: ['responsive'],
 		fontFamily: ['responsive'],
 		fontSize: ['responsive'],
 		fontSmoothing: ['responsive'],
-		fontVariantNumeric: ['responsive'],
 		fontStyle: ['responsive', 'hover', 'focus'],
+		fontVariantNumeric: ['responsive'],
 		fontWeight: ['responsive', 'hover', 'focus'],
+		gap: ['responsive'],
+		gradientColorStops: ['responsive', 'dark', 'hover', 'focus'],
+		gridAutoColumns: ['responsive'],
+		gridAutoFlow: ['responsive'],
+		gridAutoRows: ['responsive'],
+		gridColumn: ['responsive'],
+		gridColumnEnd: ['responsive'],
+		gridColumnStart: ['responsive'],
+		gridRow: ['responsive'],
+		gridRowEnd: ['responsive'],
+		gridRowStart: ['responsive'],
+		gridTemplateColumns: ['responsive'],
+		gridTemplateRows: ['responsive'],
 		height: ['responsive'],
 		inset: ['responsive', 'direction'],
 		justifyContent: ['responsive'],
@@ -1188,9 +1223,9 @@ module.exports = {
 		minWidth: ['responsive'],
 		objectFit: ['responsive'],
 		objectPosition: ['responsive'],
-		opacity: ['responsive', 'group-hover', 'hover', 'focus'],
+		opacity: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
 		order: ['responsive'],
-		outline: ['responsive', 'focus'],
+		outline: ['responsive', 'focus-within', 'focus'],
 		overflow: ['responsive'],
 		overscrollBehavior: ['responsive'],
 		padding: ['responsive', 'direction'],
@@ -1202,46 +1237,38 @@ module.exports = {
 		pointerEvents: ['responsive'],
 		position: ['responsive'],
 		resize: ['responsive'],
+		ringColor: ['responsive', 'dark', 'focus-within', 'focus'],
+		ringOffsetColor: ['responsive', 'dark', 'focus-within', 'focus'],
+		ringOffsetWidth: ['responsive', 'focus-within', 'focus'],
+		ringOpacity: ['responsive', 'focus-within', 'focus'],
+		ringWidth: ['responsive', 'focus-within', 'focus'],
+		rotate: ['responsive', 'hover', 'focus'],
+		scale: ['responsive', 'hover', 'focus'],
+		skew: ['responsive', 'hover', 'focus'],
 		space: ['responsive'],
 		stroke: ['responsive'],
 		strokeWidth: ['responsive'],
 		tableLayout: ['responsive'],
 		textAlign: ['responsive', 'direction'],
-		textColor: ['responsive', 'group-hover', 'hover', 'focus'],
-		textOpacity: ['responsive', 'group-hover', 'hover', 'focus'],
-		textDecoration: ['responsive', 'hover', 'focus'],
-		textTransform: ['responsive'],
+		textColor: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
+		textDecoration: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
+		textOpacity: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
 		textOverflow: ['responsive'],
+		textTransform: ['responsive'],
+		transform: ['responsive'],
+		transformOrigin: ['responsive'],
+		transitionDelay: ['responsive'],
+		transitionDuration: ['responsive'],
+		transitionProperty: ['responsive'],
+		transitionTimingFunction: ['responsive'],
+		translate: ['responsive', 'hover', 'focus'],
 		userSelect: ['responsive'],
 		verticalAlign: ['responsive'],
 		visibility: ['responsive'],
 		whitespace: ['responsive'],
 		width: ['responsive'],
 		wordBreak: ['responsive'],
-		zIndex: ['responsive', 'focus'],
-		gap: ['responsive'],
-		gridAutoFlow: ['responsive'],
-		gridTemplateColumns: ['responsive'],
-		gridAutoColumns: ['responsive'],
-		gridColumn: ['responsive'],
-		gridColumnStart: ['responsive'],
-		gridColumnEnd: ['responsive'],
-		gridTemplateRows: ['responsive'],
-		gridAutoRows: ['responsive'],
-		gridRow: ['responsive'],
-		gridRowStart: ['responsive'],
-		gridRowEnd: ['responsive'],
-		transform: ['responsive'],
-		transformOrigin: ['responsive'],
-		scale: ['responsive', 'hover', 'focus'],
-		rotate: ['responsive', 'hover', 'focus'],
-		translate: ['responsive', 'hover', 'focus'],
-		skew: ['responsive', 'hover', 'focus'],
-		transitionProperty: ['responsive'],
-		transitionTimingFunction: ['responsive'],
-		transitionDuration: ['responsive'],
-		transitionDelay: ['responsive'],
-		animation: ['responsive']
+		zIndex: ['responsive', 'focus-within', 'focus']
 	},
 	plugins: [require('tailwindcss-dir')()]
 };

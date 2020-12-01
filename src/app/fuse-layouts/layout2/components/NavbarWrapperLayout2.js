@@ -5,6 +5,7 @@ import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import NavbarMobileLayout2 from 'app/fuse-layouts/layout2/components/NavbarMobileLayout2';
 import NavbarMobileToggleFab from 'app/fuse-layouts/shared-components/NavbarMobileToggleFab';
 import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
+import clsx from 'clsx';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectNavbarTheme } from 'app/store/fuse/settingsSlice';
@@ -19,7 +20,6 @@ const useStyles = makeStyles(theme => ({
 		height: 64,
 		minHeight: 64,
 		alignItems: 'center',
-		boxShadow: theme.shadows[3],
 		zIndex: 6
 	},
 	navbarMobile: {
@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme => ({
 			easing: theme.transitions.easing.sharp,
 			duration: theme.transitions.duration.shorter
 		}),
-		boxShadow: theme.shadows[3]
+		boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'
 	}
 }));
 
@@ -50,7 +50,7 @@ function NavbarWrapperLayout2(props) {
 		<>
 			<ThemeProvider theme={navbarTheme}>
 				<Hidden mdDown>
-					<Paper className={classes.navbar} square elevation={2}>
+					<Paper className={clsx(classes.navbar, 'shadow-md')} square>
 						<NavbarLayout2 />
 					</Paper>
 				</Hidden>

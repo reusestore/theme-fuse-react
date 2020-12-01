@@ -20,7 +20,7 @@ function Widget8(props) {
 	_.setWith(data, 'options.scales.yAxes[0].gridLines.color', fade(theme.palette.text.secondary, 0.1));
 
 	return (
-		<Card className="w-full rounded-8 shadow-1">
+		<Card className="w-full rounded-8 shadow">
 			<AppBar position="static">
 				<div className="p-16 px-4 flex flex-row items-center justify-between">
 					<div className="px-12">

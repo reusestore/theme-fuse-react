@@ -98,7 +98,7 @@ const EnhancedTable = ({ columns, data, onRowClick }) => {
 							<TableRow {...headerGroup.getHeaderGroupProps()}>
 								{headerGroup.headers.map(column => (
 									<TableCell
-										className="whitespace-no-wrap p-4 md:p-12"
+										className="whitespace-nowrap p-4 md:p-12"
 										{...(!column.sortable
 											? column.getHeaderProps()
 											: column.getHeaderProps(column.getSortByToggleProps()))}

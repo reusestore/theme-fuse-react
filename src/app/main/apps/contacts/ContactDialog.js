@@ -105,7 +105,7 @@ function ContactDialog(props) {
 			fullWidth
 			maxWidth="xs"
 		>
-			<AppBar position="static" elevation={1}>
+			<AppBar position="static" className="shadow-md">
 				<Toolbar className="flex w-full">
 					<Typography variant="subtitle1" color="inherit">
 						{contactDialog.type === 'new' ? 'New Contact' : 'Edit Contact'}

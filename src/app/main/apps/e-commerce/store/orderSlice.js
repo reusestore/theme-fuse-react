@@ -5,7 +5,7 @@ export const getOrder = createAsyncThunk('eCommerceApp/order/getOrder', async pa
 	const response = await axios.get('/api/e-commerce-app/order', { params });
 	const data = await response.data;
 
-	return data;
+	return data === undefined ? null : data;
 });
 
 export const saveOrder = createAsyncThunk('eCommerceApp/order/saveOrder', async order => {
@@ -18,11 +18,15 @@ export const saveOrder = createAsyncThunk('eCommerceApp/order/saveOrder', async 
 const orderSlice = createSlice({
 	name: 'eCommerceApp/order',
 	initialState: null,
-	reducers: {},
+	reducers: {
+		resetOrder: () => null
+	},
 	extraReducers: {
 		[getOrder.fulfilled]: (state, action) => action.payload,
 		[saveOrder.fulfilled]: (state, action) => action.payload
 	}
 });
+
+export const { resetOrder } = orderSlice.actions;
 
 export default orderSlice.reducer;

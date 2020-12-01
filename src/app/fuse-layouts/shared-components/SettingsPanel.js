@@ -70,7 +70,6 @@ const useStyles = makeStyles(theme => ({
 		width: 380,
 		maxWidth: '90vw',
 		backgroundColor: theme.palette.background.paper,
-		boxShadow: theme.shadows[5],
 		top: 0,
 		height: '100%',
 		minHeight: '100%',
@@ -138,7 +137,7 @@ function SettingsPanel() {
 				onClose={handleClose}
 				BackdropProps={{ invisible: true }}
 				classes={{
-					paper: classes.dialogPaper
+					paper: clsx(classes.dialogPaper, 'shadow-lg')
 				}}
 				{...settingsHandlers}
 			>
@@ -164,7 +163,7 @@ function SettingsPanel() {
 				onClose={handleClose}
 				BackdropProps={{ invisible: true }}
 				classes={{
-					paper: classes.dialogPaper
+					paper: clsx(classes.dialogPaper, 'shadow-lg')
 				}}
 				{...shemesHandlers}
 			>

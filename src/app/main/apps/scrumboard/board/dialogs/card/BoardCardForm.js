@@ -106,7 +106,7 @@ function BoardCardForm(props) {
 	return (
 		<>
 			<DialogTitle component="div" className="p-0">
-				<AppBar position="static" elevation={1}>
+				<AppBar position="static" className="shadow-md">
 					<Toolbar className="flex w-full overflow-x-auto px-8 sm:px-16">
 						<div className="flex flex-1">
 							<DueMenu onDueChange={handleChange} onRemoveDue={removeDue} due={dueDate} />

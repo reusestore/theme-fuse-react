@@ -72,10 +72,7 @@ function IconsUI() {
 
 					<div className="flex flex-1 items-center justify-center w-full sm:w-auto sm:px-12">
 						<ThemeProvider theme={theme}>
-							<Paper
-								className="flex items-center min-w-full sm:min-w-0 w-full max-w-512 px-8 py-4 rounded-8"
-								elevation={1}
-							>
+							<Paper className="flex items-center min-w-full sm:min-w-0 w-full max-w-512 px-8 py-4 rounded-8 shdaow">
 								<Icon color="action">search</Icon>
 
 								{useMemo(

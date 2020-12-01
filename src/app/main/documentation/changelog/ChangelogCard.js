@@ -33,7 +33,7 @@ function ChangelogCard(props) {
 	const classes = useStyles();
 
 	return (
-		<Card className={clsx(classes.root, props.className)} elevation={1}>
+		<Card className={clsx(classes.root, props.className, 'shadow')}>
 			<div className="flex items-center">
 				{props.version && <Typography className="text-24" component="h2">{`v${props.version}`}</Typography>}
 				{props.date && (

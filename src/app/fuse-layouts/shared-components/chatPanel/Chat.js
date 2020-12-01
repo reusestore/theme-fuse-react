@@ -113,8 +113,7 @@ const useStyles = makeStyles(theme => ({
 		alignItems: 'center',
 		justifyContent: 'center',
 		padding: 12,
-		maxWidth: '100%',
-		boxShadow: theme.shadows[1]
+		maxWidth: '100%'
 	},
 	message: {
 		whiteSpace: 'pre-wrap',
@@ -182,7 +181,7 @@ function Chat(props) {
 	};
 
 	return (
-		<Paper elevation={3} className={clsx(classes.root, 'flex flex-col relative pb-64', props.className)}>
+		<Paper className={clsx(classes.root, 'flex flex-col relative pb-64 shadow', props.className)}>
 			{useMemo(() => {
 				const shouldShowContactAvatar = (item, i) => {
 					return (
@@ -230,7 +229,7 @@ function Chat(props) {
 											{shouldShowContactAvatar(item, i) && (
 												<Avatar className={classes.avatar} src={contact.avatar} />
 											)}
-											<div className={classes.bubble}>
+											<div className={clsx(classes.bubble, 'shadow')}>
 												<div className={classes.message}>{item.message}</div>
 												<Typography className={classes.time} color="textSecondary">
 													{moment(item.time).format('MMMM Do YYYY, h:mm:ss a')}
@@ -260,7 +259,7 @@ function Chat(props) {
 					onSubmit={onMessageSubmit}
 					className={clsx(classes.bottom, 'pb-16 px-8 absolute bottom-0 left-0 right-0')}
 				>
-					<Paper className={clsx(classes.inputWrapper, 'flex items-center relative')}>
+					<Paper className={clsx(classes.inputWrapper, 'flex items-center relative shadow')}>
 						<TextField
 							autoFocus={false}
 							id="message-input"

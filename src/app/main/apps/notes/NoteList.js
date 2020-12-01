@@ -77,7 +77,7 @@ function NoteList(props) {
 					<NoteListItem
 						key={note.id}
 						note={note}
-						className="w-full rounded-8 mb-16"
+						className="w-full rounded-8 shadow mb-16"
 						variateDescSize={variateDescSize}
 					/>
 				))}

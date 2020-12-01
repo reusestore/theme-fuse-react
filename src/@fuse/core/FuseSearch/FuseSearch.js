@@ -250,7 +250,6 @@ function FuseSearch(props) {
 
 	function hideSearch() {
 		dispatch({ type: 'close' });
-		console.info('hide');
 		document.removeEventListener('keydown', escFunction, false);
 	}
 
@@ -341,8 +340,7 @@ function FuseSearch(props) {
 							>
 								<div ref={suggestionsNode}>
 									<Paper
-										elevation={1}
-										square
+										className="shadow-lg rounded-8 overflow-hidden"
 										{...options.containerProps}
 										style={{ width: popperNode.current ? popperNode.current.clientWidth : null }}
 									>
@@ -369,7 +367,7 @@ function FuseSearch(props) {
 
 					{state.opened && (
 						<ClickAwayListener onClickAway={handleClickAway}>
-							<Paper className="absolute left-0 right-0 top-0 h-full z-9999" square>
+							<Paper className="absolute left-0 right-0 top-0 h-full z-9999 shadow-0" square>
 								<div className="flex items-center w-full h-full" ref={popperNode}>
 									<Autosuggest
 										{...autosuggestProps}
@@ -397,7 +395,7 @@ function FuseSearch(props) {
 											>
 												<div ref={suggestionsNode}>
 													<Paper
-														elevation={1}
+														className="shadow-lg"
 														square
 														{...options.containerProps}
 														style={{

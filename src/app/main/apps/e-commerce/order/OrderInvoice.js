@@ -51,7 +51,7 @@ const OrderInvoice = props => {
 	return (
 		<div className={clsx(classes.root, 'flex-grow flex-shrink-0 p-0')}>
 			{props.order && (
-				<Card className="w-xl mx-auto" elevation={0}>
+				<Card className="w-xl mx-auto shadow-0">
 					<CardContent className="p-88 print:p-0">
 						<Typography color="textSecondary" className="mb-32">
 							{props.order.date}

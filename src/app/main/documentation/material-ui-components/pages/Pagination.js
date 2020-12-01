@@ -98,7 +98,7 @@ function PaginationDoc(props)
                 raw={require('!raw-loader!app/main/documentation/material-ui-components/components/pagination/PaginationLink.js')}
             /></Typography>
             <Typography className="text-32 mt-32 mb-8" component="h2"><code>{`usePagination`}</code></Typography>
-            <Typography className="mb-16" component="div">For advanced customization use cases, we expose a <code>{`usePagination()`}</code> hook.
+            <Typography className="mb-16" component="div">For advanced customization use cases, we expose a headless <code>{`usePagination()`}</code> hook.
                 It accepts almost the same options as the Pagination component minus all the props
                 related to the rendering of JSX.
                 The Pagination component uses this hook internally.</Typography>

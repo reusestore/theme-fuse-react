@@ -173,7 +173,7 @@ function Courses(props) {
 									const category = categories.find(_cat => _cat.value === course.category);
 									return (
 										<div className="w-full pb-24 sm:w-1/2 lg:w-1/3 sm:p-16" key={course.id}>
-											<Card elevation={1} className="flex flex-col h-256 rounded-8">
+											<Card className="flex flex-col h-256 rounded-8 shadow">
 												<div
 													className="flex flex-shrink-0 items-center justify-between px-24 h-64"
 													style={{
@@ -188,7 +188,7 @@ function Courses(props) {
 														<Icon className="text-20 mx-8" color="inherit">
 															access_time
 														</Icon>
-														<div className="text-16 whitespace-no-wrap">
+														<div className="text-16 whitespace-nowrap">
 															{course.length}
 															min
 														</div>

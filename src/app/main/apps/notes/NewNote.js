@@ -56,12 +56,11 @@ function NewNote(props) {
 
 	return (
 		<Paper
-			className={clsx(classes.button, 'flex items-center w-full max-w-512 mt-8 mb-16 min-h-48 rounded-8')}
-			elevation={1}
+			className={clsx(classes.button, 'flex items-center w-full max-w-512 mt-8 mb-16 min-h-48 rounded-8 shadow')}
 		>
 			{formOpen ? (
 				<ClickAwayListener onClickAway={handleClickAway}>
-					<div>
+					<div className="w-full">
 						<NoteForm onCreate={handleCreate} variant="new" />
 					</div>
 				</ClickAwayListener>

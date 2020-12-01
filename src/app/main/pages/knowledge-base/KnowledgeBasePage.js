@@ -84,7 +84,7 @@ function KnowledgeBasePage() {
 						>
 							{data.map(category => (
 								<div className="max-w-md w-full max-w-512 pb-24 md:w-1/2 md:p-16" key={category.id}>
-									<Card className="rounded-8" elevation={1}>
+									<Card className="rounded-8 shadow">
 										<List component="nav" className="p-0">
 											<Typography className="font-bold pl-32 py-16 text-16">
 												{category.title}

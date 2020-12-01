@@ -4,6 +4,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
+import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import { useTheme } from '@material-ui/core/styles';
 import Tab from '@material-ui/core/Tab';
@@ -13,12 +14,13 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import withReducer from 'app/store/withReducer';
 import GoogleMap from 'google-map-react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { useDeepCompareEffect } from '@fuse/hooks';
 import reducer from '../store';
-import { getOrder } from '../store/orderSlice';
+import { resetOrder, getOrder } from '../store/orderSlice';
 import OrderInvoice from './OrderInvoice';
 import OrdersStatus from './OrdersStatus';
 
@@ -37,14 +39,47 @@ function Order(props) {
 
 	const routeParams = useParams();
 	const [tabValue, setTabValue] = useState(0);
+	const [noOrder, setNoOrder] = useState(false);
 	const [map, setMap] = useState('shipping');
 
 	useDeepCompareEffect(() => {
-		dispatch(getOrder(routeParams));
+		dispatch(getOrder(routeParams)).then(action => {
+			if (!action.payload) {
+				setNoOrder(true);
+			}
+		});
 	}, [dispatch, routeParams]);
+
+	useEffect(() => {
+		return () => {
+			dispatch(resetOrder());
+			setNoOrder(false);
+		};
+	}, [dispatch]);
 
 	function handleChangeTab(event, value) {
 		setTabValue(value);
+	}
+
+	if (noOrder) {
+		return (
+			<FuseAnimate delay={100}>
+				<div className="flex flex-col flex-1 items-center justify-center h-full">
+					<Typography color="textSecondary" variant="h5">
+						There is no such order!
+					</Typography>
+					<Button
+						className="normal-case mt-24"
+						component={Link}
+						variant="outlined"
+						to="/apps/e-commerce/orders"
+						color="inherit"
+					>
+						Go to Orders Page
+					</Button>
+				</div>
+			</FuseAnimate>
+		);
 	}
 
 	return (
@@ -158,7 +193,7 @@ function Order(props) {
 										</div>
 
 										<Accordion
-											elevation={1}
+											className="shadow"
 											expanded={map === 'shipping'}
 											onChange={() => setMap(map !== 'shipping' ? 'shipping' : false)}
 										>
@@ -191,7 +226,7 @@ function Order(props) {
 										</Accordion>
 
 										<Accordion
-											elevation={1}
+											className="shadow"
 											expanded={map === 'invoice'}
 											onChange={() => setMap(map !== 'invoice' ? 'invoice' : false)}
 										>

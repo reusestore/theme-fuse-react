@@ -11,7 +11,7 @@ function Widget2(props) {
 	const data = _.merge({}, props.data);
 
 	return (
-		<Card className="w-full rounded-8 shadow-1">
+		<Card className="w-full rounded-8 shadow">
 			<div className="p-16 pb-0 flex flex-row flex-wrap items-end">
 				<div className="">
 					<Typography className="h3" color="textSecondary">
@@ -26,7 +26,7 @@ function Widget2(props) {
 						{data.conversion.ofTarget < 0 && <Icon className="text-red">trending_down</Icon>}
 						<Typography className="mx-4">{data.conversion.ofTarget}%</Typography>
 					</div>
-					<Typography className="whitespace-no-wrap">of target</Typography>
+					<Typography className="whitespace-nowrap">of target</Typography>
 				</div>
 			</div>
 
