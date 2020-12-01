@@ -250,7 +250,6 @@ function FuseSearch(props) {
 
 	function hideSearch() {
 		dispatch({ type: 'close' });
-		console.info('hide');
 		document.removeEventListener('keydown', escFunction, false);
 	}
 
