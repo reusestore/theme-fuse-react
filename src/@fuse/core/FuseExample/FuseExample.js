@@ -4,6 +4,7 @@ import Card from '@material-ui/core/Card';
 import Icon from '@material-ui/core/Icon';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
+import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import DemoFrame from './DemoFrame';
@@ -26,7 +27,7 @@ function FuseExample(props) {
 	}
 
 	return (
-		<Card className={className}>
+		<Card className={clsx(className, 'shadow')}>
 			<AppBar position="static" color="default" className="shadow-0">
 				<Tabs
 					classes={{
