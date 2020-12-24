@@ -22,7 +22,7 @@ function CardComment(props) {
 		if (isFormInvalid()) {
 			return;
 		}
-		props.onCommentAdd(new CommentModel(form));
+		props.onCommentAdd(CommentModel(form));
 		resetForm();
 	}
 

@@ -66,7 +66,7 @@ function Product(props) {
 	const classes = useStyles(props);
 	const [tabValue, setTabValue] = useState(0);
 	const [noProduct, setNoProduct] = useState(false);
-	const { form, handleChange, setForm } = useForm(null);
+	const { form, handleChange, setForm, setInForm } = useForm(null);
 	const routeParams = useParams();
 
 	useDeepCompareEffect(() => {
@@ -102,20 +102,6 @@ function Product(props) {
 
 	function handleChangeTab(event, value) {
 		setTabValue(value);
-	}
-
-	function handleChipChange(value, name) {
-		setForm(
-			_.set(
-				{ ...form },
-				name,
-				value.map(item => item.value)
-			)
-		);
-	}
-
-	function setFeaturedImage(id) {
-		setForm(_.set({ ...form }, 'featuredImageId', id));
 	}
 
 	function handleUploadChange(e) {
@@ -296,7 +282,7 @@ function Product(props) {
 										value: item,
 										label: item
 									}))}
-									onChange={value => handleChipChange(value, 'categories')}
+									onChange={value => setInForm('categories', value)}
 									placeholder="Select multiple categories"
 									textFieldProps={{
 										label: 'Categories',
@@ -314,7 +300,7 @@ function Product(props) {
 										value: item,
 										label: item
 									}))}
-									onChange={value => handleChipChange(value, 'tags')}
+									onChange={value => setInForm('tags', value)}
 									placeholder="Select multiple tags"
 									textFieldProps={{
 										label: 'Tags',
@@ -350,13 +336,13 @@ function Product(props) {
 									</label>
 									{form.images.map(media => (
 										<div
-											onClick={() => setFeaturedImage(media.id)}
-											onKeyDown={() => setFeaturedImage(media.id)}
+											onClick={() => setInForm('featuredImageId', media.id)}
+											onKeyDown={() => setInForm('featuredImageId', media.id)}
 											role="button"
 											tabIndex={0}
 											className={clsx(
 												classes.productImageItem,
-												'flex items-center justify-center relative w-128 h-128 rounded-8 mx-8 mb-16 overflow-hidden cursor-pointer shadow hover:shadow-lg',
+												'flex items-center justify-center relative w-128 h-128 rounded-8 mx-8 mb-16 overflow-hidden cursor-pointer outline-none shadow hover:shadow-lg',
 												media.id === form.featuredImageId && 'featured'
 											)}
 											key={media.id}

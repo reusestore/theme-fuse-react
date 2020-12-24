@@ -1,14 +1,14 @@
 import FuseUtils from '@fuse/utils';
+import _ from '@lodash';
 
 function LabelModel(data) {
-	const item = data || {};
-	return {
-		id: item.id || FuseUtils.generateGUID(),
-		name: item.name || '',
-		get handle() {
-			return FuseUtils.handleize(this.name);
-		}
-	};
+	data = data || {};
+
+	return _.defaults(data, {
+		id: FuseUtils.generateGUID(),
+		name: '',
+		handle: FuseUtils.handleize(data.name || '')
+	});
 }
 
 export default LabelModel;

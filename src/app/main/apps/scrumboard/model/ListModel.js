@@ -1,13 +1,14 @@
 import FuseUtils from '@fuse/utils';
+import _ from '@lodash';
 
-class ListModel {
-	constructor(data) {
-		const list = data || {};
+function ListModel(data) {
+	data = data || {};
 
-		this.id = list.id || FuseUtils.generateGUID();
-		this.name = list.name || '';
-		this.idCards = [];
-	}
+	return _.defaults(data, {
+		id: FuseUtils.generateGUID(),
+		name: '',
+		idCards: []
+	});
 }
 
 export default ListModel;

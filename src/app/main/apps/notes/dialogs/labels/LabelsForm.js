@@ -44,7 +44,7 @@ function LabelsForm(props) {
 		if (isFormInValid()) {
 			return;
 		}
-		const newLabel = new LabelModel(newLabelForm);
+		const newLabel = LabelModel(newLabelForm);
 		setLabels(_.setIn(labelsForm, newLabel.id, newLabel));
 		resetForm();
 	}
@@ -81,7 +81,7 @@ function LabelsForm(props) {
 					}
 
 					function handleLabelChange(event, label) {
-						const updatedLabel = new LabelModel(_.setIn(label, event.target.name, event.target.value));
+						const updatedLabel = LabelModel(_.setIn(label, event.target.name, event.target.value));
 						setLabels(_.setIn(labelsForm, updatedLabel.id, updatedLabel));
 					}
 
