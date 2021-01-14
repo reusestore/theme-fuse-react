@@ -11,12 +11,9 @@ export const getOrders = createAsyncThunk('eCommerceApp/orders/getOrders', async
 export const removeOrders = createAsyncThunk(
 	'eCommerceApp/orders/removeOrders',
 	async (orderIds, { dispatch, getState }) => {
-		const response = await axios.post('/api/e-commerce-app/remove-orders', { orderIds });
-		const data = await response.data;
+		await axios.post('/api/e-commerce-app/remove-orders', { orderIds });
 
-		dispatch(getOrders());
-
-		return data;
+		return orderIds;
 	}
 );
 
@@ -40,7 +37,8 @@ const ordersSlice = createSlice({
 		}
 	},
 	extraReducers: {
-		[getOrders.fulfilled]: ordersAdapter.setAll
+		[getOrders.fulfilled]: ordersAdapter.setAll,
+		[removeOrders.fulfilled]: (state, action) => ordersAdapter.removeMany(state, action.payload)
 	}
 });
 

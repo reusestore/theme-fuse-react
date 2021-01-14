@@ -39,23 +39,18 @@ export const updateContact = createAsyncThunk(
 export const removeContact = createAsyncThunk(
 	'contactsApp/contacts/removeContact',
 	async (contactId, { dispatch, getState }) => {
-		const response = await axios.post('/api/contacts-app/remove-contact', { contactId });
-		const data = await response.data;
-		dispatch(getContacts());
+		await axios.post('/api/contacts-app/remove-contact', { contactId });
 
-		return data;
+		return contactId;
 	}
 );
 
 export const removeContacts = createAsyncThunk(
 	'contactsApp/contacts/removeContacts',
 	async (contactIds, { dispatch, getState }) => {
-		const response = await axios.post('/api/contacts-app/remove-contacts', { contactIds });
-		const data = await response.data;
+		await axios.post('/api/contacts-app/remove-contacts', { contactIds });
 
-		dispatch(getContacts());
-
-		return data;
+		return contactIds;
 	}
 );
 
@@ -181,6 +176,8 @@ const contactsSlice = createSlice({
 	extraReducers: {
 		[updateContact.fulfilled]: contactsAdapter.upsertOne,
 		[addContact.fulfilled]: contactsAdapter.addOne,
+		[removeContacts.fulfilled]: (state, action) => contactsAdapter.removeMany(state, action.payload),
+		[removeContact.fulfilled]: (state, action) => contactsAdapter.removeOne(state, action.payload),
 		[getContacts.fulfilled]: (state, action) => {
 			const { data, routeParams } = action.payload;
 			contactsAdapter.setAll(state, data);
