@@ -16,7 +16,6 @@ function ReactTableDoc() {
 					ReactTable
 				</Typography>
 				<Button
-					className="normal-case"
 					variant="outlined"
 					component="a"
 					href="https://github.com/react-tools/react-table"

@@ -96,7 +96,7 @@ function IconsUI() {
 					</div>
 
 					<Button
-						className="normal-case ml-8 sm:ml-0"
+						className="ml-8 sm:ml-0"
 						variant="outlined"
 						component="a"
 						href="https://material.io/icons/"

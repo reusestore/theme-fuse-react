@@ -1,4 +1,5 @@
 import FuseUtils from '@fuse/utils';
+import _ from '@lodash';
 
 const sampleLabels = [
 	{
@@ -46,23 +47,23 @@ const sampleMembers = [
 	}
 ];
 
-class BoardModel {
-	constructor(data) {
-		const board = data || {};
+function BoardModel(data) {
+	data = data || {};
 
-		this.name = board.name || 'Untitled Board';
-		this.uri = board.uri || 'untitled-board';
-		this.id = board.id || FuseUtils.generateGUID();
-		this.settings = board.settings || {
+	return _.defaults(data, {
+		name: 'Untitled Board',
+		uri: 'untitled-board',
+		id: FuseUtils.generateGUID(),
+		settings: {
 			color: '',
 			subscribed: true,
 			cardCoverImages: true
-		};
-		this.lists = [];
-		this.cards = [];
-		this.members = board.members || sampleMembers;
-		this.labels = board.labels || sampleLabels;
-	}
+		},
+		lists: [],
+		cards: [],
+		members: sampleMembers,
+		labels: sampleLabels
+	});
 }
 
 export default BoardModel;

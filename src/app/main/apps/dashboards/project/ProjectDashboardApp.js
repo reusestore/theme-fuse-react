@@ -1,5 +1,6 @@
 import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import FusePageSimple from '@fuse/core/FusePageSimple';
+import Divider from '@material-ui/core/Divider';
 import Hidden from '@material-ui/core/Hidden';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
@@ -14,6 +15,7 @@ import clsx from 'clsx';
 import _ from '@lodash';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { lighten } from '@material-ui/core/styles/colorManipulator';
 import reducer from './store';
 import { selectProjects, getProjects } from './store/projectsSlice';
 
@@ -40,12 +42,12 @@ const useStyles = makeStyles(theme => ({
 		}
 	},
 	selectedProject: {
-		background: theme.palette.primary.main,
+		background: lighten(theme.palette.primary.dark, 0.1),
 		color: theme.palette.primary.contrastText,
 		borderRadius: '8px 0 0 0'
 	},
 	projectMenuButton: {
-		background: theme.palette.primary.main,
+		background: lighten(theme.palette.primary.dark, 0.1),
 		color: theme.palette.primary.contrastText,
 		borderRadius: '0 8px 0 0',
 		marginLeft: 1
@@ -103,7 +105,7 @@ function ProjectDashboardApp(props) {
 		<FusePageSimple
 			classes={{
 				header: 'min-h-160 h-160',
-				toolbar: 'min-h-48 h-48',
+				toolbar: 'min-h-56 h-56 items-end',
 				rightSidebar: 'w-288',
 				content: classes.content
 			}}
@@ -163,14 +165,18 @@ function ProjectDashboardApp(props) {
 					value={tabValue}
 					onChange={handleChangeTab}
 					indicatorColor="secondary"
-					textColor="secondary"
+					textColor="inherit"
 					variant="scrollable"
 					scrollButtons="off"
-					className="w-full px-24"
+					className="w-full px-24 -mx-4 min-h-40"
+					classes={{ indicator: 'flex justify-center bg-transparent w-full h-full' }}
+					TabIndicatorProps={{
+						children: <Divider className="w-full h-full rounded-full opacity-50" />
+					}}
 				>
-					<Tab className="text-14 font-600 normal-case" label="Home" />
-					<Tab className="text-14 font-600 normal-case" label="Budget Summary" />
-					<Tab className="text-14 font-600 normal-case" label="Team Members" />
+					<Tab className="text-14 font-bold min-h-40 min-w-64 mx-4" disableRipple label="Home" />
+					<Tab className="text-14 font-bold min-h-40 min-w-64 mx-4" disableRipple label="Budget Summary" />
+					<Tab className="text-14 font-bold min-h-40 min-w-64 mx-4" disableRipple label="Team Members" />
 				</Tabs>
 			}
 			content={

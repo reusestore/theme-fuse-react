@@ -25,7 +25,7 @@ function NoteForm(props) {
 	const { form: noteForm, handleChange, setForm } = useForm(
 		_.merge(
 			{},
-			new NoteModel(),
+			NoteModel(),
 			props.note,
 			routeParams.labelId ? { labels: [routeParams.labelId] } : null,
 			routeParams.id === 'archive' ? { archive: true } : null

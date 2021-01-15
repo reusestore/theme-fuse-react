@@ -249,7 +249,7 @@ function BoardCardForm(props) {
 								}))}
 								onCreateOption={name => {
 									// Create New Label
-									const newLabel = new LabelModel({ name });
+									const newLabel = LabelModel({ name });
 
 									// Ad new Label to board(redux store and server)
 									dispatch(addLabel(newLabel));

@@ -16,7 +16,6 @@ function FormsyDoc() {
 				</Typography>
 
 				<Button
-					className="normal-case"
 					variant="outlined"
 					component="a"
 					href="https://github.com/formsy/formsy-react"

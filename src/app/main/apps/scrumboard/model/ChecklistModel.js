@@ -1,13 +1,14 @@
 import FuseUtils from '@fuse/utils';
+import _ from '@lodash';
 
-class ChecklistModel {
-	constructor(data) {
-		const item = data || {};
+function ChecklistModel(data) {
+	data = data || {};
 
-		this.id = item.id || FuseUtils.generateGUID();
-		this.name = item.name || '';
-		this.checkItems = item.checkItems || [];
-	}
+	return _.defaults(data, {
+		id: FuseUtils.generateGUID(),
+		name: '',
+		checkItems: []
+	});
 }
 
 export default ChecklistModel;

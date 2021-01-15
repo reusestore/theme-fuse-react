@@ -36,7 +36,7 @@ function CheckListMenu(props) {
 		if (isFormInvalid()) {
 			return;
 		}
-		props.onAddCheckList(new ChecklistModel(form));
+		props.onAddCheckList(ChecklistModel(form));
 		handleMenuClose();
 	}
 

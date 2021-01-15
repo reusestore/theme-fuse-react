@@ -15,7 +15,6 @@ function ReactChartJs2Doc() {
 					ReactChartJs2
 				</Typography>
 				<Button
-					className="normal-case"
 					variant="outlined"
 					component="a"
 					href="https://github.com/jerairrest/react-chartjs-2"

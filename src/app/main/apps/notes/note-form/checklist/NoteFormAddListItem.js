@@ -20,7 +20,7 @@ function NoteFormAddListItem(props) {
 		if (isFormInValid()) {
 			return;
 		}
-		props.onListItemAdd(new NoteListItemModel(form));
+		props.onListItemAdd(NoteListItemModel(form));
 		resetForm();
 	}
 

@@ -46,7 +46,8 @@ const useStyles = makeStyles(theme => ({
 	input: {
 		display: 'flex',
 		padding: 0,
-		height: 'auto'
+		height: 'auto',
+		minHeight: 56
 	},
 	valueContainer: {
 		display: 'flex',

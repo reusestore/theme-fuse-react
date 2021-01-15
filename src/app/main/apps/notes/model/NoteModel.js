@@ -1,18 +1,20 @@
 import FuseUtils from '@fuse/utils';
+import _ from '@lodash';
 
 function NoteModel(data) {
-	const item = data || {};
-	return {
-		id: item.id || FuseUtils.generateGUID(),
-		title: item.title || '',
-		description: item.description || '',
-		archive: item.archive || false,
-		image: item.image || '',
-		time: item.time || null,
-		reminder: item.reminder || null,
-		checklist: item.checklist || [],
-		labels: item.labels || []
-	};
+	data = data || {};
+
+	return _.defaults(data, {
+		id: FuseUtils.generateGUID(),
+		title: '',
+		description: '',
+		archive: false,
+		image: '',
+		time: null,
+		reminder: null,
+		checklist: [],
+		labels: []
+	});
 }
 
 export default NoteModel;

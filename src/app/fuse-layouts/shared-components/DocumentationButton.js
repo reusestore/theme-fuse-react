@@ -10,7 +10,7 @@ function DocumentationButton({ className }) {
 			component={Link}
 			to="/documentation"
 			role="button"
-			className={clsx('normal-case', className)}
+			className={clsx('', className)}
 			variant="contained"
 			color="primary"
 		>

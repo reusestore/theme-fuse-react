@@ -20,7 +20,7 @@ function CardAddChecklistItem(props) {
 		if (isFormInValid()) {
 			return;
 		}
-		props.onListItemAdd(new ChecklistItemModel(form));
+		props.onListItemAdd(ChecklistItemModel(form));
 		resetForm();
 	}
 

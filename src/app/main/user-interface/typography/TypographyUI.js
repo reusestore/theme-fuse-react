@@ -29,7 +29,6 @@ function TypographyUI() {
 					</div>
 
 					<Button
-						className="normal-case"
 						variant="outlined"
 						component="a"
 						href="https://material-ui-next.com/style/typography/"

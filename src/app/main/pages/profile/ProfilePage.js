@@ -2,6 +2,7 @@ import FuseAnimate from '@fuse/core/FuseAnimate';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
 import { makeStyles } from '@material-ui/core/styles';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
@@ -34,10 +35,10 @@ function ProfilePage() {
 		<FusePageSimple
 			classes={{
 				header: classes.layoutHeader,
-				toolbar: 'px-16 sm:px-24'
+				toolbar: 'min-h-56 h-56 items-end'
 			}}
 			header={
-				<div className="p-24 flex flex-1 flex-col items-center justify-center md:flex-row md:items-end">
+				<div className="p-24 flex flex-1 flex-codisableRipple l items-center justify-center md:flex-row md:items-end">
 					<div className="flex flex-1 flex-col items-center justify-center md:flex-row md:items-center md:justify-start">
 						<FuseAnimate animation="transition.expandIn" delay={300}>
 							<Avatar className="w-96 h-96" src="assets/images/avatars/Velazquez.jpg" />
@@ -54,10 +55,10 @@ function ProfilePage() {
 					</div>
 
 					<div className="flex items-center justify-end">
-						<Button className="mx-8 normal-case" variant="contained" color="secondary" aria-label="Follow">
+						<Button className="mx-8" variant="contained" color="secondary" aria-label="Follow">
 							Follow
 						</Button>
-						<Button className="normal-case" variant="contained" color="primary" aria-label="Send Message">
+						<Button variant="contained" color="primary" aria-label="Send Message">
 							Send Message
 						</Button>
 					</div>
@@ -68,31 +69,18 @@ function ProfilePage() {
 					value={selectedTab}
 					onChange={handleTabChange}
 					indicatorColor="primary"
-					textColor="primary"
+					textColor="inherit"
 					variant="scrollable"
 					scrollButtons="off"
-					classes={{
-						root: 'h-64 w-full'
+					className="w-full px-24 -mx-4 min-h-40"
+					classes={{ indicator: 'flex justify-center bg-transparent w-full h-full' }}
+					TabIndicatorProps={{
+						children: <Divider className="w-full h-full rounded-full opacity-50" />
 					}}
 				>
-					<Tab
-						classes={{
-							root: 'h-64'
-						}}
-						label="Timeline"
-					/>
-					<Tab
-						classes={{
-							root: 'h-64'
-						}}
-						label="About"
-					/>
-					<Tab
-						classes={{
-							root: 'h-64'
-						}}
-						label="Photos & Videos"
-					/>
+					<Tab className="text-14 font-bold min-h-40 min-w-64 mx-4" disableRipple label="Timeline" />
+					<Tab className="text-14 font-bold min-h-40 min-w-64 mx-4" disableRipple label="About" />
+					<Tab className="text-14 font-bold min-h-40 min-w-64 mx-4" disableRipple label="Photos & Videos" />
 				</Tabs>
 			}
 			content={

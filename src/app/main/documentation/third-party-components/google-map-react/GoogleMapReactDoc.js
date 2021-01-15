@@ -15,7 +15,6 @@ function GoogleMapReactDoc() {
 					GoogleMapReact
 				</Typography>
 				<Button
-					className="normal-case"
 					variant="outlined"
 					component="a"
 					href="https://github.com/google-map-react/google-map-react"

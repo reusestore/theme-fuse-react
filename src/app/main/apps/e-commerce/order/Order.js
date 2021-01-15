@@ -69,7 +69,7 @@ function Order(props) {
 						There is no such order!
 					</Typography>
 					<Button
-						className="normal-case mt-24"
+						className="mt-24"
 						component={Link}
 						variant="outlined"
 						to="/apps/e-commerce/orders"
@@ -94,7 +94,7 @@ function Order(props) {
 						<div className="flex flex-1 flex-col items-center sm:items-start">
 							<FuseAnimate animation="transition.slideRightIn" delay={300}>
 								<Typography
-									className="normal-case flex items-center sm:mb-12"
+									className="flex items-center sm:mb-12"
 									component={Link}
 									role="button"
 									to="/apps/e-commerce/orders"
@@ -134,9 +134,9 @@ function Order(props) {
 					scrollButtons="auto"
 					classes={{ root: 'w-full h-64' }}
 				>
-					<Tab className="h-64 normal-case" label="Order Details" />
-					<Tab className="h-64 normal-case" label="Products" />
-					<Tab className="h-64 normal-case" label="Invoice" />
+					<Tab className="h-64" label="Order Details" />
+					<Tab className="h-64" label="Products" />
+					<Tab className="h-64" label="Invoice" />
 				</Tabs>
 			}
 			content={

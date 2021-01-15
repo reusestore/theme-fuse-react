@@ -99,7 +99,7 @@ export const newCard = createAsyncThunk(
 		const response = await axios.post('/api/scrumboard-app/card/new', {
 			boardId,
 			listId,
-			data: new CardModel({ name: cardTitle })
+			data: CardModel({ name: cardTitle })
 		});
 
 		const data = await response.data;
@@ -113,7 +113,7 @@ export const newList = createAsyncThunk(
 	async ({ boardId, listTitle }, { dispatch, getState }) => {
 		const response = await axios.post('/api/scrumboard-app/list/new', {
 			boardId,
-			data: new ListModel({ name: listTitle })
+			data: ListModel({ name: listTitle })
 		});
 
 		const data = await response.data;

@@ -56,7 +56,10 @@ function NewNote(props) {
 
 	return (
 		<Paper
-			className={clsx(classes.button, 'flex items-center w-full max-w-512 mt-8 mb-16 min-h-48 rounded-8 shadow')}
+			className={clsx(
+				classes.button,
+				'flex items-center w-full max-w-512 mt-8 mb-16 min-h-48 rounded-8 shadow flex-shrink-0'
+			)}
 		>
 			{formOpen ? (
 				<ClickAwayListener onClickAway={handleClickAway}>

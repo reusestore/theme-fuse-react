@@ -172,7 +172,7 @@ import useAutocomplete from '@material-ui/lab/useAutocomplete';
                 component={require('app/main/documentation/material-ui-components/components/autocomplete/Asynchronous.js').default}
                 raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/Asynchronous.js')}
             /></Typography>
-            <Typography className="text-24 mt-32 mb-8" component="h3">Google Maps place</Typography>
+       {/*     <Typography className="text-24 mt-32 mb-8" component="h3">Google Maps place</Typography>
             <Typography className="mb-16" component="div">A customized UI for Google Maps Places Autocomplete.</Typography>
             <Typography className="mb-16" component="div"><FuseExample
                 className="my-24"
@@ -180,7 +180,7 @@ import useAutocomplete from '@material-ui/lab/useAutocomplete';
                 component={require('app/main/documentation/material-ui-components/components/autocomplete/GoogleMaps.js').default}
                 raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/GoogleMaps.js')}
             /></Typography>
-            {/*<Typography className="mb-16" component="div">For this demo, we need to load the <a href="https://developers.google.com/maps/documentation/javascript/tutorial">Google Maps
+            <Typography className="mb-16" component="div">For this demo, we need to load the <a href="https://developers.google.com/maps/documentation/javascript/tutorial">Google Maps
                 JavaScript</a> API.</Typography>
             <blockquote>
                 <Typography className="mb-16" component="div">⚠️ Before you can start using the Google Maps JavaScript API, you must sign up and create a billing account.</Typography>

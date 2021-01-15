@@ -43,8 +43,8 @@ function ForgotPasswordPage() {
 								<img src="assets/images/logos/fuse.svg" alt="logo" />
 							</div>
 
-							<Typography variant="h6" className="mt-16 mb-32">
-								RECOVER YOUR PASSWORD
+							<Typography variant="h6" className="mt-16 mb-32 font-bold text-20 sm:text-24">
+								Recover your password
 							</Typography>
 
 							<form
@@ -74,7 +74,7 @@ function ForgotPasswordPage() {
 									disabled={!isFormValid()}
 									type="submit"
 								>
-									SEND RESET LINK
+									Send reset link
 								</Button>
 							</form>
 

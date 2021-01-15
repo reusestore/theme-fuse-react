@@ -29,7 +29,7 @@ function UserMenu(props) {
 		<>
 			<Button className="min-h-40 min-w-40 px-0 md:px-16 py-0 md:py-6" onClick={userMenuClick}>
 				<div className="hidden md:flex flex-col mx-4 items-end">
-					<Typography component="span" className="normal-case font-bold flex">
+					<Typography component="span" className="font-bold flex">
 						{user.data.displayName}
 					</Typography>
 					<Typography className="text-11 capitalize" color="textSecondary">

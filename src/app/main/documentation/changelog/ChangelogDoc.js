@@ -4,6 +4,19 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
 	{
+		version: '5.3.1',
+		date: '2021-01-15',
+		newChanges: [
+			'material-ui updated to v4.11.2',
+			'All dependency packages updated.',
+			'Minor design refinements.',
+			'Reset the whole redux store when user logged out.',
+			'reportWebVitals added.',
+			'data Model classes changed with function versions.'
+		],
+		fixedChanges: ['FuseChipSelect empty input height.']
+	},
+	{
 		version: '5.3.0',
 		date: '2020-12-02',
 		newChanges: [

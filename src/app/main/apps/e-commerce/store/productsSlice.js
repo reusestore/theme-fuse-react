@@ -11,12 +11,9 @@ export const getProducts = createAsyncThunk('eCommerceApp/products/getProducts',
 export const removeProducts = createAsyncThunk(
 	'eCommerceApp/products/removeProducts',
 	async (productIds, { dispatch, getState }) => {
-		const response = await axios.post('/api/e-commerce-app/remove-products', { productIds });
-		const data = await response.data;
+		await axios.post('/api/e-commerce-app/remove-products', { productIds });
 
-		dispatch(getProducts());
-
-		return data;
+		return productIds;
 	}
 );
 
@@ -40,7 +37,8 @@ const productsSlice = createSlice({
 		}
 	},
 	extraReducers: {
-		[getProducts.fulfilled]: productsAdapter.setAll
+		[getProducts.fulfilled]: productsAdapter.setAll,
+		[removeProducts.fulfilled]: (state, action) => productsAdapter.removeMany(state, action.payload)
 	}
 });
 

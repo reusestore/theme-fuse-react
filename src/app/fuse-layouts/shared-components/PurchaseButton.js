@@ -11,7 +11,7 @@ function PurchaseButton({ className }) {
 			target="_blank"
 			rel="noreferrer noopener"
 			role="button"
-			className={clsx('normal-case', className)}
+			className={clsx('', className)}
 			variant="contained"
 			color="secondary"
 		>
