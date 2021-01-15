@@ -52,16 +52,15 @@ function ResetPasswordPage2() {
 					<img className="w-128 mb-32" src="assets/images/logos/fuse.svg" alt="logo" />
 				</FuseAnimate>
 
-				<FuseAnimate animation="transition.slideUpIn" delay={300}>
-					<Typography variant="h3" color="inherit" className="font-light">
-						Welcome to the FUSE!
+				<FuseAnimate animation="transition.slideUpIn" delay={400}>
+					<Typography variant="h3" color="inherit" className="font-800 leading-tight">
+						Welcome to the <br /> FUSE React!
 					</Typography>
 				</FuseAnimate>
 
-				<FuseAnimate delay={400}>
-					<Typography variant="subtitle1" color="inherit" className="max-w-512 mt-16">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ullamcorper nisl erat, vel
-						convallis elit fermentum pellentesque. Sed mollis velit facilisis facilisis.
+				<FuseAnimate delay={500}>
+					<Typography variant="subtitle1" color="inherit" className="mt-32">
+						Powerful and professional admin template for Web Applications, CRM, CMS, Admin Panels and more.
 					</Typography>
 				</FuseAnimate>
 			</div>
@@ -69,8 +68,8 @@ function ResetPasswordPage2() {
 			<FuseAnimate animation={{ translateX: [0, '100%'] }}>
 				<Card className="w-full max-w-400 mx-auto m-16 md:m-0" square>
 					<CardContent className="flex flex-col items-center justify-center p-32 md:p-48 md:pt-128">
-						<Typography variant="h6" className="md:w-full mb-32">
-							RESET YOUR PASSWORD
+						<Typography variant="h6" className="mb-32 font-bold text-20 sm:text-24">
+							Reset your password
 						</Typography>
 
 						<form
@@ -124,7 +123,7 @@ function ResetPasswordPage2() {
 								disabled={!isFormValid()}
 								type="submit"
 							>
-								RESET MY PASSWORD
+								Reset my password
 							</Button>
 						</form>
 

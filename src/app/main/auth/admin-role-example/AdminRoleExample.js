@@ -25,7 +25,7 @@ function AdminRoleExample(props) {
 			header={
 				<div className="flex flex-1 items-center justify-between p-24">
 					<Typography className="h2">Admin: Auth role example page</Typography>
-					<Button className="normal-case" variant="contained" onClick={ev => dispatch(logoutUser())}>
+					<Button variant="contained" onClick={ev => dispatch(logoutUser())}>
 						<Icon>exit_to_app</Icon>
 						<span className="mx-4">Logout</span>
 					</Button>

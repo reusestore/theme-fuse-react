@@ -170,7 +170,7 @@ function Register3Page() {
 									disabled={!isFormValid()}
 									type="submit"
 								>
-									CREATE AN ACCOUNT
+									Create an account
 								</Button>
 							</form>
 						</CardContent>

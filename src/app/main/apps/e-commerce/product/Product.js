@@ -142,7 +142,7 @@ function Product(props) {
 						There is no such product!
 					</Typography>
 					<Button
-						className="normal-case mt-24"
+						className="mt-24"
 						component={Link}
 						variant="outlined"
 						to="/apps/e-commerce/products"
@@ -171,7 +171,7 @@ function Product(props) {
 						<div className="flex flex-col items-start max-w-full">
 							<FuseAnimate animation="transition.slideRightIn" delay={300}>
 								<Typography
-									className="normal-case flex items-center sm:mb-12"
+									className="flex items-center sm:mb-12"
 									component={Link}
 									role="button"
 									to="/apps/e-commerce/products"
@@ -214,7 +214,7 @@ function Product(props) {
 						</div>
 						<FuseAnimate animation="transition.slideRightIn" delay={300}>
 							<Button
-								className="whitespace-nowrap normal-case"
+								className="whitespace-nowrap"
 								variant="contained"
 								color="secondary"
 								disabled={!canBeSubmitted()}
@@ -236,11 +236,11 @@ function Product(props) {
 					scrollButtons="auto"
 					classes={{ root: 'w-full h-64' }}
 				>
-					<Tab className="h-64 normal-case" label="Basic Info" />
-					<Tab className="h-64 normal-case" label="Product Images" />
-					<Tab className="h-64 normal-case" label="Pricing" />
-					<Tab className="h-64 normal-case" label="Inventory" />
-					<Tab className="h-64 normal-case" label="Shipping" />
+					<Tab className="h-64" label="Basic Info" />
+					<Tab className="h-64" label="Product Images" />
+					<Tab className="h-64" label="Pricing" />
+					<Tab className="h-64" label="Inventory" />
+					<Tab className="h-64" label="Shipping" />
 				</Tabs>
 			}
 			content={

@@ -28,7 +28,7 @@ function Widget5(props) {
 						return (
 							<Button
 								key={key}
-								className="normal-case shadow-none px-16"
+								className="shadow-none px-16"
 								onClick={() => handleChangeRange(key)}
 								color={currentRange === key ? 'secondary' : 'default'}
 								variant={currentRange === key ? 'contained' : 'text'}

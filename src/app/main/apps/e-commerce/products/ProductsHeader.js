@@ -54,7 +54,7 @@ function ProductsHeader(props) {
 				<Button
 					component={Link}
 					to="/apps/e-commerce/products/new"
-					className="whitespace-nowrap normal-case"
+					className="whitespace-nowrap"
 					variant="contained"
 					color="secondary"
 				>

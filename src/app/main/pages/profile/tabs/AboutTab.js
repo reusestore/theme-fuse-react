@@ -179,7 +179,7 @@ function AboutTab() {
 								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12">
 									Friends
 								</Typography>
-								<Button className="normal-case" color="inherit" size="small">
+								<Button color="inherit" size="small">
 									See 454 more
 								</Button>
 							</Toolbar>
@@ -202,7 +202,7 @@ function AboutTab() {
 								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12">
 									Joined Groups
 								</Typography>
-								<Button className="normal-case" color="inherit" size="small">
+								<Button color="inherit" size="small">
 									See 6 more
 								</Button>
 							</Toolbar>

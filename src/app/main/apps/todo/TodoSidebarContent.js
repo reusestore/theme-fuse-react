@@ -63,7 +63,7 @@ function TodoSidebarContent(props) {
 						color="primary"
 						className="w-full"
 					>
-						ADD TASK
+						Add task
 					</Button>
 				</div>
 

@@ -215,7 +215,7 @@ function ChatApp(props) {
 								<Button
 									variant="outlined"
 									color="primary"
-									className="flex md:hidden normal-case"
+									className="flex md:hidden"
 									onClick={() => dispatch(openMobileChatsSidebar())}
 								>
 									Select a contact to start a conversation!..

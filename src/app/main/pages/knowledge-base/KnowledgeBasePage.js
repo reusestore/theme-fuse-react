@@ -105,7 +105,7 @@ function KnowledgeBasePage() {
 											))}
 										</List>
 										<Button
-											className="pl-32 normal-case w-full justify-start my-8 font-500"
+											className="pl-32 w-full justify-start my-8 font-500"
 											color="secondary"
 										>{`See all articles (${category.articlesCount})`}</Button>
 									</Card>

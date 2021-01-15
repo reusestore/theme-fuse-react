@@ -50,16 +50,15 @@ function Login2Page() {
 					<img className="w-128 mb-32" src="assets/images/logos/fuse.svg" alt="logo" />
 				</FuseAnimate>
 
-				<FuseAnimate animation="transition.slideUpIn" delay={300}>
-					<Typography variant="h3" color="inherit" className="font-light">
-						Welcome to the FUSE!
+				<FuseAnimate animation="transition.slideUpIn" delay={400}>
+					<Typography variant="h3" color="inherit" className="font-800 leading-tight">
+						Welcome to the <br /> FUSE React!
 					</Typography>
 				</FuseAnimate>
 
-				<FuseAnimate delay={400}>
-					<Typography variant="subtitle1" color="inherit" className="max-w-512 mt-16">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ullamcorper nisl erat, vel
-						convallis elit fermentum pellentesque. Sed mollis velit facilisis facilisis.
+				<FuseAnimate delay={500}>
+					<Typography variant="subtitle1" color="inherit" className="mt-32">
+						Powerful and professional admin template for Web Applications, CRM, CMS, Admin Panels and more.
 					</Typography>
 				</FuseAnimate>
 			</div>
@@ -67,8 +66,8 @@ function Login2Page() {
 			<FuseAnimate animation={{ translateX: [0, '100%'] }}>
 				<Card className="w-full max-w-400 mx-auto m-16 md:m-0" square>
 					<CardContent className="flex flex-col items-center justify-center p-32 md:p-48 md:pt-128 ">
-						<Typography variant="h6" className="md:w-full mb-32">
-							LOGIN TO YOUR ACCOUNT
+						<Typography variant="h6" className="mb-32 font-bold text-20 sm:text-24">
+							Login to your account
 						</Typography>
 
 						<form
@@ -102,7 +101,7 @@ function Login2Page() {
 								fullWidth
 							/>
 
-							<div className="flex items-center justify-between">
+							<div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between">
 								<FormControl>
 									<FormControlLabel
 										control={
@@ -124,7 +123,7 @@ function Login2Page() {
 								aria-label="LOG IN"
 								disabled={!isFormValid()}
 							>
-								LOGIN
+								Login
 							</Button>
 						</form>
 
@@ -134,11 +133,11 @@ function Login2Page() {
 							<Divider className="w-32" />
 						</div>
 
-						<Button variant="contained" color="secondary" size="small" className="normal-case w-192 mb-8">
+						<Button variant="contained" color="secondary" size="small" className="w-192 mb-8">
 							Log in with Google
 						</Button>
 
-						<Button variant="contained" color="primary" size="small" className="normal-case w-192">
+						<Button variant="contained" color="primary" size="small" className="w-192">
 							Log in with Facebook
 						</Button>
 

@@ -87,7 +87,7 @@ function ComingSoonPage() {
 									disabled={!isFormValid()}
 									type="submit"
 								>
-									SUBSCRIBE
+									Subscribe
 								</Button>
 							</form>
 						</CardContent>

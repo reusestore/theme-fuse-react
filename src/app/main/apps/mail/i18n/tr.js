@@ -1,9 +1,9 @@
 const locale = {
 	APP_TITLE: 'Posta',
-	COMPOSE: 'YENİ E-POSTA',
-	FOLDERS: 'KLASÖRLER',
-	FILTERS: 'FİLTRELER',
-	LABELS: 'ETİKETLER',
+	COMPOSE: 'Yeni E-posta',
+	FOLDERS: 'Klasörler',
+	FILTERS: 'Filtreler',
+	LABELS: 'Etiketler',
 	NO_MESSAGES: 'Mesajınız bulunmamakta!',
 	SEARCH_PLACEHOLDER: 'E-mail yada bir kişi arayın',
 	INBOX: 'Gelen Kutusu',

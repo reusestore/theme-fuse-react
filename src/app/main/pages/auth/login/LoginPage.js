@@ -48,8 +48,8 @@ function LoginPage() {
 						<CardContent className="flex flex-col items-center justify-center p-32">
 							<img className="w-128 m-32" src="assets/images/logos/fuse.svg" alt="logo" />
 
-							<Typography variant="h6" className="mt-16 mb-32">
-								LOGIN TO YOUR ACCOUNT
+							<Typography variant="h6" className="mt-16 mb-32 font-bold text-20 sm:text-24">
+								Login to your account
 							</Typography>
 
 							<form
@@ -83,7 +83,7 @@ function LoginPage() {
 									fullWidth
 								/>
 
-								<div className="flex items-center justify-between">
+								<div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between">
 									<FormControl>
 										<FormControlLabel
 											control={
@@ -110,7 +110,7 @@ function LoginPage() {
 									disabled={!isFormValid()}
 									type="submit"
 								>
-									LOGIN
+									Login
 								</Button>
 							</form>
 
@@ -120,16 +120,11 @@ function LoginPage() {
 								<Divider className="w-32" />
 							</div>
 
-							<Button
-								variant="contained"
-								color="secondary"
-								size="small"
-								className="normal-case w-192 mb-8"
-							>
+							<Button variant="contained" color="secondary" size="small" className="w-192 mb-8">
 								Log in with Google
 							</Button>
 
-							<Button variant="contained" color="primary" size="small" className="normal-case w-192">
+							<Button variant="contained" color="primary" size="small" className="w-192">
 								Log in with Facebook
 							</Button>
 

@@ -103,7 +103,7 @@ function FirebaseLoginTab(props) {
 					type="submit"
 					variant="contained"
 					color="primary"
-					className="w-full mx-auto normal-case mt-16"
+					className="w-full mx-auto mt-16"
 					aria-label="LOG IN"
 					disabled={!isFormValid}
 					value="firebase"

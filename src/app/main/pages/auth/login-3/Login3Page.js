@@ -117,7 +117,7 @@ function Login3Page() {
 									fullWidth
 								/>
 
-								<div className="flex items-center justify-between">
+								<div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between">
 									<FormControl>
 										<FormControlLabel
 											control={
@@ -143,7 +143,7 @@ function Login3Page() {
 									aria-label="LOG IN"
 									disabled={!isFormValid()}
 								>
-									LOGIN
+									Login
 								</Button>
 							</form>
 
@@ -153,11 +153,11 @@ function Login3Page() {
 								<Divider className="w-32" />
 							</div>
 
-							<Button variant="outlined" color="primary" size="small" className="normal-case w-192 mb-8">
+							<Button variant="outlined" color="primary" size="small" className="w-192 mb-8">
 								Log in with Google
 							</Button>
 
-							<Button variant="outlined" color="primary" size="small" className="normal-case w-192">
+							<Button variant="outlined" color="primary" size="small" className="w-192">
 								Log in with Facebook
 							</Button>
 						</CardContent>

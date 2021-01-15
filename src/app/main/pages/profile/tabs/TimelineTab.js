@@ -70,13 +70,7 @@ function TimelineTab() {
 								</div>
 
 								<div className="p-8">
-									<Button
-										variant="contained"
-										color="primary"
-										size="small"
-										aria-label="post"
-										className="normal-case"
-									>
+									<Button variant="contained" color="primary" size="small" aria-label="post">
 										Post
 									</Button>
 								</div>
@@ -141,15 +135,15 @@ function TimelineTab() {
 									<Icon className="text-16" color="action">
 										favorite
 									</Icon>
-									<Typography className="normal-case mx-4">Like</Typography>
-									<Typography className="normal-case">({post.like})</Typography>
+									<Typography className="mx-4">Like</Typography>
+									<Typography>({post.like})</Typography>
 								</Button>
 								<Button aria-label="Share">
 									<Icon className="text-16" color="action">
 										share
 									</Icon>
-									<Typography className="normal-case mx-4">Share</Typography>
-									<Typography className="normal-case">({post.share})</Typography>
+									<Typography className="mx-4">Share</Typography>
+									<Typography>({post.share})</Typography>
 								</Button>
 							</CardActions>
 
@@ -197,7 +191,7 @@ function TimelineTab() {
 														/>
 													</ListItem>
 													<div className="flex items-center mx-52 mb-8">
-														<Button className="normal-case">Reply</Button>
+														<Button>Reply</Button>
 														<Icon className="text-14 mx-8 cursor-pointer">flag</Icon>
 													</div>
 												</div>
@@ -220,12 +214,7 @@ function TimelineTab() {
 												disableUnderline
 											/>
 										</Paper>
-										<Button
-											className="normal-case"
-											variant="contained"
-											color="primary"
-											size="small"
-										>
+										<Button variant="contained" color="primary" size="small">
 											Post Comment
 										</Button>
 									</div>

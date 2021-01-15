@@ -95,7 +95,7 @@ function LockPage() {
 									disabled={!isFormValid()}
 									type="submit"
 								>
-									UNLOCK
+									Unlock
 								</Button>
 							</form>
 

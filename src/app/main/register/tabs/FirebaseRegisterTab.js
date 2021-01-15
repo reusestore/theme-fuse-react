@@ -138,7 +138,7 @@ function FirebaseRegisterTab(props) {
 					type="submit"
 					variant="contained"
 					color="primary"
-					className="w-full mx-auto mt-16 normal-case"
+					className="w-full mx-auto mt-16"
 					aria-label="REGISTER WITH FIREBASE"
 					disabled={!isFormValid}
 				>
