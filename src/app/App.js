@@ -22,7 +22,7 @@ const jss = create({
 	insertionPoint: document.getElementById('jss-insertion-point')
 });
 
-const generateClassName = createGenerateClassName();
+const generateClassName = createGenerateClassName({ disableGlobal: true });
 
 const App = () => {
 	return (
