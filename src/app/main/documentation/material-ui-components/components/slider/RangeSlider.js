@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
@@ -15,7 +15,7 @@ function valuetext(value) {
 
 export default function RangeSlider() {
   const classes = useStyles();
-  const [value, setValue] = React.useState([20, 37]);
+  const [value, setValue] = useState([20, 37]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

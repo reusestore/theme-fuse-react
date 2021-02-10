@@ -9,7 +9,7 @@ import NavbarMobileToggleButton from 'app/fuse-layouts/shared-components/NavbarM
 import QuickPanelToggleButton from 'app/fuse-layouts/shared-components/quickPanel/QuickPanelToggleButton';
 import UserMenu from 'app/fuse-layouts/shared-components/UserMenu';
 import clsx from 'clsx';
-import React from 'react';
+import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { selectToolbarTheme } from 'app/store/fuse/settingsSlice';
 import FullScreenToggle from '../../shared-components/FullScreenToggle';
@@ -73,4 +73,4 @@ function ToolbarLayout1(props) {
 	);
 }
 
-export default React.memo(ToolbarLayout1);
+export default memo(ToolbarLayout1);

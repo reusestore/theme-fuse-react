@@ -1,5 +1,4 @@
 import List from '@material-ui/core/List';
-import React from 'react';
 import NoteFormAddListItem from './NoteFormAddListItem';
 import NoteFormListItem from './NoteFormListItem';
 

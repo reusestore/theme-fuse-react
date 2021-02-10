@@ -6,7 +6,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import FuseNavBadge from '../FuseNavBadge';
@@ -83,6 +83,6 @@ FuseNavHorizontalItem.propTypes = {
 
 FuseNavHorizontalItem.defaultProps = {};
 
-const NavHorizontalItem = withRouter(React.memo(FuseNavHorizontalItem));
+const NavHorizontalItem = withRouter(memo(FuseNavHorizontalItem));
 
 export default NavHorizontalItem;

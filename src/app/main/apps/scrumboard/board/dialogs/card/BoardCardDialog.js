@@ -1,7 +1,6 @@
 import Dialog from '@material-ui/core/Dialog';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeCardDialog } from '../../../store/cardSlice';
 import BoardCardForm from './BoardCardForm';

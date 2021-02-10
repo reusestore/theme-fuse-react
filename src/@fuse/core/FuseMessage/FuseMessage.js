@@ -6,7 +6,7 @@ import SnackbarContent from '@material-ui/core/SnackbarContent';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
-import React from 'react';
+import { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { hideMessage } from 'app/store/fuse/messageSlice';
 
@@ -78,4 +78,4 @@ function FuseMessage(props) {
 	);
 }
 
-export default React.memo(FuseMessage);
+export default memo(FuseMessage);

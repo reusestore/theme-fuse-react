@@ -5,7 +5,7 @@ import RootRef from '@material-ui/core/RootRef';
 import { makeStyles } from '@material-ui/core/styles';
 import { darken } from '@material-ui/core/styles/colorManipulator';
 import clsx from 'clsx';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 import BoardAddCard from './BoardAddCard';
 import BoardCard from './BoardCard';

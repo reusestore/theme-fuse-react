@@ -6,7 +6,6 @@ import IconButton from '@material-ui/core/IconButton';
 import TextField from '@material-ui/core/TextField';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from './store/contactsSlice';
 import { closeContactSidebar } from './store/sidebarsSlice';

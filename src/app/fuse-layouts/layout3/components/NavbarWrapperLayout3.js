@@ -5,7 +5,7 @@ import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import NavbarMobileToggleFab from 'app/fuse-layouts/shared-components//NavbarMobileToggleFab';
 import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
 import clsx from 'clsx';
-import React from 'react';
+import { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectNavbarTheme } from 'app/store/fuse/settingsSlice';
 import NavbarLayout3 from './NavbarLayout3';
@@ -84,4 +84,4 @@ function NavbarWrapperLayout3(props) {
 	);
 }
 
-export default React.memo(NavbarWrapperLayout3);
+export default memo(NavbarWrapperLayout3);

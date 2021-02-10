@@ -1,4 +1,4 @@
-import React from 'react';
+import { lazy } from 'react';
 import { Redirect } from 'react-router-dom';
 
 const ScrumboardAppConfig = {
@@ -8,11 +8,11 @@ const ScrumboardAppConfig = {
 	routes: [
 		{
 			path: '/apps/scrumboard/boards/:boardId/:boardUri?',
-			component: React.lazy(() => import('./board/Board'))
+			component: lazy(() => import('./board/Board'))
 		},
 		{
 			path: '/apps/scrumboard/boards',
-			component: React.lazy(() => import('./boards/Boards'))
+			component: lazy(() => import('./boards/Boards'))
 		},
 		{
 			path: '/apps/scrumboard',

@@ -4,7 +4,7 @@ import FuseUtils from '@fuse/utils';
 import _ from '@lodash';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectTodos } from './store/todosSlice';
 import TodoListItem from './TodoListItem';

@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Popper from '@material-ui/core/Popper';
 import Typography from '@material-ui/core/Typography';
@@ -17,9 +17,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PositionedPopper() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [open, setOpen] = React.useState(false);
-  const [placement, setPlacement] = React.useState();
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [open, setOpen] = useState(false);
+  const [placement, setPlacement] = useState();
   const classes = useStyles();
 
   const handleClick = (newPlacement) => (event) => {

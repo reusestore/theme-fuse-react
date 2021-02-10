@@ -13,7 +13,7 @@ import Switch from '@material-ui/core/Switch';
 import Typography from '@material-ui/core/Typography';
 import withReducer from 'app/store/withReducer';
 import moment from 'moment';
-import React, { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import reducer from './store';
 import { getData } from './store/dataSlice';
@@ -146,4 +146,4 @@ function QuickPanel(props) {
 	);
 }
 
-export default withReducer('quickPanel', reducer)(React.memo(QuickPanel));
+export default withReducer('quickPanel', reducer)(memo(QuickPanel));

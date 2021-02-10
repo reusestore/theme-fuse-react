@@ -7,7 +7,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
-import React from 'react';
+import { memo } from 'react';
 
 function Widget10(props) {
 	return (
@@ -73,4 +73,4 @@ function Widget10(props) {
 	);
 }
 
-export default React.memo(Widget10);
+export default memo(Widget10);

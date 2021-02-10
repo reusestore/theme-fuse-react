@@ -1,7 +1,6 @@
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
-import React from 'react';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import DocumentationNavigation from './DocumentationNavigation';

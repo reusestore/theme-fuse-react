@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import { useTheme, ThemeProvider } from '@material-ui/core/styles';

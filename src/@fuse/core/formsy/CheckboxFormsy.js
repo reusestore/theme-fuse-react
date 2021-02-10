@@ -4,7 +4,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import { withFormsy } from 'formsy-react';
-import React from 'react';
+import { memo } from 'react';
 
 function CheckboxFormsy(props) {
 	const importedProps = _.pick(props, [
@@ -47,4 +47,4 @@ function CheckboxFormsy(props) {
 	);
 }
 
-export default React.memo(withFormsy(CheckboxFormsy));
+export default memo(withFormsy(CheckboxFormsy));

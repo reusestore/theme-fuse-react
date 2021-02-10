@@ -4,7 +4,7 @@ import Divider from '@material-ui/core/Divider';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
+import { memo } from 'react';
 
 function Widget9(props) {
 	return (
@@ -47,4 +47,4 @@ function Widget9(props) {
 	);
 }
 
-export default React.memo(Widget9);
+export default memo(Widget9);

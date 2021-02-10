@@ -1,6 +1,6 @@
 import FuseNavigation from '@fuse/core/FuseNavigation';
 import clsx from 'clsx';
-import React from 'react';
+import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { selectNavigation } from 'app/store/fuse/navigationSlice';
 
@@ -22,4 +22,4 @@ Navigation.defaultProps = {
 	layout: 'vertical'
 };
 
-export default React.memo(Navigation);
+export default memo(Navigation);

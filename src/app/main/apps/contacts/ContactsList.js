@@ -4,7 +4,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import React, { useEffect, useState } from 'react';
+import { useMemo, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ContactsMultiSelectMenu from './ContactsMultiSelectMenu';
 import ContactsTable from './ContactsTable';
@@ -18,7 +18,7 @@ function ContactsList(props) {
 
 	const [filteredData, setFilteredData] = useState(null);
 
-	const columns = React.useMemo(
+	const columns = useMemo(
 		() => [
 			{
 				Header: ({ selectedFlatRows }) => {

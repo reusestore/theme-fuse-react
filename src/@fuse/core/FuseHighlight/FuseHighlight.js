@@ -1,6 +1,6 @@
 import * as Prism from 'prismjs';
 import PropTypes from 'prop-types';
-import React, { useEffect, useRef } from 'react';
+import { memo, useEffect, useRef } from 'react';
 import './prism-languages';
 
 function FuseHighlight(props) {
@@ -75,4 +75,4 @@ FuseHighlight.defaultProps = {
 	component: 'code'
 };
 
-export default React.memo(FuseHighlight);
+export default memo(FuseHighlight);

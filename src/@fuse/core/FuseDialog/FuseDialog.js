@@ -1,5 +1,4 @@
 import Dialog from '@material-ui/core/Dialog';
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeDialog } from 'app/store/fuse/dialogSlice';
 

@@ -2,7 +2,6 @@ import FuseAnimate from '@fuse/core/FuseAnimate';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectFileById } from './store/filesSlice';
 

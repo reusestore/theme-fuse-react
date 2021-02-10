@@ -5,7 +5,6 @@ import IconButton from '@material-ui/core/IconButton';
 import Input from '@material-ui/core/Input';
 import ListItem from '@material-ui/core/ListItem';
 import clsx from 'clsx';
-import React from 'react';
 
 function NoteFormListItem(props) {
 	function handleChange(event) {

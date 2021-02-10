@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { memo } from 'react';
 import { VelocityTransitionGroup } from 'velocity-react';
 import 'velocity-animate/velocity.ui';
 
@@ -47,4 +47,4 @@ FuseAnimateGroup.defaultProps = {
 	}
 };
 
-export default React.memo(FuseAnimateGroup);
+export default memo(FuseAnimateGroup);

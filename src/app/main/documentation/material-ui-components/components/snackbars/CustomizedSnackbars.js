@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CustomizedSnackbars() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleClick = () => {
     setOpen(true);

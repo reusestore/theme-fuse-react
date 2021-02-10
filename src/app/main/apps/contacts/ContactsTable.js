@@ -1,4 +1,4 @@
-import React from 'react';
+import { forwardRef, useRef, useEffect } from 'react';
 import Checkbox from '@material-ui/core/Checkbox';
 import Table from '@material-ui/core/Table';
 import PropTypes from 'prop-types';
@@ -13,11 +13,11 @@ import { useGlobalFilter, usePagination, useRowSelect, useSortBy, useTable } fro
 import clsx from 'clsx';
 import ContactsTablePaginationActions from './ContactsTablePaginationActions';
 
-const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref) => {
-	const defaultRef = React.useRef();
+const IndeterminateCheckbox = forwardRef(({ indeterminate, ...rest }, ref) => {
+	const defaultRef = useRef();
 	const resolvedRef = ref || defaultRef;
 
-	React.useEffect(() => {
+	useEffect(() => {
 		resolvedRef.current.indeterminate = indeterminate;
 	}, [resolvedRef, indeterminate]);
 

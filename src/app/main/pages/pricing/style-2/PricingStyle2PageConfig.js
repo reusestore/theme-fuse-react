@@ -1,4 +1,4 @@
-import React from 'react';
+import { lazy } from 'react';
 
 const PricingStyle2PageConfig = {
 	settings: {
@@ -9,7 +9,7 @@ const PricingStyle2PageConfig = {
 	routes: [
 		{
 			path: '/pages/pricing/style-2',
-			component: React.lazy(() => import('./PricingStyle2Page'))
+			component: lazy(() => import('./PricingStyle2Page'))
 		}
 	]
 };

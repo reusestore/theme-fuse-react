@@ -7,7 +7,6 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import Switch from '@material-ui/core/Switch';
 import Toolbar from '@material-ui/core/Toolbar';
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteBoard, copyBoard, changeBoardSettings } from '../../../store/boardSlice';
 

@@ -3,7 +3,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Paper from '@material-ui/core/Paper';
 import Select from '@material-ui/core/Select';
 import Typography from '@material-ui/core/Typography';
-import React, { useState } from 'react';
+import { memo, useState } from 'react';
 
 function Widget1(props) {
 	const [currentRange, setCurrentRange] = useState(props.widget.currentRange);
@@ -55,4 +55,4 @@ function Widget1(props) {
 	);
 }
 
-export default React.memo(Widget1);
+export default memo(Widget1);

@@ -2,7 +2,7 @@ import Paper from '@material-ui/core/Paper';
 import Select from '@material-ui/core/Select';
 import Typography from '@material-ui/core/Typography';
 import _ from '@lodash';
-import React, { useState } from 'react';
+import { memo, useState } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 
 function Widget6(props) {
@@ -63,4 +63,4 @@ function Widget6(props) {
 	);
 }
 
-export default React.memo(Widget6);
+export default memo(Widget6);

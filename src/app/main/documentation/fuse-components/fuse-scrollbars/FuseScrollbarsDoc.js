@@ -1,6 +1,5 @@
 import FuseHighlight from '@fuse/core/FuseHighlight';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
 
 function FuseScrollbarsDoc() {
 	return (

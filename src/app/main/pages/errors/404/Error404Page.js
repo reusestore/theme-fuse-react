@@ -3,7 +3,6 @@ import Icon from '@material-ui/core/Icon';
 import Input from '@material-ui/core/Input';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Error404Page() {

@@ -4,7 +4,6 @@ import Icon from '@material-ui/core/Icon';
 import ListItem from '@material-ui/core/ListItem';
 import TextField from '@material-ui/core/TextField';
 import ChecklistItemModel from 'app/main/apps/scrumboard/model/ChecklistItemModel';
-import React from 'react';
 
 function CardAddChecklistItem(props) {
 	const { form, handleChange, resetForm } = useForm({

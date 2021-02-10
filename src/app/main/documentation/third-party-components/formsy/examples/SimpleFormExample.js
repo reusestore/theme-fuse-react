@@ -11,7 +11,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Radio from '@material-ui/core/Radio';
 import Typography from '@material-ui/core/Typography';
 import Formsy from 'formsy-react';
-import React, {useRef, useState} from 'react';
+import { useRef, useState } from 'react';
 
 const suggestions = ['Sea', 'Sky', 'Forest', 'Aerial', 'Art'].map(item => ({
     value: item,

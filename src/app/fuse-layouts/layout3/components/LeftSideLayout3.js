@@ -1,6 +1,6 @@
 import FuseShortcuts from '@fuse/core/FuseShortcuts';
 import FuseSidePanel from '@fuse/core/FuseSidePanel';
-import React from 'react';
+import { memo } from 'react';
 
 function LeftSideLayout3() {
 	return (
@@ -12,4 +12,4 @@ function LeftSideLayout3() {
 	);
 }
 
-export default React.memo(LeftSideLayout3);
+export default memo(LeftSideLayout3);

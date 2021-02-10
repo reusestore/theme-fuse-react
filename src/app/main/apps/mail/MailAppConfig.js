@@ -1,5 +1,5 @@
 import i18next from 'i18next';
-import React from 'react';
+import { lazy } from 'react';
 import { Redirect } from 'react-router-dom';
 import ar from './i18n/ar';
 import en from './i18n/en';
@@ -20,7 +20,7 @@ const MailAppConfig = {
 				'/apps/mail/filter/:filterHandle/:mailId?',
 				'/apps/mail/:folderHandle/:mailId?'
 			],
-			component: React.lazy(() => import('./MailApp'))
+			component: lazy(() => import('./MailApp'))
 		},
 		{
 			path: '/apps/mail',

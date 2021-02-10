@@ -12,7 +12,7 @@ import NoteModel from 'app/main/apps/notes/model/NoteModel';
 import NoteLabel from 'app/main/apps/notes/NoteLabel';
 import NoteReminderLabel from 'app/main/apps/notes/NoteReminderLabel';
 import moment from 'moment';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { withRouter, useParams } from 'react-router-dom';
 import NoteFormList from './checklist/NoteFormList';
 import NoteFormLabelMenu from './NoteFormLabelMenu';

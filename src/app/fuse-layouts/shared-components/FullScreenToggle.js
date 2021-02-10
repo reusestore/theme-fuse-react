@@ -1,10 +1,10 @@
 import Icon from '@material-ui/core/Icon';
 import Tooltip from '@material-ui/core/Tooltip';
 import clsx from 'clsx';
-import React, { useState } from 'react';
+import { useLayoutEffect, useEffect, useState } from 'react';
 import IconButton from '@material-ui/core/IconButton';
 
-const useEnhancedEffect = typeof window !== 'undefined' ? React.useLayoutEffect : React.useEffect;
+const useEnhancedEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
 const HeaderFullScreenToggle = props => {
 	const [isFullScreen, setIsFullScreen] = useState(false);

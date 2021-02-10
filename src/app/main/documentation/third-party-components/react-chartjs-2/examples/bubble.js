@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { Bubble } from 'react-chartjs-2';
 
 const data = {

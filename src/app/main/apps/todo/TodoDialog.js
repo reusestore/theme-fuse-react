@@ -22,7 +22,7 @@ import TextField from '@material-ui/core/TextField';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import moment from 'moment/moment';
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectLabels } from './store/labelsSlice';
 import { removeTodo, addTodo, closeNewTodoDialog, closeEditTodoDialog, updateTodo } from './store/todosSlice';

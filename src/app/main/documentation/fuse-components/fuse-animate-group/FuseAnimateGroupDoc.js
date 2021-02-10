@@ -3,7 +3,7 @@ import FuseHighlight from '@fuse/core/FuseHighlight';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Typography from '@material-ui/core/Typography';
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const initialList = [
 	'List Item 1',

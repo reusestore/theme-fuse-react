@@ -3,7 +3,6 @@ import Card from '@material-ui/core/Card';
 import Icon from '@material-ui/core/Icon';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
-import React from 'react';
 import { useDispatch } from 'react-redux';
 import NoteLabel from './NoteLabel';
 import NoteReminderLabel from './NoteReminderLabel';

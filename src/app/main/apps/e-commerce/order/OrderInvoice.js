@@ -8,7 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
-import React from 'react';
+import { memo } from 'react';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -239,4 +239,4 @@ const OrderInvoice = props => {
 	);
 };
 
-export default React.memo(OrderInvoice);
+export default memo(OrderInvoice);

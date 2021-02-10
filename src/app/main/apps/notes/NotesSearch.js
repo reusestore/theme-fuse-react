@@ -5,7 +5,7 @@ import Input from '@material-ui/core/Input';
 import { makeStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import clsx from 'clsx';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { resetNotesSearchText, setNotesSearchText } from './store/notesSlice';
 

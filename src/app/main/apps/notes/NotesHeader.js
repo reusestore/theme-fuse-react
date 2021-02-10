@@ -4,7 +4,6 @@ import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import NotesSearch from './NotesSearch';
 import { toggleVariateDescSize } from './store/notesSlice';

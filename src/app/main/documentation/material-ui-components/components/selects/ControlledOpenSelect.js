@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -19,8 +19,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ControlledOpenSelect() {
   const classes = useStyles();
-  const [age, setAge] = React.useState('');
-  const [open, setOpen] = React.useState(false);
+  const [age, setAge] = useState('');
+  const [open, setOpen] = useState(false);
 
   const handleChange = (event) => {
     setAge(event.target.value);

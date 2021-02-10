@@ -7,7 +7,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import Select from '@material-ui/core/Select';
 import { withFormsy } from 'formsy-react';
-import React from 'react';
+import { memo } from 'react';
 
 function SelectFormsy(props) {
 	const importedProps = _.pick(props, [
@@ -65,4 +65,4 @@ function SelectFormsy(props) {
 	);
 }
 
-export default React.memo(withFormsy(SelectFormsy));
+export default memo(withFormsy(SelectFormsy));

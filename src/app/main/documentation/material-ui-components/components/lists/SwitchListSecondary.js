@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SwitchListSecondary() {
   const classes = useStyles();
-  const [checked, setChecked] = React.useState(['wifi']);
+  const [checked, setChecked] = useState(['wifi']);
 
   const handleToggle = (value) => () => {
     const currentIndex = checked.indexOf(value);

@@ -4,7 +4,7 @@ import IconButton from '@material-ui/core/IconButton';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ToolbarMenu from './ToolbarMenu';
 
 function LabelsMenu(props) {

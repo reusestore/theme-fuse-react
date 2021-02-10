@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 import Button from '@material-ui/core/Button';
 import { SnackbarProvider, useSnackbar } from 'notistack';
 
@@ -15,10 +15,10 @@ function MyApp() {
   };
 
   return (
-    <React.Fragment>
+    <Fragment>
       <Button onClick={handleClick}>Show snackbar</Button>
       <Button onClick={handleClickVariant('success')}>Show success snackbar</Button>
-    </React.Fragment>
+    </Fragment>
   );
 }
 

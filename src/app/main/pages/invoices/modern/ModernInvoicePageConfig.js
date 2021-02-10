@@ -1,4 +1,4 @@
-import React from 'react';
+import { lazy } from 'react';
 
 const ModernInvoicePageConfig = {
 	settings: {
@@ -9,7 +9,7 @@ const ModernInvoicePageConfig = {
 	routes: [
 		{
 			path: '/pages/invoices/modern',
-			component: React.lazy(() => import('./ModernInvoicePage'))
+			component: lazy(() => import('./ModernInvoicePage'))
 		}
 	]
 };

@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import withReducer from 'app/store/withReducer';
 import clsx from 'clsx';
 import keycode from 'keycode';
-import React, { useCallback, useEffect, useRef } from 'react';
+import { memo, useCallback, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useSwipeable } from 'react-swipeable';
 import Chat from './Chat';
@@ -170,4 +170,4 @@ function ChatPanel(props) {
 	);
 }
 
-export default withReducer('chatPanel', reducer)(React.memo(ChatPanel));
+export default withReducer('chatPanel', reducer)(memo(ChatPanel));

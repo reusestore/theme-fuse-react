@@ -2,7 +2,7 @@ import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
+import { memo } from 'react';
 
 function Widget3(props) {
 	return (
@@ -29,4 +29,4 @@ function Widget3(props) {
 	);
 }
 
-export default React.memo(Widget3);
+export default memo(Widget3);

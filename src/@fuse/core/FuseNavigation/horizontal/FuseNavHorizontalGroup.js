@@ -10,7 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import React, { useState, useMemo } from 'react';
+import { memo, useState, useMemo } from 'react';
 import * as ReactDOM from 'react-dom';
 import { Manager, Popper, Reference } from 'react-popper';
 import { useSelector } from 'react-redux';
@@ -205,6 +205,6 @@ FuseNavHorizontalGroup.propTypes = {
 
 FuseNavHorizontalGroup.defaultProps = {};
 
-const NavHorizontalGroup = withRouter(React.memo(FuseNavHorizontalGroup));
+const NavHorizontalGroup = withRouter(memo(FuseNavHorizontalGroup));
 
 export default NavHorizontalGroup;

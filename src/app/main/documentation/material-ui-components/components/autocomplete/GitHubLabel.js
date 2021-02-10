@@ -1,5 +1,5 @@
 /* eslint-disable no-use-before-define */
-import React from 'react';
+import { useState, Fragment } from 'react';
 import { useTheme, fade, makeStyles } from '@material-ui/core/styles';
 import Popper from '@material-ui/core/Popper';
 import SettingsIcon from '@material-ui/icons/Settings';
@@ -118,9 +118,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function GitHubLabel() {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [value, setValue] = React.useState([labels[1], labels[11]]);
-  const [pendingValue, setPendingValue] = React.useState([]);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [value, setValue] = useState([labels[1], labels[11]]);
+  const [pendingValue, setPendingValue] = useState([]);
   const theme = useTheme();
 
   const handleClick = (event) => {
@@ -143,7 +143,7 @@ export default function GitHubLabel() {
   const id = open ? 'github-label' : undefined;
 
   return (
-    <React.Fragment>
+    <Fragment>
       <div className={classes.root}>
         <ButtonBase
           disableRipple
@@ -193,7 +193,7 @@ export default function GitHubLabel() {
           renderTags={() => null}
           noOptionsText="No labels"
           renderOption={(option, { selected }) => (
-            <React.Fragment>
+            <Fragment>
               <DoneIcon
                 className={classes.iconSelected}
                 style={{ visibility: selected ? 'visible' : 'hidden' }}
@@ -208,7 +208,7 @@ export default function GitHubLabel() {
                 className={classes.close}
                 style={{ visibility: selected ? 'visible' : 'hidden' }}
               />
-            </React.Fragment>
+            </Fragment>
           )}
           options={[...labels].sort((a, b) => {
             // Display the selected labels first.
@@ -229,7 +229,7 @@ export default function GitHubLabel() {
           )}
         />
       </Popper>
-    </React.Fragment>
+    </Fragment>
   );
 }
 

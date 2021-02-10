@@ -11,7 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
-import React from 'react';
+import { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUserSettings } from 'app/auth/store/userSlice';
 import { setDefaultSettings } from 'app/store/fuse/settingsSlice';
@@ -344,4 +344,4 @@ function FuseSettings(props) {
 	);
 }
 
-export default React.memo(FuseSettings);
+export default memo(FuseSettings);

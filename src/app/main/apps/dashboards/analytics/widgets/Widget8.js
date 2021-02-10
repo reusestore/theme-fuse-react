@@ -7,7 +7,7 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
-import React, { useState } from 'react';
+import { memo, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import _ from '@lodash';
 
@@ -70,4 +70,4 @@ function Widget8(props) {
 	);
 }
 
-export default React.memo(Widget8);
+export default memo(Widget8);

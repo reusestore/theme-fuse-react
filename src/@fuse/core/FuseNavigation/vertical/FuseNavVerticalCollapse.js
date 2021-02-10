@@ -8,7 +8,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import React, { useEffect, useState, useMemo } from 'react';
+import { memo, useEffect, useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import FuseNavBadge from '../FuseNavBadge';
@@ -145,6 +145,6 @@ FuseNavVerticalCollapse.propTypes = {
 };
 FuseNavVerticalCollapse.defaultProps = {};
 
-const NavVerticalCollapse = withRouter(React.memo(FuseNavVerticalCollapse));
+const NavVerticalCollapse = withRouter(memo(FuseNavVerticalCollapse));
 
 export default NavVerticalCollapse;

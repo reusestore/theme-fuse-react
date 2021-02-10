@@ -3,7 +3,7 @@ import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
+import { memo } from 'react';
 
 function WidgetWeather(props) {
 	return (
@@ -87,4 +87,4 @@ function WidgetWeather(props) {
 	);
 }
 
-export default React.memo(WidgetWeather);
+export default memo(WidgetWeather);

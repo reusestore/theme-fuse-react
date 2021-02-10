@@ -1,12 +1,12 @@
 /* eslint-disable no-use-before-define */
-import React from 'react';
+import { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete';
 
 const filter = createFilterOptions();
 
 export default function FreeSoloCreateOption() {
-  const [value, setValue] = React.useState(null);
+  const [value, setValue] = useState(null);
 
   return (
     <Autocomplete

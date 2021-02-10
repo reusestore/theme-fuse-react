@@ -6,21 +6,21 @@ const analyticsDashboardAppDB = {
 			id: 'widget1',
 			chartType: 'line',
 			datasets: {
-				'2015': [
+				2015: [
 					{
 						label: 'Sales',
 						data: [1.9, 3, 3.4, 2.2, 2.9, 3.9, 2.5, 3.8, 4.1, 3.8, 3.2, 2.9],
 						fill: 'start'
 					}
 				],
-				'2016': [
+				2016: [
 					{
 						label: 'Sales',
 						data: [2.2, 2.9, 3.9, 2.5, 3.8, 3.2, 2.9, 1.9, 3, 3.4, 4.1, 3.8],
 						fill: 'start'
 					}
 				],
-				'2017': [
+				2017: [
 					{
 						label: 'Sales',
 						data: [3.9, 2.5, 3.8, 4.1, 1.9, 3, 3.8, 3.2, 2.9, 3.4, 2.2, 2.9],

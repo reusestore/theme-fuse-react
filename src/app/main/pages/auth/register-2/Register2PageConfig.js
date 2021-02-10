@@ -1,4 +1,4 @@
-import React from 'react';
+import { lazy } from 'react';
 
 const Register2PageConfig = {
 	settings: {
@@ -9,7 +9,7 @@ const Register2PageConfig = {
 	routes: [
 		{
 			path: '/pages/auth/register-2',
-			component: React.lazy(() => import('./Register2Page'))
+			component: lazy(() => import('./Register2Page'))
 		}
 	]
 };

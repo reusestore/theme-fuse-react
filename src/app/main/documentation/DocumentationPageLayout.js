@@ -2,7 +2,7 @@ import Hidden from '@material-ui/core/Hidden';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import clsx from 'clsx';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 
 import FuseNavigation from '@fuse/core/FuseNavigation/FuseNavigation';
 import FusePageSimple from '@fuse/core/FusePageSimple/FusePageSimple';

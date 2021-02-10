@@ -1,12 +1,12 @@
 /* eslint-disable no-use-before-define */
-import React from 'react';
+import { useState } from 'react';
 import Chip from '@material-ui/core/Chip';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
 export default function FixedTags() {
   const fixedOptions = [top100Films[6]];
-  const [value, setValue] = React.useState([...fixedOptions, top100Films[13]]);
+  const [value, setValue] = useState([...fixedOptions, top100Films[13]]);
 
   return (
     <Autocomplete

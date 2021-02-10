@@ -8,7 +8,7 @@ import ListItem from '@material-ui/core/ListItem';
 import Typography from '@material-ui/core/Typography';
 import LabelModel from 'app/main/apps/notes/model/LabelModel';
 import clsx from 'clsx';
-import React, { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateLabels } from '../../store/labelsSlice';
 

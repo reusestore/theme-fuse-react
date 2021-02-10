@@ -1,6 +1,6 @@
 import FuseUtils from '@fuse/utils';
 import Typography from '@material-ui/core/Typography';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Masonry from 'react-masonry-css';
 import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';

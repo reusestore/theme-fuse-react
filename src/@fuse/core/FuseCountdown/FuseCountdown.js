@@ -2,7 +2,7 @@ import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { memo, useCallback, useEffect, useRef, useState } from 'react';
 
 function FuseCountdown(props) {
 	const { onComplete } = props;
@@ -92,4 +92,4 @@ FuseCountdown.defaultProps = {
 	endDate: moment().add(15, 'days')
 };
 
-export default React.memo(FuseCountdown);
+export default memo(FuseCountdown);

@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import FilledInput from '@material-ui/core/FilledInput';
 import FormControl from '@material-ui/core/FormControl';
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ComposedTextField() {
-  const [name, setName] = React.useState('Composed TextField');
+  const [name, setName] = useState('Composed TextField');
   const classes = useStyles();
 
   const handleChange = (event) => {

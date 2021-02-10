@@ -13,7 +13,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
-import React, { useEffect, useRef, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { updateUserShortcuts } from 'app/auth/store/userSlice';
@@ -223,4 +223,4 @@ FuseShortcuts.defaultProps = {
 	variant: 'horizontal'
 };
 
-export default React.memo(FuseShortcuts);
+export default memo(FuseShortcuts);

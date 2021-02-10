@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { useTheme, ThemeProvider } from '@material-ui/core/styles';
 import { selectContrastMainTheme } from 'app/store/fuse/settingsSlice';

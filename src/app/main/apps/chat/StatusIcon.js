@@ -1,5 +1,4 @@
 import { Icon } from '@material-ui/core';
-import React from 'react';
 
 function StatusIcon(props) {
 	switch (props.status) {

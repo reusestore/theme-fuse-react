@@ -3,7 +3,7 @@ import Hidden from '@material-ui/core/Hidden';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import NavbarMobileToggleFab from 'app/fuse-layouts/shared-components/NavbarMobileToggleFab';
 import clsx from 'clsx';
-import React from 'react';
+import { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { navbarCloseFolded, navbarOpenFolded, navbarCloseMobile } from 'app/store/fuse/navbarSlice';
 import { selectNavbarTheme } from 'app/store/fuse/settingsSlice';
@@ -182,4 +182,4 @@ function NavbarWrapperLayout1(props) {
 	);
 }
 
-export default React.memo(NavbarWrapperLayout1);
+export default memo(NavbarWrapperLayout1);

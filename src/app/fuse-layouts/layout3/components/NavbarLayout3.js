@@ -1,6 +1,6 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import Navigation from 'app/fuse-layouts/shared-components/Navigation';
-import React from 'react';
+import { memo } from 'react';
 
 function NavbarLayout3() {
 	return (
@@ -12,4 +12,4 @@ function NavbarLayout3() {
 	);
 }
 
-export default React.memo(NavbarLayout3);
+export default memo(NavbarLayout3);

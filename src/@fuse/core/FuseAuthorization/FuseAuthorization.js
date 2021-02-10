@@ -1,6 +1,6 @@
 import FuseUtils from '@fuse/utils';
 import AppContext from 'app/AppContext';
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { connect } from 'react-redux';
 import { matchRoutes } from 'react-router-config';
 import { withRouter } from 'react-router-dom';

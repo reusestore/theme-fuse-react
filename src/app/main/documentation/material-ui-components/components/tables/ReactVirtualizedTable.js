@@ -1,4 +1,4 @@
-import React from 'react';
+import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { withStyles } from '@material-ui/core/styles';
@@ -36,7 +36,7 @@ const styles = (theme) => ({
   },
 });
 
-class MuiVirtualizedTable extends React.PureComponent {
+class MuiVirtualizedTable extends PureComponent {
   static defaultProps = {
     headerHeight: 48,
     rowHeight: 48,

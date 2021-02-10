@@ -2,7 +2,7 @@ import DateFnsUtils from '@date-io/date-fns';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import { DateTimePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 function NoteFormReminder(props) {
 	const [isOpen, setIsOpen] = useState(false);

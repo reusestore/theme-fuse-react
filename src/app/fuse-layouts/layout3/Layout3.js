@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppContext from 'app/AppContext';
 import SettingsPanel from 'app/fuse-layouts/shared-components/SettingsPanel';
 import clsx from 'clsx';
-import React from 'react';
+import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { renderRoutes } from 'react-router-config';
 import FooterLayout3 from './components/FooterLayout3';
@@ -109,4 +109,4 @@ function Layout3(props) {
 	);
 }
 
-export default React.memo(Layout3);
+export default memo(Layout3);

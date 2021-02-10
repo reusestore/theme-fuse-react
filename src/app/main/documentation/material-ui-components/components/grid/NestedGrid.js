@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -19,7 +19,7 @@ export default function NestedGrid() {
 
   function FormRow() {
     return (
-      <React.Fragment>
+      <Fragment>
         <Grid item xs={4}>
           <Paper className={classes.paper}>item</Paper>
         </Grid>
@@ -29,7 +29,7 @@ export default function NestedGrid() {
         <Grid item xs={4}>
           <Paper className={classes.paper}>item</Paper>
         </Grid>
-      </React.Fragment>
+      </Fragment>
     );
   }
 

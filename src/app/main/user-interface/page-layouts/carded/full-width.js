@@ -1,7 +1,6 @@
 import DemoContent from '@fuse/core/DemoContent';
 import FusePageCarded from '@fuse/core/FusePageCarded';
 import { makeStyles } from '@material-ui/core/styles';
-import React from 'react';
 
 const useStyles = makeStyles({
 	layoutRoot: {}

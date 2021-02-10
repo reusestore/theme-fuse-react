@@ -1,8 +1,8 @@
-import * as React from 'react';
+import { forwardRef } from 'react';
 import * as PropTypes from 'prop-types';
 import FuseHighlight from '@fuse/core/FuseHighlight/FuseHighlight';
 
-const HighlightedCode = React.forwardRef(function HighlightedCode(props, ref) {
+const HighlightedCode = forwardRef(function HighlightedCode(props, ref) {
 	const { code, language, ...other } = props;
 
 	return (

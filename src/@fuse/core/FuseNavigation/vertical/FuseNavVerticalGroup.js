@@ -4,7 +4,7 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -80,6 +80,6 @@ FuseNavVerticalGroup.propTypes = {
 
 FuseNavVerticalGroup.defaultProps = {};
 
-const NavVerticalGroup = withRouter(React.memo(FuseNavVerticalGroup));
+const NavVerticalGroup = withRouter(memo(FuseNavVerticalGroup));
 
 export default NavVerticalGroup;

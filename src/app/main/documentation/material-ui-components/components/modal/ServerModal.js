@@ -1,4 +1,4 @@
-import React from 'react';
+import { useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ServerModal() {
   const classes = useStyles();
-  const rootRef = React.useRef(null);
+  const rootRef = useRef(null);
 
   return (
     <div className={classes.root} ref={rootRef}>

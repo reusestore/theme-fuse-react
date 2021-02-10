@@ -4,7 +4,7 @@ import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import TextField from '@material-ui/core/TextField';
 import ChecklistModel from 'app/main/apps/scrumboard/model/ChecklistModel';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ToolbarMenu from './ToolbarMenu';
 
 function CheckListMenu(props) {

@@ -4,7 +4,7 @@ import Select from '@material-ui/core/Select';
 import { useTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import _ from '@lodash';
-import React, { useState } from 'react';
+import { memo, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 
 function Widget9(props) {
@@ -92,4 +92,4 @@ function Widget9(props) {
 	);
 }
 
-export default React.memo(Widget9);
+export default memo(Widget9);

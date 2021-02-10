@@ -9,7 +9,6 @@ import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { create } from 'jss';
 import jssExtend from 'jss-plugin-extend';
 import rtl from 'jss-rtl';
-import React from 'react';
 import Provider from 'react-redux/es/components/Provider';
 import { Router } from 'react-router-dom';
 import AppContext from './AppContext';

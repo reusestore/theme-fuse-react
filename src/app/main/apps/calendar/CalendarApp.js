@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import withReducer from 'app/store/withReducer';
 import clsx from 'clsx';
 import moment from 'moment';
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Calendar, momentLocalizer, Views } from 'react-big-calendar';
 import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop';
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';

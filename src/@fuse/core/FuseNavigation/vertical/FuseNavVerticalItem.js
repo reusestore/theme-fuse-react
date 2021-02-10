@@ -6,7 +6,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -97,6 +97,6 @@ FuseNavVerticalItem.propTypes = {
 
 FuseNavVerticalItem.defaultProps = {};
 
-const NavVerticalItem = withRouter(React.memo(FuseNavVerticalItem));
+const NavVerticalItem = withRouter(memo(FuseNavVerticalItem));
 
 export default NavVerticalItem;

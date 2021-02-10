@@ -7,7 +7,6 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import { makeStyles } from '@material-ui/core/styles';
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFilters } from './store/filtersSlice';
 import { selectFolders } from './store/foldersSlice';

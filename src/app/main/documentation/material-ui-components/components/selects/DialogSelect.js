@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -24,8 +24,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function DialogSelect() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-  const [age, setAge] = React.useState('');
+  const [open, setOpen] = useState(false);
+  const [age, setAge] = useState('');
 
   const handleChange = (event) => {
     setAge(Number(event.target.value) || '');

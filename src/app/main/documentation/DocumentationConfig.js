@@ -1,4 +1,4 @@
-import React from 'react';
+import { lazy } from 'react';
 import { Redirect } from 'react-router-dom';
 import AuthenticationDocRoutes from './authentication/AuthenticationDocRoutes';
 import DevelopmentDocRoutes from './development/DevelopmentDocRoutes';
@@ -13,11 +13,11 @@ const DocumentationConfig = {
 	routes: [
 		{
 			path: '/documentation',
-			component: React.lazy(() => import('./DocumentationPageLayout')),
+			component: lazy(() => import('./DocumentationPageLayout')),
 			routes: [
 				{
 					path: '/documentation/changelog',
-					component: React.lazy(() => import('./changelog/ChangelogDoc'))
+					component: lazy(() => import('./changelog/ChangelogDoc'))
 				},
 				...GettingStartedDocRoutes,
 				...DevelopmentDocRoutes,

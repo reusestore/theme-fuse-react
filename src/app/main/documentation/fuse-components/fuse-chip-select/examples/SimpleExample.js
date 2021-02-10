@@ -1,6 +1,6 @@
 import FuseChipSelect from '@fuse/core/FuseChipSelect';
 import Typography from '@material-ui/core/Typography';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const suggestions = ['Sea', 'Sky', 'Forest', 'Aerial', 'Art'].map(item => ({
 	value: item,

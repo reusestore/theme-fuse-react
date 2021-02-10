@@ -4,7 +4,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import PoweredByLinks from 'app/fuse-layouts/shared-components/PoweredByLinks';
 import PurchaseButton from 'app/fuse-layouts/shared-components/PurchaseButton';
 import DocumentationButton from 'app/fuse-layouts/shared-components/DocumentationButton';
-import React from 'react';
+import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { selectFooterTheme } from 'app/store/fuse/settingsSlice';
 
@@ -34,4 +34,4 @@ function FooterLayout1(props) {
 	);
 }
 
-export default React.memo(FooterLayout1);
+export default memo(FooterLayout1);

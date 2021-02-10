@@ -3,7 +3,7 @@ import Paper from '@material-ui/core/Paper';
 import { useTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import _ from '@lodash';
-import React, { useState } from 'react';
+import { memo, useState } from 'react';
 import { Bar, Line } from 'react-chartjs-2';
 
 function Widget5(props) {
@@ -97,4 +97,4 @@ function Widget5(props) {
 	);
 }
 
-export default React.memo(Widget5);
+export default memo(Widget5);

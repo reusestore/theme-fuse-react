@@ -2,12 +2,12 @@ import _ from '@lodash';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import React from 'react';
+import { cloneElement, memo } from 'react';
 
 function DemoSidebarContent() {
 	function generate(element) {
 		return _(30).times(value =>
-			React.cloneElement(element, {
+			cloneElement(element, {
 				key: value
 			})
 		);
@@ -26,4 +26,4 @@ function DemoSidebarContent() {
 	);
 }
 
-export default React.memo(DemoSidebarContent);
+export default memo(DemoSidebarContent);

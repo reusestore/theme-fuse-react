@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { purple } from '@material-ui/core/colors';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -109,7 +109,7 @@ const AntSwitch = withStyles((theme) => ({
 }))(Switch);
 
 export default function CustomizedSwitches() {
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     checkedA: true,
     checkedB: true,
     checkedC: true,

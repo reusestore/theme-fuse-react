@@ -8,7 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import { useTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import React, { useState } from 'react';
+import { memo, useState } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 
 function Widget7(props) {
@@ -87,4 +87,4 @@ function Widget7(props) {
 	);
 }
 
-export default React.memo(Widget7);
+export default memo(Widget7);

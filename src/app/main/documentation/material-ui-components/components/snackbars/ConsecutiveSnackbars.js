@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
@@ -12,11 +12,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ConsecutiveSnackbars() {
-  const [snackPack, setSnackPack] = React.useState([]);
-  const [open, setOpen] = React.useState(false);
-  const [messageInfo, setMessageInfo] = React.useState(undefined);
+  const [snackPack, setSnackPack] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [messageInfo, setMessageInfo] = useState(undefined);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (snackPack.length && !messageInfo) {
       // Set a new snack when we don't have an active one
       setMessageInfo({ ...snackPack[0] });
@@ -60,7 +60,7 @@ export default function ConsecutiveSnackbars() {
         onExited={handleExited}
         message={messageInfo ? messageInfo.message : undefined}
         action={
-          <React.Fragment>
+          <Fragment>
             <Button color="secondary" size="small" onClick={handleClose}>
               UNDO
             </Button>
@@ -72,7 +72,7 @@ export default function ConsecutiveSnackbars() {
             >
               <CloseIcon />
             </IconButton>
-          </React.Fragment>
+          </Fragment>
         }
       />
     </div>

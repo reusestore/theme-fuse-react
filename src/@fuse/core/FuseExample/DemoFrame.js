@@ -9,7 +9,7 @@ import clsx from 'clsx';
 import { create } from 'jss';
 import jssExtend from 'jss-plugin-extend';
 import PropTypes from 'prop-types';
-import React from 'react';
+import { cloneElement, Component } from 'react';
 import Frame from 'react-frame-component';
 
 const styles = theme => ({
@@ -25,7 +25,7 @@ const generateClassName = createGenerateClassName({
 	productionPrefix: 'iframe-'
 });
 
-class DemoFrame extends React.Component {
+class DemoFrame extends Component {
 	state = {
 		ready: false
 	};
@@ -85,7 +85,7 @@ class DemoFrame extends React.Component {
 						sheetsManager={this.state.sheetsManager}
 					>
 						<ThemeProvider theme={theme}>
-							{React.cloneElement(children, {
+							{cloneElement(children, {
 								container: this.state.container
 							})}
 						</ThemeProvider>

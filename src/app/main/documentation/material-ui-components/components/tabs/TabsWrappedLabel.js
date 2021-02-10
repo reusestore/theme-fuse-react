@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function TabsWrappedLabel() {
   const classes = useStyles();
-  const [value, setValue] = React.useState('one');
+  const [value, setValue] = useState('one');
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

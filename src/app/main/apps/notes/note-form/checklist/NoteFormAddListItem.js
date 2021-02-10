@@ -4,7 +4,6 @@ import IconButton from '@material-ui/core/IconButton';
 import Input from '@material-ui/core/Input';
 import ListItem from '@material-ui/core/ListItem';
 import NoteListItemModel from 'app/main/apps/notes/model/NoteListItemModel';
-import React from 'react';
 
 function NoteFormAddListItem(props) {
 	const { form, handleChange, resetForm } = useForm({

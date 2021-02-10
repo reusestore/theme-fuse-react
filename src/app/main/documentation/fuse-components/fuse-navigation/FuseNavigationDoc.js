@@ -3,7 +3,6 @@ import FuseUtils from '@fuse/utils';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { authRoles } from 'app/auth';
-import React from 'react';
 import { useDispatch } from 'react-redux';
 import {
 	appendNavigationItem,

@@ -1,5 +1,4 @@
 /* eslint-disable no-use-before-define */
-import React from 'react';
 import useAutocomplete from '@material-ui/lab/useAutocomplete';
 import NoSsr from '@material-ui/core/NoSsr';
 import CheckIcon from '@material-ui/icons/Check';

@@ -1,5 +1,5 @@
 /* eslint-disable no-use-before-define */
-import React from 'react';
+import { useState, Fragment } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
@@ -12,8 +12,8 @@ import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete
 const filter = createFilterOptions();
 
 export default function FreeSoloCreateOptionDialog() {
-  const [value, setValue] = React.useState(null);
-  const [open, toggleOpen] = React.useState(false);
+  const [value, setValue] = useState(null);
+  const [open, toggleOpen] = useState(false);
 
   const handleClose = () => {
     setDialogValue({
@@ -24,7 +24,7 @@ export default function FreeSoloCreateOptionDialog() {
     toggleOpen(false);
   };
 
-  const [dialogValue, setDialogValue] = React.useState({
+  const [dialogValue, setDialogValue] = useState({
     title: '',
     year: '',
   });
@@ -40,7 +40,7 @@ export default function FreeSoloCreateOptionDialog() {
   };
 
   return (
-    <React.Fragment>
+    <Fragment>
       <Autocomplete
         value={value}
         onChange={(event, newValue) => {
@@ -132,7 +132,7 @@ export default function FreeSoloCreateOptionDialog() {
           </DialogActions>
         </form>
       </Dialog>
-    </React.Fragment>
+    </Fragment>
   );
 }
 

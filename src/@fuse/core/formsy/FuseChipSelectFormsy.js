@@ -5,7 +5,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import InputLabel from '@material-ui/core/InputLabel';
 import clsx from 'clsx';
 import { withFormsy } from 'formsy-react';
-import React from 'react';
+import { memo } from 'react';
 
 function FuseChipSelectFormsy(props) {
 	const importedProps = _.pick(props, [
@@ -65,4 +65,4 @@ function FuseChipSelectFormsy(props) {
 	);
 }
 
-export default React.memo(withFormsy(FuseChipSelectFormsy));
+export default memo(withFormsy(FuseChipSelectFormsy));

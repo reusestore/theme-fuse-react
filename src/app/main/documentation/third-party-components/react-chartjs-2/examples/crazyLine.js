@@ -1,5 +1,5 @@
 import FuseUtils from '@fuse/utils/FuseUtils';
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { Bar } from 'react-chartjs-2';
 
 const initialState = {

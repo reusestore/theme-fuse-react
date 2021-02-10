@@ -1,6 +1,5 @@
 import FuseHighlight from '@fuse/core/FuseHighlight';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Auth0AuthDoc() {

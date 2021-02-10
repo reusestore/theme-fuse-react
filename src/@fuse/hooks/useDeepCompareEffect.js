@@ -1,4 +1,4 @@
-import React from 'react';
+import { useRef, useEffect } from 'react';
 import deepEqual from 'lodash/isEqual';
 
 /**
@@ -20,7 +20,7 @@ function isPrimitive(val) {
 }
 
 function useDeepCompareMemoize(value) {
-	const ref = React.useRef();
+	const ref = useRef();
 
 	if (!deepEqual(value, ref.current)) {
 		ref.current = value;
@@ -33,11 +33,11 @@ function useDeepCompareEffect(callback, dependencies) {
 	if (process.env.NODE_ENV !== 'production') {
 		checkDeps(dependencies);
 	}
-	React.useEffect(callback, useDeepCompareMemoize(dependencies));
+	useEffect(callback, useDeepCompareMemoize(dependencies));
 }
 
 export function useDeepCompareEffectNoCheck(callback, dependencies) {
-	React.useEffect(callback, useDeepCompareMemoize(dependencies));
+	useEffect(callback, useDeepCompareMemoize(dependencies));
 }
 
 export default useDeepCompareEffect;

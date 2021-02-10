@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -49,11 +49,11 @@ export default function CustomizedTooltips() {
       </BootstrapTooltip>
       <HtmlTooltip
         title={
-          <React.Fragment>
+          <Fragment>
             <Typography color="inherit">Tooltip with HTML</Typography>
             <em>{"And here's"}</em> <b>{'some'}</b> <u>{'amazing content'}</u>.{' '}
             {"It's very engaging. Right?"}
-          </React.Fragment>
+          </Fragment>
         }
       >
         <Button>HTML</Button>

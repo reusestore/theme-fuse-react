@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
@@ -28,9 +28,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function InteractiveGrid() {
   const classes = useStyles();
-  const [direction, setDirection] = React.useState('row');
-  const [justify, setJustify] = React.useState('center');
-  const [alignItems, setAlignItems] = React.useState('center');
+  const [direction, setDirection] = useState('row');
+  const [justify, setJustify] = useState('center');
+  const [alignItems, setAlignItems] = useState('center');
 
   const jsx = `
 <Grid

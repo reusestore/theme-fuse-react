@@ -1,5 +1,5 @@
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
+import { memo } from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import { useDispatch, useSelector } from 'react-redux';
@@ -115,4 +115,4 @@ function FuseThemeSchemes(props) {
 	);
 }
 
-export default React.memo(FuseThemeSchemes);
+export default memo(FuseThemeSchemes);

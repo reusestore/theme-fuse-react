@@ -10,7 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import React, { useState, useMemo } from 'react';
+import { memo, useState, useMemo } from 'react';
 import * as ReactDOM from 'react-dom';
 import { Manager, Popper, Reference } from 'react-popper';
 import { useSelector } from 'react-redux';
@@ -197,6 +197,6 @@ FuseNavHorizontalCollapse.propTypes = {
 
 FuseNavHorizontalCollapse.defaultProps = {};
 
-const NavHorizontalCollapse = withRouter(React.memo(FuseNavHorizontalCollapse));
+const NavHorizontalCollapse = withRouter(memo(FuseNavHorizontalCollapse));
 
 export default NavHorizontalCollapse;

@@ -1,4 +1,4 @@
-import React from 'react';
+import { lazy } from 'react';
 
 const LockPageConfig = {
 	settings: {
@@ -9,7 +9,7 @@ const LockPageConfig = {
 	routes: [
 		{
 			path: '/pages/auth/lock',
-			component: React.lazy(() => import('./LockPage'))
+			component: lazy(() => import('./LockPage'))
 		}
 	]
 };

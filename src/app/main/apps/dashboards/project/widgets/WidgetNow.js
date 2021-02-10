@@ -3,7 +3,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import moment from 'moment';
-import React, { useEffect, useRef, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 
 function WidgetNow() {
 	const [time, setTime] = useState(moment());
@@ -43,4 +43,4 @@ function WidgetNow() {
 	);
 }
 
-export default React.memo(WidgetNow);
+export default memo(WidgetNow);

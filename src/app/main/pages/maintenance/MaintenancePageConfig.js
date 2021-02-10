@@ -1,4 +1,4 @@
-import React from 'react';
+import { lazy } from 'react';
 
 const MaintenancePageConfig = {
 	settings: {
@@ -9,7 +9,7 @@ const MaintenancePageConfig = {
 	routes: [
 		{
 			path: '/pages/maintenance',
-			component: React.lazy(() => import('./MaintenancePage'))
+			component: lazy(() => import('./MaintenancePage'))
 		}
 	]
 };

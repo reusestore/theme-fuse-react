@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import Switch from '@material-ui/core/Switch';
 import Paper from '@material-ui/core/Paper';
 import Slide from '@material-ui/core/Slide';
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SimpleSlide() {
   const classes = useStyles();
-  const [checked, setChecked] = React.useState(false);
+  const [checked, setChecked] = useState(false);
 
   const handleChange = () => {
     setChecked((prev) => !prev);

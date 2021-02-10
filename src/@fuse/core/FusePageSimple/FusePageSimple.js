@@ -2,7 +2,7 @@ import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import * as PropTypes from 'prop-types';
-import React, { useRef } from 'react';
+import { forwardRef, useImperativeHandle, memo, useRef } from 'react';
 import FusePageSimpleHeader from './FusePageSimpleHeader';
 import FusePageSimpleSidebar from './FusePageSimpleSidebar';
 
@@ -140,14 +140,14 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-const FusePageSimple = React.forwardRef((props, ref) => {
+const FusePageSimple = forwardRef((props, ref) => {
 	// console.info("render::FusePageSimple");
 	const leftSidebarRef = useRef(null);
 	const rightSidebarRef = useRef(null);
 	const rootRef = useRef(null);
 	const classes = useStyles(props);
 
-	React.useImperativeHandle(ref, () => ({
+	useImperativeHandle(ref, () => ({
 		rootRef,
 		toggleLeftSidebar: () => {
 			leftSidebarRef.current.toggleSidebar();
@@ -232,4 +232,4 @@ FusePageSimple.propTypes = {
 
 FusePageSimple.defaultProps = {};
 
-export default React.memo(FusePageSimple);
+export default memo(FusePageSimple);

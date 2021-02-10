@@ -1,6 +1,5 @@
 import FuseExample from '@fuse/core/FuseExample';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 /* eslint import/no-webpack-loader-syntax: off */

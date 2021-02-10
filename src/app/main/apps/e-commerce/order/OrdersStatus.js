@@ -1,6 +1,5 @@
 import _ from '@lodash';
 import clsx from 'clsx';
-import React from 'react';
 
 export const orderStatuses = [
 	{

@@ -7,7 +7,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Paper from '@material-ui/core/Paper';
 import Select from '@material-ui/core/Select';
 import Typography from '@material-ui/core/Typography';
-import React, { useState } from 'react';
+import { memo, useState } from 'react';
 
 function Widget7(props) {
 	const [currentRange, setCurrentRange] = useState(props.widget.currentRange);
@@ -55,4 +55,4 @@ function Widget7(props) {
 	);
 }
 
-export default React.memo(Widget7);
+export default memo(Widget7);

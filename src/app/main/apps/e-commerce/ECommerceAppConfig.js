@@ -1,4 +1,4 @@
-import React from 'react';
+import { lazy } from 'react';
 import { Redirect } from 'react-router-dom';
 
 const ECommerceAppConfig = {
@@ -8,19 +8,19 @@ const ECommerceAppConfig = {
 	routes: [
 		{
 			path: '/apps/e-commerce/products/:productId/:productHandle?',
-			component: React.lazy(() => import('./product/Product'))
+			component: lazy(() => import('./product/Product'))
 		},
 		{
 			path: '/apps/e-commerce/products',
-			component: React.lazy(() => import('./products/Products'))
+			component: lazy(() => import('./products/Products'))
 		},
 		{
 			path: '/apps/e-commerce/orders/:orderId',
-			component: React.lazy(() => import('./order/Order'))
+			component: lazy(() => import('./order/Order'))
 		},
 		{
 			path: '/apps/e-commerce/orders',
-			component: React.lazy(() => import('./orders/Orders'))
+			component: lazy(() => import('./orders/Orders'))
 		},
 		{
 			path: '/apps/e-commerce',

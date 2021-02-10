@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -31,7 +31,7 @@ export default function AlignItemsList() {
         <ListItemText
           primary="Brunch this weekend?"
           secondary={
-            <React.Fragment>
+            <Fragment>
               <Typography
                 component="span"
                 variant="body2"
@@ -41,7 +41,7 @@ export default function AlignItemsList() {
                 Ali Connors
               </Typography>
               {" — I'll be in your neighborhood doing errands this…"}
-            </React.Fragment>
+            </Fragment>
           }
         />
       </ListItem>
@@ -53,7 +53,7 @@ export default function AlignItemsList() {
         <ListItemText
           primary="Summer BBQ"
           secondary={
-            <React.Fragment>
+            <Fragment>
               <Typography
                 component="span"
                 variant="body2"
@@ -63,7 +63,7 @@ export default function AlignItemsList() {
                 to Scott, Alex, Jennifer
               </Typography>
               {" — Wish I could come, but I'm out of town this…"}
-            </React.Fragment>
+            </Fragment>
           }
         />
       </ListItem>
@@ -75,7 +75,7 @@ export default function AlignItemsList() {
         <ListItemText
           primary="Oui Oui"
           secondary={
-            <React.Fragment>
+            <Fragment>
               <Typography
                 component="span"
                 variant="body2"
@@ -85,7 +85,7 @@ export default function AlignItemsList() {
                 Sandra Adams
               </Typography>
               {' — Do you have Paris recommendations? Have you ever…'}
-            </React.Fragment>
+            </Fragment>
           }
         />
       </ListItem>

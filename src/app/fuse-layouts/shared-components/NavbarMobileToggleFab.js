@@ -3,7 +3,6 @@ import Icon from '@material-ui/core/Icon';
 import { makeStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import clsx from 'clsx';
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { navbarToggleMobile } from 'app/store/fuse/navbarSlice';
 

@@ -1,7 +1,7 @@
 import _ from '@lodash';
 import TextField from '@material-ui/core/TextField';
 import { withFormsy } from 'formsy-react';
-import React from 'react';
+import { memo } from 'react';
 
 function TextFieldFormsy(props) {
 	const importedProps = _.pick(props, [
@@ -56,4 +56,4 @@ function TextFieldFormsy(props) {
 	);
 }
 
-export default React.memo(withFormsy(TextFieldFormsy));
+export default memo(withFormsy(TextFieldFormsy));

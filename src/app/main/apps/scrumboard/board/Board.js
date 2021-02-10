@@ -7,7 +7,7 @@ import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import Toolbar from '@material-ui/core/Toolbar';
 import withReducer from 'app/store/withReducer';
 import clsx from 'clsx';
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, withRouter, useParams } from 'react-router-dom';

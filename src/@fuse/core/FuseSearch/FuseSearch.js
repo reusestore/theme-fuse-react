@@ -15,7 +15,7 @@ import match from 'autosuggest-highlight/match';
 import parse from 'autosuggest-highlight/parse';
 import clsx from 'clsx';
 import _ from '@lodash';
-import React, { useEffect, useReducer, useRef } from 'react';
+import { memo, useEffect, useReducer, useRef } from 'react';
 import Autosuggest from 'react-autosuggest';
 import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -443,4 +443,4 @@ FuseSearch.defaultProps = {
 	noResults: 'No results..'
 };
 
-export default withRouter(React.memo(FuseSearch));
+export default withRouter(memo(FuseSearch));

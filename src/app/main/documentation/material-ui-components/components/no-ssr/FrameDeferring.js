@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import NoSsr from '@material-ui/core/NoSsr';
 
@@ -16,7 +16,7 @@ function LargeTree() {
 
 export default function FrameDeferring() {
   const classes = useStyles();
-  const [state, setState] = React.useState({ open: false, defer: false });
+  const [state, setState] = useState({ open: false, defer: false });
 
   return (
     <div>
@@ -47,13 +47,13 @@ export default function FrameDeferring() {
       <br />
       <div className={classes.container}>
         {state.open ? (
-          <React.Fragment>
+          <Fragment>
             <div>Outside NoSsr</div>
             <NoSsr defer={state.defer}>
               .....Inside NoSsr
               <LargeTree />
             </NoSsr>
-          </React.Fragment>
+          </Fragment>
         ) : null}
       </div>
     </div>

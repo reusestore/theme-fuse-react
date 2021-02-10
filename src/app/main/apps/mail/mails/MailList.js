@@ -3,7 +3,7 @@ import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import FuseUtils from '@fuse/utils';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter, useParams } from 'react-router-dom';

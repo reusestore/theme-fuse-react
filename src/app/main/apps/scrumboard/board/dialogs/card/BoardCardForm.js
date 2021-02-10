@@ -15,7 +15,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import LabelModel from 'app/main/apps/scrumboard/model/LabelModel';
 import moment from 'moment';
-import React, { useCallback } from 'react';
+import { useMemo, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addLabel } from '../../../store/boardSlice';
 import { closeCardDialog, removeCard, updateCard } from '../../../store/cardSlice';
@@ -147,7 +147,7 @@ function BoardCardForm(props) {
 						<Icon className="text-20" color="inherit">
 							chevron_right
 						</Icon>
-						{React.useMemo(() => {
+						{useMemo(() => {
 							const list = card ? _.find(board.lists, _list => _list.idCards.includes(card.id)) : null;
 
 							return <Typography>{list && list.name}</Typography>;

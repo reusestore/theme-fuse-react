@@ -1,4 +1,13 @@
-import React from 'react';
+import {
+  cloneElement,
+  createContext,
+  forwardRef,
+  useContext,
+  useRef,
+  useEffect,
+  Children,
+  isValidElement,
+} from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -12,7 +21,7 @@ const LISTBOX_PADDING = 8; // px
 
 function renderRow(props) {
   const { data, index, style } = props;
-  return React.cloneElement(data[index], {
+  return cloneElement(data[index], {
     style: {
       ...style,
       top: style.top + LISTBOX_PADDING,
@@ -20,16 +29,16 @@ function renderRow(props) {
   });
 }
 
-const OuterElementContext = React.createContext({});
+const OuterElementContext = createContext({});
 
-const OuterElementType = React.forwardRef((props, ref) => {
-  const outerProps = React.useContext(OuterElementContext);
+const OuterElementType = forwardRef((props, ref) => {
+  const outerProps = useContext(OuterElementContext);
   return <div ref={ref} {...props} {...outerProps} />;
 });
 
 function useResetCache(data) {
-  const ref = React.useRef(null);
-  React.useEffect(() => {
+  const ref = useRef(null);
+  useEffect(() => {
     if (ref.current != null) {
       ref.current.resetAfterIndex(0, true);
     }
@@ -38,16 +47,16 @@ function useResetCache(data) {
 }
 
 // Adapter for react-window
-const ListboxComponent = React.forwardRef(function ListboxComponent(props, ref) {
+const ListboxComponent = forwardRef(function ListboxComponent(props, ref) {
   const { children, ...other } = props;
-  const itemData = React.Children.toArray(children);
+  const itemData = Children.toArray(children);
   const theme = useTheme();
   const smUp = useMediaQuery(theme.breakpoints.up('sm'), { noSsr: true });
   const itemCount = itemData.length;
   const itemSize = smUp ? 36 : 48;
 
   const getChildSize = (child) => {
-    if (React.isValidElement(child) && child.type === ListSubheader) {
+    if (isValidElement(child) && child.type === ListSubheader) {
       return 48;
     }
 

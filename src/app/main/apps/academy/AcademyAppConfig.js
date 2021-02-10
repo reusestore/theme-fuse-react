@@ -1,4 +1,4 @@
-import React from 'react';
+import { lazy } from 'react';
 import { Redirect } from 'react-router-dom';
 
 const AcademyAppConfig = {
@@ -8,11 +8,11 @@ const AcademyAppConfig = {
 	routes: [
 		{
 			path: '/apps/academy/courses/:courseId/:courseHandle?',
-			component: React.lazy(() => import('./course/Course'))
+			component: lazy(() => import('./course/Course'))
 		},
 		{
 			path: '/apps/academy/courses',
-			component: React.lazy(() => import('./courses/Courses'))
+			component: lazy(() => import('./courses/Courses'))
 		},
 		{
 			path: '/apps/academy',

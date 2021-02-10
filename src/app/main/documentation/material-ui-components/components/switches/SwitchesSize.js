@@ -1,10 +1,10 @@
-import React from 'react';
+import { useState } from 'react';
 import Switch from '@material-ui/core/Switch';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 export default function SwitchesSize() {
-  const [checked, setChecked] = React.useState(false);
+  const [checked, setChecked] = useState(false);
 
   const toggleChecked = () => {
     setChecked((prev) => !prev);

@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -101,7 +101,7 @@ export default function BottomAppBar() {
   const classes = useStyles();
 
   return (
-    <React.Fragment>
+    <Fragment>
       <CssBaseline />
       <Paper square className={classes.paper}>
         <Typography className={classes.text} variant="h5" gutterBottom>
@@ -109,7 +109,7 @@ export default function BottomAppBar() {
         </Typography>
         <List className={classes.list}>
           {messages.map(({ id, primary, secondary, person }) => (
-            <React.Fragment key={id}>
+            <Fragment key={id}>
               {id === 1 && <ListSubheader className={classes.subheader}>Today</ListSubheader>}
               {id === 3 && <ListSubheader className={classes.subheader}>Yesterday</ListSubheader>}
               <ListItem button>
@@ -118,7 +118,7 @@ export default function BottomAppBar() {
                 </ListItemAvatar>
                 <ListItemText primary={primary} secondary={secondary} />
               </ListItem>
-            </React.Fragment>
+            </Fragment>
           ))}
         </List>
       </Paper>
@@ -139,6 +139,6 @@ export default function BottomAppBar() {
           </IconButton>
         </Toolbar>
       </AppBar>
-    </React.Fragment>
+    </Fragment>
   );
 }

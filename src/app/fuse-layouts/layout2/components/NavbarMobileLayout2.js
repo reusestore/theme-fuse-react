@@ -9,7 +9,7 @@ import NavbarMobileToggleButton from 'app/fuse-layouts/shared-components/NavbarM
 import Navigation from 'app/fuse-layouts/shared-components/Navigation';
 import UserNavbarHeader from 'app/fuse-layouts/shared-components/UserNavbarHeader';
 import clsx from 'clsx';
-import React from 'react';
+import { memo } from 'react';
 
 const useStyles = makeStyles({
 	content: {
@@ -59,4 +59,4 @@ function NavbarMobileLayout2(props) {
 	);
 }
 
-export default React.memo(NavbarMobileLayout2);
+export default memo(NavbarMobileLayout2);

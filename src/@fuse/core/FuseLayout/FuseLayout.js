@@ -4,7 +4,7 @@ import _ from '@lodash';
 import { makeStyles } from '@material-ui/core/styles';
 import AppContext from 'app/AppContext';
 import { generateSettings, setSettings } from 'app/store/fuse/settingsSlice';
-import React, { useContext, useMemo, useCallback, useRef } from 'react';
+import { memo, useContext, useMemo, useCallback, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { matchRoutes } from 'react-router-config';
 import { useLocation } from 'react-router-dom';
@@ -142,4 +142,4 @@ function FuseLayout(props) {
 	return _.isEqual(newSettings.current, settings) ? <Layout classes={{ root: classes.root }} {...props} /> : null;
 }
 
-export default React.memo(FuseLayout);
+export default memo(FuseLayout);

@@ -12,7 +12,6 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import TextField from '@material-ui/core/TextField';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import StatusIcon from './StatusIcon';
 import { closeUserSidebar } from './store/sidebarsSlice';

@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CheckboxesGroup() {
   const classes = useStyles();
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     gilad: true,
     jason: false,
     antoine: false,

@@ -10,7 +10,6 @@ import { darken } from '@material-ui/core/styles/colorManipulator';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
-import React from 'react';
 
 const useStyles = makeStyles(theme => ({
 	root: {

@@ -1,4 +1,4 @@
-import React from 'react';
+import { lazy } from 'react';
 
 const FaqPageConfig = {
 	settings: {
@@ -9,7 +9,7 @@ const FaqPageConfig = {
 	routes: [
 		{
 			path: '/pages/faq',
-			component: React.lazy(() => import('./FaqPage'))
+			component: lazy(() => import('./FaqPage'))
 		}
 	]
 };

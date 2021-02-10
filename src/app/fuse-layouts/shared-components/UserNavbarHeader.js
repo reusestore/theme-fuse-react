@@ -3,7 +3,6 @@ import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
-import React from 'react';
 import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles(theme => ({

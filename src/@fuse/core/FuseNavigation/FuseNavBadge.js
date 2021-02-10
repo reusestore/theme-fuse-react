@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import React from 'react';
+import { memo } from 'react';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -44,4 +44,4 @@ FuseNavBadge.propTypes = {
 };
 FuseNavBadge.defaultProps = {};
 
-export default React.memo(FuseNavBadge);
+export default memo(FuseNavBadge);

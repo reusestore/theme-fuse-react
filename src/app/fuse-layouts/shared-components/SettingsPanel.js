@@ -9,11 +9,11 @@ import Slide from '@material-ui/core/Slide';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
-import React, { useState } from 'react';
+import { forwardRef, memo, useState } from 'react';
 import FuseThemeSchemes from '@fuse/core/FuseThemeSchemes';
 import { useSwipeable } from 'react-swipeable';
 
-const Transition = React.forwardRef(function Transition(props, ref) {
+const Transition = forwardRef(function Transition(props, ref) {
 	const theme = useTheme();
 	return <Slide direction={theme.direction === 'ltr' ? 'left' : 'right'} ref={ref} {...props} />;
 });
@@ -188,4 +188,4 @@ function SettingsPanel() {
 	);
 }
 
-export default React.memo(SettingsPanel);
+export default memo(SettingsPanel);

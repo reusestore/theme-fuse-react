@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -7,7 +7,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import Switch from '@material-ui/core/Switch';
 
 export default function SwitchesGroup() {
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     gilad: true,
     jason: false,
     antoine: true,

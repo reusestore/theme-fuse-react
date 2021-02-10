@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 import Slide from '@material-ui/core/Slide';
@@ -20,8 +20,8 @@ function TransitionDown(props) {
 }
 
 export default function DirectionSnackbar() {
-  const [open, setOpen] = React.useState(false);
-  const [transition, setTransition] = React.useState(undefined);
+  const [open, setOpen] = useState(false);
+  const [transition, setTransition] = useState(undefined);
 
   const handleClick = (Transition) => () => {
     setTransition(() => Transition);

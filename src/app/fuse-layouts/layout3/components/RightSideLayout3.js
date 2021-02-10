@@ -1,6 +1,6 @@
 import ChatPanel from 'app/fuse-layouts/shared-components/chatPanel/ChatPanel';
 import QuickPanel from 'app/fuse-layouts/shared-components/quickPanel/QuickPanel';
-import React from 'react';
+import { memo } from 'react';
 
 function RightSideLayout3() {
 	return (
@@ -12,4 +12,4 @@ function RightSideLayout3() {
 	);
 }
 
-export default React.memo(RightSideLayout3);
+export default memo(RightSideLayout3);

@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
@@ -9,7 +9,7 @@ const initialState = {
 };
 
 export default function ContextMenu() {
-  const [state, setState] = React.useState(initialState);
+  const [state, setState] = useState(initialState);
 
   const handleClick = (event) => {
     event.preventDefault();

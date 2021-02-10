@@ -4,7 +4,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 function CardAttachment(props) {
 	const [anchorEl, setAnchorEl] = useState(null);

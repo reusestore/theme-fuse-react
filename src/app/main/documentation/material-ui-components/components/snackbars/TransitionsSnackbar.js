@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 import Fade from '@material-ui/core/Fade';
@@ -14,7 +14,7 @@ function GrowTransition(props) {
 }
 
 export default function TransitionsSnackbar() {
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     open: false,
     Transition: Fade,
   });

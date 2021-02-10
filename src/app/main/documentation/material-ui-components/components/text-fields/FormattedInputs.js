@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import MaskedInput from 'react-text-mask';
 import NumberFormat from 'react-number-format';
@@ -66,7 +66,7 @@ NumberFormatCustom.propTypes = {
 
 export default function FormattedInputs() {
   const classes = useStyles();
-  const [values, setValues] = React.useState({
+  const [values, setValues] = useState({
     textmask: '(1  )    -    ',
     numberformat: '1320',
   });

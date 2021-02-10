@@ -1,12 +1,12 @@
-import React from 'react';
+import { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
 const options = ['Option 1', 'Option 2'];
 
 export default function ControllableStates() {
-  const [value, setValue] = React.useState(options[0]);
-  const [inputValue, setInputValue] = React.useState('');
+  const [value, setValue] = useState(options[0]);
+  const [inputValue, setInputValue] = useState('');
 
   return (
     <div>

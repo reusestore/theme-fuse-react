@@ -1,6 +1,6 @@
 import Button from '@material-ui/core/Button';
 import auth0Service from 'app/services/auth0Service';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setUserDataAuth0 } from 'app/auth/store/userSlice';
 import { showMessage } from 'app/store/fuse/messageSlice';

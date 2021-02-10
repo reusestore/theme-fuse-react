@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const useStyles = makeStyles({
 	layoutRoot: {}

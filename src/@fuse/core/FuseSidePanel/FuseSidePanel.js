@@ -8,7 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import Tooltip from '@material-ui/core/Tooltip';
 import clsx from 'clsx';
-import React, { useState } from 'react';
+import { memo, useState } from 'react';
 
 const useStyles = makeStyles(theme => ({
 	paper: {
@@ -237,4 +237,4 @@ FuseSidePanel.defaultProps = {
 	opened: true
 };
 
-export default React.memo(FuseSidePanel);
+export default memo(FuseSidePanel);

@@ -4,7 +4,7 @@ import Fab from '@material-ui/core/Fab';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import withReducer from 'app/store/withReducer';
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Breadcrumb from './Breadcrumb';
 import DetailSidebarContent from './DetailSidebarContent';

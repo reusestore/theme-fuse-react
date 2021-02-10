@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -31,9 +31,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MaxWidthDialog() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-  const [fullWidth, setFullWidth] = React.useState(true);
-  const [maxWidth, setMaxWidth] = React.useState('sm');
+  const [open, setOpen] = useState(false);
+  const [fullWidth, setFullWidth] = useState(true);
+  const [maxWidth, setMaxWidth] = useState('sm');
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -52,7 +52,7 @@ export default function MaxWidthDialog() {
   };
 
   return (
-    <React.Fragment>
+    <Fragment>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
         Open max-width dialog
       </Button>
@@ -101,6 +101,6 @@ export default function MaxWidthDialog() {
           </Button>
         </DialogActions>
       </Dialog>
-    </React.Fragment>
+    </Fragment>
   );
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 
 function FuseSplashScreen() {
 	return (
@@ -25,4 +25,4 @@ function FuseSplashScreen() {
 	);
 }
 
-export default React.memo(FuseSplashScreen);
+export default memo(FuseSplashScreen);

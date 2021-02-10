@@ -7,7 +7,7 @@ import Paper from '@material-ui/core/Paper';
 import { ThemeProvider, useTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
-import React, { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 function IconsUI() {
 	const theme = useTheme();

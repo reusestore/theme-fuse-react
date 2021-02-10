@@ -1,5 +1,5 @@
 import { ThemeProvider } from '@material-ui/core/styles';
-import React, { useEffect, useLayoutEffect } from 'react';
+import { memo, useEffect, useLayoutEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { selectMainTheme } from 'app/store/fuse/settingsSlice';
 
@@ -17,4 +17,4 @@ function FuseTheme(props) {
 	return <ThemeProvider theme={mainTheme}>{props.children}</ThemeProvider>;
 }
 
-export default React.memo(FuseTheme);
+export default memo(FuseTheme);

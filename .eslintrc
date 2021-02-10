@@ -24,7 +24,7 @@
     },
     "rules": {
         "prettier/prettier": [
-            "error"
+            "warn"
         ],
         "react/jsx-filename-extension": [
             "warn",
@@ -54,6 +54,8 @@
         "react/forbid-prop-types": "off",
         "react/require-default-props": "off",
         "react/default-props-match-prop-types": "off",
-        "react/no-unused-prop-types": "off"
+        "react/no-unused-prop-types": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-uses-react": "off"
     }
 }

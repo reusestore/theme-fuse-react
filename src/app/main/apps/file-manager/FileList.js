@@ -9,7 +9,6 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import clsx from 'clsx';
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSelectedItem, selectFiles } from './store/filesSlice';
 

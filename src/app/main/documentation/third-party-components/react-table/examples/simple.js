@@ -1,4 +1,4 @@
-import React from 'react';
+import { useMemo } from 'react';
 import MaUTable from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -43,7 +43,7 @@ function Table({ columns, data }) {
 }
 
 function App() {
-	const columns = React.useMemo(
+	const columns = useMemo(
 		() => [
 			{
 				Header: 'Name',
@@ -83,7 +83,7 @@ function App() {
 		[]
 	);
 
-	const data = React.useMemo(() => sampleData, []);
+	const data = useMemo(() => sampleData, []);
 
 	return <Table columns={columns} data={data} />;
 }

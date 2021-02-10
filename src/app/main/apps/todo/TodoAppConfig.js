@@ -1,4 +1,4 @@
-import React from 'react';
+import { lazy } from 'react';
 import { Redirect } from 'react-router-dom';
 
 const TodoAppConfig = {
@@ -12,7 +12,7 @@ const TodoAppConfig = {
 				'/apps/todo/filter/:filterHandle/:todoId?',
 				'/apps/todo/:folderHandle/:todoId?'
 			],
-			component: React.lazy(() => import('./TodoApp'))
+			component: lazy(() => import('./TodoApp'))
 		},
 		{
 			path: '/apps/todo',

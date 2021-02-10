@@ -6,7 +6,7 @@ import Divider from '@material-ui/core/Divider';
 import { makeStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import clsx from 'clsx';
-import React, { useRef } from 'react';
+import { memo, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getChat } from './store/chatSlice';
 import { selectContacts } from './store/contactsSlice';
@@ -145,4 +145,4 @@ function ContactList(props) {
 	);
 }
 
-export default React.memo(ContactList);
+export default memo(ContactList);

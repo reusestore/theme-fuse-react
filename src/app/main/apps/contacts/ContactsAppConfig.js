@@ -1,4 +1,4 @@
-import React from 'react';
+import { lazy } from 'react';
 import { Redirect } from 'react-router-dom';
 
 const ContactsAppConfig = {
@@ -10,7 +10,7 @@ const ContactsAppConfig = {
 	routes: [
 		{
 			path: '/apps/contacts/:id',
-			component: React.lazy(() => import('./ContactsApp'))
+			component: lazy(() => import('./ContactsApp'))
 		},
 		{
 			path: '/apps/contacts',

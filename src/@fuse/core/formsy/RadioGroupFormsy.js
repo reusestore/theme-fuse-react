@@ -4,7 +4,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormLabel from '@material-ui/core/FormLabel';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import { withFormsy } from 'formsy-react';
-import React from 'react';
+import { memo } from 'react';
 
 function RadioGroupFormsy(props) {
 	const importedProps = _.pick(props, ['children', 'name', 'onBlur', 'onChange', 'onKeyDown', 'variant', 'color']);
@@ -33,4 +33,4 @@ function RadioGroupFormsy(props) {
 	);
 }
 
-export default React.memo(withFormsy(RadioGroupFormsy));
+export default memo(withFormsy(RadioGroupFormsy));

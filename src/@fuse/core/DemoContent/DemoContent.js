@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 
 function DemoContent() {
 	return (
@@ -115,4 +115,4 @@ function DemoContent() {
 	);
 }
 
-export default React.memo(DemoContent);
+export default memo(DemoContent);

@@ -1,6 +1,5 @@
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
-import React from 'react';
 
 function NoteFormUploadImage(props) {
 	return (

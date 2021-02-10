@@ -1,5 +1,3 @@
-import React from 'react';
-
 const components = {};
 
 export function registerComponent(name, Component) {

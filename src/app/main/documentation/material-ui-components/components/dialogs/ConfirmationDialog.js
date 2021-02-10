@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -32,10 +32,10 @@ const options = [
 
 function ConfirmationDialogRaw(props) {
   const { onClose, value: valueProp, open, ...other } = props;
-  const [value, setValue] = React.useState(valueProp);
-  const radioGroupRef = React.useRef(null);
+  const [value, setValue] = useState(valueProp);
+  const radioGroupRef = useRef(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!open) {
       setValue(valueProp);
     }
@@ -115,8 +115,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ConfirmationDialog() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState('Dione');
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState('Dione');
 
   const handleClickListItem = () => {
     setOpen(true);

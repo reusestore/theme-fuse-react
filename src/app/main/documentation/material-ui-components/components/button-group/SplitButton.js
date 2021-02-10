@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useRef } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
@@ -13,9 +13,9 @@ import MenuList from '@material-ui/core/MenuList';
 const options = ['Create a merge commit', 'Squash and merge', 'Rebase and merge'];
 
 export default function SplitButton() {
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef(null);
-  const [selectedIndex, setSelectedIndex] = React.useState(1);
+  const [open, setOpen] = useState(false);
+  const anchorRef = useRef(null);
+  const [selectedIndex, setSelectedIndex] = useState(1);
 
   const handleClick = () => {
     console.info(`You clicked ${options[selectedIndex]}`);

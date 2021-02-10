@@ -2,7 +2,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import marked from 'marked';
 import PropTypes from 'prop-types';
-import React from 'react';
 import prism from './prism';
 
 // Monkey patch to preserve non-breaking spaces

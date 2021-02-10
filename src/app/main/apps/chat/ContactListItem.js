@@ -5,7 +5,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import moment from 'moment';
-import React from 'react';
 import StatusIcon from './StatusIcon';
 
 const useStyles = makeStyles(theme => ({

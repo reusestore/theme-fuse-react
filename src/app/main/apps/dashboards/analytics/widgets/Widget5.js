@@ -4,7 +4,7 @@ import Card from '@material-ui/core/Card';
 import { useTheme } from '@material-ui/core/styles';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import Typography from '@material-ui/core/Typography';
-import React, { useState } from 'react';
+import { memo, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 
 function Widget5(props) {
@@ -62,4 +62,4 @@ function Widget5(props) {
 	);
 }
 
-export default React.memo(Widget5);
+export default memo(Widget5);

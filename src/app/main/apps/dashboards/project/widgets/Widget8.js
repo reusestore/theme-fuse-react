@@ -1,6 +1,6 @@
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
+import { memo } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import _ from '@lodash';
 
@@ -25,4 +25,4 @@ function Widget8(props) {
 	);
 }
 
-export default React.memo(Widget8);
+export default memo(Widget8);

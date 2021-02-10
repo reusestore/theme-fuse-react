@@ -1,6 +1,5 @@
 import FusePageCarded from '@fuse/core/FusePageCarded';
 import withReducer from 'app/store/withReducer';
-import React from 'react';
 import reducer from '../store';
 import OrdersHeader from './OrdersHeader';
 import OrdersTable from './OrdersTable';

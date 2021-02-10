@@ -2,7 +2,7 @@ import FuseAnimate from '@fuse/core/FuseAnimate';
 import Icon from '@material-ui/core/Icon';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const accounts = {
 	creapond: 'johndoe@creapond.com',

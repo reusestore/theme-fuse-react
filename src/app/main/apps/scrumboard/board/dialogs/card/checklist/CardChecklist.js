@@ -9,7 +9,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
-import React, { useCallback, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import CardAddChecklistItem from './CardAddChecklistItem';
 import CardChecklistItem from './CardChecklistItem';
 import CardChecklistName from './CardChecklistName';

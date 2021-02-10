@@ -1,4 +1,3 @@
-import React from 'react';
 import FuseExample from '@fuse/core/FuseExample';
 import FuseHighlight from '@fuse/core/FuseHighlight';
 import Button from '@material-ui/core/Button';

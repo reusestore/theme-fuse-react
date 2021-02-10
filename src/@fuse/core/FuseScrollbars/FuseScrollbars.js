@@ -4,7 +4,8 @@ import MobileDetect from 'mobile-detect';
 import PerfectScrollbar from 'perfect-scrollbar';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
 import PropTypes from 'prop-types';
-import React, { createRef, useCallback, useEffect, useRef } from 'react';
+import { createRef, useCallback, useEffect, useRef } from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import withRouterAndRef from '../withRouterAndRef/withRouterAndRef';
 

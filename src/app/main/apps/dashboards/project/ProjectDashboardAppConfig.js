@@ -1,4 +1,4 @@
-import React from 'react';
+import { lazy } from 'react';
 
 const ProjectDashboardAppConfig = {
 	settings: {
@@ -9,7 +9,7 @@ const ProjectDashboardAppConfig = {
 	routes: [
 		{
 			path: '/apps/dashboards/project',
-			component: React.lazy(() => import('./ProjectDashboardApp'))
+			component: lazy(() => import('./ProjectDashboardApp'))
 		}
 	]
 };

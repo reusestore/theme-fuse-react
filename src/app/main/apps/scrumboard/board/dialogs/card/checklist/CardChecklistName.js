@@ -5,15 +5,15 @@ import IconButton from '@material-ui/core/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import React, { useState } from 'react';
+import { forwardRef, useImperativeHandle, useState } from 'react';
 
-const CardChecklistName = React.forwardRef(function CardChecklistName(props, ref) {
+const CardChecklistName = forwardRef(function CardChecklistName(props, ref) {
 	const [formOpen, setFormOpen] = useState(false);
 	const { form, handleChange, resetForm } = useForm({
 		name: props.name
 	});
 
-	React.useImperativeHandle(ref, () => {
+	useImperativeHandle(ref, () => {
 		return {
 			openForm: handleOpenForm
 		};

@@ -6,7 +6,6 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import moment from 'moment';
-import React from 'react';
 import Toolbar from 'react-big-calendar/lib/Toolbar';
 import { navigate } from 'react-big-calendar/lib/utils/constants';
 import connect from 'react-redux/es/connect/connect';

@@ -6,7 +6,7 @@ import NavbarMobileLayout2 from 'app/fuse-layouts/layout2/components/NavbarMobil
 import NavbarMobileToggleFab from 'app/fuse-layouts/shared-components/NavbarMobileToggleFab';
 import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
 import clsx from 'clsx';
-import React from 'react';
+import { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectNavbarTheme } from 'app/store/fuse/settingsSlice';
 import NavbarLayout2 from './NavbarLayout2';
@@ -84,4 +84,4 @@ function NavbarWrapperLayout2(props) {
 	);
 }
 
-export default React.memo(NavbarWrapperLayout2);
+export default memo(NavbarWrapperLayout2);
