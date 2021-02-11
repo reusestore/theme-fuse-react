@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import withReducer from 'app/store/withReducer';
 import { useSnackbar } from 'notistack';
-import React, { useEffect } from 'react';
+import { useEffect, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import clsx from 'clsx';
@@ -177,4 +177,4 @@ function NotificationPanel(props) {
 	);
 }
 
-export default withReducer('notificationPanel', reducer)(React.memo(NotificationPanel));
+export default withReducer('notificationPanel', reducer)(memo(NotificationPanel));

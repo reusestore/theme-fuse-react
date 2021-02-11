@@ -36,8 +36,6 @@ function CodeSplittingDoc() {
 
 					<FuseHighlight component="pre" className="language-jsx my-16">
 						{`
-                            import React from 'react';
-
                             export const AnalyticsDashboardAppConfig = {
                                 settings: {
                                     layout: {

@@ -216,7 +216,6 @@ function FuseAuthorizationDoc() {
 
 			<FuseHighlight component="pre" className="language-js">
 				{`
-					import React from 'react';
 					import {Redirect} from 'react-router-dom';
 					import FuseUtils from '@fuse/utils';
 					import {appsConfigs} from 'app/main/apps/appsConfigs';
@@ -272,7 +271,6 @@ function FuseAuthorizationDoc() {
 
 			<FuseHighlight component="pre" className="language-js">
 				{`
-					import React from 'react';
 					import {Redirect} from 'react-router-dom';
 					import FuseUtils from '@fuse/utils';
 					import {appsConfigs} from 'app/main/apps/appsConfigs';

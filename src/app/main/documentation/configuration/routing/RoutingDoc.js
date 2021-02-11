@@ -38,7 +38,6 @@ function RoutingDoc() {
 			<FuseHighlight component="pre" className="language-jsx mb-32">
 				{`
                             import MailApp from './MailApp';
-                            import React from 'react';
                             import {Redirect} from 'react-router-dom';
 
                             export const MailAppConfig = {
@@ -104,7 +103,6 @@ function RoutingDoc() {
                                 import {appsRoutes} from 'app/main/apps/mail/MailAppConfig.js';
                                 import FuseUtils from '@fuse/utils';
                                 import {Redirect} from 'react-router-dom';
-                                import React from 'react';
 
                                 const routeConfigs = [
                                     MailAppConfig

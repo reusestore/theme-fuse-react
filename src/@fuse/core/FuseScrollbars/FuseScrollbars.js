@@ -4,8 +4,7 @@ import MobileDetect from 'mobile-detect';
 import PerfectScrollbar from 'perfect-scrollbar';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
 import PropTypes from 'prop-types';
-import { createRef, useCallback, useEffect, useRef } from 'react';
-import * as React from 'react';
+import { createRef, useCallback, useEffect, useRef, forwardRef } from 'react';
 import { connect } from 'react-redux';
 import withRouterAndRef from '../withRouterAndRef/withRouterAndRef';
 
@@ -30,7 +29,7 @@ const useStyles = makeStyles(theme => ({
 	root: {}
 }));
 
-const FuseScrollbars = React.forwardRef((props, ref) => {
+const FuseScrollbars = forwardRef((props, ref) => {
 	ref = ref || createRef();
 	const ps = useRef(null);
 	const handlerByEvent = useRef(new Map());

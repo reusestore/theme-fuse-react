@@ -229,8 +229,7 @@ function writePage(file) {
 
 	// contentJSX = Beautify(contentJSX, BeautifyConfig);
 
-	const content = `import React from 'react';
-                   import FuseExample from '@fuse/core/FuseExample';
+	const content = `import FuseExample from '@fuse/core/FuseExample';
                    import FuseHighlight from '@fuse/core/FuseHighlight';
                    import Button from '@material-ui/core/Button';
                    import Icon from '@material-ui/core/Icon';
@@ -279,8 +278,6 @@ function writeRouteFile(pages) {
 	});
 	const content = Beautify(
 		`
-        import React from 'react';
-        
         const MaterialUIComponentsRoutes =  [${routes.join()}];
         
         export default MaterialUIComponentsRoutes;
