@@ -12,6 +12,7 @@ import clsx from 'clsx';
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { selectToolbarTheme } from 'app/store/fuse/settingsSlice';
+import AdjustFontSize from '../../shared-components/AdjustFontSize';
 import FullScreenToggle from '../../shared-components/FullScreenToggle';
 import LanguageSwitcher from '../../shared-components/LanguageSwitcher';
 
@@ -48,6 +49,8 @@ function ToolbarLayout2(props) {
 
 					<div className="flex items-center px-8">
 						<LanguageSwitcher />
+
+						<AdjustFontSize />
 
 						<FullScreenToggle />
 
