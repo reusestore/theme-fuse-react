@@ -11,6 +11,7 @@ import jssExtend from 'jss-plugin-extend';
 import rtl from 'jss-rtl';
 import Provider from 'react-redux/es/components/Provider';
 import { Router } from 'react-router-dom';
+import { SnackbarProvider } from 'notistack';
 import AppContext from './AppContext';
 import { Auth } from './auth';
 import routes from './fuse-configs/routesConfig';
@@ -38,7 +39,18 @@ const App = () => {
 							<Router history={history}>
 								<FuseAuthorization>
 									<FuseTheme>
-										<FuseLayout />
+										<SnackbarProvider
+											maxSnack={5}
+											anchorOrigin={{
+												vertical: 'bottom',
+												horizontal: 'right'
+											}}
+											classes={{
+												containerRoot: 'bottom-0 right-0 mb-52 md:mb-68 mr-8 lg:mr-80 z-99'
+											}}
+										>
+											<FuseLayout />
+										</SnackbarProvider>
 									</FuseTheme>
 								</FuseAuthorization>
 							</Router>

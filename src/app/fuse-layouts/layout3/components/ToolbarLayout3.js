@@ -15,6 +15,7 @@ import { selectToolbarTheme } from 'app/store/fuse/settingsSlice';
 import AdjustFontSize from '../../shared-components/AdjustFontSize';
 import FullScreenToggle from '../../shared-components/FullScreenToggle';
 import LanguageSwitcher from '../../shared-components/LanguageSwitcher';
+import NotificationPanelToggleButton from '../../shared-components/notificationPanel/NotificationPanelToggleButton';
 
 const useStyles = makeStyles(theme => ({
 	root: {}
@@ -53,7 +54,7 @@ function ToolbarLayout3(props) {
 						</Hidden>
 					</div>
 
-					<div className="flex items-center px-8 md:px-0">
+					<div className="flex items-center px-8 md:px-0 h-full overflow-x-auto">
 						<Hidden smUp>
 							<FuseSearch />
 						</Hidden>
@@ -69,6 +70,8 @@ function ToolbarLayout3(props) {
 						<FullScreenToggle />
 
 						<QuickPanelToggleButton />
+
+						<NotificationPanelToggleButton />
 
 						<UserMenu />
 					</div>

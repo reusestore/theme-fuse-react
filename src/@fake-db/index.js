@@ -18,6 +18,7 @@ import './db/quick-panel-db';
 import './db/scrumboard-db';
 import './db/search-db';
 import './db/todo-db';
+import './db/notification-panel-db';
 import mock from './mock';
 
 mock.onAny().passThrough();

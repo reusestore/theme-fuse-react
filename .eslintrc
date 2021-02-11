@@ -35,6 +35,7 @@
                 ]
             }
         ],
+        "spaced-comment": ["warn", "always"],
         "no-unused-vars": "off",
         "no-param-reassign": "off",
         "no-console": "off",
