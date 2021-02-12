@@ -6,6 +6,7 @@
     },
     "parser": "babel-eslint",
     "extends": [
+        "react-app",
         "airbnb",
         "plugin:prettier/recommended",
         "prettier/react"
@@ -36,6 +37,7 @@
             }
         ],
         "spaced-comment": ["warn", "always"],
+        "no-unreachable": "warn",
         "no-unused-vars": "off",
         "no-param-reassign": "off",
         "no-console": "off",
