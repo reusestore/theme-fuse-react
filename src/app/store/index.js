@@ -11,7 +11,8 @@ if (process.env.NODE_ENV === 'development' && module.hot) {
 const middlewares = [];
 
 if (process.env.NODE_ENV === 'development') {
-	const { logger } = require(`redux-logger`);
+	const { createLogger } = require(`redux-logger`);
+	const logger = createLogger({ collapsed: (getState, action, logEntry) => !logEntry.error });
 
 	middlewares.push(logger);
 }
