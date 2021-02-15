@@ -33,18 +33,20 @@ function PhotosVideosTab() {
 					{data.map(period => (
 						<div key={period.id} className="mb-48">
 							<ListSubheader component="div" className="flex items-center px-0 mb-24">
-								<Typography variant="h6">{period.name}</Typography>
-								<Typography className="mx-16" variant="subtitle1" color="textSecondary">
+								<Typography variant="h6" className="font-semibold">
+									{period.name}
+								</Typography>
+								<Typography className="mx-12 font-medium" variant="subtitle1" color="textSecondary">
 									{period.info}
 								</Typography>
 							</ListSubheader>
 
-							<GridList className="" spacing={8} cols={0}>
+							<GridList className="" spacing={16} cols={0}>
 								{period.media.map(media => (
 									<GridListTile
 										classes={{
 											root: 'w-full sm:w-1/2 md:w-1/4',
-											tile: 'rounded-8 shadow'
+											tile: 'rounded-16 shadow'
 										}}
 										key={media.preview}
 									>

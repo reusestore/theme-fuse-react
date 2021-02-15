@@ -106,7 +106,7 @@ function BoardCardForm(props) {
 	return (
 		<>
 			<DialogTitle component="div" className="p-0">
-				<AppBar position="static" className="shadow-md">
+				<AppBar position="static" elevation={0}>
 					<Toolbar className="flex w-full overflow-x-auto px-8 sm:px-16">
 						<div className="flex flex-1">
 							<DueMenu onDueChange={handleChange} onRemoveDue={removeDue} due={dueDate} />
@@ -222,7 +222,7 @@ function BoardCardForm(props) {
 								<Icon className="text-20" color="inherit">
 									label
 								</Icon>
-								<Typography className="font-600 text-16 mx-8">Labels</Typography>
+								<Typography className="font-bold text-16 mx-8">Labels</Typography>
 							</div>
 							<FuseChipSelect
 								className=""
@@ -269,7 +269,7 @@ function BoardCardForm(props) {
 								<Icon className="text-20" color="inherit">
 									supervisor_account
 								</Icon>
-								<Typography className="font-600 text-16 mx-8">Members</Typography>
+								<Typography className="font-bold text-16 mx-8">Members</Typography>
 							</div>
 							<FuseChipSelect
 								className=""
@@ -316,7 +316,7 @@ function BoardCardForm(props) {
 							<Icon className="text-20" color="inherit">
 								attachment
 							</Icon>
-							<Typography className="font-600 text-16 mx-8">Attachments</Typography>
+							<Typography className="font-bold text-16 mx-8">Attachments</Typography>
 						</div>
 						<div className="flex flex-col sm:flex-row flex-wrap -mx-16">
 							{cardForm.attachments.map(item => (
@@ -348,7 +348,7 @@ function BoardCardForm(props) {
 						<Icon className="text-20" color="inherit">
 							comment
 						</Icon>
-						<Typography className="font-600 text-16 mx-8">Comment</Typography>
+						<Typography className="font-bold text-16 mx-8">Comment</Typography>
 					</div>
 					<div>
 						<CardComment members={board.members} onCommentAdd={commentAdd} />
@@ -361,7 +361,7 @@ function BoardCardForm(props) {
 							<Icon className="text-20" color="inherit">
 								list
 							</Icon>
-							<Typography className="font-600 text-16 mx-8">Activity</Typography>
+							<Typography className="font-bold text-16 mx-8">Activity</Typography>
 						</div>
 						<List className="">
 							{cardForm.activities.map(item => (

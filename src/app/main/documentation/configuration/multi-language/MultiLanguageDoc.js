@@ -18,7 +18,7 @@ function MultiLanguageDoc() {
 				for to support multiple languages.
 			</Typography>
 
-			<Typography className="mb-16 p-16 border-1 bg-yellow-50 rounded-8 text-gray-800" component="p">
+			<Typography className="mb-16 p-16 border-1 bg-yellow-50 rounded-16 text-gray-800" component="p">
 				Since not everybody need multi-language setup for their apps, we decided NOT to put translations
 				everywhere. If you want to see the translations in action, visit the Mail app, and then change the
 				language from the Toolbar. Mail app is the only app that has translations for demonstration purposes.

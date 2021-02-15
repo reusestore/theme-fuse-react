@@ -56,7 +56,7 @@ function BoardAddList(props) {
 
 	return (
 		<div>
-			<Card className={clsx(classes.card, 'w-320 mx-8 sm:mx-12 rounded-8 shadow')} square>
+			<Card className={clsx(classes.card, 'w-320 mx-8 sm:mx-12 rounded-20 shadow')} square>
 				{formOpen ? (
 					<ClickAwayListener onClickAway={handleCloseForm}>
 						<form className="p-16" onSubmit={handleSubmit}>
@@ -64,7 +64,7 @@ function BoardAddList(props) {
 								className="mb-16"
 								required
 								fullWidth
-								variant="outlined"
+								variant="filled"
 								label="List title"
 								autoFocus
 								name="title"
@@ -92,7 +92,7 @@ function BoardAddList(props) {
 					<Button
 						onClick={handleOpenForm}
 						classes={{
-							root: 'font-600 w-full rounded-none h-64',
+							root: 'font-bold w-full rounded-none h-64 px-16',
 							label: 'justify-start'
 						}}
 					>

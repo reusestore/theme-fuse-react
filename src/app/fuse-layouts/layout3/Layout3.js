@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
 		},
 		'&.container': {
 			'& .container': {
-				maxWidth: 1120,
+				maxWidth: props => `${props.config.containerWidth}px`,
 				width: '100%',
 				margin: '0 auto'
 			},
@@ -68,7 +68,7 @@ const useStyles = makeStyles(theme => ({
 function Layout3(props) {
 	const config = useSelector(({ fuse }) => fuse.settings.current.layout.config);
 
-	const classes = useStyles(props);
+	const classes = useStyles({ ...props, config });
 
 	return (
 		<AppContext.Consumer>

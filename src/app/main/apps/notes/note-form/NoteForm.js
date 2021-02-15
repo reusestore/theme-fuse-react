@@ -133,7 +133,7 @@ function NoteForm(props) {
 							</Fab>
 						</div>
 					)}
-					<div className="p-16 pb-12">
+					<div className="px-20 my-16">
 						<Input
 							className="font-bold"
 							placeholder="Title"
@@ -145,7 +145,7 @@ function NoteForm(props) {
 							fullWidth
 						/>
 					</div>
-					<div className="p-16 pb-12">
+					<div className="px-20 my-16">
 						<Input
 							placeholder="Take a note..."
 							multiline
@@ -166,7 +166,7 @@ function NoteForm(props) {
 					)}
 
 					{(noteForm.labels || noteForm.reminder || noteForm.time) && (
-						<div className="flex flex-wrap w-full p-16 pb-12 -mx-4">
+						<div className="flex flex-wrap w-full px-20 my-16 -mx-4">
 							{noteForm.reminder && <NoteReminderLabel className="mt-4 mx-4" date={noteForm.reminder} />}
 							{noteForm.labels &&
 								noteForm.labels.map(id => (
@@ -187,8 +187,8 @@ function NoteForm(props) {
 				</div>
 			</FuseScrollbars>
 
-			<div className="flex flex-auto justify-between items-center h-48">
-				<div className="flex items-center px-4">
+			<div className="flex flex-auto justify-between items-center px-16 pb-12">
+				<div className="flex items-center">
 					<Tooltip title="Remind me" placement="bottom">
 						<div>
 							<NoteFormReminder reminder={noteForm.reminder} onChange={handleDateChange} />
@@ -225,7 +225,7 @@ function NoteForm(props) {
 						</div>
 					</Tooltip>
 				</div>
-				<div className="flex items-center px-4">
+				<div className="flex items-center">
 					{props.variant === 'new' ? (
 						<Button
 							className="m-4"

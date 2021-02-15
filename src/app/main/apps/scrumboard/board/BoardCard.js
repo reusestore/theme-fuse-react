@@ -55,7 +55,7 @@ function BoardCard(props) {
 						className={clsx(
 							classes.card,
 							snapshot.isDragging ? 'shadow-lg' : 'shadow-0',
-							'w-full mb-16 rounded-4 cursor-pointer border-1'
+							'w-full mb-16 rounded-16 cursor-pointer border-1'
 						)}
 						onClick={ev => handleCardClick(ev, card)}
 					>
@@ -81,14 +81,14 @@ function BoardCard(props) {
 								</div>
 							)}
 
-							<Typography className="font-600 mb-12">{card.name}</Typography>
+							<Typography className="font-bold mb-12">{card.name}</Typography>
 
 							{(card.due || checkItems > 0) && (
 								<div className="flex items-center mb-12 -mx-4">
 									{card.due && (
 										<div
 											className={clsx(
-												'flex items-center px-8 py-4 mx-4 rounded-sm',
+												'flex items-center px-8 py-4 mx-4 rounded-16',
 												moment() > moment(card.due)
 													? 'bg-red text-white'
 													: 'bg-green text-white'
@@ -102,7 +102,7 @@ function BoardCard(props) {
 									{checkItems > 0 && (
 										<div
 											className={clsx(
-												'flex items-center px-8 py-4 mx-4 rounded-sm',
+												'flex items-center px-8 py-4 mx-4 rounded-16',
 												checkItemsChecked === checkItems
 													? 'bg-green text-white'
 													: 'bg-grey-700 text-white'

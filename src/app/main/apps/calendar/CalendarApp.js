@@ -31,11 +31,15 @@ const DragAndDropCalendar = withDragAndDrop(Calendar);
 const allViews = Object.keys(Views).map(k => Views[k]);
 
 const useStyles = makeStyles(theme => ({
-	root: {
+	root: {},
+	calendar: {
+		backgroundColor: theme.palette.background.paper,
+
 		'& .rbc-header': {
 			padding: '12px 6px',
-			fontWeight: 600,
-			fontSize: 14
+			fontWeight: 800,
+			fontSize: 14,
+			opacity: 0.75
 		},
 		'& .rbc-label': {
 			padding: '8px 6px'
@@ -47,16 +51,12 @@ const useStyles = makeStyles(theme => ({
 			borderBottom: `2px solid ${theme.palette.secondary.main}!important`
 		},
 		'& .rbc-month-view, & .rbc-time-view, & .rbc-agenda-view': {
-			padding: 24,
-			[theme.breakpoints.down('sm')]: {
-				padding: 16
-			},
 			...theme.mixins.border(0)
 		},
-		'& .rbc-agenda-view table': {
-			...theme.mixins.border(1),
+		'& .rbc-agenda-view table.rbc-agenda-table': {
+			...theme.mixins.border(0),
 			'& thead > tr > th': {
-				...theme.mixins.borderBottom(0)
+				...theme.mixins.borderBottom(1)
 			},
 			'& tbody > tr > td': {
 				padding: '12px 6px',
@@ -75,24 +75,29 @@ const useStyles = makeStyles(theme => ({
 		},
 		'& .rbc-time-view': {
 			'& .rbc-time-header': {
-				...theme.mixins.border(1),
-				borderRadius: '12px 12px 0 0'
+				...theme.mixins.border(0)
 			},
 			'& .rbc-time-content': {
 				flex: '0 1 auto',
-				...theme.mixins.border(1)
+				...theme.mixins.border(0)
+			},
+			'& .rbc-row': {
+				minHeight: 42
+			},
+			'& .rbc-label': {
+				fontWeight: 'bold'
 			}
 		},
 		'& .rbc-month-view': {
 			'& > .rbc-month-header': {
-				borderRadius: '12px 12px 0 0'
+				borderRadius: '20px 20px 0 0'
 			},
 			'& > .rbc-row': {
-				...theme.mixins.border(1)
+				...theme.mixins.border(0)
 			},
 			'& .rbc-month-row': {
-				...theme.mixins.border(1),
-				borderWidth: '0 1px 1px 1px!important',
+				...theme.mixins.border(0),
+				borderWidth: '1px 0 0 0!important',
 				minHeight: 128
 			},
 			'& .rbc-header + .rbc-header': {
@@ -135,8 +140,10 @@ const useStyles = makeStyles(theme => ({
 			}
 		},
 		'& .rbc-event': {
-			borderRadius: 4,
-			padding: '4px 8px',
+			borderRadius: 12,
+			lineHeight: 1,
+			minHeight: 24,
+			padding: '4px 12px',
 			backgroundColor: theme.palette.primary.dark,
 			color: theme.palette.primary.contrastText,
 			boxShadow: theme.shadows[0],
@@ -221,52 +228,54 @@ function CalendarApp(props) {
 	return (
 		<div className={clsx(classes.root, 'flex flex-col flex-auto relative')}>
 			<div ref={headerEl} />
-			<DragAndDropCalendar
-				className="flex flex-1 container"
-				selectable
-				localizer={localizer}
-				events={events}
-				onEventDrop={moveEvent}
-				resizable
-				onEventResize={resizeEvent}
-				defaultView={Views.MONTH}
-				defaultDate={new Date(2020, 3, 1)}
-				startAccessor="start"
-				endAccessor="end"
-				views={allViews}
-				step={60}
-				showMultiDayTimes
-				components={{
-					toolbar: _props => {
-						return headerEl.current
-							? ReactDOM.createPortal(<CalendarHeader {..._props} />, headerEl.current)
-							: null;
-					}
-				}}
-				// onNavigate={handleNavigate}
-				onSelectEvent={event => {
-					dispatch(openEditEventDialog(event));
-				}}
-				onSelectSlot={slotInfo => dispatch(openNewEventDialog(slotInfo))}
-			/>
-			<FuseAnimate animation="transition.expandIn" delay={500}>
-				<Fab
-					color="secondary"
-					aria-label="add"
-					className={classes.addButton}
-					onClick={() =>
-						dispatch(
-							openNewEventDialog({
-								start: new Date(),
-								end: new Date()
-							})
-						)
-					}
-				>
-					<Icon>add</Icon>
-				</Fab>
-			</FuseAnimate>
-			<EventDialog />
+			<div className="flex flex-1 p-24 container">
+				<DragAndDropCalendar
+					className={clsx(classes.calendar, 'flex flex-1 shadow rounded-20 overflow-hidden')}
+					selectable
+					localizer={localizer}
+					events={events}
+					onEventDrop={moveEvent}
+					resizable
+					onEventResize={resizeEvent}
+					defaultView={Views.MONTH}
+					defaultDate={new Date(2020, 3, 1)}
+					startAccessor="start"
+					endAccessor="end"
+					views={allViews}
+					step={60}
+					showMultiDayTimes
+					components={{
+						toolbar: _props => {
+							return headerEl.current
+								? ReactDOM.createPortal(<CalendarHeader {..._props} />, headerEl.current)
+								: null;
+						}
+					}}
+					// onNavigate={handleNavigate}
+					onSelectEvent={event => {
+						dispatch(openEditEventDialog(event));
+					}}
+					onSelectSlot={slotInfo => dispatch(openNewEventDialog(slotInfo))}
+				/>
+				<FuseAnimate animation="transition.expandIn" delay={500}>
+					<Fab
+						color="secondary"
+						aria-label="add"
+						className={classes.addButton}
+						onClick={() =>
+							dispatch(
+								openNewEventDialog({
+									start: new Date(),
+									end: new Date()
+								})
+							)
+						}
+					>
+						<Icon>add</Icon>
+					</Fab>
+				</FuseAnimate>
+				<EventDialog />
+			</div>
 		</div>
 	);
 }

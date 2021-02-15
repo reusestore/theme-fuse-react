@@ -88,11 +88,11 @@ function Courses(props) {
 	function buttonStatus(course) {
 		switch (course.activeStep) {
 			case course.totalSteps:
-				return 'COMPLETED';
+				return 'Completed';
 			case 0:
-				return 'START';
+				return 'Start';
 			default:
-				return 'CONTINUE';
+				return 'Continue';
 		}
 	}
 
@@ -105,7 +105,7 @@ function Courses(props) {
 				)}
 			>
 				<FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
-					<Typography color="inherit" className="text-24 sm:text-40 font-light">
+					<Typography color="inherit" className="text-24 sm:text-40 font-medium">
 						WELCOME TO ACADEMY
 					</Typography>
 				</FuseAnimate>
@@ -173,7 +173,7 @@ function Courses(props) {
 									const category = categories.find(_cat => _cat.value === course.category);
 									return (
 										<div className="w-full pb-24 sm:w-1/2 lg:w-1/3 sm:p-16" key={course.id}>
-											<Card className="flex flex-col h-256 rounded-8 shadow">
+											<Card className="flex flex-col h-256 shadow">
 												<div
 													className="flex flex-shrink-0 items-center justify-between px-24 h-64"
 													style={{
@@ -181,37 +181,37 @@ function Courses(props) {
 														color: theme.palette.getContrastText(category.color)
 													}}
 												>
-													<Typography className="font-medium truncate" color="inherit">
+													<Typography className="font-semibold truncate" color="inherit">
 														{category.label}
 													</Typography>
 													<div className="flex items-center justify-center opacity-75">
 														<Icon className="text-20 mx-8" color="inherit">
 															access_time
 														</Icon>
-														<div className="text-16 whitespace-nowrap">
+														<div className="text-16 font-medium whitespace-nowrap">
 															{course.length}
 															min
 														</div>
 													</div>
 												</div>
 												<CardContent className="flex flex-col flex-auto items-center justify-center">
-													<Typography className="text-center text-16 font-400">
+													<Typography className="text-center text-16 font-semibold">
 														{course.title}
 													</Typography>
 													<Typography
-														className="text-center text-13 font-600 mt-4"
+														className="text-center text-13 mt-8 font-medium"
 														color="textSecondary"
 													>
 														{course.updated}
 													</Typography>
 												</CardContent>
-												<Divider />
-												<CardActions className="justify-center">
+												<CardActions className="justify-center pb-20">
 													<Button
 														to={`/apps/academy/courses/${course.id}/${course.slug}`}
 														component={Link}
 														className="justify-start px-32"
-														color="secondary"
+														color="primary"
+														variant="outlined"
 													>
 														{buttonStatus(course)}
 													</Button>

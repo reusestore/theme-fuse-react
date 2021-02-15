@@ -2,6 +2,7 @@ const config = {
 	title: 'Layout 3 - Horizontal',
 	defaults: {
 		mode: 'container',
+		containerWidth: 1120,
 		scroll: 'content',
 		navbar: {
 			display: true
@@ -39,6 +40,10 @@ const config = {
 					value: 'container'
 				}
 			]
+		},
+		containerWidth: {
+			title: 'Container Width (px)',
+			type: 'number'
 		},
 		navbar: {
 			type: 'group',

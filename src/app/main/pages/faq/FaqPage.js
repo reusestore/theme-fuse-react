@@ -24,10 +24,10 @@ const useStyles = makeStyles(theme => ({
 		borderStyle: 'solid',
 		borderColor: theme.palette.divider,
 		'&:first-child': {
-			borderRadius: '16px 16px 0 0'
+			borderRadius: '20px 20px 0 0'
 		},
 		'&:last-child': {
-			borderRadius: '0 0 16px 16px',
+			borderRadius: '0 0 20px 20px',
 			borderWidth: '0 1px 1px 1px'
 		},
 		'&$expanded': {
@@ -81,19 +81,19 @@ function FaqPage() {
 					<Typography
 						variant="subtitle1"
 						color="inherit"
-						className="opacity-75 mt-8 sm:mt-16 mx-auto max-w-512"
+						className="opacity-75 mt-8 sm:mt-16 mx-auto max-w-512 font-semibold"
 					>
 						Frequently asked questions
 					</Typography>
 				</FuseAnimate>
 
 				<FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
-					<Typography color="inherit" className="text-36 sm:text-56 font-light">
+					<Typography color="inherit" className="text-36 sm:text-56 font-medium">
 						We're here to help
 					</Typography>
 				</FuseAnimate>
 
-				<Paper className="flex items-center h-56 w-full max-w-md mt-16 sm:mt-32 rounded-8 shadow">
+				<Paper className="flex items-center h-56 w-full max-w-md mt-16 sm:mt-32 rounded-16 shadow">
 					<Icon color="action" className="mx-16">
 						search
 					</Icon>
@@ -138,7 +138,7 @@ function FaqPage() {
 								<AccordionSummary expandIcon={<Icon>expand_more</Icon>}>
 									<div className="flex items-center">
 										<Icon color="action">help_outline</Icon>
-										<Typography className="px-8">{faq.question}</Typography>
+										<Typography className="px-12">{faq.question}</Typography>
 									</div>
 								</AccordionSummary>
 

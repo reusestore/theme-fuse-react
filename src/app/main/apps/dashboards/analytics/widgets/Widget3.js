@@ -11,22 +11,25 @@ function Widget3(props) {
 	const data = _.merge({}, props.data);
 
 	return (
-		<Card className="w-full rounded-8 shadow">
-			<div className="p-16 pb-0 flex flex-row flex-wrap items-end">
-				<div className="">
-					<Typography className="h3" color="textSecondary">
-						Impressions
-					</Typography>
-					<Typography className="text-56 font-300 leading-none mt-8">{data.impressions.value}</Typography>
-				</div>
+		<Card className="w-full rounded-20 shadow">
+			<div className="p-20 pb-0">
+				<Typography className="h3 font-semibold">Impressions</Typography>
 
-				<div className="py-4 text-16 flex flex-row items-center">
-					<div className="flex flex-row items-center">
-						{data.impressions.ofTarget > 0 && <Icon className="text-green">trending_up</Icon>}
-						{data.impressions.ofTarget < 0 && <Icon className="text-red">trending_down</Icon>}
-						<Typography className="mx-4">{data.impressions.ofTarget}%</Typography>
+				<div className="flex flex-row flex-wrap items-center mt-12">
+					<Typography className="text-48 font-bold leading-none">{data.impressions.value}</Typography>
+
+					<div className="flex flex-col mx-8">
+						{data.impressions.ofTarget > 0 && <Icon className="text-green text-20">trending_up</Icon>}
+						{data.impressions.ofTarget < 0 && <Icon className="text-red text-20">trending_down</Icon>}
+						<div className="flex items-center">
+							<Typography className="font-bold" color="textSecondary">
+								{data.impressions.ofTarget}%
+							</Typography>
+							<Typography className="whitespace-nowrap mx-4" color="textSecondary">
+								of target
+							</Typography>
+						</div>
 					</div>
-					<Typography className="whitespace-nowrap">of target</Typography>
 				</div>
 			</div>
 

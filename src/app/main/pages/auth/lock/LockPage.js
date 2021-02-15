@@ -49,7 +49,7 @@ function LockPage() {
 								</div>
 
 								<div className="mx-8">
-									<Typography variant="h6" className="mb-8">
+									<Typography variant="h6" className="mb-8 font-semibold">
 										YOUR SESSION IS LOCKED
 									</Typography>
 									<Typography color="textSecondary">

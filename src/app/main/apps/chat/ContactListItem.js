@@ -44,6 +44,7 @@ function ContactListItem(props) {
 			<ListItemText
 				classes={{
 					root: 'min-w-px px-16',
+					primary: 'font-medium',
 					secondary: 'truncate'
 				}}
 				primary={props.contact.name}
@@ -53,7 +54,7 @@ function ContactListItem(props) {
 			{props.contact.chatId && (
 				<div className="flex flex-col justify-center items-end">
 					{props.contact.lastMessageTime && (
-						<Typography className="whitespace-nowrap mb-8">
+						<Typography className="whitespace-nowrap mb-8 font-semibold text-12" color="textSecondary">
 							{moment(props.contact.lastMessageTime).format('ll')}
 						</Typography>
 					)}
@@ -61,7 +62,7 @@ function ContactListItem(props) {
 						<div
 							className={clsx(
 								classes.unreadBadge,
-								'flex items-center justify-center min-w-24 h-24 rounded-full text-14 text-center'
+								'flex items-center justify-center min-w-24 h-24 rounded-full text-12 text-center'
 							)}
 						>
 							{props.contact.unread}

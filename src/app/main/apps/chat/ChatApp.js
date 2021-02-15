@@ -81,8 +81,6 @@ const useStyles = makeStyles(theme => ({
 		flexDirection: 'row',
 		backgroundImage: 'url("/assets/images/patterns/rain-grey.png")',
 		backgroundColor: theme.palette.background.paper,
-		boxShadow: theme.shadows[1],
-		borderRadius: 8,
 		minHeight: 0,
 		overflow: 'hidden'
 	},
@@ -132,7 +130,7 @@ function ChatApp(props) {
 			<div className={classes.topBg} />
 
 			<div className={clsx(classes.contentCardWrapper, 'container')}>
-				<div className={classes.contentCard}>
+				<div className={clsx(classes.contentCard, 'shadow rounded-20')}>
 					<Hidden mdUp>
 						<SwipeableDrawer
 							className="h-full absolute z-20"
@@ -199,7 +197,7 @@ function ChatApp(props) {
 						{!chat ? (
 							<div className="flex flex-col flex-1 items-center justify-center p-24">
 								<Paper className="rounded-full p-48 md:p-64 shadow-xl">
-									<Icon className="block text-64 md:text-128" color="secondary">
+									<Icon className="block text-48 md:text-64" color="secondary">
 										chat
 									</Icon>
 								</Paper>
@@ -223,7 +221,7 @@ function ChatApp(props) {
 							</div>
 						) : (
 							<>
-								<AppBar className="w-full shadow-md" position="static">
+								<AppBar className="w-full" elevation={0} position="static">
 									<Toolbar className="px-16">
 										<IconButton
 											color="inherit"
@@ -251,7 +249,7 @@ function ChatApp(props) {
 														: ''}
 												</Avatar>
 											</div>
-											<Typography color="inherit" className="text-18 font-600 px-4">
+											<Typography color="inherit" className="text-18 font-bold px-4">
 												{selectedContact.name}
 											</Typography>
 										</div>

@@ -50,7 +50,7 @@ function Login2Page() {
 				</FuseAnimate>
 
 				<FuseAnimate animation="transition.slideUpIn" delay={400}>
-					<Typography variant="h3" color="inherit" className="font-800 leading-tight">
+					<Typography variant="h3" color="inherit" className="font-bold leading-tight">
 						Welcome to the <br /> FUSE React!
 					</Typography>
 				</FuseAnimate>
@@ -65,7 +65,7 @@ function Login2Page() {
 			<FuseAnimate animation={{ translateX: [0, '100%'] }}>
 				<Card className="w-full max-w-400 mx-auto m-16 md:m-0" square>
 					<CardContent className="flex flex-col items-center justify-center p-32 md:p-48 md:pt-128 ">
-						<Typography variant="h6" className="mb-32 font-bold text-20 sm:text-24">
+						<Typography variant="h6" className="mb-32 font-semibold text-20 sm:text-24">
 							Login to your account
 						</Typography>
 

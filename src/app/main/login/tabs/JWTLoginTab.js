@@ -119,17 +119,17 @@ function JWTLoginTab(props) {
 				<thead>
 					<tr>
 						<th>
-							<Typography className="font-600" color="textSecondary">
+							<Typography className="font-bold" color="textSecondary">
 								Role
 							</Typography>
 						</th>
 						<th>
-							<Typography className="font-600" color="textSecondary">
+							<Typography className="font-bold" color="textSecondary">
 								Username
 							</Typography>
 						</th>
 						<th>
-							<Typography className="font-600" color="textSecondary">
+							<Typography className="font-bold" color="textSecondary">
 								Password
 							</Typography>
 						</th>
@@ -138,7 +138,7 @@ function JWTLoginTab(props) {
 				<tbody>
 					<tr>
 						<td>
-							<Typography className="font-600" color="textSecondary">
+							<Typography className="font-bold" color="textSecondary">
 								Admin
 							</Typography>
 						</td>
@@ -151,7 +151,7 @@ function JWTLoginTab(props) {
 					</tr>
 					<tr>
 						<td>
-							<Typography className="font-600" color="textSecondary">
+							<Typography className="font-bold" color="textSecondary">
 								Staff
 							</Typography>
 						</td>

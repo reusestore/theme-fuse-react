@@ -2,6 +2,7 @@ const config = {
 	title: 'Layout 2 - Horizontal',
 	defaults: {
 		mode: 'fullwidth',
+		containerWidth: 1120,
 		scroll: 'content',
 		navbar: {
 			display: true
@@ -39,6 +40,10 @@ const config = {
 					value: 'container'
 				}
 			]
+		},
+		containerWidth: {
+			title: 'Container Width (px)',
+			type: 'number'
 		},
 		navbar: {
 			type: 'group',

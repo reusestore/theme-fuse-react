@@ -28,7 +28,9 @@ function CardAttachment(props) {
 					</div>
 					<div className="flex flex-auto flex-col justify-center items-start min-w-0 px-16">
 						<div className="flex items-center w-full">
-							<Typography className="text-16 font-600 truncate flex-shrink">{props.item.name}</Typography>
+							<Typography className="text-16 font-bold truncate flex-shrink">
+								{props.item.name}
+							</Typography>
 							{props.card.idAttachmentCover === props.item.id && (
 								<Icon className="text-orange-300 text-20 mx-4">star</Icon>
 							)}
@@ -83,10 +85,10 @@ function CardAttachment(props) {
 			return (
 				<div className="flex w-full sm:w-1/2 mb-16 px-16" key={props.item.id}>
 					<Paper className="min-w-128 w-128 h-128 flex items-center justify-center rounded-4 overflow-hidden shadow">
-						<Typography className="font-600">LINK</Typography>
+						<Typography className="font-bold">LINK</Typography>
 					</Paper>
 					<div className="flex flex-auto flex-col justify-center items-start min-w-0 px-16">
-						<Typography className="text-16 font-600 truncate w-full">{props.item.url}</Typography>
+						<Typography className="text-16 font-bold truncate w-full">{props.item.url}</Typography>
 						<Typography className="truncate w-full mb-12" color="textSecondary">
 							{props.item.time}
 						</Typography>

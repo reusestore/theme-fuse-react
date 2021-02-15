@@ -206,7 +206,7 @@ function FuseNavigationDoc(props) {
 				Use <code>setNavigation(navigation{'<Array>'})</code> action to set/change whole navigation.
 			</Typography>
 
-			<div className="border-1 rounded-8 p-16 my-16">
+			<div className="border-1 rounded-16 p-16 my-16">
 				<Typography className="text-16 mb-24" component="h2">
 					With the button below, whole navigation is changed.
 				</Typography>
@@ -295,7 +295,7 @@ function FuseNavigationDoc(props) {
 				Use <code>resetNavigation()</code> action to reset navigation to initial state.
 			</Typography>
 
-			<div className="border-1 rounded-8 p-16 my-16">
+			<div className="border-1 rounded-16 p-16 my-16">
 				<Typography className="text-16 mb-24" component="h2">
 					With the button below, navigation is returned to config defaults.
 				</Typography>
@@ -336,7 +336,7 @@ function FuseNavigationDoc(props) {
 				action to update a navigation item.
 			</Typography>
 
-			<div className="border-1 rounded-8 p-16 my-16">
+			<div className="border-1 rounded-16 p-16 my-16">
 				<Typography className="text-16 mb-24" component="h2">
 					With the button below, 'dashboards' title changes, and a badge is added.
 				</Typography>
@@ -391,7 +391,7 @@ function FuseNavigationDoc(props) {
 				Use <code>removeNavigationItem(id)</code> action to remove a navigation item.
 			</Typography>
 
-			<div className="border-1 rounded-8 p-16 my-16">
+			<div className="border-1 rounded-16 p-16 my-16">
 				<Typography className="text-16 mb-24" component="h2">
 					With the button below, "Calendar" navigation item is removed.
 				</Typography>
@@ -432,7 +432,7 @@ function FuseNavigationDoc(props) {
 				action to prepend a navigation item into the navigation array.
 			</Typography>
 
-			<div className="border-1 rounded-8 p-16 my-16">
+			<div className="border-1 rounded-16 p-16 my-16">
 				<Typography className="text-16 mb-24" component="h2">
 					With the button below, "fusetheme.com" navigation item is added at the top of the navigation array.
 				</Typography>
@@ -480,7 +480,7 @@ function FuseNavigationDoc(props) {
 				</FuseHighlight>
 			</div>
 
-			<div className="border-1 rounded-8 p-16 my-16">
+			<div className="border-1 rounded-16 p-16 my-16">
 				<Typography className="text-16 mb-24" component="h2">
 					With the button below, "fusetheme.com" navigation item is added into the top of the "Dashboards"
 					children.
@@ -543,7 +543,7 @@ function FuseNavigationDoc(props) {
 				action to append a navigation item into the navigation array.
 			</Typography>
 
-			<div className="border-1 rounded-8 p-16 my-16">
+			<div className="border-1 rounded-16 p-16 my-16">
 				<Typography className="text-16 mb-24" component="h2">
 					With the button below, "fusetheme.com" navigation item is added at the bottom of the array.
 				</Typography>
@@ -590,7 +590,7 @@ function FuseNavigationDoc(props) {
 				</FuseHighlight>
 			</div>
 
-			<div className="border-1 rounded-8 p-16 my-16">
+			<div className="border-1 rounded-16 p-16 my-16">
 				<Typography className="text-16 mb-24" component="h2">
 					With the button below, "fusetheme.com" navigation item is added into the bottom of the "Dashboards"
 					children.

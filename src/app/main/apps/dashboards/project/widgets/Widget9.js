@@ -17,9 +17,9 @@ function Widget9(props) {
 	}
 
 	return (
-		<Paper className="w-full rounded-8 shadow">
-			<div className="flex items-center justify-between px-16 h-64 border-b-1">
-				<Typography className="text-16">{widget.title}</Typography>
+		<Paper className="w-full rounded-20 shadow">
+			<div className="flex items-center justify-between p-20 h-64">
+				<Typography className="text-16 font-semibold">{widget.title}</Typography>
 
 				<Select
 					native
@@ -28,6 +28,7 @@ function Widget9(props) {
 					inputProps={{
 						name: 'currentRange'
 					}}
+					className="font-semibold opacity-75"
 					disableUnderline
 				>
 					{Object.entries(widget.ranges).map(([key, n]) => {
@@ -40,16 +41,18 @@ function Widget9(props) {
 				</Select>
 			</div>
 			{['weeklySpent', 'totalSpent', 'remaining'].map(id => (
-				<div className="flex flex-wrap items-center w-full p-8" key={id}>
+				<div className="flex flex-wrap items-center w-full p-12" key={id}>
 					<div className="flex flex-col w-full sm:w-1/2 p-8">
-						<Typography className="text-14" color="textSecondary">
+						<Typography className="text-13 font-bold" color="textSecondary">
 							{widget[id].title}
 						</Typography>
 						<div className="flex items-center">
-							<Typography className="text-32" color="textSecondary">
+							<Typography className="text-32 font-medium" color="textSecondary">
 								$
 							</Typography>
-							<Typography className="text-32 mx-4">{widget[id].count[currentRange]}</Typography>
+							<Typography className="text-32 mx-4 font-semibold">
+								{widget[id].count[currentRange]}
+							</Typography>
 						</div>
 					</div>
 					<div className="flex w-full sm:w-1/2 p-8">
@@ -77,15 +80,15 @@ function Widget9(props) {
 				</div>
 			))}
 			<Divider />
-			<div className="flex flex-col w-full px-16 py-24">
-				<Typography className="text-14" color="textSecondary">
+			<div className="flex flex-col w-full p-20">
+				<Typography className="text-13 font-bold" color="textSecondary">
 					{widget.totalBudget.title}
 				</Typography>
 				<div className="flex items-center">
-					<Typography className="text-32" color="textSecondary">
+					<Typography className="text-32 font-medium" color="textSecondary">
 						$
 					</Typography>
-					<Typography className="text-32 mx-4">{widget.totalBudget.count}</Typography>
+					<Typography className="text-32 mx-4 font-semibold">{widget.totalBudget.count}</Typography>
 				</div>
 			</div>
 		</Paper>

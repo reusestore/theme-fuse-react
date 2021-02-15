@@ -49,12 +49,48 @@ export const defaultThemeOptions = {
 	overrides: {
 		MuiButton: {
 			root: {
-				textTransform: 'none'
+				textTransform: 'none',
+				borderRadius: '18px'
+			},
+			sizeSmall: {
+				borderRadius: '15px'
+			},
+			sizeLarge: {
+				borderRadius: '21px'
+			},
+			contained: {
+				boxShadow: 'none',
+				'&:hover, &:focus': {
+					boxShadow: 'none'
+				}
 			}
 		},
 		MuiTab: {
 			root: {
 				textTransform: 'none'
+			}
+		},
+		// MuiMenu: {
+		// 	paper: {
+		// 		borderRadius: 12
+		// 	}
+		// },
+		MuiDialog: {
+			paper: {
+				borderRadius: 16
+			}
+		},
+		MuiPaper: {
+			rounded: {
+				borderRadius: 16
+			}
+		},
+		MuiFilledInput: {
+			root: {
+				borderRadius: 4,
+				'&:before, &:after': {
+					display: 'none'
+				}
 			}
 		}
 	}
@@ -144,6 +180,11 @@ export function mainThemeVariations(theme) {
 				background: {
 					paper: '#1E2125',
 					default: '#121212'
+				},
+				text: {
+					primary: 'rgb(255,255,255)',
+					secondary: 'rgb(229, 231, 235)',
+					disabled: 'rgb(156, 163, 175)'
 				}
 			}
 		}),
@@ -153,6 +194,11 @@ export function mainThemeVariations(theme) {
 				background: {
 					paper: '#FFFFFF',
 					default: '#F7F7F7'
+				},
+				text: {
+					primary: 'rgb(17, 24, 39)',
+					secondary: 'rgb(107, 114, 128)',
+					disabled: 'rgb(149, 156, 169)'
 				}
 			}
 		})

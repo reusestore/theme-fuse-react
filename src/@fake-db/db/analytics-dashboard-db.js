@@ -6,21 +6,21 @@ const analyticsDashboardAppDB = {
 			id: 'widget1',
 			chartType: 'line',
 			datasets: {
-				2015: [
+				2019: [
 					{
 						label: 'Sales',
 						data: [1.9, 3, 3.4, 2.2, 2.9, 3.9, 2.5, 3.8, 4.1, 3.8, 3.2, 2.9],
 						fill: 'start'
 					}
 				],
-				2016: [
+				2020: [
 					{
 						label: 'Sales',
 						data: [2.2, 2.9, 3.9, 2.5, 3.8, 3.2, 2.9, 1.9, 3, 3.4, 4.1, 3.8],
 						fill: 'start'
 					}
 				],
-				2017: [
+				2021: [
 					{
 						label: 'Sales',
 						data: [3.9, 2.5, 3.8, 4.1, 1.9, 3, 3.8, 3.2, 2.9, 3.4, 2.2, 2.9],
@@ -273,18 +273,6 @@ const analyticsDashboardAppDB = {
 			id: 'widget5',
 			chartType: 'line',
 			datasets: {
-				yesterday: [
-					{
-						label: 'Visitors',
-						data: [190, 300, 340, 220, 290, 390, 250, 380, 410, 380, 320, 290],
-						fill: 'start'
-					},
-					{
-						label: 'Page views',
-						data: [2200, 2900, 3900, 2500, 3800, 3200, 2900, 1900, 3000, 3400, 4100, 3800],
-						fill: 'start'
-					}
-				],
 				today: [
 					{
 						label: 'Visitors',
@@ -294,6 +282,18 @@ const analyticsDashboardAppDB = {
 					{
 						label: 'Page Views',
 						data: [3000, 3400, 4100, 3800, 2200, 3200, 2900, 1900, 2900, 3900, 2500, 3800],
+						fill: 'start'
+					}
+				],
+				yesterday: [
+					{
+						label: 'Visitors',
+						data: [190, 300, 340, 220, 290, 390, 250, 380, 410, 380, 320, 290],
+						fill: 'start'
+					},
+					{
+						label: 'Page views',
+						data: [2200, 2900, 3900, 2500, 3800, 3200, 2900, 1900, 3000, 3400, 4100, 3800],
 						fill: 'start'
 					}
 				]

@@ -67,7 +67,7 @@ function InstallationDoc() {
 				</ol>
 			</Typography>
 
-			<div className="my-24 px-12 py-8 border-1 border-red rounded-8">
+			<div className="my-24 px-12 py-8 border-1 border-red rounded-16">
 				<Typography className="mb-8 font-500 text-16 text-red">Important:</Typography>
 				<Typography className="" component="div">
 					If you are planning to use <b>yarn v2</b> and use it with{' '}

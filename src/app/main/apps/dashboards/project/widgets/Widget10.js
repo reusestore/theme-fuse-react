@@ -11,24 +11,26 @@ import { memo } from 'react';
 
 function Widget10(props) {
 	return (
-		<Paper className="w-full rounded-8 shadow">
-			<div className="flex items-center justify-between px-16 h-64 border-b-1">
-				<Typography className="text-16">{props.widget.title}</Typography>
+		<Paper className="w-full rounded-20 shadow overflow-hidden">
+			<div className="flex items-center justify-between p-20 h-64">
+				<Typography className="text-16 font-semibold">{props.widget.title}</Typography>
 			</div>
 			<div className="table-responsive">
 				<Table className="w-full min-w-full">
 					<TableHead>
 						<TableRow>
 							{props.widget.table.columns.map(column => (
-								<TableCell key={column.id} className="whitespace-nowrap">
-									{column.title}
+								<TableCell key={column.id}>
+									<Typography color="textSecondary" className="font-bold whitespace-nowrap">
+										{column.title}
+									</Typography>
 								</TableCell>
 							))}
 						</TableRow>
 					</TableHead>
 					<TableBody>
 						{props.widget.table.rows.map(row => (
-							<TableRow key={row.id}>
+							<TableRow key={row.id} className="h-64">
 								{row.cells.map(cell => {
 									switch (cell.id) {
 										case 'budget_type': {

@@ -98,14 +98,14 @@ function ContactDialog(props) {
 	return (
 		<Dialog
 			classes={{
-				paper: 'm-24 rounded-8'
+				paper: 'm-24'
 			}}
 			{...contactDialog.props}
 			onClose={closeComposeDialog}
 			fullWidth
 			maxWidth="xs"
 		>
-			<AppBar position="static" className="shadow-md">
+			<AppBar position="static" elevation={0}>
 				<Toolbar className="flex w-full">
 					<Typography variant="subtitle1" color="inherit">
 						{contactDialog.type === 'new' ? 'New Contact' : 'Edit Contact'}
@@ -290,7 +290,7 @@ function ContactDialog(props) {
 				</DialogContent>
 
 				{contactDialog.type === 'new' ? (
-					<DialogActions className="justify-between p-8">
+					<DialogActions className="justify-between p-4 pb-16">
 						<div className="px-16">
 							<Button
 								variant="contained"
@@ -304,7 +304,7 @@ function ContactDialog(props) {
 						</div>
 					</DialogActions>
 				) : (
-					<DialogActions className="justify-between p-8">
+					<DialogActions className="justify-between p-4 pb-16">
 						<div className="px-16">
 							<Button
 								variant="contained"

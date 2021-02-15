@@ -1,46 +1,46 @@
-import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
 import Paper from '@material-ui/core/Paper';
 import { useTheme } from '@material-ui/core/styles';
+import Tab from '@material-ui/core/Tab';
+import Tabs from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
 import _ from '@lodash';
 import { memo, useState } from 'react';
 import { Bar, Line } from 'react-chartjs-2';
 
 function Widget5(props) {
-	const [currentRange, setCurrentRange] = useState('TW');
 	const theme = useTheme();
-
+	const [tabValue, setTabValue] = useState(0);
 	const widget = _.merge({}, props.widget);
+	const currentRange = Object.keys(widget.ranges)[tabValue];
 
 	_.setWith(widget, 'widget.mainChart.options.scales.xAxes[0].ticks.fontColor', theme.palette.text.secondary);
 	_.setWith(widget, 'widget.mainChart.options.scales.yAxes[0].ticks.fontColor', theme.palette.text.secondary);
 
-	function handleChangeRange(range) {
-		setCurrentRange(range);
-	}
-
 	return (
-		<Paper className="w-full rounded-8 shadow">
-			<div className="flex items-center justify-between px-16 py-16 border-b-1">
-				<Typography className="text-16">{widget.title}</Typography>
-				<div className="items-center">
-					{Object.entries(widget.ranges).map(([key, n]) => {
-						return (
-							<Button
-								key={key}
-								className="shadow-none px-16"
-								onClick={() => handleChangeRange(key)}
-								color={currentRange === key ? 'secondary' : 'default'}
-								variant={currentRange === key ? 'contained' : 'text'}
-							>
-								{n}
-							</Button>
-						);
-					})}
-				</div>
+		<Paper className="w-full rounded-20 shadow">
+			<div className="flex items-center justify-between p-20">
+				<Typography className="text-16 font-semibold">{widget.title}</Typography>
+				<Tabs
+					value={tabValue}
+					onChange={(ev, value) => setTabValue(value)}
+					indicatorColor="secondary"
+					textColor="inherit"
+					variant="scrollable"
+					scrollButtons="off"
+					className="-mx-4 min-h-40"
+					classes={{ indicator: 'flex justify-center bg-transparent w-full h-full' }}
+					TabIndicatorProps={{
+						children: <Divider className="w-full h-full rounded-full opacity-50" />
+					}}
+				>
+					{Object.entries(widget.ranges).map(([key, n]) => (
+						<Tab className="text-14 font-bold min-h-40 min-w-64 mx-4" disableRipple key={key} label={n} />
+					))}
+				</Tabs>
 			</div>
 			<div className="flex flex-row flex-wrap">
-				<div className="w-full md:w-1/2 p-8 min-h-420 h-420">
+				<div className="w-full md:w-1/2 p-16 min-h-420 h-420">
 					<Bar
 						data={{
 							labels: widget.mainChart[currentRange].labels,
@@ -64,10 +64,10 @@ function Widget5(props) {
 					{Object.entries(widget.supporting).map(([key, item]) => {
 						return (
 							<div key={key} className="w-full sm:w-1/2 p-12">
-								<Typography className="text-15 whitespace-nowrap" color="textSecondary">
+								<Typography className="text-12 font-bold whitespace-nowrap" color="textSecondary">
 									{item.label}
 								</Typography>
-								<Typography className="text-32">{item.count[currentRange]}</Typography>
+								<Typography className="text-32 font-bold">{item.count[currentRange]}</Typography>
 								<div className="h-64 w-full">
 									<Line
 										data={{

@@ -49,7 +49,7 @@ function NotesSidebarContent(props) {
 	return (
 		<div className="p-0 lg:p-24 lg:ltr:pr-4 lg:rtl:pl-4">
 			<FuseAnimate animation="transition.slideLeftIn" delay={200}>
-				<Paper className={clsx(classes.paper, 'rounded-0 shadow-none lg:rounded-8 lg:shadow')}>
+				<Paper className={clsx(classes.paper, 'rounded-0 shadow-none lg:rounded-20 lg:shadow pt-12')}>
 					<List>
 						<ListItem
 							button

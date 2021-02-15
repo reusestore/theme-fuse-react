@@ -1,10 +1,27 @@
 import { fuseDark, skyBlue } from '@fuse/colors';
 import { lightBlue, red } from '@material-ui/core/colors';
 
+const lightText = {
+	primary: 'rgb(17, 24, 39)',
+	secondary: 'rgb(107, 114, 128)',
+	disabled: 'rgb(149, 156, 169)'
+};
+
+const darkText = {
+	primary: 'rgb(255,255,255)',
+	secondary: 'rgb(229, 231, 235)',
+	disabled: 'rgb(156, 163, 175)'
+};
+
 const themesConfig = {
 	default: {
 		palette: {
 			type: 'light',
+			text: lightText,
+			common: {
+				black: 'rgb(17, 24, 39)',
+				white: 'rgb(255, 255, 255)'
+			},
 			primary: fuseDark,
 			secondary: {
 				light: skyBlue[100],
@@ -24,6 +41,7 @@ const themesConfig = {
 	defaultDark: {
 		palette: {
 			type: 'dark',
+			text: darkText,
 			primary: fuseDark,
 			secondary: {
 				light: skyBlue[100],
@@ -43,6 +61,7 @@ const themesConfig = {
 	legacy: {
 		palette: {
 			type: 'light',
+			text: lightText,
 			primary: fuseDark,
 			secondary: {
 				light: lightBlue[400],
@@ -62,6 +81,7 @@ const themesConfig = {
 	light1: {
 		palette: {
 			type: 'light',
+			text: lightText,
 			primary: {
 				light: '#b3d1d1',
 				main: '#006565',
@@ -86,6 +106,7 @@ const themesConfig = {
 	light2: {
 		palette: {
 			type: 'light',
+			text: lightText,
 			primary: {
 				light: '#fdf3da',
 				main: '#f8d683',
@@ -111,6 +132,7 @@ const themesConfig = {
 	light3: {
 		palette: {
 			type: 'light',
+			text: lightText,
 			primary: {
 				light: '#D9C8CE',
 				main: '#80485B',
@@ -135,6 +157,7 @@ const themesConfig = {
 	light4: {
 		palette: {
 			type: 'light',
+			text: lightText,
 			primary: {
 				light: '#CDCCE8',
 				main: '#5854B1',
@@ -159,6 +182,7 @@ const themesConfig = {
 	light5: {
 		palette: {
 			type: 'light',
+			text: lightText,
 			primary: {
 				light: '#C2C7F1',
 				main: '#3543D0',
@@ -183,6 +207,7 @@ const themesConfig = {
 	light6: {
 		palette: {
 			type: 'light',
+			text: lightText,
 			primary: {
 				light: '#BBE2DA',
 				main: '#1B9E85',
@@ -207,6 +232,7 @@ const themesConfig = {
 	light7: {
 		palette: {
 			type: 'light',
+			text: lightText,
 			primary: {
 				light: '#BFC4E6',
 				main: '#2A3BAB',
@@ -231,6 +257,7 @@ const themesConfig = {
 	light8: {
 		palette: {
 			type: 'light',
+			text: lightText,
 			primary: {
 				light: '#D2EFF2',
 				main: '#68C8D5',
@@ -255,6 +282,7 @@ const themesConfig = {
 	light9: {
 		palette: {
 			type: 'light',
+			text: lightText,
 			primary: {
 				light: '#D3C0CD',
 				main: '#6B2C57',
@@ -279,6 +307,7 @@ const themesConfig = {
 	light10: {
 		palette: {
 			type: 'light',
+			text: lightText,
 			primary: {
 				light: '#C6C9CD',
 				main: '#404B57',
@@ -303,6 +332,7 @@ const themesConfig = {
 	light11: {
 		palette: {
 			type: 'light',
+			text: lightText,
 			primary: {
 				light: '#C4C4C4',
 				main: '#3A3A3A',
@@ -331,6 +361,7 @@ const themesConfig = {
 	light12: {
 		palette: {
 			type: 'light',
+			text: lightText,
 			primary: {
 				light: '#FFFAF6',
 				main: '#FFEDE2',
@@ -355,6 +386,7 @@ const themesConfig = {
 	dark1: {
 		palette: {
 			type: 'dark',
+			text: darkText,
 			primary: {
 				light: '#C2C2C3',
 				main: '#323338',
@@ -379,6 +411,7 @@ const themesConfig = {
 	dark2: {
 		palette: {
 			type: 'dark',
+			text: darkText,
 			primary: {
 				light: '#C9CACE',
 				main: '#4B4F5A',
@@ -407,6 +440,7 @@ const themesConfig = {
 	dark3: {
 		palette: {
 			type: 'dark',
+			text: darkText,
 			primary: {
 				light: '#C2C8D2',
 				main: '#354968',
@@ -431,6 +465,7 @@ const themesConfig = {
 	dark4: {
 		palette: {
 			type: 'dark',
+			text: darkText,
 			primary: {
 				light: '#CECADF',
 				main: '#5A4E93',
@@ -455,6 +490,7 @@ const themesConfig = {
 	dark5: {
 		palette: {
 			type: 'dark',
+			text: darkText,
 			primary: {
 				light: '#CCD7E2',
 				main: '#56789D',
@@ -479,6 +515,7 @@ const themesConfig = {
 	dark6: {
 		palette: {
 			type: 'dark',
+			text: darkText,
 			primary: {
 				light: '#FFC7CE',
 				main: '#FF445D',
@@ -503,6 +540,7 @@ const themesConfig = {
 	dark7: {
 		palette: {
 			type: 'dark',
+			text: darkText,
 			primary: {
 				light: 'FFECC5',
 				main: '#FEBE3E',
@@ -527,6 +565,7 @@ const themesConfig = {
 	dark8: {
 		palette: {
 			type: 'dark',
+			text: darkText,
 			primary: {
 				light: '#BEBFC8',
 				main: '#252949',
@@ -551,6 +590,7 @@ const themesConfig = {
 	dark9: {
 		palette: {
 			type: 'dark',
+			text: darkText,
 			primary: {
 				light: '#BCC8CD',
 				main: '#204657',
@@ -575,6 +615,7 @@ const themesConfig = {
 	dark10: {
 		palette: {
 			type: 'dark',
+			text: darkText,
 			primary: {
 				light: '#C3C2D2',
 				main: '#36336A',
@@ -599,6 +640,7 @@ const themesConfig = {
 	dark11: {
 		palette: {
 			type: 'dark',
+			text: darkText,
 			primary: {
 				light: '#BFB7BF',
 				main: '#2A0F29',
@@ -623,6 +665,7 @@ const themesConfig = {
 	dark12: {
 		palette: {
 			type: 'dark',
+			text: darkText,
 			primary: {
 				light: '#CCC3C8',
 				main: '#543847',

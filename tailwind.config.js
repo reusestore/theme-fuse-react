@@ -1168,7 +1168,7 @@ module.exports = {
 		borderCollapse: ['responsive'],
 		borderColor: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
 		borderOpacity: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
-		borderRadius: ['responsive'],
+		borderRadius: ['responsive', 'direction'],
 		borderStyle: ['responsive'],
 		borderWidth: ['responsive'],
 		boxShadow: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],

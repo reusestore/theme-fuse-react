@@ -125,28 +125,28 @@ function MailDetails(props) {
 
 							<div className="flex flex-wrap -mx-8">
 								{mail.attachments.map(attachment => (
-									<div className="w-192 px-8 pb-16" key={attachment.fileName}>
+									<div className="w-128 px-8 pb-16" key={attachment.fileName}>
 										<img
-											className="w-full rounded-4"
+											className="w-full rounded-16"
 											src={attachment.preview}
 											alt={attachment.fileName}
 										/>
-										<div className="flex flex-col">
+										<div className="flex flex-col pt-8">
 											<Typography
 												color="primary"
-												className="underline cursor-pointer"
+												className="hover:underline cursor-pointer"
 												onClick={event => event.preventDefault()}
 											>
 												View
 											</Typography>
 											<Typography
 												color="primary"
-												className="underline cursor-pointer"
+												className="hover:underline cursor-pointer"
 												onClick={event => event.preventDefault()}
 											>
 												Download
 											</Typography>
-											<Typography>({attachment.size})</Typography>
+											<Typography className="text-12">({attachment.size})</Typography>
 										</div>
 									</div>
 								))}

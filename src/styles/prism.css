@@ -32,7 +32,7 @@ pre[class*="language-"], :not(pre) > code[class*="language-"] {
 
 pre[class*="language-"] {
     padding: 12px;
-    border-radius: 6px;
+    border-radius: 16px;
 }
 
 :not(pre) > code[class*="language-"] {

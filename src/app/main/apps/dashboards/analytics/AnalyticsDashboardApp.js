@@ -36,7 +36,7 @@ function AnalyticsDashboardApp() {
 				<div className="flex flex-col md:flex-row sm:p-8 container">
 					<div className="flex flex-1 flex-col min-w-0">
 						<FuseAnimate delay={600}>
-							<Typography className="p-16 pb-8 text-18 font-300">
+							<Typography className="p-16 pb-8 text-18 font-medium" color="textSecondary">
 								How are your active users trending over time?
 							</Typography>
 						</FuseAnimate>
@@ -56,17 +56,19 @@ function AnalyticsDashboardApp() {
 						</div>
 
 						<FuseAnimate delay={600}>
-							<Typography className="px-16 pb-8 text-18 font-300">
+							<Typography className="px-16 pb-8 text-18 font-medium" color="textSecondary">
 								How many pages your users visit?
 							</Typography>
 						</FuseAnimate>
 
-						<div className="widget w-full p-16 pb-32">
+						<div className="widget w-full p-16 pb-48">
 							<Widget5 data={widgets.widget5} />
 						</div>
 
 						<FuseAnimate delay={600}>
-							<Typography className="px-16 pb-8 text-18 font-300">Where are your users?</Typography>
+							<Typography className="px-16 pb-8 text-18 font-medium" color="textSecondary">
+								Where are your users?
+							</Typography>
 						</FuseAnimate>
 
 						<div className="widget w-full p-16 pb-32">
@@ -77,7 +79,7 @@ function AnalyticsDashboardApp() {
 					<div className="flex flex-wrap w-full md:w-320 pt-16">
 						<div className="mb-32 w-full sm:w-1/2 md:w-full">
 							<FuseAnimate delay={600}>
-								<Typography className="px-16 pb-8 text-18 font-300">
+								<Typography className="px-16 pb-8 text-18 font-medium" color="textSecondary">
 									What are your top devices?
 								</Typography>
 							</FuseAnimate>
@@ -89,7 +91,9 @@ function AnalyticsDashboardApp() {
 
 						<div className="mb-32 w-full sm:w-1/2 md:w-full">
 							<FuseAnimate delay={600}>
-								<div className="px-16 pb-8 text-18 font-300">How are your sales?</div>
+								<Typography className="px-16 pb-8 text-18 font-medium" color="textSecondary">
+									How are your sales?
+								</Typography>
 							</FuseAnimate>
 
 							<div className="widget w-full p-16">
@@ -99,7 +103,7 @@ function AnalyticsDashboardApp() {
 
 						<div className="mb-32 w-full sm:w-1/2 md:w-full">
 							<FuseAnimate delay={600}>
-								<Typography className="px-16 pb-8 text-18 font-300 lg:pt-0">
+								<Typography className="px-16 pb-8 text-18 font-medium lg:pt-0" color="textSecondary">
 									What are your top campaigns?
 								</Typography>
 							</FuseAnimate>

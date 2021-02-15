@@ -97,11 +97,11 @@ const changelogData = [
 		],
 		notes: (
 			<>
-				<Typography className="text-14 p-12 border-2 rounded-8 w-full max-w-lg mt-16" component="div">
+				<Typography className="text-14 p-12 border-2 rounded-16 w-full max-w-lg mt-16" component="div">
 					Migrating to the new major version (v5.0.0) can be difficult because of redux-toolkit integration.
 				</Typography>
 				<Typography
-					className="text-14 p-12 border-2 rounded-8 w-full max-w-lg mt-16 leading-loose"
+					className="text-14 p-12 border-2 rounded-16 w-full max-w-lg mt-16 leading-loose"
 					component="div"
 				>
 					Some of the benefits of the redux-toolkit,
@@ -433,7 +433,7 @@ const changelogData = [
 			</span>
 		],
 		notes: (
-			<Typography className="text-14 p-12 border-2 rounded-8 w-full max-w-lg mt-16" component="div">
+			<Typography className="text-14 p-12 border-2 rounded-16 w-full max-w-lg mt-16" component="div">
 				Migrating to the new major version (<b>v3.0.0</b>) can be difficult because of the hooks support and
 				major dependency releases.
 			</Typography>
@@ -546,7 +546,7 @@ const changelogData = [
 			'Theme configuration state moved from FuseTheme to redux store (fuse.settings).'
 		],
 		notes: (
-			<Typography className="text-14 p-12 border-2 rounded-8 w-full max-w-lg mt-16" component="div">
+			<Typography className="text-14 p-12 border-2 rounded-16 w-full max-w-lg mt-16" component="div">
 				Migrating to the new major version (v2.0.0) can be difficult because of the project structure and layout
 				system changes.
 			</Typography>
@@ -847,12 +847,12 @@ const changelogData = [
 function ChangelogDoc() {
 	return (
 		<>
-			<Typography variant="h4" className="mb-24">
+			<Typography variant="h4" className="mb-24 font-medium">
 				Changelog
 			</Typography>
 
 			{changelogData.map(item => (
-				<ChangelogCard className="mb-24 rounded-8" key={item.version} {...item} />
+				<ChangelogCard className="mb-24" key={item.version} {...item} />
 			))}
 		</>
 	);

@@ -1,4 +1,4 @@
-import { Card } from '@material-ui/core';
+import Card from '@material-ui/core/Card';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
@@ -52,7 +52,7 @@ function NotificationCard(props) {
 	return (
 		<Card
 			className={clsx(
-				'flex items-center relative w-full rounded-12 p-20 min-h-64 shadow',
+				'flex items-center relative w-full rounded-16 p-20 min-h-64 shadow',
 				variant === 'success' && 'bg-green-600 text-white',
 				variant === 'info' && 'bg-blue-700 text-white',
 				variant === 'error' && 'bg-red-600 text-white',

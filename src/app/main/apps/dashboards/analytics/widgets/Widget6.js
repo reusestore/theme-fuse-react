@@ -13,7 +13,7 @@ function Marker(props) {
 
 function Widget6(props) {
 	return (
-		<Card className="w-full h-512 rounded-8 shadow">
+		<Card className="w-full h-512 rounded-20 shadow">
 			<GoogleMap
 				bootstrapURLKeys={{
 					key: process.env.REACT_APP_MAP_KEY

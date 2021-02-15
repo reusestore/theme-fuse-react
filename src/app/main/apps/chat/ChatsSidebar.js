@@ -93,7 +93,7 @@ function ChatsSidebar(props) {
 
 	return (
 		<div className="flex flex-col flex-auto h-full">
-			<AppBar position="static" color="default" className="shadow-md">
+			<AppBar position="static" color="default" elevation={0}>
 				<Toolbar className="flex justify-between items-center px-4">
 					{user && (
 						<div
@@ -158,7 +158,7 @@ function ChatsSidebar(props) {
 				{useMemo(
 					() => (
 						<Toolbar className="px-16">
-							<Paper className="flex p-4 items-center w-full px-8 py-4 rounded-8 shadow">
+							<Paper className="flex p-4 items-center w-full px-8 py-4 shadow">
 								<Icon color="action">search</Icon>
 
 								<Input

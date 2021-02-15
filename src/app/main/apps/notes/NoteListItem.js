@@ -23,11 +23,11 @@ function NoteListItem(props) {
 				)}
 
 				{props.note.title && props.note.title !== '' && (
-					<Typography className="p-16 pb-8 text-14 font-bold">{props.note.title}</Typography>
+					<Typography className="px-20 my-16 text-14 font-bold">{props.note.title}</Typography>
 				)}
 
 				{props.note.description && props.note.description !== '' && (
-					<Typography className="py-8 px-16" component="div">
+					<Typography className="px-20 my-16 " component="div">
 						<div
 							className={clsx('w-full break-words', props.variateDescSize ? 'font-200' : 'text-14')}
 							ref={el => {
@@ -42,7 +42,7 @@ function NoteListItem(props) {
 				)}
 
 				{props.note.checklist && props.note.checklist.length > 0 && (
-					<ul className="py-8 px-16 flex flex-wrap list-reset">
+					<ul className="px-20 my-16 flex flex-wrap list-reset">
 						{props.note.checklist.map(item => (
 							<li key={item.id} className="flex items-center w-full">
 								<Icon color="action" className="text-16">
@@ -60,7 +60,7 @@ function NoteListItem(props) {
 				)}
 
 				{(props.note.labels.length > 0 || props.note.reminder) && (
-					<div className="py-8 px-16 flex flex-wrap w-full -mx-2">
+					<div className="px-20 my-16 flex flex-wrap w-full -mx-2">
 						{props.note.reminder && (
 							<NoteReminderLabel className="mt-4 mx-2 max-w-full" date={props.note.reminder} />
 						)}

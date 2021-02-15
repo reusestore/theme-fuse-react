@@ -65,7 +65,7 @@ function Register3Page() {
 			)}
 		>
 			<FuseAnimate animation="transition.expandIn">
-				<div className="flex w-full max-w-400 md:max-w-3xl rounded-12 shadow-2xl overflow-hidden">
+				<div className="flex w-full max-w-400 md:max-w-3xl rounded-20 shadow-2xl overflow-hidden">
 					<Card
 						className={clsx(
 							classes.leftSection,
@@ -79,7 +79,7 @@ function Register3Page() {
 									<img className="logo-icon w-48" src="assets/images/logos/fuse.svg" alt="logo" />
 									<div className="border-l-1 mr-4 w-1 h-40" />
 									<div>
-										<Typography className="text-24 font-800 logo-text" color="inherit">
+										<Typography className="text-24 font-bold logo-text" color="inherit">
 											FUSE
 										</Typography>
 										<Typography
@@ -149,7 +149,7 @@ function Register3Page() {
 
 								<FormControl className="items-center">
 									<FormControlLabel
-										classes={{ label: 'text-13 font-600' }}
+										classes={{ label: 'text-13 font-bold' }}
 										control={
 											<Checkbox
 												name="acceptTermsConditions"
@@ -187,7 +187,7 @@ function Register3Page() {
 					>
 						<div className="max-w-320">
 							<FuseAnimate animation="transition.slideUpIn" delay={400}>
-								<Typography variant="h3" color="inherit" className="font-800 leading-tight">
+								<Typography variant="h3" color="inherit" className="font-bold leading-tight">
 									Welcome <br />
 									to the <br /> FUSE React!
 								</Typography>

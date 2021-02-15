@@ -32,7 +32,7 @@ function UserMenu(props) {
 					<Typography component="span" className="font-bold flex">
 						{user.data.displayName}
 					</Typography>
-					<Typography className="text-11 capitalize" color="textSecondary">
+					<Typography className="text-11 font-semibold capitalize" color="textSecondary">
 						{user.role.toString()}
 						{(!user.role || (Array.isArray(user.role) && user.role.length === 0)) && 'Guest'}
 					</Typography>

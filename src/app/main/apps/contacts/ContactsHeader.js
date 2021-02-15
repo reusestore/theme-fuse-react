@@ -34,7 +34,7 @@ function ContactsHeader(props) {
 						<Icon className="text-32">account_box</Icon>
 					</FuseAnimate>
 					<FuseAnimate animation="transition.slideLeftIn" delay={300}>
-						<Typography variant="h6" className="mx-12 hidden sm:flex">
+						<Typography variant="h6" className="font-semibold mx-12 hidden sm:flex">
 							Contacts
 						</Typography>
 					</FuseAnimate>
@@ -44,7 +44,7 @@ function ContactsHeader(props) {
 			<div className="flex flex-1 items-center justify-center px-8 sm:px-12">
 				<ThemeProvider theme={mainTheme}>
 					<FuseAnimate animation="transition.slideLeftIn" delay={300}>
-						<Paper className="flex p-4 items-center w-full max-w-512 h-48 px-8 py-4 rounded-8 shadow">
+						<Paper className="flex p-4 items-center w-full max-w-512 h-48 px-16 py-4 shadow">
 							<Icon color="action">search</Icon>
 
 							<Input

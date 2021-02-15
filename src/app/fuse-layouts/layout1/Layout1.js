@@ -30,6 +30,13 @@ const useStyles = makeStyles(theme => ({
 			margin: '0 auto',
 			boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'
 		},
+		'&.container': {
+			'& .container': {
+				maxWidth: props => `${props.config.containerWidth}px`,
+				width: '100%',
+				margin: '0 auto'
+			}
+		},
 		'&.scroll-body': {
 			'& $wrapper': {
 				height: 'auto',
@@ -84,7 +91,7 @@ function Layout1(props) {
 	const config = useSelector(({ fuse }) => fuse.settings.current.layout.config);
 
 	const appContext = useContext(AppContext);
-	const classes = useStyles(props);
+	const classes = useStyles({ ...props, config });
 	const { routes } = appContext;
 
 	// console.warn('FuseLayout:: rendered');

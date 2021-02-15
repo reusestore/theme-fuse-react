@@ -60,15 +60,18 @@ function KnowledgeBasePage() {
 					'flex flex-col items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-360'
 				)}
 			>
-				<FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
-					<Typography color="inherit" className="text-36 sm:text-56 font-light">
-						How can we help?
+				<FuseAnimate duration={400} delay={600}>
+					<Typography
+						variant="subtitle1"
+						color="inherit"
+						className="font-semibold opacity-75 mt-16 mx-auto max-w-512"
+					>
+						Welcome to our knowledge base
 					</Typography>
 				</FuseAnimate>
-
-				<FuseAnimate duration={400} delay={600}>
-					<Typography variant="subtitle1" color="inherit" className="opacity-75 mt-16 mx-auto max-w-512">
-						Welcome to our knowledge base
+				<FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
+					<Typography color="inherit" className="text-36 sm:text-56 font-medium">
+						How can we help?
 					</Typography>
 				</FuseAnimate>
 			</div>
@@ -84,9 +87,9 @@ function KnowledgeBasePage() {
 						>
 							{data.map(category => (
 								<div className="max-w-md w-full max-w-512 pb-24 md:w-1/2 md:p-16" key={category.id}>
-									<Card className="rounded-8 shadow">
+									<Card className="rounded-16 shadow">
 										<List component="nav" className="p-0">
-											<Typography className="font-bold pl-32 py-16 text-16">
+											<Typography className="font-semibold pl-32 py-16 text-16">
 												{category.title}
 											</Typography>
 
@@ -104,10 +107,11 @@ function KnowledgeBasePage() {
 												</ListItem>
 											))}
 										</List>
-										<Button
-											className="pl-32 w-full justify-start my-8 font-500"
-											color="secondary"
-										>{`See all articles (${category.articlesCount})`}</Button>
+										<div className="w-full p-16 pl-32">
+											<Button className="" color="primary" variant="outlined">
+												{`See all articles (${category.articlesCount})`}
+											</Button>
+										</div>
 									</Card>
 								</div>
 							))}

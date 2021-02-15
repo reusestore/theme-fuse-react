@@ -45,7 +45,7 @@ function ProfilePage() {
 						</FuseAnimate>
 						<FuseAnimate animation="transition.slideLeftIn" delay={300}>
 							<Typography
-								className="md:mx-24 text-24 md:text-32 my-8 md:my-0"
+								className="md:mx-24 text-24 md:text-32 my-8 md:my-0 font-semibold"
 								variant="h4"
 								color="inherit"
 							>

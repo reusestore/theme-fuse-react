@@ -11,7 +11,7 @@ const projectDashboardAppDB = {
 			},
 			currentRange: 'DT',
 			data: {
-				label: 'DUE TASKS',
+				label: 'Due Tasks',
 				count: {
 					DY: 21,
 					DT: 25,
@@ -32,7 +32,7 @@ const projectDashboardAppDB = {
 			id: 'widget2',
 			title: 'Overdue',
 			data: {
-				label: 'TASKS',
+				label: 'Tasks',
 				count: 4,
 				extra: {
 					label: "Yesterday's overdue",
@@ -45,7 +45,7 @@ const projectDashboardAppDB = {
 			id: 'widget3',
 			title: 'Issues',
 			data: {
-				label: 'OPEN',
+				label: 'Open',
 				count: 32,
 				extra: {
 					label: 'Closed today',
@@ -58,7 +58,7 @@ const projectDashboardAppDB = {
 			id: 'widget4',
 			title: 'Features',
 			data: {
-				label: 'PROPOSALS',
+				label: 'Proposals',
 				count: 42,
 				extra: {
 					label: 'Implemented',

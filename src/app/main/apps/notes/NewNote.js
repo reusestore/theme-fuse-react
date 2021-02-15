@@ -58,7 +58,7 @@ function NewNote(props) {
 		<Paper
 			className={clsx(
 				classes.button,
-				'flex items-center w-full max-w-512 mt-8 mb-16 min-h-48 rounded-8 shadow flex-shrink-0'
+				'flex items-center w-full max-w-512 mt-8 mb-16 min-h-48 shadow flex-shrink-0'
 			)}
 		>
 			{formOpen ? (

@@ -10,7 +10,7 @@ function LabelsDialog(props) {
 	return (
 		<Dialog
 			classes={{
-				paper: 'w-full max-w-320 p-16 m-24 rounded-8'
+				paper: 'w-full max-w-320 p-16 m-24'
 			}}
 			onClose={ev => dispatch(closeLabelsDialog())}
 			open={labelsDialogOpen}

@@ -1,5 +1,7 @@
+import { useDebounce, useForm } from '@fuse/hooks';
 import FuseLayoutConfigs from '@fuse/layouts/FuseLayoutConfigs';
 import _ from '@lodash';
+import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
@@ -11,7 +13,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
-import { memo } from 'react';
+import { useCallback, useMemo, memo, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUserSettings } from 'app/auth/store/userSlice';
 import { setDefaultSettings } from 'app/store/fuse/settingsSlice';
@@ -51,30 +53,35 @@ function FuseSettings(props) {
 	const user = useSelector(({ auth }) => auth.user);
 	const themes = useSelector(({ fuse }) => fuse.settings.themes);
 	const settings = useSelector(({ fuse }) => fuse.settings.current);
+	const { form, handleChange, setInForm, setForm } = useForm(settings);
+	const { form: formConfigs } = FuseLayoutConfigs[form.layout.style];
 
 	const classes = useStyles(props);
 
-	function handleChange(event) {
-		const newSettings = _.set(
-			_.merge({}, settings),
-			event.target.name,
-			event.target.type === 'checkbox' ? event.target.checked : event.target.value
-		);
-
-		/**
-		 * If layout style changes,
-		 * Reset Layout Configuration
-		 */
-		if (event.target.name === 'layout.style' && event.target.value !== settings.layout.style) {
-			newSettings.layout.config = {};
-		}
-
+	const handleUpdate = useDebounce(newSettings => {
 		if (user.role === 'guest') {
 			dispatch(setDefaultSettings(newSettings));
 		} else {
 			dispatch(updateUserSettings(newSettings));
 		}
-	}
+	}, 300);
+
+	useEffect(() => {
+		if (form && settings && !_.isEqual(form, settings)) {
+			const newSettings = form;
+			if (settings.layout.style !== newSettings.layout.style) {
+				_.set(newSettings, 'layout.config', {});
+			}
+			handleUpdate(newSettings);
+		}
+	}, [dispatch, form, handleUpdate, settings, user]);
+
+	useEffect(() => {
+		if (form && settings && !_.isEqual(form, settings)) {
+			setForm(settings);
+		}
+		// eslint-disable-next-line
+	}, [setForm, settings]);
 
 	const ThemeSelect = ({ value, name, handleThemeChange }) => {
 		return (
@@ -160,7 +167,7 @@ function FuseSettings(props) {
 				aria-label="Layout Style"
 				name="layout.style"
 				className={classes.group}
-				value={settings.layout.style}
+				value={form.layout.style}
 				onChange={handleChange}
 			>
 				{Object.entries(FuseLayoutConfigs).map(([key, layout]) => (
@@ -180,7 +187,7 @@ function FuseSettings(props) {
 				aria-label="Layout Style"
 				name="direction"
 				className={classes.group}
-				value={settings.direction}
+				value={form.direction}
 				onChange={handleChange}
 				row
 			>
@@ -190,83 +197,98 @@ function FuseSettings(props) {
 		</FormControl>
 	);
 
-	const getForm = (form, prefix) =>
-		Object.entries(form).map(([key, formControl]) => {
-			const target = prefix ? `${prefix}.${key}` : key;
-			switch (formControl.type) {
-				case 'radio': {
-					return (
-						<FormControl key={target} component="fieldset" className={classes.formControl}>
-							<FormLabel component="legend" className="text-14">
-								{formControl.title}
-							</FormLabel>
-							<RadioGroup
-								aria-label={formControl.title}
-								name={`layout.config.${target}`}
-								className={classes.group}
-								value={_.get(settings.layout.config, target)}
-								onChange={handleChange}
-								row={formControl.options.length < 4}
-							>
-								{formControl.options.map(opt => (
-									<FormControlLabel
-										key={opt.value}
-										value={opt.value}
-										control={<Radio />}
-										label={opt.name}
-									/>
-								))}
-							</RadioGroup>
-						</FormControl>
-					);
-				}
-				case 'switch': {
-					return (
-						<FormControl key={target} component="fieldset" className={classes.formControl}>
-							<FormControlLabel
-								classes={
-									{
-										// root: "flex-row-reverse justify-end pl-16"
+	const getForm = useCallback(
+		(_formConfigs, prefix) =>
+			Object.entries(_formConfigs).map(([key, formControl]) => {
+				const target = prefix ? `${prefix}.${key}` : key;
+				switch (formControl.type) {
+					case 'radio': {
+						return (
+							<FormControl key={target} component="fieldset" className={classes.formControl}>
+								<FormLabel component="legend" className="text-14">
+									{formControl.title}
+								</FormLabel>
+								<RadioGroup
+									aria-label={formControl.title}
+									name={target}
+									value={_.get(form, target)}
+									className={classes.group}
+									onChange={handleChange}
+									row={formControl.options.length < 4}
+								>
+									{formControl.options.map(opt => (
+										<FormControlLabel
+											key={opt.value}
+											value={opt.value}
+											control={<Radio />}
+											label={opt.name}
+										/>
+									))}
+								</RadioGroup>
+							</FormControl>
+						);
+					}
+					case 'switch': {
+						return (
+							<FormControl key={target} component="fieldset" className={classes.formControl}>
+								<FormControlLabel
+									classes={
+										{
+											// root: "flex-row-reverse justify-end pl-16"
+										}
 									}
-								}
-								control={
-									<Switch
-										name={`layout.config.${target}`}
-										checked={_.get(settings.layout.config, target)}
-										onChange={handleChange}
-										aria-label={formControl.title}
-									/>
-								}
-								label={
-									<FormLabel component="legend" className="text-14">
-										{formControl.title}
-									</FormLabel>
-								}
-							/>
-						</FormControl>
-					);
-				}
-				case 'group': {
-					return (
-						<div key={target} className={classes.formGroup}>
-							<Typography className={classes.formGroupTitle} color="textSecondary">
-								{formControl.title}
-							</Typography>
+									control={
+										<Switch
+											name={target}
+											checked={_.get(form, target)}
+											onChange={handleChange}
+											aria-label={formControl.title}
+										/>
+									}
+									label={
+										<FormLabel component="legend" className="text-14">
+											{formControl.title}
+										</FormLabel>
+									}
+								/>
+							</FormControl>
+						);
+					}
+					case 'number': {
+						return (
+							<div key={target} className={classes.formControl}>
+								<TextField
+									label={formControl.title}
+									name={target}
+									value={_.get(form, target)}
+									onChange={handleChange}
+									type="number"
+									InputLabelProps={{
+										shrink: true
+									}}
+									variant="outlined"
+								/>
+							</div>
+						);
+					}
+					case 'group': {
+						return (
+							<div key={target} className={classes.formGroup}>
+								<Typography className={classes.formGroupTitle} color="textSecondary">
+									{formControl.title}
+								</Typography>
 
-							{getForm(formControl.children, key)}
-						</div>
-					);
+								{getForm(formControl.children, target)}
+							</div>
+						);
+					}
+					default: {
+						return '';
+					}
 				}
-				default: {
-					return '';
-				}
-			}
-		});
-
-	function LayoutConfig() {
-		const { form } = FuseLayoutConfigs[settings.layout.style];
-		return getForm(form);
-	}
+			}),
+		[classes, form, handleChange]
+	);
 
 	return (
 		<div className={classes.root}>
@@ -277,7 +299,7 @@ function FuseSettings(props) {
 
 				<LayoutSelect />
 
-				<LayoutConfig />
+				{useMemo(() => getForm(formConfigs, 'layout.config'), [formConfigs, getForm])}
 
 				<Typography className="my-16 text-12 italic" color="textSecondary">
 					*Not all option combinations are available
@@ -293,25 +315,25 @@ function FuseSettings(props) {
 					<FormLabel component="legend" className="text-14">
 						Main
 					</FormLabel>
-					<ThemeSelect value={settings.theme.main} name="theme.main" handleThemeChange={handleChange} />
+					<ThemeSelect value={form.theme.main} name="theme.main" handleThemeChange={handleChange} />
 				</FormControl>
 				<FormControl component="fieldset" className={classes.formControl}>
 					<FormLabel component="legend" className="text-14">
 						Navbar
 					</FormLabel>
-					<ThemeSelect value={settings.theme.navbar} name="theme.navbar" handleThemeChange={handleChange} />
+					<ThemeSelect value={form.theme.navbar} name="theme.navbar" handleThemeChange={handleChange} />
 				</FormControl>
 				<FormControl component="fieldset" className={classes.formControl}>
 					<FormLabel component="legend" className="text-14">
 						Toolbar
 					</FormLabel>
-					<ThemeSelect value={settings.theme.toolbar} name="theme.toolbar" handleThemeChange={handleChange} />
+					<ThemeSelect value={form.theme.toolbar} name="theme.toolbar" handleThemeChange={handleChange} />
 				</FormControl>
 				<FormControl component="fieldset" className={classes.formControl}>
 					<FormLabel component="legend" className="text-14">
 						Footer
 					</FormLabel>
-					<ThemeSelect value={settings.theme.footer} name="theme.footer" handleThemeChange={handleChange} />
+					<ThemeSelect value={form.theme.footer} name="theme.footer" handleThemeChange={handleChange} />
 				</FormControl>
 			</div>
 
@@ -320,7 +342,7 @@ function FuseSettings(props) {
 					Custom Scrollbars
 				</FormLabel>
 				<Switch
-					checked={settings.customScrollbars}
+					checked={form.customScrollbars}
 					onChange={handleChange}
 					aria-label="Custom Scrollbars"
 					name="customScrollbars"
@@ -331,12 +353,7 @@ function FuseSettings(props) {
 				<FormLabel component="legend" className="text-14">
 					Animations
 				</FormLabel>
-				<Switch
-					checked={settings.animations}
-					onChange={handleChange}
-					aria-label="Animations"
-					name="animations"
-				/>
+				<Switch checked={form.animations} onChange={handleChange} aria-label="Animations" name="animations" />
 			</FormControl>
 
 			<DirectionSelect />

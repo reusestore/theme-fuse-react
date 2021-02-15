@@ -38,10 +38,10 @@ function AboutTab() {
 						animation: 'transition.slideUpBigIn'
 					}}
 				>
-					<Card className="w-full mb-16 rounded-8 shadow">
+					<Card className="w-full mb-16 rounded-16 shadow">
 						<AppBar position="static" elevation={0}>
 							<Toolbar className="px-8">
-								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12">
+								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12 font-semibold">
 									General Information
 								</Typography>
 							</Toolbar>
@@ -78,10 +78,10 @@ function AboutTab() {
 						</CardContent>
 					</Card>
 
-					<Card className="w-full mb-16 rounded-8 shadow">
+					<Card className="w-full mb-16 rounded-16 shadow">
 						<AppBar position="static" elevation={0}>
 							<Toolbar className="px-8">
-								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12">
+								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12 font-semibold">
 									Work
 								</Typography>
 							</Toolbar>
@@ -118,10 +118,10 @@ function AboutTab() {
 						</CardContent>
 					</Card>
 
-					<Card className="w-full mb-16 rounded-8 shadow">
+					<Card className="w-full mb-16 rounded-16 shadow">
 						<AppBar position="static" elevation={0}>
 							<Toolbar className="px-8">
-								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12">
+								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12 font-semibold">
 									Contact
 								</Typography>
 							</Toolbar>
@@ -173,10 +173,10 @@ function AboutTab() {
 						animation: 'transition.slideUpBigIn'
 					}}
 				>
-					<Card className="w-full mb-16 rounded-8 shadow">
+					<Card className="w-full mb-16 rounded-16 shadow">
 						<AppBar position="static" elevation={0}>
 							<Toolbar className="px-8">
-								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12">
+								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12 font-semibold">
 									Friends
 								</Typography>
 								<Button color="inherit" size="small">
@@ -184,11 +184,11 @@ function AboutTab() {
 								</Button>
 							</Toolbar>
 						</AppBar>
-						<CardContent className="flex flex-wrap p-8">
+						<CardContent className="flex flex-wrap p-16">
 							{friends.map(friend => (
 								<img
 									key={friend.id}
-									className="w-64 m-4 rounded-4 block"
+									className="w-64 m-4 rounded-16 block"
 									src={friend.avatar}
 									alt={friend.name}
 								/>
@@ -196,10 +196,10 @@ function AboutTab() {
 						</CardContent>
 					</Card>
 
-					<Card className="w-full mb-16 rounded-8 shadow">
+					<Card className="w-full mb-16 rounded-16 shadow">
 						<AppBar position="static" elevation={0}>
 							<Toolbar className="px-8">
-								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12">
+								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12 font-semibold">
 									Joined Groups
 								</Typography>
 								<Button color="inherit" size="small">
@@ -218,14 +218,14 @@ function AboutTab() {
 											primary={
 												<div className="flex">
 													<Typography
-														className="font-medium"
+														className="font-semibold"
 														color="secondary"
 														paragraph={false}
 													>
 														{group.name}
 													</Typography>
 
-													<Typography className="mx-4" paragraph={false}>
+													<Typography className="mx-4 font-medium" paragraph={false}>
 														{group.category}
 													</Typography>
 												</div>

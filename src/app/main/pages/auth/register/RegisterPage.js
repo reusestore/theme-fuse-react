@@ -50,11 +50,11 @@ function RegisterPage() {
 		<div className={clsx(classes.root, 'flex flex-col flex-auto flex-shrink-0 items-center justify-center p-32')}>
 			<div className="flex flex-col items-center justify-center w-full">
 				<FuseAnimate animation="transition.expandIn">
-					<Card className="w-full max-w-384 rounded-8">
+					<Card className="w-full max-w-384">
 						<CardContent className="flex flex-col items-center justify-center p-32">
 							<img className="w-128 m-32" src="assets/images/logos/fuse.svg" alt="logo" />
 
-							<Typography variant="h6" className="mt-16 mb-32 font-bold text-20 sm:text-24">
+							<Typography variant="h6" className="mt-16 mb-32 font-semibold text-20 sm:text-24">
 								Create an account
 							</Typography>
 

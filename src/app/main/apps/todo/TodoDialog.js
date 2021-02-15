@@ -127,16 +127,8 @@ function TodoDialog(props) {
 	}
 
 	return (
-		<Dialog
-			{...todoDialog.props}
-			onClose={closeTodoDialog}
-			fullWidth
-			maxWidth="sm"
-			classes={{
-				paper: 'rounded-8'
-			}}
-		>
-			<AppBar position="static" className="shadow-md">
+		<Dialog {...todoDialog.props} onClose={closeTodoDialog} fullWidth maxWidth="sm">
+			<AppBar position="static" elevation={0}>
 				<Toolbar className="flex w-full">
 					<Typography variant="subtitle1" color="inherit">
 						{todoDialog.type === 'new' ? 'New Todo' : 'Edit Todo'}
@@ -299,7 +291,7 @@ function TodoDialog(props) {
 			</DialogContent>
 
 			{todoDialog.type === 'new' ? (
-				<DialogActions className="justify-between p-8">
+				<DialogActions className="justify-between px-8 py-16">
 					<div className="px-16">
 						<Button
 							variant="contained"
@@ -316,7 +308,7 @@ function TodoDialog(props) {
 					</div>
 				</DialogActions>
 			) : (
-				<DialogActions className="justify-between p-8">
+				<DialogActions className="justify-between px-8 py-16">
 					<div className="px-16">
 						<Button
 							variant="contained"

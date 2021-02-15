@@ -54,7 +54,7 @@ function BoardAddCard(props) {
 							className="mb-16"
 							required
 							fullWidth
-							variant="outlined"
+							variant="filled"
 							label="Card title"
 							autoFocus
 							name="title"
@@ -82,7 +82,7 @@ function BoardAddCard(props) {
 				<Button
 					onClick={handleOpenForm}
 					classes={{
-						root: 'font-600 w-full rounded-none h-48',
+						root: 'font-bold w-full px-16 rounded-none h-48',
 						label: 'justify-start'
 					}}
 				>

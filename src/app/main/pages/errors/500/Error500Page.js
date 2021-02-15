@@ -7,13 +7,13 @@ function Error500Page() {
 		<div className="flex flex-col flex-1 items-center justify-center p-16">
 			<div className="max-w-512 text-center">
 				<FuseAnimate animation="transition.expandIn" delay={100}>
-					<Typography variant="h1" color="inherit" className="font-medium mb-16">
+					<Typography variant="h1" color="inherit" className="font-semibold mb-16">
 						500
 					</Typography>
 				</FuseAnimate>
 
 				<FuseAnimate delay={500}>
-					<Typography variant="h5" color="textSecondary" className="mb-16">
+					<Typography variant="h5" color="textSecondary" className="mb-16 font-medium">
 						Well, you broke the internet!
 					</Typography>
 				</FuseAnimate>

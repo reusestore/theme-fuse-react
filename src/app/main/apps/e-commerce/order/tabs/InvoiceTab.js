@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-const OrderInvoice = props => {
+const InvoiceTab = props => {
 	const classes = useStyles(props);
 
 	const formatter = new Intl.NumberFormat('en-US', {
@@ -239,4 +239,4 @@ const OrderInvoice = props => {
 	);
 };
 
-export default memo(OrderInvoice);
+export default memo(InvoiceTab);

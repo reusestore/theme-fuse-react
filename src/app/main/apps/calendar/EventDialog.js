@@ -86,17 +86,8 @@ function EventDialog(props) {
 	}
 
 	return (
-		<Dialog
-			{...eventDialog.props}
-			onClose={closeComposeDialog}
-			fullWidth
-			maxWidth="xs"
-			component="form"
-			classes={{
-				paper: 'rounded-8'
-			}}
-		>
-			<AppBar position="static">
+		<Dialog {...eventDialog.props} onClose={closeComposeDialog} fullWidth maxWidth="xs" component="form">
+			<AppBar position="static" elevation={0}>
 				<Toolbar className="flex w-full">
 					<Typography variant="subtitle1" color="inherit">
 						{eventDialog.type === 'new' ? 'New Event' : 'Edit Event'}
@@ -162,13 +153,13 @@ function EventDialog(props) {
 				</DialogContent>
 
 				{eventDialog.type === 'new' ? (
-					<DialogActions className="justify-between px-8 sm:px-16">
+					<DialogActions className="justify-between px-8 sm:px-16 pb-16">
 						<Button variant="contained" color="primary" type="submit" disabled={!canBeSubmitted()}>
 							Add
 						</Button>
 					</DialogActions>
 				) : (
-					<DialogActions className="justify-between px-8 sm:px-16">
+					<DialogActions className="justify-between px-8 sm:px-16 pb-16">
 						<Button variant="contained" color="primary" type="submit" disabled={!canBeSubmitted()}>
 							Save
 						</Button>

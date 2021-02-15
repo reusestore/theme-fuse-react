@@ -28,7 +28,7 @@ function FileManagerApp() {
 	return (
 		<FusePageSimple
 			classes={{
-				root: 'bg-red',
+				root: '',
 				header: 'h-96 min-h-96 sm:h-160 sm:min-h-160',
 				sidebarHeader: 'h-96 min-h-96 sm:h-160 sm:min-h-160',
 				rightSidebar: 'w-320'

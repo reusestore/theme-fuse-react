@@ -18,7 +18,7 @@ function MailAppHeader(props) {
 	return (
 		<ThemeProvider theme={mainTheme}>
 			<div className="flex flex-1">
-				<Paper className="flex items-center w-full h-48 sm:h-56 p-16 ltr:pl-4 lg:ltr:pl-16 rtl:pr-4 lg:rtl:pr-16 rounded-8 shadow">
+				<Paper className="flex items-center w-full h-48 sm:h-56 p-16 ltr:pl-4 lg:ltr:pl-16 rtl:pr-4 lg:rtl:pr-16 shadow">
 					<Hidden lgUp>
 						<IconButton
 							onClick={ev => props.pageLayout.current.toggleLeftSidebar()}

@@ -8,9 +8,9 @@ function Widget8(props) {
 	const widget = _.merge({}, props.widget);
 
 	return (
-		<Paper className="w-full rounded-8 shadow">
-			<div className="flex items-center justify-between px-16 h-64 border-b-1">
-				<Typography className="text-16">{widget.title}</Typography>
+		<Paper className="w-full rounded-20 shadow">
+			<div className="flex items-center justify-between p-20 h-64">
+				<Typography className="text-16 font-semibold">{widget.title}</Typography>
 			</div>
 			<div className="h-400 w-full p-32">
 				<Doughnut

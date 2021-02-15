@@ -23,7 +23,7 @@ function TodoSidebarHeader() {
 					<Icon className="text-32">check_box</Icon>
 				</FuseAnimate>
 				<FuseAnimate animation="transition.slideLeftIn" delay={300}>
-					<span className="text-24 mx-16">To-Do</span>
+					<span className="text-24 mx-16 font-semibold">To-Do</span>
 				</FuseAnimate>
 			</div>
 
@@ -36,6 +36,7 @@ function TodoSidebarHeader() {
 					onChange={handleAccountChange}
 					placeholder="Select Account"
 					margin="normal"
+					variant="filled"
 				>
 					{Object.keys(accounts).map((key, value) => (
 						<MenuItem key={key} value={key}>

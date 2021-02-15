@@ -5,10 +5,10 @@ const useStyles = makeStyles(theme => ({
 	root: {
 		display: 'flex',
 		alignItems: 'center',
-		height: 21,
-		borderRadius: 2,
+		height: 20,
+		borderRadius: 10,
 		padding: '0 6px',
-		fontSize: 11,
+		fontSize: 10,
 		backgroundColor: 'rgba(0,0,0,.08);'
 	},
 	color: {

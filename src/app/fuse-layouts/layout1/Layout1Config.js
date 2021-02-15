@@ -1,7 +1,8 @@
 const config = {
 	title: 'Layout 1 - Vertical',
 	defaults: {
-		mode: 'fullwidth',
+		mode: 'container',
+		containerWidth: 1570,
 		scroll: 'content',
 		navbar: {
 			display: true,
@@ -37,8 +38,16 @@ const config = {
 				{
 					name: 'Full Width',
 					value: 'fullwidth'
+				},
+				{
+					name: 'Container',
+					value: 'container'
 				}
 			]
+		},
+		containerWidth: {
+			title: 'Container Width (px)',
+			type: 'number'
 		},
 		scroll: {
 			title: 'Scrollable Area',
@@ -54,6 +63,7 @@ const config = {
 				}
 			]
 		},
+
 		navbar: {
 			type: 'group',
 			title: 'Navbar',

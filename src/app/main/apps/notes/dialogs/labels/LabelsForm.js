@@ -1,8 +1,10 @@
 import { useDebounce, useForm } from '@fuse/hooks';
 import _ from '@lodash';
+import TextField from '@material-ui/core/TextField';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Input from '@material-ui/core/Input';
+import InputAdornment from '@material-ui/core/InputAdornment';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Typography from '@material-ui/core/Typography';
@@ -51,28 +53,39 @@ function LabelsForm(props) {
 
 	return (
 		<>
-			<Typography className="text-16 mb-8 font-600">Edit Labels</Typography>
+			<Typography className="text-16 mb-8 font-bold">Edit Labels</Typography>
 			<List dense>
 				<form onSubmit={handleSubmit}>
 					<ListItem className="p-0 mb-16" dense>
-						<Icon className="list-item-icon text-16" color="action">
-							add
-						</Icon>
-						<Input
-							className={clsx('flex flex-1 mx-8')}
+						<TextField
+							className={clsx('flex flex-1')}
 							name="name"
 							value={newLabelForm.name}
 							onChange={handleChange}
 							placeholder="Create new label"
+							variant="outlined"
+							InputProps={{
+								startAdornment: (
+									<InputAdornment position="start">
+										<Icon className="list-item-icon text-16" color="action">
+											add
+										</Icon>
+									</InputAdornment>
+								),
+								endAdornment: (
+									<InputAdornment position="end">
+										<IconButton
+											className="w-32 h-32 p-0"
+											aria-label="Delete"
+											disabled={isFormInValid()}
+											type="submit"
+										>
+											<Icon fontSize="small">check</Icon>
+										</IconButton>
+									</InputAdornment>
+								)
+							}}
 						/>
-						<IconButton
-							className="w-32 h-32 mx-4 p-0"
-							aria-label="Delete"
-							disabled={isFormInValid()}
-							type="submit"
-						>
-							<Icon fontSize="small">check</Icon>
-						</IconButton>
 					</ListItem>
 				</form>
 				{useMemo(() => {
@@ -86,7 +99,7 @@ function LabelsForm(props) {
 					}
 
 					return Object.entries(labelsForm).map(([key, label]) => (
-						<ListItem className="p-0" key={label.id} dense>
+						<ListItem className="p-0 mb-8" key={label.id} dense>
 							<Icon className="list-item-icon text-16" color="action">
 								label
 							</Icon>

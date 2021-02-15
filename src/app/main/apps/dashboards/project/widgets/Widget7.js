@@ -17,9 +17,9 @@ function Widget7(props) {
 	}
 
 	return (
-		<Paper className="w-full rounded-8 shadow">
-			<div className="flex items-center justify-between px-16 h-64 border-b-1">
-				<Typography className="text-16">{props.widget.title}</Typography>
+		<Paper className="w-full rounded-20 shadow">
+			<div className="flex items-center justify-between p-20 h-64 ">
+				<Typography className="text-16 font-semibold">{props.widget.title}</Typography>
 
 				<Select
 					native
@@ -28,6 +28,7 @@ function Widget7(props) {
 					inputProps={{
 						name: 'currentRange'
 					}}
+					className="font-semibold opacity-75"
 					disableUnderline
 				>
 					{Object.entries(props.widget.ranges).map(([key, n]) => {
@@ -39,10 +40,14 @@ function Widget7(props) {
 					})}
 				</Select>
 			</div>
-			<List>
+			<List className="py-0">
 				{props.widget.schedule[currentRange].map(item => (
 					<ListItem key={item.id}>
-						<ListItemText primary={item.title} secondary={item.time} />
+						<ListItemText
+							classes={{ root: 'px-8', primary: 'font-bold' }}
+							primary={item.title}
+							secondary={item.time}
+						/>
 						<ListItemSecondaryAction>
 							<IconButton aria-label="more">
 								<Icon>more_vert</Icon>

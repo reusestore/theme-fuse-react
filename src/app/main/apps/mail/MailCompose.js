@@ -49,15 +49,8 @@ function MailCompose() {
 				{t('COMPOSE')}
 			</Button>
 
-			<Dialog
-				open={openDialog}
-				onClose={handleCloseDialog}
-				aria-labelledby="form-dialog-title"
-				classes={{
-					paper: 'rounded-8'
-				}}
-			>
-				<AppBar position="static">
+			<Dialog open={openDialog} onClose={handleCloseDialog} aria-labelledby="form-dialog-title">
+				<AppBar position="static" elevation={0}>
 					<Toolbar className="flex w-full">
 						<Typography variant="subtitle1" color="inherit">
 							New Message
@@ -145,7 +138,7 @@ function MailCompose() {
 						</div>
 					</DialogContent>
 
-					<DialogActions className="justify-between p-8">
+					<DialogActions className="justify-between px-8 py-16">
 						<div className="px-16">
 							<Button variant="contained" color="primary" type="submit">
 								Send

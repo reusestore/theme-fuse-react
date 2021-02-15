@@ -23,7 +23,7 @@ function ContactSidebar(props) {
 
 	return (
 		<div className="flex flex-col flex-auto h-full">
-			<AppBar position="static" color="primary" className="shadow-md">
+			<AppBar position="static" color="primary" elevation={0}>
 				<Toolbar className="flex justify-between items-center px-4">
 					<Typography className="px-12" color="inherit" variant="subtitle1">
 						Contact Info
@@ -44,7 +44,15 @@ function ContactSidebar(props) {
 			</AppBar>
 
 			<FuseScrollbars className="overflow-y-auto flex-1 p-24">
-				<TextField label="Mood" className="w-full" value={contact.mood} margin="normal" disabled multiline />
+				<TextField
+					label="Mood"
+					className="w-full"
+					variant="outlined"
+					value={contact.mood}
+					margin="normal"
+					disabled
+					multiline
+				/>
 			</FuseScrollbars>
 		</div>
 	);

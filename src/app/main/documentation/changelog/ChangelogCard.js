@@ -34,9 +34,11 @@ function ChangelogCard(props) {
 	return (
 		<Card className={clsx(classes.root, props.className, 'shadow')}>
 			<div className="flex items-center">
-				{props.version && <Typography className="text-24" component="h2">{`v${props.version}`}</Typography>}
+				{props.version && (
+					<Typography className="text-24 font-semibold" component="h2">{`v${props.version}`}</Typography>
+				)}
 				{props.date && (
-					<Typography className="text-17 mx-8" color="textSecondary" component="h3">
+					<Typography className="text-17 mx-8 font-medium" color="textSecondary" component="h3">
 						({props.date})
 					</Typography>
 				)}

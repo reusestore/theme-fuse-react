@@ -99,7 +99,7 @@ function CardChecklist(props) {
 
 			<div className="">
 				<div className="flex items-center -mx-6">
-					<Typography className="flex font-600 mx-6">
+					<Typography className="flex font-bold mx-6">
 						{`${checkItemsChecked()} / ${form.checkItems.length}`}
 					</Typography>
 					<LinearProgress

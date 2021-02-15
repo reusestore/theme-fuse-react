@@ -164,6 +164,7 @@ function OrdersTableHead(props) {
 										active={props.order.id === row.id}
 										direction={props.order.direction}
 										onClick={createSortHandler(row.id)}
+										className="font-bold"
 									>
 										{row.label}
 									</TableSortLabel>

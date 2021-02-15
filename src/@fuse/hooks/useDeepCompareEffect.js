@@ -33,10 +33,12 @@ function useDeepCompareEffect(callback, dependencies) {
 	if (process.env.NODE_ENV !== 'production') {
 		checkDeps(dependencies);
 	}
+	// eslint-disable-next-line
 	useEffect(callback, useDeepCompareMemoize(dependencies));
 }
 
 export function useDeepCompareEffectNoCheck(callback, dependencies) {
+	// eslint-disable-next-line
 	useEffect(callback, useDeepCompareMemoize(dependencies));
 }
 

@@ -28,7 +28,7 @@ function PricingStyle2Page() {
 				<div className="p-24 w-full max-w-2xl mx-auto">
 					<div className="text-center my-128 mx-24">
 						<FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
-							<Typography variant="h2" color="inherit" className="font-light">
+							<Typography variant="h2" color="inherit" className="font-medium">
 								Simple Pricing!
 							</Typography>
 						</FuseAnimate>
@@ -56,9 +56,9 @@ function PricingStyle2Page() {
 						className="flex items-center justify-center flex-wrap"
 					>
 						<div className="w-full max-w-320 sm:w-1/3 p-12">
-							<Card className="relative rounded-8">
+							<Card className="relative rounded-16">
 								<div className="pt-48 pb-24 text-center">
-									<Typography variant="subtitle1" color="inherit" className="text-20 font-medium">
+									<Typography variant="subtitle1" color="inherit" className="text-20 font-bold">
 										SILVER PACKAGE
 									</Typography>
 								</div>
@@ -66,12 +66,12 @@ function PricingStyle2Page() {
 								<CardContent className="text-center p-0">
 									<div className="flex flex-col">
 										<div className="flex justify-center mb-8">
-											<Typography variant="h5" color="textSecondary" className="font-medium">
+											<Typography variant="h5" color="textSecondary" className="font-bold">
 												$
 											</Typography>
-											<Typography className="text-56 mx-4 font-light leading-none">4</Typography>
+											<Typography className="text-56 mx-4 font-medium leading-none">4</Typography>
 										</div>
-										<Typography color="textSecondary" className="font-medium text-16">
+										<Typography color="textSecondary" className="font-semibold text-16">
 											PER MONTH
 										</Typography>
 									</div>
@@ -94,14 +94,14 @@ function PricingStyle2Page() {
 
 								<div className="flex justify-center pb-32">
 									<Button variant="contained" color="secondary" className="w-128">
-										GET STARTED
+										Get Started
 									</Button>
 								</div>
 							</Card>
 						</div>
 
 						<div className="w-full max-w-320 sm:w-1/3 p-12">
-							<Card className="relative rounded-8" raised>
+							<Card className="relative rounded-16" raised>
 								<div className="absolute top-0 inset-x-0 flex justify-center">
 									<div className={clsx(classes.badge, 'py-4 px-8')}>
 										<Typography variant="caption" color="inherit">
@@ -111,7 +111,7 @@ function PricingStyle2Page() {
 								</div>
 
 								<div className="pt-48 pb-24 text-center">
-									<Typography variant="subtitle1" color="inherit" className="text-20 font-medium">
+									<Typography variant="subtitle1" color="inherit" className="text-20 font-bold">
 										GOLD PACKAGE
 									</Typography>
 								</div>
@@ -119,14 +119,14 @@ function PricingStyle2Page() {
 								<CardContent className="text-center p-0">
 									<div className="flex flex-col">
 										<div className="flex justify-center mb-8">
-											<Typography variant="h5" color="textSecondary" className="font-medium">
+											<Typography variant="h5" color="textSecondary" className="font-bold">
 												$
 											</Typography>
-											<Typography className="text-56 mx-4 font-light leading-none">
+											<Typography className="text-56 mx-4 font-medium leading-none">
 												299
 											</Typography>
 										</div>
-										<Typography color="textSecondary" className="font-medium text-16">
+										<Typography color="textSecondary" className="font-semibold text-16">
 											PER MONTH
 										</Typography>
 									</div>
@@ -149,16 +149,16 @@ function PricingStyle2Page() {
 
 								<div className="flex justify-center pb-32">
 									<Button variant="contained" color="secondary" className="w-128">
-										GET STARTED
+										Get Started
 									</Button>
 								</div>
 							</Card>
 						</div>
 
 						<div className="w-full max-w-320 sm:w-1/3 p-12">
-							<Card className="relative rounded-8">
+							<Card className="relative rounded-16">
 								<div className="pt-48 pb-24 text-center">
-									<Typography variant="subtitle1" color="inherit" className="text-20 font-medium">
+									<Typography variant="subtitle1" color="inherit" className="text-20 font-bold">
 										PLATINUM PACKAGE
 									</Typography>
 								</div>
@@ -166,14 +166,14 @@ function PricingStyle2Page() {
 								<CardContent className="text-center p-0">
 									<div className="flex flex-col">
 										<div className="flex justify-center mb-8">
-											<Typography variant="h5" color="textSecondary" className="font-medium">
+											<Typography variant="h5" color="textSecondary" className="font-bold">
 												$
 											</Typography>
-											<Typography className="text-56 mx-4 font-light leading-none">
+											<Typography className="text-56 mx-4 font-medium leading-none">
 												499
 											</Typography>
 										</div>
-										<Typography color="textSecondary" className="font-medium text-16">
+										<Typography color="textSecondary" className="font-semibold text-16">
 											PER MONTH
 										</Typography>
 									</div>
@@ -196,7 +196,7 @@ function PricingStyle2Page() {
 
 								<div className="flex justify-center pb-32">
 									<Button variant="contained" color="secondary" className="w-128">
-										GET STARTED
+										Get Started
 									</Button>
 								</div>
 							</Card>
@@ -204,7 +204,7 @@ function PricingStyle2Page() {
 					</FuseAnimateGroup>
 
 					<div className="flex flex-col items-center py-96 text-center sm:ltr:text-left sm:rtl:text-right max-w-xl mx-auto">
-						<Typography variant="h4" className="pb-32 font-light">
+						<Typography variant="h4" className="pb-32 font-medium">
 							Frequently Asked Questions
 						</Typography>
 

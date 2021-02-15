@@ -10,9 +10,9 @@ import { memo } from 'react';
 
 function Widget11(props) {
 	return (
-		<Paper className="w-full rounded-8 shadow">
-			<div className="flex items-center justify-between px-16 h-64 border-b-1">
-				<Typography className="text-16">{props.widget.title}</Typography>
+		<Paper className="w-full rounded-20 shadow overflow-hidden">
+			<div className="flex items-center justify-between p-20 h-64">
+				<Typography className="text-16 font-semibold">{props.widget.title}</Typography>
 				<Typography className="text-11 font-500 rounded-4 text-white bg-blue px-8 py-4">
 					{`${props.widget.table.rows.length} Members`}
 				</Typography>
@@ -32,8 +32,13 @@ function Widget11(props) {
 									}
 									default: {
 										return (
-											<TableCell key={column.id} className="whitespace-nowrap">
-												{column.title}
+											<TableCell key={column.id}>
+												<Typography
+													color="textSecondary"
+													className="font-bold whitespace-nowrap p-8 px-16"
+												>
+													{column.title}
+												</Typography>
 											</TableCell>
 										);
 									}
@@ -43,7 +48,7 @@ function Widget11(props) {
 					</TableHead>
 					<TableBody>
 						{props.widget.table.rows.map(row => (
-							<TableRow key={row.id}>
+							<TableRow key={row.id} className="h-64">
 								{row.cells.map(cell => {
 									switch (cell.id) {
 										case 'avatar': {
@@ -59,7 +64,7 @@ function Widget11(props) {
 													key={cell.id}
 													component="th"
 													scope="row"
-													className="truncate font-600"
+													className="truncate font-bold"
 												>
 													{cell.value}
 												</TableCell>

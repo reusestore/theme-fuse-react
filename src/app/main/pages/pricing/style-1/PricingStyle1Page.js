@@ -13,10 +13,6 @@ const useStyles = makeStyles(theme => ({
 		height: 600,
 		background: `linear-gradient(to left, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
 		color: theme.palette.primary.contrastText
-	},
-	cardHeader: {
-		backgroundColor: theme.palette.primary[800],
-		color: theme.palette.getContrastText(theme.palette.primary[800])
 	}
 }));
 
@@ -29,7 +25,7 @@ function PricingStyle1Page() {
 				<div className="p-24 w-full max-w-2xl mx-auto">
 					<div className="text-center my-128 mx-24">
 						<FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
-							<Typography variant="h2" color="inherit" className="font-light">
+							<Typography variant="h2" color="inherit" className="font-medium">
 								Simple Pricing!
 							</Typography>
 						</FuseAnimate>
@@ -57,9 +53,9 @@ function PricingStyle1Page() {
 						className="flex items-center justify-center flex-wrap"
 					>
 						<div className="w-full max-w-320 sm:w-1/3 p-12">
-							<Card className="rounded-8">
-								<div className={clsx(classes.cardHeader, 'px-24 py-16')}>
-									<Typography variant="subtitle1" color="inherit">
+							<Card className="rounded-16">
+								<div className={clsx('px-24 py-16')}>
+									<Typography variant="subtitle1" className="font-semibold">
 										BASIC
 									</Typography>
 								</div>
@@ -70,8 +66,14 @@ function PricingStyle1Page() {
 											$
 										</Typography>
 										<div className="flex items-end">
-											<Typography className="text-72 mx-4 font-light leading-none">4</Typography>
-											<Typography variant="subtitle1" color="textSecondary">
+											<Typography className="text-72 mx-4 font-semibold leading-none">
+												4
+											</Typography>
+											<Typography
+												variant="subtitle1"
+												color="textSecondary"
+												className="font-medium"
+											>
 												/ month
 											</Typography>
 										</div>
@@ -97,24 +99,19 @@ function PricingStyle1Page() {
 
 								<div className="flex justify-center pb-32">
 									<Button variant="contained" color="secondary" className="w-128">
-										BUY NOW
+										Buy Now
 									</Button>
 								</div>
 							</Card>
 						</div>
 
 						<div className="w-full max-w-320 sm:w-1/3 p-12">
-							<Card className="rounded-8" raised>
-								<div
-									className={clsx(
-										classes.cardHeader,
-										'flex items-center justify-between px-24 py-16'
-									)}
-								>
-									<Typography variant="subtitle1" color="inherit">
+							<Card className="rounded-16" raised>
+								<div className={clsx('flex items-center justify-between px-24 py-16')}>
+									<Typography variant="subtitle1" className="font-semibold">
 										STANDART
 									</Typography>
-									<Typography variant="caption" color="inherit">
+									<Typography variant="caption" color="inherit" className="font-medium">
 										Save 15%
 									</Typography>
 								</div>
@@ -125,8 +122,14 @@ function PricingStyle1Page() {
 											$
 										</Typography>
 										<div className="flex items-end">
-											<Typography className="text-72 mx-4 font-light leading-none">8</Typography>
-											<Typography variant="subtitle1" color="textSecondary">
+											<Typography className="text-72 mx-4 font-semibold leading-none">
+												8
+											</Typography>
+											<Typography
+												variant="subtitle1"
+												color="textSecondary"
+												className="font-medium"
+											>
 												/ month
 											</Typography>
 										</div>
@@ -152,16 +155,16 @@ function PricingStyle1Page() {
 
 								<div className="flex justify-center pb-32">
 									<Button variant="contained" color="secondary" className="w-128">
-										BUY NOW
+										Buy Now
 									</Button>
 								</div>
 							</Card>
 						</div>
 
 						<div className="w-full max-w-320 sm:w-1/3 p-12">
-							<Card className="rounded-8">
-								<div className={clsx(classes.cardHeader, 'px-24 py-16')}>
-									<Typography variant="subtitle1" color="inherit">
+							<Card className="rounded-16">
+								<div className={clsx('px-24 py-16')}>
+									<Typography variant="subtitle1" className="font-semibold">
 										ADVANCED
 									</Typography>
 								</div>
@@ -172,8 +175,14 @@ function PricingStyle1Page() {
 											$
 										</Typography>
 										<div className="flex items-end">
-											<Typography className="text-72 mx-4 font-light leading-none">12</Typography>
-											<Typography variant="subtitle1" color="textSecondary">
+											<Typography className="text-72 mx-4 font-semibold leading-none">
+												12
+											</Typography>
+											<Typography
+												variant="subtitle1"
+												color="textSecondary"
+												className="font-medium"
+											>
 												/ month
 											</Typography>
 										</div>
@@ -199,7 +208,7 @@ function PricingStyle1Page() {
 
 								<div className="flex justify-center pb-32">
 									<Button variant="contained" color="secondary" className="w-128">
-										BUY NOW
+										Buy Now
 									</Button>
 								</div>
 							</Card>
@@ -207,7 +216,7 @@ function PricingStyle1Page() {
 					</FuseAnimateGroup>
 
 					<div className="flex flex-col items-center py-96 text-center sm:ltr:text-left sm:rtl:text-right max-w-xl mx-auto">
-						<Typography variant="h4" className="pb-32 font-light">
+						<Typography variant="h4" className="pb-32 font-medium">
 							Frequently Asked Questions
 						</Typography>
 
