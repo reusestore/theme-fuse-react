@@ -40,7 +40,7 @@ function DocumentationPageLayout({ content, route }) {
 						<Link
 							color="inherit"
 							to="/documentation"
-							className="text-16 md:text-18 font-semibold flex items-center"
+							className="text-16 md:text-18 font-medium flex items-center"
 							role="button"
 						>
 							<Icon className="mr-8">import_contacts</Icon> <span>Fuse React - Documentation</span>

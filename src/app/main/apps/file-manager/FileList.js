@@ -58,12 +58,12 @@ function FileList(props) {
 								hover
 								onClick={event => dispatch(setSelectedItem(item.id))}
 								selected={item.id === selectedItemId}
-								className="cursor-pointer"
+								className="cursor-pointer h-64"
 							>
 								<TableCell className="max-w-64 w-64 p-0 text-center">
 									<Icon className={clsx(classes.typeIcon, item.type)} />
 								</TableCell>
-								<TableCell>{item.name}</TableCell>
+								<TableCell className="font-medium">{item.name}</TableCell>
 								<TableCell className="hidden sm:table-cell">{item.type}</TableCell>
 								<TableCell className="hidden sm:table-cell">{item.owner}</TableCell>
 								<TableCell className="text-center hidden sm:table-cell">

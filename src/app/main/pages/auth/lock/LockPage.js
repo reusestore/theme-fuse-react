@@ -49,8 +49,8 @@ function LockPage() {
 								</div>
 
 								<div className="mx-8">
-									<Typography variant="h6" className="mb-8 font-semibold">
-										YOUR SESSION IS LOCKED
+									<Typography variant="h6" className="mb-4 font-medium">
+										Your session is locked
 									</Typography>
 									<Typography color="textSecondary">
 										Due to inactivity, your session is locked. Enter your password to continue.
@@ -99,7 +99,7 @@ function LockPage() {
 							</form>
 
 							<div className="flex flex-col items-center justify-center pt-32 pb-24">
-								<Link className="font-medium" to="/pages/auth/login">
+								<Link className="font-normal" to="/pages/auth/login">
 									Are you not Katherine?
 								</Link>
 							</div>

@@ -42,7 +42,7 @@ function ComingSoonPage() {
 						<CardContent className="flex flex-col items-center justify-center p-32 text-center">
 							<img className="w-128 m-32" src="assets/images/logos/fuse.svg" alt="logo" />
 
-							<Typography variant="subtitle1" className="mb-16 font-medium">
+							<Typography variant="subtitle1" className="mb-16 font-normal">
 								Hey! Thank you for checking out our app.
 							</Typography>
 
@@ -54,7 +54,7 @@ function ComingSoonPage() {
 
 							<Divider className="w-48" />
 
-							<Typography className="font-bold my-32 w-full">
+							<Typography className="font-semibold my-32 w-full">
 								If you would like to be notified when the app is ready, you can subscribe to our e-mail
 								list.
 							</Typography>

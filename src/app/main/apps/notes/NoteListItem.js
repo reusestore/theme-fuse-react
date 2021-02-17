@@ -23,7 +23,7 @@ function NoteListItem(props) {
 				)}
 
 				{props.note.title && props.note.title !== '' && (
-					<Typography className="px-20 my-16 text-14 font-bold">{props.note.title}</Typography>
+					<Typography className="px-20 my-16 text-14 font-semibold">{props.note.title}</Typography>
 				)}
 
 				{props.note.description && props.note.description !== '' && (

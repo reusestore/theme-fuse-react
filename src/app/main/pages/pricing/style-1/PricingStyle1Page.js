@@ -25,7 +25,7 @@ function PricingStyle1Page() {
 				<div className="p-24 w-full max-w-2xl mx-auto">
 					<div className="text-center my-128 mx-24">
 						<FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
-							<Typography variant="h2" color="inherit" className="font-medium">
+							<Typography variant="h2" color="inherit" className="font-normal">
 								Simple Pricing!
 							</Typography>
 						</FuseAnimate>
@@ -55,7 +55,7 @@ function PricingStyle1Page() {
 						<div className="w-full max-w-320 sm:w-1/3 p-12">
 							<Card className="rounded-16">
 								<div className={clsx('px-24 py-16')}>
-									<Typography variant="subtitle1" className="font-semibold">
+									<Typography variant="subtitle1" className="font-medium">
 										BASIC
 									</Typography>
 								</div>
@@ -66,13 +66,13 @@ function PricingStyle1Page() {
 											$
 										</Typography>
 										<div className="flex items-end">
-											<Typography className="text-72 mx-4 font-semibold leading-none">
+											<Typography className="text-72 mx-4 font-medium leading-none">
 												4
 											</Typography>
 											<Typography
 												variant="subtitle1"
 												color="textSecondary"
-												className="font-medium"
+												className="font-normal"
 											>
 												/ month
 											</Typography>
@@ -83,15 +83,15 @@ function PricingStyle1Page() {
 
 									<div className="flex flex-col">
 										<Typography variant="subtitle1" className="">
-											<span className="font-bold mx-4">10</span>
+											<span className="font-semibold mx-4">10</span>
 											Projects
 										</Typography>
 										<Typography variant="subtitle1" className="">
-											<span className="font-bold mx-4">10</span>
+											<span className="font-semibold mx-4">10</span>
 											Pages
 										</Typography>
 										<Typography variant="subtitle1" className="">
-											<span className="font-bold mx-4">100</span>
+											<span className="font-semibold mx-4">100</span>
 											Mb Disk Space
 										</Typography>
 									</div>
@@ -108,10 +108,10 @@ function PricingStyle1Page() {
 						<div className="w-full max-w-320 sm:w-1/3 p-12">
 							<Card className="rounded-16" raised>
 								<div className={clsx('flex items-center justify-between px-24 py-16')}>
-									<Typography variant="subtitle1" className="font-semibold">
+									<Typography variant="subtitle1" className="font-medium">
 										STANDART
 									</Typography>
-									<Typography variant="caption" color="inherit" className="font-medium">
+									<Typography variant="caption" color="inherit" className="font-normal">
 										Save 15%
 									</Typography>
 								</div>
@@ -122,13 +122,13 @@ function PricingStyle1Page() {
 											$
 										</Typography>
 										<div className="flex items-end">
-											<Typography className="text-72 mx-4 font-semibold leading-none">
+											<Typography className="text-72 mx-4 font-medium leading-none">
 												8
 											</Typography>
 											<Typography
 												variant="subtitle1"
 												color="textSecondary"
-												className="font-medium"
+												className="font-normal"
 											>
 												/ month
 											</Typography>
@@ -139,15 +139,15 @@ function PricingStyle1Page() {
 
 									<div className="flex flex-col">
 										<Typography variant="subtitle1" className="">
-											<span className="font-bold mx-4">20</span>
+											<span className="font-semibold mx-4">20</span>
 											Projects
 										</Typography>
 										<Typography variant="subtitle1" className="">
-											<span className="font-bold mx-4">20</span>
+											<span className="font-semibold mx-4">20</span>
 											Pages
 										</Typography>
 										<Typography variant="subtitle1" className="">
-											<span className="font-bold mx-4">200</span>
+											<span className="font-semibold mx-4">200</span>
 											Mb Disk Space
 										</Typography>
 									</div>
@@ -164,24 +164,24 @@ function PricingStyle1Page() {
 						<div className="w-full max-w-320 sm:w-1/3 p-12">
 							<Card className="rounded-16">
 								<div className={clsx('px-24 py-16')}>
-									<Typography variant="subtitle1" className="font-semibold">
+									<Typography variant="subtitle1" className="font-medium">
 										ADVANCED
 									</Typography>
 								</div>
 
 								<CardContent className="p-32">
 									<div className="flex justify-center">
-										<Typography variant="h5" color="textSecondary" className="font-medium">
+										<Typography variant="h5" color="textSecondary" className="font-normal">
 											$
 										</Typography>
 										<div className="flex items-end">
-											<Typography className="text-72 mx-4 font-semibold leading-none">
+											<Typography className="text-72 mx-4 font-medium leading-none">
 												12
 											</Typography>
 											<Typography
 												variant="subtitle1"
 												color="textSecondary"
-												className="font-medium"
+												className="font-normal"
 											>
 												/ month
 											</Typography>
@@ -192,15 +192,15 @@ function PricingStyle1Page() {
 
 									<div className="flex flex-col">
 										<Typography variant="subtitle1" className="">
-											<span className="font-bold mx-4">40</span>
+											<span className="font-semibold mx-4">40</span>
 											Projects
 										</Typography>
 										<Typography variant="subtitle1" className="">
-											<span className="font-bold mx-4">40</span>
+											<span className="font-semibold mx-4">40</span>
 											Pages
 										</Typography>
 										<Typography variant="subtitle1" className="">
-											<span className="font-bold mx-4">500</span>
+											<span className="font-semibold mx-4">500</span>
 											Mb Disk Space
 										</Typography>
 									</div>
@@ -216,7 +216,7 @@ function PricingStyle1Page() {
 					</FuseAnimateGroup>
 
 					<div className="flex flex-col items-center py-96 text-center sm:ltr:text-left sm:rtl:text-right max-w-xl mx-auto">
-						<Typography variant="h4" className="pb-32 font-medium">
+						<Typography variant="h4" className="pb-32 font-normal">
 							Frequently Asked Questions
 						</Typography>
 

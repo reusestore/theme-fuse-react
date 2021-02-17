@@ -30,7 +30,7 @@ function FuseThemeDoc() {
 
 			<Typography className="mb-16" component="p">
 				Please checkout
-				<Link className="font-medium mx-4" to="/documentation/theming/theme-schemes">
+				<Link className="font-normal mx-4" to="/documentation/theming/theme-schemes">
 					theming
 				</Link>
 				at documentation.

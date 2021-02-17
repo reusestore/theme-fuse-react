@@ -10,7 +10,7 @@ function Widget9(props) {
 	return (
 		<Card className="w-full rounded-20 shadow">
 			<div className="px-8 py-20 flex flex-row items-start justify-between">
-				<Typography className="h3 font-semibold px-12">Top campaigns</Typography>
+				<Typography className="h3 font-medium px-12">Top campaigns</Typography>
 
 				<div className="-mt-12">
 					<IconButton aria-label="more">
@@ -24,12 +24,12 @@ function Widget9(props) {
 					<tr>
 						<th aria-label="title" />
 						<th className="text-right">
-							<Typography color="textSecondary" className="font-bold">
+							<Typography color="textSecondary" className="font-semibold">
 								Clicks
 							</Typography>
 						</th>
 						<th className="text-right">
-							<Typography color="textSecondary" className="font-bold">
+							<Typography color="textSecondary" className="font-semibold">
 								Conv
 							</Typography>
 						</th>
@@ -38,7 +38,7 @@ function Widget9(props) {
 				<tbody>
 					{props.data.rows.map(row => (
 						<tr key={row.title}>
-							<td className="font-bold">{row.title}</td>
+							<td className="font-semibold">{row.title}</td>
 							<td className="text-right">{row.clicks}</td>
 							<td className="text-right">{row.conversion}</td>
 						</tr>

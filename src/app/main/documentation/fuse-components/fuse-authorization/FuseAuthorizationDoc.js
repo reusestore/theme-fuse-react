@@ -71,7 +71,7 @@ function FuseAuthorizationDoc() {
 				<Table>
 					<TableHead>
 						<TableRow>
-							<TableCell className="font-bold text-14">Authorization Role (auth) options</TableCell>
+							<TableCell className="font-semibold text-14">Authorization Role (auth) options</TableCell>
 							<TableCell />
 						</TableRow>
 					</TableHead>
@@ -138,7 +138,7 @@ function FuseAuthorizationDoc() {
 				<Table>
 					<TableHead>
 						<TableRow>
-							<TableCell className="font-bold text-14">User Role options</TableCell>
+							<TableCell className="font-semibold text-14">User Role options</TableCell>
 							<TableCell />
 						</TableRow>
 					</TableHead>

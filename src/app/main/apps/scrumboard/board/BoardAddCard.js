@@ -82,7 +82,7 @@ function BoardAddCard(props) {
 				<Button
 					onClick={handleOpenForm}
 					classes={{
-						root: 'font-bold w-full px-16 rounded-none h-48',
+						root: 'font-medium w-full px-16 rounded-none h-48',
 						label: 'justify-start'
 					}}
 				>

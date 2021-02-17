@@ -69,7 +69,7 @@ const CardChecklistName = forwardRef(function CardChecklistName(props, ref) {
 			</form>
 		</ClickAwayListener>
 	) : (
-		<Typography className="text-16 font-bold cursor-pointer mx-8" onClick={handleOpenForm}>
+		<Typography className="text-16 font-semibold cursor-pointer mx-8" onClick={handleOpenForm}>
 			{form.name}
 		</Typography>
 	);

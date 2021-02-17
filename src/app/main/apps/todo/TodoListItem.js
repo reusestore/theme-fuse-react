@@ -61,8 +61,7 @@ function TodoListItem(props) {
 
 			<div className="flex flex-1 flex-col relative overflow-hidden px-8">
 				<Typography
-					variant="subtitle1"
-					className="todo-title truncate"
+					className="todo-title truncate text-14 font-medium"
 					color={props.todo.completed ? 'textSecondary' : 'inherit'}
 				>
 					{props.todo.title}
@@ -72,7 +71,7 @@ function TodoListItem(props) {
 					{_.truncate(props.todo.notes.replace(/<(?:.|\n)*?>/gm, ''), { length: 180 })}
 				</Typography>
 
-				<div className={clsx(classes.labels, 'flex -mx-2')}>
+				<div className={clsx(classes.labels, 'flex -mx-2 mt-8')}>
 					{props.todo.labels.map(label => (
 						<TodoChip
 							className="mx-2 mt-4"

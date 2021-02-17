@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
 
 		'& .rbc-header': {
 			padding: '12px 6px',
-			fontWeight: 800,
+			fontWeight: 600,
 			fontSize: 14,
 			opacity: 0.75
 		},
@@ -85,7 +85,7 @@ const useStyles = makeStyles(theme => ({
 				minHeight: 42
 			},
 			'& .rbc-label': {
-				fontWeight: 'bold'
+				fontWeight: 'semibold'
 			}
 		},
 		'& .rbc-month-view': {
@@ -141,7 +141,6 @@ const useStyles = makeStyles(theme => ({
 		},
 		'& .rbc-event': {
 			borderRadius: 12,
-			lineHeight: 1,
 			minHeight: 24,
 			padding: '4px 12px',
 			backgroundColor: theme.palette.primary.dark,

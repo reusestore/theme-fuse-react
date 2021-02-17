@@ -50,7 +50,7 @@ function Login2Page() {
 				</FuseAnimate>
 
 				<FuseAnimate animation="transition.slideUpIn" delay={400}>
-					<Typography variant="h3" color="inherit" className="font-bold leading-tight">
+					<Typography variant="h3" color="inherit" className="font-semibold leading-tight">
 						Welcome to the <br /> FUSE React!
 					</Typography>
 				</FuseAnimate>
@@ -65,7 +65,7 @@ function Login2Page() {
 			<FuseAnimate animation={{ translateX: [0, '100%'] }}>
 				<Card className="w-full max-w-400 mx-auto m-16 md:m-0" square>
 					<CardContent className="flex flex-col items-center justify-center p-32 md:p-48 md:pt-128 ">
-						<Typography variant="h6" className="mb-32 font-semibold text-20 sm:text-24">
+						<Typography variant="h6" className="mb-32 font-medium text-20 sm:text-24">
 							Login to your account
 						</Typography>
 
@@ -110,7 +110,7 @@ function Login2Page() {
 									/>
 								</FormControl>
 
-								<Link className="font-medium" to="/pages/auth/forgot-password-2">
+								<Link className="font-normal" to="/pages/auth/forgot-password-2">
 									Forgot Password?
 								</Link>
 							</div>
@@ -128,7 +128,7 @@ function Login2Page() {
 
 						<div className="my-24 flex items-center justify-center">
 							<Divider className="w-32" />
-							<span className="mx-8 font-bold">OR</span>
+							<span className="mx-8 font-semibold">OR</span>
 							<Divider className="w-32" />
 						</div>
 
@@ -141,8 +141,8 @@ function Login2Page() {
 						</Button>
 
 						<div className="flex flex-col items-center justify-center pt-32 pb-24">
-							<span className="font-medium">Don't have an account?</span>
-							<Link className="font-medium" to="/pages/auth/register-2">
+							<span className="font-normal">Don't have an account?</span>
+							<Link className="font-normal" to="/pages/auth/register-2">
 								Create an account
 							</Link>
 						</div>

@@ -22,13 +22,13 @@ function CardAttachment(props) {
 			return (
 				<div className="flex w-full sm:w-1/2 mb-16 px-16" key={props.item.id}>
 					<div className="flex items-center justify-center min-w-128 w-128 h-128">
-						<Paper className="rounded-4 overflow-hidden shadow">
+						<Paper className="overflow-hidden shadow">
 							<img className="block max-h-full max-h-full" src={props.item.src} alt="attachment" />
 						</Paper>
 					</div>
 					<div className="flex flex-auto flex-col justify-center items-start min-w-0 px-16">
 						<div className="flex items-center w-full">
-							<Typography className="text-16 font-bold truncate flex-shrink">
+							<Typography className="text-16 font-semibold truncate flex-shrink">
 								{props.item.name}
 							</Typography>
 							{props.card.idAttachmentCover === props.item.id && (
@@ -85,10 +85,10 @@ function CardAttachment(props) {
 			return (
 				<div className="flex w-full sm:w-1/2 mb-16 px-16" key={props.item.id}>
 					<Paper className="min-w-128 w-128 h-128 flex items-center justify-center rounded-4 overflow-hidden shadow">
-						<Typography className="font-bold">LINK</Typography>
+						<Typography className="font-semibold">LINK</Typography>
 					</Paper>
 					<div className="flex flex-auto flex-col justify-center items-start min-w-0 px-16">
-						<Typography className="text-16 font-bold truncate w-full">{props.item.url}</Typography>
+						<Typography className="text-16 font-semibold truncate w-full">{props.item.url}</Typography>
 						<Typography className="truncate w-full mb-12" color="textSecondary">
 							{props.item.time}
 						</Typography>

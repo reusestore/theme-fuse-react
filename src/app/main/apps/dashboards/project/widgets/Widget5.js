@@ -20,7 +20,7 @@ function Widget5(props) {
 	return (
 		<Paper className="w-full rounded-20 shadow">
 			<div className="flex items-center justify-between p-20">
-				<Typography className="text-16 font-semibold">{widget.title}</Typography>
+				<Typography className="text-16 font-medium">{widget.title}</Typography>
 				<Tabs
 					value={tabValue}
 					onChange={(ev, value) => setTabValue(value)}
@@ -35,7 +35,7 @@ function Widget5(props) {
 					}}
 				>
 					{Object.entries(widget.ranges).map(([key, n]) => (
-						<Tab className="text-14 font-bold min-h-40 min-w-64 mx-4" disableRipple key={key} label={n} />
+						<Tab className="text-14 font-semibold min-h-40 min-w-64 mx-4" disableRipple key={key} label={n} />
 					))}
 				</Tabs>
 			</div>
@@ -64,10 +64,10 @@ function Widget5(props) {
 					{Object.entries(widget.supporting).map(([key, item]) => {
 						return (
 							<div key={key} className="w-full sm:w-1/2 p-12">
-								<Typography className="text-12 font-bold whitespace-nowrap" color="textSecondary">
+								<Typography className="text-12 font-semibold whitespace-nowrap" color="textSecondary">
 									{item.label}
 								</Typography>
-								<Typography className="text-32 font-bold">{item.count[currentRange]}</Typography>
+								<Typography className="text-32 font-semibold">{item.count[currentRange]}</Typography>
 								<div className="h-64 w-full">
 									<Line
 										data={{

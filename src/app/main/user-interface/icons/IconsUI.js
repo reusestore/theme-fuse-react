@@ -64,7 +64,7 @@ function IconsUI() {
 							<Typography color="textSecondary">User Interface</Typography>
 						</div>
 						<FuseAnimate>
-							<Typography variant="h6" className="text-18 sm:text-20">
+							<Typography variant="h6" className="text-18 sm:text-24">
 								Icons
 							</Typography>
 						</FuseAnimate>

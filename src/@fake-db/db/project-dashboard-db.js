@@ -1078,7 +1078,7 @@ const projectDashboardAppDB = {
 							{
 								id: 'total_budget',
 								value: '$14,880.00',
-								classes: 'font-bold',
+								classes: 'font-semibold',
 								icon: ''
 							},
 							{
@@ -1119,7 +1119,7 @@ const projectDashboardAppDB = {
 							{
 								id: 'total_budget',
 								value: '$21,080.00',
-								classes: 'font-bold',
+								classes: 'font-semibold',
 								icon: ''
 							},
 							{
@@ -1160,7 +1160,7 @@ const projectDashboardAppDB = {
 							{
 								id: 'total_budget',
 								value: '$34,720.00',
-								classes: 'font-bold',
+								classes: 'font-semibold',
 								icon: ''
 							},
 							{
@@ -1201,7 +1201,7 @@ const projectDashboardAppDB = {
 							{
 								id: 'total_budget',
 								value: '$34,720.00',
-								classes: 'font-bold',
+								classes: 'font-semibold',
 								icon: ''
 							},
 							{
@@ -1242,7 +1242,7 @@ const projectDashboardAppDB = {
 							{
 								id: 'total_budget',
 								value: '$18,600.00',
-								classes: 'font-bold',
+								classes: 'font-semibold',
 								icon: ''
 							},
 							{
@@ -1904,7 +1904,7 @@ const projectDashboardAppDB = {
 					},
 					windDirection: 'NW',
 					rainProbability: '98%',
-					next3Days: [
+					next5Days: [
 						{
 							name: 'Sunday',
 							icon: 'rainy',
@@ -1924,6 +1924,22 @@ const projectDashboardAppDB = {
 						{
 							name: 'Tuesday',
 							icon: 'windy3',
+							temp: {
+								C: '24',
+								F: '75'
+							}
+						},
+						{
+							name: 'Wednesday',
+							icon: 'rainy',
+							temp: {
+								C: '21',
+								F: '70'
+							}
+						},
+						{
+							name: 'Thursday',
+							icon: 'rainy2',
 							temp: {
 								C: '24',
 								F: '75'

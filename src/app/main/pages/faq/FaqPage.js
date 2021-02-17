@@ -81,14 +81,14 @@ function FaqPage() {
 					<Typography
 						variant="subtitle1"
 						color="inherit"
-						className="opacity-75 mt-8 sm:mt-16 mx-auto max-w-512 font-semibold"
+						className="opacity-75 mt-8 sm:mt-16 mx-auto max-w-512 font-medium"
 					>
 						Frequently asked questions
 					</Typography>
 				</FuseAnimate>
 
 				<FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
-					<Typography color="inherit" className="text-36 sm:text-56 font-medium">
+					<Typography color="inherit" className="text-36 sm:text-56 font-medium tracking-tight">
 						We're here to help
 					</Typography>
 				</FuseAnimate>
@@ -136,14 +136,14 @@ function FaqPage() {
 								onChange={toggleAccordion(faq.id)}
 							>
 								<AccordionSummary expandIcon={<Icon>expand_more</Icon>}>
-									<div className="flex items-center">
+									<div className="flex items-center py-4">
 										<Icon color="action">help_outline</Icon>
-										<Typography className="px-12">{faq.question}</Typography>
+										<Typography className="px-12 font-medium">{faq.question}</Typography>
 									</div>
 								</AccordionSummary>
 
 								<AccordionDetails>
-									<Typography className="">{faq.answer}</Typography>
+									<Typography className="text-14 px-32 pb-8 -mt-8">{faq.answer}</Typography>
 								</AccordionDetails>
 							</Accordion>
 						));

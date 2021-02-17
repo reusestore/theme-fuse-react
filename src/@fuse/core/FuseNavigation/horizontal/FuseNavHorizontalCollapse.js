@@ -118,7 +118,7 @@ function FuseNavHorizontalCollapse(props) {
 								<ListItemText
 									className="list-item-text"
 									primary={item.title}
-									classes={{ primary: 'text-14' }}
+									classes={{ primary: 'text-13' }}
 								/>
 
 								{item.badge && <FuseNavBadge className="mx-4" badge={item.badge} />}

@@ -67,11 +67,11 @@ function ModernSearchPage() {
 					>
 						{data.map(item => (
 							<Paper className="p-16 mb-16 rounded-16 shadow" key={item.id}>
-								<Typography className={clsx(classes.title, 'text-18 cursor-pointer')}>
+								<Typography className={clsx(classes.title, 'text-18 font-medium cursor-pointer')}>
 									{item.title}
 								</Typography>
-								<Typography className={clsx(classes.url)}>{item.url}</Typography>
-								<Typography className="text-13">{item.excerpt}</Typography>
+								<Typography className={clsx(classes.url, 'my-4')}>{item.url}</Typography>
+								<Typography>{item.excerpt}</Typography>
 							</Paper>
 						))}
 					</FuseAnimateGroup>

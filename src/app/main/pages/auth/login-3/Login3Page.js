@@ -72,7 +72,7 @@ function Login3Page() {
 									<img className="logo-icon w-48" src="assets/images/logos/fuse.svg" alt="logo" />
 									<div className="border-l-1 mr-4 w-1 h-40" />
 									<div>
-										<Typography className="text-24 font-bold logo-text" color="inherit">
+										<Typography className="text-24 font-semibold logo-text" color="inherit">
 											FUSE
 										</Typography>
 										<Typography
@@ -130,7 +130,7 @@ function Login3Page() {
 										/>
 									</FormControl>
 
-									<Link className="font-medium" to="/pages/auth/forgot-password-2">
+									<Link className="font-normal" to="/pages/auth/forgot-password-2">
 										Forgot Password?
 									</Link>
 								</div>
@@ -148,7 +148,7 @@ function Login3Page() {
 
 							<div className="my-24 flex items-center justify-center">
 								<Divider className="w-32" />
-								<span className="mx-8 font-bold">OR</span>
+								<span className="mx-8 font-semibold">OR</span>
 								<Divider className="w-32" />
 							</div>
 
@@ -162,8 +162,8 @@ function Login3Page() {
 						</CardContent>
 
 						<div className="flex flex-col items-center justify-center pb-32">
-							<span className="font-medium">Don't have an account?</span>
-							<Link className="font-medium" to="/pages/auth/register-3">
+							<span className="font-normal">Don't have an account?</span>
+							<Link className="font-normal" to="/pages/auth/register-3">
 								Create an account
 							</Link>
 						</div>
@@ -174,7 +174,7 @@ function Login3Page() {
 					>
 						<div className="max-w-320">
 							<FuseAnimate animation="transition.slideUpIn" delay={400}>
-								<Typography variant="h3" color="inherit" className="font-bold leading-tight">
+								<Typography variant="h3" color="inherit" className="font-semibold leading-tight">
 									Welcome <br />
 									to the <br /> FUSE React!
 								</Typography>

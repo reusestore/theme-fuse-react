@@ -19,7 +19,7 @@ function Widget7(props) {
 	return (
 		<Card className="w-full rounded-20 shadow p-20">
 			<div className="pb-24">
-				<Typography className="h3 font-semibold">Sessions by device</Typography>
+				<Typography className="h3 font-medium">Sessions by device</Typography>
 			</div>
 
 			<div className="h-224 relative">
@@ -48,10 +48,10 @@ function Widget7(props) {
 			<div className="my-24 flex flex-row items-center justify-center">
 				{data.labels.map((label, index) => (
 					<div key={label} className="px-16 flex flex-col items-center">
-						<Typography className="h4 font-bold" color="textSecondary">
+						<Typography className="h4 font-semibold" color="textSecondary">
 							{label}
 						</Typography>
-						<Typography className="text-18 font-bold py-8">
+						<Typography className="text-18 font-semibold py-8">
 							{data.datasets[dataset][0].data[index]}%
 						</Typography>
 
@@ -63,7 +63,7 @@ function Widget7(props) {
 							{data.datasets[dataset][0].change[index] > 0 && (
 								<Icon className="text-18 text-green">arrow_upward</Icon>
 							)}
-							<Typography className="h5 px-4 font-bold" color="textSecondary">
+							<Typography className="h5 px-4 font-semibold" color="textSecondary">
 								{data.datasets[dataset][0].change[index]}%
 							</Typography>
 						</div>

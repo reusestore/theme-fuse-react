@@ -53,7 +53,7 @@ function LabelsForm(props) {
 
 	return (
 		<>
-			<Typography className="text-16 mb-8 font-bold">Edit Labels</Typography>
+			<Typography className="text-16 mb-8 font-semibold">Edit Labels</Typography>
 			<List dense>
 				<form onSubmit={handleSubmit}>
 					<ListItem className="p-0 mb-16" dense>

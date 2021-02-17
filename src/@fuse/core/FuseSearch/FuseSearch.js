@@ -82,7 +82,7 @@ function renderSuggestion(suggestion, { query, isHighlighted }) {
 				{suggestion.icon ? (
 					<Icon>{suggestion.icon}</Icon>
 				) : (
-					<span className="text-20 w-24 font-bold uppercase text-center">{suggestion.title[0]}</span>
+					<span className="text-20 w-24 font-semibold uppercase text-center">{suggestion.title[0]}</span>
 				)}
 			</ListItemIcon>
 			<ListItemText

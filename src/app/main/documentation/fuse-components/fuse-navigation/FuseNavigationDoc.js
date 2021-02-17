@@ -140,7 +140,7 @@ function FuseNavigationDoc(props) {
                                 }
                                 `}
 			</FuseHighlight>
-			<Typography className="text-20 mt-24 mb-8 font-semibold" component="h2">
+			<Typography className="text-20 mt-24 mb-8 font-medium" component="h2">
 				exact: bool
 			</Typography>
 			<Typography className="text-16 mb-8" component="h2">

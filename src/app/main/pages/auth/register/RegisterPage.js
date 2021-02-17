@@ -54,7 +54,7 @@ function RegisterPage() {
 						<CardContent className="flex flex-col items-center justify-center p-32">
 							<img className="w-128 m-32" src="assets/images/logos/fuse.svg" alt="logo" />
 
-							<Typography variant="h6" className="mt-16 mb-32 font-semibold text-20 sm:text-24">
+							<Typography variant="h6" className="mt-16 mb-32 font-medium text-20 sm:text-24">
 								Create an account
 							</Typography>
 
@@ -139,8 +139,8 @@ function RegisterPage() {
 							</form>
 
 							<div className="flex flex-col items-center justify-center pt-32 pb-24">
-								<span className="font-medium">Already have an account?</span>
-								<Link className="font-medium" to="/pages/auth/login">
+								<span className="font-normal">Already have an account?</span>
+								<Link className="font-normal" to="/pages/auth/login">
 									Login
 								</Link>
 							</div>

@@ -101,22 +101,28 @@ function Courses(props) {
 			<div
 				className={clsx(
 					classes.header,
-					'relative overflow-hidden flex flex-col flex-shrink-0 items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-288'
+					'relative overflow-hidden flex flex-shrink-0 items-center justify-center h-200 sm:h-288'
 				)}
 			>
-				<FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
-					<Typography color="inherit" className="text-24 sm:text-40 font-medium">
-						WELCOME TO ACADEMY
-					</Typography>
-				</FuseAnimate>
-				<FuseAnimate duration={400} delay={600}>
-					<Typography variant="subtitle1" color="inherit" className="mt-8 sm:mt-16 mx-auto max-w-512">
-						<span className="opacity-75">
+				<div className="flex flex-col max-w-2xl mx-auto w-full p-24 sm:p-32">
+					<FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
+						<Typography color="inherit" className="text-24 sm:text-44 font-medium tracking-tight">
+							Welcome to Academy
+						</Typography>
+					</FuseAnimate>
+					<FuseAnimate duration={400} delay={600}>
+						<Typography
+							variant="subtitle1"
+							color="inherit"
+							className="mt-8 sm:mt-16 opacity-75 leading-loose"
+						>
 							Our courses will step you through the process of building a small application, or adding a
-							new feature to an existing application.
-						</span>
-					</Typography>
-				</FuseAnimate>
+							new feature to an existing application. Our courses will step you through the process of
+							building a small application, or adding a new feature to an existing application.
+						</Typography>
+					</FuseAnimate>
+				</div>
+
 				<Icon className={classes.headerIcon}> school </Icon>
 			</div>
 			<div className="flex flex-col flex-1 max-w-2xl w-full mx-auto px-8 sm:px-16 py-24">
@@ -181,31 +187,31 @@ function Courses(props) {
 														color: theme.palette.getContrastText(category.color)
 													}}
 												>
-													<Typography className="font-semibold truncate" color="inherit">
+													<Typography className="font-medium truncate" color="inherit">
 														{category.label}
 													</Typography>
 													<div className="flex items-center justify-center opacity-75">
 														<Icon className="text-20 mx-8" color="inherit">
 															access_time
 														</Icon>
-														<div className="text-16 font-medium whitespace-nowrap">
+														<div className="text-14 font-medium whitespace-nowrap">
 															{course.length}
 															min
 														</div>
 													</div>
 												</div>
 												<CardContent className="flex flex-col flex-auto items-center justify-center">
-													<Typography className="text-center text-16 font-semibold">
+													<Typography className="text-center text-16 font-medium">
 														{course.title}
 													</Typography>
 													<Typography
-														className="text-center text-13 mt-8 font-medium"
+														className="text-center text-13 mt-8 font-normal"
 														color="textSecondary"
 													>
 														{course.updated}
 													</Typography>
 												</CardContent>
-												<CardActions className="justify-center pb-20">
+												<CardActions className="justify-center pb-24">
 													<Button
 														to={`/apps/academy/courses/${course.id}/${course.slug}`}
 														component={Link}

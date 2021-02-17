@@ -208,7 +208,7 @@ function ChatsSidebar(props) {
 									className="flex flex-col flex-shrink-0"
 								>
 									{filteredChatList.length > 0 && (
-										<Typography className="font-300 text-20 px-16 py-24" color="secondary">
+										<Typography className="font-medium text-20 px-16 py-24" color="secondary">
 											Chats
 										</Typography>
 									)}
@@ -222,7 +222,7 @@ function ChatsSidebar(props) {
 									))}
 
 									{filteredContacts.length > 0 && (
-										<Typography className="font-300 text-20 px-16 py-24" color="secondary">
+										<Typography className="font-medium text-20 px-16 py-24" color="secondary">
 											Contacts
 										</Typography>
 									)}

@@ -77,7 +77,7 @@ function Boards(props) {
 								>
 									<Icon className="text-56">assessment</Icon>
 									<Typography
-										className="text-16 font-semibold text-center pt-16 px-32"
+										className="text-16 font-medium text-center pt-16 px-32"
 										color="inherit"
 									>
 										{board.name}
@@ -98,7 +98,7 @@ function Boards(props) {
 								tabIndex={0}
 							>
 								<Icon className="text-56">add_circle</Icon>
-								<Typography className="text-16 font-semibold text-center pt-16 px-32" color="inherit">
+								<Typography className="text-16 font-medium text-center pt-16 px-32" color="inherit">
 									Add new board
 								</Typography>
 							</div>

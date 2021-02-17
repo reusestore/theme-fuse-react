@@ -22,7 +22,7 @@ function TypographyUI() {
 							</Icon>
 							<Typography color="textSecondary">User Interface</Typography>
 						</div>
-						<Typography variant="h6" className="text-18 sm:text-20">
+						<Typography variant="h6" className="text-18 sm:text-24">
 							Typography
 						</Typography>
 					</div>

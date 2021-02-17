@@ -155,7 +155,7 @@ function ProductsTableHead(props) {
 										active={props.order.id === row.id}
 										direction={props.order.direction}
 										onClick={createSortHandler(row.id)}
-										className="font-bold"
+										className="font-semibold"
 									>
 										{row.label}
 									</TableSortLabel>

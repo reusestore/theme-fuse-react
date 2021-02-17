@@ -72,12 +72,12 @@ function ProductImagesTab(props) {
 	}
 	return (
 		<div>
-			<div className="flex justify-center sm:justify-start flex-wrap -mx-8">
+			<div className="flex justify-center sm:justify-start flex-wrap -mx-16">
 				<label
 					htmlFor="button-file"
 					className={clsx(
 						classes.productImageUpload,
-						'flex items-center justify-center relative w-128 h-128 rounded-8 mx-8 mb-16 overflow-hidden cursor-pointer shadow hover:shadow-lg'
+						'flex items-center justify-center relative w-128 h-128 rounded-16 mx-12 mb-24 overflow-hidden cursor-pointer shadow hover:shadow-lg'
 					)}
 				>
 					<input
@@ -99,7 +99,7 @@ function ProductImagesTab(props) {
 						tabIndex={0}
 						className={clsx(
 							classes.productImageItem,
-							'flex items-center justify-center relative w-128 h-128 rounded-8 mx-8 mb-16 overflow-hidden cursor-pointer outline-none shadow hover:shadow-lg',
+							'flex items-center justify-center relative w-128 h-128 rounded-16 mx-12 mb-24 overflow-hidden cursor-pointer outline-none shadow hover:shadow-lg',
 							media.id === form.featuredImageId && 'featured'
 						)}
 						key={media.id}

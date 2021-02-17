@@ -16,7 +16,7 @@ function Widget6(props) {
 	return (
 		<Paper className="w-full rounded-20 shadow">
 			<div className="flex items-center justify-between p-20 h-64 ">
-				<Typography className="text-16 font-semibold">{widget.title}</Typography>
+				<Typography className="text-16 font-medium">{widget.title}</Typography>
 
 				<Select
 					native
@@ -25,7 +25,7 @@ function Widget6(props) {
 					inputProps={{
 						name: 'currentRange'
 					}}
-					className="font-semibold opacity-75"
+					className="font-medium opacity-75"
 					disableUnderline
 				>
 					{Object.entries(widget.ranges).map(([key, n]) => {
@@ -48,18 +48,18 @@ function Widget6(props) {
 			</div>
 			<div className="flex items-center p-8 border-t-1">
 				<div className="flex flex-1 flex-col items-center justify-center p-16 border-r-1">
-					<Typography className="text-32 font-semibold mb-8 leading-none">
+					<Typography className="text-32 font-medium mb-8 leading-none">
 						{widget.footerLeft.count[currentRange]}
 					</Typography>
-					<Typography className="text-13 font-medium" color="textSecondary">
+					<Typography className="text-13 font-normal" color="textSecondary">
 						{widget.footerLeft.title}
 					</Typography>
 				</div>
 				<div className="flex flex-1 flex-col items-center justify-center p-16">
-					<Typography className="text-32 font-semibold mb-8 leading-none">
+					<Typography className="text-32 font-medium mb-8 leading-none">
 						{widget.footerRight.count[currentRange]}
 					</Typography>
-					<Typography className="text-13 font-medium" color="textSecondary">
+					<Typography className="text-13 font-normal" color="textSecondary">
 						{widget.footerRight.title}
 					</Typography>
 				</div>

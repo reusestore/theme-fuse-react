@@ -28,7 +28,7 @@ function PricingStyle2Page() {
 				<div className="p-24 w-full max-w-2xl mx-auto">
 					<div className="text-center my-128 mx-24">
 						<FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
-							<Typography variant="h2" color="inherit" className="font-medium">
+							<Typography variant="h2" color="inherit" className="font-normal">
 								Simple Pricing!
 							</Typography>
 						</FuseAnimate>
@@ -58,7 +58,7 @@ function PricingStyle2Page() {
 						<div className="w-full max-w-320 sm:w-1/3 p-12">
 							<Card className="relative rounded-16">
 								<div className="pt-48 pb-24 text-center">
-									<Typography variant="subtitle1" color="inherit" className="text-20 font-bold">
+									<Typography variant="subtitle1" color="inherit" className="text-20 font-semibold">
 										SILVER PACKAGE
 									</Typography>
 								</div>
@@ -66,27 +66,27 @@ function PricingStyle2Page() {
 								<CardContent className="text-center p-0">
 									<div className="flex flex-col">
 										<div className="flex justify-center mb-8">
-											<Typography variant="h5" color="textSecondary" className="font-bold">
+											<Typography variant="h5" color="textSecondary" className="font-semibold">
 												$
 											</Typography>
-											<Typography className="text-56 mx-4 font-medium leading-none">4</Typography>
+											<Typography className="text-56 mx-4 font-normal leading-none">4</Typography>
 										</div>
-										<Typography color="textSecondary" className="font-semibold text-16">
+										<Typography color="textSecondary" className="font-medium text-16">
 											PER MONTH
 										</Typography>
 									</div>
 
 									<div className="flex flex-col p-32">
 										<Typography variant="subtitle1" className="mb-8">
-											<span className="font-bold mx-4">10</span>
+											<span className="font-semibold mx-4">10</span>
 											<span>Projects</span>
 										</Typography>
 										<Typography variant="subtitle1" className="mb-8">
-											<span className="font-bold mx-4">10</span>
+											<span className="font-semibold mx-4">10</span>
 											Pages
 										</Typography>
 										<Typography variant="subtitle1" className="mb-8">
-											<span className="font-bold mx-4">100</span>
+											<span className="font-semibold mx-4">100</span>
 											Mb Disk Space
 										</Typography>
 									</div>
@@ -111,7 +111,7 @@ function PricingStyle2Page() {
 								</div>
 
 								<div className="pt-48 pb-24 text-center">
-									<Typography variant="subtitle1" color="inherit" className="text-20 font-bold">
+									<Typography variant="subtitle1" color="inherit" className="text-20 font-semibold">
 										GOLD PACKAGE
 									</Typography>
 								</div>
@@ -119,29 +119,29 @@ function PricingStyle2Page() {
 								<CardContent className="text-center p-0">
 									<div className="flex flex-col">
 										<div className="flex justify-center mb-8">
-											<Typography variant="h5" color="textSecondary" className="font-bold">
+											<Typography variant="h5" color="textSecondary" className="font-semibold">
 												$
 											</Typography>
-											<Typography className="text-56 mx-4 font-medium leading-none">
+											<Typography className="text-56 mx-4 font-normal leading-none">
 												299
 											</Typography>
 										</div>
-										<Typography color="textSecondary" className="font-semibold text-16">
+										<Typography color="textSecondary" className="font-medium text-16">
 											PER MONTH
 										</Typography>
 									</div>
 
 									<div className="flex flex-col p-32">
 										<Typography variant="subtitle1" className="mb-8">
-											<span className="font-bold mx-4">20</span>
+											<span className="font-semibold mx-4">20</span>
 											Projects
 										</Typography>
 										<Typography variant="subtitle1" className="mb-8">
-											<span className="font-bold mx-4">20</span>
+											<span className="font-semibold mx-4">20</span>
 											Pages
 										</Typography>
 										<Typography variant="subtitle1" className="mb-8">
-											<span className="font-bold mx-4">200</span>
+											<span className="font-semibold mx-4">200</span>
 											Mb Disk Space
 										</Typography>
 									</div>
@@ -158,7 +158,7 @@ function PricingStyle2Page() {
 						<div className="w-full max-w-320 sm:w-1/3 p-12">
 							<Card className="relative rounded-16">
 								<div className="pt-48 pb-24 text-center">
-									<Typography variant="subtitle1" color="inherit" className="text-20 font-bold">
+									<Typography variant="subtitle1" color="inherit" className="text-20 font-semibold">
 										PLATINUM PACKAGE
 									</Typography>
 								</div>
@@ -166,29 +166,29 @@ function PricingStyle2Page() {
 								<CardContent className="text-center p-0">
 									<div className="flex flex-col">
 										<div className="flex justify-center mb-8">
-											<Typography variant="h5" color="textSecondary" className="font-bold">
+											<Typography variant="h5" color="textSecondary" className="font-semibold">
 												$
 											</Typography>
-											<Typography className="text-56 mx-4 font-medium leading-none">
+											<Typography className="text-56 mx-4 font-normal leading-none">
 												499
 											</Typography>
 										</div>
-										<Typography color="textSecondary" className="font-semibold text-16">
+										<Typography color="textSecondary" className="font-medium text-16">
 											PER MONTH
 										</Typography>
 									</div>
 
 									<div className="flex flex-col p-32">
 										<Typography variant="subtitle1" className="mb-8">
-											<span className="font-bold mx-4">40</span>
+											<span className="font-semibold mx-4">40</span>
 											Projects
 										</Typography>
 										<Typography variant="subtitle1" className="mb-8">
-											<span className="font-bold mx-4">40</span>
+											<span className="font-semibold mx-4">40</span>
 											Pages
 										</Typography>
 										<Typography variant="subtitle1" className="mb-8">
-											<span className="font-bold mx-4">500</span>
+											<span className="font-semibold mx-4">500</span>
 											Mb Disk Space
 										</Typography>
 									</div>
@@ -204,7 +204,7 @@ function PricingStyle2Page() {
 					</FuseAnimateGroup>
 
 					<div className="flex flex-col items-center py-96 text-center sm:ltr:text-left sm:rtl:text-right max-w-xl mx-auto">
-						<Typography variant="h4" className="pb-32 font-medium">
+						<Typography variant="h4" className="pb-32 font-normal">
 							Frequently Asked Questions
 						</Typography>
 

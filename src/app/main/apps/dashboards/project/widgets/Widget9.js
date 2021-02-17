@@ -19,7 +19,7 @@ function Widget9(props) {
 	return (
 		<Paper className="w-full rounded-20 shadow">
 			<div className="flex items-center justify-between p-20 h-64">
-				<Typography className="text-16 font-semibold">{widget.title}</Typography>
+				<Typography className="text-16 font-medium">{widget.title}</Typography>
 
 				<Select
 					native
@@ -28,7 +28,7 @@ function Widget9(props) {
 					inputProps={{
 						name: 'currentRange'
 					}}
-					className="font-semibold opacity-75"
+					className="font-medium opacity-75"
 					disableUnderline
 				>
 					{Object.entries(widget.ranges).map(([key, n]) => {
@@ -43,14 +43,14 @@ function Widget9(props) {
 			{['weeklySpent', 'totalSpent', 'remaining'].map(id => (
 				<div className="flex flex-wrap items-center w-full p-12" key={id}>
 					<div className="flex flex-col w-full sm:w-1/2 p-8">
-						<Typography className="text-13 font-bold" color="textSecondary">
+						<Typography className="text-13 font-semibold" color="textSecondary">
 							{widget[id].title}
 						</Typography>
 						<div className="flex items-center">
-							<Typography className="text-32 font-medium" color="textSecondary">
+							<Typography className="text-32 font-normal" color="textSecondary">
 								$
 							</Typography>
-							<Typography className="text-32 mx-4 font-semibold">
+							<Typography className="text-32 mx-4 font-medium">
 								{widget[id].count[currentRange]}
 							</Typography>
 						</div>
@@ -81,14 +81,14 @@ function Widget9(props) {
 			))}
 			<Divider />
 			<div className="flex flex-col w-full p-20">
-				<Typography className="text-13 font-bold" color="textSecondary">
+				<Typography className="text-13 font-semibold" color="textSecondary">
 					{widget.totalBudget.title}
 				</Typography>
 				<div className="flex items-center">
-					<Typography className="text-32 font-medium" color="textSecondary">
+					<Typography className="text-32 font-normal" color="textSecondary">
 						$
 					</Typography>
-					<Typography className="text-32 mx-4 font-semibold">{widget.totalBudget.count}</Typography>
+					<Typography className="text-32 mx-4 font-medium">{widget.totalBudget.count}</Typography>
 				</div>
 			</div>
 		</Paper>

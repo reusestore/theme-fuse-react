@@ -82,14 +82,14 @@ function AdjustFontSize(props) {
 				}}
 			>
 				<div className="py-12 px-24">
-					<Typography className="flex items-center justify-center text-16 font-bold mb-8">
+					<Typography className="flex items-center justify-center text-16 font-semibold mb-8">
 						<Icon color="action" className="mr-4">
 							format_size
 						</Icon>
 						Font Size
 					</Typography>
 					<Slider
-						classes={{ markLabel: 'text-12 font-bold' }}
+						classes={{ markLabel: 'text-12 font-semibold' }}
 						value={fontSize}
 						track={false}
 						aria-labelledby="discrete-slider-small-steps"

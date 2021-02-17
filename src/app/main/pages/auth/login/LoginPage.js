@@ -47,7 +47,7 @@ function LoginPage() {
 						<CardContent className="flex flex-col items-center justify-center p-32">
 							<img className="w-128 m-32" src="assets/images/logos/fuse.svg" alt="logo" />
 
-							<Typography variant="h6" className="mt-16 mb-32 font-semibold text-20 sm:text-24">
+							<Typography variant="h6" className="mt-16 mb-32 font-medium text-20 sm:text-24">
 								Login to your account
 							</Typography>
 
@@ -96,7 +96,7 @@ function LoginPage() {
 										/>
 									</FormControl>
 
-									<Link className="font-medium" to="/pages/auth/forgot-password">
+									<Link className="font-normal" to="/pages/auth/forgot-password">
 										Forgot Password?
 									</Link>
 								</div>
@@ -115,7 +115,7 @@ function LoginPage() {
 
 							<div className="my-24 flex items-center justify-center">
 								<Divider className="w-32" />
-								<span className="mx-8 font-bold">OR</span>
+								<span className="mx-8 font-semibold">OR</span>
 								<Divider className="w-32" />
 							</div>
 
@@ -128,8 +128,8 @@ function LoginPage() {
 							</Button>
 
 							<div className="flex flex-col items-center justify-center pt-32 pb-24">
-								<span className="font-medium">Don't have an account?</span>
-								<Link className="font-medium" to="/pages/auth/register">
+								<span className="font-normal">Don't have an account?</span>
+								<Link className="font-normal" to="/pages/auth/register">
 									Create an account
 								</Link>
 							</div>

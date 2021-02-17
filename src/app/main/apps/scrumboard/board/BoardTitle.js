@@ -54,15 +54,16 @@ function BoardTitle(props) {
 		<div className="flex items-center min-w-0">
 			{formOpen ? (
 				<ClickAwayListener onClickAway={handleCloseForm}>
-					<Paper className="p-4 shadow">
+					<Paper>
 						<form className="flex w-full" onSubmit={handleSubmit}>
 							<TextField
 								name="title"
 								value={form.title}
 								onChange={handleChange}
-								variant="outlined"
+								variant="filled"
 								margin="none"
 								autoFocus
+								hiddenLabel
 								InputProps={{
 									endAdornment: (
 										<InputAdornment position="end">
@@ -80,7 +81,7 @@ function BoardTitle(props) {
 				<div className="flex items-center justify-center">
 					{board.settings.subscribed && <Icon className="text-16">remove_red_eye</Icon>}
 					<Typography
-						className="text-16 font-bold cursor-pointer mx-8"
+						className="text-18 font-medium cursor-pointer mx-8"
 						onClick={handleOpenForm}
 						color="inherit"
 					>

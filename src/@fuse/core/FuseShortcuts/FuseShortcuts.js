@@ -90,7 +90,7 @@ function FuseShortcuts(props) {
 						{item.icon ? (
 							<Icon>{item.icon}</Icon>
 						) : (
-							<span className="text-20 font-bold uppercase text-center">{item.title[0]}</span>
+							<span className="text-20 font-semibold uppercase text-center">{item.title[0]}</span>
 						)}
 					</ListItemIcon>
 					<ListItemText primary={item.title} />
@@ -136,7 +136,7 @@ function FuseShortcuts(props) {
 										{item.icon ? (
 											<Icon>{item.icon}</Icon>
 										) : (
-											<span className="text-20 font-bold uppercase">{item.title[0]}</span>
+											<span className="text-20 font-semibold uppercase">{item.title[0]}</span>
 										)}
 									</IconButton>
 								</Tooltip>

@@ -108,7 +108,7 @@ function Course(props) {
 										className="flex justify-center p-16 pb-64 sm:p-24 sm:pb-64 md:p-48 md:pb-64"
 										key={step.id}
 									>
-										<Paper className="w-full max-w-lg rounded-20 p-16 md:p-24 shadow">
+										<Paper className="w-full max-w-lg rounded-20 p-16 md:p-24 shadow text-14 leading-normal">
 											<div
 												dangerouslySetInnerHTML={{ __html: step.content }}
 												dir={theme.direction}

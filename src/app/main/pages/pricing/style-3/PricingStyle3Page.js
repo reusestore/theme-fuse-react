@@ -32,7 +32,7 @@ function PricingStyle3Page() {
 				<div className="p-24 w-full max-w-2xl mx-auto">
 					<div className="text-center my-128 mx-24">
 						<FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
-							<Typography variant="h2" color="inherit" className="font-medium">
+							<Typography variant="h2" color="inherit" className="font-normal">
 								Simple Pricing!
 							</Typography>
 						</FuseAnimate>
@@ -62,8 +62,8 @@ function PricingStyle3Page() {
 						<div className="w-full max-w-320 sm:w-1/3 p-12">
 							<Card className="relative rounded-16">
 								<div className="p-32 text-center">
-									<Typography className="text-32 font-bold">Starter</Typography>
-									<Typography color="textSecondary" className="text-16 font-medium">
+									<Typography className="text-32 font-semibold">Starter</Typography>
+									<Typography color="textSecondary" className="text-16 font-normal">
 										For small teams
 									</Typography>
 								</div>
@@ -71,17 +71,17 @@ function PricingStyle3Page() {
 								<CardContent className="text-center p-0">
 									<div className={clsx(classes.price, 'flex items-end justify-center py-16 px-32')}>
 										<div className="flex justify-center">
-											<Typography color="inherit" className="font-medium">
+											<Typography color="inherit" className="font-normal">
 												$
 											</Typography>
 											<Typography
 												color="inherit"
-												className="text-32 mx-4 font-medium leading-none"
+												className="text-32 mx-4 font-normal leading-none"
 											>
 												29
 											</Typography>
 										</div>
-										<Typography color="inherit" className="mx-4 font-medium">
+										<Typography color="inherit" className="mx-4 font-normal">
 											monthly per user
 										</Typography>
 									</div>
@@ -114,8 +114,8 @@ function PricingStyle3Page() {
 						<div className="w-full max-w-320 sm:w-1/3 p-12">
 							<Card className="relative rounded-16" raised>
 								<div className="p-32 text-center">
-									<Typography className="text-32 font-bold">Pro</Typography>
-									<Typography color="textSecondary" className="text-16 font-medium">
+									<Typography className="text-32 font-semibold">Pro</Typography>
+									<Typography color="textSecondary" className="text-16 font-normal">
 										For larger teams
 									</Typography>
 								</div>
@@ -123,17 +123,17 @@ function PricingStyle3Page() {
 								<CardContent className="text-center p-0">
 									<div className={clsx(classes.price, 'flex items-end justify-center py-16 px-32')}>
 										<div className="flex justify-center">
-											<Typography color="inherit" className="font-medium">
+											<Typography color="inherit" className="font-normal">
 												$
 											</Typography>
 											<Typography
 												color="inherit"
-												className="text-32 mx-4 font-medium leading-none"
+												className="text-32 mx-4 font-normal leading-none"
 											>
 												59
 											</Typography>
 										</div>
-										<Typography color="inherit" className="mx-4 font-medium">
+										<Typography color="inherit" className="mx-4 font-normal">
 											monthly per user
 										</Typography>
 									</div>
@@ -169,8 +169,8 @@ function PricingStyle3Page() {
 						<div className="w-full max-w-320 sm:w-1/3 p-12">
 							<Card className="relative rounded-16">
 								<div className="p-32 text-center">
-									<Typography className="text-32 font-bold">Enterprise</Typography>
-									<Typography color="textSecondary" className="text-16 font-medium">
+									<Typography className="text-32 font-semibold">Enterprise</Typography>
+									<Typography color="textSecondary" className="text-16 font-normal">
 										For big teams
 									</Typography>
 								</div>
@@ -178,17 +178,17 @@ function PricingStyle3Page() {
 								<CardContent className="text-center p-0">
 									<div className={clsx(classes.price, 'flex items-end justify-center py-16 px-32')}>
 										<div className="flex justify-center">
-											<Typography color="inherit" className="font-medium">
+											<Typography color="inherit" className="font-normal">
 												$
 											</Typography>
 											<Typography
 												color="inherit"
-												className="text-32 mx-4 font-medium leading-none"
+												className="text-32 mx-4 font-normal leading-none"
 											>
 												29
 											</Typography>
 										</div>
-										<Typography color="inherit" className="mx-4 font-medium">
+										<Typography color="inherit" className="mx-4 font-normal">
 											monthly per user
 										</Typography>
 									</div>
@@ -219,7 +219,7 @@ function PricingStyle3Page() {
 						</div>
 					</FuseAnimateGroup>
 					<div className="flex flex-col items-center py-96 text-center sm:ltr:text-left sm:rtl:text-right max-w-xl mx-auto">
-						<Typography variant="h4" className="pb-32 font-medium">
+						<Typography variant="h4" className="pb-32 font-normal">
 							Frequently Asked Questions
 						</Typography>
 

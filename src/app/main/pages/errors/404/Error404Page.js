@@ -10,13 +10,13 @@ function Error404Page() {
 		<div className="flex flex-col flex-1 items-center justify-center p-16">
 			<div className="max-w-512 text-center">
 				<FuseAnimate animation="transition.expandIn" delay={100}>
-					<Typography variant="h1" color="inherit" className="font-semibold mb-16">
+					<Typography variant="h1" color="inherit" className="font-medium mb-16">
 						404
 					</Typography>
 				</FuseAnimate>
 
 				<FuseAnimate delay={500}>
-					<Typography variant="h5" color="textSecondary" className="mb-16 font-medium">
+					<Typography variant="h5" color="textSecondary" className="mb-16 font-normal">
 						Sorry but we could not find the page you are looking for
 					</Typography>
 				</FuseAnimate>
@@ -34,7 +34,7 @@ function Error404Page() {
 					/>
 				</Paper>
 
-				<Link className="font-medium" to="/apps/dashboards/project">
+				<Link className="font-normal" to="/apps/dashboards/project">
 					Go back to dashboard
 				</Link>
 			</div>

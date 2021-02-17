@@ -19,7 +19,7 @@ function FuseLayoutDoc() {
 
 			<Typography className="mb-16" component="p">
 				Please checkout{' '}
-				<Link className="font-medium" to="/documentation/theming/theme-layouts">
+				<Link className="font-normal" to="/documentation/theming/theme-layouts">
 					Theme Layouts
 				</Link>{' '}
 				at documentation.

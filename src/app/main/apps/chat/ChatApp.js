@@ -249,7 +249,7 @@ function ChatApp(props) {
 														: ''}
 												</Avatar>
 											</div>
-											<Typography color="inherit" className="text-18 font-bold px-4">
+											<Typography color="inherit" className="text-18 font-semibold px-4">
 												{selectedContact.name}
 											</Typography>
 										</div>

@@ -135,7 +135,7 @@ function NoteForm(props) {
 					)}
 					<div className="px-20 my-16">
 						<Input
-							className="font-bold"
+							className="font-semibold text-14"
 							placeholder="Title"
 							type="text"
 							name="title"

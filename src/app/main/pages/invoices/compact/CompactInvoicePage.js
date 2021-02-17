@@ -172,7 +172,7 @@ function CompactInvoicePage() {
 										<TableRow>
 											<TableCell>
 												<Typography
-													className="font-medium"
+													className="font-normal"
 													variant="subtitle1"
 													color="textSecondary"
 												>
@@ -181,7 +181,7 @@ function CompactInvoicePage() {
 											</TableCell>
 											<TableCell align="right">
 												<Typography
-													className="font-medium"
+													className="font-normal"
 													variant="subtitle1"
 													color="textSecondary"
 												>
@@ -192,7 +192,7 @@ function CompactInvoicePage() {
 										<TableRow>
 											<TableCell>
 												<Typography
-													className="font-medium"
+													className="font-normal"
 													variant="subtitle1"
 													color="textSecondary"
 												>
@@ -201,7 +201,7 @@ function CompactInvoicePage() {
 											</TableCell>
 											<TableCell align="right">
 												<Typography
-													className="font-medium"
+													className="font-normal"
 													variant="subtitle1"
 													color="textSecondary"
 												>
@@ -212,7 +212,7 @@ function CompactInvoicePage() {
 										<TableRow>
 											<TableCell>
 												<Typography
-													className="font-medium"
+													className="font-normal"
 													variant="subtitle1"
 													color="textSecondary"
 												>
@@ -221,7 +221,7 @@ function CompactInvoicePage() {
 											</TableCell>
 											<TableCell align="right">
 												<Typography
-													className="font-medium"
+													className="font-normal"
 													variant="subtitle1"
 													color="textSecondary"
 												>
@@ -256,7 +256,7 @@ function CompactInvoicePage() {
 									</div>
 
 									<Typography
-										className="font-medium mb-64 px-24"
+										className="font-normal mb-64 px-24"
 										variant="caption"
 										color="textSecondary"
 									>

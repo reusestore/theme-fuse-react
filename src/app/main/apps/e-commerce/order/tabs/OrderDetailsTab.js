@@ -28,7 +28,7 @@ function OrderDetailsTab() {
 			<div className="pb-48">
 				<div className="pb-16 flex items-center">
 					<Icon color="action">account_circle</Icon>
-					<Typography className="h2 mx-12 font-semibold" color="textSecondary">
+					<Typography className="h2 mx-12 font-medium" color="textSecondary">
 						Customer
 					</Typography>
 				</div>
@@ -39,16 +39,16 @@ function OrderDetailsTab() {
 							<thead>
 								<tr>
 									<th>
-										<Typography className="font-bold">Name</Typography>
+										<Typography className="font-semibold">Name</Typography>
 									</th>
 									<th>
-										<Typography className="font-bold">Email</Typography>
+										<Typography className="font-semibold">Email</Typography>
 									</th>
 									<th>
-										<Typography className="font-bold">Phone</Typography>
+										<Typography className="font-semibold">Phone</Typography>
 									</th>
 									<th>
-										<Typography className="font-bold">Company</Typography>
+										<Typography className="font-semibold">Company</Typography>
 									</th>
 								</tr>
 							</thead>
@@ -85,7 +85,7 @@ function OrderDetailsTab() {
 							expandIcon={<ExpandMoreIcon />}
 							classes={{ root: 'border border-solid rounded-16 mb-16' }}
 						>
-							<Typography className="font-bold">Shipping Address</Typography>
+							<Typography className="font-semibold">Shipping Address</Typography>
 						</AccordionSummary>
 						<AccordionDetails className="flex flex-col md:flex-row -mx-8">
 							<Typography className="w-full md:max-w-256 mb-16 md:mb-0 mx-8 text-16">
@@ -121,7 +121,7 @@ function OrderDetailsTab() {
 							expandIcon={<ExpandMoreIcon />}
 							classes={{ root: 'border border-solid rounded-16 mb-16' }}
 						>
-							<Typography className="font-bold">Invoice Address</Typography>
+							<Typography className="font-semibold">Invoice Address</Typography>
 						</AccordionSummary>
 						<AccordionDetails className="flex flex-col md:flex-row -mx-8">
 							<Typography className="w-full md:max-w-256 mb-16 md:mb-0 mx-8 text-16">
@@ -153,7 +153,7 @@ function OrderDetailsTab() {
 			<div className="pb-48">
 				<div className="pb-16 flex items-center">
 					<Icon color="action">access_time</Icon>
-					<Typography className="h2 mx-12 font-semibold" color="textSecondary">
+					<Typography className="h2 mx-12 font-medium" color="textSecondary">
 						Order Status
 					</Typography>
 				</div>
@@ -163,10 +163,10 @@ function OrderDetailsTab() {
 						<thead>
 							<tr>
 								<th>
-									<Typography className="font-bold">Status</Typography>
+									<Typography className="font-semibold">Status</Typography>
 								</th>
 								<th>
-									<Typography className="font-bold">Updated On</Typography>
+									<Typography className="font-semibold">Updated On</Typography>
 								</th>
 							</tr>
 						</thead>
@@ -187,7 +187,7 @@ function OrderDetailsTab() {
 			<div className="pb-48">
 				<div className="pb-16 flex items-center">
 					<Icon color="action">attach_money</Icon>
-					<Typography className="h2 mx-12 font-semibold" color="textSecondary">
+					<Typography className="h2 mx-12 font-medium" color="textSecondary">
 						Payment
 					</Typography>
 				</div>
@@ -197,16 +197,16 @@ function OrderDetailsTab() {
 						<thead>
 							<tr>
 								<th>
-									<Typography className="font-bold">TransactionID</Typography>
+									<Typography className="font-semibold">TransactionID</Typography>
 								</th>
 								<th>
-									<Typography className="font-bold">Payment Method</Typography>
+									<Typography className="font-semibold">Payment Method</Typography>
 								</th>
 								<th>
-									<Typography className="font-bold">Amount</Typography>
+									<Typography className="font-semibold">Amount</Typography>
 								</th>
 								<th>
-									<Typography className="font-bold">Date</Typography>
+									<Typography className="font-semibold">Date</Typography>
 								</th>
 							</tr>
 						</thead>
@@ -233,7 +233,7 @@ function OrderDetailsTab() {
 			<div className="pb-48">
 				<div className="pb-16 flex items-center">
 					<Icon color="action">local_shipping</Icon>
-					<Typography className="h2 mx-12 font-semibold" color="textSecondary">
+					<Typography className="h2 mx-12 font-medium" color="textSecondary">
 						Shipping
 					</Typography>
 				</div>
@@ -243,19 +243,19 @@ function OrderDetailsTab() {
 						<thead>
 							<tr>
 								<th>
-									<Typography className="font-bold">Tracking Code</Typography>
+									<Typography className="font-semibold">Tracking Code</Typography>
 								</th>
 								<th>
-									<Typography className="font-bold">Carrier</Typography>
+									<Typography className="font-semibold">Carrier</Typography>
 								</th>
 								<th>
-									<Typography className="font-bold">Weight</Typography>
+									<Typography className="font-semibold">Weight</Typography>
 								</th>
 								<th>
-									<Typography className="font-bold">Fee</Typography>
+									<Typography className="font-semibold">Fee</Typography>
 								</th>
 								<th>
-									<Typography className="font-bold">Date</Typography>
+									<Typography className="font-semibold">Date</Typography>
 								</th>
 							</tr>
 						</thead>

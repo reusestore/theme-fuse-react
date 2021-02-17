@@ -38,7 +38,7 @@ function Widget1(props) {
 				<div className="container relative p-16 sm:p-24 flex flex-row justify-between items-center">
 					<FuseAnimate delay={100}>
 						<div className="flex-col">
-							<Typography className="h2 font-semibold" color="textPrimary">
+							<Typography className="h2 font-medium" color="textPrimary">
 								Visitors
 							</Typography>
 							<Typography className="h5" color="textSecondary">
@@ -64,7 +64,7 @@ function Widget1(props) {
 							{Object.keys(data.datasets).map(key => (
 								<Tab
 									key={key}
-									className="text-14 font-bold min-h-40 min-w-64 mx-4 capitalize"
+									className="text-14 font-semibold min-h-40 min-w-64 mx-4 capitalize"
 									disableRipple
 									label={key}
 								/>
@@ -73,7 +73,7 @@ function Widget1(props) {
 						{/* {Object.keys(data.datasets).map(key => (
 							<Button
 								key={key}
-								className="py-8 px-12 font-bold"
+								className="py-8 px-12 font-semibold"
 								size="small"
 								onClick={() => setDataset(key)}
 								disabled={key === dataset}

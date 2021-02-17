@@ -10,7 +10,7 @@ function Widget8(props) {
 	return (
 		<Paper className="w-full rounded-20 shadow">
 			<div className="flex items-center justify-between p-20 h-64">
-				<Typography className="text-16 font-semibold">{widget.title}</Typography>
+				<Typography className="text-16 font-medium">{widget.title}</Typography>
 			</div>
 			<div className="h-400 w-full p-32">
 				<Doughnut

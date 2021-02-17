@@ -54,7 +54,7 @@ function MailDetails(props) {
 				</div>
 			</div>
 
-			<Divider className="my-16" />
+			<Divider className="my-24" />
 
 			<FuseAnimate animation="transition.slideUpIn" delay={200}>
 				<div>
@@ -112,14 +112,18 @@ function MailDetails(props) {
 						)}
 					</div>
 
-					<Typography variant="body2" dangerouslySetInnerHTML={{ __html: mail.message }} />
+					<Typography
+						className="text-14 my-24 leading-normal"
+						variant="body2"
+						dangerouslySetInnerHTML={{ __html: mail.message }}
+					/>
 
-					<Divider className="my-16" />
+					<Divider className="my-24" />
 
 					{mail.attachments && (
 						<div>
 							<Typography variant="subtitle1" className="mb-16">
-								<span className="mx-4">Attachments</span>
+								<span className="mx-4 font-medium">Attachments</span>
 								<span>({mail.attachments.length})</span>
 							</Typography>
 

@@ -79,7 +79,7 @@ function Register3Page() {
 									<img className="logo-icon w-48" src="assets/images/logos/fuse.svg" alt="logo" />
 									<div className="border-l-1 mr-4 w-1 h-40" />
 									<div>
-										<Typography className="text-24 font-bold logo-text" color="inherit">
+										<Typography className="text-24 font-semibold logo-text" color="inherit">
 											FUSE
 										</Typography>
 										<Typography
@@ -149,7 +149,7 @@ function Register3Page() {
 
 								<FormControl className="items-center">
 									<FormControlLabel
-										classes={{ label: 'text-13 font-bold' }}
+										classes={{ label: 'text-13 font-semibold' }}
 										control={
 											<Checkbox
 												name="acceptTermsConditions"
@@ -175,8 +175,8 @@ function Register3Page() {
 						</CardContent>
 
 						<div className="flex flex-col items-center justify-center pb-32">
-							<span className="font-medium">Already have an account?</span>
-							<Link className="font-medium" to="/pages/auth/login-3">
+							<span className="font-normal">Already have an account?</span>
+							<Link className="font-normal" to="/pages/auth/login-3">
 								Login
 							</Link>
 						</div>
@@ -187,7 +187,7 @@ function Register3Page() {
 					>
 						<div className="max-w-320">
 							<FuseAnimate animation="transition.slideUpIn" delay={400}>
-								<Typography variant="h3" color="inherit" className="font-bold leading-tight">
+								<Typography variant="h3" color="inherit" className="font-semibold leading-tight">
 									Welcome <br />
 									to the <br /> FUSE React!
 								</Typography>

@@ -81,7 +81,7 @@ function BoardCard(props) {
 								</div>
 							)}
 
-							<Typography className="font-bold mb-12">{card.name}</Typography>
+							<Typography className="font-medium mb-12">{card.name}</Typography>
 
 							{(card.due || checkItems > 0) && (
 								<div className="flex items-center mb-12 -mx-4">

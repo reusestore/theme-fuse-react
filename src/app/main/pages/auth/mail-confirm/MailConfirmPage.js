@@ -30,7 +30,7 @@ function MailConfirmPage() {
 								</Icon>
 							</div>
 
-							<Typography variant="h5" className="text-center mb-16 font-semibold">
+							<Typography variant="h5" className="text-center mb-16 font-medium">
 								Confirm your email address!
 							</Typography>
 
@@ -43,7 +43,7 @@ function MailConfirmPage() {
 							</Typography>
 
 							<div className="flex flex-col items-center justify-center pt-32 pb-24">
-								<Link className="font-medium" to="/pages/auth/login">
+								<Link className="font-normal" to="/pages/auth/login">
 									Go back to login
 								</Link>
 							</div>

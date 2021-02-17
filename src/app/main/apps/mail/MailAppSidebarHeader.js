@@ -25,7 +25,7 @@ function MailAppSidebarHeader(props) {
 					<Icon className="text-32">mail</Icon>
 				</FuseAnimate>
 				<FuseAnimate animation="transition.slideLeftIn" delay={300}>
-					<span className="text-24 mx-16 font-semibold">{t('APP_TITLE')}</span>
+					<span className="text-24 mx-16 font-medium">{t('APP_TITLE')}</span>
 				</FuseAnimate>
 			</div>
 

@@ -140,7 +140,7 @@ const InvoiceTab = props => {
 									<TableRow>
 										<TableCell>
 											<Typography
-												className="font-medium"
+												className="font-normal"
 												variant="subtitle1"
 												color="textSecondary"
 											>
@@ -149,7 +149,7 @@ const InvoiceTab = props => {
 										</TableCell>
 										<TableCell align="right">
 											<Typography
-												className="font-medium"
+												className="font-normal"
 												variant="subtitle1"
 												color="textSecondary"
 											>
@@ -160,7 +160,7 @@ const InvoiceTab = props => {
 									<TableRow>
 										<TableCell>
 											<Typography
-												className="font-medium"
+												className="font-normal"
 												variant="subtitle1"
 												color="textSecondary"
 											>
@@ -169,7 +169,7 @@ const InvoiceTab = props => {
 										</TableCell>
 										<TableCell align="right">
 											<Typography
-												className="font-medium"
+												className="font-normal"
 												variant="subtitle1"
 												color="textSecondary"
 											>
@@ -180,7 +180,7 @@ const InvoiceTab = props => {
 									<TableRow>
 										<TableCell>
 											<Typography
-												className="font-medium"
+												className="font-normal"
 												variant="subtitle1"
 												color="textSecondary"
 											>
@@ -189,7 +189,7 @@ const InvoiceTab = props => {
 										</TableCell>
 										<TableCell align="right">
 											<Typography
-												className="font-medium"
+												className="font-normal"
 												variant="subtitle1"
 												color="textSecondary"
 											>
@@ -223,7 +223,7 @@ const InvoiceTab = props => {
 									<img className="w-32" src="assets/images/logos/fuse.svg" alt="logo" />
 								</div>
 
-								<Typography className="font-medium mb-64 px-24" variant="caption" color="textSecondary">
+								<Typography className="font-normal mb-64 px-24" variant="caption" color="textSecondary">
 									In condimentum malesuada efficitur. Mauris volutpat placerat auctor. Ut ac congue
 									dolor. Quisque scelerisque lacus sed feugiat fermentum. Cras aliquet facilisis
 									pellentesque. Nunc hendrerit quam at leo commodo, a suscipit tellus dapibus. Etiam

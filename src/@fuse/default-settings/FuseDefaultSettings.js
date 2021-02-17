@@ -39,10 +39,10 @@ export function getParsedQuerySettings() {
  */
 export const defaultThemeOptions = {
 	typography: {
-		fontFamily: ['Muli', 'Roboto', '"Helvetica"', 'Arial', 'sans-serif'].join(','),
+		fontFamily: ['Poppins', 'Roboto', '"Helvetica"', 'Arial', 'sans-serif'].join(','),
 		fontWeightLight: 300,
 		fontWeightRegular: 400,
-		fontWeightMedium: 600,
+		fontWeightMedium: 500,
 		useNextVariants: true,
 		suppressDeprecationWarnings: true
 	},
@@ -99,11 +99,12 @@ export const defaultThemeOptions = {
 export const mustHaveThemeOptions = {
 	typography: {
 		htmlFontSize: 10,
+		fontSize: 13,
 		body1: {
-			fontSize: '1.4rem'
+			fontSize: '1.3rem'
 		},
 		body2: {
-			fontSize: '1.4rem'
+			fontSize: '1.3rem'
 		}
 	}
 };

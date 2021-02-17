@@ -69,11 +69,11 @@ function NewNote(props) {
 				</ClickAwayListener>
 			) : (
 				<Typography
-					className="w-full px-16 py-12 font-500 text-16 w-full"
+					className="w-full px-16 py-12 text-16 w-full"
 					color="textSecondary"
 					onClick={handleFormOpen}
 				>
-					Take a note..
+					Take a note...
 				</Typography>
 			)}
 		</Paper>

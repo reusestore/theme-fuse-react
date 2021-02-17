@@ -33,52 +33,48 @@ function TimelineTab() {
 	}
 
 	return (
-		<div className="md:flex max-w-2xl">
+		<div className="md:flex">
 			<div className="flex flex-col flex-1 md:ltr:pr-32 md:rtl:pl-32">
 				<FuseAnimateGroup
 					enter={{
 						animation: 'transition.slideUpBigIn'
 					}}
 				>
-					<div>
-						<Card className="w-full overflow-hidden rounded-16 shadow">
-							<Input
-								className="p-16 w-full"
-								classes={{ root: 'text-14' }}
-								placeholder="Write something.."
-								multiline
-								rows="6"
-								margin="none"
-								disableUnderline
-							/>
-							<AppBar
-								className="card-footer flex flex-row border-t-1"
-								position="static"
-								color="default"
-								elevation={0}
-							>
-								<div className="flex-1 items-center">
-									<IconButton aria-label="Add photo">
-										<Icon>photo</Icon>
-									</IconButton>
-									<IconButton aria-label="Mention somebody">
-										<Icon>person</Icon>
-									</IconButton>
-									<IconButton aria-label="Add location">
-										<Icon>location_on</Icon>
-									</IconButton>
-								</div>
+					<Card className="w-full overflow-hidden rounded-16 shadow mb-32">
+						<Input
+							className="p-16 w-full"
+							classes={{ root: 'text-14' }}
+							placeholder="Write something.."
+							multiline
+							rows="6"
+							margin="none"
+							disableUnderline
+						/>
+						<AppBar
+							className="card-footer flex flex-row border-t-1"
+							position="static"
+							color="default"
+							elevation={0}
+						>
+							<div className="flex-1 items-center">
+								<IconButton aria-label="Add photo">
+									<Icon>photo</Icon>
+								</IconButton>
+								<IconButton aria-label="Mention somebody">
+									<Icon>person</Icon>
+								</IconButton>
+								<IconButton aria-label="Add location">
+									<Icon>location_on</Icon>
+								</IconButton>
+							</div>
 
-								<div className="p-8">
-									<Button variant="contained" color="primary" size="small" aria-label="post">
-										Post
-									</Button>
-								</div>
-							</AppBar>
-						</Card>
-
-						<Divider className="my-32" />
-					</div>
+							<div className="p-8">
+								<Button variant="contained" color="primary" size="small" aria-label="post">
+									Post
+								</Button>
+							</div>
+						</AppBar>
+					</Card>
 
 					{data.posts.map(post => (
 						<Card key={post.id} className="mb-32 overflow-hidden rounded-16 shadow">
@@ -91,7 +87,7 @@ function TimelineTab() {
 								}
 								title={
 									<span className="flex">
-										<Typography className="font-medium" color="primary" paragraph={false}>
+										<Typography className="font-normal" color="primary" paragraph={false}>
 											{post.user.name}
 										</Typography>
 										<span className="mx-4">
@@ -176,7 +172,7 @@ function TimelineTab() {
 															primary={
 																<div className="flex">
 																	<Typography
-																		className="font-medium"
+																		className="font-normal"
 																		color="initial"
 																		paragraph={false}
 																	>
@@ -231,13 +227,13 @@ function TimelineTab() {
 						animation: 'transition.slideUpBigIn'
 					}}
 				>
-					<Card className="w-full rounded-16 shadow">
+					<Card className="w-full rounded-16 shadow mb-32">
 						<AppBar position="static" elevation={0}>
 							<Toolbar className="px-8">
-								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12 font-semibold">
+								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12 font-medium">
 									Latest Activity
 								</Typography>
-								<Button color="inherit" size="small" className="font-semibold">
+								<Button color="inherit" size="small" className="font-medium">
 									See All
 								</Button>
 							</Toolbar>
@@ -252,7 +248,7 @@ function TimelineTab() {
 											primary={
 												<div className="flex">
 													<Typography
-														className="font-medium whitespace-nowrap"
+														className="font-normal whitespace-nowrap"
 														color="primary"
 														paragraph={false}
 													>

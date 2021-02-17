@@ -38,10 +38,10 @@ function AboutTab() {
 						animation: 'transition.slideUpBigIn'
 					}}
 				>
-					<Card className="w-full mb-16 rounded-16 shadow">
+					<Card className="w-full mb-32 rounded-16 shadow">
 						<AppBar position="static" elevation={0}>
 							<Toolbar className="px-8">
-								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12 font-semibold">
+								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12 font-medium">
 									General Information
 								</Typography>
 							</Toolbar>
@@ -49,17 +49,17 @@ function AboutTab() {
 
 						<CardContent>
 							<div className="mb-24">
-								<Typography className="font-bold mb-4 text-15">Gender</Typography>
+								<Typography className="font-semibold mb-4 text-15">Gender</Typography>
 								<Typography>{general.gender}</Typography>
 							</div>
 
 							<div className="mb-24">
-								<Typography className="font-bold mb-4 text-15">Birthday</Typography>
+								<Typography className="font-semibold mb-4 text-15">Birthday</Typography>
 								<Typography>{general.birthday}</Typography>
 							</div>
 
 							<div className="mb-24">
-								<Typography className="font-bold mb-4 text-15">Locations</Typography>
+								<Typography className="font-semibold mb-4 text-15">Locations</Typography>
 
 								{general.locations.map(location => (
 									<div className="flex items-center" key={location}>
@@ -72,16 +72,16 @@ function AboutTab() {
 							</div>
 
 							<div className="mb-24">
-								<Typography className="font-bold mb-4 text-15">About Me</Typography>
+								<Typography className="font-semibold mb-4 text-15">About Me</Typography>
 								<Typography>{general.about}</Typography>
 							</div>
 						</CardContent>
 					</Card>
 
-					<Card className="w-full mb-16 rounded-16 shadow">
+					<Card className="w-full mb-32 rounded-16 shadow">
 						<AppBar position="static" elevation={0}>
 							<Toolbar className="px-8">
-								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12 font-semibold">
+								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12 font-medium">
 									Work
 								</Typography>
 							</Toolbar>
@@ -89,17 +89,17 @@ function AboutTab() {
 
 						<CardContent>
 							<div className="mb-24">
-								<Typography className="font-bold mb-4 text-15">Occupation</Typography>
+								<Typography className="font-semibold mb-4 text-15">Occupation</Typography>
 								<Typography>{work.occupation}</Typography>
 							</div>
 
 							<div className="mb-24">
-								<Typography className="font-bold mb-4 text-15">Skills</Typography>
+								<Typography className="font-semibold mb-4 text-15">Skills</Typography>
 								<Typography>{work.skills}</Typography>
 							</div>
 
 							<div className="mb-24">
-								<Typography className="font-bold mb-4 text-15">Jobs</Typography>
+								<Typography className="font-semibold mb-4 text-15">Jobs</Typography>
 								<table className="">
 									<tbody>
 										{work.jobs.map(job => (
@@ -118,10 +118,10 @@ function AboutTab() {
 						</CardContent>
 					</Card>
 
-					<Card className="w-full mb-16 rounded-16 shadow">
+					<Card className="w-full mb-32 rounded-16 shadow">
 						<AppBar position="static" elevation={0}>
 							<Toolbar className="px-8">
-								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12 font-semibold">
+								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12 font-medium">
 									Contact
 								</Typography>
 							</Toolbar>
@@ -129,12 +129,12 @@ function AboutTab() {
 
 						<CardContent>
 							<div className="mb-24">
-								<Typography className="font-bold mb-4 text-15">Address</Typography>
+								<Typography className="font-semibold mb-4 text-15">Address</Typography>
 								<Typography>{contact.address}</Typography>
 							</div>
 
 							<div className="mb-24">
-								<Typography className="font-bold mb-4 text-15">Tel.</Typography>
+								<Typography className="font-semibold mb-4 text-15">Tel.</Typography>
 
 								{contact.tel.map(tel => (
 									<div className="flex items-center" key={tel}>
@@ -144,7 +144,7 @@ function AboutTab() {
 							</div>
 
 							<div className="mb-24">
-								<Typography className="font-bold mb-4 text-15">Website</Typography>
+								<Typography className="font-semibold mb-4 text-15">Website</Typography>
 
 								{contact.websites.map(website => (
 									<div className="flex items-center" key={website}>
@@ -154,7 +154,7 @@ function AboutTab() {
 							</div>
 
 							<div className="mb-24">
-								<Typography className="font-bold mb-4 text-15">Emails</Typography>
+								<Typography className="font-semibold mb-4 text-15">Emails</Typography>
 
 								{contact.emails.map(email => (
 									<div className="flex items-center" key={email}>
@@ -173,10 +173,10 @@ function AboutTab() {
 						animation: 'transition.slideUpBigIn'
 					}}
 				>
-					<Card className="w-full mb-16 rounded-16 shadow">
+					<Card className="w-full mb-32 rounded-16 shadow">
 						<AppBar position="static" elevation={0}>
 							<Toolbar className="px-8">
-								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12 font-semibold">
+								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12 font-medium">
 									Friends
 								</Typography>
 								<Button color="inherit" size="small">
@@ -196,10 +196,10 @@ function AboutTab() {
 						</CardContent>
 					</Card>
 
-					<Card className="w-full mb-16 rounded-16 shadow">
+					<Card className="w-full mb-32 rounded-16 shadow">
 						<AppBar position="static" elevation={0}>
 							<Toolbar className="px-8">
-								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12 font-semibold">
+								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12 font-medium">
 									Joined Groups
 								</Typography>
 								<Button color="inherit" size="small">
@@ -218,14 +218,14 @@ function AboutTab() {
 											primary={
 												<div className="flex">
 													<Typography
-														className="font-semibold"
+														className="font-medium"
 														color="secondary"
 														paragraph={false}
 													>
 														{group.name}
 													</Typography>
 
-													<Typography className="mx-4 font-medium" paragraph={false}>
+													<Typography className="mx-4 font-normal" paragraph={false}>
 														{group.category}
 													</Typography>
 												</div>

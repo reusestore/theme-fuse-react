@@ -33,10 +33,10 @@ function PhotosVideosTab() {
 					{data.map(period => (
 						<div key={period.id} className="mb-48">
 							<ListSubheader component="div" className="flex items-center px-0 mb-24">
-								<Typography variant="h6" className="font-semibold">
+								<Typography variant="h6" className="font-medium">
 									{period.name}
 								</Typography>
-								<Typography className="mx-12 font-medium" variant="subtitle1" color="textSecondary">
+								<Typography className="mx-12 font-normal" variant="subtitle1" color="textSecondary">
 									{period.info}
 								</Typography>
 							</ListSubheader>

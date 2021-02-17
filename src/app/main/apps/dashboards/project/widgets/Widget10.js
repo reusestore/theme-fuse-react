@@ -13,7 +13,7 @@ function Widget10(props) {
 	return (
 		<Paper className="w-full rounded-20 shadow overflow-hidden">
 			<div className="flex items-center justify-between p-20 h-64">
-				<Typography className="text-16 font-semibold">{props.widget.title}</Typography>
+				<Typography className="text-16 font-medium">{props.widget.title}</Typography>
 			</div>
 			<div className="table-responsive">
 				<Table className="w-full min-w-full">
@@ -21,7 +21,7 @@ function Widget10(props) {
 						<TableRow>
 							{props.widget.table.columns.map(column => (
 								<TableCell key={column.id}>
-									<Typography color="textSecondary" className="font-bold whitespace-nowrap">
+									<Typography color="textSecondary" className="font-semibold whitespace-nowrap">
 										{column.title}
 									</Typography>
 								</TableCell>
@@ -50,7 +50,7 @@ function Widget10(props) {
 										case 'spent_perc': {
 											return (
 												<TableCell key={cell.id} component="th" scope="row">
-													<Typography className={clsx(cell.classes, 'flex items-center')}>
+													<Typography className={clsx(cell.classes, 'flex items-center font-medium')}>
 														{cell.value}
 														<Icon className="text-14 mx-4">{cell.icon}</Icon>
 													</Typography>

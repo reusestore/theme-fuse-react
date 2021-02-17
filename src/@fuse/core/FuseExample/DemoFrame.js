@@ -58,7 +58,7 @@ class DemoFrame extends Component {
 					__html: `
                     html {
                     font-size: 62.5%;
-                    font-family: Muli, Roboto, Helvetica Neue, Arial, sans-serif;
+                    font-family: Poppins, Roboto, Helvetica Neue, Arial, sans-serif;
                     }
                 `
 				}}

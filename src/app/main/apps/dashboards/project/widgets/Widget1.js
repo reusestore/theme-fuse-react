@@ -18,7 +18,7 @@ function Widget1(props) {
 				<Select
 					native
 					className="mx-16"
-					classes={{ root: 'py-8 font-semibold opacity-75' }}
+					classes={{ root: 'py-8 font-medium opacity-75' }}
 					value={currentRange}
 					onChange={handleChangeRange}
 					inputProps={{
@@ -40,13 +40,13 @@ function Widget1(props) {
 				</IconButton>
 			</div>
 			<div className="text-center py-12">
-				<Typography className="text-72 font-bold leading-none text-blue">
+				<Typography className="text-72 font-semibold leading-none text-blue">
 					{props.widget.data.count[currentRange]}
 				</Typography>
-				<Typography className="text-18 text-blue-800 font-medium">{props.widget.data.label}</Typography>
+				<Typography className="text-18 text-blue-800 font-normal">{props.widget.data.label}</Typography>
 			</div>
 			<Typography
-				className="p-20 pt-0 h-56 flex justify-center items-end text-13 font-semibold"
+				className="p-20 pt-0 h-56 flex justify-center items-end text-13 font-medium"
 				color="textSecondary"
 			>
 				<span className="truncate">{props.widget.data.extra.label}</span>:

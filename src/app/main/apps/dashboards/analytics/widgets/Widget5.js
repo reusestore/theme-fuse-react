@@ -23,7 +23,7 @@ function Widget5(props) {
 		<Card className="w-full rounded-20 shadow">
 			<div className="relative p-20 flex flex-row items-center justify-between">
 				<div className="flex flex-col">
-					<Typography className="h3 sm:h2 font-semibold">Visitors & Page views</Typography>
+					<Typography className="h3 sm:h2 font-medium">Visitors & Page views</Typography>
 				</div>
 
 				<div className="flex flex-row items-center">
@@ -43,7 +43,7 @@ function Widget5(props) {
 						{Object.keys(data.datasets).map(key => (
 							<Tab
 								key={key}
-								className="text-14 font-bold min-h-40 min-w-64 mx-4 capitalize"
+								className="text-14 font-semibold min-h-40 min-w-64 mx-4 capitalize"
 								disableRipple
 								label={key}
 							/>

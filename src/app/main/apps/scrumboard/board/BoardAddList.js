@@ -92,7 +92,7 @@ function BoardAddList(props) {
 					<Button
 						onClick={handleOpenForm}
 						classes={{
-							root: 'font-bold w-full rounded-none h-64 px-16',
+							root: 'font-medium w-full rounded-none h-64 px-16',
 							label: 'justify-start'
 						}}
 					>

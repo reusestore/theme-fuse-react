@@ -34,7 +34,7 @@ function ContactsHeader(props) {
 						<Icon className="text-32">account_box</Icon>
 					</FuseAnimate>
 					<FuseAnimate animation="transition.slideLeftIn" delay={300}>
-						<Typography variant="h6" className="font-semibold mx-12 hidden sm:flex">
+						<Typography variant="h6" className="font-medium mx-12 hidden sm:flex">
 							Contacts
 						</Typography>
 					</FuseAnimate>

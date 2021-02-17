@@ -64,13 +64,13 @@ function KnowledgeBasePage() {
 					<Typography
 						variant="subtitle1"
 						color="inherit"
-						className="font-semibold opacity-75 mt-16 mx-auto max-w-512"
+						className="font-medium opacity-75 mt-16 mx-auto max-w-512"
 					>
 						Welcome to our knowledge base
 					</Typography>
 				</FuseAnimate>
 				<FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
-					<Typography color="inherit" className="text-36 sm:text-56 font-medium">
+					<Typography color="inherit" className="text-36 sm:text-56 font-medium tracking-tight">
 						How can we help?
 					</Typography>
 				</FuseAnimate>
@@ -89,7 +89,7 @@ function KnowledgeBasePage() {
 								<div className="max-w-md w-full max-w-512 pb-24 md:w-1/2 md:p-16" key={category.id}>
 									<Card className="rounded-16 shadow">
 										<List component="nav" className="p-0">
-											<Typography className="font-semibold pl-32 py-16 text-16">
+											<Typography className="font-medium pl-32 py-16 text-16">
 												{category.title}
 											</Typography>
 
@@ -107,8 +107,8 @@ function KnowledgeBasePage() {
 												</ListItem>
 											))}
 										</List>
-										<div className="w-full p-16 pl-32">
-											<Button className="" color="primary" variant="outlined">
+										<div className="w-full p-24 px-32">
+											<Button className="px-24" color="primary" variant="outlined">
 												{`See all articles (${category.articlesCount})`}
 											</Button>
 										</div>
@@ -136,12 +136,17 @@ function KnowledgeBasePage() {
 						aria-labelledby="knowledge-base-document"
 						TransitionComponent={Transition}
 					>
-						<DialogTitle>{dialog.title}</DialogTitle>
+						<DialogTitle>
+							<Typography className="pt-8 font-medium text-24">{dialog.title}</Typography>
+						</DialogTitle>
 						<DialogContent>
-							<DialogContentText dangerouslySetInnerHTML={{ __html: dialog.content }} />
+							<DialogContentText
+								className="leading-normal text-14"
+								dangerouslySetInnerHTML={{ __html: dialog.content }}
+							/>
 						</DialogContent>
-						<DialogActions>
-							<Button onClick={handleCloseDialog} color="primary">
+						<DialogActions className="p-16">
+							<Button onClick={handleCloseDialog} color="primary" variant="outlined">
 								CLOSE
 							</Button>
 						</DialogActions>

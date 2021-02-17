@@ -69,7 +69,7 @@ function SchemePreview({ theme, className, id, onSelect }) {
 					<span className="text-12 opacity-75">Background</span>
 				</div>
 			</button>
-			<Typography className="font-bold w-full text-center mt-12">{id}</Typography>
+			<Typography className="font-semibold w-full text-center mt-12">{id}</Typography>
 		</div>
 	);
 }

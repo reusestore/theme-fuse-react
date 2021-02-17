@@ -13,16 +13,16 @@ function Widget4(props) {
 	return (
 		<Card className="w-full rounded-20 shadow">
 			<div className="p-20 pb-0">
-				<Typography className="h3 font-semibold">Visits</Typography>
+				<Typography className="h3 font-medium">Visits</Typography>
 
 				<div className="flex flex-row flex-wrap items-center mt-12">
-					<Typography className="text-48 font-bold leading-none">{data.visits.value}</Typography>
+					<Typography className="text-48 font-semibold leading-none">{data.visits.value}</Typography>
 
 					<div className="flex flex-col mx-8">
 						{data.visits.ofTarget > 0 && <Icon className="text-green text-20">trending_up</Icon>}
 						{data.visits.ofTarget < 0 && <Icon className="text-red text-20">trending_down</Icon>}
 						<div className="flex items-center">
-							<Typography className="font-bold" color="textSecondary">
+							<Typography className="font-semibold" color="textSecondary">
 								{data.visits.ofTarget}%
 							</Typography>
 							<Typography className="whitespace-nowrap mx-4" color="textSecondary">

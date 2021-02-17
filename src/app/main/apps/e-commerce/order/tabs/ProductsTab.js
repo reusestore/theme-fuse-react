@@ -12,19 +12,19 @@ function ProductsTab() {
 				<thead>
 					<tr>
 						<th>
-							<Typography className="font-bold">ID</Typography>
+							<Typography className="font-semibold">ID</Typography>
 						</th>
 						<th>
-							<Typography className="font-bold">Image</Typography>
+							<Typography className="font-semibold">Image</Typography>
 						</th>
 						<th>
-							<Typography className="font-bold">Name</Typography>
+							<Typography className="font-semibold">Name</Typography>
 						</th>
 						<th>
-							<Typography className="font-bold">Price</Typography>
+							<Typography className="font-semibold">Price</Typography>
 						</th>
 						<th>
-							<Typography className="font-bold">Quantity</Typography>
+							<Typography className="font-semibold">Quantity</Typography>
 						</th>
 					</tr>
 				</thead>

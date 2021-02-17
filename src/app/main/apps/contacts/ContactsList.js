@@ -39,13 +39,13 @@ function ContactsList(props) {
 			{
 				Header: 'First Name',
 				accessor: 'name',
-				className: 'font-bold',
+				className: 'font-medium',
 				sortable: true
 			},
 			{
 				Header: 'Last Name',
 				accessor: 'lastName',
-				className: 'font-bold',
+				className: 'font-medium',
 				sortable: true
 			},
 			{
@@ -81,7 +81,7 @@ function ContactsList(props) {
 							}}
 						>
 							{user.starred && user.starred.includes(row.original.id) ? (
-								<Icon>star</Icon>
+								<Icon className="text-yellow-700">star</Icon>
 							) : (
 								<Icon>star_border</Icon>
 							)}

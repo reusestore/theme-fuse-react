@@ -61,7 +61,7 @@ function Login() {
 									<img className="logo-icon w-48" src="assets/images/logos/fuse.svg" alt="logo" />
 									<div className="border-l-1 mr-4 w-1 h-40" />
 									<div>
-										<Typography className="text-24 font-bold logo-text" color="inherit">
+										<Typography className="text-24 font-semibold logo-text" color="inherit">
 											FUSE
 										</Typography>
 										<Typography
@@ -112,12 +112,12 @@ function Login() {
 
 						<div className="flex flex-col items-center justify-center pb-32">
 							<div>
-								<span className="font-medium mr-8">Don't have an account?</span>
-								<Link className="font-medium" to="/register">
+								<span className="font-normal mr-8">Don't have an account?</span>
+								<Link className="font-normal" to="/register">
 									Register
 								</Link>
 							</div>
-							<Link className="font-medium mt-8" to="/">
+							<Link className="font-normal mt-8" to="/">
 								Back to Dashboard
 							</Link>
 						</div>
@@ -128,7 +128,7 @@ function Login() {
 					>
 						<div className="max-w-320">
 							<FuseAnimate animation="transition.slideUpIn" delay={400}>
-								<Typography variant="h3" color="inherit" className="font-bold leading-tight">
+								<Typography variant="h3" color="inherit" className="font-semibold leading-tight">
 									Welcome <br />
 									to the <br /> FUSE React!
 								</Typography>

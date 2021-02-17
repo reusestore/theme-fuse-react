@@ -119,7 +119,7 @@ function FuseNavHorizontalGroup(props) {
 							<ListItemText
 								className="list-item-text"
 								primary={item.title}
-								classes={{ primary: 'text-14' }}
+								classes={{ primary: 'text-13' }}
 							/>
 
 							{nestedLevel > 0 && (

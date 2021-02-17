@@ -61,37 +61,37 @@ function DetailSidebarContent(props) {
 				<table className={clsx(classes.table, 'w-full text-justify')}>
 					<tbody>
 						<tr className="type">
-							<th>Type</th>
+							<th className="font-semibold">Type</th>
 							<td>{selectedItem.type}</td>
 						</tr>
 
 						<tr className="size">
-							<th>Size</th>
+							<th className="font-semibold">Size</th>
 							<td>{selectedItem.size === '' ? '-' : selectedItem.size}</td>
 						</tr>
 
 						<tr className="location">
-							<th>Location</th>
+							<th className="font-semibold">Location</th>
 							<td>{selectedItem.location}</td>
 						</tr>
 
 						<tr className="owner">
-							<th>Owner</th>
+							<th className="font-semibold">Owner</th>
 							<td>{selectedItem.owner}</td>
 						</tr>
 
 						<tr className="modified">
-							<th>Modified</th>
+							<th className="font-semibold">Modified</th>
 							<td>{selectedItem.modified}</td>
 						</tr>
 
 						<tr className="opened">
-							<th>Opened</th>
+							<th className="font-semibold">Opened</th>
 							<td>{selectedItem.opened}</td>
 						</tr>
 
 						<tr className="created">
-							<th>Created</th>
+							<th className="font-semibold">Created</th>
 							<td>{selectedItem.created}</td>
 						</tr>
 					</tbody>

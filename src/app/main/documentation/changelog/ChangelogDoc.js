@@ -847,7 +847,7 @@ const changelogData = [
 function ChangelogDoc() {
 	return (
 		<>
-			<Typography variant="h4" className="mb-24 font-medium">
+			<Typography variant="h4" className="mb-24 font-normal">
 				Changelog
 			</Typography>
 

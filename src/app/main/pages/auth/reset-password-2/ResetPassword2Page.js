@@ -52,7 +52,7 @@ function ResetPasswordPage2() {
 				</FuseAnimate>
 
 				<FuseAnimate animation="transition.slideUpIn" delay={400}>
-					<Typography variant="h3" color="inherit" className="font-bold leading-tight">
+					<Typography variant="h3" color="inherit" className="font-semibold leading-tight">
 						Welcome to the <br /> FUSE React!
 					</Typography>
 				</FuseAnimate>
@@ -67,7 +67,7 @@ function ResetPasswordPage2() {
 			<FuseAnimate animation={{ translateX: [0, '100%'] }}>
 				<Card className="w-full max-w-400 mx-auto m-16 md:m-0" square>
 					<CardContent className="flex flex-col items-center justify-center p-32 md:p-48 md:pt-128">
-						<Typography variant="h6" className="mb-32 font-semibold text-20 sm:text-24">
+						<Typography variant="h6" className="mb-32 font-medium text-20 sm:text-24">
 							Reset your password
 						</Typography>
 
@@ -127,7 +127,7 @@ function ResetPasswordPage2() {
 						</form>
 
 						<div className="flex flex-col items-center justify-center pt-32 pb-24">
-							<Link className="font-medium" to="/pages/auth/login-2">
+							<Link className="font-normal" to="/pages/auth/login-2">
 								Go back to login
 							</Link>
 						</div>

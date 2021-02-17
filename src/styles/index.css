@@ -11,12 +11,12 @@ body.no-animate *::after {
 
 html {
     font-size: 62.5%;
-    font-family: Muli, Roboto, Helvetica Neue, Arial, sans-serif;
+    font-family: Poppins, Roboto, Helvetica Neue, Arial, sans-serif;
     background-color: #121212;
 }
 
 body {
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.4;
 }
 
