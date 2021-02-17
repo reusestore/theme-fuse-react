@@ -1,4 +1,4 @@
-import { useDebounce, useForm } from '@fuse/hooks';
+import { useDebounce, useForm, usePrevious } from '@fuse/hooks';
 import FuseLayoutConfigs from '@fuse/layouts/FuseLayoutConfigs';
 import _ from '@lodash';
 import TextField from '@material-ui/core/TextField';
@@ -55,6 +55,10 @@ function FuseSettings(props) {
 	const settings = useSelector(({ fuse }) => fuse.settings.current);
 	const { form, handleChange, setInForm, setForm } = useForm(settings);
 	const { form: formConfigs } = FuseLayoutConfigs[form.layout.style];
+	const prevForm = usePrevious(form);
+	const prevSettings = usePrevious(settings);
+	const formChanged = !_.isEqual(form, prevForm);
+	const settingsChanged = !_.isEqual(settings, prevSettings);
 
 	const classes = useStyles(props);
 
@@ -67,21 +71,30 @@ function FuseSettings(props) {
 	}, 300);
 
 	useEffect(() => {
-		if (form && settings && !_.isEqual(form, settings)) {
+		// Skip inital changes
+		if (!prevForm && !prevSettings) {
+			return;
+		}
+
+		// No need to change
+		if (_.isEqual(form, settings)) {
+			return;
+		}
+
+		// If form changed update theme settings
+		if (formChanged) {
 			const newSettings = form;
 			if (settings.layout.style !== newSettings.layout.style) {
 				_.set(newSettings, 'layout.config', {});
 			}
 			handleUpdate(newSettings);
 		}
-	}, [dispatch, form, handleUpdate, settings, user]);
 
-	useEffect(() => {
-		if (form && settings && !_.isEqual(form, settings)) {
+		// If theme settings changed update form data
+		if (settingsChanged) {
 			setForm(settings);
 		}
-		// eslint-disable-next-line
-	}, [setForm, settings]);
+	}, [dispatch, form, formChanged, handleUpdate, prevForm, prevSettings, setForm, settings, settingsChanged, user]);
 
 	const ThemeSelect = ({ value, name, handleThemeChange }) => {
 		return (
