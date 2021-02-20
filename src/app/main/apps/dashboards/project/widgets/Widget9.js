@@ -50,7 +50,7 @@ function Widget9(props) {
 							<Typography className="text-32 font-normal" color="textSecondary">
 								$
 							</Typography>
-							<Typography className="text-32 mx-4 font-medium">
+							<Typography className="text-32 mx-4 font-medium tracking-tighter">
 								{widget[id].count[currentRange]}
 							</Typography>
 						</div>
@@ -88,7 +88,7 @@ function Widget9(props) {
 					<Typography className="text-32 font-normal" color="textSecondary">
 						$
 					</Typography>
-					<Typography className="text-32 mx-4 font-medium">{widget.totalBudget.count}</Typography>
+					<Typography className="text-32 mx-4 font-medium tracking-tighter">{widget.totalBudget.count}</Typography>
 				</div>
 			</div>
 		</Paper>

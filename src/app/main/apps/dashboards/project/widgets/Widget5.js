@@ -67,7 +67,7 @@ function Widget5(props) {
 								<Typography className="text-12 font-semibold whitespace-nowrap" color="textSecondary">
 									{item.label}
 								</Typography>
-								<Typography className="text-32 font-semibold">{item.count[currentRange]}</Typography>
+								<Typography className="text-32 font-semibold tracking-tighter">{item.count[currentRange]}</Typography>
 								<div className="h-64 w-full">
 									<Line
 										data={{

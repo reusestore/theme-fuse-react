@@ -16,7 +16,7 @@ function Widget3(props) {
 				<Typography className="h3 font-medium">Impressions</Typography>
 
 				<div className="flex flex-row flex-wrap items-center mt-12">
-					<Typography className="text-48 font-semibold leading-none">{data.impressions.value}</Typography>
+					<Typography className="text-48 font-semibold leading-none tracking-tighter">{data.impressions.value}</Typography>
 
 					<div className="flex flex-col mx-8">
 						{data.impressions.ofTarget > 0 && <Icon className="text-green text-20">trending_up</Icon>}

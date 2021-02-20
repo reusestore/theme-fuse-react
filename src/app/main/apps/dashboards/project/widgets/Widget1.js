@@ -40,7 +40,7 @@ function Widget1(props) {
 				</IconButton>
 			</div>
 			<div className="text-center py-12">
-				<Typography className="text-72 font-semibold leading-none text-blue">
+				<Typography className="text-72 font-semibold leading-none text-blue tracking-tighter">
 					{props.widget.data.count[currentRange]}
 				</Typography>
 				<Typography className="text-18 text-blue-800 font-normal">{props.widget.data.label}</Typography>

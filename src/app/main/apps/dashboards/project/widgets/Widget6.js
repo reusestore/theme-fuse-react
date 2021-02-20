@@ -48,7 +48,7 @@ function Widget6(props) {
 			</div>
 			<div className="flex items-center p-8 border-t-1">
 				<div className="flex flex-1 flex-col items-center justify-center p-16 border-r-1">
-					<Typography className="text-32 font-medium mb-8 leading-none">
+					<Typography className="text-32 font-medium mb-8 leading-none tracking-tighter">
 						{widget.footerLeft.count[currentRange]}
 					</Typography>
 					<Typography className="text-13 font-normal" color="textSecondary">
@@ -56,7 +56,7 @@ function Widget6(props) {
 					</Typography>
 				</div>
 				<div className="flex flex-1 flex-col items-center justify-center p-16">
-					<Typography className="text-32 font-medium mb-8 leading-none">
+					<Typography className="text-32 font-medium mb-8 leading-none tracking-tighter">
 						{widget.footerRight.count[currentRange]}
 					</Typography>
 					<Typography className="text-13 font-normal" color="textSecondary">

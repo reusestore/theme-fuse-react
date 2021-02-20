@@ -23,7 +23,7 @@ function WidgetNow() {
 	return (
 		<Paper className="w-full rounded-20 shadow flex flex-col justify-between">
 			<div className="flex items-center justify-between px-4 pt-8">
-				<Typography className="text-16 px-16 font-medium" color="textSecondary">
+				<Typography className="text-16 px-16 font-medium tracking-tighter" color="textSecondary">
 					{time.format('dddd, HH:mm:ss')}
 				</Typography>
 				<IconButton aria-label="more">
@@ -34,10 +34,10 @@ function WidgetNow() {
 				<Typography className="text-24 leading-tight font-normal" color="textSecondary">
 					{time.format('MMMM')}
 				</Typography>
-				<Typography className="text-72 leading-tight font-medium" color="textSecondary">
+				<Typography className="text-72 leading-tight font-medium tracking-tighter" color="textSecondary">
 					{time.format('D')}
 				</Typography>
-				<Typography className="mt-8 text-20 leading-tight font-semibold" color="textSecondary">
+				<Typography className="mt-8 text-20 leading-tight font-semibold tracking-tighter" color="textSecondary">
 					{time.format('Y')}
 				</Typography>
 			</div>

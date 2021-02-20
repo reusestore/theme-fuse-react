@@ -1,12 +1,12 @@
 import _ from '@lodash';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
-import Divider from '@material-ui/core/Divider';
 import FormControl from '@material-ui/core/FormControl';
 import Icon from '@material-ui/core/Icon';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import { useTheme } from '@material-ui/core/styles';
+import { lighten } from '@material-ui/core/styles/colorManipulator';
 import Typography from '@material-ui/core/Typography';
 import { memo, useState } from 'react';
 import { Doughnut } from 'react-chartjs-2';
@@ -30,14 +30,14 @@ function Widget7(props) {
 							...obj,
 							borderColor: theme.palette.divider,
 							backgroundColor: [
-								theme.palette.primary.dark,
-								theme.palette.primary.main,
-								theme.palette.primary.light
+								lighten(theme.palette.primary.main, 0),
+								lighten(theme.palette.primary.main, 0.2),
+								lighten(theme.palette.primary.main, 0.4)
 							],
 							hoverBackgroundColor: [
-								theme.palette.secondary.dark,
-								theme.palette.secondary.main,
-								theme.palette.secondary.light
+								lighten(theme.palette.secondary.main, 0),
+								lighten(theme.palette.secondary.main, 0.2),
+								lighten(theme.palette.secondary.main, 0.4)
 							]
 						}))
 					}}

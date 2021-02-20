@@ -1,4 +1,4 @@
-import mock from '../mock';
+	import mock from '../mock';
 
 const analyticsDashboardAppDB = {
 	widgets: [
@@ -28,7 +28,7 @@ const analyticsDashboardAppDB = {
 					}
 				]
 			},
-			labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
+			labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
 			options: {
 				spanGaps: false,
 				legend: {
@@ -276,7 +276,7 @@ const analyticsDashboardAppDB = {
 				today: [
 					{
 						label: 'Visitors',
-						data: [410, 380, 320, 290, 190, 390, 250, 380, 300, 340, 220, 290],
+						data: [1210, 1380, 1520, 1290, 490, 1390, 1050, 680, 1300, 2140, 1520, 1890],
 						fill: 'start'
 					},
 					{
@@ -288,7 +288,7 @@ const analyticsDashboardAppDB = {
 				yesterday: [
 					{
 						label: 'Visitors',
-						data: [190, 300, 340, 220, 290, 390, 250, 380, 410, 380, 320, 290],
+						data: [1190, 1300, 2340, 1220, 1590, 1990, 1250, 1080, 2000, 2380, 2420, 2190],
 						fill: 'start'
 					},
 					{

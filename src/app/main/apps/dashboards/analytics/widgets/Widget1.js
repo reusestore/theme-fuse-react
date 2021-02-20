@@ -70,17 +70,6 @@ function Widget1(props) {
 								/>
 							))}
 						</Tabs>
-						{/* {Object.keys(data.datasets).map(key => (
-							<Button
-								key={key}
-								className="py-8 px-12 font-semibold"
-								size="small"
-								onClick={() => setDataset(key)}
-								disabled={key === dataset}
-							>
-								{key}
-							</Button>
-						))}*/}
 					</div>
 				</div>
 				<div className="container relative h-200 sm:h-256 pb-16">

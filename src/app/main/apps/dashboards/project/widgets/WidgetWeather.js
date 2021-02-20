@@ -23,7 +23,7 @@ function WidgetWeather(props) {
 				<Icon className="meteocons text-40 ltr:mr-8 rtl:ml-8" color="action">
 					{props.widget.locations[props.widget.currentLocation].icon}
 				</Icon>
-				<Typography className="text-44 mx-8 font-medium" color="textSecondary">
+				<Typography className="text-44 mx-8 font-medium tracking-tighter" color="textSecondary">
 					{props.widget.locations[props.widget.currentLocation].temp[props.widget.tempUnit]}
 				</Typography>
 				<Typography className="text-48" color="textSecondary">
@@ -72,7 +72,7 @@ function WidgetWeather(props) {
 							<Icon className="meteocons text-24 ltr:mr-16 rtl:ml-16" color="action">
 								{day.icon}
 							</Icon>
-							<Typography className="text-20 font-medium">{day.temp[props.widget.tempUnit]}</Typography>
+							<Typography className="text-20 font-medium tracking-tighter">{day.temp[props.widget.tempUnit]}</Typography>
 							<Typography className="text-20" color="textSecondary">
 								&deg;
 							</Typography>

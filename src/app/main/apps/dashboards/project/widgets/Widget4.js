@@ -16,7 +16,9 @@ function Widget4(props) {
 				</IconButton>
 			</div>
 			<div className="text-center py-12">
-				<Typography className="text-72 font-semibold leading-none text-green">{props.widget.data.count}</Typography>
+				<Typography className="text-72 font-semibold leading-none text-green tracking-tighter">
+					{props.widget.data.count}
+				</Typography>
 				<Typography className="text-18 font-normal text-green-800">{props.widget.data.label}</Typography>
 			</div>
 			<Typography
