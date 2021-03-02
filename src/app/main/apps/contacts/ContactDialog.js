@@ -1,5 +1,5 @@
-import { useForm } from '@fuse/hooks';
 import FuseUtils from '@fuse/utils/FuseUtils';
+import { yupResolver } from '@hookform/resolvers/yup';
 import AppBar from '@material-ui/core/AppBar';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -13,6 +13,10 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useForm } from 'react-hook-form';
+import _ from '@lodash';
+import * as yup from 'yup';
+
 import {
 	removeContact,
 	updateContact,
@@ -21,7 +25,7 @@ import {
 	closeEditContactDialog
 } from './store/contactsSlice';
 
-const defaultFormState = {
+const defaultValues = {
 	id: '',
 	name: '',
 	lastName: '',
@@ -36,62 +40,84 @@ const defaultFormState = {
 	notes: ''
 };
 
+/**
+ * Form Validation Schema
+ */
+const schema = yup.object().shape({
+	name: yup.string().required('You must enter a name')
+});
+
 function ContactDialog(props) {
 	const dispatch = useDispatch();
 	const contactDialog = useSelector(({ contactsApp }) => contactsApp.contacts.contactDialog);
 
-	const { form, handleChange, setForm } = useForm(defaultFormState);
+	const { register, watch, reset, handleSubmit, formState, errors } = useForm({
+		mode: 'onChange',
+		defaultValues,
+		resolver: yupResolver(schema)
+	});
+	const { isValid, dirtyFields } = formState;
 
+	const id = watch('id');
+	const name = watch('name');
+	const avatar = watch('avatar');
+
+	/**
+	 * Initialize Dialog with Data
+	 */
 	const initDialog = useCallback(() => {
 		/**
 		 * Dialog type: 'edit'
 		 */
 		if (contactDialog.type === 'edit' && contactDialog.data) {
-			setForm({ ...contactDialog.data });
+			reset({ ...contactDialog.data });
 		}
 
 		/**
 		 * Dialog type: 'new'
 		 */
 		if (contactDialog.type === 'new') {
-			setForm({
-				...defaultFormState,
+			reset({
+				...defaultValues,
 				...contactDialog.data,
 				id: FuseUtils.generateGUID()
 			});
 		}
-	}, [contactDialog.data, contactDialog.type, setForm]);
+	}, [contactDialog.data, contactDialog.type, reset]);
 
+	/**
+	 * On Dialog Open
+	 */
 	useEffect(() => {
-		/**
-		 * After Dialog Open
-		 */
 		if (contactDialog.props.open) {
 			initDialog();
 		}
 	}, [contactDialog.props.open, initDialog]);
 
+	/**
+	 * Close Dialog
+	 */
 	function closeComposeDialog() {
 		return contactDialog.type === 'edit' ? dispatch(closeEditContactDialog()) : dispatch(closeNewContactDialog());
 	}
 
-	function canBeSubmitted() {
-		return form.name.length > 0;
-	}
-
-	function handleSubmit(event) {
-		event.preventDefault();
-
+	/**
+	 * Form Submit
+	 */
+	function onSubmit(data) {
 		if (contactDialog.type === 'new') {
-			dispatch(addContact(form));
+			dispatch(addContact(data));
 		} else {
-			dispatch(updateContact(form));
+			dispatch(updateContact({ ...contactDialog.data, ...data }));
 		}
 		closeComposeDialog();
 	}
 
+	/**
+	 * Remove Event
+	 */
 	function handleRemove() {
-		dispatch(removeContact(form.id));
+		dispatch(removeContact(id));
 		closeComposeDialog();
 	}
 
@@ -112,15 +138,15 @@ function ContactDialog(props) {
 					</Typography>
 				</Toolbar>
 				<div className="flex flex-col items-center justify-center pb-24">
-					<Avatar className="w-96 h-96" alt="contact avatar" src={form.avatar} />
+					<Avatar className="w-96 h-96" alt="contact avatar" src={avatar} />
 					{contactDialog.type === 'edit' && (
 						<Typography variant="h6" color="inherit" className="pt-8">
-							{form.name}
+							{name}
 						</Typography>
 					)}
 				</div>
 			</AppBar>
-			<form noValidate onSubmit={handleSubmit} className="flex flex-col md:overflow-hidden">
+			<form noValidate onSubmit={handleSubmit(onSubmit)} className="flex flex-col md:overflow-hidden">
 				<DialogContent classes={{ root: 'p-24' }}>
 					<div className="flex">
 						<div className="min-w-48 pt-20">
@@ -133,8 +159,9 @@ function ContactDialog(props) {
 							autoFocus
 							id="name"
 							name="name"
-							value={form.name}
-							onChange={handleChange}
+							inputRef={register}
+							error={!!errors.name}
+							helperText={errors?.name?.message}
 							variant="outlined"
 							required
 							fullWidth
@@ -148,8 +175,7 @@ function ContactDialog(props) {
 							label="Last name"
 							id="lastName"
 							name="lastName"
-							value={form.lastName}
-							onChange={handleChange}
+							inputRef={register}
 							variant="outlined"
 							fullWidth
 						/>
@@ -164,8 +190,7 @@ function ContactDialog(props) {
 							label="Nickname"
 							id="nickname"
 							name="nickname"
-							value={form.nickname}
-							onChange={handleChange}
+							inputRef={register}
 							variant="outlined"
 							fullWidth
 						/>
@@ -180,8 +205,7 @@ function ContactDialog(props) {
 							label="Phone"
 							id="phone"
 							name="phone"
-							value={form.phone}
-							onChange={handleChange}
+							inputRef={register}
 							variant="outlined"
 							fullWidth
 						/>
@@ -196,8 +220,7 @@ function ContactDialog(props) {
 							label="Email"
 							id="email"
 							name="email"
-							value={form.email}
-							onChange={handleChange}
+							inputRef={register}
 							variant="outlined"
 							fullWidth
 						/>
@@ -212,8 +235,7 @@ function ContactDialog(props) {
 							label="Company"
 							id="company"
 							name="company"
-							value={form.company}
-							onChange={handleChange}
+							inputRef={register}
 							variant="outlined"
 							fullWidth
 						/>
@@ -228,8 +250,7 @@ function ContactDialog(props) {
 							label="Job title"
 							id="jobTitle"
 							name="jobTitle"
-							value={form.jobTitle}
-							onChange={handleChange}
+							inputRef={register}
 							variant="outlined"
 							fullWidth
 						/>
@@ -242,10 +263,10 @@ function ContactDialog(props) {
 						<TextField
 							className="mb-24"
 							id="birthday"
+							name="birthday"
 							label="Birthday"
 							type="date"
-							value={form.birthday}
-							onChange={handleChange}
+							inputRef={register}
 							InputLabelProps={{
 								shrink: true
 							}}
@@ -263,8 +284,7 @@ function ContactDialog(props) {
 							label="Address"
 							id="address"
 							name="address"
-							value={form.address}
-							onChange={handleChange}
+							inputRef={register}
 							variant="outlined"
 							fullWidth
 						/>
@@ -279,8 +299,7 @@ function ContactDialog(props) {
 							label="Notes"
 							id="notes"
 							name="notes"
-							value={form.notes}
-							onChange={handleChange}
+							inputRef={register}
 							variant="outlined"
 							multiline
 							rows={5}
@@ -295,9 +314,8 @@ function ContactDialog(props) {
 							<Button
 								variant="contained"
 								color="primary"
-								onClick={handleSubmit}
 								type="submit"
-								disabled={!canBeSubmitted()}
+								disabled={_.isEmpty(dirtyFields) || !isValid}
 							>
 								Add
 							</Button>
@@ -310,8 +328,7 @@ function ContactDialog(props) {
 								variant="contained"
 								color="primary"
 								type="submit"
-								onClick={handleSubmit}
-								disabled={!canBeSubmitted()}
+								disabled={_.isEmpty(dirtyFields) || !isValid}
 							>
 								Save
 							</Button>

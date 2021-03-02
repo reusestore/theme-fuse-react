@@ -1,42 +1,68 @@
-import { useForm } from '@fuse/hooks';
+import { yupResolver } from '@hookform/resolvers/yup';
+import TextField from '@material-ui/core/TextField';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import { useForm } from 'react-hook-form';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
-import Input from '@material-ui/core/Input';
 import ListItem from '@material-ui/core/ListItem';
 import NoteListItemModel from 'app/main/apps/notes/model/NoteListItemModel';
+import * as yup from 'yup';
+import _ from '@lodash';
+
+const defaultValues = {
+	text: ''
+};
+
+/**
+ * Form Validation Schema
+ */
+const schema = yup.object().shape({
+	text: yup.string().required('You must enter a label title')
+});
 
 function NoteFormAddListItem(props) {
-	const { form, handleChange, resetForm } = useForm({
-		text: ''
+	const { register, formState, handleSubmit, reset, errors } = useForm({
+		mode: 'onChange',
+		defaultValues,
+		resolver: yupResolver(schema)
 	});
 
-	function isFormInValid() {
-		return form.text === '';
-	}
+	const { isValid, dirtyFields } = formState;
 
-	function handleSubmit(ev) {
-		ev.preventDefault();
-		if (isFormInValid()) {
-			return;
-		}
-		props.onListItemAdd(NoteListItemModel(form));
-		resetForm();
+	function onSubmit(data) {
+		props.onListItemAdd(NoteListItemModel(data));
+		reset(defaultValues);
 	}
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit(onSubmit)}>
 			<ListItem className="p-0" dense>
-				<IconButton className="w-32 h-32 p-0 -mx-4" aria-label="Add" type="submit" disabled={isFormInValid()}>
-					<Icon fontSize="small">add</Icon>
-				</IconButton>
-				<Input
-					className="flex flex-1 px-8"
+				<TextField
+					className="flex flex-1"
 					name="text"
-					value={form.text}
-					onChange={handleChange}
+					error={!!errors.text}
+					helperText={errors?.text?.message}
+					inputRef={register}
 					placeholder="Add an item"
-					disableUnderline
+					variant="standard"
 					autoFocus
+					hiddenLabel
+					InputProps={{
+						disableUnderline: true,
+						className: 'px-2',
+						startAdornment: (
+							<InputAdornment position="start">
+								<IconButton
+									className="w-32 h-32 p-0 -mx-6"
+									aria-label="Add"
+									type="submit"
+									disabled={_.isEmpty(dirtyFields) || !isValid}
+								>
+									<Icon fontSize="small">add</Icon>
+								</IconButton>
+							</InputAdornment>
+						)
+					}}
 				/>
 			</ListItem>
 		</form>

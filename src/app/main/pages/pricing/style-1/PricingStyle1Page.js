@@ -66,9 +66,7 @@ function PricingStyle1Page() {
 											$
 										</Typography>
 										<div className="flex items-end">
-											<Typography className="text-72 mx-4 font-medium leading-none">
-												4
-											</Typography>
+											<Typography className="text-72 mx-4 font-medium leading-none">4</Typography>
 											<Typography
 												variant="subtitle1"
 												color="textSecondary"
@@ -122,9 +120,7 @@ function PricingStyle1Page() {
 											$
 										</Typography>
 										<div className="flex items-end">
-											<Typography className="text-72 mx-4 font-medium leading-none">
-												8
-											</Typography>
+											<Typography className="text-72 mx-4 font-medium leading-none">8</Typography>
 											<Typography
 												variant="subtitle1"
 												color="textSecondary"

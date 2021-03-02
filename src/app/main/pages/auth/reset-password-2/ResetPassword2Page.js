@@ -1,5 +1,6 @@
 import FuseAnimate from '@fuse/core/FuseAnimate';
-import { useForm } from '@fuse/hooks';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -9,6 +10,8 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
+import * as yup from 'yup';
+import _ from '@lodash';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -20,28 +23,37 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
+/**
+ * Form Validation Schema
+ */
+const schema = yup.object().shape({
+	email: yup.string().email('You must enter a valid email').required('You must enter a email'),
+	password: yup
+		.string()
+		.required('Please enter your password.')
+		.min(8, 'Password is too short - should be 8 chars minimum.'),
+	passwordConfirm: yup.string().oneOf([yup.ref('password'), null], 'Passwords must match')
+});
+
+const defaultValues = {
+	email: '',
+	password: '',
+	passwordConfirm: ''
+};
+
 function ResetPasswordPage2() {
 	const classes = useStyles();
 
-	const { form, handleChange, resetForm } = useForm({
-		name: '',
-		email: '',
-		password: '',
-		passwordConfirm: ''
+	const { register, formState, handleSubmit, reset, errors } = useForm({
+		mode: 'onChange',
+		defaultValues,
+		resolver: yupResolver(schema)
 	});
 
-	function isFormValid() {
-		return (
-			form.email.length > 0 &&
-			form.password.length > 0 &&
-			form.password.length > 3 &&
-			form.password === form.passwordConfirm
-		);
-	}
+	const { isValid, dirtyFields } = formState;
 
-	function handleSubmit(ev) {
-		ev.preventDefault();
-		resetForm();
+	function onSubmit() {
+		reset(defaultValues);
 	}
 
 	return (
@@ -75,7 +87,7 @@ function ResetPasswordPage2() {
 							name="resetForm"
 							noValidate
 							className="flex flex-col justify-center w-full"
-							onSubmit={handleSubmit}
+							onSubmit={handleSubmit(onSubmit)}
 						>
 							<TextField
 								className="mb-16"
@@ -83,8 +95,9 @@ function ResetPasswordPage2() {
 								autoFocus
 								type="email"
 								name="email"
-								value={form.email}
-								onChange={handleChange}
+								inputRef={register}
+								error={!!errors.email}
+								helperText={errors?.email?.message}
 								variant="outlined"
 								required
 								fullWidth
@@ -95,8 +108,9 @@ function ResetPasswordPage2() {
 								label="Password"
 								type="password"
 								name="password"
-								value={form.password}
-								onChange={handleChange}
+								inputRef={register}
+								error={!!errors.password}
+								helperText={errors?.password?.message}
 								variant="outlined"
 								required
 								fullWidth
@@ -107,8 +121,9 @@ function ResetPasswordPage2() {
 								label="Password (Confirm)"
 								type="password"
 								name="passwordConfirm"
-								value={form.passwordConfirm}
-								onChange={handleChange}
+								inputRef={register}
+								error={!!errors.passwordConfirm}
+								helperText={errors?.passwordConfirm?.message}
 								variant="outlined"
 								required
 								fullWidth
@@ -119,7 +134,7 @@ function ResetPasswordPage2() {
 								color="primary"
 								className="w-224 mx-auto mt-16"
 								aria-label="Reset"
-								disabled={!isFormValid()}
+								disabled={_.isEmpty(dirtyFields) || !isValid}
 								type="submit"
 							>
 								Reset my password

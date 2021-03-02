@@ -19,7 +19,7 @@ const authDB = {
 			data: {
 				displayName: 'Abbott Keitch',
 				photoURL: 'assets/images/avatars/Abbott.jpg',
-				email: 'admin',
+				email: 'admin@fusetheme.com',
 				settings: {
 					layout: {
 						style: 'layout1',
@@ -62,7 +62,7 @@ const authDB = {
 			data: {
 				displayName: 'Arnold Matlock',
 				photoURL: 'assets/images/avatars/Arnold.jpg',
-				email: 'staff',
+				email: 'staff@fusetheme.com',
 				settings: {
 					layout: {
 						style: 'layout2',
@@ -99,15 +99,21 @@ const authDB = {
 mock.onGet('/api/auth').reply(config => {
 	const data = JSON.parse(config.data);
 	const { email, password } = data;
-
 	const user = _.cloneDeep(authDB.users.find(_user => _user.data.email === email));
 
-	const error = {
-		email: user ? null : 'Check your username/email',
-		password: user && user.password === password ? null : 'Check your password'
-	};
+	let error = [];
 
-	if (!error.email && !error.password && !error.displayName) {
+	!user && error.push({
+		type:'email',
+		message: 'Check your email address'
+	})
+
+	user && user.password !== password && error.push({
+		type:'password',
+		message: 'Check your password'
+	})
+
+	if (error.length === 0) {
 		delete user.password;
 
 		const access_token = jwt.sign({ id: user.uuid }, jwtConfig.secret, { expiresIn: jwtConfig.expiresIn });
@@ -119,7 +125,8 @@ mock.onGet('/api/auth').reply(config => {
 
 		return [200, response];
 	}
-	return [200, { error }];
+
+	return [200, {error}];
 });
 
 mock.onGet('/api/auth/access-token').reply(config => {
@@ -150,12 +157,16 @@ mock.onPost('/api/auth/register').reply(request => {
 	const data = JSON.parse(request.data);
 	const { displayName, password, email } = data;
 	const isEmailExists = authDB.users.find(_user => _user.data.email === email);
-	const error = {
-		email: isEmailExists ? 'The email is already in use' : null,
-		displayName: displayName !== '' ? null : 'Enter display name',
-		password: null
-	};
-	if (!error.displayName && !error.password && !error.email) {
+	let error = [];
+
+	if(isEmailExists){
+		error.push({
+			type:'email',
+			message: 'The email address is already in use'
+		})
+	}
+
+	if (error.length === 0) {
 		const newUser = {
 			uuid: FuseUtils.generateGUID(),
 			from: 'custom-db',

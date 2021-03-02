@@ -76,7 +76,12 @@ export const orderStatuses = [
 
 function OrdersStatus(props) {
 	return (
-		<div className={clsx('inline text-12 font-semibold py-4 px-12 rounded-full truncate', _.find(orderStatuses, { name: props.name }).color)}>
+		<div
+			className={clsx(
+				'inline text-12 font-semibold py-4 px-12 rounded-full truncate',
+				_.find(orderStatuses, { name: props.name }).color
+			)}
+		>
 			{props.name}
 		</div>
 	);

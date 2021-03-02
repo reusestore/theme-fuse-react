@@ -1,4 +1,5 @@
-import { useForm } from '@fuse/hooks';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
@@ -11,6 +12,8 @@ import TextField from '@material-ui/core/TextField';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import * as yup from 'yup';
+import _ from '@lodash';
 import { newList } from '../store/boardSlice';
 
 const useStyles = makeStyles(theme => ({
@@ -19,21 +22,36 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
+const defaultValues = {
+	title: ''
+};
+
+/**
+ * Form Validation Schema
+ */
+const schema = yup.object().shape({
+	title: yup.string().required('You must enter a title')
+});
+
 function BoardAddList(props) {
 	const dispatch = useDispatch();
 	const board = useSelector(({ scrumboardApp }) => scrumboardApp.board);
 
 	const classes = useStyles(props);
 	const [formOpen, setFormOpen] = useState(false);
-	const { form, handleChange, resetForm } = useForm({
-		title: ''
+	const { register, formState, handleSubmit, reset, errors } = useForm({
+		mode: 'onChange',
+		defaultValues,
+		resolver: yupResolver(schema)
 	});
+
+	const { isValid, dirtyFields } = formState;
 
 	useEffect(() => {
 		if (!formOpen) {
-			resetForm();
+			reset(defaultValues);
 		}
-	}, [formOpen, resetForm]);
+	}, [formOpen, reset]);
 
 	function handleOpenForm(ev) {
 		ev.stopPropagation();
@@ -44,14 +62,9 @@ function BoardAddList(props) {
 		setFormOpen(false);
 	}
 
-	function handleSubmit(ev) {
-		ev.preventDefault();
-		dispatch(newList({ boardId: board.id, listTitle: form.title }));
+	function onSubmit(data) {
+		dispatch(newList({ boardId: board.id, listTitle: data.title }));
 		handleCloseForm();
-	}
-
-	function isFormInvalid() {
-		return form.title.length === 0;
 	}
 
 	return (
@@ -59,7 +72,7 @@ function BoardAddList(props) {
 			<Card className={clsx(classes.card, 'w-320 mx-8 sm:mx-12 rounded-20 shadow')} square>
 				{formOpen ? (
 					<ClickAwayListener onClickAway={handleCloseForm}>
-						<form className="p-16" onSubmit={handleSubmit}>
+						<form className="p-16" onSubmit={handleSubmit(onSubmit)}>
 							<TextField
 								className="mb-16"
 								required
@@ -68,8 +81,7 @@ function BoardAddList(props) {
 								label="List title"
 								autoFocus
 								name="title"
-								value={form.title}
-								onChange={handleChange}
+								inputRef={register}
 								InputProps={{
 									endAdornment: (
 										<InputAdornment position="end">
@@ -82,7 +94,12 @@ function BoardAddList(props) {
 							/>
 
 							<div className="flex justify-between items-center">
-								<Button variant="contained" color="secondary" type="submit" disabled={isFormInvalid()}>
+								<Button
+									variant="contained"
+									color="secondary"
+									type="submit"
+									disabled={_.isEmpty(dirtyFields) || !isValid}
+								>
 									Add
 								</Button>
 							</div>

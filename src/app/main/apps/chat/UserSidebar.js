@@ -1,5 +1,5 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
-import { useDebounce, useForm, useUpdateEffect } from '@fuse/hooks';
+import { useDebounce } from '@fuse/hooks';
 import AppBar from '@material-ui/core/AppBar';
 import Avatar from '@material-ui/core/Avatar';
 import FormControl from '@material-ui/core/FormControl';
@@ -12,7 +12,10 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import TextField from '@material-ui/core/TextField';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import { Controller, useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import _ from '@lodash';
 import StatusIcon from './StatusIcon';
 import { closeUserSidebar } from './store/sidebarsSlice';
 import { updateUserData } from './store/userSlice';
@@ -39,20 +42,24 @@ const statusArr = [
 function UserSidebar(props) {
 	const dispatch = useDispatch();
 	const user = useSelector(({ chatApp }) => chatApp.user);
-
-	const { form, handleChange } = useForm(user ? { ...user } : false);
+	const { register, control, handleSubmit, watch } = useForm({ defaultValues: user });
+	const form = watch();
 
 	const updateUser = useDebounce(_form => {
 		dispatch(updateUserData(_form));
 	}, 500);
 
-	useUpdateEffect(() => {
-		updateUser(form);
-	}, [form, updateUser]);
+	useEffect(() => {
+		if (!user) {
+			return;
+		}
 
-	if (!form) {
-		return null;
-	}
+		const newUser = { ...user, ...form };
+
+		if (!_.isEqual(user, newUser)) {
+			updateUser(newUser);
+		}
+	}, [user, form, updateUser]);
 
 	return (
 		<div className="flex flex-col flex-auto h-full">
@@ -81,36 +88,35 @@ function UserSidebar(props) {
 							label="Mood"
 							name="mood"
 							className="w-full"
-							value={form.mood}
+							inputRef={register}
 							margin="normal"
 							multiline
-							onChange={handleChange}
 							variant="outlined"
 						/>
 					</FormControl>
 					<FormControl component="fieldset" className="w-full mb-16">
 						<FormLabel component="legend">Status</FormLabel>
-						<RadioGroup
-							aria-label="Status"
+						<Controller
 							name="status"
-							className=""
-							value={form.status}
-							onChange={handleChange}
-						>
-							{statusArr.map(status => (
-								<FormControlLabel
-									key={status.value}
-									value={status.value}
-									control={<Radio />}
-									label={
-										<div className="flex items-center">
-											<StatusIcon status={status.value} />
-											<span className="mx-8">{status.title}</span>
-										</div>
-									}
-								/>
-							))}
-						</RadioGroup>
+							control={control}
+							as={
+								<RadioGroup aria-label="Status" name="status">
+									{statusArr.map(status => (
+										<FormControlLabel
+											key={status.value}
+											value={status.value}
+											control={<Radio />}
+											label={
+												<div className="flex items-center">
+													<StatusIcon status={status.value} />
+													<span className="mx-8">{status.title}</span>
+												</div>
+											}
+										/>
+									))}
+								</RadioGroup>
+							}
+						/>
 					</FormControl>
 				</form>
 			</FuseScrollbars>

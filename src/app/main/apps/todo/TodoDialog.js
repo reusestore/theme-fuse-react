@@ -1,4 +1,6 @@
-import { useForm } from '@fuse/hooks';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { DateTimePicker } from '@material-ui/pickers';
+import { Controller, useForm } from 'react-hook-form';
 import FuseUtils from '@fuse/utils';
 import _ from '@lodash';
 import AppBar from '@material-ui/core/AppBar';
@@ -21,13 +23,13 @@ import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import moment from 'moment/moment';
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import * as yup from 'yup';
 import { selectLabels } from './store/labelsSlice';
 import { removeTodo, addTodo, closeNewTodoDialog, closeEditTodoDialog, updateTodo } from './store/todosSlice';
 
-const defaultFormState = {
+const defaultValues = {
 	id: '',
 	title: '',
 	notes: '',
@@ -40,90 +42,88 @@ const defaultFormState = {
 	labels: []
 };
 
+/**
+ * Form Validation Schema
+ */
+const schema = yup.object().shape({
+	title: yup.string().required('You must enter a title')
+});
+
 function TodoDialog(props) {
 	const dispatch = useDispatch();
 	const todoDialog = useSelector(({ todoApp }) => todoApp.todos.todoDialog);
 	const labels = useSelector(selectLabels);
 
 	const [labelMenuEl, setLabelMenuEl] = useState(null);
-	const { form, handleChange, setForm } = useForm({ ...defaultFormState });
-	const startDate = moment(form.startDate).format(moment.HTML5_FMT.DATETIME_LOCAL_SECONDS);
-	const dueDate = moment(form.dueDate).format(moment.HTML5_FMT.DATETIME_LOCAL_SECONDS);
+	const { register, watch, handleSubmit, formState, reset, control, setValue, errors } = useForm({
+		mode: 'onChange',
+		defaultValues,
+		resolver: yupResolver(schema)
+	});
 
+	const { isValid, dirtyFields } = formState;
+	const formId = watch('id');
+	const formLabels = watch('labels');
+	const dueDate = watch('deuDate');
+	const startDate = watch('startDate');
+
+	/**
+	 * Initialize Dialog with Data
+	 */
 	const initDialog = useCallback(() => {
 		/**
 		 * Dialog type: 'edit'
 		 */
 		if (todoDialog.type === 'edit' && todoDialog.data) {
-			setForm({ ...todoDialog.data });
+			reset({ ...todoDialog.data });
 		}
 
 		/**
 		 * Dialog type: 'new'
 		 */
 		if (todoDialog.type === 'new') {
-			setForm({
-				...defaultFormState,
-				...todoDialog.data,
-				id: FuseUtils.generateGUID()
+			reset({
+				...defaultValues,
+				...todoDialog.data
 			});
 		}
-	}, [todoDialog.data, todoDialog.type, setForm]);
+	}, [todoDialog.data, todoDialog.type, reset]);
 
+	/**
+	 * On Dialog Open
+	 */
 	useEffect(() => {
-		/**
-		 * After Dialog Open
-		 */
 		if (todoDialog.props.open) {
 			initDialog();
 		}
 	}, [todoDialog.props.open, initDialog]);
 
+	/**
+	 * Close Dialog
+	 */
 	function closeTodoDialog() {
 		return todoDialog.type === 'edit' ? dispatch(closeEditTodoDialog()) : dispatch(closeNewTodoDialog());
 	}
 
-	function handleLabelMenuOpen(event) {
-		setLabelMenuEl(event.currentTarget);
+	/**
+	 * Form Submit
+	 */
+	function onSubmit(data) {
+		if (todoDialog.type === 'new') {
+			dispatch(addTodo({ id: FuseUtils.generateGUID(), ...data }));
+		} else {
+			dispatch(updateTodo({ ...todoDialog.data, ...data }));
+		}
+		closeTodoDialog();
 	}
 
-	function handleLabelMenuClose(event) {
-		setLabelMenuEl(null);
-	}
-
-	function handleToggleImportant() {
-		setForm({
-			...form,
-			important: !form.important
+	/**
+	 * Remove Event
+	 */
+	function handleRemove() {
+		dispatch(removeTodo(formId)).then(() => {
+			closeTodoDialog();
 		});
-	}
-
-	function handleToggleStarred() {
-		setForm({
-			...form,
-			starred: !form.starred
-		});
-	}
-
-	function handleToggleLabel(event, id) {
-		event.stopPropagation();
-		setForm(
-			_.set({
-				...form,
-				labels: form.labels.includes(id) ? form.labels.filter(labelId => labelId !== id) : [...form.labels, id]
-			})
-		);
-	}
-
-	function toggleCompleted() {
-		setForm({
-			...form,
-			completed: !form.completed
-		});
-	}
-
-	function canBeSubmitted() {
-		return form.title.length > 0;
 	}
 
 	return (
@@ -135,206 +135,230 @@ function TodoDialog(props) {
 					</Typography>
 				</Toolbar>
 			</AppBar>
+			<form onSubmit={handleSubmit(onSubmit)}>
+				<DialogContent classes={{ root: 'p-0' }}>
+					<div className="mb-16">
+						<div className="flex items-center justify-between p-12">
+							<div className="flex">
+								<Controller
+									name="completed"
+									control={control}
+									defaultValue={false}
+									render={({ onChange, value }) => (
+										<Checkbox
+											tabIndex={-1}
+											checked={value}
+											onChange={ev => onChange(ev.target.checked)}
+										/>
+									)}
+								/>
+							</div>
 
-			<DialogContent classes={{ root: 'p-0' }}>
-				<div className="mb-16">
-					<div className="flex items-center justify-between p-12">
-						<div className="flex">
-							<Checkbox
-								tabIndex={-1}
-								checked={form.completed}
-								onChange={toggleCompleted}
-								onClick={ev => ev.stopPropagation()}
-							/>
-						</div>
+							<div className="flex items-center justify-start">
+								<Controller
+									name="important"
+									control={control}
+									defaultValue={false}
+									render={({ onChange, value }) => (
+										<IconButton onClick={() => onChange(!value)}>
+											{value ? (
+												<Icon style={{ color: red[500] }}>error</Icon>
+											) : (
+												<Icon>error_outline</Icon>
+											)}
+										</IconButton>
+									)}
+								/>
 
-						<div className="flex items-center justify-start" aria-label="Toggle star">
-							<IconButton onClick={handleToggleImportant}>
-								{form.important ? (
-									<Icon style={{ color: red[500] }}>error</Icon>
-								) : (
-									<Icon>error_outline</Icon>
-								)}
-							</IconButton>
+								<Controller
+									name="starred"
+									control={control}
+									defaultValue={false}
+									render={({ onChange, value }) => (
+										<IconButton onClick={() => onChange(!value)}>
+											{value ? (
+												<Icon style={{ color: amber[500] }}>star</Icon>
+											) : (
+												<Icon>star_outline</Icon>
+											)}
+										</IconButton>
+									)}
+								/>
 
-							<IconButton onClick={handleToggleStarred}>
-								{form.starred ? (
-									<Icon style={{ color: amber[500] }}>star</Icon>
-								) : (
-									<Icon>star_outline</Icon>
-								)}
-							</IconButton>
-							<div>
-								<IconButton
-									aria-owns={labelMenuEl ? 'label-menu' : null}
-									aria-haspopup="true"
-									onClick={handleLabelMenuOpen}
-								>
-									<Icon>label</Icon>
-								</IconButton>
-								<Menu
-									id="label-menu"
-									anchorEl={labelMenuEl}
-									open={Boolean(labelMenuEl)}
-									onClose={handleLabelMenuClose}
-								>
-									{labels.length > 0 &&
-										labels.map(label => (
-											<MenuItem onClick={ev => handleToggleLabel(ev, label.id)} key={label.id}>
-												<ListItemIcon className="min-w-24">
-													<Icon color="action">
-														{form.labels.includes(label.id)
-															? 'check_box'
-															: 'check_box_outline_blank'}
-													</Icon>
-												</ListItemIcon>
-												<ListItemText
-													className="mx-8"
-													primary={label.title}
-													disableTypography
-												/>
-												<ListItemIcon className="min-w-24">
-													<Icon style={{ color: label.color }} color="action">
-														label
-													</Icon>
-												</ListItemIcon>
-											</MenuItem>
-										))}
-								</Menu>
+								<div>
+									<IconButton
+										aria-owns={labelMenuEl ? 'label-menu' : null}
+										aria-haspopup="true"
+										onClick={ev => setLabelMenuEl(ev.currentTarget)}
+									>
+										<Icon>label</Icon>
+									</IconButton>
+									<Controller
+										name="labels"
+										control={control}
+										defaultValue={[]}
+										render={({ onChange, value: formLabelsVal }) => (
+											<Menu
+												id="label-menu"
+												anchorEl={labelMenuEl}
+												open={Boolean(labelMenuEl)}
+												onClose={() => setLabelMenuEl(null)}
+											>
+												{labels.length > 0 &&
+													labels.map(label => (
+														<MenuItem
+															onClick={ev => onChange(_.xor(formLabelsVal, [label.id]))}
+															key={label.id}
+														>
+															<ListItemIcon className="min-w-24">
+																<Icon color="action">
+																	{formLabelsVal.includes(label.id)
+																		? 'check_box'
+																		: 'check_box_outline_blank'}
+																</Icon>
+															</ListItemIcon>
+															<ListItemText
+																className="mx-8"
+																primary={label.title}
+																disableTypography
+															/>
+															<ListItemIcon className="min-w-24">
+																<Icon style={{ color: label.color }} color="action">
+																	label
+																</Icon>
+															</ListItemIcon>
+														</MenuItem>
+													))}
+											</Menu>
+										)}
+									/>
+								</div>
 							</div>
 						</div>
+						<Divider className="mx-24" />
 					</div>
-					<Divider className="mx-24" />
-				</div>
 
-				{form.labels.length > 0 && (
-					<div className="flex flex-wrap w-full px-12 sm:px-20 mb-16">
-						{form.labels.map(label => (
-							<Chip
-								avatar={
-									<Avatar classes={{ colorDefault: 'bg-transparent' }}>
-										<Icon
-											className="text-20"
-											style={{ color: _.find(labels, { id: label }).color }}
-										>
-											label
-										</Icon>
-									</Avatar>
-								}
-								label={_.find(labels, { id: label }).title}
-								onDelete={ev => handleToggleLabel(ev, label)}
-								className="mx-4 my-4"
-								classes={{ label: 'px-8' }}
-								key={label}
+					{formLabels.length > 0 && (
+						<div className="flex flex-wrap w-full px-12 sm:px-20 mb-16">
+							{formLabels.map(labelId => {
+								const label = _.find(labels, { id: labelId });
+								return (
+									<Chip
+										avatar={
+											<Avatar classes={{ colorDefault: 'bg-transparent' }}>
+												<Icon className="text-20" style={{ color: label.color }}>
+													label
+												</Icon>
+											</Avatar>
+										}
+										label={label.title}
+										onDelete={ev =>
+											setValue(
+												'labels',
+												formLabels.filter(_id => labelId !== _id)
+											)
+										}
+										className="mx-4 my-4"
+										classes={{ label: 'px-8' }}
+										key={labelId}
+									/>
+								);
+							})}
+						</div>
+					)}
+
+					<div className="px-16 sm:px-24">
+						<FormControl className="mt-8 mb-16" required fullWidth>
+							<TextField
+								label="Title"
+								autoFocus
+								name="title"
+								inputRef={register}
+								error={!!errors.title}
+								helperText={errors?.title?.message}
+								required
+								variant="outlined"
 							/>
-						))}
+						</FormControl>
+
+						<FormControl className="mt-8 mb-16" required fullWidth>
+							<TextField
+								label="Notes"
+								name="notes"
+								multiline
+								rows="6"
+								inputRef={register}
+								variant="outlined"
+							/>
+						</FormControl>
+
+						<div className="flex -mx-4">
+							<Controller
+								name="startDate"
+								control={control}
+								defaultValue=""
+								render={({ onChange, value }) => (
+									<DateTimePicker
+										label="Start Date"
+										inputVariant="outlined"
+										value={value}
+										onChange={onChange}
+										className="mt-8 mb-16 mx-4"
+										maxDate={dueDate}
+									/>
+								)}
+							/>
+
+							<Controller
+								name="dueDate"
+								control={control}
+								defaultValue=""
+								render={({ onChange, value }) => (
+									<DateTimePicker
+										label="Due Date"
+										inputVariant="outlined"
+										value={value}
+										onChange={onChange}
+										className="mt-8 mb-16 mx-4"
+										minDate={startDate}
+									/>
+								)}
+							/>
+						</div>
 					</div>
+				</DialogContent>
+
+				{todoDialog.type === 'new' ? (
+					<DialogActions className="justify-between px-8 py-16">
+						<div className="px-16">
+							<Button
+								type="submit"
+								variant="contained"
+								color="primary"
+								disabled={_.isEmpty(dirtyFields) || !isValid}
+							>
+								Add
+							</Button>
+						</div>
+					</DialogActions>
+				) : (
+					<DialogActions className="justify-between px-8 py-16">
+						<div className="px-16">
+							<Button
+								type="submit"
+								variant="contained"
+								color="primary"
+								disabled={_.isEmpty(dirtyFields) || !isValid}
+							>
+								Save
+							</Button>
+						</div>
+						<IconButton className="min-w-auto" onClick={handleRemove}>
+							<Icon>delete</Icon>
+						</IconButton>
+					</DialogActions>
 				)}
-
-				<div className="px-16 sm:px-24">
-					<FormControl className="mt-8 mb-16" required fullWidth>
-						<TextField
-							label="Title"
-							autoFocus
-							name="title"
-							value={form.title}
-							onChange={handleChange}
-							required
-							variant="outlined"
-						/>
-					</FormControl>
-
-					<FormControl className="mt-8 mb-16" required fullWidth>
-						<TextField
-							label="Notes"
-							name="notes"
-							multiline
-							rows="6"
-							value={form.notes}
-							onChange={handleChange}
-							variant="outlined"
-						/>
-					</FormControl>
-					<div className="flex -mx-4">
-						<TextField
-							name="startDate"
-							label="Start Date"
-							type="datetime-local"
-							className="mt-8 mb-16 mx-4"
-							InputLabelProps={{
-								shrink: true
-							}}
-							inputProps={{
-								max: dueDate
-							}}
-							value={startDate}
-							onChange={handleChange}
-							variant="outlined"
-						/>
-						<TextField
-							name="dueDate"
-							label="Due Date"
-							type="datetime-local"
-							className="mt-8 mb-16 mx-4"
-							InputLabelProps={{
-								shrink: true
-							}}
-							inputProps={{
-								min: startDate
-							}}
-							value={dueDate}
-							onChange={handleChange}
-							variant="outlined"
-						/>
-					</div>
-				</div>
-			</DialogContent>
-
-			{todoDialog.type === 'new' ? (
-				<DialogActions className="justify-between px-8 py-16">
-					<div className="px-16">
-						<Button
-							variant="contained"
-							color="primary"
-							onClick={() => {
-								dispatch(addTodo(form)).then(() => {
-									closeTodoDialog();
-								});
-							}}
-							disabled={!canBeSubmitted()}
-						>
-							Add
-						</Button>
-					</div>
-				</DialogActions>
-			) : (
-				<DialogActions className="justify-between px-8 py-16">
-					<div className="px-16">
-						<Button
-							variant="contained"
-							color="primary"
-							onClick={() => {
-								dispatch(updateTodo(form)).then(() => {
-									closeTodoDialog();
-								});
-							}}
-							disabled={!canBeSubmitted()}
-						>
-							Save
-						</Button>
-					</div>
-					<IconButton
-						className="min-w-auto"
-						onClick={() => {
-							dispatch(removeTodo(form.id)).then(() => {
-								closeTodoDialog();
-							});
-						}}
-					>
-						<Icon>delete</Icon>
-					</IconButton>
-				</DialogActions>
-			)}
+			</form>
 		</Dialog>
 	);
 }

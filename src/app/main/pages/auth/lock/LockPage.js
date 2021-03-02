@@ -1,5 +1,5 @@
 import FuseAnimate from '@fuse/core/FuseAnimate';
-import { useForm } from '@fuse/hooks';
+import { yupResolver } from '@hookform/resolvers/yup';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -11,6 +11,9 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
+import * as yup from 'yup';
+import _ from '@lodash';
+import { useForm } from 'react-hook-form';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -19,21 +22,33 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
+/**
+ * Form Validation Schema
+ */
+const schema = yup.object().shape({
+	password: yup
+		.string()
+		.required('Please enter your password.')
+		.min(8, 'Password is too short - should be 8 chars minimum.')
+});
+
+const defaultValues = {
+	password: ''
+};
+
 function LockPage() {
 	const classes = useStyles();
-	const { form, handleChange, resetForm } = useForm({
-		password: ''
+	const { register, formState, handleSubmit, reset, errors } = useForm({
+		mode: 'onChange',
+		defaultValues,
+		resolver: yupResolver(schema)
 	});
 
-	function isFormValid() {
-		return form.password.length > 0;
-	}
+	const { isValid, dirtyFields } = formState;
 
-	function handleSubmit(ev) {
-		ev.preventDefault();
-		resetForm();
+	function onSubmit() {
+		reset(defaultValues);
 	}
-
 	return (
 		<div className={clsx(classes.root, 'flex flex-col flex-auto flex-shrink-0 items-center justify-center p-32')}>
 			<div className="flex flex-col items-center justify-center w-full">
@@ -62,7 +77,7 @@ function LockPage() {
 								name="lockForm"
 								noValidate
 								className="flex flex-col justify-center w-full mt-32"
-								onSubmit={handleSubmit}
+								onSubmit={handleSubmit(onSubmit)}
 							>
 								<TextField
 									className="mb-16"
@@ -79,8 +94,9 @@ function LockPage() {
 									label="Password"
 									type="password"
 									name="password"
-									value={form.password}
-									onChange={handleChange}
+									inputRef={register}
+									error={!!errors.password}
+									helperText={errors?.password?.message}
 									variant="outlined"
 									required
 									fullWidth
@@ -91,7 +107,7 @@ function LockPage() {
 									color="primary"
 									className="w-224 mx-auto mt-16"
 									aria-label="Reset"
-									disabled={!isFormValid()}
+									disabled={_.isEmpty(dirtyFields) || !isValid}
 									type="submit"
 								>
 									Unlock

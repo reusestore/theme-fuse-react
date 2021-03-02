@@ -1,9 +1,10 @@
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
-import React from 'react';
+import { useFormContext } from 'react-hook-form';
 
 function ShippingTab(props) {
-	const { form, handleChange, setInForm, setForm } = props;
+	const methods = useFormContext();
+	const { register } = methods;
 
 	return (
 		<div>
@@ -14,8 +15,7 @@ function ShippingTab(props) {
 					autoFocus
 					id="width"
 					name="width"
-					value={form.width}
-					onChange={handleChange}
+					inputRef={register}
 					variant="outlined"
 					fullWidth
 				/>
@@ -25,8 +25,7 @@ function ShippingTab(props) {
 					label="Height"
 					id="height"
 					name="height"
-					value={form.height}
-					onChange={handleChange}
+					inputRef={register}
 					variant="outlined"
 					fullWidth
 				/>
@@ -36,8 +35,7 @@ function ShippingTab(props) {
 					label="Depth"
 					id="depth"
 					name="depth"
-					value={form.depth}
-					onChange={handleChange}
+					inputRef={register}
 					variant="outlined"
 					fullWidth
 				/>
@@ -48,8 +46,7 @@ function ShippingTab(props) {
 				label="Weight"
 				id="weight"
 				name="weight"
-				value={form.weight}
-				onChange={handleChange}
+				inputRef={register}
 				variant="outlined"
 				fullWidth
 			/>
@@ -59,8 +56,7 @@ function ShippingTab(props) {
 				label="Extra Shipping Fee"
 				id="extraShippingFee"
 				name="extraShippingFee"
-				value={form.extraShippingFee}
-				onChange={handleChange}
+				inputRef={register}
 				variant="outlined"
 				InputProps={{
 					startAdornment: <InputAdornment position="start">$</InputAdornment>

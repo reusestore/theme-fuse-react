@@ -1,4 +1,5 @@
-import { useDebounce, useForm, usePrevious } from '@fuse/hooks';
+import { useDebounce, usePrevious } from '@fuse/hooks';
+import { Controller, useForm } from 'react-hook-form';
 import FuseLayoutConfigs from '@fuse/layouts/FuseLayoutConfigs';
 import _ from '@lodash';
 import TextField from '@material-ui/core/TextField';
@@ -53,13 +54,13 @@ function FuseSettings(props) {
 	const user = useSelector(({ auth }) => auth.user);
 	const themes = useSelector(({ fuse }) => fuse.settings.themes);
 	const settings = useSelector(({ fuse }) => fuse.settings.current);
-	const { form, handleChange, setInForm, setForm } = useForm(settings);
+	const { register, reset, watch, control } = useForm({ mode: 'onChange', defaultValues: settings });
+	const form = watch();
 	const { form: formConfigs } = FuseLayoutConfigs[form.layout.style];
 	const prevForm = usePrevious(form);
 	const prevSettings = usePrevious(settings);
 	const formChanged = !_.isEqual(form, prevForm);
 	const settingsChanged = !_.isEqual(settings, prevSettings);
-
 	const classes = useStyles(props);
 
 	const handleUpdate = useDebounce(newSettings => {
@@ -76,25 +77,27 @@ function FuseSettings(props) {
 			return;
 		}
 
+		// If theme settings changed update form data
+		if (settingsChanged) {
+			reset(settings);
+			return;
+		}
+
+		const newSettings = _.merge({}, settings, form);
+
 		// No need to change
-		if (_.isEqual(form, settings)) {
+		if (_.isEqual(newSettings, settings)) {
 			return;
 		}
 
 		// If form changed update theme settings
 		if (formChanged) {
-			const newSettings = form;
 			if (settings.layout.style !== newSettings.layout.style) {
 				_.set(newSettings, 'layout.config', {});
 			}
 			handleUpdate(newSettings);
 		}
-
-		// If theme settings changed update form data
-		if (settingsChanged) {
-			setForm(settings);
-		}
-	}, [dispatch, form, formChanged, handleUpdate, prevForm, prevSettings, setForm, settings, settingsChanged, user]);
+	}, [dispatch, form, formChanged, handleUpdate, prevForm, prevSettings, reset, settings, settingsChanged, user]);
 
 	const ThemeSelect = ({ value, name, handleThemeChange }) => {
 		return (
@@ -170,46 +173,6 @@ function FuseSettings(props) {
 		);
 	};
 
-	const LayoutSelect = () => (
-		<FormControl component="fieldset" className={classes.formControl}>
-			<FormLabel component="legend" className="text-14">
-				Style
-			</FormLabel>
-
-			<RadioGroup
-				aria-label="Layout Style"
-				name="layout.style"
-				className={classes.group}
-				value={form.layout.style}
-				onChange={handleChange}
-			>
-				{Object.entries(FuseLayoutConfigs).map(([key, layout]) => (
-					<FormControlLabel key={key} value={key} control={<Radio />} label={layout.title} />
-				))}
-			</RadioGroup>
-		</FormControl>
-	);
-
-	const DirectionSelect = () => (
-		<FormControl component="fieldset" className={classes.formControl}>
-			<FormLabel component="legend" className="text-14">
-				Direction
-			</FormLabel>
-
-			<RadioGroup
-				aria-label="Layout Style"
-				name="direction"
-				className={classes.group}
-				value={form.direction}
-				onChange={handleChange}
-				row
-			>
-				<FormControlLabel key="rtl" value="rtl" control={<Radio />} label="RTL" />
-				<FormControlLabel key="ltr" value="ltr" control={<Radio />} label="LTR" />
-			</RadioGroup>
-		</FormControl>
-	);
-
 	const getForm = useCallback(
 		(_formConfigs, prefix) =>
 			Object.entries(_formConfigs).map(([key, formControl]) => {
@@ -221,48 +184,45 @@ function FuseSettings(props) {
 								<FormLabel component="legend" className="text-14">
 									{formControl.title}
 								</FormLabel>
-								<RadioGroup
-									aria-label={formControl.title}
+								<Controller
 									name={target}
-									value={_.get(form, target)}
-									className={classes.group}
-									onChange={handleChange}
-									row={formControl.options.length < 4}
-								>
-									{formControl.options.map(opt => (
-										<FormControlLabel
-											key={opt.value}
-											value={opt.value}
-											control={<Radio />}
-											label={opt.name}
-										/>
-									))}
-								</RadioGroup>
+									control={control}
+									as={
+										<RadioGroup
+											aria-label={formControl.title}
+											className={classes.group}
+											row={formControl.options.length < 4}
+										>
+											{formControl.options.map(opt => (
+												<FormControlLabel
+													key={opt.value}
+													value={opt.value}
+													control={<Radio />}
+													label={opt.name}
+												/>
+											))}
+										</RadioGroup>
+									}
+								/>
 							</FormControl>
 						);
 					}
 					case 'switch': {
 						return (
 							<FormControl key={target} component="fieldset" className={classes.formControl}>
-								<FormControlLabel
-									classes={
-										{
-											// root: "flex-row-reverse justify-end pl-16"
-										}
-									}
-									control={
+								<FormLabel component="legend" className="text-14">
+									{formControl.title}
+								</FormLabel>
+								<Controller
+									name={target}
+									control={control}
+									render={({ onChange, value }) => (
 										<Switch
-											name={target}
-											checked={_.get(form, target)}
-											onChange={handleChange}
+											checked={value}
+											onChange={ev => onChange(ev.target.checked)}
 											aria-label={formControl.title}
 										/>
-									}
-									label={
-										<FormLabel component="legend" className="text-14">
-											{formControl.title}
-										</FormLabel>
-									}
+									)}
 								/>
 							</FormControl>
 						);
@@ -273,8 +233,7 @@ function FuseSettings(props) {
 								<TextField
 									label={formControl.title}
 									name={target}
-									value={_.get(form, target)}
-									onChange={handleChange}
+									inputRef={register}
 									type="number"
 									InputLabelProps={{
 										shrink: true
@@ -300,7 +259,7 @@ function FuseSettings(props) {
 					}
 				}
 			}),
-		[classes, form, handleChange]
+		[classes.formControl, classes.formGroup, classes.formGroupTitle, classes.group, control, register]
 	);
 
 	return (
@@ -310,7 +269,22 @@ function FuseSettings(props) {
 					Layout
 				</Typography>
 
-				<LayoutSelect />
+				<FormControl component="fieldset" className={classes.formControl}>
+					<FormLabel component="legend" className="text-14">
+						Style
+					</FormLabel>
+					<Controller
+						name="layout.style"
+						control={control}
+						as={
+							<RadioGroup aria-label="Layout Style" className={classes.group}>
+								{Object.entries(FuseLayoutConfigs).map(([key, layout]) => (
+									<FormControlLabel key={key} value={key} control={<Radio />} label={layout.title} />
+								))}
+							</RadioGroup>
+						}
+					/>
+				</FormControl>
 
 				{useMemo(() => getForm(formConfigs, 'layout.config'), [formConfigs, getForm])}
 
@@ -328,25 +302,41 @@ function FuseSettings(props) {
 					<FormLabel component="legend" className="text-14">
 						Main
 					</FormLabel>
-					<ThemeSelect value={form.theme.main} name="theme.main" handleThemeChange={handleChange} />
+					<Controller
+						name="theme.main"
+						control={control}
+						render={({ onChange, value }) => <ThemeSelect value={value} handleThemeChange={onChange} />}
+					/>
 				</FormControl>
 				<FormControl component="fieldset" className={classes.formControl}>
 					<FormLabel component="legend" className="text-14">
 						Navbar
 					</FormLabel>
-					<ThemeSelect value={form.theme.navbar} name="theme.navbar" handleThemeChange={handleChange} />
+					<Controller
+						name="theme.navbar"
+						control={control}
+						render={({ onChange, value }) => <ThemeSelect value={value} handleThemeChange={onChange} />}
+					/>
 				</FormControl>
 				<FormControl component="fieldset" className={classes.formControl}>
 					<FormLabel component="legend" className="text-14">
 						Toolbar
 					</FormLabel>
-					<ThemeSelect value={form.theme.toolbar} name="theme.toolbar" handleThemeChange={handleChange} />
+					<Controller
+						name="theme.toolbar"
+						control={control}
+						render={({ onChange, value }) => <ThemeSelect value={value} handleThemeChange={onChange} />}
+					/>
 				</FormControl>
 				<FormControl component="fieldset" className={classes.formControl}>
 					<FormLabel component="legend" className="text-14">
 						Footer
 					</FormLabel>
-					<ThemeSelect value={form.theme.footer} name="theme.footer" handleThemeChange={handleChange} />
+					<Controller
+						name="theme.footer"
+						control={control}
+						render={({ onChange, value }) => <ThemeSelect value={value} handleThemeChange={onChange} />}
+					/>
 				</FormControl>
 			</div>
 
@@ -354,11 +344,17 @@ function FuseSettings(props) {
 				<FormLabel component="legend" className="text-14">
 					Custom Scrollbars
 				</FormLabel>
-				<Switch
-					checked={form.customScrollbars}
-					onChange={handleChange}
-					aria-label="Custom Scrollbars"
+
+				<Controller
 					name="customScrollbars"
+					control={control}
+					render={({ onChange, value }) => (
+						<Switch
+							checked={value}
+							onChange={ev => onChange(ev.target.checked)}
+							aria-label="Custom Scrollbars"
+						/>
+					)}
 				/>
 			</FormControl>
 
@@ -366,10 +362,31 @@ function FuseSettings(props) {
 				<FormLabel component="legend" className="text-14">
 					Animations
 				</FormLabel>
-				<Switch checked={form.animations} onChange={handleChange} aria-label="Animations" name="animations" />
+				<Controller
+					name="animations"
+					control={control}
+					render={({ onChange, value }) => (
+						<Switch checked={value} onChange={ev => onChange(ev.target.checked)} aria-label="Animations" />
+					)}
+				/>
 			</FormControl>
 
-			<DirectionSelect />
+			<FormControl component="fieldset" className={classes.formControl}>
+				<FormLabel component="legend" className="text-14">
+					Direction
+				</FormLabel>
+
+				<Controller
+					name="direction"
+					control={control}
+					as={
+						<RadioGroup aria-label="Layout Direction" className={classes.group} row>
+							<FormControlLabel key="rtl" value="rtl" control={<Radio />} label="RTL" />
+							<FormControlLabel key="ltr" value="ltr" control={<Radio />} label="LTR" />
+						</RadioGroup>
+					}
+				/>
+			</FormControl>
 		</div>
 	);
 }

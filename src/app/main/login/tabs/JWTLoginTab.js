@@ -1,90 +1,94 @@
-import { TextFieldFormsy } from '@fuse/core/formsy';
+import { yupResolver } from '@hookform/resolvers/yup';
+import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Typography from '@material-ui/core/Typography';
-import Formsy from 'formsy-react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { submitLogin } from 'app/auth/store/loginSlice';
+import * as yup from 'yup';
+import _ from '@lodash';
+
+/**
+ * Form Validation Schema
+ */
+const schema = yup.object().shape({
+	email: yup.string().email('You must enter a valid email').required('You must enter a email'),
+	password: yup
+		.string()
+		.required('Please enter your password.')
+		.min(4, 'Password is too short - should be 4 chars minimum.')
+});
+
+const defaultValues = {
+	email: '',
+	password: ''
+};
 
 function JWTLoginTab(props) {
 	const dispatch = useDispatch();
 	const login = useSelector(({ auth }) => auth.login);
+	const { register, setValue, formState, handleSubmit, reset, trigger, errors, setError } = useForm({
+		mode: 'onChange',
+		defaultValues,
+		resolver: yupResolver(schema)
+	});
 
-	const [isFormValid, setIsFormValid] = useState(false);
+	const { isValid, dirtyFields } = formState;
 	const [showPassword, setShowPassword] = useState(false);
 
-	const formRef = useRef(null);
+	useEffect(() => {
+		setValue('email', 'admin@fusetheme.com', { shouldDirty: true, shouldValidate: true });
+		setValue('password', 'admin', { shouldDirty: true, shouldValidate: true });
+	}, [reset, setValue, trigger]);
 
 	useEffect(() => {
-		if (login.error && (login.error.email || login.error.password)) {
-			formRef.current.updateInputsWithError({
-				...login.error
+		login.errors.forEach(error => {
+			setError(error.type, {
+				type: 'manual',
+				message: error.message
 			});
-			disableButton();
-		}
-	}, [login.error]);
+		});
+	}, [login.errors, setError]);
 
-	function disableButton() {
-		setIsFormValid(false);
-	}
-
-	function enableButton() {
-		setIsFormValid(true);
-	}
-
-	function handleSubmit(model) {
+	function onSubmit(model) {
 		dispatch(submitLogin(model));
 	}
 
 	return (
 		<div className="w-full">
-			<Formsy
-				onValidSubmit={handleSubmit}
-				onValid={enableButton}
-				onInvalid={disableButton}
-				ref={formRef}
-				className="flex flex-col justify-center w-full"
-			>
-				<TextFieldFormsy
+			<form className="flex flex-col justify-center w-full" onSubmit={handleSubmit(onSubmit)}>
+				<TextField
 					className="mb-16"
 					type="text"
 					name="email"
-					label="Username/Email"
-					value="admin"
-					validations={{
-						minLength: 4
-					}}
-					validationErrors={{
-						minLength: 'Min character length is 4'
-					}}
+					inputRef={register}
+					error={!!errors.email}
+					helperText={errors?.email?.message}
+					label="Email"
 					InputProps={{
 						endAdornment: (
 							<InputAdornment position="end">
 								<Icon className="text-20" color="action">
-									email
+									user
 								</Icon>
 							</InputAdornment>
 						)
 					}}
 					variant="outlined"
-					required
 				/>
-
-				<TextFieldFormsy
+				<TextField
 					className="mb-16"
+					label="Password"
 					type="password"
 					name="password"
-					label="Password"
-					value="admin"
-					validations={{
-						minLength: 4
-					}}
-					validationErrors={{
-						minLength: 'Min character length is 4'
-					}}
+					inputRef={register}
+					error={!!errors.password}
+					helperText={errors?.password?.message}
+					variant="outlined"
 					InputProps={{
 						className: 'pr-2',
 						type: showPassword ? 'text' : 'password',
@@ -98,7 +102,6 @@ function JWTLoginTab(props) {
 							</InputAdornment>
 						)
 					}}
-					variant="outlined"
 					required
 				/>
 
@@ -108,28 +111,28 @@ function JWTLoginTab(props) {
 					color="primary"
 					className="w-full mx-auto mt-16"
 					aria-label="LOG IN"
-					disabled={!isFormValid}
+					disabled={_.isEmpty(dirtyFields) || !isValid}
 					value="legacy"
 				>
 					Login
 				</Button>
-			</Formsy>
+			</form>
 
-			<table className="text-center w-full mt-32">
-				<thead>
+			<table className="w-full mt-32 text-center">
+				<thead className="mb-4">
 					<tr>
 						<th>
-							<Typography className="font-semibold" color="textSecondary">
+							<Typography className="font-semibold text-11" color="textSecondary">
 								Role
 							</Typography>
 						</th>
 						<th>
-							<Typography className="font-semibold" color="textSecondary">
-								Username
+							<Typography className="font-semibold text-11" color="textSecondary">
+								Email
 							</Typography>
 						</th>
 						<th>
-							<Typography className="font-semibold" color="textSecondary">
+							<Typography className="font-semibold text-11" color="textSecondary">
 								Password
 							</Typography>
 						</th>
@@ -138,28 +141,28 @@ function JWTLoginTab(props) {
 				<tbody>
 					<tr>
 						<td>
-							<Typography className="font-semibold" color="textSecondary">
+							<Typography className="font-medium text-11" color="textSecondary">
 								Admin
 							</Typography>
 						</td>
 						<td>
-							<Typography>admin</Typography>
+							<Typography className="text-11">admin@fusetheme.com</Typography>
 						</td>
 						<td>
-							<Typography>admin</Typography>
+							<Typography className="text-11">admin</Typography>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<Typography className="font-semibold" color="textSecondary">
+							<Typography className="font-medium text-11" color="textSecondary">
 								Staff
 							</Typography>
 						</td>
 						<td>
-							<Typography>staff</Typography>
+							<Typography className="text-11">staff@fusetheme.com</Typography>
 						</td>
 						<td>
-							<Typography>staff</Typography>
+							<Typography className="text-11">staff</Typography>
 						</td>
 					</tr>
 				</tbody>

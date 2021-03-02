@@ -1,4 +1,6 @@
-import { useDebounce, useForm } from '@fuse/hooks';
+import { useDebounce } from '@fuse/hooks';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
 import _ from '@lodash';
 import TextField from '@material-ui/core/TextField';
 import Icon from '@material-ui/core/Icon';
@@ -12,16 +14,33 @@ import LabelModel from 'app/main/apps/notes/model/LabelModel';
 import clsx from 'clsx';
 import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import * as yup from 'yup';
 import { updateLabels } from '../../store/labelsSlice';
+
+const defaultValues = {
+	name: ''
+};
+
+/**
+ * Form Validation Schema
+ */
+const schema = yup.object().shape({
+	name: yup.string().required('You must enter a label title')
+});
 
 function LabelsForm(props) {
 	const dispatch = useDispatch();
 	const labels = useSelector(({ notesApp }) => notesApp.labels.entities);
 
 	const [labelsForm, setLabels] = useState(labels);
-	const { form: newLabelForm, handleChange, resetForm } = useForm({
-		name: ''
+
+	const { register, formState, handleSubmit, reset, errors } = useForm({
+		mode: 'onChange',
+		defaultValues,
+		resolver: yupResolver(schema)
 	});
+
+	const { isValid, dirtyFields } = formState;
 
 	useEffect(() => {
 		setLabels(labels);
@@ -29,7 +48,7 @@ function LabelsForm(props) {
 
 	const handleOnChange = useDebounce(_labels => {
 		dispatch(updateLabels(_labels));
-	}, 600);
+	}, 300);
 
 	useEffect(() => {
 		if (labelsForm && !_.isEqual(labelsForm, labels)) {
@@ -37,31 +56,24 @@ function LabelsForm(props) {
 		}
 	}, [handleOnChange, labels, labelsForm]);
 
-	function isFormInValid() {
-		return newLabelForm.name === '';
-	}
-
-	function handleSubmit(ev) {
-		ev.preventDefault();
-		if (isFormInValid()) {
-			return;
-		}
-		const newLabel = LabelModel(newLabelForm);
+	function onSubmit(data) {
+		const newLabel = LabelModel(data);
 		setLabels(_.setIn(labelsForm, newLabel.id, newLabel));
-		resetForm();
+		reset(defaultValues);
 	}
 
 	return (
 		<>
 			<Typography className="text-16 mb-8 font-semibold">Edit Labels</Typography>
 			<List dense>
-				<form onSubmit={handleSubmit}>
+				<form onSubmit={handleSubmit(onSubmit)}>
 					<ListItem className="p-0 mb-16" dense>
 						<TextField
 							className={clsx('flex flex-1')}
 							name="name"
-							value={newLabelForm.name}
-							onChange={handleChange}
+							inputRef={register}
+							error={!!errors.name}
+							helperText={errors?.name?.message}
 							placeholder="Create new label"
 							variant="outlined"
 							InputProps={{
@@ -77,7 +89,7 @@ function LabelsForm(props) {
 										<IconButton
 											className="w-32 h-32 p-0"
 											aria-label="Delete"
-											disabled={isFormInValid()}
+											disabled={_.isEmpty(dirtyFields) || !isValid}
 											type="submit"
 										>
 											<Icon fontSize="small">check</Icon>

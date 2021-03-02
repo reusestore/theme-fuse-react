@@ -1,16 +1,19 @@
 import FuseAnimate from '@fuse/core/FuseAnimate';
 import FuseLoading from '@fuse/core/FuseLoading';
 import FusePageCarded from '@fuse/core/FusePageCarded';
-import { useForm, useDeepCompareEffect } from '@fuse/hooks';
+import { useDeepCompareEffect } from '@fuse/hooks';
 import Button from '@material-ui/core/Button';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
 import withReducer from 'app/store/withReducer';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import _ from '@lodash';
+import { useForm, FormProvider } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 import { resetProduct, newProduct, getProduct } from '../store/productSlice';
 import reducer from '../store';
 import ProductHeader from './ProductHeader';
@@ -20,6 +23,16 @@ import PricingTab from './tabs/PricingTab';
 import ProductImagesTab from './tabs/ProductImagesTab';
 import ShippingTab from './tabs/ShippingTab';
 
+/**
+ * Form Validation Schema
+ */
+const schema = yup.object().shape({
+	name: yup
+		.string()
+		.required('You must enter a product name')
+		.min(5, 'The product name must be at least 5 characters')
+});
+
 function Product(props) {
 	const dispatch = useDispatch();
 	const product = useSelector(({ eCommerceApp }) => eCommerceApp.product);
@@ -27,16 +40,30 @@ function Product(props) {
 	const routeParams = useParams();
 	const [tabValue, setTabValue] = useState(0);
 	const [noProduct, setNoProduct] = useState(false);
-	const { form, handleChange, setForm, setInForm } = useForm(null);
+	const methods = useForm({
+		mode: 'onChange',
+		resolver: yupResolver(schema)
+	});
+	const { reset, watch, register, onChange, formState } = methods;
+	const form = watch();
 
 	useDeepCompareEffect(() => {
 		function updateProductState() {
 			const { productId } = routeParams;
 
 			if (productId === 'new') {
+				/**
+				 * Create New Product data
+				 */
 				dispatch(newProduct());
 			} else {
+				/**
+				 * Get Product data
+				 */
 				dispatch(getProduct(routeParams)).then(action => {
+					/**
+					 * If the requested product is not exist show message
+					 */
 					if (!action.payload) {
 						setNoProduct(true);
 					}
@@ -48,26 +75,35 @@ function Product(props) {
 	}, [dispatch, routeParams]);
 
 	useEffect(() => {
-		if ((product && !form) || (product && form && product.id !== form.id)) {
-			setForm(product);
+		if (!product) {
+			return;
 		}
-	}, [form, product, setForm]);
+		/**
+		 * Reset the form on product state changes
+		 */
+		reset(product);
+	}, [product, reset]);
 
 	useEffect(() => {
 		return () => {
+			/**
+			 * Reset Product on component unload
+			 */
 			dispatch(resetProduct());
 			setNoProduct(false);
 		};
 	}, [dispatch]);
 
+	/**
+	 * Tab Change
+	 */
 	function handleTabChange(event, value) {
 		setTabValue(value);
 	}
 
-	function canBeSubmitted() {
-		return form.name.length > 0 && !_.isEqual(product, form);
-	}
-
+	/**
+	 * Show Message if the requested products is not exists
+	 */
 	if (noProduct) {
 		return (
 			<FuseAnimate delay={100}>
@@ -89,82 +125,64 @@ function Product(props) {
 		);
 	}
 
-	if ((!product || (product && routeParams.productId !== product.id)) && routeParams.productId !== 'new') {
+	/**
+	 * Wait while product data is loading and form is setted
+	 */
+	if ((_.isEmpty(form) || (product && routeParams.productId !== product.id)) && routeParams.productId !== 'new') {
 		return <FuseLoading />;
 	}
 
 	return (
-		<FusePageCarded
-			classes={{
-				toolbar: 'p-0',
-				header: 'min-h-72 h-72 sm:h-136 sm:min-h-136'
-			}}
-			header={form && <ProductHeader form={form} canBeSubmitted={canBeSubmitted} />}
-			contentToolbar={
-				<Tabs
-					value={tabValue}
-					onChange={handleTabChange}
-					indicatorColor="primary"
-					textColor="primary"
-					variant="scrollable"
-					scrollButtons="auto"
-					classes={{ root: 'w-full h-64' }}
-				>
-					<Tab className="h-64" label="Basic Info" />
-					<Tab className="h-64" label="Product Images" />
-					<Tab className="h-64" label="Pricing" />
-					<Tab className="h-64" label="Inventory" />
-					<Tab className="h-64" label="Shipping" />
-				</Tabs>
-			}
-			content={
-				form && (
+		<FormProvider {...methods}>
+			<FusePageCarded
+				classes={{
+					toolbar: 'p-0',
+					header: 'min-h-72 h-72 sm:h-136 sm:min-h-136'
+				}}
+				header={<ProductHeader />}
+				contentToolbar={
+					<Tabs
+						value={tabValue}
+						onChange={handleTabChange}
+						indicatorColor="primary"
+						textColor="primary"
+						variant="scrollable"
+						scrollButtons="auto"
+						classes={{ root: 'w-full h-64' }}
+					>
+						<Tab className="h-64" label="Basic Info" />
+						<Tab className="h-64" label="Product Images" />
+						<Tab className="h-64" label="Pricing" />
+						<Tab className="h-64" label="Inventory" />
+						<Tab className="h-64" label="Shipping" />
+					</Tabs>
+				}
+				content={
 					<div className="p-16 sm:p-24 max-w-2xl">
-						{tabValue === 0 && (
-							<BasicInfoTab
-								form={form}
-								handleChange={handleChange}
-								setInForm={setInForm}
-								setForm={setForm}
-							/>
-						)}
-						{tabValue === 1 && (
-							<ProductImagesTab
-								form={form}
-								handleChange={handleChange}
-								setInForm={setInForm}
-								setForm={setForm}
-							/>
-						)}
-						{tabValue === 2 && (
-							<PricingTab
-								form={form}
-								handleChange={handleChange}
-								setInForm={setInForm}
-								setForm={setForm}
-							/>
-						)}
-						{tabValue === 3 && (
-							<InventoryTab
-								form={form}
-								handleChange={handleChange}
-								setInForm={setInForm}
-								setForm={setForm}
-							/>
-						)}
-						{tabValue === 4 && (
-							<ShippingTab
-								form={form}
-								handleChange={handleChange}
-								setInForm={setInForm}
-								setForm={setForm}
-							/>
-						)}
+						<div className={tabValue !== 0 ? 'hidden' : ''}>
+							<BasicInfoTab />
+						</div>
+
+						<div className={tabValue !== 1 ? 'hidden' : ''}>
+							<ProductImagesTab />
+						</div>
+
+						<div className={tabValue !== 2 ? 'hidden' : ''}>
+							<PricingTab />
+						</div>
+
+						<div className={tabValue !== 3 ? 'hidden' : ''}>
+							<InventoryTab />
+						</div>
+
+						<div className={tabValue !== 4 ? 'hidden' : ''}>
+							<ShippingTab />
+						</div>
 					</div>
-				)
-			}
-			innerScroll
-		/>
+				}
+				innerScroll
+			/>
+		</FormProvider>
 	);
 }
 

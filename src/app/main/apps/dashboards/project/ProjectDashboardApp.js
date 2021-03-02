@@ -67,7 +67,11 @@ function ProjectDashboardApp(props) {
 					}}
 				>
 					<Tab className="text-14 font-semibold min-h-40 min-w-64 mx-4" disableRipple label="Home" />
-					<Tab className="text-14 font-semibold min-h-40 min-w-64 mx-4" disableRipple label="Budget Summary" />
+					<Tab
+						className="text-14 font-semibold min-h-40 min-w-64 mx-4"
+						disableRipple
+						label="Budget Summary"
+					/>
 					<Tab className="text-14 font-semibold min-h-40 min-w-64 mx-4" disableRipple label="Team Members" />
 				</Tabs>
 			}

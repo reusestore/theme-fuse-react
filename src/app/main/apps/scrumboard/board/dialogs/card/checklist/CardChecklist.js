@@ -1,4 +1,4 @@
-import { useForm, useUpdateEffect } from '@fuse/hooks';
+import { Controller, useForm } from 'react-hook-form';
 import _ from '@lodash';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
@@ -9,7 +9,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
-import { useCallback, useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import CardAddChecklistItem from './CardAddChecklistItem';
 import CardChecklistItem from './CardChecklistItem';
 import CardChecklistName from './CardChecklistName';
@@ -17,12 +17,16 @@ import CardChecklistName from './CardChecklistName';
 function CardChecklist(props) {
 	const { onCheckListChange, checklist, index } = props;
 	const [anchorEl, setAnchorEl] = useState(null);
-	const { form, setInForm } = useForm(checklist);
 	const checkListNameRef = useRef();
+	const { register, watch, control } = useForm({ mode: 'onChange', defaultValues: checklist });
+	const form = watch();
 
-	useUpdateEffect(() => {
-		onCheckListChange(form, index);
-	}, [form, index, onCheckListChange]);
+	useEffect(() => {
+		const newChecklist = { ...checklist, ...form };
+		if (!_.isEqual(newChecklist, checklist)) {
+			onCheckListChange(newChecklist, index);
+		}
+	}, [form, index, onCheckListChange, checklist]);
 
 	function handleOpenNameForm(ev) {
 		handleMenuClose();
@@ -37,27 +41,8 @@ function CardChecklist(props) {
 		setAnchorEl(null);
 	}
 
-	function handleNameChange(name) {
-		setInForm('name', name);
-	}
-
-	const handleListItemChange = useCallback(
-		(item, _index) => {
-			setInForm(`checkItems[${_index}]`, item);
-		},
-		[setInForm]
-	);
-
-	function handleListItemRemove(id) {
-		setInForm('checkItems', _.reject(form.checkItems, { id }));
-	}
-
 	function checkItemsChecked() {
 		return _.sum(form.checkItems.map(x => (x.checked ? 1 : 0)));
-	}
-
-	function handleListItemAdd(item) {
-		setInForm('checkItems', [...form.checkItems, item]);
 	}
 
 	if (!form) {
@@ -68,7 +53,18 @@ function CardChecklist(props) {
 			<div className="flex items-center justify-between mt-16 mb-12">
 				<div className="flex items-center">
 					<Icon className="text-20">check_box</Icon>
-					<CardChecklistName name={form.name} onNameChange={handleNameChange} ref={checkListNameRef} />
+					<Controller
+						name="name"
+						control={control}
+						defaultValue=""
+						render={({ onChange, value }) => (
+							<CardChecklistName
+								name={value}
+								onNameChange={val => onChange(val)}
+								ref={checkListNameRef}
+							/>
+						)}
+					/>
 				</div>
 				<div className="">
 					<IconButton
@@ -109,18 +105,29 @@ function CardChecklist(props) {
 						value={(100 * checkItemsChecked()) / form.checkItems.length}
 					/>
 				</div>
-				<List className="">
-					{form.checkItems.map((checkItem, _index) => (
-						<CardChecklistItem
-							item={checkItem}
-							key={checkItem.id}
-							index={_index}
-							onListItemChange={handleListItemChange}
-							onListItemRemove={() => handleListItemRemove(checkItem.id)}
-						/>
-					))}
-					<CardAddChecklistItem onListItemAdd={item => handleListItemAdd(item)} />
-				</List>
+				<Controller
+					name="checkItems"
+					control={control}
+					defaultValue={[]}
+					render={({ onChange, value }) => (
+						<List className="">
+							{value.map((checkItem, _index) => (
+								<CardChecklistItem
+									item={checkItem}
+									key={checkItem.id}
+									index={_index}
+									onListItemChange={(item, itemIndex) => {
+										onChange(_.setIn(value, `[${itemIndex}]`, item));
+									}}
+									onListItemRemove={() => {
+										onChange(_.reject(value, { id: checkItem.id }));
+									}}
+								/>
+							))}
+							<CardAddChecklistItem onListItemAdd={item => onChange([...value, item])} />
+						</List>
+					)}
+				/>
 			</div>
 		</div>
 	);

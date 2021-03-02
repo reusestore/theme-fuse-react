@@ -1,4 +1,5 @@
-import { useForm } from '@fuse/hooks';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
@@ -8,25 +9,40 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import * as yup from 'yup';
+import _ from '@lodash';
 import { renameBoard } from '../store/boardSlice';
+
+/**
+ * Form Validation Schema
+ */
+const schema = yup.object().shape({
+	title: yup.string().required('You must enter a title')
+});
 
 function BoardTitle(props) {
 	const dispatch = useDispatch();
 	const board = useSelector(({ scrumboardApp }) => scrumboardApp.board);
 
 	const [formOpen, setFormOpen] = useState(false);
-	const { form, handleChange, resetForm, setForm } = useForm({
-		title: board.name
+
+	const { register, formState, handleSubmit, reset, errors } = useForm({
+		mode: 'onChange',
+		defaultValues: {
+			title: board.name
+		},
+		resolver: yupResolver(schema)
 	});
-	useEffect(() => {
-		if (!formOpen) {
-			resetForm();
-		}
-	}, [formOpen, resetForm]);
+
+	const { isValid, dirtyFields } = formState;
 
 	useEffect(() => {
-		setForm({ title: board.name });
-	}, [board.name, setForm]);
+		if (!formOpen) {
+			reset({
+				title: board.name
+			});
+		}
+	}, [formOpen, reset, board.name]);
 
 	function handleOpenForm(ev) {
 		ev.stopPropagation();
@@ -37,16 +53,8 @@ function BoardTitle(props) {
 		setFormOpen(false);
 	}
 
-	function isFormInvalid() {
-		return form.title === '';
-	}
-
-	function handleSubmit(ev) {
-		ev.preventDefault();
-		if (isFormInvalid()) {
-			return;
-		}
-		dispatch(renameBoard({ boardId: board.id, boardTitle: form.title }));
+	function onSubmit(data) {
+		dispatch(renameBoard({ boardId: board.id, boardTitle: data.title }));
 		handleCloseForm();
 	}
 
@@ -55,11 +63,10 @@ function BoardTitle(props) {
 			{formOpen ? (
 				<ClickAwayListener onClickAway={handleCloseForm}>
 					<Paper>
-						<form className="flex w-full" onSubmit={handleSubmit}>
+						<form className="flex w-full" onSubmit={handleSubmit(onSubmit)}>
 							<TextField
 								name="title"
-								value={form.title}
-								onChange={handleChange}
+								inputRef={register}
 								variant="filled"
 								margin="none"
 								autoFocus
@@ -67,7 +74,7 @@ function BoardTitle(props) {
 								InputProps={{
 									endAdornment: (
 										<InputAdornment position="end">
-											<IconButton type="submit" disabled={isFormInvalid()}>
+											<IconButton type="submit" disabled={_.isEmpty(dirtyFields) || !isValid}>
 												<Icon>check</Icon>
 											</IconButton>
 										</InputAdornment>

@@ -1,5 +1,7 @@
 import FuseAnimate from '@fuse/core/FuseAnimate';
-import { useForm } from '@fuse/hooks';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -12,6 +14,8 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
+import * as yup from 'yup';
+import _ from '@lodash';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -20,30 +24,41 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
+/**
+ * Form Validation Schema
+ */
+const schema = yup.object().shape({
+	name: yup.string().required('You must enter your name'),
+	email: yup.string().email('You must enter a valid email').required('You must enter a email'),
+	password: yup
+		.string()
+		.required('Please enter your password.')
+		.min(8, 'Password is too short - should be 8 chars minimum.'),
+	passwordConfirm: yup.string().oneOf([yup.ref('password'), null], 'Passwords must match'),
+	acceptTermsConditions: yup.boolean().oneOf([true], 'The terms and conditions must be accepted.')
+});
+
+const defaultValues = {
+	name: '',
+	email: '',
+	password: '',
+	passwordConfirm: '',
+	acceptTermsConditions: false
+};
+
 function RegisterPage() {
 	const classes = useStyles();
 
-	const { form, handleChange, resetForm } = useForm({
-		name: '',
-		email: '',
-		password: '',
-		passwordConfirm: '',
-		acceptTermsConditions: false
+	const { register, formState, handleSubmit, reset, errors } = useForm({
+		mode: 'onChange',
+		defaultValues,
+		resolver: yupResolver(schema)
 	});
 
-	function isFormValid() {
-		return (
-			form.email.length > 0 &&
-			form.password.length > 0 &&
-			form.password.length > 3 &&
-			form.password === form.passwordConfirm &&
-			form.acceptTermsConditions
-		);
-	}
+	const { isValid, dirtyFields } = formState;
 
-	function handleSubmit(ev) {
-		ev.preventDefault();
-		resetForm();
+	function onSubmit() {
+		reset(defaultValues);
 	}
 
 	return (
@@ -62,7 +77,7 @@ function RegisterPage() {
 								name="registerForm"
 								noValidate
 								className="flex flex-col justify-center w-full"
-								onSubmit={handleSubmit}
+								onSubmit={handleSubmit(onSubmit)}
 							>
 								<TextField
 									className="mb-16"
@@ -70,8 +85,9 @@ function RegisterPage() {
 									autoFocus
 									type="name"
 									name="name"
-									value={form.name}
-									onChange={handleChange}
+									inputRef={register}
+									error={!!errors.name}
+									helperText={errors?.name?.message}
 									variant="outlined"
 									required
 									fullWidth
@@ -82,8 +98,9 @@ function RegisterPage() {
 									label="Email"
 									type="email"
 									name="email"
-									value={form.email}
-									onChange={handleChange}
+									inputRef={register}
+									error={!!errors.email}
+									helperText={errors?.email?.message}
 									variant="outlined"
 									required
 									fullWidth
@@ -94,8 +111,9 @@ function RegisterPage() {
 									label="Password"
 									type="password"
 									name="password"
-									value={form.password}
-									onChange={handleChange}
+									inputRef={register}
+									error={!!errors.password}
+									helperText={errors?.password?.message}
 									variant="outlined"
 									required
 									fullWidth
@@ -106,24 +124,21 @@ function RegisterPage() {
 									label="Password (Confirm)"
 									type="password"
 									name="passwordConfirm"
-									value={form.passwordConfirm}
-									onChange={handleChange}
+									inputRef={register}
+									error={!!errors.passwordConfirm}
+									helperText={errors?.passwordConfirm?.message}
 									variant="outlined"
 									required
 									fullWidth
 								/>
 
-								<FormControl className="items-center">
+								<FormControl className="items-center" error={!!errors.acceptTermsConditions}>
 									<FormControlLabel
-										control={
-											<Checkbox
-												name="acceptTermsConditions"
-												checked={form.acceptTermsConditions}
-												onChange={handleChange}
-											/>
-										}
+										name="acceptTermsConditions"
 										label="I read and accept terms and conditions"
+										control={<Checkbox inputRef={register} />}
 									/>
+									<FormHelperText>{errors?.acceptTermsConditions?.message}</FormHelperText>
 								</FormControl>
 
 								<Button
@@ -131,7 +146,7 @@ function RegisterPage() {
 									color="primary"
 									className="w-224 mx-auto mt-16"
 									aria-label="Register"
-									disabled={!isFormValid()}
+									disabled={_.isEmpty(dirtyFields) || !isValid}
 									type="submit"
 								>
 									Create an account

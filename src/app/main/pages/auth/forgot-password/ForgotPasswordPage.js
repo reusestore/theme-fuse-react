@@ -1,14 +1,17 @@
 import FuseAnimate from '@fuse/core/FuseAnimate';
-import { useForm } from '@fuse/hooks';
+import Typography from '@material-ui/core/Typography';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
 import { darken } from '@material-ui/core/styles/colorManipulator';
 import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
+import * as yup from 'yup';
+import _ from '@lodash';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -17,19 +20,29 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
+/**
+ * Form Validation Schema
+ */
+const schema = yup.object().shape({
+	email: yup.string().email('You must enter a valid email').required('You must enter a email')
+});
+
+const defaultValues = {
+	email: ''
+};
+
 function ForgotPasswordPage() {
 	const classes = useStyles();
-	const { form, handleChange, resetForm } = useForm({
-		email: ''
+	const { register, formState, handleSubmit, reset, errors } = useForm({
+		mode: 'onChange',
+		defaultValues,
+		resolver: yupResolver(schema)
 	});
 
-	function isFormValid() {
-		return form.email.length > 0;
-	}
+	const { isValid, dirtyFields } = formState;
 
-	function handleSubmit(ev) {
-		ev.preventDefault();
-		resetForm();
+	function onSubmit() {
+		reset(defaultValues);
 	}
 
 	return (
@@ -50,7 +63,7 @@ function ForgotPasswordPage() {
 								name="recoverForm"
 								noValidate
 								className="flex flex-col justify-center w-full"
-								onSubmit={handleSubmit}
+								onSubmit={handleSubmit(onSubmit)}
 							>
 								<TextField
 									className="mb-16"
@@ -58,10 +71,10 @@ function ForgotPasswordPage() {
 									autoFocus
 									type="email"
 									name="email"
-									value={form.email}
-									onChange={handleChange}
+									inputRef={register}
+									error={!!errors.email}
+									helperText={errors?.email?.message}
 									variant="outlined"
-									required
 									fullWidth
 								/>
 
@@ -70,7 +83,7 @@ function ForgotPasswordPage() {
 									color="primary"
 									className="w-224 mx-auto mt-16"
 									aria-label="Reset"
-									disabled={!isFormValid()}
+									disabled={_.isEmpty(dirtyFields) || !isValid}
 									type="submit"
 								>
 									Send reset link

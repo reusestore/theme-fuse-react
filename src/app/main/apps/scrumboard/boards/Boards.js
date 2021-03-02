@@ -76,10 +76,7 @@ function Boards(props) {
 									role="button"
 								>
 									<Icon className="text-56">assessment</Icon>
-									<Typography
-										className="text-16 font-medium text-center pt-16 px-32"
-										color="inherit"
-									>
+									<Typography className="text-16 font-medium text-center pt-16 px-32" color="inherit">
 										{board.name}
 									</Typography>
 								</Link>

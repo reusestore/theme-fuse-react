@@ -1,60 +1,71 @@
-import { TextFieldFormsy } from '@fuse/core/formsy';
+import { yupResolver } from '@hookform/resolvers/yup';
+import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import Formsy from 'formsy-react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { submitRegister } from 'app/auth/store/registerSlice';
+import * as yup from 'yup';
+import _ from '@lodash';
+
+/**
+ * Form Validation Schema
+ */
+const schema = yup.object().shape({
+	displayName: yup.string().required('You must enter display name'),
+	email: yup.string().email('You must enter a valid email').required('You must enter a email'),
+	password: yup
+		.string()
+		.required('Please enter your password.')
+		.min(8, 'Password is too short - should be 8 chars minimum.'),
+	passwordConfirm: yup.string().oneOf([yup.ref('password'), null], 'Passwords must match')
+});
+
+const defaultValues = {
+	displayName: '',
+	email: '',
+	password: '',
+	passwordConfirm: ''
+};
 
 function JWTRegisterTab(props) {
 	const dispatch = useDispatch();
-	const register = useSelector(({ auth }) => auth.register);
+	const authRegister = useSelector(({ auth }) => auth.register);
 
-	const [isFormValid, setIsFormValid] = useState(false);
-	const formRef = useRef(null);
+	const { register, formState, handleSubmit, reset, errors, setError } = useForm({
+		mode: 'onChange',
+		defaultValues,
+		resolver: yupResolver(schema)
+	});
+
+	const { isValid, dirtyFields } = formState;
 
 	useEffect(() => {
-		if (register.error && (register.error.username || register.error.password || register.error.email)) {
-			formRef.current.updateInputsWithError({
-				...register.error
+		authRegister.errors.forEach(error => {
+			setError(error.type, {
+				type: 'manual',
+				message: error.message
 			});
-			disableButton();
-		}
-	}, [register.error]);
+		});
+	}, [authRegister.errors, setError]);
 
-	function disableButton() {
-		setIsFormValid(false);
-	}
-
-	function enableButton() {
-		setIsFormValid(true);
-	}
-
-	function handleSubmit(model) {
+	function onSubmit(model) {
 		dispatch(submitRegister(model));
 	}
 
 	return (
 		<div className="w-full">
-			<Formsy
-				onValidSubmit={handleSubmit}
-				onValid={enableButton}
-				onInvalid={disableButton}
-				ref={formRef}
-				className="flex flex-col justify-center w-full"
-			>
-				<TextFieldFormsy
+			<form className="flex flex-col justify-center w-full" onSubmit={handleSubmit(onSubmit)}>
+				<TextField
 					className="mb-16"
 					type="text"
 					name="displayName"
 					label="Display name"
-					validations={{
-						minLength: 4
-					}}
-					validationErrors={{
-						minLength: 'Min character length is 4'
-					}}
+					inputRef={register}
+					error={!!errors.displayName}
+					helperText={errors?.displayName?.message}
 					InputProps={{
 						endAdornment: (
 							<InputAdornment position="end">
@@ -68,15 +79,14 @@ function JWTRegisterTab(props) {
 					required
 				/>
 
-				<TextFieldFormsy
+				<TextField
 					className="mb-16"
 					type="text"
 					name="email"
+					inputRef={register}
+					error={!!errors.email}
+					helperText={errors?.email?.message}
 					label="Email"
-					validations="isEmail"
-					validationErrors={{
-						isEmail: 'Please enter a valid email'
-					}}
 					InputProps={{
 						endAdornment: (
 							<InputAdornment position="end">
@@ -90,15 +100,14 @@ function JWTRegisterTab(props) {
 					required
 				/>
 
-				<TextFieldFormsy
+				<TextField
 					className="mb-16"
 					type="password"
-					name="password"
 					label="Password"
-					validations="equalsField:password-confirm"
-					validationErrors={{
-						equalsField: 'Passwords do not match'
-					}}
+					name="password"
+					inputRef={register}
+					error={!!errors.password}
+					helperText={errors?.password?.message}
 					InputProps={{
 						endAdornment: (
 							<InputAdornment position="end">
@@ -112,15 +121,14 @@ function JWTRegisterTab(props) {
 					required
 				/>
 
-				<TextFieldFormsy
+				<TextField
 					className="mb-16"
 					type="password"
-					name="password-confirm"
 					label="Confirm Password"
-					validations="equalsField:password"
-					validationErrors={{
-						equalsField: 'Passwords do not match'
-					}}
+					name="passwordConfirmm"
+					inputRef={register}
+					error={!!errors.passwordConfirm}
+					helperText={errors?.passwordConfirm?.message}
 					InputProps={{
 						endAdornment: (
 							<InputAdornment position="end">
@@ -140,12 +148,12 @@ function JWTRegisterTab(props) {
 					color="primary"
 					className="w-full mx-auto mt-16"
 					aria-label="REGISTER"
-					disabled={!isFormValid}
+					disabled={_.isEmpty(dirtyFields) || !isValid}
 					value="legacy"
 				>
 					Register
 				</Button>
-			</Formsy>
+			</form>
 		</div>
 	);
 }

@@ -1,8 +1,9 @@
 import TextField from '@material-ui/core/TextField';
-import React from 'react';
+import { useFormContext } from 'react-hook-form';
 
 function InventoryTab(props) {
-	const { form, handleChange, setInForm, setForm } = props;
+	const methods = useFormContext();
+	const { register } = methods;
 
 	return (
 		<div>
@@ -13,8 +14,7 @@ function InventoryTab(props) {
 				autoFocus
 				id="sku"
 				name="sku"
-				value={form.sku}
-				onChange={handleChange}
+				inputRef={register}
 				variant="outlined"
 				fullWidth
 			/>
@@ -24,8 +24,7 @@ function InventoryTab(props) {
 				label="Quantity"
 				id="quantity"
 				name="quantity"
-				value={form.quantity}
-				onChange={handleChange}
+				inputRef={register}
 				variant="outlined"
 				type="number"
 				fullWidth

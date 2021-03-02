@@ -1,4 +1,5 @@
-import { useForm } from '@fuse/hooks';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
@@ -11,7 +12,16 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import * as yup from 'yup';
+import _ from '@lodash';
 import { removeList, renameList } from '../store/boardSlice';
+
+/**
+ * Form Validation Schema
+ */
+const schema = yup.object().shape({
+	title: yup.string().required('You must enter a title')
+});
 
 function BoardListHeader(props) {
 	const dispatch = useDispatch();
@@ -19,25 +29,30 @@ function BoardListHeader(props) {
 
 	const [anchorEl, setAnchorEl] = useState(null);
 	const [formOpen, setFormOpen] = useState(false);
-	const { form, handleChange, resetForm, setForm } = useForm({
-		title: props.list.name
+
+	const { register, formState, handleSubmit, reset, errors } = useForm({
+		mode: 'onChange',
+		defaultValues: {
+			title: props.list.name
+		},
+		resolver: yupResolver(schema)
 	});
+
+	const { isValid, dirtyFields } = formState;
 
 	useEffect(() => {
 		if (!formOpen) {
-			resetForm();
+			reset({
+				title: props.list.name
+			});
 		}
-	}, [formOpen, resetForm]);
+	}, [formOpen, reset, props.list.name]);
 
 	useEffect(() => {
 		if (formOpen && anchorEl) {
 			setAnchorEl(null);
 		}
 	}, [anchorEl, formOpen]);
-
-	useEffect(() => {
-		setForm({ title: props.list.name });
-	}, [props.list.name, setForm]);
 
 	function handleMenuClick(event) {
 		setAnchorEl(event.currentTarget);
@@ -56,16 +71,8 @@ function BoardListHeader(props) {
 		setFormOpen(false);
 	}
 
-	function isFormInvalid() {
-		return form.title !== '';
-	}
-
-	function handleSubmit(ev) {
-		ev.preventDefault();
-		if (!isFormInvalid()) {
-			return;
-		}
-		dispatch(renameList({ boardId: board.id, listId: props.list.id, listTitle: form.title }));
+	function onSubmit(data) {
+		dispatch(renameList({ boardId: board.id, listId: props.list.id, listTitle: data.title }));
 		handleCloseForm();
 	}
 
@@ -75,18 +82,17 @@ function BoardListHeader(props) {
 				<div className="flex items-center min-w-0 px-12">
 					{formOpen ? (
 						<ClickAwayListener onClickAway={handleCloseForm}>
-							<form className="flex w-full" onSubmit={handleSubmit}>
+							<form className="flex w-full" onSubmit={handleSubmit(onSubmit)}>
 								<TextField
 									name="title"
-									value={form.title}
-									onChange={handleChange}
+									inputRef={register}
 									variant="outlined"
 									margin="none"
 									autoFocus
 									InputProps={{
 										endAdornment: (
 											<InputAdornment position="end">
-												<IconButton type="submit" disabled={!isFormInvalid()}>
+												<IconButton type="submit" disabled={_.isEmpty(dirtyFields) || !isValid}>
 													<Icon>check</Icon>
 												</IconButton>
 											</InputAdornment>

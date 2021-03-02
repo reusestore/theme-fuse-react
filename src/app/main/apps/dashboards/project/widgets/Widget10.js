@@ -50,7 +50,9 @@ function Widget10(props) {
 										case 'spent_perc': {
 											return (
 												<TableCell key={cell.id} component="th" scope="row">
-													<Typography className={clsx(cell.classes, 'flex items-center font-medium')}>
+													<Typography
+														className={clsx(cell.classes, 'flex items-center font-medium')}
+													>
 														{cell.value}
 														<Icon className="text-14 mx-4">{cell.icon}</Icon>
 													</Typography>

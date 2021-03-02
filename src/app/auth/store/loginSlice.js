@@ -12,24 +12,24 @@ export const submitLogin = ({ email, password }) => async dispatch => {
 
 			return dispatch(loginSuccess());
 		})
-		.catch(error => {
-			return dispatch(loginError(error));
+		.catch(errors => {
+			return dispatch(loginError(errors));
 		});
 };
 
-export const submitLoginWithFireBase = ({ username, password }) => async dispatch => {
+export const submitLoginWithFireBase = ({ email, password }) => async dispatch => {
 	if (!firebaseService.auth) {
 		console.warn("Firebase Service didn't initialize, check your configuration");
 
 		return () => false;
 	}
 	return firebaseService.auth
-		.signInWithEmailAndPassword(username, password)
+		.signInWithEmailAndPassword(email, password)
 		.then(() => {
 			return dispatch(loginSuccess());
 		})
 		.catch(error => {
-			const usernameErrorCodes = [
+			const emailErrorCodes = [
 				'auth/email-already-in-use',
 				'auth/invalid-email',
 				'auth/operation-not-allowed',
@@ -37,11 +37,21 @@ export const submitLoginWithFireBase = ({ username, password }) => async dispatc
 				'auth/user-disabled'
 			];
 			const passwordErrorCodes = ['auth/weak-password', 'auth/wrong-password'];
+			const response = [];
 
-			const response = {
-				username: usernameErrorCodes.includes(error.code) ? error.message : null,
-				password: passwordErrorCodes.includes(error.code) ? error.message : null
-			};
+			if (emailErrorCodes.includes(error.code)) {
+				response.push({
+					type: 'email',
+					message: error.message
+				});
+			}
+
+			if (passwordErrorCodes.includes(error.code)) {
+				response.push({
+					type: 'password',
+					message: error.message
+				});
+			}
 
 			if (error.code === 'auth/invalid-api-key') {
 				dispatch(showMessage({ message: error.message }));
@@ -53,10 +63,7 @@ export const submitLoginWithFireBase = ({ username, password }) => async dispatc
 
 const initialState = {
 	success: false,
-	error: {
-		username: null,
-		password: null
-	}
+	errors: []
 };
 
 const loginSlice = createSlice({
@@ -65,10 +72,11 @@ const loginSlice = createSlice({
 	reducers: {
 		loginSuccess: (state, action) => {
 			state.success = true;
+			state.errors = [];
 		},
 		loginError: (state, action) => {
 			state.success = false;
-			state.error = action.payload;
+			state.errors = action.payload;
 		}
 	},
 	extraReducers: {}

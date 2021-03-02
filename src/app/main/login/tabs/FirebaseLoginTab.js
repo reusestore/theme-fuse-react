@@ -1,63 +1,68 @@
-import { TextFieldFormsy } from '@fuse/core/formsy';
+import { yupResolver } from '@hookform/resolvers/yup';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import Formsy from 'formsy-react';
 import { useEffect, useRef, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { submitLoginWithFireBase } from 'app/auth/store/loginSlice';
+import * as yup from 'yup';
+import TextField from '@material-ui/core/TextField';
+import _ from '@lodash';
+
+/**
+ * Form Validation Schema
+ */
+const schema = yup.object().shape({
+	email: yup.string().email('You must enter a valid email').required('You must enter a email'),
+	password: yup.string().required('Please enter your password.')
+});
+
+const defaultValues = {
+	email: '',
+	password: ''
+};
 
 function FirebaseLoginTab(props) {
 	const dispatch = useDispatch();
 	const login = useSelector(({ auth }) => auth.login);
 
-	const [isFormValid, setIsFormValid] = useState(false);
+	const { register, setValue, formState, handleSubmit, reset, trigger, errors, setError } = useForm({
+		mode: 'onChange',
+		defaultValues,
+		resolver: yupResolver(schema)
+	});
+
+	const { isValid, dirtyFields } = formState;
 	const [showPassword, setShowPassword] = useState(false);
 
 	const formRef = useRef(null);
 
 	useEffect(() => {
-		if (login.error && (login.error.username || login.error.password)) {
-			formRef.current.updateInputsWithError({
-				...login.error
+		login.errors.forEach(error => {
+			setError(error.type, {
+				type: 'manual',
+				message: error.message
 			});
-			disableButton();
-		}
-	}, [login.error]);
+		});
+	}, [login.errors, setError]);
 
-	function disableButton() {
-		setIsFormValid(false);
-	}
-
-	function enableButton() {
-		setIsFormValid(true);
-	}
-
-	function handleSubmit(model) {
+	function onSubmit(model) {
 		dispatch(submitLoginWithFireBase(model));
 	}
 
 	return (
 		<div className="w-full">
-			<Formsy
-				onValidSubmit={handleSubmit}
-				onValid={enableButton}
-				onInvalid={disableButton}
-				ref={formRef}
-				className="flex flex-col justify-center w-full"
-			>
-				<TextFieldFormsy
+			<form className="flex flex-col justify-center w-full" onSubmit={handleSubmit(onSubmit)}>
+				<TextField
 					className="mb-16"
 					type="text"
-					name="username"
+					name="email"
 					label="Email"
-					validations={{
-						minLength: 4
-					}}
-					validationErrors={{
-						minLength: 'Min character length is 4'
-					}}
+					inputRef={register}
+					error={!!errors.email}
+					helperText={errors?.email?.message}
 					InputProps={{
 						endAdornment: (
 							<InputAdornment position="end">
@@ -71,17 +76,14 @@ function FirebaseLoginTab(props) {
 					required
 				/>
 
-				<TextFieldFormsy
+				<TextField
 					className="mb-16"
 					type="password"
 					name="password"
 					label="Password"
-					validations={{
-						minLength: 4
-					}}
-					validationErrors={{
-						minLength: 'Min character length is 4'
-					}}
+					inputRef={register}
+					error={!!errors.password}
+					helperText={errors?.password?.message}
 					InputProps={{
 						className: 'pr-2',
 						type: showPassword ? 'text' : 'password',
@@ -105,12 +107,12 @@ function FirebaseLoginTab(props) {
 					color="primary"
 					className="w-full mx-auto mt-16"
 					aria-label="LOG IN"
-					disabled={!isFormValid}
+					disabled={_.isEmpty(dirtyFields) || !isValid}
 					value="firebase"
 				>
 					Log in with Firebase
 				</Button>
-			</Formsy>
+			</form>
 		</div>
 	);
 }

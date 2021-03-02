@@ -15,8 +15,8 @@ export const submitRegister = ({ displayName, password, email }) => async dispat
 			dispatch(setUserData(user));
 			return dispatch(registerSuccess());
 		})
-		.catch(error => {
-			return dispatch(registerError(error));
+		.catch(errors => {
+			return dispatch(registerError(errors));
 		});
 };
 
@@ -48,11 +48,28 @@ export const registerWithFirebase = model => async dispatch => {
 
 			const passwordErrorCodes = ['auth/weak-password', 'auth/wrong-password'];
 
-			const response = {
-				email: emailErrorCodes.includes(error.code) ? error.message : null,
-				displayName: usernameErrorCodes.includes(error.code) ? error.message : null,
-				password: passwordErrorCodes.includes(error.code) ? error.message : null
-			};
+			const response = [];
+
+			if (usernameErrorCodes.includes(error.code)) {
+				response.push({
+					type: 'username',
+					message: error.message
+				});
+			}
+
+			if (emailErrorCodes.includes(error.code)) {
+				response.push({
+					type: 'email',
+					message: error.message
+				});
+			}
+
+			if (passwordErrorCodes.includes(error.code)) {
+				response.push({
+					type: 'password',
+					message: error.message
+				});
+			}
 
 			if (error.code === 'auth/invalid-api-key') {
 				dispatch(showMessage({ message: error.message }));
@@ -64,10 +81,7 @@ export const registerWithFirebase = model => async dispatch => {
 
 const initialState = {
 	success: false,
-	error: {
-		username: null,
-		password: null
-	}
+	errors: []
 };
 
 const registerSlice = createSlice({
@@ -76,10 +90,11 @@ const registerSlice = createSlice({
 	reducers: {
 		registerSuccess: (state, action) => {
 			state.success = true;
+			state.errors = [];
 		},
 		registerError: (state, action) => {
 			state.success = false;
-			state.error = action.payload;
+			state.errors = action.payload;
 		}
 	},
 	extraReducers: {}

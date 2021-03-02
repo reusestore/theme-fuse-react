@@ -9,12 +9,27 @@ export const getProduct = createAsyncThunk('eCommerceApp/product/getProduct', as
 	return data === undefined ? null : data;
 });
 
-export const saveProduct = createAsyncThunk('eCommerceApp/product/saveProduct', async product => {
-	const response = await axios.post('/api/e-commerce-app/product/save', product);
-	const data = await response.data;
+export const removeProduct = createAsyncThunk(
+	'eCommerceApp/product/removeProduct',
+	async (val, { dispatch, getState }) => {
+		const { id } = getState().eCommerceApp.product;
+		await axios.post('/api/e-commerce-app/remove-product', { id });
 
-	return data;
-});
+		return id;
+	}
+);
+
+export const saveProduct = createAsyncThunk(
+	'eCommerceApp/product/saveProduct',
+	async (productData, { dispatch, getState }) => {
+		const { product } = getState().eCommerceApp;
+
+		const response = await axios.post('/api/e-commerce-app/product/save', { ...product, ...productData });
+		const data = await response.data;
+
+		return data;
+	}
+);
 
 const productSlice = createSlice({
 	name: 'eCommerceApp/product',
@@ -50,7 +65,8 @@ const productSlice = createSlice({
 	},
 	extraReducers: {
 		[getProduct.fulfilled]: (state, action) => action.payload,
-		[saveProduct.fulfilled]: (state, action) => action.payload
+		[saveProduct.fulfilled]: (state, action) => action.payload,
+		[removeProduct.fulfilled]: (state, action) => null
 	}
 });
 

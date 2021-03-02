@@ -1,9 +1,10 @@
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
-import React from 'react';
+import { useFormContext } from 'react-hook-form';
 
 function PricingTab(props) {
-	const { form, handleChange, setInForm, setForm } = props;
+	const methods = useFormContext();
+	const { register } = methods;
 
 	return (
 		<div>
@@ -12,8 +13,7 @@ function PricingTab(props) {
 				label="Tax Excluded Price"
 				id="priceTaxExcl"
 				name="priceTaxExcl"
-				value={form.priceTaxExcl}
-				onChange={handleChange}
+				inputRef={register}
 				InputProps={{
 					startAdornment: <InputAdornment position="start">$</InputAdornment>
 				}}
@@ -28,8 +28,7 @@ function PricingTab(props) {
 				label="Tax Included Price"
 				id="priceTaxIncl"
 				name="priceTaxIncl"
-				value={form.priceTaxIncl}
-				onChange={handleChange}
+				inputRef={register}
 				InputProps={{
 					startAdornment: <InputAdornment position="start">$</InputAdornment>
 				}}
@@ -43,8 +42,7 @@ function PricingTab(props) {
 				label="Tax Rate"
 				id="taxRate"
 				name="taxRate"
-				value={form.taxRate}
-				onChange={handleChange}
+				inputRef={register}
 				InputProps={{
 					startAdornment: <InputAdornment position="start">$</InputAdornment>
 				}}
@@ -58,8 +56,7 @@ function PricingTab(props) {
 				label="Compared Price"
 				id="comparedPrice"
 				name="comparedPrice"
-				value={form.comparedPrice}
-				onChange={handleChange}
+				inputRef={register}
 				InputProps={{
 					startAdornment: <InputAdornment position="start">$</InputAdornment>
 				}}

@@ -1,4 +1,5 @@
-import { useForm } from '@fuse/hooks';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Controller, useForm } from 'react-hook-form';
 import FuseUtils from '@fuse/utils/FuseUtils';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
@@ -16,9 +17,11 @@ import { DateTimePicker } from '@material-ui/pickers';
 import moment from 'moment';
 import { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import * as yup from 'yup';
+import _ from '@lodash';
 import { removeEvent, updateEvent, addEvent, closeNewEventDialog, closeEditEventDialog } from './store/eventsSlice';
 
-const defaultFormState = {
+const defaultValues = {
 	id: FuseUtils.generateGUID(),
 	title: '',
 	allDay: true,
@@ -27,61 +30,84 @@ const defaultFormState = {
 	desc: ''
 };
 
+/**
+ * Form Validation Schema
+ */
+const schema = yup.object().shape({
+	title: yup.string().required('You must enter a title')
+});
+
 function EventDialog(props) {
 	const dispatch = useDispatch();
 	const eventDialog = useSelector(({ calendarApp }) => calendarApp.events.eventDialog);
-	const { form, handleChange, setForm, setInForm } = useForm(defaultFormState);
 
+	const { reset, register, formState, watch, errors, control, getValues, handleSubmit } = useForm({
+		defaultValues,
+		mode: 'onChange',
+		resolver: yupResolver(schema)
+	});
+
+	const { isValid, dirtyFields } = formState;
+	const start = watch('start');
+	const end = watch('end');
+	const id = watch('id');
+
+	/**
+	 * Initialize Dialog with Data
+	 */
 	const initDialog = useCallback(() => {
 		/**
 		 * Dialog type: 'edit'
 		 */
 		if (eventDialog.type === 'edit' && eventDialog.data) {
-			setForm({ ...eventDialog.data });
+			reset({ ...eventDialog.data });
 		}
 
 		/**
 		 * Dialog type: 'new'
 		 */
 		if (eventDialog.type === 'new') {
-			setForm({
-				...defaultFormState,
+			reset({
+				...defaultValues,
 				...eventDialog.data,
 				id: FuseUtils.generateGUID()
 			});
 		}
-	}, [eventDialog.data, eventDialog.type, setForm]);
+	}, [eventDialog.data, eventDialog.type, reset]);
 
+	/**
+	 * On Dialog Open
+	 */
 	useEffect(() => {
-		/**
-		 * After Dialog Open
-		 */
 		if (eventDialog.props.open) {
 			initDialog();
 		}
 	}, [eventDialog.props.open, initDialog]);
 
+	/**
+	 * Close Dialog
+	 */
 	function closeComposeDialog() {
 		return eventDialog.type === 'edit' ? dispatch(closeEditEventDialog()) : dispatch(closeNewEventDialog());
 	}
 
-	function canBeSubmitted() {
-		return form.title.length > 0;
-	}
-
-	function handleSubmit(event) {
-		event.preventDefault();
-
+	/**
+	 * Form Submit
+	 */
+	function onSubmit(data) {
 		if (eventDialog.type === 'new') {
-			dispatch(addEvent(form));
+			dispatch(addEvent(data));
 		} else {
-			dispatch(updateEvent(form));
+			dispatch(updateEvent({ ...eventDialog.data, ...data }));
 		}
 		closeComposeDialog();
 	}
 
+	/**
+	 * Remove Event
+	 */
 	function handleRemove() {
-		dispatch(removeEvent(form.id));
+		dispatch(removeEvent(id));
 		closeComposeDialog();
 	}
 
@@ -95,46 +121,75 @@ function EventDialog(props) {
 				</Toolbar>
 			</AppBar>
 
-			<form noValidate onSubmit={handleSubmit}>
+			<form noValidate onSubmit={handleSubmit(onSubmit)}>
 				<DialogContent classes={{ root: 'p-16 pb-0 sm:p-24 sm:pb-0' }}>
 					<TextField
 						id="title"
 						label="Title"
 						className="mt-8 mb-16"
+						error={!!errors.title}
+						helperText={errors?.title?.message}
 						InputLabelProps={{
 							shrink: true
 						}}
 						name="title"
-						value={form.title}
-						onChange={handleChange}
+						inputRef={register()}
 						variant="outlined"
 						autoFocus
 						required
 						fullWidth
 					/>
 
-					<FormControlLabel
-						className="mt-8 mb-16"
-						label="All Day"
-						control={<Switch checked={form.allDay} id="allDay" name="allDay" onChange={handleChange} />}
+					<Controller
+						name="allDay"
+						control={control}
+						render={({ onChange, value }) => (
+							<FormControlLabel
+								className="mt-8 mb-16"
+								label="All Day"
+								control={
+									<Switch
+										onChange={ev => {
+											onChange(ev.target.checked);
+										}}
+										checked={value}
+										name="allDay"
+									/>
+								}
+							/>
+						)}
 					/>
 
-					<DateTimePicker
-						label="Start"
-						inputVariant="outlined"
-						value={form.start}
-						onChange={date => setInForm('start', date)}
-						className="mt-8 mb-16 w-full"
-						maxDate={form.end}
+					<Controller
+						name="start"
+						control={control}
+						defaultValue=""
+						render={({ onChange, value }) => (
+							<DateTimePicker
+								label="Start"
+								inputVariant="outlined"
+								value={value}
+								onChange={onChange}
+								className="mt-8 mb-16 w-full"
+								maxDate={end}
+							/>
+						)}
 					/>
 
-					<DateTimePicker
-						label="End"
-						inputVariant="outlined"
-						value={form.end}
-						onChange={date => setInForm('end', date)}
-						className="mt-8 mb-16 w-full"
-						minDate={form.start}
+					<Controller
+						name="end"
+						control={control}
+						defaultValue=""
+						render={({ onChange, value }) => (
+							<DateTimePicker
+								label="End"
+								inputVariant="outlined"
+								value={value}
+								onChange={onChange}
+								className="mt-8 mb-16 w-full"
+								minDate={start}
+							/>
+						)}
 					/>
 
 					<TextField
@@ -143,8 +198,7 @@ function EventDialog(props) {
 						label="Description"
 						type="text"
 						name="desc"
-						value={form.desc}
-						onChange={handleChange}
+						inputRef={register()}
 						multiline
 						rows={5}
 						variant="outlined"
@@ -154,13 +208,23 @@ function EventDialog(props) {
 
 				{eventDialog.type === 'new' ? (
 					<DialogActions className="justify-between px-8 sm:px-16 pb-16">
-						<Button variant="contained" color="primary" type="submit" disabled={!canBeSubmitted()}>
+						<Button
+							variant="contained"
+							color="primary"
+							type="submit"
+							disabled={_.isEmpty(dirtyFields) || !isValid}
+						>
 							Add
 						</Button>
 					</DialogActions>
 				) : (
 					<DialogActions className="justify-between px-8 sm:px-16 pb-16">
-						<Button variant="contained" color="primary" type="submit" disabled={!canBeSubmitted()}>
+						<Button
+							variant="contained"
+							color="primary"
+							type="submit"
+							disabled={_.isEmpty(dirtyFields) || !isValid}
+						>
 							Save
 						</Button>
 						<IconButton onClick={handleRemove}>

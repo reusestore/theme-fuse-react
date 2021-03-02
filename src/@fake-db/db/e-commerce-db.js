@@ -3178,6 +3178,12 @@ mock.onPost('/api/e-commerce-app/remove-products').reply(request => {
 	return [200, productIds];
 });
 
+mock.onPost('/api/e-commerce-app/remove-product').reply(request => {
+	const { id } = JSON.parse(request.data);
+	eCommerceDB.products = eCommerceDB.products.filter(product => id !== product.id);
+	return [200, id];
+});
+
 mock.onGet('/api/e-commerce-app/product').reply(request => {
 	const { productId } = request.params;
 	const response = _.find(eCommerceDB.products, { id: productId });

@@ -1,17 +1,42 @@
-import { useForm } from '@fuse/hooks';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useEffect, forwardRef, useImperativeHandle, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import { forwardRef, useImperativeHandle, useState } from 'react';
+
+import * as yup from 'yup';
+import _ from '@lodash';
+
+/**
+ * Form Validation Schema
+ */
+const schema = yup.object().shape({
+	name: yup.string().required('You must enter a title')
+});
 
 const CardChecklistName = forwardRef(function CardChecklistName(props, ref) {
 	const [formOpen, setFormOpen] = useState(false);
-	const { form, handleChange, resetForm } = useForm({
-		name: props.name
+	const { register, formState, handleSubmit, reset, errors } = useForm({
+		mode: 'onChange',
+		defaultValues: {
+			name: props.name
+		},
+		resolver: yupResolver(schema)
 	});
+
+	const { isValid, dirtyFields } = formState;
+
+	useEffect(() => {
+		if (!formOpen) {
+			reset({
+				name: props.name
+			});
+		}
+	}, [formOpen, reset, props.name]);
 
 	useImperativeHandle(ref, () => {
 		return {
@@ -28,38 +53,24 @@ const CardChecklistName = forwardRef(function CardChecklistName(props, ref) {
 		setFormOpen(false);
 	}
 
-	function handleCancelForm() {
-		resetForm();
-		handleCloseForm();
-	}
-
-	function isFormInvalid() {
-		return form.name === '';
-	}
-
-	function handleSubmit(ev) {
-		ev.preventDefault();
-		if (isFormInvalid()) {
-			return;
-		}
-		props.onNameChange(form.name);
+	function onSubmit(data) {
+		props.onNameChange(data.name);
 		handleCloseForm();
 	}
 
 	return formOpen ? (
-		<ClickAwayListener onClickAway={handleCancelForm}>
-			<form onSubmit={handleSubmit}>
+		<ClickAwayListener onClickAway={handleCloseForm}>
+			<form onSubmit={handleSubmit(onSubmit)}>
 				<TextField
-					value={form.name}
 					name="name"
-					onChange={handleChange}
+					inputRef={register}
 					variant="outlined"
 					margin="dense"
 					autoFocus
 					InputProps={{
 						endAdornment: (
 							<InputAdornment position="end">
-								<IconButton type="submit" disabled={isFormInvalid()}>
+								<IconButton type="submit" disabled={_.isEmpty(dirtyFields) || !isValid}>
 									<Icon>check</Icon>
 								</IconButton>
 							</InputAdornment>
@@ -70,7 +81,7 @@ const CardChecklistName = forwardRef(function CardChecklistName(props, ref) {
 		</ClickAwayListener>
 	) : (
 		<Typography className="text-16 font-semibold cursor-pointer mx-8" onClick={handleOpenForm}>
-			{form.name}
+			{props.name}
 		</Typography>
 	);
 });

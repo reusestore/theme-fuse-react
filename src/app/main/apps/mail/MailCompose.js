@@ -1,4 +1,4 @@
-import { useForm } from '@fuse/hooks';
+import { yupResolver } from '@hookform/resolvers/yup';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -11,18 +11,34 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import _ from '@lodash';
 import MailAttachment from './MailAttachment';
+
+/**
+ * Form Validation Schema
+ */
+const schema = yup.object().shape({
+	to: yup.string().required('You must enter an e-mail').email('You must enter a valid e-mail.')
+});
 
 function MailCompose() {
 	const [openDialog, setOpenDialog] = useState(false);
-	const { form, handleChange } = useForm({
-		from: 'johndoe@creapond.com',
-		to: '',
-		cc: '',
-		bcc: '',
-		subject: '',
-		message: ''
+	const { register, watch, handleSubmit, errors, formState } = useForm({
+		mode: 'onChange',
+		defaultValues: {
+			from: 'johndoe@creapond.com',
+			to: '',
+			cc: '',
+			bcc: '',
+			subject: '',
+			message: ''
+		},
+		resolver: yupResolver(schema)
 	});
+
+	const { isValid, dirtyFields } = formState;
 
 	const { t } = useTranslation('mailApp');
 
@@ -38,8 +54,8 @@ function MailCompose() {
 		setOpenDialog(false);
 	}
 
-	function handleSubmit(ev) {
-		ev.preventDefault();
+	function onSubmit(data) {
+		console.info(data);
 		setOpenDialog(false);
 	}
 
@@ -58,18 +74,17 @@ function MailCompose() {
 					</Toolbar>
 				</AppBar>
 
-				<form noValidate onSubmit={handleSubmit} className="flex flex-col">
+				<form noValidate onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
 					<DialogContent classes={{ root: 'p-16 pb-0 sm:p-24 sm:pb-0' }}>
 						<TextField
 							className="mt-8 mb-16"
 							label="From"
 							id="from"
 							name="from"
-							value={form.from}
-							onChange={handleChange}
+							inputRef={register}
 							variant="outlined"
 							fullWidth
-							disabled
+							inputProps={{ readOnly: true }}
 						/>
 
 						<TextField
@@ -78,8 +93,9 @@ function MailCompose() {
 							autoFocus
 							id="to"
 							name="to"
-							value={form.to}
-							onChange={handleChange}
+							error={!!errors.to}
+							helperText={errors?.to?.message}
+							inputRef={register}
 							variant="outlined"
 							fullWidth
 							required
@@ -90,8 +106,7 @@ function MailCompose() {
 							label="Cc"
 							id="cc"
 							name="cc"
-							value={form.cc}
-							onChange={handleChange}
+							inputRef={register}
 							variant="outlined"
 							fullWidth
 						/>
@@ -101,8 +116,7 @@ function MailCompose() {
 							label="Bcc"
 							id="bcc"
 							name="bcc"
-							value={form.bcc}
-							onChange={handleChange}
+							inputRef={register}
 							variant="outlined"
 							fullWidth
 						/>
@@ -112,8 +126,7 @@ function MailCompose() {
 							label="Subject"
 							id="subject"
 							name="subject"
-							value={form.subject}
-							onChange={handleChange}
+							inputRef={register}
 							variant="outlined"
 							fullWidth
 						/>
@@ -122,8 +135,7 @@ function MailCompose() {
 							className="mt-8 mb-16"
 							id="message"
 							name="message"
-							onChange={handleChange}
-							value={form.message}
+							inputRef={register}
 							label="Message"
 							type="text"
 							multiline
@@ -140,7 +152,12 @@ function MailCompose() {
 
 					<DialogActions className="justify-between px-8 py-16">
 						<div className="px-16">
-							<Button variant="contained" color="primary" type="submit">
+							<Button
+								variant="contained"
+								color="primary"
+								type="submit"
+								disabled={_.isEmpty(dirtyFields) || !isValid}
+							>
 								Send
 							</Button>
 							<IconButton>
