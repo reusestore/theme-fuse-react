@@ -16,6 +16,10 @@ const ThirdPartyComponentsRoutes = [
 	{
 		path: '/documentation/third-party-components/react-chartjs-2',
 		component: lazy(() => import('./react-chartjs-2/ReactChartJs2Doc'))
+	},
+	{
+		path: '/documentation/third-party-components/react-apexcharts',
+		component: lazy(() => import('./react-apexcharts/ReactApexchartsDoc'))
 	}
 ];
 

@@ -124,16 +124,6 @@ function ReactChartJs2Doc() {
 				component={require('./examples/legend-handlers.js').default}
 				raw={require('!raw-loader!./examples/legend-handlers.js')}
 			/>
-
-			<Typography className="text-32 mt-32 mb-8" component="h2">
-				Demos
-			</Typography>
-
-			<ul>
-				<li className="mb-8">
-					<Link to="/apps/dashboards/analytics">Analytics Dashboard</Link>
-				</li>
-			</ul>
 		</>
 	);
 }

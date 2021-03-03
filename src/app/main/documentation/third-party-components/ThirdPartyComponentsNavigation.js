@@ -27,6 +27,12 @@ const ThirdPartyComponentsNavigation = {
 			title: 'React ChartJs 2',
 			type: 'item',
 			url: '/documentation/third-party-components/react-chartjs-2'
+		},
+		{
+			id: 'react-apexcharts',
+			title: 'React Apex Charts',
+			type: 'item',
+			url: '/documentation/third-party-components/react-apexcharts'
 		}
 	]
 };
