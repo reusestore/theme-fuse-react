@@ -2,6 +2,10 @@ import { lazy } from 'react';
 
 const ThirdPartyComponentsRoutes = [
 	{
+		path: '/documentation/third-party-components/react-hook-form',
+		component: lazy(() => import('./react-hook-form/ReactHookFormDoc'))
+	},
+	{
 		path: '/documentation/third-party-components/formsy',
 		component: lazy(() => import('./formsy/FormsyDoc'))
 	},

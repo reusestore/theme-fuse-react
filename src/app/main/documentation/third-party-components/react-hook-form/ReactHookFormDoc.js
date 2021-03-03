@@ -6,18 +6,18 @@ import { Link } from 'react-router-dom';
 
 /* eslint import/no-webpack-loader-syntax: off */
 
-function FormsyDoc() {
+function ReactHookFormDoc() {
 	return (
 		<>
 			<div className="flex flex-1 items-center justify-between mb-24">
 				<Typography variant="h4" className="">
-					Formsy
+					React Hook Form
 				</Typography>
 
 				<Button
 					variant="outlined"
 					component="a"
-					href="https://github.com/formsy/formsy-react"
+					href="http://react-hook-form.com"
 					target="_blank"
 					role="button"
 				>
@@ -26,11 +26,7 @@ function FormsyDoc() {
 				</Button>
 			</div>
 			<Typography className="mb-16" component="p">
-				<code>formsy-react</code> is a form input builder and validator for React.
-			</Typography>
-
-			<Typography className="mb-16" component="p">
-				HOCs are needed for formsy to work. We created for TextField, Select, RadioGroup, Checkbox under @fuse.
+				Performant, flexible and extensible forms with easy to use validation.
 			</Typography>
 
 			<hr />
@@ -44,8 +40,19 @@ function FormsyDoc() {
 				component={require('./examples/SimpleFormExample.js').default}
 				raw={require('!raw-loader!./examples/SimpleFormExample.js')}
 			/>
+
+			<Typography className="text-32 mt-32 mb-8" component="h2">
+				Demos
+			</Typography>
+
+			<ul>
+				<li className="mb-8">
+					<Link to="/login">Login page</Link>
+					<Link to="/register">Register page</Link>
+				</li>
+			</ul>
 		</>
 	);
 }
 
-export default FormsyDoc;
+export default ReactHookFormDoc;

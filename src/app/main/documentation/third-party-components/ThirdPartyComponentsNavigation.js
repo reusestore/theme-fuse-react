@@ -5,6 +5,12 @@ const ThirdPartyComponentsNavigation = {
 	icon: 'settings_input_component',
 	children: [
 		{
+			id: 'react-hook-form',
+			title: 'React Hook Form',
+			type: 'item',
+			url: '/documentation/third-party-components/react-hook-form'
+		},
+		{
 			id: 'react-table',
 			title: 'React Table',
 			type: 'item',
