@@ -76,7 +76,7 @@ function ProjectDashboardApp(props) {
 				</Tabs>
 			}
 			content={
-				<div className="p-12 lg:ltr:-mr-12 lg:rtl:-mr-12">
+				<div className="p-12 lg:ltr:pr-0 lg:rtl:pl-0">
 					{tabValue === 0 && <HomeTab />}
 					{tabValue === 1 && <BudgetSummaryTab />}
 					{tabValue === 2 && <TeamMembersTab />}

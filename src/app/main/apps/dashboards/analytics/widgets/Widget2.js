@@ -2,13 +2,14 @@ import Card from '@material-ui/core/Card';
 import Icon from '@material-ui/core/Icon';
 import { useTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import { memo } from 'react';
-import { Bar } from 'react-chartjs-2';
 import _ from '@lodash';
+import ReactApexChart from 'react-apexcharts';
 
 function Widget2(props) {
 	const theme = useTheme();
 	const data = _.merge({}, props.data);
+
+	_.setWith(data, 'options.colors', [theme.palette.primary.main]);
 
 	return (
 		<Card className="w-full rounded-20 shadow">
@@ -34,22 +35,16 @@ function Widget2(props) {
 					</div>
 				</div>
 			</div>
-
 			<div className="h-96 w-100-p">
-				<Bar
-					data={{
-						labels: data.labels,
-						datasets: data.datasets.map(obj => ({
-							...obj,
-							borderColor: theme.palette.secondary.main,
-							backgroundColor: theme.palette.secondary.main
-						}))
-					}}
+				<ReactApexChart
 					options={data.options}
+					series={data.series}
+					type={data.options.chart.type}
+					height={data.options.chart.height}
 				/>
 			</div>
 		</Card>
 	);
 }
 
-export default memo(Widget2);
+export default Widget2;

@@ -1,16 +1,30 @@
 import Paper from '@material-ui/core/Paper';
 import Select from '@material-ui/core/Select';
+import { useTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import _ from '@lodash';
-import { memo, useState } from 'react';
-import { Doughnut } from 'react-chartjs-2';
+import { useEffect, memo, useState } from 'react';
+import ReactApexChart from 'react-apexcharts';
 
 function Widget6(props) {
 	const [currentRange, setCurrentRange] = useState(props.widget.currentRange);
+	const [awaitRender, setAwaitRender] = useState(true);
+
 	const widget = _.merge({}, props.widget);
+	const theme = useTheme();
 
 	function handleChangeRange(ev) {
 		setCurrentRange(ev.target.value);
+	}
+
+	_.setWith(widget, 'mainChart.options.theme.monochrome.color', theme.palette.secondary.main);
+
+	useEffect(() => {
+		setAwaitRender(false);
+	}, []);
+
+	if (awaitRender) {
+		return null;
 	}
 
 	return (
@@ -37,13 +51,12 @@ function Widget6(props) {
 					})}
 				</Select>
 			</div>
-			<div className="h-400 w-full p-32">
-				<Doughnut
-					data={{
-						labels: widget.mainChart.labels,
-						datasets: widget.mainChart.datasets[currentRange]
-					}}
+			<div className="h-400 w-full">
+				<ReactApexChart
 					options={widget.mainChart.options}
+					series={widget.mainChart.series[currentRange]}
+					type={widget.mainChart.options.chart.type}
+					height={widget.mainChart.options.chart.height}
 				/>
 			</div>
 			<div className="flex items-center p-8 border-t-1">

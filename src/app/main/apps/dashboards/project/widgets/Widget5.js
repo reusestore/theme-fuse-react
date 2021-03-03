@@ -5,18 +5,25 @@ import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
 import _ from '@lodash';
-import { memo, useState } from 'react';
-import { Bar, Line } from 'react-chartjs-2';
+import { memo, useState, useEffect } from 'react';
+import ReactApexChart from 'react-apexcharts';
 
 function Widget5(props) {
 	const theme = useTheme();
+	const [awaitRender, setAwaitRender] = useState(true);
 	const [tabValue, setTabValue] = useState(0);
 	const widget = _.merge({}, props.widget);
 	const currentRange = Object.keys(widget.ranges)[tabValue];
 
-	_.setWith(widget, 'widget.mainChart.options.scales.xAxes[0].ticks.fontColor', theme.palette.text.secondary);
-	_.setWith(widget, 'widget.mainChart.options.scales.yAxes[0].ticks.fontColor', theme.palette.text.secondary);
+	_.setWith(widget, 'mainChart.options.colors', [theme.palette.primary.main, theme.palette.secondary.main]);
 
+	useEffect(() => {
+		setAwaitRender(false);
+	}, []);
+
+	if (awaitRender) {
+		return null;
+	}
 	return (
 		<Paper className="w-full rounded-20 shadow">
 			<div className="flex items-center justify-between p-20">
@@ -46,23 +53,11 @@ function Widget5(props) {
 			</div>
 			<div className="flex flex-row flex-wrap">
 				<div className="w-full md:w-1/2 p-16 min-h-420 h-420">
-					<Bar
-						data={{
-							labels: widget.mainChart[currentRange].labels,
-							datasets: widget.mainChart[currentRange].datasets.map((obj, index) => {
-								const palette = theme.palette[index === 0 ? 'primary' : 'secondary'];
-								return {
-									...obj,
-									borderColor: palette.main,
-									backgroundColor: palette.main,
-									pointBackgroundColor: palette.dark,
-									pointHoverBackgroundColor: palette.main,
-									pointBorderColor: palette.contrastText,
-									pointHoverBorderColor: palette.contrastText
-								};
-							})
-						}}
+					<ReactApexChart
 						options={widget.mainChart.options}
+						series={widget.mainChart[currentRange].series}
+						type={widget.mainChart.options.chart.type}
+						height={widget.mainChart.options.chart.height}
 					/>
 				</div>
 				<div className="flex w-full md:w-1/2 flex-wrap p-8">
@@ -70,29 +65,17 @@ function Widget5(props) {
 						return (
 							<div key={key} className="w-full sm:w-1/2 p-12">
 								<Typography className="text-12 font-semibold whitespace-nowrap" color="textSecondary">
-									{item.label}
+									{item.name}
 								</Typography>
 								<Typography className="text-32 font-semibold tracking-tighter">
 									{item.count[currentRange]}
 								</Typography>
-								<div className="h-64 w-full">
-									<Line
-										data={{
-											labels: item.chart[currentRange].labels,
-											datasets: item.chart[currentRange].datasets.map((obj, index) => {
-												const palette = theme.palette.secondary;
-												return {
-													...obj,
-													borderColor: palette.main,
-													backgroundColor: palette.main,
-													pointBackgroundColor: palette.dark,
-													pointHoverBackgroundColor: palette.main,
-													pointBorderColor: palette.contrastText,
-													pointHoverBorderColor: palette.contrastText
-												};
-											})
-										}}
-										options={item.chart.options}
+								<div className="h-64 w-full overflow-hidden">
+									<ReactApexChart
+										options={{ ...item.chart.options, colors: [theme.palette.secondary.main] }}
+										series={item.chart[currentRange].series}
+										type={item.chart.options.chart.type}
+										height={item.chart.options.chart.height}
 									/>
 								</div>
 							</div>

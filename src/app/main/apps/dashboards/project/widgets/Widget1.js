@@ -43,13 +43,13 @@ function Widget1(props) {
 				<Typography className="text-72 font-semibold leading-none text-blue tracking-tighter">
 					{props.widget.data.count[currentRange]}
 				</Typography>
-				<Typography className="text-18 text-blue-800 font-normal">{props.widget.data.label}</Typography>
+				<Typography className="text-18 text-blue-800 font-normal">{props.widget.data.name}</Typography>
 			</div>
 			<Typography
 				className="p-20 pt-0 h-56 flex justify-center items-end text-13 font-medium"
 				color="textSecondary"
 			>
-				<span className="truncate">{props.widget.data.extra.label}</span>:
+				<span className="truncate">{props.widget.data.extra.name}</span>:
 				<b className="px-8">{props.widget.data.extra.count[currentRange]}</b>
 			</Typography>
 		</Paper>

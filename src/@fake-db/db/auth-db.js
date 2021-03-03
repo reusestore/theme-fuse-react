@@ -101,17 +101,21 @@ mock.onGet('/api/auth').reply(config => {
 	const { email, password } = data;
 	const user = _.cloneDeep(authDB.users.find(_user => _user.data.email === email));
 
-	let error = [];
+	const error = [];
 
-	!user && error.push({
-		type:'email',
-		message: 'Check your email address'
-	})
+	if (!user) {
+		error.push({
+			type: 'email',
+			message: 'Check your email address'
+		});
+	}
 
-	user && user.password !== password && error.push({
-		type:'password',
-		message: 'Check your password'
-	})
+	if (user && user.password !== password) {
+		error.push({
+			type: 'password',
+			message: 'Check your password'
+		});
+	}
 
 	if (error.length === 0) {
 		delete user.password;
@@ -126,7 +130,7 @@ mock.onGet('/api/auth').reply(config => {
 		return [200, response];
 	}
 
-	return [200, {error}];
+	return [200, { error }];
 });
 
 mock.onGet('/api/auth/access-token').reply(config => {
@@ -157,13 +161,13 @@ mock.onPost('/api/auth/register').reply(request => {
 	const data = JSON.parse(request.data);
 	const { displayName, password, email } = data;
 	const isEmailExists = authDB.users.find(_user => _user.data.email === email);
-	let error = [];
+	const error = [];
 
-	if(isEmailExists){
+	if (isEmailExists) {
 		error.push({
-			type:'email',
+			type: 'email',
 			message: 'The email address is already in use'
-		})
+		});
 	}
 
 	if (error.length === 0) {

@@ -5,7 +5,7 @@ import { useTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import _ from '@lodash';
 import { memo, useState } from 'react';
-import { Line } from 'react-chartjs-2';
+import ReactApexChart from 'react-apexcharts';
 
 function Widget9(props) {
 	const [currentRange, setCurrentRange] = useState(props.widget.currentRange);
@@ -55,25 +55,13 @@ function Widget9(props) {
 							</Typography>
 						</div>
 					</div>
-					<div className="flex w-full sm:w-1/2 p-8">
-						<div className="h-48 w-full">
-							<Line
-								data={{
-									labels: widget[id].chart[currentRange].labels,
-									datasets: widget[id].chart[currentRange].datasets.map((obj, index) => {
-										const palette = theme.palette.secondary;
-										return {
-											...obj,
-											borderColor: palette.main,
-											backgroundColor: palette.main,
-											pointBackgroundColor: palette.dark,
-											pointHoverBackgroundColor: palette.main,
-											pointBorderColor: palette.contrastText,
-											pointHoverBorderColor: palette.contrastText
-										};
-									})
-								}}
-								options={widget[id].chart.options}
+					<div className="flex w-full sm:w-1/2">
+						<div className="h-64 w-full">
+							<ReactApexChart
+								options={{ ...widget[id].chart.options, colors: [theme.palette.secondary.main] }}
+								series={widget[id].chart[currentRange].series}
+								type={widget[id].chart.options.chart.type}
+								height={widget[id].chart.options.chart.height}
 							/>
 						</div>
 					</div>

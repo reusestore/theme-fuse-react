@@ -8,7 +8,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import { memo, useState } from 'react';
-import { Line } from 'react-chartjs-2';
+import ReactApexChart from 'react-apexcharts';
 import { useSelector } from 'react-redux';
 import { selectContrastMainTheme } from 'app/store/fuse/settingsSlice';
 
@@ -26,11 +26,13 @@ function Widget1(props) {
 	const data = _.merge({}, props.data);
 
 	const [tabValue, setTabValue] = useState(2);
-	const dataset = data.datasets[Object.keys(data.datasets)[tabValue]];
+	const series = data.series[Object.keys(data.series)[tabValue]];
 
-	_.setWith(data, 'options.plugins.xLabelsOnTop.fontColor', fade(theme.palette.primary.contrastText, 0.7));
-	_.setWith(data, 'options.plugins.xLabelsOnTop.borderColor', fade(theme.palette.primary.contrastText, 0.6));
-	_.setWith(data, 'options.scales.xAxes[0].ticks.fontColor', theme.palette.primary.contrastText);
+	_.setWith(data, 'options.fill.colors', [theme.palette.secondary.main]);
+	_.setWith(data, 'options.markers.colors', [theme.palette.secondary.main]);
+	_.setWith(data, 'options.stroke.colors', [theme.palette.primary.contrastText]);
+	_.setWith(data, 'options.markers.strokeColors', [theme.palette.primary.contrastText]);
+	_.setWith(data, 'options.grid.borderColor', fade(theme.palette.primary.contrastText, 0.3));
 
 	return (
 		<ThemeProvider theme={contrastTheme}>
@@ -61,7 +63,7 @@ function Widget1(props) {
 								children: <Divider className="w-full h-full rounded-full opacity-50" />
 							}}
 						>
-							{Object.keys(data.datasets).map(key => (
+							{Object.keys(data.series).map(key => (
 								<Tab
 									key={key}
 									className="text-14 font-semibold min-h-40 min-w-64 mx-4 capitalize"
@@ -73,20 +75,11 @@ function Widget1(props) {
 					</div>
 				</div>
 				<div className="container relative h-200 sm:h-256 pb-16">
-					<Line
-						data={{
-							labels: data.labels,
-							datasets: dataset.map(obj => ({
-								...obj,
-								borderColor: theme.palette.secondary.main,
-								backgroundColor: theme.palette.secondary.main,
-								pointBackgroundColor: theme.palette.secondary.dark,
-								pointHoverBackgroundColor: theme.palette.secondary.main,
-								pointBorderColor: theme.palette.secondary.contrastText,
-								pointHoverBorderColor: theme.palette.secondary.contrastText
-							}))
-						}}
+					<ReactApexChart
 						options={data.options}
+						series={series}
+						type={data.options.chart.type}
+						height={data.options.chart.height}
 					/>
 				</div>
 			</div>

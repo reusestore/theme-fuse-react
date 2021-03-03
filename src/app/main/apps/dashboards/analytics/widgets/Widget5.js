@@ -2,22 +2,19 @@ import _ from '@lodash';
 import Card from '@material-ui/core/Card';
 import Divider from '@material-ui/core/Divider';
 import { useTheme } from '@material-ui/core/styles';
-import { fade } from '@material-ui/core/styles/colorManipulator';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
 import { memo, useState } from 'react';
-import { Line } from 'react-chartjs-2';
+import ReactApexChart from 'react-apexcharts';
 
 function Widget5(props) {
 	const theme = useTheme();
 	const [tabValue, setTabValue] = useState(0);
 	const data = _.merge({}, props.data);
-	const dataset = data.datasets[Object.keys(data.datasets)[tabValue]];
+	const series = data.series[Object.keys(data.series)[tabValue]];
 
-	_.setWith(data, 'options.scales.xAxes[0].ticks.fontColor', theme.palette.text.secondary);
-	_.setWith(data, 'options.scales.yAxes[0].ticks.fontColor', theme.palette.text.secondary);
-	_.setWith(data, 'options.scales.yAxes[0].gridLines.color', fade(theme.palette.text.secondary, 0.1));
+	_.setWith(data, 'options.colors', [theme.palette.secondary.main, theme.palette.primary.main]);
 
 	return (
 		<Card className="w-full rounded-20 shadow">
@@ -40,7 +37,7 @@ function Widget5(props) {
 							children: <Divider className="w-full h-full rounded-full opacity-50" />
 						}}
 					>
-						{Object.keys(data.datasets).map(key => (
+						{Object.keys(data.series).map(key => (
 							<Tab
 								key={key}
 								className="text-14 font-semibold min-h-40 min-w-64 mx-4 capitalize"
@@ -53,23 +50,11 @@ function Widget5(props) {
 			</div>
 
 			<div className="relative h-200 sm:h-320 sm:pb-16">
-				<Line
-					data={{
-						labels: data.labels,
-						datasets: dataset.map((obj, index) => {
-							const palette = theme.palette[index === 0 ? 'primary' : 'secondary'];
-							return {
-								...obj,
-								borderColor: palette.main,
-								backgroundColor: palette.main,
-								pointBackgroundColor: palette.dark,
-								pointHoverBackgroundColor: palette.main,
-								pointBorderColor: palette.contrastText,
-								pointHoverBorderColor: palette.contrastText
-							};
-						})
-					}}
+				<ReactApexChart
 					options={data.options}
+					series={series}
+					type={data.options.chart.type}
+					height={data.options.chart.height}
 				/>
 			</div>
 		</Card>

@@ -3,12 +3,11 @@ import Card from '@material-ui/core/Card';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import { useTheme } from '@material-ui/core/styles';
-import { fade } from '@material-ui/core/styles/colorManipulator';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
 import { memo, useState } from 'react';
-import { Line } from 'react-chartjs-2';
+import ReactApexChart from 'react-apexcharts';
 import _ from '@lodash';
 
 function Widget8(props) {
@@ -16,8 +15,8 @@ function Widget8(props) {
 	const [tabIndex, setTabIndex] = useState(0);
 	const data = _.merge({}, props.data);
 
-	_.setWith(data, 'options.scales.yAxes[0].ticks.fontColor', theme.palette.text.secondary);
-	_.setWith(data, 'options.scales.yAxes[0].gridLines.color', fade(theme.palette.text.secondary, 0.1));
+	_.setWith(data, 'options.colors', [theme.palette.secondary.main]);
+	_.setWith(data, 'options.markers.strokeColor', theme.palette.background.default);
 
 	return (
 		<Card className="w-full rounded-20 shadow">
@@ -54,16 +53,12 @@ function Widget8(props) {
 					<Tab label="1Month" className="min-w-0" />
 				</Tabs>
 			</AppBar>
-			<div className="py-16">
-				<Line
-					data={{
-						labels: data.labels,
-						datasets: data.datasets[tabIndex].map(obj => ({
-							...obj,
-							borderColor: theme.palette.secondary.main
-						}))
-					}}
+			<div className="py-16 h-200">
+				<ReactApexChart
 					options={data.options}
+					series={data.series[tabIndex]}
+					type={data.options.chart.type}
+					height={data.options.chart.height}
 				/>
 			</div>
 		</Card>

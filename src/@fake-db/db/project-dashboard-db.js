@@ -11,14 +11,14 @@ const projectDashboardAppDB = {
 			},
 			currentRange: 'DT',
 			data: {
-				label: 'Due Tasks',
+				name: 'Due Tasks',
 				count: {
 					DY: 21,
 					DT: 25,
 					DTM: 19
 				},
 				extra: {
-					label: 'Completed',
+					name: 'Completed',
 					count: {
 						DY: 6,
 						DT: 7,
@@ -32,10 +32,10 @@ const projectDashboardAppDB = {
 			id: 'widget2',
 			title: 'Overdue',
 			data: {
-				label: 'Tasks',
+				name: 'Tasks',
 				count: 4,
 				extra: {
-					label: "Yesterday's overdue",
+					name: "Yesterday's overdue",
 					count: 2
 				}
 			},
@@ -45,10 +45,10 @@ const projectDashboardAppDB = {
 			id: 'widget3',
 			title: 'Issues',
 			data: {
-				label: 'Open',
+				name: 'Open',
 				count: 32,
 				extra: {
-					label: 'Closed today',
+					name: 'Closed today',
 					count: 0
 				}
 			},
@@ -58,10 +58,10 @@ const projectDashboardAppDB = {
 			id: 'widget4',
 			title: 'Features',
 			data: {
-				label: 'Proposals',
+				name: 'Proposals',
 				count: 42,
 				extra: {
-					label: 'Implemented',
+					name: 'Implemented',
 					count: 8
 				}
 			},
@@ -77,108 +77,74 @@ const projectDashboardAppDB = {
 			},
 			mainChart: {
 				TW: {
-					labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-					datasets: [
+					series: [
 						{
-							type: 'bar',
-							label: 'Issues',
-							data: [42, 28, 43, 34, 20, 25, 22],
-							backgroundColor: '#42BFF7',
-							hoverBackgroundColor: '#87CDF7',
-							categoryPercentage: 1
+							name: 'Issues',
+							data: [42, 28, 43, 34, 20, 25, 22]
 						},
 						{
-							type: 'bar',
-							label: 'Closed issues',
-							data: [11, 10, 8, 11, 8, 10, 17],
-							backgroundColor: '#C6ECFD',
-							hoverBackgroundColor: '#D7EFFD',
-							categoryPercentage: 1
+							name: 'Closed issues',
+							data: [11, 10, 8, 11, 8, 10, 17]
 						}
 					]
 				},
 				'2W': {
 					labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-					datasets: [
+					series: [
 						{
-							type: 'bar',
-							label: 'Issues',
-							data: [37, 32, 39, 27, 18, 24, 20],
-							backgroundColor: '#42BFF7',
-							hoverBackgroundColor: '#87CDF7',
-							categoryPercentage: 1
+							name: 'Issues',
+							data: [37, 32, 39, 27, 18, 24, 20]
 						},
 						{
-							type: 'bar',
-							label: 'Closed issues',
-							data: [9, 12, 9, 12, 7, 8, 16],
-							backgroundColor: '#C6ECFD',
-							hoverBackgroundColor: '#D7EFFD',
-							categoryPercentage: 1
+							name: 'Closed issues'
 						}
 					]
 				},
 				LW: {
 					labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-					datasets: [
+					series: [
 						{
-							type: 'bar',
-							label: 'Issues',
-							data: [37, 24, 51, 31, 29, 17, 31],
-							backgroundColor: '#42BFF7',
-							hoverBackgroundColor: '#87CDF7',
-							categoryPercentage: 1
+							name: 'Issues',
+							data: [37, 24, 51, 31, 29, 17, 31]
 						},
 						{
-							type: 'bar',
-							label: 'Closed issues',
-							data: [12, 8, 7, 13, 7, 6, 10],
-							backgroundColor: '#C6ECFD',
-							hoverBackgroundColor: '#D7EFFD',
-							categoryPercentage: 1
+							name: 'Closed issues',
+							data: [12, 8, 7, 13, 7, 6, 10]
 						}
 					]
 				},
 				options: {
-					responsive: true,
-					maintainAspectRatio: false,
+					chart: {
+						height: '100%',
+						type: 'bar',
+						stacked: true,
+						toolbar: {
+							show: false
+						}
+					},
+					plotOptions: {
+						bar: {
+							columnWidth: '90%',
+							horizontal: false
+						}
+					},
+					xaxis: {
+						categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+					},
+					fill: {
+						opacity: 1
+					},
 					legend: {
-						display: false
+						show: false
 					},
-					tooltips: {
-						mode: 'label'
-					},
-					scales: {
-						xAxes: [
-							{
-								stacked: true,
-								display: true,
-								gridLines: {
-									display: false
-								},
-								labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-							}
-						],
-						yAxes: [
-							{
-								stacked: true,
-								type: 'linear',
-								display: true,
-								position: 'left',
-								gridLines: {
-									display: false
-								},
-								labels: {
-									show: true
-								}
-							}
-						]
+					dataLabels: {
+						enabled: false
 					}
 				}
 			},
 			supporting: {
 				created: {
-					label: 'CREATED',
+					name: 'CREATED',
 					count: {
 						'2W': 48,
 						LW: 46,
@@ -186,69 +152,65 @@ const projectDashboardAppDB = {
 					},
 					chart: {
 						'2W': {
-							datasets: [
+							series: [
 								{
-									label: 'Created',
-									data: [5, 8, 5, 6, 7, 8, 7],
-									fill: true,
-									backgroundColor: '#42BFF7',
-									pointRadius: 0,
-									pointHitRadius: 20,
-									borderWidth: 0
+									name: 'Created',
+									data: [5, 8, 5, 6, 7, 8, 7]
 								}
-							],
-							labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+							]
 						},
 						LW: {
-							datasets: [
+							series: [
 								{
-									label: 'Created',
-									data: [6, 3, 7, 5, 5, 4, 7],
-									fill: true,
-									backgroundColor: '#42BFF7',
-									pointRadius: 0,
-									pointHitRadius: 20,
-									borderWidth: 0
+									name: 'Created',
+									data: [6, 3, 7, 5, 5, 4, 7]
 								}
-							],
-							labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+							]
 						},
 						TW: {
-							datasets: [
+							series: [
 								{
-									label: 'Created',
-									data: [3, 2, 1, 4, 8, 8, 4],
-									fill: true,
-									backgroundColor: '#42BFF7',
-									pointRadius: 0,
-									pointHitRadius: 20,
-									borderWidth: 0
+									name: 'Created',
+									data: [3, 2, 1, 4, 8, 8, 4]
 								}
-							],
-							labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+							]
 						},
 						options: {
-							legend: {
-								display: false
+							chart: {
+								type: 'area',
+								height: '100%',
+								sparkline: {
+									enabled: true
+								}
 							},
-							maintainAspectRatio: false,
-							scales: {
-								xAxes: [
-									{
-										display: false
-									}
-								],
-								yAxes: [
-									{
-										display: false
-									}
+							stroke: { width: 2 },
+							grid: {
+								padding: {
+									top: 10,
+									right: 0,
+									bottom: 10,
+									left: 0
+								}
+							},
+							fill: {
+								opacity: 0.3
+							},
+							xaxis: {
+								categories: [
+									'Monday',
+									'Tuesday',
+									'Wednesday',
+									'Thursday',
+									'Friday',
+									'Saturday',
+									'Sunday'
 								]
 							}
 						}
 					}
 				},
 				closed: {
-					label: 'CLOSED',
+					name: 'CLOSED',
 					count: {
 						'2W': 27,
 						LW: 31,
@@ -256,69 +218,65 @@ const projectDashboardAppDB = {
 					},
 					chart: {
 						TW: {
-							datasets: [
+							series: [
 								{
-									label: 'Created',
-									data: [6, 3, 7, 5, 5, 4, 7],
-									fill: true,
-									backgroundColor: '#42BFF7',
-									pointRadius: 0,
-									pointHitRadius: 20,
-									borderWidth: 0
+									name: 'Created',
+									data: [6, 3, 7, 5, 5, 4, 7]
 								}
-							],
-							labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+							]
 						},
 						'2W': {
-							datasets: [
+							series: [
 								{
-									label: 'Created',
-									data: [3, 2, 1, 4, 8, 8, 4],
-									fill: true,
-									backgroundColor: '#42BFF7',
-									pointRadius: 0,
-									pointHitRadius: 20,
-									borderWidth: 0
+									name: 'Created',
+									data: [3, 2, 1, 4, 8, 8, 4]
 								}
-							],
-							labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+							]
 						},
 						LW: {
-							datasets: [
+							series: [
 								{
-									label: 'Created',
-									data: [6, 5, 4, 5, 7, 4, 7],
-									fill: true,
-									backgroundColor: '#42BFF7',
-									pointRadius: 0,
-									pointHitRadius: 20,
-									borderWidth: 0
+									name: 'Created',
+									data: [6, 5, 4, 5, 7, 4, 7]
 								}
-							],
-							labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+							]
 						},
 						options: {
-							legend: {
-								display: false
+							chart: {
+								type: 'area',
+								height: '100%',
+								sparkline: {
+									enabled: true
+								}
 							},
-							maintainAspectRatio: false,
-							scales: {
-								xAxes: [
-									{
-										display: false
-									}
-								],
-								yAxes: [
-									{
-										display: false
-									}
+							stroke: { width: 2 },
+							grid: {
+								padding: {
+									top: 10,
+									right: 0,
+									bottom: 10,
+									left: 0
+								}
+							},
+							fill: {
+								opacity: 0.3
+							},
+							xaxis: {
+								categories: [
+									'Monday',
+									'Tuesday',
+									'Wednesday',
+									'Thursday',
+									'Friday',
+									'Saturday',
+									'Sunday'
 								]
 							}
 						}
 					}
 				},
 				reOpened: {
-					label: 'RE-OPENED',
+					name: 'RE-OPENED',
 					count: {
 						'2W': 4,
 						LW: 5,
@@ -326,46 +284,28 @@ const projectDashboardAppDB = {
 					},
 					chart: {
 						'2W': {
-							datasets: [
+							series: [
 								{
-									label: 'Created',
-									data: [6, 3, 7, 5, 5, 4, 7],
-									fill: true,
-									backgroundColor: '#42BFF7',
-									pointRadius: 0,
-									pointHitRadius: 20,
-									borderWidth: 0
+									name: 'Created',
+									data: [6, 3, 7, 5, 5, 4, 7]
 								}
-							],
-							labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+							]
 						},
 						LW: {
-							datasets: [
+							series: [
 								{
-									label: 'Created',
-									data: [5, 7, 8, 8, 6, 4, 1],
-									fill: true,
-									backgroundColor: '#42BFF7',
-									pointRadius: 0,
-									pointHitRadius: 20,
-									borderWidth: 0
+									name: 'Created',
+									data: [5, 7, 8, 8, 6, 4, 1]
 								}
-							],
-							labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+							]
 						},
 						TW: {
-							datasets: [
+							series: [
 								{
-									label: 'Created',
-									data: [3, 2, 1, 4, 8, 8, 4],
-									fill: true,
-									backgroundColor: '#42BFF7',
-									pointRadius: 0,
-									pointHitRadius: 20,
-									borderWidth: 0
+									name: 'Created',
+									data: [3, 2, 1, 4, 8, 8, 4]
 								}
-							],
-							labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+							]
 						},
 						TW2: [
 							{
@@ -403,27 +343,41 @@ const projectDashboardAppDB = {
 							}
 						],
 						options: {
-							legend: {
-								display: false
+							chart: {
+								type: 'area',
+								height: '100%',
+								sparkline: {
+									enabled: true
+								}
 							},
-							maintainAspectRatio: false,
-							scales: {
-								xAxes: [
-									{
-										display: false
-									}
-								],
-								yAxes: [
-									{
-										display: false
-									}
+							stroke: { width: 2 },
+							grid: {
+								padding: {
+									top: 10,
+									right: 0,
+									bottom: 10,
+									left: 0
+								}
+							},
+							fill: {
+								opacity: 0.3
+							},
+							xaxis: {
+								categories: [
+									'Monday',
+									'Tuesday',
+									'Wednesday',
+									'Thursday',
+									'Friday',
+									'Saturday',
+									'Sunday'
 								]
 							}
 						}
 					}
 				},
 				wontFix: {
-					label: "WON'T FIX",
+					name: "WON'T FIX",
 					count: {
 						'2W': 6,
 						LW: 3,
@@ -431,69 +385,65 @@ const projectDashboardAppDB = {
 					},
 					chart: {
 						'2W': {
-							datasets: [
+							series: [
 								{
-									label: 'Created',
-									data: [5, 7, 4, 6, 5, 3, 2],
-									fill: true,
-									backgroundColor: '#42BFF7',
-									pointRadius: 0,
-									pointHitRadius: 20,
-									borderWidth: 0
+									name: 'Created',
+									data: [5, 7, 4, 6, 5, 3, 2]
 								}
-							],
-							labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+							]
 						},
 						LW: {
-							datasets: [
+							series: [
 								{
-									label: 'Created',
-									data: [6, 3, 7, 5, 5, 4, 7],
-									fill: true,
-									backgroundColor: '#42BFF7',
-									pointRadius: 0,
-									pointHitRadius: 20,
-									borderWidth: 0
+									name: 'Created',
+									data: [6, 3, 7, 5, 5, 4, 7]
 								}
-							],
-							labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+							]
 						},
 						TW: {
-							datasets: [
+							series: [
 								{
-									label: 'Created',
-									data: [6, 5, 4, 5, 7, 4, 7],
-									fill: true,
-									backgroundColor: '#42BFF7',
-									pointRadius: 0,
-									pointHitRadius: 20,
-									borderWidth: 0
+									name: 'Created',
+									data: [6, 5, 4, 5, 7, 4, 7]
 								}
-							],
-							labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+							]
 						},
 						options: {
-							legend: {
-								display: false
+							chart: {
+								type: 'area',
+								height: '100%',
+								sparkline: {
+									enabled: true
+								}
 							},
-							maintainAspectRatio: false,
-							scales: {
-								xAxes: [
-									{
-										display: false
-									}
-								],
-								yAxes: [
-									{
-										display: false
-									}
+							stroke: { width: 2 },
+							grid: {
+								padding: {
+									top: 10,
+									right: 0,
+									bottom: 10,
+									left: 0
+								}
+							},
+							fill: {
+								opacity: 0.3
+							},
+							xaxis: {
+								categories: [
+									'Monday',
+									'Tuesday',
+									'Wednesday',
+									'Thursday',
+									'Friday',
+									'Saturday',
+									'Sunday'
 								]
 							}
 						}
 					}
 				},
 				needsTest: {
-					label: 'NEEDS TEST',
+					name: 'NEEDS TEST',
 					count: {
 						'2W': 10,
 						LW: 7,
@@ -501,69 +451,65 @@ const projectDashboardAppDB = {
 					},
 					chart: {
 						'2W': {
-							datasets: [
+							series: [
 								{
-									label: 'Created',
-									data: [6, 5, 4, 5, 7, 4, 7],
-									fill: true,
-									backgroundColor: '#42BFF7',
-									pointRadius: 0,
-									pointHitRadius: 20,
-									borderWidth: 0
+									name: 'Created',
+									data: [6, 5, 4, 5, 7, 4, 7]
 								}
-							],
-							labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+							]
 						},
 						LW: {
-							datasets: [
+							series: [
 								{
-									label: 'Created',
-									data: [5, 7, 8, 8, 6, 4, 1],
-									fill: true,
-									backgroundColor: '#42BFF7',
-									pointRadius: 0,
-									pointHitRadius: 20,
-									borderWidth: 0
+									name: 'Created',
+									data: [5, 7, 8, 8, 6, 4, 1]
 								}
-							],
-							labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+							]
 						},
 						TW: {
-							datasets: [
+							series: [
 								{
-									label: 'Created',
-									data: [6, 3, 7, 5, 5, 4, 7],
-									fill: true,
-									backgroundColor: '#42BFF7',
-									pointRadius: 0,
-									pointHitRadius: 20,
-									borderWidth: 0
+									name: 'Created',
+									data: [6, 3, 7, 5, 5, 4, 7]
 								}
-							],
-							labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+							]
 						},
 						options: {
-							legend: {
-								display: false
+							chart: {
+								type: 'area',
+								height: '100%',
+								sparkline: {
+									enabled: true
+								}
 							},
-							maintainAspectRatio: false,
-							scales: {
-								xAxes: [
-									{
-										display: false
-									}
-								],
-								yAxes: [
-									{
-										display: false
-									}
+							stroke: { width: 2 },
+							grid: {
+								padding: {
+									top: 10,
+									right: 0,
+									bottom: 10,
+									left: 0
+								}
+							},
+							fill: {
+								opacity: 0.3
+							},
+							xaxis: {
+								categories: [
+									'Monday',
+									'Tuesday',
+									'Wednesday',
+									'Thursday',
+									'Friday',
+									'Saturday',
+									'Sunday'
 								]
 							}
 						}
 					}
 				},
 				fixed: {
-					label: 'FIXED',
+					name: 'FIXED',
 					count: {
 						'2W': 21,
 						LW: 17,
@@ -571,62 +517,58 @@ const projectDashboardAppDB = {
 					},
 					chart: {
 						'2W': {
-							datasets: [
+							series: [
 								{
-									label: 'Created',
-									data: [5, 7, 8, 8, 6, 4, 1],
-									fill: true,
-									backgroundColor: '#42BFF7',
-									pointRadius: 0,
-									pointHitRadius: 20,
-									borderWidth: 0
+									name: 'Created',
+									data: [5, 7, 8, 8, 6, 4, 1]
 								}
-							],
-							labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+							]
 						},
 						LW: {
-							datasets: [
+							series: [
 								{
-									label: 'Created',
-									data: [6, 5, 4, 5, 7, 4, 7],
-									fill: true,
-									backgroundColor: '#42BFF7',
-									pointRadius: 0,
-									pointHitRadius: 20,
-									borderWidth: 0
+									name: 'Created',
+									data: [6, 5, 4, 5, 7, 4, 7]
 								}
-							],
-							labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+							]
 						},
 						TW: {
-							datasets: [
+							series: [
 								{
-									label: 'Created',
-									data: [5, 7, 4, 6, 5, 3, 2],
-									fill: true,
-									backgroundColor: '#42BFF7',
-									pointRadius: 0,
-									pointHitRadius: 20,
-									borderWidth: 0
+									name: 'Created',
+									data: [5, 7, 4, 6, 5, 3, 2]
 								}
-							],
-							labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+							]
 						},
 						options: {
-							legend: {
-								display: false
+							chart: {
+								type: 'area',
+								height: '100%',
+								sparkline: {
+									enabled: true
+								}
 							},
-							maintainAspectRatio: false,
-							scales: {
-								xAxes: [
-									{
-										display: false
-									}
-								],
-								yAxes: [
-									{
-										display: false
-									}
+							stroke: { width: 2 },
+							grid: {
+								padding: {
+									top: 10,
+									right: 0,
+									bottom: 10,
+									left: 0
+								}
+							},
+							fill: {
+								opacity: 0.3
+							},
+							xaxis: {
+								categories: [
+									'Monday',
+									'Tuesday',
+									'Wednesday',
+									'Thursday',
+									'Friday',
+									'Saturday',
+									'Sunday'
 								]
 							}
 						}
@@ -644,42 +586,35 @@ const projectDashboardAppDB = {
 			},
 			currentRange: 'TW',
 			mainChart: {
-				labels: ['Frontend', 'Backend', 'API', 'Issues'],
-				datasets: {
-					TW: [
-						{
-							data: [15, 20, 38, 27],
-							backgroundColor: ['#F44336', '#9C27B0', '#03A9F4', '#E91E63'],
-							hoverBackgroundColor: ['#F45A4D', '#A041B0', '#25B6F4', '#E9487F']
-						}
-					],
-					LW: [
-						{
-							data: [19, 16, 42, 23],
-							backgroundColor: ['#F44336', '#9C27B0', '#03A9F4', '#E91E63'],
-							hoverBackgroundColor: ['#F45A4D', '#A041B0', '#25B6F4', '#E9487F']
-						}
-					],
-					'2W': [
-						{
-							data: [18, 17, 40, 25],
-							backgroundColor: ['#F44336', '#9C27B0', '#03A9F4', '#E91E63'],
-							hoverBackgroundColor: ['#F45A4D', '#A041B0', '#25B6F4', '#E9487F']
-						}
-					]
+				series: {
+					TW: [15, 20, 38, 27],
+					LW: [19, 16, 42, 23],
+					'2W': [18, 17, 40, 25]
 				},
 				options: {
-					cutoutPercentage: 66,
-					spanGaps: false,
+					series: [76, 67, 61],
+					chart: {
+						height: '100%',
+						type: 'polarArea'
+					},
+					stroke: {
+						width: 1,
+						colors: undefined
+					},
+					fill: {
+						opacity: 0.8
+					},
 					legend: {
-						display: true,
-						position: 'bottom',
-						labels: {
-							padding: 16,
-							usePointStyle: true
+						position: 'bottom'
+					},
+					theme: {
+						monochrome: {
+							enabled: true,
+							shadeTo: 'light',
+							shadeIntensity: 0.65
 						}
 					},
-					maintainAspectRatio: false
+					labels: ['Frontend', 'Backend', 'API', 'Issues']
 				}
 			},
 			footerLeft: {
@@ -788,26 +723,30 @@ const projectDashboardAppDB = {
 			id: 'widget8',
 			title: 'Budget Distribution',
 			mainChart: {
-				labels: ['Wireframing', 'Design', 'Coding', 'Marketing', 'Extra'],
-				datasets: [
-					{
-						data: [12, 17, 28, 25, 15],
-						backgroundColor: ['#F44336', '#9C27B0', '#03A9F4', '#E91E63', '#FFC107'],
-						hoverBackgroundColor: ['#F45A4D', '#A041B0', '#25B6F4', '#E9487F', '#FFD341']
-					}
-				],
+				series: [12, 17, 28, 25, 15],
 				options: {
-					cutoutPercentage: 0,
-					spanGaps: false,
+					chart: {
+						height: '100%',
+						type: 'pie'
+					},
+					stroke: {
+						width: 1,
+						colors: undefined
+					},
+					fill: {
+						opacity: 1
+					},
 					legend: {
-						display: true,
-						position: 'bottom',
-						labels: {
-							padding: 16,
-							usePointStyle: true
+						position: 'bottom'
+					},
+					theme: {
+						monochrome: {
+							enabled: true,
+							shadeTo: 'light',
+							shadeIntensity: 0.65
 						}
 					},
-					maintainAspectRatio: false
+					labels: ['Wireframing', 'Design', 'Coding', 'Marketing', 'Extra']
 				}
 			}
 		},
@@ -829,63 +768,51 @@ const projectDashboardAppDB = {
 				},
 				chart: {
 					'2W': {
-						datasets: [
+						series: [
 							{
-								label: 'Created',
-								data: [2, 6, 5, 4, 5, 3, 6],
-								fill: true,
-								backgroundColor: '#42BFF7',
-								pointRadius: 0,
-								pointHitRadius: 20,
-								borderWidth: 0
+								name: 'Created',
+								data: [2, 6, 5, 4, 5, 3, 6]
 							}
-						],
-						labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+						]
 					},
 					LW: {
-						datasets: [
+						series: [
 							{
-								label: 'Created',
-								data: [4, 6, 2, 2, 1, 3, 4],
-								fill: true,
-								backgroundColor: '#42BFF7',
-								pointRadius: 0,
-								pointHitRadius: 20,
-								borderWidth: 0
+								name: 'Created',
+								data: [4, 6, 2, 2, 1, 3, 4]
 							}
-						],
-						labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+						]
 					},
 					TW: {
-						datasets: [
+						series: [
 							{
-								label: 'Created',
-								data: [2, 6, 5, 4, 5, 3, 6],
-								fill: true,
-								backgroundColor: '#42BFF7',
-								pointRadius: 0,
-								pointHitRadius: 20,
-								borderWidth: 0
+								name: 'Created',
+								data: [2, 6, 5, 4, 5, 3, 6]
 							}
-						],
-						labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+						]
 					},
 					options: {
-						legend: {
-							display: false
+						chart: {
+							type: 'area',
+							height: '100%',
+							sparkline: {
+								enabled: true
+							}
 						},
-						maintainAspectRatio: false,
-						scales: {
-							xAxes: [
-								{
-									display: false
-								}
-							],
-							yAxes: [
-								{
-									display: false
-								}
-							]
+						stroke: { width: 2 },
+						grid: {
+							padding: {
+								top: 10,
+								right: 0,
+								bottom: 10,
+								left: 0
+							}
+						},
+						fill: {
+							opacity: 0.3
+						},
+						xaxis: {
+							categories: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 						}
 					}
 				}
@@ -899,63 +826,51 @@ const projectDashboardAppDB = {
 				},
 				chart: {
 					'2W': {
-						datasets: [
+						series: [
 							{
-								label: 'Created',
-								data: [3, 2, 2, 4, 7, 7, 4],
-								fill: true,
-								backgroundColor: '#42BFF7',
-								pointRadius: 0,
-								pointHitRadius: 20,
-								borderWidth: 0
+								name: 'Created',
+								data: [3, 2, 2, 4, 7, 7, 4]
 							}
-						],
-						labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+						]
 					},
 					LW: {
-						datasets: [
+						series: [
 							{
-								label: 'Created',
-								data: [5, 7, 8, 8, 6, 4, 1],
-								fill: true,
-								backgroundColor: '#42BFF7',
-								pointRadius: 0,
-								pointHitRadius: 20,
-								borderWidth: 0
+								name: 'Created',
+								data: [5, 7, 8, 8, 6, 4, 1]
 							}
-						],
-						labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+						]
 					},
 					TW: {
-						datasets: [
+						series: [
 							{
-								label: 'Created',
-								data: [6, 4, 7, 5, 5, 4, 7],
-								fill: true,
-								backgroundColor: '#42BFF7',
-								pointRadius: 0,
-								pointHitRadius: 20,
-								borderWidth: 0
+								name: 'Created',
+								data: [6, 4, 7, 5, 5, 4, 7]
 							}
-						],
-						labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+						]
 					},
 					options: {
-						legend: {
-							display: false
+						chart: {
+							type: 'area',
+							height: '100%',
+							sparkline: {
+								enabled: true
+							}
 						},
-						maintainAspectRatio: false,
-						scales: {
-							xAxes: [
-								{
-									display: false
-								}
-							],
-							yAxes: [
-								{
-									display: false
-								}
-							]
+						stroke: { width: 2 },
+						grid: {
+							padding: {
+								top: 10,
+								right: 0,
+								bottom: 10,
+								left: 0
+							}
+						},
+						fill: {
+							opacity: 0.3
+						},
+						xaxis: {
+							categories: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 						}
 					}
 				}
@@ -969,9 +884,9 @@ const projectDashboardAppDB = {
 				},
 				chart: {
 					'2W': {
-						datasets: [
+						series: [
 							{
-								label: 'Created',
+								name: 'Created',
 								data: [1, 4, 5, 7, 8, 2, 4],
 								fill: true,
 								backgroundColor: '#42BFF7',
@@ -979,13 +894,12 @@ const projectDashboardAppDB = {
 								pointHitRadius: 20,
 								borderWidth: 0
 							}
-						],
-						labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+						]
 					},
 					LW: {
-						datasets: [
+						series: [
 							{
-								label: 'Created',
+								name: 'Created',
 								data: [3, 2, 1, 4, 8, 8, 4],
 								fill: true,
 								backgroundColor: '#42BFF7',
@@ -993,13 +907,12 @@ const projectDashboardAppDB = {
 								pointHitRadius: 20,
 								borderWidth: 0
 							}
-						],
-						labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+						]
 					},
 					TW: {
-						datasets: [
+						series: [
 							{
-								label: 'Created',
+								name: 'Created',
 								data: [2, 4, 8, 6, 2, 5, 1],
 								fill: true,
 								backgroundColor: '#42BFF7',
@@ -1007,25 +920,30 @@ const projectDashboardAppDB = {
 								pointHitRadius: 20,
 								borderWidth: 0
 							}
-						],
-						labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+						]
 					},
 					options: {
-						legend: {
-							display: false
+						chart: {
+							type: 'area',
+							height: '100%',
+							sparkline: {
+								enabled: true
+							}
 						},
-						maintainAspectRatio: false,
-						scales: {
-							xAxes: [
-								{
-									display: false
-								}
-							],
-							yAxes: [
-								{
-									display: false
-								}
-							]
+						stroke: { width: 2 },
+						grid: {
+							padding: {
+								top: 10,
+								right: 0,
+								bottom: 10,
+								left: 0
+							}
+						},
+						fill: {
+							opacity: 0.3
+						},
+						xaxis: {
+							categories: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 						}
 					}
 				}

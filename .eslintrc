@@ -36,6 +36,7 @@
                 ]
             }
         ],
+        "no-unused-expressions": "off",
         "spaced-comment": ["warn", "always"],
         "no-unreachable": "warn",
         "no-unused-vars": "off",

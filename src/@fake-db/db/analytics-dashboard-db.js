@@ -1,89 +1,112 @@
-	import mock from '../mock';
+import mock from '../mock';
 
 const analyticsDashboardAppDB = {
 	widgets: [
 		{
 			id: 'widget1',
-			chartType: 'line',
-			datasets: {
+			series: {
 				2019: [
 					{
-						label: 'Sales',
+						name: 'Sales',
 						data: [1.9, 3, 3.4, 2.2, 2.9, 3.9, 2.5, 3.8, 4.1, 3.8, 3.2, 2.9],
 						fill: 'start'
 					}
 				],
 				2020: [
 					{
-						label: 'Sales',
+						name: 'Sales',
 						data: [2.2, 2.9, 3.9, 2.5, 3.8, 3.2, 2.9, 1.9, 3, 3.4, 4.1, 3.8],
 						fill: 'start'
 					}
 				],
 				2021: [
 					{
-						label: 'Sales',
+						name: 'Sales',
 						data: [3.9, 2.5, 3.8, 4.1, 1.9, 3, 3.8, 3.2, 2.9, 3.4, 2.2, 2.9],
 						fill: 'start'
 					}
 				]
 			},
-			labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
 			options: {
-				spanGaps: false,
-				legend: {
-					display: false
+				chart: {
+					type: 'area',
+					height: '100%',
+					background: 'transparent',
+					toolbar: {
+						show: false
+					},
+					zoom: {
+						enabled: false
+					}
 				},
-				maintainAspectRatio: false,
-				layout: {
+				theme: {
+					mode: 'dark'
+				},
+				dataLabels: {
+					enabled: false
+				},
+				xaxis: {
+					categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+					tooltip: {
+						enabled: false
+					},
+					axisBorder: {
+						show: false
+					}
+				},
+				yaxis: {
+					axisBorder: {
+						show: false
+					}
+				},
+				markers: {
+					size: 3,
+					strokeWidth: 1.5,
+					strokeOpacity: 1,
+					strokeDashArray: 0,
+					fillOpacity: 1,
+					shape: 'circle',
+					radius: 2,
+					hover: {
+						size: 5
+					}
+				},
+				fill: {
+					type: 'gradient',
+					gradient: {
+						shadeIntensity: 0.4,
+						opacityFrom: 1,
+						opacityTo: 0.5,
+						stops: [30, 100, 100]
+					}
+				},
+				grid: {
+					show: true,
+					strokeDashArray: 3,
+					position: 'back',
+					xaxis: {
+						lines: {
+							show: true
+						}
+					},
+					yaxis: {
+						lines: {
+							show: true
+						}
+					},
 					padding: {
-						top: 32,
-						left: 32,
-						right: 32
+						top: 0,
+						right: 0,
+						bottom: 0,
+						left: 0
 					}
 				},
-				elements: {
-					point: {
-						radius: 4,
-						borderWidth: 2,
-						hoverRadius: 4,
-						hoverBorderWidth: 2
-					},
-					line: {
-						tension: 0
-					}
-				},
-				scales: {
-					xAxes: [
-						{
-							gridLines: {
-								display: false,
-								drawBorder: false,
-								tickMarkLength: 18
-							},
-							ticks: {
-								fontColor: '#ffffff'
-							}
-						}
-					],
-					yAxes: [
-						{
-							display: false,
-							ticks: {
-								min: 1.5,
-								max: 5,
-								stepSize: 0.5
-							}
-						}
-					]
-				},
-				plugins: {
-					filler: {
-						propagate: false
-					},
-					xLabelsOnTop: {
-						active: true
-					}
+				stroke: {
+					show: true,
+					curve: 'smooth',
+					lineCap: 'butt',
+					width: 1.5,
+					dashArray: 0
 				}
 			}
 		},
@@ -93,43 +116,25 @@ const analyticsDashboardAppDB = {
 				value: 492,
 				ofTarget: 13
 			},
-			chartType: 'bar',
-			datasets: [
+			series: [
 				{
-					label: 'Conversion',
-					data: [221, 428, 492, 471, 413, 344, 294]
+					name: 'Conversion',
+					data: [221, 428, 380, 471, 413, 344, 494]
 				}
 			],
-			labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
 			options: {
-				spanGaps: false,
-				legend: {
-					display: false
-				},
-				maintainAspectRatio: false,
-				layout: {
-					padding: {
-						top: 24,
-						left: 16,
-						right: 16,
-						bottom: 16
+				chart: {
+					type: 'area',
+					height: '100%',
+					sparkline: {
+						enabled: true
 					}
 				},
-				scales: {
-					xAxes: [
-						{
-							display: false
-						}
-					],
-					yAxes: [
-						{
-							display: false,
-							ticks: {
-								min: 100,
-								max: 500
-							}
-						}
-					]
+				fill: {
+					opacity: 0.3
+				},
+				xaxis: {
+					categories: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 				}
 			}
 		},
@@ -139,10 +144,9 @@ const analyticsDashboardAppDB = {
 				value: '87k',
 				ofTarget: 12
 			},
-			chartType: 'line',
-			datasets: [
+			series: [
 				{
-					label: 'Impression',
+					name: 'Impression',
 					data: [
 						67000,
 						54000,
@@ -159,67 +163,38 @@ const analyticsDashboardAppDB = {
 						110000,
 						149000,
 						98000
-					],
-					fill: false
+					]
 				}
 			],
-			labels: [
-				'Jan 1',
-				'Jan 2',
-				'Jan 3',
-				'Jan 4',
-				'Jan 5',
-				'Jan 6',
-				'Jan 7',
-				'Jan 8',
-				'Jan 9',
-				'Jan 10',
-				'Jan 11',
-				'Jan 12',
-				'Jan 13',
-				'Jan 14',
-				'Jan 15'
-			],
 			options: {
-				spanGaps: false,
-				legend: {
-					display: false
-				},
-				maintainAspectRatio: false,
-				elements: {
-					point: {
-						radius: 2,
-						borderWidth: 1,
-						hoverRadius: 2,
-						hoverBorderWidth: 1
-					},
-					line: {
-						tension: 0
+				chart: {
+					type: 'area',
+					height: '100%',
+					sparkline: {
+						enabled: true
 					}
 				},
-				layout: {
-					padding: {
-						top: 24,
-						left: 16,
-						right: 16,
-						bottom: 16
-					}
-				},
-				scales: {
-					xAxes: [
-						{
-							display: false
-						}
-					],
-					yAxes: [
-						{
-							display: false,
-							ticks: {
-								// min: 100,
-								// max: 500
-							}
-						}
+				xaxis: {
+					categories: [
+						'Jan 1',
+						'Jan 2',
+						'Jan 3',
+						'Jan 4',
+						'Jan 5',
+						'Jan 6',
+						'Jan 7',
+						'Jan 8',
+						'Jan 9',
+						'Jan 10',
+						'Jan 11',
+						'Jan 12',
+						'Jan 13',
+						'Jan 14',
+						'Jan 15'
 					]
+				},
+				fill: {
+					opacity: 0.3
 				}
 			}
 		},
@@ -229,127 +204,126 @@ const analyticsDashboardAppDB = {
 				value: 882,
 				ofTarget: -9
 			},
-			chartType: 'bar',
-			datasets: [
+			series: [
 				{
-					label: 'Visits',
+					name: 'Visits',
 					data: [432, 428, 327, 363, 456, 267, 231]
 				}
 			],
-			labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
 			options: {
-				spanGaps: false,
-				legend: {
-					display: false
-				},
-				maintainAspectRatio: false,
-				layout: {
-					padding: {
-						top: 24,
-						left: 16,
-						right: 16,
-						bottom: 16
+				chart: {
+					type: 'area',
+					height: '100%',
+					sparkline: {
+						enabled: true
 					}
 				},
-				scales: {
-					xAxes: [
-						{
-							display: false
-						}
-					],
-					yAxes: [
-						{
-							display: false,
-							ticks: {
-								min: 150,
-								max: 500
-							}
-						}
-					]
+				xaxis: {
+					categories: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+				},
+				fill: {
+					opacity: 0.3
 				}
 			}
 		},
 		{
 			id: 'widget5',
-			chartType: 'line',
-			datasets: {
+			series: {
 				today: [
 					{
-						label: 'Visitors',
-						data: [1210, 1380, 1520, 1290, 490, 1390, 1050, 680, 1300, 2140, 1520, 1890],
-						fill: 'start'
+						name: 'Visitors',
+						data: [1210, 1380, 1520, 1290, 490, 1390, 1050, 680, 1300, 2140, 1520, 1890]
 					},
 					{
-						label: 'Page Views',
-						data: [3000, 3400, 4100, 3800, 2200, 3200, 2900, 1900, 2900, 3900, 2500, 3800],
-						fill: 'start'
+						name: 'Page Views',
+						data: [3000, 3400, 4100, 3800, 2200, 3200, 2900, 1900, 2900, 3900, 2500, 3800]
 					}
 				],
 				yesterday: [
 					{
-						label: 'Visitors',
-						data: [1190, 1300, 2340, 1220, 1590, 1990, 1250, 1080, 2000, 2380, 2420, 2190],
-						fill: 'start'
+						name: 'Visitors',
+						data: [1190, 1300, 2340, 1220, 1590, 1990, 1250, 1080, 2000, 2380, 2420, 2190]
 					},
 					{
-						label: 'Page views',
-						data: [2200, 2900, 3900, 2500, 3800, 3200, 2900, 1900, 3000, 3400, 4100, 3800],
-						fill: 'start'
+						name: 'Page views',
+						data: [2200, 2900, 3900, 2500, 3800, 3200, 2900, 1900, 3000, 3400, 4100, 3800]
 					}
 				]
 			},
-			labels: ['12am', '2am', '4am', '6am', '8am', '10am', '12pm', '2pm', '4pm', '6pm', '8pm', '10pm'],
 			options: {
-				spanGaps: false,
-				legend: {
-					display: false
-				},
-				maintainAspectRatio: false,
-				tooltips: {
-					position: 'nearest',
-					mode: 'index',
-					intersect: false
-				},
-				layout: {
-					padding: {
-						left: 24,
-						right: 32
+				chart: {
+					type: 'area',
+					height: '100%',
+					stacked: true,
+					foreColor: '#999',
+					toolbar: {
+						show: false
+					},
+					zoom: {
+						enabled: false
+					},
+					dropShadow: {
+						enabled: true,
+						enabledSeries: [0],
+						top: -2,
+						left: 2,
+						blur: 5,
+						opacity: 0.03
 					}
 				},
-				elements: {
-					point: {
-						radius: 4,
-						borderWidth: 2,
-						hoverRadius: 4,
-						hoverBorderWidth: 2
+				stroke: {
+					curve: 'smooth',
+					width: 3
+				},
+				dataLabels: {
+					enabled: false
+				},
+				markers: {
+					size: 0,
+					strokeColor: '#fff',
+					strokeWidth: 3,
+					strokeOpacity: 1,
+					fillOpacity: 1,
+					hover: {
+						size: 6
 					}
 				},
-				scales: {
-					xAxes: [
-						{
-							gridLines: {
-								display: false
-							},
-							ticks: {
-								fontColor: 'rgba(0,0,0,0.54)'
-							}
-						}
+				xaxis: {
+					categories: [
+						'12am',
+						'2am',
+						'4am',
+						'6am',
+						'8am',
+						'10am',
+						'12pm',
+						'2pm',
+						'4pm',
+						'6pm',
+						'8pm',
+						'10pm'
 					],
-					yAxes: [
-						{
-							gridLines: {
-								tickMarkLength: 16
-							},
-							ticks: {
-								stepSize: 1000
-							}
-						}
-					]
-				},
-				plugins: {
-					filler: {
-						propagate: false
+					axisBorder: {
+						show: false
+					},
+					axisTicks: {
+						show: false
 					}
+				},
+				yaxis: {
+					tooltip: {
+						enabled: true
+					}
+				},
+				grid: {
+					position: 'back'
+				},
+				legend: {
+					show: false
+				},
+				fill: {
+					type: 'solid',
+					opacity: 0.7
 				}
 			}
 		},
@@ -490,8 +464,7 @@ const analyticsDashboardAppDB = {
 		},
 		{
 			id: 'widget7',
-			labels: ['Desktop', 'Mobile', 'Tablet'],
-			datasets: {
+			series: {
 				Today: [
 					{
 						data: [92.8, 6.1, 1.1],
@@ -524,83 +497,114 @@ const analyticsDashboardAppDB = {
 				]
 			},
 			options: {
-				cutoutPercentage: 75,
-				spanGaps: false,
-				legend: {
-					display: false
+				chart: {
+					height: '100%',
+					type: 'donut'
 				},
-				maintainAspectRatio: false
+				labels: ['Desktop', 'Mobile', 'Tablet'],
+				legend: {
+					show: false
+				},
+				dataLabels: {
+					enabled: false
+				},
+				stroke: {
+					width: 2,
+					colors: undefined
+				},
+				fill: {
+					opacity: 1
+				},
+				theme: {
+					monochrome: {
+						enabled: true,
+						shadeTo: 'light',
+						shadeIntensity: 0.65
+					}
+				},
+				states: {
+					hover: {
+						filter: {
+							type: 'darken'
+						}
+					}
+				}
 			}
 		},
 		{
 			id: 'widget8',
-			datasets: [
+			series: [
 				[
 					{
-						label: '1Day',
-						data: [72, 65, 70, 78, 85, 82, 88],
-						fill: false,
-						borderColor: '#5c84f1'
+						name: '1Day',
+						data: [72, 65, 70, 78, 85, 82, 88]
 					}
 				],
 				[
 					{
-						label: '1Week',
-						data: [540, 539, 527, 548, 540, 552, 566],
-						fill: false,
-						borderColor: '#5c84f1'
+						name: '1Week',
+						data: [540, 539, 527, 548, 540, 552, 566]
 					}
 				],
 				[
 					{
-						label: '1Month',
-						data: [1520, 1529, 1567, 1588, 1590, 1652, 1622],
-						fill: false,
-						borderColor: '#5c84f1'
+						name: '1Month',
+						data: [1520, 1529, 1567, 1588, 1590, 1652, 1622]
 					}
 				]
 			],
 			labels: ['1', '2', '3', '4', '5', '6', '7'],
 			options: {
-				spanGaps: true,
-				legend: {
-					display: false
-				},
-				maintainAspectRatio: true,
-				elements: {
-					point: {
-						radius: 2,
-						borderWidth: 1,
-						hoverRadius: 2,
-						hoverBorderWidth: 1
+				chart: {
+					type: 'line',
+					height: '100%',
+					toolbar: {
+						show: false
 					},
-					line: {
-						tension: 0
+					zoom: {
+						enabled: false
 					}
 				},
-				layout: {
+				stroke: {
+					width: 3
+				},
+				dataLabels: {
+					enabled: false
+				},
+				markers: {
+					size: 3,
+					strokeWidth: 1,
+					strokeOpacity: 1,
+					fillOpacity: 1,
+					hover: {
+						size: 3
+					}
+				},
+				xaxis: {
+					labels: {
+						show: false
+					},
+					axisBorder: {
+						show: false
+					},
+					axisTicks: {
+						show: false
+					}
+				},
+				yaxis: {
+					tooltip: {
+						enabled: true
+					}
+				},
+				grid: {
+					position: 'back',
 					padding: {
-						top: 24,
-						left: 16,
-						right: 16,
-						bottom: 16
+						top: 0,
+						bottom: 0
 					}
 				},
-				scales: {
-					xAxes: [
-						{
-							display: false
-						}
-					],
-					yAxes: [
-						{
-							display: true,
-							ticks: {
-								// min: 100,
-								// max: 500
-							}
-						}
-					]
+				legend: {
+					show: false
 				}
 			},
 			today: '12,540',
