@@ -1,9 +1,9 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
 import Hidden from '@material-ui/core/Hidden';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
+import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
 import NotesSearch from './NotesSearch';
 import { toggleVariateDescSize } from './store/notesSlice';
@@ -25,14 +25,14 @@ function NotesHeader(props) {
 				</Hidden>
 
 				<div className="flex items-center">
-					<FuseAnimate animation="transition.expandIn" delay={300}>
+					<motion.div initial={{ scale: 0 }} animate={{ scale: 1, transition: { delay: 0.2 } }}>
 						<Icon className="text-32">account_box</Icon>
-					</FuseAnimate>
-					<FuseAnimate animation="transition.slideLeftIn" delay={300}>
+					</motion.div>
+					<motion.div initial={{ x: -20 }} animate={{ x: 0, transition: { delay: 0.2 } }} delay={300}>
 						<Typography variant="h6" className="font-medium mx-12 hidden sm:flex">
 							Notes
 						</Typography>
-					</FuseAnimate>
+					</motion.div>
 				</div>
 			</div>
 

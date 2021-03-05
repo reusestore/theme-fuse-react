@@ -1,4 +1,3 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
@@ -63,11 +62,9 @@ function IconsUI() {
 							</Icon>
 							<Typography color="textSecondary">User Interface</Typography>
 						</div>
-						<FuseAnimate>
-							<Typography variant="h6" className="text-18 sm:text-24">
-								Icons
-							</Typography>
-						</FuseAnimate>
+						<Typography variant="h6" className="text-18 sm:text-24">
+							Icons
+						</Typography>
 					</div>
 
 					<div className="flex flex-1 items-center justify-center w-full sm:w-auto sm:px-12">
@@ -115,31 +112,27 @@ function IconsUI() {
 						() =>
 							filteredData &&
 							(filteredData.length > 0 ? (
-								<FuseAnimate animation="transition.slideUpBigIn" delay={300}>
-									<div className="flex flex-wrap justify-center">
-										{filteredData.map(item => (
-											<div
-												className="w-1/3 h-128 p-8 sm:w-160 sm:p-16 flex flex-col items-center justify-center"
-												key={item.name}
-											>
-												<Icon className="text-48" color="action">
-													{item.name}
-												</Icon>
-												<Typography variant="caption" className="mt-4">
-													{item.name}
-												</Typography>
-											</div>
-										))}
-									</div>
-								</FuseAnimate>
+								<div className="flex flex-wrap justify-center">
+									{filteredData.map(item => (
+										<div
+											className="w-1/3 h-128 p-8 sm:w-160 sm:p-16 flex flex-col items-center justify-center"
+											key={item.name}
+										>
+											<Icon className="text-48" color="action">
+												{item.name}
+											</Icon>
+											<Typography variant="caption" className="mt-4">
+												{item.name}
+											</Typography>
+										</div>
+									))}
+								</div>
 							) : (
-								<FuseAnimate animation="transition.slideUpBigIn" delay={300}>
-									<div className="flex flex-auto items-center justify-center w-full h-full">
-										<Typography color="textSecondary" variant="h5">
-											No results!
-										</Typography>
-									</div>
-								</FuseAnimate>
+								<div className="flex flex-auto items-center justify-center w-full h-full">
+									<Typography color="textSecondary" variant="h5">
+										No results!
+									</Typography>
+								</div>
 							)),
 						[filteredData]
 					)}

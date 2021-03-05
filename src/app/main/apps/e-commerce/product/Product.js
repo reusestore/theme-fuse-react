@@ -1,4 +1,3 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
 import FuseLoading from '@fuse/core/FuseLoading';
 import FusePageCarded from '@fuse/core/FusePageCarded';
 import { useDeepCompareEffect } from '@fuse/hooks';
@@ -7,7 +6,8 @@ import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
 import withReducer from 'app/store/withReducer';
-import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import _ from '@lodash';
@@ -106,22 +106,24 @@ function Product(props) {
 	 */
 	if (noProduct) {
 		return (
-			<FuseAnimate delay={100}>
-				<div className="flex flex-col flex-1 items-center justify-center h-full">
-					<Typography color="textSecondary" variant="h5">
-						There is no such product!
-					</Typography>
-					<Button
-						className="mt-24"
-						component={Link}
-						variant="outlined"
-						to="/apps/e-commerce/products"
-						color="inherit"
-					>
-						Go to Products Page
-					</Button>
-				</div>
-			</FuseAnimate>
+			<motion.div
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1, transition: { delay: 0.1 } }}
+				className="flex flex-col flex-1 items-center justify-center h-full"
+			>
+				<Typography color="textSecondary" variant="h5">
+					There is no such product!
+				</Typography>
+				<Button
+					className="mt-24"
+					component={Link}
+					variant="outlined"
+					to="/apps/e-commerce/products"
+					color="inherit"
+				>
+					Go to Products Page
+				</Button>
+			</motion.div>
 		);
 	}
 

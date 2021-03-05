@@ -1,7 +1,7 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
 import Icon from '@material-ui/core/Icon';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 
 const accounts = {
@@ -19,15 +19,25 @@ function TodoSidebarHeader() {
 	return (
 		<div className="flex flex-col justify-center h-full p-24">
 			<div className="flex items-center flex-1">
-				<FuseAnimate animation="transition.expandIn" delay={300}>
-					<Icon className="text-32">check_box</Icon>
-				</FuseAnimate>
-				<FuseAnimate animation="transition.slideLeftIn" delay={300}>
-					<span className="text-24 mx-16 font-medium">To-Do</span>
-				</FuseAnimate>
+				<Icon
+					component={motion.span}
+					initial={{ scale: 0 }}
+					animate={{ scale: 1, transition: { delay: 0.2 } }}
+					className="text-32"
+				>
+					check_box
+				</Icon>
+				<motion.span
+					initial={{ x: -20 }}
+					animate={{ x: 0, transition: { delay: 0.2 } }}
+					delay={300}
+					className="text-24 mx-16 font-medium"
+				>
+					To-Do
+				</motion.span>
 			</div>
 
-			<FuseAnimate animation="transition.slideUpIn" delay={300}>
+			<motion.div initial={{ y: 20, opacity: 0.8 }} animate={{ y: 0, opacity: 1, transition: { delay: 0.3 } }}>
 				<TextField
 					id="account-selection"
 					select
@@ -44,7 +54,7 @@ function TodoSidebarHeader() {
 						</MenuItem>
 					))}
 				</TextField>
-			</FuseAnimate>
+			</motion.div>
 		</div>
 	);
 }

@@ -1,5 +1,3 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
-import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import Button from '@material-ui/core/Button';
 import { blue, green } from '@material-ui/core/colors';
@@ -11,6 +9,7 @@ import { makeStyles, ThemeProvider, useTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 const useStyles = makeStyles({
@@ -33,6 +32,19 @@ function ClassicSearchPage() {
 		});
 	}, []);
 
+	const container = {
+		show: {
+			transition: {
+				staggerChildren: 0.05
+			}
+		}
+	};
+
+	const item = {
+		hidden: { opacity: 0, y: 40 },
+		show: { opacity: 1, y: 0 }
+	};
+
 	return (
 		<FusePageSimple
 			header={
@@ -54,27 +66,26 @@ function ClassicSearchPage() {
 			}
 			content={
 				<div className="p-16 pt-0 sm:p-24 sm:pt-0 max-w-md">
-					<FuseAnimate delay={200}>
-						<Typography color="textSecondary" className="text-13 mt-12 mb-24">
-							{data.length} results
-						</Typography>
-					</FuseAnimate>
-
-					<FuseAnimateGroup
-						enter={{
-							animation: 'transition.slideUpBigIn'
-						}}
-					>
-						{data.map(item => (
-							<div className="mb-28" key={item.id}>
-								<Typography className={clsx(classes.title, 'text-18 cursor-pointer')}>
-									{item.title}
+					{data.length > 0 && (
+						<motion.div variants={container} initial="hidden" animate="show">
+							<motion.div variants={item}>
+								<Typography color="textSecondary" className="text-13 mt-12 mb-24">
+									{data.length} results
 								</Typography>
-								<Typography className={clsx(classes.url)}>{item.url}</Typography>
-								<Typography className="text-13">{item.excerpt}</Typography>
-							</div>
-						))}
-					</FuseAnimateGroup>
+							</motion.div>
+
+							{data.map(_item => (
+								<motion.div variants={item} className="mb-28" key={_item.id}>
+									<Typography className={clsx(classes.title, 'text-18 cursor-pointer')}>
+										{_item.title}
+									</Typography>
+									<Typography className={clsx(classes.url)}>{_item.url}</Typography>
+									<Typography className="text-13">{_item.excerpt}</Typography>
+								</motion.div>
+							))}
+						</motion.div>
+					)}
+
 					<div className="flex justify-center mt-32">
 						<div className="flex item-center">
 							<IconButton className="w-32">

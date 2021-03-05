@@ -1,4 +1,4 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
+import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Button from '@material-ui/core/Button';
@@ -60,112 +60,127 @@ function Login2Page() {
 	}
 
 	return (
-		<div className={clsx(classes.root, 'flex flex-col flex-auto flex-shrink-0 p-24 md:flex-row md:p-0')}>
+		<div
+			className={clsx(
+				classes.root,
+				'flex flex-col flex-auto flex-shrink-0 p-24 md:flex-row md:p-0 overflow-hidden'
+			)}
+		>
 			<div className="flex flex-col flex-grow-0 items-center text-white p-16 text-center md:p-128 md:items-start md:flex-shrink-0 md:flex-1 md:text-left">
-				<FuseAnimate animation="transition.expandIn">
+				<motion.div
+					initial={{ opacity: 0, scale: 0.6 }}
+					animate={{ opacity: 1, scale: 1, transition: { delay: 0.1 } }}
+				>
 					<img className="w-128 mb-32" src="assets/images/logos/fuse.svg" alt="logo" />
-				</FuseAnimate>
+				</motion.div>
 
-				<FuseAnimate animation="transition.slideUpIn" delay={400}>
+				<motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0, transition: { delay: 0.2 } }}>
 					<Typography variant="h3" color="inherit" className="font-semibold leading-tight">
-						Welcome to the <br /> FUSE React!
+						Welcome <br />
+						to the <br /> FUSE React!
 					</Typography>
-				</FuseAnimate>
+				</motion.div>
 
-				<FuseAnimate delay={500}>
+				<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.3 } }}>
 					<Typography variant="subtitle1" color="inherit" className="mt-32">
 						Powerful and professional admin template for Web Applications, CRM, CMS, Admin Panels and more.
 					</Typography>
-				</FuseAnimate>
+				</motion.div>
 			</div>
 
-			<FuseAnimate animation={{ translateX: [0, '100%'] }}>
-				<Card className="w-full max-w-400 mx-auto m-16 md:m-0" square>
-					<CardContent className="flex flex-col items-center justify-center p-32 md:p-48 md:pt-128 ">
-						<Typography variant="h6" className="mb-32 font-medium text-20 sm:text-24">
-							Login to your account
-						</Typography>
+			<Card
+				component={motion.div}
+				initial={{ x: 200 }}
+				animate={{ x: 0 }}
+				transition={{ bounceDamping: 0 }}
+				className="w-full max-w-400 mx-auto m-16 md:m-0"
+				square
+				layout
+			>
+				<CardContent className="flex flex-col items-center justify-center p-32 md:p-48 md:pt-128 ">
+					<Typography variant="h6" className="mb-32 font-medium text-20 sm:text-24">
+						Login to your account
+					</Typography>
 
-						<form
-							name="loginForm"
-							noValidate
-							className="flex flex-col justify-center w-full"
-							onSubmit={handleSubmit(onSubmit)}
-						>
-							<TextField
-								className="mb-16"
-								label="Email"
-								autoFocus
-								type="email"
-								name="email"
-								inputRef={register}
-								error={!!errors.email}
-								helperText={errors?.email?.message}
-								variant="outlined"
-								required
-								fullWidth
-							/>
+					<form
+						name="loginForm"
+						noValidate
+						className="flex flex-col justify-center w-full"
+						onSubmit={handleSubmit(onSubmit)}
+					>
+						<TextField
+							className="mb-16"
+							label="Email"
+							autoFocus
+							type="email"
+							name="email"
+							inputRef={register}
+							error={!!errors.email}
+							helperText={errors?.email?.message}
+							variant="outlined"
+							required
+							fullWidth
+						/>
 
-							<TextField
-								className="mb-16"
-								label="Password"
-								type="password"
-								name="password"
-								inputRef={register}
-								error={!!errors.password}
-								helperText={errors?.password?.message}
-								variant="outlined"
-								required
-								fullWidth
-							/>
+						<TextField
+							className="mb-16"
+							label="Password"
+							type="password"
+							name="password"
+							inputRef={register}
+							error={!!errors.password}
+							helperText={errors?.password?.message}
+							variant="outlined"
+							required
+							fullWidth
+						/>
 
-							<div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between">
-								<FormControl>
-									<FormControlLabel
-										control={<Checkbox name="remember" inputRef={register} />}
-										label="Remember Me"
-									/>
-								</FormControl>
+						<div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between">
+							<FormControl>
+								<FormControlLabel
+									control={<Checkbox name="remember" inputRef={register} />}
+									label="Remember Me"
+								/>
+							</FormControl>
 
-								<Link className="font-normal" to="/pages/auth/forgot-password-2">
-									Forgot Password?
-								</Link>
-							</div>
-
-							<Button
-								variant="contained"
-								color="primary"
-								className="w-full mx-auto mt-16"
-								aria-label="LOG IN"
-								disabled={_.isEmpty(dirtyFields) || !isValid}
-							>
-								Login
-							</Button>
-						</form>
-
-						<div className="my-24 flex items-center justify-center">
-							<Divider className="w-32" />
-							<span className="mx-8 font-semibold">OR</span>
-							<Divider className="w-32" />
-						</div>
-
-						<Button variant="contained" color="secondary" size="small" className="w-192 mb-8">
-							Log in with Google
-						</Button>
-
-						<Button variant="contained" color="primary" size="small" className="w-192">
-							Log in with Facebook
-						</Button>
-
-						<div className="flex flex-col items-center justify-center pt-32 pb-24">
-							<span className="font-normal">Don't have an account?</span>
-							<Link className="font-normal" to="/pages/auth/register-2">
-								Create an account
+							<Link className="font-normal" to="/pages/auth/forgot-password-2">
+								Forgot Password?
 							</Link>
 						</div>
-					</CardContent>
-				</Card>
-			</FuseAnimate>
+
+						<Button
+							variant="contained"
+							color="primary"
+							className="w-full mx-auto mt-16"
+							aria-label="LOG IN"
+							disabled={_.isEmpty(dirtyFields) || !isValid}
+						>
+							Login
+						</Button>
+					</form>
+
+					<div className="my-24 flex items-center justify-center">
+						<Divider className="w-32" />
+						<span className="mx-8 font-semibold">OR</span>
+						<Divider className="w-32" />
+					</div>
+
+					<Button variant="contained" color="secondary" size="small" className="w-192 mb-8">
+						Log in with Google
+					</Button>
+
+					<Button variant="contained" color="primary" size="small" className="w-192">
+						Log in with Facebook
+					</Button>
+
+					<div className="flex flex-col items-center justify-center pt-32 pb-24">
+						<span className="font-normal">Don't have an account?</span>
+						<Link className="font-normal" to="/pages/auth/register-2">
+							Create an account
+						</Link>
+					</div>
+				</CardContent>
+			</Card>
 		</div>
 	);
 }

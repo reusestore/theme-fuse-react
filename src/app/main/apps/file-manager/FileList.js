@@ -1,4 +1,3 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
 import Hidden from '@material-ui/core/Hidden';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
@@ -9,6 +8,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSelectedItem, selectFiles } from './store/filesSlice';
 
@@ -37,7 +37,7 @@ function FileList(props) {
 	const classes = useStyles();
 
 	return (
-		<FuseAnimate animation="transition.slideUpIn" delay={300}>
+		<motion.div initial={{ y: 50, opacity: 0.8 }} animate={{ y: 0, opacity: 1, transition: { delay: 0.3 } }}>
 			<Table>
 				<TableHead>
 					<TableRow>
@@ -85,7 +85,7 @@ function FileList(props) {
 					})}
 				</TableBody>
 			</Table>
-		</FuseAnimate>
+		</motion.div>
 	);
 }
 

@@ -1,5 +1,5 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
 import Typography from '@material-ui/core/Typography';
+import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Button from '@material-ui/core/Button';
@@ -48,7 +48,7 @@ function ForgotPasswordPage() {
 	return (
 		<div className={clsx(classes.root, 'flex flex-col flex-auto flex-shrink-0 items-center justify-center p-32')}>
 			<div className="flex flex-col items-center justify-center w-full">
-				<FuseAnimate animation="transition.expandIn">
+				<motion.div initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }}>
 					<Card className="w-full max-w-384">
 						<CardContent className="flex flex-col items-center justify-center p-32">
 							<div className="w-128 m-32">
@@ -97,7 +97,7 @@ function ForgotPasswordPage() {
 							</div>
 						</CardContent>
 					</Card>
-				</FuseAnimate>
+				</motion.div>
 			</div>
 		</div>
 	);

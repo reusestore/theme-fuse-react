@@ -1,5 +1,3 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
-import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import Dialog from '@material-ui/core/Dialog';
@@ -17,6 +15,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import { forwardRef, useEffect, useMemo, useState } from 'react';
 
 const Transition = forwardRef(function Transition(props, ref) {
@@ -60,7 +59,7 @@ function KnowledgeBasePage() {
 					'flex flex-col items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-360'
 				)}
 			>
-				<FuseAnimate duration={400} delay={600}>
+				<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.3 } }}>
 					<Typography
 						variant="subtitle1"
 						color="inherit"
@@ -68,57 +67,76 @@ function KnowledgeBasePage() {
 					>
 						Welcome to our knowledge base
 					</Typography>
-				</FuseAnimate>
-				<FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
+				</motion.div>
+
+				<motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}>
 					<Typography color="inherit" className="text-36 sm:text-56 font-medium tracking-tight">
 						How can we help?
 					</Typography>
-				</FuseAnimate>
+				</motion.div>
 			</div>
 
 			<div>
-				{useMemo(
-					() => (
-						<FuseAnimateGroup
-							enter={{
-								animation: 'transition.slideUpBigIn'
-							}}
-							className="flex flex-wrap justify-center max-w-xl w-full mx-auto px-16 sm:px-24 py-32"
-						>
-							{data.map(category => (
-								<div className="max-w-md w-full max-w-512 pb-24 md:w-1/2 md:p-16" key={category.id}>
-									<Card className="rounded-16 shadow">
-										<List component="nav" className="p-0">
-											<Typography className="font-medium pl-32 py-16 text-16">
-												{category.title}
-											</Typography>
+				{useMemo(() => {
+					const container = {
+						show: {
+							transition: {
+								staggerChildren: 0.1
+							}
+						}
+					};
 
-											{category.featuredArticles.map((article, index) => (
-												<ListItem
-													key={article.id}
-													onClick={() => handleOpenDialog(article)}
-													className="pl-32 border-b-1 border-solid"
-													button
-												>
-													<ListItemIcon className="min-w-40">
-														<Icon className="text-20">import_contacts</Icon>
-													</ListItemIcon>
-													<ListItemText primary={article.title} />
-												</ListItem>
-											))}
-										</List>
-										<div className="w-full p-24 px-32">
-											<Button className="px-24" color="primary" variant="outlined">
-												{`See all articles (${category.articlesCount})`}
-											</Button>
-										</div>
-									</Card>
-								</div>
-							))}
-						</FuseAnimateGroup>
-					),
-					[data]
-				)}
+					const item = {
+						hidden: { opacity: 0, y: 40 },
+						show: { opacity: 1, y: 0 }
+					};
+
+					return (
+						data.length > 0 && (
+							<motion.div
+								variants={container}
+								initial="hidden"
+								animate="show"
+								className="flex flex-wrap justify-center max-w-xl w-full mx-auto px-16 sm:px-24 py-32"
+							>
+								{data.map(category => (
+									<motion.div
+										variants={item}
+										className="max-w-md w-full max-w-512 pb-24 md:w-1/2 md:p-16"
+										key={category.id}
+									>
+										<Card className="rounded-16 shadow">
+											<List component="nav" className="p-0">
+												<Typography className="font-medium pl-32 py-16 text-16">
+													{category.title}
+												</Typography>
+
+												{category.featuredArticles.map((article, index) => (
+													<ListItem
+														key={article.id}
+														onClick={() => handleOpenDialog(article)}
+														className="pl-32 border-b-1 border-solid"
+														button
+													>
+														<ListItemIcon className="min-w-40">
+															<Icon className="text-20">import_contacts</Icon>
+														</ListItemIcon>
+														<ListItemText primary={article.title} />
+													</ListItem>
+												))}
+											</List>
+											<div className="w-full p-24 px-32">
+												<Button className="px-24" color="primary" variant="outlined">
+													{`See all articles (${category.articlesCount})`}
+												</Button>
+											</div>
+										</Card>
+									</motion.div>
+								))}
+							</motion.div>
+						)
+					);
+				}, [data])}
 			</div>
 
 			{useMemo(() => {

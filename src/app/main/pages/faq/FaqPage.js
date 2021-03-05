@@ -1,5 +1,3 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
-import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import FuseUtils from '@fuse/utils';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -11,6 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import { useEffect, useMemo, useState } from 'react';
 
 const useStyles = makeStyles(theme => ({
@@ -77,7 +76,7 @@ function FaqPage() {
 					'flex flex-col flex-shrink-0 items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-360'
 				)}
 			>
-				<FuseAnimate duration={400} delay={600}>
+				<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.3 } }}>
 					<Typography
 						variant="subtitle1"
 						color="inherit"
@@ -85,13 +84,13 @@ function FaqPage() {
 					>
 						Frequently asked questions
 					</Typography>
-				</FuseAnimate>
+				</motion.div>
 
-				<FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
+				<motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}>
 					<Typography color="inherit" className="text-36 sm:text-56 font-medium tracking-tight">
 						We're here to help
 					</Typography>
-				</FuseAnimate>
+				</motion.div>
 
 				<Paper className="flex items-center h-56 w-full max-w-md mt-16 sm:mt-32 rounded-16 shadow">
 					<Icon color="action" className="mx-16">
@@ -119,36 +118,51 @@ function FaqPage() {
 						</Typography>
 					</div>
 				)}
-				<FuseAnimateGroup
-					enter={{
-						animation: 'transition.slideUpBigIn'
-					}}
-				>
-					{useMemo(() => {
-						return filteredData.map(faq => (
-							<Accordion
-								classes={{
-									root: clsx(classes.panel, 'shadow-0'),
-									expanded: classes.expanded
-								}}
-								key={faq.id}
-								expanded={expanded === faq.id}
-								onChange={toggleAccordion(faq.id)}
-							>
-								<AccordionSummary expandIcon={<Icon>expand_more</Icon>}>
-									<div className="flex items-center py-4">
-										<Icon color="action">help_outline</Icon>
-										<Typography className="px-12 font-medium">{faq.question}</Typography>
-									</div>
-								</AccordionSummary>
+				{useMemo(() => {
+					const container = {
+						show: {
+							transition: {
+								staggerChildren: 0.05
+							}
+						}
+					};
 
-								<AccordionDetails>
-									<Typography className="text-14 px-32 pb-8 -mt-8">{faq.answer}</Typography>
-								</AccordionDetails>
-							</Accordion>
-						));
-					}, [filteredData, classes, expanded])}
-				</FuseAnimateGroup>
+					const item = {
+						hidden: { opacity: 0, y: 20 },
+						show: { opacity: 1, y: 0 }
+					};
+
+					return (
+						filteredData.length > 0 && (
+							<motion.div variants={container} initial="hidden" animate="show">
+								{filteredData.map(faq => (
+									<Accordion
+										component={motion.div}
+										variants={item}
+										key={faq.id}
+										classes={{
+											root: clsx(classes.panel, 'shadow-0'),
+											expanded: classes.expanded
+										}}
+										expanded={expanded === faq.id}
+										onChange={toggleAccordion(faq.id)}
+									>
+										<AccordionSummary expandIcon={<Icon>expand_more</Icon>}>
+											<div className="flex items-center py-4">
+												<Icon color="action">help_outline</Icon>
+												<Typography className="px-12 font-medium">{faq.question}</Typography>
+											</div>
+										</AccordionSummary>
+
+										<AccordionDetails>
+											<Typography className="text-14 px-32 pb-8 -mt-8">{faq.answer}</Typography>
+										</AccordionDetails>
+									</Accordion>
+								))}
+							</motion.div>
+						)
+					);
+				}, [filteredData, classes, expanded])}
 			</div>
 		</div>
 	);

@@ -2,11 +2,10 @@ import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import { useTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import React from 'react';
+import { motion } from 'framer-motion';
 import { useFormContext } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
-import FuseAnimate from '@fuse/core/FuseAnimate/FuseAnimate';
 import _ from '@lodash';
 import { saveProduct, removeProduct } from '../store/productSlice';
 
@@ -34,7 +33,7 @@ function ProductHeader(props) {
 	return (
 		<div className="flex flex-1 w-full items-center justify-between">
 			<div className="flex flex-col items-start max-w-full">
-				<FuseAnimate animation="transition.slideRightIn" delay={300}>
+				<motion.div initial={{ x: 20, opacity: 0 }} animate={{ x: 0, opacity: 1, transition: { delay: 0.3 } }}>
 					<Typography
 						className="flex items-center sm:mb-12"
 						component={Link}
@@ -45,10 +44,10 @@ function ProductHeader(props) {
 						<Icon className="text-20">{theme.direction === 'ltr' ? 'arrow_back' : 'arrow_forward'}</Icon>
 						<span className="mx-4">Products</span>
 					</Typography>
-				</FuseAnimate>
+				</motion.div>
 
 				<div className="flex items-center max-w-full">
-					<FuseAnimate animation="transition.expandIn" delay={300}>
+					<motion.div initial={{ scale: 0 }} animate={{ scale: 1, transition: { delay: 0.3 } }}>
 						{images.length > 0 && featuredImageId ? (
 							<img
 								className="w-32 sm:w-48 rounded"
@@ -62,39 +61,35 @@ function ProductHeader(props) {
 								alt={name}
 							/>
 						)}
-					</FuseAnimate>
+					</motion.div>
 					<div className="flex flex-col min-w-0 mx-8 sm:mc-16">
-						<FuseAnimate animation="transition.slideLeftIn" delay={300}>
+						<motion.div initial={{ x: -20 }} animate={{ x: 0, transition: { delay: 0.3 } }}>
 							<Typography className="text-16 sm:text-20 truncate">{name || 'New Product'}</Typography>
-						</FuseAnimate>
-						<FuseAnimate animation="transition.slideLeftIn" delay={300}>
 							<Typography variant="caption">Product Detail</Typography>
-						</FuseAnimate>
+						</motion.div>
 					</div>
 				</div>
 			</div>
-			<FuseAnimate animation="transition.slideRightIn" delay={300}>
-				<div className="flex items-center justify-end -mx-4">
-					<Button
-						className="whitespace-nowrap mx-4"
-						variant="contained"
-						color="secondary"
-						onClick={handleRemoveProduct}
-						startIcon={<Icon>delete</Icon>}
-					>
-						Remove
-					</Button>
-					<Button
-						className="whitespace-nowrap mx-4"
-						variant="contained"
-						color="secondary"
-						disabled={_.isEmpty(dirtyFields) || !isValid}
-						onClick={handleSaveProduct}
-					>
-						Save
-					</Button>
-				</div>
-			</FuseAnimate>
+			<motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0, transition: { delay: 0.3 } }}>
+				<Button
+					className="whitespace-nowrap mx-4"
+					variant="contained"
+					color="secondary"
+					onClick={handleRemoveProduct}
+					startIcon={<Icon>delete</Icon>}
+				>
+					Remove
+				</Button>
+				<Button
+					className="whitespace-nowrap mx-4"
+					variant="contained"
+					color="secondary"
+					disabled={_.isEmpty(dirtyFields) || !isValid}
+					onClick={handleSaveProduct}
+				>
+					Save
+				</Button>
+			</motion.div>
 		</div>
 	);
 }

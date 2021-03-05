@@ -1,4 +1,3 @@
-import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import Icon from '@material-ui/core/Icon';
 import Typography from '@material-ui/core/Typography';
@@ -26,64 +25,53 @@ function HelperClassesUI() {
 			}
 			content={
 				<div className="p-12 md:p-24 max-w-2xl">
-					<FuseAnimateGroup
-						enter={{
-							animation: 'transition.slideUpBigIn'
-						}}
-					>
-						<div>
-							<Typography className="mb-8" variant="h5">
-								Styling in Material-UI
-							</Typography>
+					<div>
+						<Typography className="mb-8" variant="h5">
+							Styling in Material-UI
+						</Typography>
 
-							<Typography className="mb-16" component="p">
-								Fuse React developed based on Material-UI as ui library.
-								<a
-									className="mx-4"
-									href="https://material-ui-next.com/customization/css-in-js"
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									Material-UI's styling solution
-								</a>
-								uses JSS at its core. Therefore the Fuse React supports
-								<a
-									className="mx-4"
-									href="http://cssinjs.org/"
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									JSS (CSSinJS library)
-								</a>
-							</Typography>
-						</div>
+						<Typography className="mb-16" component="p">
+							Fuse React developed based on Material-UI as ui library.
+							<a
+								className="mx-4"
+								href="https://material-ui-next.com/customization/css-in-js"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								Material-UI's styling solution
+							</a>
+							uses JSS at its core. Therefore the Fuse React supports
+							<a className="mx-4" href="http://cssinjs.org/" target="_blank" rel="noopener noreferrer">
+								JSS (CSSinJS library)
+							</a>
+						</Typography>
+					</div>
 
-						<div>
-							<Typography className="mt-32 mb-8" variant="h5">
-								Helper Classes with TailwindCSS
-							</Typography>
+					<div>
+						<Typography className="mt-32 mb-8" variant="h5">
+							Helper Classes with TailwindCSS
+						</Typography>
 
-							<Typography className="mb-16" component="p">
-								We are accepting JSS advantages but we can't leave <b>helper classes</b> for fast
-								development, ease of use, globally access etc. So we have used both in components.
-							</Typography>
+						<Typography className="mb-16" component="p">
+							We are accepting JSS advantages but we can't leave <b>helper classes</b> for fast
+							development, ease of use, globally access etc. So we have used both in components.
+						</Typography>
 
-							<Typography className="mb-16" component="p">
-								We are using
-								<a
-									className="mx-4"
-									href="https://tailwindcss.com"
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									TailwindCSS
-								</a>
-								as an engine for generating helper classes. It's not an UI kit and it's customizable.
-								You can find the config file of Tailwind with named "<b>tailwind.js</b>" under the root
-								of Fuse React.
-							</Typography>
-						</div>
-					</FuseAnimateGroup>
+						<Typography className="mb-16" component="p">
+							We are using
+							<a
+								className="mx-4"
+								href="https://tailwindcss.com"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								TailwindCSS
+							</a>
+							as an engine for generating helper classes. It's not an UI kit and it's customizable. You
+							can find the config file of Tailwind with named "<b>tailwind.js</b>" under the root of Fuse
+							React.
+						</Typography>
+					</div>
 				</div>
 			}
 		/>

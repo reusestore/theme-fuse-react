@@ -1,7 +1,7 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import { useTheme } from '@material-ui/core/styles';
+import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter, useParams } from 'react-router-dom';
 import { updateMail } from '../store/mailSlice';
@@ -31,16 +31,16 @@ function MailToolbar(props) {
 			</IconButton>
 
 			<div className="flex items-center justify-start" aria-label="Toggle star">
-				<FuseAnimate animation="transition.expandIn" delay={100}>
+				<motion.div initial={{ scale: 0 }} animate={{ scale: 1, transition: { delay: 0.1 } }}>
 					<IconButton onClick={() => dispatch(updateMail({ starred: !mail.starred }))}>
 						{mail.starred ? <Icon>star</Icon> : <Icon>star_border</Icon>}
 					</IconButton>
-				</FuseAnimate>
-				<FuseAnimate animation="transition.expandIn" delay={100}>
+				</motion.div>
+				<motion.div initial={{ scale: 0 }} animate={{ scale: 1, transition: { delay: 0.1 } }}>
 					<IconButton onClick={() => dispatch(updateMail({ important: !mail.important }))}>
 						{mail.important ? <Icon>label</Icon> : <Icon>label_off</Icon>}
 					</IconButton>
-				</FuseAnimate>
+				</motion.div>
 			</div>
 		</div>
 	);

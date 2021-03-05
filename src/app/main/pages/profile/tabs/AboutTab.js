@@ -1,4 +1,3 @@
-import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import AppBar from '@material-ui/core/AppBar';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -13,6 +12,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 function AboutTab() {
@@ -30,15 +30,24 @@ function AboutTab() {
 
 	const { general, work, contact, groups, friends } = data;
 
+	const container = {
+		show: {
+			transition: {
+				staggerChildren: 0.05
+			}
+		}
+	};
+
+	const item = {
+		hidden: { opacity: 0, y: 40 },
+		show: { opacity: 1, y: 0 }
+	};
+
 	return (
-		<div className="md:flex max-w-2xl">
-			<div className="flex flex-col flex-1 md:ltr:pr-32 md:rtl:pl-32">
-				<FuseAnimateGroup
-					enter={{
-						animation: 'transition.slideUpBigIn'
-					}}
-				>
-					<Card className="w-full mb-32 rounded-16 shadow">
+		<motion.div variants={container} initial="hidden" animate="show">
+			<div className="md:flex max-w-2xl">
+				<div className="flex flex-col flex-1 md:ltr:pr-32 md:rtl:pl-32">
+					<Card component={motion.div} variants={item} className="w-full mb-32 rounded-16 shadow">
 						<AppBar position="static" elevation={0}>
 							<Toolbar className="px-8">
 								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12 font-medium">
@@ -78,7 +87,7 @@ function AboutTab() {
 						</CardContent>
 					</Card>
 
-					<Card className="w-full mb-32 rounded-16 shadow">
+					<Card component={motion.div} variants={item} className="w-full mb-32 rounded-16 shadow">
 						<AppBar position="static" elevation={0}>
 							<Toolbar className="px-8">
 								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12 font-medium">
@@ -118,7 +127,7 @@ function AboutTab() {
 						</CardContent>
 					</Card>
 
-					<Card className="w-full mb-32 rounded-16 shadow">
+					<Card component={motion.div} variants={item} className="w-full mb-32 rounded-16 shadow">
 						<AppBar position="static" elevation={0}>
 							<Toolbar className="px-8">
 								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12 font-medium">
@@ -164,16 +173,10 @@ function AboutTab() {
 							</div>
 						</CardContent>
 					</Card>
-				</FuseAnimateGroup>
-			</div>
+				</div>
 
-			<div className="flex flex-col md:w-320">
-				<FuseAnimateGroup
-					enter={{
-						animation: 'transition.slideUpBigIn'
-					}}
-				>
-					<Card className="w-full mb-32 rounded-16 shadow">
+				<div className="flex flex-col md:w-320">
+					<Card component={motion.div} variants={item} className="w-full mb-32 rounded-16 shadow">
 						<AppBar position="static" elevation={0}>
 							<Toolbar className="px-8">
 								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12 font-medium">
@@ -196,7 +199,7 @@ function AboutTab() {
 						</CardContent>
 					</Card>
 
-					<Card className="w-full mb-32 rounded-16 shadow">
+					<Card component={motion.div} variants={item} className="w-full mb-32 rounded-16 shadow">
 						<AppBar position="static" elevation={0}>
 							<Toolbar className="px-8">
 								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12 font-medium">
@@ -242,9 +245,9 @@ function AboutTab() {
 							</List>
 						</CardContent>
 					</Card>
-				</FuseAnimateGroup>
+				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
 }
 

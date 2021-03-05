@@ -1,4 +1,3 @@
-import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import AppBar from '@material-ui/core/AppBar';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -6,7 +5,6 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
-import Divider from '@material-ui/core/Divider';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Input from '@material-ui/core/Input';
@@ -17,6 +15,7 @@ import Paper from '@material-ui/core/Paper';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 function TimelineTab() {
@@ -32,15 +31,28 @@ function TimelineTab() {
 		return null;
 	}
 
+	const container = {
+		show: {
+			transition: {
+				staggerChildren: 0.05
+			}
+		}
+	};
+
+	const item = {
+		hidden: { opacity: 0, y: 40 },
+		show: { opacity: 1, y: 0 }
+	};
+
 	return (
-		<div className="md:flex">
-			<div className="flex flex-col flex-1 md:ltr:pr-32 md:rtl:pl-32">
-				<FuseAnimateGroup
-					enter={{
-						animation: 'transition.slideUpBigIn'
-					}}
-				>
-					<Card className="w-full overflow-hidden rounded-16 shadow mb-32">
+		<motion.div variants={container} initial="hidden" animate="show">
+			<div className="md:flex">
+				<div className="flex flex-col flex-1 md:ltr:pr-32 md:rtl:pl-32">
+					<Card
+						component={motion.div}
+						variants={item}
+						className="w-full overflow-hidden rounded-16 shadow mb-32"
+					>
 						<Input
 							className="p-16 w-full"
 							classes={{ root: 'text-14' }}
@@ -77,7 +89,12 @@ function TimelineTab() {
 					</Card>
 
 					{data.posts.map(post => (
-						<Card key={post.id} className="mb-32 overflow-hidden rounded-16 shadow">
+						<Card
+							component={motion.div}
+							variants={item}
+							key={post.id}
+							className="mb-32 overflow-hidden rounded-16 shadow"
+						>
 							<CardHeader
 								avatar={<Avatar aria-label="Recipe" src={post.user.avatar} />}
 								action={
@@ -218,16 +235,10 @@ function TimelineTab() {
 							</AppBar>
 						</Card>
 					))}
-				</FuseAnimateGroup>
-			</div>
+				</div>
 
-			<div className="flex flex-col md:w-320">
-				<FuseAnimateGroup
-					enter={{
-						animation: 'transition.slideUpBigIn'
-					}}
-				>
-					<Card className="w-full rounded-16 shadow mb-32">
+				<div className="flex flex-col md:w-320">
+					<Card component={motion.div} variants={item} className="w-full rounded-16 shadow mb-32">
 						<AppBar position="static" elevation={0}>
 							<Toolbar className="px-8">
 								<Typography variant="subtitle1" color="inherit" className="flex-1 px-12 font-medium">
@@ -267,9 +278,9 @@ function TimelineTab() {
 							</List>
 						</CardContent>
 					</Card>
-				</FuseAnimateGroup>
+				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
 }
 

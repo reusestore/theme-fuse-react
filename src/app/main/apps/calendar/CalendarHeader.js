@@ -1,10 +1,10 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import { ThemeProvider, withStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import moment from 'moment';
 import Toolbar from 'react-big-calendar/lib/Toolbar';
 import { navigate } from 'react-big-calendar/lib/utils/constants';
@@ -113,7 +113,7 @@ class CalendarHeader extends Toolbar {
 			return viewNames.map(name => (
 				<Tooltip title={viewNamesObj[name].title} key={name}>
 					<div>
-						<FuseAnimate animation="transition.expandIn" delay={500}>
+						<motion.div initial={{ scale: 0 }} animate={{ scale: 1, transition: { delay: 0.3 } }}>
 							<IconButton
 								aria-label={name}
 								onClick={() => this.props.onView(name)}
@@ -121,7 +121,7 @@ class CalendarHeader extends Toolbar {
 							>
 								<Icon>{viewNamesObj[name].icon}</Icon>
 							</IconButton>
-						</FuseAnimate>
+						</motion.div>
 					</div>
 				</Tooltip>
 			));
@@ -138,52 +138,52 @@ class CalendarHeader extends Toolbar {
 					<div className="flex flex-1 flex-col p-12 justify-between z-10 container">
 						<div className="flex flex-col items-center justify-between sm:flex-row">
 							<div className="flex items-center my-16 sm:mb-0">
-								<FuseAnimate animation="transition.expandIn" delay={300}>
+								<motion.div initial={{ scale: 0 }} animate={{ scale: 1, transition: { delay: 0.2 } }}>
 									<Icon className="text-32 mx-12">today</Icon>
-								</FuseAnimate>
-								<FuseAnimate animation="transition.slideLeftIn" delay={300}>
-									<Typography variant="h6">Calendar</Typography>
-								</FuseAnimate>
+								</motion.div>
+								<motion.div initial={{ x: -20 }} animate={{ x: 0, transition: { delay: 0.2 } }}>
+									<Typography variant="h6" className="font-medium mx-12 hidden sm:flex">
+										Calendar
+									</Typography>
+								</motion.div>
 							</div>
 							<div className="flex items-center">
 								<Tooltip title="Today">
 									<div>
-										<FuseAnimate animation="transition.expandIn" delay={500}>
+										<motion.div
+											initial={{ scale: 0 }}
+											animate={{ scale: 1, transition: { delay: 0.3 } }}
+										>
 											<IconButton
 												aria-label="today"
 												onClick={this.navigate.bind(null, navigate.TODAY)}
 											>
 												<Icon>today</Icon>
 											</IconButton>
-										</FuseAnimate>
+										</motion.div>
 									</div>
 								</Tooltip>
 								{this.viewButtons()}
 							</div>
 						</div>
 
-						<FuseAnimate delay={500}>
-							<div className="flex items-center justify-center">
-								<Tooltip title="Previous">
-									<IconButton
-										aria-label="Previous"
-										onClick={this.navigate.bind(null, navigate.PREVIOUS)}
-									>
-										<Icon>
-											{mainThemeDark.direction === 'ltr' ? 'chevron_left' : 'chevron_right'}
-										</Icon>
-									</IconButton>
-								</Tooltip>
-								<Typography variant="h6">{label}</Typography>
-								<Tooltip title="Next">
-									<IconButton aria-label="Next" onClick={this.navigate.bind(null, navigate.NEXT)}>
-										<Icon>
-											{mainThemeDark.direction === 'ltr' ? 'chevron_right' : 'chevron_left'}
-										</Icon>
-									</IconButton>
-								</Tooltip>
-							</div>
-						</FuseAnimate>
+						<motion.div
+							className="flex items-center justify-center"
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1, transition: { delay: 0.3 } }}
+						>
+							<Tooltip title="Previous">
+								<IconButton aria-label="Previous" onClick={this.navigate.bind(null, navigate.PREVIOUS)}>
+									<Icon>{mainThemeDark.direction === 'ltr' ? 'chevron_left' : 'chevron_right'}</Icon>
+								</IconButton>
+							</Tooltip>
+							<Typography variant="h6">{label}</Typography>
+							<Tooltip title="Next">
+								<IconButton aria-label="Next" onClick={this.navigate.bind(null, navigate.NEXT)}>
+									<Icon>{mainThemeDark.direction === 'ltr' ? 'chevron_right' : 'chevron_left'}</Icon>
+								</IconButton>
+							</Tooltip>
+						</motion.div>
 					</div>
 				</div>
 			</ThemeProvider>

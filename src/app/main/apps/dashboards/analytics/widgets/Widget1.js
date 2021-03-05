@@ -1,4 +1,3 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
 import _ from '@lodash';
 import Divider from '@material-ui/core/Divider';
 import { fade } from '@material-ui/core/styles/colorManipulator';
@@ -7,6 +6,7 @@ import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import { memo, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { useSelector } from 'react-redux';
@@ -38,7 +38,7 @@ function Widget1(props) {
 		<ThemeProvider theme={contrastTheme}>
 			<div className={clsx(classes.root)}>
 				<div className="container relative p-16 sm:p-24 flex flex-row justify-between items-center">
-					<FuseAnimate delay={100}>
+					<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 						<div className="flex-col">
 							<Typography className="h2 font-medium" color="textPrimary">
 								Visitors
@@ -47,7 +47,7 @@ function Widget1(props) {
 								Unique visitors by month
 							</Typography>
 						</div>
-					</FuseAnimate>
+					</motion.div>
 
 					<div className="flex flex-row items-center">
 						<Tabs

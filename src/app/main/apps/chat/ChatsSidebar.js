@@ -1,4 +1,3 @@
-import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import FuseUtils from '@fuse/utils';
 import AppBar from '@material-ui/core/AppBar';
@@ -16,6 +15,7 @@ import { useTheme } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { motion } from 'framer-motion';
 import { useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ContactListItem from './ContactListItem';
@@ -199,43 +199,62 @@ function ChatsSidebar(props) {
 						const filteredContacts = getFilteredArray([...contacts], searchText);
 						const filteredChatList = getFilteredArray([...chatListContacts], searchText);
 
+						const container = {
+							show: {
+								transition: {
+									staggerChildren: 0.1
+								}
+							}
+						};
+
+						const item = {
+							hidden: { opacity: 0, y: 20 },
+							show: { opacity: 1, y: 0 }
+						};
+
 						return (
-							<>
-								<FuseAnimateGroup
-									enter={{
-										animation: 'transition.expandIn'
-									}}
-									className="flex flex-col flex-shrink-0"
-								>
-									{filteredChatList.length > 0 && (
+							<motion.div
+								className="flex flex-col flex-shrink-0"
+								variants={container}
+								initial="hidden"
+								animate="show"
+							>
+								{filteredChatList.length > 0 && (
+									<motion.div variants={item}>
 										<Typography className="font-medium text-20 px-16 py-24" color="secondary">
 											Chats
 										</Typography>
-									)}
+									</motion.div>
+								)}
 
-									{filteredChatList.map(contact => (
+								{filteredChatList.map(contact => (
+									<motion.div variants={item}>
 										<ContactListItem
 											key={contact.id}
 											contact={contact}
 											onContactClick={contactId => dispatch(getChat({ contactId, isMobile }))}
 										/>
-									))}
+									</motion.div>
+								))}
 
-									{filteredContacts.length > 0 && (
+								{filteredContacts.length > 0 && (
+									<motion.div variants={item}>
 										<Typography className="font-medium text-20 px-16 py-24" color="secondary">
 											Contacts
 										</Typography>
-									)}
+									</motion.div>
+								)}
 
-									{filteredContacts.map(contact => (
+								{filteredContacts.map(contact => (
+									<motion.div variants={item}>
 										<ContactListItem
 											key={contact.id}
 											contact={contact}
 											onContactClick={contactId => dispatch(getChat({ contactId, isMobile }))}
 										/>
-									))}
-								</FuseAnimateGroup>
-							</>
+									</motion.div>
+								))}
+							</motion.div>
 						);
 					}, [contacts, user, searchText, dispatch, isMobile])}
 				</List>

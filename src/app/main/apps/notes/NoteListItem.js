@@ -1,8 +1,8 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
 import Card from '@material-ui/core/Card';
 import Icon from '@material-ui/core/Icon';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import { useDispatch } from 'react-redux';
 import NoteLabel from './NoteLabel';
 import NoteReminderLabel from './NoteReminderLabel';
@@ -13,7 +13,7 @@ function NoteListItem(props) {
 	const dispatch = useDispatch();
 
 	return (
-		<FuseAnimate animation="transition.fadeIn" duration={400} delay={100}>
+		<motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1, transition: { delay: 0.1 } }}>
 			<Card
 				className={clsx('cursor-pointer', props.className)}
 				onClick={() => dispatch(openNoteDialog(props.note.id))}
@@ -70,7 +70,7 @@ function NoteListItem(props) {
 					</div>
 				)}
 			</Card>
-		</FuseAnimate>
+		</motion.div>
 	);
 }
 

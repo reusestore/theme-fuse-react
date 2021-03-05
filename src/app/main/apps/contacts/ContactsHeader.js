@@ -1,4 +1,3 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
 import Hidden from '@material-ui/core/Hidden';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
@@ -6,6 +5,7 @@ import Input from '@material-ui/core/Input';
 import Paper from '@material-ui/core/Paper';
 import { ThemeProvider } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectMainTheme } from 'app/store/fuse/settingsSlice';
 import { setContactsSearchText } from './store/contactsSlice';
@@ -30,36 +30,39 @@ function ContactsHeader(props) {
 				</Hidden>
 
 				<div className="flex items-center">
-					<FuseAnimate animation="transition.expandIn" delay={300}>
+					<motion.div initial={{ scale: 0 }} animate={{ scale: 1, transition: { delay: 0.2 } }}>
 						<Icon className="text-32">account_box</Icon>
-					</FuseAnimate>
-					<FuseAnimate animation="transition.slideLeftIn" delay={300}>
+					</motion.div>
+					<motion.div initial={{ x: -20 }} animate={{ x: 0, transition: { delay: 0.2 } }} delay={300}>
 						<Typography variant="h6" className="font-medium mx-12 hidden sm:flex">
 							Contacts
 						</Typography>
-					</FuseAnimate>
+					</motion.div>
 				</div>
 			</div>
 
 			<div className="flex flex-1 items-center justify-center px-8 sm:px-12">
 				<ThemeProvider theme={mainTheme}>
-					<FuseAnimate animation="transition.slideLeftIn" delay={300}>
-						<Paper className="flex p-4 items-center w-full max-w-512 h-48 px-16 py-4 shadow">
-							<Icon color="action">search</Icon>
+					<Paper
+						component={motion.div}
+						initial={{ y: -20, opacity: 0 }}
+						animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}
+						className="flex p-4 items-center w-full max-w-512 h-48 px-16 py-4 shadow"
+					>
+						<Icon color="action">search</Icon>
 
-							<Input
-								placeholder="Search for anything"
-								className="flex flex-1 px-16"
-								disableUnderline
-								fullWidth
-								value={searchText}
-								inputProps={{
-									'aria-label': 'Search'
-								}}
-								onChange={ev => dispatch(setContactsSearchText(ev))}
-							/>
-						</Paper>
-					</FuseAnimate>
+						<Input
+							placeholder="Search for anything"
+							className="flex flex-1 px-16"
+							disableUnderline
+							fullWidth
+							value={searchText}
+							inputProps={{
+								'aria-label': 'Search'
+							}}
+							onChange={ev => dispatch(setContactsSearchText(ev))}
+						/>
+					</Paper>
 				</ThemeProvider>
 			</div>
 		</div>

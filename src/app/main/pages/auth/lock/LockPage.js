@@ -1,4 +1,3 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -10,6 +9,7 @@ import { darken } from '@material-ui/core/styles/colorManipulator';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import * as yup from 'yup';
 import _ from '@lodash';
@@ -52,7 +52,7 @@ function LockPage() {
 	return (
 		<div className={clsx(classes.root, 'flex flex-col flex-auto flex-shrink-0 items-center justify-center p-32')}>
 			<div className="flex flex-col items-center justify-center w-full">
-				<FuseAnimate animation="transition.expandIn">
+				<motion.div initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }}>
 					<Card className="w-full max-w-sm">
 						<CardContent className="flex flex-col items-center justify-center p-32">
 							<div className="min-w-full flex flex-col items-center justify-center sm:flex-row sm:justify-start sm:items-center -mx-8">
@@ -121,7 +121,7 @@ function LockPage() {
 							</div>
 						</CardContent>
 					</Card>
-				</FuseAnimate>
+				</motion.div>
 			</div>
 		</div>
 	);

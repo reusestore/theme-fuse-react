@@ -1,4 +1,3 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -7,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 import clsx from 'clsx';
 import AboutTab from './tabs/AboutTab';
@@ -48,14 +48,17 @@ function ProfilePage() {
 			contentToolbar={
 				<>
 					<div className="w-full px-24 pb-48 flex flex-col md:flex-row flex-1 items-center">
-						<FuseAnimate animation="transition.expandIn" delay={300}>
+						<motion.div initial={{ scale: 0 }} animate={{ scale: 1, transition: { delay: 0.1 } }}>
 							<Avatar
 								className={clsx(classes.avatar, '-mt-64  w-128 h-128')}
 								src="assets/images/avatars/Velazquez.jpg"
 							/>
-						</FuseAnimate>
+						</motion.div>
 						<div className="flex flex-col md:flex-row flex-1 items-center justify-between p-8">
-							<FuseAnimate animation="transition.slideLeftIn" delay={300}>
+							<motion.div
+								initial={{ opacity: 0, x: -40 }}
+								animate={{ opacity: 1, x: 0, transition: { delay: 0.2 } }}
+							>
 								<Typography
 									className="md:px-16 text-24 md:text-32 font-semibold tracking-tight"
 									variant="h4"
@@ -63,7 +66,7 @@ function ProfilePage() {
 								>
 									John Doe
 								</Typography>
-							</FuseAnimate>
+							</motion.div>
 
 							<div className="flex items-center justify-end -mx-4 mt-24 md:mt-0">
 								<Button className="mx-8" variant="contained" color="secondary" aria-label="Follow">

@@ -1,4 +1,3 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import Divider from '@material-ui/core/Divider';
 import Icon from '@material-ui/core/Icon';
@@ -9,6 +8,7 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
 import { openLabelsDialog, selectLabels } from './store/labelsSlice';
 
@@ -48,13 +48,49 @@ function NotesSidebarContent(props) {
 
 	return (
 		<div className="p-0 lg:p-24 lg:ltr:pr-4 lg:rtl:pl-4">
-			<FuseAnimate animation="transition.slideLeftIn" delay={200}>
-				<Paper className={clsx(classes.paper, 'rounded-0 shadow-none lg:rounded-20 lg:shadow pt-12')}>
-					<List>
+			<Paper
+				component={motion.div}
+				initial={{ y: 20, opacity: 0 }}
+				animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}
+				className={clsx(classes.paper, 'rounded-0 shadow-none lg:rounded-20 lg:shadow pt-12')}
+			>
+				<List>
+					<ListItem
+						button
+						component={NavLinkAdapter}
+						to="/apps/notes"
+						exact
+						activeClassName="active"
+						className={classes.listItem}
+					>
+						<Icon className="list-item-icon text-16" color="action">
+							label
+						</Icon>
+						<ListItemText className="truncate" primary="Notes" disableTypography />
+					</ListItem>
+					<ListItem
+						button
+						component={NavLinkAdapter}
+						to="/apps/notes/reminders"
+						exact
+						activeClassName="active"
+						className={classes.listItem}
+					>
+						<Icon className="list-item-icon text-16" color="action">
+							notifications
+						</Icon>
+						<ListItemText className="truncate" primary="Reminders" disableTypography />
+					</ListItem>
+				</List>
+				<Divider />
+				<List>
+					<ListSubheader>Labels</ListSubheader>
+					{labels.map(label => (
 						<ListItem
+							key={label.id}
 							button
 							component={NavLinkAdapter}
-							to="/apps/notes"
+							to={`/apps/notes/labels/${label.handle}/${label.id}`}
 							exact
 							activeClassName="active"
 							className={classes.listItem}
@@ -62,65 +98,32 @@ function NotesSidebarContent(props) {
 							<Icon className="list-item-icon text-16" color="action">
 								label
 							</Icon>
-							<ListItemText className="truncate" primary="Notes" disableTypography />
+							<ListItemText className="truncate" primary={label.name} disableTypography />
 						</ListItem>
-						<ListItem
-							button
-							component={NavLinkAdapter}
-							to="/apps/notes/reminders"
-							exact
-							activeClassName="active"
-							className={classes.listItem}
-						>
-							<Icon className="list-item-icon text-16" color="action">
-								notifications
-							</Icon>
-							<ListItemText className="truncate" primary="Reminders" disableTypography />
-						</ListItem>
-					</List>
-					<Divider />
-					<List>
-						<ListSubheader>Labels</ListSubheader>
-						{labels.map(label => (
-							<ListItem
-								key={label.id}
-								button
-								component={NavLinkAdapter}
-								to={`/apps/notes/labels/${label.handle}/${label.id}`}
-								exact
-								activeClassName="active"
-								className={classes.listItem}
-							>
-								<Icon className="list-item-icon text-16" color="action">
-									label
-								</Icon>
-								<ListItemText className="truncate" primary={label.name} disableTypography />
-							</ListItem>
-						))}
-						<ListItem button className={classes.listItem} onClick={ev => dispatch(openLabelsDialog())}>
-							<Icon className="list-item-icon text-16" color="action">
-								edit
-							</Icon>
-							<ListItemText className="truncate" primary="Edit Labels" disableTypography />
-						</ListItem>
-					</List>
-					<Divider />
-					<List>
-						<ListItem
-							button
-							component={NavLinkAdapter}
-							to="/apps/notes/archive"
-							activeClassName="active"
-							className={classes.listItem}
-						>
-							<Icon className="list-item-icon text-16" color="action">
-								archive
-							</Icon>
-							<ListItemText className="truncate" primary="Archive" disableTypography />
-						</ListItem>
-					</List>
-				</Paper>
-			</FuseAnimate>
+					))}
+					<ListItem button className={classes.listItem} onClick={ev => dispatch(openLabelsDialog())}>
+						<Icon className="list-item-icon text-16" color="action">
+							edit
+						</Icon>
+						<ListItemText className="truncate" primary="Edit Labels" disableTypography />
+					</ListItem>
+				</List>
+				<Divider />
+				<List>
+					<ListItem
+						button
+						component={NavLinkAdapter}
+						to="/apps/notes/archive"
+						activeClassName="active"
+						className={classes.listItem}
+					>
+						<Icon className="list-item-icon text-16" color="action">
+							archive
+						</Icon>
+						<ListItemText className="truncate" primary="Archive" disableTypography />
+					</ListItem>
+				</List>
+			</Paper>
 		</div>
 	);
 }

@@ -1,4 +1,4 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
+import { motion } from 'framer-motion';
 import FuseUtils from '@fuse/utils';
 import Avatar from '@material-ui/core/Avatar';
 import Icon from '@material-ui/core/Icon';
@@ -129,7 +129,7 @@ function ContactsList(props) {
 	}
 
 	return (
-		<FuseAnimate animation="transition.slideUpIn" delay={300}>
+		<motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}>
 			<ContactsTable
 				columns={columns}
 				data={filteredData}
@@ -139,7 +139,7 @@ function ContactsList(props) {
 					}
 				}}
 			/>
-		</FuseAnimate>
+		</motion.div>
 	);
 }
 

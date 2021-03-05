@@ -1,4 +1,3 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
 import FusePageCarded from '@fuse/core/FusePageCarded';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
@@ -7,6 +6,7 @@ import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
 import withReducer from 'app/store/withReducer';
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
@@ -47,22 +47,24 @@ function Order(props) {
 
 	if (noOrder) {
 		return (
-			<FuseAnimate delay={100}>
-				<div className="flex flex-col flex-1 items-center justify-center h-full">
-					<Typography color="textSecondary" variant="h5">
-						There is no such order!
-					</Typography>
-					<Button
-						className="mt-24"
-						component={Link}
-						variant="outlined"
-						to="/apps/e-commerce/orders"
-						color="inherit"
-					>
-						Go to Orders Page
-					</Button>
-				</div>
-			</FuseAnimate>
+			<motion.div
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1, transition: { delay: 0.1 } }}
+				className="flex flex-col flex-1 items-center justify-center h-full"
+			>
+				<Typography color="textSecondary" variant="h5">
+					There is no such order!
+				</Typography>
+				<Button
+					className="mt-24"
+					component={Link}
+					variant="outlined"
+					to="/apps/e-commerce/orders"
+					color="inherit"
+				>
+					Go to Orders Page
+				</Button>
+			</motion.div>
 		);
 	}
 
@@ -76,7 +78,10 @@ function Order(props) {
 				order && (
 					<div className="flex flex-1 w-full items-center justify-between">
 						<div className="flex flex-1 flex-col items-center sm:items-start">
-							<FuseAnimate animation="transition.slideRightIn" delay={300}>
+							<motion.div
+								initial={{ x: 20, opacity: 0 }}
+								animate={{ x: 0, opacity: 1, transition: { delay: 0.3 } }}
+							>
 								<Typography
 									className="flex items-center sm:mb-12"
 									component={Link}
@@ -89,20 +94,20 @@ function Order(props) {
 									</Icon>
 									<span className="mx-4">Orders</span>
 								</Typography>
-							</FuseAnimate>
+							</motion.div>
 
 							<div className="flex flex-col min-w-0 items-center sm:items-start">
-								<FuseAnimate animation="transition.slideLeftIn" delay={300}>
+								<motion.div
+									initial={{ x: -20, opacity: 0 }}
+									animate={{ x: 0, opacity: 1, transition: { delay: 0.3 } }}
+								>
 									<Typography className="text-16 sm:text-20 truncate">
 										{`Order ${order.reference}`}
 									</Typography>
-								</FuseAnimate>
-
-								<FuseAnimate animation="transition.slideLeftIn" delay={300}>
 									<Typography variant="caption">
 										{`From ${order.customer.firstName} ${order.customer.lastName}`}
 									</Typography>
-								</FuseAnimate>
+								</motion.div>
 							</div>
 						</div>
 					</div>

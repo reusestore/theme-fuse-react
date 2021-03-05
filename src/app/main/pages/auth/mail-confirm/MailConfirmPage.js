@@ -1,4 +1,3 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Icon from '@material-ui/core/Icon';
@@ -6,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { darken } from '@material-ui/core/styles/colorManipulator';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
@@ -21,7 +21,7 @@ function MailConfirmPage() {
 	return (
 		<div className={clsx(classes.root, 'flex flex-col flex-auto flex-shrink-0 items-center justify-center p-32')}>
 			<div className="flex flex-col items-center justify-center w-full">
-				<FuseAnimate animation="transition.expandIn">
+				<motion.div initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }}>
 					<Card className="w-full max-w-384">
 						<CardContent className="flex flex-col items-center justify-center p-32">
 							<div className="m-32">
@@ -49,7 +49,7 @@ function MailConfirmPage() {
 							</div>
 						</CardContent>
 					</Card>
-				</FuseAnimate>
+				</motion.div>
 			</div>
 		</div>
 	);

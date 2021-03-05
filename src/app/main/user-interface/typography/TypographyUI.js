@@ -1,4 +1,3 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
 import FuseHighlight from '@fuse/core/FuseHighlight';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import Button from '@material-ui/core/Button';
@@ -41,161 +40,159 @@ function TypographyUI() {
 			}
 			content={
 				<div className="p-12 md:p-24 max-w-2xl">
-					<FuseAnimate animation="transition.slideUpBigIn" delay={300}>
-						<Card className="shadow">
-							<CardContent>
-								<div className="flex flex-wrap mb-16">
-									<div className="flex w-full sm:w-1/2">
-										<Typography variant="h1">Display 4</Typography>
-									</div>
-									<div className="flex w-full sm:w-1/2">
-										<FuseHighlight component="pre" className="language-html w-full">
-											{`
+					<Card className="shadow">
+						<CardContent>
+							<div className="flex flex-wrap mb-16">
+								<div className="flex w-full sm:w-1/2">
+									<Typography variant="h1">Display 4</Typography>
+								</div>
+								<div className="flex w-full sm:w-1/2">
+									<FuseHighlight component="pre" className="language-html w-full">
+										{`
                                            <Typography variant="h1">Display 4</Typography>
                                         `}
-										</FuseHighlight>
-									</div>
+									</FuseHighlight>
 								</div>
-								<div className="flex flex-wrap mb-16">
-									<div className="flex w-full sm:w-1/2">
-										<Typography variant="h2">Display 3</Typography>
-									</div>
-									<div className="flex w-full sm:w-1/2">
-										<FuseHighlight component="pre" className="language-html w-full">
-											{`
+							</div>
+							<div className="flex flex-wrap mb-16">
+								<div className="flex w-full sm:w-1/2">
+									<Typography variant="h2">Display 3</Typography>
+								</div>
+								<div className="flex w-full sm:w-1/2">
+									<FuseHighlight component="pre" className="language-html w-full">
+										{`
                                            <Typography variant="h2">Display 3</Typography>
                                         `}
-										</FuseHighlight>
-									</div>
+									</FuseHighlight>
 								</div>
-								<div className="flex flex-wrap mb-16">
-									<div className="flex w-full sm:w-1/2">
-										<Typography variant="h3">Display 2</Typography>
-									</div>
-									<div className="flex w-full sm:w-1/2">
-										<FuseHighlight component="pre" className="language-html w-full">
-											{`
+							</div>
+							<div className="flex flex-wrap mb-16">
+								<div className="flex w-full sm:w-1/2">
+									<Typography variant="h3">Display 2</Typography>
+								</div>
+								<div className="flex w-full sm:w-1/2">
+									<FuseHighlight component="pre" className="language-html w-full">
+										{`
                                            <Typography variant="h3">Display 2</Typography>
                                         `}
-										</FuseHighlight>
-									</div>
+									</FuseHighlight>
 								</div>
-								<div className="flex flex-wrap mb-16">
-									<div className="flex w-full sm:w-1/2">
-										<Typography variant="h4">Display 1</Typography>
-									</div>
-									<div className="flex w-full sm:w-1/2">
-										<FuseHighlight component="pre" className="language-html w-full">
-											{`
+							</div>
+							<div className="flex flex-wrap mb-16">
+								<div className="flex w-full sm:w-1/2">
+									<Typography variant="h4">Display 1</Typography>
+								</div>
+								<div className="flex w-full sm:w-1/2">
+									<FuseHighlight component="pre" className="language-html w-full">
+										{`
                                            <Typography variant="h4">Display 1</Typography>
                                         `}
-										</FuseHighlight>
-									</div>
+									</FuseHighlight>
 								</div>
-								<div className="flex flex-wrap mb-16">
-									<div className="flex w-full sm:w-1/2">
-										<Typography variant="h5">Headline</Typography>
-									</div>
-									<div className="flex w-full sm:w-1/2">
-										<FuseHighlight component="pre" className="language-html w-full">
-											{`
+							</div>
+							<div className="flex flex-wrap mb-16">
+								<div className="flex w-full sm:w-1/2">
+									<Typography variant="h5">Headline</Typography>
+								</div>
+								<div className="flex w-full sm:w-1/2">
+									<FuseHighlight component="pre" className="language-html w-full">
+										{`
                                           <Typography variant="h5">Headline</Typography>
                                         `}
-										</FuseHighlight>
-									</div>
+									</FuseHighlight>
 								</div>
-								<div className="flex flex-wrap mb-16">
-									<div className="flex w-full sm:w-1/2">
-										<Typography variant="h6">Title</Typography>
-									</div>
-									<div className="flex w-full sm:w-1/2">
-										<FuseHighlight component="pre" className="language-html w-full">
-											{`
+							</div>
+							<div className="flex flex-wrap mb-16">
+								<div className="flex w-full sm:w-1/2">
+									<Typography variant="h6">Title</Typography>
+								</div>
+								<div className="flex w-full sm:w-1/2">
+									<FuseHighlight component="pre" className="language-html w-full">
+										{`
                                            <Typography variant="h6">Title</Typography>
                                         `}
-										</FuseHighlight>
-									</div>
+									</FuseHighlight>
 								</div>
-								<div className="flex flex-wrap mb-16">
-									<div className="flex w-full sm:w-1/2">
-										<Typography variant="subtitle1">Subheading</Typography>
-									</div>
-									<div className="flex w-full sm:w-1/2">
-										<FuseHighlight component="pre" className="language-html w-full">
-											{`
+							</div>
+							<div className="flex flex-wrap mb-16">
+								<div className="flex w-full sm:w-1/2">
+									<Typography variant="subtitle1">Subheading</Typography>
+								</div>
+								<div className="flex w-full sm:w-1/2">
+									<FuseHighlight component="pre" className="language-html w-full">
+										{`
                                              <Typography variant="subtitle1">Subheading</Typography>
                                         `}
-										</FuseHighlight>
-									</div>
+									</FuseHighlight>
 								</div>
-								<div className="flex flex-wrap mb-16">
-									<div className="flex w-full sm:w-1/2">
-										<Typography variant="body1">Body 2</Typography>
-									</div>
-									<div className="flex w-full sm:w-1/2">
-										<FuseHighlight component="pre" className="language-html w-full">
-											{`
+							</div>
+							<div className="flex flex-wrap mb-16">
+								<div className="flex w-full sm:w-1/2">
+									<Typography variant="body1">Body 2</Typography>
+								</div>
+								<div className="flex w-full sm:w-1/2">
+									<FuseHighlight component="pre" className="language-html w-full">
+										{`
                                             <Typography variant="body1">Body 2</Typography>
                                         `}
-										</FuseHighlight>
-									</div>
+									</FuseHighlight>
 								</div>
-								<div className="flex flex-wrap mb-16">
-									<div className="flex w-full sm:w-1/2">
-										<Typography variant="body2">Body 1</Typography>
-									</div>
-									<div className="flex w-full sm:w-1/2">
-										<FuseHighlight component="pre" className="language-html w-full">
-											{`
+							</div>
+							<div className="flex flex-wrap mb-16">
+								<div className="flex w-full sm:w-1/2">
+									<Typography variant="body2">Body 1</Typography>
+								</div>
+								<div className="flex w-full sm:w-1/2">
+									<FuseHighlight component="pre" className="language-html w-full">
+										{`
                                             <Typography variant="body2">Body 1</Typography>
                                         `}
-										</FuseHighlight>
-									</div>
+									</FuseHighlight>
 								</div>
-								<div className="flex flex-wrap mb-16">
-									<div className="flex w-full sm:w-1/2">
-										<Typography variant="caption">Caption</Typography>
-									</div>
-									<div className="flex w-full sm:w-1/2">
-										<FuseHighlight component="pre" className="language-html w-full">
-											{`
+							</div>
+							<div className="flex flex-wrap mb-16">
+								<div className="flex w-full sm:w-1/2">
+									<Typography variant="caption">Caption</Typography>
+								</div>
+								<div className="flex w-full sm:w-1/2">
+									<FuseHighlight component="pre" className="language-html w-full">
+										{`
                                             <Typography variant="caption">Caption</Typography>
                                         `}
-										</FuseHighlight>
-									</div>
+									</FuseHighlight>
 								</div>
-								<div className="flex flex-wrap mb-16">
-									<div className="flex w-full sm:w-1/2">
-										<Typography gutterBottom noWrap>
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-											tempor incididunt ut labore et dolore magna aliqua.
-										</Typography>
-									</div>
-									<div className="flex w-full sm:w-1/2">
-										<FuseHighlight component="pre" className="language-html w-full">
-											{`
+							</div>
+							<div className="flex flex-wrap mb-16">
+								<div className="flex w-full sm:w-1/2">
+									<Typography gutterBottom noWrap>
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+										incididunt ut labore et dolore magna aliqua.
+									</Typography>
+								</div>
+								<div className="flex w-full sm:w-1/2">
+									<FuseHighlight component="pre" className="language-html w-full">
+										{`
                                            <Typography noWrap>
                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                                             </Typography>
                                         `}
-										</FuseHighlight>
-									</div>
+									</FuseHighlight>
 								</div>
-								<div className="flex flex-wrap mb-16">
-									<div className="flex w-full sm:w-1/2">
-										<Typography variant="button">Button</Typography>
-									</div>
-									<div className="flex w-full sm:w-1/2">
-										<FuseHighlight component="pre" className="language-html w-full">
-											{`
+							</div>
+							<div className="flex flex-wrap mb-16">
+								<div className="flex w-full sm:w-1/2">
+									<Typography variant="button">Button</Typography>
+								</div>
+								<div className="flex w-full sm:w-1/2">
+									<FuseHighlight component="pre" className="language-html w-full">
+										{`
                                              <Typography variant="button">Button</Typography>
                                         `}
-										</FuseHighlight>
-									</div>
+									</FuseHighlight>
 								</div>
-							</CardContent>
-						</Card>
-					</FuseAnimate>
+							</div>
+						</CardContent>
+					</Card>
 				</div>
 			}
 		/>

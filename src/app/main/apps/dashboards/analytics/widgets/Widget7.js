@@ -6,7 +6,6 @@ import Icon from '@material-ui/core/Icon';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import { useTheme } from '@material-ui/core/styles';
-import { lighten } from '@material-ui/core/styles/colorManipulator';
 import Typography from '@material-ui/core/Typography';
 import { memo, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';

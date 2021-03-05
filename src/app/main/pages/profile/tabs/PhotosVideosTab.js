@@ -1,4 +1,3 @@
-import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
@@ -7,6 +6,7 @@ import IconButton from '@material-ui/core/IconButton';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 function PhotosVideosTab() {
@@ -22,17 +22,30 @@ function PhotosVideosTab() {
 		return null;
 	}
 
+	const container = {
+		show: {
+			transition: {
+				staggerChildren: 0.05
+			}
+		}
+	};
+
+	const item = {
+		hidden: { opacity: 0, y: 40 },
+		show: { opacity: 1, y: 0 }
+	};
+
 	return (
-		<div className="md:flex max-w-2xl">
-			<div className="flex flex-col flex-1 md:ltr:pr-32 md:rtl:pl-32">
-				<FuseAnimateGroup
-					enter={{
-						animation: 'transition.slideUpBigIn'
-					}}
-				>
+		<motion.div variants={container} initial="hidden" animate="show">
+			<div className="md:flex max-w-2xl">
+				<div className="flex flex-col flex-1 md:ltr:pr-32 md:rtl:pl-32">
 					{data.map(period => (
 						<div key={period.id} className="mb-48">
-							<ListSubheader component="div" className="flex items-center px-0 mb-24">
+							<ListSubheader
+								component={motion.div}
+								variants={item}
+								className="flex items-center px-0 mb-24"
+							>
 								<Typography variant="h6" className="font-medium">
 									{period.name}
 								</Typography>
@@ -41,9 +54,11 @@ function PhotosVideosTab() {
 								</Typography>
 							</ListSubheader>
 
-							<GridList className="" spacing={16} cols={0}>
+							<GridList className="overflow-hidden" spacing={16} cols={0}>
 								{period.media.map(media => (
 									<GridListTile
+										component={motion.div}
+										variants={item}
 										classes={{
 											root: 'w-full sm:w-1/2 md:w-1/4',
 											tile: 'rounded-16 shadow'
@@ -64,9 +79,9 @@ function PhotosVideosTab() {
 							</GridList>
 						</div>
 					))}
-				</FuseAnimateGroup>
+				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
 }
 

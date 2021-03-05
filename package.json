@@ -27,6 +27,7 @@
         "date-fns": "2.17.0",
         "firebase": "8.2.6",
         "formsy-react": "2.2.3",
+        "framer-motion": "3.10.0",
         "google-map-react": "2.1.9",
         "history": "4.10.1",
         "i18next": "19.8.7",

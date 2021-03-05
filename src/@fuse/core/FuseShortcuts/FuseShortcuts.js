@@ -13,6 +13,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import { memo, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -107,6 +108,18 @@ function FuseShortcuts(props) {
 			</Link>
 		);
 	}
+	const container = {
+		show: {
+			transition: {
+				staggerChildren: 0.1
+			}
+		}
+	};
+
+	const item = {
+		hidden: { opacity: 0, scale: 0.6 },
+		show: { opacity: 1, scale: 1 }
+	};
 
 	return (
 		<div
@@ -118,25 +131,25 @@ function FuseShortcuts(props) {
 				props.className
 			)}
 		>
-			<FuseAnimateGroup
-				enter={{
-					animation: 'transition.expandIn'
-				}}
+			<motion.div
+				variants={container}
+				initial="hidden"
+				animate="show"
 				className={clsx('flex flex-1', props.variant === 'vertical' && 'flex-col')}
 			>
 				{shortcutItems.map(
-					item =>
-						item && (
-							<Link to={item.url} key={item.id} className={classes.item} role="button">
+					_item =>
+						_item && (
+							<Link to={_item.url} key={_item.id} className={classes.item} role="button">
 								<Tooltip
-									title={item.title}
+									title={_item.title}
 									placement={props.variant === 'horizontal' ? 'bottom' : 'left'}
 								>
-									<IconButton className="w-40 h-40 p-0">
-										{item.icon ? (
-											<Icon>{item.icon}</Icon>
+									<IconButton className="w-40 h-40 p-0" component={motion.div} variants={item}>
+										{_item.icon ? (
+											<Icon>{_item.icon}</Icon>
 										) : (
-											<span className="text-20 font-semibold uppercase">{item.title[0]}</span>
+											<span className="text-20 font-semibold uppercase">{_item.title[0]}</span>
 										)}
 									</IconButton>
 								</Tooltip>
@@ -149,6 +162,8 @@ function FuseShortcuts(props) {
 					placement={props.variant === 'horizontal' ? 'bottom' : 'left'}
 				>
 					<IconButton
+						component={motion.div}
+						variants={item}
 						className="w-40 h-40 p-0"
 						aria-owns={addMenu ? 'add-menu' : null}
 						aria-haspopup="true"
@@ -157,7 +172,7 @@ function FuseShortcuts(props) {
 						<Icon className={classes.addIcon}>star</Icon>
 					</IconButton>
 				</Tooltip>
-			</FuseAnimateGroup>
+			</motion.div>
 
 			<Menu
 				id="add-menu"
@@ -185,6 +200,7 @@ function FuseShortcuts(props) {
 						inputProps={{
 							'aria-label': 'Search'
 						}}
+						disableUnderline
 					/>
 				</div>
 
@@ -192,8 +208,8 @@ function FuseShortcuts(props) {
 
 				{searchText.length !== 0 &&
 					searchResults &&
-					searchResults.map(item => (
-						<ShortcutMenuItem key={item.id} item={item} onToggle={() => toggleInShortcuts(item.id)} />
+					searchResults.map(_item => (
+						<ShortcutMenuItem key={_item.id} item={_item} onToggle={() => toggleInShortcuts(_item.id)} />
 					))}
 
 				{searchText.length !== 0 && searchResults.length === 0 && (
@@ -204,12 +220,12 @@ function FuseShortcuts(props) {
 
 				{searchText.length === 0 &&
 					shortcutItems.map(
-						item =>
-							item && (
+						_item =>
+							_item && (
 								<ShortcutMenuItem
-									key={item.id}
-									item={item}
-									onToggle={() => toggleInShortcuts(item.id)}
+									key={_item.id}
+									item={_item}
+									onToggle={() => toggleInShortcuts(_item.id)}
 								/>
 							)
 					)}

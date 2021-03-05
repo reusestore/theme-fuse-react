@@ -1,4 +1,3 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
@@ -11,6 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 const useStyles = makeStyles(theme => ({
@@ -51,7 +51,11 @@ function CompactInvoicePage() {
 	return (
 		<div className={clsx(classes.root, 'flex-grow flex-shrink-0 p-0 sm:p-64 print:p-0')}>
 			{invoice && (
-				<FuseAnimate animation={{ translateY: [0, '100%'] }} duration={600}>
+				<motion.div
+					initial={{ opacity: 0, y: 200 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ bounceDamping: 0 }}
+				>
 					<Card className="mx-auto w-xl print:w-full print:p-8 print:shadow-none rounded-8">
 						<CardContent className="p-88 print:p-0">
 							<Typography color="textSecondary" className="mb-32">
@@ -271,7 +275,7 @@ function CompactInvoicePage() {
 							</div>
 						</CardContent>
 					</Card>
-				</FuseAnimate>
+				</motion.div>
 			)}
 		</div>
 	);

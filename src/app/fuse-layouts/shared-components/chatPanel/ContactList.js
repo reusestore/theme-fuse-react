@@ -1,4 +1,3 @@
-import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -6,6 +5,7 @@ import Divider from '@material-ui/core/Divider';
 import { makeStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import { memo, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getChat } from './store/chatSlice';
@@ -114,6 +114,19 @@ function ContactList(props) {
 		);
 	};
 
+	const container = {
+		show: {
+			transition: {
+				staggerChildren: 0.05
+			}
+		}
+	};
+
+	const item = {
+		hidden: { opacity: 0, scale: 0.6 },
+		show: { opacity: 1, scale: 1 }
+	};
+
 	return (
 		<FuseScrollbars
 			className={clsx(classes.root, 'flex flex-shrink-0 flex-col overflow-y-auto py-8')}
@@ -121,24 +134,34 @@ function ContactList(props) {
 		>
 			{contacts.length > 0 && (
 				<>
-					<FuseAnimateGroup
-						enter={{
-							animation: 'transition.expandIn'
-						}}
+					<motion.div
+						variants={container}
+						initial="hidden"
+						animate="show"
 						className="flex flex-col flex-shrink-0"
 					>
 						{user &&
 							user.chatList &&
 							user.chatList.map(chat => {
 								const contact = contacts.find(_contact => _contact.id === chat.contactId);
-								return <ContactButton key={contact.id} contact={contact} />;
+								return (
+									<motion.div variants={item}>
+										<ContactButton key={contact.id} contact={contact} />
+									</motion.div>
+								);
 							})}
 						<Divider className="mx-24 my-8" />
 						{contacts.map(contact => {
 							const chatContact = user.chatList.find(_chat => _chat.contactId === contact.id);
-							return !chatContact ? <ContactButton key={contact.id} contact={contact} /> : '';
+							return !chatContact ? (
+								<motion.div variants={item}>
+									<ContactButton key={contact.id} contact={contact} />{' '}
+								</motion.div>
+							) : (
+								''
+							);
 						})}
-					</FuseAnimateGroup>
+					</motion.div>
 				</>
 			)}
 		</FuseScrollbars>

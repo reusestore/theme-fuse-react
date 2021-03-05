@@ -1,11 +1,10 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
-import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 
 const useStyles = makeStyles(theme => ({
 	header: {
@@ -22,18 +21,33 @@ const useStyles = makeStyles(theme => ({
 function PricingStyle2Page() {
 	const classes = useStyles();
 
+	const container = {
+		show: {
+			transition: {
+				staggerChildren: 0.1
+			}
+		}
+	};
+
+	const item = {
+		hidden: { opacity: 0, y: 100 },
+		show: { opacity: 1, y: 0 }
+	};
+
 	return (
 		<div>
 			<div className={clsx(classes.header, 'flex')}>
 				<div className="p-24 w-full max-w-2xl mx-auto">
 					<div className="text-center my-128 mx-24">
-						<FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
+						<motion.div
+							initial={{ opacity: 0, y: 40 }}
+							animate={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}
+						>
 							<Typography variant="h2" color="inherit" className="font-normal">
 								Simple Pricing!
 							</Typography>
-						</FuseAnimate>
-
-						<FuseAnimate duration={400} delay={600}>
+						</motion.div>
+						<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.3 } }}>
 							<Typography
 								variant="subtitle1"
 								color="inherit"
@@ -42,20 +56,20 @@ function PricingStyle2Page() {
 								The most advanced customer support tools with a simple and affordable pricing. And you
 								can always try for 30 days, free!
 							</Typography>
-						</FuseAnimate>
+						</motion.div>
 					</div>
 				</div>
 			</div>
 
 			<div className="-mt-192">
 				<div className="w-full max-w-2xl mx-auto">
-					<FuseAnimateGroup
-						enter={{
-							animation: 'transition.slideUpBigIn'
-						}}
+					<motion.div
+						variants={container}
+						initial="hidden"
+						animate="show"
 						className="flex items-center justify-center flex-wrap"
 					>
-						<div className="w-full max-w-320 sm:w-1/3 p-12">
+						<motion.div variants={item} className="w-full max-w-320 sm:w-1/3 p-12">
 							<Card className="relative rounded-16">
 								<div className="pt-48 pb-24 text-center">
 									<Typography variant="subtitle1" color="inherit" className="text-20 font-semibold">
@@ -98,9 +112,9 @@ function PricingStyle2Page() {
 									</Button>
 								</div>
 							</Card>
-						</div>
+						</motion.div>
 
-						<div className="w-full max-w-320 sm:w-1/3 p-12">
+						<motion.div variants={item} className="w-full max-w-320 sm:w-1/3 p-12">
 							<Card className="relative rounded-16" raised>
 								<div className="absolute top-0 inset-x-0 flex justify-center">
 									<div className={clsx(classes.badge, 'py-4 px-8')}>
@@ -153,9 +167,9 @@ function PricingStyle2Page() {
 									</Button>
 								</div>
 							</Card>
-						</div>
+						</motion.div>
 
-						<div className="w-full max-w-320 sm:w-1/3 p-12">
+						<motion.div variants={item} className="w-full max-w-320 sm:w-1/3 p-12">
 							<Card className="relative rounded-16">
 								<div className="pt-48 pb-24 text-center">
 									<Typography variant="subtitle1" color="inherit" className="text-20 font-semibold">
@@ -200,8 +214,8 @@ function PricingStyle2Page() {
 									</Button>
 								</div>
 							</Card>
-						</div>
-					</FuseAnimateGroup>
+						</motion.div>
+					</motion.div>
 
 					<div className="flex flex-col items-center py-96 text-center sm:ltr:text-left sm:rtl:text-right max-w-xl mx-auto">
 						<Typography variant="h4" className="pb-32 font-normal">

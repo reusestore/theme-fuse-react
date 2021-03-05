@@ -1,6 +1,6 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
 import { yupResolver } from '@hookform/resolvers/yup';
 import FormHelperText from '@material-ui/core/FormHelperText';
+import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -79,143 +79,146 @@ function Register3Page() {
 				'flex flex-col flex-auto items-center justify-center flex-shrink-0 p-16 md:p-24'
 			)}
 		>
-			<FuseAnimate animation="transition.expandIn">
-				<div className="flex w-full max-w-400 md:max-w-3xl rounded-20 shadow-2xl overflow-hidden">
-					<Card
-						className={clsx(
-							classes.leftSection,
-							'flex flex-col w-full max-w-sm items-center justify-center shadow-0'
-						)}
-						square
-					>
-						<CardContent className="flex flex-col items-center justify-center w-full py-96 max-w-320">
-							<FuseAnimate delay={300}>
-								<div className="flex items-center mb-48">
-									<img className="logo-icon w-48" src="assets/images/logos/fuse.svg" alt="logo" />
-									<div className="border-l-1 mr-4 w-1 h-40" />
-									<div>
-										<Typography className="text-24 font-semibold logo-text" color="inherit">
-											FUSE
-										</Typography>
-										<Typography
-											className="text-16 tracking-widest -mt-8 font-700"
-											color="textSecondary"
-										>
-											REACT
-										</Typography>
-									</div>
+			<motion.div
+				initial={{ opacity: 0, scale: 0.6 }}
+				animate={{ opacity: 1, scale: 1 }}
+				className="flex w-full max-w-400 md:max-w-3xl rounded-20 shadow-2xl overflow-hidden"
+			>
+				<Card
+					className={clsx(
+						classes.leftSection,
+						'flex flex-col w-full max-w-sm items-center justify-center shadow-0'
+					)}
+					square
+				>
+					<CardContent className="flex flex-col items-center justify-center w-full py-96 max-w-320">
+						<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.2 } }}>
+							<div className="flex items-center mb-48">
+								<img className="logo-icon w-48" src="assets/images/logos/fuse.svg" alt="logo" />
+								<div className="border-l-1 mr-4 w-1 h-40" />
+								<div>
+									<Typography className="text-24 font-semibold logo-text" color="inherit">
+										FUSE
+									</Typography>
+									<Typography
+										className="text-16 tracking-widest -mt-8 font-700"
+										color="textSecondary"
+									>
+										REACT
+									</Typography>
 								</div>
-							</FuseAnimate>
+							</div>
+						</motion.div>
 
-							<form
-								name="registerForm"
-								noValidate
-								className="flex flex-col justify-center w-full"
-								onSubmit={handleSubmit(onSubmit)}
+						<form
+							name="registerForm"
+							noValidate
+							className="flex flex-col justify-center w-full"
+							onSubmit={handleSubmit(onSubmit)}
+						>
+							<TextField
+								className="mb-16"
+								label="Name"
+								autoFocus
+								type="name"
+								name="name"
+								inputRef={register}
+								error={!!errors.name}
+								helperText={errors?.name?.message}
+								variant="outlined"
+								required
+								fullWidth
+							/>
+
+							<TextField
+								className="mb-16"
+								label="Email"
+								type="email"
+								name="email"
+								inputRef={register}
+								error={!!errors.email}
+								helperText={errors?.email?.message}
+								variant="outlined"
+								required
+								fullWidth
+							/>
+
+							<TextField
+								className="mb-16"
+								label="Password"
+								type="password"
+								name="password"
+								inputRef={register}
+								error={!!errors.password}
+								helperText={errors?.password?.message}
+								variant="outlined"
+								required
+								fullWidth
+							/>
+
+							<TextField
+								className="mb-16"
+								label="Password (Confirm)"
+								type="password"
+								name="passwordConfirm"
+								error={!!errors.passwordConfirm}
+								helperText={errors?.passwordConfirm?.message}
+								variant="outlined"
+								required
+								fullWidth
+							/>
+
+							<FormControl className="items-center" error={!!errors.acceptTermsConditions}>
+								<FormControlLabel
+									name="acceptTermsConditions"
+									label="I read and accept terms and conditions"
+									control={<Checkbox inputRef={register} />}
+								/>
+								<FormHelperText>{errors?.acceptTermsConditions?.message}</FormHelperText>
+							</FormControl>
+
+							<Button
+								variant="contained"
+								color="primary"
+								className="w-full mx-auto mt-16"
+								aria-label="Register"
+								disabled={_.isEmpty(dirtyFields) || !isValid}
+								type="submit"
 							>
-								<TextField
-									className="mb-16"
-									label="Name"
-									autoFocus
-									type="name"
-									name="name"
-									inputRef={register}
-									error={!!errors.name}
-									helperText={errors?.name?.message}
-									variant="outlined"
-									required
-									fullWidth
-								/>
+								Create an account
+							</Button>
+						</form>
+					</CardContent>
 
-								<TextField
-									className="mb-16"
-									label="Email"
-									type="email"
-									name="email"
-									inputRef={register}
-									error={!!errors.email}
-									helperText={errors?.email?.message}
-									variant="outlined"
-									required
-									fullWidth
-								/>
+					<div className="flex flex-col items-center justify-center pb-32">
+						<span className="font-normal">Already have an account?</span>
+						<Link className="font-normal" to="/pages/auth/login-3">
+							Login
+						</Link>
+					</div>
+				</Card>
 
-								<TextField
-									className="mb-16"
-									label="Password"
-									type="password"
-									name="password"
-									inputRef={register}
-									error={!!errors.password}
-									helperText={errors?.password?.message}
-									variant="outlined"
-									required
-									fullWidth
-								/>
+				<div className={clsx(classes.rightSection, 'hidden md:flex flex-1 items-center justify-center p-64')}>
+					<div className="max-w-320">
+						<motion.div
+							initial={{ opacity: 0, y: 40 }}
+							animate={{ opacity: 1, y: 0, transition: { delay: 0.2 } }}
+						>
+							<Typography variant="h3" color="inherit" className="font-semibold leading-tight">
+								Welcome <br />
+								to the <br /> FUSE React!
+							</Typography>
+						</motion.div>
 
-								<TextField
-									className="mb-16"
-									label="Password (Confirm)"
-									type="password"
-									name="passwordConfirm"
-									error={!!errors.passwordConfirm}
-									helperText={errors?.passwordConfirm?.message}
-									variant="outlined"
-									required
-									fullWidth
-								/>
-
-								<FormControl className="items-center" error={!!errors.acceptTermsConditions}>
-									<FormControlLabel
-										name="acceptTermsConditions"
-										label="I read and accept terms and conditions"
-										control={<Checkbox inputRef={register} />}
-									/>
-									<FormHelperText>{errors?.acceptTermsConditions?.message}</FormHelperText>
-								</FormControl>
-
-								<Button
-									variant="contained"
-									color="primary"
-									className="w-full mx-auto mt-16"
-									aria-label="Register"
-									disabled={_.isEmpty(dirtyFields) || !isValid}
-									type="submit"
-								>
-									Create an account
-								</Button>
-							</form>
-						</CardContent>
-
-						<div className="flex flex-col items-center justify-center pb-32">
-							<span className="font-normal">Already have an account?</span>
-							<Link className="font-normal" to="/pages/auth/login-3">
-								Login
-							</Link>
-						</div>
-					</Card>
-
-					<div
-						className={clsx(classes.rightSection, 'hidden md:flex flex-1 items-center justify-center p-64')}
-					>
-						<div className="max-w-320">
-							<FuseAnimate animation="transition.slideUpIn" delay={400}>
-								<Typography variant="h3" color="inherit" className="font-semibold leading-tight">
-									Welcome <br />
-									to the <br /> FUSE React!
-								</Typography>
-							</FuseAnimate>
-
-							<FuseAnimate delay={500}>
-								<Typography variant="subtitle1" color="inherit" className="mt-32">
-									Powerful and professional admin template for Web Applications, CRM, CMS, Admin
-									Panels and more.
-								</Typography>
-							</FuseAnimate>
-						</div>
+						<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.3 } }}>
+							<Typography variant="subtitle1" color="inherit" className="mt-32">
+								Powerful and professional admin template for Web Applications, CRM, CMS, Admin Panels
+								and more.
+							</Typography>
+						</motion.div>
 					</div>
 				</div>
-			</FuseAnimate>
+			</motion.div>
 		</div>
 	);
 }

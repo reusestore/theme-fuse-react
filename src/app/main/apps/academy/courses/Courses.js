@@ -1,11 +1,8 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
-import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
 import _ from '@lodash';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Divider from '@material-ui/core/Divider';
 import FormControl from '@material-ui/core/FormControl';
 import Icon from '@material-ui/core/Icon';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -18,7 +15,9 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import withReducer from 'app/store/withReducer';
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import { useEffect, useMemo, useState } from 'react';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import reducer from '../store';
@@ -105,12 +104,12 @@ function Courses(props) {
 				)}
 			>
 				<div className="flex flex-col max-w-2xl mx-auto w-full p-24 sm:p-32">
-					<FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
+					<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0 } }}>
 						<Typography color="inherit" className="text-24 sm:text-44 font-medium tracking-tight">
 							Welcome to Academy
 						</Typography>
-					</FuseAnimate>
-					<FuseAnimate duration={400} delay={600}>
+					</motion.div>
+					<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.3 } }}>
 						<Typography
 							variant="subtitle1"
 							color="inherit"
@@ -120,7 +119,7 @@ function Courses(props) {
 							new feature to an existing application. Our courses will step you through the process of
 							building a small application, or adding a new feature to an existing application.
 						</Typography>
-					</FuseAnimate>
+					</motion.div>
 				</div>
 
 				<Icon className={classes.headerIcon}> school </Icon>
@@ -165,20 +164,39 @@ function Courses(props) {
 						</Select>
 					</FormControl>
 				</div>
-				{useMemo(
-					() =>
+				{useMemo(() => {
+					const container = {
+						show: {
+							transition: {
+								staggerChildren: 0.1
+							}
+						}
+					};
+
+					const item = {
+						hidden: {
+							opacity: 0,
+							y: 20
+						},
+						show: {
+							opacity: 1,
+							y: 0
+						}
+					};
+
+					return (
 						filteredData &&
 						(filteredData.length > 0 ? (
-							<FuseAnimateGroup
-								enter={{
-									animation: 'transition.slideUpBigIn'
-								}}
+							<motion.div
 								className="flex flex-wrap py-24"
+								variants={container}
+								initial="hidden"
+								animate="show"
 							>
 								{filteredData.map(course => {
 									const category = categories.find(_cat => _cat.value === course.category);
 									return (
-										<div className="w-full pb-24 sm:w-1/2 lg:w-1/3 sm:p-16" key={course.id}>
+										<motion.div variants={item} className="w-full pb-24 sm:w-1/2 lg:w-1/3 sm:p-16">
 											<Card className="flex flex-col h-256 shadow">
 												<div
 													className="flex flex-shrink-0 items-center justify-between px-24 h-64"
@@ -229,19 +247,19 @@ function Courses(props) {
 													color="secondary"
 												/>
 											</Card>
-										</div>
+										</motion.div>
 									);
 								})}
-							</FuseAnimateGroup>
+							</motion.div>
 						) : (
 							<div className="flex flex-1 items-center justify-center">
 								<Typography color="textSecondary" className="text-24 my-24">
 									No courses found!
 								</Typography>
 							</div>
-						)),
-					[categories, filteredData, theme.palette]
-				)}
+						))
+					);
+				}, [filteredData, categories, theme.palette])}
 			</div>
 		</div>
 	);

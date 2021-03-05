@@ -1,9 +1,9 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import Fab from '@material-ui/core/Fab';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import withReducer from 'app/store/withReducer';
+import { motion } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Breadcrumb from './Breadcrumb';
@@ -44,32 +44,31 @@ function FileManagerApp() {
 						>
 							<Icon>menu</Icon>
 						</IconButton>
-						<FuseAnimate animation="transition.expandIn" delay={200}>
+						<motion.div initial={{ scale: 0 }} animate={{ scale: 1, transition: { delay: 0.2 } }}>
 							<IconButton aria-label="search">
 								<Icon>search</Icon>
 							</IconButton>
-						</FuseAnimate>
+						</motion.div>
 					</div>
 					<div className="flex flex-1 items-end">
-						<FuseAnimate animation="transition.expandIn" delay={600}>
-							<Fab
-								color="secondary"
-								aria-label="add"
-								className="absolute bottom-0 ltr:left-0 rtl:right-0 mx-16 -mb-28 z-999"
-							>
-								<Icon>add</Icon>
-							</Fab>
-						</FuseAnimate>
-						<FuseAnimate delay={200}>
-							<div>
-								{selectedItem && (
-									<Breadcrumb
-										selected={selectedItem}
-										className="flex flex-1 ltr:pl-72 rtl:pr-72 pb-12 text-16 sm:text-24"
-									/>
-								)}
-							</div>
-						</FuseAnimate>
+						<Fab
+							component={motion.div}
+							initial={{ scale: 0 }}
+							animate={{ scale: 1, transition: { delay: 0.6 } }}
+							color="secondary"
+							aria-label="add"
+							className="absolute bottom-0 ltr:left-0 rtl:right-0 mx-16 -mb-28 z-999"
+						>
+							<Icon>add</Icon>
+						</Fab>
+						<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.6 } }}>
+							{selectedItem && (
+								<Breadcrumb
+									selected={selectedItem}
+									className="flex flex-1 ltr:pl-72 rtl:pr-72 pb-12 text-16 sm:text-24"
+								/>
+							)}
+						</motion.div>
 					</div>
 				</div>
 			}

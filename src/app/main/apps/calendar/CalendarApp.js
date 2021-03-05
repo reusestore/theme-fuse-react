@@ -1,9 +1,9 @@
-import FuseAnimate from '@fuse/core/FuseAnimate';
 import Fab from '@material-ui/core/Fab';
 import Icon from '@material-ui/core/Icon';
 import { makeStyles } from '@material-ui/core/styles';
 import withReducer from 'app/store/withReducer';
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import moment from 'moment';
 import { useEffect, useRef } from 'react';
 import { Calendar, momentLocalizer, Views } from 'react-big-calendar';
@@ -228,39 +228,49 @@ function CalendarApp(props) {
 		<div className={clsx(classes.root, 'flex flex-col flex-auto relative')}>
 			<div ref={headerEl} />
 			<div className="flex flex-1 p-24 container">
-				<DragAndDropCalendar
-					className={clsx(classes.calendar, 'flex flex-1 shadow rounded-20 overflow-hidden')}
-					selectable
-					localizer={localizer}
-					events={events}
-					onEventDrop={moveEvent}
-					resizable
-					onEventResize={resizeEvent}
-					defaultView={Views.MONTH}
-					defaultDate={new Date(2020, 3, 1)}
-					startAccessor="start"
-					endAccessor="end"
-					views={allViews}
-					step={60}
-					showMultiDayTimes
-					components={{
-						toolbar: _props => {
-							return headerEl.current
-								? ReactDOM.createPortal(<CalendarHeader {..._props} />, headerEl.current)
-								: null;
-						}
-					}}
-					// onNavigate={handleNavigate}
-					onSelectEvent={event => {
-						dispatch(openEditEventDialog(event));
-					}}
-					onSelectSlot={slotInfo => dispatch(openNewEventDialog(slotInfo))}
-				/>
-				<FuseAnimate animation="transition.expandIn" delay={500}>
+				<motion.div
+					className="w-full"
+					initial={{ y: 20, opacity: 0 }}
+					animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}
+				>
+					<DragAndDropCalendar
+						className={clsx(classes.calendar, 'flex flex-1 shadow rounded-20 overflow-hidden')}
+						selectable
+						localizer={localizer}
+						events={events}
+						onEventDrop={moveEvent}
+						resizable
+						onEventResize={resizeEvent}
+						defaultView={Views.MONTH}
+						defaultDate={new Date(2020, 3, 1)}
+						startAccessor="start"
+						endAccessor="end"
+						views={allViews}
+						step={60}
+						showMultiDayTimes
+						components={{
+							toolbar: _props => {
+								return headerEl.current
+									? ReactDOM.createPortal(<CalendarHeader {..._props} />, headerEl.current)
+									: null;
+							}
+						}}
+						// onNavigate={handleNavigate}
+						onSelectEvent={event => {
+							dispatch(openEditEventDialog(event));
+						}}
+						onSelectSlot={slotInfo => dispatch(openNewEventDialog(slotInfo))}
+					/>
+				</motion.div>
+
+				<motion.div
+					className={classes.addButton}
+					initial={{ scale: 0 }}
+					animate={{ scale: 1, transition: { delay: 0.4 } }}
+				>
 					<Fab
 						color="secondary"
 						aria-label="add"
-						className={classes.addButton}
 						onClick={() =>
 							dispatch(
 								openNewEventDialog({
@@ -272,7 +282,7 @@ function CalendarApp(props) {
 					>
 						<Icon>add</Icon>
 					</Fab>
-				</FuseAnimate>
+				</motion.div>
 				<EventDialog />
 			</div>
 		</div>

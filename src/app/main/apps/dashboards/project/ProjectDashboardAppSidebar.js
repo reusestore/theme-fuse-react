@@ -1,6 +1,5 @@
-import React from 'react';
+import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
-import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup/FuseAnimateGroup';
 import { selectWidgets } from './store/widgetsSlice';
 import WidgetNow from './widgets/WidgetNow';
 import WidgetWeather from './widgets/WidgetWeather';
@@ -8,20 +7,30 @@ import WidgetWeather from './widgets/WidgetWeather';
 function ProjectDashboardAppSidebar() {
 	const widgets = useSelector(selectWidgets);
 
+	const container = {
+		hidden: { opacity: 1 },
+		show: {
+			opacity: 1,
+			transition: {
+				staggerChildren: 0.1
+			}
+		}
+	};
+
+	const item = {
+		hidden: { opacity: 0, y: 20 },
+		show: { opacity: 1, y: 0 }
+	};
+
 	return (
-		<FuseAnimateGroup
-			className="w-full"
-			enter={{
-				animation: 'transition.slideUpBigIn'
-			}}
-		>
-			<div className="widget w-full p-12">
+		<motion.div className="w-full" variants={container} initial="hidden" animate="show">
+			<motion.div variants={item} className="widget flex w-full p-12">
 				<WidgetNow />
-			</div>
-			<div className="widget w-full p-12">
+			</motion.div>
+			<motion.div variants={item} className="widget flex w-full p-12">
 				<WidgetWeather widget={widgets.weatherWidget} />
-			</div>
-		</FuseAnimateGroup>
+			</motion.div>
+		</motion.div>
 	);
 }
 

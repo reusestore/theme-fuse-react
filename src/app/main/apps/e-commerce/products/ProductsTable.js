@@ -9,11 +9,12 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import FuseLoading from '@fuse/core/FuseLoading';
-import FuseAnimate from '@fuse/core/FuseAnimate/FuseAnimate';
 import { getProducts, selectProducts } from '../store/productsSlice';
 import ProductsTableHead from './ProductsTableHead';
 
@@ -106,13 +107,15 @@ function ProductsTable(props) {
 
 	if (data.length === 0) {
 		return (
-			<FuseAnimate delay={100}>
-				<div className="flex flex-1 items-center justify-center h-full">
-					<Typography color="textSecondary" variant="h5">
-						There are no products!
-					</Typography>
-				</div>
-			</FuseAnimate>
+			<motion.div
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1, transition: { delay: 0.1 } }}
+				className="flex flex-1 items-center justify-center h-full"
+			>
+				<Typography color="textSecondary" variant="h5">
+					There are no products!
+				</Typography>
+			</motion.div>
 		);
 	}
 

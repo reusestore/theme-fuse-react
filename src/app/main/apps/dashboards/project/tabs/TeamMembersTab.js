@@ -1,23 +1,30 @@
-import React from 'react';
+import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
-import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup/FuseAnimateGroup';
 import { selectWidgets } from '../store/widgetsSlice';
 import Widget11 from '../widgets/Widget11';
 
 function TeamMembersTab() {
 	const widgets = useSelector(selectWidgets);
 
+	const container = {
+		show: {
+			transition: {
+				staggerChildren: 0.1
+			}
+		}
+	};
+
+	const item = {
+		hidden: { opacity: 0, y: 20 },
+		show: { opacity: 1, y: 0 }
+	};
+
 	return (
-		<FuseAnimateGroup
-			className="flex flex-wrap"
-			enter={{
-				animation: 'transition.slideUpBigIn'
-			}}
-		>
-			<div className="widget flex w-full p-12">
+		<motion.div className="flex flex-wrap" variants={container} initial="hidden" animate="show">
+			<motion.div variants={item} className="widget flex w-full p-12">
 				<Widget11 widget={widgets.widget11} />
-			</div>
-		</FuseAnimateGroup>
+			</motion.div>
+		</motion.div>
 	);
 }
 
