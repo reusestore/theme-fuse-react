@@ -1,6 +1,6 @@
-@import-normalize ;
+@import-normalize;
 
-@import 'tailwind-base.css';
+@tailwind base;
 
 body.no-animate *,
 body.no-animate *::before,
@@ -116,4 +116,7 @@ input:-webkit-autofill {
 
 @import 'prism.css';
 
-@import 'tailwind.css';
+@tailwind components;
+
+@tailwind utilities;
+
