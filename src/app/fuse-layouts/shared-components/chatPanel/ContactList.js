@@ -145,8 +145,8 @@ function ContactList(props) {
 							user.chatList.map(chat => {
 								const contact = contacts.find(_contact => _contact.id === chat.contactId);
 								return (
-									<motion.div variants={item}>
-										<ContactButton key={contact.id} contact={contact} />
+									<motion.div variants={item} key={contact.id}>
+										<ContactButton contact={contact} />
 									</motion.div>
 								);
 							})}
@@ -154,8 +154,8 @@ function ContactList(props) {
 						{contacts.map(contact => {
 							const chatContact = user.chatList.find(_chat => _chat.contactId === contact.id);
 							return !chatContact ? (
-								<motion.div variants={item}>
-									<ContactButton key={contact.id} contact={contact} />{' '}
+								<motion.div variants={item} key={contact.id}>
+									<ContactButton contact={contact} />{' '}
 								</motion.div>
 							) : (
 								''
