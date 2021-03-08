@@ -196,7 +196,11 @@ function Courses(props) {
 								{filteredData.map(course => {
 									const category = categories.find(_cat => _cat.value === course.category);
 									return (
-										<motion.div variants={item} className="w-full pb-24 sm:w-1/2 lg:w-1/3 sm:p-16">
+										<motion.div
+											variants={item}
+											className="w-full pb-24 sm:w-1/2 lg:w-1/3 sm:p-16"
+											key={course.id}
+										>
 											<Card className="flex flex-col h-256 shadow">
 												<div
 													className="flex flex-shrink-0 items-center justify-between px-24 h-64"
