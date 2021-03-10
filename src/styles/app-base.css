@@ -1,13 +1,14 @@
+/**
+ * Normalize.css and sTailwind's base styles.
+ */
+
 @import-normalize;
 
-@tailwind base;
+@import 'tailwindcss/base';
 
-body.no-animate *,
-body.no-animate *::before,
-body.no-animate *::after {
-    transition: none !important;
-    animation: none !important;
-}
+/**
+ * Custom base styles, applied after the tailwind-base classes
+ */
 
 html {
     font-size: 62.5%;
@@ -93,6 +94,17 @@ form label {
     z-index: 99;
 }
 
+body.no-animate *,
+body.no-animate *::before,
+body.no-animate *::after {
+    transition: none !important;
+    animation: none !important;
+}
+
+button:focus {
+    outline: none;
+}
+
 @keyframes autofill {
     0%,100% {
         background: transparent;
@@ -109,14 +121,3 @@ input:-webkit-autofill {
 :focus {
     outline-color: transparent;
 }
-
-@import 'print.css';
-
-@import 'tables.css';
-
-@import 'prism.css';
-
-@tailwind components;
-
-@tailwind utilities;
-
