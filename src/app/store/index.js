@@ -22,14 +22,7 @@ const store = configureStore({
 	middleware: getDefaultMiddleware =>
 		getDefaultMiddleware({
 			immutableCheck: false,
-			serializableCheck: {
-				ignoredActions: [
-					'dialog/openDialog',
-					'dialog/closeDialog',
-					'message/showMessage',
-					'message/hideMessage'
-				]
-			}
+			serializableCheck: false
 		}).concat(middlewares),
 	devTools: process.env.NODE_ENV === 'development'
 });
