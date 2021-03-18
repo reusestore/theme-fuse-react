@@ -9,7 +9,6 @@ import qs from 'qs';
  */
 export const defaultSettings = {
 	customScrollbars: true,
-	animations: true,
 	direction: 'ltr',
 	theme: {
 		main: 'default',

@@ -360,19 +360,6 @@ function FuseSettings(props) {
 
 			<FormControl component="fieldset" className={classes.formControl}>
 				<FormLabel component="legend" className="text-14">
-					Animations
-				</FormLabel>
-				<Controller
-					name="animations"
-					control={control}
-					render={({ onChange, value }) => (
-						<Switch checked={value} onChange={ev => onChange(ev.target.checked)} aria-label="Animations" />
-					)}
-				/>
-			</FormControl>
-
-			<FormControl component="fieldset" className={classes.formControl}>
-				<FormLabel component="legend" className="text-14">
 					Direction
 				</FormLabel>
 

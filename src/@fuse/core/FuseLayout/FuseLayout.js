@@ -109,22 +109,6 @@ function FuseLayout(props) {
 		if (!_.isEqual(newSettings.current, _newSettings)) {
 			newSettings.current = _newSettings;
 		}
-
-		function AnimationToggle(_settings) {
-			if (!_settings.animations) {
-				document.body.classList.add('no-animate');
-				Velocity.mock = true;
-				Chartjs2Defaults.global.animation.duration = 0;
-				Chartjs2Defaults.global.hover.animationDuration = 0;
-			} else {
-				document.body.classList.remove('no-animate');
-				Velocity.mock = false;
-				Chartjs2Defaults.global.animation.duration = 1000;
-				Chartjs2Defaults.global.hover.animationDuration = 400;
-			}
-		}
-
-		AnimationToggle(_newSettings);
 	}, [defaultSettings, matched]);
 
 	shouldAwaitRender();
