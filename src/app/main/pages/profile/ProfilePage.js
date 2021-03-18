@@ -17,11 +17,15 @@ const useStyles = makeStyles(theme => ({
 	avatar: {
 		border: `4px solid ${theme.palette.background.default}`
 	},
+	topBg: {
+		background: 'url("assets/images/profile/morain-lake.jpg")!important',
+		backgroundSize: 'cover!important',
+		backgroundPosition: 'center center!important'
+	},
 	layoutHeader: {
+		background: 'none',
 		height: 320,
 		minHeight: 320,
-		background: 'url("assets/images/profile/morain-lake.jpg")',
-		backgroundSize: 'cover',
 		[theme.breakpoints.down('md')]: {
 			height: 240,
 			minHeight: 240
@@ -40,7 +44,9 @@ function ProfilePage() {
 	return (
 		<FusePageSimple
 			classes={{
+				topBg: classes.topBg,
 				header: classes.layoutHeader,
+				wrapper: 'bg-transparent',
 				content: 'w-full max-w-2xl mx-auto',
 				toolbar: 'w-full max-w-2xl mx-auto relative flex flex-col min-h-auto h-auto items-start'
 			}}

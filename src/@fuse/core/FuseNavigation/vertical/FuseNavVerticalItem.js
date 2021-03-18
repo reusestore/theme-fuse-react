@@ -4,11 +4,11 @@ import Icon from '@material-ui/core/Icon';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { fade } from '@material-ui/core/styles/colorManipulator';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { memo, useMemo } from 'react';
+import { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
 import FuseNavBadge from '../FuseNavBadge';
@@ -16,13 +16,21 @@ import FuseNavBadge from '../FuseNavBadge';
 const useStyles = makeStyles(theme => ({
 	item: props => ({
 		height: 40,
-		width: 'calc(100% - 16px)',
-		borderRadius: '0 20px 20px 0',
+		width: '100%',
+		borderRadius: '6px',
+		margin: '0 0 4px 0',
 		paddingRight: 12,
 		paddingLeft: props.itemPadding > 80 ? 80 : props.itemPadding,
+		color: fade(theme.palette.text.primary, 0.7),
+		cursor: 'pointer',
+		textDecoration: 'none!important',
+		'&:hover': {
+			color: theme.palette.text.primary
+		},
 		'&.active': {
-			backgroundColor: `${theme.palette.secondary.main}!important`,
-			color: `${theme.palette.secondary.contrastText}!important`,
+			color: theme.palette.text.primary,
+			backgroundColor:
+				theme.palette.type === 'light' ? 'rgba(0, 0, 0, .05)!important' : 'rgba(255, 255, 255, .1)!important',
 			pointerEvents: 'none',
 			transition: 'border-radius .15s cubic-bezier(0.4,0.0,0.2,1)',
 			'& .list-item-text-primary': {
@@ -33,12 +41,10 @@ const useStyles = makeStyles(theme => ({
 			}
 		},
 		'& .list-item-icon': {
-			marginRight: 16
+			marginRight: 12,
+			color: 'inherit'
 		},
-		'& .list-item-text': {},
-		color: theme.palette.text.primary,
-		cursor: 'pointer',
-		textDecoration: 'none!important'
+		'& .list-item-text': {}
 	})
 }));
 
@@ -50,39 +56,39 @@ function FuseNavVerticalItem(props) {
 	const mdDown = useMediaQuery(theme.breakpoints.down('md'));
 	const { item, nestedLevel } = props;
 	const classes = useStyles({
-		itemPadding: nestedLevel > 0 ? 40 + nestedLevel * 16 : 24
+		itemPadding: nestedLevel > 0 ? 28 + nestedLevel * 16 : 12
 	});
 
 	const hasPermission = useMemo(() => FuseUtils.hasPermission(item.auth, userRole), [item.auth, userRole]);
 
-	if (!hasPermission) {
-		return null;
-	}
+	return useMemo(
+		() =>
+			!hasPermission ? null : (
+				<ListItem
+					button
+					component={NavLinkAdapter}
+					to={item.url}
+					activeClassName="active"
+					className={clsx(classes.item, 'list-item')}
+					onClick={ev => mdDown && dispatch(navbarCloseMobile())}
+					exact={item.exact}
+				>
+					{item.icon && (
+						<Icon className="list-item-icon text-20 flex-shrink-0" color="action">
+							{item.icon}
+						</Icon>
+					)}
 
-	return (
-		<ListItem
-			button
-			component={NavLinkAdapter}
-			to={item.url}
-			activeClassName="active"
-			className={clsx(classes.item, 'list-item')}
-			onClick={ev => mdDown && dispatch(navbarCloseMobile())}
-			exact={item.exact}
-		>
-			{item.icon && (
-				<Icon className="list-item-icon text-16 flex-shrink-0" color="action">
-					{item.icon}
-				</Icon>
-			)}
+					<ListItemText
+						className="list-item-text"
+						primary={item.title}
+						classes={{ primary: 'text-13 font-medium list-item-text-primary' }}
+					/>
 
-			<ListItemText
-				className="list-item-text"
-				primary={item.title}
-				classes={{ primary: 'text-13 list-item-text-primary' }}
-			/>
-
-			{item.badge && <FuseNavBadge badge={item.badge} />}
-		</ListItem>
+					{item.badge && <FuseNavBadge badge={item.badge} />}
+				</ListItem>
+			),
+		[classes.item, dispatch, hasPermission, item.badge, item.exact, item.icon, item.title, item.url, mdDown]
 	);
 }
 
@@ -97,6 +103,6 @@ FuseNavVerticalItem.propTypes = {
 
 FuseNavVerticalItem.defaultProps = {};
 
-const NavVerticalItem = withRouter(memo(FuseNavVerticalItem));
+const NavVerticalItem = FuseNavVerticalItem;
 
 export default NavVerticalItem;

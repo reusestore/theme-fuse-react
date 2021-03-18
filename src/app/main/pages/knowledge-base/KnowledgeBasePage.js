@@ -24,7 +24,7 @@ const Transition = forwardRef(function Transition(props, ref) {
 
 const useStyles = makeStyles(theme => ({
 	header: {
-		background: `linear-gradient(to left, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
+		background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
 		color: theme.palette.primary.contrastText
 	}
 }));
@@ -70,7 +70,7 @@ function KnowledgeBasePage() {
 				</motion.div>
 
 				<motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}>
-					<Typography color="inherit" className="text-36 sm:text-56 font-medium tracking-tight">
+					<Typography color="inherit" className="text-36 sm:text-56 font-bold tracking-tight">
 						How can we help?
 					</Typography>
 				</motion.div>
@@ -106,7 +106,7 @@ function KnowledgeBasePage() {
 										key={category.id}
 									>
 										<Card className="rounded-16 shadow">
-											<List component="nav" className="p-0">
+											<List component="nav" className="p-0 pt-8">
 												<Typography className="font-medium pl-32 py-16 text-16">
 													{category.title}
 												</Typography>
@@ -115,7 +115,7 @@ function KnowledgeBasePage() {
 													<ListItem
 														key={article.id}
 														onClick={() => handleOpenDialog(article)}
-														className="pl-32 border-b-1 border-solid"
+														className="pl-32"
 														button
 													>
 														<ListItemIcon className="min-w-40">

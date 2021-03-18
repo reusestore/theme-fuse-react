@@ -18,13 +18,14 @@ const useStyles = makeStyles(theme => ({
 		color: 'inherit!important',
 		textDecoration: 'none!important',
 		height: 40,
-		width: 'calc(100% - 16px)',
-		borderRadius: '0 20px 20px 0',
-		paddingLeft: 24,
+		width: '100%',
+		borderRadius: 6,
+		paddingLeft: 12,
 		paddingRight: 12,
+		marginBottom: 4,
 		'&.active': {
-			backgroundColor: theme.palette.secondary.main,
-			color: `${theme.palette.secondary.contrastText}!important`,
+			backgroundColor:
+				theme.palette.type === 'light' ? 'rgba(0, 0, 0, .05)!important' : 'rgba(255, 255, 255, .1)!important',
 			pointerEvents: 'none',
 			'& .list-item-icon': {
 				color: 'inherit'
@@ -38,7 +39,7 @@ const useStyles = makeStyles(theme => ({
 		}
 	},
 	listSubheader: {
-		paddingLeft: 24
+		paddingLeft: 12
 	}
 }));
 
@@ -56,20 +57,20 @@ function TodoSidebarContent(props) {
 			animate={{ y: 0, opacity: 1, transition: { delay: 0.4 } }}
 			className="flex-auto border-l-1 border-solid"
 		>
-			<div className="p-24">
+			<div className="p-24 pb-16">
 				<Button
 					onClick={() => {
 						dispatch(openNewTodoDialog());
 					}}
 					variant="contained"
-					color="primary"
+					color="secondary"
 					className="w-full"
 				>
 					Add task
 				</Button>
 			</div>
 
-			<div className={classes.listWrapper}>
+			<div className="px-12">
 				<List>
 					{folders.length > 0 &&
 						folders.map(folder => (

@@ -9,7 +9,6 @@ import StatusIcon from './StatusIcon';
 
 const useStyles = makeStyles(theme => ({
 	contactListItem: {
-		borderBottom: `1px solid ${theme.palette.divider}`,
 		'&.active': {
 			backgroundColor: theme.palette.background.paper
 		}

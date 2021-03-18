@@ -22,19 +22,23 @@ const useStyles = makeStyles(theme => ({
 		color: 'inherit!important',
 		textDecoration: 'none!important',
 		height: 40,
-		width: 'calc(100% - 16px)',
-		borderRadius: '0 20px 20px 0',
-		paddingLeft: 24,
+		width: '100%',
+		borderRadius: 6,
+		paddingLeft: 12,
 		paddingRight: 12,
+		marginBottom: 4,
 		'&.active': {
-			backgroundColor: theme.palette.secondary.main,
-			color: `${theme.palette.secondary.contrastText}!important`,
+			backgroundColor:
+				theme.palette.type === 'light' ? 'rgba(0, 0, 0, .05)!important' : 'rgba(255, 255, 255, .1)!important',
 			pointerEvents: 'none',
 			'& .list-item-icon': {
 				color: 'inherit'
 			}
 		},
 		'& .list-item-icon': {
+			fontSize: 16,
+			width: 16,
+			height: 16,
 			marginRight: 16
 		}
 	}
@@ -54,7 +58,7 @@ function NotesSidebarContent(props) {
 				animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}
 				className={clsx(classes.paper, 'rounded-0 shadow-none lg:rounded-20 lg:shadow pt-12')}
 			>
-				<List>
+				<List className="px-12">
 					<ListItem
 						button
 						component={NavLinkAdapter}
@@ -83,7 +87,7 @@ function NotesSidebarContent(props) {
 					</ListItem>
 				</List>
 				<Divider />
-				<List>
+				<List className="px-12">
 					<ListSubheader>Labels</ListSubheader>
 					{labels.map(label => (
 						<ListItem
@@ -109,7 +113,7 @@ function NotesSidebarContent(props) {
 					</ListItem>
 				</List>
 				<Divider />
-				<List>
+				<List className="px-12">
 					<ListItem
 						button
 						component={NavLinkAdapter}

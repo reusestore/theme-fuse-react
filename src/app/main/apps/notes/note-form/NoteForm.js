@@ -256,7 +256,8 @@ function NoteForm(props) {
 						<Button
 							className="m-4"
 							type="submit"
-							variant="outlined"
+							variant="contained"
+							color="secondary"
 							size="small"
 							onClick={handleSubmit(onCreate)}
 							disabled={_.isEmpty(dirtyFields) || !isValid}

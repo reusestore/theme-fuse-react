@@ -26,7 +26,7 @@ import { getCourses, selectCourses } from '../store/coursesSlice';
 
 const useStyles = makeStyles(theme => ({
 	header: {
-		background: `linear-gradient(to left, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
+		background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
 		color: theme.palette.getContrastText(theme.palette.primary.main)
 	},
 	headerIcon: {
@@ -105,7 +105,7 @@ function Courses(props) {
 			>
 				<div className="flex flex-col max-w-2xl mx-auto w-full p-24 sm:p-32">
 					<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0 } }}>
-						<Typography color="inherit" className="text-24 sm:text-44 font-medium tracking-tight">
+						<Typography color="inherit" className="text-24 sm:text-44 font-bold tracking-tight">
 							Welcome to Academy
 						</Typography>
 					</motion.div>

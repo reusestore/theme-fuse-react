@@ -686,6 +686,30 @@ const themesConfig = {
 		status: {
 			danger: 'orange'
 		}
+	},
+	greyDark: {
+		palette: {
+			type: 'dark',
+			text: darkText,
+			primary: {
+				light: fuseDark[200],
+				main: fuseDark[700],
+				dark: fuseDark[800]
+			},
+			secondary: {
+				light: skyBlue[100],
+				main: skyBlue[500],
+				dark: skyBlue[900]
+			},
+			background: {
+				paper: fuseDark[300],
+				default: fuseDark[500]
+			},
+			error: red
+		},
+		status: {
+			danger: 'orange'
+		}
 	}
 };
 

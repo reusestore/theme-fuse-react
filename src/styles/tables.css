@@ -32,7 +32,7 @@ table.simple thead tr th:last-child {
 }
 
 table.simple tbody tr td {
-    padding: 16px 8px;
+    padding: 12px 8px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
@@ -54,4 +54,16 @@ table.simple.clickable tbody tr {
 
 table.simple.clickable tbody tr:hover {
     background: rgba(0, 0, 0, 0.03);
+}
+
+table.simple.borderless {
+    border: none;
+}
+
+table.simple.borderless tbody tr td{
+    border: none;
+}
+
+table.simple.borderless thead tr th{
+    border: none;
 }

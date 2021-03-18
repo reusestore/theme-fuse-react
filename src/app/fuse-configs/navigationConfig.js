@@ -275,7 +275,7 @@ const navigationConfig = [
 				id: 'errors',
 				title: 'Errors',
 				type: 'collapse',
-				icon: 'error',
+				icon: 'info',
 				children: [
 					{
 						id: '404',
@@ -375,7 +375,7 @@ const navigationConfig = [
 				id: 'faq',
 				title: 'Faq',
 				type: 'item',
-				icon: 'help',
+				icon: 'help_outline',
 				url: '/pages/faq'
 			},
 			{
@@ -411,7 +411,7 @@ const navigationConfig = [
 				id: 'helper-classes',
 				title: 'Helper Classes',
 				type: 'item',
-				icon: 'help',
+				icon: 'help_outline',
 				url: '/ui/helper-classes'
 			},
 			{

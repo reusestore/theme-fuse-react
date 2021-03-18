@@ -60,8 +60,8 @@ function MailCompose() {
 	}
 
 	return (
-		<div className="p-24">
-			<Button variant="contained" color="primary" className="w-full" onClick={handleOpenDialog}>
+		<div className="p-24 pb-8">
+			<Button variant="contained" color="secondary" className="w-full" onClick={handleOpenDialog}>
 				{t('COMPOSE')}
 			</Button>
 

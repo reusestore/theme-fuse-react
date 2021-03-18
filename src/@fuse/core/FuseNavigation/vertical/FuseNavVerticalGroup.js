@@ -2,11 +2,11 @@ import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import FuseUtils from '@fuse/utils';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { fade } from '@material-ui/core/styles/colorManipulator';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { memo, useMemo } from 'react';
+import { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
 import FuseNavItem from '../FuseNavItem';
@@ -14,13 +14,14 @@ import FuseNavItem from '../FuseNavItem';
 const useStyles = makeStyles(theme => ({
 	item: props => ({
 		height: 40,
-		width: 'calc(100% - 16px)',
-		borderRadius: '0 20px 20px 0',
+		width: '100%',
+		borderRadius: '6px',
+		margin: '24px 0 4px 0',
 		paddingRight: 12,
 		paddingLeft: props.itemPadding > 80 ? 80 : props.itemPadding,
-		'&.active > .list-subheader-text': {
-			fontWeight: 700
-		}
+		color: fade(theme.palette.text.primary, 0.7),
+		fontWeight: 600,
+		letterSpacing: '0.025em'
 	})
 }));
 
@@ -32,41 +33,45 @@ function FuseNavVerticalGroup(props) {
 	const mdDown = useMediaQuery(theme.breakpoints.down('md'));
 	const { item, nestedLevel } = props;
 	const classes = useStyles({
-		itemPadding: nestedLevel > 0 ? 40 + nestedLevel * 16 : 24
+		itemPadding: nestedLevel > 0 ? 28 + nestedLevel * 16 : 12
 	});
 
 	const hasPermission = useMemo(() => FuseUtils.hasPermission(item.auth, userRole), [item.auth, userRole]);
 
-	if (!hasPermission) {
-		return null;
-	}
-
-	return (
-		<>
-			<ListSubheader
-				disableSticky
-				className={clsx(classes.item, 'list-subheader flex items-center', !item.url && 'cursor-default')}
-				onClick={ev => mdDown && dispatch(navbarCloseMobile())}
-				component={item.url ? NavLinkAdapter : 'li'}
-				to={item.url}
-				role="button"
-			>
-				<span className="list-subheader-text uppercase text-12">{item.title}</span>
-			</ListSubheader>
-
-			{item.children && (
+	return useMemo(
+		() =>
+			!hasPermission ? null : (
 				<>
-					{item.children.map(_item => (
-						<FuseNavItem
-							key={_item.id}
-							type={`vertical-${_item.type}`}
-							item={_item}
-							nestedLevel={nestedLevel}
-						/>
-					))}
+					<ListSubheader
+						disableSticky
+						className={clsx(
+							classes.item,
+							'list-subheader flex items-center',
+							!item.url && 'cursor-default'
+						)}
+						onClick={ev => mdDown && dispatch(navbarCloseMobile())}
+						component={item.url ? NavLinkAdapter : 'li'}
+						to={item.url}
+						role="button"
+					>
+						<span className="list-subheader-text uppercase text-12">{item.title}</span>
+					</ListSubheader>
+
+					{item.children && (
+						<>
+							{item.children.map(_item => (
+								<FuseNavItem
+									key={_item.id}
+									type={`vertical-${_item.type}`}
+									item={_item}
+									nestedLevel={nestedLevel}
+								/>
+							))}
+						</>
+					)}
 				</>
-			)}
-		</>
+			),
+		[classes.item, dispatch, hasPermission, item.children, item.title, item.url, mdDown, nestedLevel]
 	);
 }
 
@@ -80,6 +85,6 @@ FuseNavVerticalGroup.propTypes = {
 
 FuseNavVerticalGroup.defaultProps = {};
 
-const NavVerticalGroup = withRouter(memo(FuseNavVerticalGroup));
+const NavVerticalGroup = FuseNavVerticalGroup;
 
 export default NavVerticalGroup;

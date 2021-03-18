@@ -228,9 +228,8 @@ function ChatsSidebar(props) {
 								)}
 
 								{filteredChatList.map(contact => (
-									<motion.div variants={item}>
+									<motion.div variants={item} key={contact.id}>
 										<ContactListItem
-											key={contact.id}
 											contact={contact}
 											onContactClick={contactId => dispatch(getChat({ contactId, isMobile }))}
 										/>
@@ -246,9 +245,8 @@ function ChatsSidebar(props) {
 								)}
 
 								{filteredContacts.map(contact => (
-									<motion.div variants={item}>
+									<motion.div variants={item} key={contact.id}>
 										<ContactListItem
-											key={contact.id}
 											contact={contact}
 											onContactClick={contactId => dispatch(getChat({ contactId, isMobile }))}
 										/>

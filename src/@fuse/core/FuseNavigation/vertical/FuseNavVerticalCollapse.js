@@ -6,33 +6,35 @@ import IconButton from '@material-ui/core/IconButton';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
+import { fade } from '@material-ui/core/styles/colorManipulator';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { memo, useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+
 import FuseNavBadge from '../FuseNavBadge';
 import FuseNavItem from '../FuseNavItem';
 
 const useStyles = makeStyles(theme => ({
 	root: {
 		padding: 0,
-		'&.open': {
-			backgroundColor: theme.palette.type === 'dark' ? 'rgba(255,255,255,.015)' : 'rgba(0,0,0,.025)'
-		}
+		'&.open': {}
 	},
 	item: props => ({
 		height: 40,
-		width: 'calc(100% - 16px)',
-		borderRadius: '0 20px 20px 0',
+		width: '100%',
+		borderRadius: '6px',
+		margin: '0 0 4px 0',
 		paddingRight: 12,
 		paddingLeft: props.itemPadding > 80 ? 80 : props.itemPadding,
-		color: theme.palette.text.primary,
-		'&.active > .list-item-text > span': {
-			fontWeight: 600
+		color: fade(theme.palette.text.primary, 0.7),
+		'&:hover': {
+			color: theme.palette.text.primary
 		},
 		'& .list-item-icon': {
-			marginRight: 16
+			marginRight: 12,
+			color: 'inherit'
 		}
 	})
 }));
@@ -66,72 +68,84 @@ function FuseNavVerticalCollapse(props) {
 	const [open, setOpen] = useState(() => needsToBeOpened(props.location, props.item));
 	const { item, nestedLevel } = props;
 	const classes = useStyles({
-		itemPadding: nestedLevel > 0 ? 40 + nestedLevel * 16 : 24
+		itemPadding: nestedLevel > 0 ? 28 + nestedLevel * 16 : 12
 	});
+	const location = useLocation();
 
 	useEffect(() => {
-		if (needsToBeOpened(props.location, props.item)) {
+		if (needsToBeOpened(location, props.item)) {
 			if (!open) {
 				setOpen(true);
 			}
 		}
 		// eslint-disable-next-line
-	}, [props.location, props.item]);
-
-	function handleClick() {
-		setOpen(!open);
-	}
+	}, [location, props.item]);
 
 	const hasPermission = useMemo(() => FuseUtils.hasPermission(item.auth, userRole), [item.auth, userRole]);
 
-	if (!hasPermission) {
-		return null;
-	}
+	return useMemo(
+		() =>
+			!hasPermission ? null : (
+				<ul className={clsx(classes.root, open && 'open')}>
+					<ListItem
+						button
+						className={clsx(classes.item, 'list-item')}
+						onClick={() => setOpen(!open)}
+						component={item.url ? NavLinkAdapter : 'li'}
+						to={item.url}
+						role="button"
+					>
+						{item.icon && (
+							<Icon color="action" className="list-item-icon text-20 flex-shrink-0">
+								{item.icon}
+							</Icon>
+						)}
 
-	return (
-		<ul className={clsx(classes.root, open && 'open')}>
-			<ListItem
-				button
-				className={clsx(classes.item, 'list-item')}
-				onClick={handleClick}
-				component={item.url ? NavLinkAdapter : 'li'}
-				to={item.url}
-				role="button"
-			>
-				{item.icon && (
-					<Icon color="action" className="list-item-icon text-16 flex-shrink-0">
-						{item.icon}
-					</Icon>
-				)}
-
-				<ListItemText className="list-item-text" primary={item.title} classes={{ primary: 'text-13' }} />
-
-				{item.badge && <FuseNavBadge className="mx-4" badge={item.badge} />}
-
-				<IconButton
-					disableRipple
-					className="w-40 h-40 -mx-12 p-0 focus:bg-transparent hover:bg-transparent"
-					onClick={ev => ev.preventDefault()}
-				>
-					<Icon className="text-16 arrow-icon" color="inherit">
-						{open ? 'expand_less' : 'expand_more'}
-					</Icon>
-				</IconButton>
-			</ListItem>
-
-			{item.children && (
-				<Collapse in={open} className="collapse-children">
-					{item.children.map(_item => (
-						<FuseNavItem
-							key={_item.id}
-							type={`vertical-${_item.type}`}
-							item={_item}
-							nestedLevel={nestedLevel + 1}
+						<ListItemText
+							className="list-item-text"
+							primary={item.title}
+							classes={{ primary: 'text-13 font-medium' }}
 						/>
-					))}
-				</Collapse>
-			)}
-		</ul>
+
+						{item.badge && <FuseNavBadge className="mx-4" badge={item.badge} />}
+
+						<IconButton
+							disableRipple
+							className="w-40 h-40 -mx-12 p-0 focus:bg-transparent hover:bg-transparent"
+							onClick={ev => ev.preventDefault()}
+						>
+							<Icon className="text-16 arrow-icon" color="inherit">
+								{open ? 'expand_less' : 'expand_more'}
+							</Icon>
+						</IconButton>
+					</ListItem>
+
+					{item.children && (
+						<Collapse in={open} className="collapse-children">
+							{item.children.map(_item => (
+								<FuseNavItem
+									key={_item.id}
+									type={`vertical-${_item.type}`}
+									item={_item}
+									nestedLevel={nestedLevel + 1}
+								/>
+							))}
+						</Collapse>
+					)}
+				</ul>
+			),
+		[
+			classes.item,
+			classes.root,
+			hasPermission,
+			item.badge,
+			item.children,
+			item.icon,
+			item.title,
+			item.url,
+			nestedLevel,
+			open
+		]
 	);
 }
 
@@ -145,6 +159,6 @@ FuseNavVerticalCollapse.propTypes = {
 };
 FuseNavVerticalCollapse.defaultProps = {};
 
-const NavVerticalCollapse = withRouter(memo(FuseNavVerticalCollapse));
+const NavVerticalCollapse = FuseNavVerticalCollapse;
 
 export default NavVerticalCollapse;

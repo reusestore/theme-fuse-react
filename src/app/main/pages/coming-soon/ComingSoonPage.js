@@ -93,7 +93,7 @@ function ComingSoonPage() {
 
 								<Button
 									variant="contained"
-									color="primary"
+									color="secondary"
 									className="w-224 mx-auto my-16"
 									aria-label="Subscribe"
 									disabled={_.isEmpty(dirtyFields) || !isValid}

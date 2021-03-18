@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 const useStyles = makeStyles(theme => ({
 	header: {
 		height: 600,
-		background: `linear-gradient(to left, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
+		background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
 		color: theme.palette.primary.contrastText
 	}
 }));
@@ -40,16 +40,12 @@ function PricingStyle1Page() {
 							initial={{ opacity: 0, y: 40 }}
 							animate={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}
 						>
-							<Typography variant="h2" color="inherit" className="font-normal">
-								Simple Pricing!
+							<Typography variant="h2" color="inherit" className="font-bold">
+								Pricing Plans For Everyone!
 							</Typography>
 						</motion.div>
 						<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.3 } }}>
-							<Typography
-								variant="subtitle1"
-								color="inherit"
-								className="opacity-75 mt-16 mx-auto max-w-512"
-							>
+							<Typography color="inherit" className="text-16 opacity-75 mt-16 mx-auto max-w-512">
 								The most advanced customer support tools with a simple and affordable pricing. And you
 								can always try for 30 days, free!
 							</Typography>
@@ -80,7 +76,9 @@ function PricingStyle1Page() {
 											$
 										</Typography>
 										<div className="flex items-end">
-											<Typography className="text-72 mx-4 font-medium leading-none">4</Typography>
+											<Typography className="text-72 mx-4 tracking-tight font-semibold leading-none">
+												4
+											</Typography>
 											<Typography
 												variant="subtitle1"
 												color="textSecondary"
@@ -110,7 +108,7 @@ function PricingStyle1Page() {
 								</CardContent>
 
 								<div className="flex justify-center pb-32">
-									<Button variant="contained" color="secondary" className="w-128">
+									<Button variant="outlined" className="w-128">
 										Buy Now
 									</Button>
 								</div>
@@ -134,7 +132,9 @@ function PricingStyle1Page() {
 											$
 										</Typography>
 										<div className="flex items-end">
-											<Typography className="text-72 mx-4 font-medium leading-none">8</Typography>
+											<Typography className="text-72 mx-4 tracking-tight font-semibold leading-none">
+												8
+											</Typography>
 											<Typography
 												variant="subtitle1"
 												color="textSecondary"
@@ -185,7 +185,7 @@ function PricingStyle1Page() {
 											$
 										</Typography>
 										<div className="flex items-end">
-											<Typography className="text-72 mx-4 font-medium leading-none">
+											<Typography className="text-72 mx-4 tracking-tight font-semibold leading-none">
 												12
 											</Typography>
 											<Typography
@@ -217,7 +217,7 @@ function PricingStyle1Page() {
 								</CardContent>
 
 								<div className="flex justify-center pb-32">
-									<Button variant="contained" color="secondary" className="w-128">
+									<Button variant="outlined" className="w-128">
 										Buy Now
 									</Button>
 								</div>
@@ -226,7 +226,7 @@ function PricingStyle1Page() {
 					</motion.div>
 
 					<div className="flex flex-col items-center py-96 text-center sm:ltr:text-left sm:rtl:text-right max-w-xl mx-auto">
-						<Typography variant="h4" className="pb-32 font-normal">
+						<Typography variant="h4" className="pb-32 font-medium">
 							Frequently Asked Questions
 						</Typography>
 

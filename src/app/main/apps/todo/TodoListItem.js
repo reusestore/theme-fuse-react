@@ -32,11 +32,7 @@ function TodoListItem(props) {
 
 	return (
 		<ListItem
-			className={clsx(
-				classes.todoItem,
-				{ completed: props.todo.completed },
-				'border-solid border-b-1 py-16 px-0 sm:px-8'
-			)}
+			className={clsx(classes.todoItem, { completed: props.todo.completed }, 'py-20 px-0 sm:px-8')}
 			onClick={ev => {
 				ev.preventDefault();
 				dispatch(openEditTodoDialog(props.todo));
@@ -44,20 +40,25 @@ function TodoListItem(props) {
 			dense
 			button
 		>
-			<Checkbox
+			<IconButton
 				tabIndex={-1}
 				disableRipple
-				checked={props.todo.completed}
-				onChange={() =>
+				onClick={ev => {
+					ev.stopPropagation();
 					dispatch(
 						updateTodo({
 							...props.todo,
 							completed: !props.todo.completed
 						})
-					)
-				}
-				onClick={ev => ev.stopPropagation()}
-			/>
+					);
+				}}
+			>
+				{props.todo.completed ? (
+					<Icon color="secondary">check_circle</Icon>
+				) : (
+					<Icon color="action">radio_button_unchecked</Icon>
+				)}
+			</IconButton>
 
 			<div className="flex flex-1 flex-col relative overflow-hidden px-8">
 				<Typography

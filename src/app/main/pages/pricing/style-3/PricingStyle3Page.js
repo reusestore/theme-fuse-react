@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 const useStyles = makeStyles(theme => ({
 	header: {
 		height: 600,
-		background: `linear-gradient(to left, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
+		background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
 		color: theme.palette.primary.contrastText
 	},
 	badge: {
@@ -47,16 +47,12 @@ function PricingStyle3Page() {
 							initial={{ opacity: 0, y: 40 }}
 							animate={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}
 						>
-							<Typography variant="h2" color="inherit" className="font-normal">
-								Simple Pricing!
+							<Typography variant="h2" color="inherit" className="font-bold">
+								Pricing Plans For Everyone!
 							</Typography>
 						</motion.div>
 						<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.3 } }}>
-							<Typography
-								variant="subtitle1"
-								color="inherit"
-								className="opacity-75 mt-16 mx-auto max-w-512"
-							>
+							<Typography color="inherit" className="text-16 opacity-75 mt-16 mx-auto max-w-512">
 								The most advanced customer support tools with a simple and affordable pricing. And you
 								can always try for 30 days, free!
 							</Typography>
@@ -90,7 +86,7 @@ function PricingStyle3Page() {
 											</Typography>
 											<Typography
 												color="inherit"
-												className="text-32 mx-4 font-normal leading-none"
+												className="text-32 mx-4  tracking-tight font-semibold leading-none"
 											>
 												29
 											</Typography>
@@ -115,7 +111,7 @@ function PricingStyle3Page() {
 								</CardContent>
 
 								<div className="flex flex-col items-center justify-center pb-32 px-32">
-									<Button variant="contained" color="secondary" className="w-full">
+									<Button variant="outlined" className="w-full">
 										Get Started Free
 									</Button>
 									<Typography color="textSecondary" className="mt-16">
@@ -142,7 +138,7 @@ function PricingStyle3Page() {
 											</Typography>
 											<Typography
 												color="inherit"
-												className="text-32 mx-4 font-normal leading-none"
+												className="text-32 mx-4  tracking-tight font-semibold leading-none"
 											>
 												59
 											</Typography>
@@ -197,7 +193,7 @@ function PricingStyle3Page() {
 											</Typography>
 											<Typography
 												color="inherit"
-												className="text-32 mx-4 font-normal leading-none"
+												className="text-32 mx-4  tracking-tight font-semibold leading-none"
 											>
 												29
 											</Typography>
@@ -222,7 +218,7 @@ function PricingStyle3Page() {
 								</CardContent>
 
 								<div className="flex flex-col items-center justify-center pb-32 px-32">
-									<Button variant="contained" color="secondary" className="w-full">
+									<Button variant="outlined" className="w-full">
 										Call Us
 									</Button>
 									<Typography color="textSecondary" className="mt-16">
@@ -234,7 +230,7 @@ function PricingStyle3Page() {
 					</motion.div>
 
 					<div className="flex flex-col items-center py-96 text-center sm:ltr:text-left sm:rtl:text-right max-w-xl mx-auto">
-						<Typography variant="h4" className="pb-32 font-normal">
+						<Typography variant="h4" className="pb-32 font-medium">
 							Frequently Asked Questions
 						</Typography>
 

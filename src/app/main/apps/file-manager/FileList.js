@@ -38,7 +38,7 @@ function FileList(props) {
 
 	return (
 		<motion.div initial={{ y: 50, opacity: 0.8 }} animate={{ y: 0, opacity: 1, transition: { delay: 0.3 } }}>
-			<Table>
+			<Table className="simple borderless">
 				<TableHead>
 					<TableRow>
 						<TableCell className="max-w-64 w-64 p-0 text-center"> </TableCell>

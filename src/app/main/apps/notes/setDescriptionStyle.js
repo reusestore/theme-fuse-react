@@ -41,7 +41,7 @@ function setDescriptionStyle(sentence, refEl, enabled) {
 	const tmp = document.createElement('div');
 	tmp.style.display = 'inline-block';
 	tmp.style.fontSize = '10px';
-	tmp.style.fontWeight = '200';
+	tmp.style.fontWeight = '600';
 	tmp.style.lineHeight = '10px';
 	tmp.style.position = 'absolute';
 	tmp.style.whiteSpace = 'pre-wrap';

@@ -146,7 +146,10 @@ function NavbarWrapperLayout1(props) {
 							)}
 							onMouseEnter={() => foldedAndClosed && dispatch(navbarOpenFolded())}
 							onMouseLeave={() => foldedAndOpened && dispatch(navbarCloseFolded())}
-							style={{ backgroundColor: navbarTheme.palette.background.default }}
+							style={{
+								backgroundColor: navbarTheme.palette.background.default,
+								color: navbarTheme.palette.text.primary
+							}}
 						>
 							<NavbarLayout1 className={classes.navbarContent} />
 						</div>

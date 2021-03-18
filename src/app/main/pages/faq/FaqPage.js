@@ -14,20 +14,20 @@ import { useEffect, useMemo, useState } from 'react';
 
 const useStyles = makeStyles(theme => ({
 	header: {
-		background: `linear-gradient(to left, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
+		background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
 		color: theme.palette.primary.contrastText
 	},
 	panel: {
 		margin: 0,
-		borderWidth: '1px 1px 0 1px',
-		borderStyle: 'solid',
-		borderColor: theme.palette.divider,
+		border: 'none',
+		'&:before': {
+			display: 'none'
+		},
 		'&:first-child': {
 			borderRadius: '20px 20px 0 0'
 		},
 		'&:last-child': {
-			borderRadius: '0 0 20px 20px',
-			borderWidth: '0 1px 1px 1px'
+			borderRadius: '0 0 20px 20px'
 		},
 		'&$expanded': {
 			margin: 'auto'
@@ -87,7 +87,7 @@ function FaqPage() {
 				</motion.div>
 
 				<motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}>
-					<Typography color="inherit" className="text-36 sm:text-56 font-medium tracking-tight">
+					<Typography color="inherit" className="text-36 sm:text-56 font-bold tracking-tight">
 						We're here to help
 					</Typography>
 				</motion.div>
@@ -134,7 +134,12 @@ function FaqPage() {
 
 					return (
 						filteredData.length > 0 && (
-							<motion.div variants={container} initial="hidden" animate="show">
+							<motion.div
+								variants={container}
+								initial="hidden"
+								animate="show"
+								className="shadow rounded-20"
+							>
 								{filteredData.map(faq => (
 									<Accordion
 										component={motion.div}

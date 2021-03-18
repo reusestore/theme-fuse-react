@@ -15,8 +15,6 @@ const pathToRegexp = require('path-to-regexp');
 
 const useStyles = makeStyles(theme => ({
 	mailItem: {
-		borderBottom: `1px solid  ${theme.palette.divider}`,
-
 		'&.unread': {
 			background: 'rgba(0,0,0,0.03)'
 		},
@@ -24,6 +22,7 @@ const useStyles = makeStyles(theme => ({
 			'&::after': {
 				content: '""',
 				position: 'absolute',
+				top: 0,
 				left: 0,
 				display: 'block',
 				height: '100%',
@@ -63,40 +62,38 @@ const MailListItem = props => {
 				classes.mailItem,
 				checked && 'selected',
 				!props.mail.read && 'unread',
-				'py-16 px-0 md:px-8'
+				'items-start py-20 px-0 md:px-8 relative'
 			)}
 		>
-			<Checkbox
-				tabIndex={-1}
-				disableRipple
-				checked={checked}
-				onChange={() => dispatch(toggleInSelectedMails(props.mail.id))}
-				onClick={ev => ev.stopPropagation()}
-			/>
+			<div className="flex flex-col sm:flex-row items-center justify-start">
+				<Checkbox
+					tabIndex={-1}
+					disableRipple
+					checked={checked}
+					onChange={() => dispatch(toggleInSelectedMails(props.mail.id))}
+					onClick={ev => ev.stopPropagation()}
+				/>
 
-			<div className="flex flex-1 flex-col relative overflow-hidden">
-				<div className="flex items-center justify-between px-16 pb-8">
-					<div className="flex items-center">
-						{props.mail.from.avatar ? (
-							<Avatar alt={props.mail.from.name} src={props.mail.from.avatar} />
-						) : (
-							<Avatar className={classes.avatar}>{props.mail.from.name[0]}</Avatar>
-						)}
-						<Typography variant="subtitle1" className="mx-8">
-							{props.mail.from.name}
-						</Typography>
-					</div>
-					<Typography variant="subtitle1">{props.mail.time}</Typography>
+				<div className="px-8 order-first sm:order-none">
+					{props.mail.from.avatar ? (
+						<Avatar alt={props.mail.from.name} src={props.mail.from.avatar} />
+					) : (
+						<Avatar className={classes.avatar}>{props.mail.from.name[0]}</Avatar>
+					)}
 				</div>
+			</div>
 
-				<div className="flex flex-col px-16 py-0">
-					<Typography className="truncate">{props.mail.subject}</Typography>
+			<div className="flex flex-1 flex-col relative overflow-hidden px-8">
+				<Typography className="font-medium">{props.mail.from.name}</Typography>
+
+				<div className="flex flex-col py-4">
+					<Typography className="truncate text-14 pb-2">{props.mail.subject}</Typography>
 					<Typography color="textSecondary" className="truncate">
 						{_.truncate(props.mail.message.replace(/<(?:.|\n)*?>/gm, ''), { length: 180 })}
 					</Typography>
 				</div>
 
-				<div className="flex justify-end px-12">
+				<div className="flex -mx-2">
 					{!_.isEmpty(labels) &&
 						props.mail.labels.map(label => (
 							<MailChip
@@ -107,6 +104,12 @@ const MailListItem = props => {
 							/>
 						))}
 				</div>
+			</div>
+
+			<div className="px-8">
+				<Typography className="text-12" color="textSecondary">
+					{props.mail.time}
+				</Typography>
 			</div>
 		</ListItem>
 	);

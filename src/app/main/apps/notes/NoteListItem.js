@@ -29,7 +29,7 @@ function NoteListItem(props) {
 				{props.note.description && props.note.description !== '' && (
 					<Typography className="px-20 my-16 " component="div">
 						<div
-							className={clsx('w-full break-words', props.variateDescSize ? 'font-200' : 'text-14')}
+							className={clsx('w-full break-words', props.variateDescSize ? 'font-500' : 'text-14')}
 							ref={el => {
 								setTimeout(() =>
 									setDescriptionStyle(props.note.description, el, props.variateDescSize)

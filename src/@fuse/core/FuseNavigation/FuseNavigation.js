@@ -103,7 +103,7 @@ function FuseNavigation(props) {
 	const verticalNav = (
 		<List
 			className={clsx(
-				'navigation whitespace-nowrap',
+				'navigation whitespace-nowrap px-12',
 				classes.navigation,
 				classes.verticalNavigation,
 				`active-${active}-list`,

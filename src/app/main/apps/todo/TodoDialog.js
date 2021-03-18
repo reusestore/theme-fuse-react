@@ -334,7 +334,7 @@ function TodoDialog(props) {
 							<Button
 								type="submit"
 								variant="contained"
-								color="primary"
+								color="secondary"
 								disabled={_.isEmpty(dirtyFields) || !isValid}
 							>
 								Add
@@ -347,7 +347,7 @@ function TodoDialog(props) {
 							<Button
 								type="submit"
 								variant="contained"
-								color="primary"
+								color="secondary"
 								disabled={_.isEmpty(dirtyFields) || !isValid}
 							>
 								Save

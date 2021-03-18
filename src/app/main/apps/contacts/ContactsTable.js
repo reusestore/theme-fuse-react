@@ -92,7 +92,7 @@ const EnhancedTable = ({ columns, data, onRowClick }) => {
 	return (
 		<div className="flex flex-col min-h-full sm:border-1 sm:rounded-16 overflow-hidden">
 			<TableContainer className="flex flex-1">
-				<Table {...getTableProps()} stickyHeader>
+				<Table {...getTableProps()} stickyHeader className="simple borderless">
 					<TableHead>
 						{headerGroups.map(headerGroup => (
 							<TableRow {...headerGroup.getHeaderGroupProps()}>

@@ -18,13 +18,14 @@ const useStyles = makeStyles(theme => ({
 		color: 'inherit!important',
 		textDecoration: 'none!important',
 		height: 40,
-		width: 'calc(100% - 16px)',
-		borderRadius: '0 20px 20px 0',
-		paddingLeft: 24,
+		width: '100%',
+		borderRadius: 6,
+		paddingLeft: 12,
 		paddingRight: 12,
+		marginBottom: 4,
 		'&.active': {
-			backgroundColor: theme.palette.secondary.main,
-			color: `${theme.palette.secondary.contrastText}!important`,
+			backgroundColor:
+				theme.palette.type === 'light' ? 'rgba(0, 0, 0, .05)!important' : 'rgba(255, 255, 255, .1)!important',
 			pointerEvents: 'none',
 			'& .list-item-icon': {
 				color: 'inherit'
@@ -38,7 +39,7 @@ const useStyles = makeStyles(theme => ({
 		}
 	},
 	listSubheader: {
-		paddingLeft: 24
+		paddingLeft: 12
 	}
 }));
 
@@ -58,7 +59,7 @@ function MailAppSidebarContent(props) {
 		>
 			<MailCompose />
 
-			<div>
+			<div className="px-12">
 				<List>
 					<ListSubheader className={classes.listSubheader} disableSticky>
 						{t('FOLDERS')}
