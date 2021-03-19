@@ -54,7 +54,7 @@ function ComingSoonPage() {
 						<CardContent className="flex flex-col items-center justify-center p-32 text-center">
 							<img className="w-128 m-32" src="assets/images/logos/fuse.svg" alt="logo" />
 
-							<Typography variant="subtitle1" className="mb-16 font-normal">
+							<Typography variant="subtitle1" className="mb-16 font-semibold">
 								Hey! Thank you for checking out our app.
 							</Typography>
 

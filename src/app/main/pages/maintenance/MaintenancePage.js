@@ -24,11 +24,11 @@ function MaintenancePage() {
 						<CardContent className="flex flex-col items-center justify-center text-center p-48">
 							<img className="w-128 m-32" src="assets/images/logos/fuse.svg" alt="logo" />
 
-							<Typography variant="subtitle1" className="mb-16 text-16 font-medium">
+							<Typography variant="subtitle1" className="mb-16 text-24 font-semibold">
 								Closed for scheduled maintenance!
 							</Typography>
 
-							<Typography color="textSecondary" className="mb-40">
+							<Typography color="textSecondary" className="mb-40 font-medium">
 								We're sorry for the inconvenience. <br /> Please check back later.
 							</Typography>
 						</CardContent>

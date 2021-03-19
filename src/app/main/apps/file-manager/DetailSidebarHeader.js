@@ -32,12 +32,12 @@ function DetailSidebarHeader(props) {
 
 			<div className="p-12">
 				<motion.div initial={{ scale: 0 }} animate={{ scale: 1, transition: { delay: 0.2 } }}>
-					<Typography variant="subtitle1" className="mb-8">
+					<Typography variant="subtitle1" className="mb-8 font-semibold">
 						{selectedItem.name}
 					</Typography>
 				</motion.div>
 				<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.3 } }}>
-					<Typography variant="caption" className="">
+					<Typography variant="caption" className="font-medium">
 						<span>Edited</span>
 						<span>: {selectedItem.modified}</span>
 					</Typography>

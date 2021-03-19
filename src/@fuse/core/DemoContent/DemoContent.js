@@ -12,8 +12,8 @@ function DemoContent() {
 				}}
 				className="rounded-6"
 			/>
-			<h1 className="py-16">Early Sunrise</h1>
-			<h4 className="pb-12">Demo Content</h4>
+			<h1 className="py-16 font-semibold">Early Sunrise</h1>
+			<h4 className="pb-12 font-medium">Demo Content</h4>
 			<p>
 				One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a
 				horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his

@@ -55,7 +55,7 @@ function ForgotPasswordPage() {
 								<img src="assets/images/logos/fuse.svg" alt="logo" />
 							</div>
 
-							<Typography variant="h6" className="mt-16 mb-32 font-medium text-20 sm:text-24">
+							<Typography variant="h6" className="mt-16 mb-24 font-semibold text-20 sm:text-24">
 								Recover your password
 							</Typography>
 

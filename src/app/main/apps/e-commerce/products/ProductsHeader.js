@@ -18,14 +18,23 @@ function ProductsHeader(props) {
 	return (
 		<div className="flex flex-1 w-full items-center justify-between">
 			<div className="flex items-center">
-				<motion.div initial={{ scale: 0 }} animate={{ scale: 1, transition: { delay: 0.2 } }}>
-					<Icon className="text-32">shopping_basket</Icon>
-				</motion.div>
-				<motion.div initial={{ x: -20 }} animate={{ x: 0, transition: { delay: 0.2 } }} delay={300}>
-					<Typography className="hidden sm:flex mx-0 sm:mx-12" variant="h6">
-						Products
-					</Typography>
-				</motion.div>
+				<Icon
+					component={motion.span}
+					initial={{ scale: 0 }}
+					animate={{ scale: 1, transition: { delay: 0.2 } }}
+					className="text-32"
+				>
+					shopping_basket
+				</Icon>
+				<Typography
+					component={motion.span}
+					initial={{ x: -20 }}
+					animate={{ x: 0, transition: { delay: 0.2 } }}
+					delay={300}
+					className="text-24 mx-12 font-semibold"
+				>
+					Products
+				</Typography>
 			</div>
 
 			<div className="flex flex-1 items-center justify-center px-12">

@@ -92,7 +92,7 @@ function Order(props) {
 									<Icon className="text-20">
 										{theme.direction === 'ltr' ? 'arrow_back' : 'arrow_forward'}
 									</Icon>
-									<span className="mx-4">Orders</span>
+									<span className="mx-4 font-medium">Orders</span>
 								</Typography>
 							</motion.div>
 
@@ -101,10 +101,10 @@ function Order(props) {
 									initial={{ x: -20, opacity: 0 }}
 									animate={{ x: 0, opacity: 1, transition: { delay: 0.3 } }}
 								>
-									<Typography className="text-16 sm:text-20 truncate">
+									<Typography className="text-16 sm:text-20 truncate font-semibold">
 										{`Order ${order.reference}`}
 									</Typography>
-									<Typography variant="caption">
+									<Typography variant="caption" className="font-medium">
 										{`From ${order.customer.firstName} ${order.customer.lastName}`}
 									</Typography>
 								</motion.div>

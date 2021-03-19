@@ -65,7 +65,7 @@ function FileManagerApp() {
 							{selectedItem && (
 								<Breadcrumb
 									selected={selectedItem}
-									className="flex flex-1 ltr:pl-72 rtl:pr-72 pb-12 text-16 sm:text-24"
+									className="flex flex-1 ltr:pl-72 rtl:pr-72 pb-12 text-16 sm:text-24 font-semibold"
 								/>
 							)}
 						</motion.div>

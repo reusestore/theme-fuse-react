@@ -42,7 +42,7 @@ function ProductHeader(props) {
 						color="inherit"
 					>
 						<Icon className="text-20">{theme.direction === 'ltr' ? 'arrow_back' : 'arrow_forward'}</Icon>
-						<span className="mx-4">Products</span>
+						<span className="mx-4 font-medium">Products</span>
 					</Typography>
 				</motion.div>
 
@@ -64,8 +64,12 @@ function ProductHeader(props) {
 					</motion.div>
 					<div className="flex flex-col min-w-0 mx-8 sm:mc-16">
 						<motion.div initial={{ x: -20 }} animate={{ x: 0, transition: { delay: 0.3 } }}>
-							<Typography className="text-16 sm:text-20 truncate">{name || 'New Product'}</Typography>
-							<Typography variant="caption">Product Detail</Typography>
+							<Typography className="text-16 sm:text-20 truncate font-semibold">
+								{name || 'New Product'}
+							</Typography>
+							<Typography variant="caption" className="font-medium">
+								Product Detail
+							</Typography>
 						</motion.div>
 					</div>
 				</div>

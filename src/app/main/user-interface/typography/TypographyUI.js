@@ -19,9 +19,11 @@ function TypographyUI() {
 							<Icon className="text-16" color="action">
 								chevron_right
 							</Icon>
-							<Typography color="textSecondary">User Interface</Typography>
+							<Typography color="textSecondary" className="font-medium">
+								User Interface
+							</Typography>
 						</div>
-						<Typography variant="h6" className="text-18 sm:text-24">
+						<Typography variant="h6" className="text-18 sm:text-24 font-semibold">
 							Typography
 						</Typography>
 					</div>

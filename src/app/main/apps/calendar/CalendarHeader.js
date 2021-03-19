@@ -138,14 +138,22 @@ class CalendarHeader extends Toolbar {
 					<div className="flex flex-1 flex-col p-12 justify-between z-10 container">
 						<div className="flex flex-col items-center justify-between sm:flex-row">
 							<div className="flex items-center my-16 sm:mb-0">
-								<motion.div initial={{ scale: 0 }} animate={{ scale: 1, transition: { delay: 0.2 } }}>
-									<Icon className="text-32 mx-12">today</Icon>
-								</motion.div>
-								<motion.div initial={{ x: -20 }} animate={{ x: 0, transition: { delay: 0.2 } }}>
-									<Typography variant="h6" className="font-medium mx-12 hidden sm:flex">
-										Calendar
-									</Typography>
-								</motion.div>
+								<Icon
+									component={motion.span}
+									initial={{ scale: 0 }}
+									animate={{ scale: 1, transition: { delay: 0.2 } }}
+									className="text-32"
+								>
+									today
+								</Icon>
+								<motion.span
+									initial={{ x: -20 }}
+									animate={{ x: 0, transition: { delay: 0.2 } }}
+									delay={300}
+									className="text-24 mx-12 font-semibold"
+								>
+									Calendar
+								</motion.span>
 							</div>
 							<div className="flex items-center">
 								<Tooltip title="Today">

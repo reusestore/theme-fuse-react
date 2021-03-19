@@ -198,7 +198,7 @@ function Login3Page() {
 						</motion.div>
 
 						<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.3 } }}>
-							<Typography variant="subtitle1" color="inherit" className="mt-32">
+							<Typography variant="subtitle1" color="inherit" className="mt-32 font-medium">
 								Powerful and professional admin template for Web Applications, CRM, CMS, Admin Panels
 								and more.
 							</Typography>

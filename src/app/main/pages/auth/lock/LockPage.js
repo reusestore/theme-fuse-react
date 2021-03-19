@@ -64,10 +64,10 @@ function LockPage() {
 								</div>
 
 								<div className="mx-8">
-									<Typography variant="h6" className="mb-4 font-medium">
+									<Typography variant="h6" className="mb-4 font-semibold">
 										Your session is locked
 									</Typography>
-									<Typography color="textSecondary">
+									<Typography color="textSecondary" className="font-medium">
 										Due to inactivity, your session is locked. Enter your password to continue.
 									</Typography>
 								</div>

@@ -69,7 +69,7 @@ function RegisterPage() {
 						<CardContent className="flex flex-col items-center justify-center p-32">
 							<img className="w-128 m-32" src="assets/images/logos/fuse.svg" alt="logo" />
 
-							<Typography variant="h6" className="mt-16 mb-32 font-medium text-20 sm:text-24">
+							<Typography variant="h6" className="mt-16 mb-24 font-semibold text-20 sm:text-24">
 								Create an account
 							</Typography>
 

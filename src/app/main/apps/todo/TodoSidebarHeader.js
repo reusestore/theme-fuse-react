@@ -1,6 +1,7 @@
 import Icon from '@material-ui/core/Icon';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
@@ -27,14 +28,15 @@ function TodoSidebarHeader() {
 				>
 					check_box
 				</Icon>
-				<motion.span
+				<Typography
+					component={motion.span}
 					initial={{ x: -20 }}
 					animate={{ x: 0, transition: { delay: 0.2 } }}
 					delay={300}
-					className="text-24 mx-16 font-medium"
+					className="text-24 mx-12 font-semibold"
 				>
 					To-Do
-				</motion.span>
+				</Typography>
 			</div>
 
 			<motion.div initial={{ y: 20, opacity: 0.8 }} animate={{ y: 0, opacity: 1, transition: { delay: 0.3 } }}>

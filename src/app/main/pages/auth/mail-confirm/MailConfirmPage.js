@@ -30,7 +30,7 @@ function MailConfirmPage() {
 								</Icon>
 							</div>
 
-							<Typography variant="h5" className="text-center mb-16 font-medium">
+							<Typography variant="h5" className="text-center mb-16 font-semibold">
 								Confirm your email address!
 							</Typography>
 
