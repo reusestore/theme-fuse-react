@@ -52,7 +52,6 @@ function NavbarStyle3Content(props) {
 	const dispatch = useDispatch();
 
 	function handleParentItemClick(selected) {
-		console.info(selected);
 		/** if there is no child item do not set/open panel
 		 */
 		if (!selected.children) {
