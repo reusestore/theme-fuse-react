@@ -1,19 +1,19 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { ThemeProvider, makeStyles, useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import clsx from 'clsx';
 import { memo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import FuseNavigation from '@fuse/core/FuseNavigation/FuseNavigation';
 import { selectNavigation } from 'app/store/fuse/navigationSlice';
-import { navbarCloseMobile } from '../../../../../store/fuse/navbarSlice';
+import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
+import { selectContrastMainTheme } from 'app/store/fuse/settingsSlice';
 
 const useStyles = makeStyles(theme => ({
 	root: {
 		backgroundColor: theme.palette.primary.main,
-		color: theme.palette.text.primary,
+		color: theme.palette.primary.contrastText,
 		'& ::-webkit-scrollbar-thumb': {
 			boxShadow: `inset 0 0 0 20px ${
 				theme.palette.type === 'light' ? 'rgba(0, 0, 0, 0.24)' : 'rgba(255, 255, 255, 0.24)'
@@ -50,6 +50,7 @@ function NavbarStyle3Content(props) {
 	const theme = useTheme();
 	const mdDown = useMediaQuery(theme.breakpoints.down('md'));
 	const dispatch = useDispatch();
+	const contrastTheme = useSelector(selectContrastMainTheme(theme.palette.primary.main));
 
 	function handleParentItemClick(selected) {
 		/** if there is no child item do not set/open panel
@@ -82,23 +83,25 @@ function NavbarStyle3Content(props) {
 	return (
 		<ClickAwayListener onClickAway={() => setPanelOpen(false)}>
 			<div className={clsx('flex flex-auto flex h-full', classes.root, props.className)}>
-				<div className="flex flex-shrink-0 flex-col items-center w-full">
-					<img className="w-44 my-32" src="assets/images/logos/fuse.svg" alt="logo" />
+				<ThemeProvider theme={contrastTheme}>
+					<div className="flex flex-shrink-0 flex-col items-center w-full">
+						<img className="w-44 my-32" src="assets/images/logos/fuse.svg" alt="logo" />
 
-					<FuseScrollbars className="w-full" option={{ suppressScrollX: true }}>
-						<FuseNavigation
-							className={clsx('navigation')}
-							navigation={navigation}
-							layout="vertical-2"
-							onItemClick={handleParentItemClick}
-							firstLevel
-						/>
-					</FuseScrollbars>
-				</div>
+						<FuseScrollbars className="w-full" option={{ suppressScrollX: true }}>
+							<FuseNavigation
+								className={clsx('navigation')}
+								navigation={navigation}
+								layout="vertical-2"
+								onItemClick={handleParentItemClick}
+								firstLevel
+							/>
+						</FuseScrollbars>
+					</div>
+				</ThemeProvider>
 
 				{selectedNavigation.length > 0 && (
 					<FuseScrollbars
-						className={clsx(classes.content, !panelOpen && 'hidden')}
+						className={clsx(classes.content, !panelOpen && 'hidden', 'shadow-5')}
 						option={{ suppressScrollX: true }}
 					>
 						<FuseNavigation

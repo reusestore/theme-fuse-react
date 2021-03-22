@@ -50,7 +50,7 @@ function NavbarStyle3(props) {
 						classes.navbar,
 						config.navbar.position,
 						navbar.open ? 'opened' : 'closed',
-						'flex-col flex-auto sticky top-0  h-screen flex-shrink-0 z-20 shadow-5'
+						'flex-col flex-auto sticky top-0 h-screen flex-shrink-0 z-20 shadow-5'
 					)}
 				>
 					<NavbarStyle3Content />
