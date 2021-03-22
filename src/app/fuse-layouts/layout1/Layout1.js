@@ -38,7 +38,7 @@ function Layout1(props) {
 	const classes = useStyles({ ...props, config });
 
 	return (
-		<div id="fuse-layout" className={clsx(config.mode, 'w-full flex')}>
+		<div id="fuse-layout" className={clsx(classes.root, config.mode, 'w-full flex')}>
 			{config.leftSidePanel.display && <LeftSideLayout1 />}
 
 			<div className="flex flex-auto min-w-0">
