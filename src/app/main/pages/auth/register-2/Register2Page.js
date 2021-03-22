@@ -65,7 +65,7 @@ function Register2Page() {
 	}
 
 	return (
-		<div className={clsx(classes.root, 'flex flex-col flex-auto p-24 md:flex-row md:p-0 overflow-hidden')}>
+		<div className={clsx(classes.root, 'flex flex-col flex-auto p-16 sm:p-24 md:flex-row md:p-0 overflow-hidden')}>
 			<div className="flex flex-col flex-grow-0 items-center text-white p-16 text-center md:p-128 md:items-start md:flex-shrink-0 md:flex-1 md:text-left">
 				<motion.div
 					initial={{ opacity: 0, scale: 0.6 }}
@@ -75,7 +75,7 @@ function Register2Page() {
 				</motion.div>
 
 				<motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0, transition: { delay: 0.2 } }}>
-					<Typography variant="h3" color="inherit" className="font-semibold leading-tight">
+					<Typography color="inherit" className="text-32 sm:text-44 font-semibold leading-tight">
 						Welcome <br />
 						to the <br /> FUSE React!
 					</Typography>
@@ -93,12 +93,12 @@ function Register2Page() {
 				initial={{ x: 200 }}
 				animate={{ x: 0 }}
 				transition={{ bounceDamping: 0 }}
-				className="w-full max-w-400 mx-auto m-16 md:m-0"
+				className="w-full max-w-400 mx-auto m-16 md:m-0 rounded-20 md:rounded-none"
 				square
 				layout
 			>
-				<CardContent className="flex flex-col items-center justify-center p-32 md:p-48 md:pt-128 ">
-					<Typography variant="h6" className="mb-24 font-semibold text-20 sm:text-24">
+				<CardContent className="flex flex-col items-center justify-center p-16 sm:p-32 md:p-48 md:pt-128 ">
+					<Typography variant="h6" className="mb-24 font-semibold text-18 sm:text-24">
 						Create an account
 					</Typography>
 

@@ -70,7 +70,7 @@ function KnowledgeBasePage() {
 				</motion.div>
 
 				<motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}>
-					<Typography color="inherit" className="text-36 sm:text-56 font-bold tracking-tight">
+					<Typography color="inherit" className="text-32 sm:text-56 font-bold tracking-tight">
 						How can we help?
 					</Typography>
 				</motion.div>

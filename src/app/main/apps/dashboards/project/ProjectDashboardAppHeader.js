@@ -71,8 +71,8 @@ function ProjectDashboardAppHeader(props) {
 
 	return (
 		<div className="flex flex-col justify-between flex-1 px-24 pt-24">
-			<div className="flex justify-between items-start">
-				<Typography className="py-0 sm:py-24 text-24 md:text-32 font-bold" variant="h4">
+			<div className="flex justify-between items-center">
+				<Typography className="py-0 sm:py-24 text-18 sm:text-24 md:text-32 font-bold" variant="h4">
 					Welcome back, John!
 				</Typography>
 				<Hidden lgUp>
@@ -87,7 +87,7 @@ function ProjectDashboardAppHeader(props) {
 			</div>
 			<div className="flex items-end">
 				<div className="flex items-center">
-					<div className={clsx(classes.selectedProject, 'flex items-center h-40 px-16 text-16')}>
+					<div className={clsx(classes.selectedProject, 'flex items-center h-40 px-16 text-13 sm:text-16')}>
 						{_.find(projects, ['id', selectedProject.id]).name}
 					</div>
 					<IconButton

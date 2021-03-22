@@ -47,7 +47,7 @@ function PricingStyle3Page() {
 							initial={{ opacity: 0, y: 40 }}
 							animate={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}
 						>
-							<Typography variant="h2" color="inherit" className="font-bold">
+							<Typography color="inherit" className="font-bold text-32 md:text-52">
 								Pricing Plans For Everyone!
 							</Typography>
 						</motion.div>

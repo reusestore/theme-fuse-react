@@ -37,9 +37,9 @@ function Widget1(props) {
 	return (
 		<ThemeProvider theme={contrastTheme}>
 			<div className={clsx(classes.root)}>
-				<div className="container relative p-16 sm:p-24 flex flex-row justify-between items-center">
+				<div className="container relative p-16 sm:p-24 flex flex-col sm:flex-row justify-between items-center">
 					<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-						<div className="flex-col">
+						<div className="flex flex-col items-center sm:items-start mb-16 sm:mb-0">
 							<Typography className="h2 font-medium" color="textPrimary">
 								Visitors
 							</Typography>
@@ -57,7 +57,7 @@ function Widget1(props) {
 							textColor="inherit"
 							variant="scrollable"
 							scrollButtons="off"
-							className="w-full px-24 -mx-4 min-h-40"
+							className="w-full -mx-4 min-h-40"
 							classes={{ indicator: 'flex justify-center bg-transparent w-full h-full' }}
 							TabIndicatorProps={{
 								children: <Divider className="w-full h-full rounded-full opacity-50" />

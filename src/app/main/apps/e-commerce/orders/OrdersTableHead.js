@@ -100,7 +100,7 @@ function OrdersTableHead(props) {
 
 	return (
 		<TableHead>
-			<TableRow className="h-64">
+			<TableRow className="h-48 sm:h-64">
 				<TableCell padding="none" className="w-40 md:w-64 text-center z-99">
 					<Checkbox
 						indeterminate={numSelected > 0 && numSelected < props.rowCount}

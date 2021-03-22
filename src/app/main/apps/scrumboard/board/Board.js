@@ -81,7 +81,7 @@ function Board(props) {
 	return (
 		<div className="flex flex-1 flex-auto flex-col w-full h-full relative" ref={containerRef}>
 			<AppBar position="static" color="primary" elevation={0}>
-				<Toolbar className="flex items-center justify-between px-4 sm:px-24 h-64 sm:h-96 container">
+				<Toolbar className="flex items-center justify-between px-4 sm:px-24 h-48 sm:h-64 sm:h-96 container">
 					<Hidden xsDown>
 						<Button to="/apps/scrumboard/boards/" component={Link} variant="contained" color="secondary">
 							<Icon>assessment</Icon>

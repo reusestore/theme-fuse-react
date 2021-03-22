@@ -13,11 +13,11 @@ function FuseLoading(props) {
 	}, props.delay);
 
 	return (
-		<div className={clsx('flex flex-1 flex-col items-center justify-center p-12', !showLoading && 'hidden')}>
-			<Typography className="text-20 mb-16" color="textSecondary">
+		<div className={clsx('flex flex-1 flex-col items-center justify-center p-24', !showLoading && 'hidden')}>
+			<Typography className="text-13 sm:text-20 mb-16" color="textSecondary">
 				Loading...
 			</Typography>
-			<LinearProgress className="w-xs max-w-full rounded-2" color="secondary" />
+			<LinearProgress className="w-192 sm:w-320 max-w-full rounded-2" color="secondary" />
 		</div>
 	);
 }

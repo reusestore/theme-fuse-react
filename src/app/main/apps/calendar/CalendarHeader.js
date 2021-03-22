@@ -142,7 +142,7 @@ class CalendarHeader extends Toolbar {
 									component={motion.span}
 									initial={{ scale: 0 }}
 									animate={{ scale: 1, transition: { delay: 0.2 } }}
-									className="text-32"
+									className="text-24 md:text-32"
 								>
 									today
 								</Icon>
@@ -150,7 +150,7 @@ class CalendarHeader extends Toolbar {
 									initial={{ x: -20 }}
 									animate={{ x: 0, transition: { delay: 0.2 } }}
 									delay={300}
-									className="text-24 mx-12 font-semibold"
+									className="text-16 md:text-24 mx-12 font-semibold"
 								>
 									Calendar
 								</motion.span>

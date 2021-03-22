@@ -111,9 +111,8 @@ function Courses(props) {
 					</motion.div>
 					<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.3 } }}>
 						<Typography
-							variant="subtitle1"
 							color="inherit"
-							className="mt-8 sm:mt-16 opacity-75 leading-loose"
+							className="text-12 sm:text-14 mt-8 sm:mt-16 opacity-75 leading-tight sm:leading-loose"
 						>
 							Our courses will step you through the process of building a small application, or adding a
 							new feature to an existing application. Our courses will step you through the process of

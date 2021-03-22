@@ -54,14 +54,14 @@ function ResetPasswordPage() {
 	}
 
 	return (
-		<div className={clsx(classes.root, 'flex flex-col flex-auto items-center justify-center p-32')}>
+		<div className={clsx(classes.root, 'flex flex-col flex-auto items-center justify-center p-16 sm:p-32')}>
 			<div className="flex flex-col items-center justify-center w-full">
 				<motion.div initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }}>
 					<Card className="w-full max-w-384">
-						<CardContent className="flex flex-col items-center justify-center p-32">
+						<CardContent className="flex flex-col items-center justify-center p-16 sm:p-24 md:p-32">
 							<img className="w-128 m-32" src="assets/images/logos/fuse.svg" alt="logo" />
 
-							<Typography variant="h6" className="mt-16 mb-24 font-semibold text-20 sm:text-24">
+							<Typography variant="h6" className="mt-16 mb-24 font-semibold text-18 sm:text-24">
 								Reset your password
 							</Typography>
 

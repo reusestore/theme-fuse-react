@@ -205,7 +205,7 @@ function Register3Page() {
 							initial={{ opacity: 0, y: 40 }}
 							animate={{ opacity: 1, y: 0, transition: { delay: 0.2 } }}
 						>
-							<Typography variant="h3" color="inherit" className="font-semibold leading-tight">
+							<Typography color="inherit" className="text-32 sm:text-44 font-semibold leading-tight">
 								Welcome <br />
 								to the <br /> FUSE React!
 							</Typography>

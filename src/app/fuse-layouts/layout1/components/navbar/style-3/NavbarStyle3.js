@@ -7,9 +7,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
 import NavbarStyle3Content from './NavbarStyle3Content';
 
-const navbarWidth = 128;
+const navbarWidth = 120;
 
 const useStyles = makeStyles(theme => ({
+	'@global': {
+		'#fuse-navbar-side-panel': {
+			width: navbarWidth
+		},
+		'#fuse-navbar-panel': {
+			maxWidth: '100%',
+			width: 280,
+			[theme.breakpoints.up('lg')]: {
+				minWidth: 280,
+				maxWidth: 'initial'
+			}
+		}
+	},
 	navbar: {
 		minWidth: navbarWidth,
 		width: navbarWidth,
@@ -60,7 +73,10 @@ function NavbarStyle3(props) {
 			<Hidden lgUp>
 				<SwipeableDrawer
 					classes={{
-						paper: clsx(classes.navbarMobile, 'flex-col flex-auto h-full')
+						paper: clsx(
+							classes.navbarMobile,
+							'flex-col flex-auto h-screen max-w-full w-auto overflow-hidden'
+						)
 					}}
 					anchor={config.navbar.position}
 					variant="temporary"

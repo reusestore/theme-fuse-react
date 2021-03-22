@@ -13,37 +13,17 @@ import { selectContrastMainTheme } from 'app/store/fuse/settingsSlice';
 const useStyles = makeStyles(theme => ({
 	root: {
 		backgroundColor: theme.palette.primary.main,
-		color: theme.palette.primary.contrastText,
-		'& ::-webkit-scrollbar-thumb': {
-			boxShadow: `inset 0 0 0 20px ${
-				theme.palette.type === 'light' ? 'rgba(0, 0, 0, 0.24)' : 'rgba(255, 255, 255, 0.24)'
-			}`
-		},
-		'& ::-webkit-scrollbar-thumb:active': {
-			boxShadow: `inset 0 0 0 20px ${
-				theme.palette.type === 'light' ? 'rgba(0, 0, 0, 0.37)' : 'rgba(255, 255, 255, 0.37)'
-			}`
-		}
+		color: theme.palette.primary.contrastText
 	},
-	content: {
-		minWidth: 280,
-		width: 280,
+	sidePanel: {},
+	panel: {
 		backgroundColor: theme.palette.background.default,
-		color: theme.palette.text.primary,
-		overscrollBehavior: 'contain',
-		overflowX: 'hidden',
-		overflowY: 'auto',
-		'-webkit-overflow-scrolling': 'touch',
-		background:
-			'linear-gradient(rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 30%), linear-gradient(rgba(0, 0, 0, 0.25) 0, rgba(0, 0, 0, 0) 40%)',
-		backgroundRepeat: 'no-repeat',
-		backgroundSize: '100% 40px, 100% 10px',
-		backgroundAttachment: 'local, scroll'
+		color: theme.palette.text.primary
 	}
 }));
 
 function NavbarStyle3Content(props) {
-	const classes = useStyles();
+	const classes = useStyles(props);
 	const navigation = useSelector(selectNavigation);
 	const [selectedNavigation, setSelectedNavigation] = useState([]);
 	const [panelOpen, setPanelOpen] = useState(false);
@@ -84,10 +64,16 @@ function NavbarStyle3Content(props) {
 		<ClickAwayListener onClickAway={() => setPanelOpen(false)}>
 			<div className={clsx('flex flex-auto flex h-full', classes.root, props.className)}>
 				<ThemeProvider theme={contrastTheme}>
-					<div className="flex flex-shrink-0 flex-col items-center w-full">
+					<div
+						id="fuse-navbar-side-panel"
+						className={clsx(classes.sidePanel, 'flex flex-shrink-0 flex-col items-center')}
+					>
 						<img className="w-44 my-32" src="assets/images/logos/fuse.svg" alt="logo" />
 
-						<FuseScrollbars className="w-full" option={{ suppressScrollX: true }}>
+						<FuseScrollbars
+							className="flex flex-1 min-h-0 justify-center w-full overflow-y-auto overflow-x-hidden"
+							option={{ suppressScrollX: true }}
+						>
 							<FuseNavigation
 								className={clsx('navigation')}
 								navigation={navigation}
@@ -101,7 +87,12 @@ function NavbarStyle3Content(props) {
 
 				{selectedNavigation.length > 0 && (
 					<FuseScrollbars
-						className={clsx(classes.content, !panelOpen && 'hidden', 'shadow-5')}
+						id="fuse-navbar-panel"
+						className={clsx(
+							classes.panel,
+							!panelOpen && 'hidden',
+							'shadow-5 overflow-y-auto overflow-x-hidden'
+						)}
 						option={{ suppressScrollX: true }}
 					>
 						<FuseNavigation

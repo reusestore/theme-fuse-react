@@ -26,7 +26,9 @@ const handlerNameByEvent = {
 Object.freeze(handlerNameByEvent);
 
 const useStyles = makeStyles(theme => ({
-	root: {}
+	root: {
+		overscrollBehavior: 'contain'
+	}
 }));
 
 const FuseScrollbars = forwardRef((props, ref) => {
@@ -138,7 +140,7 @@ const FuseScrollbars = forwardRef((props, ref) => {
 				props.customScrollbars && (props.enable || true) && !isMobile
 					? {
 							position: 'relative',
-							overflow: 'hidden'
+							overflow: 'hidden!important'
 					  }
 					: {}
 			}

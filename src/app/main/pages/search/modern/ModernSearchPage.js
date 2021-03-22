@@ -78,7 +78,7 @@ function ModernSearchPage() {
 								<Paper
 									component={motion.div}
 									variants={item}
-									className="p-16 mb-16 rounded-16 shadow"
+									className="p-16 mb-16 rounded-16 shadow overflow-hidden"
 									key={_item.id}
 								>
 									<Typography className={clsx(classes.title, 'text-18 font-medium cursor-pointer')}>

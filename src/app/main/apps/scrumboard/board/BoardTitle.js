@@ -88,7 +88,7 @@ function BoardTitle(props) {
 				<div className="flex items-center justify-center">
 					{board.settings.subscribed && <Icon className="text-16">remove_red_eye</Icon>}
 					<Typography
-						className="text-18 font-medium cursor-pointer mx-8"
+						className="text-14 sm:text-18 font-medium cursor-pointer mx-8"
 						onClick={handleOpenForm}
 						color="inherit"
 					>

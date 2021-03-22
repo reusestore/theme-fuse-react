@@ -87,12 +87,12 @@ function FaqPage() {
 				</motion.div>
 
 				<motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}>
-					<Typography color="inherit" className="text-36 sm:text-56 font-bold tracking-tight">
+					<Typography color="inherit" className="text-32 sm:text-56 font-bold tracking-tight">
 						We're here to help
 					</Typography>
 				</motion.div>
 
-				<Paper className="flex items-center h-56 w-full max-w-md mt-16 sm:mt-32 rounded-16 shadow">
+				<Paper className="flex flex-shrink-0 items-center h-56 w-full max-w-md mt-16 sm:mt-32 rounded-16 shadow">
 					<Icon color="action" className="mx-16">
 						search
 					</Icon>
