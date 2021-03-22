@@ -93,7 +93,7 @@ function FuseSettings(props) {
 		// If form changed update theme settings
 		if (formChanged) {
 			if (settings.layout.style !== newSettings.layout.style) {
-				_.set(newSettings, 'layout.config', {});
+				_.set(newSettings, 'layout.config', FuseLayoutConfigs[newSettings?.layout?.style]?.defaults);
 			}
 			handleUpdate(newSettings);
 		}

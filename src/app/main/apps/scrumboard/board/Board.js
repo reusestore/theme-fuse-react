@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import Hidden from '@material-ui/core/Hidden';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
+import { makeStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import Toolbar from '@material-ui/core/Toolbar';
 import withReducer from 'app/store/withReducer';
@@ -14,14 +15,23 @@ import { Link, withRouter, useParams } from 'react-router-dom';
 import { useDeepCompareEffect } from '@fuse/hooks';
 import reducer from '../store';
 import { reorderCard, reorderList, resetBoard, getBoard } from '../store/boardSlice';
-
 import BoardAddList from './BoardAddList';
 import BoardList from './BoardList';
 import BoardTitle from './BoardTitle';
 import BoardCardDialog from './dialogs/card/BoardCardDialog';
 import BoardSettingsSidebar from './sidebars/settings/BoardSettingsSidebar';
 
+const useStyles = makeStyles(theme => ({
+	'@global': {
+		'#fuse-main': {
+			height: '100vh'
+		}
+	}
+}));
+
 function Board(props) {
+	const classes = useStyles(props);
+
 	const dispatch = useDispatch();
 	const board = useSelector(({ scrumboardApp }) => scrumboardApp.board);
 

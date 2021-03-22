@@ -8,8 +8,6 @@ import { memo, useContext, useMemo, useCallback, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { matchRoutes } from 'react-router-config';
 import { useLocation } from 'react-router-dom';
-import * as Velocity from 'velocity-animate';
-import { defaults as Chartjs2Defaults } from 'react-chartjs-2';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 
 const useStyles = makeStyles(theme => ({
@@ -62,6 +60,10 @@ const useStyles = makeStyles(theme => ({
 			boxShadow: `inset 0 0 0 20px ${
 				theme.palette.type === 'light' ? 'rgba(0, 0, 0, 0.37)' : 'rgba(255, 255, 255, 0.37)'
 			}`
+		},
+		html: {
+			backgroundColor: `${theme.palette.background.default}!important`,
+			color: `${theme.palette.text.primary}!important`
 		}
 	},
 	root: {

@@ -1,19 +1,20 @@
 import Divider from '@material-ui/core/Divider';
-import List from '@material-ui/core/List';
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { memo } from 'react';
-import FuseNavHorizontalCollapse from './horizontal/FuseNavHorizontalCollapse';
-import FuseNavHorizontalGroup from './horizontal/FuseNavHorizontalGroup';
-import FuseNavHorizontalItem from './horizontal/FuseNavHorizontalItem';
-import FuseNavHorizontalLink from './horizontal/FuseNavHorizontalLink';
-import FuseNavVerticalCollapse from './vertical/FuseNavVerticalCollapse';
-import FuseNavVerticalGroup from './vertical/FuseNavVerticalGroup';
-import FuseNavVerticalItem from './vertical/FuseNavVerticalItem';
-import FuseNavVerticalLink from './vertical/FuseNavVerticalLink';
-import FuseNavItem, { registerComponent } from './FuseNavItem';
-
+import _ from '@lodash';
+import FuseNavHorizontalLayout1 from './horizontal/FuseNavHorizontalLayout1';
+import FuseNavVerticalLayout1 from './vertical/FuseNavVerticalLayout1';
+import FuseNavVerticalLayout2 from './vertical/FuseNavVerticalLayout2';
+import FuseNavHorizontalCollapse from './horizontal/types/FuseNavHorizontalCollapse';
+import FuseNavHorizontalGroup from './horizontal/types/FuseNavHorizontalGroup';
+import FuseNavHorizontalItem from './horizontal/types/FuseNavHorizontalItem';
+import FuseNavHorizontalLink from './horizontal/types/FuseNavHorizontalLink';
+import FuseNavVerticalCollapse from './vertical/types/FuseNavVerticalCollapse';
+import FuseNavVerticalGroup from './vertical/types/FuseNavVerticalGroup';
+import FuseNavVerticalItem from './vertical/types/FuseNavVerticalItem';
+import FuseNavVerticalLink from './vertical/types/FuseNavVerticalLink';
+import { registerComponent } from './FuseNavItem';
 /*
 Register Fuse Navigation Components
  */
@@ -29,50 +30,6 @@ registerComponent('vertical-divider', () => <Divider className="my-16" />);
 registerComponent('horizontal-divider', () => <Divider className="my-16" />);
 
 const useStyles = makeStyles(theme => ({
-	navigation: {
-		'& .list-item': {
-			'&:hover': {
-				backgroundColor: theme.palette.type === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0,0,0,.04)'
-			},
-			'&:focus:not(.active)': {
-				backgroundColor: theme.palette.type === 'dark' ? 'rgba(255, 255, 255, 0.06)' : 'rgba(0,0,0,.05)'
-			}
-		}
-	},
-	verticalNavigation: {
-		'&.active-square-list': {
-			'& .list-item, & .active.list-item': {
-				width: '100%',
-				borderRadius: '0'
-			}
-		},
-		'&.dense': {
-			'& .list-item': {
-				paddingTop: 0,
-				paddingBottom: 0,
-				height: 32
-			}
-		}
-	},
-	horizontalNavigation: {
-		'&.active-square-list': {
-			'& .list-item': {
-				borderRadius: '0'
-			}
-		},
-		'& .list-item': {
-			padding: '8px 12px 8px 12px',
-			height: 40,
-			minHeight: 40,
-			'&.level-0': {
-				height: 44,
-				minHeight: 44
-			},
-			'& .list-item-text': {
-				padding: '0 0 0 8px'
-			}
-		}
-	},
 	'@global': {
 		'.popper-navigation-list': {
 			'& .list-item': {
@@ -98,56 +55,28 @@ const useStyles = makeStyles(theme => ({
 
 function FuseNavigation(props) {
 	const classes = useStyles(props);
-	const { navigation, layout, active, dense, className } = props;
-
-	const verticalNav = (
-		<List
-			className={clsx(
-				'navigation whitespace-nowrap px-12',
-				classes.navigation,
-				classes.verticalNavigation,
-				`active-${active}-list`,
-				dense && 'dense',
-				className
-			)}
-		>
-			{navigation.map(_item => (
-				<FuseNavItem key={_item.id} type={`vertical-${_item.type}`} item={_item} nestedLevel={0} />
-			))}
-		</List>
-	);
-
-	const horizontalNav = (
-		<List
-			className={clsx(
-				'navigation whitespace-nowrap flex p-0',
-				classes.navigation,
-				classes.horizontalNavigation,
-				`active-${active}-list`,
-				dense && 'dense',
-				className
-			)}
-		>
-			{navigation.map(_item => (
-				<FuseNavItem
-					key={_item.id}
-					type={`horizontal-${_item.type}`}
-					item={_item}
-					nestedLevel={0}
-					dense={dense}
-				/>
-			))}
-		</List>
-	);
-
-	if (navigation.length > 0) {
-		switch (layout) {
+	const options = _.pick(props, [
+		'navigation',
+		'layout',
+		'active',
+		'dense',
+		'className',
+		'onItemClick',
+		'firstLevel'
+	]);
+	if (props.navigation.length > 0) {
+		switch (props.layout) {
 			case 'horizontal': {
-				return horizontalNav;
+				return <FuseNavHorizontalLayout1 {...options} />;
 			}
-			case 'vertical':
+			case 'vertical': {
+				return <FuseNavVerticalLayout1 {...options} />;
+			}
+			case 'vertical-2': {
+				return <FuseNavVerticalLayout2 {...options} />;
+			}
 			default: {
-				return verticalNav;
+				return <FuseNavVerticalLayout1 {...options} />;
 			}
 		}
 	} else {

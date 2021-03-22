@@ -702,7 +702,7 @@ const themesConfig = {
 				dark: skyBlue[900]
 			},
 			background: {
-				paper: fuseDark[300],
+				paper: fuseDark[400],
 				default: fuseDark[500]
 			},
 			error: red

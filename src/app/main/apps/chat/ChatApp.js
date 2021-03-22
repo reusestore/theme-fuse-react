@@ -36,6 +36,11 @@ const drawerWidth = 400;
 const headerHeight = 200;
 
 const useStyles = makeStyles(theme => ({
+	'@global': {
+		'#fuse-main': {
+			height: '100vh'
+		}
+	},
 	root: {
 		display: 'flex',
 		flexDirection: 'row',

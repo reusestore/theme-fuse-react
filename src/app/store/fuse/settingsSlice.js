@@ -29,9 +29,7 @@ export function generateSettings(_defaultSettings, _newSettings) {
 	const response = _.merge(
 		{},
 		_defaultSettings,
-		_newSettings && _newSettings.layout && _newSettings.layout.style
-			? { layout: { config: FuseLayoutConfigs[_newSettings.layout.style].defaults } }
-			: {},
+		{ layout: { config: FuseLayoutConfigs[_newSettings?.layout?.style]?.defaults } },
 		_newSettings
 	);
 

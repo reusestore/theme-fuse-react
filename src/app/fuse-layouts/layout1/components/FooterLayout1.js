@@ -7,6 +7,7 @@ import DocumentationButton from 'app/fuse-layouts/shared-components/Documentatio
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { selectFooterTheme } from 'app/store/fuse/settingsSlice';
+import clsx from 'clsx';
 
 function FooterLayout1(props) {
 	const footerTheme = useSelector(selectFooterTheme);
@@ -15,7 +16,7 @@ function FooterLayout1(props) {
 		<ThemeProvider theme={footerTheme}>
 			<AppBar
 				id="fuse-footer"
-				className="relative z-10 shadow-md"
+				className={clsx('relative z-20 shadow-md', props.className)}
 				color="default"
 				style={{ backgroundColor: footerTheme.palette.background.paper }}
 			>

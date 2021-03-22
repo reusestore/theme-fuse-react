@@ -17,7 +17,7 @@ function MaintenancePage() {
 	const classes = useStyles();
 
 	return (
-		<div className={clsx(classes.root, 'flex flex-col flex-auto flex-shrink-0 items-center justify-center p-32')}>
+		<div className={clsx(classes.root, 'flex flex-col flex-auto items-center justify-center p-32')}>
 			<div className="flex flex-col items-center justify-center w-full">
 				<Grow in>
 					<Card className="w-full max-w-384">

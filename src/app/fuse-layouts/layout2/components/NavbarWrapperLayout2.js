@@ -3,7 +3,7 @@ import Paper from '@material-ui/core/Paper';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import NavbarMobileLayout2 from 'app/fuse-layouts/layout2/components/NavbarMobileLayout2';
-import NavbarMobileToggleFab from 'app/fuse-layouts/shared-components/NavbarMobileToggleFab';
+import NavbarToggleFab from 'app/fuse-layouts/shared-components/NavbarToggleFab';
 import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
 import clsx from 'clsx';
 import { memo } from 'react';
@@ -15,26 +15,17 @@ const navbarWidth = 280;
 
 const useStyles = makeStyles(theme => ({
 	navbar: {
-		display: 'flex',
-		overflow: 'hidden',
 		height: 64,
 		minHeight: 64,
-		alignItems: 'center',
-		zIndex: 6
+		maxHeight: 64
 	},
 	navbarMobile: {
-		display: 'flex',
-		overflow: 'hidden',
-		flexDirection: 'column',
 		width: navbarWidth,
 		minWidth: navbarWidth,
-		height: '100%',
-		zIndex: 4,
 		transition: theme.transitions.create(['width', 'min-width'], {
 			easing: theme.transitions.easing.sharp,
 			duration: theme.transitions.duration.shorter
-		}),
-		boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'
+		})
 	}
 }));
 
@@ -50,9 +41,7 @@ function NavbarWrapperLayout2(props) {
 		<>
 			<ThemeProvider theme={navbarTheme}>
 				<Hidden mdDown>
-					<Paper className={clsx(classes.navbar, 'shadow-md')} square>
-						<NavbarLayout2 />
-					</Paper>
+					<NavbarLayout2 className={clsx(classes.navbar, props.className)} />
 				</Hidden>
 
 				<Hidden lgUp>
@@ -61,7 +50,7 @@ function NavbarWrapperLayout2(props) {
 						variant="temporary"
 						open={navbar.mobileOpen}
 						classes={{
-							paper: classes.navbarMobile
+							paper: clsx(classes.navbarMobile, 'flex-col flex-auto h-full')
 						}}
 						onClose={() => dispatch(navbarCloseMobile())}
 						onOpen={() => {}}
@@ -77,7 +66,7 @@ function NavbarWrapperLayout2(props) {
 
 			{config.navbar.display && !config.toolbar.display && (
 				<Hidden lgUp>
-					<NavbarMobileToggleFab />
+					<NavbarToggleFab />
 				</Hidden>
 			)}
 		</>

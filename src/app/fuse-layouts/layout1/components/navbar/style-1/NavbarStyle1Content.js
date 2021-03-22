@@ -1,11 +1,8 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import AppBar from '@material-ui/core/AppBar';
-import Hidden from '@material-ui/core/Hidden';
-import Icon from '@material-ui/core/Icon';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Logo from 'app/fuse-layouts/shared-components/Logo';
-import NavbarFoldedToggleButton from 'app/fuse-layouts/shared-components/NavbarFoldedToggleButton';
-import NavbarMobileToggleButton from 'app/fuse-layouts/shared-components/NavbarMobileToggleButton';
+import NavbarToggleButton from 'app/fuse-layouts/shared-components/NavbarToggleButton';
 import Navigation from 'app/fuse-layouts/shared-components/Navigation';
 import UserNavbarHeader from 'app/fuse-layouts/shared-components/UserNavbarHeader';
 import clsx from 'clsx';
@@ -13,6 +10,8 @@ import { memo } from 'react';
 
 const useStyles = makeStyles(theme => ({
 	root: {
+		backgroundColor: theme.palette.background.default,
+		color: theme.palette.text.primary,
 		'& ::-webkit-scrollbar-thumb': {
 			boxShadow: `inset 0 0 0 20px ${
 				theme.palette.type === 'light' ? 'rgba(0, 0, 0, 0.24)' : 'rgba(255, 255, 255, 0.24)'
@@ -25,6 +24,7 @@ const useStyles = makeStyles(theme => ({
 		}
 	},
 	content: {
+		overscrollBehavior: 'contain',
 		overflowX: 'hidden',
 		overflowY: 'auto',
 		'-webkit-overflow-scrolling': 'touch',
@@ -36,30 +36,22 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-function NavbarLayout1(props) {
+function NavbarStyle1Content(props) {
 	const classes = useStyles();
 	const theme = useTheme();
 
 	return (
-		<div className={clsx('flex flex-col overflow-hidden h-full', classes.root, props.className)}>
+		<div className={clsx('flex flex-auto flex-col overflow-hidden h-full', classes.root, props.className)}>
 			<AppBar
 				color="primary"
 				position="static"
 				className="flex flex-row items-center flex-shrink h-48 md:h-64 min-h-48 md:min-h-64 px-12 shadow-0"
 			>
-				<div className="flex flex-1 mx-8">
+				<div className="flex flex-1 mx-4">
 					<Logo />
 				</div>
 
-				<Hidden mdDown>
-					<NavbarFoldedToggleButton className="w-40 h-40 p-0" />
-				</Hidden>
-
-				<Hidden lgUp>
-					<NavbarMobileToggleButton className="w-40 h-40 p-0">
-						<Icon>{theme.direction === 'ltr' ? 'arrow_back' : 'arrow_forward'}"</Icon>
-					</NavbarMobileToggleButton>
-				</Hidden>
+				<NavbarToggleButton className="w-40 h-40 p-0" />
 			</AppBar>
 
 			<FuseScrollbars className={clsx(classes.content)} option={{ suppressScrollX: true }}>
@@ -71,4 +63,4 @@ function NavbarLayout1(props) {
 	);
 }
 
-export default memo(NavbarLayout1);
+export default memo(NavbarStyle1Content);

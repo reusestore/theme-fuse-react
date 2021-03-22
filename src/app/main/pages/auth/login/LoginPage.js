@@ -57,7 +57,7 @@ function LoginPage() {
 	}
 
 	return (
-		<div className={clsx(classes.root, 'flex flex-col flex-auto flex-shrink-0 items-center justify-center p-32')}>
+		<div className={clsx(classes.root, 'flex flex-col flex-auto items-center justify-center p-32')}>
 			<div className="flex flex-col items-center justify-center w-full">
 				<motion.div initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }}>
 					<Card className="w-full max-w-384">

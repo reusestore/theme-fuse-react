@@ -3,21 +3,19 @@ const config = {
 	defaults: {
 		mode: 'container',
 		containerWidth: 1570,
-		scroll: 'content',
 		navbar: {
 			display: true,
-			folded: false,
+			style: 'style-1',
+			folded: true,
 			position: 'left'
 		},
 		toolbar: {
 			display: true,
-			style: 'fixed',
-			position: 'below'
+			style: 'fixed'
 		},
 		footer: {
 			display: true,
-			style: 'fixed',
-			position: 'below'
+			style: 'fixed'
 		},
 		leftSidePanel: {
 			display: true
@@ -49,20 +47,6 @@ const config = {
 			title: 'Container Width (px)',
 			type: 'number'
 		},
-		scroll: {
-			title: 'Scrollable Area',
-			type: 'radio',
-			options: [
-				{
-					name: 'Body',
-					value: 'body'
-				},
-				{
-					name: 'Content',
-					value: 'content'
-				}
-			]
-		},
 
 		navbar: {
 			type: 'group',
@@ -70,10 +54,6 @@ const config = {
 			children: {
 				display: {
 					title: 'Display',
-					type: 'switch'
-				},
-				folded: {
-					title: 'Folded',
 					type: 'switch'
 				},
 				position: {
@@ -89,6 +69,28 @@ const config = {
 							value: 'right'
 						}
 					]
+				},
+				style: {
+					title: 'Style',
+					type: 'radio',
+					options: [
+						{
+							name: 'Slide (style-1)',
+							value: 'style-1'
+						},
+						{
+							name: 'Folded (style-2)',
+							value: 'style-2'
+						},
+						{
+							name: 'Tabbed (style-3)',
+							value: 'style-3'
+						}
+					]
+				},
+				folded: {
+					title: 'Folded (style-2) initial state',
+					type: 'switch'
 				}
 			}
 		},
@@ -113,20 +115,6 @@ const config = {
 							value: 'static'
 						}
 					]
-				},
-				position: {
-					title: 'Position',
-					type: 'radio',
-					options: [
-						{
-							name: 'Above',
-							value: 'above'
-						},
-						{
-							name: 'Below',
-							value: 'below'
-						}
-					]
 				}
 			}
 		},
@@ -149,20 +137,6 @@ const config = {
 						{
 							name: 'Static',
 							value: 'static'
-						}
-					]
-				},
-				position: {
-					title: 'Position',
-					type: 'radio',
-					options: [
-						{
-							name: 'Above',
-							value: 'above'
-						},
-						{
-							name: 'Below',
-							value: 'below'
 						}
 					]
 				}

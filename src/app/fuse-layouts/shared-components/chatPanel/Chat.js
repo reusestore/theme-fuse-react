@@ -198,7 +198,10 @@ function Chat(props) {
 					return i === chat.dialog.length - 1 || (chat.dialog[i + 1] && chat.dialog[i + 1].who !== item.who);
 				};
 				return (
-					<FuseScrollbars ref={chatScroll} className="flex flex-1 flex-col overflow-y-auto">
+					<FuseScrollbars
+						ref={chatScroll}
+						className="flex flex-1 flex-col overflow-y-auto overscroll-contain"
+					>
 						{!chat ? (
 							<div className="flex flex-col flex-1 items-center justify-center p-24">
 								<Icon className="text-128" color="disabled">

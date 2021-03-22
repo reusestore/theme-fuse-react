@@ -12,17 +12,22 @@ const toolbarHeight = 64;
 const headerContentHeight = headerHeight - toolbarHeight;
 
 const useStyles = makeStyles(theme => ({
+	'@global': {
+		'#fuse-main': {
+			height: props => props.innerScroll && '100vh'
+		}
+	},
 	root: {
 		display: 'flex',
 		flexDirection: 'row',
+		minWidth: 0,
 		minHeight: '100%',
 		position: 'relative',
-		flex: '1 0 auto',
+		flex: '1 1 auto',
 		height: 'auto',
 		backgroundColor: theme.palette.background.default
 	},
 	innerScroll: {
-		flex: '1 1 auto',
 		height: '100%'
 	},
 	topBg: {

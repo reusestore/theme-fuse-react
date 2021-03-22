@@ -39,7 +39,7 @@ function PricingStyle3Page() {
 	};
 
 	return (
-		<div>
+		<div className="w-full">
 			<div className={clsx(classes.header, 'flex')}>
 				<div className="p-24 w-full max-w-2xl mx-auto">
 					<div className="text-center my-128 mx-24">

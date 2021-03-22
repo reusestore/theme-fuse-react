@@ -21,12 +21,13 @@ const Transition = forwardRef(function Transition(props, ref) {
 const useStyles = makeStyles(theme => ({
 	buttonWrapper: {
 		position: 'absolute',
+		height: 80,
 		right: 0,
 		top: 160,
 		display: 'flex',
 		flexDirection: 'column',
-		items: 'center',
-		justify: 'center',
+		alignItems: 'center',
+		justifyContent: 'center',
 		overflow: 'hidden',
 		opacity: 0.9,
 		padding: 0,
@@ -146,7 +147,7 @@ function SettingsPanel() {
 						<Icon>close</Icon>
 					</IconButton>
 
-					<Typography className="mb-32" variant="h6">
+					<Typography className="mb-32 font-semibold" variant="h6">
 						Theme Settings
 					</Typography>
 

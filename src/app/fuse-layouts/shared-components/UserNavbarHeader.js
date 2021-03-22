@@ -22,6 +22,7 @@ const useStyles = makeStyles(theme => ({
 			duration: theme.transitions.duration.shortest,
 			easing: theme.transitions.easing.easeInOut
 		}),
+		bottom: 0,
 		'& > img': {
 			borderRadius: '50%'
 		}

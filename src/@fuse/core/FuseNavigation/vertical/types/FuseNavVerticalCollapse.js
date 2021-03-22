@@ -9,12 +9,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
+
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
-import FuseNavBadge from '../FuseNavBadge';
-import FuseNavItem from '../FuseNavItem';
+import FuseNavBadge from '../../FuseNavBadge';
+import FuseNavItem from '../../FuseNavItem';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -66,7 +67,7 @@ function isUrlInChildren(parent, url) {
 function FuseNavVerticalCollapse(props) {
 	const userRole = useSelector(({ auth }) => auth.user.role);
 	const [open, setOpen] = useState(() => needsToBeOpened(props.location, props.item));
-	const { item, nestedLevel } = props;
+	const { item, nestedLevel, onItemClick } = props;
 	const classes = useStyles({
 		itemPadding: nestedLevel > 0 ? 28 + nestedLevel * 16 : 12
 	});
@@ -128,6 +129,7 @@ function FuseNavVerticalCollapse(props) {
 									type={`vertical-${_item.type}`}
 									item={_item}
 									nestedLevel={nestedLevel + 1}
+									onItemClick={onItemClick}
 								/>
 							))}
 						</Collapse>
@@ -144,6 +146,7 @@ function FuseNavVerticalCollapse(props) {
 			item.title,
 			item.url,
 			nestedLevel,
+			onItemClick,
 			open
 		]
 	);

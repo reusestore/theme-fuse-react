@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const navbarSlice = createSlice({
 	name: 'navbar',
 	initialState: {
-		foldedOpen: false,
+		open: true,
 		mobileOpen: false
 	},
 	reducers: {
@@ -24,6 +24,15 @@ const navbarSlice = createSlice({
 		},
 		navbarCloseMobile: (state, action) => {
 			state.mobileOpen = false;
+		},
+		navbarClose: (state, action) => {
+			state.open = false;
+		},
+		navbarOpen: (state, action) => {
+			state.open = true;
+		},
+		navbarToggle: (state, action) => {
+			state.open = !state.open;
 		}
 	}
 });
@@ -32,9 +41,12 @@ export const {
 	navbarToggleFolded,
 	navbarOpenFolded,
 	navbarCloseFolded,
-	navbarToggleMobile,
+	navbarOpen,
+	navbarClose,
+	navbarToggle,
 	navbarOpenMobile,
-	navbarCloseMobile
+	navbarCloseMobile,
+	navbarToggleMobile
 } = navbarSlice.actions;
 
 export default navbarSlice.reducer;

@@ -583,7 +583,7 @@ const navigationConfig = [
 		id: 'auth',
 		title: 'Auth',
 		type: 'group',
-		icon: 'apps',
+		icon: 'verified_user',
 		children: [
 			{
 				id: 'login',
@@ -664,7 +664,7 @@ const navigationConfig = [
 		id: 'test-group-level-1',
 		title: 'Test Group Level 1',
 		type: 'group',
-		icon: 'apps',
+		icon: 'clear_all',
 		children: [
 			{
 				id: 'test-item',
