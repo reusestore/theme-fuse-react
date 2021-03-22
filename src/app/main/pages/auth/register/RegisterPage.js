@@ -9,7 +9,6 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { makeStyles } from '@material-ui/core/styles';
-import { darken } from '@material-ui/core/styles/colorManipulator';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
@@ -18,10 +17,7 @@ import * as yup from 'yup';
 import _ from '@lodash';
 
 const useStyles = makeStyles(theme => ({
-	root: {
-		background: `radial-gradient(${darken(theme.palette.primary.dark, 0.5)} 0%, ${theme.palette.primary.dark} 80%)`,
-		color: theme.palette.primary.contrastText
-	}
+	root: {}
 }));
 
 /**

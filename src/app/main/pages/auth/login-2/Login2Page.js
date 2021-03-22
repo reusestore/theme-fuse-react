@@ -9,7 +9,6 @@ import Divider from '@material-ui/core/Divider';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { makeStyles } from '@material-ui/core/styles';
-import { darken } from '@material-ui/core/styles/colorManipulator';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
@@ -18,13 +17,7 @@ import * as yup from 'yup';
 import _ from '@lodash';
 
 const useStyles = makeStyles(theme => ({
-	root: {
-		background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${darken(
-			theme.palette.primary.dark,
-			0.5
-		)} 100%)`,
-		color: theme.palette.primary.contrastText
-	}
+	root: {}
 }));
 
 /**
@@ -61,7 +54,7 @@ function Login2Page() {
 
 	return (
 		<div className={clsx(classes.root, 'flex flex-col flex-auto p-16 sm:p-24 md:flex-row md:p-0 overflow-hidden')}>
-			<div className="flex flex-col flex-grow-0 items-center text-white p-16 text-center md:p-128 md:items-start md:flex-shrink-0 md:flex-1 md:text-left">
+			<div className="flex flex-col flex-grow-0 items-center p-16 text-center md:p-128 md:items-start md:flex-shrink-0 md:flex-1 md:text-left">
 				<motion.div
 					initial={{ opacity: 0, scale: 0.6 }}
 					animate={{ opacity: 1, scale: 1, transition: { delay: 0.1 } }}
@@ -70,14 +63,14 @@ function Login2Page() {
 				</motion.div>
 
 				<motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0, transition: { delay: 0.2 } }}>
-					<Typography color="inherit" className="text-32 sm:text-44 font-semibold leading-tight">
+					<Typography className="text-32 sm:text-44 font-semibold leading-tight">
 						Welcome <br />
 						to the <br /> FUSE React!
 					</Typography>
 				</motion.div>
 
 				<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.3 } }}>
-					<Typography variant="subtitle1" color="inherit" className="mt-32 font-medium">
+					<Typography variant="subtitle1" className="mt-32 font-medium">
 						Powerful and professional admin template for Web Applications, CRM, CMS, Admin Panels and more.
 					</Typography>
 				</motion.div>

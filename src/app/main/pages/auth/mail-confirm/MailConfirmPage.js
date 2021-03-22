@@ -2,17 +2,13 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Icon from '@material-ui/core/Icon';
 import { makeStyles } from '@material-ui/core/styles';
-import { darken } from '@material-ui/core/styles/colorManipulator';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
-	root: {
-		background: `radial-gradient(${darken(theme.palette.primary.dark, 0.5)} 0%, ${theme.palette.primary.dark} 80%)`,
-		color: theme.palette.primary.contrastText
-	}
+	root: {}
 }));
 
 function MailConfirmPage() {
