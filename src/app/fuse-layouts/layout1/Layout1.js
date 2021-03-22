@@ -53,7 +53,7 @@ function Layout1(props) {
 						<SettingsPanel />
 					</div>
 
-					<div className="flex flex-auto min-h-0 relative z-10">
+					<div className="flex flex-col flex-auto min-h-0 relative z-10">
 						<FuseDialog />
 
 						<FuseSuspense>{renderRoutes(routes)}</FuseSuspense>
