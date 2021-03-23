@@ -84,6 +84,11 @@ export const defaultThemeOptions = {
 				borderRadius: 16
 			}
 		},
+		MuiPopover: {
+			paper: {
+				borderRadius: 8
+			}
+		},
 		MuiFilledInput: {
 			root: {
 				borderRadius: 4,

@@ -164,6 +164,7 @@ function FuseNavHorizontalGroup(props) {
 									>
 										<Grow in={opened} id="menu-list-grow" style={{ transformOrigin: '0 0 0' }}>
 											<Paper
+												className="rounded-8"
 												onMouseEnter={() => handleToggle(true)}
 												onMouseLeave={() => handleToggle(false)}
 											>
