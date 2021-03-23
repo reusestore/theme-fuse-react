@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, forwardRef } from 'react';
 import { EditorState, convertToRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import draftToHtml from 'draftjs-to-html';
@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 	}
 });
 
-function WYSIWYGEditor(props) {
+const WYSIWYGEditor = forwardRef((props, ref) => {
 	const classes = useStyles();
 
 	const [editorState, setEditorState] = useState(EditorState.createEmpty());
@@ -35,7 +35,7 @@ function WYSIWYGEditor(props) {
 	}
 
 	return (
-		<div className={clsx(classes.root, 'rounded-4 border-1 overflow-hidden w-full', props.className)}>
+		<div className={clsx(classes.root, 'rounded-4 border-1 overflow-hidden w-full', props.className)} ref={ref}>
 			<Editor
 				editorState={editorState}
 				toolbarClassName={classes.toolbar}
@@ -45,6 +45,6 @@ function WYSIWYGEditor(props) {
 			/>
 		</div>
 	);
-}
+});
 
 export default WYSIWYGEditor;
