@@ -11,9 +11,10 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import * as yup from 'yup';
 import _ from '@lodash';
+import WYSIWYGEditor from 'app/shared-components/WYSIWYGEditor';
 import MailAttachment from './MailAttachment';
 
 /**
@@ -25,7 +26,7 @@ const schema = yup.object().shape({
 
 function MailCompose() {
 	const [openDialog, setOpenDialog] = useState(false);
-	const { register, watch, handleSubmit, errors, formState } = useForm({
+	const { register, watch, handleSubmit, errors, formState, control } = useForm({
 		mode: 'onChange',
 		defaultValues: {
 			from: 'johndoe@creapond.com',
@@ -131,18 +132,7 @@ function MailCompose() {
 							fullWidth
 						/>
 
-						<TextField
-							className="mt-8 mb-16"
-							id="message"
-							name="message"
-							inputRef={register}
-							label="Message"
-							type="text"
-							multiline
-							rows={5}
-							variant="outlined"
-							fullWidth
-						/>
+						<Controller className="mt-8 mb-16" as={<WYSIWYGEditor />} name="message" control={control} />
 
 						<div className="pt-8">
 							<MailAttachment fileName="attachment-2.doc" size="12 kb" />
