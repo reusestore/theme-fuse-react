@@ -180,7 +180,7 @@ function FuseShortcuts(props) {
 				open={Boolean(addMenu)}
 				onClose={addMenuClose}
 				classes={{
-					paper: 'mt-48'
+					paper: 'mt-48 min-w-256'
 				}}
 				onEntered={() => {
 					searchInputRef.current.focus();
