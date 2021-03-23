@@ -125,10 +125,10 @@ function TimelineTab() {
 									</Typography>
 								)}
 
-								{post.media && <img src={post.media.preview} alt="post" />}
+								{post.media && <img src={post.media.preview} alt="post" className="rounded-8" />}
 
 								{post.article && (
-									<div className="border-1">
+									<div className="border-1 rounded-8 overflow-hidden">
 										<img
 											className="w-full border-b-1"
 											src={post.article.media.preview}
@@ -218,7 +218,7 @@ function TimelineTab() {
 									<div className="flex-1 mx-4">
 										<Paper className="w-full mb-16 shadow-0">
 											<Input
-												className="p-8 w-full border-1"
+												className="p-8 w-full border-1 rounded-8"
 												classes={{ root: 'text-13' }}
 												placeholder="Add a comment.."
 												multiline
