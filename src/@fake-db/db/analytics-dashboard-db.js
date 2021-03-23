@@ -72,7 +72,8 @@ const analyticsDashboardAppDB = {
 					}
 				},
 				fill: {
-					type: 'gradient',
+					type: 'solid',
+					opacity: 0.7,
 					gradient: {
 						shadeIntensity: 0.4,
 						opacityFrom: 1,
@@ -131,7 +132,8 @@ const analyticsDashboardAppDB = {
 					}
 				},
 				fill: {
-					opacity: 0.3
+					type: 'solid',
+					opacity: 0.7
 				},
 				xaxis: {
 					categories: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
@@ -194,7 +196,8 @@ const analyticsDashboardAppDB = {
 					]
 				},
 				fill: {
-					opacity: 0.3
+					type: 'solid',
+					opacity: 0.7
 				}
 			}
 		},
@@ -222,7 +225,8 @@ const analyticsDashboardAppDB = {
 					categories: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 				},
 				fill: {
-					opacity: 0.3
+					type: 'solid',
+					opacity: 0.7
 				}
 			}
 		},
@@ -261,14 +265,6 @@ const analyticsDashboardAppDB = {
 					},
 					zoom: {
 						enabled: false
-					},
-					dropShadow: {
-						enabled: true,
-						enabledSeries: [0],
-						top: -2,
-						left: 2,
-						blur: 5,
-						opacity: 0.03
 					}
 				},
 				stroke: {

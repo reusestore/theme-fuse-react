@@ -193,7 +193,8 @@ const projectDashboardAppDB = {
 								}
 							},
 							fill: {
-								opacity: 0.3
+								type: 'solid',
+								opacity: 0.7
 							},
 							xaxis: {
 								categories: [
@@ -259,7 +260,8 @@ const projectDashboardAppDB = {
 								}
 							},
 							fill: {
-								opacity: 0.3
+								type: 'solid',
+								opacity: 0.7
 							},
 							xaxis: {
 								categories: [
@@ -360,7 +362,8 @@ const projectDashboardAppDB = {
 								}
 							},
 							fill: {
-								opacity: 0.3
+								type: 'solid',
+								opacity: 0.7
 							},
 							xaxis: {
 								categories: [
@@ -426,7 +429,8 @@ const projectDashboardAppDB = {
 								}
 							},
 							fill: {
-								opacity: 0.3
+								type: 'solid',
+								opacity: 0.7
 							},
 							xaxis: {
 								categories: [
@@ -492,7 +496,8 @@ const projectDashboardAppDB = {
 								}
 							},
 							fill: {
-								opacity: 0.3
+								type: 'solid',
+								opacity: 0.7
 							},
 							xaxis: {
 								categories: [
@@ -558,7 +563,8 @@ const projectDashboardAppDB = {
 								}
 							},
 							fill: {
-								opacity: 0.3
+								type: 'solid',
+								opacity: 0.7
 							},
 							xaxis: {
 								categories: [
@@ -602,7 +608,8 @@ const projectDashboardAppDB = {
 						colors: undefined
 					},
 					fill: {
-						opacity: 0.8
+						type: 'solid',
+						opacity: 0.7
 					},
 					legend: {
 						position: 'bottom'
@@ -809,7 +816,8 @@ const projectDashboardAppDB = {
 							}
 						},
 						fill: {
-							opacity: 0.3
+							type: 'solid',
+							opacity: 0.7
 						},
 						xaxis: {
 							categories: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
@@ -867,7 +875,8 @@ const projectDashboardAppDB = {
 							}
 						},
 						fill: {
-							opacity: 0.3
+							type: 'solid',
+							opacity: 0.7
 						},
 						xaxis: {
 							categories: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
@@ -940,7 +949,8 @@ const projectDashboardAppDB = {
 							}
 						},
 						fill: {
-							opacity: 0.3
+							type: 'solid',
+							opacity: 0.7
 						},
 						xaxis: {
 							categories: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
