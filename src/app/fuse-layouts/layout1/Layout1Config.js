@@ -5,7 +5,7 @@ const config = {
 		containerWidth: 1570,
 		navbar: {
 			display: true,
-			style: 'style-1',
+			style: 'style-3-dense',
 			folded: true,
 			position: 'left'
 		},
@@ -85,6 +85,10 @@ const config = {
 						{
 							name: 'Tabbed (style-3)',
 							value: 'style-3'
+						},
+						{
+							name: 'Tabbed Dense (style-3-dense)',
+							value: 'style-3-dense'
 						}
 					]
 				},

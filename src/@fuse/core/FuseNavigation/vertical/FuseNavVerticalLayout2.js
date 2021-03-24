@@ -20,13 +20,7 @@ const useStyles = makeStyles(theme => ({
 				borderRadius: '0'
 			}
 		},
-		'&.dense': {
-			'& .list-item': {
-				paddingTop: 0,
-				paddingBottom: 0,
-				height: 32
-			}
-		}
+		'&.dense': {}
 	}
 }));
 
@@ -57,6 +51,7 @@ function FuseNavVerticalLayout2(props) {
 					nestedLevel={0}
 					onItemClick={handleItemClick}
 					firstLevel={firstLevel}
+					dense={props.dense}
 				/>
 			))}
 		</List>

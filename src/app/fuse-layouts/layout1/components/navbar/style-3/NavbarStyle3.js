@@ -8,11 +8,12 @@ import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
 import NavbarStyle3Content from './NavbarStyle3Content';
 
 const navbarWidth = 120;
+const navbarWidthDense = 64;
 
 const useStyles = makeStyles(theme => ({
 	'@global': {
 		'#fuse-navbar-side-panel': {
-			width: navbarWidth
+			width: props => (props.dense ? navbarWidthDense : navbarWidth)
 		},
 		'#fuse-navbar-panel': {
 			maxWidth: '100%',
@@ -27,6 +28,19 @@ const useStyles = makeStyles(theme => ({
 		minWidth: navbarWidth,
 		width: navbarWidth,
 		maxWidth: navbarWidth,
+		'&.dense': {
+			minWidth: navbarWidthDense,
+			width: navbarWidthDense,
+			maxWidth: navbarWidthDense,
+			'&.closed': {
+				'&.left': {
+					marginLeft: -navbarWidthDense
+				},
+				'&.right': {
+					marginRight: -navbarWidthDense
+				}
+			}
+		},
 		'&.closed': {
 			transition: theme.transitions.create('margin', {
 				easing: theme.transitions.easing.easeOut,
@@ -63,10 +77,11 @@ function NavbarStyle3(props) {
 						classes.navbar,
 						config.navbar.position,
 						navbar.open ? 'opened' : 'closed',
+						props.dense && 'dense',
 						'flex-col flex-auto sticky top-0 h-screen flex-shrink-0 z-20 shadow-5'
 					)}
 				>
-					<NavbarStyle3Content />
+					<NavbarStyle3Content dense={props.dense} />
 				</div>
 			</Hidden>
 
@@ -88,7 +103,7 @@ function NavbarStyle3(props) {
 						keepMounted: true // Better open performance on mobile.
 					}}
 				>
-					<NavbarStyle3Content />
+					<NavbarStyle3Content dense={props.dense} />
 				</SwipeableDrawer>
 			</Hidden>
 		</>

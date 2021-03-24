@@ -42,7 +42,7 @@ function ToolbarLayout1(props) {
 						{config.navbar.display && config.navbar.position === 'left' && (
 							<>
 								<Hidden mdDown>
-									{config.navbar.style === 'style-3' && (
+									{(config.navbar.style === 'style-3' || config.navbar.style === 'style-3-dense') && (
 										<NavbarToggleButton className="w-40 h-40 p-0 mx-0" />
 									)}
 

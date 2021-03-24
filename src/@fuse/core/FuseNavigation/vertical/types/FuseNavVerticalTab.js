@@ -1,5 +1,6 @@
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import FuseUtils from '@fuse/utils';
+import { Tooltip } from '@material-ui/core';
 import Icon from '@material-ui/core/Icon';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -14,6 +15,7 @@ import FuseNavBadge from '../../FuseNavBadge';
 
 const useStyles = makeStyles(theme => ({
 	item: props => ({
+		minHeight: 100,
 		height: 100,
 		width: 100,
 		borderRadius: 12,
@@ -21,9 +23,16 @@ const useStyles = makeStyles(theme => ({
 		color: fade(theme.palette.text.primary, 0.7),
 		cursor: 'pointer',
 		textDecoration: 'none!important',
+		padding: 0,
+		'&.dense': {
+			minHeight: 52,
+			height: 52,
+			width: 52
+		},
 		'&.type-divider': {
 			padding: 0,
 			height: 2,
+			minHeight: 2,
 			margin: '12px 0',
 			backgroundColor:
 				theme.palette.type === 'light' ? 'rgba(0, 0, 0, .05)!important' : 'rgba(255, 255, 255, .1)!important',
@@ -57,7 +66,7 @@ function FuseNavVerticalTab(props) {
 	const dispatch = useDispatch();
 	const location = useLocation();
 
-	const { item, onItemClick, firstLevel } = props;
+	const { item, onItemClick, firstLevel, dense } = props;
 	const classes = useStyles(props);
 
 	const hasPermission = useMemo(() => FuseUtils.hasPermission(item.auth, userRole), [item.auth, userRole]);
@@ -73,32 +82,57 @@ function FuseNavVerticalTab(props) {
 						className={clsx(
 							classes.item,
 							`type-${item.type}`,
+							dense && 'dense',
 							'list-item flex flex-col items-center justify-center p-12'
 						)}
 						onClick={() => onItemClick && onItemClick(item)}
 						exact={item.exact}
 					>
-						{item.icon ? (
-							<div className="flex items-center justify-center w-40 h-40 mb-8">
-								<Icon className="list-item-icon text-32" color="action">
-									{item.icon}
-								</Icon>
-							</div>
-						) : (
-							item.title && (
-								<div className="flex items-center justify-center w-40 h-40 mb-8 font-bold text-20">
-									<span>{item.title[0]}</span>
+						{dense ? (
+							<Tooltip title={item.title || ''} placement="right">
+								<div className="w-40 h-40 min-h-40 flex items-center justify-center relative">
+									{item.icon ? (
+										<Icon className="list-item-icon text-24" color="action">
+											{item.icon}
+										</Icon>
+									) : (
+										item.title && <div className="font-bold text-16">{item.title[0]}</div>
+									)}
+									{item.badge && (
+										<FuseNavBadge
+											badge={item.badge}
+											className="absolute top-0 ltr:right-0 rtl:left-0 min-w-16 h-16 p-4 justify-center"
+										/>
+									)}
 								</div>
-							)
+							</Tooltip>
+						) : (
+							<>
+								<div className="w-40 h-40 min-h-40 flex items-center justify-center relative mb-4">
+									{item.icon ? (
+										<Icon className="list-item-icon text-32" color="action">
+											{item.icon}
+										</Icon>
+									) : (
+										item.title && <div className="font-bold text-20">{item.title[0]}</div>
+									)}
+									{item.badge && (
+										<FuseNavBadge
+											badge={item.badge}
+											className="absolute top-0 ltr:right-0 rtl:left-0 min-w-16 h-16 p-4 justify-center"
+										/>
+									)}
+								</div>
+
+								<ListItemText
+									className="list-item-text flex-grow-0 w-full m-0"
+									primary={item.title}
+									classes={{
+										primary: 'text-12 font-medium list-item-text-primary truncate text-center'
+									}}
+								/>
+							</>
 						)}
-
-						<ListItemText
-							className="list-item-text flex-grow-0 w-full m-0"
-							primary={item.title}
-							classes={{ primary: 'text-12 font-medium list-item-text-primary truncate text-center' }}
-						/>
-
-						{item.badge && <FuseNavBadge badge={item.badge} className="mt-4" />}
 					</ListItem>
 					{!firstLevel &&
 						item.children &&
@@ -109,11 +143,12 @@ function FuseNavVerticalTab(props) {
 								item={_item}
 								nestedLevel={0}
 								onItemClick={onItemClick}
+								dense={dense}
 							/>
 						))}
 				</>
 			),
-		[classes.item, firstLevel, hasPermission, item, onItemClick]
+		[classes.item, firstLevel, hasPermission, item, onItemClick, dense]
 	);
 }
 

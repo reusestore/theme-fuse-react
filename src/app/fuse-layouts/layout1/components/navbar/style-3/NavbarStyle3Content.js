@@ -18,7 +18,17 @@ const useStyles = makeStyles(theme => ({
 	sidePanel: {},
 	panel: {
 		backgroundColor: theme.palette.background.default,
-		color: theme.palette.text.primary
+		color: theme.palette.text.primary,
+		transition: theme.transitions.create(['opacity'], {
+			easing: theme.transitions.easing.sharp,
+			duration: theme.transitions.duration.shortest
+		}),
+		opacity: 0,
+		pointerEvents: 'none',
+		'&.opened': {
+			opacity: 1,
+			pointerEvents: 'initial'
+		}
 	}
 }));
 
@@ -80,6 +90,7 @@ function NavbarStyle3Content(props) {
 								layout="vertical-2"
 								onItemClick={handleParentItemClick}
 								firstLevel
+								dense={props.dense}
 							/>
 						</FuseScrollbars>
 					</div>
@@ -90,7 +101,7 @@ function NavbarStyle3Content(props) {
 						id="fuse-navbar-panel"
 						className={clsx(
 							classes.panel,
-							!panelOpen && 'hidden',
+							panelOpen && 'opened',
 							'shadow-5 overflow-y-auto overflow-x-hidden'
 						)}
 						option={{ suppressScrollX: true }}
