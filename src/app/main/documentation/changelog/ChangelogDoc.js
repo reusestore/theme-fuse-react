@@ -3,6 +3,32 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
 	{
+		version: '6.0.0',
+		date: '2021-03-24',
+		newChanges: [
+			'draft-js and react-draft-wysiwyg added, an example created at mail compose form.',
+			'croco added to extend webpack config.',
+			'tailwindcss moved inside postcss config with croco.',
+			'framer-motion added, all Animations migrated to framer-motion.',
+			"Charts changed from 'react-chartjs-2' to 'react-apexcharts'",
+			'All forms changed with react-hook-form, yup is used for form validation.',
+			'The theme design refreshed with more modern approach.',
+			'redux serializableCheck middleware disabled by default for development performance concerns.',
+			'Default theme color scheme changed',
+			"Default font changed to 'Poppins'",
+			'All theme layouts updated, now body scroll is default.',
+			'Theme vertical-layout-1 has new navigation styles (Slide, Tabbed, Tabbed dense).',
+			'redux-logger configuration: collapse all except errors on dev console.',
+			'Unnecessary React imports removed.',
+			'Notification Panel created.',
+			'AdjustFontSize toolbar component created.',
+			'react updated to v17.0.2',
+			'react-scripts updated to v4.0.3',
+			'material-ui updated to v4.11.3',
+			'All dependency packages updated.'
+		]
+	},
+	{
 		version: '5.3.1',
 		date: '2021-01-15',
 		newChanges: [

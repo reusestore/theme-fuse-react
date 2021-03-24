@@ -5,7 +5,7 @@ const config = {
 		containerWidth: 1570,
 		navbar: {
 			display: true,
-			style: 'style-3-dense',
+			style: 'style-1',
 			folded: true,
 			position: 'left'
 		},
