@@ -47,9 +47,7 @@ function ForgotPasswordPage() {
 				<motion.div initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }}>
 					<Card className="w-full max-w-384">
 						<CardContent className="flex flex-col items-center justify-center p-16 sm:p-24 md:p-32">
-							<div className="w-128 m-32">
-								<img src="assets/images/logos/fuse.svg" alt="logo" />
-							</div>
+							<img className="w-128 m-32" src="assets/images/logos/fuse.svg" alt="logo" />
 
 							<Typography variant="h6" className="mt-16 mb-24 font-semibold text-18 sm:text-24">
 								Recover your password

@@ -49,7 +49,7 @@ function isUrlInChildren(parent, url) {
 			}
 		}
 
-		if (parent.children[i].url === url || url.includes(parent.children[i].url)) {
+		if (parent.children[i].url === url) {
 			return true;
 		}
 	}
