@@ -30,6 +30,7 @@ const useStyles = makeStyles(theme => ({
 		minWidth: navbarWidth,
 		width: navbarWidth,
 		maxWidth: navbarWidth,
+		maxHeight: '100%',
 		transition: theme.transitions.create(['width', 'min-width'], {
 			easing: theme.transitions.easing.sharp,
 			duration: theme.transitions.duration.shorter
