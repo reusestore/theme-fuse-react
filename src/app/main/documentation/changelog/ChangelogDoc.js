@@ -4,7 +4,7 @@ import ChangelogCard from './ChangelogCard';
 const changelogData = [
 	{
 		version: '6.0.0',
-		date: '2021-03-24',
+		date: '2021-03-30',
 		newChanges: [
 			'draft-js and react-draft-wysiwyg added, an example created at mail compose form.',
 			'croco added to extend webpack config.',
@@ -17,7 +17,7 @@ const changelogData = [
 			'Default theme color scheme changed',
 			"Default font changed to 'Poppins'",
 			'All theme layouts updated, now body scroll is default.',
-			'Theme vertical-layout-1 has new navigation styles (Slide, Tabbed, Tabbed dense).',
+			'Theme vertical-layout-1 has new navigation styles (Slide, Tabbed, Tabbed dense, folded).',
 			'redux-logger configuration: collapse all except errors on dev console.',
 			'Unnecessary React imports removed.',
 			'Notification Panel created.',

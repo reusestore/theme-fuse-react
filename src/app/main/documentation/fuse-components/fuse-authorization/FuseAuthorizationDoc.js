@@ -348,6 +348,17 @@ function FuseAuthorizationDoc() {
 					};
 				`}
 			</FuseHighlight>
+			<Typography className="mt-48 mb-4" variant="h5">
+				Uncaught Error: Maximum update depth exceeded: Infinite loops
+			</Typography>
+			<Typography className="mb-16" component="p">
+				If you are getting this error, make sure authenticated user has rights to access main route <b>"/"</b>
+				or it's redirected route path.
+			</Typography>
+			<Typography className="mb-16" component="p">
+				After successful login, every authenticated user should be able to access to main route path <b>"/"</b>{' '}
+				or redirected route path.
+			</Typography>
 		</>
 	);
 }
