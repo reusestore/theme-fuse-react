@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
 
 function FuseNavVerticalLayout2(props) {
 	const classes = useStyles(props);
-	const { navigation, layout, active, dense, className, onItemClick, firstLevel } = props;
+	const { navigation, layout, active, dense, className, onItemClick, firstLevel, selectedId } = props;
 	const theme = useTheme();
 
 	function handleItemClick(item) {
@@ -51,7 +51,8 @@ function FuseNavVerticalLayout2(props) {
 					nestedLevel={0}
 					onItemClick={handleItemClick}
 					firstLevel={firstLevel}
-					dense={props.dense}
+					dense={dense}
+					selectedId={selectedId}
 				/>
 			))}
 		</List>

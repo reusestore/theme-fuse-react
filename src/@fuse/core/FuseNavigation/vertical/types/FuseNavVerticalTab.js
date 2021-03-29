@@ -66,7 +66,7 @@ function FuseNavVerticalTab(props) {
 	const dispatch = useDispatch();
 	const location = useLocation();
 
-	const { item, onItemClick, firstLevel, dense } = props;
+	const { item, onItemClick, firstLevel, dense, selectedId } = props;
 	const classes = useStyles(props);
 
 	const hasPermission = useMemo(() => FuseUtils.hasPermission(item.auth, userRole), [item.auth, userRole]);
@@ -83,6 +83,7 @@ function FuseNavVerticalTab(props) {
 							classes.item,
 							`type-${item.type}`,
 							dense && 'dense',
+							selectedId === item.id && 'active',
 							'list-item flex flex-col items-center justify-center p-12'
 						)}
 						onClick={() => onItemClick && onItemClick(item)}
@@ -90,7 +91,7 @@ function FuseNavVerticalTab(props) {
 					>
 						{dense ? (
 							<Tooltip title={item.title || ''} placement="right">
-								<div className="w-40 h-40 min-h-40 flex items-center justify-center relative">
+								<div className="w-32 h-32 min-h-32 flex items-center justify-center relative">
 									{item.icon ? (
 										<Icon className="list-item-icon text-24" color="action">
 											{item.icon}
@@ -108,7 +109,7 @@ function FuseNavVerticalTab(props) {
 							</Tooltip>
 						) : (
 							<>
-								<div className="w-40 h-40 min-h-40 flex items-center justify-center relative mb-4">
+								<div className="w-32 h-32 min-h-32 flex items-center justify-center relative mb-8">
 									{item.icon ? (
 										<Icon className="list-item-icon text-32" color="action">
 											{item.icon}
@@ -144,11 +145,12 @@ function FuseNavVerticalTab(props) {
 								nestedLevel={0}
 								onItemClick={onItemClick}
 								dense={dense}
+								selectedId={selectedId}
 							/>
 						))}
 				</>
 			),
-		[classes.item, firstLevel, hasPermission, item, onItemClick, dense]
+		[classes.item, firstLevel, hasPermission, item, onItemClick, dense, selectedId]
 	);
 }
 

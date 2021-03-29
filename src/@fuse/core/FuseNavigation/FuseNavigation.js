@@ -62,7 +62,8 @@ function FuseNavigation(props) {
 		'dense',
 		'className',
 		'onItemClick',
-		'firstLevel'
+		'firstLevel',
+		'selectedId'
 	]);
 	if (props.navigation.length > 0) {
 		switch (props.layout) {

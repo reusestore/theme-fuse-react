@@ -9,17 +9,20 @@ import NavbarStyle3Content from './NavbarStyle3Content';
 
 const navbarWidth = 120;
 const navbarWidthDense = 64;
+const panelWidth = 280;
 
 const useStyles = makeStyles(theme => ({
 	'@global': {
 		'#fuse-navbar-side-panel': {
-			width: props => (props.dense ? navbarWidthDense : navbarWidth)
+			width: props => (props.dense ? navbarWidthDense : navbarWidth),
+			minWidth: props => (props.dense ? navbarWidthDense : navbarWidth),
+			maxWidth: props => (props.dense ? navbarWidthDense : navbarWidth)
 		},
 		'#fuse-navbar-panel': {
 			maxWidth: '100%',
-			width: 280,
+			width: panelWidth,
 			[theme.breakpoints.up('lg')]: {
-				minWidth: 280,
+				minWidth: panelWidth,
 				maxWidth: 'initial'
 			}
 		}
@@ -38,6 +41,23 @@ const useStyles = makeStyles(theme => ({
 				},
 				'&.right': {
 					marginRight: -navbarWidthDense
+				}
+			}
+		},
+		'&.folded-disabled': {
+			minWidth: props => (props.dense ? navbarWidthDense + panelWidth : navbarWidth + panelWidth),
+			width: props => (props.dense ? navbarWidthDense + panelWidth : navbarWidth + panelWidth),
+			maxWidth: props => (props.dense ? navbarWidthDense + panelWidth : navbarWidth + panelWidth),
+			'& #fuse-navbar-panel': {
+				opacity: '1!important',
+				pointerEvents: 'initial!important'
+			},
+			'&.closed': {
+				'&.left': {
+					marginLeft: props => -(props.dense ? navbarWidthDense + panelWidth : navbarWidth + panelWidth)
+				},
+				'&.right': {
+					marginRight: props => -(props.dense ? navbarWidthDense + panelWidth : navbarWidth + panelWidth)
 				}
 			}
 		},
@@ -60,14 +80,29 @@ const useStyles = makeStyles(theme => ({
 			})
 		}
 	},
-	navbarMobile: {}
+	navbarMobile: {
+		'& #fuse-navbar-side-panel': {
+			minWidth: 'auto',
+			wdith: 'auto'
+		},
+		'& #fuse-navbar-panel': {
+			opacity: '1!important',
+			pointerEvents: 'initial!important'
+		}
+	}
 }));
 
 function NavbarStyle3(props) {
 	const dispatch = useDispatch();
 	const config = useSelector(({ fuse }) => fuse.settings.current.layout.config);
 	const navbar = useSelector(({ fuse }) => fuse.navbar);
-	const classes = useStyles({ ...props, navbarPosition: config.navbar.position, open: navbar.open });
+	const { folded } = config.navbar;
+	const classes = useStyles({
+		...props,
+		folded: config.navbar.folded,
+		navbarPosition: config.navbar.position,
+		open: navbar.open
+	});
 
 	return (
 		<>
@@ -78,10 +113,11 @@ function NavbarStyle3(props) {
 						config.navbar.position,
 						navbar.open ? 'opened' : 'closed',
 						props.dense && 'dense',
+						!folded && 'folded-disabled',
 						'flex-col flex-auto sticky top-0 h-screen flex-shrink-0 z-20 shadow-5'
 					)}
 				>
-					<NavbarStyle3Content dense={props.dense} />
+					<NavbarStyle3Content dense={props.dense} folded={folded} />
 				</div>
 			</Hidden>
 
@@ -103,7 +139,7 @@ function NavbarStyle3(props) {
 						keepMounted: true // Better open performance on mobile.
 					}}
 				>
-					<NavbarStyle3Content dense={props.dense} />
+					<NavbarStyle3Content dense={props.dense} folded={folded} />
 				</SwipeableDrawer>
 			</Hidden>
 		</>

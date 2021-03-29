@@ -93,7 +93,7 @@ const config = {
 					]
 				},
 				folded: {
-					title: 'Folded (style-2) initial state',
+					title: 'Folded (style-2, style-3)',
 					type: 'switch'
 				}
 			}
