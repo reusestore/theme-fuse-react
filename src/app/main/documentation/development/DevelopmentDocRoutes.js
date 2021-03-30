@@ -28,6 +28,10 @@ const DevelopmentDocRoutes = [
 	{
 		path: '/documentation/development/ides-vscode-webstorm',
 		component: lazy(() => import('./ides-vscode-webstorm/IDEsDoc'))
+	},
+	{
+		path: '/documentation/development/heroku-notes',
+		component: lazy(() => import('./heroku-notes/HerokuNotesDoc'))
 	}
 ];
 
