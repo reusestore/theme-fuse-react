@@ -1,4 +1,7 @@
 import _ from '@lodash';
+import sub from 'date-fns/sub';
+import getUnixTime from 'date-fns/getUnixTime';
+import add from 'date-fns/add';
 import mock from '../mock';
 
 const scrumboardDB = {
@@ -69,7 +72,7 @@ const scrumboardDB = {
 							type: 'comment',
 							idMember: '36027j1930450d8bf7b10158',
 							message: 'AngularCLI could be a nice alternative.',
-							time: 'now'
+							time: getUnixTime(sub(new Date(), { minutes: 10 }))
 						}
 					],
 					due: null
@@ -86,14 +89,14 @@ const scrumboardDB = {
 							id: '67027cahbe3b52ecf2dc631c',
 							name: 'mail.jpg',
 							src: 'assets/images/scrumboard/mail.jpg',
-							time: 'Added Nov 3 at 15:22AM',
+							time: getUnixTime(sub(new Date(), { minutes: 12 })),
 							type: 'image'
 						},
 						{
 							id: '56027cfcbe1b72ecf1fc452a',
 							name: 'calendar.jpg',
 							src: 'assets/images/scrumboard/calendar.jpg',
-							time: 'Added Nov 1 at 12:34PM',
+							time: getUnixTime(sub(new Date(), { minutes: 22 })),
 							type: 'image'
 						}
 					],
@@ -120,7 +123,7 @@ const scrumboardDB = {
 								},
 								{
 									id: 4,
-									name: 'Use moment.js',
+									name: 'Use date-fns',
 									checked: false
 								}
 							]
@@ -141,7 +144,7 @@ const scrumboardDB = {
 								},
 								{
 									id: 3,
-									name: 'Use moment.js',
+									name: 'Use date-fns',
 									checked: false
 								}
 							]
@@ -152,25 +155,25 @@ const scrumboardDB = {
 							id: 1,
 							type: 'comment',
 							idMember: '56027c1930450d8bf7b10758',
-							message: 'We should be able to add moment.js without any problems',
-							time: '12 mins. ago'
+							message: 'We should be able to add date-fns without any problems',
+							time: getUnixTime(sub(new Date(), { minutes: 10 }))
 						},
 						{
 							id: 2,
 							type: 'comment',
 							idMember: '36027j1930450d8bf7b10158',
 							message: 'I added a link for a page that might help us deciding the colors',
-							time: '30 mins. ago'
+							time:getUnixTime(sub(new Date(), { minutes: 20 }))
 						},
 						{
 							id: 3,
 							type: 'attachment',
 							idMember: '36027j1930450d8bf7b10158',
 							message: 'attached a link',
-							time: '45 mins. ago'
+							time: getUnixTime(sub(new Date(), { minutes: 45 }))
 						}
 					],
-					due: '2017-08-29T10:16:34.000Z'
+					due: getUnixTime(sub(new Date(), { days: 10 }))
 				},
 				{
 					id: '5637273da9b93bb84743a0f9',
@@ -246,10 +249,10 @@ const scrumboardDB = {
 							type: 'comment',
 							idMember: '36027j1930450d8bf7b10158',
 							message: "I'm on it!",
-							time: 'now'
+							time: getUnixTime(sub(new Date(), { minutes: 10 }))
 						}
 					],
-					due: '2020-09-07T12:00:00.000Z'
+					due: getUnixTime(add(new Date(), { days: 10 }))
 				},
 				{
 					id: 'f6b9d7a9247e5d794a081927',
@@ -293,7 +296,7 @@ const scrumboardDB = {
 							type: 'comment',
 							idMember: '36027j1930450d8bf7b10158',
 							message: "This should be a medium priority bug, shouldn't it?",
-							time: 'now'
+							time: getUnixTime(sub(new Date(), { minutes: 1 }))
 						}
 					],
 					due: null
@@ -310,7 +313,7 @@ const scrumboardDB = {
 					subscribed: true,
 					checklists: [],
 					activities: [],
-					due: '2017-03-08T09:00:00.000Z'
+					due: getUnixTime(add(new Date(), { days: 3 }))
 				},
 				{
 					id: '80ed.24ad3b18e2668.f28fbbceeeff9.5a834620a42f1.5909be19a2bf2.6c4a54947ce2d.da356b0c1',
@@ -324,14 +327,14 @@ const scrumboardDB = {
 							id: '12027cafbe3b52ecf2ef632c',
 							name: 'header-.jpg',
 							src: 'assets/images/scrumboard/header-1.jpg',
-							time: 'Added Nov 3 at 15:22AM',
+							time: getUnixTime(sub(new Date(), { days: 10 })),
 							type: 'image'
 						},
 						{
 							id: '55027ced1e1a12ecf1fced2a',
 							name: 'header-2.jpg',
 							src: 'assets/images/scrumboard/header-2.jpg',
-							time: 'Added Nov 1 at 12:34PM',
+							time: getUnixTime(sub(new Date(), { days: 20 })),
 							type: 'image'
 						}
 					],
@@ -343,7 +346,7 @@ const scrumboardDB = {
 							type: 'comment',
 							idMember: '36027j1930450d8bf7b10158',
 							message: 'Currently we have two new designs ready to ship.',
-							time: 'now'
+							time: getUnixTime(sub(new Date(), { minutes: 1 }))
 						}
 					],
 					due: null
@@ -378,7 +381,7 @@ const scrumboardDB = {
 							idMember: '36027j1930450d8bf7b10158',
 							message:
 								"I'm not sure why we re-doing the navigation. The current collapsable navigation works flawlessly.",
-							time: 'now'
+							time: getUnixTime(new Date())
 						}
 					],
 					due: null
@@ -455,7 +458,7 @@ const scrumboardDB = {
 						}
 					],
 					activities: [],
-					due: '2017-02-02T11:20:34.000Z'
+					due: getUnixTime(sub(new Date(), { days: 12 }))
 				}
 			],
 			members: [
@@ -537,13 +540,13 @@ const scrumboardDB = {
 							id: '56027cfcbe1b72ecf1fc452a',
 							name: 'calendar-app-design.jpg',
 							src: 'assets/images/scrumboard/calendar.jpg',
-							time: 'Added Nov 1 at 12:34PM',
+							time: getUnixTime(sub(new Date(), { minutes: 20 })),
 							type: 'image'
 						},
 						{
 							id: '67027cahbe3b52ecf2dc631c',
 							url: 'assets/images/scrumboard/calendar.jpg',
-							time: 'Added Nov 3 at 15:22AM',
+							time: getUnixTime(sub(new Date(), { minutes: 10 })),
 							type: 'link'
 						}
 					],
@@ -570,7 +573,7 @@ const scrumboardDB = {
 								},
 								{
 									id: 4,
-									name: 'Use moment.js',
+									name: 'Use date-fns',
 									checked: false
 								}
 							]
@@ -591,7 +594,7 @@ const scrumboardDB = {
 								},
 								{
 									id: 3,
-									name: 'Use moment.js',
+									name: 'Use date-fns',
 									checked: false
 								}
 							]
@@ -602,22 +605,22 @@ const scrumboardDB = {
 							id: 1,
 							type: 'comment',
 							idMember: '56027c1930450d8bf7b10758',
-							message: 'We should be able to add moment.js without any problems',
-							time: '12 mins. ago'
+							message: 'We should be able to add date-fns without any problems',
+							time: getUnixTime(sub(new Date(), { minutes: 20 }))
 						},
 						{
 							id: 2,
 							type: 'comment',
 							idMember: '36027j1930450d8bf7b10158',
 							message: 'I added a link for a page that might help us deciding the colors',
-							time: '30 mins. ago'
+							time: getUnixTime(sub(new Date(), { minutes: 30 }))
 						},
 						{
 							id: 3,
 							type: 'attachment',
 							idMember: '36027j1930450d8bf7b10158',
 							message: 'attached a link',
-							time: '45 mins. ago'
+							time: getUnixTime(sub(new Date(), { minutes: 45 }))
 						}
 					],
 					due: null
@@ -634,7 +637,7 @@ const scrumboardDB = {
 							id: '5603a2ae2bbd55bb2db57478',
 							name: 'mail-app-design.jpg',
 							src: 'assets/images/scrumboard/mail.jpg',
-							time: 'Added Nov 1 at 12:34PM',
+							time: getUnixTime(sub(new Date(), { minutes: 20 })),
 							type: 'image'
 						}
 					],

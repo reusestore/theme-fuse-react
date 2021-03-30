@@ -4,7 +4,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
-import moment from 'moment';
+import format from 'date-fns/format';
 import StatusIcon from './StatusIcon';
 
 const useStyles = makeStyles(theme => ({
@@ -54,7 +54,7 @@ function ContactListItem(props) {
 				<div className="flex flex-col justify-center items-end">
 					{props.contact.lastMessageTime && (
 						<Typography className="whitespace-nowrap mb-8 font-medium text-12" color="textSecondary">
-							{moment(props.contact.lastMessageTime).format('ll')}
+							{format(new Date(props.contact.lastMessageTime), 'PP')}
 						</Typography>
 					)}
 					{props.contact.unread && (

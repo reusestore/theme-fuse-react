@@ -1,15 +1,16 @@
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
-import InputAdornment from '@material-ui/core/InputAdornment';
 import MenuItem from '@material-ui/core/MenuItem';
-import TextField from '@material-ui/core/TextField';
-import moment from 'moment';
+import { DateTimePicker } from '@material-ui/pickers';
+import format from 'date-fns/format';
+import fromUnixTime from 'date-fns/fromUnixTime';
+import getUnixTime from 'date-fns/getUnixTime';
 import { useState } from 'react';
 import ToolbarMenu from './ToolbarMenu';
 
 function DueMenu(props) {
 	const [anchorEl, setAnchorEl] = useState(null);
-	const dueDate = props.due ? moment(props.due).format(moment.HTML5_FMT.DATE) : '';
+	const dueDate = props.due ? format(fromUnixTime(props.due), 'Pp') : format(new Date(), 'Pp');
 
 	function handleMenuOpen(event) {
 		setAnchorEl(event.currentTarget);
@@ -25,42 +26,31 @@ function DueMenu(props) {
 				<Icon>today</Icon>
 			</IconButton>
 			<ToolbarMenu state={anchorEl} onClose={handleMenuClose}>
-				{props.due ? (
-					<MenuItem
-						onClick={ev => {
-							props.onRemoveDue();
-							handleMenuClose(ev);
-						}}
-					>
-						Remove Due Date
-					</MenuItem>
-				) : (
-					<div className="p-16">
-						<TextField
-							label="Due date"
-							type="date"
-							name="due"
-							value={dueDate}
-							onChange={ev => {
-								props.onDueChange(ev);
+				<div className="p-16 max-w-192">
+					{props.due ? (
+						<MenuItem
+							onClick={ev => {
+								props.onRemoveDue();
 								handleMenuClose(ev);
 							}}
-							placeholder=" Choose a due date"
-							className=""
-							InputLabelProps={{
-								shrink: true
+						>
+							Remove Due Date
+						</MenuItem>
+					) : (
+						<DateTimePicker
+							label="Due date"
+							inputVariant="outlined"
+							value={dueDate}
+							format="Pp"
+							onChange={(val, ev) => {
+								props.onDueChange(getUnixTime(val));
+								handleMenuClose(ev);
 							}}
-							variant="outlined"
-							InputProps={{
-								endAdornment: (
-									<InputAdornment position="end">
-										<Icon color="action">today</Icon>
-									</InputAdornment>
-								)
-							}}
+							placeholder="Choose a due date"
+							className="w-full"
 						/>
-					</div>
-				)}
+					)}
+				</div>
 			</ToolbarMenu>
 		</div>
 	);

@@ -12,7 +12,7 @@ import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import Switch from '@material-ui/core/Switch';
 import Typography from '@material-ui/core/Typography';
 import withReducer from 'app/store/withReducer';
-import moment from 'moment';
+import format from 'date-fns/format';
 import { memo, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import reducer from './store';
@@ -64,17 +64,17 @@ function QuickPanel(props) {
 
 				<div className="mb-0 py-16 px-24">
 					<Typography className="mb-12 text-32" color="textSecondary">
-						{moment().format('dddd')}
+						{format(new Date(), 'eeee')}
 					</Typography>
 					<div className="flex">
 						<Typography className="leading-none text-32" color="textSecondary">
-							{moment().format('DD')}
+							{format(new Date(), 'dd')}
 						</Typography>
 						<Typography className="leading-none text-16" color="textSecondary">
 							th
 						</Typography>
 						<Typography className="leading-none text-32" color="textSecondary">
-							{moment().format('MMMM')}
+							{format(new Date(), 'MMMM')}
 						</Typography>
 					</div>
 				</div>

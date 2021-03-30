@@ -1,6 +1,6 @@
-import FuseChipSelect from '@fuse/core/FuseChipSelect';
 import { useDebounce } from '@fuse/hooks';
 import _ from '@lodash';
+import { DateTimePicker } from '@material-ui/pickers';
 import clsx from 'clsx';
 import AppBar from '@material-ui/core/AppBar';
 import Avatar from '@material-ui/core/Avatar';
@@ -16,18 +16,16 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import { Autocomplete } from '@material-ui/lab';
-import LabelModel from 'app/main/apps/scrumboard/model/LabelModel';
-import moment from 'moment';
+import fromUnixTime from 'date-fns/fromUnixTime';
+import getUnixTime from 'date-fns/getUnixTime';
+import format from 'date-fns/format';
 import { Controller, useForm } from 'react-hook-form';
-import { useMemo, useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-import { addLabel } from '../../../store/boardSlice';
 import { closeCardDialog, removeCard, updateCard } from '../../../store/cardSlice';
 import CardActivity from './activity/CardActivity';
 import CardAttachment from './attachment/CardAttachment';
 import CardChecklist from './checklist/CardChecklist';
-import CardChecklistName from './checklist/CardChecklistName';
 import CardComment from './comment/CardComment';
 import CheckListMenu from './toolbar/CheckListMenu';
 import DueMenu from './toolbar/DueMenu';
@@ -46,7 +44,6 @@ function BoardCardForm(props) {
 		dispatch(updateCard({ boardId, card: { ...newCard } }));
 	}, 600);
 
-	const dueDate = cardForm && cardForm.due ? moment(cardForm.due).format(moment.HTML5_FMT.DATE) : '';
 	const list = card ? _.find(board.lists, _list => _list.idCards.includes(card.id)) : null;
 
 	useEffect(() => {
@@ -62,65 +59,6 @@ function BoardCardForm(props) {
 	useEffect(() => {
 		register('idAttachmentCover');
 	}, [register]);
-
-	/*
-	function removeDue() {
-		setInForm('due', null);
-	}
-
-	function toggleLabel(labelId) {
-		setInForm('idLabels', _.xor(cardForm.idLabels, [labelId]));
-	}
-
-	function toggleMember(memberId) {
-		setInForm('idMembers', _.xor(cardForm.idMembers, [memberId]));
-	}
-
-	function addCheckList(newList) {
-		setInForm('checklists', [...cardForm.checklists, newList]);
-	}
-
-	function chipChange(name, value) {
-		setInForm(
-			name,
-			value.map(item => item.value)
-		);
-	}
-
-	function addNewChip(name, value) {
-		setInForm(name, [...cardForm[name], value]);
-	}
-
-	function makeCover(attachmentId) {
-		setInForm('idAttachmentCover', attachmentId);
-	}
-
-	function removeCover() {
-		setInForm('idAttachmentCover', '');
-	}
-
-	function removeAttachment(attachmentId) {
-		setForm({
-			...cardForm,
-			attachments: _.reject(cardForm.attachments, { id: attachmentId }),
-			idAttachmentCover: cardForm.idAttachmentCover === attachmentId ? '' : cardForm.idAttachmentCover
-		});
-	}
-
-	const handleCheckListChange = useCallback(
-		(item, index) => {
-			setInForm(`checklists[${index}]`, item);
-		},
-		[setInForm]
-	);
-
-	function removeCheckList(id) {
-		setInForm('checklists', _.reject(cardForm.checklists, { id }));
-	}
-
-	function commentAdd(comment) {
-		return setInForm('activities', [comment, ...cardForm.activities]);
-	}*/
 
 	if (!card) {
 		return null;
@@ -211,25 +149,15 @@ function BoardCardForm(props) {
 
 						<Typography>{list && list.name}</Typography>
 					</div>
-
 					{cardForm.due && (
-						<TextField
+						<DateTimePicker
 							label="Due date"
-							type="date"
-							onChange={val => setValue('due', val)}
-							placeholder=" Choose a due date"
+							inputVariant="outlined"
+							value={format(fromUnixTime(cardForm.due), 'Pp')}
+							format="Pp"
+							onChange={val => setValue('due', getUnixTime(val))}
+							placeholder="Choose a due date"
 							className="w-full sm:w-auto"
-							InputLabelProps={{
-								shrink: true
-							}}
-							variant="outlined"
-							InputProps={{
-								endAdornment: (
-									<InputAdornment position="end">
-										<Icon color="action">today</Icon>
-									</InputAdornment>
-								)
-							}}
 						/>
 					)}
 				</div>

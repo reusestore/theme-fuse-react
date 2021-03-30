@@ -6,7 +6,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
-import moment from 'moment';
+import format from 'date-fns/format';
+import fromUnixTime from 'date-fns/fromUnixTime';
+import getUnixTime from 'date-fns/getUnixTime';
 import { Draggable } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
 import { openCardDialog } from '../store/cardSlice';
@@ -89,13 +91,13 @@ function BoardCard(props) {
 										<div
 											className={clsx(
 												'flex items-center px-8 py-4 mx-4 rounded-16',
-												moment() > moment(card.due)
+												getUnixTime(new Date()) > card.due
 													? 'bg-red text-white'
 													: 'bg-green text-white'
 											)}
 										>
 											<Icon className="text-16">access_time</Icon>
-											<span className="mx-4">{moment(card.due).format('MMM Do YY')}</span>
+											<span className="mx-4">{format(fromUnixTime(card.due), 'MMM do yy')}</span>
 										</div>
 									)}
 

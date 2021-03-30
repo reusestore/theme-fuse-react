@@ -12,10 +12,10 @@ import Typography from '@material-ui/core/Typography';
 import NoteModel from 'app/main/apps/notes/model/NoteModel';
 import NoteLabel from 'app/main/apps/notes/NoteLabel';
 import NoteReminderLabel from 'app/main/apps/notes/NoteReminderLabel';
-import moment from 'moment';
 import { useState, useEffect } from 'react';
 import { withRouter, useParams } from 'react-router-dom';
 import * as yup from 'yup';
+import format from 'date-fns/format';
 import NoteFormList from './checklist/NoteFormList';
 import NoteFormLabelMenu from './NoteFormLabelMenu';
 import NoteFormReminder from './NoteFormReminder';
@@ -182,7 +182,7 @@ function NoteForm(props) {
 
 							{noteForm.time && (
 								<Typography color="textSecondary" className="text-12 mt-8 mx-4">
-									Edited: {moment(noteForm.time).format('MMM DD YY, h:mm A')}
+									Edited: {format(new Date(noteForm.time), 'MMM dd yy, h:mm')}
 								</Typography>
 							)}
 						</div>

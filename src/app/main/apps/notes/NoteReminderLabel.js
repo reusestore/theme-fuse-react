@@ -1,7 +1,7 @@
 import Chip from '@material-ui/core/Chip';
 import Icon from '@material-ui/core/Icon';
 import clsx from 'clsx';
-import moment from 'moment';
+import format from 'date-fns/format';
 
 function NoteLabel(props) {
 	if (!props.date) {
@@ -11,7 +11,7 @@ function NoteLabel(props) {
 	return (
 		<Chip
 			icon={<Icon className="text-16">access_time</Icon>}
-			label={moment(props.date).format('MMM DD YY, h:mm A')}
+			label={format(new Date(props.date), 'MMM dd yy, h:mm')}
 			classes={{
 				root: clsx('h-24', props.className),
 				label: 'px-12 py-4 text-11',

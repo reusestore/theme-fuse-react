@@ -12,103 +12,103 @@ const calendarDB = {
 			id: 0,
 			title: 'All Day Event very long title',
 			allDay: true,
-			start: setDate(2020, 3, 0),
-			end: setDate(2020, 3, 1)
+			start: setDate(2021, 3, 0),
+			end: setDate(2021, 3, 1)
 		},
 		{
 			id: 1,
 			title: 'Long Event',
 			allDay: false,
-			start: setDate(2020, 3, 7),
-			end: setDate(2020, 3, 10)
+			start: setDate(2021, 3, 7),
+			end: setDate(2021, 3, 10)
 		},
 		{
 			id: 2,
 			title: 'DTS STARTS',
 			allDay: false,
-			start: setDate(2021, 2, 13, 0, 0, 0),
-			end: setDate(2021, 2, 20, 0, 0, 0)
+			start: setDate(2022, 2, 13, 0, 0, 0),
+			end: setDate(2022, 2, 20, 0, 0, 0)
 		},
 		{
 			id: 3,
 			title: 'DTS ENDS',
 			allDay: false,
-			start: setDate(2021, 10, 6, 0, 0, 0),
-			end: setDate(2021, 10, 13, 0, 0, 0)
+			start: setDate(2022, 10, 6, 0, 0, 0),
+			end: setDate(2022, 10, 13, 0, 0, 0)
 		},
 		{
 			id: 4,
 			title: 'Some Event',
 			allDay: false,
-			start: setDate(2020, 3, 9, 0, 0, 0),
-			end: setDate(2020, 3, 9, 0, 0, 0)
+			start: setDate(2021, 3, 9, 0, 0, 0),
+			end: setDate(2021, 3, 9, 0, 0, 0)
 		},
 		{
 			id: 5,
 			title: 'Conference',
 			allDay: false,
-			start: setDate(2020, 3, 11),
-			end: setDate(2020, 3, 13),
+			start: setDate(2021, 3, 11),
+			end: setDate(2021, 3, 13),
 			desc: 'Big conference for important people'
 		},
 		{
 			id: 6,
 			title: 'Meeting',
 			allDay: false,
-			start: setDate(2020, 3, 12, 10, 30, 0, 0),
-			end: setDate(2020, 3, 12, 12, 30, 0, 0),
+			start: setDate(2021, 3, 12, 10, 30, 0, 0),
+			end: setDate(2021, 3, 12, 12, 30, 0, 0),
 			desc: 'Pre-meeting meeting, to prepare for the meeting'
 		},
 		{
 			id: 7,
 			title: 'Lunch',
 			allDay: false,
-			start: setDate(2020, 3, 12, 12, 0, 0, 0),
-			end: setDate(2020, 3, 12, 13, 0, 0, 0),
+			start: setDate(2021, 3, 12, 12, 0, 0, 0),
+			end: setDate(2021, 3, 12, 13, 0, 0, 0),
 			desc: 'Power lunch'
 		},
 		{
 			id: 8,
 			title: 'Meeting',
 			allDay: false,
-			start: setDate(2020, 3, 12, 14, 0, 0, 0),
-			end: setDate(2020, 3, 12, 15, 0, 0, 0)
+			start: setDate(2021, 3, 12, 14, 0, 0, 0),
+			end: setDate(2021, 3, 12, 15, 0, 0, 0)
 		},
 		{
 			id: 9,
 			title: 'Happy Hour',
 			allDay: false,
-			start: setDate(2020, 3, 12, 17, 0, 0, 0),
-			end: setDate(2020, 3, 12, 17, 30, 0, 0),
+			start: setDate(2021, 3, 12, 17, 0, 0, 0),
+			end: setDate(2021, 3, 12, 17, 30, 0, 0),
 			desc: 'Most important meal of the day'
 		},
 		{
 			id: 10,
 			title: 'Dinner',
 			allDay: false,
-			start: setDate(2020, 3, 12, 20, 0, 0, 0),
-			end: setDate(2020, 3, 12, 21, 0, 0, 0)
+			start: setDate(2021, 3, 12, 20, 0, 0, 0),
+			end: setDate(2021, 3, 12, 21, 0, 0, 0)
 		},
 		{
 			id: 11,
 			title: 'Birthday Party',
 			allDay: false,
-			start: setDate(2020, 3, 13, 7, 0, 0),
-			end: setDate(2020, 3, 13, 10, 30, 0)
+			start: setDate(2021, 3, 13, 7, 0, 0),
+			end: setDate(2021, 3, 13, 10, 30, 0)
 		},
 		{
 			id: 12,
 			title: 'Late Night Event',
 			allDay: false,
-			start: setDate(2020, 3, 17, 19, 30, 0),
-			end: setDate(2020, 3, 18, 2, 0, 0)
+			start: setDate(2021, 3, 17, 19, 30, 0),
+			end: setDate(2021, 3, 18, 2, 0, 0)
 		},
 		{
 			id: 13,
 			title: 'Multi-day Event',
 			allDay: false,
-			start: setDate(2020, 3, 20, 19, 30, 0),
-			end: setDate(2020, 3, 22, 2, 0, 0)
+			start: setDate(2021, 3, 20, 19, 30, 0),
+			end: setDate(2021, 3, 22, 2, 0, 0)
 		}
 	]
 };

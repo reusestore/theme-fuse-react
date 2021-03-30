@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
-import moment from 'moment/moment';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from './store/contactsSlice';
@@ -183,7 +183,7 @@ function Chat(props) {
 											className="time absolute hidden w-full text-11 mt-8 -mb-24 ltr:left-0 rtl:right-0 bottom-0 whitespace-nowrap"
 											color="textSecondary"
 										>
-											{moment(item.time).format('MMMM Do YYYY, h:mm:ss a')}
+											{formatDistanceToNow(new Date(item.time), { addSuffix: true })}
 										</Typography>
 									</div>
 								</div>

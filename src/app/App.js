@@ -1,4 +1,3 @@
-import MomentUtils from '@date-io/moment';
 import '@fake-db';
 import FuseAuthorization from '@fuse/core/FuseAuthorization';
 import FuseLayout from '@fuse/core/FuseLayout';
@@ -12,6 +11,7 @@ import rtl from 'jss-rtl';
 import Provider from 'react-redux/es/components/Provider';
 import { Router } from 'react-router-dom';
 import { SnackbarProvider } from 'notistack';
+import DateFnsUtils from '@date-io/date-fns';
 import AppContext from './AppContext';
 import { Auth } from './auth';
 import routes from './fuse-configs/routesConfig';
@@ -34,7 +34,7 @@ const App = () => {
 		>
 			<StylesProvider jss={jss} generateClassName={generateClassName}>
 				<Provider store={store}>
-					<MuiPickersUtilsProvider utils={MomentUtils}>
+					<MuiPickersUtilsProvider utils={DateFnsUtils}>
 						<Auth>
 							<Router history={history}>
 								<FuseAuthorization>

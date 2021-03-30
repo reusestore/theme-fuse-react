@@ -4,6 +4,8 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import format from 'date-fns/format';
+import fromUnixTime from 'date-fns/fromUnixTime';
 import { useState } from 'react';
 
 function CardAttachment(props) {
@@ -36,7 +38,7 @@ function CardAttachment(props) {
 							)}
 						</div>
 						<Typography className="truncate w-full mb-12" color="textSecondary">
-							{props.item.time}
+							{format(fromUnixTime(props.item.time), 'Pp')}
 						</Typography>
 						<Button
 							aria-owns={anchorEl ? 'actions-menu' : null}

@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
-import moment from 'moment/moment';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { sendMessage } from './store/chatSlice';
@@ -235,7 +235,7 @@ function Chat(props) {
 											<div className={clsx(classes.bubble, 'shadow')}>
 												<div className={classes.message}>{item.message}</div>
 												<Typography className={classes.time} color="textSecondary">
-													{moment(item.time).format('MMMM Do YYYY, h:mm:ss a')}
+													{formatDistanceToNow(new Date(item.time), { addSuffix: true })}
 												</Typography>
 											</div>
 										</div>

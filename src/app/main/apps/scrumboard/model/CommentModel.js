@@ -1,5 +1,5 @@
 import FuseUtils from '@fuse/utils';
-import moment from 'moment';
+import getUnixTime from 'date-fns/getUnixTime';
 import _ from '@lodash';
 
 function CommentModel(data) {
@@ -10,7 +10,7 @@ function CommentModel(data) {
 		type: 'comment',
 		idMember: null,
 		message: '',
-		time: moment().format(moment.HTML5_FMT.DATE)
+		time: getUnixTime(new Date())
 	});
 }
 

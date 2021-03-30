@@ -4,6 +4,8 @@ import ListItem from '@material-ui/core/ListItem';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
+import fromUnixTime from 'date-fns/fromUnixTime';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
 const useStyles = makeStyles(theme => ({
 	commentBubble: {
@@ -25,7 +27,7 @@ function CardActivity(props) {
 						<div className="flex items-center">
 							<Typography>{user.name}</Typography>
 							<Typography className="mx-8 text-12" color="textSecondary">
-								{props.item.time}
+								{formatDistanceToNow(fromUnixTime(props.item.time), { addSuffix: true })}
 							</Typography>
 						</div>
 						<Typography>{props.item.message}</Typography>
@@ -41,7 +43,7 @@ function CardActivity(props) {
 						<Typography>{user.name},</Typography>
 						<Typography className="mx-8">{props.item.message}</Typography>
 						<Typography className="text-12" color="textSecondary">
-							{props.item.time}
+							{formatDistanceToNow(fromUnixTime(props.item.time), { addSuffix: true })}
 						</Typography>
 					</div>
 				</ListItem>

@@ -242,7 +242,7 @@ function CalendarApp(props) {
 						resizable
 						onEventResize={resizeEvent}
 						defaultView={Views.MONTH}
-						defaultDate={new Date(2020, 3, 1)}
+						defaultDate={new Date(2021, 3, 1)}
 						startAccessor="start"
 						endAccessor="end"
 						views={allViews}
