@@ -25,7 +25,8 @@
     },
     "rules": {
         "prettier/prettier": [
-            "warn"
+            "warn",
+            {"endOfLine":"auto"}
         ],
         "react/jsx-filename-extension": [
             "warn",
