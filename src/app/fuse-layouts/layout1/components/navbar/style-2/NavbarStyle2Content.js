@@ -54,7 +54,10 @@ function NavbarStyle2Content(props) {
 				<NavbarToggleButton className="w-40 h-40 p-0" />
 			</AppBar>
 
-			<FuseScrollbars className={clsx(classes.content)} option={{ suppressScrollX: true }}>
+			<FuseScrollbars
+				className={clsx(classes.content)}
+				option={{ suppressScrollX: true, wheelPropagation: false }}
+			>
 				<UserNavbarHeader />
 
 				<Navigation layout="vertical" />

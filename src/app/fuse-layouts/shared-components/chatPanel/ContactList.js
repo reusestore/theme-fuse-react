@@ -131,6 +131,7 @@ function ContactList(props) {
 		<FuseScrollbars
 			className={clsx(classes.root, 'flex flex-shrink-0 flex-col overflow-y-auto py-8 overscroll-contain')}
 			ref={contactListScroll}
+			option={{ suppressScrollX: true, wheelPropagation: false }}
 		>
 			{contacts.length > 0 && (
 				<>

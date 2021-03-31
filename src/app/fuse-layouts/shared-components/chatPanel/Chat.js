@@ -201,6 +201,7 @@ function Chat(props) {
 					<FuseScrollbars
 						ref={chatScroll}
 						className="flex flex-1 flex-col overflow-y-auto overscroll-contain"
+						option={{ suppressScrollX: true, wheelPropagation: false }}
 					>
 						{!chat ? (
 							<div className="flex flex-col flex-1 items-center justify-center p-24">

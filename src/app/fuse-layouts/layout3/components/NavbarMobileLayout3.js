@@ -32,7 +32,7 @@ function NavbarMobileLayout3(props) {
 	const theme = useTheme();
 
 	return (
-		<div className="flex flex-col h-full overflow-hidden">
+		<div className={clsx('flex flex-col h-full overflow-hidden', classes.root, props.className)}>
 			<AppBar
 				color="primary"
 				position="static"
@@ -53,7 +53,10 @@ function NavbarMobileLayout3(props) {
 				</Hidden>
 			</AppBar>
 
-			<FuseScrollbars className={clsx(classes.content)}>
+			<FuseScrollbars
+				className={clsx(classes.content)}
+				option={{ suppressScrollX: true, wheelPropagation: false }}
+			>
 				<UserNavbarHeader />
 
 				<Navigation layout="vertical" />

@@ -115,7 +115,7 @@ function NavbarStyle3Content(props) {
 
 						<FuseScrollbars
 							className="flex flex-1 min-h-0 justify-center w-full overflow-y-auto overflow-x-hidden"
-							option={{ suppressScrollX: true }}
+							option={{ suppressScrollX: true, wheelPropagation: false }}
 						>
 							<FuseNavigation
 								className={clsx('navigation')}
@@ -138,7 +138,7 @@ function NavbarStyle3Content(props) {
 							panelOpen && 'opened',
 							'shadow-5 overflow-y-auto overflow-x-hidden'
 						)}
-						option={{ suppressScrollX: true }}
+						option={{ suppressScrollX: true, wheelPropagation: false }}
 					>
 						<FuseNavigation
 							className={clsx('navigation')}

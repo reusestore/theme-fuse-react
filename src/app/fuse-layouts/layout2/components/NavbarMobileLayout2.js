@@ -53,7 +53,10 @@ function NavbarMobileLayout2(props) {
 				</Hidden>
 			</AppBar>
 
-			<FuseScrollbars className={clsx(classes.content)}>
+			<FuseScrollbars
+				className={clsx(classes.content)}
+				option={{ suppressScrollX: true, wheelPropagation: false }}
+			>
 				<UserNavbarHeader />
 
 				<Navigation layout="vertical" />
