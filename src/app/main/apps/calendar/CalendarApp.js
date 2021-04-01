@@ -6,8 +6,6 @@ import withReducer from 'app/store/withReducer';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
-import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
-import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { useDispatch, useSelector } from 'react-redux';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
