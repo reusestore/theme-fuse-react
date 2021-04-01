@@ -1,3 +1,4 @@
+import Avatar from '@material-ui/core/Avatar';
 import Hidden from '@material-ui/core/Hidden';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
@@ -34,6 +35,7 @@ function ProjectDashboardAppHeader(props) {
 	const dispatch = useDispatch();
 	const widgets = useSelector(selectWidgets);
 	const projects = useSelector(selectProjects);
+	const user = useSelector(({ auth }) => auth.user);
 
 	const [selectedProject, setSelectedProject] = useState({
 		id: 1,
@@ -72,9 +74,25 @@ function ProjectDashboardAppHeader(props) {
 	return (
 		<div className="flex flex-col justify-between flex-1 px-24 pt-24">
 			<div className="flex justify-between items-center">
-				<Typography className="py-0 sm:py-24 text-18 sm:text-24 md:text-32 font-bold" variant="h4">
-					Welcome back, John!
-				</Typography>
+				<div className="flex items-center">
+					{user.data.photoURL ? (
+						<Avatar className="w-52 h-52 sm:w-64 sm:h-64" alt="user photo" src={user.data.photoURL} />
+					) : (
+						<Avatar className="w-52 h-52 sm:w-64 sm:h-64">{user.data.displayName[0]}</Avatar>
+					)}
+					<div className="mx-12">
+						<Typography className="text-18 sm:text-24 md:text-32 font-bold leading-none mb-8 tracking-tight">
+							Welcome back, {user.data.displayName}!
+						</Typography>
+
+						<div className="flex items-center opacity-60">
+							<Icon className="text-16 sm:text-24">notifications</Icon>
+							<Typography className="text-12 sm:text-14 font-medium mx-4">
+								You have 2 new messages and 15 new tasks
+							</Typography>
+						</div>
+					</div>
+				</div>
 				<Hidden lgUp>
 					<IconButton
 						onClick={ev => pageLayout.current.toggleRightSidebar()}
