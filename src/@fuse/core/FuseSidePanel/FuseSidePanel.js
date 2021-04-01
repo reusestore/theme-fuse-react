@@ -21,7 +21,9 @@ const useStyles = makeStyles(theme => ({
 			duration: theme.transitions.duration.shorter
 		}),
 		paddingBottom: 64,
-		position: 'relative',
+		maxHeight: '100vh',
+		position: 'sticky',
+		top: 0,
 		zIndex: 999,
 		'&.left': {
 			'& $buttonWrapper': {

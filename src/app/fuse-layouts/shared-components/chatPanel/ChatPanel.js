@@ -33,23 +33,24 @@ const useStyles = makeStyles(theme => ({
 		}
 	},
 	panel: {
-		position: 'fixed',
+		top: 0,
+		position: 'sticky',
 		width: 360,
+		minWidth: 360,
+		height: '100vh',
+		margin: 0,
+		overflow: 'hidden',
+		zIndex: 1000,
 		backgroundColor: theme.palette.background.paper,
 		boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-		top: 0,
-		height: '100%',
-		minHeight: '100%',
 		bottom: 0,
 		right: 0,
-		margin: 0,
-		zIndex: 1000,
-		transform: 'translate3d(290px,0,0)',
-		overflow: 'hidden',
+		transform: 'translate3d(0,0,0)',
 		[theme.breakpoints.down('md')]: {
-			transform: 'translate3d(360px,0,0)',
+			transform: 'translate3d(0,0,0)',
 			boxShadow: 'none',
 			'&.opened': {
+				transform: 'translate3d(-360px,0,0)!important',
 				boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'
 			}
 		},
@@ -58,7 +59,7 @@ const useStyles = makeStyles(theme => ({
 			duration: theme.transitions.duration.standard
 		}),
 		'&.opened': {
-			transform: 'translateX(0)'
+			transform: 'translate3d(-290px,0,0)'
 		}
 	}
 }));

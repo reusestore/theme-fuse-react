@@ -29,6 +29,10 @@ const config = {
 			type: 'radio',
 			options: [
 				{
+					name: 'Boxed',
+					value: 'boxed'
+				},
+				{
 					name: 'Full Width',
 					value: 'fullwidth'
 				},
