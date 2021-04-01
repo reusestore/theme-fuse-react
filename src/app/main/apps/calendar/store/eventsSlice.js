@@ -1,6 +1,6 @@
 import { createEntityAdapter, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import moment from 'moment';
+import formatISO from 'date-fns/formatISO';
 
 export const dateFormat = 'YYYY-MM-DDTHH:mm:ss.sssZ';
 
@@ -62,8 +62,8 @@ const eventsSlice = createSlice({
 						open: true
 					},
 					data: {
-						start: moment(event.start).format(dateFormat).toString(),
-						end: moment(event.end).format(dateFormat).toString()
+						start: formatISO(event.start),
+						end: formatISO(event.end)
 					}
 				};
 				return { payload };
@@ -81,8 +81,8 @@ const eventsSlice = createSlice({
 					},
 					data: {
 						...event,
-						start: moment(event.start).format(dateFormat).toString(),
-						end: moment(event.end).format(dateFormat).toString()
+						start: formatISO(event.start),
+						end: formatISO(event.end)
 					}
 				};
 				return { payload };

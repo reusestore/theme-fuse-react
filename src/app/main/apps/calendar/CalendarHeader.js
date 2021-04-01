@@ -1,18 +1,15 @@
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
-import { ThemeProvider, withStyles } from '@material-ui/core/styles';
+import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
+import { selectMainThemeDark } from 'app/store/fuse/settingsSlice';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
-import moment from 'moment';
-import Toolbar from 'react-big-calendar/lib/Toolbar';
-import { navigate } from 'react-big-calendar/lib/utils/constants';
-import connect from 'react-redux/es/connect/connect';
-import { selectMainThemeDark } from 'app/store/fuse/settingsSlice';
+import { useSelector } from 'react-redux';
+import format from 'date-fns/format';
 
-/* eslint-disable react/jsx-no-bind */
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
 	root: {
 		backgroundImage: 'url("../../assets/images/backgrounds/header-bg.png")',
 		backgroundColor: '#FAFAFA',
@@ -79,130 +76,112 @@ const styles = theme => ({
 			backgroundPosition: '0 85%'
 		}
 	}
-});
+}));
 
 const viewNamesObj = {
-	month: {
+	dayGridMonth: {
 		title: 'Month',
 		icon: 'view_module'
 	},
-	week: {
+	timeGridWeek: {
 		title: 'Week',
 		icon: 'view_week'
 	},
-	work_week: {
-		title: 'Work week',
-		icon: 'view_array'
-	},
-	day: {
+	timeGridDay: {
 		title: 'Day',
-		icon: 'view_day'
-	},
-	agenda: {
-		title: 'Agenda',
 		icon: 'view_agenda'
 	}
 };
 
-class CalendarHeader extends Toolbar {
-	viewButtons() {
-		const viewNames = this.props.views;
-		const { view } = this.props;
-
-		if (viewNames.length > 1) {
-			return viewNames.map(name => (
-				<Tooltip title={viewNamesObj[name].title} key={name}>
-					<div>
-						<motion.div initial={{ scale: 0 }} animate={{ scale: 1, transition: { delay: 0.3 } }}>
-							<IconButton
-								aria-label={name}
-								onClick={() => this.props.onView(name)}
-								disabled={view === name}
+function CalendarHeader(props) {
+	const { calendarRef, currentDate } = props;
+	const classes = useStyles(props);
+	const mainThemeDark = useSelector(selectMainThemeDark);
+	const calendarApi = () => calendarRef.current?.getApi();
+	return (
+		<ThemeProvider theme={mainThemeDark}>
+			<div
+				className={clsx(
+					classes.root,
+					'flex h-200 min-h-200 relative',
+					format(new Date(currentDate?.start || null), 'MMM')
+				)}
+			>
+				<div className="flex flex-1 flex-col p-12 justify-between z-10 container">
+					<div className="flex flex-col items-center justify-between sm:flex-row">
+						<div className="flex items-center my-16 sm:mb-0">
+							<Icon
+								component={motion.span}
+								initial={{ scale: 0 }}
+								animate={{ scale: 1, transition: { delay: 0.2 } }}
+								className="text-24 md:text-32"
 							>
-								<Icon>{viewNamesObj[name].icon}</Icon>
-							</IconButton>
-						</motion.div>
-					</div>
-				</Tooltip>
-			));
-		}
-		return null;
-	}
-
-	render() {
-		const { classes, mainThemeDark, label, date } = this.props;
-
-		return (
-			<ThemeProvider theme={mainThemeDark}>
-				<div className={clsx(classes.root, 'flex h-200 min-h-200 relative', moment(date).format('MMM'))}>
-					<div className="flex flex-1 flex-col p-12 justify-between z-10 container">
-						<div className="flex flex-col items-center justify-between sm:flex-row">
-							<div className="flex items-center my-16 sm:mb-0">
-								<Icon
-									component={motion.span}
-									initial={{ scale: 0 }}
-									animate={{ scale: 1, transition: { delay: 0.2 } }}
-									className="text-24 md:text-32"
-								>
-									today
-								</Icon>
-								<motion.span
-									initial={{ x: -20 }}
-									animate={{ x: 0, transition: { delay: 0.2 } }}
-									delay={300}
-									className="text-16 md:text-24 mx-12 font-semibold"
-								>
-									Calendar
-								</motion.span>
-							</div>
-							<div className="flex items-center">
-								<Tooltip title="Today">
+								today
+							</Icon>
+							<motion.span
+								initial={{ x: -20 }}
+								animate={{ x: 0, transition: { delay: 0.2 } }}
+								delay={300}
+								className="text-16 md:text-24 mx-12 font-semibold"
+							>
+								Calendar
+							</motion.span>
+						</div>
+						<div className="flex items-center">
+							<Tooltip title="Today">
+								<div>
+									<motion.div
+										initial={{ scale: 0 }}
+										animate={{ scale: 1, transition: { delay: 0.3 } }}
+									>
+										<IconButton aria-label="today" onClick={() => calendarApi().today()}>
+											<Icon>today</Icon>
+										</IconButton>
+									</motion.div>
+								</div>
+							</Tooltip>
+							{Object.entries(viewNamesObj).map(([name, view]) => (
+								<Tooltip title={view.title} key={name}>
 									<div>
 										<motion.div
 											initial={{ scale: 0 }}
 											animate={{ scale: 1, transition: { delay: 0.3 } }}
 										>
 											<IconButton
-												aria-label="today"
-												onClick={this.navigate.bind(null, navigate.TODAY)}
+												aria-label={name}
+												onClick={() => calendarApi().changeView(name)}
+												disabled={currentDate?.view.type === name}
 											>
-												<Icon>today</Icon>
+												<Icon>{view.icon}</Icon>
 											</IconButton>
 										</motion.div>
 									</div>
 								</Tooltip>
-								{this.viewButtons()}
-							</div>
+							))}
 						</div>
-
-						<motion.div
-							className="flex items-center justify-center"
-							initial={{ opacity: 0 }}
-							animate={{ opacity: 1, transition: { delay: 0.3 } }}
-						>
-							<Tooltip title="Previous">
-								<IconButton aria-label="Previous" onClick={this.navigate.bind(null, navigate.PREVIOUS)}>
-									<Icon>{mainThemeDark.direction === 'ltr' ? 'chevron_left' : 'chevron_right'}</Icon>
-								</IconButton>
-							</Tooltip>
-							<Typography variant="h6">{label}</Typography>
-							<Tooltip title="Next">
-								<IconButton aria-label="Next" onClick={this.navigate.bind(null, navigate.NEXT)}>
-									<Icon>{mainThemeDark.direction === 'ltr' ? 'chevron_right' : 'chevron_left'}</Icon>
-								</IconButton>
-							</Tooltip>
-						</motion.div>
 					</div>
+
+					<motion.div
+						className="flex items-center justify-center"
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1, transition: { delay: 0.3 } }}
+					>
+						<Tooltip title="Previous">
+							<IconButton aria-label="Previous" onClick={() => calendarApi().prev()}>
+								<Icon>{mainThemeDark.direction === 'ltr' ? 'chevron_left' : 'chevron_right'}</Icon>
+							</IconButton>
+						</Tooltip>
+						<Typography variant="h6">{currentDate?.view.title}</Typography>
+						<Tooltip title="Next">
+							<IconButton aria-label="Next" onClick={() => calendarApi().next()}>
+								<Icon>{mainThemeDark.direction === 'ltr' ? 'chevron_right' : 'chevron_left'}</Icon>
+							</IconButton>
+						</Tooltip>
+					</motion.div>
 				</div>
-			</ThemeProvider>
-		);
-	}
+			</div>
+		</ThemeProvider>
+	);
 }
 
-function mapStateToProps(state) {
-	return {
-		mainThemeDark: selectMainThemeDark(state)
-	};
-}
-
-export default connect(mapStateToProps)(withStyles(styles, { withTheme: true })(CalendarHeader));
+export default CalendarHeader;

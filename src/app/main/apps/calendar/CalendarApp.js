@@ -1,183 +1,69 @@
 import Fab from '@material-ui/core/Fab';
 import Icon from '@material-ui/core/Icon';
 import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import withReducer from 'app/store/withReducer';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
-import moment from 'moment';
-import { useEffect, useRef } from 'react';
-import { Calendar, momentLocalizer, Views } from 'react-big-calendar';
-import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop';
+import { useEffect, useRef, useState } from 'react';
 import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import * as ReactDOM from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from '@fullcalendar/interaction';
 import CalendarHeader from './CalendarHeader';
 import EventDialog from './EventDialog';
 import reducer from './store';
-import {
-	dateFormat,
-	selectEvents,
-	openNewEventDialog,
-	openEditEventDialog,
-	updateEvent,
-	getEvents
-} from './store/eventsSlice';
-
-const localizer = momentLocalizer(moment);
-
-const DragAndDropCalendar = withDragAndDrop(Calendar);
-
-const allViews = Object.keys(Views).map(k => Views[k]);
+import { selectEvents, openNewEventDialog, openEditEventDialog, updateEvent, getEvents } from './store/eventsSlice';
 
 const useStyles = makeStyles(theme => ({
-	root: {},
-	calendar: {
-		backgroundColor: theme.palette.background.paper,
-
-		'& .rbc-header': {
-			padding: '12px 6px',
-			fontWeight: 600,
-			fontSize: 14,
-			opacity: 0.75
+	root: {
+		'& a': {
+			color: theme.palette.text.primary,
+			textDecoration: 'normal!important'
 		},
-		'& .rbc-label': {
-			padding: '8px 6px'
+		'&  .fc-media-screen': {
+			minHeight: '100%'
 		},
-		'& .rbc-today': {
-			backgroundColor: 'transparent'
+		'& .fc-scrollgrid, & .fc-theme-standard td, & .fc-theme-standard th': {
+			borderColor: `${theme.palette.divider}!important`
 		},
-		'& .rbc-header.rbc-today, & .rbc-month-view .rbc-day-bg.rbc-today': {
-			borderBottom: `2px solid ${theme.palette.secondary.main}!important`
+		'&  .fc-scrollgrid-section > td': {
+			border: 0
 		},
-		'& .rbc-month-view, & .rbc-time-view, & .rbc-agenda-view': {
-			...theme.mixins.border(0)
-		},
-		'& .rbc-agenda-view table.rbc-agenda-table': {
-			...theme.mixins.border(0),
-			'& thead > tr > th': {
-				...theme.mixins.borderBottom(1)
-			},
-			'& tbody > tr > td': {
-				padding: '12px 6px',
-				'& + td': {
-					...theme.mixins.borderLeft(1)
-				}
+		'& .fc-daygrid-day': {
+			'&:last-child': {
+				borderRight: 0
 			}
 		},
-		'& .rbc-agenda-table': {
-			'& th': {
+		'& .fc-col-header-cell': {
+			borderWidth: '0 0 1px 0',
+			padding: '16px 0',
+			'& .fc-col-header-cell-cushion': {
+				color: theme.palette.text.secondary,
+				fontWeight: 500
+			}
+		},
+		'& .fc-view ': {
+			borderRadius: 20,
+			overflow: 'hidden',
+			border: `1px solid ${theme.palette.divider}`,
+			'& > .fc-scrollgrid': {
 				border: 0
-			},
-			'& th, & td': {
-				padding: '12px 16px!important'
 			}
 		},
-		'& .rbc-time-view': {
-			'& .rbc-time-header': {
-				...theme.mixins.border(0)
-			},
-			'& .rbc-time-content': {
-				flex: '0 1 auto',
-				...theme.mixins.border(0)
-			},
-			'& .rbc-row': {
-				minHeight: 42
-			},
-			'& .rbc-label': {
-				fontWeight: 'semibold'
-			}
+		'& .fc-daygrid-day-number': {
+			color: theme.palette.text.secondary,
+			fontWeight: 500
 		},
-		'& .rbc-month-view': {
-			'& > .rbc-month-header': {
-				borderRadius: '20px 20px 0 0'
-			},
-			'& > .rbc-row': {
-				...theme.mixins.border(0)
-			},
-			'& .rbc-month-row': {
-				...theme.mixins.border(0),
-				borderWidth: '1px 0 0 0!important',
-				minHeight: 128
-			},
-			'& .rbc-header + .rbc-header': {
-				...theme.mixins.borderLeft(1)
-			},
-			'& .rbc-header': {
-				...theme.mixins.borderBottom(0)
-			},
-			'& .rbc-day-bg + .rbc-day-bg': {
-				...theme.mixins.borderLeft(1)
-			}
-		},
-		'& .rbc-day-slot .rbc-time-slot': {
-			...theme.mixins.borderTop(1),
-			opacity: 0.5
-		},
-		'& .rbc-time-header > .rbc-row > * + *': {
-			...theme.mixins.borderLeft(1)
-		},
-		'& .rbc-time-content > * + * > *': {
-			...theme.mixins.borderLeft(1)
-		},
-		'& .rbc-day-bg + .rbc-day-bg': {
-			...theme.mixins.borderLeft(1)
-		},
-		'& .rbc-time-header > .rbc-row:first-child': {
-			...theme.mixins.borderBottom(1)
-		},
-		'& .rbc-timeslot-group': {
-			minHeight: 64,
-			...theme.mixins.borderBottom(1)
-		},
-		'& .rbc-date-cell': {
-			padding: 8,
-			fontSize: 16,
-			fontWeight: 400,
-			opacity: 0.5,
-			'& > a': {
-				color: 'inherit'
-			}
-		},
-		'& .rbc-event': {
-			borderRadius: 12,
-			minHeight: 24,
-			padding: '4px 12px',
-			backgroundColor: theme.palette.primary.dark,
-			color: theme.palette.primary.contrastText,
-			boxShadow: theme.shadows[0],
-			transitionProperty: 'box-shadow',
-			transitionDuration: theme.transitions.duration.short,
-			transitionTimingFunction: theme.transitions.easing.easeInOut,
-			position: 'relative',
-			'&:hover': {
-				boxShadow: theme.shadows[2]
-			}
-		},
-		'& .rbc-row-segment': {
-			padding: '0 4px 4px 4px'
-		},
-		'& .rbc-off-range-bg': {
-			backgroundColor: theme.palette.type === 'light' ? 'rgba(0,0,0,0.03)' : 'rgba(0,0,0,0.16)'
-		},
-		'& .rbc-show-more': {
-			color: theme.palette.secondary.main,
-			background: 'transparent'
-		},
-		'& .rbc-addons-dnd .rbc-addons-dnd-resizable-month-event': {
-			position: 'static'
-		},
-		'& .rbc-addons-dnd .rbc-addons-dnd-resizable-month-event .rbc-addons-dnd-resize-month-event-anchor:first-child': {
-			left: 0,
-			top: 0,
-			bottom: 0,
-			height: 'auto'
-		},
-		'& .rbc-addons-dnd .rbc-addons-dnd-resizable-month-event .rbc-addons-dnd-resize-month-event-anchor:last-child': {
-			right: 0,
-			top: 0,
-			bottom: 0,
-			height: 'auto'
+		'& .fc-event': {
+			backgroundColor: `${theme.palette.primary.dark}!important`,
+			color: `${theme.palette.primary.contrastText}!important`,
+			border: 0,
+			padding: '0 6px',
+			borderRadius: '16px!important'
 		}
 	},
 	addButton: {
@@ -189,12 +75,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function CalendarApp(props) {
+	const [currentDate, setCurrentDate] = useState();
 	const dispatch = useDispatch();
-	const events = useSelector(selectEvents).map(event => ({
-		...event,
-		start: moment(event.start, dateFormat).toDate(),
-		end: moment(event.end, dateFormat).toDate()
-	}));
+	const events = useSelector(selectEvents);
+	const calendarRef = useRef();
 
 	const classes = useStyles(props);
 	const headerEl = useRef(null);
@@ -203,63 +87,84 @@ function CalendarApp(props) {
 		dispatch(getEvents());
 	}, [dispatch]);
 
-	function moveEvent({ event, start, end }) {
-		dispatch(
-			updateEvent({
-				...event,
-				start,
-				end
-			})
-		);
-	}
+	const handleDateSelect = selectInfo => {
+		const { start, end } = selectInfo;
 
-	function resizeEvent({ event, start, end }) {
-		delete event.type;
 		dispatch(
-			updateEvent({
-				...event,
+			openNewEventDialog({
 				start,
 				end
 			})
 		);
-	}
+	};
+
+	const handleEventDrop = eventDropInfo => {
+		const { id, title, allDay, start, end, extendedProps } = eventDropInfo.event;
+		dispatch(
+			updateEvent({
+				id,
+				title,
+				allDay,
+				start,
+				end,
+				extendedProps
+			})
+		);
+	};
+	const handleEventClick = clickInfo => {
+		const { id, title, allDay, start, end, extendedProps } = clickInfo.event;
+		dispatch(
+			openEditEventDialog({
+				id,
+				title,
+				allDay,
+				start,
+				end,
+				extendedProps
+			})
+		);
+	};
+
+	const handleDates = rangeInfo => {
+		setCurrentDate(rangeInfo);
+	};
+
+	const handleEventAdd = addInfo => {};
+
+	const handleEventChange = changeInfo => {};
+
+	const handleEventRemove = removeInfo => {};
 
 	return (
 		<div className={clsx(classes.root, 'flex flex-col flex-auto relative')}>
-			<div ref={headerEl} />
+			<CalendarHeader calendarRef={calendarRef} currentDate={currentDate} />
+
 			<div className="flex flex-1 p-24 container">
 				<motion.div
 					className="w-full"
 					initial={{ y: 20, opacity: 0 }}
 					animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}
 				>
-					<DragAndDropCalendar
-						className={clsx(classes.calendar, 'flex flex-1 shadow rounded-20 overflow-hidden')}
+					<FullCalendar
+						plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+						headerToolbar={false}
+						initialView="dayGridMonth"
+						editable
 						selectable
-						localizer={localizer}
+						selectMirror
+						dayMaxEvents
+						weekends
+						datesSet={handleDates}
+						select={handleDateSelect}
 						events={events}
-						onEventDrop={moveEvent}
-						resizable
-						onEventResize={resizeEvent}
-						defaultView={Views.MONTH}
-						defaultDate={new Date(2021, 3, 1)}
-						startAccessor="start"
-						endAccessor="end"
-						views={allViews}
-						step={60}
-						showMultiDayTimes
-						components={{
-							toolbar: _props => {
-								return headerEl.current
-									? ReactDOM.createPortal(<CalendarHeader {..._props} />, headerEl.current)
-									: null;
-							}
-						}}
-						// onNavigate={handleNavigate}
-						onSelectEvent={event => {
-							dispatch(openEditEventDialog(event));
-						}}
-						onSelectSlot={slotInfo => dispatch(openNewEventDialog(slotInfo))}
+						eventContent={renderEventContent}
+						eventClick={handleEventClick}
+						eventAdd={handleEventAdd}
+						eventChange={handleEventChange}
+						eventRemove={handleEventRemove}
+						eventDrop={handleEventDrop}
+						initialDate={new Date(2021, 3, 1)}
+						ref={calendarRef}
 					/>
 				</motion.div>
 
@@ -289,23 +194,13 @@ function CalendarApp(props) {
 	);
 }
 
+function renderEventContent(eventInfo) {
+	return (
+		<div className="flex items-center">
+			<Typography className="text-12 font-semibold">{eventInfo.timeText}</Typography>
+			<Typography className="text-12 px-4 truncate">{eventInfo.event.title}</Typography>
+		</div>
+	);
+}
+
 export default withReducer('calendarApp', reducer)(CalendarApp);
-
-/*
-IE 11 Fix
-*/
-if (!Element.prototype.matches) {
-	Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
-}
-
-if (!Element.prototype.closest) {
-	Element.prototype.closest = s => {
-		let el = this;
-
-		do {
-			if (el.matches(s)) return el;
-			el = el.parentElement || el.parentNode;
-		} while (el !== null && el.nodeType === 1);
-		return null;
-	};
-}

@@ -1,9 +1,9 @@
 import FuseUtils from '@fuse/utils';
-import moment from 'moment';
 import mock from '../mock';
+import formatISO from 'date-fns/formatISO';
 
 function setDate(year, month, date, hours, minutes, seconds) {
-	return moment(new Date(year, month, date, hours, minutes, seconds)).format('YYYY-MM-DDTHH:mm:ss.sssZ');
+	return formatISO(new Date(year, month, date, hours || '', minutes || '', seconds|| ''));
 }
 
 const calendarDB = {
@@ -49,7 +49,9 @@ const calendarDB = {
 			allDay: false,
 			start: setDate(2021, 3, 11),
 			end: setDate(2021, 3, 13),
-			desc: 'Big conference for important people'
+			extendedProps:{
+				desc: 'Big conference for important people'
+			}
 		},
 		{
 			id: 6,
@@ -57,7 +59,9 @@ const calendarDB = {
 			allDay: false,
 			start: setDate(2021, 3, 12, 10, 30, 0, 0),
 			end: setDate(2021, 3, 12, 12, 30, 0, 0),
-			desc: 'Pre-meeting meeting, to prepare for the meeting'
+			extendedProps: {
+				desc: 'Pre-meeting meeting, to prepare for the meeting'
+			}
 		},
 		{
 			id: 7,
@@ -65,7 +69,9 @@ const calendarDB = {
 			allDay: false,
 			start: setDate(2021, 3, 12, 12, 0, 0, 0),
 			end: setDate(2021, 3, 12, 13, 0, 0, 0),
-			desc: 'Power lunch'
+			extendedProps: {
+				desc: 'Power lunch'
+			}
 		},
 		{
 			id: 8,
@@ -80,7 +86,9 @@ const calendarDB = {
 			allDay: false,
 			start: setDate(2021, 3, 12, 17, 0, 0, 0),
 			end: setDate(2021, 3, 12, 17, 30, 0, 0),
-			desc: 'Most important meal of the day'
+			extendedProps: {
+				desc: 'Most important meal of the day'
+			}
 		},
 		{
 			id: 10,

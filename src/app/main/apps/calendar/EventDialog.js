@@ -1,4 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import formatISO from 'date-fns/formatISO';
 import { Controller, useForm } from 'react-hook-form';
 import FuseUtils from '@fuse/utils/FuseUtils';
 import AppBar from '@material-ui/core/AppBar';
@@ -14,7 +15,6 @@ import TextField from '@material-ui/core/TextField';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { DateTimePicker } from '@material-ui/pickers';
-import moment from 'moment';
 import { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
@@ -25,9 +25,9 @@ const defaultValues = {
 	id: FuseUtils.generateGUID(),
 	title: '',
 	allDay: true,
-	start: moment(new Date(), 'MM/DD/YYYY'),
-	end: moment(new Date(), 'MM/DD/YYYY'),
-	desc: ''
+	start: formatISO(new Date()),
+	end: formatISO(new Date()),
+	extendedProps: { desc: '' }
 };
 
 /**
@@ -197,7 +197,7 @@ function EventDialog(props) {
 						id="desc"
 						label="Description"
 						type="text"
-						name="desc"
+						name="extendedProps.desc"
 						inputRef={register()}
 						multiline
 						rows={5}
