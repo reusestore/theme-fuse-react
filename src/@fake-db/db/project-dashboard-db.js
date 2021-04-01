@@ -134,6 +134,16 @@ const projectDashboardAppDB = {
 					fill: {
 						opacity: 1
 					},
+					tooltip: {
+						followCursor: true,
+						theme       : 'dark',
+						fixed: {
+							enabled: false,
+							position: 'topRight',
+							offsetX: 0,
+							offsetY: 0,
+						},
+					},
 					legend: {
 						show: false
 					},
@@ -195,6 +205,16 @@ const projectDashboardAppDB = {
 							fill: {
 								type: 'solid',
 								opacity: 0.7
+							},
+							tooltip: {
+								followCursor: true,
+								theme       : 'dark',
+								fixed: {
+									enabled: false,
+									position: 'topRight',
+									offsetX: 0,
+									offsetY: 0,
+								},
 							},
 							xaxis: {
 								categories: [
@@ -262,6 +282,16 @@ const projectDashboardAppDB = {
 							fill: {
 								type: 'solid',
 								opacity: 0.7
+							},
+							tooltip: {
+								followCursor: true,
+								theme       : 'dark',
+								fixed: {
+									enabled: false,
+									position: 'topRight',
+									offsetX: 0,
+									offsetY: 0,
+								},
 							},
 							xaxis: {
 								categories: [
@@ -365,6 +395,16 @@ const projectDashboardAppDB = {
 								type: 'solid',
 								opacity: 0.7
 							},
+							tooltip: {
+								followCursor: true,
+								theme       : 'dark',
+								fixed: {
+									enabled: false,
+									position: 'topRight',
+									offsetX: 0,
+									offsetY: 0,
+								},
+							},
 							xaxis: {
 								categories: [
 									'Monday',
@@ -431,6 +471,16 @@ const projectDashboardAppDB = {
 							fill: {
 								type: 'solid',
 								opacity: 0.7
+							},
+							tooltip: {
+								followCursor: true,
+								theme       : 'dark',
+								fixed: {
+									enabled: false,
+									position: 'topRight',
+									offsetX: 0,
+									offsetY: 0,
+								},
 							},
 							xaxis: {
 								categories: [
@@ -499,6 +549,16 @@ const projectDashboardAppDB = {
 								type: 'solid',
 								opacity: 0.7
 							},
+							tooltip: {
+								followCursor: true,
+								theme       : 'dark',
+								fixed: {
+									enabled: false,
+									position: 'topRight',
+									offsetX: 0,
+									offsetY: 0,
+								},
+							},
 							xaxis: {
 								categories: [
 									'Monday',
@@ -565,6 +625,16 @@ const projectDashboardAppDB = {
 							fill: {
 								type: 'solid',
 								opacity: 0.7
+							},
+							tooltip: {
+								followCursor: true,
+								theme       : 'dark',
+								fixed: {
+									enabled: false,
+									position: 'topRight',
+									offsetX: 0,
+									offsetY: 0,
+								},
 							},
 							xaxis: {
 								categories: [
@@ -819,6 +889,16 @@ const projectDashboardAppDB = {
 							type: 'solid',
 							opacity: 0.7
 						},
+						tooltip: {
+							followCursor: true,
+							theme       : 'dark',
+							fixed: {
+								enabled: false,
+								position: 'topRight',
+								offsetX: 0,
+								offsetY: 0,
+							},
+						},
 						xaxis: {
 							categories: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 						}
@@ -877,6 +957,16 @@ const projectDashboardAppDB = {
 						fill: {
 							type: 'solid',
 							opacity: 0.7
+						},
+						tooltip: {
+							followCursor: true,
+							theme       : 'dark',
+							fixed: {
+								enabled: false,
+								position: 'topRight',
+								offsetX: 0,
+								offsetY: 0,
+							},
 						},
 						xaxis: {
 							categories: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
@@ -951,6 +1041,16 @@ const projectDashboardAppDB = {
 						fill: {
 							type: 'solid',
 							opacity: 0.7
+						},
+						tooltip: {
+							followCursor: true,
+							theme       : 'dark',
+							fixed: {
+								enabled: false,
+								position: 'topRight',
+								offsetX: 0,
+								offsetY: 0,
+							},
 						},
 						xaxis: {
 							categories: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']

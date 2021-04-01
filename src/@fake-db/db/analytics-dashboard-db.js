@@ -137,6 +137,16 @@ const analyticsDashboardAppDB = {
 				},
 				xaxis: {
 					categories: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+				},
+				tooltip: {
+					followCursor: true,
+					theme       : 'dark',
+					fixed: {
+						enabled: false,
+						position: 'topRight',
+						offsetX: 0,
+						offsetY: 0,
+					},
 				}
 			}
 		},
@@ -198,6 +208,16 @@ const analyticsDashboardAppDB = {
 				fill: {
 					type: 'solid',
 					opacity: 0.7
+				},
+				tooltip: {
+					followCursor: true,
+					theme       : 'dark',
+					fixed: {
+						enabled: false,
+						position: 'topRight',
+						offsetX: 0,
+						offsetY: 0,
+					},
 				}
 			}
 		},
@@ -227,6 +247,16 @@ const analyticsDashboardAppDB = {
 				fill: {
 					type: 'solid',
 					opacity: 0.7
+				},
+				tooltip: {
+					followCursor: true,
+					theme       : 'dark',
+					fixed: {
+						enabled: false,
+						position: 'topRight',
+						offsetX: 0,
+						offsetY: 0,
+					},
 				}
 			}
 		},
@@ -320,6 +350,16 @@ const analyticsDashboardAppDB = {
 				fill: {
 					type: 'solid',
 					opacity: 0.7
+				},
+				tooltip: {
+					followCursor: true,
+					theme       : 'dark',
+					fixed: {
+						enabled: false,
+						position: 'topRight',
+						offsetX: 0,
+						offsetY: 0,
+					},
 				}
 			}
 		},
@@ -601,6 +641,16 @@ const analyticsDashboardAppDB = {
 				},
 				legend: {
 					show: false
+				},
+				tooltip: {
+					followCursor: true,
+					theme       : 'dark',
+					fixed: {
+						enabled: false,
+						position: 'topRight',
+						offsetX: 0,
+						offsetY: 0,
+					},
 				}
 			},
 			today: '12,540',
