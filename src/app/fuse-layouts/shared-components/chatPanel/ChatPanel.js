@@ -46,20 +46,24 @@ const useStyles = makeStyles(theme => ({
 		bottom: 0,
 		right: 0,
 		transform: 'translate3d(0,0,0)',
-		[theme.breakpoints.down('md')]: {
-			transform: 'translate3d(0,0,0)',
-			boxShadow: 'none',
-			'&.opened': {
-				transform: 'translate3d(-360px,0,0)!important',
-				boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'
-			}
-		},
 		transition: theme.transitions.create(['transform'], {
 			easing: theme.transitions.easing.easeInOut,
 			duration: theme.transitions.duration.standard
 		}),
 		'&.opened': {
 			transform: 'translate3d(-290px,0,0)'
+		},
+		[theme.breakpoints.down('md')]: {
+			position: 'fixed',
+			transform: 'translate3d(360px,0,0)!important',
+			boxShadow: 'none',
+			width: 320,
+			minWidth: 320,
+			maxWidth: '100%',
+			'&.opened': {
+				transform: 'translate3d(0,0,0)!important',
+				boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'
+			}
 		}
 	}
 }));
