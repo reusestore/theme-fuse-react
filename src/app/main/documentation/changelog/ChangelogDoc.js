@@ -4,8 +4,9 @@ import ChangelogCard from './ChangelogCard';
 const changelogData = [
 	{
 		version: '6.0.0',
-		date: '2021-03-30',
+		date: '2021-04-02',
 		newChanges: [
+			'Calendar App: react-big-calendar changed with fullCalendar/react',
 			'draft-js and react-draft-wysiwyg added, an example created at mail compose form.',
 			'croco added to extend webpack config.',
 			'tailwindcss moved inside postcss config with croco.',
