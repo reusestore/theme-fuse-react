@@ -12,8 +12,9 @@ import TextField from '@material-ui/core/TextField';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { useCallback, useEffect } from 'react';
+import { Controller, useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { useForm } from 'react-hook-form';
+
 import _ from '@lodash';
 import * as yup from 'yup';
 
@@ -51,12 +52,13 @@ function ContactDialog(props) {
 	const dispatch = useDispatch();
 	const contactDialog = useSelector(({ contactsApp }) => contactsApp.contacts.contactDialog);
 
-	const { register, watch, reset, handleSubmit, formState, errors } = useForm({
+	const { control, watch, reset, handleSubmit, formState, getValues } = useForm({
 		mode: 'onChange',
 		defaultValues,
 		resolver: yupResolver(schema)
 	});
-	const { isValid, dirtyFields } = formState;
+
+	const { isValid, dirtyFields, errors } = formState;
 
 	const id = watch('id');
 	const name = watch('name');
@@ -152,32 +154,41 @@ function ContactDialog(props) {
 						<div className="min-w-48 pt-20">
 							<Icon color="action">account_circle</Icon>
 						</div>
-
-						<TextField
-							className="mb-24"
-							label="Name"
-							autoFocus
-							id="name"
+						<Controller
+							control={control}
 							name="name"
-							inputRef={register}
-							error={!!errors.name}
-							helperText={errors?.name?.message}
-							variant="outlined"
-							required
-							fullWidth
+							render={({ field }) => (
+								<TextField
+									{...field}
+									className="mb-24"
+									label="Name"
+									id="name"
+									error={!!errors.name}
+									helperText={errors?.name?.message}
+									variant="outlined"
+									required
+									fullWidth
+								/>
+							)}
 						/>
 					</div>
 
 					<div className="flex">
 						<div className="min-w-48 pt-20" />
-						<TextField
-							className="mb-24"
-							label="Last name"
-							id="lastName"
+
+						<Controller
+							control={control}
 							name="lastName"
-							inputRef={register}
-							variant="outlined"
-							fullWidth
+							render={({ field }) => (
+								<TextField
+									{...field}
+									className="mb-24"
+									label="Last name"
+									id="lastName"
+									variant="outlined"
+									fullWidth
+								/>
+							)}
 						/>
 					</div>
 
@@ -185,14 +196,19 @@ function ContactDialog(props) {
 						<div className="min-w-48 pt-20">
 							<Icon color="action">star</Icon>
 						</div>
-						<TextField
-							className="mb-24"
-							label="Nickname"
-							id="nickname"
+						<Controller
+							control={control}
 							name="nickname"
-							inputRef={register}
-							variant="outlined"
-							fullWidth
+							render={({ field }) => (
+								<TextField
+									{...field}
+									className="mb-24"
+									label="Nickname"
+									id="nickname"
+									variant="outlined"
+									fullWidth
+								/>
+							)}
 						/>
 					</div>
 
@@ -200,14 +216,19 @@ function ContactDialog(props) {
 						<div className="min-w-48 pt-20">
 							<Icon color="action">phone</Icon>
 						</div>
-						<TextField
-							className="mb-24"
-							label="Phone"
-							id="phone"
+						<Controller
+							control={control}
 							name="phone"
-							inputRef={register}
-							variant="outlined"
-							fullWidth
+							render={({ field }) => (
+								<TextField
+									{...field}
+									className="mb-24"
+									label="Phone"
+									id="phone"
+									variant="outlined"
+									fullWidth
+								/>
+							)}
 						/>
 					</div>
 
@@ -215,14 +236,19 @@ function ContactDialog(props) {
 						<div className="min-w-48 pt-20">
 							<Icon color="action">email</Icon>
 						</div>
-						<TextField
-							className="mb-24"
-							label="Email"
-							id="email"
+						<Controller
+							control={control}
 							name="email"
-							inputRef={register}
-							variant="outlined"
-							fullWidth
+							render={({ field }) => (
+								<TextField
+									{...field}
+									className="mb-24"
+									label="Email"
+									id="email"
+									variant="outlined"
+									fullWidth
+								/>
+							)}
 						/>
 					</div>
 
@@ -230,14 +256,19 @@ function ContactDialog(props) {
 						<div className="min-w-48 pt-20">
 							<Icon color="action">domain</Icon>
 						</div>
-						<TextField
-							className="mb-24"
-							label="Company"
-							id="company"
+						<Controller
+							control={control}
 							name="company"
-							inputRef={register}
-							variant="outlined"
-							fullWidth
+							render={({ field }) => (
+								<TextField
+									{...field}
+									className="mb-24"
+									label="Company"
+									id="company"
+									variant="outlined"
+									fullWidth
+								/>
+							)}
 						/>
 					</div>
 
@@ -245,14 +276,20 @@ function ContactDialog(props) {
 						<div className="min-w-48 pt-20">
 							<Icon color="action">work</Icon>
 						</div>
-						<TextField
-							className="mb-24"
-							label="Job title"
-							id="jobTitle"
+						<Controller
+							control={control}
 							name="jobTitle"
-							inputRef={register}
-							variant="outlined"
-							fullWidth
+							render={({ field }) => (
+								<TextField
+									{...field}
+									className="mb-24"
+									label="Job title"
+									id="jobTitle"
+									name="jobTitle"
+									variant="outlined"
+									fullWidth
+								/>
+							)}
 						/>
 					</div>
 
@@ -260,18 +297,23 @@ function ContactDialog(props) {
 						<div className="min-w-48 pt-20">
 							<Icon color="action">cake</Icon>
 						</div>
-						<TextField
-							className="mb-24"
-							id="birthday"
+						<Controller
+							control={control}
 							name="birthday"
-							label="Birthday"
-							type="date"
-							inputRef={register}
-							InputLabelProps={{
-								shrink: true
-							}}
-							variant="outlined"
-							fullWidth
+							render={({ field }) => (
+								<TextField
+									{...field}
+									className="mb-24"
+									id="birthday"
+									label="Birthday"
+									type="date"
+									InputLabelProps={{
+										shrink: true
+									}}
+									variant="outlined"
+									fullWidth
+								/>
+							)}
 						/>
 					</div>
 
@@ -279,14 +321,19 @@ function ContactDialog(props) {
 						<div className="min-w-48 pt-20">
 							<Icon color="action">home</Icon>
 						</div>
-						<TextField
-							className="mb-24"
-							label="Address"
-							id="address"
+						<Controller
+							control={control}
 							name="address"
-							inputRef={register}
-							variant="outlined"
-							fullWidth
+							render={({ field }) => (
+								<TextField
+									{...field}
+									className="mb-24"
+									label="Address"
+									id="address"
+									variant="outlined"
+									fullWidth
+								/>
+							)}
 						/>
 					</div>
 
@@ -294,16 +341,21 @@ function ContactDialog(props) {
 						<div className="min-w-48 pt-20">
 							<Icon color="action">note</Icon>
 						</div>
-						<TextField
-							className="mb-24"
-							label="Notes"
-							id="notes"
+						<Controller
+							control={control}
 							name="notes"
-							inputRef={register}
-							variant="outlined"
-							multiline
-							rows={5}
-							fullWidth
+							render={({ field }) => (
+								<TextField
+									{...field}
+									className="mb-24"
+									label="Notes"
+									id="notes"
+									variant="outlined"
+									multiline
+									rows={5}
+									fullWidth
+								/>
+							)}
 						/>
 					</div>
 				</DialogContent>

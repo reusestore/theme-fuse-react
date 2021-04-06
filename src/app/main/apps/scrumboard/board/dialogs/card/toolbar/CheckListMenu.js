@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
@@ -19,14 +19,15 @@ const schema = yup.object().shape({
 
 function CheckListMenu(props) {
 	const [anchorEl, setAnchorEl] = useState(null);
-	const { register, formState, handleSubmit, reset, errors } = useForm({
+	const { control, formState, handleSubmit, reset } = useForm({
 		mode: 'onChange',
 		defaultValues: {
 			name: props.name
 		},
 		resolver: yupResolver(schema)
 	});
-	const { isValid, dirtyFields } = formState;
+
+	const { isValid, dirtyFields, errors } = formState;
 
 	useEffect(() => {
 		if (!anchorEl) {
@@ -56,17 +57,22 @@ function CheckListMenu(props) {
 			</IconButton>
 			<ToolbarMenu state={anchorEl} onClose={handleMenuClose}>
 				<form onSubmit={handleSubmit(onSubmit)} className="p-16 flex flex-col items-end">
-					<TextField
-						label="Checklist title"
+					<Controller
 						name="name"
-						inputRef={register}
-						error={!!errors.name}
-						helperText={errors?.name?.message}
-						fullWidth
-						className="mb-12"
-						variant="outlined"
-						required
-						autoFocus
+						control={control}
+						render={({ field }) => (
+							<TextField
+								{...field}
+								label="Checklist title"
+								error={!!errors.name}
+								helperText={errors?.name?.message}
+								fullWidth
+								className="mb-12"
+								variant="outlined"
+								required
+								autoFocus
+							/>
+						)}
 					/>
 					<Button
 						color="secondary"

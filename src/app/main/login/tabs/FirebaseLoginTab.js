@@ -4,7 +4,8 @@ import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { useEffect, useRef, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { submitLoginWithFireBase } from 'app/auth/store/loginSlice';
 import * as yup from 'yup';
@@ -28,13 +29,14 @@ function FirebaseLoginTab(props) {
 	const dispatch = useDispatch();
 	const login = useSelector(({ auth }) => auth.login);
 
-	const { register, setValue, formState, handleSubmit, reset, trigger, errors, setError } = useForm({
+	const { control, setValue, formState, handleSubmit, reset, trigger, setError } = useForm({
 		mode: 'onChange',
 		defaultValues,
 		resolver: yupResolver(schema)
 	});
 
-	const { isValid, dirtyFields } = formState;
+	const { isValid, dirtyFields, errors } = formState;
+
 	const [showPassword, setShowPassword] = useState(false);
 
 	const formRef = useRef(null);
@@ -55,50 +57,60 @@ function FirebaseLoginTab(props) {
 	return (
 		<div className="w-full">
 			<form className="flex flex-col justify-center w-full" onSubmit={handleSubmit(onSubmit)}>
-				<TextField
-					className="mb-16"
-					type="text"
+				<Controller
 					name="email"
-					label="Email"
-					inputRef={register}
-					error={!!errors.email}
-					helperText={errors?.email?.message}
-					InputProps={{
-						endAdornment: (
-							<InputAdornment position="end">
-								<Icon className="text-20" color="action">
-									email
-								</Icon>
-							</InputAdornment>
-						)
-					}}
-					variant="outlined"
-					required
+					control={control}
+					render={({ field }) => (
+						<TextField
+							{...field}
+							className="mb-16"
+							type="text"
+							label="Email"
+							error={!!errors.email}
+							helperText={errors?.email?.message}
+							InputProps={{
+								endAdornment: (
+									<InputAdornment position="end">
+										<Icon className="text-20" color="action">
+											email
+										</Icon>
+									</InputAdornment>
+								)
+							}}
+							variant="outlined"
+							required
+						/>
+					)}
 				/>
 
-				<TextField
-					className="mb-16"
-					type="password"
+				<Controller
 					name="password"
-					label="Password"
-					inputRef={register}
-					error={!!errors.password}
-					helperText={errors?.password?.message}
-					InputProps={{
-						className: 'pr-2',
-						type: showPassword ? 'text' : 'password',
-						endAdornment: (
-							<InputAdornment position="end">
-								<IconButton onClick={() => setShowPassword(!showPassword)}>
-									<Icon className="text-20" color="action">
-										{showPassword ? 'visibility' : 'visibility_off'}
-									</Icon>
-								</IconButton>
-							</InputAdornment>
-						)
-					}}
-					variant="outlined"
-					required
+					control={control}
+					render={({ field }) => (
+						<TextField
+							{...field}
+							className="mb-16"
+							type="password"
+							label="Password"
+							error={!!errors.password}
+							helperText={errors?.password?.message}
+							InputProps={{
+								className: 'pr-2',
+								type: showPassword ? 'text' : 'password',
+								endAdornment: (
+									<InputAdornment position="end">
+										<IconButton onClick={() => setShowPassword(!showPassword)}>
+											<Icon className="text-20" color="action">
+												{showPassword ? 'visibility' : 'visibility_off'}
+											</Icon>
+										</IconButton>
+									</InputAdornment>
+								)
+							}}
+							variant="outlined"
+							required
+						/>
+					)}
 				/>
 
 				<Button

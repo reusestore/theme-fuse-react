@@ -54,7 +54,7 @@ function FuseSettings(props) {
 	const user = useSelector(({ auth }) => auth.user);
 	const themes = useSelector(({ fuse }) => fuse.settings.themes);
 	const settings = useSelector(({ fuse }) => fuse.settings.current);
-	const { register, reset, watch, control } = useForm({ mode: 'onChange', defaultValues: settings });
+	const { reset, watch, control } = useForm({ mode: 'onChange', defaultValues: settings });
 	const form = watch();
 	const { form: formConfigs } = FuseLayoutConfigs[form.layout.style];
 	const prevForm = usePrevious(form);
@@ -180,15 +180,17 @@ function FuseSettings(props) {
 				switch (formControl.type) {
 					case 'radio': {
 						return (
-							<FormControl key={target} component="fieldset" className={classes.formControl}>
-								<FormLabel component="legend" className="text-14">
-									{formControl.title}
-								</FormLabel>
-								<Controller
-									name={target}
-									control={control}
-									as={
+							<Controller
+								key={target}
+								name={target}
+								control={control}
+								render={({ field }) => (
+									<FormControl component="fieldset" className={classes.formControl}>
+										<FormLabel component="legend" className="text-14">
+											{formControl.title}
+										</FormLabel>
 										<RadioGroup
+											{...field}
 											aria-label={formControl.title}
 											className={classes.group}
 											row={formControl.options.length < 4}
@@ -202,43 +204,49 @@ function FuseSettings(props) {
 												/>
 											))}
 										</RadioGroup>
-									}
-								/>
-							</FormControl>
+									</FormControl>
+								)}
+							/>
 						);
 					}
 					case 'switch': {
 						return (
-							<FormControl key={target} component="fieldset" className={classes.formControl}>
-								<FormLabel component="legend" className="text-14">
-									{formControl.title}
-								</FormLabel>
-								<Controller
-									name={target}
-									control={control}
-									render={({ onChange, value }) => (
+							<Controller
+								key={target}
+								name={target}
+								control={control}
+								render={({ field: { onChange, value } }) => (
+									<FormControl component="fieldset" className={classes.formControl}>
+										<FormLabel component="legend" className="text-14">
+											{formControl.title}
+										</FormLabel>
 										<Switch
 											checked={value}
 											onChange={ev => onChange(ev.target.checked)}
 											aria-label={formControl.title}
 										/>
-									)}
-								/>
-							</FormControl>
+									</FormControl>
+								)}
+							/>
 						);
 					}
 					case 'number': {
 						return (
 							<div key={target} className={classes.formControl}>
-								<TextField
-									label={formControl.title}
+								<Controller
 									name={target}
-									inputRef={register}
-									type="number"
-									InputLabelProps={{
-										shrink: true
-									}}
-									variant="outlined"
+									control={control}
+									render={({ field }) => (
+										<TextField
+											{...field}
+											label={formControl.title}
+											type="number"
+											InputLabelProps={{
+												shrink: true
+											}}
+											variant="outlined"
+										/>
+									)}
 								/>
 							</div>
 						);
@@ -259,7 +267,7 @@ function FuseSettings(props) {
 					}
 				}
 			}),
-		[classes.formControl, classes.formGroup, classes.formGroupTitle, classes.group, control, register]
+		[classes.formControl, classes.formGroup, classes.formGroupTitle, classes.group, control]
 	);
 
 	return (
@@ -269,22 +277,22 @@ function FuseSettings(props) {
 					Layout
 				</Typography>
 
-				<FormControl component="fieldset" className={classes.formControl}>
-					<FormLabel component="legend" className="text-14">
-						Style
-					</FormLabel>
-					<Controller
-						name="layout.style"
-						control={control}
-						as={
-							<RadioGroup aria-label="Layout Style" className={classes.group}>
+				<Controller
+					name="layout.style"
+					control={control}
+					render={({ field }) => (
+						<FormControl component="fieldset" className={classes.formControl}>
+							<FormLabel component="legend" className="text-14">
+								Style
+							</FormLabel>
+							<RadioGroup {...field} aria-label="Layout Style" className={classes.group}>
 								{Object.entries(FuseLayoutConfigs).map(([key, layout]) => (
 									<FormControlLabel key={key} value={key} control={<Radio />} label={layout.title} />
 								))}
 							</RadioGroup>
-						}
-					/>
-				</FormControl>
+						</FormControl>
+					)}
+				/>
 
 				{useMemo(() => getForm(formConfigs, 'layout.config'), [formConfigs, getForm])}
 
@@ -298,82 +306,93 @@ function FuseSettings(props) {
 					Theme
 				</Typography>
 
-				<FormControl component="fieldset" className={classes.formControl}>
-					<FormLabel component="legend" className="text-14">
-						Main
-					</FormLabel>
-					<Controller
-						name="theme.main"
-						control={control}
-						render={({ onChange, value }) => <ThemeSelect value={value} handleThemeChange={onChange} />}
-					/>
-				</FormControl>
-				<FormControl component="fieldset" className={classes.formControl}>
-					<FormLabel component="legend" className="text-14">
-						Navbar
-					</FormLabel>
-					<Controller
-						name="theme.navbar"
-						control={control}
-						render={({ onChange, value }) => <ThemeSelect value={value} handleThemeChange={onChange} />}
-					/>
-				</FormControl>
-				<FormControl component="fieldset" className={classes.formControl}>
-					<FormLabel component="legend" className="text-14">
-						Toolbar
-					</FormLabel>
-					<Controller
-						name="theme.toolbar"
-						control={control}
-						render={({ onChange, value }) => <ThemeSelect value={value} handleThemeChange={onChange} />}
-					/>
-				</FormControl>
-				<FormControl component="fieldset" className={classes.formControl}>
-					<FormLabel component="legend" className="text-14">
-						Footer
-					</FormLabel>
-					<Controller
-						name="theme.footer"
-						control={control}
-						render={({ onChange, value }) => <ThemeSelect value={value} handleThemeChange={onChange} />}
-					/>
-				</FormControl>
-			</div>
-
-			<FormControl component="fieldset" className={classes.formControl}>
-				<FormLabel component="legend" className="text-14">
-					Custom Scrollbars
-				</FormLabel>
+				<Controller
+					name="theme.main"
+					control={control}
+					render={({ field: { onChange, value } }) => (
+						<FormControl component="fieldset" className={classes.formControl}>
+							<FormLabel component="legend" className="text-14">
+								Main
+							</FormLabel>
+							<ThemeSelect value={value} handleThemeChange={onChange} />
+						</FormControl>
+					)}
+				/>
 
 				<Controller
-					name="customScrollbars"
+					name="theme.navbar"
 					control={control}
-					render={({ onChange, value }) => (
+					render={({ field: { onChange, value } }) => (
+						<FormControl component="fieldset" className={classes.formControl}>
+							<FormLabel component="legend" className="text-14">
+								Navbar
+							</FormLabel>
+
+							<ThemeSelect value={value} handleThemeChange={onChange} />
+						</FormControl>
+					)}
+				/>
+
+				<Controller
+					name="theme.toolbar"
+					control={control}
+					render={({ field: { onChange, value } }) => (
+						<FormControl component="fieldset" className={classes.formControl}>
+							<FormLabel component="legend" className="text-14">
+								Toolbar
+							</FormLabel>
+
+							<ThemeSelect value={value} handleThemeChange={onChange} />
+						</FormControl>
+					)}
+				/>
+
+				<Controller
+					name="theme.footer"
+					control={control}
+					render={({ field: { onChange, value } }) => (
+						<FormControl component="fieldset" className={classes.formControl}>
+							<FormLabel component="legend" className="text-14">
+								Footer
+							</FormLabel>
+							<ThemeSelect value={value} handleThemeChange={onChange} />
+						</FormControl>
+					)}
+				/>
+			</div>
+
+			<Controller
+				name="customScrollbars"
+				control={control}
+				render={({ field: { onChange, value } }) => (
+					<FormControl component="fieldset" className={classes.formControl}>
+						<FormLabel component="legend" className="text-14">
+							Custom Scrollbars
+						</FormLabel>
 						<Switch
 							checked={value}
 							onChange={ev => onChange(ev.target.checked)}
 							aria-label="Custom Scrollbars"
 						/>
-					)}
-				/>
-			</FormControl>
+					</FormControl>
+				)}
+			/>
 
-			<FormControl component="fieldset" className={classes.formControl}>
-				<FormLabel component="legend" className="text-14">
-					Direction
-				</FormLabel>
-
-				<Controller
-					name="direction"
-					control={control}
-					as={
-						<RadioGroup aria-label="Layout Direction" className={classes.group} row>
+			<Controller
+				name="direction"
+				control={control}
+				render={({ field }) => (
+					<FormControl component="fieldset" className={classes.formControl}>
+						<FormLabel component="legend" className="text-14">
+							Direction
+						</FormLabel>
+						<RadioGroup {...field} aria-label="Layout Direction" className={classes.group} row>
 							<FormControlLabel key="rtl" value="rtl" control={<Radio />} label="RTL" />
 							<FormControlLabel key="ltr" value="ltr" control={<Radio />} label="LTR" />
 						</RadioGroup>
-					}
-				/>
-			</FormControl>
+					</FormControl>
+				)}
+			/>
 		</div>
 	);
 }

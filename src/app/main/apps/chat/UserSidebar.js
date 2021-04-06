@@ -42,7 +42,7 @@ const statusArr = [
 function UserSidebar(props) {
 	const dispatch = useDispatch();
 	const user = useSelector(({ chatApp }) => chatApp.user);
-	const { register, control, handleSubmit, watch } = useForm({ defaultValues: user });
+	const { control, handleSubmit, watch } = useForm({ defaultValues: user });
 	const form = watch();
 
 	const updateUser = useDebounce(_form => {
@@ -84,14 +84,19 @@ function UserSidebar(props) {
 			<FuseScrollbars className="overflow-y-auto flex-1 p-24">
 				<form>
 					<FormControl component="fieldset" className="w-full mb-16">
-						<TextField
-							label="Mood"
+						<Controller
 							name="mood"
-							className="w-full"
-							inputRef={register}
-							margin="normal"
-							multiline
-							variant="outlined"
+							control={control}
+							render={({ field }) => (
+								<TextField
+									{...field}
+									label="Mood"
+									className="w-full"
+									margin="normal"
+									multiline
+									variant="outlined"
+								/>
+							)}
 						/>
 					</FormControl>
 					<FormControl component="fieldset" className="w-full mb-16">
@@ -99,8 +104,8 @@ function UserSidebar(props) {
 						<Controller
 							name="status"
 							control={control}
-							as={
-								<RadioGroup aria-label="Status" name="status">
+							render={({ field }) => (
+								<RadioGroup {...field} aria-label="Status" name="status">
 									{statusArr.map(status => (
 										<FormControlLabel
 											key={status.value}
@@ -115,7 +120,7 @@ function UserSidebar(props) {
 										/>
 									))}
 								</RadioGroup>
-							}
+							)}
 						/>
 					</FormControl>
 				</form>

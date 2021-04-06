@@ -18,7 +18,7 @@ function CardChecklist(props) {
 	const { onCheckListChange, checklist, index } = props;
 	const [anchorEl, setAnchorEl] = useState(null);
 	const checkListNameRef = useRef();
-	const { register, watch, control } = useForm({ mode: 'onChange', defaultValues: checklist });
+	const { watch, control } = useForm({ mode: 'onChange', defaultValues: checklist });
 	const form = watch();
 
 	useEffect(() => {
@@ -57,7 +57,7 @@ function CardChecklist(props) {
 						name="name"
 						control={control}
 						defaultValue=""
-						render={({ onChange, value }) => (
+						render={({ field: { onChange, value } }) => (
 							<CardChecklistName
 								name={value}
 								onNameChange={val => onChange(val)}
@@ -109,7 +109,7 @@ function CardChecklist(props) {
 					name="checkItems"
 					control={control}
 					defaultValue={[]}
-					render={({ onChange, value }) => (
+					render={({ field: { onChange, value } }) => (
 						<List className="">
 							{value.map((checkItem, _index) => (
 								<CardChecklistItem

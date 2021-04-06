@@ -74,7 +74,7 @@ function BoardCardForm(props) {
 								name="due"
 								control={control}
 								defaultValue={null}
-								render={({ onChange, value }) => (
+								render={({ field: { onChange, value } }) => (
 									<DueMenu onDueChange={onChange} onRemoveDue={() => onChange(null)} due={value} />
 								)}
 							/>
@@ -83,7 +83,7 @@ function BoardCardForm(props) {
 								name="idLabels"
 								control={control}
 								defaultValue={[]}
-								render={({ onChange, value }) => (
+								render={({ field: { onChange, value } }) => (
 									<LabelsMenu
 										onToggleLabel={labelId => onChange(_.xor(value, [labelId]))}
 										labels={board.labels}
@@ -96,7 +96,7 @@ function BoardCardForm(props) {
 								name="idMembers"
 								control={control}
 								defaultValue={[]}
-								render={({ onChange, value }) => (
+								render={({ field: { onChange, value } }) => (
 									<MembersMenu
 										onToggleMember={memberId => onChange(_.xor(value, [memberId]))}
 										members={board.members}
@@ -109,7 +109,7 @@ function BoardCardForm(props) {
 								name="attachments"
 								control={control}
 								defaultValue={[]}
-								render={({ onChange, value }) => (
+								render={({ field: { onChange, value } }) => (
 									<IconButton color="inherit">
 										<Icon>attachment</Icon>
 									</IconButton>
@@ -120,7 +120,7 @@ function BoardCardForm(props) {
 								name="checklists"
 								control={control}
 								defaultValue={[]}
-								render={({ onChange, value }) => (
+								render={({ field: { onChange, value } }) => (
 									<CheckListMenu
 										onAddCheckList={newList => onChange([...cardForm.checklists, newList])}
 									/>
@@ -163,37 +163,40 @@ function BoardCardForm(props) {
 				</div>
 
 				<div className="flex items-center mb-24">
-					<TextField
-						label="Title"
-						type="text"
+					<Controller
 						name="name"
-						inputRef={register}
-						variant="outlined"
-						fullWidth
-						required
-						InputProps={{
-							endAdornment: (
-								<InputAdornment position="end">
-									{card.subscribed && (
-										<Icon className="text-20" color="action">
-											remove_red_eye
-										</Icon>
-									)}
-								</InputAdornment>
-							)
-						}}
+						control={control}
+						render={({ field }) => (
+							<TextField
+								{...field}
+								label="Title"
+								type="text"
+								variant="outlined"
+								fullWidth
+								required
+								InputProps={{
+									endAdornment: (
+										<InputAdornment position="end">
+											{card.subscribed && (
+												<Icon className="text-20" color="action">
+													remove_red_eye
+												</Icon>
+											)}
+										</InputAdornment>
+									)
+								}}
+							/>
+						)}
 					/>
 				</div>
 
 				<div className="w-full mb-24">
-					<TextField
-						label="Description"
+					<Controller
 						name="description"
-						multiline
-						rows="4"
-						inputRef={register}
-						variant="outlined"
-						fullWidth
+						control={control}
+						render={({ field }) => (
+							<TextField {...field} label="Description" multiline rows="4" variant="outlined" fullWidth />
+						)}
 					/>
 				</div>
 
@@ -359,7 +362,7 @@ function BoardCardForm(props) {
 					name="activities"
 					control={control}
 					defaultValue={[]}
-					render={({ onChange, value }) => (
+					render={({ field: { onChange, value } }) => (
 						<div>
 							{value.length > 0 && (
 								<div className="mb-24">

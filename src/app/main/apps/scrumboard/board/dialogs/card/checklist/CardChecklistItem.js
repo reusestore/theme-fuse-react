@@ -9,7 +9,7 @@ import _ from '@lodash';
 
 function CardChecklistItem(props) {
 	const { item, onListItemChange, index } = props;
-	const { register, watch, control } = useForm({ mode: 'onChange', defaultValues: item });
+	const { control, watch } = useForm({ mode: 'onChange', defaultValues: item });
 	const form = watch();
 
 	useEffect(() => {
@@ -25,7 +25,7 @@ function CardChecklistItem(props) {
 				name="checked"
 				control={control}
 				defaultValue={false}
-				render={({ onChange, value }) => (
+				render={({ field: { onChange, value } }) => (
 					<Checkbox
 						tabIndex={-1}
 						checked={value}
@@ -34,7 +34,13 @@ function CardChecklistItem(props) {
 					/>
 				)}
 			/>
-			<TextField className="flex flex-1 mx-8" name="name" inputRef={register} variant="outlined" />
+
+			<Controller
+				name="name"
+				control={control}
+				render={({ field }) => <TextField {...field} className="flex flex-1 mx-8" variant="outlined" />}
+			/>
+
 			<IconButton aria-label="Delete" onClick={props.onListItemRemove}>
 				<Icon>delete</Icon>
 			</IconButton>

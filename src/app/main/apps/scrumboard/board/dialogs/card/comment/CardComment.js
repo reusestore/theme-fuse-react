@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import _ from '@lodash';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -19,12 +19,13 @@ function CardComment(props) {
 		idMember: '36027j1930450d8bf7b10158',
 		message: ''
 	};
-	const { register, formState, handleSubmit, reset, errors } = useForm({
+	const { control, formState, handleSubmit, reset } = useForm({
 		mode: 'onChange',
 		defaultValues,
 		resolver: yupResolver(schema)
 	});
-	const { isValid, dirtyFields } = formState;
+
+	const { isValid, dirtyFields, errors } = formState;
 
 	const user = _.find(props.members, { id: defaultValues.idMember });
 
@@ -37,18 +38,24 @@ function CardComment(props) {
 		<form onSubmit={handleSubmit(onSubmit)} className="flex -mx-8">
 			<Avatar className="w-32 h-32 mx-8" alt={user.name} src={user.avatar} />
 			<div className="flex flex-col items-start flex-1 mx-8">
-				<TextField
-					className="flex flex-1"
-					fullWidth
+				<Controller
 					name="message"
-					inputRef={register}
-					error={!!errors.message}
-					helperText={errors?.message?.message}
-					row={3}
-					variant="outlined"
-					label="Add comment"
-					placeholder="Write a comment..."
+					control={control}
+					render={({ field }) => (
+						<TextField
+							{...field}
+							className="flex flex-1"
+							fullWidth
+							error={!!errors.message}
+							helperText={errors?.message?.message}
+							row={3}
+							variant="outlined"
+							label="Add comment"
+							placeholder="Write a comment..."
+						/>
+					)}
 				/>
+
 				<Button
 					className="mt-16"
 					aria-label="save"

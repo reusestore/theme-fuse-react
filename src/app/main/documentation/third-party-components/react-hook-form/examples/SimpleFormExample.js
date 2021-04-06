@@ -1,4 +1,3 @@
-import {useState} from "react";
 import {useForm, Controller} from "react-hook-form";
 import ReactSelect from "react-select";
 import Button from '@material-ui/core/Button';
@@ -11,7 +10,6 @@ import RadioGroup from "@material-ui/core/RadioGroup"
 import FormControlLabel from "@material-ui/core/FormControlLabel"
 import Radio from "@material-ui/core/Radio"
 import Typography from "@material-ui/core/Typography"
-import FuseHighlight from '@fuse/core/FuseHighlight/FuseHighlight';
 
 let renderCount = 0;
 
@@ -61,7 +59,7 @@ function SimpleFormExample()
             <form className="w-1/2" onSubmit={handleSubmit(data => console.info(data))}>
                 <div className="mt-48 mb-16">
                     <Typography className="mb-24 font-medium text-14">Native Input:</Typography>
-                    <input className="border-1 outline-none rounded-8 p-8" name="Native" ref={register}/>
+                    <input className="border-1 outline-none rounded-8 p-8" {...register('Native')} />
                 </div>
 
                 <div className="mt-48 mb-16">
@@ -71,10 +69,7 @@ function SimpleFormExample()
                         type="checkbox"
                         control={control}
                         defaultValue={false}
-                        render={({
-                                     onChange,
-                                     value
-                                 }) => (
+                        render={({ field: {onChange, value} }) => (
                             <Checkbox
                                 checked={value}
                                 onChange={ev => onChange(ev.target.checked)}
@@ -86,8 +81,8 @@ function SimpleFormExample()
                 <div className="mt-48 mb-16">
                     <Typography className="mb-24 font-medium text-14">Radio Group</Typography>
                     <Controller
-                        as={
-                            <RadioGroup aria-label="gender" name="gender1">
+                        render={({ field }) => (
+                            <RadioGroup {...field} aria-label="gender" name="gender1">
                                 <FormControlLabel
                                     value="female"
                                     control={<Radio/>}
@@ -99,7 +94,7 @@ function SimpleFormExample()
                                     label="Male"
                                 />
                             </RadioGroup>
-                        }
+                        )}
                         name="RadioGroup"
                         control={control}
                     />
@@ -107,19 +102,19 @@ function SimpleFormExample()
 
                 <div className="mt-48 mb-16">
                     <Typography className="mb-24 font-medium text-14">MUI TextField</Typography>
-                    <Controller as={<TextField variant="outlined"/>} name="TextField" control={control}/>
+                    <Controller render={({ field }) => <TextField { ...field } variant="outlined"/>} name="TextField" control={control}/>
                 </div>
 
                 <div className="mt-48 mb-16">
                     <Typography className="mb-24 font-medium text-14">MUI Select</Typography>
                     <Controller
-                        as={
-                            <Select variant="outlined">
+                        render={({ field }) => (
+                            <Select {...field} variant="outlined">
                                 <MenuItem value={10}>Ten</MenuItem>
                                 <MenuItem value={20}>Twenty</MenuItem>
                                 <MenuItem value={30}>Thirty</MenuItem>
                             </Select>
-                        }
+                        )}
                         name="Select"
                         control={control}
                     />
@@ -132,10 +127,7 @@ function SimpleFormExample()
                         type="checkbox"
                         control={control}
                         defaultValue={false}
-                        render={({
-                                     onChange,
-                                     value
-                                 }) => (
+                        render={({ field: {onChange, value} }) => (
                             <Switch
                                 checked={value}
                                 onChange={ev => onChange(ev.target.checked)}
@@ -147,7 +139,7 @@ function SimpleFormExample()
                 <div className="mt-48 mb-16">
                     <Typography className="mb-24 font-medium text-14">React Select</Typography>
                     <Controller
-                        as={<ReactSelect/>}
+                        render={({ field }) => <ReactSelect {...field}/>}
                         options={options}
                         name="ReactSelect"
                         isClearable

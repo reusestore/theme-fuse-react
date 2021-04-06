@@ -3,6 +3,19 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
 	{
+		version: '6.1.0',
+		date: '2021-04-06',
+		newChanges: [
+			<>
+				react-hook-form migrated v6 to v7, <br />
+				Checkout migration guide at:{' '}
+				<a href="https://react-hook-form.com/migrate-v6-to-v7/" target="_blank" rel="noopener noreferrer">
+					https://react-hook-form.com/migrate-v6-to-v7
+				</a>
+			</>
+		]
+	},
+	{
 		version: '6.0.0',
 		date: '2021-04-02',
 		newChanges: [

@@ -44,7 +44,7 @@ function Product(props) {
 		mode: 'onChange',
 		resolver: yupResolver(schema)
 	});
-	const { reset, watch, register, onChange, formState } = methods;
+	const { reset, watch, control, onChange, formState } = methods;
 	const form = watch();
 
 	useDeepCompareEffect(() => {

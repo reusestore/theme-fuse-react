@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { submitRegister } from 'app/auth/store/registerSlice';
 import * as yup from 'yup';
@@ -34,13 +34,13 @@ function JWTRegisterTab(props) {
 	const dispatch = useDispatch();
 	const authRegister = useSelector(({ auth }) => auth.register);
 
-	const { register, formState, handleSubmit, reset, errors, setError } = useForm({
+	const { control, formState, handleSubmit, reset, setError } = useForm({
 		mode: 'onChange',
 		defaultValues,
 		resolver: yupResolver(schema)
 	});
 
-	const { isValid, dirtyFields } = formState;
+	const { isValid, dirtyFields, errors } = formState;
 
 	useEffect(() => {
 		authRegister.errors.forEach(error => {
@@ -58,88 +58,108 @@ function JWTRegisterTab(props) {
 	return (
 		<div className="w-full">
 			<form className="flex flex-col justify-center w-full" onSubmit={handleSubmit(onSubmit)}>
-				<TextField
-					className="mb-16"
-					type="text"
+				<Controller
 					name="displayName"
-					label="Display name"
-					inputRef={register}
-					error={!!errors.displayName}
-					helperText={errors?.displayName?.message}
-					InputProps={{
-						endAdornment: (
-							<InputAdornment position="end">
-								<Icon className="text-20" color="action">
-									person
-								</Icon>
-							</InputAdornment>
-						)
-					}}
-					variant="outlined"
-					required
+					control={control}
+					render={({ field }) => (
+						<TextField
+							{...field}
+							className="mb-16"
+							type="text"
+							label="Display name"
+							error={!!errors.displayName}
+							helperText={errors?.displayName?.message}
+							InputProps={{
+								endAdornment: (
+									<InputAdornment position="end">
+										<Icon className="text-20" color="action">
+											person
+										</Icon>
+									</InputAdornment>
+								)
+							}}
+							variant="outlined"
+							required
+						/>
+					)}
 				/>
 
-				<TextField
-					className="mb-16"
-					type="text"
+				<Controller
 					name="email"
-					inputRef={register}
-					error={!!errors.email}
-					helperText={errors?.email?.message}
-					label="Email"
-					InputProps={{
-						endAdornment: (
-							<InputAdornment position="end">
-								<Icon className="text-20" color="action">
-									email
-								</Icon>
-							</InputAdornment>
-						)
-					}}
-					variant="outlined"
-					required
+					control={control}
+					render={({ field }) => (
+						<TextField
+							{...field}
+							className="mb-16"
+							type="text"
+							error={!!errors.email}
+							helperText={errors?.email?.message}
+							label="Email"
+							InputProps={{
+								endAdornment: (
+									<InputAdornment position="end">
+										<Icon className="text-20" color="action">
+											email
+										</Icon>
+									</InputAdornment>
+								)
+							}}
+							variant="outlined"
+							required
+						/>
+					)}
 				/>
 
-				<TextField
-					className="mb-16"
-					type="password"
-					label="Password"
+				<Controller
 					name="password"
-					inputRef={register}
-					error={!!errors.password}
-					helperText={errors?.password?.message}
-					InputProps={{
-						endAdornment: (
-							<InputAdornment position="end">
-								<Icon className="text-20" color="action">
-									vpn_key
-								</Icon>
-							</InputAdornment>
-						)
-					}}
-					variant="outlined"
-					required
+					control={control}
+					render={({ field }) => (
+						<TextField
+							{...field}
+							className="mb-16"
+							type="password"
+							label="Password"
+							error={!!errors.password}
+							helperText={errors?.password?.message}
+							InputProps={{
+								endAdornment: (
+									<InputAdornment position="end">
+										<Icon className="text-20" color="action">
+											vpn_key
+										</Icon>
+									</InputAdornment>
+								)
+							}}
+							variant="outlined"
+							required
+						/>
+					)}
 				/>
 
-				<TextField
-					className="mb-16"
-					type="password"
-					label="Confirm Password"
+				<Controller
 					name="passwordConfirmm"
-					inputRef={register}
-					error={!!errors.passwordConfirm}
-					helperText={errors?.passwordConfirm?.message}
-					InputProps={{
-						endAdornment: (
-							<InputAdornment position="end">
-								<Icon className="text-20" color="action">
-									vpn_key
-								</Icon>
-							</InputAdornment>
-						)
-					}}
-					variant="outlined"
-					required
+					control={control}
+					render={({ field }) => (
+						<TextField
+							{...field}
+							className="mb-16"
+							type="password"
+							label="Confirm Password"
+							error={!!errors.passwordConfirm}
+							helperText={errors?.passwordConfirm?.message}
+							InputProps={{
+								endAdornment: (
+									<InputAdornment position="end">
+										<Icon className="text-20" color="action">
+											vpn_key
+										</Icon>
+									</InputAdornment>
+								)
+							}}
+							variant="outlined"
+							required
+						/>
+					)}
 				/>
 
 				<Button

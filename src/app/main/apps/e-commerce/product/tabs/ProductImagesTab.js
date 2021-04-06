@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
 function ProductImagesTab(props) {
 	const classes = useStyles(props);
 	const methods = useFormContext();
-	const { register, control, errors, watch, setValue } = methods;
+	const { control, watch, setValue } = methods;
 
 	const images = watch('images', []);
 
@@ -54,7 +54,7 @@ function ProductImagesTab(props) {
 					name="images"
 					control={control}
 					defaultValue={[]}
-					render={({ onChange, value }) => (
+					render={({ field: { onChange, value } }) => (
 						<label
 							htmlFor="button-file"
 							className={clsx(
@@ -105,7 +105,7 @@ function ProductImagesTab(props) {
 					name="featuredImageId"
 					control={control}
 					defaultValue=""
-					render={({ onChange, value }) =>
+					render={({ field: { onChange, value } }) =>
 						images.map(media => (
 							<div
 								onClick={() => onChange(media.id)}

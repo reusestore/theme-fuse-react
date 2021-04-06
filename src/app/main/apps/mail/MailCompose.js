@@ -26,7 +26,7 @@ const schema = yup.object().shape({
 
 function MailCompose() {
 	const [openDialog, setOpenDialog] = useState(false);
-	const { register, watch, handleSubmit, errors, formState, control } = useForm({
+	const { watch, handleSubmit, formState, control } = useForm({
 		mode: 'onChange',
 		defaultValues: {
 			from: 'johndoe@creapond.com',
@@ -39,7 +39,7 @@ function MailCompose() {
 		resolver: yupResolver(schema)
 	});
 
-	const { isValid, dirtyFields } = formState;
+	const { isValid, dirtyFields, errors } = formState;
 
 	const { t } = useTranslation('mailApp');
 
@@ -77,62 +77,94 @@ function MailCompose() {
 
 				<form noValidate onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
 					<DialogContent classes={{ root: 'p-16 pb-0 sm:p-24 sm:pb-0' }}>
-						<TextField
-							className="mt-8 mb-16"
-							label="From"
-							id="from"
+						<Controller
 							name="from"
-							inputRef={register}
-							variant="outlined"
-							fullWidth
-							inputProps={{ readOnly: true }}
+							control={control}
+							render={({ field }) => (
+								<TextField
+									{...field}
+									className="mt-8 mb-16"
+									label="From"
+									id="from"
+									variant="outlined"
+									fullWidth
+									inputProps={{ readOnly: true }}
+								/>
+							)}
 						/>
 
-						<TextField
-							className="mt-8 mb-16"
-							label="To"
-							autoFocus
-							id="to"
+						<Controller
 							name="to"
-							error={!!errors.to}
-							helperText={errors?.to?.message}
-							inputRef={register}
-							variant="outlined"
-							fullWidth
-							required
+							control={control}
+							render={({ field }) => (
+								<TextField
+									{...field}
+									className="mt-8 mb-16"
+									label="To"
+									autoFocus
+									id="to"
+									error={!!errors.to}
+									helperText={errors?.to?.message}
+									variant="outlined"
+									fullWidth
+									required
+								/>
+							)}
 						/>
 
-						<TextField
-							className="mt-8 mb-16"
-							label="Cc"
-							id="cc"
+						<Controller
 							name="cc"
-							inputRef={register}
-							variant="outlined"
-							fullWidth
+							control={control}
+							render={({ field }) => (
+								<TextField
+									{...field}
+									className="mt-8 mb-16"
+									label="Cc"
+									id="cc"
+									variant="outlined"
+									fullWidth
+								/>
+							)}
 						/>
 
-						<TextField
-							className="mt-8 mb-16"
-							label="Bcc"
-							id="bcc"
+						<Controller
 							name="bcc"
-							inputRef={register}
-							variant="outlined"
-							fullWidth
+							control={control}
+							render={({ field }) => (
+								<TextField
+									{...field}
+									className="mt-8 mb-16"
+									label="Bcc"
+									id="bcc"
+									name="bcc"
+									variant="outlined"
+									fullWidth
+								/>
+							)}
 						/>
 
-						<TextField
-							className="mt-8 mb-16"
-							label="Subject"
-							id="subject"
+						<Controller
 							name="subject"
-							inputRef={register}
-							variant="outlined"
-							fullWidth
+							control={control}
+							render={({ field }) => (
+								<TextField
+									{...field}
+									className="mt-8 mb-16"
+									label="Subject"
+									id="subject"
+									name="subject"
+									variant="outlined"
+									fullWidth
+								/>
+							)}
 						/>
 
-						<Controller className="mt-8 mb-16" as={<WYSIWYGEditor />} name="message" control={control} />
+						<Controller
+							className="mt-8 mb-16"
+							render={({ field }) => <WYSIWYGEditor {...field} />}
+							name="message"
+							control={control}
+						/>
 
 						<div className="pt-8">
 							<MailAttachment fileName="attachment-2.doc" size="12 kb" />

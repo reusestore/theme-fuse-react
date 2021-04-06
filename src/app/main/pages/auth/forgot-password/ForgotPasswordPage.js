@@ -1,6 +1,6 @@
 import Typography from '@material-ui/core/Typography';
 import { motion } from 'framer-motion';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -29,13 +29,13 @@ const defaultValues = {
 
 function ForgotPasswordPage() {
 	const classes = useStyles();
-	const { register, formState, handleSubmit, reset, errors } = useForm({
+	const { control, formState, handleSubmit, reset } = useForm({
 		mode: 'onChange',
 		defaultValues,
 		resolver: yupResolver(schema)
 	});
 
-	const { isValid, dirtyFields } = formState;
+	const { isValid, dirtyFields, errors } = formState;
 
 	function onSubmit() {
 		reset(defaultValues);
@@ -59,17 +59,22 @@ function ForgotPasswordPage() {
 								className="flex flex-col justify-center w-full"
 								onSubmit={handleSubmit(onSubmit)}
 							>
-								<TextField
-									className="mb-16"
-									label="Email"
-									autoFocus
-									type="email"
+								<Controller
 									name="email"
-									inputRef={register}
-									error={!!errors.email}
-									helperText={errors?.email?.message}
-									variant="outlined"
-									fullWidth
+									control={control}
+									render={({ field }) => (
+										<TextField
+											{...field}
+											className="mb-16"
+											label="Email"
+											autoFocus
+											type="email"
+											error={!!errors.email}
+											helperText={errors?.email?.message}
+											variant="outlined"
+											fullWidth
+										/>
+									)}
 								/>
 
 								<Button

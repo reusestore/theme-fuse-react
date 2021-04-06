@@ -41,13 +41,14 @@ function EventDialog(props) {
 	const dispatch = useDispatch();
 	const eventDialog = useSelector(({ calendarApp }) => calendarApp.events.eventDialog);
 
-	const { reset, register, formState, watch, errors, control, getValues, handleSubmit } = useForm({
+	const { reset, formState, watch, control, getValues, handleSubmit } = useForm({
 		defaultValues,
 		mode: 'onChange',
 		resolver: yupResolver(schema)
 	});
 
-	const { isValid, dirtyFields } = formState;
+	const { isValid, dirtyFields, errors } = formState;
+
 	const start = watch('start');
 	const end = watch('end');
 	const id = watch('id');
@@ -123,27 +124,32 @@ function EventDialog(props) {
 
 			<form noValidate onSubmit={handleSubmit(onSubmit)}>
 				<DialogContent classes={{ root: 'p-16 pb-0 sm:p-24 sm:pb-0' }}>
-					<TextField
-						id="title"
-						label="Title"
-						className="mt-8 mb-16"
-						error={!!errors.title}
-						helperText={errors?.title?.message}
-						InputLabelProps={{
-							shrink: true
-						}}
+					<Controller
 						name="title"
-						inputRef={register()}
-						variant="outlined"
-						autoFocus
-						required
-						fullWidth
+						control={control}
+						render={({ field }) => (
+							<TextField
+								{...field}
+								id="title"
+								label="Title"
+								className="mt-8 mb-16"
+								error={!!errors.title}
+								helperText={errors?.title?.message}
+								InputLabelProps={{
+									shrink: true
+								}}
+								variant="outlined"
+								autoFocus
+								required
+								fullWidth
+							/>
+						)}
 					/>
 
 					<Controller
 						name="allDay"
 						control={control}
-						render={({ onChange, value }) => (
+						render={({ field: { onChange, value } }) => (
 							<FormControlLabel
 								className="mt-8 mb-16"
 								label="All Day"
@@ -164,12 +170,10 @@ function EventDialog(props) {
 						name="start"
 						control={control}
 						defaultValue=""
-						render={({ onChange, value }) => (
+						render={({ field: { onChange, value } }) => (
 							<DateTimePicker
 								label="Start"
 								inputVariant="outlined"
-								value={value}
-								onChange={onChange}
 								className="mt-8 mb-16 w-full"
 								maxDate={end}
 							/>
@@ -180,7 +184,7 @@ function EventDialog(props) {
 						name="end"
 						control={control}
 						defaultValue=""
-						render={({ onChange, value }) => (
+						render={({ field: { onChange, value } }) => (
 							<DateTimePicker
 								label="End"
 								inputVariant="outlined"
@@ -192,17 +196,22 @@ function EventDialog(props) {
 						)}
 					/>
 
-					<TextField
-						className="mt-8 mb-16"
-						id="desc"
-						label="Description"
-						type="text"
+					<Controller
 						name="extendedProps.desc"
-						inputRef={register()}
-						multiline
-						rows={5}
-						variant="outlined"
-						fullWidth
+						control={control}
+						render={({ field }) => (
+							<TextField
+								{...field}
+								className="mt-8 mb-16"
+								id="desc"
+								label="Description"
+								type="text"
+								multiline
+								rows={5}
+								variant="outlined"
+								fullWidth
+							/>
+						)}
 					/>
 				</DialogContent>
 

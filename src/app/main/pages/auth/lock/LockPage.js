@@ -9,10 +9,10 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
+import { Controller, useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import * as yup from 'yup';
 import _ from '@lodash';
-import { useForm } from 'react-hook-form';
 
 const useStyles = makeStyles(theme => ({
 	root: {}
@@ -34,13 +34,13 @@ const defaultValues = {
 
 function LockPage() {
 	const classes = useStyles();
-	const { register, formState, handleSubmit, reset, errors } = useForm({
+	const { control, formState, handleSubmit, reset } = useForm({
 		mode: 'onChange',
 		defaultValues,
 		resolver: yupResolver(schema)
 	});
 
-	const { isValid, dirtyFields } = formState;
+	const { isValid, dirtyFields, errors } = formState;
 
 	function onSubmit() {
 		reset(defaultValues);
@@ -75,27 +75,38 @@ function LockPage() {
 								className="flex flex-col justify-center w-full mt-32"
 								onSubmit={handleSubmit(onSubmit)}
 							>
-								<TextField
-									className="mb-16"
-									label="Username"
+								<Controller
 									name="name"
-									value="Katherine"
-									variant="outlined"
-									fullWidth
-									disabled
+									control={control}
+									render={({ field }) => (
+										<TextField
+											{...field}
+											className="mb-16"
+											label="Username"
+											value="Katherine"
+											variant="outlined"
+											fullWidth
+											disabled
+										/>
+									)}
 								/>
 
-								<TextField
-									className="mb-16"
-									label="Password"
-									type="password"
+								<Controller
 									name="password"
-									inputRef={register}
-									error={!!errors.password}
-									helperText={errors?.password?.message}
-									variant="outlined"
-									required
-									fullWidth
+									control={control}
+									render={({ field }) => (
+										<TextField
+											{...field}
+											className="mb-16"
+											label="Password"
+											type="password"
+											error={!!errors.password}
+											helperText={errors?.password?.message}
+											variant="outlined"
+											required
+											fullWidth
+										/>
+									)}
 								/>
 
 								<Button

@@ -1,4 +1,5 @@
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
+
 import { yupResolver } from '@hookform/resolvers/yup';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Icon from '@material-ui/core/Icon';
@@ -30,7 +31,7 @@ function BoardListHeader(props) {
 	const [anchorEl, setAnchorEl] = useState(null);
 	const [formOpen, setFormOpen] = useState(false);
 
-	const { register, formState, handleSubmit, reset, errors } = useForm({
+	const { control, formState, handleSubmit, reset } = useForm({
 		mode: 'onChange',
 		defaultValues: {
 			title: props.list.name
@@ -38,7 +39,7 @@ function BoardListHeader(props) {
 		resolver: yupResolver(schema)
 	});
 
-	const { isValid, dirtyFields } = formState;
+	const { isValid, dirtyFields, errors } = formState;
 
 	useEffect(() => {
 		if (!formOpen) {
@@ -83,21 +84,29 @@ function BoardListHeader(props) {
 					{formOpen ? (
 						<ClickAwayListener onClickAway={handleCloseForm}>
 							<form className="flex w-full" onSubmit={handleSubmit(onSubmit)}>
-								<TextField
+								<Controller
 									name="title"
-									inputRef={register}
-									variant="outlined"
-									margin="none"
-									autoFocus
-									InputProps={{
-										endAdornment: (
-											<InputAdornment position="end">
-												<IconButton type="submit" disabled={_.isEmpty(dirtyFields) || !isValid}>
-													<Icon>check</Icon>
-												</IconButton>
-											</InputAdornment>
-										)
-									}}
+									control={control}
+									render={({ field }) => (
+										<TextField
+											{...field}
+											variant="outlined"
+											margin="none"
+											autoFocus
+											InputProps={{
+												endAdornment: (
+													<InputAdornment position="end">
+														<IconButton
+															type="submit"
+															disabled={_.isEmpty(dirtyFields) || !isValid}
+														>
+															<Icon>check</Icon>
+														</IconButton>
+													</InputAdornment>
+												)
+											}}
+										/>
+									)}
 								/>
 							</form>
 						</ClickAwayListener>

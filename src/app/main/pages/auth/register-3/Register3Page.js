@@ -1,7 +1,8 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import { motion } from 'framer-motion';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
+
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -54,13 +55,13 @@ const defaultValues = {
 function Register3Page() {
 	const classes = useStyles();
 
-	const { register, formState, handleSubmit, reset, errors } = useForm({
+	const { control, formState, handleSubmit, reset } = useForm({
 		mode: 'onChange',
 		defaultValues,
 		resolver: yupResolver(schema)
 	});
 
-	const { isValid, dirtyFields } = formState;
+	const { isValid, dirtyFields, errors } = formState;
 
 	function onSubmit() {
 		reset(defaultValues);
@@ -110,67 +111,92 @@ function Register3Page() {
 							className="flex flex-col justify-center w-full"
 							onSubmit={handleSubmit(onSubmit)}
 						>
-							<TextField
-								className="mb-16"
-								label="Name"
-								autoFocus
-								type="name"
+							<Controller
 								name="name"
-								inputRef={register}
-								error={!!errors.name}
-								helperText={errors?.name?.message}
-								variant="outlined"
-								required
-								fullWidth
+								control={control}
+								render={({ field }) => (
+									<TextField
+										{...field}
+										className="mb-16"
+										label="Name"
+										autoFocus
+										type="name"
+										error={!!errors.name}
+										helperText={errors?.name?.message}
+										variant="outlined"
+										required
+										fullWidth
+									/>
+								)}
 							/>
 
-							<TextField
-								className="mb-16"
-								label="Email"
-								type="email"
+							<Controller
 								name="email"
-								inputRef={register}
-								error={!!errors.email}
-								helperText={errors?.email?.message}
-								variant="outlined"
-								required
-								fullWidth
+								control={control}
+								render={({ field }) => (
+									<TextField
+										{...field}
+										className="mb-16"
+										label="Email"
+										type="email"
+										error={!!errors.email}
+										helperText={errors?.email?.message}
+										variant="outlined"
+										required
+										fullWidth
+									/>
+								)}
 							/>
 
-							<TextField
-								className="mb-16"
-								label="Password"
-								type="password"
+							<Controller
 								name="password"
-								inputRef={register}
-								error={!!errors.password}
-								helperText={errors?.password?.message}
-								variant="outlined"
-								required
-								fullWidth
+								control={control}
+								render={({ field }) => (
+									<TextField
+										{...field}
+										className="mb-16"
+										label="Password"
+										type="password"
+										error={!!errors.password}
+										helperText={errors?.password?.message}
+										variant="outlined"
+										required
+										fullWidth
+									/>
+								)}
 							/>
 
-							<TextField
-								className="mb-16"
-								label="Password (Confirm)"
-								type="password"
+							<Controller
 								name="passwordConfirm"
-								error={!!errors.passwordConfirm}
-								helperText={errors?.passwordConfirm?.message}
-								variant="outlined"
-								required
-								fullWidth
+								control={control}
+								render={({ field }) => (
+									<TextField
+										{...field}
+										className="mb-16"
+										label="Password (Confirm)"
+										type="password"
+										error={!!errors.passwordConfirm}
+										helperText={errors?.passwordConfirm?.message}
+										variant="outlined"
+										required
+										fullWidth
+									/>
+								)}
 							/>
 
-							<FormControl className="items-center" error={!!errors.acceptTermsConditions}>
-								<FormControlLabel
-									classes={{ label: 'text-12' }}
-									name="acceptTermsConditions"
-									label="I read and accept terms and conditions"
-									control={<Checkbox inputRef={register} />}
-								/>
-								<FormHelperText>{errors?.acceptTermsConditions?.message}</FormHelperText>
-							</FormControl>
+							<Controller
+								name="acceptTermsConditions"
+								control={control}
+								render={({ field }) => (
+									<FormControl className="items-center" error={!!errors.acceptTermsConditions}>
+										<FormControlLabel
+											label="I read and accept terms and conditions"
+											control={<Checkbox {...field} />}
+										/>
+										<FormHelperText>{errors?.acceptTermsConditions?.message}</FormHelperText>
+									</FormControl>
+								)}
+							/>
 
 							<Button
 								variant="contained"

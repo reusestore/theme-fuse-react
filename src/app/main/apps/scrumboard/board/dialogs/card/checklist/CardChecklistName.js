@@ -1,6 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useEffect, forwardRef, useImperativeHandle, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
+
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
@@ -20,7 +21,7 @@ const schema = yup.object().shape({
 
 const CardChecklistName = forwardRef(function CardChecklistName(props, ref) {
 	const [formOpen, setFormOpen] = useState(false);
-	const { register, formState, handleSubmit, reset, errors } = useForm({
+	const { control, formState, handleSubmit, reset } = useForm({
 		mode: 'onChange',
 		defaultValues: {
 			name: props.name
@@ -28,7 +29,7 @@ const CardChecklistName = forwardRef(function CardChecklistName(props, ref) {
 		resolver: yupResolver(schema)
 	});
 
-	const { isValid, dirtyFields } = formState;
+	const { isValid, dirtyFields, errors } = formState;
 
 	useEffect(() => {
 		if (!formOpen) {
@@ -61,21 +62,26 @@ const CardChecklistName = forwardRef(function CardChecklistName(props, ref) {
 	return formOpen ? (
 		<ClickAwayListener onClickAway={handleCloseForm}>
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<TextField
+				<Controller
 					name="name"
-					inputRef={register}
-					variant="outlined"
-					margin="dense"
-					autoFocus
-					InputProps={{
-						endAdornment: (
-							<InputAdornment position="end">
-								<IconButton type="submit" disabled={_.isEmpty(dirtyFields) || !isValid}>
-									<Icon>check</Icon>
-								</IconButton>
-							</InputAdornment>
-						)
-					}}
+					control={control}
+					render={({ field }) => (
+						<TextField
+							{...field}
+							variant="outlined"
+							margin="dense"
+							autoFocus
+							InputProps={{
+								endAdornment: (
+									<InputAdornment position="end">
+										<IconButton type="submit" disabled={_.isEmpty(dirtyFields) || !isValid}>
+											<Icon>check</Icon>
+										</IconButton>
+									</InputAdornment>
+								)
+							}}
+						/>
+					)}
 				/>
 			</form>
 		</ClickAwayListener>

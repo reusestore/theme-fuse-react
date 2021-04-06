@@ -1,33 +1,43 @@
 import TextField from '@material-ui/core/TextField';
-import { useFormContext } from 'react-hook-form';
+import { Controller, useFormContext } from 'react-hook-form';
 
 function InventoryTab(props) {
 	const methods = useFormContext();
-	const { register } = methods;
+	const { control } = methods;
 
 	return (
 		<div>
-			<TextField
-				className="mt-8 mb-16"
-				required
-				label="SKU"
-				autoFocus
-				id="sku"
+			<Controller
 				name="sku"
-				inputRef={register}
-				variant="outlined"
-				fullWidth
+				control={control}
+				render={({ field }) => (
+					<TextField
+						{...field}
+						className="mt-8 mb-16"
+						required
+						label="SKU"
+						autoFocus
+						id="sku"
+						variant="outlined"
+						fullWidth
+					/>
+				)}
 			/>
 
-			<TextField
-				className="mt-8 mb-16"
-				label="Quantity"
-				id="quantity"
+			<Controller
 				name="quantity"
-				inputRef={register}
-				variant="outlined"
-				type="number"
-				fullWidth
+				control={control}
+				render={({ field }) => (
+					<TextField
+						{...field}
+						className="mt-8 mb-16"
+						label="Quantity"
+						id="quantity"
+						variant="outlined"
+						type="number"
+						fullWidth
+					/>
+				)}
 			/>
 		</div>
 	);

@@ -46,13 +46,13 @@ function NoteForm(props) {
 		routeParams.labelId ? { labels: [routeParams.labelId] } : null,
 		routeParams.id === 'archive' ? { archive: true } : null
 	);
-	const { register, formState, handleSubmit, getValues, reset, errors, watch, setValue, control } = useForm({
+	const { formState, handleSubmit, getValues, reset, watch, setValue, control } = useForm({
 		mode: 'onChange',
 		defaultValues,
 		resolver: yupResolver(schema)
 	});
 
-	const { isValid, dirtyFields } = formState;
+	const { isValid, dirtyFields, errors } = formState;
 
 	const noteForm = watch();
 
@@ -95,7 +95,7 @@ function NoteForm(props) {
 						name="image"
 						control={control}
 						defaultValue=""
-						render={({ onChange, value }) => {
+						render={({ field: { onChange, value } }) => {
 							if (value === '') {
 								return null;
 							}
@@ -119,25 +119,35 @@ function NoteForm(props) {
 					/>
 
 					<div className="px-20 my-16">
-						<Input
-							className="font-semibold text-14"
-							placeholder="Title"
-							type="text"
+						<Controller
 							name="title"
-							inputRef={register}
-							disableUnderline
-							fullWidth
+							control={control}
+							render={({ field }) => (
+								<Input
+									{...field}
+									className="font-semibold text-14"
+									placeholder="Title"
+									type="text"
+									disableUnderline
+									fullWidth
+								/>
+							)}
 						/>
 					</div>
 					<div className="px-20 my-16">
-						<Input
-							placeholder="Take a note..."
-							multiline
-							rows="4"
+						<Controller
 							name="description"
-							inputRef={register}
-							disableUnderline
-							fullWidth
+							control={control}
+							render={({ field }) => (
+								<Input
+									{...field}
+									placeholder="Take a note..."
+									multiline
+									rows="4"
+									disableUnderline
+									fullWidth
+								/>
+							)}
 						/>
 					</div>
 
@@ -145,7 +155,7 @@ function NoteForm(props) {
 						name="checklist"
 						control={control}
 						defaultValue={[]}
-						render={({ onChange, value }) => {
+						render={({ field: { onChange, value } }) => {
 							if (value.length === 0 && !showList) {
 								return null;
 							}
@@ -165,7 +175,7 @@ function NoteForm(props) {
 								name="labels"
 								control={control}
 								defaultValue={[]}
-								render={({ onChange, value }) => {
+								render={({ field: { onChange, value } }) => {
 									if (!value) {
 										return null;
 									}
@@ -198,7 +208,7 @@ function NoteForm(props) {
 								name="reminder"
 								control={control}
 								defaultValue={[]}
-								render={({ onChange, value }) => (
+								render={({ field: { onChange, value } }) => (
 									<NoteFormReminder reminder={value} onChange={val => onChange(val)} />
 								)}
 							/>
@@ -229,7 +239,7 @@ function NoteForm(props) {
 						name="archive"
 						control={control}
 						defaultValue={false}
-						render={({ onChange, value }) => (
+						render={({ field: { onChange, value } }) => (
 							<Tooltip title={value ? 'Unarchive' : 'Archive'} placement="bottom">
 								<div>
 									<IconButton

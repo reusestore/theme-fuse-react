@@ -1,6 +1,7 @@
 import { useDebounce } from '@fuse/hooks';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
+
 import _ from '@lodash';
 import TextField from '@material-ui/core/TextField';
 import Icon from '@material-ui/core/Icon';
@@ -34,13 +35,13 @@ function LabelsForm(props) {
 
 	const [labelsForm, setLabels] = useState(labels);
 
-	const { register, formState, handleSubmit, reset, errors } = useForm({
+	const { control, formState, handleSubmit, reset } = useForm({
 		mode: 'onChange',
 		defaultValues,
 		resolver: yupResolver(schema)
 	});
 
-	const { isValid, dirtyFields } = formState;
+	const { isValid, dirtyFields, errors } = formState;
 
 	useEffect(() => {
 		setLabels(labels);
@@ -68,35 +69,40 @@ function LabelsForm(props) {
 			<List dense>
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<ListItem className="p-0 mb-16" dense>
-						<TextField
-							className={clsx('flex flex-1')}
+						<Controller
 							name="name"
-							inputRef={register}
-							error={!!errors.name}
-							helperText={errors?.name?.message}
-							placeholder="Create new label"
-							variant="outlined"
-							InputProps={{
-								startAdornment: (
-									<InputAdornment position="start">
-										<Icon className="list-item-icon text-16" color="action">
-											add
-										</Icon>
-									</InputAdornment>
-								),
-								endAdornment: (
-									<InputAdornment position="end">
-										<IconButton
-											className="w-32 h-32 p-0"
-											aria-label="Delete"
-											disabled={_.isEmpty(dirtyFields) || !isValid}
-											type="submit"
-										>
-											<Icon fontSize="small">check</Icon>
-										</IconButton>
-									</InputAdornment>
-								)
-							}}
+							control={control}
+							render={({ field }) => (
+								<TextField
+									{...field}
+									className={clsx('flex flex-1')}
+									error={!!errors.name}
+									helperText={errors?.name?.message}
+									placeholder="Create new label"
+									variant="outlined"
+									InputProps={{
+										startAdornment: (
+											<InputAdornment position="start">
+												<Icon className="list-item-icon text-16" color="action">
+													add
+												</Icon>
+											</InputAdornment>
+										),
+										endAdornment: (
+											<InputAdornment position="end">
+												<IconButton
+													className="w-32 h-32 p-0"
+													aria-label="Delete"
+													disabled={_.isEmpty(dirtyFields) || !isValid}
+													type="submit"
+												>
+													<Icon fontSize="small">check</Icon>
+												</IconButton>
+											</InputAdornment>
+										)
+									}}
+								/>
+							)}
 						/>
 					</ListItem>
 				</form>

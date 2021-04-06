@@ -4,8 +4,9 @@ import Icon from '@material-ui/core/Icon';
 import ListItem from '@material-ui/core/ListItem';
 import TextField from '@material-ui/core/TextField';
 import ChecklistItemModel from 'app/main/apps/scrumboard/model/ChecklistItemModel';
+import { Controller, useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import { useForm } from 'react-hook-form';
+
 import _ from '@lodash';
 
 /**
@@ -16,7 +17,7 @@ const schema = yup.object().shape({
 });
 
 function CardAddChecklistItem(props) {
-	const { register, formState, handleSubmit, reset, errors } = useForm({
+	const { control, formState, handleSubmit, reset } = useForm({
 		mode: 'onChange',
 		defaultValues: {
 			name: props.name
@@ -24,7 +25,7 @@ function CardAddChecklistItem(props) {
 		resolver: yupResolver(schema)
 	});
 
-	const { isValid, dirtyFields } = formState;
+	const { isValid, dirtyFields, errors } = formState;
 
 	function onSubmit(data) {
 		props.onListItemAdd(ChecklistItemModel(data));
@@ -37,12 +38,18 @@ function CardAddChecklistItem(props) {
 		<form onSubmit={handleSubmit(onSubmit)}>
 			<ListItem className="px-0" dense>
 				<span className="w-40" />
-				<TextField
-					className="flex flex-1 mx-8"
+				<Controller
 					name="name"
-					inputRef={register}
-					variant="outlined"
-					placeholder="Add an item"
+					control={control}
+					render={({ field }) => (
+						<TextField
+							{...field}
+							className="flex flex-1 mx-8"
+							name="name"
+							variant="outlined"
+							placeholder="Add an item"
+						/>
+					)}
 				/>
 				<Fab
 					className="mx-4"

@@ -6,7 +6,6 @@ import _ from '@lodash';
 import AppBar from '@material-ui/core/AppBar';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
-import Checkbox from '@material-ui/core/Checkbox';
 import Chip from '@material-ui/core/Chip';
 import { amber, red } from '@material-ui/core/colors';
 import Dialog from '@material-ui/core/Dialog';
@@ -55,13 +54,13 @@ function TodoDialog(props) {
 	const labels = useSelector(selectLabels);
 
 	const [labelMenuEl, setLabelMenuEl] = useState(null);
-	const { register, watch, handleSubmit, formState, reset, control, setValue, errors } = useForm({
+	const { watch, handleSubmit, formState, reset, control, setValue } = useForm({
 		mode: 'onChange',
 		defaultValues,
 		resolver: yupResolver(schema)
 	});
 
-	const { isValid, dirtyFields } = formState;
+	const { errors, isValid, dirtyFields } = formState;
 	const formId = watch('id');
 	const formLabels = watch('labels');
 	const dueDate = watch('deuDate');
@@ -143,13 +142,14 @@ function TodoDialog(props) {
 								<Controller
 									name="completed"
 									control={control}
-									defaultValue={false}
-									render={({ onChange, value }) => (
-										<Checkbox
-											tabIndex={-1}
-											checked={value}
-											onChange={ev => onChange(ev.target.checked)}
-										/>
+									render={({ field: { onChange, value } }) => (
+										<IconButton tabIndex={-1} disableRipple onClick={ev => onChange(!value)}>
+											{value ? (
+												<Icon color="secondary">check_circle</Icon>
+											) : (
+												<Icon color="action">radio_button_unchecked</Icon>
+											)}
+										</IconButton>
 									)}
 								/>
 							</div>
@@ -158,8 +158,7 @@ function TodoDialog(props) {
 								<Controller
 									name="important"
 									control={control}
-									defaultValue={false}
-									render={({ onChange, value }) => (
+									render={({ field: { onChange, value } }) => (
 										<IconButton onClick={() => onChange(!value)}>
 											{value ? (
 												<Icon style={{ color: red[500] }}>error</Icon>
@@ -173,8 +172,7 @@ function TodoDialog(props) {
 								<Controller
 									name="starred"
 									control={control}
-									defaultValue={false}
-									render={({ onChange, value }) => (
+									render={({ field: { onChange, value } }) => (
 										<IconButton onClick={() => onChange(!value)}>
 											{value ? (
 												<Icon style={{ color: amber[500] }}>star</Icon>
@@ -196,8 +194,7 @@ function TodoDialog(props) {
 									<Controller
 										name="labels"
 										control={control}
-										defaultValue={[]}
-										render={({ onChange, value: formLabelsVal }) => (
+										render={({ field: { onChange, value: formLabelsVal } }) => (
 											<Menu
 												id="label-menu"
 												anchorEl={labelMenuEl}
@@ -269,26 +266,30 @@ function TodoDialog(props) {
 
 					<div className="px-16 sm:px-24">
 						<FormControl className="mt-8 mb-16" required fullWidth>
-							<TextField
-								label="Title"
-								autoFocus
+							<Controller
 								name="title"
-								inputRef={register}
-								error={!!errors.title}
-								helperText={errors?.title?.message}
-								required
-								variant="outlined"
+								control={control}
+								render={({ field }) => (
+									<TextField
+										{...field}
+										label="Title"
+										autoFocus
+										error={!!errors.title}
+										helperText={errors?.title?.message}
+										required
+										variant="outlined"
+									/>
+								)}
 							/>
 						</FormControl>
 
 						<FormControl className="mt-8 mb-16" required fullWidth>
-							<TextField
-								label="Notes"
+							<Controller
 								name="notes"
-								multiline
-								rows="6"
-								inputRef={register}
-								variant="outlined"
+								control={control}
+								render={({ field }) => (
+									<TextField {...field} label="Notes" multiline rows="6" variant="outlined" />
+								)}
 							/>
 						</FormControl>
 
@@ -297,7 +298,7 @@ function TodoDialog(props) {
 								name="startDate"
 								control={control}
 								defaultValue=""
-								render={({ onChange, value }) => (
+								render={({ field: { onChange, value } }) => (
 									<DateTimePicker
 										label="Start Date"
 										inputVariant="outlined"
@@ -313,7 +314,7 @@ function TodoDialog(props) {
 								name="dueDate"
 								control={control}
 								defaultValue=""
-								render={({ onChange, value }) => (
+								render={({ field: { onChange, value } }) => (
 									<DateTimePicker
 										label="Due Date"
 										inputVariant="outlined"

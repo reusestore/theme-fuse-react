@@ -1,67 +1,91 @@
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
-import { useFormContext } from 'react-hook-form';
+import { Controller, useFormContext } from 'react-hook-form';
 
 function ShippingTab(props) {
 	const methods = useFormContext();
-	const { register } = methods;
+	const { control } = methods;
 
 	return (
 		<div>
 			<div className="flex -mx-4">
-				<TextField
-					className="mt-8 mb-16 mx-4"
-					label="Width"
-					autoFocus
-					id="width"
+				<Controller
 					name="width"
-					inputRef={register}
-					variant="outlined"
-					fullWidth
+					control={control}
+					render={({ field }) => (
+						<TextField
+							{...field}
+							className="mt-8 mb-16 mx-4"
+							label="Width"
+							autoFocus
+							id="width"
+							variant="outlined"
+							fullWidth
+						/>
+					)}
 				/>
 
-				<TextField
-					className="mt-8 mb-16 mx-4"
-					label="Height"
-					id="height"
+				<Controller
 					name="height"
-					inputRef={register}
-					variant="outlined"
-					fullWidth
+					control={control}
+					render={({ field }) => (
+						<TextField
+							{...field}
+							className="mt-8 mb-16 mx-4"
+							label="Height"
+							id="height"
+							variant="outlined"
+							fullWidth
+						/>
+					)}
 				/>
 
-				<TextField
-					className="mt-8 mb-16 mx-4"
-					label="Depth"
-					id="depth"
+				<Controller
 					name="depth"
-					inputRef={register}
-					variant="outlined"
-					fullWidth
+					control={control}
+					render={({ field }) => (
+						<TextField
+							{...field}
+							className="mt-8 mb-16 mx-4"
+							label="Depth"
+							id="depth"
+							variant="outlined"
+							fullWidth
+						/>
+					)}
 				/>
 			</div>
 
-			<TextField
-				className="mt-8 mb-16"
-				label="Weight"
-				id="weight"
+			<Controller
 				name="weight"
-				inputRef={register}
-				variant="outlined"
-				fullWidth
+				control={control}
+				render={({ field }) => (
+					<TextField
+						{...field}
+						className="mt-8 mb-16"
+						label="Weight"
+						id="weight"
+						variant="outlined"
+						fullWidth
+					/>
+				)}
 			/>
-
-			<TextField
-				className="mt-8 mb-16"
-				label="Extra Shipping Fee"
-				id="extraShippingFee"
+			<Controller
 				name="extraShippingFee"
-				inputRef={register}
-				variant="outlined"
-				InputProps={{
-					startAdornment: <InputAdornment position="start">$</InputAdornment>
-				}}
-				fullWidth
+				control={control}
+				render={({ field }) => (
+					<TextField
+						{...field}
+						className="mt-8 mb-16"
+						label="Extra Shipping Fee"
+						id="extraShippingFee"
+						variant="outlined"
+						InputProps={{
+							startAdornment: <InputAdornment position="start">$</InputAdornment>
+						}}
+						fullWidth
+					/>
+				)}
 			/>
 		</div>
 	);

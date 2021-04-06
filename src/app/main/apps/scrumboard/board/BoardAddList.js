@@ -1,4 +1,5 @@
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
+
 import { yupResolver } from '@hookform/resolvers/yup';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -39,13 +40,13 @@ function BoardAddList(props) {
 
 	const classes = useStyles(props);
 	const [formOpen, setFormOpen] = useState(false);
-	const { register, formState, handleSubmit, reset, errors } = useForm({
+	const { control, formState, handleSubmit, reset } = useForm({
 		mode: 'onChange',
 		defaultValues,
 		resolver: yupResolver(schema)
 	});
 
-	const { isValid, dirtyFields } = formState;
+	const { isValid, dirtyFields, errors } = formState;
 
 	useEffect(() => {
 		if (!formOpen) {
@@ -73,24 +74,29 @@ function BoardAddList(props) {
 				{formOpen ? (
 					<ClickAwayListener onClickAway={handleCloseForm}>
 						<form className="p-16" onSubmit={handleSubmit(onSubmit)}>
-							<TextField
-								className="mb-16"
-								required
-								fullWidth
-								variant="filled"
-								label="List title"
-								autoFocus
+							<Controller
 								name="title"
-								inputRef={register}
-								InputProps={{
-									endAdornment: (
-										<InputAdornment position="end">
-											<IconButton onClick={handleCloseForm}>
-												<Icon className="text-18">close</Icon>
-											</IconButton>
-										</InputAdornment>
-									)
-								}}
+								control={control}
+								render={({ field }) => (
+									<TextField
+										{...field}
+										className="mb-16"
+										required
+										fullWidth
+										variant="filled"
+										label="List title"
+										autoFocus
+										InputProps={{
+											endAdornment: (
+												<InputAdornment position="end">
+													<IconButton onClick={handleCloseForm}>
+														<Icon className="text-18">close</Icon>
+													</IconButton>
+												</InputAdornment>
+											)
+										}}
+									/>
+								)}
 							/>
 
 							<div className="flex justify-between items-center">

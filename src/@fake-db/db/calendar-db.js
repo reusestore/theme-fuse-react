@@ -12,8 +12,8 @@ const calendarDB = {
 			id: 0,
 			title: 'All Day Event very long title',
 			allDay: true,
-			start: setDate(2021, 3, 0),
-			end: setDate(2021, 3, 1)
+			start: setDate(2021, 3, 1),
+			end: setDate(2021, 3, 2)
 		},
 		{
 			id: 1,
@@ -41,7 +41,7 @@ const calendarDB = {
 			title: 'Some Event',
 			allDay: false,
 			start: setDate(2021, 3, 9, 0, 0, 0),
-			end: setDate(2021, 3, 9, 0, 0, 0)
+			end: setDate(2021, 3, 10, 0, 0, 0)
 		},
 		{
 			id: 5,

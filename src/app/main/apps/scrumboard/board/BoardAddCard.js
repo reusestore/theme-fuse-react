@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import Button from '@material-ui/core/Button';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Icon from '@material-ui/core/Icon';
@@ -28,13 +28,13 @@ function BoardAddCard(props) {
 	const board = useSelector(({ scrumboardApp }) => scrumboardApp.board);
 
 	const [formOpen, setFormOpen] = useState(false);
-	const { register, formState, handleSubmit, reset, errors } = useForm({
+	const { control, formState, handleSubmit, reset } = useForm({
 		mode: 'onChange',
 		defaultValues,
 		resolver: yupResolver(schema)
 	});
 
-	const { isValid, dirtyFields } = formState;
+	const { isValid, dirtyFields, errors } = formState;
 
 	useEffect(() => {
 		if (!formOpen) {
@@ -63,24 +63,29 @@ function BoardAddCard(props) {
 			{formOpen ? (
 				<ClickAwayListener onClickAway={handleCloseForm}>
 					<form className="p-16" onSubmit={handleSubmit(onSubmit)}>
-						<TextField
-							className="mb-16"
-							required
-							fullWidth
-							variant="filled"
-							label="Card title"
-							autoFocus
+						<Controller
 							name="title"
-							inputRef={register}
-							InputProps={{
-								endAdornment: (
-									<InputAdornment position="end">
-										<IconButton onClick={handleCloseForm}>
-											<Icon className="text-18">close</Icon>
-										</IconButton>
-									</InputAdornment>
-								)
-							}}
+							control={control}
+							render={({ field }) => (
+								<TextField
+									className="mb-16"
+									required
+									fullWidth
+									variant="filled"
+									label="Card title"
+									autoFocus
+									InputProps={{
+										...field,
+										endAdornment: (
+											<InputAdornment position="end">
+												<IconButton onClick={handleCloseForm}>
+													<Icon className="text-18">close</Icon>
+												</IconButton>
+											</InputAdornment>
+										)
+									}}
+								/>
+							)}
 						/>
 
 						<div className="flex justify-between items-center">

@@ -1,6 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { motion } from 'framer-motion';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
+
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -49,13 +50,13 @@ const defaultValues = {
 function Login3Page() {
 	const classes = useStyles();
 
-	const { register, formState, handleSubmit, reset, errors } = useForm({
+	const { control, formState, handleSubmit, reset } = useForm({
 		mode: 'onChange',
 		defaultValues,
 		resolver: yupResolver(schema)
 	});
 
-	const { isValid, dirtyFields } = formState;
+	const { isValid, dirtyFields, errors } = formState;
 
 	function onSubmit() {
 		reset(defaultValues);
@@ -105,40 +106,53 @@ function Login3Page() {
 							className="flex flex-col justify-center w-full"
 							onSubmit={handleSubmit(onSubmit)}
 						>
-							<TextField
-								className="mb-16"
-								label="Email"
-								autoFocus
-								type="email"
+							<Controller
 								name="email"
-								inputRef={register}
-								error={!!errors.email}
-								helperText={errors?.email?.message}
-								variant="outlined"
-								required
-								fullWidth
+								control={control}
+								render={({ field }) => (
+									<TextField
+										{...field}
+										className="mb-16"
+										label="Email"
+										autoFocus
+										type="email"
+										error={!!errors.email}
+										helperText={errors?.email?.message}
+										variant="outlined"
+										required
+										fullWidth
+									/>
+								)}
 							/>
 
-							<TextField
-								className="mb-16"
-								label="Password"
-								type="password"
+							<Controller
 								name="password"
-								inputRef={register}
-								error={!!errors.password}
-								helperText={errors?.password?.message}
-								variant="outlined"
-								required
-								fullWidth
+								control={control}
+								render={({ field }) => (
+									<TextField
+										{...field}
+										className="mb-16"
+										label="Password"
+										type="password"
+										error={!!errors.password}
+										helperText={errors?.password?.message}
+										variant="outlined"
+										required
+										fullWidth
+									/>
+								)}
 							/>
 
 							<div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between">
-								<FormControl>
-									<FormControlLabel
-										control={<Checkbox name="remember" inputRef={register} />}
-										label="Remember Me"
-									/>
-								</FormControl>
+								<Controller
+									name="remember"
+									control={control}
+									render={({ field }) => (
+										<FormControl>
+											<FormControlLabel label="Remember Me" control={<Checkbox {...field} />} />
+										</FormControl>
+									)}
+								/>
 
 								<Link className="font-normal" to="/pages/auth/forgot-password-2">
 									Forgot Password?
@@ -151,6 +165,7 @@ function Login3Page() {
 								className="w-full mx-auto mt-16"
 								aria-label="LOG IN"
 								disabled={_.isEmpty(dirtyFields) || !isValid}
+								type="submit"
 							>
 								Login
 							</Button>
