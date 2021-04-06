@@ -401,7 +401,7 @@ const navigationConfig = [
 				url: '/ui/icons'
 			},
 			{
-				id: 'typography',
+				id: 'ui-typography',
 				title: 'Typography',
 				type: 'item',
 				icon: 'text_fields',

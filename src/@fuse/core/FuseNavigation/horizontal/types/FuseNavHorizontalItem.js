@@ -1,5 +1,4 @@
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
-import FuseUtils from '@fuse/utils';
 import Icon from '@material-ui/core/Icon';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -7,7 +6,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { memo, useMemo } from 'react';
-import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import FuseNavBadge from '../../FuseNavBadge';
 
@@ -35,40 +33,35 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function FuseNavHorizontalItem(props) {
-	const userRole = useSelector(({ auth }) => auth.user.role);
-
 	const classes = useStyles(props);
 	const { item } = props;
 
-	const hasPermission = useMemo(() => FuseUtils.hasPermission(item.auth, userRole), [item.auth, userRole]);
-
 	return useMemo(
-		() =>
-			!hasPermission ? null : (
-				<ListItem
-					button
-					component={NavLinkAdapter}
-					to={item.url}
-					activeClassName="active"
-					className={clsx('fuse-list-item', classes.root)}
-					exact={item.exact}
-				>
-					{item.icon && (
-						<Icon className="fuse-list-item-icon text-16 flex-shrink-0" color="action">
-							{item.icon}
-						</Icon>
-					)}
+		() => (
+			<ListItem
+				button
+				component={NavLinkAdapter}
+				to={item.url}
+				activeClassName="active"
+				className={clsx('fuse-list-item', classes.root)}
+				exact={item.exact}
+			>
+				{item.icon && (
+					<Icon className="fuse-list-item-icon text-16 flex-shrink-0" color="action">
+						{item.icon}
+					</Icon>
+				)}
 
-					<ListItemText
-						className="fuse-list-item-text"
-						primary={item.title}
-						classes={{ primary: 'text-13 fuse-list-item-text-primary' }}
-					/>
+				<ListItemText
+					className="fuse-list-item-text"
+					primary={item.title}
+					classes={{ primary: 'text-13 fuse-list-item-text-primary' }}
+				/>
 
-					{item.badge && <FuseNavBadge className="ltr:ml-8 rtl:mr-8" badge={item.badge} />}
-				</ListItem>
-			),
-		[classes.root, hasPermission, item.badge, item.exact, item.icon, item.title, item.url]
+				{item.badge && <FuseNavBadge className="ltr:ml-8 rtl:mr-8" badge={item.badge} />}
+			</ListItem>
+		),
+		[classes.root, item.badge, item.exact, item.icon, item.title, item.url]
 	);
 }
 

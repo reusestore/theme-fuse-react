@@ -1,5 +1,4 @@
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
-import FuseUtils from '@fuse/utils';
 import Collapse from '@material-ui/core/Collapse';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
@@ -10,8 +9,6 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React, { useEffect, useState, useMemo } from 'react';
-
-import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
 import FuseNavBadge from '../../FuseNavBadge';
@@ -65,7 +62,6 @@ function isUrlInChildren(parent, url) {
 }
 
 function FuseNavVerticalCollapse(props) {
-	const userRole = useSelector(({ auth }) => auth.user.role);
 	const [open, setOpen] = useState(() => needsToBeOpened(props.location, props.item));
 	const { item, nestedLevel, onItemClick } = props;
 	const classes = useStyles({
@@ -82,64 +78,60 @@ function FuseNavVerticalCollapse(props) {
 		// eslint-disable-next-line
 	}, [location, props.item]);
 
-	const hasPermission = useMemo(() => FuseUtils.hasPermission(item.auth, userRole), [item.auth, userRole]);
-
 	return useMemo(
-		() =>
-			!hasPermission ? null : (
-				<ul className={clsx(classes.root, open && 'open')}>
-					<ListItem
-						button
-						className={clsx(classes.item, 'fuse-list-item')}
-						onClick={() => setOpen(!open)}
-						component={item.url ? NavLinkAdapter : 'li'}
-						to={item.url}
-						role="button"
-					>
-						{item.icon && (
-							<Icon color="action" className="fuse-list-item-icon text-20 flex-shrink-0">
-								{item.icon}
-							</Icon>
-						)}
-
-						<ListItemText
-							className="fuse-list-item-text"
-							primary={item.title}
-							classes={{ primary: 'text-13 font-medium' }}
-						/>
-
-						{item.badge && <FuseNavBadge className="mx-4" badge={item.badge} />}
-
-						<IconButton
-							disableRipple
-							className="w-40 h-40 -mx-12 p-0 focus:bg-transparent hover:bg-transparent"
-							onClick={ev => ev.preventDefault()}
-						>
-							<Icon className="text-16 arrow-icon" color="inherit">
-								{open ? 'expand_less' : 'expand_more'}
-							</Icon>
-						</IconButton>
-					</ListItem>
-
-					{item.children && (
-						<Collapse in={open} className="collapse-children">
-							{item.children.map(_item => (
-								<FuseNavItem
-									key={_item.id}
-									type={`vertical-${_item.type}`}
-									item={_item}
-									nestedLevel={nestedLevel + 1}
-									onItemClick={onItemClick}
-								/>
-							))}
-						</Collapse>
+		() => (
+			<ul className={clsx(classes.root, open && 'open')}>
+				<ListItem
+					button
+					className={clsx(classes.item, 'fuse-list-item')}
+					onClick={() => setOpen(!open)}
+					component={item.url ? NavLinkAdapter : 'li'}
+					to={item.url}
+					role="button"
+				>
+					{item.icon && (
+						<Icon color="action" className="fuse-list-item-icon text-20 flex-shrink-0">
+							{item.icon}
+						</Icon>
 					)}
-				</ul>
-			),
+
+					<ListItemText
+						className="fuse-list-item-text"
+						primary={item.title}
+						classes={{ primary: 'text-13 font-medium' }}
+					/>
+
+					{item.badge && <FuseNavBadge className="mx-4" badge={item.badge} />}
+
+					<IconButton
+						disableRipple
+						className="w-40 h-40 -mx-12 p-0 focus:bg-transparent hover:bg-transparent"
+						onClick={ev => ev.preventDefault()}
+					>
+						<Icon className="text-16 arrow-icon" color="inherit">
+							{open ? 'expand_less' : 'expand_more'}
+						</Icon>
+					</IconButton>
+				</ListItem>
+
+				{item.children && (
+					<Collapse in={open} className="collapse-children">
+						{item.children.map(_item => (
+							<FuseNavItem
+								key={_item.id}
+								type={`vertical-${_item.type}`}
+								item={_item}
+								nestedLevel={nestedLevel + 1}
+								onItemClick={onItemClick}
+							/>
+						))}
+					</Collapse>
+				)}
+			</ul>
+		),
 		[
 			classes.item,
 			classes.root,
-			hasPermission,
 			item.badge,
 			item.children,
 			item.icon,

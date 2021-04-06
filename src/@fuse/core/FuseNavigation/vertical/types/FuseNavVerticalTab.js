@@ -1,5 +1,4 @@
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
-import FuseUtils from '@fuse/utils';
 import { Tooltip } from '@material-ui/core';
 import Icon from '@material-ui/core/Icon';
 import ListItem from '@material-ui/core/ListItem';
@@ -9,7 +8,7 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import FuseNavBadge from '../../FuseNavBadge';
 
@@ -62,95 +61,91 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function FuseNavVerticalTab(props) {
-	const userRole = useSelector(({ auth }) => auth.user.role);
 	const dispatch = useDispatch();
 	const location = useLocation();
 
 	const { item, onItemClick, firstLevel, dense, selectedId } = props;
 	const classes = useStyles(props);
 
-	const hasPermission = useMemo(() => FuseUtils.hasPermission(item.auth, userRole), [item.auth, userRole]);
-
 	return useMemo(
-		() =>
-			!hasPermission ? null : (
-				<>
-					<ListItem
-						button
-						component={item.url && NavLinkAdapter}
-						to={item.url}
-						className={clsx(
-							classes.item,
-							`type-${item.type}`,
-							dense && 'dense',
-							selectedId === item.id && 'active',
-							'fuse-list-item flex flex-col items-center justify-center p-12'
-						)}
-						onClick={() => onItemClick && onItemClick(item)}
-						exact={item.exact}
-					>
-						{dense ? (
-							<Tooltip title={item.title || ''} placement="right">
-								<div className="w-32 h-32 min-h-32 flex items-center justify-center relative">
-									{item.icon ? (
-										<Icon className="fuse-list-item-icon text-24" color="action">
-											{item.icon}
-										</Icon>
-									) : (
-										item.title && <div className="font-bold text-16">{item.title[0]}</div>
-									)}
-									{item.badge && (
-										<FuseNavBadge
-											badge={item.badge}
-											className="absolute top-0 ltr:right-0 rtl:left-0 min-w-16 h-16 p-4 justify-center"
-										/>
-									)}
-								</div>
-							</Tooltip>
-						) : (
-							<>
-								<div className="w-32 h-32 min-h-32 flex items-center justify-center relative mb-8">
-									{item.icon ? (
-										<Icon className="fuse-list-item-icon text-32" color="action">
-											{item.icon}
-										</Icon>
-									) : (
-										item.title && <div className="font-bold text-20">{item.title[0]}</div>
-									)}
-									{item.badge && (
-										<FuseNavBadge
-											badge={item.badge}
-											className="absolute top-0 ltr:right-0 rtl:left-0 min-w-16 h-16 p-4 justify-center"
-										/>
-									)}
-								</div>
+		() => (
+			<>
+				<ListItem
+					button
+					component={item.url && NavLinkAdapter}
+					to={item.url}
+					className={clsx(
+						classes.item,
+						`type-${item.type}`,
+						dense && 'dense',
+						selectedId === item.id && 'active',
+						'fuse-list-item flex flex-col items-center justify-center p-12'
+					)}
+					onClick={() => onItemClick && onItemClick(item)}
+					exact={item.exact}
+				>
+					{dense ? (
+						<Tooltip title={item.title || ''} placement="right">
+							<div className="w-32 h-32 min-h-32 flex items-center justify-center relative">
+								{item.icon ? (
+									<Icon className="fuse-list-item-icon text-24" color="action">
+										{item.icon}
+									</Icon>
+								) : (
+									item.title && <div className="font-bold text-16">{item.title[0]}</div>
+								)}
+								{item.badge && (
+									<FuseNavBadge
+										badge={item.badge}
+										className="absolute top-0 ltr:right-0 rtl:left-0 min-w-16 h-16 p-4 justify-center"
+									/>
+								)}
+							</div>
+						</Tooltip>
+					) : (
+						<>
+							<div className="w-32 h-32 min-h-32 flex items-center justify-center relative mb-8">
+								{item.icon ? (
+									<Icon className="fuse-list-item-icon text-32" color="action">
+										{item.icon}
+									</Icon>
+								) : (
+									item.title && <div className="font-bold text-20">{item.title[0]}</div>
+								)}
+								{item.badge && (
+									<FuseNavBadge
+										badge={item.badge}
+										className="absolute top-0 ltr:right-0 rtl:left-0 min-w-16 h-16 p-4 justify-center"
+									/>
+								)}
+							</div>
 
-								<ListItemText
-									className="fuse-list-item-text flex-grow-0 w-full m-0"
-									primary={item.title}
-									classes={{
-										primary: 'text-12 font-medium fuse-list-item-text-primary truncate text-center'
-									}}
-								/>
-							</>
-						)}
-					</ListItem>
-					{!firstLevel &&
-						item.children &&
-						item.children.map(_item => (
-							<NavVerticalTab
-								key={_item.id}
-								type={`vertical-${_item.type}`}
-								item={_item}
-								nestedLevel={0}
-								onItemClick={onItemClick}
-								dense={dense}
-								selectedId={selectedId}
+							<ListItemText
+								className="fuse-list-item-text flex-grow-0 w-full m-0"
+								primary={item.title}
+								classes={{
+									primary: 'text-12 font-medium fuse-list-item-text-primary truncate text-center'
+								}}
 							/>
-						))}
-				</>
-			),
-		[classes.item, firstLevel, hasPermission, item, onItemClick, dense, selectedId]
+						</>
+					)}
+				</ListItem>
+				{!firstLevel &&
+					item.children &&
+					item.children.map(_item => (
+						<NavVerticalTab
+							key={_item.id}
+							type={`vertical-${_item.type}`}
+							item={_item}
+							nestedLevel={0}
+							onItemClick={onItemClick}
+							dense={dense}
+							selectedId={selectedId}
+						/>
+					))}
+			</>
+		),
+		[classes.item, firstLevel, item, onItemClick, dense, selectedId]
 	);
 }
 

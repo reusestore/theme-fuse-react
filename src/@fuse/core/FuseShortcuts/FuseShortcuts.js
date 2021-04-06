@@ -1,5 +1,3 @@
-import FuseAnimateGroup from '@fuse/core/FuseAnimateGroup';
-import FuseUtils from '@fuse/utils';
 import { amber } from '@material-ui/core/colors';
 import Divider from '@material-ui/core/Divider';
 import Icon from '@material-ui/core/Icon';
@@ -12,13 +10,13 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { makeStyles } from '@material-ui/core/styles';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
+import { selectFlatNavigation } from 'app/store/fuse/navigationSlice';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
-import { memo, useEffect, useRef, useState } from 'react';
+import { memo, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { updateUserShortcuts } from 'app/auth/store/userSlice';
-import { selectNavigation } from 'app/store/fuse/navigationSlice';
 
 const useStyles = makeStyles({
 	root: {
@@ -39,23 +37,14 @@ const useStyles = makeStyles({
 function FuseShortcuts(props) {
 	const dispatch = useDispatch();
 	const shortcuts = useSelector(({ auth }) => auth.user.data.shortcuts);
-	const navigationData = useSelector(selectNavigation);
+	const navigation = useSelector(selectFlatNavigation);
 
 	const classes = useStyles(props);
 	const searchInputRef = useRef(null);
 	const [addMenu, setAddMenu] = useState(null);
 	const [searchText, setSearchText] = useState('');
 	const [searchResults, setSearchResults] = useState(null);
-	const [navigation, setNavigation] = useState(null);
-	const shortcutItems = shortcuts ? shortcuts.map(id => FuseUtils.findById(navigationData, id)) : [];
-
-	useEffect(() => {
-		function flattenNavigation() {
-			setNavigation(FuseUtils.getFlatNavigation(navigationData));
-		}
-
-		flattenNavigation();
-	}, [props.location, navigationData]);
+	const shortcutItems = shortcuts ? shortcuts.map(id => navigation.find(item => item.id === id)) : [];
 
 	function addMenuClick(event) {
 		setAddMenu(event.currentTarget);

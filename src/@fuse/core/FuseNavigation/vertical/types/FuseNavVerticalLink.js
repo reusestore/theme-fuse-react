@@ -1,4 +1,3 @@
-import FuseUtils from '@fuse/utils';
 import Icon from '@material-ui/core/Icon';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -6,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { useMemo } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import FuseNavBadge from '../../FuseNavBadge';
 
 const useStyles = makeStyles(theme => ({
@@ -40,42 +39,38 @@ const useStyles = makeStyles(theme => ({
 
 function FuseNavVerticalLink(props) {
 	const dispatch = useDispatch();
-	const userRole = useSelector(({ auth }) => auth.user.role);
 	const { item, nestedLevel, onItemClick } = props;
 	const classes = useStyles({
 		itemPadding: nestedLevel > 0 ? 28 + nestedLevel * 16 : 12
 	});
 
-	const hasPermission = useMemo(() => FuseUtils.hasPermission(item.auth, userRole), [item.auth, userRole]);
-
 	return useMemo(
-		() =>
-			!hasPermission ? null : (
-				<ListItem
-					button
-					component="a"
-					href={item.url}
-					target={item.target ? item.target : '_blank'}
-					className={clsx(classes.item, 'fuse-list-item')}
-					onClick={() => onItemClick && onItemClick(item)}
-					role="button"
-				>
-					{item.icon && (
-						<Icon className="fuse-list-item-icon text-16 flex-shrink-0" color="action">
-							{item.icon}
-						</Icon>
-					)}
+		() => (
+			<ListItem
+				button
+				component="a"
+				href={item.url}
+				target={item.target ? item.target : '_blank'}
+				className={clsx(classes.item, 'fuse-list-item')}
+				onClick={() => onItemClick && onItemClick(item)}
+				role="button"
+			>
+				{item.icon && (
+					<Icon className="fuse-list-item-icon text-16 flex-shrink-0" color="action">
+						{item.icon}
+					</Icon>
+				)}
 
-					<ListItemText
-						className="fuse-list-item-text"
-						primary={item.title}
-						classes={{ primary: 'text-13 fuse-list-item-text-primary' }}
-					/>
+				<ListItemText
+					className="fuse-list-item-text"
+					primary={item.title}
+					classes={{ primary: 'text-13 fuse-list-item-text-primary' }}
+				/>
 
-					{item.badge && <FuseNavBadge badge={item.badge} />}
-				</ListItem>
-			),
-		[classes.item, hasPermission, item, onItemClick]
+				{item.badge && <FuseNavBadge badge={item.badge} />}
+			</ListItem>
+		),
+		[classes.item, item, onItemClick]
 	);
 }
 

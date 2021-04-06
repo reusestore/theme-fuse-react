@@ -1,12 +1,11 @@
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
-import FuseUtils from '@fuse/utils';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import FuseNavItem from '../../FuseNavItem';
 
@@ -25,7 +24,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function FuseNavVerticalGroup(props) {
-	const userRole = useSelector(({ auth }) => auth.user.role);
 	const dispatch = useDispatch();
 
 	const theme = useTheme();
@@ -35,43 +33,40 @@ function FuseNavVerticalGroup(props) {
 		itemPadding: nestedLevel > 0 ? 28 + nestedLevel * 16 : 12
 	});
 
-	const hasPermission = useMemo(() => FuseUtils.hasPermission(item.auth, userRole), [item.auth, userRole]);
-
 	return useMemo(
-		() =>
-			!hasPermission ? null : (
-				<>
-					<ListSubheader
-						disableSticky
-						className={clsx(
-							classes.item,
-							'fuse-list-subheader flex items-center',
-							!item.url && 'cursor-default'
-						)}
-						onClick={() => onItemClick && onItemClick(item)}
-						component={item.url ? NavLinkAdapter : 'li'}
-						to={item.url}
-						role="button"
-					>
-						<span className="fuse-list-subheader-text uppercase text-12">{item.title}</span>
-					</ListSubheader>
-
-					{item.children && (
-						<>
-							{item.children.map(_item => (
-								<FuseNavItem
-									key={_item.id}
-									type={`vertical-${_item.type}`}
-									item={_item}
-									nestedLevel={nestedLevel}
-									onItemClick={onItemClick}
-								/>
-							))}
-						</>
+		() => (
+			<>
+				<ListSubheader
+					disableSticky
+					className={clsx(
+						classes.item,
+						'fuse-list-subheader flex items-center',
+						!item.url && 'cursor-default'
 					)}
-				</>
-			),
-		[classes.item, hasPermission, item, nestedLevel, onItemClick]
+					onClick={() => onItemClick && onItemClick(item)}
+					component={item.url ? NavLinkAdapter : 'li'}
+					to={item.url}
+					role="button"
+				>
+					<span className="fuse-list-subheader-text uppercase text-12">{item.title}</span>
+				</ListSubheader>
+
+				{item.children && (
+					<>
+						{item.children.map(_item => (
+							<FuseNavItem
+								key={_item.id}
+								type={`vertical-${_item.type}`}
+								item={_item}
+								nestedLevel={nestedLevel}
+								onItemClick={onItemClick}
+							/>
+						))}
+					</>
+				)}
+			</>
+		),
+		[classes.item, item, nestedLevel, onItemClick]
 	);
 }
 

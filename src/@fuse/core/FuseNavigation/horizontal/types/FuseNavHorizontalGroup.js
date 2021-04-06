@@ -1,6 +1,5 @@
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import { useDebounce } from '@fuse/hooks';
-import FuseUtils from '@fuse/utils';
 import Grow from '@material-ui/core/Grow';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
@@ -13,7 +12,6 @@ import PropTypes from 'prop-types';
 import { memo, useState, useMemo } from 'react';
 import * as ReactDOM from 'react-dom';
 import { Manager, Popper, Reference } from 'react-popper';
-import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import FuseNavItem from '../../FuseNavItem';
 
@@ -71,8 +69,6 @@ function isUrlInChildren(parent, url) {
 }
 
 function FuseNavHorizontalGroup(props) {
-	const userRole = useSelector(({ auth }) => auth.user.role);
-
 	const classes = useStyles(props);
 	const [opened, setOpened] = useState(false);
 	const { item, nestedLevel, dense } = props;
@@ -82,122 +78,117 @@ function FuseNavHorizontalGroup(props) {
 		setOpened(open);
 	}, 150);
 
-	const hasPermission = useMemo(() => FuseUtils.hasPermission(item.auth, userRole), [item.auth, userRole]);
-
 	return useMemo(
-		() =>
-			!hasPermission ? null : (
-				<Manager>
-					<Reference>
-						{({ ref }) => (
-							<div ref={ref}>
-								<ListItem
-									button
-									className={clsx(
-										'fuse-list-item ',
-										classes.root,
-										'relative',
-										`level-${nestedLevel}`,
-										isUrlInChildren(item, props.location.pathname) && 'active'
-									)}
-									onMouseEnter={() => handleToggle(true)}
-									onMouseLeave={() => handleToggle(false)}
-									aria-owns={opened ? 'menu-fuse-list-grow' : null}
-									aria-haspopup="true"
-									component={item.url ? NavLinkAdapter : 'li'}
-									to={item.url}
-									role="button"
-								>
-									{item.icon && (
-										<Icon color="action" className="fuse-list-item-icon text-16 flex-shrink-0">
-											{item.icon}
-										</Icon>
-									)}
+		() => (
+			<Manager>
+				<Reference>
+					{({ ref }) => (
+						<div ref={ref}>
+							<ListItem
+								button
+								className={clsx(
+									'fuse-list-item ',
+									classes.root,
+									'relative',
+									`level-${nestedLevel}`,
+									isUrlInChildren(item, props.location.pathname) && 'active'
+								)}
+								onMouseEnter={() => handleToggle(true)}
+								onMouseLeave={() => handleToggle(false)}
+								aria-owns={opened ? 'menu-fuse-list-grow' : null}
+								aria-haspopup="true"
+								component={item.url ? NavLinkAdapter : 'li'}
+								to={item.url}
+								role="button"
+							>
+								{item.icon && (
+									<Icon color="action" className="fuse-list-item-icon text-16 flex-shrink-0">
+										{item.icon}
+									</Icon>
+								)}
 
-									<ListItemText
-										className="fuse-list-item-text"
-										primary={item.title}
-										classes={{ primary: 'text-13' }}
-									/>
+								<ListItemText
+									className="fuse-list-item-text"
+									primary={item.title}
+									classes={{ primary: 'text-13' }}
+								/>
 
-									{nestedLevel > 0 && (
-										<IconButton
-											disableRipple
-											className="w-16 h-16 ltr:ml-4 rtl:mr-4 p-0"
-											color="inherit"
-										>
-											<Icon className="text-16 arrow-icon">
-												{theme.direction === 'ltr'
-													? 'keyboard_arrow_right'
-													: 'keyboard_arrow_left'}
-											</Icon>
-										</IconButton>
-									)}
-								</ListItem>
-							</div>
-						)}
-					</Reference>
-					{ReactDOM.createPortal(
-						<Popper
-							placement={
-								nestedLevel === 0
-									? theme.direction === 'ltr'
-										? 'bottom-start'
-										: 'bottom-end'
-									: theme.direction === 'ltr'
-									? 'right'
-									: 'left'
-							}
-							eventsEnabled={opened}
-							positionFixed
-						>
-							{({ ref, style, placement, arrowProps }) =>
-								opened && (
-									<div
-										ref={ref}
-										style={{
-											...style,
-											zIndex: 999 + nestedLevel
-										}}
-										data-placement={placement}
-										className={clsx(classes.popper, { [classes.popperClose]: !opened })}
+								{nestedLevel > 0 && (
+									<IconButton
+										disableRipple
+										className="w-16 h-16 ltr:ml-4 rtl:mr-4 p-0"
+										color="inherit"
 									>
-										<Grow in={opened} id="menu-fuse-list-grow" style={{ transformOrigin: '0 0 0' }}>
-											<Paper
-												className="rounded-8"
-												onMouseEnter={() => handleToggle(true)}
-												onMouseLeave={() => handleToggle(false)}
-											>
-												{item.children && (
-													<ul
-														className={clsx(
-															classes.children,
-															'popper-navigation-list',
-															dense && 'dense',
-															'px-0'
-														)}
-													>
-														{item.children.map(_item => (
-															<FuseNavItem
-																key={_item.id}
-																type={`horizontal-${_item.type}`}
-																item={_item}
-																nestedLevel={nestedLevel}
-																dense={dense}
-															/>
-														))}
-													</ul>
-												)}
-											</Paper>
-										</Grow>
-									</div>
-								)
-							}
-						</Popper>,
-						document.querySelector('#root')
+										<Icon className="text-16 arrow-icon">
+											{theme.direction === 'ltr' ? 'keyboard_arrow_right' : 'keyboard_arrow_left'}
+										</Icon>
+									</IconButton>
+								)}
+							</ListItem>
+						</div>
 					)}
-				</Manager>
-			),
+				</Reference>
+				{ReactDOM.createPortal(
+					<Popper
+						placement={
+							nestedLevel === 0
+								? theme.direction === 'ltr'
+									? 'bottom-start'
+									: 'bottom-end'
+								: theme.direction === 'ltr'
+								? 'right'
+								: 'left'
+						}
+						eventsEnabled={opened}
+						positionFixed
+					>
+						{({ ref, style, placement, arrowProps }) =>
+							opened && (
+								<div
+									ref={ref}
+									style={{
+										...style,
+										zIndex: 999 + nestedLevel
+									}}
+									data-placement={placement}
+									className={clsx(classes.popper, { [classes.popperClose]: !opened })}
+								>
+									<Grow in={opened} id="menu-fuse-list-grow" style={{ transformOrigin: '0 0 0' }}>
+										<Paper
+											className="rounded-8"
+											onMouseEnter={() => handleToggle(true)}
+											onMouseLeave={() => handleToggle(false)}
+										>
+											{item.children && (
+												<ul
+													className={clsx(
+														classes.children,
+														'popper-navigation-list',
+														dense && 'dense',
+														'px-0'
+													)}
+												>
+													{item.children.map(_item => (
+														<FuseNavItem
+															key={_item.id}
+															type={`horizontal-${_item.type}`}
+															item={_item}
+															nestedLevel={nestedLevel}
+															dense={dense}
+														/>
+													))}
+												</ul>
+											)}
+										</Paper>
+									</Grow>
+								</div>
+							)
+						}
+					</Popper>,
+					document.querySelector('#root')
+				)}
+			</Manager>
+		),
 		[
 			classes.children,
 			classes.popper,
@@ -205,7 +196,6 @@ function FuseNavHorizontalGroup(props) {
 			classes.root,
 			dense,
 			handleToggle,
-			hasPermission,
 			item,
 			nestedLevel,
 			opened,

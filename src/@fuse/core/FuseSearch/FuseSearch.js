@@ -1,4 +1,3 @@
-import FuseUtils from '@fuse/utils';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
@@ -19,7 +18,7 @@ import { memo, useEffect, useReducer, useRef } from 'react';
 import Autosuggest from 'react-autosuggest';
 import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { selectNavigation } from 'app/store/fuse/navigationSlice';
+import { selectFlatNavigation } from 'app/store/fuse/navigationSlice';
 
 function renderInputComponent(inputProps) {
 	const { variant, classes, inputRef = () => {}, ref, ...other } = inputProps;
@@ -218,8 +217,7 @@ function reducer(state, action) {
 }
 
 function FuseSearch(props) {
-	const userRole = useSelector(({ auth }) => auth.user.role);
-	const navigation = useSelector(selectNavigation);
+	const navigation = useSelector(selectFlatNavigation);
 
 	const [state, dispatch] = useReducer(reducer, initialState);
 	const classes = useStyles(props);
@@ -228,19 +226,11 @@ function FuseSearch(props) {
 	const buttonNode = useRef(null);
 
 	useEffect(() => {
-		function itemAuthAllowed(item) {
-			return FuseUtils.hasPermission(item.auth, userRole);
-		}
-
-		function setNavigation() {
-			dispatch({
-				type: 'setNavigation',
-				value: FuseUtils.getFlatNavigation(navigation).filter(item => itemAuthAllowed(item))
-			});
-		}
-
-		setNavigation();
-	}, [userRole, navigation]);
+		dispatch({
+			type: 'setNavigation',
+			value: navigation
+		});
+	}, [navigation]);
 
 	function showSearch(ev) {
 		ev.stopPropagation();
