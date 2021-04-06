@@ -42,6 +42,7 @@ function Product(props) {
 	const [noProduct, setNoProduct] = useState(false);
 	const methods = useForm({
 		mode: 'onChange',
+		defaultValues: {},
 		resolver: yupResolver(schema)
 	});
 	const { reset, watch, control, onChange, formState } = methods;
@@ -130,7 +131,7 @@ function Product(props) {
 	/**
 	 * Wait while product data is loading and form is setted
 	 */
-	if ((_.isEmpty(form) || (product && routeParams.productId !== product.id)) && routeParams.productId !== 'new') {
+	if (_.isEmpty(form) || (product && routeParams.productId !== product.id && routeParams.productId !== 'new')) {
 		return <FuseLoading />;
 	}
 
