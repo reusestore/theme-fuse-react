@@ -47,17 +47,17 @@ const useStyles = makeStyles(theme => ({
 				theme.palette.type === 'light' ? 'rgba(0, 0, 0, .05)!important' : 'rgba(255, 255, 255, .1)!important',
 			// pointerEvents: 'none',
 			transition: 'border-radius .15s cubic-bezier(0.4,0.0,0.2,1)',
-			'& .list-item-text-primary': {
+			'& .fuse-list-item-text-primary': {
 				color: 'inherit'
 			},
-			'& .list-item-icon': {
+			'& .fuse-list-item-icon': {
 				color: 'inherit'
 			}
 		},
-		'& .list-item-icon': {
+		'& .fuse-list-item-icon': {
 			color: 'inherit'
 		},
-		'& .list-item-text': {}
+		'& .fuse-list-item-text': {}
 	})
 }));
 
@@ -84,7 +84,7 @@ function FuseNavVerticalTab(props) {
 							`type-${item.type}`,
 							dense && 'dense',
 							selectedId === item.id && 'active',
-							'list-item flex flex-col items-center justify-center p-12'
+							'fuse-list-item flex flex-col items-center justify-center p-12'
 						)}
 						onClick={() => onItemClick && onItemClick(item)}
 						exact={item.exact}
@@ -93,7 +93,7 @@ function FuseNavVerticalTab(props) {
 							<Tooltip title={item.title || ''} placement="right">
 								<div className="w-32 h-32 min-h-32 flex items-center justify-center relative">
 									{item.icon ? (
-										<Icon className="list-item-icon text-24" color="action">
+										<Icon className="fuse-list-item-icon text-24" color="action">
 											{item.icon}
 										</Icon>
 									) : (
@@ -111,7 +111,7 @@ function FuseNavVerticalTab(props) {
 							<>
 								<div className="w-32 h-32 min-h-32 flex items-center justify-center relative mb-8">
 									{item.icon ? (
-										<Icon className="list-item-icon text-32" color="action">
+										<Icon className="fuse-list-item-icon text-32" color="action">
 											{item.icon}
 										</Icon>
 									) : (
@@ -126,10 +126,10 @@ function FuseNavVerticalTab(props) {
 								</div>
 
 								<ListItemText
-									className="list-item-text flex-grow-0 w-full m-0"
+									className="fuse-list-item-text flex-grow-0 w-full m-0"
 									primary={item.title}
 									classes={{
-										primary: 'text-12 font-medium list-item-text-primary truncate text-center'
+										primary: 'text-12 font-medium fuse-list-item-text-primary truncate text-center'
 									}}
 								/>
 							</>

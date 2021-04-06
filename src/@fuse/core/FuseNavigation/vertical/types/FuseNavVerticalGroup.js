@@ -45,7 +45,7 @@ function FuseNavVerticalGroup(props) {
 						disableSticky
 						className={clsx(
 							classes.item,
-							'list-subheader flex items-center',
+							'fuse-list-subheader flex items-center',
 							!item.url && 'cursor-default'
 						)}
 						onClick={() => onItemClick && onItemClick(item)}
@@ -53,7 +53,7 @@ function FuseNavVerticalGroup(props) {
 						to={item.url}
 						role="button"
 					>
-						<span className="list-subheader-text uppercase text-12">{item.title}</span>
+						<span className="fuse-list-subheader-text uppercase text-12">{item.title}</span>
 					</ListSubheader>
 
 					{item.children && (

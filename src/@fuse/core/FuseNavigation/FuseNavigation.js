@@ -32,19 +32,19 @@ registerComponent('horizontal-divider', () => <Divider className="my-16" />);
 const useStyles = makeStyles(theme => ({
 	'@global': {
 		'.popper-navigation-list': {
-			'& .list-item': {
+			'& .fuse-list-item': {
 				padding: '8px 12px 8px 12px',
 				height: 40,
 				minHeight: 40,
-				'& .list-item-text': {
+				'& .fuse-list-item-text': {
 					padding: '0 0 0 8px'
 				}
 			},
 			'&.dense': {
-				'& .list-item': {
+				'& .fuse-list-item': {
 					minHeight: 32,
 					height: 32,
-					'& .list-item-text': {
+					'& .fuse-list-item-text': {
 						padding: '0 0 0 8px'
 					}
 				}

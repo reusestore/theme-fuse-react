@@ -66,13 +66,13 @@ const useStyles = makeStyles(theme => ({
 			'& .react-badge': {
 				opacity: 0
 			},
-			'& .list-item-text, & .arrow-icon, & .item-badge': {
+			'& .fuse-list-item-text, & .arrow-icon, & .item-badge': {
 				opacity: 0
 			},
-			'& .list-subheader .list-subheader-text': {
+			'& .fuse-list-subheader .fuse-list-subheader-text': {
 				opacity: 0
 			},
-			'& .list-subheader:before': {
+			'& .fuse-list-subheader:before': {
 				content: '""',
 				display: 'block',
 				position: 'absolute',
@@ -94,7 +94,7 @@ const useStyles = makeStyles(theme => ({
 					padding: 0
 				}
 			},
-			'& .list-item.active': {
+			'& .fuse-list-item.active': {
 				width: 44
 			}
 		}

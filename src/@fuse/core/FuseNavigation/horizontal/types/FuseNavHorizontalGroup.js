@@ -23,14 +23,14 @@ const useStyles = makeStyles(theme => ({
 		'&.active, &.active:hover, &.active:focus': {
 			backgroundColor: `${theme.palette.secondary.main}!important`,
 			color: `${theme.palette.secondary.contrastText}!important`,
-			'& .list-item-text-primary': {
+			'& .fuse-list-item-text-primary': {
 				color: 'inherit'
 			},
-			'& .list-item-icon': {
+			'& .fuse-list-item-icon': {
 				color: 'inherit'
 			}
 		},
-		'& .list-item-text': {
+		'& .fuse-list-item-text': {
 			padding: '0 0 0 16px'
 		},
 		'&.level-0': {
@@ -94,7 +94,7 @@ function FuseNavHorizontalGroup(props) {
 								<ListItem
 									button
 									className={clsx(
-										'list-item ',
+										'fuse-list-item ',
 										classes.root,
 										'relative',
 										`level-${nestedLevel}`,
@@ -102,20 +102,20 @@ function FuseNavHorizontalGroup(props) {
 									)}
 									onMouseEnter={() => handleToggle(true)}
 									onMouseLeave={() => handleToggle(false)}
-									aria-owns={opened ? 'menu-list-grow' : null}
+									aria-owns={opened ? 'menu-fuse-list-grow' : null}
 									aria-haspopup="true"
 									component={item.url ? NavLinkAdapter : 'li'}
 									to={item.url}
 									role="button"
 								>
 									{item.icon && (
-										<Icon color="action" className="list-item-icon text-16 flex-shrink-0">
+										<Icon color="action" className="fuse-list-item-icon text-16 flex-shrink-0">
 											{item.icon}
 										</Icon>
 									)}
 
 									<ListItemText
-										className="list-item-text"
+										className="fuse-list-item-text"
 										primary={item.title}
 										classes={{ primary: 'text-13' }}
 									/>
@@ -162,7 +162,7 @@ function FuseNavHorizontalGroup(props) {
 										data-placement={placement}
 										className={clsx(classes.popper, { [classes.popperClose]: !opened })}
 									>
-										<Grow in={opened} id="menu-list-grow" style={{ transformOrigin: '0 0 0' }}>
+										<Grow in={opened} id="menu-fuse-list-grow" style={{ transformOrigin: '0 0 0' }}>
 											<Paper
 												className="rounded-8"
 												onMouseEnter={() => handleToggle(true)}

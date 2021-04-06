@@ -7,7 +7,7 @@ import FuseNavItem from '../FuseNavItem';
 
 const useStyles = makeStyles(theme => ({
 	navigation: {
-		'& .list-item': {
+		'& .fuse-list-item': {
 			'&:hover': {
 				backgroundColor: theme.palette.type === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0,0,0,.04)'
 			},
@@ -16,13 +16,13 @@ const useStyles = makeStyles(theme => ({
 			}
 		},
 		'&.active-square-list': {
-			'& .list-item, & .active.list-item': {
+			'& .fuse-list-item, & .active.fuse-list-item': {
 				width: '100%',
 				borderRadius: '0'
 			}
 		},
 		'&.dense': {
-			'& .list-item': {
+			'& .fuse-list-item': {
 				paddingTop: 0,
 				paddingBottom: 0,
 				height: 32

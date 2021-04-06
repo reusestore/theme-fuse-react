@@ -22,17 +22,17 @@ const useStyles = makeStyles(theme => ({
 			color: `${theme.palette.secondary.contrastText}!important`,
 			pointerEvents: 'none',
 			transition: 'border-radius .15s cubic-bezier(0.4,0.0,0.2,1)',
-			'& .list-item-text-primary': {
+			'& .fuse-list-item-text-primary': {
 				color: 'inherit'
 			},
-			'& .list-item-icon': {
+			'& .fuse-list-item-icon': {
 				color: 'inherit'
 			}
 		},
-		'& .list-item-icon': {
+		'& .fuse-list-item-icon': {
 			marginRight: 12
 		},
-		'& .list-item-text': {},
+		'& .fuse-list-item-text': {},
 		color: theme.palette.text.primary,
 		textDecoration: 'none!important'
 	})
@@ -56,20 +56,20 @@ function FuseNavVerticalLink(props) {
 					component="a"
 					href={item.url}
 					target={item.target ? item.target : '_blank'}
-					className={clsx(classes.item, 'list-item')}
+					className={clsx(classes.item, 'fuse-list-item')}
 					onClick={() => onItemClick && onItemClick(item)}
 					role="button"
 				>
 					{item.icon && (
-						<Icon className="list-item-icon text-16 flex-shrink-0" color="action">
+						<Icon className="fuse-list-item-icon text-16 flex-shrink-0" color="action">
 							{item.icon}
 						</Icon>
 					)}
 
 					<ListItemText
-						className="list-item-text"
+						className="fuse-list-item-text"
 						primary={item.title}
-						classes={{ primary: 'text-13 list-item-text-primary' }}
+						classes={{ primary: 'text-13 fuse-list-item-text-primary' }}
 					/>
 
 					{item.badge && <FuseNavBadge badge={item.badge} />}

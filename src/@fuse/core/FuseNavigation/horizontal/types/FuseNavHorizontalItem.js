@@ -18,15 +18,15 @@ const useStyles = makeStyles(theme => ({
 			backgroundColor: `${theme.palette.secondary.main}!important`,
 			color: `${theme.palette.secondary.contrastText}!important`,
 			pointerEvents: 'none',
-			'& .list-item-text-primary': {
+			'& .fuse-list-item-text-primary': {
 				color: 'inherit'
 			},
-			'& .list-item-icon': {
+			'& .fuse-list-item-icon': {
 				color: 'inherit'
 			}
 		},
-		'& .list-item-icon': {},
-		'& .list-item-text': {
+		'& .fuse-list-item-icon': {},
+		'& .fuse-list-item-text': {
 			padding: '0 0 0 16px'
 		},
 		color: theme.palette.text.primary,
@@ -50,19 +50,19 @@ function FuseNavHorizontalItem(props) {
 					component={NavLinkAdapter}
 					to={item.url}
 					activeClassName="active"
-					className={clsx('list-item', classes.root)}
+					className={clsx('fuse-list-item', classes.root)}
 					exact={item.exact}
 				>
 					{item.icon && (
-						<Icon className="list-item-icon text-16 flex-shrink-0" color="action">
+						<Icon className="fuse-list-item-icon text-16 flex-shrink-0" color="action">
 							{item.icon}
 						</Icon>
 					)}
 
 					<ListItemText
-						className="list-item-text"
+						className="fuse-list-item-text"
 						primary={item.title}
-						classes={{ primary: 'text-13 list-item-text-primary' }}
+						classes={{ primary: 'text-13 fuse-list-item-text-primary' }}
 					/>
 
 					{item.badge && <FuseNavBadge className="ltr:ml-8 rtl:mr-8" badge={item.badge} />}

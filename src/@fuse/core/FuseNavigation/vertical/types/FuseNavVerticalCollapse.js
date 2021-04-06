@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
 		'&:hover': {
 			color: theme.palette.text.primary
 		},
-		'& .list-item-icon': {
+		'& .fuse-list-item-icon': {
 			marginRight: 12,
 			color: 'inherit'
 		}
@@ -90,20 +90,20 @@ function FuseNavVerticalCollapse(props) {
 				<ul className={clsx(classes.root, open && 'open')}>
 					<ListItem
 						button
-						className={clsx(classes.item, 'list-item')}
+						className={clsx(classes.item, 'fuse-list-item')}
 						onClick={() => setOpen(!open)}
 						component={item.url ? NavLinkAdapter : 'li'}
 						to={item.url}
 						role="button"
 					>
 						{item.icon && (
-							<Icon color="action" className="list-item-icon text-20 flex-shrink-0">
+							<Icon color="action" className="fuse-list-item-icon text-20 flex-shrink-0">
 								{item.icon}
 							</Icon>
 						)}
 
 						<ListItemText
-							className="list-item-text"
+							className="fuse-list-item-text"
 							primary={item.title}
 							classes={{ primary: 'text-13 font-medium' }}
 						/>
