@@ -56,7 +56,7 @@ function FuseNavVerticalLink(props) {
 				role="button"
 			>
 				{item.icon && (
-					<Icon className="fuse-list-item-icon text-16 flex-shrink-0" color="action">
+					<Icon className={clsx('fuse-list-item-icon text-20 flex-shrink-0', item.iconClass)} color="action">
 						{item.icon}
 					</Icon>
 				)}

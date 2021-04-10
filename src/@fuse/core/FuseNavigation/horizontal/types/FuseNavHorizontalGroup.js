@@ -102,7 +102,10 @@ function FuseNavHorizontalGroup(props) {
 								role="button"
 							>
 								{item.icon && (
-									<Icon color="action" className="fuse-list-item-icon text-16 flex-shrink-0">
+									<Icon
+										color="action"
+										className={clsx('fuse-list-item-icon text-16 flex-shrink-0', item.iconClass)}
+									>
 										{item.icon}
 									</Icon>
 								)}

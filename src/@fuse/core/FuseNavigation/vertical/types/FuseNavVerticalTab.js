@@ -88,7 +88,10 @@ function FuseNavVerticalTab(props) {
 						<Tooltip title={item.title || ''} placement="right">
 							<div className="w-32 h-32 min-h-32 flex items-center justify-center relative">
 								{item.icon ? (
-									<Icon className="fuse-list-item-icon text-24" color="action">
+									<Icon
+										className={clsx('fuse-list-item-icon text-24', item.iconClass)}
+										color="action"
+									>
 										{item.icon}
 									</Icon>
 								) : (
@@ -106,7 +109,10 @@ function FuseNavVerticalTab(props) {
 						<>
 							<div className="w-32 h-32 min-h-32 flex items-center justify-center relative mb-8">
 								{item.icon ? (
-									<Icon className="fuse-list-item-icon text-32" color="action">
+									<Icon
+										className={clsx('fuse-list-item-icon text-32', item.iconClass)}
+										color="action"
+									>
 										{item.icon}
 									</Icon>
 								) : (

@@ -90,7 +90,10 @@ function FuseNavVerticalCollapse(props) {
 					role="button"
 				>
 					{item.icon && (
-						<Icon color="action" className="fuse-list-item-icon text-20 flex-shrink-0">
+						<Icon
+							className={clsx('fuse-list-item-icon text-20 flex-shrink-0', item.iconClass)}
+							color="action"
+						>
 							{item.icon}
 						</Icon>
 					)}
