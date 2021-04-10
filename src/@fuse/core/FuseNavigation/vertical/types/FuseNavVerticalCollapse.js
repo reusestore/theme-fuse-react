@@ -138,6 +138,7 @@ function FuseNavVerticalCollapse(props) {
 			item.badge,
 			item.children,
 			item.icon,
+			item.iconClass,
 			item.title,
 			item.url,
 			nestedLevel,
