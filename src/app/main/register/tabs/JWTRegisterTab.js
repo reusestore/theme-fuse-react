@@ -137,7 +137,7 @@ function JWTRegisterTab(props) {
 				/>
 
 				<Controller
-					name="passwordConfirmm"
+					name="passwordConfirm"
 					control={control}
 					render={({ field }) => (
 						<TextField

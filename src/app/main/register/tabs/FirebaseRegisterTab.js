@@ -36,7 +36,6 @@ function FirebaseRegisterTab(props) {
 
 	const [isFormValid, setIsFormValid] = useState(false);
 	const formRef = useRef(null);
-
 	const { control, formState, handleSubmit, reset, setError } = useForm({
 		mode: 'onChange',
 		defaultValues,
@@ -140,7 +139,7 @@ function FirebaseRegisterTab(props) {
 				/>
 
 				<Controller
-					name="passwordConfirmm"
+					name="passwordConfirm"
 					control={control}
 					render={({ field }) => (
 						<TextField
