@@ -8,6 +8,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
 
 /* eslint import/no-webpack-loader-syntax: off */
+/* eslint import/extensions: off */
 
 function FuseAuthorizationDoc() {
 	return (

@@ -70,12 +70,7 @@ const notesSlice = createSlice({
 	}
 });
 
-export const {
-	setNotesSearchText,
-	resetNotesSearchText,
-	toggleVariateDescSize,
-	openNoteDialog,
-	closeNoteDialog
-} = notesSlice.actions;
+export const { setNotesSearchText, resetNotesSearchText, toggleVariateDescSize, openNoteDialog, closeNoteDialog } =
+	notesSlice.actions;
 
 export default notesSlice.reducer;

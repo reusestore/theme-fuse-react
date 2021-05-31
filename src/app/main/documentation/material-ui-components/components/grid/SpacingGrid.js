@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import FormLabel from '@material-ui/core/FormLabel';
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SpacingGrid() {
-  const [spacing, setSpacing] = useState(2);
+  const [spacing, setSpacing] = React.useState(2);
   const classes = useStyles();
 
   const handleChange = (event) => {

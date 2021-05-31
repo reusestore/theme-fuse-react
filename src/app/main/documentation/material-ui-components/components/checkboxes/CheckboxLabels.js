@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { green } from '@material-ui/core/colors';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -20,7 +20,7 @@ const GreenCheckbox = withStyles({
 })((props) => <Checkbox color="default" {...props} />);
 
 export default function CheckboxLabels() {
-  const [state, setState] = useState({
+  const [state, setState] = React.useState({
     checkedA: true,
     checkedB: true,
     checkedF: true,

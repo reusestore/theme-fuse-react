@@ -9,7 +9,6 @@
         "react-app",
         "airbnb",
         "plugin:prettier/recommended",
-        "prettier/react"
     ],
     "plugins": [
         "prettier"

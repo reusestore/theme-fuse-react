@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Typography from '@material-ui/core/Typography';
@@ -35,9 +35,9 @@ CircularProgressWithLabel.propTypes = {
 };
 
 export default function CircularStatic() {
-  const [progress, setProgress] = useState(10);
+  const [progress, setProgress] = React.useState(10);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const timer = setInterval(() => {
       setProgress((prevProgress) => (prevProgress >= 100 ? 0 : prevProgress + 10));
     }, 800);

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CustomizedSelects() {
   const classes = useStyles();
-  const [age, setAge] = useState('');
+  const [age, setAge] = React.useState('');
   const handleChange = (event) => {
     setAge(event.target.value);
   };

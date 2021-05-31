@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CheckboxListSecondary() {
   const classes = useStyles();
-  const [checked, setChecked] = useState([1]);
+  const [checked, setChecked] = React.useState([1]);
 
   const handleToggle = (value) => () => {
     const currentIndex = checked.indexOf(value);

@@ -12,10 +12,8 @@ const notificationsAdapter = createEntityAdapter({});
 
 const initialState = notificationsAdapter.upsertMany(notificationsAdapter.getInitialState(), []);
 
-export const {
-	selectAll: selectNotifications,
-	selectById: selectNotificationsById
-} = notificationsAdapter.getSelectors(state => state.notificationPanel.data);
+export const { selectAll: selectNotifications, selectById: selectNotificationsById } =
+	notificationsAdapter.getSelectors(state => state.notificationPanel.data);
 
 const dataSlice = createSlice({
 	name: 'notificationPanel/data',

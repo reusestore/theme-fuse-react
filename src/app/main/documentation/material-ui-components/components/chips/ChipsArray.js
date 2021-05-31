@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
 import Paper from '@material-ui/core/Paper';
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ChipsArray() {
   const classes = useStyles();
-  const [chipData, setChipData] = useState([
+  const [chipData, setChipData] = React.useState([
     { key: 0, label: 'Angular' },
     { key: 1, label: 'jQuery' },
     { key: 2, label: 'Polymer' },

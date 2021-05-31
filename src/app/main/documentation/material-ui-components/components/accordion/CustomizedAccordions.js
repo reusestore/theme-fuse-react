@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
@@ -47,7 +47,7 @@ const AccordionDetails = withStyles((theme) => ({
 }))(MuiAccordionDetails);
 
 export default function CustomizedAccordions() {
-  const [expanded, setExpanded] = useState('panel1');
+  const [expanded, setExpanded] = React.useState('panel1');
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);

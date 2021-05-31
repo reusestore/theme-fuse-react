@@ -24,8 +24,7 @@ class Auth0Service {
 				responseType: 'token id_token',
 				audience: `https://${AUTH_CONFIG.domain}/api/v2/`,
 				params: {
-					scope:
-						'openid profile email user_metadata app_metadata picture update:current_user_metadata create:current_user_metadata read:current_user'
+					scope: 'openid profile email user_metadata app_metadata picture update:current_user_metadata create:current_user_metadata read:current_user'
 				}
 			}
 		});

@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -60,7 +60,7 @@ ScrollTop.propTypes = {
 
 export default function BackToTop(props) {
   return (
-    <Fragment>
+    <React.Fragment>
       <CssBaseline />
       <AppBar>
         <Toolbar>
@@ -85,6 +85,6 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
           <KeyboardArrowUpIcon />
         </Fab>
       </ScrollTop>
-    </Fragment>
+    </React.Fragment>
   );
 }

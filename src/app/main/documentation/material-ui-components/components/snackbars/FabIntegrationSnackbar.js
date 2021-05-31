@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -36,7 +36,7 @@ export default function FabIntegrationSnackbar() {
   const classes = useStyles();
 
   return (
-    <Fragment>
+    <React.Fragment>
       <CssBaseline />
       <div>
         <AppBar position="static" color="primary">
@@ -69,6 +69,6 @@ export default function FabIntegrationSnackbar() {
           className={classes.snackbar}
         />
       </div>
-    </Fragment>
+    </React.Fragment>
   );
 }

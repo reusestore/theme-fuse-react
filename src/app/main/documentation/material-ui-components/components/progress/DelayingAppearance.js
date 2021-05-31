@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Fade from '@material-ui/core/Fade';
 import Button from '@material-ui/core/Button';
@@ -21,11 +21,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function DelayingAppearance() {
   const classes = useStyles();
-  const [loading, setLoading] = useState(false);
-  const [query, setQuery] = useState('idle');
-  const timerRef = useRef();
+  const [loading, setLoading] = React.useState(false);
+  const [query, setQuery] = React.useState('idle');
+  const timerRef = React.useRef();
 
-  useEffect(
+  React.useEffect(
     () => () => {
       clearTimeout(timerRef.current);
     },

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import Paper from '@material-ui/core/Paper';
@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
 export default function TextMobileStepper() {
   const classes = useStyles();
   const theme = useTheme();
-  const [activeStep, setActiveStep] = useState(0);
+  const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = tutorialSteps.length;
 
   const handleNext = () => {

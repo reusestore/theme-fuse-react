@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Portal from '@material-ui/core/Portal';
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PortalClickAway() {
   const classes = useStyles();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = React.useState(false);
 
   const handleClick = () => {
     setOpen((prev) => !prev);

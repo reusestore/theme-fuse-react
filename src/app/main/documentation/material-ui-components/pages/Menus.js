@@ -5,6 +5,7 @@ import Icon from '@material-ui/core/Icon';
 import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
 /* eslint import/no-webpack-loader-syntax: off */
+/* eslint import/extensions: off */
 /* eslint no-unused-vars: off */
 /* eslint-disable jsx-a11y/accessible-emoji */
 const useStyles = makeStyles(theme => ({

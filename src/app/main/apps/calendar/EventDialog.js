@@ -174,6 +174,8 @@ function EventDialog(props) {
 							<DateTimePicker
 								label="Start"
 								inputVariant="outlined"
+								value={value}
+								onChange={onChange}
 								className="mt-8 mb-16 w-full"
 								maxDate={end}
 							/>

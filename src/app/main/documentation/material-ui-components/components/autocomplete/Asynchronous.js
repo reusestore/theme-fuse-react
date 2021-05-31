@@ -1,6 +1,6 @@
 // *https://www.registers.service.gov.uk/registers/country/use-the-api*
 import fetch from 'cross-fetch';
-import { useState, useEffect, Fragment } from 'react';
+import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -12,11 +12,11 @@ function sleep(delay = 0) {
 }
 
 export default function Asynchronous() {
-  const [open, setOpen] = useState(false);
-  const [options, setOptions] = useState([]);
+  const [open, setOpen] = React.useState(false);
+  const [options, setOptions] = React.useState([]);
   const loading = open && options.length === 0;
 
-  useEffect(() => {
+  React.useEffect(() => {
     let active = true;
 
     if (!loading) {
@@ -38,7 +38,7 @@ export default function Asynchronous() {
     };
   }, [loading]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!open) {
       setOptions([]);
     }
@@ -67,10 +67,10 @@ export default function Asynchronous() {
           InputProps={{
             ...params.InputProps,
             endAdornment: (
-              <Fragment>
+              <React.Fragment>
                 {loading ? <CircularProgress color="inherit" size={20} /> : null}
                 {params.InputProps.endAdornment}
-              </Fragment>
+              </React.Fragment>
             ),
           }}
         />

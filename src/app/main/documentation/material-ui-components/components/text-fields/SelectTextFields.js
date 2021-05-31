@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MultilineTextFields() {
   const classes = useStyles();
-  const [currency, setCurrency] = useState('EUR');
+  const [currency, setCurrency] = React.useState('EUR');
 
   const handleChange = (event) => {
     setCurrency(event.target.value);

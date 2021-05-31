@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import List from '@material-ui/core/List';
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NestedList() {
   const classes = useStyles();
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = React.useState(true);
 
   const handleClick = () => {
     setOpen(!open);

@@ -3,6 +3,11 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
 	{
+		version: '6.1.2',
+		date: '2021-05-30',
+		newChanges: ['All dependency packages updated.']
+	},
+	{
 		version: '6.1.1',
 		date: '2021-04-07',
 		newChanges: ['jss, jss-plugin-extend updated to v10.6.0'],

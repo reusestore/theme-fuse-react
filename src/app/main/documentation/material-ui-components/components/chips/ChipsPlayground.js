@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import HighlightedCode from 'app/main/documentation/material-ui-components/utils/HighlightedCode';
@@ -24,7 +24,7 @@ const styles = (theme) => ({
 
 function ChipsPlayground(props) {
   const { classes } = props;
-  const [state, setState] = useState({
+  const [state, setState] = React.useState({
     color: 'default',
     onDelete: 'none',
     avatar: 'none',

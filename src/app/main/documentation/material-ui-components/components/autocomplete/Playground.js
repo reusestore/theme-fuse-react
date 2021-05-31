@@ -1,5 +1,5 @@
 /* eslint-disable no-use-before-define */
-import { useState } from 'react';
+import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
@@ -13,7 +13,7 @@ export default function Playground() {
     options: top100Films.map((option) => option.title),
   };
 
-  const [value, setValue] = useState(null);
+  const [value, setValue] = React.useState(null);
 
   return (
     <div style={{ width: 300 }}>

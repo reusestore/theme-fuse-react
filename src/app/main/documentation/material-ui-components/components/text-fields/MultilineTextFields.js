@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 
@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MultilineTextFields() {
   const classes = useStyles();
-  const [value, setValue] = useState('Controlled');
+  const [value, setValue] = React.useState('Controlled');
 
   const handleChange = (event) => {
     setValue(event.target.value);

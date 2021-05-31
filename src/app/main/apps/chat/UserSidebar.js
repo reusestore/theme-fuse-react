@@ -54,10 +54,8 @@ function UserSidebar(props) {
 			return;
 		}
 
-		const newUser = { ...user, ...form };
-
-		if (!_.isEqual(user, newUser)) {
-			updateUser(newUser);
+		if (!_.isEqual(user, form)) {
+			updateUser(form);
 		}
 	}, [user, form, updateUser]);
 

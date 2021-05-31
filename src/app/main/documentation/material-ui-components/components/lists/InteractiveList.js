@@ -1,4 +1,4 @@
-import { cloneElement, useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 
 function generate(element) {
   return [0, 1, 2].map((value) =>
-    cloneElement(element, {
+    React.cloneElement(element, {
       key: value,
     }),
   );
@@ -39,8 +39,8 @@ function generate(element) {
 
 export default function InteractiveList() {
   const classes = useStyles();
-  const [dense, setDense] = useState(false);
-  const [secondary, setSecondary] = useState(false);
+  const [dense, setDense] = React.useState(false);
+  const [secondary, setSecondary] = React.useState(false);
 
   return (
     <div className={classes.root}>

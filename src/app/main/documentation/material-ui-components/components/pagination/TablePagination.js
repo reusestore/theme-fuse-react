@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import React from 'react';
 import TablePagination from '@material-ui/core/TablePagination';
 
 export default function TablePaginationDemo() {
-  const [page, setPage] = useState(2);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [page, setPage] = React.useState(2);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);

@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import React from 'react';
 import Portal from '@material-ui/core/Portal';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -12,8 +12,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SimplePortal() {
   const classes = useStyles();
-  const [show, setShow] = useState(false);
-  const container = useRef(null);
+  const [show, setShow] = React.useState(false);
+  const container = React.useRef(null);
 
   const handleClick = () => {
     setShow(!show);

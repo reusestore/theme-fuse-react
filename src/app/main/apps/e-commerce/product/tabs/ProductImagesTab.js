@@ -53,7 +53,6 @@ function ProductImagesTab(props) {
 				<Controller
 					name="images"
 					control={control}
-					defaultValue={[]}
 					render={({ field: { onChange, value } }) => (
 						<label
 							htmlFor="button-file"

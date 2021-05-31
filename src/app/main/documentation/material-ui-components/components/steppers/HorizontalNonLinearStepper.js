@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -41,8 +41,8 @@ function getStepContent(step) {
 
 export default function HorizontalNonLinearStepper() {
   const classes = useStyles();
-  const [activeStep, setActiveStep] = useState(0);
-  const [completed, setCompleted] = useState({});
+  const [activeStep, setActiveStep] = React.useState(0);
+  const [completed, setCompleted] = React.useState({});
   const steps = getSteps();
 
   const totalSteps = () => {

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
@@ -13,9 +13,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CircularDeterminate() {
   const classes = useStyles();
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = React.useState(0);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const timer = setInterval(() => {
       setProgress((prevProgress) => (prevProgress >= 100 ? 0 : prevProgress + 10));
     }, 800);

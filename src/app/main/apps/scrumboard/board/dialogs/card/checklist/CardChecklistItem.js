@@ -13,9 +13,8 @@ function CardChecklistItem(props) {
 	const form = watch();
 
 	useEffect(() => {
-		const newItem = { ...item, ...form };
-		if (!_.isEqual(item, newItem)) {
-			onListItemChange(newItem, index);
+		if (!_.isEqual(item, form)) {
+			onListItemChange(form, index);
 		}
 	}, [form, index, onListItemChange, item]);
 

@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -42,15 +42,15 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CircularIntegration() {
   const classes = useStyles();
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const timer = useRef();
+  const [loading, setLoading] = React.useState(false);
+  const [success, setSuccess] = React.useState(false);
+  const timer = React.useRef();
 
   const buttonClassname = clsx({
     [classes.buttonSuccess]: success,
   });
 
-  useEffect(() => {
+  React.useEffect(() => {
     return () => {
       clearTimeout(timer.current);
     };

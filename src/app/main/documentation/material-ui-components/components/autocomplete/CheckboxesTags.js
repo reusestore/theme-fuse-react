@@ -1,6 +1,6 @@
 /* eslint-disable no-use-before-define */
 
-import { Fragment } from 'react';
+import React from 'react';
 import Checkbox from '@material-ui/core/Checkbox';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -19,7 +19,7 @@ export default function CheckboxesTags() {
       disableCloseOnSelect
       getOptionLabel={(option) => option.title}
       renderOption={(option, { selected }) => (
-        <Fragment>
+        <React.Fragment>
           <Checkbox
             icon={icon}
             checkedIcon={checkedIcon}
@@ -27,7 +27,7 @@ export default function CheckboxesTags() {
             checked={selected}
           />
           {option.title}
-        </Fragment>
+        </React.Fragment>
       )}
       style={{ width: 500 }}
       renderInput={(params) => (

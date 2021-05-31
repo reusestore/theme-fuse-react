@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import Badge from '@material-ui/core/Badge';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -27,8 +27,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function BadgeAlignment() {
   const classes = useStyles();
-  const [horizontal, setHorizontal] = useState('right');
-  const [vertical, setVertical] = useState('top');
+  const [horizontal, setHorizontal] = React.useState('right');
+  const [vertical, setVertical] = React.useState('top');
 
   const handleHorizontalChange = (event) => {
     setHorizontal(event.target.value);

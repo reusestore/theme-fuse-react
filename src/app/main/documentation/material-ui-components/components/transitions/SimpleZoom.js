@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import Switch from '@material-ui/core/Switch';
 import Paper from '@material-ui/core/Paper';
 import Zoom from '@material-ui/core/Zoom';
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SimpleZoom() {
   const classes = useStyles();
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = React.useState(false);
 
   const handleChange = () => {
     setChecked((prev) => !prev);

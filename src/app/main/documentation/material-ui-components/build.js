@@ -236,6 +236,7 @@ function writePage(file) {
                    import Typography from '@material-ui/core/Typography';
                    import {makeStyles} from '@material-ui/core/styles';
                    /* eslint import/no-webpack-loader-syntax: off */
+                   /* eslint import/extensions: off */
                    /* eslint no-unused-vars: off */
                    /* eslint-disable jsx-a11y/accessible-emoji */
                    const useStyles = makeStyles(theme=>({
@@ -268,7 +269,7 @@ function writeRouteFile(pages) {
 	// });
 
 	const routeObject =
-		"{ path     : '/documentation/material-ui-components/%s', component: React.lazy(() => import('app/main/documentation/material-ui-components/pages/%p'))}";
+		"{ path     : '/documentation/material-ui-components/%s', component: lazy(() => import('app/main/documentation/material-ui-components/pages/%p'))}";
 	const routes = pages.map(page => {
 		const componentName = _.upperFirst(_.camelCase(page));
 		return routeObject.allReplace({
@@ -278,6 +279,8 @@ function writeRouteFile(pages) {
 	});
 	const content = Beautify(
 		`
+		import { lazy } from 'react';
+
         const MaterialUIComponentsRoutes =  [${routes.join()}];
         
         export default MaterialUIComponentsRoutes;

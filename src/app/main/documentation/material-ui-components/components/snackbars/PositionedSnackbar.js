@@ -1,9 +1,9 @@
-import { useState, Fragment } from 'react';
+import React from 'react';
 import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 
 export default function PositionedSnackbar() {
-  const [state, setState] = useState({
+  const [state, setState] = React.useState({
     open: false,
     vertical: 'top',
     horizontal: 'center',
@@ -20,7 +20,7 @@ export default function PositionedSnackbar() {
   };
 
   const buttons = (
-    <Fragment>
+    <React.Fragment>
       <Button onClick={handleClick({ vertical: 'top', horizontal: 'center' })}>Top-Center</Button>
       <Button onClick={handleClick({ vertical: 'top', horizontal: 'right' })}>Top-Right</Button>
       <Button onClick={handleClick({ vertical: 'bottom', horizontal: 'right' })}>
@@ -31,7 +31,7 @@ export default function PositionedSnackbar() {
       </Button>
       <Button onClick={handleClick({ vertical: 'bottom', horizontal: 'left' })}>Bottom-Left</Button>
       <Button onClick={handleClick({ vertical: 'top', horizontal: 'left' })}>Top-Left</Button>
-    </Fragment>
+    </React.Fragment>
   );
 
   return (

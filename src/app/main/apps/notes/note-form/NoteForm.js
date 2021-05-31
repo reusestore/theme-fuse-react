@@ -63,10 +63,8 @@ function NoteForm(props) {
 		if (!props.note || props.variant === 'new' || !props.onChange) {
 			return;
 		}
-
-		const newNote = { ...defaultValues, ...noteForm };
-		if (!_.isEqual(props.note, newNote)) {
-			props.onChange(newNote);
+		if (!_.isEqual(props.note, noteForm)) {
+			props.onChange(noteForm);
 		}
 	}, [noteForm, props, defaultValues]);
 

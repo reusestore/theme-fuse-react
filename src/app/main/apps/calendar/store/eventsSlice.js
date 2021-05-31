@@ -118,11 +118,7 @@ const eventsSlice = createSlice({
 	}
 });
 
-export const {
-	openNewEventDialog,
-	closeNewEventDialog,
-	openEditEventDialog,
-	closeEditEventDialog
-} = eventsSlice.actions;
+export const { openNewEventDialog, closeNewEventDialog, openEditEventDialog, closeEditEventDialog } =
+	eventsSlice.actions;
 
 export default eventsSlice.reducer;

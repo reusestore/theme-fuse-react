@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
@@ -66,9 +66,9 @@ const inlineStyles = {
 
 function AnchorPlayground(props) {
   const { classes } = props;
-  const anchorRef = useRef();
+  const anchorRef = React.useRef();
 
-  const [state, setState] = useState({
+  const [state, setState] = React.useState({
     open: false,
     anchorOriginVertical: 'top',
     anchorOriginHorizontal: 'left',

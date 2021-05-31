@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Badge from '@material-ui/core/Badge';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
@@ -24,8 +24,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function BadgeVisibility() {
   const classes = useStyles();
-  const [count, setCount] = useState(1);
-  const [invisible, setInvisible] = useState(false);
+  const [count, setCount] = React.useState(1);
+  const [invisible, setInvisible] = React.useState(false);
 
   const handleBadgeVisibility = () => {
     setInvisible(!invisible);

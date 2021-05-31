@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -69,8 +69,8 @@ SimpleDialog.propTypes = {
 };
 
 export default function SimpleDialogDemo() {
-  const [open, setOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState(emails[1]);
+  const [open, setOpen] = React.useState(false);
+  const [selectedValue, setSelectedValue] = React.useState(emails[1]);
 
   const handleClickOpen = () => {
     setOpen(true);

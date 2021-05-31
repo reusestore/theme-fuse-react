@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tab from '@material-ui/core/Tab';
@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function LabTabs() {
   const classes = useStyles();
-  const [value, setValue] = useState('1');
+  const [value, setValue] = React.useState('1');
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

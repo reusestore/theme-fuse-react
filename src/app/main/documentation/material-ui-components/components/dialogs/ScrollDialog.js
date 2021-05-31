@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -7,8 +7,8 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 export default function ScrollDialog() {
-  const [open, setOpen] = useState(false);
-  const [scroll, setScroll] = useState('paper');
+  const [open, setOpen] = React.useState(false);
+  const [scroll, setScroll] = React.useState('paper');
 
   const handleClickOpen = (scrollType) => () => {
     setOpen(true);
@@ -19,8 +19,8 @@ export default function ScrollDialog() {
     setOpen(false);
   };
 
-  const descriptionElementRef = useRef(null);
-  useEffect(() => {
+  const descriptionElementRef = React.useRef(null);
+  React.useEffect(() => {
     if (open) {
       const { current: descriptionElement } = descriptionElementRef;
       if (descriptionElement !== null) {

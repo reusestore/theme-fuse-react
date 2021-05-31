@@ -5,7 +5,7 @@ import NotificationCard from './NotificationCard';
 const NotificationTemplate = forwardRef((props, ref) => {
 	const { item } = props;
 	return (
-		<SnackbarContent ref={ref} className="mx-auto max-w-320 w-full relative">
+		<SnackbarContent ref={ref} className="mx-auto max-w-320 w-full relative pointer-events-auto py-4">
 			<NotificationCard item={item} onClose={props.onClose} />
 		</SnackbarContent>
 	);

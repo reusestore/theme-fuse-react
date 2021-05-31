@@ -5,11 +5,12 @@ import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
 
 /* eslint import/no-webpack-loader-syntax: off */
+/* eslint import/extensions: off */
 
 function ReactHookFormDoc() {
 	return (
 		<>
-			<div className="flex flex-1 items-center justify-between mb-24">
+			<div className="flex w-full items-center justify-between mb-24">
 				<Typography variant="h4" className="">
 					React Hook Form
 				</Typography>

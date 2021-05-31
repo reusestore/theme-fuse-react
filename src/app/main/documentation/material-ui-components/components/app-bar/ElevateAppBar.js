@@ -1,4 +1,4 @@
-import { cloneElement, Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -19,7 +19,7 @@ function ElevationScroll(props) {
     target: window ? window() : undefined,
   });
 
-  return cloneElement(children, {
+  return React.cloneElement(children, {
     elevation: trigger ? 4 : 0,
   });
 }
@@ -35,7 +35,7 @@ ElevationScroll.propTypes = {
 
 export default function ElevateAppBar(props) {
   return (
-    <Fragment>
+    <React.Fragment>
       <CssBaseline />
       <ElevationScroll {...props}>
         <AppBar>
@@ -57,6 +57,6 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
             .join('\n')}
         </Box>
       </Container>
-    </Fragment>
+    </React.Fragment>
   );
 }

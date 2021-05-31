@@ -50,9 +50,8 @@ function BoardCardForm(props) {
 		if (!card) {
 			return;
 		}
-		const newCard = { ...card, ...cardForm };
-		if (!_.isEqual(newCard, card)) {
-			updateCardData(board.id, newCard);
+		if (!_.isEqual(card, cardForm)) {
+			updateCardData(board.id, cardForm);
 		}
 	}, [board.id, card, cardForm, updateCardData]);
 

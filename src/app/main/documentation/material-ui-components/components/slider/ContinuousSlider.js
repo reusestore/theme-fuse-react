@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -14,7 +14,7 @@ const useStyles = makeStyles({
 
 export default function ContinuousSlider() {
   const classes = useStyles();
-  const [value, setValue] = useState(30);
+  const [value, setValue] = React.useState(30);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

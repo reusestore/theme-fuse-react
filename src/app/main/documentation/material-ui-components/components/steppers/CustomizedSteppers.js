@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
@@ -201,7 +201,7 @@ function getStepContent(step) {
 
 export default function CustomizedSteppers() {
   const classes = useStyles();
-  const [activeStep, setActiveStep] = useState(1);
+  const [activeStep, setActiveStep] = React.useState(1);
   const steps = getSteps();
 
   const handleNext = () => {

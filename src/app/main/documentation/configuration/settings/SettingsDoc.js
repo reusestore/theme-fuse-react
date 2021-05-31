@@ -2,6 +2,8 @@ import FuseHighlight from '@fuse/core/FuseHighlight';
 import Typography from '@material-ui/core/Typography';
 
 /* eslint import/no-webpack-loader-syntax: off */
+/* eslint import/extensions: off */
+
 function SettingsDoc() {
 	return (
 		<>

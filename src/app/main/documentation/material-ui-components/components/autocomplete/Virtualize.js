@@ -1,13 +1,4 @@
-import {
-  cloneElement,
-  createContext,
-  forwardRef,
-  useContext,
-  useRef,
-  useEffect,
-  Children,
-  isValidElement,
-} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -15,13 +6,13 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import { useTheme, makeStyles } from '@material-ui/core/styles';
 import { VariableSizeList } from 'react-window';
-import Typography from '@material-ui/core/Typography';
+import { Typography } from '@material-ui/core';
 
 const LISTBOX_PADDING = 8; // px
 
 function renderRow(props) {
   const { data, index, style } = props;
-  return cloneElement(data[index], {
+  return React.cloneElement(data[index], {
     style: {
       ...style,
       top: style.top + LISTBOX_PADDING,
@@ -29,16 +20,16 @@ function renderRow(props) {
   });
 }
 
-const OuterElementContext = createContext({});
+const OuterElementContext = React.createContext({});
 
-const OuterElementType = forwardRef((props, ref) => {
-  const outerProps = useContext(OuterElementContext);
+const OuterElementType = React.forwardRef((props, ref) => {
+  const outerProps = React.useContext(OuterElementContext);
   return <div ref={ref} {...props} {...outerProps} />;
 });
 
 function useResetCache(data) {
-  const ref = useRef(null);
-  useEffect(() => {
+  const ref = React.useRef(null);
+  React.useEffect(() => {
     if (ref.current != null) {
       ref.current.resetAfterIndex(0, true);
     }
@@ -47,16 +38,16 @@ function useResetCache(data) {
 }
 
 // Adapter for react-window
-const ListboxComponent = forwardRef(function ListboxComponent(props, ref) {
+const ListboxComponent = React.forwardRef(function ListboxComponent(props, ref) {
   const { children, ...other } = props;
-  const itemData = Children.toArray(children);
+  const itemData = React.Children.toArray(children);
   const theme = useTheme();
   const smUp = useMediaQuery(theme.breakpoints.up('sm'), { noSsr: true });
   const itemCount = itemData.length;
   const itemSize = smUp ? 36 : 48;
 
   const getChildSize = (child) => {
-    if (isValidElement(child) && child.type === ListSubheader) {
+    if (React.isValidElement(child) && child.type === ListSubheader) {
       return 48;
     }
 

@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import React from 'react';
 import Timeline from '@material-ui/lab/Timeline';
 import TimelineItem from '@material-ui/lab/TimelineItem';
 import TimelineSeparator from '@material-ui/lab/TimelineSeparator';
@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 
 export default function OppositeContentTimeline() {
   return (
-    <Fragment>
+    <React.Fragment>
       <Timeline align="alternate">
         <TimelineItem>
           <TimelineOppositeContent>
@@ -61,6 +61,6 @@ export default function OppositeContentTimeline() {
           </TimelineContent>
         </TimelineItem>
       </Timeline>
-    </Fragment>
+    </React.Fragment>
   );
 }

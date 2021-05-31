@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
 
@@ -11,7 +11,7 @@ function valueLabelFormat(value) {
 }
 
 export default function NonLinearSlider() {
-  const [value, setValue] = useState(1);
+  const [value, setValue] = React.useState(1);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

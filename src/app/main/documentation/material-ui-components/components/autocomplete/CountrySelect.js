@@ -1,5 +1,5 @@
 /* eslint-disable no-use-before-define */
-import { Fragment } from 'react';
+import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { makeStyles } from '@material-ui/core/styles';
@@ -38,10 +38,10 @@ export default function CountrySelect() {
       autoHighlight
       getOptionLabel={(option) => option.label}
       renderOption={(option) => (
-        <Fragment>
+        <React.Fragment>
           <span>{countryToFlag(option.code)}</span>
           {option.label} ({option.code}) +{option.phone}
-        </Fragment>
+        </React.Fragment>
       )}
       renderInput={(params) => (
         <TextField

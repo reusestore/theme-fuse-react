@@ -1,3 +1,4 @@
+/* eslint import/no-extraneous-dependencies: off*/
 import { createSlice } from '@reduxjs/toolkit';
 import firebase from 'firebase/app';
 import 'firebase/auth';

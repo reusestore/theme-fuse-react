@@ -1,3 +1,4 @@
+import React from 'react';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
 const options = ['Option 1', 'Option 2'];

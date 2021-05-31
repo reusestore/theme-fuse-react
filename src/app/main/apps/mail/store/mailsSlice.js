@@ -92,12 +92,7 @@ const mailsSlice = createSlice({
 	}
 });
 
-export const {
-	setMailsSearchText,
-	selectAllMails,
-	deselectAllMails,
-	selectMailsByParameter,
-	toggleInSelectedMails
-} = mailsSlice.actions;
+export const { setMailsSearchText, selectAllMails, deselectAllMails, selectMailsByParameter, toggleInSelectedMails } =
+	mailsSlice.actions;
 
 export default mailsSlice.reducer;

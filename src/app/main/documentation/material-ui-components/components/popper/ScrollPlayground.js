@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import HighlightedCode from 'app/main/documentation/material-ui-components/utils/HighlightedCode';
@@ -102,15 +102,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ScrollPlayground() {
-  const anchorRef = useRef(null);
-  const [arrowRef, setArrowRef] = useState(null);
+  const anchorRef = React.useRef(null);
+  const [arrowRef, setArrowRef] = React.useState(null);
 
-  const [arrow, setArrow] = useState(false);
-  const [disablePortal, setDisablePortal] = useState(false);
-  const [flip, setFlip] = useState(true);
-  const [open, setOpen] = useState(false);
-  const [placement, setPlacement] = useState('bottom');
-  const [preventOverflow, setPreventOverflow] = useState('scrollParent');
+  const [arrow, setArrow] = React.useState(false);
+  const [disablePortal, setDisablePortal] = React.useState(false);
+  const [flip, setFlip] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
+  const [placement, setPlacement] = React.useState('bottom');
+  const [preventOverflow, setPreventOverflow] = React.useState('scrollParent');
 
   const handleClickButton = () => {
     setOpen((prevOpen) => !prevOpen);

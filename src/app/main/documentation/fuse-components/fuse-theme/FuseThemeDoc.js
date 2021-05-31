@@ -3,6 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
 
 /* eslint import/no-webpack-loader-syntax: off */
+/* eslint import/extensions: off */
 
 function FuseThemeDoc() {
 	return (

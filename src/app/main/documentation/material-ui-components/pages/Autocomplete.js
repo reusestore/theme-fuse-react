@@ -5,6 +5,7 @@ import Icon from '@material-ui/core/Icon';
 import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
 /* eslint import/no-webpack-loader-syntax: off */
+/* eslint import/extensions: off */
 /* eslint no-unused-vars: off */
 /* eslint-disable jsx-a11y/accessible-emoji */
 const useStyles = makeStyles(theme => ({
@@ -171,7 +172,7 @@ import useAutocomplete from '@material-ui/lab/useAutocomplete';
                 component={require('app/main/documentation/material-ui-components/components/autocomplete/Asynchronous.js').default}
                 raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/Asynchronous.js')}
             /></Typography>
-       {/*     <Typography className="text-24 mt-32 mb-8" component="h3">Google Maps place</Typography>
+            <Typography className="text-24 mt-32 mb-8" component="h3">Google Maps place</Typography>
             <Typography className="mb-16" component="div">A customized UI for Google Maps Places Autocomplete.</Typography>
             <Typography className="mb-16" component="div"><FuseExample
                 className="my-24"
@@ -191,7 +192,7 @@ import useAutocomplete from '@material-ui/lab/useAutocomplete';
                 iframe={false}
                 component={require('app/main/documentation/material-ui-components/components/autocomplete/Tags.js').default}
                 raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/Tags.js')}
-            /></Typography>*/}
+            /></Typography>
             <Typography className="text-24 mt-32 mb-8" component="h3">Fixed options</Typography>
             <Typography className="mb-16" component="div">In the event that you need to lock certain tag so that they can&#39;t be removed in the interface, you can set the chips
                 disabled.</Typography>

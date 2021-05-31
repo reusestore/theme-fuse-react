@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
@@ -36,7 +36,7 @@ export default function VerticalSlider() {
   const classes = useStyles();
 
   return (
-    <Fragment>
+    <React.Fragment>
       <Typography id="vertical-slider" gutterBottom>
         Temperature
       </Typography>
@@ -62,6 +62,6 @@ export default function VerticalSlider() {
           marks={marks}
         />
       </div>
-    </Fragment>
+    </React.Fragment>
   );
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
@@ -16,7 +16,7 @@ const useStyles = makeStyles({
 
 export default function IconTabs() {
   const classes = useStyles();
-  const [value, setValue] = useState(0);
+  const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

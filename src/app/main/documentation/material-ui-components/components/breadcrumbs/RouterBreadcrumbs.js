@@ -1,5 +1,5 @@
 /* eslint-disable no-nested-ternary */
-import { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
@@ -60,7 +60,7 @@ const LinkRouter = (props) => <Link {...props} component={RouterLink} />;
 
 export default function RouterBreadcrumbs() {
   const classes = useStyles();
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = React.useState(true);
 
   const handleClick = () => {
     setOpen((prevOpen) => !prevOpen);
