@@ -3,6 +3,11 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
 	{
+		version: '6.1.3',
+		date: '2021-06-03',
+		fixedChanges: ["ChatPanel doesn't render correctly after changing the layout and reloading the page."]
+	},
+	{
 		version: '6.1.2',
 		date: '2021-06-03',
 		newChanges: ['All dependency packages updated.']
