@@ -29,8 +29,7 @@ const navigationConfig = [
 						id: 'analytics-dashboard',
 						title: 'Analytics',
 						type: 'item',
-						url: '/apps/dashboards/analytics',
-						auth: authRoles.admin
+						url: '/apps/dashboards/analytics'
 					},
 					{
 						id: 'project-dashboard',
