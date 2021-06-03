@@ -31,6 +31,14 @@ const useStyles = makeStyles(theme => ({
 		minWidth: 70,
 		height: '100vh',
 		zIndex: 1000,
+		'&.opened': {
+			overflow: 'visible'
+		},
+		'&:not(.opened)': {
+			overflow: 'hidden',
+			animation: `$hide-panel 1ms linear ${theme.transitions.duration.standard}`,
+			animationFillMode: 'forwards'
+		},
 		[theme.breakpoints.down('md')]: {
 			width: 0,
 			maxWidth: 0,
@@ -70,6 +78,17 @@ const useStyles = makeStyles(theme => ({
 				transform: 'translate3d(0,0,0)!important',
 				boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'
 			}
+		}
+	},
+	'@keyframes hide-panel': {
+		'0%': {
+			overflow: 'visible'
+		},
+		'99%': {
+			overflow: 'visible'
+		},
+		'100%': {
+			overflow: 'hidden'
 		}
 	}
 }));
@@ -141,7 +160,7 @@ function ChatPanel(props) {
 	}, [state, dispatch]);
 
 	return (
-		<div className={classes.root} {...handlers}>
+		<div className={clsx(classes.root, { opened: state })} {...handlers}>
 			<div className={clsx(classes.panel, { opened: state }, 'flex flex-col max-w-full')} ref={ref}>
 				<AppBar position="static" className="shadow-md">
 					<Toolbar className="px-4">
