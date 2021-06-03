@@ -23,9 +23,14 @@ import { getUserData } from './store/userSlice';
 
 const useStyles = makeStyles(theme => ({
 	root: {
+		position: 'sticky',
+		display: 'flex',
+		top: 0,
 		width: 70,
 		maxWidth: 70,
 		minWidth: 70,
+		height: '100vh',
+		zIndex: 1000,
 		[theme.breakpoints.down('md')]: {
 			width: 0,
 			maxWidth: 0,
@@ -33,8 +38,11 @@ const useStyles = makeStyles(theme => ({
 		}
 	},
 	panel: {
+		position: 'absolute',
 		top: 0,
-		position: 'sticky',
+		right: 0,
+		bottom: 0,
+		left: 0,
 		width: 360,
 		minWidth: 360,
 		height: '100vh',
@@ -43,8 +51,6 @@ const useStyles = makeStyles(theme => ({
 		zIndex: 1000,
 		backgroundColor: theme.palette.background.paper,
 		boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-		bottom: 0,
-		right: 0,
 		transform: 'translate3d(0,0,0)',
 		transition: theme.transitions.create(['transform'], {
 			easing: theme.transitions.easing.easeInOut,
