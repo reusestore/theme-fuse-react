@@ -4,7 +4,7 @@ import ChangelogCard from './ChangelogCard';
 const changelogData = [
 	{
 		version: '6.1.2',
-		date: '2021-05-30',
+		date: '2021-06-03',
 		newChanges: ['All dependency packages updated.']
 	},
 	{
