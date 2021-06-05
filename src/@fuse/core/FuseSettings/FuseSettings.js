@@ -54,7 +54,10 @@ function FuseSettings(props) {
 	const user = useSelector(({ auth }) => auth.user);
 	const themes = useSelector(({ fuse }) => fuse.settings.themes);
 	const settings = useSelector(({ fuse }) => fuse.settings.current);
-	const { reset, watch, control } = useForm({ mode: 'onChange', defaultValues: settings });
+	const { reset, watch, control } = useForm({
+		mode: 'onChange',
+		defaultValues: settings
+	});
 	const form = watch();
 	const { form: formConfigs } = FuseLayoutConfigs[form.layout.style];
 	const prevForm = usePrevious(form);
@@ -124,7 +127,7 @@ function FuseSettings(props) {
 							className="m-8 mt-0 rounded-lg"
 							style={{
 								backgroundColor: val.palette.background.default,
-								color: val.palette.type === 'light' ? '#000000' : '#ffffff',
+								color: val.palette.type === 'light' ? '#000000' : '#FFFFFF',
 								border: `1px solid ${
 									val.palette.type === 'light' ? 'rgba(0, 0, 0, 0.12)' : 'rgba(255, 255, 255, 0.12)'
 								}`
@@ -314,7 +317,7 @@ function FuseSettings(props) {
 							<FormLabel component="legend" className="text-14">
 								Main
 							</FormLabel>
-							<ThemeSelect value={value} handleThemeChange={onChange} />
+							<ThemeSelect value={value} handleThemeChange={onChange} name="theme.main" />
 						</FormControl>
 					)}
 				/>
@@ -328,7 +331,7 @@ function FuseSettings(props) {
 								Navbar
 							</FormLabel>
 
-							<ThemeSelect value={value} handleThemeChange={onChange} />
+							<ThemeSelect value={value} handleThemeChange={onChange} name="theme.navbar" />
 						</FormControl>
 					)}
 				/>
@@ -342,7 +345,7 @@ function FuseSettings(props) {
 								Toolbar
 							</FormLabel>
 
-							<ThemeSelect value={value} handleThemeChange={onChange} />
+							<ThemeSelect value={value} handleThemeChange={onChange} name="theme.toolbar" />
 						</FormControl>
 					)}
 				/>
@@ -355,7 +358,7 @@ function FuseSettings(props) {
 							<FormLabel component="legend" className="text-14">
 								Footer
 							</FormLabel>
-							<ThemeSelect value={value} handleThemeChange={onChange} />
+							<ThemeSelect value={value} handleThemeChange={onChange} name="theme.footer" />
 						</FormControl>
 					)}
 				/>
