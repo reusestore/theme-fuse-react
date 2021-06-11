@@ -68,6 +68,7 @@ const useStyles = makeStyles(theme => ({
 			transform: 'translate3d(-290px,0,0)'
 		},
 		[theme.breakpoints.down('md')]: {
+			left: 'auto',
 			position: 'fixed',
 			transform: 'translate3d(360px,0,0)!important',
 			boxShadow: 'none',
