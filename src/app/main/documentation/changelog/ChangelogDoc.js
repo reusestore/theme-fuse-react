@@ -3,6 +3,14 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
 	{
+		version: '6.1.4',
+		date: '2021-06-12',
+		fixedChanges: [
+			'ChatPanel responsive positioning.',
+			"Main Theme light or Main Theme Dark values shouldn't be listed in main theme select."
+		]
+	},
+	{
 		version: '6.1.3',
 		date: '2021-06-03',
 		fixedChanges: ["ChatPanel doesn't render correctly after changing the layout and reloading the page."]
