@@ -1,7 +1,6 @@
 import List from '@material-ui/core/List';
 import { useTheme, makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
-import React from 'react';
 import FuseNavVerticalTab from './types/FuseNavVerticalTab';
 
 const useStyles = makeStyles(theme => ({
