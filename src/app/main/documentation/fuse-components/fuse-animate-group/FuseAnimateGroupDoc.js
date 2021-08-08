@@ -63,8 +63,8 @@ function FuseAnimateGroupDoc() {
                 animation: 'transition.slideUpBigOut',
               }}
             >
-              {list.map((item, id) => (
-                <ListItem key={id}>{item}</ListItem>
+              {list.map((item, index) => (
+                <ListItem key={index}>{item}</ListItem>
               ))}
             </FuseAnimateGroup>
           </List>

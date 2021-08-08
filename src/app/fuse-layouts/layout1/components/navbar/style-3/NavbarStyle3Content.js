@@ -69,10 +69,11 @@ function NavbarStyle3Content(props) {
   const location = useLocation();
 
   useEffect(() => {
-    navigation &&
-      navigation.forEach((item) => {
-        needsToBeOpened(location, item) && setSelectedNavigation([item]);
-      });
+    navigation?.forEach((item) => {
+      if (needsToBeOpened(location, item)) {
+        setSelectedNavigation([item]);
+      }
+    });
   }, [navigation, location]);
 
   function handleParentItemClick(selected) {
@@ -100,7 +101,9 @@ function NavbarStyle3Content(props) {
 
   function handleChildItemClick(selected) {
     setPanelOpen(false);
-    mdDown && dispatch(navbarCloseMobile());
+    if (mdDown) {
+      dispatch(navbarCloseMobile());
+    }
   }
 
   return (

@@ -15,7 +15,9 @@ function Navigation(props) {
   const dispatch = useDispatch();
 
   function handleItemClick(item) {
-    mdDown && dispatch(navbarCloseMobile());
+    if (mdDown) {
+      dispatch(navbarCloseMobile());
+    }
   }
 
   return (

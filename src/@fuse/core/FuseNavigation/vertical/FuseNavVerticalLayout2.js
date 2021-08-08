@@ -32,7 +32,7 @@ function FuseNavVerticalLayout2(props) {
   const theme = useTheme();
 
   function handleItemClick(item) {
-    onItemClick && onItemClick(item);
+    onItemClick?.(item);
   }
 
   return (

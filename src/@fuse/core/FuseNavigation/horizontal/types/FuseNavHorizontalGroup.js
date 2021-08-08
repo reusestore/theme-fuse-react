@@ -78,8 +78,16 @@ function FuseNavHorizontalGroup(props) {
     setOpened(open);
   }, 150);
 
-  return useMemo(
-    () => (
+  return useMemo(() => {
+    let popperPlacement = 'left';
+
+    if (nestedLevel === 0) {
+      popperPlacement = theme.direction === 'ltr' ? 'bottom-start' : 'bottom-end';
+    } else {
+      popperPlacement = theme.direction === 'ltr' ? 'right' : 'left';
+    }
+
+    return (
       <Manager>
         <Reference>
           {({ ref }) => (
@@ -132,19 +140,7 @@ function FuseNavHorizontalGroup(props) {
           )}
         </Reference>
         {ReactDOM.createPortal(
-          <Popper
-            placement={
-              nestedLevel === 0
-                ? theme.direction === 'ltr'
-                  ? 'bottom-start'
-                  : 'bottom-end'
-                : theme.direction === 'ltr'
-                ? 'right'
-                : 'left'
-            }
-            eventsEnabled={opened}
-            positionFixed
-          >
+          <Popper placement={popperPlacement} eventsEnabled={opened} positionFixed>
             {({ ref, style, placement, arrowProps }) =>
               opened && (
                 <div
@@ -191,21 +187,20 @@ function FuseNavHorizontalGroup(props) {
           document.querySelector('#root')
         )}
       </Manager>
-    ),
-    [
-      classes.children,
-      classes.popper,
-      classes.popperClose,
-      classes.root,
-      dense,
-      handleToggle,
-      item,
-      nestedLevel,
-      opened,
-      props.location.pathname,
-      theme.direction,
-    ]
-  );
+    );
+  }, [
+    classes.children,
+    classes.popper,
+    classes.popperClose,
+    classes.root,
+    dense,
+    handleToggle,
+    item,
+    nestedLevel,
+    opened,
+    props.location.pathname,
+    theme.direction,
+  ]);
 }
 
 FuseNavHorizontalGroup.propTypes = {

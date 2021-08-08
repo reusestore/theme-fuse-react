@@ -6,10 +6,10 @@ function Breadcrumb({ className, selected }) {
 
   return (
     <Typography className={className}>
-      {arr.map((path, i) => (
-        <span key={i} className="flex items-center">
+      {arr.map((path, index) => (
+        <span key={index} className="flex items-center">
           <span>{path}</span>
-          {arr.length - 1 !== i && <Icon>chevron_right</Icon>}
+          {arr.length - 1 !== index && <Icon>chevron_right</Icon>}
         </span>
       ))}
     </Typography>

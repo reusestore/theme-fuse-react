@@ -17,19 +17,19 @@ function NavbarToggleButton(props) {
   return (
     <IconButton
       className={props.className}
-      onClick={(ev) =>
-        dispatch(
-          mdDown
-            ? navbarToggleMobile()
-            : config.navbar.style === 'style-2'
-            ? dispatch(
-                setDefaultSettings(
-                  _.set({}, 'layout.config.navbar.folded', !settings.layout.config.navbar.folded)
-                )
-              )
-            : navbarToggle()
-        )
-      }
+      onClick={(ev) => {
+        if (mdDown) {
+          dispatch(navbarToggleMobile());
+        } else if (config.navbar.style === 'style-2') {
+          dispatch(
+            setDefaultSettings(
+              _.set({}, 'layout.config.navbar.folded', !settings.layout.config.navbar.folded)
+            )
+          );
+        } else {
+          navbarToggle();
+        }
+      }}
       color="inherit"
       size="small"
     >

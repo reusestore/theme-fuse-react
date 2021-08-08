@@ -207,7 +207,7 @@ function Chat(props) {
             className="flex flex-1 flex-col overflow-y-auto overscroll-contain"
             option={{ suppressScrollX: true, wheelPropagation: false }}
           >
-            {!chat ? (
+            {!chat && (
               <div className="flex flex-col flex-1 items-center justify-center p-24">
                 <Icon className="text-128" color="disabled">
                   chat
@@ -216,7 +216,9 @@ function Chat(props) {
                   Select a contact to start a conversation.
                 </Typography>
               </div>
-            ) : chat.dialog.length > 0 ? (
+            )}
+
+            {chat?.dialog.length > 0 && (
               <div className="flex flex-col pt-16 ltr:pl-40 rtl:pr-40 pb-40">
                 {chat.dialog.map((item, i) => {
                   const contact =
@@ -247,7 +249,9 @@ function Chat(props) {
                   );
                 })}
               </div>
-            ) : (
+            )}
+
+            {chat?.dialog.length === 0 && (
               <div className="flex flex-col flex-1">
                 <div className="flex flex-col flex-1 items-center justify-center">
                   <Icon className="text-128" color="disabled">

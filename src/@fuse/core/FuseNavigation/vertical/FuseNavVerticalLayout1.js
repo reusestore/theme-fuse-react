@@ -38,7 +38,7 @@ function FuseNavVerticalLayout1(props) {
   const dispatch = useDispatch();
 
   function handleItemClick(item) {
-    onItemClick && onItemClick(item);
+    onItemClick?.(item);
   }
 
   return (

@@ -380,7 +380,9 @@ class FuseUtils {
           }
 
           // if there's a cloned object, push it to the output list
-          clone && list.push(clone);
+          if (clone) {
+            list.push(clone);
+          }
           return list;
         }, []);
   }
