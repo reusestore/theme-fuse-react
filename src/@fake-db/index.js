@@ -19,6 +19,13 @@ import './db/scrumboard-db';
 import './db/search-db';
 import './db/todo-db';
 import './db/notification-panel-db';
+import history from '@history';
 import mock from './mock';
 
 mock.onAny().passThrough();
+
+if (module.hot) {
+	const { pathname } = history.location;
+	history.push('/loading');
+	history.push({ pathname });
+}

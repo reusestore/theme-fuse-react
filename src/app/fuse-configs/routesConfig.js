@@ -9,6 +9,7 @@ import pagesConfigs from 'app/main/pages/pagesConfigs';
 import RegisterConfig from 'app/main/register/RegisterConfig';
 import UserInterfaceConfig from 'app/main/user-interface/UserInterfaceConfig';
 import { Redirect } from 'react-router-dom';
+import FuseLoading from '@fuse/core/FuseLoading';
 
 const routeConfigs = [
   ...appsConfigs,
@@ -32,6 +33,11 @@ const routes = [
     path: '/',
     exact: true,
     component: () => <Redirect to="/apps/dashboards/analytics" />,
+  },
+  {
+    path: '/loading',
+    exact: true,
+    component: () => <FuseLoading />,
   },
   {
     component: () => <Redirect to="/pages/errors/error-404" />,
