@@ -12,18 +12,18 @@ import ScrumboardAppConfig from './scrumboard/ScrumboardAppConfig';
 import TodoAppConfig from './todo/TodoAppConfig';
 
 const appsConfigs = [
-	AnalyticsDashboardAppConfig,
-	ProjectDashboardAppConfig,
-	MailAppConfig,
-	TodoAppConfig,
-	FileManagerAppConfig,
-	ContactsAppConfig,
-	CalendarAppConfig,
-	ChatAppConfig,
-	ECommerceAppConfig,
-	ScrumboardAppConfig,
-	AcademyAppConfig,
-	NotesAppConfig
+  AnalyticsDashboardAppConfig,
+  ProjectDashboardAppConfig,
+  MailAppConfig,
+  TodoAppConfig,
+  FileManagerAppConfig,
+  ContactsAppConfig,
+  CalendarAppConfig,
+  ChatAppConfig,
+  ECommerceAppConfig,
+  ScrumboardAppConfig,
+  AcademyAppConfig,
+  NotesAppConfig,
 ];
 
 export default appsConfigs;

@@ -5,54 +5,54 @@ import { closeMobileChatsSidebar } from './sidebarsSlice';
 import { updateUserChatList } from './userSlice';
 
 export const getChat = createAsyncThunk(
-	'chatApp/chat/getChat',
-	async ({ contactId, isMobile }, { dispatch, getState }) => {
-		const { id: userId } = getState().chatApp.user;
+  'chatApp/chat/getChat',
+  async ({ contactId, isMobile }, { dispatch, getState }) => {
+    const { id: userId } = getState().chatApp.user;
 
-		const response = await axios.get('/api/chat/get-chat', {
-			params: {
-				contactId,
-				userId
-			}
-		});
-		const { chat, userChatList } = await response.data;
+    const response = await axios.get('/api/chat/get-chat', {
+      params: {
+        contactId,
+        userId,
+      },
+    });
+    const { chat, userChatList } = await response.data;
 
-		dispatch(setSelectedContactId(contactId));
-		dispatch(updateUserChatList(userChatList));
+    dispatch(setSelectedContactId(contactId));
+    dispatch(updateUserChatList(userChatList));
 
-		if (isMobile) {
-			dispatch(closeMobileChatsSidebar());
-		}
+    if (isMobile) {
+      dispatch(closeMobileChatsSidebar());
+    }
 
-		return chat;
-	}
+    return chat;
+  }
 );
 
 export const sendMessage = createAsyncThunk(
-	'chatApp/chat/sendMessage',
-	async ({ messageText, chatId, contactId }, { dispatch, getState }) => {
-		const response = await axios.post('/api/chat/send-message', { chatId, messageText, contactId });
+  'chatApp/chat/sendMessage',
+  async ({ messageText, chatId, contactId }, { dispatch, getState }) => {
+    const response = await axios.post('/api/chat/send-message', { chatId, messageText, contactId });
 
-		const { message, userChatList } = await response.data;
+    const { message, userChatList } = await response.data;
 
-		dispatch(updateUserChatList(userChatList));
+    dispatch(updateUserChatList(userChatList));
 
-		return message;
-	}
+    return message;
+  }
 );
 
 const chatSlice = createSlice({
-	name: 'chatApp/chat',
-	initialState: null,
-	reducers: {
-		removeChat: (state, action) => action.payload
-	},
-	extraReducers: {
-		[getChat.fulfilled]: (state, action) => action.payload,
-		[sendMessage.fulfilled]: (state, action) => {
-			state.dialog = [...state.dialog, action.payload];
-		}
-	}
+  name: 'chatApp/chat',
+  initialState: null,
+  reducers: {
+    removeChat: (state, action) => action.payload,
+  },
+  extraReducers: {
+    [getChat.fulfilled]: (state, action) => action.payload,
+    [sendMessage.fulfilled]: (state, action) => {
+      state.dialog = [...state.dialog, action.payload];
+    },
+  },
 });
 
 export default chatSlice.reducer;

@@ -29,68 +29,68 @@ registerComponent('horizontal-link', FuseNavHorizontalLink);
 registerComponent('vertical-divider', () => <Divider className="my-16" />);
 registerComponent('horizontal-divider', () => <Divider className="my-16" />);
 
-const useStyles = makeStyles(theme => ({
-	'@global': {
-		'.popper-navigation-list': {
-			'& .fuse-list-item': {
-				padding: '8px 12px 8px 12px',
-				height: 40,
-				minHeight: 40,
-				'& .fuse-list-item-text': {
-					padding: '0 0 0 8px'
-				}
-			},
-			'&.dense': {
-				'& .fuse-list-item': {
-					minHeight: 32,
-					height: 32,
-					'& .fuse-list-item-text': {
-						padding: '0 0 0 8px'
-					}
-				}
-			}
-		}
-	}
+const useStyles = makeStyles((theme) => ({
+  '@global': {
+    '.popper-navigation-list': {
+      '& .fuse-list-item': {
+        padding: '8px 12px 8px 12px',
+        height: 40,
+        minHeight: 40,
+        '& .fuse-list-item-text': {
+          padding: '0 0 0 8px',
+        },
+      },
+      '&.dense': {
+        '& .fuse-list-item': {
+          minHeight: 32,
+          height: 32,
+          '& .fuse-list-item-text': {
+            padding: '0 0 0 8px',
+          },
+        },
+      },
+    },
+  },
 }));
 
 function FuseNavigation(props) {
-	const classes = useStyles(props);
-	const options = _.pick(props, [
-		'navigation',
-		'layout',
-		'active',
-		'dense',
-		'className',
-		'onItemClick',
-		'firstLevel',
-		'selectedId'
-	]);
-	if (props.navigation.length > 0) {
-		switch (props.layout) {
-			case 'horizontal': {
-				return <FuseNavHorizontalLayout1 {...options} />;
-			}
-			case 'vertical': {
-				return <FuseNavVerticalLayout1 {...options} />;
-			}
-			case 'vertical-2': {
-				return <FuseNavVerticalLayout2 {...options} />;
-			}
-			default: {
-				return <FuseNavVerticalLayout1 {...options} />;
-			}
-		}
-	} else {
-		return null;
-	}
+  const classes = useStyles(props);
+  const options = _.pick(props, [
+    'navigation',
+    'layout',
+    'active',
+    'dense',
+    'className',
+    'onItemClick',
+    'firstLevel',
+    'selectedId',
+  ]);
+  if (props.navigation.length > 0) {
+    switch (props.layout) {
+      case 'horizontal': {
+        return <FuseNavHorizontalLayout1 {...options} />;
+      }
+      case 'vertical': {
+        return <FuseNavVerticalLayout1 {...options} />;
+      }
+      case 'vertical-2': {
+        return <FuseNavVerticalLayout2 {...options} />;
+      }
+      default: {
+        return <FuseNavVerticalLayout1 {...options} />;
+      }
+    }
+  } else {
+    return null;
+  }
 }
 
 FuseNavigation.propTypes = {
-	navigation: PropTypes.array.isRequired
+  navigation: PropTypes.array.isRequired,
 };
 
 FuseNavigation.defaultProps = {
-	layout: 'vertical'
+  layout: 'vertical',
 };
 
 export default memo(FuseNavigation);

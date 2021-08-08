@@ -5,10 +5,10 @@ import product from './productSlice';
 import products from './productsSlice';
 
 const reducer = combineReducers({
-	products,
-	product,
-	orders,
-	order
+  products,
+  product,
+  orders,
+  order,
 });
 
 export default reducer;

@@ -6,33 +6,33 @@ import { setUserDataAuth0 } from 'app/auth/store/userSlice';
 import { showMessage } from 'app/store/fuse/messageSlice';
 
 function Auth0RegisterTab(props) {
-	const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-	useEffect(() => {
-		showDialog();
+  useEffect(() => {
+    showDialog();
 
-		auth0Service.onAuthenticated(() => {
-			dispatch(showMessage({ message: 'Logging in with Auth0' }));
+    auth0Service.onAuthenticated(() => {
+      dispatch(showMessage({ message: 'Logging in with Auth0' }));
 
-			auth0Service.getUserData().then(tokenData => {
-				dispatch(setUserDataAuth0(tokenData));
+      auth0Service.getUserData().then((tokenData) => {
+        dispatch(setUserDataAuth0(tokenData));
 
-				dispatch(showMessage({ message: 'Logged in with Auth0' }));
-			});
-		});
-	}, [dispatch]);
+        dispatch(showMessage({ message: 'Logged in with Auth0' }));
+      });
+    });
+  }, [dispatch]);
 
-	function showDialog() {
-		auth0Service.register();
-	}
+  function showDialog() {
+    auth0Service.register();
+  }
 
-	return (
-		<div className="w-full">
-			<Button className="w-full my-48" color="primary" variant="contained" onClick={showDialog}>
-				Log In/Sign Up with Auth0
-			</Button>
-		</div>
-	);
+  return (
+    <div className="w-full">
+      <Button className="w-full my-48" color="primary" variant="contained" onClick={showDialog}>
+        Log In/Sign Up with Auth0
+      </Button>
+    </div>
+  );
 }
 
 export default Auth0RegisterTab;

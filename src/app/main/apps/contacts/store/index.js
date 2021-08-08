@@ -3,8 +3,8 @@ import contacts from './contactsSlice';
 import user from './userSlice';
 
 const reducer = combineReducers({
-	contacts,
-	user
+  contacts,
+  user,
 });
 
 export default reducer;

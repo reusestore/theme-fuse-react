@@ -6,11 +6,11 @@ import mail from './mailSlice';
 import mails from './mailsSlice';
 
 const reducer = combineReducers({
-	mails,
-	mail,
-	folders,
-	labels,
-	filters
+  mails,
+  mail,
+  folders,
+  labels,
+  filters,
 });
 
 export default reducer;

@@ -3,7 +3,7 @@ import data from './dataSlice';
 import state from './stateSlice';
 
 const reducer = combineReducers({
-	data,
-	state
+  data,
+  state,
 });
 export default reducer;

@@ -11,31 +11,31 @@ import UserInterfaceConfig from 'app/main/user-interface/UserInterfaceConfig';
 import { Redirect } from 'react-router-dom';
 
 const routeConfigs = [
-	...appsConfigs,
-	...pagesConfigs,
-	...authRoleExamplesConfigs,
-	UserInterfaceConfig,
-	DocumentationConfig,
-	LogoutConfig,
-	LoginConfig,
-	RegisterConfig,
-	LogoutConfig,
-	CallbackConfig
+  ...appsConfigs,
+  ...pagesConfigs,
+  ...authRoleExamplesConfigs,
+  UserInterfaceConfig,
+  DocumentationConfig,
+  LogoutConfig,
+  LoginConfig,
+  RegisterConfig,
+  LogoutConfig,
+  CallbackConfig,
 ];
 
 const routes = [
-	// if you want to make whole app auth protected by default change defaultAuth for example:
-	// ...FuseUtils.generateRoutesFromConfigs(routeConfigs, ['admin','staff','user']),
-	// The individual route configs which has auth option won't be overridden.
-	...FuseUtils.generateRoutesFromConfigs(routeConfigs, null),
-	{
-		path: '/',
-		exact: true,
-		component: () => <Redirect to="/apps/dashboards/analytics" />
-	},
-	{
-		component: () => <Redirect to="/pages/errors/error-404" />
-	}
+  // if you want to make whole app auth protected by default change defaultAuth for example:
+  // ...FuseUtils.generateRoutesFromConfigs(routeConfigs, ['admin','staff','user']),
+  // The individual route configs which has auth option won't be overridden.
+  ...FuseUtils.generateRoutesFromConfigs(routeConfigs, null),
+  {
+    path: '/',
+    exact: true,
+    component: () => <Redirect to="/apps/dashboards/analytics" />,
+  },
+  {
+    component: () => <Redirect to="/pages/errors/error-404" />,
+  },
 ];
 
 export default routes;

@@ -19,213 +19,223 @@ import { Link } from 'react-router-dom';
 import { updateUserShortcuts } from 'app/auth/store/userSlice';
 
 const useStyles = makeStyles({
-	root: {
-		'&.horizontal': {},
-		'&.vertical': {
-			flexDirection: 'column'
-		}
-	},
-	item: {
-		textDecoration: 'none!important',
-		color: 'inherit'
-	},
-	addIcon: {
-		color: amber[600]
-	}
+  root: {
+    '&.horizontal': {},
+    '&.vertical': {
+      flexDirection: 'column',
+    },
+  },
+  item: {
+    textDecoration: 'none!important',
+    color: 'inherit',
+  },
+  addIcon: {
+    color: amber[600],
+  },
 });
 
 function FuseShortcuts(props) {
-	const dispatch = useDispatch();
-	const shortcuts = useSelector(({ auth }) => auth.user.data.shortcuts);
-	const navigation = useSelector(selectFlatNavigation);
+  const dispatch = useDispatch();
+  const shortcuts = useSelector(({ auth }) => auth.user.data.shortcuts);
+  const navigation = useSelector(selectFlatNavigation);
 
-	const classes = useStyles(props);
-	const searchInputRef = useRef(null);
-	const [addMenu, setAddMenu] = useState(null);
-	const [searchText, setSearchText] = useState('');
-	const [searchResults, setSearchResults] = useState(null);
-	const shortcutItems = shortcuts ? shortcuts.map(id => navigation.find(item => item.id === id)) : [];
+  const classes = useStyles(props);
+  const searchInputRef = useRef(null);
+  const [addMenu, setAddMenu] = useState(null);
+  const [searchText, setSearchText] = useState('');
+  const [searchResults, setSearchResults] = useState(null);
+  const shortcutItems = shortcuts
+    ? shortcuts.map((id) => navigation.find((item) => item.id === id))
+    : [];
 
-	function addMenuClick(event) {
-		setAddMenu(event.currentTarget);
-	}
+  function addMenuClick(event) {
+    setAddMenu(event.currentTarget);
+  }
 
-	function addMenuClose() {
-		setAddMenu(null);
-	}
+  function addMenuClose() {
+    setAddMenu(null);
+  }
 
-	function search(ev) {
-		const newSearchText = ev.target.value;
+  function search(ev) {
+    const newSearchText = ev.target.value;
 
-		setSearchText(newSearchText);
+    setSearchText(newSearchText);
 
-		if (newSearchText.length !== 0 && navigation) {
-			setSearchResults(navigation.filter(item => item.title.toLowerCase().includes(newSearchText.toLowerCase())));
-			return;
-		}
-		setSearchResults(null);
-	}
+    if (newSearchText.length !== 0 && navigation) {
+      setSearchResults(
+        navigation.filter((item) => item.title.toLowerCase().includes(newSearchText.toLowerCase()))
+      );
+      return;
+    }
+    setSearchResults(null);
+  }
 
-	function toggleInShortcuts(id) {
-		let newShortcuts = [...shortcuts];
-		newShortcuts = newShortcuts.includes(id) ? newShortcuts.filter(_id => id !== _id) : [...newShortcuts, id];
-		dispatch(updateUserShortcuts(newShortcuts));
-	}
+  function toggleInShortcuts(id) {
+    let newShortcuts = [...shortcuts];
+    newShortcuts = newShortcuts.includes(id)
+      ? newShortcuts.filter((_id) => id !== _id)
+      : [...newShortcuts, id];
+    dispatch(updateUserShortcuts(newShortcuts));
+  }
 
-	function ShortcutMenuItem({ item, onToggle }) {
-		return (
-			<Link to={item.url} className={classes.item} role="button">
-				<MenuItem key={item.id}>
-					<ListItemIcon className="min-w-40">
-						{item.icon ? (
-							<Icon>{item.icon}</Icon>
-						) : (
-							<span className="text-20 font-semibold uppercase text-center">{item.title[0]}</span>
-						)}
-					</ListItemIcon>
-					<ListItemText primary={item.title} />
-					<IconButton
-						onClick={ev => {
-							ev.preventDefault();
-							ev.stopPropagation();
-							onToggle(item.id);
-						}}
-					>
-						<Icon color="action">{shortcuts.includes(item.id) ? 'star' : 'star_border'}</Icon>
-					</IconButton>
-				</MenuItem>
-			</Link>
-		);
-	}
-	const container = {
-		show: {
-			transition: {
-				staggerChildren: 0.1
-			}
-		}
-	};
+  function ShortcutMenuItem({ item, onToggle }) {
+    return (
+      <Link to={item.url} className={classes.item} role="button">
+        <MenuItem key={item.id}>
+          <ListItemIcon className="min-w-40">
+            {item.icon ? (
+              <Icon>{item.icon}</Icon>
+            ) : (
+              <span className="text-20 font-semibold uppercase text-center">{item.title[0]}</span>
+            )}
+          </ListItemIcon>
+          <ListItemText primary={item.title} />
+          <IconButton
+            onClick={(ev) => {
+              ev.preventDefault();
+              ev.stopPropagation();
+              onToggle(item.id);
+            }}
+          >
+            <Icon color="action">{shortcuts.includes(item.id) ? 'star' : 'star_border'}</Icon>
+          </IconButton>
+        </MenuItem>
+      </Link>
+    );
+  }
+  const container = {
+    show: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
 
-	const item = {
-		hidden: { opacity: 0, scale: 0.6 },
-		show: { opacity: 1, scale: 1 }
-	};
+  const item = {
+    hidden: { opacity: 0, scale: 0.6 },
+    show: { opacity: 1, scale: 1 },
+  };
 
-	return (
-		<div
-			className={clsx(
-				classes.root,
-				props.variant,
-				'flex flex-1',
-				props.variant === 'vertical' && 'flex-grow-0 flex-shrink',
-				props.className
-			)}
-		>
-			<motion.div
-				variants={container}
-				initial="hidden"
-				animate="show"
-				className={clsx('flex flex-1', props.variant === 'vertical' && 'flex-col')}
-			>
-				{shortcutItems.map(
-					_item =>
-						_item && (
-							<Link to={_item.url} key={_item.id} className={classes.item} role="button">
-								<Tooltip
-									title={_item.title}
-									placement={props.variant === 'horizontal' ? 'bottom' : 'left'}
-								>
-									<IconButton className="w-40 h-40 p-0" component={motion.div} variants={item}>
-										{_item.icon ? (
-											<Icon>{_item.icon}</Icon>
-										) : (
-											<span className="text-20 font-semibold uppercase">{_item.title[0]}</span>
-										)}
-									</IconButton>
-								</Tooltip>
-							</Link>
-						)
-				)}
+  return (
+    <div
+      className={clsx(
+        classes.root,
+        props.variant,
+        'flex flex-1',
+        props.variant === 'vertical' && 'flex-grow-0 flex-shrink',
+        props.className
+      )}
+    >
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className={clsx('flex flex-1', props.variant === 'vertical' && 'flex-col')}
+      >
+        {shortcutItems.map(
+          (_item) =>
+            _item && (
+              <Link to={_item.url} key={_item.id} className={classes.item} role="button">
+                <Tooltip
+                  title={_item.title}
+                  placement={props.variant === 'horizontal' ? 'bottom' : 'left'}
+                >
+                  <IconButton className="w-40 h-40 p-0" component={motion.div} variants={item}>
+                    {_item.icon ? (
+                      <Icon>{_item.icon}</Icon>
+                    ) : (
+                      <span className="text-20 font-semibold uppercase">{_item.title[0]}</span>
+                    )}
+                  </IconButton>
+                </Tooltip>
+              </Link>
+            )
+        )}
 
-				<Tooltip
-					title="Click to add/remove shortcut"
-					placement={props.variant === 'horizontal' ? 'bottom' : 'left'}
-				>
-					<IconButton
-						component={motion.div}
-						variants={item}
-						className="w-40 h-40 p-0"
-						aria-owns={addMenu ? 'add-menu' : null}
-						aria-haspopup="true"
-						onClick={addMenuClick}
-					>
-						<Icon className={classes.addIcon}>star</Icon>
-					</IconButton>
-				</Tooltip>
-			</motion.div>
+        <Tooltip
+          title="Click to add/remove shortcut"
+          placement={props.variant === 'horizontal' ? 'bottom' : 'left'}
+        >
+          <IconButton
+            component={motion.div}
+            variants={item}
+            className="w-40 h-40 p-0"
+            aria-owns={addMenu ? 'add-menu' : null}
+            aria-haspopup="true"
+            onClick={addMenuClick}
+          >
+            <Icon className={classes.addIcon}>star</Icon>
+          </IconButton>
+        </Tooltip>
+      </motion.div>
 
-			<Menu
-				id="add-menu"
-				anchorEl={addMenu}
-				open={Boolean(addMenu)}
-				onClose={addMenuClose}
-				classes={{
-					paper: 'mt-48 min-w-256'
-				}}
-				onEntered={() => {
-					searchInputRef.current.focus();
-				}}
-				onExited={() => {
-					setSearchText('');
-				}}
-			>
-				<div className="p-16 pt-8">
-					<Input
-						inputRef={searchInputRef}
-						value={searchText}
-						onChange={search}
-						placeholder="Search for an app or page"
-						className=""
-						fullWidth
-						inputProps={{
-							'aria-label': 'Search'
-						}}
-						disableUnderline
-					/>
-				</div>
+      <Menu
+        id="add-menu"
+        anchorEl={addMenu}
+        open={Boolean(addMenu)}
+        onClose={addMenuClose}
+        classes={{
+          paper: 'mt-48 min-w-256',
+        }}
+        onEntered={() => {
+          searchInputRef.current.focus();
+        }}
+        onExited={() => {
+          setSearchText('');
+        }}
+      >
+        <div className="p-16 pt-8">
+          <Input
+            inputRef={searchInputRef}
+            value={searchText}
+            onChange={search}
+            placeholder="Search for an app or page"
+            className=""
+            fullWidth
+            inputProps={{
+              'aria-label': 'Search',
+            }}
+            disableUnderline
+          />
+        </div>
 
-				<Divider />
+        <Divider />
 
-				{searchText.length !== 0 &&
-					searchResults &&
-					searchResults.map(_item => (
-						<ShortcutMenuItem key={_item.id} item={_item} onToggle={() => toggleInShortcuts(_item.id)} />
-					))}
+        {searchText.length !== 0 &&
+          searchResults &&
+          searchResults.map((_item) => (
+            <ShortcutMenuItem
+              key={_item.id}
+              item={_item}
+              onToggle={() => toggleInShortcuts(_item.id)}
+            />
+          ))}
 
-				{searchText.length !== 0 && searchResults.length === 0 && (
-					<Typography color="textSecondary" className="p-16 pb-8">
-						No results..
-					</Typography>
-				)}
+        {searchText.length !== 0 && searchResults.length === 0 && (
+          <Typography color="textSecondary" className="p-16 pb-8">
+            No results..
+          </Typography>
+        )}
 
-				{searchText.length === 0 &&
-					shortcutItems.map(
-						_item =>
-							_item && (
-								<ShortcutMenuItem
-									key={_item.id}
-									item={_item}
-									onToggle={() => toggleInShortcuts(_item.id)}
-								/>
-							)
-					)}
-			</Menu>
-		</div>
-	);
+        {searchText.length === 0 &&
+          shortcutItems.map(
+            (_item) =>
+              _item && (
+                <ShortcutMenuItem
+                  key={_item.id}
+                  item={_item}
+                  onToggle={() => toggleInShortcuts(_item.id)}
+                />
+              )
+          )}
+      </Menu>
+    </div>
+  );
 }
 
 FuseShortcuts.propTypes = {};
 FuseShortcuts.defaultProps = {
-	variant: 'horizontal'
+  variant: 'horizontal',
 };
 
 export default memo(FuseShortcuts);

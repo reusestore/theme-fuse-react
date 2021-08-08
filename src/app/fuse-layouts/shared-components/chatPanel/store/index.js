@@ -5,10 +5,10 @@ import state from './stateSlice';
 import user from './userSlice';
 
 const reducer = combineReducers({
-	user,
-	contacts,
-	chat,
-	state
+  user,
+  contacts,
+  chat,
+  state,
 });
 
 export default reducer;

@@ -16,80 +16,80 @@ import _ from '@lodash';
  * Form Validation Schema
  */
 const schema = yup.object().shape({
-	name: yup.string().required('You must enter a title')
+  name: yup.string().required('You must enter a title'),
 });
 
 const CardChecklistName = forwardRef(function CardChecklistName(props, ref) {
-	const [formOpen, setFormOpen] = useState(false);
-	const { control, formState, handleSubmit, reset } = useForm({
-		mode: 'onChange',
-		defaultValues: {
-			name: props.name
-		},
-		resolver: yupResolver(schema)
-	});
+  const [formOpen, setFormOpen] = useState(false);
+  const { control, formState, handleSubmit, reset } = useForm({
+    mode: 'onChange',
+    defaultValues: {
+      name: props.name,
+    },
+    resolver: yupResolver(schema),
+  });
 
-	const { isValid, dirtyFields, errors } = formState;
+  const { isValid, dirtyFields, errors } = formState;
 
-	useEffect(() => {
-		if (!formOpen) {
-			reset({
-				name: props.name
-			});
-		}
-	}, [formOpen, reset, props.name]);
+  useEffect(() => {
+    if (!formOpen) {
+      reset({
+        name: props.name,
+      });
+    }
+  }, [formOpen, reset, props.name]);
 
-	useImperativeHandle(ref, () => {
-		return {
-			openForm: handleOpenForm
-		};
-	});
+  useImperativeHandle(ref, () => {
+    return {
+      openForm: handleOpenForm,
+    };
+  });
 
-	function handleOpenForm(ev) {
-		ev.stopPropagation();
-		setFormOpen(true);
-	}
+  function handleOpenForm(ev) {
+    ev.stopPropagation();
+    setFormOpen(true);
+  }
 
-	function handleCloseForm() {
-		setFormOpen(false);
-	}
+  function handleCloseForm() {
+    setFormOpen(false);
+  }
 
-	function onSubmit(data) {
-		props.onNameChange(data.name);
-		handleCloseForm();
-	}
+  function onSubmit(data) {
+    props.onNameChange(data.name);
+    handleCloseForm();
+  }
 
-	return formOpen ? (
-		<ClickAwayListener onClickAway={handleCloseForm}>
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<Controller
-					name="name"
-					control={control}
-					render={({ field }) => (
-						<TextField
-							{...field}
-							variant="outlined"
-							margin="dense"
-							autoFocus
-							InputProps={{
-								endAdornment: (
-									<InputAdornment position="end">
-										<IconButton type="submit" disabled={_.isEmpty(dirtyFields) || !isValid}>
-											<Icon>check</Icon>
-										</IconButton>
-									</InputAdornment>
-								)
-							}}
-						/>
-					)}
-				/>
-			</form>
-		</ClickAwayListener>
-	) : (
-		<Typography className="text-16 font-semibold cursor-pointer mx-8" onClick={handleOpenForm}>
-			{props.name}
-		</Typography>
-	);
+  return formOpen ? (
+    <ClickAwayListener onClickAway={handleCloseForm}>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Controller
+          name="name"
+          control={control}
+          render={({ field }) => (
+            <TextField
+              {...field}
+              variant="outlined"
+              margin="dense"
+              autoFocus
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton type="submit" disabled={_.isEmpty(dirtyFields) || !isValid}>
+                      <Icon>check</Icon>
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
+          )}
+        />
+      </form>
+    </ClickAwayListener>
+  ) : (
+    <Typography className="text-16 font-semibold cursor-pointer mx-8" onClick={handleOpenForm}>
+      {props.name}
+    </Typography>
+  );
 });
 
 export default CardChecklistName;

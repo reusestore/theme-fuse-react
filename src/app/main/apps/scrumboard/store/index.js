@@ -4,9 +4,9 @@ import boards from './boardsSlice';
 import card from './cardSlice';
 
 const scrumboardAppReducers = combineReducers({
-	boards,
-	board,
-	card
+  boards,
+  board,
+  card,
 });
 
 export default scrumboardAppReducers;

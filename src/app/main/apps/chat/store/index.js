@@ -5,10 +5,10 @@ import sidebars from './sidebarsSlice';
 import user from './userSlice';
 
 const reducer = combineReducers({
-	sidebars,
-	user,
-	contacts,
-	chat
+  sidebars,
+  user,
+  contacts,
+  chat,
 });
 
 export default reducer;

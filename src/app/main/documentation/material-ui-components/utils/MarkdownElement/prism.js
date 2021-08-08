@@ -13,15 +13,15 @@ export { lightTheme, darkTheme };
 let styleNode;
 
 if (process.browser) {
-	styleNode = document.createElement('style');
-	styleNode.setAttribute('data-prism', 'true');
-	if (document.head) {
-		document.head.appendChild(styleNode);
-	}
+  styleNode = document.createElement('style');
+  styleNode.setAttribute('data-prism', 'true');
+  if (document.head) {
+    document.head.appendChild(styleNode);
+  }
 }
 
 export function setPrismTheme(theme) {
-	styleNode.textContent = theme;
+  styleNode.textContent = theme;
 }
 
 export default prism;

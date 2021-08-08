@@ -2,41 +2,41 @@ import FuseHighlight from '@fuse/core/FuseHighlight';
 import Typography from '@material-ui/core/Typography';
 
 function RoutingDoc() {
-	return (
-		<>
-			<Typography variant="h4" className="mb-24">
-				Routing
-			</Typography>
+  return (
+    <>
+      <Typography variant="h4" className="mb-24">
+        Routing
+      </Typography>
 
-			<Typography className="mb-16" component="p">
-				Fuse React routing system based on{' '}
-				<a href="https://reacttraining.com/react-router/" target="_blank" rel="noopener noreferrer">
-					react-router
-				</a>{' '}
-				and its package{' '}
-				<a
-					href="https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					react-router-config
-				</a>
-				.
-			</Typography>
+      <Typography className="mb-16" component="p">
+        Fuse React routing system based on{' '}
+        <a href="https://reacttraining.com/react-router/" target="_blank" rel="noopener noreferrer">
+          react-router
+        </a>{' '}
+        and its package{' '}
+        <a
+          href="https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          react-router-config
+        </a>
+        .
+      </Typography>
 
-			<Typography className="mb-16" component="p">
-				For the modular approach and route based Fuse settings, we are using config files and generate routes
-				from those files.
-			</Typography>
+      <Typography className="mb-16" component="p">
+        For the modular approach and route based Fuse settings, we are using config files and
+        generate routes from those files.
+      </Typography>
 
-			<Typography className="mb-16" component="p">
-				For example, have a look at the code below
-				<code>MailAppConfig.js</code>. You can override all settings for a particular route as{' '}
-				<code>/apps/mail</code> for this example.
-			</Typography>
+      <Typography className="mb-16" component="p">
+        For example, have a look at the code below
+        <code>MailAppConfig.js</code>. You can override all settings for a particular route as{' '}
+        <code>/apps/mail</code> for this example.
+      </Typography>
 
-			<FuseHighlight component="pre" className="language-jsx mb-32">
-				{`
+      <FuseHighlight component="pre" className="language-jsx mb-32">
+        {`
                             import MailApp from './MailApp';
                             import {Redirect} from 'react-router-dom';
 
@@ -92,14 +92,14 @@ function RoutingDoc() {
                                 ]
                             };
                             `}
-			</FuseHighlight>
+      </FuseHighlight>
 
-			<Typography className="mb-16" component="p">
-				Then we import and generate routes from that file in <code>fuse-configs/routesConfig</code>
-			</Typography>
+      <Typography className="mb-16" component="p">
+        Then we import and generate routes from that file in <code>fuse-configs/routesConfig</code>
+      </Typography>
 
-			<FuseHighlight component="pre" className="language-jsx mb-32">
-				{`
+      <FuseHighlight component="pre" className="language-jsx mb-32">
+        {`
                                 import {appsRoutes} from 'app/main/apps/mail/MailAppConfig.js';
                                 import FuseUtils from '@fuse/utils';
                                 import {Redirect} from 'react-router-dom';
@@ -116,9 +116,9 @@ function RoutingDoc() {
                                     }
                                 ];
                             `}
-			</FuseHighlight>
-		</>
-	);
+      </FuseHighlight>
+    </>
+  );
 }
 
 export default RoutingDoc;

@@ -4,15 +4,15 @@ import NotificationPanel from 'app/fuse-layouts/shared-components/notificationPa
 import { memo } from 'react';
 
 function RightSideLayout3() {
-	return (
-		<>
-			<ChatPanel />
+  return (
+    <>
+      <ChatPanel />
 
-			<QuickPanel />
+      <QuickPanel />
 
-			<NotificationPanel />
-		</>
-	);
+      <NotificationPanel />
+    </>
+  );
 }
 
 export default memo(RightSideLayout3);

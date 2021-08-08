@@ -5,26 +5,26 @@ import clsx from 'clsx';
 import { useSelector } from 'react-redux';
 
 function FusePageCardedSidebarContent(props) {
-	const theme = useTheme();
-	const contrastTheme = useSelector(selectContrastMainTheme(theme.palette.primary.main));
+  const theme = useTheme();
+  const contrastTheme = useSelector(selectContrastMainTheme(theme.palette.primary.main));
 
-	const { classes } = props;
+  const { classes } = props;
 
-	return (
-		<>
-			{props.header && (
-				<ThemeProvider theme={contrastTheme}>
-					<div className={clsx(classes.sidebarHeader, props.variant)}>{props.header}</div>
-				</ThemeProvider>
-			)}
+  return (
+    <>
+      {props.header && (
+        <ThemeProvider theme={contrastTheme}>
+          <div className={clsx(classes.sidebarHeader, props.variant)}>{props.header}</div>
+        </ThemeProvider>
+      )}
 
-			{props.content && (
-				<FuseScrollbars className={classes.sidebarContent} enable={props.innerScroll}>
-					{props.content}
-				</FuseScrollbars>
-			)}
-		</>
-	);
+      {props.content && (
+        <FuseScrollbars className={classes.sidebarContent} enable={props.innerScroll}>
+          {props.content}
+        </FuseScrollbars>
+      )}
+    </>
+  );
 }
 
 export default FusePageCardedSidebarContent;

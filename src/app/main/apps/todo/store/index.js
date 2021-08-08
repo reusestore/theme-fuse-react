@@ -5,10 +5,10 @@ import labels from './labelsSlice';
 import todos from './todosSlice';
 
 const reducer = combineReducers({
-	todos,
-	folders,
-	labels,
-	filters
+  todos,
+  folders,
+  labels,
+  filters,
 });
 
 export default reducer;
