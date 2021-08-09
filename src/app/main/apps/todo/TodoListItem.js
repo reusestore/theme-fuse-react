@@ -1,5 +1,4 @@
 import _ from '@lodash';
-import Checkbox from '@material-ui/core/Checkbox';
 import { amber, red } from '@material-ui/core/colors';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';

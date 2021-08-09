@@ -1,4 +1,3 @@
-import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import { Autocomplete } from '@material-ui/lab';
 import { useFormContext, Controller } from 'react-hook-form';

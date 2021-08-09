@@ -125,6 +125,7 @@
         "eslint-plugin-prettier": "^3.4.0",
         "eslint-plugin-react": "^7.23.2",
         "eslint-plugin-react-hooks": "^4.2.0",
+        "eslint-plugin-unused-imports": "^1.1.2",
         "js-beautify": "1.13.13",
         "postcss": "7.0.35",
         "prettier": "^2.3.0",

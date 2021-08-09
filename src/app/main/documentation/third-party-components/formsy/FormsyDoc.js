@@ -1,11 +1,9 @@
+/* eslint import/no-webpack-loader-syntax: off */
+/* eslint import/extensions: off */
 import FuseExample from '@fuse/core/FuseExample';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import Typography from '@material-ui/core/Typography';
-import { Link } from 'react-router-dom';
-
-/* eslint import/no-webpack-loader-syntax: off */
-/* eslint import/extensions: off */
 
 function FormsyDoc() {
   return (
