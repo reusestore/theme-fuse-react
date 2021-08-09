@@ -27,7 +27,7 @@ function NavbarToggleButton(props) {
             )
           );
         } else {
-          navbarToggle();
+          dispatch(navbarToggle());
         }
       }}
       color="inherit"
