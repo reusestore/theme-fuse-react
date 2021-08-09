@@ -104,17 +104,14 @@ button:focus {
     outline: none;
 }
 
-@keyframes autofill {
-    0%,100% {
-        background: transparent;
-    }
-}
-
-input:-webkit-autofill {
-    animation-delay: 1s;
-    animation-name: autofill!important;
-    animation-fill-mode: both;
-    -webkit-box-shadow:0 0 0 100px transparent inset!important;
+/* Removes webkit's autofill backgorund color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active
+{
+    transitionDelay: 9999s;
+    transitionProperty: background-color, color;
 }
 
 :focus {
