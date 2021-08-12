@@ -85,7 +85,7 @@ function CardsDoc(props) {
         Complex Interaction
       </Typography>
       <Typography className="mb-16" component="div">
-        On desktop, card content can expand.
+        On desktop, card content can expand. (Click the downward chevron to view the recipe.)
       </Typography>
       <Typography className="mb-16" component="div">
         <FuseExample

@@ -20,8 +20,8 @@ function DocumentationPageLayout({ content, route }) {
     <FusePageSimple
       classes={{
         root: 'h-full',
-        contentWrapper: 'p-16 md:p-24',
-        content: 'flex flex-col h-full',
+        contentWrapper: '',
+        content: 'p-16 md:p-24 flex flex-col h-full',
         leftSidebar: 'w-288 pt-8',
         header: 'h-64 min-h-64',
         wrapper: 'min-h-0',
@@ -62,7 +62,7 @@ function DocumentationPageLayout({ content, route }) {
           navigation={DocumentationNavigation.children}
         />
       }
-      sidebarInner
+      innerScroll
       ref={pageLayout}
     />
   );

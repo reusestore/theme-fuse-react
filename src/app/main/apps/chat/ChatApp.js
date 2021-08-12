@@ -7,7 +7,7 @@ import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
-import { fade } from '@material-ui/core/styles/colorManipulator';
+import { alpha } from '@material-ui/core/styles/colorManipulator';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -103,10 +103,10 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     flex: '1 1 100%',
     zIndex: 10,
-    background: `linear-gradient(to bottom, ${fade(theme.palette.background.paper, 0.8)} 0,${fade(
+    background: `linear-gradient(to bottom, ${alpha(theme.palette.background.paper, 0.8)} 0,${alpha(
       theme.palette.background.paper,
       0.6
-    )} 20%,${fade(theme.palette.background.paper, 0.8)})`,
+    )} 20%,${alpha(theme.palette.background.paper, 0.8)})`,
   },
   content: {
     display: 'flex',

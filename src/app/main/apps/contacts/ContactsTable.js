@@ -155,8 +155,8 @@ const EnhancedTable = ({ columns, data, onRowClick }) => {
           inputProps: { 'aria-label': 'rows per page' },
           native: false,
         }}
-        onChangePage={handleChangePage}
-        onChangeRowsPerPage={handleChangeRowsPerPage}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
         ActionsComponent={ContactsTablePaginationActions}
       />
     </div>

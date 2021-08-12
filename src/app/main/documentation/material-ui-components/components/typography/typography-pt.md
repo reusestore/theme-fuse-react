@@ -23,9 +23,9 @@ Temos abaixo um exemplo de markup de link usado para carregar a fonte Roboto de 
 
 ## Instalar via npm
 
-Você pode [instalá-la](https://www.npmjs.com/package/fontsource-roboto) digitando o comando a seguir em um terminal:
+Você pode [instalá-la](https://www.npmjs.com/package/@fontsource/roboto) digitando o comando a seguir em um terminal:
 
-`npm install fontsource-roboto`
+`npm install @fontsource/roboto`
 
 Então, você pode importá-la no seu ponto de entrada (entry-point).
 
@@ -63,7 +63,7 @@ O componente de Tipografia (Typography) usa a propriedade `variantMapping` para 
 - Você pode alterar o mapeamento [globalmente usando o tema](/customization/globals/#default-props):
 
 ```js
-const theme = createMuiTheme({
+const theme = createTheme({
   props: {
     MuiTypography: {
       variantMapping: {

@@ -23,9 +23,9 @@ components: Typography
 
 ## Установка используя npm
 
-Вы можете [установить его](https://www.npmjs.com/package/fontsource-roboto) набрав команду ниже в терминале:
+Вы можете [установить его](https://www.npmjs.com/package/@fontsource/roboto) набрав команду ниже в терминале:
 
-`npm install fontsource-roboto`
+`npm install @fontsource/roboto`
 
 Затем вы можете импортировать его в вашу точку входа.
 
@@ -64,7 +64,7 @@ Heading
 - Вы можете изменить сопоставление вариантов [глобально используя тему](/customization/globals/#default-props):
 
 ```js
-const theme = createMuiTheme({
+const theme = createTheme({
   props: {
     MuiTypography: {
       variantMapping: {

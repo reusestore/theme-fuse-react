@@ -229,8 +229,8 @@ function OrdersTable(props) {
         nextIconButtonProps={{
           'aria-label': 'Next Page',
         }}
-        onChangePage={handleChangePage}
-        onChangeRowsPerPage={handleChangeRowsPerPage}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
       />
     </div>
   );

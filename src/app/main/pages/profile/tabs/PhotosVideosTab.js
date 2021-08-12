@@ -1,6 +1,6 @@
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
+import ImageList from '@material-ui/core/ImageList';
+import ImageListItem from '@material-ui/core/ImageListItem';
+import ImageListItemBar from '@material-ui/core/ImageListItemBar';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import ListSubheader from '@material-ui/core/ListSubheader';
@@ -54,19 +54,19 @@ function PhotosVideosTab() {
                 </Typography>
               </ListSubheader>
 
-              <GridList className="overflow-hidden" spacing={16} cols={0}>
+              <ImageList className="overflow-hidden" gap={16} cols={0}>
                 {period.media.map((media) => (
-                  <GridListTile
+                  <ImageListItem
                     component={motion.div}
                     variants={item}
                     classes={{
                       root: 'w-full sm:w-1/2 md:w-1/4',
-                      tile: 'rounded-16 shadow',
+                      item: 'rounded-16 shadow',
                     }}
                     key={media.preview}
                   >
                     <img src={media.preview} alt={media.title} />
-                    <GridListTileBar
+                    <ImageListItemBar
                       title={media.title}
                       actionIcon={
                         <IconButton>
@@ -74,9 +74,9 @@ function PhotosVideosTab() {
                         </IconButton>
                       }
                     />
-                  </GridListTile>
+                  </ImageListItem>
                 ))}
-              </GridList>
+              </ImageList>
             </div>
           ))}
         </div>

@@ -123,11 +123,12 @@ const rmDir = (dirPath) => {
 };
 
 // eslint-disable-next-line
-String.prototype.allReplace =  (obj)=> {
+String.prototype.allReplace = function (obj) {
   let retStr = this;
-  Object.entries(obj).forEach(([key, value]) => {
-    retStr = retStr.replace(new RegExp(key, 'g'), value);
-  });
+  // eslint-disable-next-line guard-for-in,no-restricted-syntax
+  for (const x in obj) {
+    retStr = retStr.replace(new RegExp(x, 'g'), obj[x]);
+  }
   return retStr;
 };
 
@@ -266,16 +267,17 @@ function writePage(file) {
 }
 
 function writeRouteFile(pages) {
-  // const importPath = 'import %s from \'app/main/documentation/material-ui-components/pages/%s\';';
-  // const imports = pages.map(page => {
-  //     const componentName = _.upperFirst(_.camelCase(page));
-  //     return importPath.replace(/%s/g, componentName, componentName);
+  // const importPath = "import %s from 'app/main/documentation/material-ui-components/pages/%s';";
+  // const imports = pages.map((page) => {
+  //   const componentName = _.upperFirst(_.camelCase(page));
+  //   return importPath.replace(/%s/g, componentName, componentName);
   // });
 
   const routeObject =
     "{ path     : '/documentation/material-ui-components/%s', component: lazy(() => import('app/main/documentation/material-ui-components/pages/%p'))}";
   const routes = pages.map((page) => {
     const componentName = _.upperFirst(_.camelCase(page));
+
     return routeObject.allReplace({
       '%s': page,
       '%p': componentName,
@@ -291,6 +293,7 @@ function writeRouteFile(pages) {
         
         `
   );
+
   fs.writeFileSync(path.resolve(routesFilePath), content);
 }
 
@@ -351,7 +354,7 @@ function filewalker(dir, done) {
       return done(err);
     }
 
-    const pending = list.length;
+    let pending = list.length;
 
     if (!pending) {
       return done(null, results);
@@ -368,14 +371,16 @@ function filewalker(dir, done) {
 
           filewalker(file, (__err, res) => {
             results = results.concat(res);
-            if (pending - 1 === 0) {
+            // eslint-disable-next-line no-plusplus
+            if (!--pending) {
               done(null, results);
             }
           });
         } else {
           results.push(file);
 
-          if (pending - 1 === 0) {
+          // eslint-disable-next-line no-plusplus
+          if (!--pending) {
             done(null, results);
           }
         }

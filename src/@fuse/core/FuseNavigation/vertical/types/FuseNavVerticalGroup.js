@@ -1,7 +1,7 @@
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { fade } from '@material-ui/core/styles/colorManipulator';
+import { alpha } from '@material-ui/core/styles/colorManipulator';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { useMemo } from 'react';
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     margin: '24px 0 4px 0',
     paddingRight: 12,
     paddingLeft: props.itemPadding > 80 ? 80 : props.itemPadding,
-    color: fade(theme.palette.text.primary, 0.7),
+    color: alpha(theme.palette.text.primary, 0.7),
     fontWeight: 600,
     letterSpacing: '0.025em',
   }),

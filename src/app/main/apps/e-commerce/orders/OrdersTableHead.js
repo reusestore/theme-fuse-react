@@ -151,7 +151,7 @@ function OrdersTableHead(props) {
               className="p-4 md:p-16"
               key={row.id}
               align={row.align}
-              padding={row.disablePadding ? 'none' : 'default'}
+              padding={row.disablePadding ? 'none' : 'normal'}
               sortDirection={props.order.id === row.id ? props.order.direction : false}
             >
               {row.sort && (

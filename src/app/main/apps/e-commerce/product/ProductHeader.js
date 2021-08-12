@@ -14,8 +14,8 @@ function ProductHeader(props) {
   const methods = useFormContext();
   const { formState, watch, getValues } = methods;
   const { isValid, dirtyFields } = formState;
-  const images = watch('images', []);
   const featuredImageId = watch('featuredImageId');
+  const images = watch('images');
   const name = watch('name');
   const theme = useTheme();
   const history = useHistory();

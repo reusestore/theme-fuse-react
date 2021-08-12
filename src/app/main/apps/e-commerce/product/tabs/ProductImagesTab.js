@@ -45,7 +45,7 @@ function ProductImagesTab(props) {
   const methods = useFormContext();
   const { control, watch, setValue } = methods;
 
-  const images = watch('images', []);
+  const images = watch('images');
 
   return (
     <div>

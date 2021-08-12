@@ -4,7 +4,7 @@ import Icon from '@material-ui/core/Icon';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
-import { fade } from '@material-ui/core/styles/colorManipulator';
+import { alpha } from '@material-ui/core/styles/colorManipulator';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { useMemo } from 'react';
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     width: 100,
     borderRadius: 12,
     margin: '0 0 4px 0',
-    color: fade(theme.palette.text.primary, 0.7),
+    color: alpha(theme.palette.text.primary, 0.7),
     cursor: 'pointer',
     textDecoration: 'none!important',
     padding: 0,

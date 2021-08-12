@@ -69,11 +69,11 @@ function TypographyDoc(props) {
         Install with npm
       </Typography>
       <Typography className="mb-16" component="div">
-        You can <a href="https://www.npmjs.com/package/fontsource-roboto">install it</a> by typing
+        You can <a href="https://www.npmjs.com/package/@fontsource/roboto">install it</a> by typing
         the below command in your terminal:
       </Typography>
       <Typography className="mb-16" component="div">
-        <code>npm install fontsource-roboto</code>
+        <code>npm install @fontsource/roboto</code>
       </Typography>
       <Typography className="mb-16" component="div">
         Then, you can import it in your entry-point.
@@ -81,7 +81,7 @@ function TypographyDoc(props) {
 
       <FuseHighlight component="pre" className="language-js">
         {` 
-import 'fontsource-roboto';
+import '@fontsource/roboto';
 `}
       </FuseHighlight>
       <Typography className="mb-16" component="div">
@@ -166,7 +166,7 @@ import 'fontsource-roboto';
 
       <FuseHighlight component="pre" className="language-js">
         {` 
-const theme = createMuiTheme({
+const theme = createTheme({
   props: {
     MuiTypography: {
       variantMapping: {

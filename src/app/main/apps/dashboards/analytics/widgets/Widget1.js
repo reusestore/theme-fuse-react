@@ -1,6 +1,6 @@
 import _ from '@lodash';
 import Divider from '@material-ui/core/Divider';
-import { fade } from '@material-ui/core/styles/colorManipulator';
+import { alpha } from '@material-ui/core/styles/colorManipulator';
 import { makeStyles, ThemeProvider, useTheme } from '@material-ui/core/styles';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
@@ -32,7 +32,7 @@ function Widget1(props) {
   _.setWith(data, 'options.markers.colors', [theme.palette.secondary.main]);
   _.setWith(data, 'options.stroke.colors', [theme.palette.primary.contrastText]);
   _.setWith(data, 'options.markers.strokeColors', [theme.palette.primary.contrastText]);
-  _.setWith(data, 'options.grid.borderColor', fade(theme.palette.primary.contrastText, 0.3));
+  _.setWith(data, 'options.grid.borderColor', alpha(theme.palette.primary.contrastText, 0.3));
 
   return (
     <ThemeProvider theme={contrastTheme}>

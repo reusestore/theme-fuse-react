@@ -23,9 +23,9 @@ Shown below is a sample link markup used to load the Roboto font from a CDN:
 
 ## Instalar con npm
 
-Puede [instalarlo](https://www.npmjs.com/package/fontsource-roboto) escribiendo el siguiente comando en su terminal:
+Puede [instalarlo](https://www.npmjs.com/package/@fontsource/roboto) escribiendo el siguiente comando en su terminal:
 
-`npm install fontsource-roboto`
+`npm install @fontsource/roboto`
 
 Entonces, puede importarlo en su punto de entrada.
 
@@ -63,7 +63,7 @@ Heading
 - You can change the mapping [globally using the theme](/customization/globals/#default-props):
 
 ```js
-const theme = createMuiTheme({
+const theme = createTheme({
   props: {
     MuiTypography: {
       variantMapping: {

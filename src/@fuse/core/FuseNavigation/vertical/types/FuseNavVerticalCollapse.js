@@ -5,7 +5,7 @@ import IconButton from '@material-ui/core/IconButton';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
-import { fade } from '@material-ui/core/styles/colorManipulator';
+import { alpha } from '@material-ui/core/styles/colorManipulator';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { useEffect, useState, useMemo } from 'react';
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     margin: '0 0 4px 0',
     paddingRight: 12,
     paddingLeft: props.itemPadding > 80 ? 80 : props.itemPadding,
-    color: fade(theme.palette.text.primary, 0.7),
+    color: alpha(theme.palette.text.primary, 0.7),
     '&:hover': {
       color: theme.palette.text.primary,
     },

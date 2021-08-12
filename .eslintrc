@@ -52,6 +52,7 @@
                 ]
             }
         ],
+        "import/no-extraneous-dependencies": ["warn", {"devDependencies": true}],
         "no-unused-vars": "off",
         "no-console": "off",
         "no-use-before-define": "off",

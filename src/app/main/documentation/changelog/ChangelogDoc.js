@@ -3,6 +3,18 @@ import ChangelogCard from './ChangelogCard';
 
 const changelogData = [
   {
+    version: '6.2.0',
+    date: '2021-08-13',
+    newChanges: [
+      'material-ui updated to v4.12.3',
+      'tailwindcss updated to v2.2.7',
+      'All dependency packages updated.',
+      'prettier config (.prettierrc) moved into eslint configuration file.',
+      "Code formatting matched with Airbnb's style guide, eslint configuration file updated, code re-formatted.",
+    ],
+    fixedChanges: ["Chrome's autofill background color removed."],
+  },
+  {
     version: '6.1.4',
     date: '2021-06-12',
     fixedChanges: [

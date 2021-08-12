@@ -524,7 +524,7 @@ mock.onPost('/api/mail-app/update-mail').reply(request => {
 	const mail = JSON.parse(request.data);
 	mailDB.mails = mailDB.mails.map(_mail => {
 		if (_mail.id === mail.id) {
-			return mail;
+			return { ..._mail, ...mail };
 		}
 		return _mail;
 	});

@@ -75,8 +75,8 @@ export default Main() {
         Collapse
       </Typography>
       <Typography className="mb-16" component="div">
-        Expand vertically from the top of the child element. The <code>collapsedHeight</code>{' '}
-        property can be used to set the minimum height when not expanded.
+        Expand vertically from the top of the child element. The <code>collapsedSize</code> property
+        can be used to set the minimum height when not expanded.
       </Typography>
       <Typography className="mb-16" component="div">
         <FuseExample

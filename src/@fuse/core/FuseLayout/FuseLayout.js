@@ -8,7 +8,7 @@ import { memo, useContext, useMemo, useCallback, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { matchRoutes } from 'react-router-config';
 import { useLocation } from 'react-router-dom';
-import { fade } from '@material-ui/core/styles/colorManipulator';
+import { alpha } from '@material-ui/core/styles/colorManipulator';
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
@@ -34,12 +34,12 @@ const useStyles = makeStyles((theme) => ({
       },
     },
     'a.link, a:not([role=button])[target=_blank]': {
-      background: fade(theme.palette.secondary.main, 0.2),
+      background: alpha(theme.palette.secondary.main, 0.2),
       color: 'inherit',
       borderBottom: `1px solid ${theme.palette.divider}`,
       textDecoration: 'none',
       '&:hover': {
-        background: fade(theme.palette.secondary.main, 0.3),
+        background: alpha(theme.palette.secondary.main, 0.3),
         textDecoration: 'none',
       },
     },

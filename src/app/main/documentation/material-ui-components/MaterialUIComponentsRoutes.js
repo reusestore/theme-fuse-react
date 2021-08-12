@@ -108,12 +108,12 @@ const MaterialUIComponentsRoutes = [
     component: lazy(() => import('app/main/documentation/material-ui-components/pages/Grid')),
   },
   {
-    path: '/documentation/material-ui-components/grid-list',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/GridList')),
-  },
-  {
     path: '/documentation/material-ui-components/hidden',
     component: lazy(() => import('app/main/documentation/material-ui-components/pages/Hidden')),
+  },
+  {
+    path: '/documentation/material-ui-components/image-list',
+    component: lazy(() => import('app/main/documentation/material-ui-components/pages/ImageList')),
   },
   {
     path: '/documentation/material-ui-components/links',

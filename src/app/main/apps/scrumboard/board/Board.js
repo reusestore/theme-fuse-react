@@ -141,6 +141,7 @@ function Board(props) {
         container={containerRef.current}
         ModalProps={{
           keepMounted: true,
+          style: { position: 'absolute' },
         }}
         open={settingsDrawerOpen}
         onOpen={(ev) => {}}
