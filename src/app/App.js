@@ -41,4 +41,4 @@ const App = () => {
   );
 };
 
-export default withAppProviders(App);
+export default withAppProviders(App)();

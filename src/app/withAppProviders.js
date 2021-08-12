@@ -18,7 +18,7 @@ const jss = create({
 const generateClassName = createGenerateClassName({ disableGlobal: true });
 
 const withAppProviders = (Component) => (props) => {
-  return (
+  const WrapperComponent = () => (
     <AppContext.Provider
       value={{
         routes,
@@ -33,6 +33,8 @@ const withAppProviders = (Component) => (props) => {
       </StylesProvider>
     </AppContext.Provider>
   );
+
+  return WrapperComponent;
 };
 
 export default withAppProviders;
