@@ -24,7 +24,7 @@ import mock from './mock';
 
 mock.onAny().passThrough();
 
-if (module.hot) {
+if (module?.hot?.status() === 'apply') {
   const { pathname } = history.location;
   history.push('/loading');
   history.push({ pathname });
