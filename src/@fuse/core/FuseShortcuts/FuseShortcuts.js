@@ -36,9 +36,8 @@ const useStyles = makeStyles({
 
 function FuseShortcuts(props) {
   const dispatch = useDispatch();
-  const shortcuts = useSelector(({ auth }) => auth.user.data.shortcuts);
+  const shortcuts = useSelector(({ auth }) => auth.user.data.shortcuts) || [];
   const navigation = useSelector(selectFlatNavigation);
-
   const classes = useStyles(props);
   const searchInputRef = useRef(null);
   const [addMenu, setAddMenu] = useState(null);

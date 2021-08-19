@@ -110,7 +110,7 @@ export const updateUserShortcuts = (shortcuts) => async (dispatch, getState) => 
     },
   };
 
-  dispatch(updateUserData(user));
+  dispatch(updateUserData(newUser));
 
   return dispatch(setUserData(newUser));
 };
