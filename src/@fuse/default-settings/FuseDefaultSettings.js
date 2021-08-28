@@ -64,6 +64,11 @@ export const defaultThemeOptions = {
         },
       },
     },
+    MuiButtonGroup: {
+      contained: {
+        borderRadius: 18,
+      },
+    },
     MuiTab: {
       root: {
         textTransform: 'none',
