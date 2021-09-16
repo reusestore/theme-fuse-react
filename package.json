@@ -136,6 +136,10 @@
         "analyze": "craco build && source-map-explorer 'build/static/js/*.js' --html analyze-result.html",
         "lint": "eslint"
     },
+    "engines": {
+        "node": ">=14.0.0",
+        "npm": ">=7.0.0"
+    },
     "browserslist": {
         "production": [
             ">0.2%",
