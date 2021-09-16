@@ -73,6 +73,7 @@
         "react/no-unused-prop-types": "off",
         "react/react-in-jsx-scope": "off", // after react v17
         "react/jsx-uses-react": "off", // after react v17
+        "react/jsx-no-bind": "off",
         "unused-imports/no-unused-imports": "warn"
     }
 }
