@@ -105,7 +105,6 @@
         "@craco/craco": "^6.2.0",
         "@typescript-eslint/eslint-plugin": "^4.29.1",
         "@typescript-eslint/parser": "^4.29.1",
-        "@yarnpkg/pnpify": "3.0.1",
         "autoprefixer": "9.8.6",
         "babel-eslint": "10.1.0",
         "cross-env": "7.0.3",
@@ -135,7 +134,6 @@
         "eject": "craco eject",
         "build-docs": "find ./src/app/main/documentation/material-ui-components \\( -name '*.ts' -o -name '*.tsx' \\) -type f -delete && babel-node --presets @babel/preset-env src/app/main/documentation/material-ui-components/build.js",
         "analyze": "craco build && source-map-explorer 'build/static/js/*.js' --html analyze-result.html",
-        "pnpify-sdk": "yarn pnpify --sdk",
         "lint": "eslint"
     },
     "browserslist": {
