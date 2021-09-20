@@ -2,13 +2,13 @@ import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 import _ from '@lodash';
-import Button from '@material-ui/core/Button';
-import Fab from '@material-ui/core/Fab';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Input from '@material-ui/core/Input';
-import Tooltip from '@material-ui/core/Tooltip';
-import Typography from '@material-ui/core/Typography';
+import Button from '@mui/material/Button';
+import Fab from '@mui/material/Fab';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Input from '@mui/material/Input';
+import Tooltip from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
 import NoteModel from 'app/main/apps/notes/model/NoteModel';
 import NoteLabel from 'app/main/apps/notes/NoteLabel';
 import NoteReminderLabel from 'app/main/apps/notes/NoteReminderLabel';
@@ -168,7 +168,13 @@ function NoteForm(props) {
           {(noteForm.labels || noteForm.reminder || noteForm.time) && (
             <div className="flex flex-wrap w-full px-20 my-16 -mx-4">
               {noteForm.reminder && (
-                <NoteReminderLabel className="mt-4 mx-4" date={noteForm.reminder} />
+                <NoteReminderLabel
+                  className="mt-4 mx-4"
+                  date={noteForm.reminder}
+                  onDelete={() => {
+                    setValue('reminder', null);
+                  }}
+                />
               )}
 
               <Controller
@@ -226,7 +232,11 @@ function NoteForm(props) {
           </Tooltip>
 
           <Tooltip title="Add checklist" placement="bottom">
-            <IconButton className="w-32 h-32 mx-4 p-0" onClick={() => setShowList(!showList)}>
+            <IconButton
+              className="w-32 h-32 mx-4 p-0"
+              onClick={() => setShowList(!showList)}
+              size="large"
+            >
               <Icon fontSize="small">playlist_add_check</Icon>
             </IconButton>
           </Tooltip>
@@ -249,6 +259,7 @@ function NoteForm(props) {
                 <div>
                   <IconButton
                     className="w-32 h-32 mx-4 p-0"
+                    // disabled={newFormButtonDisabled()}
                     onClick={() => {
                       onChange(!value);
 
@@ -256,7 +267,7 @@ function NoteForm(props) {
                         setTimeout(() => onCreate(getValues()));
                       }
                     }}
-                    // disabled={newFormButtonDisabled()}
+                    size="large"
                   >
                     <Icon fontSize="small">{value ? 'unarchive' : 'archive'}</Icon>
                   </IconButton>
@@ -282,7 +293,7 @@ function NoteForm(props) {
           ) : (
             <>
               <Tooltip title="Delete Note" placement="bottom">
-                <IconButton className="w-32 h-32 mx-4 p-0" onClick={props.onRemove}>
+                <IconButton className="w-32 h-32 mx-4 p-0" onClick={props.onRemove} size="large">
                   <Icon fontSize="small">delete</Icon>
                 </IconButton>
               </Tooltip>

@@ -1,21 +1,21 @@
 import { useDebounce } from '@fuse/hooks';
 import _ from '@lodash';
-import { DateTimePicker } from '@material-ui/pickers';
+import { DateTimePicker } from '@mui/lab';
 import clsx from 'clsx';
-import AppBar from '@material-ui/core/AppBar';
-import Avatar from '@material-ui/core/Avatar';
-import Chip from '@material-ui/core/Chip';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import List from '@material-ui/core/List';
-import TextField from '@material-ui/core/TextField';
-import Toolbar from '@material-ui/core/Toolbar';
-import Tooltip from '@material-ui/core/Tooltip';
-import Typography from '@material-ui/core/Typography';
-import { Autocomplete } from '@material-ui/lab';
+import AppBar from '@mui/material/AppBar';
+import Avatar from '@mui/material/Avatar';
+import Chip from '@mui/material/Chip';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
+import List from '@mui/material/List';
+import TextField from '@mui/material/TextField';
+import Toolbar from '@mui/material/Toolbar';
+import Tooltip from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
+import { Autocomplete } from '@mui/material';
 import fromUnixTime from 'date-fns/fromUnixTime';
 import getUnixTime from 'date-fns/getUnixTime';
 import format from 'date-fns/format';
@@ -109,7 +109,7 @@ function BoardCardForm(props) {
                 control={control}
                 defaultValue={[]}
                 render={({ field: { onChange, value } }) => (
-                  <IconButton color="inherit">
+                  <IconButton color="inherit" size="large">
                     <Icon>attachment</Icon>
                   </IconButton>
                 )}
@@ -132,7 +132,7 @@ function BoardCardForm(props) {
                 }
               />
             </div>
-            <IconButton color="inherit" onClick={(ev) => dispatch(closeCardDialog())}>
+            <IconButton color="inherit" onClick={(ev) => dispatch(closeCardDialog())} size="large">
               <Icon>close</Icon>
             </IconButton>
           </Toolbar>
@@ -140,7 +140,7 @@ function BoardCardForm(props) {
       </DialogTitle>
 
       <DialogContent className="p-16 sm:p-24">
-        <div className="flex flex-col sm:flex-row sm:justify-between justify-center items-center mb-24">
+        <div className="flex flex-col sm:flex-row sm:justify-between justify-center items-center my-24">
           <div className="mb-16 sm:mb-0 flex items-center">
             <Typography>{board.name}</Typography>
 
@@ -152,13 +152,17 @@ function BoardCardForm(props) {
           </div>
           {cardForm.due && (
             <DateTimePicker
-              label="Due date"
-              inputVariant="outlined"
               value={format(fromUnixTime(cardForm.due), 'Pp')}
-              format="Pp"
+              inputFormat="Pp"
               onChange={(val) => setValue('due', getUnixTime(val))}
-              placeholder="Choose a due date"
-              className="w-full sm:w-auto"
+              renderInput={(_props) => (
+                <TextField
+                  label="Due date"
+                  placeholder="Choose a due date"
+                  className="w-full sm:w-auto"
+                  {..._props}
+                />
+              )}
             />
           )}
         </div>

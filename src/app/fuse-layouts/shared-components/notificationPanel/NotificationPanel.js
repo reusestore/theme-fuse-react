@@ -1,15 +1,14 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import { styled } from '@mui/material/styles';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import Typography from '@mui/material/Typography';
 import withReducer from 'app/store/withReducer';
 import { useSnackbar } from 'notistack';
 import { useEffect, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import clsx from 'clsx';
 import NotificationModel from './model/NotificationModel';
 import NotificationCard from './NotificationCard';
 import NotificationTemplate from './NotificationTemplate';
@@ -23,8 +22,8 @@ import {
 import reducer from './store';
 import { closeNotificationPanel, toggleNotificationPanel } from './store/stateSlice';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
+const StyledSwipeableDrawer = styled(SwipeableDrawer)(({ theme }) => ({
+  '& .MuiDrawer-paper': {
     backgroundColor: theme.palette.background.default,
     width: 320,
   },
@@ -41,7 +40,6 @@ const removeDisplayed = (id) => {
 };
 
 function NotificationPanel(props) {
-  const classes = useStyles();
   const location = useLocation();
   const dispatch = useDispatch();
   const state = useSelector(({ notificationPanel }) => notificationPanel.state);
@@ -156,15 +154,14 @@ function NotificationPanel(props) {
   }
 
   return (
-    <SwipeableDrawer
-      classes={{ paper: clsx(classes.root) }}
+    <StyledSwipeableDrawer
       open={state}
       anchor="right"
       onOpen={(ev) => {}}
       onClose={(ev) => dispatch(toggleNotificationPanel())}
       disableSwipeToOpen
     >
-      <IconButton className="m-4 absolute top-0 right-0 z-999" onClick={handleClose}>
+      <IconButton className="m-4 absolute top-0 right-0 z-999" onClick={handleClose} size="large">
         <Icon color="action">close</Icon>
       </IconButton>
       {notifications.length > 0 ? (
@@ -197,7 +194,7 @@ function NotificationPanel(props) {
           </Typography>
         </div>
       )}
-    </SwipeableDrawer>
+    </StyledSwipeableDrawer>
   );
 }
 

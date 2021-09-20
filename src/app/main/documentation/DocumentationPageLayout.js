@@ -1,37 +1,53 @@
-import Hidden from '@material-ui/core/Hidden';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
+import Hidden from '@mui/material/Hidden';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
 import clsx from 'clsx';
 import { useRef } from 'react';
-
 import FuseNavigation from '@fuse/core/FuseNavigation/FuseNavigation';
 import FusePageSimple from '@fuse/core/FusePageSimple/FusePageSimple';
 import FuseSuspense from '@fuse/core/FuseSuspense';
 import { renderRoutes } from 'react-router-config';
 import { Link } from 'react-router-dom';
-
+import { styled } from '@mui/material/styles';
 import DocumentationNavigation from './DocumentationNavigation';
 import DocumentationPageBreadcrumb from './DocumentationPageBreadcrumb';
+
+const Root = styled(FusePageSimple)(({ theme }) => ({
+  height: '100%',
+  '& .FusePageSimple-header': {
+    minHeight: 64,
+    height: 64,
+  },
+  '& .FusePageSimple-wrapper': {
+    minHeight: 0,
+  },
+  '& .FusePageSimple-content': {
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%',
+    padding: 16,
+    [theme.breakpoints.up('md')]: {
+      padding: 24,
+    },
+  },
+  '& .FusePageSimple-sidebar': {
+    width: 288,
+    paddingTop: 8,
+  },
+}));
 
 function DocumentationPageLayout({ content, route }) {
   const pageLayout = useRef(null);
 
   return (
-    <FusePageSimple
-      classes={{
-        root: 'h-full',
-        contentWrapper: '',
-        content: 'p-16 md:p-24 flex flex-col h-full',
-        leftSidebar: 'w-288 pt-8',
-        header: 'h-64 min-h-64',
-        wrapper: 'min-h-0',
-      }}
+    <Root
       header={
         <div className="flex items-center justify-center px-4 md:px-12 h-full w-full">
           <Hidden lgUp>
             <IconButton
               onClick={(ev) => pageLayout.current.toggleLeftSidebar()}
               aria-label="open left sidebar"
+              size="large"
             >
               <Icon>menu</Icon>
             </IconButton>

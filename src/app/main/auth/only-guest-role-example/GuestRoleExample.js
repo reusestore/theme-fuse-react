@@ -1,20 +1,10 @@
 import FuseHighlight from '@fuse/core/FuseHighlight';
 import FusePageSimple from '@fuse/core/FusePageSimple';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-
-const useStyles = makeStyles((theme) => ({
-  layoutRoot: {},
-}));
+import Typography from '@mui/material/Typography';
 
 function GuestRoleExample() {
-  const classes = useStyles();
-
   return (
     <FusePageSimple
-      classes={{
-        root: classes.layoutRoot,
-      }}
       header={
         <div className="p-24 flex items-center">
           <Typography className="h2">Guest: Auth role example page</Typography>

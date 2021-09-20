@@ -1,25 +1,25 @@
 import DemoContent from '@fuse/core/DemoContent';
+import { styled } from '@mui/material/styles';
 import DemoSidebarContent from '@fuse/core/DemoSidebarContent';
 import FusePageSimple from '@fuse/core/FusePageSimple';
-import Hidden from '@material-ui/core/Hidden';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import { makeStyles } from '@material-ui/core/styles';
+import Hidden from '@mui/material/Hidden';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
 import { useRef } from 'react';
 
-const useStyles = makeStyles({
-  layoutRoot: {},
+const Root = styled(FusePageSimple)({
+  '& .FusePageSimple-header': {},
+  '& .FusePageSimple-toolbar': {},
+  '& .FusePageSimple-content': {},
+  '& .FusePageSimple-sidebarHeader': {},
+  '& .FusePageSimple-sidebarContent': {},
 });
 
 function SimpleLeftSidebar2Sample() {
-  const classes = useStyles();
   const pageLayout = useRef(null);
 
   return (
-    <FusePageSimple
-      classes={{
-        root: classes.layoutRoot,
-      }}
+    <Root
       header={
         <div className="flex flex-col flex-1">
           <div className="flex items-center p-24 px-12">
@@ -27,6 +27,7 @@ function SimpleLeftSidebar2Sample() {
               <IconButton
                 onClick={(ev) => pageLayout.current.toggleLeftSidebar()}
                 aria-label="open left sidebar"
+                size="large"
               >
                 <Icon>menu</Icon>
               </IconButton>

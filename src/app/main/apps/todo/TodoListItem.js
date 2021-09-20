@@ -1,37 +1,33 @@
 import _ from '@lodash';
-import { amber, red } from '@material-ui/core/colors';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import ListItem from '@material-ui/core/ListItem';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import clsx from 'clsx';
+import { styled } from '@mui/material/styles';
+import { amber, red } from '@mui/material/colors';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import ListItem from '@mui/material/ListItem';
+import Typography from '@mui/material/Typography';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectLabelsEntities } from './store/labelsSlice';
 import { updateTodo, openEditTodoDialog } from './store/todosSlice';
 
 import TodoChip from './TodoChip';
 
-const useStyles = makeStyles({
-  todoItem: {
-    '&.completed': {
-      background: 'rgba(0,0,0,0.03)',
-      '& .todo-title, & .todo-notes': {
-        textDecoration: 'line-through',
-      },
+const StyledListItem = styled(ListItem)(({ theme, completed }) => ({
+  ...(completed && {
+    background: 'rgba(0,0,0,0.03)',
+    '& .todo-title, & .todo-notes': {
+      textDecoration: 'line-through',
     },
-  },
-});
+  }),
+}));
 
 function TodoListItem(props) {
   const dispatch = useDispatch();
   const labels = useSelector(selectLabelsEntities);
 
-  const classes = useStyles(props);
-
   return (
-    <ListItem
-      className={clsx(classes.todoItem, { completed: props.todo.completed }, 'py-20 px-0 sm:px-8')}
+    <StyledListItem
+      className="py-20 px-0 sm:px-8"
+      completed={props.todo.completed}
       onClick={(ev) => {
         ev.preventDefault();
         dispatch(openEditTodoDialog(props.todo));
@@ -51,6 +47,7 @@ function TodoListItem(props) {
             })
           );
         }}
+        size="large"
       >
         {props.todo.completed ? (
           <Icon color="secondary">check_circle</Icon>
@@ -71,7 +68,7 @@ function TodoListItem(props) {
           {_.truncate(props.todo.notes.replace(/<(?:.|\n)*?>/gm, ''), { length: 180 })}
         </Typography>
 
-        <div className={clsx(classes.labels, 'flex -mx-2 mt-8')}>
+        <div className="flex -mx-2 mt-8">
           {props.todo.labels.map((label) => (
             <TodoChip
               className="mx-2 mt-4"
@@ -95,6 +92,7 @@ function TodoListItem(props) {
               })
             );
           }}
+          size="large"
         >
           {props.todo.important ? (
             <Icon style={{ color: red[500] }}>error</Icon>
@@ -113,6 +111,7 @@ function TodoListItem(props) {
               })
             );
           }}
+          size="large"
         >
           {props.todo.starred ? (
             <Icon style={{ color: amber[500] }}>star</Icon>
@@ -121,7 +120,7 @@ function TodoListItem(props) {
           )}
         </IconButton>
       </div>
-    </ListItem>
+    </StyledListItem>
   );
 }
 

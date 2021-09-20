@@ -1,14 +1,10 @@
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
+import { useTheme } from '@mui/material/styles';
 import { memo } from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUserSettings } from 'app/auth/store/userSlice';
 import { setDefaultSettings } from 'app/store/fuse/settingsSlice';
-
-const useStyles = makeStyles((theme) => ({
-  root: {},
-}));
 
 function SchemePreview({ theme, className, id, onSelect }) {
   const _theme = useTheme();
@@ -84,8 +80,6 @@ function FuseThemeSchemes(props) {
   const themes = useSelector(({ fuse }) => fuse.settings.themes);
   const settings = useSelector(({ fuse }) => fuse.settings.current);
 
-  const classes = useStyles(props);
-
   function handleSchemeSelect(themeId) {
     const newSettings = {
       ...settings,
@@ -105,7 +99,7 @@ function FuseThemeSchemes(props) {
   }
 
   return (
-    <div className={classes.root}>
+    <div>
       <div className="flex flex-wrap w-full -mx-8">
         {Object.entries(themes)
           .filter(([key, val]) => !(key === 'mainThemeDark' || key === 'mainThemeLight'))

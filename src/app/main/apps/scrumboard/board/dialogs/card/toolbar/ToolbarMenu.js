@@ -1,4 +1,4 @@
-import Popover from '@material-ui/core/Popover';
+import Popover from '@mui/material/Popover';
 
 function ToolbarMenu(props) {
   return (

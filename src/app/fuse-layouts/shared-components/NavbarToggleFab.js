@@ -1,22 +1,15 @@
-import Fab from '@material-ui/core/Fab';
-import Icon from '@material-ui/core/Icon';
-import { useTheme, makeStyles } from '@material-ui/core/styles';
+import Fab from '@mui/material/Fab';
+import { styled, useTheme } from '@mui/material/styles';
+import Icon from '@mui/material/Icon';
 
-import Tooltip from '@material-ui/core/Tooltip';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import Tooltip from '@mui/material/Tooltip';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { navbarToggle, navbarToggleMobile } from 'app/store/fuse/navbarSlice';
 import clsx from 'clsx';
 import { useDispatch, useSelector } from 'react-redux';
 
-const useStyles = makeStyles((theme) => ({
-  buttonIcon: {
-    fontSize: 18,
-    transition: theme.transitions.create(['transform'], {
-      easing: theme.transitions.easing.easeInOut,
-      duration: theme.transitions.duration.short,
-    }),
-  },
-  mobileButton: {
+const Root = styled(Tooltip)(({ theme, position }) => ({
+  '& > .button': {
     height: 40,
     position: 'absolute',
     zIndex: 99,
@@ -37,48 +30,57 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft: 8,
       paddingRight: 8,
     },
-    '&.left': {
+
+    '& > .button-icon': {
+      fontSize: 18,
+      transition: theme.transitions.create(['transform'], {
+        easing: theme.transitions.easing.easeInOut,
+        duration: theme.transitions.duration.short,
+      }),
+    },
+
+    ...(position === 'left' && {
       borderBottomLeftRadius: 0,
       borderTopLeftRadius: 0,
       paddingLeft: 4,
       left: 0,
-    },
+    }),
 
-    '&.right': {
+    ...(position === 'right' && {
       borderBottomRightRadius: 0,
       borderTopRightRadius: 0,
       paddingRight: 4,
       right: 0,
-      '& $buttonIcon': {
+      '& > .button-icon': {
         transform: 'rotate(-180deg)',
       },
-    },
+    }),
   },
 }));
 
 function NavbarToggleFab(props) {
-  const classes = useStyles(props);
   const theme = useTheme();
-  const mdDown = useMediaQuery(theme.breakpoints.down('md'));
+  const mdDown = useMediaQuery(theme.breakpoints.down('lg'));
   const config = useSelector(({ fuse }) => fuse.settings.current.layout.config);
 
   const dispatch = useDispatch();
 
   return (
-    <Tooltip
+    <Root
       title="Show Navigation"
       placement={config.navbar.position === 'left' ? 'right' : 'left'}
+      position={config.navbar.position}
     >
       <Fab
-        className={clsx(classes.mobileButton, config.navbar.position, props.className)}
+        className={clsx('button', props.className)}
         onClick={(ev) => dispatch(mdDown ? navbarToggleMobile() : navbarToggle())}
         disableRipple
       >
-        <Icon className={classes.buttonIcon} color="action">
+        <Icon className="button-icon" color="action">
           menu
         </Icon>
       </Fab>
-    </Tooltip>
+    </Root>
   );
 }
 

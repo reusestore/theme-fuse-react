@@ -1,14 +1,14 @@
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Divider from '@material-ui/core/Divider';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import Button from '@mui/material/Button';
+import { styled } from '@mui/material/styles';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
-const useStyles = makeStyles((theme) => ({
-  header: {
+const Root = styled('div')(({ theme }) => ({
+  '& .PricingStyle1Page-header': {
     height: 600,
     background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
     color: theme.palette.primary.contrastText,
@@ -16,8 +16,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function PricingStyle1Page() {
-  const classes = useStyles();
-
   const container = {
     show: {
       transition: {
@@ -32,8 +30,8 @@ function PricingStyle1Page() {
   };
 
   return (
-    <div className="w-full">
-      <div className={clsx(classes.header, 'flex')}>
+    <Root className="w-full">
+      <div className="PricingStyle1Page-header flex">
         <div className="p-24 w-full max-w-2xl mx-auto">
           <div className="text-center my-128 mx-24">
             <motion.div
@@ -257,7 +255,7 @@ function PricingStyle1Page() {
           </div>
         </div>
       </div>
-    </div>
+    </Root>
   );
 }
 

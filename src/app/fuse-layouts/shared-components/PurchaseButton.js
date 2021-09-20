@@ -1,5 +1,5 @@
-import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
+import Button from '@mui/material/Button';
+import Icon from '@mui/material/Icon';
 import clsx from 'clsx';
 
 function PurchaseButton({ className }) {

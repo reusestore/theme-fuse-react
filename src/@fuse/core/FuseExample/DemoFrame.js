@@ -1,13 +1,7 @@
-import {
-  createGenerateClassName,
-  jssPreset,
-  StylesProvider,
-  ThemeProvider,
-  withStyles,
-} from '@material-ui/core/styles';
+import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
+import createGenerateClassName from '@mui/styles/createGenerateClassName';
+import withStyles from '@mui/styles/withStyles';
 import clsx from 'clsx';
-import { create } from 'jss';
-import jssExtend from 'jss-plugin-extend';
 import PropTypes from 'prop-types';
 import { cloneElement, Component } from 'react';
 import Frame from 'react-frame-component';
@@ -35,16 +29,16 @@ class DemoFrame extends Component {
   };
 
   onContentDidMount = () => {
-    this.setState({
-      ready: true,
-      jss: create({
-        ...jssPreset(),
-        plugins: [...jssPreset().plugins, jssExtend()],
-        insertionPoint: this.contentDocument.querySelector('#jss-demo-insertion-point'),
-      }),
-      sheetsManager: new Map(),
-      container: this.contentDocument.body,
-    });
+    // this.setState({
+    //   ready: true,
+    //   jss: create({
+    //     ...jssPreset(),
+    //     plugins: [...jssPreset().plugins, jssExtend()],
+    //     insertionPoint: this.contentDocument.querySelector('#jss-demo-insertion-point'),
+    //   }),
+    //   sheetsManager: new Map(),
+    //   container: this.contentDocument.body,
+    // });
   };
 
   onContentDidUpdate = () => {
@@ -79,18 +73,20 @@ class DemoFrame extends Component {
         contentDidUpdate={this.onContentDidUpdate}
       >
         {this.state.ready ? (
-          <StylesProvider
-            jss={this.state.jss}
-            generateClassName={generateClassName}
-            sheetsManager={this.state.sheetsManager}
-          >
+          // <StylesProvider
+          //   jss={this.state.jss}
+          //   generateClassName={generateClassName}
+          //   sheetsManager={this.state.sheetsManager}
+          // >
+          <StyledEngineProvider injectFirst>
             <ThemeProvider theme={theme}>
               {cloneElement(children, {
                 container: this.state.container,
               })}
             </ThemeProvider>
-          </StylesProvider>
-        ) : null}
+          </StyledEngineProvider>
+        ) : // </StylesProvider>
+        null}
       </Frame>
     );
   }

@@ -1,36 +1,28 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
-import { makeStyles } from '@material-ui/core/styles';
+import { styled } from '@mui/material/styles';
 import clsx from 'clsx';
 import * as PropTypes from 'prop-types';
 import { forwardRef, useImperativeHandle, memo, useRef } from 'react';
+import GlobalStyles from '@mui/material/GlobalStyles';
 import FusePageCardedHeader from './FusePageCardedHeader';
 import FusePageCardedSidebar from './FusePageCardedSidebar';
 
-const drawerWidth = 240;
-const headerHeight = 200;
-const toolbarHeight = 64;
-const headerContentHeight = headerHeight - toolbarHeight;
+const Root = styled('div')(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'row',
+  minWidth: 0,
+  minHeight: '100%',
+  position: 'relative',
+  flex: '1 1 auto',
+  width: '100%',
+  height: 'auto',
+  backgroundColor: theme.palette.background.default,
 
-const useStyles = makeStyles((theme) => ({
-  '@global': {
-    '#fuse-main': {
-      height: (props) => props.innerScroll && '100vh',
-    },
-  },
-  root: {
-    display: 'flex',
-    flexDirection: 'row',
-    minWidth: 0,
-    minHeight: '100%',
-    position: 'relative',
-    flex: '1 1 auto',
-    height: 'auto',
-    backgroundColor: theme.palette.background.default,
-  },
-  innerScroll: {
+  '& .FusePageCarded-innerScroll': {
     height: '100%',
   },
-  topBg: {
+
+  '& .FusePageCarded-topBg': {
     position: 'absolute',
     left: 0,
     right: 0,
@@ -40,7 +32,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: 'cover',
     pointerEvents: 'none',
   },
-  contentWrapper: {
+
+  '& .FusePageCarded-contentWrapper': {
     display: 'flex',
     flexDirection: 'column',
     padding: '0 3.2rem',
@@ -49,21 +42,24 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '100%',
     minWidth: 0,
     minHeight: 0,
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       padding: '0 1.6rem',
     },
   },
-  header: {
+
+  '& .FusePageCarded-header': {
     height: headerContentHeight,
     minHeight: headerContentHeight,
     maxHeight: headerContentHeight,
     display: 'flex',
     color: theme.palette.primary.contrastText,
   },
-  headerSidebarToggleButton: {
+
+  '& .FusePageCarded-headerSidebarToggleButton': {
     color: theme.palette.primary.contrastText,
   },
-  contentCard: {
+
+  '& .FusePageCarded-contentCard': {
     display: 'flex',
     flex: '1 1 100%',
     flexDirection: 'column',
@@ -72,20 +68,23 @@ const useStyles = makeStyles((theme) => ({
     minHeight: 0,
     borderRadius: '20px 20px 0 0',
   },
-  toolbar: {
+
+  '& .FusePageCarded-toolbar': {
     height: toolbarHeight,
     minHeight: toolbarHeight,
     display: 'flex',
     alignItems: 'center',
     borderBottom: `1px solid ${theme.palette.divider}`,
   },
-  content: {
+
+  '& .FusePageCarded-content': {
     flex: '1 1 auto',
     height: '100%',
     overflow: 'auto',
     '-webkit-overflow-scrolling': 'touch',
   },
-  sidebarWrapper: {
+
+  '& .FusePageCarded-sidebarWrapper': {
     position: 'absolute',
     backgroundColor: 'transparent',
     zIndex: 5,
@@ -97,7 +96,8 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  sidebar: {
+
+  '& .FusePageCarded-sidebar': {
     position: 'absolute',
     '&.permanent': {
       [theme.breakpoints.up('lg')]: {
@@ -110,9 +110,11 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
     height: '100%',
   },
-  leftSidebar: {},
-  rightSidebar: {},
-  sidebarHeader: {
+
+  '& .FusePageCarded-leftSidebar': {},
+  '& .FusePageCarded-rightSidebar': {},
+
+  '& .FusePageCarded-sidebarHeader': {
     height: headerHeight,
     minHeight: headerHeight,
     color: theme.palette.primary.contrastText,
@@ -123,7 +125,8 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  sidebarContent: {
+
+  '& .FusePageCarded-sidebarContent': {
     display: 'flex',
     flex: '1 1 auto',
     flexDirection: 'column',
@@ -134,16 +137,22 @@ const useStyles = makeStyles((theme) => ({
       '-webkit-overflow-scrolling': 'touch',
     },
   },
-  backdrop: {
+
+  '& .FusePageCarded-backdrop': {
     position: 'absolute',
   },
 }));
+
+const drawerWidth = 240;
+const headerHeight = 200;
+const toolbarHeight = 64;
+const headerContentHeight = headerHeight - toolbarHeight;
 
 const FusePageCarded = forwardRef((props, ref) => {
   const leftSidebarRef = useRef(null);
   const rightSidebarRef = useRef(null);
   const rootRef = useRef(null);
-  const classes = useStyles(props);
+
   const isRightSidebar = props.rightSidebarHeader || props.rightSidebarContent;
   const isLeftSidebar = props.leftSidebarHeader || props.leftSidebarContent;
 
@@ -158,67 +167,85 @@ const FusePageCarded = forwardRef((props, ref) => {
   }));
 
   return (
-    <div className={clsx(classes.root, props.innerScroll && classes.innerScroll)} ref={rootRef}>
-      <div className={classes.topBg} />
-
-      <div className="flex container w-full">
-        {isLeftSidebar && (
-          <FusePageCardedSidebar
-            position="left"
-            header={props.leftSidebarHeader}
-            content={props.leftSidebarContent}
-            variant={props.leftSidebarVariant || 'permanent'}
-            innerScroll={props.innerScroll}
-            classes={classes}
-            ref={leftSidebarRef}
-            rootRef={rootRef}
-          />
+    <>
+      <GlobalStyles
+        styles={(theme) => ({
+          '#fuse-main': {
+            height: props.innerScroll && '100vh',
+          },
+        })}
+      />
+      <Root
+        className={clsx(
+          'FusePageCarded-root',
+          props.innerScroll && 'FusePageCarded-innerScroll',
+          props.className
         )}
+        ref={rootRef}
+      >
+        <div className="FusePageCarded-topBg" />
 
-        <div
-          className={clsx(
-            classes.contentWrapper,
-            isLeftSidebar &&
-              (props.leftSidebarVariant === undefined ||
-                props.leftSidebarVariant === 'permanent') &&
-              'lg:ltr:pl-0 lg:rtl:pr-0',
-            isRightSidebar &&
-              (props.rightSidebarVariant === undefined ||
-                props.rightSidebarVariant === 'permanent') &&
-              'lg:pr-0'
+        <div className="flex container w-full">
+          {isLeftSidebar && (
+            <FusePageCardedSidebar
+              position="left"
+              header={props.leftSidebarHeader}
+              content={props.leftSidebarContent}
+              variant={props.leftSidebarVariant || 'permanent'}
+              innerScroll={props.innerScroll}
+              ref={leftSidebarRef}
+              rootRef={rootRef}
+            />
           )}
-        >
-          <FusePageCardedHeader header={props.header} classes={classes} />
 
-          <div className={clsx(classes.contentCard, props.innerScroll && 'inner-scroll')}>
-            {props.contentToolbar && <div className={classes.toolbar}>{props.contentToolbar}</div>}
-
-            {props.content && (
-              <FuseScrollbars
-                className={classes.content}
-                enable={props.innerScroll}
-                scrollToTopOnRouteChange={props.innerScroll}
-              >
-                {props.content}
-              </FuseScrollbars>
+          <div
+            className={clsx(
+              'FusePageCarded-contentWrapper',
+              isLeftSidebar &&
+                (props.leftSidebarVariant === undefined ||
+                  props.leftSidebarVariant === 'permanent') &&
+                'lg:ltr:pl-0 lg:rtl:pr-0',
+              isRightSidebar &&
+                (props.rightSidebarVariant === undefined ||
+                  props.rightSidebarVariant === 'permanent') &&
+                'lg:pr-0'
             )}
-          </div>
-        </div>
+          >
+            <FusePageCardedHeader header={props.header} />
 
-        {isRightSidebar && (
-          <FusePageCardedSidebar
-            position="right"
-            header={props.rightSidebarHeader}
-            content={props.rightSidebarContent}
-            variant={props.rightSidebarVariant || 'permanent'}
-            innerScroll={props.innerScroll}
-            classes={classes}
-            ref={rightSidebarRef}
-            rootRef={rootRef}
-          />
-        )}
-      </div>
-    </div>
+            <div
+              className={clsx('FusePageCarded-contentCard', props.innerScroll && 'inner-scroll')}
+            >
+              {props.contentToolbar && (
+                <div className="FusePageCarded-toolbar">{props.contentToolbar}</div>
+              )}
+
+              {props.content && (
+                <FuseScrollbars
+                  className="FusePageCarded-content"
+                  enable={props.innerScroll}
+                  scrollToTopOnRouteChange={props.innerScroll}
+                >
+                  {props.content}
+                </FuseScrollbars>
+              )}
+            </div>
+          </div>
+
+          {isRightSidebar && (
+            <FusePageCardedSidebar
+              position="right"
+              header={props.rightSidebarHeader}
+              content={props.rightSidebarContent}
+              variant={props.rightSidebarVariant || 'permanent'}
+              innerScroll={props.innerScroll}
+              ref={rightSidebarRef}
+              rootRef={rootRef}
+            />
+          )}
+        </div>
+      </Root>
+    </>
   );
 });
 
@@ -237,4 +264,4 @@ FusePageCarded.propTypes = {
 
 FusePageCarded.defaultProps = {};
 
-export default memo(FusePageCarded);
+export default memo(styled(FusePageCarded)``);

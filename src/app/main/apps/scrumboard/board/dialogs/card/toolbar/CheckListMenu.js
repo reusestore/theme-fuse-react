@@ -1,9 +1,9 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
-import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import TextField from '@material-ui/core/TextField';
+import Button from '@mui/material/Button';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import TextField from '@mui/material/TextField';
 import ChecklistModel from 'app/main/apps/scrumboard/model/ChecklistModel';
 import { useEffect, useState } from 'react';
 import * as yup from 'yup';
@@ -52,7 +52,7 @@ function CheckListMenu(props) {
 
   return (
     <div>
-      <IconButton color="inherit" onClick={handleMenuOpen}>
+      <IconButton color="inherit" onClick={handleMenuOpen} size="large">
         <Icon>check_box</Icon>
       </IconButton>
       <ToolbarMenu state={anchorEl} onClose={handleMenuClose}>

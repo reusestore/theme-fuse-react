@@ -1,9 +1,9 @@
 import FuseHighlight from '@fuse/core/FuseHighlight';
-import AppBar from '@material-ui/core/AppBar';
-import Card from '@material-ui/core/Card';
-import Icon from '@material-ui/core/Icon';
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
+import AppBar from '@mui/material/AppBar';
+import Card from '@mui/material/Card';
+import Icon from '@mui/material/Icon';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { useState } from 'react';

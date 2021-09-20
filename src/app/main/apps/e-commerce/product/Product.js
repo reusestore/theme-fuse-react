@@ -1,10 +1,10 @@
 import FuseLoading from '@fuse/core/FuseLoading';
 import FusePageCarded from '@fuse/core/FusePageCarded';
 import { useDeepCompareEffect } from '@fuse/hooks';
-import Button from '@material-ui/core/Button';
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
-import Typography from '@material-ui/core/Typography';
+import Button from '@mui/material/Button';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import Typography from '@mui/material/Typography';
 import withReducer from 'app/store/withReducer';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
@@ -14,6 +14,7 @@ import _ from '@lodash';
 import { useForm, FormProvider } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { styled } from '@mui/material/styles';
 import { resetProduct, newProduct, getProduct } from '../store/productSlice';
 import reducer from '../store';
 import ProductHeader from './ProductHeader';
@@ -22,6 +23,18 @@ import InventoryTab from './tabs/InventoryTab';
 import PricingTab from './tabs/PricingTab';
 import ProductImagesTab from './tabs/ProductImagesTab';
 import ShippingTab from './tabs/ShippingTab';
+
+const Root = styled(FusePageCarded)(({ theme }) => ({
+  '& .FusePageCarded-header': {
+    minHeight: 72,
+    height: 72,
+    alignItems: 'center',
+    [theme.breakpoints.up('sm')]: {
+      minHeight: 136,
+      height: 136,
+    },
+  },
+}));
 
 /**
  * Form Validation Schema
@@ -140,11 +153,7 @@ function Product(props) {
 
   return (
     <FormProvider {...methods}>
-      <FusePageCarded
-        classes={{
-          toolbar: 'p-0',
-          header: 'min-h-72 h-72 sm:h-136 sm:min-h-136',
-        }}
+      <Root
         header={<ProductHeader />}
         contentToolbar={
           <Tabs

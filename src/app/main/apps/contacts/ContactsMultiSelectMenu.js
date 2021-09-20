@@ -1,10 +1,10 @@
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import MenuList from '@material-ui/core/MenuList';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import MenuList from '@mui/material/MenuList';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setContactsUnstarred, setContactsStarred, removeContacts } from './store/contactsSlice';
@@ -30,6 +30,7 @@ function ContactsMultiSelectMenu(props) {
         aria-owns={anchorEl ? 'selectedContactsMenu' : null}
         aria-haspopup="true"
         onClick={openSelectedContactMenu}
+        size="large"
       >
         <Icon>more_horiz</Icon>
       </IconButton>

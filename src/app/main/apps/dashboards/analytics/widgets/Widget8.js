@@ -1,11 +1,11 @@
-import AppBar from '@material-ui/core/AppBar';
-import Card from '@material-ui/core/Card';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import { useTheme } from '@material-ui/core/styles';
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
-import Typography from '@material-ui/core/Typography';
+import AppBar from '@mui/material/AppBar';
+import Card from '@mui/material/Card';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import { useTheme } from '@mui/material/styles';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import Typography from '@mui/material/Typography';
 import { memo, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import _ from '@lodash';
@@ -30,7 +30,7 @@ function Widget8(props) {
           </div>
 
           <div className="-mt-12">
-            <IconButton aria-label="more" color="inherit">
+            <IconButton aria-label="more" color="inherit" size="large">
               <Icon>more_vert</Icon>
             </IconButton>
           </div>

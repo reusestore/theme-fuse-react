@@ -1,10 +1,9 @@
-import ImageList from '@material-ui/core/ImageList';
-import ImageListItem from '@material-ui/core/ImageListItem';
-import ImageListItemBar from '@material-ui/core/ImageListItemBar';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import Typography from '@material-ui/core/Typography';
+import ImageListItem from '@mui/material/ImageListItem';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import ListSubheader from '@mui/material/ListSubheader';
+import Typography from '@mui/material/Typography';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
@@ -44,7 +43,7 @@ function PhotosVideosTab() {
               <ListSubheader
                 component={motion.div}
                 variants={item}
-                className="flex items-center px-0 mb-24"
+                className="flex items-center px-0 mb-24 bg-transparent"
               >
                 <Typography variant="h6" className="font-medium">
                   {period.name}
@@ -54,29 +53,27 @@ function PhotosVideosTab() {
                 </Typography>
               </ListSubheader>
 
-              <ImageList className="overflow-hidden" gap={16} cols={0}>
+              <div className="overflow-hidden flex flex-wrap -m-8">
                 {period.media.map((media) => (
-                  <ImageListItem
-                    component={motion.div}
-                    variants={item}
-                    classes={{
-                      root: 'w-full sm:w-1/2 md:w-1/4',
-                      item: 'rounded-16 shadow',
-                    }}
-                    key={media.preview}
-                  >
-                    <img src={media.preview} alt={media.title} />
-                    <ImageListItemBar
-                      title={media.title}
-                      actionIcon={
-                        <IconButton>
-                          <Icon className="text-white opacity-75">info</Icon>
-                        </IconButton>
-                      }
-                    />
-                  </ImageListItem>
+                  <div className="w-full sm:w-1/2 md:w-1/4 p-8" key={media.preview}>
+                    <ImageListItem
+                      component={motion.div}
+                      variants={item}
+                      className="w-full rounded-16 shadow overflow-hidden"
+                    >
+                      <img src={media.preview} alt={media.title} />
+                      <ImageListItemBar
+                        title={media.title}
+                        actionIcon={
+                          <IconButton size="large">
+                            <Icon className="text-white opacity-75">info</Icon>
+                          </IconButton>
+                        }
+                      />
+                    </ImageListItem>
+                  </div>
                 ))}
-              </ImageList>
+              </div>
             </div>
           ))}
         </div>

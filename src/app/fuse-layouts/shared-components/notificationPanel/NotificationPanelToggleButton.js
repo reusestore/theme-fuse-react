@@ -1,6 +1,6 @@
-import Badge from '@material-ui/core/Badge';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
+import Badge from '@mui/material/Badge';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
 import { useSelector, useDispatch } from 'react-redux';
 import withReducer from 'app/store/withReducer';
 import reducer from './store';
@@ -14,7 +14,11 @@ function NotificationPanelToggleButton(props) {
   const dispatch = useDispatch();
 
   return (
-    <IconButton className="w-40 h-40" onClick={(ev) => dispatch(toggleNotificationPanel())}>
+    <IconButton
+      className="w-40 h-40"
+      onClick={(ev) => dispatch(toggleNotificationPanel())}
+      size="large"
+    >
       <Badge color="secondary" variant="dot" invisible={notifications.length === 0}>
         {props.children}
       </Badge>

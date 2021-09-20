@@ -2,12 +2,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useEffect, forwardRef, useImperativeHandle, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
 
 import * as yup from 'yup';
 import _ from '@lodash';
@@ -74,7 +74,11 @@ const CardChecklistName = forwardRef(function CardChecklistName(props, ref) {
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
-                    <IconButton type="submit" disabled={_.isEmpty(dirtyFields) || !isValid}>
+                    <IconButton
+                      type="submit"
+                      disabled={_.isEmpty(dirtyFields) || !isValid}
+                      size="large"
+                    >
                       <Icon>check</Icon>
                     </IconButton>
                   </InputAdornment>

@@ -1,6 +1,6 @@
-import AppBar from '@material-ui/core/AppBar';
-import { ThemeProvider } from '@material-ui/core/styles';
-import Toolbar from '@material-ui/core/Toolbar';
+import AppBar from '@mui/material/AppBar';
+import { ThemeProvider } from '@mui/material/styles';
+import Toolbar from '@mui/material/Toolbar';
 import PoweredByLinks from 'app/fuse-layouts/shared-components/PoweredByLinks';
 import PurchaseButton from 'app/fuse-layouts/shared-components/PurchaseButton';
 import DocumentationButton from 'app/fuse-layouts/shared-components/DocumentationButton';

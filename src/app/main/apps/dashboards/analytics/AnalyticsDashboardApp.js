@@ -1,4 +1,4 @@
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import withReducer from 'app/store/withReducer';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';

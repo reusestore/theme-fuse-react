@@ -1,26 +1,18 @@
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Input from '@material-ui/core/Input';
-import { makeStyles } from '@material-ui/core/styles';
-import Tooltip from '@material-ui/core/Tooltip';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Input from '@mui/material/Input';
+import Tooltip from '@mui/material/Tooltip';
 import clsx from 'clsx';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Box } from '@mui/system';
 import { resetNotesSearchText, setNotesSearchText } from './store/notesSlice';
-
-const useStyles = makeStyles((theme) => ({
-  root: {},
-  inputWrapper: {
-    backgroundColor: theme.palette.primary.dark,
-  },
-}));
 
 function NotesSearch(props) {
   const dispatch = useDispatch();
   const searchText = useSelector(({ notesApp }) => notesApp.notes.notesSearchText);
 
-  const classes = useStyles(props);
   const [search, setSearch] = useState(false);
 
   function showSearch(ev) {
@@ -46,7 +38,7 @@ function NotesSearch(props) {
   }
 
   return (
-    <div className={clsx(classes.root, 'flex', props.className)}>
+    <div className={clsx('flex', props.className)}>
       <Tooltip title="Click to search" placement="bottom">
         <div onClick={showSearch} onKeyDown={showSearch} role="button" tabIndex={0}>
           {props.trigger}
@@ -55,13 +47,13 @@ function NotesSearch(props) {
 
       {search && (
         <ClickAwayListener onClickAway={handleClickAway}>
-          <div
-            className={clsx(
-              classes.inputWrapper,
-              'absolute left-0 right-0 top-0 bottom-0 h-full z-9999 px-8 sm:px-24'
-            )}
-          >
-            <div className="flex items-center w-full h-full">
+          <div className="absolute left-0 right-0 top-0 bottom-0 h-full z-9999 px-8 sm:px-24">
+            <Box
+              sx={{
+                backgroundColor: (theme) => theme.palette.primary.dark,
+              }}
+              className="flex items-center w-full h-full"
+            >
               <Input
                 placeholder="Search for anything"
                 className="flex flex-1 py-0 px-16 h-64"
@@ -75,10 +67,10 @@ function NotesSearch(props) {
                 autoFocus
               />
 
-              <IconButton onClick={hideSearch} className="mx-8">
+              <IconButton onClick={hideSearch} className="mx-8" size="large">
                 <Icon>close</Icon>
               </IconButton>
-            </div>
+            </Box>
           </div>
         </ClickAwayListener>
       )}
@@ -89,7 +81,7 @@ function NotesSearch(props) {
 NotesSearch.propTypes = {};
 NotesSearch.defaultProps = {
   trigger: (
-    <IconButton className="w-64 h-64">
+    <IconButton className="w-64 h-64" size="large">
       <Icon>search</Icon>
     </IconButton>
   ),

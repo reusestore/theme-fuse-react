@@ -1,8 +1,8 @@
-import Divider from '@material-ui/core/Divider';
-import Paper from '@material-ui/core/Paper';
-import Select from '@material-ui/core/Select';
-import { useTheme } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import Divider from '@mui/material/Divider';
+import Paper from '@mui/material/Paper';
+import Select from '@mui/material/Select';
+import { useTheme } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 import _ from '@lodash';
 import { memo, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
@@ -22,14 +22,13 @@ function Widget9(props) {
         <Typography className="text-16 font-medium">{widget.title}</Typography>
 
         <Select
-          native
           value={currentRange}
           onChange={handleChangeRange}
           inputProps={{
             name: 'currentRange',
           }}
-          className="font-medium opacity-75"
-          disableUnderline
+          classes={{ select: 'py-8' }}
+          variant="filled"
         >
           {Object.entries(widget.ranges).map(([key, n]) => {
             return (

@@ -1,7 +1,7 @@
-import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
-import { useTheme } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import Button from '@mui/material/Button';
+import Icon from '@mui/material/Icon';
+import { useTheme } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
 import { useFormContext } from 'react-hook-form';
 import { useDispatch } from 'react-redux';

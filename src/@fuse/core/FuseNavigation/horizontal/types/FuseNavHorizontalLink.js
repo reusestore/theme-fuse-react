@@ -1,48 +1,45 @@
-import Icon from '@material-ui/core/Icon';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import { makeStyles } from '@material-ui/core/styles';
+import Icon from '@mui/material/Icon';
+import { styled } from '@mui/material/styles';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { memo, useMemo } from 'react';
 import { withRouter } from 'react-router-dom';
 import FuseNavBadge from '../../FuseNavBadge';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    minHeight: 48,
-    '&.active': {
-      backgroundColor: `${theme.palette.secondary.main}!important`,
-      color: `${theme.palette.secondary.contrastText}!important`,
-      pointerEvents: 'none',
-      '& .fuse-list-item-text-primary': {
-        color: 'inherit',
-      },
-      '& .fuse-list-item-icon': {
-        color: 'inherit',
-      },
+const StyledListItem = styled(ListItem)(({ theme }) => ({
+  color: theme.palette.text.primary,
+  textDecoration: 'none!important',
+  minHeight: 48,
+  '&.active': {
+    backgroundColor: `${theme.palette.secondary.main}!important`,
+    color: `${theme.palette.secondary.contrastText}!important`,
+    pointerEvents: 'none',
+    '& .fuse-list-item-text-primary': {
+      color: 'inherit',
     },
-    '& .fuse-list-item-icon': {},
-    '& .fuse-list-item-text': {
-      padding: '0 0 0 16px',
+    '& .fuse-list-item-icon': {
+      color: 'inherit',
     },
-    color: theme.palette.text.primary,
-    textDecoration: 'none!important',
+  },
+  '& .fuse-list-item-icon': {},
+  '& .fuse-list-item-text': {
+    padding: '0 0 0 16px',
   },
 }));
 
 function FuseNavHorizontalLink(props) {
-  const classes = useStyles(props);
   const { item } = props;
 
   return useMemo(
     () => (
-      <ListItem
+      <StyledListItem
         button
         component="a"
         href={item.url}
         target={item.target ? item.target : '_blank'}
-        className={clsx('fuse-list-item', classes.root)}
+        className={clsx('fuse-list-item')}
         role="button"
       >
         {item.icon && (
@@ -61,9 +58,9 @@ function FuseNavHorizontalLink(props) {
         />
 
         {item.badge && <FuseNavBadge className="ltr:ml-8 rtl:mr-8" badge={item.badge} />}
-      </ListItem>
+      </StyledListItem>
     ),
-    [classes.root, item.badge, item.icon, item.iconClass, item.target, item.title, item.url]
+    [item.badge, item.icon, item.iconClass, item.target, item.title, item.url]
   );
 }
 

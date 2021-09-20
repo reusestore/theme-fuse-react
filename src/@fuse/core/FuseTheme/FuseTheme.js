@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import { memo, useEffect, useLayoutEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { selectMainTheme } from 'app/store/fuse/settingsSlice';

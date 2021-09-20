@@ -1,48 +1,43 @@
-import List from '@material-ui/core/List';
-import { makeStyles } from '@material-ui/core/styles';
+import List from '@mui/material/List';
+import { styled } from '@mui/material/styles';
 import clsx from 'clsx';
 import FuseNavItem from '../FuseNavItem';
 
-const useStyles = makeStyles((theme) => ({
-  navigation: {
-    '& .fuse-list-item': {
-      '&:hover': {
-        backgroundColor:
-          theme.palette.type === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0,0,0,.04)',
-      },
-      '&:focus:not(.active)': {
-        backgroundColor:
-          theme.palette.type === 'dark' ? 'rgba(255, 255, 255, 0.06)' : 'rgba(0,0,0,.05)',
-      },
-      padding: '8px 12px 8px 12px',
-      height: 40,
-      minHeight: 40,
-      '&.level-0': {
-        height: 44,
-        minHeight: 44,
-      },
-      '& .fuse-list-item-text': {
-        padding: '0 0 0 8px',
-      },
+const StyledList = styled(List)(({ theme }) => ({
+  '& .fuse-list-item': {
+    '&:hover': {
+      backgroundColor:
+        theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0,0,0,.04)',
     },
-    '&.active-square-list': {
-      '& .fuse-list-item': {
-        borderRadius: '0',
-      },
+    '&:focus:not(.active)': {
+      backgroundColor:
+        theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.06)' : 'rgba(0,0,0,.05)',
+    },
+    padding: '8px 12px 8px 12px',
+    height: 40,
+    minHeight: 40,
+    '&.level-0': {
+      height: 44,
+      minHeight: 44,
+    },
+    '& .fuse-list-item-text': {
+      padding: '0 0 0 8px',
+    },
+  },
+  '&.active-square-list': {
+    '& .fuse-list-item': {
+      borderRadius: '0',
     },
   },
 }));
 
 function FuseNavHorizontalLayout1(props) {
-  const classes = useStyles(props);
   const { navigation, layout, active, dense, className } = props;
 
   return (
-    <List
+    <StyledList
       className={clsx(
         'navigation whitespace-nowrap flex p-0',
-        classes.navigation,
-        classes.horizontalNavigation,
         `active-${active}-list`,
         dense && 'dense',
         className
@@ -57,7 +52,7 @@ function FuseNavHorizontalLayout1(props) {
           dense={dense}
         />
       ))}
-    </List>
+    </StyledList>
   );
 }
 

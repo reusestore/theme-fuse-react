@@ -1,25 +1,21 @@
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
-import Collapse from '@material-ui/core/Collapse';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import { makeStyles } from '@material-ui/core/styles';
-import { alpha } from '@material-ui/core/styles/colorManipulator';
+import { styled, alpha } from '@mui/material/styles';
+import Collapse from '@mui/material/Collapse';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { useEffect, useState, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
-
 import FuseNavBadge from '../../FuseNavBadge';
 import FuseNavItem from '../../FuseNavItem';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    padding: 0,
-    '&.open': {},
-  },
-  item: (props) => ({
+const Root = styled('ul')(({ theme, ...props }) => ({
+  padding: 0,
+  '&.open': {},
+  '& > .fuse-list-item': {
     height: 40,
     width: '100%',
     borderRadius: '6px',
@@ -30,11 +26,11 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       color: theme.palette.text.primary,
     },
-    '& .fuse-list-item-icon': {
+    '& > .fuse-list-item-icon': {
       marginRight: 12,
       color: 'inherit',
     },
-  }),
+  },
 }));
 
 function needsToBeOpened(location, item) {
@@ -64,9 +60,8 @@ function isUrlInChildren(parent, url) {
 function FuseNavVerticalCollapse(props) {
   const [open, setOpen] = useState(() => needsToBeOpened(props.location, props.item));
   const { item, nestedLevel, onItemClick } = props;
-  const classes = useStyles({
-    itemPadding: nestedLevel > 0 ? 28 + nestedLevel * 16 : 12,
-  });
+  const itemPadding = nestedLevel > 0 ? 28 + nestedLevel * 16 : 12;
+
   const location = useLocation();
 
   useEffect(() => {
@@ -80,10 +75,10 @@ function FuseNavVerticalCollapse(props) {
 
   return useMemo(
     () => (
-      <ul className={clsx(classes.root, open && 'open')}>
+      <Root className={clsx(open && 'open')} itemPadding={itemPadding}>
         <ListItem
           button
-          className={clsx(classes.item, 'fuse-list-item')}
+          className="fuse-list-item"
           onClick={() => setOpen(!open)}
           component={item.url ? NavLinkAdapter : 'li'}
           to={item.url}
@@ -110,6 +105,7 @@ function FuseNavVerticalCollapse(props) {
             disableRipple
             className="w-40 h-40 -mx-12 p-0 focus:bg-transparent hover:bg-transparent"
             onClick={(ev) => ev.preventDefault()}
+            size="large"
           >
             <Icon className="text-16 arrow-icon" color="inherit">
               {open ? 'expand_less' : 'expand_more'}
@@ -130,17 +126,16 @@ function FuseNavVerticalCollapse(props) {
             ))}
           </Collapse>
         )}
-      </ul>
+      </Root>
     ),
     [
-      classes.item,
-      classes.root,
       item.badge,
       item.children,
       item.icon,
       item.iconClass,
       item.title,
       item.url,
+      itemPadding,
       nestedLevel,
       onItemClick,
       open,

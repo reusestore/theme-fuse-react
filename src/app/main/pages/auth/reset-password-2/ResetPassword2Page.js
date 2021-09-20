@@ -2,20 +2,14 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { motion } from 'framer-motion';
 import { Controller, useForm } from 'react-hook-form';
 
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-import clsx from 'clsx';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 import * as yup from 'yup';
 import _ from '@lodash';
-
-const useStyles = makeStyles((theme) => ({
-  root: {},
-}));
 
 /**
  * Form Validation Schema
@@ -36,8 +30,6 @@ const defaultValues = {
 };
 
 function ResetPasswordPage2() {
-  const classes = useStyles();
-
   const { control, formState, handleSubmit, reset } = useForm({
     mode: 'onChange',
     defaultValues,
@@ -51,12 +43,7 @@ function ResetPasswordPage2() {
   }
 
   return (
-    <div
-      className={clsx(
-        classes.root,
-        'flex flex-col flex-auto p-16 sm:p-24 md:flex-row md:p-0 overflow-hidden'
-      )}
-    >
+    <div className="flex flex-col flex-auto p-16 sm:p-24 md:flex-row md:p-0 overflow-hidden">
       <div className="flex flex-col flex-grow-0 items-center  p-16 text-center md:p-128 md:items-start md:flex-shrink-0 md:flex-1 md:text-left">
         <motion.div
           initial={{ opacity: 0, scale: 0.6 }}

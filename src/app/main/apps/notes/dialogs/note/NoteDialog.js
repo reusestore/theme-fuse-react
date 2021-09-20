@@ -1,6 +1,6 @@
 import { useDebounce } from '@fuse/hooks';
-import Dialog from '@material-ui/core/Dialog';
-import Slide from '@material-ui/core/Slide';
+import Dialog from '@mui/material/Dialog';
+import Slide from '@mui/material/Slide';
 import NoteForm from 'app/main/apps/notes/note-form/NoteForm';
 import { forwardRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';

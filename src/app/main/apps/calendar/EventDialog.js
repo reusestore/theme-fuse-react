@@ -2,29 +2,29 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import formatISO from 'date-fns/formatISO';
 import { Controller, useForm } from 'react-hook-form';
 import FuseUtils from '@fuse/utils/FuseUtils';
-import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Switch from '@material-ui/core/Switch';
-import TextField from '@material-ui/core/TextField';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import { DateTimePicker } from '@material-ui/pickers';
+import AppBar from '@mui/material/AppBar';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Switch from '@mui/material/Switch';
+import TextField from '@mui/material/TextField';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import { DateTimePicker } from '@mui/lab';
 import { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
 import _ from '@lodash';
 import {
   removeEvent,
-  updateEvent,
-  addEvent,
   closeNewEventDialog,
   closeEditEventDialog,
+  updateEvent,
+  addEvent,
 } from './store/eventsSlice';
 
 const defaultValues = {
@@ -47,7 +47,7 @@ function EventDialog(props) {
   const dispatch = useDispatch();
   const eventDialog = useSelector(({ calendarApp }) => calendarApp.events.eventDialog);
 
-  const { reset, formState, watch, control, getValues, handleSubmit } = useForm({
+  const { reset, formState, watch, control, getValues } = useForm({
     defaultValues,
     mode: 'onChange',
     resolver: yupResolver(schema),
@@ -103,7 +103,9 @@ function EventDialog(props) {
   /**
    * Form Submit
    */
-  function onSubmit(data) {
+  function onSubmit(ev) {
+    ev.preventDefault();
+    const data = getValues();
     if (eventDialog.type === 'new') {
       dispatch(addEvent(data));
     } else {
@@ -136,7 +138,7 @@ function EventDialog(props) {
         </Toolbar>
       </AppBar>
 
-      <form noValidate onSubmit={handleSubmit(onSubmit)}>
+      <form noValidate>
         <DialogContent classes={{ root: 'p-16 pb-0 sm:p-24 sm:pb-0' }}>
           <Controller
             name="title"
@@ -186,10 +188,11 @@ function EventDialog(props) {
             defaultValue=""
             render={({ field: { onChange, value } }) => (
               <DateTimePicker
-                label="Start"
-                inputVariant="outlined"
                 value={value}
                 onChange={onChange}
+                renderInput={(_props) => (
+                  <TextField label="Start" className="mt-8 mb-16 w-full" {..._props} />
+                )}
                 className="mt-8 mb-16 w-full"
                 maxDate={end}
               />
@@ -202,11 +205,11 @@ function EventDialog(props) {
             defaultValue=""
             render={({ field: { onChange, value } }) => (
               <DateTimePicker
-                label="End"
-                inputVariant="outlined"
                 value={value}
                 onChange={onChange}
-                className="mt-8 mb-16 w-full"
+                renderInput={(_props) => (
+                  <TextField label="End" className="mt-8 mb-16 w-full" {..._props} />
+                )}
                 minDate={start}
               />
             )}
@@ -236,7 +239,7 @@ function EventDialog(props) {
             <Button
               variant="contained"
               color="primary"
-              type="submit"
+              onClick={onSubmit}
               disabled={_.isEmpty(dirtyFields) || !isValid}
             >
               Add
@@ -247,12 +250,12 @@ function EventDialog(props) {
             <Button
               variant="contained"
               color="primary"
-              type="submit"
+              onClick={onSubmit}
               disabled={_.isEmpty(dirtyFields) || !isValid}
             >
               Save
             </Button>
-            <IconButton onClick={handleRemove}>
+            <IconButton onClick={handleRemove} size="large">
               <Icon>delete</Icon>
             </IconButton>
           </DialogActions>

@@ -1,8 +1,8 @@
 import FuseSearch from '@fuse/core/FuseSearch';
-import AppBar from '@material-ui/core/AppBar';
-import Hidden from '@material-ui/core/Hidden';
-import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
-import Toolbar from '@material-ui/core/Toolbar';
+import { ThemeProvider } from '@mui/material/styles';
+import AppBar from '@mui/material/AppBar';
+import Hidden from '@mui/material/Hidden';
+import Toolbar from '@mui/material/Toolbar';
 import ChatPanelToggleButton from 'app/fuse-layouts/shared-components/chatPanel/ChatPanelToggleButton';
 import Logo from 'app/fuse-layouts/shared-components/Logo';
 import NavbarToggleButton from 'app/fuse-layouts/shared-components/NavbarToggleButton';
@@ -17,21 +17,15 @@ import FullScreenToggle from '../../shared-components/FullScreenToggle';
 import LanguageSwitcher from '../../shared-components/LanguageSwitcher';
 import NotificationPanelToggleButton from '../../shared-components/notificationPanel/NotificationPanelToggleButton';
 
-const useStyles = makeStyles((theme) => ({
-  root: {},
-}));
-
 function ToolbarLayout3(props) {
   const config = useSelector(({ fuse }) => fuse.settings.current.layout.config);
   const toolbarTheme = useSelector(selectToolbarTheme);
-
-  const classes = useStyles(props);
 
   return (
     <ThemeProvider theme={toolbarTheme}>
       <AppBar
         id="fuse-toolbar"
-        className={clsx(classes.root, 'flex relative z-20 shadow-md', props.className)}
+        className={clsx('flex relative z-20 shadow-md', props.className)}
         color="default"
         style={{ backgroundColor: toolbarTheme.palette.background.paper }}
       >
@@ -42,14 +36,14 @@ function ToolbarLayout3(props) {
             </Hidden>
           )}
 
-          <Hidden mdDown>
+          <Hidden lgDown>
             <div className={clsx('flex flex-shrink-0 items-center')}>
               <Logo />
             </div>
           </Hidden>
 
           <div className="flex flex-1">
-            <Hidden xsDown>
+            <Hidden smDown>
               <FuseSearch className="mx-16 lg:mx-24" variant="basic" />
             </Hidden>
           </div>

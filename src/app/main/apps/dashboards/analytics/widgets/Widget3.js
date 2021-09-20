@@ -1,7 +1,7 @@
-import Card from '@material-ui/core/Card';
-import Icon from '@material-ui/core/Icon';
-import { useTheme } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import Card from '@mui/material/Card';
+import Icon from '@mui/material/Icon';
+import { useTheme } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 import { memo } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import _ from '@lodash';

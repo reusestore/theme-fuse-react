@@ -1,5 +1,5 @@
-import Chip from '@material-ui/core/Chip';
-import Icon from '@material-ui/core/Icon';
+import Chip from '@mui/material/Chip';
+import Icon from '@mui/material/Icon';
 import clsx from 'clsx';
 import format from 'date-fns/format';
 

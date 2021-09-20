@@ -1,10 +1,10 @@
 import { Controller, useForm } from 'react-hook-form';
 import { useEffect } from 'react';
-import Checkbox from '@material-ui/core/Checkbox';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import ListItem from '@material-ui/core/ListItem';
-import TextField from '@material-ui/core/TextField';
+import Checkbox from '@mui/material/Checkbox';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import ListItem from '@mui/material/ListItem';
+import TextField from '@mui/material/TextField';
 import _ from '@lodash';
 
 function CardChecklistItem(props) {
@@ -42,7 +42,7 @@ function CardChecklistItem(props) {
         )}
       />
 
-      <IconButton aria-label="Delete" onClick={props.onListItemRemove}>
+      <IconButton aria-label="Delete" onClick={props.onListItemRemove} size="large">
         <Icon>delete</Icon>
       </IconButton>
     </ListItem>

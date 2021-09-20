@@ -1,16 +1,16 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
-import Divider from '@material-ui/core/Divider';
-import Icon from '@material-ui/core/Icon';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import { makeStyles } from '@material-ui/core/styles';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import Switch from '@material-ui/core/Switch';
-import Typography from '@material-ui/core/Typography';
+import { styled } from '@mui/material/styles';
+import Divider from '@mui/material/Divider';
+import Icon from '@mui/material/Icon';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemSecondaryAction from '@mui/material/ListItemSecondaryAction';
+import ListItemText from '@mui/material/ListItemText';
+import ListSubheader from '@mui/material/ListSubheader';
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import Switch from '@mui/material/Switch';
+import Typography from '@mui/material/Typography';
 import withReducer from 'app/store/withReducer';
 import format from 'date-fns/format';
 import { memo, useEffect, useState } from 'react';
@@ -19,8 +19,8 @@ import reducer from './store';
 import { getData } from './store/dataSlice';
 import { toggleQuickPanel } from './store/stateSlice';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
+const StyledSwipeableDrawer = styled(SwipeableDrawer)(({ theme }) => ({
+  '& .MuiDrawer-paper': {
     width: 280,
   },
 }));
@@ -30,7 +30,6 @@ function QuickPanel(props) {
   const data = useSelector(({ quickPanel }) => quickPanel.data);
   const state = useSelector(({ quickPanel }) => quickPanel.state);
 
-  const classes = useStyles();
   const [checked, setChecked] = useState('notifications');
 
   const handleToggle = (value) => () => {
@@ -51,8 +50,7 @@ function QuickPanel(props) {
   }, [dispatch]);
 
   return (
-    <SwipeableDrawer
-      classes={{ paper: classes.root }}
+    <StyledSwipeableDrawer
       open={state}
       anchor="right"
       onOpen={(ev) => {}}
@@ -142,7 +140,7 @@ function QuickPanel(props) {
           </ListItem>
         </List>
       </FuseScrollbars>
-    </SwipeableDrawer>
+    </StyledSwipeableDrawer>
   );
 }
 

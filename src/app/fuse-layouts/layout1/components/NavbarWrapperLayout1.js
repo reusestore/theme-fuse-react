@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import NavbarToggleFab from 'app/fuse-layouts/shared-components/NavbarToggleFab';
 import { memo } from 'react';
 import { useSelector } from 'react-redux';

@@ -1,8 +1,8 @@
-import Divider from '@material-ui/core/Divider';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
+import Divider from '@mui/material/Divider';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
 import { memo } from 'react';
 
 function WidgetWeather(props) {
@@ -15,7 +15,7 @@ function WidgetWeather(props) {
             {props.widget.locations[props.widget.currentLocation].name}
           </Typography>
         </div>
-        <IconButton aria-label="more">
+        <IconButton aria-label="more" size="large">
           <Icon>more_vert</Icon>
         </IconButton>
       </div>

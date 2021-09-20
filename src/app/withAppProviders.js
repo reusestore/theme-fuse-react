@@ -1,21 +1,15 @@
-import { createGenerateClassName, jssPreset, StylesProvider } from '@material-ui/core/styles';
-import { MuiPickersUtilsProvider } from '@material-ui/pickers';
-import { create } from 'jss';
-import jssExtend from 'jss-plugin-extend';
-import rtl from 'jss-rtl';
+// import createGenerateClassName from '@mui/styles/createGenerateClassName';
+// import jssPreset from '@mui/styles/jssPreset';
+// import { create } from 'jss';
+// import jssExtend from 'jss-plugin-extend';
+// import rtl from 'jss-rtl';
 import Provider from 'react-redux/es/components/Provider';
-import DateFnsUtils from '@date-io/date-fns';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import { StyledEngineProvider } from '@mui/material/styles';
 import AppContext from './AppContext';
 import routes from './fuse-configs/routesConfig';
 import store from './store';
-
-const jss = create({
-  ...jssPreset(),
-  plugins: [...jssPreset().plugins, jssExtend(), rtl()],
-  insertionPoint: document.getElementById('jss-insertion-point'),
-});
-
-const generateClassName = createGenerateClassName({ disableGlobal: true });
 
 const withAppProviders = (Component) => (props) => {
   const WrapperComponent = () => (
@@ -24,13 +18,13 @@ const withAppProviders = (Component) => (props) => {
         routes,
       }}
     >
-      <StylesProvider jss={jss} generateClassName={generateClassName}>
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
         <Provider store={store}>
-          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+          <StyledEngineProvider injectFirst>
             <Component {...props} />
-          </MuiPickersUtilsProvider>
+          </StyledEngineProvider>
         </Provider>
-      </StylesProvider>
+      </LocalizationProvider>
     </AppContext.Provider>
   );
 

@@ -1,10 +1,10 @@
 import _ from '@lodash';
-import Avatar from '@material-ui/core/Avatar';
-import Card from '@material-ui/core/Card';
-import Icon from '@material-ui/core/Icon';
-import { makeStyles } from '@material-ui/core/styles';
-import Tooltip from '@material-ui/core/Tooltip';
-import Typography from '@material-ui/core/Typography';
+import { styled } from '@mui/material/styles';
+import Avatar from '@mui/material/Avatar';
+import Card from '@mui/material/Card';
+import Icon from '@mui/material/Icon';
+import Tooltip from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
 import clsx from 'clsx';
 import format from 'date-fns/format';
 import fromUnixTime from 'date-fns/fromUnixTime';
@@ -13,19 +13,16 @@ import { Draggable } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
 import { openCardDialog } from '../store/cardSlice';
 
-const useStyles = makeStyles((theme) => ({
-  card: {
-    transitionProperty: 'box-shadow',
-    transitionDuration: theme.transitions.duration.short,
-    transitionTimingFunction: theme.transitions.easing.easeInOut,
-  },
+const StyledCard = styled(Card)(({ theme }) => ({
+  transitionProperty: 'box-shadow',
+  transitionDuration: theme.transitions.duration.short,
+  transitionTimingFunction: theme.transitions.easing.easeInOut,
 }));
 
 function BoardCard(props) {
   const dispatch = useDispatch();
   const board = useSelector(({ scrumboardApp }) => scrumboardApp.board);
 
-  const classes = useStyles(props);
   const { cardId, index } = props;
   const card = _.find(board.cards, { id: cardId });
   const checkItemsChecked = getCheckItemsChecked(card);
@@ -55,9 +52,8 @@ function BoardCard(props) {
     <Draggable draggableId={cardId} index={index} type="card">
       {(provided, snapshot) => (
         <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-          <Card
+          <StyledCard
             className={clsx(
-              classes.card,
               snapshot.isDragging ? 'shadow-lg' : 'shadow-0',
               'w-full mb-16 rounded-16 cursor-pointer border-1'
             )}
@@ -172,7 +168,7 @@ function BoardCard(props) {
                 )}
               </div>
             </div>
-          </Card>
+          </StyledCard>
         </div>
       )}
     </Draggable>

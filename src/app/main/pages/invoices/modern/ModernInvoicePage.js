@@ -1,31 +1,27 @@
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import { makeStyles } from '@material-ui/core/styles';
-import { darken } from '@material-ui/core/styles/colorManipulator';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Typography from '@material-ui/core/Typography';
+import Card from '@mui/material/Card';
+import { styled, darken } from '@mui/material/styles';
+import CardContent from '@mui/material/CardContent';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Typography from '@mui/material/Typography';
 import axios from 'axios';
-import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    background: `radial-gradient(${darken(theme.palette.primary.dark, 0.5)} 0%, ${
-      theme.palette.primary.dark
-    } 80%)`,
-  },
-  divider: {
+const Root = styled('div')(({ theme }) => ({
+  background: `radial-gradient(${darken(theme.palette.primary.dark, 0.5)} 0%, ${
+    theme.palette.primary.dark
+  } 80%)`,
+
+  '& .ModernInvoicePage-divider': {
     backgroundColor: theme.palette.divider,
   },
 }));
 
 function ModernInvoicePage() {
-  const classes = useStyles();
   const [invoice, setInvoice] = useState(null);
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -44,9 +40,7 @@ function ModernInvoicePage() {
   }, []);
 
   return (
-    <div
-      className={clsx(classes.root, 'flex-grow flex-shrink-0 p-0 sm:p-64 print:p-0 overflow-auto')}
-    >
+    <Root className="flex-grow flex-shrink-0 p-0 sm:p-64 print:p-0 overflow-auto">
       {invoice && (
         <motion.div
           initial={{ opacity: 0, y: 200 }}
@@ -64,7 +58,7 @@ function ModernInvoicePage() {
                       alt="logo"
                     />
 
-                    <div className={clsx(classes.divider, 'mx-48 w-px h-128 print:mx-16')} />
+                    <div className="ModernInvoicePage-divider mx-48 w-px h-128 print:mx-16" />
 
                     <div className="max-w-160">
                       <Typography color="textSecondary">{invoice.from.title}</Typography>
@@ -104,8 +98,7 @@ function ModernInvoicePage() {
                       </Typography>
                     </div>
 
-                    <div className={clsx(classes.divider, 'mx-48 w-px h-128 print:mx-16')} />
-
+                    <div className="ModernInvoicePage-divider mx-48 w-px h-128 print:mx-16" />
                     <div className="max-w-160">
                       <Typography color="textSecondary">{invoice.client.title}</Typography>
 
@@ -316,7 +309,7 @@ function ModernInvoicePage() {
           </Card>
         </motion.div>
       )}
-    </div>
+    </Root>
   );
 }
 

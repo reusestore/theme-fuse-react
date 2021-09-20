@@ -1,20 +1,19 @@
 import _ from '@lodash';
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import FormControl from '@material-ui/core/FormControl';
-import Icon from '@material-ui/core/Icon';
-import InputLabel from '@material-ui/core/InputLabel';
-import LinearProgress from '@material-ui/core/LinearProgress';
-import MenuItem from '@material-ui/core/MenuItem';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
-import Select from '@material-ui/core/Select';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
+import { styled, useTheme } from '@mui/material/styles';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import FormControl from '@mui/material/FormControl';
+import Icon from '@mui/material/Icon';
+import InputLabel from '@mui/material/InputLabel';
+import LinearProgress from '@mui/material/LinearProgress';
+import MenuItem from '@mui/material/MenuItem';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import Select from '@mui/material/Select';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
 import withReducer from 'app/store/withReducer';
-import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { useEffect, useMemo, useState } from 'react';
 
@@ -24,20 +23,20 @@ import reducer from '../store';
 import { getCategories, selectCategories } from '../store/categoriesSlice';
 import { getCourses, selectCourses } from '../store/coursesSlice';
 
-const useStyles = makeStyles((theme) => ({
-  header: {
+const Root = styled('div')(({ theme }) => ({
+  '& .header': {
     background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
     color: theme.palette.getContrastText(theme.palette.primary.main),
-  },
-  headerIcon: {
-    position: 'absolute',
-    top: -64,
-    left: 0,
-    opacity: 0.04,
-    fontSize: 512,
-    width: 512,
-    height: 512,
-    pointerEvents: 'none',
+    '& .header-icon': {
+      position: 'absolute',
+      top: -64,
+      left: 0,
+      opacity: 0.04,
+      fontSize: 512,
+      width: 512,
+      height: 512,
+      pointerEvents: 'none',
+    },
   },
 }));
 
@@ -46,7 +45,6 @@ function Courses(props) {
   const courses = useSelector(selectCourses);
   const categories = useSelector(selectCategories);
 
-  const classes = useStyles(props);
   const theme = useTheme();
   const [filteredData, setFilteredData] = useState(null);
   const [searchText, setSearchText] = useState('');
@@ -96,13 +94,8 @@ function Courses(props) {
   }
 
   return (
-    <div className="flex flex-col flex-auto flex-shrink-0 w-full">
-      <div
-        className={clsx(
-          classes.header,
-          'relative overflow-hidden flex flex-shrink-0 items-center justify-center h-200 sm:h-288'
-        )}
-      >
+    <Root className="flex flex-col flex-auto flex-shrink-0 w-full">
+      <div className="header relative overflow-hidden flex flex-shrink-0 items-center justify-center h-200 sm:h-288">
         <div className="flex flex-col max-w-2xl mx-auto w-full p-24 sm:p-32">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0 } }}>
             <Typography color="inherit" className="text-24 sm:text-44 font-bold tracking-tight">
@@ -122,7 +115,7 @@ function Courses(props) {
           </motion.div>
         </div>
 
-        <Icon className={classes.headerIcon}> school </Icon>
+        <Icon className="header-icon">school</Icon>
       </div>
       <div className="flex flex-col flex-1 max-w-2xl w-full mx-auto px-8 sm:px-16 py-24">
         <div className="flex flex-col flex-shrink-0 sm:flex-row items-center justify-between py-24">
@@ -265,7 +258,7 @@ function Courses(props) {
           );
         }, [filteredData, categories, theme.palette])}
       </div>
-    </div>
+    </Root>
   );
 }
 

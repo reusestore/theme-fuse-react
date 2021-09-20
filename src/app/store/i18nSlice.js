@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createSelector } from '@reduxjs/toolkit';
 import i18n from 'i18n';
 import { setDefaultSettings } from './fuse/settingsSlice';
 
@@ -33,5 +33,12 @@ const i18nSlice = createSlice({
     },
   },
 });
+
+export const selectCurrLangDir = createSelector(
+  [({ i18n: i18nState }) => i18nState.language],
+  (language) => {
+    return i18n.dir(language);
+  }
+);
 
 export default i18nSlice.reducer;

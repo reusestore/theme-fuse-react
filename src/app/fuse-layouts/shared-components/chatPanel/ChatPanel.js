@@ -1,14 +1,13 @@
-import AppBar from '@material-ui/core/AppBar';
-import Avatar from '@material-ui/core/Avatar';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Paper from '@material-ui/core/Paper';
-import { useTheme, makeStyles } from '@material-ui/core/styles';
+import AppBar from '@mui/material/AppBar';
+import { styled, useTheme } from '@mui/material/styles';
+import Avatar from '@mui/material/Avatar';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Paper from '@mui/material/Paper';
 
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 import withReducer from 'app/store/withReducer';
-import clsx from 'clsx';
 import keycode from 'keycode';
 import { memo, useCallback, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -21,31 +20,33 @@ import { openChatPanel, closeChatPanel } from './store/stateSlice';
 
 import { getUserData } from './store/userSlice';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    position: 'sticky',
-    display: 'flex',
-    top: 0,
-    width: 70,
-    maxWidth: 70,
-    minWidth: 70,
-    height: '100vh',
-    zIndex: 1000,
-    '&.opened': {
-      overflow: 'visible',
-    },
-    '&:not(.opened)': {
-      overflow: 'hidden',
-      animation: `$hide-panel 1ms linear ${theme.transitions.duration.standard}`,
-      animationFillMode: 'forwards',
-    },
-    [theme.breakpoints.down('md')]: {
-      width: 0,
-      maxWidth: 0,
-      minWidth: 0,
-    },
+const Root = styled('div')(({ theme, opened }) => ({
+  position: 'sticky',
+  display: 'flex',
+  top: 0,
+  width: 70,
+  maxWidth: 70,
+  minWidth: 70,
+  height: '100vh',
+  zIndex: 1000,
+
+  [theme.breakpoints.down('lg')]: {
+    width: 0,
+    maxWidth: 0,
+    minWidth: 0,
   },
-  panel: {
+
+  ...(opened && {
+    overflow: 'visible',
+  }),
+
+  ...(!opened && {
+    overflow: 'hidden',
+    animation: `hide-panel 1ms linear ${theme.transitions.duration.standard}`,
+    animationFillMode: 'forwards',
+  }),
+
+  '& > .panel': {
     position: 'absolute',
     top: 0,
     right: 0,
@@ -64,10 +65,12 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.easeInOut,
       duration: theme.transitions.duration.standard,
     }),
-    '&.opened': {
+
+    ...(opened && {
       transform: 'translate3d(-290px,0,0)',
-    },
-    [theme.breakpoints.down('md')]: {
+    }),
+
+    [theme.breakpoints.down('lg')]: {
       left: 'auto',
       position: 'fixed',
       transform: 'translate3d(360px,0,0)!important',
@@ -75,12 +78,14 @@ const useStyles = makeStyles((theme) => ({
       width: 320,
       minWidth: 320,
       maxWidth: '100%',
-      '&.opened': {
+
+      ...(opened && {
         transform: 'translate3d(0,0,0)!important',
         boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-      },
+      }),
     },
   },
+
   '@keyframes hide-panel': {
     '0%': {
       overflow: 'visible',
@@ -111,7 +116,6 @@ function ChatPanel(props) {
     },
   });
 
-  const classes = useStyles(props);
   const selectedContact = contacts.find((_contact) => _contact.id === selectedContactId);
 
   const handleDocumentKeyDown = useCallback(
@@ -161,8 +165,8 @@ function ChatPanel(props) {
   }, [state, dispatch]);
 
   return (
-    <div className={clsx(classes.root, { opened: state })} {...handlers}>
-      <div className={clsx(classes.panel, { opened: state }, 'flex flex-col max-w-full')} ref={ref}>
+    <Root opened={state} {...handlers}>
+      <div className="panel flex flex-col max-w-full" ref={ref}>
         <AppBar position="static" className="shadow-md">
           <Toolbar className="px-4">
             {(!state || !selectedContactId) && (
@@ -171,6 +175,7 @@ function ChatPanel(props) {
                   className=""
                   color="inherit"
                   onClick={(ev) => dispatch(openChatPanel())}
+                  size="large"
                 >
                   <Icon className="text-32">chat</Icon>
                 </IconButton>
@@ -190,7 +195,7 @@ function ChatPanel(props) {
               </div>
             )}
             <div className="flex px-4">
-              <IconButton onClick={(ev) => dispatch(closeChatPanel())} color="inherit">
+              <IconButton onClick={(ev) => dispatch(closeChatPanel())} color="inherit" size="large">
                 <Icon>close</Icon>
               </IconButton>
             </div>
@@ -201,7 +206,7 @@ function ChatPanel(props) {
           <Chat className="flex flex-1 z-10" />
         </Paper>
       </div>
-    </div>
+    </Root>
   );
 }
 

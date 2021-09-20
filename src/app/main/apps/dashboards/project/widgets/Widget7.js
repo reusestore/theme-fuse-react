@@ -1,12 +1,12 @@
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import ListItemText from '@material-ui/core/ListItemText';
-import Paper from '@material-ui/core/Paper';
-import Select from '@material-ui/core/Select';
-import Typography from '@material-ui/core/Typography';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemSecondaryAction from '@mui/material/ListItemSecondaryAction';
+import ListItemText from '@mui/material/ListItemText';
+import Paper from '@mui/material/Paper';
+import Select from '@mui/material/Select';
+import Typography from '@mui/material/Typography';
 import { memo, useState } from 'react';
 
 function Widget7(props) {
@@ -22,14 +22,13 @@ function Widget7(props) {
         <Typography className="text-16 font-medium">{props.widget.title}</Typography>
 
         <Select
-          native
           value={currentRange}
           onChange={handleChangeRange}
           inputProps={{
             name: 'currentRange',
           }}
-          className="font-medium opacity-75"
-          disableUnderline
+          classes={{ select: 'py-8' }}
+          variant="filled"
         >
           {Object.entries(props.widget.ranges).map(([key, n]) => {
             return (
@@ -49,7 +48,7 @@ function Widget7(props) {
               secondary={item.time}
             />
             <ListItemSecondaryAction>
-              <IconButton aria-label="more">
+              <IconButton aria-label="more" size="large">
                 <Icon>more_vert</Icon>
               </IconButton>
             </ListItemSecondaryAction>

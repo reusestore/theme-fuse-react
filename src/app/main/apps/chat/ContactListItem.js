@@ -1,33 +1,24 @@
-import Avatar from '@material-ui/core/Avatar';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import clsx from 'clsx';
+import Avatar from '@mui/material/Avatar';
+import { styled } from '@mui/material/styles';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import Typography from '@mui/material/Typography';
 import format from 'date-fns/format';
+import { Box } from '@mui/system';
 import StatusIcon from './StatusIcon';
 
-const useStyles = makeStyles((theme) => ({
-  contactListItem: {
-    '&.active': {
-      backgroundColor: theme.palette.background.paper,
-    },
-  },
-  unreadBadge: {
-    backgroundColor: theme.palette.secondary.main,
-    color: theme.palette.secondary.contrastText,
-  },
+const StyledListItem = styled(ListItem)(({ theme, active }) => ({
+  ...(active && {
+    backgroundColor: theme.palette.background.paper,
+  }),
 }));
 
 function ContactListItem(props) {
-  const classes = useStyles(props);
-
   return (
-    <ListItem
+    <StyledListItem
       button
-      className={clsx(classes.contactListItem, 'px-16 py-12 min-h-92', {
-        active: props.selectedContactId === props.contact.id,
-      })}
+      className="px-16 py-12 min-h-92"
+      active={props.selectedContactId === props.contact.id}
       onClick={() => props.onContactClick(props.contact.id)}
     >
       <div className="relative">
@@ -61,18 +52,19 @@ function ContactListItem(props) {
             </Typography>
           )}
           {props.contact.unread && (
-            <div
-              className={clsx(
-                classes.unreadBadge,
-                'flex items-center justify-center min-w-24 h-24 rounded-full font-medium text-12 text-center'
-              )}
+            <Box
+              sx={{
+                backgroundColor: 'secondary.main',
+                color: 'secondary.contrastText',
+              }}
+              className="flex items-center justify-center min-w-24 h-24 rounded-full font-medium text-12 text-center"
             >
               {props.contact.unread}
-            </div>
+            </Box>
           )}
         </div>
       )}
-    </ListItem>
+    </StyledListItem>
   );
 }
 

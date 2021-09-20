@@ -1,28 +1,26 @@
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import { makeStyles } from '@material-ui/core/styles';
-import { darken } from '@material-ui/core/styles/colorManipulator';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Typography from '@material-ui/core/Typography';
+import Card from '@mui/material/Card';
+import { styled, darken } from '@mui/material/styles';
+import CardContent from '@mui/material/CardContent';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Typography from '@mui/material/Typography';
 import axios from 'axios';
-import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    background: `radial-gradient(${darken(theme.palette.primary.dark, 0.5)} 0%, ${
-      theme.palette.primary.dark
-    } 80%)`,
-  },
-  divider: {
+const Root = styled('div')(({ theme }) => ({
+  background: `radial-gradient(${darken(theme.palette.primary.dark, 0.5)} 0%, ${
+    theme.palette.primary.dark
+  } 80%)`,
+
+  '& .CompactInvoicePage-divider': {
     backgroundColor: theme.palette.getContrastText(theme.palette.primary.dark),
   },
-  seller: {
+
+  '& .CompactInvoicePage-seller': {
     backgroundColor: theme.palette.primary.dark,
     color: theme.palette.getContrastText(theme.palette.primary.dark),
     marginRight: -88,
@@ -32,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function CompactInvoicePage() {
-  const classes = useStyles();
   const [invoice, setInvoice] = useState(null);
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -51,9 +48,7 @@ function CompactInvoicePage() {
   }, []);
 
   return (
-    <div
-      className={clsx(classes.root, 'flex-grow flex-shrink-0 p-0 sm:p-64 print:p-0 overflow-auto')}
-    >
+    <Root className="flex-grow flex-shrink-0 p-0 sm:p-64 print:p-0 overflow-auto">
       {invoice && (
         <motion.div
           initial={{ opacity: 0, y: 200 }}
@@ -119,10 +114,10 @@ function CompactInvoicePage() {
                   )}
                 </div>
 
-                <div className={clsx(classes.seller, 'flex items-center p-16')}>
+                <div className="CompactInvoicePage-seller flex items-center p-16">
                   <img className="w-80" src="assets/images/logos/fuse.svg" alt="logo" />
 
-                  <div className={clsx(classes.divider, 'w-px mx-8 h-96 opacity-50')} />
+                  <div className="CompactInvoicePage-divider w-px mx-8 h-96 opacity-50" />
 
                   <div className="px-8">
                     <Typography color="inherit">{invoice.from.title}</Typography>
@@ -275,7 +270,7 @@ function CompactInvoicePage() {
           </Card>
         </motion.div>
       )}
-    </div>
+    </Root>
   );
 }
 

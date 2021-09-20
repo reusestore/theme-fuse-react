@@ -1,8 +1,8 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
-import AppBar from '@material-ui/core/AppBar';
-import Hidden from '@material-ui/core/Hidden';
-import Icon from '@material-ui/core/Icon';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { styled, useTheme } from '@mui/material/styles';
+import AppBar from '@mui/material/AppBar';
+import Hidden from '@mui/material/Hidden';
+import Icon from '@mui/material/Icon';
 import Logo from 'app/fuse-layouts/shared-components/Logo';
 import NavbarToggleButton from 'app/fuse-layouts/shared-components/NavbarToggleButton';
 import Navigation from 'app/fuse-layouts/shared-components/Navigation';
@@ -10,12 +10,11 @@ import UserNavbarHeader from 'app/fuse-layouts/shared-components/UserNavbarHeade
 import clsx from 'clsx';
 import { memo } from 'react';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: theme.palette.background.default,
-    color: theme.palette.text.primary,
-  },
-  content: {
+const Root = styled('div')(({ theme }) => ({
+  backgroundColor: theme.palette.background.default,
+  color: theme.palette.text.primary,
+
+  '& .NavbarMobileLayout2-content': {
     overflowX: 'hidden',
     overflowY: 'auto',
     '-webkit-overflow-scrolling': 'touch',
@@ -28,11 +27,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function NavbarMobileLayout2(props) {
-  const classes = useStyles(props);
   const theme = useTheme();
 
   return (
-    <div className={clsx('flex flex-col h-full overflow-hidden', classes.root, props.className)}>
+    <Root className={clsx('flex flex-col h-full overflow-hidden', props.className)}>
       <AppBar
         color="primary"
         position="static"
@@ -42,7 +40,7 @@ function NavbarMobileLayout2(props) {
           <Logo />
         </div>
 
-        <Hidden mdDown>
+        <Hidden lgDown>
           <NavbarToggleButton className="w-40 h-40 p-0" />
         </Hidden>
 
@@ -54,14 +52,14 @@ function NavbarMobileLayout2(props) {
       </AppBar>
 
       <FuseScrollbars
-        className={clsx(classes.content)}
+        className="NavbarMobileLayout2-content"
         option={{ suppressScrollX: true, wheelPropagation: false }}
       >
         <UserNavbarHeader />
 
         <Navigation layout="vertical" />
       </FuseScrollbars>
-    </div>
+    </Root>
   );
 }
 

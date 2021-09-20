@@ -1,15 +1,15 @@
 import {useForm, Controller} from "react-hook-form";
 import ReactSelect from "react-select";
-import Button from '@material-ui/core/Button';
-import TextField from "@material-ui/core/TextField"
-import Checkbox from "@material-ui/core/Checkbox"
-import Select from "@material-ui/core/Select"
-import MenuItem from "@material-ui/core/MenuItem"
-import Switch from "@material-ui/core/Switch"
-import RadioGroup from "@material-ui/core/RadioGroup"
-import FormControlLabel from "@material-ui/core/FormControlLabel"
-import Radio from "@material-ui/core/Radio"
-import Typography from "@material-ui/core/Typography"
+import Button from '@mui/material/Button';
+import TextField from "@mui/material/TextField"
+import Checkbox from "@mui/material/Checkbox"
+import Select from "@mui/material/Select"
+import MenuItem from "@mui/material/MenuItem"
+import Switch from "@mui/material/Switch"
+import RadioGroup from "@mui/material/RadioGroup"
+import FormControlLabel from "@mui/material/FormControlLabel"
+import Radio from "@mui/material/Radio"
+import Typography from "@mui/material/Typography"
 
 let renderCount = 0;
 

@@ -1,27 +1,27 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { DateTimePicker } from '@material-ui/pickers';
+import { DateTimePicker } from '@mui/lab';
 import { Controller, useForm } from 'react-hook-form';
 import FuseUtils from '@fuse/utils';
 import _ from '@lodash';
-import AppBar from '@material-ui/core/AppBar';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import Chip from '@material-ui/core/Chip';
-import { amber, red } from '@material-ui/core/colors';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import Divider from '@material-ui/core/Divider';
-import FormControl from '@material-ui/core/FormControl';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import TextField from '@material-ui/core/TextField';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import AppBar from '@mui/material/AppBar';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import Chip from '@mui/material/Chip';
+import { amber, red } from '@mui/material/colors';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import Divider from '@mui/material/Divider';
+import FormControl from '@mui/material/FormControl';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import TextField from '@mui/material/TextField';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
@@ -151,7 +151,12 @@ function TodoDialog(props) {
                   name="completed"
                   control={control}
                   render={({ field: { onChange, value } }) => (
-                    <IconButton tabIndex={-1} disableRipple onClick={(ev) => onChange(!value)}>
+                    <IconButton
+                      tabIndex={-1}
+                      disableRipple
+                      onClick={(ev) => onChange(!value)}
+                      size="large"
+                    >
                       {value ? (
                         <Icon color="secondary">check_circle</Icon>
                       ) : (
@@ -167,7 +172,7 @@ function TodoDialog(props) {
                   name="important"
                   control={control}
                   render={({ field: { onChange, value } }) => (
-                    <IconButton onClick={() => onChange(!value)}>
+                    <IconButton onClick={() => onChange(!value)} size="large">
                       {value ? (
                         <Icon style={{ color: red[500] }}>error</Icon>
                       ) : (
@@ -181,7 +186,7 @@ function TodoDialog(props) {
                   name="starred"
                   control={control}
                   render={({ field: { onChange, value } }) => (
-                    <IconButton onClick={() => onChange(!value)}>
+                    <IconButton onClick={() => onChange(!value)} size="large">
                       {value ? (
                         <Icon style={{ color: amber[500] }}>star</Icon>
                       ) : (
@@ -196,6 +201,7 @@ function TodoDialog(props) {
                     aria-owns={labelMenuEl ? 'label-menu' : null}
                     aria-haspopup="true"
                     onClick={(ev) => setLabelMenuEl(ev.currentTarget)}
+                    size="large"
                   >
                     <Icon>label</Icon>
                   </IconButton>
@@ -308,12 +314,12 @@ function TodoDialog(props) {
                 defaultValue=""
                 render={({ field: { onChange, value } }) => (
                   <DateTimePicker
-                    label="Start Date"
-                    inputVariant="outlined"
                     value={value}
                     onChange={onChange}
-                    className="mt-8 mb-16 mx-4"
                     maxDate={dueDate}
+                    renderInput={(_props) => (
+                      <TextField label="Start Date" className="mt-8 mb-16 mx-4" {..._props} />
+                    )}
                   />
                 )}
               />
@@ -324,12 +330,12 @@ function TodoDialog(props) {
                 defaultValue=""
                 render={({ field: { onChange, value } }) => (
                   <DateTimePicker
-                    label="Due Date"
-                    inputVariant="outlined"
                     value={value}
                     onChange={onChange}
-                    className="mt-8 mb-16 mx-4"
                     minDate={startDate}
+                    renderInput={(_props) => (
+                      <TextField label="Due Date" className="mt-8 mb-16 mx-4" {..._props} />
+                    )}
                   />
                 )}
               />
@@ -362,7 +368,7 @@ function TodoDialog(props) {
                 Save
               </Button>
             </div>
-            <IconButton className="min-w-auto" onClick={handleRemove}>
+            <IconButton className="min-w-auto" onClick={handleRemove} size="large">
               <Icon>delete</Icon>
             </IconButton>
           </DialogActions>

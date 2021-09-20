@@ -1,32 +1,31 @@
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Typography from '@material-ui/core/Typography';
-import clsx from 'clsx';
+import Card from '@mui/material/Card';
+import { styled } from '@mui/material/styles';
+import CardContent from '@mui/material/CardContent';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Typography from '@mui/material/Typography';
 import { memo } from 'react';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& table ': {
-      '& th:first-child, & td:first-child': {
-        paddingLeft: `${0}!important`,
-      },
-      '& th:last-child, & td:last-child': {
-        paddingRight: `${0}!important`,
-      },
+const Root = styled('div')(({ theme }) => ({
+  '& table ': {
+    '& th:first-child, & td:first-child': {
+      paddingLeft: `${0}!important`,
+    },
+    '& th:last-child, & td:last-child': {
+      paddingRight: `${0}!important`,
     },
   },
-  divider: {
+
+  '& .divider': {
     width: 1,
     backgroundColor: theme.palette.divider,
     height: 144,
   },
-  seller: {
+
+  '& .seller': {
     backgroundColor: theme.palette.primary.dark,
     color: theme.palette.getContrastText(theme.palette.primary.dark),
     marginRight: -88,
@@ -40,8 +39,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const InvoiceTab = (props) => {
-  const classes = useStyles(props);
-
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
@@ -49,7 +46,7 @@ const InvoiceTab = (props) => {
   });
 
   return (
-    <div className={clsx(classes.root, 'flex-grow flex-shrink-0 p-0')}>
+    <Root className="flex-grow flex-shrink-0 p-0">
       {props.order && (
         <Card className="w-xl mx-auto shadow-0">
           <CardContent className="p-88 print:p-0">
@@ -93,10 +90,10 @@ const InvoiceTab = (props) => {
                 )}
               </div>
 
-              <div className={clsx(classes.seller, 'flex items-center p-16')}>
+              <div className="seller flex items-center p-16">
                 <img className="w-80" src="assets/images/logos/fuse.svg" alt="logo" />
 
-                <div className={clsx(classes.divider, 'divider mx-8 h-96')} />
+                <div className="divider mx-8 h-96" />
 
                 <div className="px-8">
                   <Typography color="inherit">FUSE INC.</Typography>
@@ -215,7 +212,7 @@ const InvoiceTab = (props) => {
           </CardContent>
         </Card>
       )}
-    </div>
+    </Root>
   );
 };
 

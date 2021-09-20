@@ -1,11 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
-import Button from '@material-ui/core/Button';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import TextField from '@material-ui/core/TextField';
+import Button from '@mui/material/Button';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
+import TextField from '@mui/material/TextField';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
@@ -80,7 +80,7 @@ function BoardAddCard(props) {
                     ...field,
                     endAdornment: (
                       <InputAdornment position="end">
-                        <IconButton onClick={handleCloseForm}>
+                        <IconButton onClick={handleCloseForm} size="large">
                           <Icon className="text-18">close</Icon>
                         </IconButton>
                       </InputAdornment>
@@ -106,8 +106,7 @@ function BoardAddCard(props) {
         <Button
           onClick={handleOpenForm}
           classes={{
-            root: 'font-medium w-full px-16 rounded-none h-48',
-            label: 'justify-start',
+            root: 'font-medium w-full px-16 rounded-none h-48 justify-start',
           }}
         >
           <Icon className="text-20">add</Icon>

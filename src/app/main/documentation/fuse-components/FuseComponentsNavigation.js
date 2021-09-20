@@ -70,24 +70,6 @@ const FuseComponentsNavigation = {
       type: 'item',
       url: '/documentation/fuse-components/fuse-dialog',
     },
-    {
-      id: 'fuse-animate',
-      title: 'FuseAnimate',
-      type: 'item',
-      url: '/documentation/fuse-components/fuse-animate',
-    },
-    {
-      id: 'fuse-animate-group',
-      title: 'FuseAnimateGroup',
-      type: 'item',
-      url: '/documentation/fuse-components/fuse-animate-group',
-    },
-    {
-      id: 'fuse-chip-select',
-      title: 'FuseChipSelect',
-      type: 'item',
-      url: '/documentation/fuse-components/fuse-chip-select',
-    },
   ],
 };
 

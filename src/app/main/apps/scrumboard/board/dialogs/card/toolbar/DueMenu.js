@@ -1,11 +1,12 @@
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import MenuItem from '@material-ui/core/MenuItem';
-import { DateTimePicker } from '@material-ui/pickers';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import MenuItem from '@mui/material/MenuItem';
+import { DateTimePicker } from '@mui/lab';
 import format from 'date-fns/format';
 import fromUnixTime from 'date-fns/fromUnixTime';
 import getUnixTime from 'date-fns/getUnixTime';
 import { useState } from 'react';
+import TextField from '@mui/material/TextField';
 import ToolbarMenu from './ToolbarMenu';
 
 function DueMenu(props) {
@@ -22,7 +23,7 @@ function DueMenu(props) {
 
   return (
     <div>
-      <IconButton color="inherit" onClick={handleMenuOpen}>
+      <IconButton color="inherit" onClick={handleMenuOpen} size="large">
         <Icon>today</Icon>
       </IconButton>
       <ToolbarMenu state={anchorEl} onClose={handleMenuClose}>
@@ -37,18 +38,24 @@ function DueMenu(props) {
               Remove Due Date
             </MenuItem>
           ) : (
-            <DateTimePicker
-              label="Due date"
-              inputVariant="outlined"
-              value={dueDate}
-              format="Pp"
-              onChange={(val, ev) => {
-                props.onDueChange(getUnixTime(val));
-                handleMenuClose(ev);
-              }}
-              placeholder="Choose a due date"
-              className="w-full"
-            />
+            <>
+              <DateTimePicker
+                value={dueDate}
+                inputFormat="Pp"
+                onChange={(val, ev) => {
+                  props.onDueChange(getUnixTime(val));
+                  handleMenuClose(ev);
+                }}
+                renderInput={(_props) => (
+                  <TextField
+                    label="Due date"
+                    placeholder="Choose a due date"
+                    className="w-full"
+                    {..._props}
+                  />
+                )}
+              />
+            </>
           )}
         </div>
       </ToolbarMenu>

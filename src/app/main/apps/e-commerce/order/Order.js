@@ -1,10 +1,10 @@
 import FusePageCarded from '@fuse/core/FusePageCarded';
-import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
-import { useTheme } from '@material-ui/core/styles';
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
-import Typography from '@material-ui/core/Typography';
+import Button from '@mui/material/Button';
+import Icon from '@mui/material/Icon';
+import { useTheme, styled } from '@mui/material/styles';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import Typography from '@mui/material/Typography';
 import withReducer from 'app/store/withReducer';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
@@ -16,6 +16,18 @@ import { resetOrder, getOrder } from '../store/orderSlice';
 import InvoiceTab from './tabs/InvoiceTab';
 import OrderDetailsTab from './tabs/OrderDetailsTab';
 import ProductsTab from './tabs/ProductsTab';
+
+const Root = styled(FusePageCarded)(({ theme }) => ({
+  '& .FusePageCarded-header': {
+    minHeight: 72,
+    height: 72,
+    alignItems: 'center',
+    [theme.breakpoints.up('sm')]: {
+      minHeight: 136,
+      height: 136,
+    },
+  },
+}));
 
 function Order(props) {
   const dispatch = useDispatch();
@@ -69,11 +81,7 @@ function Order(props) {
   }
 
   return (
-    <FusePageCarded
-      classes={{
-        content: 'flex',
-        header: 'min-h-72 h-72 sm:h-136 sm:min-h-136',
-      }}
+    <Root
       header={
         order && (
           <div className="flex flex-1 w-full items-center justify-between">

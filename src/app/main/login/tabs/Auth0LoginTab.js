@@ -1,4 +1,4 @@
-import Button from '@material-ui/core/Button';
+import Button from '@mui/material/Button';
 import auth0Service from 'app/services/auth0Service';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';

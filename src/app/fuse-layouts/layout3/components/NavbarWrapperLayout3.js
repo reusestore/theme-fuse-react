@@ -1,6 +1,6 @@
-import Hidden from '@material-ui/core/Hidden';
-import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
+import Hidden from '@mui/material/Hidden';
+import { styled, ThemeProvider } from '@mui/material/styles';
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import NavbarToggleFab from 'app/fuse-layouts/shared-components//NavbarToggleFab';
 import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
 import clsx from 'clsx';
@@ -10,17 +10,13 @@ import { selectNavbarTheme } from 'app/store/fuse/settingsSlice';
 import NavbarLayout3 from './NavbarLayout3';
 import NavbarMobileLayout3 from './NavbarMobileLayout3';
 
-const navbarWidth = 280;
-
-const useStyles = makeStyles((theme) => ({
-  navbar: {
-    height: 64,
-    minHeight: 64,
-    maxHeight: 64,
-  },
-  navbarMobile: {
-    width: navbarWidth,
-    minWidth: navbarWidth,
+const StyledSwipeableDrawer = styled(SwipeableDrawer)(({ theme }) => ({
+  '& > .MuiDrawer-paper': {
+    height: '100%',
+    flexDirection: 'column',
+    flex: '1 1 auto',
+    width: 280,
+    minWidth: 280,
     transition: theme.transitions.create(['width', 'min-width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.shorter,
@@ -34,23 +30,18 @@ function NavbarWrapperLayout3(props) {
   const navbarTheme = useSelector(selectNavbarTheme);
   const navbar = useSelector(({ fuse }) => fuse.navbar);
 
-  const classes = useStyles(props);
-
   return (
     <>
       <ThemeProvider theme={navbarTheme}>
-        <Hidden mdDown>
-          <NavbarLayout3 className={clsx(classes.navbar, props.className)} />
+        <Hidden lgDown>
+          <NavbarLayout3 className={clsx(props.className)} />
         </Hidden>
 
         <Hidden lgUp>
-          <SwipeableDrawer
+          <StyledSwipeableDrawer
             anchor="left"
             variant="temporary"
             open={navbar.mobileOpen}
-            classes={{
-              paper: clsx(classes.navbarMobile, 'flex-col flex-auto h-full'),
-            }}
             onClose={() => dispatch(navbarCloseMobile())}
             onOpen={() => {}}
             disableSwipeToOpen
@@ -59,10 +50,9 @@ function NavbarWrapperLayout3(props) {
             }}
           >
             <NavbarMobileLayout3 />
-          </SwipeableDrawer>
+          </StyledSwipeableDrawer>
         </Hidden>
       </ThemeProvider>
-
       {config.navbar.display && !config.toolbar.display && (
         <Hidden lgUp>
           <NavbarToggleFab />

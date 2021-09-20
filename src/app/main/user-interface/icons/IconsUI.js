@@ -1,10 +1,10 @@
 import FusePageSimple from '@fuse/core/FusePageSimple';
-import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
-import Input from '@material-ui/core/Input';
-import Paper from '@material-ui/core/Paper';
-import { ThemeProvider, useTheme } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import Button from '@mui/material/Button';
+import Icon from '@mui/material/Icon';
+import Input from '@mui/material/Input';
+import Paper from '@mui/material/Paper';
+import { ThemeProvider, useTheme } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 import axios from 'axios';
 import { useEffect, useMemo, useState } from 'react';
 
@@ -47,9 +47,6 @@ function IconsUI() {
 
   return (
     <FusePageSimple
-      classes={{
-        content: 'flex',
-      }}
       header={
         <div className="flex flex-wrap flex-1 items-center justify-between p-12 md:p-24">
           <div className="flex flex-col w-full sm:w-auto">
@@ -95,13 +92,12 @@ function IconsUI() {
           </div>
 
           <Button
-            className="ml-8 sm:ml-0"
-            variant="outlined"
+            variant="contained"
+            color="secondary"
             component="a"
             href="https://material.io/icons/"
             target="_blank"
             role="button"
-            color="default"
           >
             <Icon>link</Icon>
             <span className="mx-4 hidden sm:flex">Reference</span>

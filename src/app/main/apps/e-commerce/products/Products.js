@@ -1,22 +1,30 @@
 import FusePageCarded from '@fuse/core/FusePageCarded';
 import withReducer from 'app/store/withReducer';
+import { styled } from '@mui/material/styles';
 import reducer from '../store';
 import ProductsHeader from './ProductsHeader';
 import ProductsTable from './ProductsTable';
 
+const Root = styled(FusePageCarded)(({ theme }) => ({
+  '& .FusePageCarded-header': {
+    minHeight: 72,
+    height: 72,
+    alignItems: 'center',
+    [theme.breakpoints.up('sm')]: {
+      minHeight: 136,
+      height: 136,
+    },
+  },
+  '& .FusePageCarded-content': {
+    display: 'flex',
+  },
+  '& .FusePageCarded-contentCard': {
+    overflow: 'hidden',
+  },
+}));
+
 function Products() {
-  return (
-    <FusePageCarded
-      classes={{
-        content: 'flex',
-        contentCard: 'overflow-hidden',
-        header: 'min-h-72 h-72 sm:h-136 sm:min-h-136',
-      }}
-      header={<ProductsHeader />}
-      content={<ProductsTable />}
-      innerScroll
-    />
-  );
+  return <Root header={<ProductsHeader />} content={<ProductsTable />} innerScroll />;
 }
 
 export default withReducer('eCommerceApp', reducer)(Products);

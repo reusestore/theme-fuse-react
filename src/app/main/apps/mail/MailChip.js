@@ -1,32 +1,28 @@
-import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
+import { styled } from '@mui/material/styles';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    alignItems: 'center',
-    height: 20,
-    borderRadius: 10,
-    padding: '0 6px',
-    fontSize: 10,
-    backgroundColor: 'rgba(0,0,0,.08);',
-  },
-  color: {
+const Root = styled('div')(({ theme, color }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  height: 20,
+  borderRadius: 10,
+  padding: '0 6px',
+  fontSize: 10,
+  backgroundColor: 'rgba(0,0,0,.08);',
+  '& > span': {
     width: 8,
     height: 8,
     marginRight: 4,
     borderRadius: '50%',
+    backgroundColor: color,
   },
 }));
 
 function MailChip(props) {
-  const classes = useStyles();
-
   return (
-    <div className={clsx(classes.root, props.className)}>
-      <div className={classes.color} style={{ backgroundColor: props.color }} />
+    <Root className={props.className} color={props.color}>
+      <span />
       <div>{props.title}</div>
-    </div>
+    </Root>
   );
 }
 

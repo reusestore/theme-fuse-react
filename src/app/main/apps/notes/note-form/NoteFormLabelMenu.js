@@ -1,11 +1,11 @@
 import _ from '@lodash';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Popover from '@material-ui/core/Popover';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import Popover from '@mui/material/Popover';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -29,7 +29,7 @@ function NoteFormLabelMenu(props) {
 
   return (
     <div>
-      <IconButton className="w-32 h-32 mx-4 p-0" onClick={handleMenuClick}>
+      <IconButton className="w-32 h-32 mx-4 p-0" onClick={handleMenuClick} size="large">
         <Icon fontSize="small">label</Icon>
       </IconButton>
       <Popover

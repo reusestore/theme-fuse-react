@@ -1,5 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
+import { styled } from '@mui/material/styles';
 import MobileDetect from 'mobile-detect';
 import PerfectScrollbar from 'perfect-scrollbar';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
@@ -7,6 +6,10 @@ import PropTypes from 'prop-types';
 import { createRef, useCallback, useEffect, useRef, forwardRef } from 'react';
 import { connect } from 'react-redux';
 import withRouterAndRef from '../withRouterAndRef/withRouterAndRef';
+
+const Root = styled('div')(({ theme }) => ({
+  overscrollBehavior: 'contain',
+}));
 
 const md = new MobileDetect(window.navigator.userAgent);
 const isMobile = md.mobile();
@@ -25,17 +28,11 @@ const handlerNameByEvent = {
 };
 Object.freeze(handlerNameByEvent);
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    overscrollBehavior: 'contain',
-  },
-}));
-
 const FuseScrollbars = forwardRef((props, ref) => {
   ref = ref || createRef();
   const ps = useRef(null);
   const handlerByEvent = useRef(new Map());
-  const classes = useStyles();
+
   const { customScrollbars } = props;
 
   const hookUpEvents = useCallback(() => {
@@ -133,9 +130,9 @@ const FuseScrollbars = forwardRef((props, ref) => {
 
   // console.info('render::ps');
   return (
-    <div
+    <Root
       id={props.id}
-      className={clsx(classes.root, props.className)}
+      className={props.className}
       style={
         props.customScrollbars && (props.enable || true) && !isMobile
           ? {
@@ -147,7 +144,7 @@ const FuseScrollbars = forwardRef((props, ref) => {
       ref={ref}
     >
       {props.children}
-    </div>
+    </Root>
   );
 });
 

@@ -1,17 +1,17 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import { useDebounce } from '@fuse/hooks';
-import AppBar from '@material-ui/core/AppBar';
-import Avatar from '@material-ui/core/Avatar';
-import FormControl from '@material-ui/core/FormControl';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import TextField from '@material-ui/core/TextField';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import AppBar from '@mui/material/AppBar';
+import Avatar from '@mui/material/Avatar';
+import FormControl from '@mui/material/FormControl';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormLabel from '@mui/material/FormLabel';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import TextField from '@mui/material/TextField';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 import { Controller, useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
@@ -66,7 +66,7 @@ function UserSidebar(props) {
           <Typography className="px-12" color="inherit" variant="subtitle1">
             User Info
           </Typography>
-          <IconButton onClick={() => dispatch(closeUserSidebar())} color="inherit">
+          <IconButton onClick={() => dispatch(closeUserSidebar())} color="inherit" size="large">
             <Icon>close</Icon>
           </IconButton>
         </Toolbar>

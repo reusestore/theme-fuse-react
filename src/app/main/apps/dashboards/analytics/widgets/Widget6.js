@@ -1,6 +1,6 @@
-import Card from '@material-ui/core/Card';
-import Icon from '@material-ui/core/Icon';
-import Tooltip from '@material-ui/core/Tooltip';
+import Card from '@mui/material/Card';
+import Icon from '@mui/material/Icon';
+import Tooltip from '@mui/material/Tooltip';
 import GoogleMap from 'google-map-react';
 
 function Marker(props) {

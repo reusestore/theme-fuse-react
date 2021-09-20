@@ -45,18 +45,6 @@ const FuseComponentsRoutes = [
     path: '/documentation/fuse-components/fuse-dialog',
     component: lazy(() => import('./fuse-dialog/FuseDialogDoc')),
   },
-  {
-    path: '/documentation/fuse-components/fuse-animate',
-    component: lazy(() => import('./fuse-animate/FuseAnimateDoc')),
-  },
-  {
-    path: '/documentation/fuse-components/fuse-animate-group',
-    component: lazy(() => import('./fuse-animate-group/FuseAnimateGroupDoc')),
-  },
-  {
-    path: '/documentation/fuse-components/fuse-chip-select',
-    component: lazy(() => import('./fuse-chip-select/FuseChipSelectDoc')),
-  },
 ];
 
 export default FuseComponentsRoutes;

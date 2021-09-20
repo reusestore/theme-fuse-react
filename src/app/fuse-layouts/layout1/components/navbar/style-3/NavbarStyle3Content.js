@@ -1,7 +1,7 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import { ThemeProvider, makeStyles, useTheme } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { styled, ThemeProvider, useTheme } from '@mui/material/styles';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import clsx from 'clsx';
 import { memo, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,26 +11,24 @@ import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
 import { selectContrastMainTheme } from 'app/store/fuse/settingsSlice';
 import { useLocation } from 'react-router-dom';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText,
-  },
-  sidePanel: {},
-  panel: {
-    backgroundColor: theme.palette.background.default,
-    color: theme.palette.text.primary,
-    transition: theme.transitions.create(['opacity'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.shortest,
-    }),
-    opacity: 0,
-    pointerEvents: 'none',
-    '&.opened': {
-      opacity: 1,
-      pointerEvents: 'initial',
-    },
-  },
+const Root = styled('div')(({ theme }) => ({
+  backgroundColor: theme.palette.primary.main,
+  color: theme.palette.primary.contrastText,
+}));
+
+const StyledPanel = styled(FuseScrollbars)(({ theme, opened }) => ({
+  backgroundColor: theme.palette.background.default,
+  color: theme.palette.text.primary,
+  transition: theme.transitions.create(['opacity'], {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.shortest,
+  }),
+  opacity: 0,
+  pointerEvents: 'none',
+  ...(opened && {
+    opacity: 1,
+    pointerEvents: 'initial',
+  }),
 }));
 
 function needsToBeOpened(location, item) {
@@ -60,10 +58,10 @@ function isUrlInChildren(parent, url) {
 function NavbarStyle3Content(props) {
   const navigation = useSelector(selectNavigation);
   const [selectedNavigation, setSelectedNavigation] = useState([]);
-  const classes = useStyles({ ...props, selectedNavigation });
+
   const [panelOpen, setPanelOpen] = useState(false);
   const theme = useTheme();
-  const mdDown = useMediaQuery(theme.breakpoints.down('md'));
+  const mdDown = useMediaQuery(theme.breakpoints.down('lg'));
   const dispatch = useDispatch();
   const contrastTheme = useSelector(selectContrastMainTheme(theme.palette.primary.main));
   const location = useLocation();
@@ -108,12 +106,9 @@ function NavbarStyle3Content(props) {
 
   return (
     <ClickAwayListener onClickAway={() => setPanelOpen(false)}>
-      <div className={clsx('flex flex-auto flex h-full', classes.root, props.className)}>
+      <Root className={clsx('flex flex-auto flex h-full', props.className)}>
         <ThemeProvider theme={contrastTheme}>
-          <div
-            id="fuse-navbar-side-panel"
-            className={clsx(classes.sidePanel, 'flex flex-shrink-0 flex-col items-center')}
-          >
+          <div id="fuse-navbar-side-panel" className="flex flex-shrink-0 flex-col items-center">
             <img className="w-44 my-32" src="assets/images/logos/fuse.svg" alt="logo" />
 
             <FuseScrollbars
@@ -134,13 +129,10 @@ function NavbarStyle3Content(props) {
         </ThemeProvider>
 
         {selectedNavigation.length > 0 && (
-          <FuseScrollbars
+          <StyledPanel
             id="fuse-navbar-panel"
-            className={clsx(
-              classes.panel,
-              panelOpen && 'opened',
-              'shadow-5 overflow-y-auto overflow-x-hidden'
-            )}
+            opened={panelOpen}
+            className={clsx('shadow-5 overflow-y-auto overflow-x-hidden')}
             option={{ suppressScrollX: true, wheelPropagation: false }}
           >
             <FuseNavigation
@@ -149,9 +141,9 @@ function NavbarStyle3Content(props) {
               layout="vertical"
               onItemClick={handleChildItemClick}
             />
-          </FuseScrollbars>
+          </StyledPanel>
         )}
-      </div>
+      </Root>
     </ClickAwayListener>
   );
 }

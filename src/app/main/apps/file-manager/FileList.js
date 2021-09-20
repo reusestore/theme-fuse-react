@@ -1,40 +1,20 @@
-import Hidden from '@material-ui/core/Hidden';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import clsx from 'clsx';
-import { motion } from 'framer-motion';
+import Hidden from '@mui/material/Hidden';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 import { useDispatch, useSelector } from 'react-redux';
+import { motion } from 'framer-motion';
 import { setSelectedItem, selectFiles } from './store/filesSlice';
-
-const useStyles = makeStyles({
-  typeIcon: {
-    '&.folder:before': {
-      content: "'folder'",
-      color: '#FFB300',
-    },
-    '&.document:before': {
-      content: "'insert_drive_file'",
-      color: '#1565C0',
-    },
-    '&.spreadsheet:before': {
-      content: "'insert_chart'",
-      color: '#4CAF50',
-    },
-  },
-});
+import StyledIcon from './StyledIcon';
 
 function FileList(props) {
   const dispatch = useDispatch();
   const files = useSelector(selectFiles);
   const selectedItemId = useSelector(({ fileManagerApp }) => fileManagerApp.files.selectedItemId);
-
-  const classes = useStyles();
 
   return (
     <motion.div
@@ -64,7 +44,7 @@ function FileList(props) {
                 className="cursor-pointer h-64"
               >
                 <TableCell className="max-w-64 w-64 p-0 text-center">
-                  <Icon className={clsx(classes.typeIcon, item.type)} />
+                  <StyledIcon type={item.type} />
                 </TableCell>
                 <TableCell className="font-medium">{item.name}</TableCell>
                 <TableCell className="hidden sm:table-cell">{item.type}</TableCell>
@@ -78,6 +58,7 @@ function FileList(props) {
                     <IconButton
                       onClick={(ev) => props.pageLayout.current.toggleRightSidebar()}
                       aria-label="open right sidebar"
+                      size="large"
                     >
                       <Icon>info</Icon>
                     </IconButton>

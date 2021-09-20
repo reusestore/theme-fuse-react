@@ -1,4 +1,4 @@
-import Icon from '@material-ui/core/Icon';
+import Icon from '@mui/material/Icon';
 
 function StatusIcon(props) {
   switch (props.status) {

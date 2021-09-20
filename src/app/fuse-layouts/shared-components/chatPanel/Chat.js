@@ -1,113 +1,38 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
-import Avatar from '@material-ui/core/Avatar';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Paper from '@material-ui/core/Paper';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
+import { styled } from '@mui/material/styles';
+import Avatar from '@mui/material/Avatar';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
 import clsx from 'clsx';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { InputBase } from '@mui/material';
 import { sendMessage } from './store/chatSlice';
 import { selectContacts } from './store/contactsSlice';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    background: theme.palette.background.default,
-  },
-  messageRow: {
-    position: 'relative',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-end',
-    padding: '0 16px 4px 16px',
-    flex: '0 0 auto',
-    '&.contact': {
-      '& $bubble': {
-        backgroundColor: theme.palette.background.paper,
-        color: theme.palette.getContrastText(theme.palette.background.paper),
-        borderTopLeftRadius: 5,
-        borderBottomLeftRadius: 5,
-        borderTopRightRadius: 20,
-        borderBottomRightRadius: 20,
-        '& $time': {
-          marginLeft: 12,
-        },
-      },
-      '&.first-of-group': {
-        '& $bubble': {
-          borderTopLeftRadius: 20,
-        },
-      },
-      '&.last-of-group': {
-        '& $bubble': {
-          borderBottomLeftRadius: 20,
-        },
-      },
-    },
-    '&.me': {
-      paddingLeft: 40,
+const StyledPaper = styled(Paper)(({ theme }) => ({
+  background: theme.palette.background.default,
+}));
 
-      '& $avatar': {
-        order: 2,
-        margin: '0 0 0 16px',
-      },
+const StyledMessageRow = styled('div')(({ theme }) => ({
+  position: 'relative',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  justifyContent: 'flex-end',
+  padding: '0 16px 4px 16px',
+  flex: '0 0 auto',
 
-      '& $bubble': {
-        marginLeft: 'auto',
-        backgroundColor: theme.palette.primary.main,
-        color: theme.palette.primary.contrastText,
-        borderTopLeftRadius: 20,
-        borderBottomLeftRadius: 20,
-        borderTopRightRadius: 5,
-        borderBottomRightRadius: 5,
-        '& $time': {
-          justifyContent: 'flex-end',
-          right: 0,
-          marginRight: 12,
-        },
-      },
-      '&.first-of-group': {
-        '& $bubble': {
-          borderTopRightRadius: 20,
-        },
-      },
-
-      '&.last-of-group': {
-        '& $bubble': {
-          borderBottomRightRadius: 20,
-        },
-      },
-    },
-    '&.contact + .me, &.me + .contact': {
-      paddingTop: 20,
-      marginTop: 20,
-    },
-    '&.first-of-group': {
-      '& $bubble': {
-        borderTopLeftRadius: 20,
-        paddingTop: 13,
-      },
-    },
-    '&.last-of-group': {
-      '& $bubble': {
-        borderBottomLeftRadius: 20,
-        paddingBottom: 13,
-        '& $time': {
-          display: 'flex',
-        },
-      },
-    },
-  },
-  avatar: {
+  '& .avatar': {
     position: 'absolute',
     left: -32,
     margin: 0,
   },
-  bubble: {
+
+  '& .bubble': {
     position: 'relative',
     display: 'flex',
     alignItems: 'center',
@@ -115,11 +40,13 @@ const useStyles = makeStyles((theme) => ({
     padding: 12,
     maxWidth: '100%',
   },
-  message: {
+
+  '& .message': {
     whiteSpace: 'pre-wrap',
     lineHeight: 1.2,
   },
-  time: {
+
+  '& .time': {
     position: 'absolute',
     display: 'none',
     width: '100%',
@@ -129,12 +56,82 @@ const useStyles = makeStyles((theme) => ({
     left: 0,
     whiteSpace: 'nowrap',
   },
-  bottom: {
-    // background: theme.palette.background.default,
-    // borderTop: '1px solid rgba(0, 0, 0, 0.13)'
+
+  '&.contact': {
+    '& .bubble': {
+      backgroundColor: theme.palette.background.paper,
+      color: theme.palette.getContrastText(theme.palette.background.paper),
+      borderTopLeftRadius: 5,
+      borderBottomLeftRadius: 5,
+      borderTopRightRadius: 20,
+      borderBottomRightRadius: 20,
+      '& .time': {
+        marginLeft: 12,
+      },
+    },
+    '&.first-of-group': {
+      '& .bubble': {
+        borderTopLeftRadius: 20,
+      },
+    },
+    '&.last-of-group': {
+      '& .bubble': {
+        borderBottomLeftRadius: 20,
+      },
+    },
   },
-  inputWrapper: {
-    borderRadius: 24,
+  '&.me': {
+    paddingLeft: 40,
+
+    '& .avatar': {
+      order: 2,
+      margin: '0 0 0 16px',
+    },
+
+    '& .bubble': {
+      marginLeft: 'auto',
+      backgroundColor: theme.palette.primary.main,
+      color: theme.palette.primary.contrastText,
+      borderTopLeftRadius: 20,
+      borderBottomLeftRadius: 20,
+      borderTopRightRadius: 5,
+      borderBottomRightRadius: 5,
+      '& .time': {
+        justifyContent: 'flex-end',
+        right: 0,
+        marginRight: 12,
+      },
+    },
+    '&.first-of-group': {
+      '& .bubble': {
+        borderTopRightRadius: 20,
+      },
+    },
+
+    '&.last-of-group': {
+      '& .bubble': {
+        borderBottomRightRadius: 20,
+      },
+    },
+  },
+  '&.contact + .me, &.me + .contact': {
+    paddingTop: 20,
+    marginTop: 20,
+  },
+  '&.first-of-group': {
+    '& .bubble': {
+      borderTopLeftRadius: 20,
+      paddingTop: 13,
+    },
+  },
+  '&.last-of-group': {
+    '& .bubble': {
+      borderBottomLeftRadius: 20,
+      paddingBottom: 13,
+      '& .time': {
+        display: 'flex',
+      },
+    },
   },
 }));
 
@@ -145,7 +142,6 @@ function Chat(props) {
   const chat = useSelector(({ chatPanel }) => chatPanel.chat);
   const user = useSelector(({ chatPanel }) => chatPanel.user);
 
-  const classes = useStyles();
   const chatScroll = useRef(null);
   const [messageText, setMessageText] = useState('');
 
@@ -175,13 +171,10 @@ function Chat(props) {
     ).then(() => {
       setMessageText('');
     });
-    // dispatch(sendMessage({ messageText, chatId: chat.id, contactId: user.id })).then(() => {
-    // 	setMessageText('');
-    // });
   };
 
   return (
-    <Paper className={clsx(classes.root, 'flex flex-col relative pb-64 shadow', props.className)}>
+    <StyledPaper className={clsx('flex flex-col relative pb-64 shadow', props.className)}>
       {useMemo(() => {
         const shouldShowContactAvatar = (item, i) => {
           return (
@@ -226,10 +219,9 @@ function Chat(props) {
                       ? user
                       : contacts.find((_contact) => _contact.id === item.who);
                   return (
-                    <div
+                    <StyledMessageRow
                       key={item.time}
                       className={clsx(
-                        classes.messageRow,
                         { me: item.who === user.id },
                         { contact: item.who !== user.id },
                         { 'first-of-group': isFirstMessageOfGroup(item, i) },
@@ -237,15 +229,15 @@ function Chat(props) {
                       )}
                     >
                       {shouldShowContactAvatar(item, i) && (
-                        <Avatar className={classes.avatar} src={contact.avatar} />
+                        <Avatar className="avatar" src={contact.avatar} />
                       )}
-                      <div className={clsx(classes.bubble, 'shadow')}>
-                        <div className={classes.message}>{item.message}</div>
-                        <Typography className={classes.time} color="textSecondary">
+                      <div className="bubble shadow">
+                        <div className="message">{item.message}</div>
+                        <Typography className="time" color="textSecondary">
                           {formatDistanceToNow(new Date(item.time), { addSuffix: true })}
                         </Typography>
                       </div>
-                    </div>
+                    </StyledMessageRow>
                   );
                 })}
               </div>
@@ -265,33 +257,24 @@ function Chat(props) {
             )}
           </FuseScrollbars>
         );
-      }, [chat, classes, contacts, selectedContactId, user])}
+      }, [chat, contacts, selectedContactId, user])}
+
       {chat && (
-        <form
-          onSubmit={onMessageSubmit}
-          className={clsx(classes.bottom, 'pb-16 px-8 absolute bottom-0 left-0 right-0')}
-        >
-          <Paper className={clsx(classes.inputWrapper, 'flex items-center relative shadow')}>
-            <TextField
+        <form onSubmit={onMessageSubmit} className="pb-16 px-8 absolute bottom-0 left-0 right-0">
+          <Paper className="rounded-24 flex items-center relative shadow">
+            <InputBase
               autoFocus={false}
               id="message-input"
-              className="flex-1"
-              InputProps={{
-                disableUnderline: true,
-                classes: {
-                  root: 'flex flex-grow flex-shrink-0 mx-16 ltr:mr-48 rtl:ml-48 my-8',
-                  input: '',
-                },
-                placeholder: 'Type your message',
-              }}
-              InputLabelProps={{
-                shrink: false,
-                className: classes.bootstrapFormLabel,
-              }}
+              className="flex flex-1 flex-grow flex-shrink-0 mx-16 ltr:mr-48 rtl:ml-48 my-8"
+              placeholder="Type your message"
               onChange={onInputChange}
               value={messageText}
             />
-            <IconButton className="absolute ltr:right-0 rtl:left-0 top-0" type="submit">
+            <IconButton
+              className="absolute ltr:right-0 rtl:left-0 top-0"
+              type="submit"
+              size="large"
+            >
               <Icon className="text-24" color="action">
                 send
               </Icon>
@@ -299,7 +282,7 @@ function Chat(props) {
           </Paper>
         </form>
       )}
-    </Paper>
+    </StyledPaper>
   );
 }
 

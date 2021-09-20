@@ -1,40 +1,35 @@
 import _ from '@lodash';
-import Avatar from '@material-ui/core/Avatar';
-import Checkbox from '@material-ui/core/Checkbox';
-import ListItem from '@material-ui/core/ListItem';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import clsx from 'clsx';
+import { styled } from '@mui/material/styles';
+import Avatar from '@mui/material/Avatar';
+import Checkbox from '@mui/material/Checkbox';
+import ListItem from '@mui/material/ListItem';
+import Typography from '@mui/material/Typography';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter, useParams } from 'react-router-dom';
 import MailChip from '../MailChip';
 import { toggleInSelectedMails } from '../store/mailsSlice';
 import { selectLabelsEntities } from '../store/labelsSlice';
 
-const pathToRegexp = require('path-to-regexp');
+const StyledListItem = styled(ListItem)(({ theme, unread, selected }) => ({
+  ...(unread && {
+    background: 'rgba(0,0,0,0.03)',
+  }),
 
-const useStyles = makeStyles((theme) => ({
-  mailItem: {
-    '&.unread': {
-      background: 'rgba(0,0,0,0.03)',
+  ...(selected && {
+    '&::after': {
+      content: '""',
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      display: 'block',
+      height: '100%',
+      width: 3,
+      backgroundColor: theme.palette.primary.main,
     },
-    '&.selected': {
-      '&::after': {
-        content: '""',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        display: 'block',
-        height: '100%',
-        width: 3,
-        backgroundColor: theme.palette.primary.main,
-      },
-    },
-  },
-  avatar: {
-    backgroundColor: theme.palette.primary[500],
-  },
+  }),
 }));
+
+const pathToRegexp = require('path-to-regexp');
 
 const MailListItem = (props) => {
   const dispatch = useDispatch();
@@ -42,13 +37,12 @@ const MailListItem = (props) => {
   const labels = useSelector(selectLabelsEntities);
   const routeParams = useParams();
 
-  const classes = useStyles(props);
   const toPath = pathToRegexp.compile(props.match.path);
   const checked =
     selectedMailIds.length > 0 && selectedMailIds.find((id) => id === props.mail.id) !== undefined;
 
   return (
-    <ListItem
+    <StyledListItem
       dense
       button
       onClick={() =>
@@ -59,12 +53,9 @@ const MailListItem = (props) => {
           })
         )
       }
-      className={clsx(
-        classes.mailItem,
-        checked && 'selected',
-        !props.mail.read && 'unread',
-        'items-start py-20 px-0 md:px-8 relative'
-      )}
+      selected={checked}
+      undread={!props.mail.read}
+      className="items-start py-20 px-0 md:px-8 relative"
     >
       <div className="flex flex-col sm:flex-row items-center justify-start">
         <Checkbox
@@ -79,7 +70,13 @@ const MailListItem = (props) => {
           {props.mail.from.avatar ? (
             <Avatar alt={props.mail.from.name} src={props.mail.from.avatar} />
           ) : (
-            <Avatar className={classes.avatar}>{props.mail.from.name[0]}</Avatar>
+            <Avatar
+              sx={{
+                backgroundColor: (theme) => theme.palette.primary[500],
+              }}
+            >
+              {props.mail.from.name[0]}
+            </Avatar>
           )}
         </div>
       </div>
@@ -112,7 +109,7 @@ const MailListItem = (props) => {
           {props.mail.time}
         </Typography>
       </div>
-    </ListItem>
+    </StyledListItem>
   );
 };
 

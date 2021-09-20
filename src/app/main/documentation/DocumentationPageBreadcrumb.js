@@ -1,5 +1,5 @@
-import Breadcrumbs from '@material-ui/core/Breadcrumbs';
-import Typography from '@material-ui/core/Typography';
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+import Typography from '@mui/material/Typography';
 import clsx from 'clsx';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';

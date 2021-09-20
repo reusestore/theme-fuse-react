@@ -1,30 +1,20 @@
 import { Controller, useForm } from 'react-hook-form';
 
+import { darken } from '@mui/material/styles';
+
 import { yupResolver } from '@hookform/resolvers/yup';
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import { makeStyles } from '@material-ui/core/styles';
-import { darken } from '@material-ui/core/styles/colorManipulator';
-import TextField from '@material-ui/core/TextField';
-import clsx from 'clsx';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
+import TextField from '@mui/material/TextField';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
 import _ from '@lodash';
 import { newList } from '../store/boardSlice';
-
-const useStyles = makeStyles((theme) => ({
-  card: {
-    backgroundColor: darken(
-      theme.palette.background.paper,
-      theme.palette.type === 'light' ? 0.02 : 0.25
-    ),
-  },
-}));
 
 const defaultValues = {
   title: '',
@@ -41,7 +31,6 @@ function BoardAddList(props) {
   const dispatch = useDispatch();
   const board = useSelector(({ scrumboardApp }) => scrumboardApp.board);
 
-  const classes = useStyles(props);
   const [formOpen, setFormOpen] = useState(false);
   const { control, formState, handleSubmit, reset } = useForm({
     mode: 'onChange',
@@ -73,7 +62,14 @@ function BoardAddList(props) {
 
   return (
     <div>
-      <Card className={clsx(classes.card, 'w-320 mx-8 sm:mx-12 rounded-20 shadow')} square>
+      <Card
+        className="w-320 mx-8 sm:mx-12 rounded-20 shadow"
+        square
+        sx={{
+          backgroundColor: (theme) =>
+            darken(theme.palette.background.paper, theme.palette.mode === 'light' ? 0.02 : 0.25),
+        }}
+      >
         {formOpen ? (
           <ClickAwayListener onClickAway={handleCloseForm}>
             <form className="p-16" onSubmit={handleSubmit(onSubmit)}>
@@ -92,7 +88,7 @@ function BoardAddList(props) {
                     InputProps={{
                       endAdornment: (
                         <InputAdornment position="end">
-                          <IconButton onClick={handleCloseForm}>
+                          <IconButton onClick={handleCloseForm} size="large">
                             <Icon className="text-18">close</Icon>
                           </IconButton>
                         </InputAdornment>
@@ -118,8 +114,7 @@ function BoardAddList(props) {
           <Button
             onClick={handleOpenForm}
             classes={{
-              root: 'font-medium w-full rounded-none h-64 px-16',
-              label: 'justify-start',
+              root: 'font-medium w-full rounded-none h-64 px-16 justify-start',
             }}
           >
             <Icon className="text-32 text-red">add_circle</Icon>

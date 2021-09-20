@@ -1,93 +1,91 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
-import Avatar from '@material-ui/core/Avatar';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Paper from '@material-ui/core/Paper';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
+import { styled } from '@mui/material/styles';
+import Avatar from '@mui/material/Avatar';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
 import clsx from 'clsx';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { InputBase } from '@mui/material';
 import { selectContacts } from './store/contactsSlice';
 import { sendMessage } from './store/chatSlice';
 
-const useStyles = makeStyles((theme) => ({
-  messageRow: {
-    '&.contact': {
-      '& .bubble': {
-        backgroundColor: theme.palette.background.paper,
-        color: theme.palette.getContrastText(theme.palette.background.paper),
-        borderTopLeftRadius: 5,
-        borderBottomLeftRadius: 5,
-        borderTopRightRadius: 20,
-        borderBottomRightRadius: 20,
-        '& .time': {
-          marginLeft: 12,
-        },
+const StyledMessageRow = styled('div')(({ theme }) => ({
+  '&.contact': {
+    '& .bubble': {
+      backgroundColor: theme.palette.background.paper,
+      color: theme.palette.getContrastText(theme.palette.background.paper),
+      borderTopLeftRadius: 5,
+      borderBottomLeftRadius: 5,
+      borderTopRightRadius: 20,
+      borderBottomRightRadius: 20,
+      '& .time': {
+        marginLeft: 12,
       },
-      '&.first-of-group': {
-        '& .bubble': {
-          borderTopLeftRadius: 20,
-        },
-      },
-      '&.last-of-group': {
-        '& .bubble': {
-          borderBottomLeftRadius: 20,
-        },
-      },
-    },
-    '&.me': {
-      paddingLeft: 40,
-
-      '& .avatar': {
-        order: 2,
-        margin: '0 0 0 16px',
-      },
-      '& .bubble': {
-        marginLeft: 'auto',
-        backgroundColor: theme.palette.primary.main,
-        color: theme.palette.primary.contrastText,
-        borderTopLeftRadius: 20,
-        borderBottomLeftRadius: 20,
-        borderTopRightRadius: 5,
-        borderBottomRightRadius: 5,
-        '& .time': {
-          justifyContent: 'flex-end',
-          right: 0,
-          marginRight: 12,
-        },
-      },
-      '&.first-of-group': {
-        '& .bubble': {
-          borderTopRightRadius: 20,
-        },
-      },
-
-      '&.last-of-group': {
-        '& .bubble': {
-          borderBottomRightRadius: 20,
-        },
-      },
-    },
-    '&.contact + .me, &.me + .contact': {
-      paddingTop: 20,
-      marginTop: 20,
     },
     '&.first-of-group': {
       '& .bubble': {
         borderTopLeftRadius: 20,
-        paddingTop: 13,
       },
     },
     '&.last-of-group': {
       '& .bubble': {
         borderBottomLeftRadius: 20,
-        paddingBottom: 13,
-        '& .time': {
-          display: 'flex',
-        },
+      },
+    },
+  },
+  '&.me': {
+    paddingLeft: 40,
+
+    '& .avatar': {
+      order: 2,
+      margin: '0 0 0 16px',
+    },
+    '& .bubble': {
+      marginLeft: 'auto',
+      backgroundColor: theme.palette.primary.main,
+      color: theme.palette.primary.contrastText,
+      borderTopLeftRadius: 20,
+      borderBottomLeftRadius: 20,
+      borderTopRightRadius: 5,
+      borderBottomRightRadius: 5,
+      '& .time': {
+        justifyContent: 'flex-end',
+        right: 0,
+        marginRight: 12,
+      },
+    },
+    '&.first-of-group': {
+      '& .bubble': {
+        borderTopRightRadius: 20,
+      },
+    },
+
+    '&.last-of-group': {
+      '& .bubble': {
+        borderBottomRightRadius: 20,
+      },
+    },
+  },
+  '&.contact + .me, &.me + .contact': {
+    paddingTop: 20,
+    marginTop: 20,
+  },
+  '&.first-of-group': {
+    '& .bubble': {
+      borderTopLeftRadius: 20,
+      paddingTop: 13,
+    },
+  },
+  '&.last-of-group': {
+    '& .bubble': {
+      borderBottomLeftRadius: 20,
+      paddingBottom: 13,
+      '& .time': {
+        display: 'flex',
       },
     },
   },
@@ -100,7 +98,6 @@ function Chat(props) {
   const chat = useSelector(({ chatApp }) => chatApp.chat);
   const user = useSelector(({ chatApp }) => chatApp.user);
 
-  const classes = useStyles(props);
   const chatRef = useRef(null);
   const [messageText, setMessageText] = useState('');
 
@@ -161,10 +158,9 @@ function Chat(props) {
               const contact =
                 item.who === user.id ? user : contacts.find((_contact) => _contact.id === item.who);
               return (
-                <div
+                <StyledMessageRow
                   key={item.time}
                   className={clsx(
-                    classes.messageRow,
                     'flex flex-col flex-grow-0 flex-shrink-0 items-start justify-end relative px-16 pb-4',
                     { me: item.who === user.id },
                     { contact: item.who !== user.id },
@@ -188,7 +184,7 @@ function Chat(props) {
                       {formatDistanceToNow(new Date(item.time), { addSuffix: true })}
                     </Typography>
                   </div>
-                </div>
+                </StyledMessageRow>
               );
             })}
           </div>
@@ -208,26 +204,19 @@ function Chat(props) {
       {chat && (
         <form onSubmit={onMessageSubmit} className="absolute bottom-0 right-0 left-0 py-16 px-8">
           <Paper className="flex items-center relative rounded-24 shadow">
-            <TextField
+            <InputBase
               autoFocus={false}
               id="message-input"
-              className="flex-1"
-              InputProps={{
-                disableUnderline: true,
-                classes: {
-                  root: 'flex flex-grow flex-shrink-0 mx-16 ltr:mr-48 rtl:ml-48 my-8',
-                  input: '',
-                },
-                placeholder: 'Type your message',
-              }}
-              InputLabelProps={{
-                shrink: false,
-                className: classes.bootstrapFormLabel,
-              }}
+              className="flex-1 flex flex-grow flex-shrink-0 mx-16 ltr:mr-48 rtl:ml-48 my-8"
+              placeholder="Type your message"
               onChange={onInputChange}
               value={messageText}
             />
-            <IconButton className="absolute ltr:right-0 rtl:left-0 top-0" type="submit">
+            <IconButton
+              className="absolute ltr:right-0 rtl:left-0 top-0"
+              type="submit"
+              size="large"
+            >
               <Icon className="text-24" color="action">
                 send
               </Icon>

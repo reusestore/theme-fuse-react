@@ -1,17 +1,25 @@
 import DemoContent from '@fuse/core/DemoContent';
+import { styled } from '@mui/material/styles';
 import FusePageSimple from '@fuse/core/FusePageSimple';
-import { makeStyles } from '@material-ui/core/styles';
 
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
 import { useState } from 'react';
 
-const useStyles = makeStyles({
-  layoutRoot: {},
-});
+const Root = styled(FusePageSimple)(({ theme }) => ({
+  '& .FusePageSimple-header': {},
+  '& .FusePageSimple-toolbar': {
+    padding: '0 16px',
+    [theme.breakpoints.up('sm')]: {
+      padding: '0 24px',
+    },
+  },
+  '& .FusePageSimple-content': {},
+  '& .FusePageSimple-sidebarHeader': {},
+  '& .FusePageSimple-sidebarContent': {},
+}));
 
 function SimpleTabbedSample() {
-  const classes = useStyles();
   const [selectedTab, setSelectedTab] = useState(0);
 
   const handleTabChange = (event, value) => {
@@ -19,11 +27,7 @@ function SimpleTabbedSample() {
   };
 
   return (
-    <FusePageSimple
-      classes={{
-        root: classes.layoutRoot,
-        toolbar: 'px-16 sm:px-24',
-      }}
+    <Root
       header={
         <div className="p-24">
           <h4>Header</h4>
@@ -36,7 +40,7 @@ function SimpleTabbedSample() {
           indicatorColor="primary"
           textColor="primary"
           variant="scrollable"
-          scrollButtons="off"
+          scrollButtons={false}
           className="w-full h-64 border-b-1"
         >
           <Tab className="h-64" label="Item One" />

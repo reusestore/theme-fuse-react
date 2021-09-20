@@ -1,6 +1,6 @@
-import Card from '@material-ui/core/Card';
-import Icon from '@material-ui/core/Icon';
-import Typography from '@material-ui/core/Typography';
+import Card from '@mui/material/Card';
+import Icon from '@mui/material/Icon';
+import Typography from '@mui/material/Typography';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { useDispatch } from 'react-redux';

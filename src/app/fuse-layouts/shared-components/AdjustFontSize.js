@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import Slider from '@material-ui/core/Slider';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import Menu from '@material-ui/core/Menu';
+import Slider from '@mui/material/Slider';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Menu from '@mui/material/Menu';
 import clsx from 'clsx';
 
 const marks = [
@@ -61,6 +61,7 @@ function AdjustFontSize(props) {
         aria-controls="font-size-menu"
         aria-haspopup="true"
         onClick={handleClick}
+        size="large"
       >
         <Icon>format_size</Icon>
       </IconButton>

@@ -1,9 +1,9 @@
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import Divider from '@material-ui/core/Divider';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import Divider from '@mui/material/Divider';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
 import { memo } from 'react';
 
 function Widget9(props) {
@@ -13,7 +13,7 @@ function Widget9(props) {
         <Typography className="h3 font-medium px-12">Top campaigns</Typography>
 
         <div className="-mt-12">
-          <IconButton aria-label="more">
+          <IconButton aria-label="more" size="large">
             <Icon>more_vert</Icon>
           </IconButton>
         </div>

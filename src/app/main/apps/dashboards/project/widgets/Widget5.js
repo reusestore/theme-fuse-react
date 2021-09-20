@@ -1,12 +1,12 @@
-import Divider from '@material-ui/core/Divider';
-import Paper from '@material-ui/core/Paper';
-import { useTheme } from '@material-ui/core/styles';
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
-import Typography from '@material-ui/core/Typography';
+import Paper from '@mui/material/Paper';
+import { useTheme } from '@mui/material/styles';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import Typography from '@mui/material/Typography';
 import _ from '@lodash';
 import { memo, useState, useEffect } from 'react';
 import ReactApexChart from 'react-apexcharts';
+import Box from '@mui/material/Box';
 
 function Widget5(props) {
   const theme = useTheme();
@@ -37,16 +37,21 @@ function Widget5(props) {
           indicatorColor="secondary"
           textColor="inherit"
           variant="scrollable"
-          scrollButtons="off"
+          scrollButtons={false}
           className="-mx-4 min-h-40"
           classes={{ indicator: 'flex justify-center bg-transparent w-full h-full' }}
           TabIndicatorProps={{
-            children: <Divider className="w-full h-full rounded-full opacity-50" />,
+            children: (
+              <Box
+                sx={{ bgcolor: 'text.disabled' }}
+                className="w-full h-full rounded-full opacity-20"
+              />
+            ),
           }}
         >
           {Object.entries(widget.ranges).map(([key, n]) => (
             <Tab
-              className="text-14 font-semibold min-h-40 min-w-64 mx-4"
+              className="text-14 font-semibold min-h-40 min-w-64 mx-4 px-12"
               disableRipple
               key={key}
               label={n}

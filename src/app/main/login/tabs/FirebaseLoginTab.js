@@ -1,15 +1,15 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import InputAdornment from '@material-ui/core/InputAdornment';
+import Button from '@mui/material/Button';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
 import { useEffect, useRef, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { submitLoginWithFireBase } from 'app/auth/store/loginSlice';
 import * as yup from 'yup';
-import TextField from '@material-ui/core/TextField';
+import TextField from '@mui/material/TextField';
 import _ from '@lodash';
 
 /**
@@ -99,7 +99,7 @@ function FirebaseLoginTab(props) {
                 type: showPassword ? 'text' : 'password',
                 endAdornment: (
                   <InputAdornment position="end">
-                    <IconButton onClick={() => setShowPassword(!showPassword)}>
+                    <IconButton onClick={() => setShowPassword(!showPassword)} size="large">
                       <Icon className="text-20" color="action">
                         {showPassword ? 'visibility' : 'visibility_off'}
                       </Icon>

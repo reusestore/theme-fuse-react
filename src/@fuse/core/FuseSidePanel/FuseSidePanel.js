@@ -1,45 +1,44 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
-import Fab from '@material-ui/core/Fab';
-import Hidden from '@material-ui/core/Hidden';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Paper from '@material-ui/core/Paper';
-import { makeStyles } from '@material-ui/core/styles';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import Tooltip from '@material-ui/core/Tooltip';
+import { styled } from '@mui/material/styles';
+import Fab from '@mui/material/Fab';
+import Hidden from '@mui/material/Hidden';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Paper from '@mui/material/Paper';
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import Tooltip from '@mui/material/Tooltip';
 import clsx from 'clsx';
 import { memo, useState } from 'react';
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
+const Root = styled('div')(({ theme }) => ({
+  '& .FuseSidePanel-paper': {
     display: 'flex',
     width: 56,
-  },
-  root: {
     transition: theme.transitions.create(['transform', 'width', 'min-width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.shorter,
     }),
     paddingBottom: 64,
+    height: '100%',
     maxHeight: '100vh',
     position: 'sticky',
     top: 0,
     zIndex: 999,
     '&.left': {
-      '& $buttonWrapper': {
+      '& .FuseSidePanel-buttonWrapper': {
         left: 0,
         right: 'auto',
       },
-      '& $buttonIcon': {
+      '& .FuseSidePanel-buttonIcon': {
         transform: 'rotate(0deg)',
       },
     },
     '&.right': {
-      '& $buttonWrapper': {
+      '& .FuseSidePanel-buttonWrapper': {
         right: 0,
         left: 'auto',
       },
-      '& $buttonIcon': {
+      '& .FuseSidePanel-buttonIcon': {
         transform: 'rotate(-180deg)',
       },
     },
@@ -48,35 +47,35 @@ const useStyles = makeStyles((theme) => ({
         width: 0,
       },
       '&.left': {
-        '& $buttonWrapper': {
+        '& .FuseSidePanel-buttonWrapper': {
           justifyContent: 'start',
         },
-        '& $button': {
+        '& .FuseSidePanel-button': {
           borderBottomLeftRadius: 0,
           borderTopLeftRadius: 0,
           paddingLeft: 4,
         },
-        '& $buttonIcon': {
+        '& .FuseSidePanel-buttonIcon': {
           transform: 'rotate(-180deg)',
         },
       },
       '&.right': {
-        '& $buttonWrapper': {
+        '& .FuseSidePanel-buttonWrapper': {
           justifyContent: 'flex-end',
         },
-        '& $button': {
+        '& .FuseSidePanel-button': {
           borderBottomRightRadius: 0,
           borderTopRightRadius: 0,
           paddingRight: 4,
         },
-        '& $buttonIcon': {
+        '& .FuseSidePanel-buttonIcon': {
           transform: 'rotate(0deg)',
         },
       },
-      '& $buttonWrapper': {
+      '& .FuseSidePanel-buttonWrapper': {
         width: 'auto',
       },
-      '& $button': {
+      '& .FuseSidePanel-button': {
         backgroundColor: theme.palette.background.paper,
         borderRadius: 38,
         transition: theme.transitions.create(
@@ -93,12 +92,13 @@ const useStyles = makeStyles((theme) => ({
           paddingRight: 8,
         },
       },
-      '& $content': {
+      '& .FuseSidePanel-content': {
         opacity: 0,
       },
     },
   },
-  content: {
+
+  '& .FuseSidePanel-content': {
     overflow: 'hidden',
     opacity: 1,
     transition: theme.transitions.create(['opacity'], {
@@ -106,7 +106,8 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.short,
     }),
   },
-  buttonWrapper: {
+
+  '& .FuseSidePanel-buttonWrapper': {
     position: 'absolute',
     bottom: 0,
     left: 0,
@@ -117,18 +118,21 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     minWidth: 56,
   },
-  button: {
+
+  '& .FuseSidePanel-button': {
     padding: 8,
     width: 40,
     height: 40,
   },
-  buttonIcon: {
+
+  '& .FuseSidePanel-buttonIcon': {
     transition: theme.transitions.create(['transform'], {
       easing: theme.transitions.easing.easeInOut,
       duration: theme.transitions.duration.short,
     }),
   },
-  mobileButton: {
+
+  '& .FuseSidePanel-mobileButton': {
     height: 40,
     position: 'absolute',
     zIndex: 99,
@@ -161,7 +165,7 @@ const useStyles = makeStyles((theme) => ({
       borderTopRightRadius: 0,
       paddingRight: 4,
       right: 0,
-      '& $buttonIcon': {
+      '& .FuseSidePanel-buttonIcon': {
         transform: 'rotate(-180deg)',
       },
     },
@@ -169,7 +173,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function FuseSidePanel(props) {
-  const classes = useStyles(props);
   const [opened, setOpened] = useState(props.opened);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -182,12 +185,11 @@ function FuseSidePanel(props) {
   }
 
   return (
-    <>
-      <Hidden mdDown>
+    <Root>
+      <Hidden lgDown>
         <Paper
           className={clsx(
-            classes.root,
-            classes.paper,
+            'FuseSidePanel-paper',
             props.className,
             opened ? 'opened' : 'closed',
             props.position,
@@ -195,17 +197,22 @@ function FuseSidePanel(props) {
           )}
           square
         >
-          <FuseScrollbars className={clsx('content', classes.content)}>
+          <FuseScrollbars className={clsx('content', 'FuseSidePanel-content')}>
             {props.children}
           </FuseScrollbars>
 
-          <div className={classes.buttonWrapper}>
+          <div className="FuseSidePanel-buttonWrapper">
             <Tooltip
               title="Toggle side panel"
               placement={props.position === 'left' ? 'right' : 'right'}
             >
-              <IconButton className={classes.button} onClick={toggleOpened} disableRipple>
-                <Icon className={classes.buttonIcon}>keyboard_arrow_left</Icon>
+              <IconButton
+                className="FuseSidePanel-button"
+                onClick={toggleOpened}
+                disableRipple
+                size="large"
+              >
+                <Icon className="FuseSidePanel-buttonIcon">keyboard_arrow_left</Icon>
               </IconButton>
             </Tooltip>
           </div>
@@ -214,7 +221,7 @@ function FuseSidePanel(props) {
       <Hidden lgUp>
         <SwipeableDrawer
           classes={{
-            paper: clsx(classes.paper, props.className),
+            paper: clsx('FuseSidePanel-paper', props.className),
           }}
           anchor={props.position}
           open={mobileOpen}
@@ -222,24 +229,24 @@ function FuseSidePanel(props) {
           onClose={toggleMobileDrawer}
           disableSwipeToOpen
         >
-          <FuseScrollbars className={clsx('content', classes.content)}>
+          <FuseScrollbars className={clsx('content', 'FuseSidePanel-content')}>
             {props.children}
           </FuseScrollbars>
         </SwipeableDrawer>
 
         <Tooltip title="Hide side panel" placement={props.position === 'left' ? 'right' : 'right'}>
           <Fab
-            className={clsx(classes.mobileButton, props.position)}
+            className={clsx('FuseSidePanel-mobileButton', props.position)}
             onClick={toggleMobileDrawer}
             disableRipple
           >
-            <Icon className={classes.buttonIcon} color="action">
+            <Icon className="FuseSidePanel-buttonIcon" color="action">
               keyboard_arrow_right
             </Icon>
           </Fab>
         </Tooltip>
       </Hidden>
-    </>
+    </Root>
   );
 }
 

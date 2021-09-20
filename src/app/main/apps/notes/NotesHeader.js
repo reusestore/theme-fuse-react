@@ -1,8 +1,8 @@
-import Hidden from '@material-ui/core/Hidden';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Tooltip from '@material-ui/core/Tooltip';
-import Typography from '@material-ui/core/Typography';
+import Hidden from '@mui/material/Hidden';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
 import NotesSearch from './NotesSearch';
@@ -19,6 +19,7 @@ function NotesHeader(props) {
           <IconButton
             onClick={(ev) => props.pageLayout.current.toggleLeftSidebar()}
             aria-label="open left sidebar"
+            size="large"
           >
             <Icon>menu</Icon>
           </IconButton>
@@ -47,7 +48,7 @@ function NotesHeader(props) {
 
       <div className="flex flex-1 items-center justify-end">
         <Tooltip title="Toggle Variate Description Size">
-          <IconButton onClick={(ev) => dispatch(toggleVariateDescSize())}>
+          <IconButton onClick={(ev) => dispatch(toggleVariateDescSize())} size="large">
             <Icon color={variateDescSize ? 'action' : 'disabled'}>format_size</Icon>
           </IconButton>
         </Tooltip>

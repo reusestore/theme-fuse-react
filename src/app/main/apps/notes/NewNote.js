@@ -1,23 +1,14 @@
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Paper from '@material-ui/core/Paper';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import clsx from 'clsx';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import NoteForm from './note-form/NoteForm';
 import { createNote } from './store/notesSlice';
 
-const useStyles = makeStyles({
-  button: {
-    cursor: 'text',
-  },
-});
-
 function NewNote(props) {
   const dispatch = useDispatch();
 
-  const classes = useStyles(props);
   const [formOpen, setFormOpen] = useState(false);
 
   function handleFormOpen(ev) {
@@ -55,12 +46,7 @@ function NewNote(props) {
   }
 
   return (
-    <Paper
-      className={clsx(
-        classes.button,
-        'flex items-center w-full max-w-512 mt-8 mb-16 min-h-48 shadow flex-shrink-0'
-      )}
-    >
+    <Paper className="flex items-center w-full max-w-512 mt-8 mb-16 min-h-48 shadow flex-shrink-0 cursor-text">
       {formOpen ? (
         <ClickAwayListener onClickAway={handleClickAway}>
           <div className="w-full">

@@ -1,25 +1,25 @@
 import DemoContent from '@fuse/core/DemoContent';
+import { styled } from '@mui/material/styles';
 import DemoSidebarContent from '@fuse/core/DemoSidebarContent';
 import FusePageCarded from '@fuse/core/FusePageCarded';
-import Hidden from '@material-ui/core/Hidden';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import { makeStyles } from '@material-ui/core/styles';
+import Hidden from '@mui/material/Hidden';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
 import { useRef } from 'react';
 
-const useStyles = makeStyles({
-  layoutRoot: {},
+const Root = styled(FusePageCarded)({
+  '& .FusePageCarded-header': {},
+  '& .FusePageCarded-toolbar': {},
+  '& .FusePageCarded-content': {},
+  '& .FusePageCarded-sidebarHeader': {},
+  '& .FusePageCarded-sidebarContent': {},
 });
 
 function CardedLeftSidebarSample() {
-  const classes = useStyles();
   const pageLayout = useRef(null);
 
   return (
-    <FusePageCarded
-      classes={{
-        root: classes.layoutRoot,
-      }}
+    <Root
       header={
         <div className="flex flex-col flex-1">
           <div className="flex items-center py-24">
@@ -27,6 +27,7 @@ function CardedLeftSidebarSample() {
               <IconButton
                 onClick={(ev) => pageLayout.current.toggleLeftSidebar()}
                 aria-label="open left sidebar"
+                size="large"
               >
                 <Icon>menu</Icon>
               </IconButton>

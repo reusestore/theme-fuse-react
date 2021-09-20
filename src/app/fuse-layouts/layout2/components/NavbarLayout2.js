@@ -1,22 +1,21 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
-import { makeStyles } from '@material-ui/core/styles';
+import { styled } from '@mui/material/styles';
 import Logo from 'app/fuse-layouts/shared-components/Logo';
 import Navigation from 'app/fuse-layouts/shared-components/Navigation';
 import clsx from 'clsx';
 import { memo } from 'react';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: theme.palette.background.default,
-    color: theme.palette.text.primary,
-  },
+const Root = styled('div')(({ theme }) => ({
+  height: 64,
+  minHeight: 64,
+  maxHeight: 64,
+  backgroundColor: theme.palette.background.default,
+  color: theme.palette.text.primary,
 }));
 
 function NavbarLayout2(props) {
-  const classes = useStyles(props);
-
   return (
-    <div className={clsx('w-full shadow-md', classes.root, props.className)}>
+    <Root className={clsx('w-full shadow-md', props.className)}>
       <div
         className={clsx(
           'flex flex-auto justify-between items-center w-full h-full container p-0 lg:px-24 z-20'
@@ -30,7 +29,7 @@ function NavbarLayout2(props) {
           <Navigation className="w-full" layout="horizontal" />
         </FuseScrollbars>
       </div>
-    </div>
+    </Root>
   );
 }
 

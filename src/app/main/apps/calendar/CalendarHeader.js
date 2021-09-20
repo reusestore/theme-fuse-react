@@ -1,80 +1,78 @@
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
-import Tooltip from '@material-ui/core/Tooltip';
-import Typography from '@material-ui/core/Typography';
+import Icon from '@mui/material/Icon';
+import { styled, ThemeProvider } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
 import { selectMainThemeDark } from 'app/store/fuse/settingsSlice';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import format from 'date-fns/format';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundImage: 'url("../../assets/images/backgrounds/header-bg.png")',
-    backgroundColor: '#FAFAFA',
-    color: '#FFFFFF',
-    backgroundSize: 'cover',
-    backgroundPosition: '0 50%',
-    backgroundRepeat: 'no-repeat',
-    '&:before': {
-      content: "''",
-      position: 'absolute',
-      top: 0,
-      right: 0,
-      bottom: 0,
-      left: 0,
-      zIndex: 1,
-      background: 'rgba(0, 0, 0, 0.45)',
-    },
-    '&.Jan': {
-      backgroundImage: "url('/assets/images/calendar/winter.jpg')",
-      backgroundPosition: '0 85%',
-    },
-    '&.Feb': {
-      backgroundImage: "url('/assets/images/calendar/winter.jpg')",
-      backgroundPosition: '0 85%',
-    },
-    '&.Mar': {
-      backgroundImage: "url('/assets/images/calendar/spring.jpg')",
-      backgroundPosition: '0 40%',
-    },
-    '&.Apr': {
-      backgroundImage: "url('/assets/images/calendar/spring.jpg')",
-      backgroundPosition: '0 40%',
-    },
-    '&.May': {
-      backgroundImage: "url('/assets/images/calendar/spring.jpg')",
-      backgroundPosition: '0 40%',
-    },
-    '&.Jun': {
-      backgroundImage: "url('/assets/images/calendar/summer.jpg')",
-      backgroundPosition: '0 80%',
-    },
-    '&.Jul': {
-      backgroundImage: "url('/assets/images/calendar/summer.jpg')",
-      backgroundPosition: '0 80%',
-    },
-    '&.Aug': {
-      backgroundImage: "url('/assets/images/calendar/summer.jpg')",
-      backgroundPosition: '0 80%',
-    },
-    '&.Sep': {
-      backgroundImage: "url('/assets/images/calendar/autumn.jpg')",
-      backgroundPosition: '0 40%',
-    },
-    '&.Oct': {
-      backgroundImage: "url('/assets/images/calendar/autumn.jpg')",
-      backgroundPosition: '0 40%',
-    },
-    '&.Nov': {
-      backgroundImage: "url('/assets/images/calendar/autumn.jpg')",
-      backgroundPosition: '0 40%',
-    },
-    '&.Dec': {
-      backgroundImage: "url('/assets/images/calendar/winter.jpg')",
-      backgroundPosition: '0 85%',
-    },
+const Root = styled('div')(({ theme }) => ({
+  backgroundImage: 'url("../../assets/images/backgrounds/header-bg.png")',
+  backgroundColor: '#FAFAFA',
+  color: '#FFFFFF',
+  backgroundSize: 'cover',
+  backgroundPosition: '0 50%',
+  backgroundRepeat: 'no-repeat',
+  '&:before': {
+    content: "''",
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    zIndex: 1,
+    background: 'rgba(0, 0, 0, 0.45)',
+  },
+  '&.Jan': {
+    backgroundImage: "url('/assets/images/calendar/winter.jpg')",
+    backgroundPosition: '0 85%',
+  },
+  '&.Feb': {
+    backgroundImage: "url('/assets/images/calendar/winter.jpg')",
+    backgroundPosition: '0 85%',
+  },
+  '&.Mar': {
+    backgroundImage: "url('/assets/images/calendar/spring.jpg')",
+    backgroundPosition: '0 40%',
+  },
+  '&.Apr': {
+    backgroundImage: "url('/assets/images/calendar/spring.jpg')",
+    backgroundPosition: '0 40%',
+  },
+  '&.May': {
+    backgroundImage: "url('/assets/images/calendar/spring.jpg')",
+    backgroundPosition: '0 40%',
+  },
+  '&.Jun': {
+    backgroundImage: "url('/assets/images/calendar/summer.jpg')",
+    backgroundPosition: '0 80%',
+  },
+  '&.Jul': {
+    backgroundImage: "url('/assets/images/calendar/summer.jpg')",
+    backgroundPosition: '0 80%',
+  },
+  '&.Aug': {
+    backgroundImage: "url('/assets/images/calendar/summer.jpg')",
+    backgroundPosition: '0 80%',
+  },
+  '&.Sep': {
+    backgroundImage: "url('/assets/images/calendar/autumn.jpg')",
+    backgroundPosition: '0 40%',
+  },
+  '&.Oct': {
+    backgroundImage: "url('/assets/images/calendar/autumn.jpg')",
+    backgroundPosition: '0 40%',
+  },
+  '&.Nov': {
+    backgroundImage: "url('/assets/images/calendar/autumn.jpg')",
+    backgroundPosition: '0 40%',
+  },
+  '&.Dec': {
+    backgroundImage: "url('/assets/images/calendar/winter.jpg')",
+    backgroundPosition: '0 85%',
   },
 }));
 
@@ -95,14 +93,13 @@ const viewNamesObj = {
 
 function CalendarHeader(props) {
   const { calendarRef, currentDate } = props;
-  const classes = useStyles(props);
+
   const mainThemeDark = useSelector(selectMainThemeDark);
   const calendarApi = () => calendarRef.current?.getApi();
   return (
     <ThemeProvider theme={mainThemeDark}>
-      <div
+      <Root
         className={clsx(
-          classes.root,
           'flex h-200 min-h-200 relative',
           format(new Date(currentDate?.start || null), 'MMM')
         )}
@@ -134,7 +131,11 @@ function CalendarHeader(props) {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1, transition: { delay: 0.3 } }}
                   >
-                    <IconButton aria-label="today" onClick={() => calendarApi().today()}>
+                    <IconButton
+                      aria-label="today"
+                      onClick={() => calendarApi().today()}
+                      size="large"
+                    >
                       <Icon>today</Icon>
                     </IconButton>
                   </motion.div>
@@ -151,6 +152,7 @@ function CalendarHeader(props) {
                         aria-label={name}
                         onClick={() => calendarApi().changeView(name)}
                         disabled={currentDate?.view.type === name}
+                        size="large"
                       >
                         <Icon>{view.icon}</Icon>
                       </IconButton>
@@ -167,19 +169,19 @@ function CalendarHeader(props) {
             animate={{ opacity: 1, transition: { delay: 0.3 } }}
           >
             <Tooltip title="Previous">
-              <IconButton aria-label="Previous" onClick={() => calendarApi().prev()}>
+              <IconButton aria-label="Previous" onClick={() => calendarApi().prev()} size="large">
                 <Icon>{mainThemeDark.direction === 'ltr' ? 'chevron_left' : 'chevron_right'}</Icon>
               </IconButton>
             </Tooltip>
             <Typography variant="h6">{currentDate?.view.title}</Typography>
             <Tooltip title="Next">
-              <IconButton aria-label="Next" onClick={() => calendarApi().next()}>
+              <IconButton aria-label="Next" onClick={() => calendarApi().next()} size="large">
                 <Icon>{mainThemeDark.direction === 'ltr' ? 'chevron_right' : 'chevron_left'}</Icon>
               </IconButton>
             </Tooltip>
           </motion.div>
         </div>
-      </div>
+      </Root>
     </ThemeProvider>
   );
 }

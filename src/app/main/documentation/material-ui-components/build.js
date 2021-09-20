@@ -218,7 +218,8 @@ function writePage(file) {
 					<div className="flex flex-1 flex-grow-0 items-center justify-end">
 					  <Button 
 							className="normal-case"
-							variant="outlined" 
+							variant="contained"
+                            color="secondary"
 							component="a" 
 							href="https://material-ui.com/components/${path.basename(file)}" 
 							target="_blank"
@@ -236,10 +237,10 @@ function writePage(file) {
 
   const content = `import FuseExample from '@fuse/core/FuseExample';
                    import FuseHighlight from '@fuse/core/FuseHighlight';
-                   import Button from '@material-ui/core/Button';
-                   import Icon from '@material-ui/core/Icon';
-                   import Typography from '@material-ui/core/Typography';
-                   import {makeStyles} from '@material-ui/core/styles';
+                   import Button from '@mui/material/Button';
+                   import Icon from '@mui/material/Icon';
+                   import Typography from '@mui/material/Typography';
+                   import {makeStyles} from '@mui/material/styles';
                    /* eslint import/no-webpack-loader-syntax: off */
                    /* eslint import/extensions: off */
                    /* eslint no-unused-vars: off */

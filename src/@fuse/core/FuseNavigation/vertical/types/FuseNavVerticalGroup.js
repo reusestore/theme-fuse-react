@@ -1,56 +1,48 @@
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { alpha } from '@material-ui/core/styles/colorManipulator';
+import { styled, useTheme, alpha } from '@mui/material/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { useMemo } from 'react';
 import { useDispatch } from 'react-redux';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import ListSubheader from '@mui/material/ListSubheader';
 import FuseNavItem from '../../FuseNavItem';
 
-const useStyles = makeStyles((theme) => ({
-  item: (props) => ({
-    height: 40,
-    width: '100%',
-    borderRadius: '6px',
-    margin: '24px 0 4px 0',
-    paddingRight: 12,
-    paddingLeft: props.itemPadding > 80 ? 80 : props.itemPadding,
-    color: alpha(theme.palette.text.primary, 0.7),
-    fontWeight: 600,
-    letterSpacing: '0.025em',
-  }),
+const Root = styled(ListSubheader)(({ theme, ...props }) => ({
+  height: 40,
+  width: '100%',
+  borderRadius: '6px',
+  margin: '24px 0 4px 0',
+  paddingRight: 12,
+  paddingLeft: props.itemPadding > 80 ? 80 : props.itemPadding,
+  color: alpha(theme.palette.text.primary, 0.7),
+  fontWeight: 600,
+  letterSpacing: '0.025em',
 }));
 
 function FuseNavVerticalGroup(props) {
   const dispatch = useDispatch();
 
   const theme = useTheme();
-  const mdDown = useMediaQuery(theme.breakpoints.down('md'));
+  const mdDown = useMediaQuery(theme.breakpoints.down('lg'));
   const { item, nestedLevel, onItemClick } = props;
-  const classes = useStyles({
-    itemPadding: nestedLevel > 0 ? 28 + nestedLevel * 16 : 12,
-  });
+
+  const itemPadding = nestedLevel > 0 ? 28 + nestedLevel * 16 : 12;
 
   return useMemo(
     () => (
       <>
-        <ListSubheader
+        <Root
+          itemPadding={itemPadding}
           disableSticky
-          className={clsx(
-            classes.item,
-            'fuse-list-subheader flex items-center',
-            !item.url && 'cursor-default'
-          )}
+          className={clsx('fuse-list-subheader flex items-center', !item.url && 'cursor-default')}
           onClick={() => onItemClick && onItemClick(item)}
           component={item.url ? NavLinkAdapter : 'li'}
           to={item.url}
           role="button"
         >
           <span className="fuse-list-subheader-text uppercase text-12">{item.title}</span>
-        </ListSubheader>
-
+        </Root>
         {item.children && (
           <>
             {item.children.map((_item) => (
@@ -66,7 +58,7 @@ function FuseNavVerticalGroup(props) {
         )}
       </>
     ),
-    [classes.item, item, nestedLevel, onItemClick]
+    [item, nestedLevel, onItemClick]
   );
 }
 

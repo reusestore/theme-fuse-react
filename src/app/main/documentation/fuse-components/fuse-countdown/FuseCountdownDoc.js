@@ -1,6 +1,6 @@
 import FuseCountdown from '@fuse/core/FuseCountdown';
 import FuseHighlight from '@fuse/core/FuseHighlight';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 
 function FuseCountdownDoc() {

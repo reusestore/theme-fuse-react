@@ -1,7 +1,7 @@
 import FuseExample from '@fuse/core/FuseExample';
-import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
-import Typography from '@material-ui/core/Typography';
+import Button from '@mui/material/Button';
+import Icon from '@mui/material/Icon';
+import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 
 /* eslint import/no-webpack-loader-syntax: off */
@@ -16,7 +16,8 @@ function ReactHookFormDoc() {
         </Typography>
 
         <Button
-          variant="outlined"
+          variant="contained"
+          color="secondary"
           component="a"
           href="http://react-hook-form.com"
           target="_blank"

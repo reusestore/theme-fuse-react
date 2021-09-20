@@ -1,26 +1,21 @@
 import _ from '@lodash';
-import Divider from '@material-ui/core/Divider';
-import { alpha } from '@material-ui/core/styles/colorManipulator';
-import { makeStyles, ThemeProvider, useTheme } from '@material-ui/core/styles';
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
-import Typography from '@material-ui/core/Typography';
-import clsx from 'clsx';
+import { styled, ThemeProvider, useTheme, alpha } from '@mui/material/styles';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
 import { memo, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { useSelector } from 'react-redux';
 import { selectContrastMainTheme } from 'app/store/fuse/settingsSlice';
+import Box from '@mui/material/Box';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
-    color: theme.palette.primary.contrastText,
-  },
+const Root = styled('div')(({ theme }) => ({
+  background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
+  color: theme.palette.primary.contrastText,
 }));
 
 function Widget1(props) {
-  const classes = useStyles(props);
   const theme = useTheme();
   const contrastTheme = useSelector(selectContrastMainTheme(theme.palette.primary.main));
   const data = _.merge({}, props.data);
@@ -36,7 +31,7 @@ function Widget1(props) {
 
   return (
     <ThemeProvider theme={contrastTheme}>
-      <div className={clsx(classes.root)}>
+      <Root>
         <div className="container relative p-16 sm:p-24 flex flex-col sm:flex-row justify-between items-center">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <div className="flex flex-col items-center sm:items-start mb-16 sm:mb-0">
@@ -56,17 +51,22 @@ function Widget1(props) {
               indicatorColor="secondary"
               textColor="inherit"
               variant="scrollable"
-              scrollButtons="off"
+              scrollButtons={false}
               className="w-full -mx-4 min-h-40"
               classes={{ indicator: 'flex justify-center bg-transparent w-full h-full' }}
               TabIndicatorProps={{
-                children: <Divider className="w-full h-full rounded-full opacity-50" />,
+                children: (
+                  <Box
+                    sx={{ bgcolor: 'text.disabled' }}
+                    className="w-full h-full rounded-full opacity-20"
+                  />
+                ),
               }}
             >
               {Object.keys(data.series).map((key) => (
                 <Tab
                   key={key}
-                  className="text-14 font-semibold min-h-40 min-w-64 mx-4 capitalize"
+                  className="text-14 font-semibold min-h-40 min-w-64 mx-4 px-12 capitalize"
                   disableRipple
                   label={key}
                 />
@@ -82,7 +82,7 @@ function Widget1(props) {
             height={data.options.chart.height}
           />
         </div>
-      </div>
+      </Root>
     </ThemeProvider>
   );
 }

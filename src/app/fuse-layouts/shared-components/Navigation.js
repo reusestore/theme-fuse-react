@@ -1,6 +1,6 @@
 import FuseNavigation from '@fuse/core/FuseNavigation';
-import { useTheme } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import clsx from 'clsx';
 import { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,7 +11,7 @@ import { navbarCloseMobile } from '../../store/fuse/navbarSlice';
 function Navigation(props) {
   const navigation = useSelector(selectNavigation);
   const theme = useTheme();
-  const mdDown = useMediaQuery(theme.breakpoints.down('md'));
+  const mdDown = useMediaQuery(theme.breakpoints.down('lg'));
   const dispatch = useDispatch();
 
   function handleItemClick(item) {

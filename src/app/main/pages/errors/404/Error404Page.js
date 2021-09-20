@@ -1,7 +1,7 @@
-import Icon from '@material-ui/core/Icon';
-import Input from '@material-ui/core/Input';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
+import Icon from '@mui/material/Icon';
+import Input from '@mui/material/Input';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 

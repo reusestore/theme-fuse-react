@@ -1,16 +1,21 @@
 import DemoContent from '@fuse/core/DemoContent';
+import { styled } from '@mui/material/styles';
 import FusePageCarded from '@fuse/core/FusePageCarded';
-import { makeStyles } from '@material-ui/core/styles';
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
 import { useState } from 'react';
 
-const useStyles = makeStyles({
-  layoutRoot: {},
+const Root = styled(FusePageCarded)({
+  '& .FusePageCarded-header': {},
+  '& .FusePageCarded-toolbar': {
+    padding: 0,
+  },
+  '& .FusePageCarded-content': {},
+  '& .FusePageCarded-sidebarHeader': {},
+  '& .FusePageCarded-sidebarContent': {},
 });
 
 function CardedFullWidthTabbedSample() {
-  const classes = useStyles();
   const [selectedTab, setSelectedTab] = useState(0);
 
   const handleTabChange = (event, value) => {
@@ -18,11 +23,7 @@ function CardedFullWidthTabbedSample() {
   };
 
   return (
-    <FusePageCarded
-      classes={{
-        root: classes.layoutRoot,
-        toolbar: 'p-0',
-      }}
+    <Root
       header={
         <div className="py-24">
           <h4>Header</h4>
@@ -35,7 +36,7 @@ function CardedFullWidthTabbedSample() {
           indicatorColor="primary"
           textColor="primary"
           variant="scrollable"
-          scrollButtons="off"
+          scrollButtons={false}
           className="w-full h-64"
         >
           <Tab className="h-64" label="Item One" />

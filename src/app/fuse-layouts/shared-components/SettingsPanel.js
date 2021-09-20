@@ -1,60 +1,47 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
+import { styled, useTheme } from '@mui/material/styles';
 import FuseSettings from '@fuse/core/FuseSettings';
-import Button from '@material-ui/core/Button';
-import { red } from '@material-ui/core/colors';
-import Dialog from '@material-ui/core/Dialog';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Slide from '@material-ui/core/Slide';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import clsx from 'clsx';
+import Button from '@mui/material/Button';
+import { red } from '@mui/material/colors';
+import Dialog from '@mui/material/Dialog';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Slide from '@mui/material/Slide';
+import Typography from '@mui/material/Typography';
 import { forwardRef, memo, useState } from 'react';
 import FuseThemeSchemes from '@fuse/core/FuseThemeSchemes';
 import { useSwipeable } from 'react-swipeable';
 
-const Transition = forwardRef(function Transition(props, ref) {
-  const theme = useTheme();
-  return <Slide direction={theme.direction === 'ltr' ? 'left' : 'right'} ref={ref} {...props} />;
-});
-
-const useStyles = makeStyles((theme) => ({
-  buttonWrapper: {
-    position: 'absolute',
-    height: 80,
-    right: 0,
-    top: 160,
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-    opacity: 0.9,
-    padding: 0,
-    borderTopLeftRadius: 6,
-    borderBottomLeftRadius: 6,
-    borderBottomRightRadius: 0,
-    borderTopRightRadius: 0,
-    zIndex: 999,
-    color: theme.palette.getContrastText(red[500]),
+const Root = styled('div')(({ theme }) => ({
+  position: 'absolute',
+  height: 80,
+  right: 0,
+  top: 160,
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  overflow: 'hidden',
+  opacity: 0.9,
+  padding: 0,
+  borderTopLeftRadius: 6,
+  borderBottomLeftRadius: 6,
+  borderBottomRightRadius: 0,
+  borderTopRightRadius: 0,
+  zIndex: 999,
+  color: theme.palette.getContrastText(red[500]),
+  backgroundColor: red[500],
+  '&:hover': {
     backgroundColor: red[500],
-    '&:hover': {
-      backgroundColor: red[500],
-      opacity: 1,
+    opacity: 1,
+  },
+
+  '& .settingsButton': {
+    '& > span': {
+      animation: 'rotating 3s linear infinite',
     },
   },
-  button: {
-    minWidth: 40,
-    width: 40,
-    height: 40,
-    margin: 0,
-  },
-  settingsButton: {
-    '& $buttonIcon': {
-      animation: '$rotating 3s linear infinite',
-    },
-  },
-  schemesButton: {},
+
   '@keyframes rotating': {
     from: {
       transform: 'rotate(0deg)',
@@ -63,10 +50,10 @@ const useStyles = makeStyles((theme) => ({
       transform: 'rotate(360deg)',
     },
   },
-  buttonIcon: {
-    fontSize: 20,
-  },
-  dialogPaper: {
+}));
+
+const StyledDialog = styled(Dialog)(({ theme }) => ({
+  '& .MuiDialog-paper': {
     position: 'fixed',
     width: 380,
     maxWidth: '90vw',
@@ -82,8 +69,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const Transition = forwardRef(function Transition(props, ref) {
+  const theme = useTheme();
+  return <Slide direction={theme.direction === 'ltr' ? 'left' : 'right'} ref={ref} {...props} />;
+});
+
 function SettingsPanel() {
-  const classes = useStyles();
   const theme = useTheme();
 
   const [open, setOpen] = useState(false);
@@ -109,27 +100,26 @@ function SettingsPanel() {
 
   return (
     <>
-      <div className={classes.buttonWrapper} id="fuse-settings-schemes">
+      <Root id="fuse-settings-schemes" className="buttonWrapper">
         <Button
-          className={clsx(classes.button, classes.settingsButton)}
+          className="settingsButton min-w-40 w-40 h-40 m-0"
           onClick={() => handleOpen('settings')}
           variant="text"
           color="inherit"
         >
-          <Icon className={classes.buttonIcon}>settings</Icon>
+          <Icon className="text-20">settings</Icon>
         </Button>
 
         <Button
-          className={clsx(classes.button, classes.schemesButton)}
+          className="min-w-40 w-40 h-40 m-0"
           onClick={() => handleOpen('schemes')}
           variant="text"
           color="inherit"
         >
-          <Icon className={classes.buttonIcon}>palette</Icon>
+          <Icon className="text-20">palette</Icon>
         </Button>
-      </div>
-
-      <Dialog
+      </Root>
+      <StyledDialog
         TransitionComponent={Transition}
         aria-labelledby="settings-panel"
         aria-describedby="settings"
@@ -138,12 +128,16 @@ function SettingsPanel() {
         onClose={handleClose}
         BackdropProps={{ invisible: true }}
         classes={{
-          paper: clsx(classes.dialogPaper, 'shadow-lg'),
+          paper: 'shadow-lg',
         }}
         {...settingsHandlers}
       >
         <FuseScrollbars className="p-16 sm:p-32">
-          <IconButton className="fixed top-0 ltr:right-0 rtl:left-0 z-10" onClick={handleClose}>
+          <IconButton
+            className="fixed top-0 ltr:right-0 rtl:left-0 z-10"
+            onClick={handleClose}
+            size="large"
+          >
             <Icon>close</Icon>
           </IconButton>
 
@@ -153,9 +147,8 @@ function SettingsPanel() {
 
           <FuseSettings />
         </FuseScrollbars>
-      </Dialog>
-
-      <Dialog
+      </StyledDialog>
+      <StyledDialog
         TransitionComponent={Transition}
         aria-labelledby="schemes-panel"
         aria-describedby="schemes"
@@ -164,12 +157,16 @@ function SettingsPanel() {
         onClose={handleClose}
         BackdropProps={{ invisible: true }}
         classes={{
-          paper: clsx(classes.dialogPaper, 'shadow-lg'),
+          paper: 'shadow-lg',
         }}
         {...shemesHandlers}
       >
         <FuseScrollbars className="p-16 sm:p-32">
-          <IconButton className="fixed top-0 ltr:right-0 rtl:left-0 z-10" onClick={handleClose}>
+          <IconButton
+            className="fixed top-0 ltr:right-0 rtl:left-0 z-10"
+            onClick={handleClose}
+            size="large"
+          >
             <Icon>close</Icon>
           </IconButton>
 
@@ -185,7 +182,7 @@ function SettingsPanel() {
 
           <FuseThemeSchemes />
         </FuseScrollbars>
-      </Dialog>
+      </StyledDialog>
     </>
   );
 }

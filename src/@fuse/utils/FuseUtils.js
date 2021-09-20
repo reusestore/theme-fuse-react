@@ -1,6 +1,6 @@
 // eslint-disable-next-line max-classes-per-file
 import _ from '@lodash';
-import * as colors from '@material-ui/core/colors';
+import * as colors from '@mui/material/colors';
 
 class EventEmitter {
   constructor() {

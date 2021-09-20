@@ -1,32 +1,35 @@
-import { amber, blue, green } from '@material-ui/core/colors';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Snackbar from '@material-ui/core/Snackbar';
-import SnackbarContent from '@material-ui/core/SnackbarContent';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import clsx from 'clsx';
+import { amber, blue, green } from '@mui/material/colors';
+import { styled } from '@mui/material/styles';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Snackbar from '@mui/material/Snackbar';
+import SnackbarContent from '@mui/material/SnackbarContent';
+import Typography from '@mui/material/Typography';
 import { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { hideMessage } from 'app/store/fuse/messageSlice';
 
-const useStyles = makeStyles((theme) => ({
-  root: {},
-  success: {
-    backgroundColor: green[600],
-    color: '#FFFFFF',
-  },
-  error: {
-    backgroundColor: theme.palette.error.dark,
-    color: theme.palette.getContrastText(theme.palette.error.dark),
-  },
-  info: {
-    backgroundColor: blue[600],
-    color: '#FFFFFF',
-  },
-  warning: {
-    backgroundColor: amber[600],
-    color: '#FFFFFF',
+const StyledSnackbar = styled(Snackbar)(({ theme, variant }) => ({
+  '& .FuseMessage-content': {
+    ...(variant === 'success' && {
+      backgroundColor: green[600],
+      color: '#FFFFFF',
+    }),
+
+    ...(variant === 'error' && {
+      backgroundColor: theme.palette.error.dark,
+      color: theme.palette.getContrastText(theme.palette.error.dark),
+    }),
+
+    ...(variant === 'info' && {
+      backgroundColor: blue[600],
+      color: '#FFFFFF',
+    }),
+
+    ...(variant === 'warning' && {
+      backgroundColor: amber[600],
+      color: '#FFFFFF',
+    }),
   },
 }));
 
@@ -42,16 +45,11 @@ function FuseMessage(props) {
   const state = useSelector(({ fuse }) => fuse.message.state);
   const options = useSelector(({ fuse }) => fuse.message.options);
 
-  const classes = useStyles();
-
   return (
-    <Snackbar
+    <StyledSnackbar
       {...options}
       open={state}
       onClose={() => dispatch(hideMessage())}
-      classes={{
-        root: classes.root,
-      }}
       ContentProps={{
         variant: 'body2',
         headlineMapping: {
@@ -61,7 +59,7 @@ function FuseMessage(props) {
       }}
     >
       <SnackbarContent
-        className={clsx(classes[options.variant])}
+        className="FuseMessage-content"
         message={
           <div className="flex items-center">
             {variantIcon[options.variant] && (
@@ -76,12 +74,13 @@ function FuseMessage(props) {
             aria-label="Close"
             color="inherit"
             onClick={() => dispatch(hideMessage())}
+            size="large"
           >
             <Icon>close</Icon>
           </IconButton>,
         ]}
       />
-    </Snackbar>
+    </StyledSnackbar>
   );
 }
 

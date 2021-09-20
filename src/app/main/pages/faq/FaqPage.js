@@ -1,23 +1,23 @@
 import FuseUtils from '@fuse/utils';
-import Accordion from '@material-ui/core/Accordion';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import Icon from '@material-ui/core/Icon';
-import Input from '@material-ui/core/Input';
-import Paper from '@material-ui/core/Paper';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import { styled } from '@mui/material/styles';
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import Icon from '@mui/material/Icon';
+import Input from '@mui/material/Input';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
 import axios from 'axios';
-import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { useEffect, useMemo, useState } from 'react';
 
-const useStyles = makeStyles((theme) => ({
-  header: {
+const Root = styled('div')(({ theme }) => ({
+  '& .FaqPage-header': {
     background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
     color: theme.palette.primary.contrastText,
   },
-  panel: {
+
+  '& .FaqPage-panel': {
     margin: 0,
     border: 'none',
     '&:before': {
@@ -29,15 +29,14 @@ const useStyles = makeStyles((theme) => ({
     '&:last-child': {
       borderRadius: '0 0 20px 20px',
     },
-    '&$expanded': {
+
+    '&.Mui-expanded': {
       margin: 'auto',
     },
   },
-  expanded: {},
 }));
 
 function FaqPage() {
-  const classes = useStyles();
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [expanded, setExpanded] = useState(null);
@@ -69,13 +68,8 @@ function FaqPage() {
   }
 
   return (
-    <div className="w-full flex flex-col flex-auto">
-      <div
-        className={clsx(
-          classes.header,
-          'flex flex-col flex-shrink-0 items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-360'
-        )}
-      >
+    <Root className="w-full flex flex-col flex-auto">
+      <div className="FaqPage-header flex flex-col flex-shrink-0 items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-360">
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.3 } }}>
           <Typography
             variant="subtitle1"
@@ -149,8 +143,7 @@ function FaqPage() {
                     variants={item}
                     key={faq.id}
                     classes={{
-                      root: clsx(classes.panel, 'shadow-0'),
-                      expanded: classes.expanded,
+                      root: 'FaqPage-panel shadow-0',
                     }}
                     expanded={expanded === faq.id}
                     onChange={toggleAccordion(faq.id)}
@@ -170,9 +163,9 @@ function FaqPage() {
               </motion.div>
             )
           );
-        }, [filteredData, classes, expanded])}
+        }, [filteredData, expanded])}
       </div>
-    </div>
+    </Root>
   );
 }
 

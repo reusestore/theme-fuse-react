@@ -3,14 +3,14 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 
 import _ from '@lodash';
-import TextField from '@material-ui/core/TextField';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Input from '@material-ui/core/Input';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import Typography from '@material-ui/core/Typography';
+import TextField from '@mui/material/TextField';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Input from '@mui/material/Input';
+import InputAdornment from '@mui/material/InputAdornment';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import Typography from '@mui/material/Typography';
 import LabelModel from 'app/main/apps/notes/model/LabelModel';
 import clsx from 'clsx';
 import { useEffect, useMemo, useState } from 'react';
@@ -95,6 +95,7 @@ function LabelsForm(props) {
                           aria-label="Delete"
                           disabled={_.isEmpty(dirtyFields) || !isValid}
                           type="submit"
+                          size="large"
                         >
                           <Icon fontSize="small">check</Icon>
                         </IconButton>
@@ -132,6 +133,7 @@ function LabelsForm(props) {
                 className="w-32 h-32 mx-4 p-0"
                 aria-label="Delete"
                 onClick={(ev) => handleOnDelete(label)}
+                size="large"
               >
                 <Icon fontSize="small">delete</Icon>
               </IconButton>

@@ -1,41 +1,15 @@
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Icon from '@material-ui/core/Icon';
-import { makeStyles } from '@material-ui/core/styles';
-import Switch from '@material-ui/core/Switch';
-import Typography from '@material-ui/core/Typography';
-import clsx from 'clsx';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
+import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { selectFileById } from './store/filesSlice';
-
-const useStyles = makeStyles({
-  table: {
-    '& th': {
-      padding: '16px 0',
-    },
-  },
-  typeIcon: {
-    '&.folder:before': {
-      content: "'folder'",
-      color: '#FFB300',
-    },
-    '&.document:before': {
-      content: "'insert_drive_file'",
-      color: '#1565C0',
-    },
-    '&.spreadsheet:before': {
-      content: "'insert_chart'",
-      color: '#4CAF50',
-    },
-  },
-});
+import StyledIcon from './StyledIcon';
 
 function DetailSidebarContent(props) {
   const selectedItem = useSelector((state) =>
     selectFileById(state, state.fileManagerApp.files.selectedItemId)
   );
-
-  const classes = useStyles();
 
   if (!selectedItem) {
     return null;
@@ -49,7 +23,7 @@ function DetailSidebarContent(props) {
     >
       <div className="preview h-128 sm:h-256 file-icon flex items-center justify-center">
         <motion.div initial={{ scale: 0 }} animate={{ scale: 1, transition: { delay: 0.3 } }}>
-          <Icon className={clsx(classes.typeIcon, selectedItem.type, 'text-48')} />
+          <StyledIcon className="text-48" type={selectedItem.type} />
         </motion.div>
       </div>
 
@@ -63,39 +37,39 @@ function DetailSidebarContent(props) {
         Info
       </Typography>
 
-      <table className={clsx(classes.table, 'w-full text-justify')}>
+      <table className="w-full text-justify">
         <tbody>
-          <tr className="type">
+          <tr className="type h-52">
             <th className="font-semibold">Type</th>
             <td>{selectedItem.type}</td>
           </tr>
 
-          <tr className="size">
+          <tr className="size h-52">
             <th className="font-semibold">Size</th>
             <td>{selectedItem.size === '' ? '-' : selectedItem.size}</td>
           </tr>
 
-          <tr className="location">
+          <tr className="location h-52 text-left">
             <th className="font-semibold">Location</th>
             <td>{selectedItem.location}</td>
           </tr>
 
-          <tr className="owner">
+          <tr className="owner h-52">
             <th className="font-semibold">Owner</th>
             <td>{selectedItem.owner}</td>
           </tr>
 
-          <tr className="modified">
+          <tr className="modified h-52">
             <th className="font-semibold">Modified</th>
             <td>{selectedItem.modified}</td>
           </tr>
 
-          <tr className="opened">
+          <tr className="opened h-52">
             <th className="font-semibold">Opened</th>
             <td>{selectedItem.opened}</td>
           </tr>
 
-          <tr className="created">
+          <tr className="created h-52">
             <th className="font-semibold">Created</th>
             <td>{selectedItem.created}</td>
           </tr>

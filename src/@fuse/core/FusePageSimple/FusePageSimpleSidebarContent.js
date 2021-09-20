@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
-import { useTheme, ThemeProvider } from '@material-ui/core/styles';
+import { useTheme, ThemeProvider } from '@mui/material/styles';
 import { selectContrastMainTheme } from 'app/store/fuse/settingsSlice';
 import clsx from 'clsx';
 
@@ -8,17 +8,15 @@ function FusePageSimpleSidebarContent(props) {
   const theme = useTheme();
   const contrastTheme = useSelector(selectContrastMainTheme(theme.palette.primary.main));
 
-  const { classes } = props;
-
   return (
     <FuseScrollbars enable={props.innerScroll}>
       {props.header && (
         <ThemeProvider theme={contrastTheme}>
           <div
             className={clsx(
-              classes.sidebarHeader,
+              'FusePageSimple-sidebarHeader',
               props.variant,
-              props.sidebarInner && classes.sidebarHeaderInnerSidebar
+              props.sidebarInner && 'FusePageSimple-sidebarHeaderInnerSidebar'
             )}
           >
             {props.header}
@@ -26,7 +24,7 @@ function FusePageSimpleSidebarContent(props) {
         </ThemeProvider>
       )}
 
-      {props.content && <div className={classes.sidebarContent}>{props.content}</div>}
+      {props.content && <div className="FusePageSimple-sidebarContent">{props.content}</div>}
     </FuseScrollbars>
   );
 }

@@ -1,9 +1,9 @@
 import _ from '@lodash';
-import Checkbox from '@material-ui/core/Checkbox';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Input from '@material-ui/core/Input';
-import ListItem from '@material-ui/core/ListItem';
+import Checkbox from '@mui/material/Checkbox';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Input from '@mui/material/Input';
+import ListItem from '@mui/material/ListItem';
 import clsx from 'clsx';
 
 function NoteFormListItem(props) {
@@ -43,6 +43,7 @@ function NoteFormListItem(props) {
         className="w-32 h-32 mx-4 p-0"
         aria-label="Delete"
         onClick={() => props.onListItemRemove(props.item.id)}
+        size="large"
       >
         <Icon fontSize="small">delete</Icon>
       </IconButton>

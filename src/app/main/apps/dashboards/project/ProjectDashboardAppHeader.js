@@ -1,36 +1,21 @@
-import Avatar from '@material-ui/core/Avatar';
-import Hidden from '@material-ui/core/Hidden';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import { makeStyles } from '@material-ui/core/styles';
-import { lighten } from '@material-ui/core/styles/colorManipulator';
-import Typography from '@material-ui/core/Typography';
+import Avatar from '@mui/material/Avatar';
+import { lighten } from '@mui/material/styles';
+import Hidden from '@mui/material/Hidden';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Typography from '@mui/material/Typography';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import _ from '@lodash';
+import { Box } from '@mui/system';
 import { getProjects, selectProjects } from './store/projectsSlice';
 import { selectWidgets } from './store/widgetsSlice';
 
-const useStyles = makeStyles((theme) => ({
-  selectedProject: {
-    background: lighten(theme.palette.primary.dark, 0.1),
-    color: theme.palette.primary.contrastText,
-    borderRadius: '16px 0 0 0',
-  },
-  projectMenuButton: {
-    background: lighten(theme.palette.primary.dark, 0.1),
-    color: theme.palette.primary.contrastText,
-    borderRadius: '0 16px 0 0',
-    marginLeft: 1,
-  },
-}));
-
 function ProjectDashboardAppHeader(props) {
   const { pageLayout } = props;
-  const classes = useStyles(props);
 
   const dispatch = useDispatch();
   const widgets = useSelector(selectWidgets);
@@ -102,6 +87,7 @@ function ProjectDashboardAppHeader(props) {
             onClick={(ev) => pageLayout.current.toggleRightSidebar()}
             aria-label="open left sidebar"
             color="inherit"
+            size="large"
           >
             <Icon>menu</Icon>
           </IconButton>
@@ -109,19 +95,28 @@ function ProjectDashboardAppHeader(props) {
       </div>
       <div className="flex items-end">
         <div className="flex items-center">
-          <div
-            className={clsx(
-              classes.selectedProject,
-              'flex items-center h-40 px-16 text-13 sm:text-16'
-            )}
+          <Box
+            className={clsx('flex items-center h-40 px-16 text-13 sm:text-16')}
+            sx={{
+              background: (theme) => lighten(theme.palette.primary.dark, 0.1),
+              color: (theme) => theme.palette.primary.contrastText,
+              borderRadius: '16px 0 0 0',
+            }}
           >
             {_.find(projects, ['id', selectedProject.id]).name}
-          </div>
+          </Box>
           <IconButton
-            className={clsx(classes.projectMenuButton, 'h-40 w-40 p-0')}
+            className="h-40 w-40 p-0"
+            sx={{
+              background: (theme) => lighten(theme.palette.primary.dark, 0.1),
+              color: (theme) => theme.palette.primary.contrastText,
+              borderRadius: '0 16px 0 0',
+              marginLeft: '1px',
+            }}
             aria-owns={selectedProject.menuEl ? 'project-menu' : undefined}
             aria-haspopup="true"
             onClick={handleOpenProjectMenu}
+            size="large"
           >
             <Icon>more_horiz</Icon>
           </IconButton>

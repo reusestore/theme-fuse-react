@@ -1,5 +1,5 @@
 import FuseHighlight from '@fuse/core/FuseHighlight';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@mui/material/Typography';
 
 function FuseScrollbarsDoc() {
   return (

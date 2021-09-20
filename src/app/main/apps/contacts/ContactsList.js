@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 import FuseUtils from '@fuse/utils';
-import Avatar from '@material-ui/core/Avatar';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
+import Avatar from '@mui/material/Avatar';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
 import { useMemo, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ContactsMultiSelectMenu from './ContactsMultiSelectMenu';
@@ -86,6 +86,7 @@ function ContactsList(props) {
                 ev.stopPropagation();
                 dispatch(toggleStarredContact(row.original.id));
               }}
+              size="large"
             >
               {user.starred && user.starred.includes(row.original.id) ? (
                 <Icon className="text-yellow-700">star</Icon>
@@ -98,6 +99,7 @@ function ContactsList(props) {
                 ev.stopPropagation();
                 dispatch(removeContact(row.original.id));
               }}
+              size="large"
             >
               <Icon>delete</Icon>
             </IconButton>

@@ -1,10 +1,10 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import TextField from '@material-ui/core/TextField';
-import InputAdornment from '@material-ui/core/InputAdornment';
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
 import { Controller, useForm } from 'react-hook-form';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import ListItem from '@material-ui/core/ListItem';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import ListItem from '@mui/material/ListItem';
 import NoteListItemModel from 'app/main/apps/notes/model/NoteListItemModel';
 import * as yup from 'yup';
 import _ from '@lodash';
@@ -60,6 +60,7 @@ function NoteFormAddListItem(props) {
                       aria-label="Add"
                       type="submit"
                       disabled={_.isEmpty(dirtyFields) || !isValid}
+                      size="large"
                     >
                       <Icon fontSize="small">add</Icon>
                     </IconButton>

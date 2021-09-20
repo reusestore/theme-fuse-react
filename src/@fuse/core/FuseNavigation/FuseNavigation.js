@@ -1,8 +1,8 @@
-import Divider from '@material-ui/core/Divider';
-import { makeStyles } from '@material-ui/core/styles';
+import Divider from '@mui/material/Divider';
 import PropTypes from 'prop-types';
 import { memo } from 'react';
 import _ from '@lodash';
+import GlobalStyles from '@mui/material/GlobalStyles';
 import FuseNavHorizontalLayout1 from './horizontal/FuseNavHorizontalLayout1';
 import FuseNavVerticalLayout1 from './vertical/FuseNavVerticalLayout1';
 import FuseNavVerticalLayout2 from './vertical/FuseNavVerticalLayout2';
@@ -15,6 +15,33 @@ import FuseNavVerticalGroup from './vertical/types/FuseNavVerticalGroup';
 import FuseNavVerticalItem from './vertical/types/FuseNavVerticalItem';
 import FuseNavVerticalLink from './vertical/types/FuseNavVerticalLink';
 import { registerComponent } from './FuseNavItem';
+
+const inputGlobalStyles = (
+  <GlobalStyles
+    styles={(theme) => ({
+      '.popper-navigation-list': {
+        '& .fuse-list-item': {
+          padding: '8px 12px 8px 12px',
+          height: 40,
+          minHeight: 40,
+          '& .fuse-list-item-text': {
+            padding: '0 0 0 8px',
+          },
+        },
+        '&.dense': {
+          '& .fuse-list-item': {
+            minHeight: 32,
+            height: 32,
+            '& .fuse-list-item-text': {
+              padding: '0 0 0 8px',
+            },
+          },
+        },
+      },
+    })}
+  />
+);
+
 /*
 Register Fuse Navigation Components
  */
@@ -29,32 +56,7 @@ registerComponent('horizontal-link', FuseNavHorizontalLink);
 registerComponent('vertical-divider', () => <Divider className="my-16" />);
 registerComponent('horizontal-divider', () => <Divider className="my-16" />);
 
-const useStyles = makeStyles((theme) => ({
-  '@global': {
-    '.popper-navigation-list': {
-      '& .fuse-list-item': {
-        padding: '8px 12px 8px 12px',
-        height: 40,
-        minHeight: 40,
-        '& .fuse-list-item-text': {
-          padding: '0 0 0 8px',
-        },
-      },
-      '&.dense': {
-        '& .fuse-list-item': {
-          minHeight: 32,
-          height: 32,
-          '& .fuse-list-item-text': {
-            padding: '0 0 0 8px',
-          },
-        },
-      },
-    },
-  },
-}));
-
 function FuseNavigation(props) {
-  const classes = useStyles(props);
   const options = _.pick(props, [
     'navigation',
     'layout',
@@ -66,23 +68,16 @@ function FuseNavigation(props) {
     'selectedId',
   ]);
   if (props.navigation.length > 0) {
-    switch (props.layout) {
-      case 'horizontal': {
-        return <FuseNavHorizontalLayout1 {...options} />;
-      }
-      case 'vertical': {
-        return <FuseNavVerticalLayout1 {...options} />;
-      }
-      case 'vertical-2': {
-        return <FuseNavVerticalLayout2 {...options} />;
-      }
-      default: {
-        return <FuseNavVerticalLayout1 {...options} />;
-      }
-    }
-  } else {
-    return null;
+    return (
+      <>
+        {inputGlobalStyles}
+        {props.layout === 'horizontal' && <FuseNavHorizontalLayout1 {...options} />}
+        {props.layout === 'vertical' && <FuseNavVerticalLayout1 {...options} />}
+        {props.layout === 'vertical-2' && <FuseNavVerticalLayout2 {...options} />}
+      </>
+    );
   }
+  return null;
 }
 
 FuseNavigation.propTypes = {

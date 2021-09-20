@@ -1,14 +1,14 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import TextField from '@material-ui/core/TextField';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import AppBar from '@mui/material/AppBar';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import TextField from '@mui/material/TextField';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useForm, Controller } from 'react-hook-form';
@@ -182,11 +182,11 @@ function MailCompose() {
               >
                 Send
               </Button>
-              <IconButton>
+              <IconButton size="large">
                 <Icon>attach_file</Icon>
               </IconButton>
             </div>
-            <IconButton onClick={handleDelete}>
+            <IconButton onClick={handleDelete} size="large">
               <Icon>delete</Icon>
             </IconButton>
           </DialogActions>

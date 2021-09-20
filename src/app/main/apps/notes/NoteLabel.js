@@ -1,4 +1,4 @@
-import Chip from '@material-ui/core/Chip';
+import Chip from '@mui/material/Chip';
 import clsx from 'clsx';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';

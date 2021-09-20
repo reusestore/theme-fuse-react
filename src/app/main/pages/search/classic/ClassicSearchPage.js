@@ -1,28 +1,17 @@
 import FusePageSimple from '@fuse/core/FusePageSimple';
-import Button from '@material-ui/core/Button';
-import { blue, green } from '@material-ui/core/colors';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Input from '@material-ui/core/Input';
-import Paper from '@material-ui/core/Paper';
-import { makeStyles, ThemeProvider, useTheme } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import { ThemeProvider, useTheme } from '@mui/material/styles';
+import Button from '@mui/material/Button';
+import { blue, green } from '@mui/material/colors';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Input from '@mui/material/Input';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
 import axios from 'axios';
-import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-const useStyles = makeStyles({
-  title: {
-    color: blue[800],
-  },
-  url: {
-    color: green[800],
-  },
-});
-
 function ClassicSearchPage() {
-  const classes = useStyles();
   const theme = useTheme();
   const [data, setData] = useState([]);
 
@@ -76,10 +65,21 @@ function ClassicSearchPage() {
 
               {data.map((_item) => (
                 <motion.div variants={item} className="mb-28" key={_item.id}>
-                  <Typography className={clsx(classes.title, 'text-18 cursor-pointer')}>
+                  <Typography
+                    className="text-18 cursor-pointer"
+                    sx={{
+                      color: blue[800],
+                    }}
+                  >
                     {_item.title}
                   </Typography>
-                  <Typography className={clsx(classes.url)}>{_item.url}</Typography>
+                  <Typography
+                    sx={{
+                      color: green[800],
+                    }}
+                  >
+                    {_item.url}
+                  </Typography>
                   <Typography className="text-13">{_item.excerpt}</Typography>
                 </motion.div>
               ))}
@@ -88,7 +88,7 @@ function ClassicSearchPage() {
 
           <div className="flex justify-center mt-32">
             <div className="flex item-center">
-              <IconButton className="w-32">
+              <IconButton className="w-32" size="large">
                 <Icon className="text-20">
                   {theme.direction === 'ltr' ? 'chevron_left' : 'chevron_right'}
                 </Icon>
@@ -98,7 +98,7 @@ function ClassicSearchPage() {
               <Button className="font-normal min-w-32 h-48 p-0 px-8">3</Button>
               <Button className="font-normal min-w-32 h-48 p-0 px-8">4</Button>
               <Button className="font-normal min-w-32 h-48 p-0 px-8">5</Button>
-              <IconButton className="w-32">
+              <IconButton className="w-32" size="large">
                 <Icon className="text-20">
                   {theme.direction === 'ltr' ? 'chevron_right' : 'chevron_left'}
                 </Icon>

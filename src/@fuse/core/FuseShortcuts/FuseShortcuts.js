@@ -1,15 +1,14 @@
-import { amber } from '@material-ui/core/colors';
-import Divider from '@material-ui/core/Divider';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Input from '@material-ui/core/Input';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import { makeStyles } from '@material-ui/core/styles';
-import Tooltip from '@material-ui/core/Tooltip';
-import Typography from '@material-ui/core/Typography';
+import { amber } from '@mui/material/colors';
+import Divider from '@mui/material/Divider';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Input from '@mui/material/Input';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Tooltip from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
 import { selectFlatNavigation } from 'app/store/fuse/navigationSlice';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
@@ -18,27 +17,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { updateUserShortcuts } from 'app/auth/store/userSlice';
 
-const useStyles = makeStyles({
-  root: {
-    '&.horizontal': {},
-    '&.vertical': {
-      flexDirection: 'column',
-    },
-  },
-  item: {
-    textDecoration: 'none!important',
-    color: 'inherit',
-  },
-  addIcon: {
-    color: amber[600],
-  },
-});
-
 function FuseShortcuts(props) {
   const dispatch = useDispatch();
   const shortcuts = useSelector(({ auth }) => auth.user.data.shortcuts) || [];
   const navigation = useSelector(selectFlatNavigation);
-  const classes = useStyles(props);
+
   const searchInputRef = useRef(null);
   const [addMenu, setAddMenu] = useState(null);
   const [searchText, setSearchText] = useState('');
@@ -79,7 +62,7 @@ function FuseShortcuts(props) {
 
   function ShortcutMenuItem({ item, onToggle }) {
     return (
-      <Link to={item.url} className={classes.item} role="button">
+      <Link to={item.url} role="button">
         <MenuItem key={item.id}>
           <ListItemIcon className="min-w-40">
             {item.icon ? (
@@ -95,6 +78,7 @@ function FuseShortcuts(props) {
               ev.stopPropagation();
               onToggle(item.id);
             }}
+            size="large"
           >
             <Icon color="action">{shortcuts.includes(item.id) ? 'star' : 'star_border'}</Icon>
           </IconButton>
@@ -118,10 +102,8 @@ function FuseShortcuts(props) {
   return (
     <div
       className={clsx(
-        classes.root,
-        props.variant,
         'flex flex-1',
-        props.variant === 'vertical' && 'flex-grow-0 flex-shrink',
+        props.variant === 'vertical' && 'flex-col flex-grow-0 flex-shrink',
         props.className
       )}
     >
@@ -134,12 +116,17 @@ function FuseShortcuts(props) {
         {shortcutItems.map(
           (_item) =>
             _item && (
-              <Link to={_item.url} key={_item.id} className={classes.item} role="button">
+              <Link to={_item.url} key={_item.id} role="button">
                 <Tooltip
                   title={_item.title}
                   placement={props.variant === 'horizontal' ? 'bottom' : 'left'}
                 >
-                  <IconButton className="w-40 h-40 p-0" component={motion.div} variants={item}>
+                  <IconButton
+                    className="w-40 h-40 p-0"
+                    component={motion.div}
+                    variants={item}
+                    size="large"
+                  >
                     {_item.icon ? (
                       <Icon>{_item.icon}</Icon>
                     ) : (
@@ -162,8 +149,9 @@ function FuseShortcuts(props) {
             aria-owns={addMenu ? 'add-menu' : null}
             aria-haspopup="true"
             onClick={addMenuClick}
+            size="large"
           >
-            <Icon className={classes.addIcon}>star</Icon>
+            <Icon sx={{ color: amber[600] }}>star</Icon>
           </IconButton>
         </Tooltip>
       </motion.div>

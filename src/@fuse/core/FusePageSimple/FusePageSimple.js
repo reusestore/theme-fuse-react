@@ -1,35 +1,28 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
-import { makeStyles } from '@material-ui/core/styles';
+import { styled } from '@mui/material/styles';
 import clsx from 'clsx';
 import * as PropTypes from 'prop-types';
 import { forwardRef, useImperativeHandle, memo, useRef } from 'react';
+import GlobalStyles from '@mui/material/GlobalStyles';
 import FusePageSimpleHeader from './FusePageSimpleHeader';
 import FusePageSimpleSidebar from './FusePageSimpleSidebar';
 
-const headerHeight = 120;
-const toolbarHeight = 64;
-const drawerWidth = 240;
+const Root = styled('div')(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  minWidth: 0,
+  minHeight: '100%',
+  position: 'relative',
+  flex: '1 1 auto',
+  width: '100%',
+  height: 'auto',
+  backgroundColor: theme.palette.background.default,
 
-const useStyles = makeStyles((theme) => ({
-  '@global': {
-    '#fuse-main': {
-      height: (props) => props.innerScroll && '100vh',
-    },
-  },
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    minWidth: 0,
-    minHeight: '100%',
-    position: 'relative',
-    flex: '1 1 auto',
-    height: 'auto',
-    backgroundColor: theme.palette.background.default,
-  },
-  innerScroll: {
+  '& .FusePageSimple-innerScroll': {
     height: '100%',
   },
-  wrapper: {
+
+  '& .FusePageSimple-wrapper': {
     display: 'flex',
     flexDirection: 'row',
     flex: '1 1 auto',
@@ -39,7 +32,8 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     backgroundColor: theme.palette.background.default,
   },
-  header: {
+
+  '& .FusePageSimple-header': {
     height: headerHeight,
     minHeight: headerHeight,
     display: 'flex',
@@ -48,7 +42,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: 'cover',
     backgroundColor: theme.palette.primary.dark,
   },
-  topBg: {
+
+  '& .FusePageSimple-topBg': {
     position: 'absolute',
     left: 0,
     right: 0,
@@ -56,27 +51,8 @@ const useStyles = makeStyles((theme) => ({
     height: headerHeight,
     pointerEvents: 'none',
   },
-  /* contentCardWrapper            : {
-         display : 'flex ',
-         flex    : '1 1 auto',
-         overflow: 'visible!important',
-         minWidth: 0,
-         '&.ps'  : {
-             overflow: 'visible!important'
-         }
-     },
-     contentCardWrapperInnerSidebar: {
-         display                     : 'block',
-         overflow                    : 'auto!important',
-         '-webkit-overflow-scrolling': 'touch',
-         '&.ps'                      : {
-             overflow: 'hidden!important'
-         },
-         '& $contentCard'            : {
-             borderRadius: 8
-         }
-     }, */
-  contentWrapper: {
+
+  '& .FusePageSimple-contentWrapper': {
     display: 'flex',
     flexDirection: 'column',
     flex: '1 1 auto',
@@ -84,16 +60,19 @@ const useStyles = makeStyles((theme) => ({
     '-webkit-overflow-scrolling': 'touch',
     zIndex: 9999,
   },
-  toolbar: {
+
+  '& .FusePageSimple-toolbar': {
     height: toolbarHeight,
     minHeight: toolbarHeight,
     display: 'flex',
     alignItems: 'center',
   },
-  content: {
+
+  '& .FusePageSimple-content': {
     flex: '1 0 auto',
   },
-  sidebarWrapper: {
+
+  '& .FusePageSimple-sidebarWrapper': {
     overflow: 'hidden',
     backgroundColor: 'transparent',
     position: 'absolute',
@@ -103,7 +82,8 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  sidebar: {
+
+  '& .FusePageSimple-sidebar': {
     position: 'absolute',
     '&.permanent': {
       [theme.breakpoints.up('lg')]: {
@@ -115,42 +95,51 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
     height: '100%',
   },
-  leftSidebar: {
+
+  '& .FusePageSimple-leftSidebar': {
     [theme.breakpoints.up('lg')]: {
       borderRight: `1px solid ${theme.palette.divider}`,
       borderLeft: 0,
     },
   },
-  rightSidebar: {
+
+  '& .FusePageSimple-rightSidebar': {
     [theme.breakpoints.up('lg')]: {
       borderLeft: `1px solid ${theme.palette.divider}`,
       borderRight: 0,
     },
   },
-  sidebarHeader: {
+
+  '& .FusePageSimple-sidebarHeader': {
     height: headerHeight,
     minHeight: headerHeight,
     backgroundColor: theme.palette.primary.dark,
     color: theme.palette.primary.contrastText,
   },
-  sidebarHeaderInnerSidebar: {
+
+  '& .FusePageSimple-sidebarHeaderInnerSidebar': {
     backgroundColor: 'transparent',
     color: 'inherit',
     height: 'auto',
     minHeight: 'auto',
   },
-  sidebarContent: {},
-  backdrop: {
+
+  '& .FusePageSimple-sidebarContent': {},
+
+  '& .FusePageSimple-backdrop': {
     position: 'absolute',
   },
 }));
+
+const headerHeight = 120;
+const toolbarHeight = 64;
+const drawerWidth = 240;
 
 const FusePageSimple = forwardRef((props, ref) => {
   // console.info("render::FusePageSimple");
   const leftSidebarRef = useRef(null);
   const rightSidebarRef = useRef(null);
   const rootRef = useRef(null);
-  const classes = useStyles(props);
 
   useImperativeHandle(ref, () => ({
     rootRef,
@@ -163,63 +152,75 @@ const FusePageSimple = forwardRef((props, ref) => {
   }));
 
   return (
-    <div className={clsx(classes.root, props.innerScroll && classes.innerScroll)} ref={rootRef}>
-      <div className={clsx(classes.header, classes.topBg)} />
-
-      <div className="flex flex-auto flex-col container z-10 h-full">
-        {props.header && props.sidebarInner && (
-          <FusePageSimpleHeader header={props.header} classes={classes} />
+    <>
+      <GlobalStyles
+        styles={(theme) => ({
+          '#fuse-main': {
+            height: props.innerScroll && '100vh',
+          },
+        })}
+      />
+      <Root
+        className={clsx(
+          'FusePageSimple-root',
+          props.innerScroll && 'FusePageSimple-innerScroll',
+          props.className
         )}
+        ref={rootRef}
+      >
+        <div className={clsx('FusePageSimple-header', 'FusePageSimple-topBg')} />
 
-        <div className={classes.wrapper}>
-          {(props.leftSidebarHeader || props.leftSidebarContent) && (
-            <FusePageSimpleSidebar
-              position="left"
-              header={props.leftSidebarHeader}
-              content={props.leftSidebarContent}
-              variant={props.leftSidebarVariant || 'permanent'}
-              innerScroll={props.innerScroll}
-              sidebarInner={props.sidebarInner}
-              classes={classes}
-              ref={leftSidebarRef}
-              rootRef={rootRef}
-            />
-          )}
+        <div className="flex flex-auto flex-col container z-10 h-full">
+          {props.header && props.sidebarInner && <FusePageSimpleHeader header={props.header} />}
 
-          {/* <FuseScrollbars */}
-          {/*    className={clsx(classes.contentCardWrapper, props.sidebarInner && classes.contentCardWrapperInnerSidebar)} */}
-          {/*    enable={props.innerScroll && props.sidebarInner} */}
-          {/* > */}
-          <FuseScrollbars
-            className={classes.contentWrapper}
-            enable={props.innerScroll && !props.sidebarInner}
-          >
-            {props.header && !props.sidebarInner && (
-              <FusePageSimpleHeader header={props.header} classes={classes} />
+          <div className="FusePageSimple-wrapper">
+            {(props.leftSidebarHeader || props.leftSidebarContent) && (
+              <FusePageSimpleSidebar
+                position="left"
+                header={props.leftSidebarHeader}
+                content={props.leftSidebarContent}
+                variant={props.leftSidebarVariant || 'permanent'}
+                innerScroll={props.innerScroll}
+                sidebarInner={props.sidebarInner}
+                ref={leftSidebarRef}
+                rootRef={rootRef}
+              />
             )}
 
-            {props.contentToolbar && <div className={classes.toolbar}>{props.contentToolbar}</div>}
+            <FuseScrollbars
+              className="FusePageSimple-contentWrapper"
+              enable={props.innerScroll && !props.sidebarInner}
+            >
+              {props.header && !props.sidebarInner && (
+                <FusePageSimpleHeader header={props.header} />
+              )}
 
-            {props.content && <div className={classes.content}>{props.content}</div>}
-          </FuseScrollbars>
-          {/* </FuseScrollbars> */}
+              {props.contentToolbar && (
+                <div className={clsx('FusePageSimple-toolbar')}>{props.contentToolbar}</div>
+              )}
 
-          {(props.rightSidebarHeader || props.rightSidebarContent) && (
-            <FusePageSimpleSidebar
-              position="right"
-              header={props.rightSidebarHeader}
-              content={props.rightSidebarContent}
-              variant={props.rightSidebarVariant || 'permanent'}
-              innerScroll={props.innerScroll}
-              sidebarInner={props.sidebarInner}
-              classes={classes}
-              ref={rightSidebarRef}
-              rootRef={rootRef}
-            />
-          )}
+              {props.content && (
+                <div className={clsx('FusePageSimple-content')}>{props.content}</div>
+              )}
+            </FuseScrollbars>
+            {/* </FuseScrollbars> */}
+
+            {(props.rightSidebarHeader || props.rightSidebarContent) && (
+              <FusePageSimpleSidebar
+                position="right"
+                header={props.rightSidebarHeader}
+                content={props.rightSidebarContent}
+                variant={props.rightSidebarVariant || 'permanent'}
+                innerScroll={props.innerScroll}
+                sidebarInner={props.sidebarInner}
+                ref={rightSidebarRef}
+                rootRef={rootRef}
+              />
+            )}
+          </div>
         </div>
-      </div>
-    </div>
+      </Root>
+    </>
   );
 });
 
@@ -237,6 +238,8 @@ FusePageSimple.propTypes = {
   innerScroll: PropTypes.bool,
 };
 
-FusePageSimple.defaultProps = {};
+FusePageSimple.defaultProps = {
+  classes: {},
+};
 
-export default memo(FusePageSimple);
+export default memo(styled(FusePageSimple)``);

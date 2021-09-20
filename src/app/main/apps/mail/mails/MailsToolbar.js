@@ -1,8 +1,8 @@
-import Checkbox from '@material-ui/core/Checkbox';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+import Checkbox from '@mui/material/Checkbox';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFolders } from '../store/foldersSlice';
@@ -144,7 +144,11 @@ function MailToolbar(props) {
         <>
           <div className="border-r-1 h-48 w-1 mx-12 my-0" />
 
-          <IconButton onClick={(ev) => dispatch(setFolderOnSelectedMails(4))} aria-label="Delete">
+          <IconButton
+            onClick={(ev) => dispatch(setFolderOnSelectedMails(4))}
+            aria-label="Delete"
+            size="large"
+          >
             <Icon>delete</Icon>
           </IconButton>
 
@@ -153,6 +157,7 @@ function MailToolbar(props) {
             aria-owns={menu.folders ? 'folders-menu' : null}
             aria-haspopup="true"
             onClick={(ev) => handleMenuOpen(ev, 'folders')}
+            size="large"
           >
             <Icon>folder</Icon>
           </IconButton>
@@ -182,6 +187,7 @@ function MailToolbar(props) {
             aria-owns={menu.labels ? 'labels-menu' : null}
             aria-haspopup="true"
             onClick={(ev) => handleMenuOpen(ev, 'labels')}
+            size="large"
           >
             <Icon>label</Icon>
           </IconButton>

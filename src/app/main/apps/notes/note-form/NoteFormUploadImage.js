@@ -1,5 +1,5 @@
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
 
 function NoteFormUploadImage(props) {
   function handleChange(e) {
@@ -32,7 +32,7 @@ function NoteFormUploadImage(props) {
           type="file"
           onChange={handleChange}
         />
-        <IconButton className="w-32 h-32 mx-4 p-0" component="span">
+        <IconButton className="w-32 h-32 mx-4 p-0" component="span" size="large">
           <Icon fontSize="small">image</Icon>
         </IconButton>
       </label>

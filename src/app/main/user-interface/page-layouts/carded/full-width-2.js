@@ -1,19 +1,18 @@
 import DemoContent from '@fuse/core/DemoContent';
+import { styled } from '@mui/material/styles';
 import FusePageCarded from '@fuse/core/FusePageCarded';
-import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
-  layoutRoot: {},
+const Root = styled(FusePageCarded)({
+  '& .FusePageCarded-header': {},
+  '& .FusePageCarded-toolbar': {},
+  '& .FusePageCarded-content': {},
+  '& .FusePageCarded-sidebarHeader': {},
+  '& .FusePageCarded-sidebarContent': {},
 });
 
 function CardedFullWidth2Sample() {
-  const classes = useStyles();
-
   return (
-    <FusePageCarded
-      classes={{
-        root: classes.layoutRoot,
-      }}
+    <Root
       header={
         <div className="py-24">
           <h4>Header</h4>

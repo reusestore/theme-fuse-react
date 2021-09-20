@@ -1,10 +1,10 @@
 import FuseHighlight from '@fuse/core/FuseHighlight';
 import FusePageSimple from '@fuse/core/FusePageSimple';
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Icon from '@material-ui/core/Icon';
-import Typography from '@material-ui/core/Typography';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Icon from '@mui/material/Icon';
+import Typography from '@mui/material/Typography';
 
 function TypographyUI() {
   return (
@@ -29,7 +29,8 @@ function TypographyUI() {
           </div>
 
           <Button
-            variant="outlined"
+            variant="contained"
+            color="secondary"
             component="a"
             href="https://material-ui-next.com/style/typography/"
             target="_blank"

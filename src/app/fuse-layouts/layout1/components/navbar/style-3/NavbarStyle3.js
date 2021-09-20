@@ -1,6 +1,6 @@
-import Hidden from '@material-ui/core/Hidden';
-import { makeStyles } from '@material-ui/core/styles';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
+import Hidden from '@mui/material/Hidden';
+import { styled } from '@mui/material/styles';
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import clsx from 'clsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
@@ -10,78 +10,88 @@ const navbarWidth = 120;
 const navbarWidthDense = 64;
 const panelWidth = 280;
 
-const useStyles = makeStyles((theme) => ({
-  '@global': {
-    '#fuse-navbar-side-panel': {
-      width: (props) => (props.dense ? navbarWidthDense : navbarWidth),
-      minWidth: (props) => (props.dense ? navbarWidthDense : navbarWidth),
-      maxWidth: (props) => (props.dense ? navbarWidthDense : navbarWidth),
-    },
-    '#fuse-navbar-panel': {
-      maxWidth: '100%',
-      width: panelWidth,
-      [theme.breakpoints.up('lg')]: {
-        minWidth: panelWidth,
-        maxWidth: 'initial',
-      },
+const Root = styled('div')(({ theme, dense }) => ({
+  '& #fuse-navbar-side-panel': {
+    width: dense ? navbarWidthDense : navbarWidth,
+    minWidth: dense ? navbarWidthDense : navbarWidth,
+    maxWidth: dense ? navbarWidthDense : navbarWidth,
+  },
+  '& #fuse-navbar-panel': {
+    maxWidth: '100%',
+    width: panelWidth,
+    [theme.breakpoints.up('lg')]: {
+      minWidth: panelWidth,
+      maxWidth: 'initial',
     },
   },
-  navbar: {
-    minWidth: navbarWidth,
-    width: navbarWidth,
-    maxWidth: navbarWidth,
-    '&.dense': {
-      minWidth: navbarWidthDense,
-      width: navbarWidthDense,
-      maxWidth: navbarWidthDense,
-      '&.closed': {
-        '&.left': {
-          marginLeft: -navbarWidthDense,
-        },
-        '&.right': {
-          marginRight: -navbarWidthDense,
-        },
-      },
-    },
-    '&.folded-disabled': {
-      minWidth: (props) => (props.dense ? navbarWidthDense + panelWidth : navbarWidth + panelWidth),
-      width: (props) => (props.dense ? navbarWidthDense + panelWidth : navbarWidth + panelWidth),
-      maxWidth: (props) => (props.dense ? navbarWidthDense + panelWidth : navbarWidth + panelWidth),
-      '& #fuse-navbar-panel': {
-        opacity: '1!important',
-        pointerEvents: 'initial!important',
-      },
-      '&.closed': {
-        '&.left': {
-          marginLeft: (props) =>
-            -(props.dense ? navbarWidthDense + panelWidth : navbarWidth + panelWidth),
-        },
-        '&.right': {
-          marginRight: (props) =>
-            -(props.dense ? navbarWidthDense + panelWidth : navbarWidth + panelWidth),
-        },
-      },
-    },
-    '&.closed': {
-      transition: theme.transitions.create('margin', {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.leavingScreen,
+}));
+
+const StyledNavBar = styled('div')(({ theme, dense, opened, folded, position }) => ({
+  minWidth: navbarWidth,
+  width: navbarWidth,
+  maxWidth: navbarWidth,
+
+  ...(dense && {
+    minWidth: navbarWidthDense,
+    width: navbarWidthDense,
+    maxWidth: navbarWidthDense,
+
+    ...(!opened && {
+      ...(position === 'left' && {
+        marginLeft: -navbarWidthDense,
       }),
-      '&.left': {
-        marginLeft: -navbarWidth,
-      },
-      '&.right': {
-        marginRight: -navbarWidth,
-      },
-    },
-    '&.opened': {
-      transition: theme.transitions.create('margin', {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
+
+      ...(position === 'right' && {
+        marginRight: -navbarWidthDense,
       }),
+    }),
+  }),
+
+  ...(!folded && {
+    minWidth: dense ? navbarWidthDense + panelWidth : navbarWidth + panelWidth,
+    width: dense ? navbarWidthDense + panelWidth : navbarWidth + panelWidth,
+    maxWidth: dense ? navbarWidthDense + panelWidth : navbarWidth + panelWidth,
+
+    '& #fuse-navbar-panel': {
+      opacity: '1!important',
+      pointerEvents: 'initial!important',
     },
-  },
-  navbarMobile: {
+
+    ...(!opened && {
+      ...(position === 'left' && {
+        marginLeft: -(dense ? navbarWidthDense + panelWidth : navbarWidth + panelWidth),
+      }),
+
+      ...(position === 'right' && {
+        marginRight: -(dense ? navbarWidthDense + panelWidth : navbarWidth + panelWidth),
+      }),
+    }),
+  }),
+
+  ...(!opened && {
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    ...(position === 'left' && {
+      marginLeft: -navbarWidth,
+    }),
+
+    ...(position === 'right' && {
+      marginRight: -navbarWidth,
+    }),
+  }),
+
+  ...(opened && {
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  }),
+}));
+
+const StyledNavBarMobile = styled(SwipeableDrawer)(({ theme }) => ({
+  '& .MuiDrawer-paper': {
     '& #fuse-navbar-side-panel': {
       minWidth: 'auto',
       wdith: 'auto',
@@ -98,19 +108,15 @@ function NavbarStyle3(props) {
   const config = useSelector(({ fuse }) => fuse.settings.current.layout.config);
   const navbar = useSelector(({ fuse }) => fuse.navbar);
   const { folded } = config.navbar;
-  const classes = useStyles({
-    ...props,
-    folded: config.navbar.folded,
-    navbarPosition: config.navbar.position,
-    open: navbar.open,
-  });
 
   return (
-    <>
-      <Hidden mdDown>
-        <div
+    <Root dense={props.dense}>
+      <Hidden lgDown>
+        <StyledNavBar
+          opened={navbar.open}
+          dense={props.dense}
+          folded={folded}
           className={clsx(
-            classes.navbar,
             config.navbar.position,
             navbar.open ? 'opened' : 'closed',
             props.dense && 'dense',
@@ -119,16 +125,12 @@ function NavbarStyle3(props) {
           )}
         >
           <NavbarStyle3Content dense={props.dense} folded={folded} />
-        </div>
+        </StyledNavBar>
       </Hidden>
-
       <Hidden lgUp>
-        <SwipeableDrawer
+        <StyledNavBarMobile
           classes={{
-            paper: clsx(
-              classes.navbarMobile,
-              'flex-col flex-auto h-screen max-w-full w-auto overflow-hidden'
-            ),
+            paper: 'flex-col flex-auto h-screen max-w-full w-auto overflow-hidden',
           }}
           anchor={config.navbar.position}
           variant="temporary"
@@ -141,9 +143,9 @@ function NavbarStyle3(props) {
           }}
         >
           <NavbarStyle3Content dense={props.dense} folded={folded} />
-        </SwipeableDrawer>
+        </StyledNavBarMobile>
       </Hidden>
-    </>
+    </Root>
   );
 }
 

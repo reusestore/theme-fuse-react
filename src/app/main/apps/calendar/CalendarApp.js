@@ -1,9 +1,8 @@
-import Fab from '@material-ui/core/Fab';
-import Icon from '@material-ui/core/Icon';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import Fab from '@mui/material/Fab';
+import { styled } from '@mui/material/styles';
+import Icon from '@mui/material/Icon';
+import Typography from '@mui/material/Typography';
 import withReducer from 'app/store/withReducer';
-import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -22,69 +21,66 @@ import {
   getEvents,
 } from './store/eventsSlice';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& a': {
-      color: theme.palette.text.primary,
-      textDecoration: 'normal!important',
+const Root = styled('div')(({ theme }) => ({
+  '& a': {
+    color: theme.palette.text.primary,
+    textDecoration: 'normal!important',
+  },
+  '&  .fc-media-screen': {
+    minHeight: '100%',
+  },
+  '& .fc-scrollgrid, & .fc-theme-standard td, & .fc-theme-standard th': {
+    borderColor: `${theme.palette.divider}!important`,
+  },
+  '&  .fc-scrollgrid-section > td': {
+    border: 0,
+  },
+  '& .fc-daygrid-day': {
+    '&:last-child': {
+      borderRight: 0,
     },
-    '&  .fc-media-screen': {
-      minHeight: '100%',
-    },
-    '& .fc-scrollgrid, & .fc-theme-standard td, & .fc-theme-standard th': {
-      borderColor: `${theme.palette.divider}!important`,
-    },
-    '&  .fc-scrollgrid-section > td': {
-      border: 0,
-    },
-    '& .fc-daygrid-day': {
-      '&:last-child': {
-        borderRight: 0,
-      },
-    },
-    '& .fc-col-header-cell': {
-      borderWidth: '0 0 1px 0',
-      padding: '16px 0',
-      '& .fc-col-header-cell-cushion': {
-        color: theme.palette.text.secondary,
-        fontWeight: 500,
-      },
-    },
-    '& .fc-view ': {
-      borderRadius: 20,
-      overflow: 'hidden',
-      border: `1px solid ${theme.palette.divider}`,
-      '& > .fc-scrollgrid': {
-        border: 0,
-      },
-    },
-    '& .fc-daygrid-day-number': {
+  },
+  '& .fc-col-header-cell': {
+    borderWidth: '0 0 1px 0',
+    padding: '16px 0',
+    '& .fc-col-header-cell-cushion': {
       color: theme.palette.text.secondary,
       fontWeight: 500,
     },
-    '& .fc-event': {
-      backgroundColor: `${theme.palette.primary.dark}!important`,
-      color: `${theme.palette.primary.contrastText}!important`,
+  },
+  '& .fc-view ': {
+    borderRadius: 20,
+    overflow: 'hidden',
+    border: `1px solid ${theme.palette.divider}`,
+    '& > .fc-scrollgrid': {
       border: 0,
-      padding: '0 6px',
-      borderRadius: '16px!important',
     },
   },
-  addButton: {
-    position: 'absolute',
-    right: 12,
-    top: 172,
-    zIndex: 99,
+  '& .fc-daygrid-day-number': {
+    color: theme.palette.text.secondary,
+    fontWeight: 500,
+  },
+  '& .fc-event': {
+    backgroundColor: `${theme.palette.primary.dark}!important`,
+    color: `${theme.palette.primary.contrastText}!important`,
+    border: 0,
+    padding: '0 6px',
+    borderRadius: '16px!important',
   },
 }));
 
+const StyledAddButton = styled('div')(({ theme }) => ({
+  position: 'absolute',
+  right: 12,
+  top: 172,
+  zIndex: 99,
+}));
 function CalendarApp(props) {
   const [currentDate, setCurrentDate] = useState();
   const dispatch = useDispatch();
   const events = useSelector(selectEvents);
   const calendarRef = useRef();
 
-  const classes = useStyles(props);
   const headerEl = useRef(null);
 
   useEffect(() => {
@@ -140,7 +136,7 @@ function CalendarApp(props) {
   const handleEventRemove = (removeInfo) => {};
 
   return (
-    <div className={clsx(classes.root, 'flex flex-col flex-auto relative')}>
+    <Root className="flex flex-col flex-auto relative">
       <CalendarHeader calendarRef={calendarRef} currentDate={currentDate} />
 
       <div className="flex flex-1 p-24 container">
@@ -172,8 +168,8 @@ function CalendarApp(props) {
           />
         </motion.div>
 
-        <motion.div
-          className={classes.addButton}
+        <StyledAddButton
+          as={motion.div}
           initial={{ scale: 0 }}
           animate={{ scale: 1, transition: { delay: 0.4 } }}
         >
@@ -191,10 +187,10 @@ function CalendarApp(props) {
           >
             <Icon>add</Icon>
           </Fab>
-        </motion.div>
+        </StyledAddButton>
         <EventDialog />
       </div>
-    </div>
+    </Root>
   );
 }
 

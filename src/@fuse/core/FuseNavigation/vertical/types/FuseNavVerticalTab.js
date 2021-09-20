@@ -1,10 +1,9 @@
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
-import { Tooltip } from '@material-ui/core';
-import Icon from '@material-ui/core/Icon';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import { makeStyles } from '@material-ui/core/styles';
-import { alpha } from '@material-ui/core/styles/colorManipulator';
+import { styled, alpha } from '@mui/material/styles';
+import { Tooltip } from '@mui/material';
+import Icon from '@mui/material/Icon';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { useMemo } from 'react';
@@ -12,8 +11,8 @@ import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import FuseNavBadge from '../../FuseNavBadge';
 
-const useStyles = makeStyles((theme) => ({
-  item: (props) => ({
+const Root = styled('div')(({ theme }) => ({
+  '& > .fuse-list-item': {
     minHeight: 100,
     height: 100,
     width: 100,
@@ -34,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
       minHeight: 2,
       margin: '12px 0',
       backgroundColor:
-        theme.palette.type === 'light'
+        theme.palette.mode === 'light'
           ? 'rgba(0, 0, 0, .05)!important'
           : 'rgba(255, 255, 255, .1)!important',
       pointerEvents: 'none',
@@ -45,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     '&.active': {
       color: theme.palette.text.primary,
       backgroundColor:
-        theme.palette.type === 'light'
+        theme.palette.mode === 'light'
           ? 'rgba(0, 0, 0, .05)!important'
           : 'rgba(255, 255, 255, .1)!important',
       // pointerEvents: 'none',
@@ -61,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
       color: 'inherit',
     },
     '& .fuse-list-item-text': {},
-  }),
+  },
 }));
 
 function FuseNavVerticalTab(props) {
@@ -69,17 +68,15 @@ function FuseNavVerticalTab(props) {
   const location = useLocation();
 
   const { item, onItemClick, firstLevel, dense, selectedId } = props;
-  const classes = useStyles(props);
 
   return useMemo(
     () => (
-      <>
+      <Root>
         <ListItem
           button
           component={item.url && NavLinkAdapter}
           to={item.url}
           className={clsx(
-            classes.item,
             `type-${item.type}`,
             dense && 'dense',
             selectedId === item.id && 'active',
@@ -153,9 +150,9 @@ function FuseNavVerticalTab(props) {
               selectedId={selectedId}
             />
           ))}
-      </>
+      </Root>
     ),
-    [classes.item, firstLevel, item, onItemClick, dense, selectedId]
+    [firstLevel, item, onItemClick, dense, selectedId]
   );
 }
 

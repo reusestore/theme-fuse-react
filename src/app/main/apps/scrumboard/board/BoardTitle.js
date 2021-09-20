@@ -1,13 +1,13 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import Paper from '@material-ui/core/Paper';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
+import Paper from '@mui/material/Paper';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
@@ -78,7 +78,11 @@ function BoardTitle(props) {
                     InputProps={{
                       endAdornment: (
                         <InputAdornment position="end">
-                          <IconButton type="submit" disabled={_.isEmpty(dirtyFields) || !isValid}>
+                          <IconButton
+                            type="submit"
+                            disabled={_.isEmpty(dirtyFields) || !isValid}
+                            size="large"
+                          >
                             <Icon>check</Icon>
                           </IconButton>
                         </InputAdornment>

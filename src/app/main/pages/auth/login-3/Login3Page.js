@@ -1,27 +1,24 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { styled, darken } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import { Controller, useForm } from 'react-hook-form';
-
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Checkbox from '@material-ui/core/Checkbox';
-import Divider from '@material-ui/core/Divider';
-import FormControl from '@material-ui/core/FormControl';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { makeStyles } from '@material-ui/core/styles';
-import { darken } from '@material-ui/core/styles/colorManipulator';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-import clsx from 'clsx';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Checkbox from '@mui/material/Checkbox';
+import Divider from '@mui/material/Divider';
+import FormControl from '@mui/material/FormControl';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 import * as yup from 'yup';
 import _ from '@lodash';
 
-const useStyles = makeStyles((theme) => ({
-  root: {},
-  leftSection: {},
-  rightSection: {
+const Root = styled('div')(({ theme }) => ({
+  '& .Login3-leftSection': {},
+
+  '& .Login3-rightSection': {
     background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${darken(
       theme.palette.primary.dark,
       0.5
@@ -48,8 +45,6 @@ const defaultValues = {
 };
 
 function Login3Page() {
-  const classes = useStyles();
-
   const { control, formState, handleSubmit, reset } = useForm({
     mode: 'onChange',
     defaultValues,
@@ -63,22 +58,14 @@ function Login3Page() {
   }
 
   return (
-    <div
-      className={clsx(
-        classes.root,
-        'flex flex-col flex-auto items-center justify-center flex-shrink-0 p-16 md:p-24'
-      )}
-    >
+    <Root className="flex flex-col flex-auto items-center justify-center flex-shrink-0 p-16 md:p-24">
       <motion.div
         initial={{ opacity: 0, scale: 0.6 }}
         animate={{ opacity: 1, scale: 1 }}
         className="flex w-full max-w-400 md:max-w-3xl rounded-20 shadow-2xl overflow-hidden"
       >
         <Card
-          className={clsx(
-            classes.leftSection,
-            'flex flex-col w-full max-w-sm items-center justify-center shadow-0'
-          )}
+          className="Login3-leftSection flex flex-col w-full max-w-sm items-center justify-center shadow-0"
           square
         >
           <CardContent className="flex flex-col items-center justify-center w-full py-96 max-w-320">
@@ -197,12 +184,7 @@ function Login3Page() {
           </div>
         </Card>
 
-        <div
-          className={clsx(
-            classes.rightSection,
-            'hidden md:flex flex-1 items-center justify-center p-64'
-          )}
-        >
+        <div className="Login3-rightSection flex hidden md:flex flex-1 items-center justify-center p-64">
           <div className="max-w-320">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -229,7 +211,7 @@ function Login3Page() {
           </div>
         </div>
       </motion.div>
-    </div>
+    </Root>
   );
 }
 

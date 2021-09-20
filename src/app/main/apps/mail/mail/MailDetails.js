@@ -1,9 +1,9 @@
 import _ from '@lodash';
-import Avatar from '@material-ui/core/Avatar';
-import Divider from '@material-ui/core/Divider';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
+import Avatar from '@mui/material/Avatar';
+import Divider from '@mui/material/Divider';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -81,7 +81,7 @@ function MailDetails(props) {
               </Typography>
             </div>
           </div>
-          <IconButton>
+          <IconButton size="large">
             <Icon>more_vert</Icon>
           </IconButton>
         </div>

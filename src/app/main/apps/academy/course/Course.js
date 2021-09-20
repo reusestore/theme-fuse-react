@@ -1,16 +1,16 @@
 import FusePageSimple from '@fuse/core/FusePageSimple';
+import { useTheme, styled } from '@mui/material/styles';
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
-import { green } from '@material-ui/core/colors';
-import Fab from '@material-ui/core/Fab';
-import Hidden from '@material-ui/core/Hidden';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Paper from '@material-ui/core/Paper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-import Stepper from '@material-ui/core/Stepper';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import { green } from '@mui/material/colors';
+import Fab from '@mui/material/Fab';
+import Hidden from '@mui/material/Hidden';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Paper from '@mui/material/Paper';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
+import Stepper from '@mui/material/Stepper';
+import Typography from '@mui/material/Typography';
 import withReducer from 'app/store/withReducer';
 import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,13 +20,23 @@ import SwipeableViews from 'react-swipeable-views';
 import reducer from '../store';
 import { getCourse, updateCourse } from '../store/courseSlice';
 
-const useStyles = makeStyles((theme) => ({
-  stepLabel: {
-    cursor: 'pointer!important',
+const Root = styled(FusePageSimple)(({ theme }) => ({
+  '& .FusePageSimple-header': {
+    minHeight: 72,
+    height: 72,
+    [theme.breakpoints.up('lg')]: {
+      borderBottomLeftRadius: 20,
+    },
   },
-  successFab: {
-    background: `${green[500]}!important`,
-    color: 'white!important',
+  '& .FusePageSimple-content': {
+    display: 'flex',
+    flexDirection: 'column',
+    flex: '1 1 auto',
+    overflow: 'hidden',
+  },
+  '& .FusePageSimple-sidebar': {
+    padding: 24,
+    border: 0,
   },
 }));
 
@@ -36,7 +46,7 @@ function Course(props) {
   const theme = useTheme();
 
   const routeParams = useParams();
-  const classes = useStyles(props);
+
   const pageLayout = useRef(null);
 
   useDeepCompareEffect(() => {
@@ -71,23 +81,19 @@ function Course(props) {
   const activeStep = course && course.activeStep !== 0 ? course.activeStep : 1;
 
   return (
-    <FusePageSimple
-      classes={{
-        content: 'flex flex-col flex-auto overflow-hidden',
-        header: 'h-72 min-h-72 lg:ltr:rounded-bl-20 lg:rtl:rounded-br-20',
-        sidebar: 'border-0',
-      }}
+    <Root
       header={
         <div className="flex flex-1 items-center px-16 lg:px-24">
           <Hidden lgUp>
             <IconButton
               onClick={(ev) => pageLayout.current.toggleLeftSidebar()}
               aria-label="open left sidebar"
+              size="large"
             >
               <Icon>menu</Icon>
             </IconButton>
           </Hidden>
-          <IconButton to="/apps/academy/courses" component={Link}>
+          <IconButton to="/apps/academy/courses" component={Link} size="large">
             <Icon>{theme.direction === 'ltr' ? 'arrow_back' : 'arrow_forward'}</Icon>
           </IconButton>
           {course && <Typography className="flex-1 text-20 mx-16">{course.title}</Typography>}
@@ -134,7 +140,11 @@ function Course(props) {
                       <Icon>{theme.direction === 'ltr' ? 'chevron_right' : 'chevron_left'}</Icon>
                     </Fab>
                   ) : (
-                    <Fab className={classes.successFab} to="/apps/academy/courses" component={Link}>
+                    <Fab
+                      sx={{ background: `${green[500]}!important`, color: 'white!important' }}
+                      to="/apps/academy/courses"
+                      component={Link}
+                    >
                       <Icon>check</Icon>
                     </Fab>
                   )}
@@ -154,7 +164,7 @@ function Course(props) {
             {course.steps.map((step, index) => {
               return (
                 <Step key={step.id} onClick={() => handleChangeActiveStep(index)}>
-                  <StepLabel classes={{ root: classes.stepLabel }}>{step.title}</StepLabel>
+                  <StepLabel sx={{ cursor: 'pointer!important' }}>{step.title}</StepLabel>
                 </Step>
               );
             })}

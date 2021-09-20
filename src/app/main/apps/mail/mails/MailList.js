@@ -1,6 +1,6 @@
 import FuseUtils from '@fuse/utils';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
+import List from '@mui/material/List';
+import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';

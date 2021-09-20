@@ -1,10 +1,9 @@
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import { makeStyles } from '@material-ui/core/styles';
-import { darken } from '@material-ui/core/styles/colorManipulator';
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
-import Typography from '@material-ui/core/Typography';
+import Card from '@mui/material/Card';
+import { styled, darken } from '@mui/material/styles';
+import CardContent from '@mui/material/CardContent';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import Typography from '@mui/material/Typography';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
@@ -13,16 +12,16 @@ import Auth0RegisterTab from './tabs/Auth0RegisterTab';
 import FirebaseRegisterTab from './tabs/FirebaseRegisterTab';
 import JWTRegisterTab from './tabs/JWTRegisterTab';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${darken(
-      theme.palette.primary.dark,
-      0.5
-    )} 100%)`,
-    color: theme.palette.primary.contrastText,
-  },
-  leftSection: {},
-  rightSection: {
+const Root = styled('div')(({ theme }) => ({
+  background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${darken(
+    theme.palette.primary.dark,
+    0.5
+  )} 100%)`,
+  color: theme.palette.primary.contrastText,
+
+  '& .Register-leftSection': {},
+
+  '& .Register-rightSection': {
     background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${darken(
       theme.palette.primary.dark,
       0.5
@@ -32,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Register() {
-  const classes = useStyles();
   const [selectedTab, setSelectedTab] = useState(0);
 
   function handleTabChange(event, value) {
@@ -40,9 +38,8 @@ function Register() {
   }
 
   return (
-    <div
+    <Root
       className={clsx(
-        classes.root,
         'flex flex-col flex-auto items-center justify-center flex-shrink-0 p-16 md:p-24'
       )}
     >
@@ -53,7 +50,7 @@ function Register() {
       >
         <Card
           className={clsx(
-            classes.leftSection,
+            'Register-leftSection',
             'flex flex-col w-full max-w-sm items-center justify-center shadow-0'
           )}
           square
@@ -131,7 +128,7 @@ function Register() {
 
         <div
           className={clsx(
-            classes.rightSection,
+            'Register-rightSection',
             'hidden md:flex flex-1 items-center justify-center p-64'
           )}
         >
@@ -158,7 +155,7 @@ function Register() {
           </div>
         </div>
       </motion.div>
-    </div>
+    </Root>
   );
 }
 

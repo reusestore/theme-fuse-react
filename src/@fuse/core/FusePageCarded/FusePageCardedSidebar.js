@@ -1,13 +1,12 @@
-import Drawer from '@material-ui/core/Drawer';
-import Hidden from '@material-ui/core/Hidden';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
+import Drawer from '@mui/material/Drawer';
+import Hidden from '@mui/material/Hidden';
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import clsx from 'clsx';
 import { forwardRef, useImperativeHandle, useState } from 'react';
 import FusePageCardedSidebarContent from './FusePageCardedSidebarContent';
 
 function FusePageCardedSidebar(props, ref) {
   const [isOpen, setIsOpen] = useState(false);
-  const { classes } = props;
 
   useImperativeHandle(ref, () => ({
     toggleSidebar: handleToggleDrawer,
@@ -28,11 +27,13 @@ function FusePageCardedSidebar(props, ref) {
           onClose={(ev) => handleToggleDrawer()}
           disableSwipeToOpen
           classes={{
-            root: clsx(classes.sidebarWrapper, props.variant),
+            root: clsx('FusePageCarded-sidebarWrapper', props.variant),
             paper: clsx(
-              classes.sidebar,
+              'FusePageCarded-sidebar',
               props.variant,
-              props.position === 'left' ? classes.leftSidebar : classes.rightSidebar
+              props.position === 'left'
+                ? 'FusePageCarded-leftSidebar'
+                : 'FusePageCarded-rightSidebar'
             ),
           }}
           ModalProps={{
@@ -41,7 +42,7 @@ function FusePageCardedSidebar(props, ref) {
           container={props.rootRef.current}
           BackdropProps={{
             classes: {
-              root: classes.backdrop,
+              root: 'FusePageCarded-backdrop',
             },
           }}
           style={{ position: 'absolute' }}
@@ -50,16 +51,18 @@ function FusePageCardedSidebar(props, ref) {
         </SwipeableDrawer>
       </Hidden>
       {props.variant === 'permanent' && (
-        <Hidden mdDown>
+        <Hidden lgDown>
           <Drawer
             variant="permanent"
-            className={clsx(classes.sidebarWrapper, props.variant)}
+            className={clsx('FusePageCarded-sidebarWrapper', props.variant)}
             open={isOpen}
             classes={{
               paper: clsx(
-                classes.sidebar,
+                'FusePageCarded-sidebar',
                 props.variant,
-                props.position === 'left' ? classes.leftSidebar : classes.rightSidebar
+                props.position === 'left'
+                  ? 'FusePageCarded-leftSidebar'
+                  : 'FusePageCarded-rightSidebar'
               ),
             }}
           >

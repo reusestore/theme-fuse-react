@@ -1,26 +1,23 @@
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import clsx from 'clsx';
+import Button from '@mui/material/Button';
+import { styled } from '@mui/material/styles';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
 
-const useStyles = makeStyles((theme) => ({
-  header: {
+const Root = styled('div')(({ theme }) => ({
+  '& .PricingStyle2Page-header': {
     height: 600,
     background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
     color: theme.palette.primary.contrastText,
   },
-  badge: {
+  '& .PricingStyle2Page-badge': {
     backgroundColor: theme.palette.error.main,
     color: theme.palette.getContrastText(theme.palette.error.main),
   },
 }));
 
 function PricingStyle2Page() {
-  const classes = useStyles();
-
   const container = {
     show: {
       transition: {
@@ -35,8 +32,8 @@ function PricingStyle2Page() {
   };
 
   return (
-    <div className="w-full">
-      <div className={clsx(classes.header, 'flex')}>
+    <Root className="w-full">
+      <div className="PricingStyle2Page-header flex">
         <div className="p-24 w-full max-w-2xl mx-auto">
           <div className="text-center my-128 mx-24">
             <motion.div
@@ -118,7 +115,7 @@ function PricingStyle2Page() {
             <motion.div variants={item} className="w-full max-w-320 sm:w-1/3 p-12">
               <Card className="relative rounded-16" raised>
                 <div className="absolute top-0 inset-x-0 flex justify-center">
-                  <div className={clsx(classes.badge, 'py-4 px-8 rounded-b-4')}>
+                  <div className="PricingStyle2Page-badge py-4 px-8 rounded-b-4">
                     <Typography className="text-12 font-semibold tracking-tight" color="inherit">
                       BEST VALUE
                     </Typography>
@@ -259,7 +256,7 @@ function PricingStyle2Page() {
           </div>
         </div>
       </div>
-    </div>
+    </Root>
   );
 }
 

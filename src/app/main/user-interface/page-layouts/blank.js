@@ -1,19 +1,15 @@
 import DemoContent from '@fuse/core/DemoContent';
-import { makeStyles } from '@material-ui/core/styles';
+import { styled } from '@mui/material/styles';
 
-const useStyles = makeStyles({
-  root: {
-    padding: 24,
-  },
+const Root = styled('div')({
+  padding: 24,
 });
 
 function BlankSample() {
-  const classes = useStyles();
-
   return (
-    <div className={classes.root}>
+    <Root>
       <DemoContent />
-    </div>
+    </Root>
   );
 }
 

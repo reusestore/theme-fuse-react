@@ -1,26 +1,13 @@
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Icon from '@material-ui/core/Icon';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import clsx from 'clsx';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Icon from '@mui/material/Icon';
+import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-const useStyles = makeStyles((theme) => ({
-  root: {},
-}));
-
 function MailConfirmPage() {
-  const classes = useStyles();
-
   return (
-    <div
-      className={clsx(
-        classes.root,
-        'flex flex-col flex-auto items-center justify-center p-16 sm:p-32'
-      )}
-    >
+    <div className="flex flex-col flex-auto items-center justify-center p-16 sm:p-32">
       <div className="flex flex-col items-center justify-center w-full">
         <motion.div initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }}>
           <Card className="w-full max-w-384">

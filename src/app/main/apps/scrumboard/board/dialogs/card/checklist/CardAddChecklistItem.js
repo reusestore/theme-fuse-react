@@ -1,8 +1,8 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import Fab from '@material-ui/core/Fab';
-import Icon from '@material-ui/core/Icon';
-import ListItem from '@material-ui/core/ListItem';
-import TextField from '@material-ui/core/TextField';
+import Fab from '@mui/material/Fab';
+import Icon from '@mui/material/Icon';
+import ListItem from '@mui/material/ListItem';
+import TextField from '@mui/material/TextField';
 import ChecklistItemModel from 'app/main/apps/scrumboard/model/ChecklistItemModel';
 import { Controller, useForm } from 'react-hook-form';
 import * as yup from 'yup';

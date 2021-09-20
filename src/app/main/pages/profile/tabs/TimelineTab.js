@@ -1,19 +1,19 @@
-import AppBar from '@material-ui/core/AppBar';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import Input from '@material-ui/core/Input';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Paper from '@material-ui/core/Paper';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import AppBar from '@mui/material/AppBar';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Input from '@mui/material/Input';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import Paper from '@mui/material/Paper';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
@@ -69,13 +69,13 @@ function TimelineTab() {
               elevation={0}
             >
               <div className="flex-1 items-center">
-                <IconButton aria-label="Add photo">
+                <IconButton aria-label="Add photo" size="large">
                   <Icon>photo</Icon>
                 </IconButton>
-                <IconButton aria-label="Mention somebody">
+                <IconButton aria-label="Mention somebody" size="large">
                   <Icon>person</Icon>
                 </IconButton>
-                <IconButton aria-label="Add location">
+                <IconButton aria-label="Add location" size="large">
                   <Icon>location_on</Icon>
                 </IconButton>
               </div>
@@ -98,7 +98,7 @@ function TimelineTab() {
               <CardHeader
                 avatar={<Avatar aria-label="Recipe" src={post.user.avatar} />}
                 action={
-                  <IconButton aria-label="more">
+                  <IconButton aria-label="more" size="large">
                     <Icon>more_vert</Icon>
                   </IconButton>
                 }

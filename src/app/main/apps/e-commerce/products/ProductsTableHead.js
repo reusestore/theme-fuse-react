@@ -1,20 +1,19 @@
-import Checkbox from '@material-ui/core/Checkbox';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import MenuList from '@material-ui/core/MenuList';
-import { makeStyles } from '@material-ui/core/styles';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import TableSortLabel from '@material-ui/core/TableSortLabel';
-import Tooltip from '@material-ui/core/Tooltip';
-import clsx from 'clsx';
+import Checkbox from '@mui/material/Checkbox';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import MenuList from '@mui/material/MenuList';
+import TableCell from '@mui/material/TableCell';
+import TableRow from '@mui/material/TableRow';
+import TableSortLabel from '@mui/material/TableSortLabel';
+import Tooltip from '@mui/material/Tooltip';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Box } from '@mui/system';
+import TableHead from '@mui/material/TableHead';
 import { removeProducts } from '../store/productsSlice';
 
 const rows = [
@@ -62,14 +61,7 @@ const rows = [
   },
 ];
 
-const useStyles = makeStyles((theme) => ({
-  actionsButtonWrapper: {
-    background: theme.palette.background.paper,
-  },
-}));
-
 function ProductsTableHead(props) {
-  const classes = useStyles(props);
   const { selectedProductIds } = props;
   const numSelected = selectedProductIds.length;
 
@@ -99,16 +91,17 @@ function ProductsTableHead(props) {
             onChange={props.onSelectAllClick}
           />
           {numSelected > 0 && (
-            <div
-              className={clsx(
-                'flex items-center justify-center absolute w-64 top-0 ltr:left-0 rtl:right-0 mx-56 h-64 z-10 border-b-1',
-                classes.actionsButtonWrapper
-              )}
+            <Box
+              className="flex items-center justify-center absolute w-64 top-0 ltr:left-0 rtl:right-0 mx-56 h-64 z-10 border-b-1"
+              sx={{
+                background: (theme) => theme.palette.background.paper,
+              }}
             >
               <IconButton
                 aria-owns={selectedProductsMenu ? 'selectedProductsMenu' : null}
                 aria-haspopup="true"
                 onClick={openSelectedProductsMenu}
+                size="large"
               >
                 <Icon>more_horiz</Icon>
               </IconButton>
@@ -133,7 +126,7 @@ function ProductsTableHead(props) {
                   </MenuItem>
                 </MenuList>
               </Menu>
-            </div>
+            </Box>
           )}
         </TableCell>
         {rows.map((row) => {

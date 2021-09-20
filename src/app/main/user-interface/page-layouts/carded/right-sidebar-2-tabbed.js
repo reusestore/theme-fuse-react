@@ -1,20 +1,25 @@
 import DemoContent from '@fuse/core/DemoContent';
+import { styled } from '@mui/material/styles';
 import DemoSidebarContent from '@fuse/core/DemoSidebarContent';
 import FusePageCarded from '@fuse/core/FusePageCarded';
-import Hidden from '@material-ui/core/Hidden';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import { makeStyles } from '@material-ui/core/styles';
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
+import Hidden from '@mui/material/Hidden';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
 import { useRef, useState } from 'react';
 
-const useStyles = makeStyles({
-  layoutRoot: {},
+const Root = styled(FusePageCarded)({
+  '& .FusePageCarded-header': {},
+  '& .FusePageCarded-toolbar': {
+    padding: 0,
+  },
+  '& .FusePageCarded-content': {},
+  '& .FusePageCarded-sidebarHeader': {},
+  '& .FusePageCarded-sidebarContent': {},
 });
 
 function CardedRightSidebar2TabbedSample() {
-  const classes = useStyles();
   const [selectedTab, setSelectedTab] = useState(0);
   const pageLayout = useRef(null);
 
@@ -23,11 +28,7 @@ function CardedRightSidebar2TabbedSample() {
   };
 
   return (
-    <FusePageCarded
-      classes={{
-        root: classes.layoutRoot,
-        toolbar: 'p-0',
-      }}
+    <Root
       header={
         <div className="flex flex-col flex-1">
           <div className="flex items-center py-24">
@@ -35,6 +36,7 @@ function CardedRightSidebar2TabbedSample() {
               <IconButton
                 onClick={(ev) => pageLayout.current.toggleRightSidebar()}
                 aria-label="open right sidebar"
+                size="large"
               >
                 <Icon>menu</Icon>
               </IconButton>
@@ -52,7 +54,7 @@ function CardedRightSidebar2TabbedSample() {
           indicatorColor="primary"
           textColor="primary"
           variant="scrollable"
-          scrollButtons="off"
+          scrollButtons={false}
           className="w-full h-64"
         >
           <Tab className="h-64" label="Item One" />

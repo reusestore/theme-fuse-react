@@ -1,9 +1,9 @@
-import Avatar from '@material-ui/core/Avatar';
-import Checkbox from '@material-ui/core/Checkbox';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import ListItemText from '@material-ui/core/ListItemText';
-import MenuItem from '@material-ui/core/MenuItem';
+import Avatar from '@mui/material/Avatar';
+import Checkbox from '@mui/material/Checkbox';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
+import ListItemText from '@mui/material/ListItemText';
+import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
 import ToolbarMenu from './ToolbarMenu';
 
@@ -20,7 +20,7 @@ function MembersMenu(props) {
 
   return (
     <div>
-      <IconButton color="inherit" onClick={handleMenuOpen}>
+      <IconButton color="inherit" onClick={handleMenuOpen} size="large">
         <Icon>account_circle</Icon>
       </IconButton>
       <ToolbarMenu state={anchorEl} onClose={handleMenuClose}>

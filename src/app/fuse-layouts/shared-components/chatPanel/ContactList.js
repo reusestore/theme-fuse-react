@@ -1,9 +1,9 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import Divider from '@material-ui/core/Divider';
-import { makeStyles } from '@material-ui/core/styles';
-import Tooltip from '@material-ui/core/Tooltip';
+import { styled } from '@mui/material/styles';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
+import Tooltip from '@mui/material/Tooltip';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { memo, useRef } from 'react';
@@ -12,11 +12,10 @@ import { getChat } from './store/chatSlice';
 import { selectContacts } from './store/contactsSlice';
 import { openChatPanel } from './store/stateSlice';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    background: theme.palette.background.paper,
-  },
-  contactButton: {
+const Root = styled(FuseScrollbars)(({ theme }) => ({
+  background: theme.palette.background.paper,
+
+  '& .contactButton': {
     width: 70,
     minWidth: 70,
     flex: '0 0 auto',
@@ -32,7 +31,8 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.primary.main,
     },
   },
-  unreadBadge: {
+
+  '& .unreadBadge': {
     position: 'absolute',
     minWidth: 18,
     height: 18,
@@ -50,7 +50,8 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: '0 2px 2px 0 rgba(0, 0, 0, 0.35)',
     zIndex: 10,
   },
-  status: {
+
+  '& .status': {
     position: 'absolute',
     width: 12,
     height: 12,
@@ -84,7 +85,6 @@ function ContactList(props) {
   const selectedContactId = useSelector(({ chatPanel }) => chatPanel.contacts.selectedContactId);
   const user = useSelector(({ chatPanel }) => chatPanel.user);
 
-  const classes = useStyles();
   const contactListScroll = useRef(null);
 
   const handleContactClick = (contactId) => {
@@ -102,10 +102,10 @@ function ContactList(props) {
       <Tooltip title={contact.name} placement="left">
         <Button
           onClick={() => handleContactClick(contact.id)}
-          className={clsx(classes.contactButton, { active: selectedContactId === contact.id })}
+          className={clsx('contactButton', { active: selectedContactId === contact.id })}
         >
-          {contact.unread && <div className={classes.unreadBadge}>{contact.unread}</div>}
-          <div className={clsx(contact.status, classes.status)} />
+          {contact.unread && <div className="unreadBadge">{contact.unread}</div>}
+          <div className={clsx(contact.status, 'status')} />
           <Avatar src={contact.avatar} alt={contact.name}>
             {!contact.avatar || contact.avatar === '' ? contact.name[0] : ''}
           </Avatar>
@@ -128,11 +128,8 @@ function ContactList(props) {
   };
 
   return (
-    <FuseScrollbars
-      className={clsx(
-        classes.root,
-        'flex flex-shrink-0 flex-col overflow-y-auto py-8 overscroll-contain'
-      )}
+    <Root
+      className="flex flex-shrink-0 flex-col overflow-y-auto py-8 overscroll-contain"
       ref={contactListScroll}
       option={{ suppressScrollX: true, wheelPropagation: false }}
     >
@@ -168,7 +165,7 @@ function ContactList(props) {
           </motion.div>
         </>
       )}
-    </FuseScrollbars>
+    </Root>
   );
 }
 

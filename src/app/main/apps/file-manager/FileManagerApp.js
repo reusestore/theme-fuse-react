@@ -1,11 +1,12 @@
 import FusePageSimple from '@fuse/core/FusePageSimple';
-import Fab from '@material-ui/core/Fab';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
+import Fab from '@mui/material/Fab';
+import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
 import withReducer from 'app/store/withReducer';
 import { motion } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { styled } from '@mui/material/styles';
 import Breadcrumb from './Breadcrumb';
 import DetailSidebarContent from './DetailSidebarContent';
 import DetailSidebarHeader from './DetailSidebarHeader';
@@ -14,6 +15,28 @@ import MainSidebarContent from './MainSidebarContent';
 import MainSidebarHeader from './MainSidebarHeader';
 import reducer from './store';
 import { selectFileById, getFiles } from './store/filesSlice';
+
+const Root = styled(FusePageSimple)(({ theme }) => ({
+  '& .FusePageSimple-header': {
+    minHeight: 96,
+    height: 96,
+    [theme.breakpoints.up('sm')]: {
+      minHeight: 160,
+      height: 160,
+    },
+  },
+  '& .FusePageSimple-sidebarHeader': {
+    minHeight: 96,
+    height: 96,
+    [theme.breakpoints.up('sm')]: {
+      minHeight: 160,
+      height: 160,
+    },
+  },
+  '& .FusePageSimple-rightSidebar': {
+    width: 320,
+  },
+}));
 
 function FileManagerApp() {
   const dispatch = useDispatch();
@@ -28,13 +51,7 @@ function FileManagerApp() {
   }, [dispatch]);
 
   return (
-    <FusePageSimple
-      classes={{
-        root: '',
-        header: 'h-96 min-h-96 sm:h-160 sm:min-h-160',
-        sidebarHeader: 'h-96 min-h-96 sm:h-160 sm:min-h-160',
-        rightSidebar: 'w-320',
-      }}
+    <Root
       header={
         <div className="flex flex-col flex-1 p-8 sm:p-12 relative">
           <div className="flex items-center justify-between">
@@ -43,11 +60,12 @@ function FileManagerApp() {
                 pageLayout.current.toggleLeftSidebar();
               }}
               aria-label="open left sidebar"
+              size="large"
             >
               <Icon>menu</Icon>
             </IconButton>
             <motion.div initial={{ scale: 0 }} animate={{ scale: 1, transition: { delay: 0.2 } }}>
-              <IconButton aria-label="search">
+              <IconButton aria-label="search" size="large">
                 <Icon>search</Icon>
               </IconButton>
             </motion.div>
