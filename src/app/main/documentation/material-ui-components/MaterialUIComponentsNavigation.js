@@ -113,6 +113,24 @@ const MaterialUIComponentsNavigation = {
       url: '/documentation/material-ui-components/css-baseline',
     },
     {
+      id: 'datePicker',
+      title: 'Date Picker',
+      type: 'item',
+      url: '/documentation/material-ui-components/date-picker',
+    },
+    {
+      id: 'dateRangePicker',
+      title: 'Date Range Picker',
+      type: 'item',
+      url: '/documentation/material-ui-components/date-range-picker',
+    },
+    {
+      id: 'dateTimePicker',
+      title: 'Date Time Picker',
+      type: 'item',
+      url: '/documentation/material-ui-components/date-time-picker',
+    },
+    {
       id: 'dialogs',
       title: 'Dialogs',
       type: 'item',
@@ -165,6 +183,12 @@ const MaterialUIComponentsNavigation = {
       title: 'Lists',
       type: 'item',
       url: '/documentation/material-ui-components/lists',
+    },
+    {
+      id: 'masonry',
+      title: 'Masonry',
+      type: 'item',
+      url: '/documentation/material-ui-components/masonry',
     },
     {
       id: 'menus',
@@ -233,10 +257,22 @@ const MaterialUIComponentsNavigation = {
       url: '/documentation/material-ui-components/radio-buttons',
     },
     {
+      id: 'rating',
+      title: 'Rating',
+      type: 'item',
+      url: '/documentation/material-ui-components/rating',
+    },
+    {
       id: 'selects',
       title: 'Selects',
       type: 'item',
       url: '/documentation/material-ui-components/selects',
+    },
+    {
+      id: 'skeleton',
+      title: 'Skeleton',
+      type: 'item',
+      url: '/documentation/material-ui-components/skeleton',
     },
     {
       id: 'slider',
@@ -249,6 +285,18 @@ const MaterialUIComponentsNavigation = {
       title: 'Snackbars',
       type: 'item',
       url: '/documentation/material-ui-components/snackbars',
+    },
+    {
+      id: 'speedDial',
+      title: 'Speed Dial',
+      type: 'item',
+      url: '/documentation/material-ui-components/speed-dial',
+    },
+    {
+      id: 'stack',
+      title: 'Stack',
+      type: 'item',
+      url: '/documentation/material-ui-components/stack',
     },
     {
       id: 'steppers',
@@ -287,10 +335,22 @@ const MaterialUIComponentsNavigation = {
       url: '/documentation/material-ui-components/textarea-autosize',
     },
     {
+      id: 'timePicker',
+      title: 'Time Picker',
+      type: 'item',
+      url: '/documentation/material-ui-components/time-picker',
+    },
+    {
       id: 'timeline',
       title: 'Timeline',
       type: 'item',
       url: '/documentation/material-ui-components/timeline',
+    },
+    {
+      id: 'toggleButton',
+      title: 'Toggle Button',
+      type: 'item',
+      url: '/documentation/material-ui-components/toggle-button',
     },
     {
       id: 'tooltips',
@@ -309,6 +369,18 @@ const MaterialUIComponentsNavigation = {
       title: 'Transitions',
       type: 'item',
       url: '/documentation/material-ui-components/transitions',
+    },
+    {
+      id: 'trapFocus',
+      title: 'Trap Focus',
+      type: 'item',
+      url: '/documentation/material-ui-components/trap-focus',
+    },
+    {
+      id: 'treeView',
+      title: 'Tree View',
+      type: 'item',
+      url: '/documentation/material-ui-components/tree-view',
     },
     {
       id: 'typography',

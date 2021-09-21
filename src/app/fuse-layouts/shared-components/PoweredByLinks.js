@@ -59,7 +59,7 @@ function PoweredByLinks() {
           className="w-48 h-48 px-4"
           component={motion.a}
           variants={item}
-          href="https://material-ui-next.com/"
+          href="https://mui.com"
           target="_blank"
           rel="noreferrer noopener"
           role="button"

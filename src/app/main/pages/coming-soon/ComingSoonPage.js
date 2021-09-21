@@ -1,7 +1,6 @@
 import FuseCountdown from '@fuse/core/FuseCountdown';
 import { motion } from 'framer-motion';
 import { Controller, useForm } from 'react-hook-form';
-
 import { yupResolver } from '@hookform/resolvers/yup';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';

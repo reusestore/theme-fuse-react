@@ -22,11 +22,7 @@ function ThemeShemesDoc() {
 
       <Typography className="mb-16" component="p">
         For the configuration options checkout{' '}
-        <a
-          href="https://material-ui-next.com/customization/themes/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://mui.com/customization/theming" target="_blank" rel="noopener noreferrer">
           Material UI's theme configuration options.
         </a>
       </Typography>

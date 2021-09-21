@@ -4,30 +4,29 @@ import { blue, green, red } from '@mui/material/colors';
 import Typography from '@mui/material/Typography';
 import clsx from 'clsx';
 
-const StyledCard = styled(Card)(({ theme }) => ({
-  '& .Changelog-badge ': {
-    display: 'inline-flex',
-    fontSize: 13,
-    color: '#FFF',
-    letterSpacing: '.015em',
-    lineHeight: 1,
-    padding: '5px 8px',
-    borderRadius: 2,
-    '&.new': {
-      backgroundColor: green[500],
-    },
-    '&.fix': {
-      backgroundColor: blue[500],
-    },
-    '&.breaking': {
-      backgroundColor: red[500],
-    },
-  },
+const StyledBadge = styled(Card)(({ theme, value }) => ({
+  display: 'inline-flex',
+  fontSize: 13,
+  color: '#FFF',
+  letterSpacing: '.015em',
+  lineHeight: 1,
+  padding: '5px 8px',
+  borderRadius: 2,
+
+  ...(value === 'new' && {
+    backgroundColor: green[500],
+  }),
+  ...(value === 'fix' && {
+    backgroundColor: blue[500],
+  }),
+  ...(value === 'breaking' && {
+    backgroundColor: red[500],
+  }),
 }));
 
 function ChangelogCard(props) {
   return (
-    <StyledCard className={clsx(props.className, 'py-24 px-32 shadow')}>
+    <div className={clsx('py-24 px-32 shadow', props.className)}>
       <div className="flex items-center">
         {props.version && (
           <Typography
@@ -43,7 +42,7 @@ function ChangelogCard(props) {
       </div>
       {props.newChanges.length > 0 && (
         <div className="mt-24">
-          <div className={clsx('Changelog-badge', 'new')}>New</div>
+          <StyledBadge value="new">New</StyledBadge>
           <ul className="my-16 px-24">
             {props.newChanges.map((change, index) => (
               <li key={index} className="mb-6">
@@ -55,7 +54,7 @@ function ChangelogCard(props) {
       )}
       {props.fixedChanges.length > 0 && (
         <div className="mt-24">
-          <div className={clsx('Changelog-badge', 'fix')}>Fixed</div>
+          <StyledBadge value="fix">Fixed</StyledBadge>
           <ul className="my-16 px-24">
             {props.fixedChanges.map((change, index) => (
               <li key={index} className="mb-6">
@@ -67,7 +66,7 @@ function ChangelogCard(props) {
       )}
       {props.breakingChanges.length > 0 && (
         <div className="mt-24">
-          <div className={clsx('Changelog-badge', 'breaking')}>Breaking Changes</div>
+          <StyledBadge value="breaking">Breaking Changes</StyledBadge>
           <ul className="my-16 px-24">
             {props.breakingChanges.map((change, index) => (
               <li key={index} className="mb-6">
@@ -79,7 +78,7 @@ function ChangelogCard(props) {
       )}
 
       {props.notes}
-    </StyledCard>
+    </div>
   );
 }
 

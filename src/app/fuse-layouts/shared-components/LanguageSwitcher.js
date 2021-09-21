@@ -10,21 +10,9 @@ import { Link } from 'react-router-dom';
 import { changeLanguage } from 'app/store/i18nSlice';
 
 const languages = [
-  {
-    id: 'en',
-    title: 'English',
-    flag: 'us',
-  },
-  {
-    id: 'tr',
-    title: 'Turkish',
-    flag: 'tr',
-  },
-  {
-    id: 'ar',
-    title: 'Arabic',
-    flag: 'sa',
-  },
+  { id: 'en', title: 'English', flag: 'us' },
+  { id: 'tr', title: 'Turkish', flag: 'tr' },
+  { id: 'ar', title: 'Arabic', flag: 'sa' },
 ];
 
 function LanguageSwitcher(props) {

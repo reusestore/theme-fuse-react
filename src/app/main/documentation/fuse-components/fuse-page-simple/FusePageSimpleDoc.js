@@ -63,45 +63,39 @@ function FusePageSimpleDoc() {
       <Typography className="mb-16" component="p">
         <code>FusePageSimple</code> is the simple page layout component of the Fuse React.
       </Typography>
-      <Typography className="mb-16" component="p">
+      <Typography className="mb-24" component="p">
         The component has layout areas to easily enter the contents of the app.
-      </Typography>
-      <Typography className="mb-16" component="p">
-        You can extend the class names injected by the classes property
       </Typography>
 
       <FuseHighlight component="pre" className="language-jsx">
         {`
-                                   <FusePageSimple
-                                        classes={{
-                                            root: classes.layoutRoot
-                                        }}
-                                        header={
-                                            Header
-                                        }
-                                        contentToolbar={
-                                            Content Toolbar
-                                        }
-                                        content={
-                                            Content
-                                        }
-                                        leftSidebarHeader={
-                                            Left Sidebar Header
-                                        }
-                                        leftSidebarContent={
-                                            Left Sidebar Content
-                                        }
-                                        rightSidebarHeader={
-                                            Right Sidebar Header
-                                        }
-                                        rightSidebarContent={
-                                            Right Sidebar Content
-                                        }
-                                        ref={pageLayout}
-                                        innerScroll
-                                        sidebarInner
-                                    />
-                                `}
+           <FusePageSimple
+                header={
+                    Header
+                }
+                contentToolbar={
+                    Content Toolbar
+                }
+                content={
+                    Content
+                }
+                leftSidebarHeader={
+                    Left Sidebar Header
+                }
+                leftSidebarContent={
+                    Left Sidebar Content
+                }
+                rightSidebarHeader={
+                    Right Sidebar Header
+                }
+                rightSidebarContent={
+                    Right Sidebar Content
+                }
+                ref={pageLayout}
+                innerScroll
+                sidebarInner
+            />
+        `}
       </FuseHighlight>
 
       <Typography className="mt-32 mb-8" variant="h5">

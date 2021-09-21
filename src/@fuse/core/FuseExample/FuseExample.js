@@ -41,7 +41,7 @@ function FuseExample(props) {
           {raw && <Tab classes={{ root: 'min-w-64' }} icon={<Icon>code</Icon>} />}
         </Tabs>
       </AppBar>
-      <div className="flex justify-center max-w-full">
+      <div className="flex justify-center max-w-full relative">
         <div className={currentTab === 0 ? 'flex flex-1 max-w-full' : 'hidden'}>
           {Component &&
             (iframe ? (
@@ -57,7 +57,11 @@ function FuseExample(props) {
         <div className={currentTab === 1 ? 'flex flex-1' : 'hidden'}>
           {raw && (
             <div className="flex flex-1">
-              <FuseHighlight component="pre" className="language-javascript w-full">
+              <FuseHighlight
+                component="pre"
+                className="language-javascript w-full"
+                sx={{ borderRadius: '0!important' }}
+              >
                 {raw.default}
               </FuseHighlight>
             </div>

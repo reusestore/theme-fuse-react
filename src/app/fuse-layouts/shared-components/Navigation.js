@@ -4,7 +4,6 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import clsx from 'clsx';
 import { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { selectNavigation } from 'app/store/fuse/navigationSlice';
 import { navbarCloseMobile } from '../../store/fuse/navbarSlice';
 

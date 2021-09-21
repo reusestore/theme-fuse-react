@@ -157,6 +157,7 @@ function Chat(props) {
             {chat.dialog.map((item, i) => {
               const contact =
                 item.who === user.id ? user : contacts.find((_contact) => _contact.id === item.who);
+
               return (
                 <StyledMessageRow
                   key={item.time}

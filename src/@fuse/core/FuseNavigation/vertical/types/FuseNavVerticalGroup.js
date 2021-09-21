@@ -58,7 +58,7 @@ function FuseNavVerticalGroup(props) {
         )}
       </>
     ),
-    [item, nestedLevel, onItemClick]
+    [item, itemPadding, nestedLevel, onItemClick]
   );
 }
 

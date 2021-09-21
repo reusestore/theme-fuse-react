@@ -61,6 +61,7 @@ function FuseNavVerticalItem(props) {
         onClick={() => onItemClick && onItemClick(item)}
         exact={item.exact}
         itemPadding={itemPadding}
+        role="button"
       >
         {item.icon && (
           <Icon

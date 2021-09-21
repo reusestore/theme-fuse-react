@@ -17,8 +17,8 @@ code[class*="language-"], pre[class*="language-"] {
     white-space: pre-wrap;
     word-break: break-all;
     word-wrap: break-word;
-    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    font-size: 14px;
+    font-family: Consolas,"Liberation Mono",Menlo,Courier,monospace;
+    font-size: 13px;
     line-height: 1.5;
     color: #EEFFFF;
     background: #263238;
@@ -32,7 +32,7 @@ pre[class*="language-"], :not(pre) > code[class*="language-"] {
 
 pre[class*="language-"] {
     padding: 12px;
-    border-radius: 16px;
+    border-radius: 12px;
 }
 
 :not(pre) > code[class*="language-"] {

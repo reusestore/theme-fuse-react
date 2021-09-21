@@ -28,6 +28,7 @@ function NavbarWrapperLayout2(props) {
   const config = useSelector(({ fuse }) => fuse.settings.current.layout.config);
   const navbarTheme = useSelector(selectNavbarTheme);
   const navbar = useSelector(({ fuse }) => fuse.navbar);
+
   return (
     <>
       <ThemeProvider theme={navbarTheme}>

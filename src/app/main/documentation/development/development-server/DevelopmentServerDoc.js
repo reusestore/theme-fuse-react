@@ -13,9 +13,7 @@ function DevelopmentServerDoc() {
       </Typography>
 
       <FuseHighlight component="pre" className="language-bash my-16">
-        {`
-                              yarn start
-                        `}
+        {` npm start `}
       </FuseHighlight>
 
       <Typography className="mb-16" component="p">
@@ -27,6 +25,14 @@ function DevelopmentServerDoc() {
         default, it will run on <b>http://localhost:3000</b> but it might change depending on your
         setup.
       </Typography>
+
+      <div className="my-24 px-12 py-8 border-1 border-red rounded-16">
+        <Typography className="mb-8 font-500 text-16 text-red">Important:</Typography>
+        <Typography className="" component="div">
+          If you have runtime errors on first run, make sure you are using at least LTS release of
+          Node.js. Remove node_modules and try again.
+        </Typography>
+      </div>
     </>
   );
 }

@@ -34,6 +34,10 @@ const Root = styled(FusePageSimple)(({ theme }) => ({
     width: 288,
     paddingTop: 8,
   },
+  '& .description': {
+    fontSize: 20,
+    marginBottom: 40,
+  },
 }));
 
 function DocumentationPageLayout({ content, route }) {

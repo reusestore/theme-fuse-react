@@ -42,6 +42,7 @@ function FuseNavHorizontalItem(props) {
         activeClassName="active"
         className={clsx('fuse-list-item')}
         exact={item.exact}
+        role="button"
       >
         {item.icon && (
           <Icon

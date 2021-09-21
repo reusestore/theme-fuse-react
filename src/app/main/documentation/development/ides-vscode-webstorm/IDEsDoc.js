@@ -13,15 +13,6 @@ function IDEsDoc() {
       </Typography>
 
       <Typography className="mt-24 mb-8" variant="h6">
-        Yarn 2 with PnP (yarnpkg/berry v2+)
-      </Typography>
-
-      <Typography className="mb-16" component="p">
-        If you are using IntelliJ/WebStorm, you should use <b>v2020.1+</b> for to use Yarn 2 with
-        PnP.
-      </Typography>
-
-      <Typography className="mt-24 mb-8" variant="h6">
         Using Prettier with ESLint
       </Typography>
 
@@ -35,16 +26,6 @@ function IDEsDoc() {
 
       <Typography className="mt-32" variant="h5">
         Visual Studio Code (VSCode)
-      </Typography>
-
-      <Typography className="mt-24 mb-8" variant="h6">
-        Yarn 2 with PnP (yarnpkg/berry v2+)
-      </Typography>
-
-      <Typography className="mb-16" component="p">
-        If you are using VSCode, for yarn 2 integration you should run
-        <code>yarn pnpify-sdk</code>{' '}
-        <i>We have already added "@yarnpkg/pnpify" into the devDependencies</i>.
       </Typography>
 
       <Typography className="mt-24 mb-8" variant="h6">

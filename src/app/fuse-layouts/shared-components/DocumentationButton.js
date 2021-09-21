@@ -1,6 +1,5 @@
 import Button from '@mui/material/Button';
 import Icon from '@mui/material/Icon';
-import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 
 function DocumentationButton({ className }) {
@@ -9,7 +8,7 @@ function DocumentationButton({ className }) {
       component={Link}
       to="/documentation"
       role="button"
-      className={clsx('', className)}
+      className={className}
       variant="contained"
       color="primary"
     >

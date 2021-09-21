@@ -119,6 +119,26 @@ export const defaultThemeOptions = {
         },
       },
     },
+    MuiSlider: {
+      defaultProps: {
+        color: 'secondary',
+      },
+    },
+    MuiCheckbox: {
+      defaultProps: {
+        color: 'secondary',
+      },
+    },
+    MuiRadio: {
+      defaultProps: {
+        color: 'secondary',
+      },
+    },
+    MuiSwitch: {
+      defaultProps: {
+        color: 'secondary',
+      },
+    },
   },
 };
 

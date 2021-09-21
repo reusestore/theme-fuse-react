@@ -13,9 +13,7 @@ function ProductionDoc() {
       </Typography>
 
       <FuseHighlight component="pre" className="language-bash my-16">
-        {`
-                              yarn run build
-                        `}
+        {` npm run build `}
       </FuseHighlight>
 
       <Typography className="mb-16" component="p">

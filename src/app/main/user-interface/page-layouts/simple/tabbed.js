@@ -8,12 +8,7 @@ import { useState } from 'react';
 
 const Root = styled(FusePageSimple)(({ theme }) => ({
   '& .FusePageSimple-header': {},
-  '& .FusePageSimple-toolbar': {
-    padding: '0 16px',
-    [theme.breakpoints.up('sm')]: {
-      padding: '0 24px',
-    },
-  },
+  '& .FusePageSimple-toolbar': {},
   '& .FusePageSimple-content': {},
   '& .FusePageSimple-sidebarHeader': {},
   '& .FusePageSimple-sidebarContent': {},
@@ -34,23 +29,25 @@ function SimpleTabbedSample() {
         </div>
       }
       contentToolbar={
-        <Tabs
-          value={selectedTab}
-          onChange={handleTabChange}
-          indicatorColor="primary"
-          textColor="primary"
-          variant="scrollable"
-          scrollButtons={false}
-          className="w-full h-64 border-b-1"
-        >
-          <Tab className="h-64" label="Item One" />
-          <Tab className="h-64" label="Item Two" />
-          <Tab className="h-64" label="Item Three" />
-          <Tab className="h-64" label="Item Four" />
-          <Tab className="h-64" label="Item Five" />
-          <Tab className="h-64" label="Item Six" />
-          <Tab className="h-64" label="Item Seven" />
-        </Tabs>
+        <div className="w-full px-16 sm:px-24">
+          <Tabs
+            value={selectedTab}
+            onChange={handleTabChange}
+            indicatorColor="primary"
+            textColor="primary"
+            variant="scrollable"
+            scrollButtons={false}
+            className="w-full h-64 border-b-1"
+          >
+            <Tab className="h-64" label="Item One" />
+            <Tab className="h-64" label="Item Two" />
+            <Tab className="h-64" label="Item Three" />
+            <Tab className="h-64" label="Item Four" />
+            <Tab className="h-64" label="Item Five" />
+            <Tab className="h-64" label="Item Six" />
+            <Tab className="h-64" label="Item Seven" />
+          </Tabs>
+        </div>
       }
       content={
         <div className="p-24">

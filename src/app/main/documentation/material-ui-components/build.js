@@ -4,6 +4,7 @@ import Beautify from 'js-beautify';
 import _ from 'lodash';
 import marked from 'marked';
 import path from 'path';
+import { spawn } from 'child_process';
 
 const Promise = require('promise');
 
@@ -15,6 +16,7 @@ const routesFilePath = path.resolve(rootDirectory, './MaterialUIComponentsRoutes
 const navigationFilePath = path.resolve(rootDirectory, './MaterialUIComponentsNavigation.js');
 
 const demoRegexp = /^"demo": "(.*)"/;
+const componentRegexp = /^"component": "(.*)"/;
 const headerRegExp = /---[\r\n]([\s\S]*)[\r\n]---/;
 const titleRegExp = /# (.*)[\r\n]/;
 // const headerKeyValueRegExp = /(.*): (.*)/g;
@@ -71,24 +73,23 @@ renderer.heading = (text, level) => {
   let className = '';
   switch (level) {
     case 1:
-      className = 'text-44 mt-32 mb-8';
+      className = 'text-40 my-16 font-700';
       break;
     case 2:
-      className = 'text-32 mt-32 mb-8';
+      className = 'text-32 mt-40 mb-10 font-700';
       break;
     case 3:
-      className = 'text-24 mt-32 mb-8';
+      className = 'text-20 mt-20 mb-10 font-700';
       break;
     default:
-      className = 'text-16 mt-32 mb-8';
+      className = 'text-16 mt-16 mb-10';
   }
 
   return `<Typography className="${className}" component="h${level}">${text}</Typography>\n`;
 };
 
 renderer.paragraph = (text) => {
-  const className = 'mb-16';
-  return `<Typography className="${className}" component="div">${text}</Typography>\n`;
+  return `<Typography className="mb-40" component="div">${text}</Typography>\n`;
 };
 
 renderer.code = (code, lang) => {
@@ -103,8 +104,8 @@ ${code}
 };
 
 renderer.codespan = (code, lang) => {
-  const response = `<code>{%%${_.unescape(code)}%%}</code>`;
-  return response.replace(new RegExp('%%', 'g'), '`');
+  const response = `<code>{@@${_.unescape(code)}@@}</code>`;
+  return response.replace(new RegExp('@@', 'g'), '`');
 };
 
 const rmDir = (dirPath) => {
@@ -164,6 +165,11 @@ function getHtmlCode(markdownSource) {
                     raw="{require('!raw-loader!${importPath}')}"
                     />`;
     }
+    const muiComponent = content.match(componentRegexp);
+    if (muiComponent) {
+      return '';
+    }
+
     return content;
   });
   const response = marked(contentsArr.join(''))
@@ -173,7 +179,8 @@ function getHtmlCode(markdownSource) {
     .replace(new RegExp('class=', 'g'), 'className=')
     .replace(new RegExp('<img([^>]+)(\\s*[^\\/])>', 'gm'), '$1/>')
     .replace(new RegExp('<br>', 'g'), '<br/>')
-    .replace(new RegExp('/static/', 'g'), '/material-ui-static/');
+    .replace(new RegExp('/static/', 'g'), '/material-ui-static/')
+    .replace(new RegExp('<!-- #default-branch-switch -->', 'g'), '');
   return response;
 }
 
@@ -221,7 +228,7 @@ function writePage(file) {
 							variant="contained"
                             color="secondary"
 							component="a" 
-							href="https://material-ui.com/components/${path.basename(file)}" 
+							href="https://mui.com/components/${path.basename(file)}" 
 							target="_blank"
 							role="button"
 							>
@@ -240,20 +247,12 @@ function writePage(file) {
                    import Button from '@mui/material/Button';
                    import Icon from '@mui/material/Icon';
                    import Typography from '@mui/material/Typography';
-                   import {makeStyles} from '@mui/material/styles';
                    /* eslint import/no-webpack-loader-syntax: off */
                    /* eslint import/extensions: off */
                    /* eslint no-unused-vars: off */
                    /* eslint-disable jsx-a11y/accessible-emoji */
-                   const useStyles = makeStyles(theme=>({
-                       layoutRoot: {
-                           '& .description':{
-                                   marginBottom:16
-                           }
-                       }
-                   }));
+                  
                    function ${fileName}Doc(props) {
-                     const classes = useStyles();
                      return (
                        ${contentJSX}
                      );
@@ -425,23 +424,48 @@ function replaceInExamples() {
 
 function removeExcludedComponents() {
   const excludedComponents = [
-    path.resolve(examplesDirectory, './breakpoints'),
+    path.resolve(examplesDirectory, './hidden'),
     path.resolve(examplesDirectory, './use-media-query'),
     path.resolve(examplesDirectory, './about-the-lab'),
-    path.resolve(examplesDirectory, './rating'),
-    path.resolve(examplesDirectory, './speed-dial'),
-    path.resolve(examplesDirectory, './toggle-button'),
-    path.resolve(examplesDirectory, './skeleton'),
     path.resolve(examplesDirectory, './material-icons'),
-    path.resolve(examplesDirectory, './tree-view'),
     path.resolve(examplesDirectory, './icons'),
   ];
 
   excludedComponents.forEach((_path) => rmDir(_path));
 }
 
+function removeUnnecessaryFiles() {
+  filewalker(demoDir, (err, list) => {
+    if (err) {
+      throw err;
+    }
+    list.forEach((file) => {
+      const fileExt = path.extname(file);
+      const extToRemove = [
+        '.preview',
+        '.ts',
+        '.tsx',
+        '-de.md',
+        '-es.md',
+        '-fr.md',
+        '-ja.md',
+        '-pt.md',
+        '-ru.md',
+        '-zh.md',
+      ];
+      extToRemove.forEach((str) => {
+        if (file.endsWith(str)) {
+          fs.unlink(file, () => {});
+        }
+      });
+    });
+  });
+}
+
 function build(dir) {
   fs.unlink(path.resolve(examplesDirectory, './.eslintrc.js'), (err) => {});
+
+  removeUnnecessaryFiles();
 
   removeExcludedComponents();
 
@@ -454,7 +478,22 @@ function build(dir) {
   readDir(examplesDirectory).then(({ dir: _dir, list }) => {
     writePages(_dir, list).then((pages) => {
       writeRouteFile(pages);
+
       writeNavigationFile(pages);
+
+      const child = spawn('npm', ['run', 'lint', '--', '--fix', rootDirectory]);
+
+      child.stdout.on('data', (data) => {
+        console.log(`stdout: ${data}`);
+      });
+
+      child.stderr.on('data', (data) => {
+        console.log(`stderr: ${data}`);
+      });
+
+      child.on('close', (code) => {
+        console.log(`child process exited with code ${code}`);
+      });
     });
   });
 }

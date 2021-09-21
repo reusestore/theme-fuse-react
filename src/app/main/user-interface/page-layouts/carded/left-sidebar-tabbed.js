@@ -11,9 +11,7 @@ import { useRef, useState } from 'react';
 
 const Root = styled(FusePageCarded)({
   '& .FusePageCarded-header': {},
-  '& .FusePageCarded-toolbar': {
-    padding: 0,
-  },
+  '& .FusePageCarded-toolbar': {},
   '& .FusePageCarded-content': {},
   '& .FusePageCarded-sidebarHeader': {},
   '& .FusePageCarded-sidebarContent': {},

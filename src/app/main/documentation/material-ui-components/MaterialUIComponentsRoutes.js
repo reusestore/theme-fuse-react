@@ -86,6 +86,22 @@ const MaterialUIComponentsRoutes = [
     ),
   },
   {
+    path: '/documentation/material-ui-components/date-picker',
+    component: lazy(() => import('app/main/documentation/material-ui-components/pages/DatePicker')),
+  },
+  {
+    path: '/documentation/material-ui-components/date-range-picker',
+    component: lazy(() =>
+      import('app/main/documentation/material-ui-components/pages/DateRangePicker')
+    ),
+  },
+  {
+    path: '/documentation/material-ui-components/date-time-picker',
+    component: lazy(() =>
+      import('app/main/documentation/material-ui-components/pages/DateTimePicker')
+    ),
+  },
+  {
     path: '/documentation/material-ui-components/dialogs',
     component: lazy(() => import('app/main/documentation/material-ui-components/pages/Dialogs')),
   },
@@ -122,6 +138,10 @@ const MaterialUIComponentsRoutes = [
   {
     path: '/documentation/material-ui-components/lists',
     component: lazy(() => import('app/main/documentation/material-ui-components/pages/Lists')),
+  },
+  {
+    path: '/documentation/material-ui-components/masonry',
+    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Masonry')),
   },
   {
     path: '/documentation/material-ui-components/menus',
@@ -170,8 +190,16 @@ const MaterialUIComponentsRoutes = [
     ),
   },
   {
+    path: '/documentation/material-ui-components/rating',
+    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Rating')),
+  },
+  {
     path: '/documentation/material-ui-components/selects',
     component: lazy(() => import('app/main/documentation/material-ui-components/pages/Selects')),
+  },
+  {
+    path: '/documentation/material-ui-components/skeleton',
+    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Skeleton')),
   },
   {
     path: '/documentation/material-ui-components/slider',
@@ -180,6 +208,14 @@ const MaterialUIComponentsRoutes = [
   {
     path: '/documentation/material-ui-components/snackbars',
     component: lazy(() => import('app/main/documentation/material-ui-components/pages/Snackbars')),
+  },
+  {
+    path: '/documentation/material-ui-components/speed-dial',
+    component: lazy(() => import('app/main/documentation/material-ui-components/pages/SpeedDial')),
+  },
+  {
+    path: '/documentation/material-ui-components/stack',
+    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Stack')),
   },
   {
     path: '/documentation/material-ui-components/steppers',
@@ -208,8 +244,18 @@ const MaterialUIComponentsRoutes = [
     ),
   },
   {
+    path: '/documentation/material-ui-components/time-picker',
+    component: lazy(() => import('app/main/documentation/material-ui-components/pages/TimePicker')),
+  },
+  {
     path: '/documentation/material-ui-components/timeline',
     component: lazy(() => import('app/main/documentation/material-ui-components/pages/Timeline')),
+  },
+  {
+    path: '/documentation/material-ui-components/toggle-button',
+    component: lazy(() =>
+      import('app/main/documentation/material-ui-components/pages/ToggleButton')
+    ),
   },
   {
     path: '/documentation/material-ui-components/tooltips',
@@ -226,6 +272,14 @@ const MaterialUIComponentsRoutes = [
     component: lazy(() =>
       import('app/main/documentation/material-ui-components/pages/Transitions')
     ),
+  },
+  {
+    path: '/documentation/material-ui-components/trap-focus',
+    component: lazy(() => import('app/main/documentation/material-ui-components/pages/TrapFocus')),
+  },
+  {
+    path: '/documentation/material-ui-components/tree-view',
+    component: lazy(() => import('app/main/documentation/material-ui-components/pages/TreeView')),
   },
   {
     path: '/documentation/material-ui-components/typography',

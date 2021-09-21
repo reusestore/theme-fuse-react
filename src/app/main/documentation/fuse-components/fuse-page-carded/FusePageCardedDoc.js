@@ -63,44 +63,38 @@ function FusePageCardedDoc() {
       <Typography className="mb-16" component="p">
         <code>FusePageCarded</code> is the carded page layout component of the Fuse React.
       </Typography>
-      <Typography className="mb-16" component="p">
+      <Typography className="mb-24" component="p">
         The component has layout areas to easily enter the contents of the app.
-      </Typography>
-      <Typography className="mb-16" component="p">
-        You can extend the class names injected by the classes property
       </Typography>
 
       <FuseHighlight component="pre" className="language-jsx">
         {`
-                                   <FusePageCarded
-                                        classes={{
-                                            root: classes.layoutRoot
-                                        }}
-                                        header={
-                                            Header
-                                        }
-                                        contentToolbar={
-                                            Content Toolbar
-                                        }
-                                        content={
-                                            Content
-                                        }
-                                        leftSidebarHeader={
-                                            Left Sidebar Header
-                                        }
-                                        leftSidebarContent={
-                                            Left Sidebar Content
-                                        }
-                                        rightSidebarHeader={
-                                            Right Sidebar Header
-                                        }
-                                        rightSidebarContent={
-                                            Right Sidebar Content
-                                        }
-                                        ref={pageLayout}
-                                        innerScroll
-                                    />
-                                `}
+           <FusePageCarded
+                header={
+                    Header
+                }
+                contentToolbar={
+                    Content Toolbar
+                }
+                content={
+                    Content
+                }
+                leftSidebarHeader={
+                    Left Sidebar Header
+                }
+                leftSidebarContent={
+                    Left Sidebar Content
+                }
+                rightSidebarHeader={
+                    Right Sidebar Header
+                }
+                rightSidebarContent={
+                    Right Sidebar Content
+                }
+                ref={pageLayout}
+                innerScroll
+            />
+        `}
       </FuseHighlight>
 
       <Typography className="mt-32 mb-8" variant="h5">

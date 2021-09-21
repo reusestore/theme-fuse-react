@@ -4,7 +4,6 @@ import CardContent from '@mui/material/CardContent';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Typography from '@mui/material/Typography';
-import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -38,21 +37,14 @@ function Register() {
   }
 
   return (
-    <Root
-      className={clsx(
-        'flex flex-col flex-auto items-center justify-center flex-shrink-0 p-16 md:p-24'
-      )}
-    >
+    <Root className="flex flex-col flex-auto items-center justify-center flex-shrink-0 p-16 md:p-24">
       <motion.div
         initial={{ opacity: 0, scale: 0.6 }}
         animate={{ opacity: 1, scale: 1 }}
         className="flex w-full max-w-400 md:max-w-3xl rounded-20 shadow-2xl overflow-hidden"
       >
         <Card
-          className={clsx(
-            'Register-leftSection',
-            'flex flex-col w-full max-w-sm items-center justify-center shadow-0'
-          )}
+          className="Register-leftSection flex flex-col w-full max-w-sm items-center justify-center shadow-0"
           square
         >
           <CardContent className="flex flex-col items-center justify-center w-full py-96 max-w-320">
@@ -126,12 +118,7 @@ function Register() {
           </div>
         </Card>
 
-        <div
-          className={clsx(
-            'Register-rightSection',
-            'hidden md:flex flex-1 items-center justify-center p-64'
-          )}
-        >
+        <div className="Register-rightSection hidden md:flex flex-1 items-center justify-center p-64">
           <div className="max-w-320">
             <motion.div
               initial={{ opacity: 0, y: 40 }}

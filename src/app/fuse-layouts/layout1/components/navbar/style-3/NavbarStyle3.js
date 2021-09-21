@@ -1,32 +1,16 @@
 import Hidden from '@mui/material/Hidden';
 import { styled } from '@mui/material/styles';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
-import clsx from 'clsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
+import GlobalStyles from '@mui/material/GlobalStyles';
 import NavbarStyle3Content from './NavbarStyle3Content';
 
 const navbarWidth = 120;
 const navbarWidthDense = 64;
 const panelWidth = 280;
 
-const Root = styled('div')(({ theme, dense }) => ({
-  '& #fuse-navbar-side-panel': {
-    width: dense ? navbarWidthDense : navbarWidth,
-    minWidth: dense ? navbarWidthDense : navbarWidth,
-    maxWidth: dense ? navbarWidthDense : navbarWidth,
-  },
-  '& #fuse-navbar-panel': {
-    maxWidth: '100%',
-    width: panelWidth,
-    [theme.breakpoints.up('lg')]: {
-      minWidth: panelWidth,
-      maxWidth: 'initial',
-    },
-  },
-}));
-
-const StyledNavBar = styled('div')(({ theme, dense, opened, folded, position }) => ({
+const StyledNavBar = styled('div')(({ theme, dense, open, folded, position }) => ({
   minWidth: navbarWidth,
   width: navbarWidth,
   maxWidth: navbarWidth,
@@ -36,7 +20,7 @@ const StyledNavBar = styled('div')(({ theme, dense, opened, folded, position }) 
     width: navbarWidthDense,
     maxWidth: navbarWidthDense,
 
-    ...(!opened && {
+    ...(!open && {
       ...(position === 'left' && {
         marginLeft: -navbarWidthDense,
       }),
@@ -57,7 +41,7 @@ const StyledNavBar = styled('div')(({ theme, dense, opened, folded, position }) 
       pointerEvents: 'initial!important',
     },
 
-    ...(!opened && {
+    ...(!open && {
       ...(position === 'left' && {
         marginLeft: -(dense ? navbarWidthDense + panelWidth : navbarWidth + panelWidth),
       }),
@@ -68,7 +52,7 @@ const StyledNavBar = styled('div')(({ theme, dense, opened, folded, position }) 
     }),
   }),
 
-  ...(!opened && {
+  ...(!open && {
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.leavingScreen,
@@ -82,7 +66,7 @@ const StyledNavBar = styled('div')(({ theme, dense, opened, folded, position }) 
     }),
   }),
 
-  ...(opened && {
+  ...(open && {
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
@@ -110,19 +94,31 @@ function NavbarStyle3(props) {
   const { folded } = config.navbar;
 
   return (
-    <Root dense={props.dense}>
+    <>
+      <GlobalStyles
+        styles={(theme) => ({
+          '& #fuse-navbar-side-panel': {
+            width: props.dense ? navbarWidthDense : navbarWidth,
+            minWidth: props.dense ? navbarWidthDense : navbarWidth,
+            maxWidth: props.dense ? navbarWidthDense : navbarWidth,
+          },
+          '& #fuse-navbar-panel': {
+            maxWidth: '100%',
+            width: panelWidth,
+            [theme.breakpoints.up('lg')]: {
+              minWidth: panelWidth,
+              maxWidth: 'initial',
+            },
+          },
+        })}
+      />
       <Hidden lgDown>
         <StyledNavBar
-          opened={navbar.open}
+          open={navbar.open}
           dense={props.dense}
           folded={folded}
-          className={clsx(
-            config.navbar.position,
-            navbar.open ? 'opened' : 'closed',
-            props.dense && 'dense',
-            !folded && 'folded-disabled',
-            'flex-col flex-auto sticky top-0 h-screen flex-shrink-0 z-20 shadow-5'
-          )}
+          position={config.navbar.position}
+          className="flex-col flex-auto sticky top-0 h-screen flex-shrink-0 z-20 shadow-5"
         >
           <NavbarStyle3Content dense={props.dense} folded={folded} />
         </StyledNavBar>
@@ -145,7 +141,7 @@ function NavbarStyle3(props) {
           <NavbarStyle3Content dense={props.dense} folded={folded} />
         </StyledNavBarMobile>
       </Hidden>
-    </Root>
+    </>
   );
 }
 

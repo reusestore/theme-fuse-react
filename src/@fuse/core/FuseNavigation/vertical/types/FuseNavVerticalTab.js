@@ -84,6 +84,7 @@ function FuseNavVerticalTab(props) {
           )}
           onClick={() => onItemClick && onItemClick(item)}
           exact={item.exact}
+          role="button"
         >
           {dense ? (
             <Tooltip title={item.title || ''} placement="right">

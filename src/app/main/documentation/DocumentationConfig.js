@@ -4,7 +4,7 @@ import AuthenticationDocRoutes from './authentication/AuthenticationDocRoutes';
 import DevelopmentDocRoutes from './development/DevelopmentDocRoutes';
 import FuseComponentsRoutes from './fuse-components/FuseComponentsRoutes';
 import GettingStartedDocRoutes from './getting-started/GettingStartedDocRoutes';
-// import MaterialUIComponentsRoutes from './material-ui-components/MaterialUIComponentsRoutes';
+import MaterialUIComponentsRoutes from './material-ui-components/MaterialUIComponentsRoutes';
 import ThemingDocRoutes from './theming/ThemingDocRoutes';
 import ThirdPartyComponentsRoutes from './third-party-components/ThirdPartyComponentsRoutes';
 import ConfigurationDocRoutes from './configuration/ConfigurationDocRoutes';
@@ -25,7 +25,7 @@ const DocumentationConfig = {
         ...ConfigurationDocRoutes,
         ...AuthenticationDocRoutes,
         ...FuseComponentsRoutes,
-        // ...MaterialUIComponentsRoutes,
+        ...MaterialUIComponentsRoutes,
         ...ThirdPartyComponentsRoutes,
         {
           path: '/documentation',

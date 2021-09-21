@@ -1,6 +1,5 @@
 import Hidden from '@mui/material/Hidden';
 import { styled } from '@mui/material/styles';
-import clsx from 'clsx';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import { useDispatch, useSelector } from 'react-redux';
 import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
@@ -8,28 +7,28 @@ import NavbarStyle1Content from './NavbarStyle1Content';
 
 const navbarWidth = 280;
 
-const StyledNavBar = styled('div')(({ theme }) => ({
+const StyledNavBar = styled('div')(({ theme, open, position }) => ({
   minWidth: navbarWidth,
   width: navbarWidth,
   maxWidth: navbarWidth,
-  '&.closed': {
+  ...(!open && {
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    '&.left': {
+    ...(position === 'left' && {
       marginLeft: `-${navbarWidth}px`,
-    },
-    '&.right': {
+    }),
+    ...(position === 'right' && {
       marginRight: `-${navbarWidth}px`,
-    },
-  },
-  '&.opened': {
+    }),
+  }),
+  ...(open && {
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
-  },
+  }),
 }));
 
 const StyledNavBarMobile = styled(SwipeableDrawer)(({ theme }) => ({
@@ -49,11 +48,9 @@ function NavbarStyle1(props) {
     <>
       <Hidden lgDown>
         <StyledNavBar
-          className={clsx(
-            config.navbar.position,
-            navbar.open ? 'opened' : 'closed',
-            'flex-col flex-auto sticky top-0 overflow-hidden h-screen flex-shrink-0 z-20 shadow-5'
-          )}
+          className="flex-col flex-auto sticky top-0 overflow-hidden h-screen flex-shrink-0 z-20 shadow-5"
+          open={navbar.open}
+          position={config.navbar.position}
         >
           <NavbarStyle1Content />
         </StyledNavBar>

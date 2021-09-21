@@ -7,34 +7,13 @@ import Menu from '@mui/material/Menu';
 import clsx from 'clsx';
 
 const marks = [
-  {
-    value: 0.7,
-    label: '70%',
-  },
-  {
-    value: 0.8,
-    label: '80%',
-  },
-  {
-    value: 0.9,
-    label: '90%',
-  },
-  {
-    value: 1,
-    label: '100%',
-  },
-  {
-    value: 1.1,
-    label: '110%',
-  },
-  {
-    value: 1.2,
-    label: '120%',
-  },
-  {
-    value: 1.3,
-    label: '130%',
-  },
+  { value: 0.7, label: '70%' },
+  { value: 0.8, label: '80%' },
+  { value: 0.9, label: '90%' },
+  { value: 1, label: '100%' },
+  { value: 1.1, label: '110%' },
+  { value: 1.2, label: '120%' },
+  { value: 1.3, label: '130%' },
 ];
 
 function AdjustFontSize(props) {

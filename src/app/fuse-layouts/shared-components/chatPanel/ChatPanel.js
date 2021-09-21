@@ -4,7 +4,6 @@ import Avatar from '@mui/material/Avatar';
 import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
-
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import withReducer from 'app/store/withReducer';
@@ -17,7 +16,6 @@ import ContactList from './ContactList';
 import reducer from './store';
 import { getContacts, selectContacts } from './store/contactsSlice';
 import { openChatPanel, closeChatPanel } from './store/stateSlice';
-
 import { getUserData } from './store/userSlice';
 
 const Root = styled('div')(({ theme, opened }) => ({

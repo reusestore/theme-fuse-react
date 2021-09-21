@@ -36,21 +36,22 @@ function HelperClassesUI() {
               Fuse React developed based on Material-UI as ui library.
               <a
                 className="mx-4"
-                href="https://material-ui-next.com/customization/css-in-js"
+                href="https://mui.com/system/basics/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Material-UI's styling solution
               </a>
-              uses JSS at its core. Therefore the Fuse React supports
+              uses emotion at its core. Therefore the Fuse React supports
               <a
                 className="mx-4"
                 href="http://cssinjs.org/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                JSS (CSSinJS library)
-              </a>
+                Emotion
+              </a>{' '}
+              (Emotion is a library designed for writing css styles with JavaScript)
             </Typography>
           </div>
 

@@ -45,7 +45,7 @@ function IntroductionDoc() {
         Material-UI
       </Typography>
       <Typography className="mb-16" component="p">
-        <a href="https://material-ui-next.com" target="_blank" rel="noreferrer noopener">
+        <a href="https://mui.com" target="_blank" rel="noreferrer noopener">
           Material-UI
         </a>{' '}
         is a react UI library that implements Google's Material Design specification.

@@ -13,10 +13,6 @@ import { InputBase } from '@mui/material';
 import { sendMessage } from './store/chatSlice';
 import { selectContacts } from './store/contactsSlice';
 
-const StyledPaper = styled(Paper)(({ theme }) => ({
-  background: theme.palette.background.default,
-}));
-
 const StyledMessageRow = styled('div')(({ theme }) => ({
   position: 'relative',
   display: 'flex',
@@ -174,7 +170,10 @@ function Chat(props) {
   };
 
   return (
-    <StyledPaper className={clsx('flex flex-col relative pb-64 shadow', props.className)}>
+    <Paper
+      className={clsx('flex flex-col relative pb-64 shadow', props.className)}
+      sx={{ background: (theme) => theme.palette.background.default }}
+    >
       {useMemo(() => {
         const shouldShowContactAvatar = (item, i) => {
           return (
@@ -282,7 +281,7 @@ function Chat(props) {
           </Paper>
         </form>
       )}
-    </StyledPaper>
+    </Paper>
   );
 }
 

@@ -32,7 +32,7 @@ function TypographyUI() {
             variant="contained"
             color="secondary"
             component="a"
-            href="https://material-ui-next.com/style/typography/"
+            href="https://mui.com/components/typography"
             target="_blank"
             role="button"
           >
