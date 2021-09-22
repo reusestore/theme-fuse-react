@@ -1,7 +1,7 @@
 /* eslint import/no-extraneous-dependencies: off */
 import { createSlice } from '@reduxjs/toolkit';
 import firebase from 'firebase/compat/app';
-import 'firebase/auth';
+import 'firebase/compat/auth';
 import history from '@history';
 import _ from '@lodash';
 import { setInitialSettings, setDefaultSettings } from 'app/store/fuse/settingsSlice';
