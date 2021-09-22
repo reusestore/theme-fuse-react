@@ -18,7 +18,7 @@ function FuseNavigationDoc(props) {
 
   return (
     <>
-      <Typography variant="h4" className="mb-24">
+      <Typography variant="h4" className="mb-40 font-700">
         FuseNavigation
       </Typography>
 
@@ -27,7 +27,7 @@ function FuseNavigationDoc(props) {
         multi-level collapsable navigation.
       </Typography>
 
-      <Typography className="mt-32 mb-8" variant="h6">
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
         [navigation]
       </Typography>
 
@@ -37,7 +37,7 @@ function FuseNavigationDoc(props) {
         mixed and matched to create unique and complex navigation layouts.
       </Typography>
 
-      <Typography className="mt-32 mb-8" variant="h6">
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
         [layout]
       </Typography>
 
@@ -45,7 +45,7 @@ function FuseNavigationDoc(props) {
         "vertical" or "horizontal" layout options.
       </Typography>
 
-      <Typography className="mt-32 mb-8" variant="h6">
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
         [active]
       </Typography>
 
@@ -54,7 +54,7 @@ function FuseNavigationDoc(props) {
         rounded/circle for <b>vertical layout</b>.
       </Typography>
 
-      <Typography className="mt-32 mb-8" variant="h6">
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
         [dense]
       </Typography>
 
@@ -62,7 +62,7 @@ function FuseNavigationDoc(props) {
         You can use <b>{`dense={true}`}</b> to set dense variation of the navigation.
       </Typography>
 
-      <Typography className="mt-32 mb-8" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         Usage
       </Typography>
 
@@ -80,7 +80,7 @@ function FuseNavigationDoc(props) {
         It is mandatory to give a unique id to all of your navigation items.
       </Typography>
 
-      <Typography className="mt-32 mb-8" variant="h6">
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
         Group
       </Typography>
       <FuseHighlight component="pre" className="language-json">
@@ -104,7 +104,7 @@ function FuseNavigationDoc(props) {
                                 `}
       </FuseHighlight>
 
-      <Typography className="mt-32 mb-8" variant="h6">
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
         Collapse
       </Typography>
       <FuseHighlight component="pre" className="language-json">
@@ -127,7 +127,7 @@ function FuseNavigationDoc(props) {
                                 `}
       </FuseHighlight>
 
-      <Typography className="mt-32 mb-8" variant="h6">
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
         Item
       </Typography>
       <FuseHighlight component="pre" className="language-json">
@@ -157,7 +157,7 @@ function FuseNavigationDoc(props) {
                                 }
                                 `}
       </FuseHighlight>
-      <Typography className="mt-32 mb-8" variant="h6">
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
         Link
       </Typography>
       <FuseHighlight component="pre" className="language-json">
@@ -172,7 +172,7 @@ function FuseNavigationDoc(props) {
                                 },
                                `}
       </FuseHighlight>
-      <Typography className="mt-32 mb-8" variant="h6">
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
         Divider
       </Typography>
       <FuseHighlight component="pre" className="language-json">
@@ -199,7 +199,7 @@ function FuseNavigationDoc(props) {
         Actions
       </Typography>
 
-      <Typography className="mt-32 mb-8" variant="h6">
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
         setNavigation
       </Typography>
       <Typography className="text-16 mb-8" component="h2">
@@ -288,7 +288,7 @@ function FuseNavigationDoc(props) {
         </FuseHighlight>
       </div>
 
-      <Typography className="mt-32 mb-8" variant="h6">
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
         resetNavigation
       </Typography>
       <Typography className="text-16 mb-8" component="h2">
@@ -325,7 +325,7 @@ function FuseNavigationDoc(props) {
         </FuseHighlight>
       </div>
 
-      <Typography className="mt-32 mb-8" variant="h6">
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
         updateNavigationItem
       </Typography>
       <Typography className="text-16 mb-8" component="h2">
@@ -384,7 +384,7 @@ function FuseNavigationDoc(props) {
         </FuseHighlight>
       </div>
 
-      <Typography className="mt-32 mb-8" variant="h6">
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
         removeNavigationItem
       </Typography>
       <Typography className="text-16 mb-8" component="h2">
@@ -421,7 +421,7 @@ function FuseNavigationDoc(props) {
         </FuseHighlight>
       </div>
 
-      <Typography className="mt-32 mb-8" variant="h6">
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
         prependNavigationItem
       </Typography>
       <Typography className="text-16 mb-8" component="h2">
@@ -533,7 +533,7 @@ function FuseNavigationDoc(props) {
         </FuseHighlight>
       </div>
 
-      <Typography className="mt-32 mb-8" variant="h6">
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
         appendNavigationItem
       </Typography>
       <Typography className="text-16 mb-8" component="h2">

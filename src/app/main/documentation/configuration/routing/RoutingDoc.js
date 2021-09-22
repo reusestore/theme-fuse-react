@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 function RoutingDoc() {
   return (
     <>
-      <Typography variant="h4" className="mb-24">
+      <Typography variant="h4" className="mb-40 font-700">
         Routing
       </Typography>
 

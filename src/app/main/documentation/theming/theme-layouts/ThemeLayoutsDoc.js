@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function ThemeLayoutsDoc() {
   return (
     <>
-      <Typography variant="h4" className="mb-24">
+      <Typography variant="h4" className="mb-40 font-700">
         Theme Layouts
       </Typography>
 
@@ -20,7 +20,7 @@ function ThemeLayoutsDoc() {
         configure the layout elements such as Toolbar, Footer, and Navbar.
       </Typography>
 
-      <Typography className="mb-8" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         File Structure
       </Typography>
 
@@ -60,7 +60,7 @@ function ThemeLayoutsDoc() {
         </ul>
       </Typography>
 
-      <Typography className="mb-8" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         Configuring
       </Typography>
 

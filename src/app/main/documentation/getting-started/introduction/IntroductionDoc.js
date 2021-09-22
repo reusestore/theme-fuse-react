@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 function IntroductionDoc() {
   return (
     <>
-      <Typography variant="h4" className="mb-24">
+      <Typography variant="h4" className="mb-40 font-700">
         Introduction
       </Typography>
       <Typography className="mb-16" component="p">
@@ -18,7 +18,7 @@ function IntroductionDoc() {
         Here you can find a list of core libraries, design specifications, and coding standards that
         we use in Fuse React:
       </Typography>
-      <Typography className="mb-8" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         Google's Material Design
       </Typography>
       <Typography className="mb-16" component="p">
@@ -31,7 +31,7 @@ function IntroductionDoc() {
           Google's Material Design Specifications.
         </a>
       </Typography>
-      <Typography className="mt-32 mb-8" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         React
       </Typography>
       <Typography className="mb-16" component="p">
@@ -41,7 +41,7 @@ function IntroductionDoc() {
         is the core of our template. If you don't know what React is or don't know how to use it, we
         strongly recommend checking the React before start doing anything with Fuse.
       </Typography>
-      <Typography className="mt-32 mb-8" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         Material-UI
       </Typography>
       <Typography className="mb-16" component="p">
@@ -50,7 +50,7 @@ function IntroductionDoc() {
         </a>{' '}
         is a react UI library that implements Google's Material Design specification.
       </Typography>
-      <Typography className="mt-32 mb-8" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         Create React App (CLI)
       </Typography>
       <Typography className="mb-16" component="p">

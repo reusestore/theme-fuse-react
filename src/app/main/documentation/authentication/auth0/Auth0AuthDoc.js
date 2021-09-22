@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function Auth0AuthDoc() {
   return (
     <>
-      <Typography variant="h4" className="mb-24">
+      <Typography variant="h4" className="mb-40 font-700">
         Auth0 Authentication Service Example
       </Typography>
 
@@ -35,7 +35,7 @@ function Auth0AuthDoc() {
         <code>src/app/App.js</code>. The service initializes in the Auth component.
       </Typography>
 
-      <Typography className="mt-32 mb-8" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         Configuration
       </Typography>
 

@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 function HerokuNotesDoc() {
   return (
     <>
-      <Typography variant="h4" className="mb-24">
+      <Typography variant="h4" className="mb-40 font-700">
         HEROKU Notes
       </Typography>
 
@@ -13,8 +13,8 @@ function HerokuNotesDoc() {
         solution:
       </Typography>
 
-      <Typography className="mt-24 mb-8" variant="h6">
-        We need to use the{' '}
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
+        Use the{' '}
         <a
           href="https://github.com/mars/create-react-app-buildpack#user-content-quick-start"
           target="_blank"
@@ -26,33 +26,27 @@ function HerokuNotesDoc() {
       </Typography>
 
       <FuseHighlight component="pre" className="mb-24">
-        {`
-					heroku buildpacks:set mars/create-react-app
-				`}
+        {` heroku buildpacks:set mars/create-react-app `}
       </FuseHighlight>
 
       <Typography className="mb-16" component="p">
         the next build will be created with this official pack.
       </Typography>
 
-      <Typography className="mt-24 mb-8" variant="h6">
-        We need to install devDependencies:
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
+        Install devDependencies:
       </Typography>
 
       <FuseHighlight component="pre" className="mb-24">
-        {`
-					heroku config:set NPM_CONFIG_PRODUCTION=false
-				`}
+        {` heroku config:set NPM_CONFIG_PRODUCTION=false `}
       </FuseHighlight>
 
-      <Typography className="mt-24 mb-8" variant="h6">
-        push skeleton branch to master of heroku
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
+        Push skeleton branch to master of heroku
       </Typography>
 
       <FuseHighlight component="pre" className="mb-24">
-        {`
-					git push heroku skeleton:master
-				`}
+        {` git push heroku skeleton:master `}
       </FuseHighlight>
     </>
   );

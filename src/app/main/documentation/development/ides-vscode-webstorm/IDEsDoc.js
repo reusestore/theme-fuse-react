@@ -4,15 +4,15 @@ import Typography from '@mui/material/Typography';
 function IDEsDoc() {
   return (
     <>
-      <Typography variant="h4" className="mb-24">
+      <Typography variant="h4" className="mb-40 font-700">
         IDEs
       </Typography>
 
-      <Typography className="" variant="h5">
+      <Typography className="text-20 mb-10 font-700" variant="h5">
         Webstorm
       </Typography>
 
-      <Typography className="mt-24 mb-8" variant="h6">
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
         Using Prettier with ESLint
       </Typography>
 
@@ -24,11 +24,11 @@ function IDEsDoc() {
         <b>Preferences | Languages & Frameworks | JavaScript | Code Quality Tools | ESLint</b>.
       </Typography>
 
-      <Typography className="mt-32" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         Visual Studio Code (VSCode)
       </Typography>
 
-      <Typography className="mt-24 mb-8" variant="h6">
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
         Using Prettier with ESLint
       </Typography>
 

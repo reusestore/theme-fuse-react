@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 function SettingsDoc() {
   return (
     <>
-      <Typography variant="h4" className="mb-24">
+      <Typography variant="h4" className="mb-40 font-700">
         Default Settings
       </Typography>
 

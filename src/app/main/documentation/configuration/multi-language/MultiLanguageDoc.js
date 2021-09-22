@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 function MultiLanguageDoc() {
   return (
     <>
-      <Typography variant="h4" className="mb-24">
+      <Typography variant="h4" className="mb-40 font-700">
         Multi Language
       </Typography>
 
@@ -29,7 +29,7 @@ function MultiLanguageDoc() {
         translations for demonstration purposes. You can look at its source code to see the usage.
       </Typography>
 
-      <Typography className="mb-8" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         Usage
       </Typography>
 
@@ -76,7 +76,7 @@ function MultiLanguageDoc() {
                         `}
       </FuseHighlight>
 
-      <Typography className="mb-8" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         Changing Language
       </Typography>
 

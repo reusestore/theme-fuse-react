@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function NavigationDoc() {
   return (
     <>
-      <Typography variant="h4" className="mb-24">
+      <Typography variant="h4" className="mb-40 font-700">
         Navigation
       </Typography>
 

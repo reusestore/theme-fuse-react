@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 function RTLSupportDoc() {
   return (
     <>
-      <Typography variant="h4" className="mb-24">
+      <Typography variant="h4" className="mb-40 font-700">
         RTL Support
       </Typography>
 
@@ -15,7 +15,7 @@ function RTLSupportDoc() {
         Fuse React supports Right-to-left languages such as Arabic, Persian or Hebrew, etc.
       </Typography>
 
-      <Typography className="mb-8" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         Development
       </Typography>
 
@@ -64,7 +64,7 @@ function RTLSupportDoc() {
                         `}
       </FuseHighlight>
 
-      <Typography className="mb-8" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         Configuration
       </Typography>
 
@@ -77,7 +77,7 @@ function RTLSupportDoc() {
         {require('!raw-loader!app/fuse-configs/settingsConfig.js')}
       </FuseHighlight>
 
-      <Typography className="mb-8" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         Dynamically Direction Changing
       </Typography>
 

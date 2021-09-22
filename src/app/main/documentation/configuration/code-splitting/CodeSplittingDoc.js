@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 function CodeSplittingDoc() {
   return (
     <>
-      <Typography variant="h4" className="mb-24">
+      <Typography variant="h4" className="mb-40 font-700">
         Code Splitting
       </Typography>
 
@@ -15,7 +15,7 @@ function CodeSplittingDoc() {
         may never need, and reduced the amount of code needed during the initial load.
       </Typography>
 
-      <Typography className="mt-32 mb-8" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         Route-based code splitting
       </Typography>
 
@@ -30,7 +30,7 @@ function CodeSplittingDoc() {
 
       <div className="flex flex-wrap lg:-mx-4">
         <div className="w-full lg:w-1/2 lg:px-4">
-          <Typography className="mt-32 mb-8" variant="h6">
+          <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
             Lazy Loaded Component:
           </Typography>
 
@@ -54,7 +54,7 @@ function CodeSplittingDoc() {
         </div>
 
         <div className="w-full lg:w-1/2 lg:px-4">
-          <Typography className="mt-32 mb-8" variant="h6">
+          <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
             Regular Loaded Component:
           </Typography>
 
@@ -80,7 +80,7 @@ function CodeSplittingDoc() {
         </div>
       </div>
 
-      <Typography className="mt-32 mb-8" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         Code splitting the Redux reducers (Dynamically loaded reducers)
       </Typography>
 

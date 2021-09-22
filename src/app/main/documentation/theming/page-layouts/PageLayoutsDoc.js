@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function PageLayoutsDoc() {
   return (
     <>
-      <Typography variant="h4" className="mb-24">
+      <Typography variant="h4" className="mb-40 font-700">
         Page Layouts
       </Typography>
 
@@ -23,7 +23,7 @@ function PageLayoutsDoc() {
         in Fuse React.
       </Typography>
 
-      <Typography className="mb-8" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         Page Layout Components
       </Typography>
 

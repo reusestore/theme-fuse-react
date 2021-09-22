@@ -4,7 +4,7 @@ import FuseHighlight from '@fuse/core/FuseHighlight';
 function ApiCallsDoc() {
   return (
     <>
-      <Typography variant="h4" className="mb-24">
+      <Typography variant="h4" className="mb-40 font-700">
         API Calls
       </Typography>
 
@@ -40,7 +40,7 @@ function ApiCallsDoc() {
 				`}
       </FuseHighlight>
 
-      <Typography className="mt-32 mb-8" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         @fake-db
       </Typography>
       <Typography className="mb-16" component="p">

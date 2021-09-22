@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 function FuseHighlightDoc() {
   return (
     <>
-      <Typography variant="h4" className="mb-24">
+      <Typography variant="h4" className="mb-40 font-700">
         FuseHighlight
       </Typography>
 
@@ -17,7 +17,7 @@ function FuseHighlightDoc() {
         .
       </Typography>
 
-      <Typography className="mt-32 mb-8" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         Usage
       </Typography>
 
@@ -31,7 +31,7 @@ function FuseHighlightDoc() {
                                 `}
       </FuseHighlight>
 
-      <Typography className="mt-32 mb-8" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         Preview
       </Typography>
 

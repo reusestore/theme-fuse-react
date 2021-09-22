@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 function FuseAuthorizationDoc() {
   return (
     <>
-      <Typography variant="h4" className="mb-24">
+      <Typography variant="h4" className="mb-40 font-700">
         FuseAuthorization
       </Typography>
 
@@ -22,7 +22,7 @@ function FuseAuthorizationDoc() {
         restricts unauthorized user access by looking at <b>route configs</b> and <b>user.role</b>.
       </Typography>
 
-      <Typography className="mt-32 mb-8" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         Setup
       </Typography>
 
@@ -38,11 +38,11 @@ function FuseAuthorizationDoc() {
         {require('!raw-loader!app/App.js')}
       </FuseHighlight>
 
-      <Typography className="mt-32 mb-8" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         Configuration
       </Typography>
 
-      <Typography className="mt-32 mb-8" variant="h6">
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
         Route Configuration:
       </Typography>
 

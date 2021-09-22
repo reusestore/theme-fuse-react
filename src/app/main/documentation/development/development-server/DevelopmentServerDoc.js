@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 function DevelopmentServerDoc() {
   return (
     <>
-      <Typography variant="h4" className="mb-24">
+      <Typography variant="h4" className="mb-40 font-700">
         Development Server
       </Typography>
 
@@ -26,7 +26,7 @@ function DevelopmentServerDoc() {
         setup.
       </Typography>
 
-      <div className="my-24 px-12 py-8 border-1 border-red rounded-16">
+      <div className="my-24 px-24 py-16 border-1 border-red rounded-16">
         <Typography className="mb-8 font-500 text-16 text-red">Important:</Typography>
         <Typography className="" component="div">
           If you have runtime errors on first run, make sure you are using at least LTS release of

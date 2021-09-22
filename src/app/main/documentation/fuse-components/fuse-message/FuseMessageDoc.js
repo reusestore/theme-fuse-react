@@ -9,7 +9,7 @@ function FuseMessageDoc(props) {
 
   return (
     <>
-      <Typography variant="h4" className="mb-24">
+      <Typography variant="h4" className="mb-40 font-700">
         FuseMessage
       </Typography>
 
@@ -18,7 +18,7 @@ function FuseMessageDoc(props) {
         action. It should be located in the theme layouts.
       </Typography>
 
-      <Typography className="mt-32 mb-8" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         Usage
       </Typography>
 
@@ -46,11 +46,11 @@ function FuseMessageDoc(props) {
                             `}
       </FuseHighlight>
 
-      <Typography className="mt-32 mb-8" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         Example
       </Typography>
 
-      <Typography className="mt-32 mb-8" variant="h6">
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
         Position
       </Typography>
 
@@ -147,7 +147,7 @@ function FuseMessageDoc(props) {
         </Button>
       </div>
 
-      <Typography className="mt-32 mb-8" variant="h6">
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
         Variants
       </Typography>
 

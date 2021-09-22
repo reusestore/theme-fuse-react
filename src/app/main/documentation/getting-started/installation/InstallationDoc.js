@@ -4,11 +4,11 @@ import Typography from '@mui/material/Typography';
 function InstallationDoc() {
   return (
     <>
-      <Typography variant="h4" className="mb-24">
+      <Typography variant="h4" className="mb-40 font-700">
         Installation
       </Typography>
 
-      <Typography className="mb-8" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         Prerequisites
       </Typography>
 
@@ -16,7 +16,7 @@ function InstallationDoc() {
         This section will give you some information about what tools you will need.
       </Typography>
 
-      <Typography className="mt-32 mb-8" variant="h6">
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
         Node.js
       </Typography>
 
@@ -30,11 +30,11 @@ function InstallationDoc() {
         the development process.
       </Typography>
 
-      <Typography className="mt-32 mb-8" variant="h5">
+      <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
         Installation
       </Typography>
 
-      <Typography className="mt-32 mb-8" variant="h6">
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
         A. Installing Prerequisites
       </Typography>
 
@@ -50,7 +50,7 @@ function InstallationDoc() {
         </ol>
       </Typography>
 
-      <Typography className="mt-32 mb-8" variant="h6">
+      <Typography className="text-16 mt-16 mb-10 font-700" variant="h6">
         B. Installing Fuse React
       </Typography>
 
