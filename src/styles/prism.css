@@ -1,31 +1,23 @@
 code[class*="language-"],
 pre[class*="language-"] {
     text-align: left;
-    white-space: pre;
-    word-spacing: normal;
-    word-break: normal;
-    word-wrap: normal;
+    white-space: pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
     color: #c3cee3;
     background: #263238;
     font-family: Roboto Mono,"Liberation Mono",Menlo,Courier,monospace;
-    letter-spacing: 0px;
     font-size: 1em;
-    line-height: 1.5em;
-
+    line-height: 1.5;
     -moz-tab-size: 4;
     -o-tab-size: 4;
     tab-size: 4;
-
     -webkit-hyphens: none;
     -moz-hyphens: none;
     -ms-hyphens: none;
     hyphens: none;
 }
 
-pre[class*="language-"] {
-    padding: 10px;
-    border-radius: 16px;
-}
 
 code[class*="language-"]::-moz-selection,
 pre[class*="language-"]::-moz-selection,
@@ -50,8 +42,8 @@ pre[class*="language-"] ::selection {
 pre[class*="language-"] {
     overflow: auto;
     position: relative;
-    margin: 0.5em 0;
-    padding: 1.25em 1em;
+    padding: 10px;
+    border-radius: 16px;;
 }
 
 .language-css > code,
