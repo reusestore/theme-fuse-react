@@ -9,7 +9,11 @@ const changelogData = [
       'All dependency packages updated.',
       'Codebase improved.',
     ],
-    breakingChanges: ['Switched yarn to npm.'],
+    breakingChanges: [
+      'Switched yarn to npm.',
+      'react-charjs2, Formsy libraries not support anymore.',
+      'FuseAnimate, FuseGroupAnimate, FuseChipSelect Components are deprecated.',
+    ],
     notes: (
       <div className="text-14 p-24 border-2 rounded-16 w-full max-w-lg mt-40 mb-24">
         <ul className="list-disc">
