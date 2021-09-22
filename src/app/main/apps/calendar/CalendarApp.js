@@ -23,8 +23,8 @@ import {
 
 const Root = styled('div')(({ theme }) => ({
   '& a': {
-    color: theme.palette.text.primary,
-    textDecoration: 'normal!important',
+    color: `${theme.palette.text.primary}!important`,
+    textDecoration: 'none!important',
   },
   '&  .fc-media-screen': {
     minHeight: '100%',

@@ -61,8 +61,8 @@ function FuseSettings(props) {
   });
   const form = watch();
   const { form: formConfigs } = FuseLayoutConfigs[form.layout.style];
-  const prevForm = usePrevious(form);
-  const prevSettings = usePrevious(settings);
+  const prevForm = usePrevious(form ? _.merge({}, form) : null);
+  const prevSettings = usePrevious(settings ? _.merge({}, settings) : null);
   const formChanged = !_.isEqual(form, prevForm);
   const settingsChanged = !_.isEqual(settings, prevSettings);
 
