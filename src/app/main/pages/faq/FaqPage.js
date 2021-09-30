@@ -23,10 +23,10 @@ const Root = styled('div')(({ theme }) => ({
     '&:before': {
       display: 'none',
     },
-    '&:first-child': {
+    '&:first-of-type': {
       borderRadius: '20px 20px 0 0',
     },
-    '&:last-child': {
+    '&:last-of-type': {
       borderRadius: '0 0 20px 20px',
     },
 

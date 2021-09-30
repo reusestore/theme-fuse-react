@@ -8,6 +8,7 @@ import Paper from '@mui/material/Paper';
 import Select from '@mui/material/Select';
 import Typography from '@mui/material/Typography';
 import { memo, useState } from 'react';
+import MenuItem from '@mui/material/MenuItem';
 
 function Widget7(props) {
   const [currentRange, setCurrentRange] = useState(props.widget.currentRange);
@@ -32,9 +33,9 @@ function Widget7(props) {
         >
           {Object.entries(props.widget.ranges).map(([key, n]) => {
             return (
-              <option key={key} value={key}>
+              <MenuItem key={key} value={key}>
                 {n}
-              </option>
+              </MenuItem>
             );
           })}
         </Select>

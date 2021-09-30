@@ -9,7 +9,6 @@ import Icon from '@mui/material/Icon';
 import InputLabel from '@mui/material/InputLabel';
 import LinearProgress from '@mui/material/LinearProgress';
 import MenuItem from '@mui/material/MenuItem';
-import OutlinedInput from '@mui/material/OutlinedInput';
 import Select from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
@@ -134,17 +133,13 @@ function Courses(props) {
             }}
           />
           <FormControl className="flex w-full sm:w-320 mx-16" variant="outlined">
-            <InputLabel htmlFor="category-label-placeholder"> Category </InputLabel>
+            <InputLabel id="category-select-label">Category</InputLabel>
             <Select
+              labelId="category-select-label"
+              id="category-select"
+              label="Category"
               value={selectedCategory}
               onChange={handleSelectedCategory}
-              input={
-                <OutlinedInput
-                  labelWidth={'category'.length * 9}
-                  name="category"
-                  id="category-label-placeholder"
-                />
-              }
             >
               <MenuItem value="all">
                 <em> All </em>

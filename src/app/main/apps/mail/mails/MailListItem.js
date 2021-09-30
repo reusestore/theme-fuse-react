@@ -54,7 +54,7 @@ const MailListItem = (props) => {
         )
       }
       selected={checked}
-      undread={!props.mail.read}
+      unread={!props.mail.read ? 1 : 0}
       className="items-start py-20 px-0 md:px-8 relative"
     >
       <div className="flex flex-col sm:flex-row items-center justify-start">

@@ -25,7 +25,7 @@ const Root = styled('div')(({ theme, folded }) => ({
 }));
 
 const StyledNavbar = styled('div')(
-  ({ theme, position, folded, foldedAndOpened, foldedAndClosed }) => ({
+  ({ theme, position, folded, foldedandopened, foldedandclosed }) => ({
     minWidth: navbarWidth,
     width: navbarWidth,
     maxWidth: navbarWidth,
@@ -51,12 +51,12 @@ const StyledNavbar = styled('div')(
       bottom: 0,
     }),
 
-    ...(foldedAndOpened && {
+    ...(foldedandopened && {
       width: navbarWidth,
       minWidth: navbarWidth,
     }),
 
-    ...(foldedAndClosed && {
+    ...(foldedandclosed && {
       '& .NavbarStyle2-content': {
         '& .logo-icon': {
           width: 32,
@@ -124,12 +124,12 @@ function NavbarStyle2(props) {
 
   // const folded = !navbar.open;
   const { folded } = config.navbar;
-  const foldedAndClosed = folded && !navbar.foldedOpen;
-  const foldedAndOpened = folded && navbar.foldedOpen;
+  const foldedandclosed = folded && !navbar.foldedOpen;
+  const foldedandopened = folded && navbar.foldedOpen;
 
   return (
     <Root
-      folded={folded}
+      folded={folded ? 1 : 0}
       open={navbar.open}
       id="fuse-navbar"
       className="sticky top-0 h-screen flex-shrink-0 z-20 shadow-5"
@@ -138,11 +138,11 @@ function NavbarStyle2(props) {
         <StyledNavbar
           className="flex-col flex-auto"
           position={config.navbar.position}
-          folded={folded}
-          foldedAndOpened={foldedAndOpened}
-          foldedAndClosed={foldedAndClosed}
-          onMouseEnter={() => foldedAndClosed && dispatch(navbarOpenFolded())}
-          onMouseLeave={() => foldedAndOpened && dispatch(navbarCloseFolded())}
+          folded={folded ? 1 : 0}
+          foldedandopened={foldedandopened ? 1 : 0}
+          foldedandclosed={foldedandclosed ? 1 : 0}
+          onMouseEnter={() => foldedandclosed && dispatch(navbarOpenFolded())}
+          onMouseLeave={() => foldedandopened && dispatch(navbarCloseFolded())}
         >
           <NavbarStyle2Content className="NavbarStyle2-content" />
         </StyledNavbar>
@@ -153,9 +153,9 @@ function NavbarStyle2(props) {
           classes={{
             paper: 'flex-col flex-auto h-full',
           }}
-          folded={folded}
-          foldedAndOpened={foldedAndOpened}
-          foldedAndClosed={foldedAndClosed}
+          folded={folded ? 1 : 0}
+          foldedandopened={foldedandopened ? 1 : 0}
+          foldedandclosed={foldedandclosed ? 1 : 0}
           anchor={config.navbar.position}
           variant="temporary"
           open={navbar.mobileOpen}

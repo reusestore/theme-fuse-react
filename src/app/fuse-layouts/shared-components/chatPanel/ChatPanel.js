@@ -65,20 +65,20 @@ const Root = styled('div')(({ theme, opened }) => ({
     }),
 
     ...(opened && {
-      transform: 'translate3d(-290px,0,0)',
+      transform: theme.direction === 'rtl' ? 'translate3d(290px,0,0)' : 'translate3d(-290px,0,0)',
     }),
 
     [theme.breakpoints.down('lg')]: {
       left: 'auto',
       position: 'fixed',
-      transform: 'translate3d(360px,0,0)!important',
+      transform: theme.direction === 'rtl' ? 'translate3d(-360px,0,0)' : 'translate3d(360px,0,0)',
       boxShadow: 'none',
       width: 320,
       minWidth: 320,
       maxWidth: '100%',
 
       ...(opened && {
-        transform: 'translate3d(0,0,0)!important',
+        transform: 'translate3d(0,0,0)',
         boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
       }),
     },
@@ -163,7 +163,7 @@ function ChatPanel(props) {
   }, [state, dispatch]);
 
   return (
-    <Root opened={state} {...handlers}>
+    <Root opened={state ? 1 : 0} {...handlers}>
       <div className="panel flex flex-col max-w-full" ref={ref}>
         <AppBar position="static" className="shadow-md">
           <Toolbar className="px-4">

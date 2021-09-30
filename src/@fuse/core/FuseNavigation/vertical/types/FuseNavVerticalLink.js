@@ -14,7 +14,7 @@ const Root = styled(ListItem)(({ theme, ...props }) => ({
   borderRadius: '6px',
   margin: '0 0 4px 0',
   paddingRight: 12,
-  paddingLeft: props.itemPadding > 80 ? 80 : props.itemPadding,
+  paddingLeft: props.itempadding > 80 ? 80 : props.itempadding,
   '&.active': {
     backgroundColor: `${theme.palette.secondary.main}!important`,
     color: `${theme.palette.secondary.contrastText}!important`,
@@ -39,7 +39,7 @@ function FuseNavVerticalLink(props) {
   const dispatch = useDispatch();
   const { item, nestedLevel, onItemClick } = props;
 
-  const itemPadding = nestedLevel > 0 ? 28 + nestedLevel * 16 : 12;
+  const itempadding = nestedLevel > 0 ? 28 + nestedLevel * 16 : 12;
 
   return useMemo(
     () => (
@@ -51,7 +51,7 @@ function FuseNavVerticalLink(props) {
         className="fuse-list-item"
         onClick={() => onItemClick && onItemClick(item)}
         role="button"
-        itemPadding={itemPadding}
+        itempadding={itempadding}
       >
         {item.icon && (
           <Icon
@@ -71,7 +71,7 @@ function FuseNavVerticalLink(props) {
         {item.badge && <FuseNavBadge badge={item.badge} />}
       </Root>
     ),
-    [item, itemPadding, onItemClick]
+    [item, itempadding, onItemClick]
   );
 }
 

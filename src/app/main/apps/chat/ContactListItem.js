@@ -18,7 +18,7 @@ function ContactListItem(props) {
     <StyledListItem
       button
       className="px-16 py-12 min-h-92"
-      active={props.selectedContactId === props.contact.id}
+      active={props.selectedContactId === props.contact.id ? 1 : 0}
       onClick={() => props.onContactClick(props.contact.id)}
     >
       <div className="relative">

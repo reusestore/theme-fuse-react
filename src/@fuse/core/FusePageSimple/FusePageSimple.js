@@ -57,7 +57,7 @@ const Root = styled('div')(({ theme }) => ({
     flexDirection: 'column',
     flex: '1 1 auto',
     overflow: 'auto',
-    '-webkit-overflow-scrolling': 'touch',
+    WebkitOverflowScrolling: 'touch',
     zIndex: 9999,
   },
 

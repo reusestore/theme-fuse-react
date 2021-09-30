@@ -27,7 +27,7 @@ function TodoListItem(props) {
   return (
     <StyledListItem
       className="py-20 px-0 sm:px-8"
-      completed={props.todo.completed}
+      completed={props.todo.completed ? 1 : 0}
       onClick={(ev) => {
         ev.preventDefault();
         dispatch(openEditTodoDialog(props.todo));

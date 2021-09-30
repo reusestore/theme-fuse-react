@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import _ from '@lodash';
 import { memo, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
+import MenuItem from '@mui/material/MenuItem';
 
 function Widget9(props) {
   const [currentRange, setCurrentRange] = useState(props.widget.currentRange);
@@ -32,9 +33,9 @@ function Widget9(props) {
         >
           {Object.entries(widget.ranges).map(([key, n]) => {
             return (
-              <option key={key} value={key}>
+              <MenuItem key={key} value={key}>
                 {n}
-              </option>
+              </MenuItem>
             );
           })}
         </Select>

@@ -142,8 +142,7 @@ function App() {
         <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/pointer">
           <code>@media (pointer: fine)</code>
         </a>{' '}
-        matches. This can be customized with the <code>desktopModeMediaQuery</code> prop. This can
-        be customized with the <code>desktopModeMediaQuery</code> prop.
+        matches. This can be customized with the <code>desktopModeMediaQuery</code> prop.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample

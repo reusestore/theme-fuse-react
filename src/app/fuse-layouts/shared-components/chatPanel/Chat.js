@@ -9,7 +9,7 @@ import clsx from 'clsx';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { InputBase } from '@mui/material';
+import InputBase from '@mui/material/InputBase';
 import { sendMessage } from './store/chatSlice';
 import { selectContacts } from './store/contactsSlice';
 

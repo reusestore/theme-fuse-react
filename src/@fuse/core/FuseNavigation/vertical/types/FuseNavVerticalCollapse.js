@@ -21,7 +21,7 @@ const Root = styled('ul')(({ theme, ...props }) => ({
     borderRadius: '6px',
     margin: '0 0 4px 0',
     paddingRight: 12,
-    paddingLeft: props.itemPadding > 80 ? 80 : props.itemPadding,
+    paddingLeft: props.itempadding > 80 ? 80 : props.itempadding,
     color: alpha(theme.palette.text.primary, 0.7),
     '&:hover': {
       color: theme.palette.text.primary,
@@ -60,7 +60,7 @@ function isUrlInChildren(parent, url) {
 function FuseNavVerticalCollapse(props) {
   const [open, setOpen] = useState(() => needsToBeOpened(props.location, props.item));
   const { item, nestedLevel, onItemClick } = props;
-  const itemPadding = nestedLevel > 0 ? 28 + nestedLevel * 16 : 12;
+  const itempadding = nestedLevel > 0 ? 28 + nestedLevel * 16 : 12;
 
   const location = useLocation();
 
@@ -75,7 +75,7 @@ function FuseNavVerticalCollapse(props) {
 
   return useMemo(
     () => (
-      <Root className={clsx(open && 'open')} itemPadding={itemPadding}>
+      <Root className={clsx(open && 'open')} itempadding={itempadding}>
         <ListItem
           button
           className="fuse-list-item"
@@ -135,7 +135,7 @@ function FuseNavVerticalCollapse(props) {
       item.iconClass,
       item.title,
       item.url,
-      itemPadding,
+      itempadding,
       nestedLevel,
       onItemClick,
       open,

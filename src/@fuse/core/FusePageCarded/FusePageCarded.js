@@ -81,7 +81,7 @@ const Root = styled('div')(({ theme }) => ({
     flex: '1 1 auto',
     height: '100%',
     overflow: 'auto',
-    '-webkit-overflow-scrolling': 'touch',
+    WebkitOverflowScrolling: 'touch',
   },
 
   '& .FusePageCarded-sidebarWrapper': {
@@ -134,7 +134,7 @@ const Root = styled('div')(({ theme }) => ({
     color: theme.palette.text.primary,
     [theme.breakpoints.up('lg')]: {
       overflow: 'auto',
-      '-webkit-overflow-scrolling': 'touch',
+      WebkitOverflowScrolling: 'touch',
     },
   },
 

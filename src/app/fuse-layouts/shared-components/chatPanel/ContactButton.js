@@ -71,10 +71,10 @@ const StyledStatus = styled('div')(({ theme, value }) => ({
 
 const ContactButton = ({ contact, selectedContactId, onClick }) => {
   return (
-    <Root title={contact.name} placement="left" active={selectedContactId === contact.id}>
+    <Root title={contact.name} placement="left" active={selectedContactId === contact.id ? 1 : 0}>
       <Button
         onClick={() => onClick(contact.id)}
-        className={clsx('contactButton', { active: selectedContactId === contact.id })}
+        className={clsx('contactButton', selectedContactId === contact.id && 'active')}
       >
         {contact.unread && <StyledUreadBadge>{contact.unread}</StyledUreadBadge>}
 

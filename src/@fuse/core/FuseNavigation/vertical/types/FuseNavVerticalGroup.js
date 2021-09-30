@@ -8,13 +8,13 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import ListSubheader from '@mui/material/ListSubheader';
 import FuseNavItem from '../../FuseNavItem';
 
-const Root = styled(ListSubheader)(({ theme, ...props }) => ({
+const Root = styled(ListSubheader)(({ theme, itempadding, ...props }) => ({
   height: 40,
   width: '100%',
   borderRadius: '6px',
   margin: '24px 0 4px 0',
   paddingRight: 12,
-  paddingLeft: props.itemPadding > 80 ? 80 : props.itemPadding,
+  paddingLeft: props.itempadding > 80 ? 80 : props.itempadding,
   color: alpha(theme.palette.text.primary, 0.7),
   fontWeight: 600,
   letterSpacing: '0.025em',
@@ -27,13 +27,13 @@ function FuseNavVerticalGroup(props) {
   const mdDown = useMediaQuery(theme.breakpoints.down('lg'));
   const { item, nestedLevel, onItemClick } = props;
 
-  const itemPadding = nestedLevel > 0 ? 28 + nestedLevel * 16 : 12;
+  const itempadding = nestedLevel > 0 ? 28 + nestedLevel * 16 : 12;
 
   return useMemo(
     () => (
       <>
         <Root
-          itemPadding={itemPadding}
+          itempadding={itempadding}
           disableSticky
           className={clsx('fuse-list-subheader flex items-center', !item.url && 'cursor-default')}
           onClick={() => onItemClick && onItemClick(item)}
@@ -58,7 +58,7 @@ function FuseNavVerticalGroup(props) {
         )}
       </>
     ),
-    [item, itemPadding, nestedLevel, onItemClick]
+    [item, itempadding, nestedLevel, onItemClick]
   );
 }
 

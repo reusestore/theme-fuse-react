@@ -2,6 +2,16 @@ import Typography from '@mui/material/Typography';
 
 const changelogData = [
   {
+    version: '7.0.1',
+    date: '2021-10-30',
+    newChanges: [
+      'material-ui updated to v5.0.2',
+      'tailwindcss updated to v2.2.16',
+      'All dependency packages updated.',
+      'Codebase improved, minor fixes.',
+    ],
+  },
+  {
     version: '7.0.0',
     date: '2021-09-22',
     newChanges: [

@@ -116,11 +116,11 @@ function NavbarStyle3(props) {
         <StyledNavBar
           open={navbar.open}
           dense={props.dense}
-          folded={folded}
+          folded={folded ? 1 : 0}
           position={config.navbar.position}
           className="flex-col flex-auto sticky top-0 h-screen flex-shrink-0 z-20 shadow-5"
         >
-          <NavbarStyle3Content dense={props.dense} folded={folded} />
+          <NavbarStyle3Content dense={props.dense} folded={folded ? 1 : 0} />
         </StyledNavBar>
       </Hidden>
       <Hidden lgUp>
@@ -138,7 +138,7 @@ function NavbarStyle3(props) {
             keepMounted: true, // Better open performance on mobile.
           }}
         >
-          <NavbarStyle3Content dense={props.dense} folded={folded} />
+          <NavbarStyle3Content dense={props.dense} folded={folded ? 1 : 0} />
         </StyledNavBarMobile>
       </Hidden>
     </>

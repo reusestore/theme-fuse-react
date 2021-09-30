@@ -43,7 +43,7 @@ function ButtonsDoc(props) {
         <li>Toolbars</li>
       </ul>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
-        Basic Button
+        Basic button
       </Typography>
       <Typography className="mb-40" component="div">
         The <code>Button</code> comes with three variants: text (default), contained, and outlined.
@@ -60,7 +60,7 @@ function ButtonsDoc(props) {
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
-        Text buttons
+        Text button
       </Typography>
       <Typography className="mb-40" component="div">
         <a href="https://material.io/components/buttons#text-button">Text buttons</a>
@@ -79,7 +79,7 @@ function ButtonsDoc(props) {
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
-        Contained buttons
+        Contained button
       </Typography>
       <Typography className="mb-40" component="div">
         <a href="https://material.io/components/buttons#contained-button">Contained buttons</a>
@@ -112,7 +112,7 @@ function ButtonsDoc(props) {
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
-        Outlined buttons
+        Outlined button
       </Typography>
       <Typography className="mb-40" component="div">
         <a href="https://material.io/components/buttons#outlined-button">Outlined buttons</a> are
@@ -308,7 +308,7 @@ function ButtonsDoc(props) {
         .
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
-        Loading buttons
+        Loading button
       </Typography>
       <Typography className="mb-40" component="div">
         The loading buttons can show loading state and disable interactions.
@@ -339,7 +339,7 @@ function ButtonsDoc(props) {
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
-        Complex buttons
+        Complex button
       </Typography>
       <Typography className="mb-40" component="div">
         The Text Buttons, Contained Buttons, Floating Action Buttons and Icon Buttons are built on

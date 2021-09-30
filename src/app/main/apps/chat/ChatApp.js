@@ -173,7 +173,13 @@ function ChatApp(props) {
               </StyledSwipeableDrawer>
             </Hidden>
             <Hidden mdDown>
-              <StyledSwipeableDrawer className="h-full z-20" variant="permanent" open>
+              <StyledSwipeableDrawer
+                className="h-full z-20"
+                variant="permanent"
+                open
+                onOpen={(ev) => {}}
+                onClose={(ev) => {}}
+              >
                 <ChatsSidebar />
               </StyledSwipeableDrawer>
             </Hidden>
