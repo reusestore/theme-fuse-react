@@ -72,7 +72,7 @@ function ChipsDoc(props) {
         </li>
       </ul>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
-        Clickeable
+        Clickable
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -86,7 +86,7 @@ function ChipsDoc(props) {
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
-        Deleteable
+        Deletable
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -100,7 +100,7 @@ function ChipsDoc(props) {
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
-        Clickeable and deleteable
+        Clickable and deletable
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -114,7 +114,7 @@ function ChipsDoc(props) {
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
-        Clickeable link
+        Clickable link
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample

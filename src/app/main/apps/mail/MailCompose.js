@@ -66,7 +66,12 @@ function MailCompose() {
         {t('COMPOSE')}
       </Button>
 
-      <Dialog open={openDialog} onClose={handleCloseDialog} aria-labelledby="form-dialog-title">
+      <Dialog
+        open={openDialog}
+        onClose={handleCloseDialog}
+        aria-labelledby="form-dialog-title"
+        scroll="body"
+      >
         <AppBar position="static" elevation={0}>
           <Toolbar className="flex w-full">
             <Typography variant="subtitle1" color="inherit">

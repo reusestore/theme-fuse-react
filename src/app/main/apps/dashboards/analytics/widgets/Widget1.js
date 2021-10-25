@@ -35,10 +35,10 @@ function Widget1(props) {
         <div className="container relative p-16 sm:p-24 flex flex-col sm:flex-row justify-between items-center">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <div className="flex flex-col items-center sm:items-start mb-16 sm:mb-0">
-              <Typography className="h2 font-medium" color="textPrimary">
+              <Typography className="h2 font-semibold" color="textPrimary">
                 Visitors
               </Typography>
-              <Typography className="h5" color="textSecondary">
+              <Typography className="h5 font-medium" color="textSecondary">
                 Unique visitors by month
               </Typography>
             </div>

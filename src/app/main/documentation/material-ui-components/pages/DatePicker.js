@@ -56,7 +56,7 @@ function DatePickerDoc(props) {
 
       <FuseHighlight component="pre" className="language-jsx">
         {` 
-// or @mui/lab/Adapter{DayJS,Luxon,Moment} or any valid date-io adapter
+// or @mui/lab/Adapter{Dayjs,Luxon,Moment} or any valid date-io adapter
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 

@@ -722,6 +722,53 @@ const MyInputComponent = React.forwardRef((props, ref) => {
           <a href="https://final-form.org/react">React Final Form</a>.
         </li>
       </ul>
+      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
+        Unstyled
+      </Typography>
+      <Typography className="mb-40" component="div">
+        For advanced customization scenarios, you can use the unstyled primitives.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        The basic building blocks are the <code>InputUnstyled</code> component and the{' '}
+        <code>useInput</code> hook.
+      </Typography>
+      <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
+        Unstyled component
+      </Typography>
+      <Typography className="mb-40" component="div">
+        The <code>InputUnstyled</code> component wraps the native <code>input</code> or{' '}
+        <code>textarea</code> element. You can, optionally, provide a custom component to be
+        rendered instead.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          className="my-24"
+          iframe={false}
+          component={
+            require('app/main/documentation/material-ui-components/components/text-fields/UnstyledInput.js')
+              .default
+          }
+          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/UnstyledInput.js')}
+        />
+      </Typography>
+      <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
+        Hook
+      </Typography>
+      <Typography className="mb-40" component="div">
+        The <code>useInput</code> hook is the headless version of the <code>InputUnstyled</code>{' '}
+        component. Use it for even greater control over the rendered output.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          className="my-24"
+          iframe={false}
+          component={
+            require('app/main/documentation/material-ui-components/components/text-fields/UseInput.js')
+              .default
+          }
+          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/UseInput.js')}
+        />
+      </Typography>
     </>
   );
 }

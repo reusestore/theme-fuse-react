@@ -54,7 +54,7 @@ function AnalyticsDashboardApp() {
           <Typography
             component={motion.div}
             variants={item}
-            className="px-16 pb-8 text-18 font-normal"
+            className="px-16 pb-8 text-18 font-medium"
             color="textSecondary"
           >
             How are your active users trending over time?
@@ -77,7 +77,7 @@ function AnalyticsDashboardApp() {
           <Typography
             component={motion.div}
             variants={item}
-            className="px-16 pb-8 text-18 font-normal"
+            className="px-16 pb-8 text-18 font-medium"
             color="textSecondary"
           >
             How many pages your users visit?
@@ -90,7 +90,7 @@ function AnalyticsDashboardApp() {
           <Typography
             component={motion.div}
             variants={item}
-            className="px-16 pb-8 text-18 font-normal"
+            className="px-16 pb-8 text-18 font-medium"
             color="textSecondary"
           >
             Where are your users?
@@ -106,7 +106,7 @@ function AnalyticsDashboardApp() {
             <Typography
               component={motion.div}
               variants={item}
-              className="px-16 pb-8 text-18 font-normal"
+              className="px-16 pb-8 text-18 font-medium"
               color="textSecondary"
             >
               What are your top devices?
@@ -121,7 +121,7 @@ function AnalyticsDashboardApp() {
             <Typography
               component={motion.div}
               variants={item}
-              className="px-16 pb-8 text-18 font-normal"
+              className="px-16 pb-8 text-18 font-medium"
               color="textSecondary"
             >
               How are your sales?
@@ -136,7 +136,7 @@ function AnalyticsDashboardApp() {
             <Typography
               component={motion.div}
               variants={item}
-              className="px-16 pb-8 text-18 font-normal lg:pt-0"
+              className="px-16 pb-8 text-18 font-medium lg:pt-0"
               color="textSecondary"
             >
               What are your top campaigns?

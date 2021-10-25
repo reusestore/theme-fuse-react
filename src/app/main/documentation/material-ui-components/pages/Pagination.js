@@ -204,7 +204,7 @@ import { usePagination } from '@mui/material/Pagination';
       <blockquote>
         <Typography className="mb-40" component="div">
           ⚠️ Note that the <code>Pagination</code> page prop starts at 1 to match the requirement of
-          including the value in the URL, while the <code>TablePagination</code> page prop stats at
+          including the value in the URL, while the <code>TablePagination</code> page prop starts at
           0 to match the requirement of zero-based JavaScript arrays that comes with rendering a lot
           of tabular data.
         </Typography>

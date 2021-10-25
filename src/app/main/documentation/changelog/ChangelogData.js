@@ -2,8 +2,19 @@ import Typography from '@mui/material/Typography';
 
 const changelogData = [
   {
+    version: '7.0.2',
+    date: '2021-10-25',
+    newChanges: [
+      'material-ui updated to v5.0.4',
+      'tailwindcss updated to v2.2.17',
+      'All dependency packages updated.',
+      "Default font changed to 'Inter'",
+    ],
+    breakingChanges: ['react-select removed.'],
+  },
+  {
     version: '7.0.1',
-    date: '2021-10-30',
+    date: '2021-09-30',
     newChanges: [
       'material-ui updated to v5.0.2',
       'tailwindcss updated to v2.2.16',

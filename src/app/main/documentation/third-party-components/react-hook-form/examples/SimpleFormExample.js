@@ -1,15 +1,15 @@
 import {useForm, Controller} from "react-hook-form";
-import ReactSelect from "react-select";
 import Button from '@mui/material/Button';
-import TextField from "@mui/material/TextField"
-import Checkbox from "@mui/material/Checkbox"
-import Select from "@mui/material/Select"
-import MenuItem from "@mui/material/MenuItem"
-import Switch from "@mui/material/Switch"
-import RadioGroup from "@mui/material/RadioGroup"
-import FormControlLabel from "@mui/material/FormControlLabel"
-import Radio from "@mui/material/Radio"
-import Typography from "@mui/material/Typography"
+import TextField from "@mui/material/TextField";
+import Checkbox from "@mui/material/Checkbox";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import Switch from "@mui/material/Switch";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Radio from "@mui/material/Radio";
+import Typography from "@mui/material/Typography";
+import Autocomplete from '@mui/material/Autocomplete';
 
 let renderCount = 0;
 
@@ -32,7 +32,7 @@ const defaultValues = {
     Native     : "",
     TextField  : "",
     Select     : "",
-    ReactSelect: "",
+    Autocomplete: [],
     Checkbox   : false,
     switch     : false,
     RadioGroup : ""
@@ -137,16 +137,33 @@ function SimpleFormExample()
                 </div>
 
                 <div className="mt-48 mb-16">
-                    <Typography className="mb-24 font-medium text-14">React Select</Typography>
+                    <Typography className="mb-24 font-medium text-14">Autocomplete</Typography>
                     <Controller
-                        render={({ field }) => <ReactSelect {...field}/>}
-                        options={options}
-                        name="ReactSelect"
-                        isClearable
+                        name="Autocomplete"
                         control={control}
-                        onChange={([selected]) => {
-                            return {value: selected};
-                        }}
+                        defaultValue={[]}
+                        render={({ field: { onChange, value } }) => (
+                            <Autocomplete
+                                className="mt-8 mb-16"
+                                multiple
+                                freeSolo
+                                options={options}
+                                value={value}
+                                onChange={(event, newValue) => {
+                                    onChange(newValue);
+                                }}
+                                renderInput={(params) => (
+                                    <TextField
+                                        {...params}
+                                        placeholder="Select multiple tags"
+                                        label="Tags"
+                                        variant="outlined"
+                                        InputLabelProps={{
+                                            shrink: true,
+                                        }}
+                                    />
+                                )}
+                            />)}
                     />
                 </div>
 
