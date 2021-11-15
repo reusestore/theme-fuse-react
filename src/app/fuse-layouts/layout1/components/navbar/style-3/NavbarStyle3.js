@@ -58,11 +58,11 @@ const StyledNavBar = styled('div')(({ theme, dense, open, folded, position }) =>
       duration: theme.transitions.duration.leavingScreen,
     }),
     ...(position === 'left' && {
-      marginLeft: -navbarWidth,
+      marginLeft: -(dense ? navbarWidthDense : navbarWidth),
     }),
 
     ...(position === 'right' && {
-      marginRight: -navbarWidth,
+      marginRight: -(dense ? navbarWidthDense : navbarWidth),
     }),
   }),
 
@@ -115,12 +115,12 @@ function NavbarStyle3(props) {
       <Hidden lgDown>
         <StyledNavBar
           open={navbar.open}
-          dense={props.dense}
+          dense={props.dense ? 1 : 0}
           folded={folded ? 1 : 0}
           position={config.navbar.position}
           className="flex-col flex-auto sticky top-0 h-screen flex-shrink-0 z-20 shadow-5"
         >
-          <NavbarStyle3Content dense={props.dense} folded={folded ? 1 : 0} />
+          <NavbarStyle3Content dense={props.dense ? 1 : 0} folded={folded ? 1 : 0} />
         </StyledNavBar>
       </Hidden>
       <Hidden lgUp>
@@ -138,7 +138,7 @@ function NavbarStyle3(props) {
             keepMounted: true, // Better open performance on mobile.
           }}
         >
-          <NavbarStyle3Content dense={props.dense} folded={folded ? 1 : 0} />
+          <NavbarStyle3Content dense={props.dense ? 1 : 0} folded={folded ? 1 : 0} />
         </StyledNavBarMobile>
       </Hidden>
     </>
