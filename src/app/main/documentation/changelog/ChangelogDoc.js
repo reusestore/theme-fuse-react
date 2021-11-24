@@ -10,7 +10,7 @@ function ChangelogDoc() {
       </Typography>
 
       {changelogData.map((item) => (
-        <ChangelogCard className="mb-24" key={item.version} {...item} />
+        <ChangelogCard className="flex-shrink-0 mb-24" key={item.version} {...item} />
       ))}
     </>
   );
