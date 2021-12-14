@@ -378,7 +378,7 @@ function TextFieldsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         🎨 If you are looking for inspiration, you can check{' '}
-        <a href="https://mui-treasury.com/styles/text-field">
+        <a href="https://mui-treasury.com/styles/text-field/">
           MUI Treasury&#39;s customization examples
         </a>
         .
@@ -684,7 +684,9 @@ const MyInputComponent = React.forwardRef((props, ref) => {
       <ul>
         <li>
           If you are using the <code>TextField</code> component, you just have to provide a unique{' '}
-          <code>id</code>.
+          <code>id</code> unless you&#39;re using the <code>TextField</code> only client side. Until
+          the UI is hydrated <code>TextField</code> without an explicit <code>id</code> will not
+          have associated labels.
         </li>
         <li>If you are composing the component:</li>
       </ul>
@@ -710,8 +712,8 @@ const MyInputComponent = React.forwardRef((props, ref) => {
           validation.
         </li>
         <li>
-          <a href="https://github.com/stackworx/formik-material-ui">formik-material-ui</a>: Bindings
-          for using MUI with <a href="https://jaredpalmer.com/formik">formik</a>.
+          <a href="https://github.com/stackworx/formik-mui">formik-material-ui</a>: Bindings for
+          using MUI with <a href="https://formik.org/">formik</a>.
         </li>
         <li>
           <a href="https://github.com/erikras/redux-form-material-ui">redux-form-material-ui</a>:

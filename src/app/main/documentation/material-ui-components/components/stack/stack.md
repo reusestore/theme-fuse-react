@@ -1,7 +1,7 @@
 ---
 title: React Stack component
 components: Stack
-githubLabel: 'component:Stack'
+githubLabel: 'component: Stack'
 ---
 
 # Stack

@@ -202,10 +202,10 @@ const options = ['The Godfather', 'Pulp Fiction'];
       </Typography>
       <ul>
         <li>
-          <code>selectOnFocus</code> to helps the user clear the selected value.
+          <code>selectOnFocus</code> to help the user clear the selected value.
         </li>
         <li>
-          <code>clearOnBlur</code> to helps the user to enter a new value.
+          <code>clearOnBlur</code> to help the user enter a new value.
         </li>
         <li>
           <code>handleHomeEndKeys</code> to move focus inside the popup with the{' '}
@@ -284,7 +284,7 @@ const options = ['The Godfather', 'Pulp Fiction'];
 
       <FuseHighlight component="pre" className="language-tsx">
         {` 
-import { useAutocomplete } from '@mui/core/AutocompleteUnstyled';
+import { useAutocomplete } from '@mui/base/AutocompleteUnstyled';
 `}
       </FuseHighlight>
       <Typography className="mb-40" component="div">

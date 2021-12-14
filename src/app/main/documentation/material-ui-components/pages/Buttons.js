@@ -302,7 +302,7 @@ function ButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         🎨 If you are looking for inspiration, you can check{' '}
-        <a href="https://mui-treasury.com/styles/button">
+        <a href="https://mui-treasury.com/styles/button/">
           MUI Treasury&#39;s customization examples
         </a>
         .
@@ -439,7 +439,7 @@ function ButtonsDoc(props) {
 
       <FuseHighlight component="pre" className="language-js">
         {` 
-import ButtonUnstyled from '@mui/core/ButtonUnstyled';
+import ButtonUnstyled from '@mui/base/ButtonUnstyled';
 `}
       </FuseHighlight>
       <Typography className="mb-40" component="div">
@@ -500,7 +500,7 @@ import ButtonUnstyled from '@mui/core/ButtonUnstyled';
 
       <FuseHighlight component="pre" className="language-js">
         {` 
-import { useButton } from '@mui/core/ButtonUnstyled';
+import { useButton } from '@mui/base/ButtonUnstyled';
 `}
       </FuseHighlight>
       <Typography className="mb-40" component="div">

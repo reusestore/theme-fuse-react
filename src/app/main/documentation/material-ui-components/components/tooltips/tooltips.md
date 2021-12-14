@@ -1,7 +1,7 @@
 ---
 title: React Tooltip component
 components: Tooltip
-githubLabel: 'component:Tooltip'
+githubLabel: 'component: Tooltip'
 materialDesign: https://material.io/components/tooltips
 waiAria: https://www.w3.org/TR/wai-aria-practices/#tooltip
 ---
@@ -61,6 +61,8 @@ You can find a similar concept in the [wrapping components](/guides/composition/
 ## Triggers
 
 You can define the types of events that cause a tooltip to show.
+
+The touch action requires a long press due to the `enterTouchDelay` prop being set to `700`ms by default.
 
 {{"demo": "pages/components/tooltips/TriggersTooltips.js"}}
 

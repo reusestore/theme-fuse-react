@@ -72,7 +72,7 @@ function SelectsDoc(props) {
       <Typography className="mb-40" component="div">
         The Select component is implemented as a custom <code>{`<input>`}</code> element of the{' '}
         <a href="/api/input-base/">InputBase</a>. It extends the{' '}
-        <a href="/components/text-fields">text field components</a> sub-components, either the{' '}
+        <a href="/components/text-fields/">text field components</a> sub-components, either the{' '}
         <a href="/api/outlined-input/">OutlinedInput</a>, <a href="/api/input/">Input</a>, or{' '}
         <a href="/api/filled-input/">FilledInput</a>, depending on the variant selected. It shares
         the same styles and many of the same props. Refer to the respective component&#39;s API page
@@ -106,6 +106,13 @@ function SelectsDoc(props) {
           raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/SelectLabels.js')}
         />
       </Typography>
+      <blockquote>
+        <Typography className="mb-40" component="div">
+          ⚠ Note that when using FormControl with the outlined variant of the Select, you need to
+          provide a label in two places: in the InputLabel component and in the <code>label</code>{' '}
+          prop of the Select component (see the above demo).
+        </Typography>
+      </blockquote>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
         Auto width
       </Typography>
@@ -187,7 +194,7 @@ function SelectsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         🎨 If you are looking for inspiration, you can check{' '}
-        <a href="https://mui-treasury.com/styles/select">
+        <a href="https://mui-treasury.com/styles/select/">
           MUI Treasury&#39;s customization examples
         </a>
         .

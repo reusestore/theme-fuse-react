@@ -300,7 +300,7 @@ function ListsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         🎨 If you are looking for inspiration, you can check{' '}
-        <a href="https://mui-treasury.com/styles/list-item">
+        <a href="https://mui-treasury.com/styles/list-item/">
           MUI Treasury&#39;s customization examples
         </a>
         .

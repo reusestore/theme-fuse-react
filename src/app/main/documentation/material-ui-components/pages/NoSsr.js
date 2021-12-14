@@ -92,7 +92,7 @@ function NoSsrDoc(props) {
       </Typography>
       <ul>
         <li>
-          📦 <a href="https://bundlephobia.com/result?p=@mui/core@latest">784 B gzipped</a>
+          📦 <a href="https://bundlephobia.com/package/@mui/base@latest">784 B gzipped</a>
         </li>
       </ul>
       <Typography className="mb-40" component="div">
@@ -101,7 +101,7 @@ function NoSsrDoc(props) {
 
       <FuseHighlight component="pre" className="language-js">
         {` 
-import NoSsr from '@mui/core/NoSsr';
+import NoSsr from '@mui/base/NoSsr';
 `}
       </FuseHighlight>
     </>

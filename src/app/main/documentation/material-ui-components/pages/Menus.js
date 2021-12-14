@@ -86,7 +86,7 @@ function MenusDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         For the menu that has long list and long text, you can use the <code>dense</code> prop to
-        reduce the padding (this property only affects desktop viewport).
+        reduce the padding and text size.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -204,7 +204,9 @@ function MenusDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         🎨 If you are looking for inspiration, you can check{' '}
-        <a href="https://mui-treasury.com/styles/menu">MUI Treasury&#39;s customization examples</a>
+        <a href="https://mui-treasury.com/styles/menu/">
+          MUI Treasury&#39;s customization examples
+        </a>
         .
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

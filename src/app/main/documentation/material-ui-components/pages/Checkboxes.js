@@ -214,7 +214,7 @@ function CheckboxesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         🎨 If you are looking for inspiration, you can check{' '}
-        <a href="https://mui-treasury.com/styles/checkbox">
+        <a href="https://mui-treasury.com/styles/checkbox/">
           MUI Treasury&#39;s customization examples
         </a>
         .

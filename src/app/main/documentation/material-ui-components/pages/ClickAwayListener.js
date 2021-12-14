@@ -1,4 +1,5 @@
 import FuseExample from '@fuse/core/FuseExample';
+import FuseHighlight from '@fuse/core/FuseHighlight';
 import Button from '@mui/material/Button';
 import Icon from '@mui/material/Icon';
 import Typography from '@mui/material/Typography';
@@ -104,6 +105,23 @@ function ClickAwayListenerDoc(props) {
           ⚠️ In this mode, only interactions on the scrollbar of the document is ignored.
         </Typography>
       </blockquote>
+      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
+        Unstyled
+      </Typography>
+      <ul>
+        <li>
+          📦 <a href="https://bundlephobia.com/package/@mui/base@latest">784 B gzipped</a>
+        </li>
+      </ul>
+      <Typography className="mb-40" component="div">
+        As the component does not have any styles, it also comes with the unstyled package.
+      </Typography>
+
+      <FuseHighlight component="pre" className="language-js">
+        {` 
+import ClickAwayListener from '@mui/base/ClickAwayListener';
+`}
+      </FuseHighlight>
     </>
   );
 }

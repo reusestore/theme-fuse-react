@@ -54,23 +54,6 @@ function AppBarDoc(props) {
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
-        App Bar with a primary search field
-      </Typography>
-      <Typography className="mb-40" component="div">
-        A primary searchbar.
-      </Typography>
-      <Typography className="mb-40" component="div">
-        <FuseExample
-          className="my-24"
-          iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/app-bar/PrimarySearchAppBar.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/app-bar/PrimarySearchAppBar.js')}
-        />
-      </Typography>
-      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         App Bar with menu
       </Typography>
       <Typography className="mb-40" component="div">
@@ -82,6 +65,20 @@ function AppBarDoc(props) {
               .default
           }
           raw={require('!raw-loader!app/main/documentation/material-ui-components/components/app-bar/MenuAppBar.js')}
+        />
+      </Typography>
+      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
+        App Bar with responsive menu
+      </Typography>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          className="my-24"
+          iframe={false}
+          component={
+            require('app/main/documentation/material-ui-components/components/app-bar/ResponsiveAppBar.js')
+              .default
+          }
+          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/app-bar/ResponsiveAppBar.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -99,6 +96,23 @@ function AppBarDoc(props) {
               .default
           }
           raw={require('!raw-loader!app/main/documentation/material-ui-components/components/app-bar/SearchAppBar.js')}
+        />
+      </Typography>
+      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
+        App Bar with a primary search field
+      </Typography>
+      <Typography className="mb-40" component="div">
+        A primary searchbar.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          className="my-24"
+          iframe={false}
+          component={
+            require('app/main/documentation/material-ui-components/components/app-bar/PrimarySearchAppBar.js')
+              .default
+          }
+          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/app-bar/PrimarySearchAppBar.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -312,37 +326,26 @@ function HideOnScroll(props) {
 `}
       </FuseHighlight>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
-        Enable Color on Dark
+        Enable color on dark
       </Typography>
       <Typography className="mb-40" component="div">
         Following the{' '}
         <a href="https://material.io/design/color/dark-theme.html">Material Design guidelines</a>,
-        the <code>color</code> prop has no effect on the appearance of the AppBar in dark mode. You
+        the <code>color</code> prop has no effect on the appearance of the app bar in dark mode. You
         can override this behavior by setting the <code>enableColorOnDark</code> prop to{' '}
         <code>true</code>.
       </Typography>
-
-      <FuseHighlight component="pre" className="language-jsx">
-        {` 
-// Specific element via prop
-<AppBar enableColorOnDark />
-
-// Affect all AppBars via theme
-<ThemeProvider
-  theme={createTheme({
-    components: {
-      MuiAppBar: {
-        defaultProps: {
-          enableColorOnDark: true,
-        },
-      },
-    },
-  })}
->
-  <AppBar />
-</ThemeProvider>
-`}
-      </FuseHighlight>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          className="my-24"
+          iframe={false}
+          component={
+            require('app/main/documentation/material-ui-components/components/app-bar/EnableColorOnDarkAppBar.js')
+              .default
+          }
+          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/app-bar/EnableColorOnDarkAppBar.js')}
+        />
+      </Typography>
     </>
   );
 }

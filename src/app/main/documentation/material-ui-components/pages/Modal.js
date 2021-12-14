@@ -100,7 +100,7 @@ function ModalDoc(props) {
       </Typography>
       <ul>
         <li>
-          📦 <a href="https://bundlephobia.com/result?p=@mui/core@latest">4.7 kB gzipped</a>
+          📦 <a href="https://bundlephobia.com/package/@mui/base@latest">4.7 kB gzipped</a>
         </li>
       </ul>
       <Typography className="mb-40" component="div">
@@ -110,7 +110,7 @@ function ModalDoc(props) {
 
       <FuseHighlight component="pre" className="language-js">
         {` 
-import ModalUnstyled from '@mui/core/ModalUnstyled';
+import ModalUnstyled from '@mui/base/ModalUnstyled';
 `}
       </FuseHighlight>
       <Typography className="mb-40" component="div">
@@ -179,8 +179,8 @@ import ModalUnstyled from '@mui/core/ModalUnstyled';
         />
       </Typography>
       <Typography className="mb-40" component="div">
-        Alternatively, you can use{' '}
-        <a href="https://github.com/react-spring/react-spring">react-spring</a>.
+        Alternatively, you can use <a href="https://github.com/pmndrs/react-spring">react-spring</a>
+        .
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample

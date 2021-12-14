@@ -67,7 +67,7 @@ function TrapFocusDoc(props) {
       </Typography>
       <ul>
         <li>
-          📦 <a href="https://bundlephobia.com/result?p=@mui/core@latest">2.0 kB gzipped</a>
+          📦 <a href="https://bundlephobia.com/package/@mui/base@latest">2.0 kB gzipped</a>
         </li>
       </ul>
       <Typography className="mb-40" component="div">
@@ -76,7 +76,7 @@ function TrapFocusDoc(props) {
 
       <FuseHighlight component="pre" className="language-js">
         {` 
-import TrapFocus from '@mui/core/Unstable_TrapFocus';
+import TrapFocus from '@mui/base/Unstable_TrapFocus';
 `}
       </FuseHighlight>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

@@ -104,6 +104,15 @@ export default function MyApp() {
           </a>{' '}
           for standard devices and a white background for print devices.
         </li>
+        <li>
+          If <code>enableColorScheme</code> is provided to <code>CssBaseline</code>, native
+          components color will be set by applying{' '}
+          <a href="https://web.dev/color-scheme/">
+            <code>color-scheme</code>
+          </a>{' '}
+          on <code>{`<html>`}</code>. The value used is provided by the theme property{' '}
+          <code>theme.palette.mode</code>.
+        </li>
       </ul>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
         Layout
@@ -119,6 +128,11 @@ export default function MyApp() {
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
         Scrollbars
       </Typography>
+      <blockquote>
+        <Typography className="mb-40" component="div">
+          This API is deprecated, consider using <a href="#color-scheme">color-scheme</a> instead.
+        </Typography>
+      </blockquote>
       <Typography className="mb-40" component="div">
         The colors of the scrollbars can be customized to improve the contrast (especially on
         Windows). Add this code to your theme (for dark mode).
@@ -127,7 +141,6 @@ export default function MyApp() {
       <FuseHighlight component="pre" className="language-jsx">
         {` 
 import darkScrollbar from '@mui/material/darkScrollbar';
-
 const theme = createTheme({
   components: {
     MuiCssBaseline: {
@@ -140,10 +153,30 @@ const theme = createTheme({
 `}
       </FuseHighlight>
       <Typography className="mb-40" component="div">
-        This website uses <code>darkScrollbar</code> when dark mode is enabled. Be aware, however,
-        that using this utility (and customizing <code>-webkit-scrollbar</code>) forces MacOS to
-        always show the scrollbar.
+        Be aware, however, that using this utility (and customizing <code>-webkit-scrollbar</code>)
+        forces MacOS to always show the scrollbar.
       </Typography>
+      <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
+        Color scheme
+      </Typography>
+      <Typography className="mb-40" component="div">
+        This API is introduced in @mui/material (v5.1.0) for switching between <code>"light"</code>{' '}
+        and <code>"dark"</code> modes of native components such as scrollbar, using the{' '}
+        <code>color-scheme</code> CSS property. To enable it, you can set{' '}
+        <code>enableColorScheme=true</code> as follows:
+      </Typography>
+
+      <FuseHighlight component="pre" className="language-jsx">
+        {` 
+<CssBaseline enableColorScheme />
+
+// or
+
+<ScopedCssBaseline enableColorScheme >
+  {/* The rest of your application using color-scheme*/}
+</ScopedCssBaseline>
+`}
+      </FuseHighlight>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
         Typography
       </Typography>

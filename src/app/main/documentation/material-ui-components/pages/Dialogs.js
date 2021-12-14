@@ -265,9 +265,10 @@ function MyComponent() {
       </Typography>
       <Typography className="mb-40" component="div">
         You can create a draggable dialog by using{' '}
-        <a href="https://github.com/mzabriskie/react-draggable">react-draggable</a>. To do so, you
-        can pass the imported <code>Draggable</code> component as the <code>PaperComponent</code> of
-        the <code>Dialog</code> component. This will make the entire dialog draggable.
+        <a href="https://github.com/react-grid-layout/react-draggable">react-draggable</a>. To do
+        so, you can pass the imported <code>Draggable</code> component as the{' '}
+        <code>PaperComponent</code> of the <code>Dialog</code> component. This will make the entire
+        dialog draggable.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample

@@ -139,6 +139,10 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
         You can define the types of events that cause a tooltip to show.
       </Typography>
       <Typography className="mb-40" component="div">
+        The touch action requires a long press due to the <code>enterTouchDelay</code> prop being
+        set to <code>700</code>ms by default.
+      </Typography>
+      <Typography className="mb-40" component="div">
         <FuseExample
           className="my-24"
           iframe={false}

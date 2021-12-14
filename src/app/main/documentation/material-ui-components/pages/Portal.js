@@ -74,7 +74,7 @@ function PortalDoc(props) {
       </Typography>
       <ul>
         <li>
-          📦 <a href="https://bundlephobia.com/result?p=@mui/core@latest">970 B gzipped</a>
+          📦 <a href="https://bundlephobia.com/package/@mui/base@latest">970 B gzipped</a>
         </li>
       </ul>
       <Typography className="mb-40" component="div">
@@ -83,7 +83,7 @@ function PortalDoc(props) {
 
       <FuseHighlight component="pre" className="language-js">
         {` 
-import Portal from '@mui/core/Portal';
+import Portal from '@mui/base/Portal';
 `}
       </FuseHighlight>
     </>

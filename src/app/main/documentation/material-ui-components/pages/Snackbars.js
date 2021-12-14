@@ -254,14 +254,41 @@ export default function MyComponent() {
         </a>
         )
       </Typography>
-      <ul>
-        <li>
-          By default, the snackbar won&#39;t auto-hide. However, if you decide to use the{' '}
-          <code>autoHideDuration</code> prop, it&#39;s recommended to give the user{' '}
-          <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits.html">sufficient time</a>{' '}
-          to respond.
-        </li>
-      </ul>
+      <Typography className="mb-40" component="div">
+        By default, the snackbar won&#39;t auto-hide. However, if you decide to use the{' '}
+        <code>autoHideDuration</code> prop, it&#39;s recommended to give the user{' '}
+        <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits.html">sufficient time</a> to
+        respond.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        When open, <strong>every</strong> <code>Snackbar</code> will be dismissed if{' '}
+        <kbd className="key">Escape</kbd> is pressed. Unless you don&#39;t handle{' '}
+        <code>onClose</code> with the <code>"escapeKeyDown"</code> reason. If you want to limit this
+        behavior to only dismiss the oldest currently open Snackbar call{' '}
+        <code>event.preventDefault</code> in <code>onClose</code>.
+      </Typography>
+
+      <FuseHighlight component="pre" className="language-jsx">
+        {` 
+export default function MyComponent() {
+  const [open, setOpen] = React.useState(true);
+
+  return (
+    <React.Fragment>
+      <Snackbar
+        open={open}
+        onClose={(event, reason) => {
+          // \`reason === 'escapeKeyDown'\` if \`Escape\` was pressed
+          setOpen(false);
+          // call \`event.preventDefault\` to only close one Snackbar at a time.
+
+      />
+      <Snackbar open={open} onClose={() => setOpen(false)} />
+    </React.Fragment>
+  );
+}
+`}
+      </FuseHighlight>
     </>
   );
 }

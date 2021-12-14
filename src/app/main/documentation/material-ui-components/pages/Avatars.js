@@ -164,7 +164,8 @@ function AvatarsDoc(props) {
         Grouped
       </Typography>
       <Typography className="mb-40" component="div">
-        <code>AvatarGroup</code> renders its children as a stack.
+        <code>AvatarGroup</code> renders its children as a stack. Use the <code>max</code> prop to
+        limit the number of avatars.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -175,6 +176,24 @@ function AvatarsDoc(props) {
               .default
           }
           raw={require('!raw-loader!app/main/documentation/material-ui-components/components/avatars/GroupAvatars.js')}
+        />
+      </Typography>
+      <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
+        Total avatars
+      </Typography>
+      <Typography className="mb-40" component="div">
+        If you need to control the total number of avatars not shown, you can use the{' '}
+        <code>total</code> prop.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          className="my-24"
+          iframe={false}
+          component={
+            require('app/main/documentation/material-ui-components/components/avatars/TotalAvatars.js')
+              .default
+          }
+          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/avatars/TotalAvatars.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

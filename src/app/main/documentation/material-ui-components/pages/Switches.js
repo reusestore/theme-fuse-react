@@ -157,7 +157,7 @@ function SwitchesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         🎨 If you are looking for inspiration, you can check{' '}
-        <a href="https://mui-treasury.com/styles/switch">
+        <a href="https://mui-treasury.com/styles/switch/">
           MUI Treasury&#39;s customization examples
         </a>
         .
@@ -172,7 +172,7 @@ function SwitchesDoc(props) {
 
       <FuseHighlight component="pre" className="language-jsx">
         {` 
-import SwitchUnstyled from '@mui/core/SwitchUnstyled';
+import SwitchUnstyled from '@mui/base/SwitchUnstyled';
 `}
       </FuseHighlight>
       <Typography className="mb-40" component="div">
@@ -208,7 +208,7 @@ import SwitchUnstyled from '@mui/core/SwitchUnstyled';
 
       <FuseHighlight component="pre" className="language-jsx">
         {` 
-import { useSwitch } from '@mui/core/SwitchUnstyled';
+import { useSwitch } from '@mui/base/SwitchUnstyled';
 `}
       </FuseHighlight>
       <Typography className="text-16 mt-16 mb-10" component="h4">

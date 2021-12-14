@@ -107,6 +107,23 @@ function PaginationDoc(props) {
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
+        Custom icons
+      </Typography>
+      <Typography className="mb-40" component="div">
+        It&#39;s possible to customize the control icons.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          className="my-24"
+          iframe={false}
+          component={
+            require('app/main/documentation/material-ui-components/components/pagination/CustomIcons.js')
+              .default
+          }
+          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/pagination/CustomIcons.js')}
+        />
+      </Typography>
+      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Pagination ranges
       </Typography>
       <Typography className="mb-40" component="div">
@@ -139,7 +156,7 @@ function PaginationDoc(props) {
           raw={require('!raw-loader!app/main/documentation/material-ui-components/components/pagination/PaginationControlled.js')}
         />
       </Typography>
-      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
+      {/* <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Router integration
       </Typography>
       <Typography className="mb-40" component="div">
@@ -152,7 +169,7 @@ function PaginationDoc(props) {
           }
           raw={require('!raw-loader!app/main/documentation/material-ui-components/components/pagination/PaginationLink.js')}
         />
-      </Typography>
+      </Typography> */}
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         <code>usePagination</code>
       </Typography>

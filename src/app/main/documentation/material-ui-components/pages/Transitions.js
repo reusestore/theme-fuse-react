@@ -205,7 +205,7 @@ export default Main() {
       </Typography>
       <Typography className="mb-40" component="div">
         To animate a component when it is mounted or unmounted, you can use the{' '}
-        <a href="https://reactcommunity.org/react-transition-group/transition-group">
+        <a href="http://reactcommunity.org/react-transition-group/transition-group/">
           <code>TransitionGroup</code>
         </a>{' '}
         component from <em>react-transition-group</em>. As components are added or removed, the{' '}
@@ -245,7 +245,7 @@ export default Main() {
       <Typography className="mb-40" component="div">
         For more information on creating a custom transition, visit the{' '}
         <em>react-transition-group</em>{' '}
-        <a href="https://reactcommunity.org/react-transition-group/transition">
+        <a href="http://reactcommunity.org/react-transition-group/transition/">
           <code>Transition</code> documentation
         </a>
         . You can also visit the dedicated sections of some of the components:

@@ -6,17 +6,17 @@ import Typography from '@mui/material/Typography';
 
 const images = [
   {
-    url: 'material-ui-static/images/buttons/breakfast.jpg',
+    url: '/material-ui-static/images/buttons/breakfast.jpg',
     title: 'Breakfast',
     width: '40%',
   },
   {
-    url: 'material-ui-static/images/buttons/burgers.jpg',
+    url: '/material-ui-static/images/buttons/burgers.jpg',
     title: 'Burgers',
     width: '30%',
   },
   {
-    url: 'material-ui-static/images/buttons/camera.jpg',
+    url: '/material-ui-static/images/buttons/camera.jpg',
     title: 'Camera',
     width: '30%',
   },

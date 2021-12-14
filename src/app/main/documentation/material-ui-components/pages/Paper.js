@@ -86,6 +86,14 @@ function PaperDoc(props) {
           raw={require('!raw-loader!app/main/documentation/material-ui-components/components/paper/Elevation.js')}
         />
       </Typography>
+      <Typography className="mb-40" component="div">
+        The change of shade in dark mode is done by applying a semi-transparent gradient to the{' '}
+        <code>background-image</code> property. This can lead to confusion when overriding the
+        styles of <code>Paper</code>, as setting just the <code>background-color</code> property
+        will not affect the elevation-related shading. To ignore the shading and set the background
+        color that is not affected by elevation in dark mode, override the <code>background</code>{' '}
+        property (or both <code>background-color</code> and <code>background-image</code>).
+      </Typography>
     </>
   );
 }

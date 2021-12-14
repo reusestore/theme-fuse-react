@@ -341,6 +341,24 @@ function TabsDoc(props) {
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
+        Icon position
+      </Typography>
+      <Typography className="mb-40" component="div">
+        By default, the icon is positioned at the <code>top</code> of a tab. Other supported
+        positions are <code>start</code>, <code>end</code>, <code>bottom</code>.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          className="my-24"
+          iframe={false}
+          component={
+            require('app/main/documentation/material-ui-components/components/tabs/IconPositionTabs.js')
+              .default
+          }
+          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/IconPositionTabs.js')}
+        />
+      </Typography>
+      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Third-party routing library
       </Typography>
       <Typography className="mb-40" component="div">
@@ -433,6 +451,62 @@ function TabsDoc(props) {
               .default
           }
           raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/AccessibleTabs2.js')}
+        />
+      </Typography>
+      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
+        Unstyled
+      </Typography>
+      <Typography className="mb-40" component="div">
+        The Tabs also come with an unstyled version. It&#39;s ideal for doing heavy customizations
+        and minimizing bundle size.
+      </Typography>
+      <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
+        Unstyled component
+      </Typography>
+
+      <FuseHighlight component="pre" className="language-js">
+        {` 
+import TabsUnstyled from '@mui/base/TabsUnstyled';
+import TabsListUnstyled from '@mui/base/TabUnstyled';
+import TabUnstyled from '@mui/base/TabUnstyled';
+import TabPanelUnstyled from '@mui/base/TabPanelUnstyled';
+`}
+      </FuseHighlight>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          className="my-24"
+          iframe={false}
+          component={
+            require('app/main/documentation/material-ui-components/components/tabs/UnstyledTabsBasic.js')
+              .default
+          }
+          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/UnstyledTabsBasic.js')}
+        />
+      </Typography>
+      <Typography className="text-16 mt-16 mb-10" component="h4">
+        Customizing the root element
+      </Typography>
+      <Typography className="mb-40" component="div">
+        By default, the <code>TabUnstyled</code> renders a native <code>button</code> element. You
+        are free to override this by setting the <code>component</code> or{' '}
+        <code>components.Root</code> prop. If a non-interactive element (such as a span) is provided
+        this way, the <code>TabUnstyled</code> will take care of adding accessibility attributes.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        The <code>TabPanelUnstyled</code> on the other hand renders a native <code>div</code>{' '}
+        element by default. You are free to override this as well by setting the{' '}
+        <code>component</code> or <code>components.Root</code> prop on the{' '}
+        <code>TabPanelUnstyled</code>.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          className="my-24"
+          iframe={false}
+          component={
+            require('app/main/documentation/material-ui-components/components/tabs/UnstyledTabsCustomized.js')
+              .default
+          }
+          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/UnstyledTabsCustomized.js')}
         />
       </Typography>
     </>

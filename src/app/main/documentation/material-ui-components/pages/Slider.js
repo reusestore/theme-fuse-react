@@ -373,7 +373,7 @@ function SliderDoc(props) {
 
       <ul>
         <li>
-          📦 <a href="https://bundlephobia.com/result?p=@mui/core@latest">5.6 kB gzipped</a>
+          📦 <a href="https://bundlephobia.com/package/@mui/base@latest">5.6 kB gzipped</a>
         </li>
       </ul>
       <Typography className="mb-40" component="div">
@@ -383,7 +383,7 @@ function SliderDoc(props) {
 
       <FuseHighlight component="pre" className="language-js">
         {` 
-import SliderUnstyled from '@mui/core/SliderUnstyled';
+import SliderUnstyled from '@mui/base/SliderUnstyled';
 `}
       </FuseHighlight>
       <Typography className="mb-40" component="div">

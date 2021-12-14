@@ -79,10 +79,10 @@ function ChipsDoc(props) {
           className="my-24"
           iframe={false}
           component={
-            require('app/main/documentation/material-ui-components/components/chips/ClickeableChips.js')
+            require('app/main/documentation/material-ui-components/components/chips/ClickableChips.js')
               .default
           }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/chips/ClickeableChips.js')}
+          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/chips/ClickableChips.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -93,10 +93,10 @@ function ChipsDoc(props) {
           className="my-24"
           iframe={false}
           component={
-            require('app/main/documentation/material-ui-components/components/chips/DeleteableChips.js')
+            require('app/main/documentation/material-ui-components/components/chips/DeletableChips.js')
               .default
           }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/chips/DeleteableChips.js')}
+          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/chips/DeletableChips.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -107,10 +107,10 @@ function ChipsDoc(props) {
           className="my-24"
           iframe={false}
           component={
-            require('app/main/documentation/material-ui-components/components/chips/ClickeableAndDeleteableChips.js')
+            require('app/main/documentation/material-ui-components/components/chips/ClickableAndDeletableChips.js')
               .default
           }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/chips/ClickeableAndDeleteableChips.js')}
+          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/chips/ClickableAndDeletableChips.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -121,10 +121,10 @@ function ChipsDoc(props) {
           className="my-24"
           iframe={false}
           component={
-            require('app/main/documentation/material-ui-components/components/chips/ClickeableLinkChips.js')
+            require('app/main/documentation/material-ui-components/components/chips/ClickableLinkChips.js')
               .default
           }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/chips/ClickeableLinkChips.js')}
+          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/chips/ClickableLinkChips.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">

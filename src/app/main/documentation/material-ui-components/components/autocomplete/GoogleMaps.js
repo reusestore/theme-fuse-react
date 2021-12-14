@@ -51,7 +51,7 @@ export default function GoogleMaps() {
   React.useEffect(() => {
     let active = true;
 
-    if (!autocompleteService.current && window.google) {
+    if (!autocompleteService.current && window.google && window.google.maps) {
       autocompleteService.current =
         new window.google.maps.places.AutocompleteService();
     }

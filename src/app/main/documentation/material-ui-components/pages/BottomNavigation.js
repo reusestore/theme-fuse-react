@@ -98,7 +98,7 @@ function BottomNavigationDoc(props) {
         One frequent use case is to perform navigation on the client only, without an HTTP
         round-trip to the server. The <code>BottomNavigationAction</code> component provides the{' '}
         <code>component</code> prop to handle this use case. Here is a{' '}
-        <a href="/guides/routing">more detailed guide</a>.
+        <a href="/guides/routing/">more detailed guide</a>.
       </Typography>
     </>
   );

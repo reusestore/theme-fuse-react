@@ -198,7 +198,7 @@ function BadgesDoc(props) {
 
       <FuseHighlight component="pre" className="language-js">
         {` 
-import BadgeUnstyled from '@mui/core/BadgeUnstyled';
+import BadgeUnstyled from '@mui/base/BadgeUnstyled';
 `}
       </FuseHighlight>
       <Typography className="mb-40" component="div">

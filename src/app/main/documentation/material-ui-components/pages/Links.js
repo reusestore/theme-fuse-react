@@ -135,7 +135,7 @@ function LinksDoc(props) {
         </li>
         <li>
           If a link doesn&#39;t have a meaningful href,{' '}
-          <a href="https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md">
+          <a href="https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md">
             it should be rendered using a <code>{`<button>`}</code> element
           </a>
           .

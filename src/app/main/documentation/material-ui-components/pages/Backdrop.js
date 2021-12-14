@@ -61,7 +61,7 @@ function BackdropDoc(props) {
 
       <FuseHighlight component="pre" className="language-js">
         {` 
-import Backdrop from '@mui/core/Backdrop';
+import BackdropUnstyled from '@mui/base/BackdropUnstyled';
 `}
       </FuseHighlight>
     </>

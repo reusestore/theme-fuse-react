@@ -300,6 +300,24 @@ function TablesDoc(props) {
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
+        Unstyled table
+      </Typography>
+      <Typography className="mb-40" component="div">
+        If you would like to use an unstyled Table, you can use the primitive elements and enhance
+        the table with the unstyled pagination as shown in the demo below.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          className="my-24"
+          iframe={false}
+          component={
+            require('app/main/documentation/material-ui-components/components/tables/TableUnstyled.js')
+              .default
+          }
+          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/TableUnstyled.js')}
+        />
+      </Typography>
+      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Accessibility
       </Typography>
       <Typography className="mb-40" component="div">

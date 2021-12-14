@@ -48,6 +48,10 @@ function ToggleButtonDoc(props) {
         and fully justified text (disabled), with only one item available for selection at a time.
       </Typography>
       <Typography className="mb-40" component="div">
+        <strong>Note</strong>: Exclusive selection does not enforce that a button must be active.
+        For that effect see <a href="#enforce-value-set">enforce value set</a>.
+      </Typography>
+      <Typography className="mb-40" component="div">
         <FuseExample
           className="my-24"
           iframe={false}
