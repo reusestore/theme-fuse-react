@@ -1,5 +1,7 @@
 import { lazy } from 'react';
 
+const KnowledgeBasePage = lazy(() => import('./KnowledgeBasePage'));
+
 const KnowledgeBasePageConfig = {
   settings: {
     layout: {
@@ -8,8 +10,8 @@ const KnowledgeBasePageConfig = {
   },
   routes: [
     {
-      path: '/pages/knowledge-base',
-      component: lazy(() => import('./KnowledgeBasePage')),
+      path: 'pages/knowledge-base',
+      element: <KnowledgeBasePage />,
     },
   ],
 };

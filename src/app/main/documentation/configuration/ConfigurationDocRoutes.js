@@ -1,25 +1,31 @@
 import { lazy } from 'react';
 
+const SettingsDoc = lazy(() => import('./settings/SettingsDoc'));
+const RoutingDoc = lazy(() => import('./routing/RoutingDoc'));
+const NavigationDoc = lazy(() => import('./navigation/NavigationDoc'));
+const CodeSplittingDoc = lazy(() => import('./code-splitting/CodeSplittingDoc'));
+const MultiLanguageDoc = lazy(() => import('./multi-language/MultiLanguageDoc'));
+
 const ConfigurationDocRoutes = [
   {
-    path: '/documentation/configuration/settings',
-    component: lazy(() => import('./settings/SettingsDoc')),
+    path: 'configuration/settings',
+    element: <SettingsDoc />,
   },
   {
-    path: '/documentation/configuration/routing',
-    component: lazy(() => import('./routing/RoutingDoc')),
+    path: 'configuration/routing',
+    element: <RoutingDoc />,
   },
   {
-    path: '/documentation/configuration/navigation',
-    component: lazy(() => import('./navigation/NavigationDoc')),
+    path: 'configuration/navigation',
+    element: <NavigationDoc />,
   },
   {
-    path: '/documentation/configuration/code-splitting',
-    component: lazy(() => import('./code-splitting/CodeSplittingDoc')),
+    path: 'configuration/code-splitting',
+    element: <CodeSplittingDoc />,
   },
   {
-    path: '/documentation/configuration/multi-language',
-    component: lazy(() => import('./multi-language/MultiLanguageDoc')),
+    path: 'configuration/multi-language',
+    element: <MultiLanguageDoc />,
   },
 ];
 

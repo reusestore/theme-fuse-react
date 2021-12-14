@@ -1,5 +1,7 @@
 import { lazy } from 'react';
 
+const CompactInvoicePage = lazy(() => import('./CompactInvoicePage'));
+
 const CompactInvoicePageConfig = {
   settings: {
     layout: {
@@ -8,8 +10,8 @@ const CompactInvoicePageConfig = {
   },
   routes: [
     {
-      path: '/pages/invoices/compact',
-      component: lazy(() => import('./CompactInvoicePage')),
+      path: 'pages/invoices/compact',
+      element: <CompactInvoicePage />,
     },
   ],
 };

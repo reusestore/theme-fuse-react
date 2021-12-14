@@ -1,25 +1,31 @@
 import { lazy } from 'react';
 
+const ThemeShemesDoc = lazy(() => import('./theme-schemes/ThemeShemesDoc'));
+const ThemeLayoutsDoc = lazy(() => import('./theme-layouts/ThemeLayoutsDoc'));
+const PageLayoutsDoc = lazy(() => import('./page-layouts/PageLayoutsDoc'));
+const RTLSupportDoc = lazy(() => import('./rtl-support/RTLSupportDoc'));
+const ChangingDefaultFontDoc = lazy(() => import('./changing-default-font/ChangingDefaultFontDoc'));
+
 const ThemingDocRoutes = [
   {
-    path: '/documentation/theming/theme-schemes',
-    component: lazy(() => import('./theme-schemes/ThemeShemesDoc')),
+    path: 'theming/theme-schemes',
+    element: <ThemeShemesDoc />,
   },
   {
-    path: '/documentation/theming/theme-layouts',
-    component: lazy(() => import('./theme-layouts/ThemeLayoutsDoc')),
+    path: 'theming/theme-layouts',
+    element: <ThemeLayoutsDoc />,
   },
   {
-    path: '/documentation/theming/page-layouts',
-    component: lazy(() => import('./page-layouts/PageLayoutsDoc')),
+    path: 'theming/page-layouts',
+    element: <PageLayoutsDoc />,
   },
   {
-    path: '/documentation/theming/rtl-support',
-    component: lazy(() => import('./rtl-support/RTLSupportDoc')),
+    path: 'theming/rtl-support',
+    element: <RTLSupportDoc />,
   },
   {
-    path: '/documentation/theming/changing-default-font',
-    component: lazy(() => import('./changing-default-font/ChangingDefaultFontDoc')),
+    path: 'theming/changing-default-font',
+    element: <ChangingDefaultFontDoc />,
   },
 ];
 

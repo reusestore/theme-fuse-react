@@ -5,8 +5,7 @@ import AppContext from 'app/AppContext';
 import { generateSettings, setSettings } from 'app/store/fuse/settingsSlice';
 import { memo, useContext, useMemo, useCallback, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { matchRoutes } from 'react-router-config';
-import { useLocation } from 'react-router-dom';
+import { matchRoutes, useLocation } from 'react-router-dom';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import { alpha } from '@mui/material/styles';
 
@@ -84,7 +83,10 @@ function FuseLayout(props) {
 
   const location = useLocation();
   const { pathname } = location;
-  const matched = matchRoutes(routes, pathname)[0];
+
+  const matchedRoutes = matchRoutes(routes, pathname);
+  const matched = matchedRoutes ? matchedRoutes[0] : false;
+
   const newSettings = useRef(null);
 
   const shouldAwaitRender = useCallback(() => {

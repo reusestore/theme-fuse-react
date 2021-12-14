@@ -13,7 +13,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import withRouter from '@fuse/core/withRouter';
 import FuseLoading from '@fuse/core/FuseLoading';
 import { getProducts, selectProducts } from '../store/productsSlice';
 import ProductsTableHead from './ProductsTableHead';
@@ -75,7 +75,7 @@ function ProductsTable(props) {
   }
 
   function handleClick(item) {
-    props.history.push(`/apps/e-commerce/products/${item.id}/${item.handle}`);
+    props.navigate(`/apps/e-commerce/products/${item.id}/${item.handle}`);
   }
 
   function handleCheck(event, id) {

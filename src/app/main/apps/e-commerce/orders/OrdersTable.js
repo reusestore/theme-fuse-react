@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import withRouter from '@fuse/core/withRouter';
 import FuseLoading from '@fuse/core/FuseLoading';
 import OrdersStatus from '../order/OrdersStatus';
 import { selectOrders, getOrders } from '../store/ordersSlice';
@@ -72,7 +72,7 @@ function OrdersTable(props) {
   }
 
   function handleClick(item) {
-    props.history.push(`/apps/e-commerce/orders/${item.id}`);
+    props.navigate(`/apps/e-commerce/orders/${item.id}`);
   }
 
   function handleCheck(event, id) {

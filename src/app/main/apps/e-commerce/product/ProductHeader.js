@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
 import { useFormContext } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import _ from '@lodash';
 import { saveProduct, removeProduct } from '../store/productSlice';
 
@@ -18,7 +18,7 @@ function ProductHeader(props) {
   const images = watch('images');
   const name = watch('name');
   const theme = useTheme();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   function handleSaveProduct() {
     dispatch(saveProduct(getValues()));
@@ -26,7 +26,7 @@ function ProductHeader(props) {
 
   function handleRemoveProduct() {
     dispatch(removeProduct()).then(() => {
-      history.push('/apps/e-commerce/products');
+      navigate('/apps/e-commerce/products');
     });
   }
 

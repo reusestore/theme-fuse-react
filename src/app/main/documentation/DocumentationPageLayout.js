@@ -6,8 +6,7 @@ import { useRef } from 'react';
 import FuseNavigation from '@fuse/core/FuseNavigation/FuseNavigation';
 import FusePageSimple from '@fuse/core/FusePageSimple/FusePageSimple';
 import FuseSuspense from '@fuse/core/FuseSuspense';
-import { renderRoutes } from 'react-router-config';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import DocumentationNavigation from './DocumentationNavigation';
 import DocumentationPageBreadcrumb from './DocumentationPageBreadcrumb';
@@ -40,7 +39,7 @@ const Root = styled(FusePageSimple)(({ theme }) => ({
   },
 }));
 
-function DocumentationPageLayout({ content, route }) {
+function DocumentationPageLayout(props) {
   const pageLayout = useRef(null);
 
   return (
@@ -72,7 +71,9 @@ function DocumentationPageLayout({ content, route }) {
         <div className="max-w-2xl min-h-full flex flex-auto flex-col">
           <DocumentationPageBreadcrumb />
           <div className="flex flex-col flex-1 relative py-32">
-            <FuseSuspense>{renderRoutes(route.routes)}</FuseSuspense>
+            <FuseSuspense>
+              <Outlet />
+            </FuseSuspense>
           </div>
         </div>
       }

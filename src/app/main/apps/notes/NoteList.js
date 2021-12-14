@@ -3,7 +3,8 @@ import Typography from '@mui/material/Typography';
 import { useEffect, useState } from 'react';
 import Masonry from 'react-masonry-css';
 import { useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import withRouter from '@fuse/core/withRouter';
+import { useParams } from 'react-router-dom';
 import NoteListItem from './NoteListItem';
 import { selectNotes } from './store/notesSlice';
 
@@ -11,12 +12,11 @@ function NoteList(props) {
   const notes = useSelector(selectNotes);
   const variateDescSize = useSelector(({ notesApp }) => notesApp.notes.variateDescSize);
   const searchText = useSelector(({ notesApp }) => notesApp.notes.searchText);
-
+  const params = useParams();
   const [filteredData, setFilteredData] = useState(null);
 
   useEffect(() => {
     function filterData() {
-      const { params } = props.match;
       const { id, labelId } = params;
 
       let data = notes;
@@ -49,7 +49,7 @@ function NoteList(props) {
     if (notes.length > 0) {
       setFilteredData(filterData());
     }
-  }, [notes, searchText, props.match]);
+  }, [notes, searchText, params]);
 
   return !filteredData || filteredData.length === 0 ? (
     <div className="flex items-center justify-center h-full">

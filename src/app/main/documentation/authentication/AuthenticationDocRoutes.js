@@ -1,17 +1,21 @@
 import { lazy } from 'react';
 
+const JwtAuthDoc = lazy(() => import('./jwt/jwtAuthDoc'));
+const FirebaseAuthDoc = lazy(() => import('./firebase/FirebaseAuthDoc'));
+const Auth0AuthDoc = lazy(() => import('./auth0/Auth0AuthDoc'));
+
 const AuthenticationDocRoutes = [
   {
-    path: '/documentation/authentication/jwt',
-    component: lazy(() => import('./jwt/jwtAuthDoc')),
+    path: 'authentication/jwt',
+    element: <JwtAuthDoc />,
   },
   {
-    path: '/documentation/authentication/firebase',
-    component: lazy(() => import('./firebase/FirebaseAuthDoc')),
+    path: 'authentication/firebase',
+    element: <FirebaseAuthDoc />,
   },
   {
-    path: '/documentation/authentication/auth0',
-    component: lazy(() => import('./auth0/Auth0AuthDoc')),
+    path: 'authentication/auth0',
+    element: <Auth0AuthDoc />,
   },
 ];
 

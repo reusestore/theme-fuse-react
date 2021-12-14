@@ -6,7 +6,7 @@ import ListItemText from '@mui/material/ListItemText';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { memo, useMemo } from 'react';
-import { withRouter } from 'react-router-dom';
+import withRouter from '@fuse/core/withRouter';
 import FuseNavBadge from '../../FuseNavBadge';
 
 const StyledListItem = styled(ListItem)(({ theme }) => ({
@@ -41,7 +41,7 @@ function FuseNavHorizontalItem(props) {
         to={item.url}
         activeClassName="active"
         className={clsx('fuse-list-item')}
-        exact={item.exact}
+        end={item.end}
         role="button"
       >
         {item.icon && (

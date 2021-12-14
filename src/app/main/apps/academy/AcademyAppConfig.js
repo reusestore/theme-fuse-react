@@ -1,5 +1,8 @@
 import { lazy } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+
+const Course = lazy(() => import('./course/Course'));
+const Courses = lazy(() => import('./courses/Courses'));
 
 const AcademyAppConfig = {
   settings: {
@@ -7,16 +10,16 @@ const AcademyAppConfig = {
   },
   routes: [
     {
-      path: '/apps/academy/courses/:courseId/:courseHandle?',
-      component: lazy(() => import('./course/Course')),
+      path: 'apps/academy/courses/:courseId/*',
+      element: <Course />,
     },
     {
-      path: '/apps/academy/courses',
-      component: lazy(() => import('./courses/Courses')),
+      path: 'apps/academy/courses',
+      element: <Courses />,
     },
     {
-      path: '/apps/academy',
-      component: () => <Redirect to="/apps/academy/courses" />,
+      path: 'apps/academy',
+      element: <Navigate to="/apps/academy/courses" />,
     },
   ],
 };

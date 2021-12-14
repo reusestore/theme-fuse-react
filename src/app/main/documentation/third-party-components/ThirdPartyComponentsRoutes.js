@@ -1,21 +1,26 @@
 import { lazy } from 'react';
 
+const ReactHookFormDoc = lazy(() => import('./react-hook-form/ReactHookFormDoc'));
+const ReactTableDoc = lazy(() => import('./react-table/ReactTableDoc'));
+const GoogleMapReactDoc = lazy(() => import('./google-map-react/GoogleMapReactDoc'));
+const ReactApexchartsDoc = lazy(() => import('./react-apexcharts/ReactApexchartsDoc'));
+
 const ThirdPartyComponentsRoutes = [
   {
-    path: '/documentation/third-party-components/react-hook-form',
-    component: lazy(() => import('./react-hook-form/ReactHookFormDoc')),
+    path: 'third-party-components/react-hook-form',
+    element: <ReactHookFormDoc />,
   },
   {
-    path: '/documentation/third-party-components/react-table',
-    component: lazy(() => import('./react-table/ReactTableDoc')),
+    path: 'third-party-components/react-table',
+    element: <ReactTableDoc />,
   },
   {
-    path: '/documentation/third-party-components/google-map-react',
-    component: lazy(() => import('./google-map-react/GoogleMapReactDoc')),
+    path: 'third-party-components/google-map-react',
+    element: <GoogleMapReactDoc />,
   },
   {
-    path: '/documentation/third-party-components/react-apexcharts',
-    component: lazy(() => import('./react-apexcharts/ReactApexchartsDoc')),
+    path: 'third-party-components/react-apexcharts',
+    element: <ReactApexchartsDoc />,
   },
 ];
 

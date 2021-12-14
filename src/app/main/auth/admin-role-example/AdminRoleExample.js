@@ -44,7 +44,7 @@ function AdminRoleExample(props) {
                                 routes  : [
                                     {
                                         path     : '/auth/admin-role-example',
-                                        component: AdminRoleExample
+                                        element: <AdminRoleExample/>
                                     }
                                 ]
                             };

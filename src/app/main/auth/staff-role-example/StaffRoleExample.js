@@ -44,7 +44,7 @@ function StaffRoleExample(props) {
                                 routes  : [
                                     {
                                         path     : '/auth/staff-role-example',
-                                        component: StaffRoleExample
+                                        element:StaffRoleExample
                                     }
                                 ]
                             };

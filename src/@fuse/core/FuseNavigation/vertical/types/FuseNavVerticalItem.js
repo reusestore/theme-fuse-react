@@ -59,7 +59,7 @@ function FuseNavVerticalItem(props) {
         activeClassName="active"
         className="fuse-list-item"
         onClick={() => onItemClick && onItemClick(item)}
-        exact={item.exact}
+        end={item.end}
         itempadding={itempadding}
         role="button"
       >

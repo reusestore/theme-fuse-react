@@ -1,5 +1,7 @@
 import { lazy } from 'react';
 
+const FaqPage = lazy(() => import('./FaqPage'));
+
 const FaqPageConfig = {
   settings: {
     layout: {
@@ -8,8 +10,8 @@ const FaqPageConfig = {
   },
   routes: [
     {
-      path: '/pages/faq',
-      component: lazy(() => import('./FaqPage')),
+      path: 'pages/faq',
+      element: <FaqPage />,
     },
   ],
 };

@@ -250,10 +250,10 @@ function FuseAuthorizationDoc() {
 						{
 							path     : '/',
 							exact    : true,
-							component: () => <Redirect to="/apps/dashboards/analytics"/>
+							element:() => <Navigate to="/apps/dashboards/analytics"/>
 						},
 						{
-							component: () => <Redirect to="/pages/errors/error-404"/>
+							element:() => <Navigate to="/pages/errors/error-404"/>
 						}
 					];
 					
@@ -309,10 +309,10 @@ function FuseAuthorizationDoc() {
 							path     : '/',
 							exact    : true,
 							auth     : null,
-							component: LandingPage
+							element:LandingPage
 						},
 						{
-							component: () => <Redirect to="/pages/errors/error-404"/>
+							element:() => <Navigate to="/pages/errors/error-404"/>
 						}
 					];
 					

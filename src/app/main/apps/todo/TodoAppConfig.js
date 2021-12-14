@@ -1,5 +1,7 @@
 import { lazy } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+
+const TodoApp = lazy(() => import('./TodoApp'));
 
 const TodoAppConfig = {
   settings: {
@@ -7,16 +9,23 @@ const TodoAppConfig = {
   },
   routes: [
     {
-      path: [
-        '/apps/todo/label/:labelHandle/:todoId?',
-        '/apps/todo/filter/:filterHandle/:todoId?',
-        '/apps/todo/:folderHandle/:todoId?',
-      ],
-      component: lazy(() => import('./TodoApp')),
+      path: 'apps/todo/label/:labelHandle',
+      element: <TodoApp />,
+      children: [{ path: ':todoId', element: <TodoApp /> }],
     },
     {
-      path: '/apps/todo',
-      component: () => <Redirect to="/apps/todo/all" />,
+      path: 'apps/todo/filter/:filterHandle',
+      element: <TodoApp />,
+      children: [{ path: ':todoId', element: <TodoApp /> }],
+    },
+    {
+      path: '/apps/todo/:folderHandle',
+      element: <TodoApp />,
+      children: [{ path: ':todoId', element: <TodoApp /> }],
+    },
+    {
+      path: 'apps/todo',
+      element: <Navigate to="/apps/todo/all" />,
     },
   ],
 };

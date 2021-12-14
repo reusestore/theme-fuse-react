@@ -10,8 +10,8 @@ const StaffRoleExampleConfig = {
   auth: authRoles.staff, // ['admin','staff']
   routes: [
     {
-      path: '/auth/staff-role-example',
-      component: StaffRoleExample,
+      path: 'auth/staff-role-example',
+      element:<StaffRoleExample/>,
     },
   ],
 };

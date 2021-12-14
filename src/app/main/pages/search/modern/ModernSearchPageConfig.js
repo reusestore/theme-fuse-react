@@ -1,5 +1,7 @@
 import { lazy } from 'react';
 
+const ModernSearchPage = lazy(() => import('./ModernSearchPage'));
+
 const ModernSearchPageConfig = {
   settings: {
     layout: {
@@ -8,8 +10,8 @@ const ModernSearchPageConfig = {
   },
   routes: [
     {
-      path: '/pages/search/modern',
-      component: lazy(() => import('./ModernSearchPage')),
+      path: 'pages/search/modern',
+      element: <ModernSearchPage />,
     },
   ],
 };

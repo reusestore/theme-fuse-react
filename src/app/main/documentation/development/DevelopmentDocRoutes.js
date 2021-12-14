@@ -1,37 +1,46 @@
 import { lazy } from 'react';
 
+const DevelopmentServerDoc = lazy(() => import('./development-server/DevelopmentServerDoc'));
+const ProductionDoc = lazy(() => import('./production/ProductionDoc'));
+const DeploymentDoc = lazy(() => import('./deployment/DeploymentDoc'));
+const ProjectStructureDoc = lazy(() => import('./project-structure/ProjectStructureDoc'));
+const ApiCallsDoc = lazy(() => import('./api-calls/ApiCallsDoc'));
+const UpdatingFuseReactDoc = lazy(() => import('./updating-fuse-react/UpdatingFuseReactDoc'));
+const IDEsDoc = lazy(() => import('./ides-vscode-webstorm/IDEsDoc'));
+const HerokuNotesDoc = lazy(() => import('./heroku-notes/HerokuNotesDoc'));
+
 const DevelopmentDocRoutes = [
   {
-    path: '/documentation/development/development-server',
-    component: lazy(() => import('./development-server/DevelopmentServerDoc')),
+    path: 'development/development-server',
+    element: <DevelopmentServerDoc />,
   },
   {
-    path: '/documentation/development/production',
-    component: lazy(() => import('./production/ProductionDoc')),
+    path: 'development/production',
+    element: <ProductionDoc />,
   },
   {
-    path: '/documentation/development/deployment',
-    component: lazy(() => import('./deployment/DeploymentDoc')),
+    path: 'development/deployment',
+    element: <DeploymentDoc />,
   },
   {
-    path: '/documentation/development/project-structure',
-    component: lazy(() => import('./project-structure/ProjectStructureDoc')),
+    path: 'development/project-structure',
+    element: <ProjectStructureDoc />,
   },
   {
-    path: '/documentation/development/api-calls',
-    component: lazy(() => import('./api-calls/ApiCallsDoc')),
+    path: 'development/api-calls',
+    element: <ApiCallsDoc />,
   },
   {
-    path: '/documentation/development/updating-fuse-react',
-    component: lazy(() => import('./updating-fuse-react/UpdatingFuseReactDoc')),
+    path: 'development/updating-fuse-react',
+    element: <UpdatingFuseReactDoc />,
   },
   {
-    path: '/documentation/development/ides-vscode-webstorm',
-    component: lazy(() => import('./ides-vscode-webstorm/IDEsDoc')),
+    path: 'development/ides-vscode-webstorm',
+    element: <IDEsDoc />,
   },
   {
-    path: '/documentation/development/heroku-notes',
-    component: lazy(() => import('./heroku-notes/HerokuNotesDoc')),
+    path: 'development/heroku-notes',
+    element: <HerokuNotesDoc />,
   },
 ];
 

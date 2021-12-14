@@ -9,6 +9,7 @@ import { showMessage } from 'app/store/fuse/messageSlice';
 import auth0Service from 'app/services/auth0Service';
 import firebaseService from 'app/services/firebaseService';
 import jwtService from 'app/services/jwtService';
+import settingsConfig from 'app/fuse-configs/settingsConfig';
 
 export const setUserDataAuth0 = (tokenData) => async (dispatch) => {
   const user = {
@@ -76,16 +77,15 @@ export const createUserSettingsFirebase = (authUser) => async (dispatch, getStat
 
 export const setUserData = (user) => async (dispatch, getState) => {
   /*
-        You can redirect the logged-in user to a specific route depending on his role
-         */
-
-  history.location.state = {
-    redirectUrl: user.redirectUrl, // for example 'apps/academy'
-  };
+  You can redirect the logged-in user to a specific route depending on his role
+  */
+  if (user.loginRedirectUrl) {
+    settingsConfig.loginRedirectUrl = user.loginRedirectUrl; // for example 'apps/academy'
+  }
 
   /*
-    Set User Settings
-     */
+  Set User Settings
+  */
   dispatch(setDefaultSettings(user.data.settings));
 
   dispatch(setUser(user));

@@ -5,6 +5,7 @@ import 'perfect-scrollbar/css/perfect-scrollbar.css';
 import PropTypes from 'prop-types';
 import { createRef, useCallback, useEffect, useRef, forwardRef } from 'react';
 import { connect } from 'react-redux';
+import history from '@history';
 import withRouterAndRef from '../withRouterAndRef/withRouterAndRef';
 
 const Root = styled('div')(({ theme }) => ({
@@ -113,12 +114,12 @@ const FuseScrollbars = forwardRef((props, ref) => {
 
   useEffect(
     () =>
-      props.history.listen(() => {
+      history.listen(() => {
         if (props.scrollToTopOnRouteChange) {
           scrollToTop();
         }
       }),
-    [scrollToTop, props.history, props.scrollToTopOnRouteChange]
+    [scrollToTop, props.scrollToTopOnRouteChange]
   );
 
   useEffect(

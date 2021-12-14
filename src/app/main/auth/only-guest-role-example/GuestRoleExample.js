@@ -34,7 +34,7 @@ function GuestRoleExample() {
                                 routes  : [
                                     {
                                         path     : '/auth/guest-role-example',
-                                        component: GuestRoleExample
+                                        element: <GuestRoleExample/>
                                     }
                                 ]
                             };

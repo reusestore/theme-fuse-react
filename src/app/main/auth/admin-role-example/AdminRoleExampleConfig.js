@@ -10,8 +10,8 @@ const AdminRoleExampleConfig = {
   auth: authRoles.admin, // ['admin']
   routes: [
     {
-      path: '/auth/admin-role-example',
-      component: AdminRoleExample,
+      path: 'auth/admin-role-example',
+      element: <AdminRoleExample />,
     },
   ],
 };

@@ -33,12 +33,13 @@ function FuseNavVerticalGroup(props) {
     () => (
       <>
         <Root
+          component={item.url ? NavLinkAdapter : 'li'}
           itempadding={itempadding}
           disableSticky
           className={clsx('fuse-list-subheader flex items-center', !item.url && 'cursor-default')}
           onClick={() => onItemClick && onItemClick(item)}
-          component={item.url ? NavLinkAdapter : 'li'}
           to={item.url}
+          end={item.end}
           role="button"
         >
           <span className="fuse-list-subheader-text uppercase text-12">{item.title}</span>

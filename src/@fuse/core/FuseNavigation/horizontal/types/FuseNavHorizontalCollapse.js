@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 import { memo, useState, useMemo } from 'react';
 import * as ReactDOM from 'react-dom';
 import { Manager, Popper, Reference } from 'react-popper';
-import { withRouter } from 'react-router-dom';
+import withRouter from '@fuse/core/withRouter';
 import FuseNavBadge from '../../FuseNavBadge';
 import FuseNavItem from '../../FuseNavItem';
 
@@ -86,6 +86,7 @@ function FuseNavHorizontalCollapse(props) {
                   aria-haspopup="true"
                   component={item.url ? NavLinkAdapter : 'li'}
                   to={item.url}
+                  end={item.end}
                   role="button"
                 >
                   {item.icon && (

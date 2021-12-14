@@ -2,25 +2,30 @@ import { lazy } from 'react';
 import cardedLayoutRoutes from './page-layouts/carded/cardedLayoutRoutes';
 import simpleLayoutRoutes from './page-layouts/simple/simpleLayoutRoutes';
 
+const Blank = lazy(() => import('./page-layouts/blank'));
+const IconsUI = lazy(() => import('./icons/IconsUI'));
+const TypographyUI = lazy(() => import('./typography/TypographyUI'));
+const HelperClassesUI = lazy(() => import('./helper-classes/HelperClassesUI'));
+
 const UserInterfaceConfig = {
   routes: [
     ...cardedLayoutRoutes,
     ...simpleLayoutRoutes,
     {
-      path: '/ui/page-layouts/blank',
-      component: lazy(() => import('./page-layouts/blank')),
+      path: 'ui/page-layouts/blank',
+      element: <Blank />,
     },
     {
-      path: '/ui/icons',
-      component: lazy(() => import('./icons/IconsUI')),
+      path: 'ui/icons',
+      element: <IconsUI />,
     },
     {
-      path: '/ui/typography',
-      component: lazy(() => import('./typography/TypographyUI')),
+      path: 'ui/typography',
+      element: <TypographyUI />,
     },
     {
-      path: '/ui/helper-classes',
-      component: lazy(() => import('./helper-classes/HelperClassesUI')),
+      path: 'ui/helper-classes',
+      element: <HelperClassesUI />,
     },
   ],
 };

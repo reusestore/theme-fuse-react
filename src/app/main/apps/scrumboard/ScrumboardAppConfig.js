@@ -1,5 +1,8 @@
 import { lazy } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+
+const Board = lazy(() => import('./board/Board'));
+const Boards = lazy(() => import('./boards/Boards'));
 
 const ScrumboardAppConfig = {
   settings: {
@@ -7,16 +10,22 @@ const ScrumboardAppConfig = {
   },
   routes: [
     {
-      path: '/apps/scrumboard/boards/:boardId/:boardUri?',
-      component: lazy(() => import('./board/Board')),
+      path: 'apps/scrumboard/boards/:boardId',
+      element: <Board />,
+      children: [
+        {
+          path: ':boardUri',
+          element: <Board />,
+        },
+      ],
     },
     {
-      path: '/apps/scrumboard/boards',
-      component: lazy(() => import('./boards/Boards')),
+      path: 'apps/scrumboard/boards',
+      element: <Boards />,
     },
     {
-      path: '/apps/scrumboard',
-      component: () => <Redirect to="/apps/scrumboard/boards" />,
+      path: 'apps/scrumboard',
+      element: <Navigate to="/apps/scrumboard/boards" />,
     },
   ],
 };

@@ -1,5 +1,7 @@
 import { lazy } from 'react';
 
+const PricingStyle1Page = lazy(() => import('./PricingStyle1Page'));
+
 const PricingStyle1PageConfig = {
   settings: {
     layout: {
@@ -8,8 +10,8 @@ const PricingStyle1PageConfig = {
   },
   routes: [
     {
-      path: '/pages/pricing/style-1',
-      component: lazy(() => import('./PricingStyle1Page')),
+      path: 'pages/pricing/style-1',
+      element: <PricingStyle1Page />,
     },
   ],
 };

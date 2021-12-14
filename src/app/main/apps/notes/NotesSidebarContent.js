@@ -56,7 +56,7 @@ function NotesSidebarContent(props) {
             button
             component={NavLinkAdapter}
             to="/apps/notes"
-            exact
+            end
             activeClassName="active"
           >
             <Icon className="list-item-icon text-16" color="action">
@@ -68,7 +68,7 @@ function NotesSidebarContent(props) {
             button
             component={NavLinkAdapter}
             to="/apps/notes/reminders"
-            exact
+            end
             activeClassName="active"
           >
             <Icon className="list-item-icon text-16" color="action">
@@ -86,7 +86,7 @@ function NotesSidebarContent(props) {
               button
               component={NavLinkAdapter}
               to={`/apps/notes/labels/${label.handle}/${label.id}`}
-              exact
+              end
               activeClassName="active"
             >
               <Icon className="list-item-icon text-16" color="action">

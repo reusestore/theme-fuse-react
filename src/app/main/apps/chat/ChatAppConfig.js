@@ -1,5 +1,7 @@
 import { lazy } from 'react';
 
+const ChatApp = lazy(() => import('./ChatApp'));
+
 const ChatAppConfig = {
   settings: {
     layout: {
@@ -8,8 +10,8 @@ const ChatAppConfig = {
   },
   routes: [
     {
-      path: '/apps/chat',
-      component: lazy(() => import('./ChatApp')),
+      path: 'apps/chat',
+      element: <ChatApp />,
     },
   ],
 };

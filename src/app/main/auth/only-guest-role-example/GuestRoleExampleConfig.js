@@ -10,8 +10,8 @@ const GuestRoleExampleConfig = {
   auth: authRoles.onlyGuest, // ['guest']
   routes: [
     {
-      path: '/auth/guest-role-example',
-      component: GuestRoleExample,
+      path: 'auth/guest-role-example',
+      element: <GuestRoleExample />,
     },
   ],
 };

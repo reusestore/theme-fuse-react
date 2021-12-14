@@ -5,9 +5,9 @@ import FuseSuspense from '@fuse/core/FuseSuspense';
 import AppContext from 'app/AppContext';
 import SettingsPanel from 'app/fuse-layouts/shared-components/SettingsPanel';
 import clsx from 'clsx';
-import { memo } from 'react';
+import { memo, useContext } from 'react';
 import { useSelector } from 'react-redux';
-import { renderRoutes } from 'react-router-config';
+import { useRoutes } from 'react-router-dom';
 import FooterLayout2 from './components/FooterLayout2';
 import LeftSideLayout2 from './components/LeftSideLayout2';
 import NavbarWrapperLayout2 from './components/NavbarWrapperLayout2';
@@ -32,53 +32,51 @@ const Root = styled('div')(({ theme, config }) => ({
 
 function Layout2(props) {
   const config = useSelector(({ fuse }) => fuse.settings.current.layout.config);
+  const appContext = useContext(AppContext);
+  const { routes } = appContext;
 
   return (
-    <AppContext.Consumer>
-      {({ routes }) => (
-        <Root id="fuse-layout" className="w-full flex" config={config}>
-          {config.leftSidePanel.display && <LeftSideLayout2 />}
+    <Root id="fuse-layout" className="w-full flex" config={config}>
+      {config.leftSidePanel.display && <LeftSideLayout2 />}
 
-          <div className="flex flex-col flex-auto min-w-0">
-            <main id="fuse-main" className="flex flex-col flex-auto min-h-screen min-w-0 relative">
-              {config.navbar.display && (
-                <NavbarWrapperLayout2
-                  className={clsx(config.navbar.style === 'fixed' && 'sticky top-0 z-50')}
-                />
+      <div className="flex flex-col flex-auto min-w-0">
+        <main id="fuse-main" className="flex flex-col flex-auto min-h-screen min-w-0 relative">
+          {config.navbar.display && (
+            <NavbarWrapperLayout2
+              className={clsx(config.navbar.style === 'fixed' && 'sticky top-0 z-50')}
+            />
+          )}
+
+          {config.toolbar.display && (
+            <ToolbarLayout2
+              className={clsx(
+                config.toolbar.style === 'fixed' && 'sticky top-0',
+                config.toolbar.position === 'above' && 'order-first z-40'
               )}
+            />
+          )}
 
-              {config.toolbar.display && (
-                <ToolbarLayout2
-                  className={clsx(
-                    config.toolbar.style === 'fixed' && 'sticky top-0',
-                    config.toolbar.position === 'above' && 'order-first z-40'
-                  )}
-                />
-              )}
-
-              <div className="sticky top-0 z-99">
-                <SettingsPanel />
-              </div>
-
-              <div className="flex flex-col flex-auto min-h-0 relative z-10">
-                <FuseDialog />
-
-                <FuseSuspense>{renderRoutes(routes)}</FuseSuspense>
-
-                {props.children}
-              </div>
-
-              {config.footer.display && (
-                <FooterLayout2 className={config.footer.style === 'fixed' && 'sticky bottom-0'} />
-              )}
-            </main>
+          <div className="sticky top-0 z-99">
+            <SettingsPanel />
           </div>
 
-          {config.rightSidePanel.display && <RightSideLayout2 />}
-          <FuseMessage />
-        </Root>
-      )}
-    </AppContext.Consumer>
+          <div className="flex flex-col flex-auto min-h-0 relative z-10">
+            <FuseDialog />
+
+            <FuseSuspense>{useRoutes(routes)}</FuseSuspense>
+
+            {props.children}
+          </div>
+
+          {config.footer.display && (
+            <FooterLayout2 className={config.footer.style === 'fixed' && 'sticky bottom-0'} />
+          )}
+        </main>
+      </div>
+
+      {config.rightSidePanel.display && <RightSideLayout2 />}
+      <FuseMessage />
+    </Root>
   );
 }
 

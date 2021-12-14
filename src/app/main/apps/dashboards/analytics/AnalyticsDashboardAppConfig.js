@@ -1,5 +1,7 @@
 import { lazy } from 'react';
 
+const AnalyticsDashboardApp = lazy(() => import('./AnalyticsDashboardApp'));
+
 const AnalyticsDashboardAppConfig = {
   settings: {
     layout: {
@@ -8,8 +10,8 @@ const AnalyticsDashboardAppConfig = {
   },
   routes: [
     {
-      path: '/apps/dashboards/analytics',
-      component: lazy(() => import('./AnalyticsDashboardApp')),
+      path: 'apps/dashboards/analytics',
+      element: <AnalyticsDashboardApp />,
     },
   ],
 };

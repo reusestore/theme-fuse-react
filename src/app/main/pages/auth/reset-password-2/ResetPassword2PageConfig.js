@@ -1,5 +1,7 @@
 import { lazy } from 'react';
 
+const ResetPassword2Page = lazy(() => import('./ResetPassword2Page'));
+
 const ResetPassword2PageConfig = {
   settings: {
     layout: {
@@ -8,8 +10,8 @@ const ResetPassword2PageConfig = {
   },
   routes: [
     {
-      path: '/pages/auth/reset-password-2',
-      component: lazy(() => import('./ResetPassword2Page')),
+      path: 'pages/auth/reset-password-2',
+      element: <ResetPassword2Page />,
     },
   ],
 };

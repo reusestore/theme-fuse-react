@@ -17,7 +17,7 @@ import _ from '@lodash';
 import { memo, useEffect, useReducer, useRef } from 'react';
 import Autosuggest from 'react-autosuggest';
 import { useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import withRouter from '@fuse/core/withRouter';
 import { selectFlatNavigation } from 'app/store/fuse/navigationSlice';
 
 const Root = styled('div')(({ theme }) => ({
@@ -267,7 +267,7 @@ function FuseSearch(props) {
     if (!suggestion.url) {
       return;
     }
-    props.history.push(suggestion.url);
+    props.navigate(suggestion.url);
     hideSearch();
   }
 

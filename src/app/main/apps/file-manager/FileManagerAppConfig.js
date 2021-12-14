@@ -1,5 +1,7 @@
 import { lazy } from 'react';
 
+const FileManagerApp = lazy(() => import('./FileManagerApp'));
+
 const FileManagerAppConfig = {
   settings: {
     layout: {
@@ -8,8 +10,8 @@ const FileManagerAppConfig = {
   },
   routes: [
     {
-      path: '/apps/file-manager',
-      component: lazy(() => import('./FileManagerApp')),
+      path: 'apps/file-manager',
+      element: <FileManagerApp />,
     },
   ],
 };

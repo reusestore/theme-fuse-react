@@ -1,5 +1,7 @@
 import { lazy } from 'react';
 
+const ForgotPasswordPage = lazy(() => import('./ForgotPasswordPage'));
+
 const ForgotPasswordPageConfig = {
   settings: {
     layout: {
@@ -8,8 +10,8 @@ const ForgotPasswordPageConfig = {
   },
   routes: [
     {
-      path: '/pages/auth/forgot-password',
-      component: lazy(() => import('./ForgotPasswordPage')),
+      path: 'pages/auth/forgot-password',
+      element: <ForgotPasswordPage />,
     },
   ],
 };

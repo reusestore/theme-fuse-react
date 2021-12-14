@@ -26,8 +26,8 @@ const CallbackConfig = {
   auth: authRoles.onlyGuest,
   routes: [
     {
-      path: '/callback',
-      component: Callback,
+      path: 'callback',
+      element:Callback,
     },
   ],
 };

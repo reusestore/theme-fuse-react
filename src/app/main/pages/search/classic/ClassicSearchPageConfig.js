@@ -1,5 +1,7 @@
 import { lazy } from 'react';
 
+const ClassicSearchPage = lazy(() => import('./ClassicSearchPage'));
+
 const ClassicSearchPageConfig = {
   settings: {
     layout: {
@@ -8,8 +10,8 @@ const ClassicSearchPageConfig = {
   },
   routes: [
     {
-      path: '/pages/search/classic',
-      component: lazy(() => import('./ClassicSearchPage')),
+      path: 'pages/search/classic',
+      element: <ClassicSearchPage />,
     },
   ],
 };

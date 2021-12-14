@@ -4,7 +4,7 @@ const knowledgeBaseDB = [
 	{
 		id: '1',
 		title: 'Your Account',
-		path: '/pages/knowledge-base',
+		path: 'pages/knowledge-base',
 		articlesCount: 17,
 		featuredArticles: [
 			{
@@ -42,7 +42,7 @@ const knowledgeBaseDB = [
 	{
 		id: '2',
 		title: 'Selling',
-		path: '/pages/knowledge-base',
+		path: 'pages/knowledge-base',
 		articlesCount: 12,
 		featuredArticles: [
 			{
@@ -80,7 +80,7 @@ const knowledgeBaseDB = [
 	{
 		id: '3',
 		title: 'Buying',
-		path: '/pages/knowledge-base',
+		path: 'pages/knowledge-base',
 		articlesCount: 19,
 		featuredArticles: [
 			{
@@ -118,7 +118,7 @@ const knowledgeBaseDB = [
 	{
 		id: '4',
 		title: 'Item Support',
-		path: '/pages/knowledge-base',
+		path: 'pages/knowledge-base',
 		articlesCount: 24,
 		featuredArticles: [
 			{

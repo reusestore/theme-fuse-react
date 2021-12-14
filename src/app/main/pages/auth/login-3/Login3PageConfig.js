@@ -1,5 +1,7 @@
 import { lazy } from 'react';
 
+const Login3Page = lazy(() => import('./Login3Page'));
+
 const Login3PageConfig = {
   settings: {
     layout: {
@@ -8,8 +10,8 @@ const Login3PageConfig = {
   },
   routes: [
     {
-      path: '/pages/auth/login-3',
-      component: lazy(() => import('./Login3Page')),
+      path: 'pages/auth/login-3',
+      element: <Login3Page />,
     },
   ],
 };

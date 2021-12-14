@@ -1,5 +1,7 @@
 import { lazy } from 'react';
 
+const Register3Page = lazy(() => import('./Register3Page'));
+
 const Register3PageConfig = {
   settings: {
     layout: {
@@ -8,8 +10,8 @@ const Register3PageConfig = {
   },
   routes: [
     {
-      path: '/pages/auth/register-3',
-      component: lazy(() => import('./Register3Page')),
+      path: 'pages/auth/register-3',
+      element: <Register3Page />,
     },
   ],
 };

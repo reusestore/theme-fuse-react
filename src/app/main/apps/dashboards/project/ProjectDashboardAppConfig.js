@@ -1,5 +1,7 @@
 import { lazy } from 'react';
 
+const ProjectDashboardApp = lazy(() => import('./ProjectDashboardApp'));
+
 const ProjectDashboardAppConfig = {
   settings: {
     layout: {
@@ -8,8 +10,8 @@ const ProjectDashboardAppConfig = {
   },
   routes: [
     {
-      path: '/apps/dashboards/project',
-      component: lazy(() => import('./ProjectDashboardApp')),
+      path: 'apps/dashboards/project',
+      element: <ProjectDashboardApp />,
     },
   ],
 };

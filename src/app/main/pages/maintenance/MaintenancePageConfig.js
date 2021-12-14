@@ -1,5 +1,7 @@
 import { lazy } from 'react';
 
+const MaintenancePage = lazy(() => import('./MaintenancePage'));
+
 const MaintenancePageConfig = {
   settings: {
     layout: {
@@ -8,8 +10,8 @@ const MaintenancePageConfig = {
   },
   routes: [
     {
-      path: '/pages/maintenance',
-      component: lazy(() => import('./MaintenancePage')),
+      path: 'pages/maintenance',
+      element: <MaintenancePage />,
     },
   ],
 };

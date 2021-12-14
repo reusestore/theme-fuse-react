@@ -75,19 +75,19 @@ function RoutingDoc() {
                                 routes  : [
                                     {
                                         path     : '/apps/mail/label/:labelHandle/:mailId?',
-                                        component: MailApp
+                                        element: <MailApp/>
                                     },
                                     {
                                         path     : '/apps/mail/filter/:filterHandle/:mailId?',
-                                        component: MailApp
+                                        element: <MailApp/>
                                     },
                                     {
                                         path     : '/apps/mail/:folderHandle/:mailId?',
-                                        component: MailApp
+                                        element: <MailApp/>
                                     },
                                     {
                                         path     : '/apps/mail',
-                                        component: () => <Redirect to="/apps/mail/inbox"/>
+                                        element:() => <Navigate to="/apps/mail/inbox"/>
                                     }
                                 ]
                             };
@@ -112,7 +112,7 @@ function RoutingDoc() {
                                     ...FuseUtils.generateRoutesFromConfigs(routeConfigs, null),
                                     {
                                         path     : '/',
-                                        component: () => <Redirect to="/pages/errors/error-404"/>
+                                        element:() => <Navigate to="/pages/errors/error-404"/>
                                     }
                                 ];
                             `}

@@ -77,11 +77,12 @@ function FuseNavVerticalCollapse(props) {
     () => (
       <Root className={clsx(open && 'open')} itempadding={itempadding}>
         <ListItem
+          component={item.url ? NavLinkAdapter : 'li'}
           button
           className="fuse-list-item"
           onClick={() => setOpen(!open)}
-          component={item.url ? NavLinkAdapter : 'li'}
           to={item.url}
+          end={item.end}
           role="button"
         >
           {item.icon && (

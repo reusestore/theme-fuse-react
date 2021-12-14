@@ -1,285 +1,373 @@
 import { lazy } from 'react';
 
+const Accordion = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/Accordion')
+);
+const Alert = lazy(() => import('app/main/documentation/material-ui-components/pages/Alert'));
+const AppBar = lazy(() => import('app/main/documentation/material-ui-components/pages/AppBar'));
+const Autocomplete = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/Autocomplete')
+);
+const Avatars = lazy(() => import('app/main/documentation/material-ui-components/pages/Avatars'));
+const Backdrop = lazy(() => import('app/main/documentation/material-ui-components/pages/Backdrop'));
+const Badges = lazy(() => import('app/main/documentation/material-ui-components/pages/Badges'));
+const BottomNavigation = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/BottomNavigation')
+);
+const Box = lazy(() => import('app/main/documentation/material-ui-components/pages/Box'));
+const Breadcrumbs = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/Breadcrumbs')
+);
+const ButtonGroup = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/ButtonGroup')
+);
+const Buttons = lazy(() => import('app/main/documentation/material-ui-components/pages/Buttons'));
+const Cards = lazy(() => import('app/main/documentation/material-ui-components/pages/Cards'));
+const Checkboxes = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/Checkboxes')
+);
+const Chips = lazy(() => import('app/main/documentation/material-ui-components/pages/Chips'));
+const ClickAwayListener = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/ClickAwayListener')
+);
+const Container = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/Container')
+);
+const CssBaseline = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/CssBaseline')
+);
+const DatePicker = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/DatePicker')
+);
+const DateRangePicker = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/DateRangePicker')
+);
+const DateTimePicker = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/DateTimePicker')
+);
+const Dialogs = lazy(() => import('app/main/documentation/material-ui-components/pages/Dialogs'));
+const Dividers = lazy(() => import('app/main/documentation/material-ui-components/pages/Dividers'));
+const Drawers = lazy(() => import('app/main/documentation/material-ui-components/pages/Drawers'));
+const FloatingActionButton = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/FloatingActionButton')
+);
+const Grid = lazy(() => import('app/main/documentation/material-ui-components/pages/Grid'));
+const ImageList = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/ImageList')
+);
+const Links = lazy(() => import('app/main/documentation/material-ui-components/pages/Links'));
+const Lists = lazy(() => import('app/main/documentation/material-ui-components/pages/Lists'));
+const Masonry = lazy(() => import('app/main/documentation/material-ui-components/pages/Masonry'));
+const Menus = lazy(() => import('app/main/documentation/material-ui-components/pages/Menus'));
+const Modal = lazy(() => import('app/main/documentation/material-ui-components/pages/Modal'));
+const NoSsr = lazy(() => import('app/main/documentation/material-ui-components/pages/NoSsr'));
+const Pagination = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/Pagination')
+);
+const Paper = lazy(() => import('app/main/documentation/material-ui-components/pages/Paper'));
+const Pickers = lazy(() => import('app/main/documentation/material-ui-components/pages/Pickers'));
+const Popover = lazy(() => import('app/main/documentation/material-ui-components/pages/Popover'));
+const Popper = lazy(() => import('app/main/documentation/material-ui-components/pages/Popper'));
+const Portal = lazy(() => import('app/main/documentation/material-ui-components/pages/Portal'));
+const Progress = lazy(() => import('app/main/documentation/material-ui-components/pages/Progress'));
+const RadioButtons = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/RadioButtons')
+);
+const Rating = lazy(() => import('app/main/documentation/material-ui-components/pages/Rating'));
+const Selects = lazy(() => import('app/main/documentation/material-ui-components/pages/Selects'));
+const Skeleton = lazy(() => import('app/main/documentation/material-ui-components/pages/Skeleton'));
+const Slider = lazy(() => import('app/main/documentation/material-ui-components/pages/Slider'));
+const Snackbars = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/Snackbars')
+);
+const SpeedDial = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/SpeedDial')
+);
+const Stack = lazy(() => import('app/main/documentation/material-ui-components/pages/Stack'));
+const Steppers = lazy(() => import('app/main/documentation/material-ui-components/pages/Steppers'));
+const Switches = lazy(() => import('app/main/documentation/material-ui-components/pages/Switches'));
+const Tables = lazy(() => import('app/main/documentation/material-ui-components/pages/Tables'));
+const Tabs = lazy(() => import('app/main/documentation/material-ui-components/pages/Tabs'));
+const TextFields = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/TextFields')
+);
+const TextareaAutosize = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/TextareaAutosize')
+);
+const TimePicker = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/TimePicker')
+);
+const Timeline = lazy(() => import('app/main/documentation/material-ui-components/pages/Timeline'));
+const ToggleButton = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/ToggleButton')
+);
+const Tooltips = lazy(() => import('app/main/documentation/material-ui-components/pages/Tooltips'));
+const TransferList = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/TransferList')
+);
+const Transitions = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/Transitions')
+);
+const TrapFocus = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/TrapFocus')
+);
+const TreeView = lazy(() => import('app/main/documentation/material-ui-components/pages/TreeView'));
+const Typography = lazy(() =>
+  import('app/main/documentation/material-ui-components/pages/Typography')
+);
+
 const MaterialUIComponentsRoutes = [
   {
-    path: '/documentation/material-ui-components/accordion',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Accordion')),
+    path: 'material-ui-components/accordion',
+    element: <Accordion />,
   },
   {
-    path: '/documentation/material-ui-components/alert',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Alert')),
+    path: 'material-ui-components/alert',
+    element: <Alert />,
   },
   {
-    path: '/documentation/material-ui-components/app-bar',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/AppBar')),
+    path: 'material-ui-components/app-bar',
+    element: <AppBar />,
   },
   {
-    path: '/documentation/material-ui-components/autocomplete',
-    component: lazy(() =>
-      import('app/main/documentation/material-ui-components/pages/Autocomplete')
-    ),
+    path: 'material-ui-components/autocomplete',
+    element: <Autocomplete />,
   },
   {
-    path: '/documentation/material-ui-components/avatars',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Avatars')),
+    path: 'material-ui-components/avatars',
+    element: <Avatars />,
   },
   {
-    path: '/documentation/material-ui-components/backdrop',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Backdrop')),
+    path: 'material-ui-components/backdrop',
+    element: <Backdrop />,
   },
   {
-    path: '/documentation/material-ui-components/badges',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Badges')),
+    path: 'material-ui-components/badges',
+    element: <Badges />,
   },
   {
-    path: '/documentation/material-ui-components/bottom-navigation',
-    component: lazy(() =>
-      import('app/main/documentation/material-ui-components/pages/BottomNavigation')
-    ),
+    path: 'material-ui-components/bottom-navigation',
+    element: <BottomNavigation />,
   },
   {
-    path: '/documentation/material-ui-components/box',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Box')),
+    path: 'material-ui-components/box',
+    element: <Box />,
   },
   {
-    path: '/documentation/material-ui-components/breadcrumbs',
-    component: lazy(() =>
-      import('app/main/documentation/material-ui-components/pages/Breadcrumbs')
-    ),
+    path: 'material-ui-components/breadcrumbs',
+    element: <Breadcrumbs />,
   },
   {
-    path: '/documentation/material-ui-components/button-group',
-    component: lazy(() =>
-      import('app/main/documentation/material-ui-components/pages/ButtonGroup')
-    ),
+    path: 'material-ui-components/button-group',
+    element: <ButtonGroup />,
   },
   {
-    path: '/documentation/material-ui-components/buttons',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Buttons')),
+    path: 'material-ui-components/buttons',
+    element: <Buttons />,
   },
   {
-    path: '/documentation/material-ui-components/cards',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Cards')),
+    path: 'material-ui-components/cards',
+    element: <Cards />,
   },
   {
-    path: '/documentation/material-ui-components/checkboxes',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Checkboxes')),
+    path: 'material-ui-components/checkboxes',
+    element: <Checkboxes />,
   },
   {
-    path: '/documentation/material-ui-components/chips',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Chips')),
+    path: 'material-ui-components/chips',
+    element: <Chips />,
   },
   {
-    path: '/documentation/material-ui-components/click-away-listener',
-    component: lazy(() =>
-      import('app/main/documentation/material-ui-components/pages/ClickAwayListener')
-    ),
+    path: 'material-ui-components/click-away-listener',
+    element: <ClickAwayListener />,
   },
   {
-    path: '/documentation/material-ui-components/container',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Container')),
+    path: 'material-ui-components/container',
+    element: <Container />,
   },
   {
-    path: '/documentation/material-ui-components/css-baseline',
-    component: lazy(() =>
-      import('app/main/documentation/material-ui-components/pages/CssBaseline')
-    ),
+    path: 'material-ui-components/css-baseline',
+    element: <CssBaseline />,
   },
   {
-    path: '/documentation/material-ui-components/date-picker',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/DatePicker')),
+    path: 'material-ui-components/date-picker',
+    element: <DatePicker />,
   },
   {
-    path: '/documentation/material-ui-components/date-range-picker',
-    component: lazy(() =>
-      import('app/main/documentation/material-ui-components/pages/DateRangePicker')
-    ),
+    path: 'material-ui-components/date-range-picker',
+    element: <DateRangePicker />,
   },
   {
-    path: '/documentation/material-ui-components/date-time-picker',
-    component: lazy(() =>
-      import('app/main/documentation/material-ui-components/pages/DateTimePicker')
-    ),
+    path: 'material-ui-components/date-time-picker',
+    element: <DateTimePicker />,
   },
   {
-    path: '/documentation/material-ui-components/dialogs',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Dialogs')),
+    path: 'material-ui-components/dialogs',
+    element: <Dialogs />,
   },
   {
-    path: '/documentation/material-ui-components/dividers',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Dividers')),
+    path: 'material-ui-components/dividers',
+    element: <Dividers />,
   },
   {
-    path: '/documentation/material-ui-components/drawers',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Drawers')),
+    path: 'material-ui-components/drawers',
+    element: <Drawers />,
   },
   {
-    path: '/documentation/material-ui-components/floating-action-button',
-    component: lazy(() =>
-      import('app/main/documentation/material-ui-components/pages/FloatingActionButton')
-    ),
+    path: 'material-ui-components/floating-action-button',
+    element: <FloatingActionButton />,
   },
   {
-    path: '/documentation/material-ui-components/grid',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Grid')),
+    path: 'material-ui-components/grid',
+    element: <Grid />,
   },
   {
-    path: '/documentation/material-ui-components/image-list',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/ImageList')),
+    path: 'material-ui-components/image-list',
+    element: <ImageList />,
   },
   {
-    path: '/documentation/material-ui-components/links',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Links')),
+    path: 'material-ui-components/links',
+    element: <Links />,
   },
   {
-    path: '/documentation/material-ui-components/lists',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Lists')),
+    path: 'material-ui-components/lists',
+    element: <Lists />,
   },
   {
-    path: '/documentation/material-ui-components/masonry',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Masonry')),
+    path: 'material-ui-components/masonry',
+    element: <Masonry />,
   },
   {
-    path: '/documentation/material-ui-components/menus',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Menus')),
+    path: 'material-ui-components/menus',
+    element: <Menus />,
   },
   {
-    path: '/documentation/material-ui-components/modal',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Modal')),
+    path: 'material-ui-components/modal',
+    element: <Modal />,
   },
   {
-    path: '/documentation/material-ui-components/no-ssr',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/NoSsr')),
+    path: 'material-ui-components/no-ssr',
+    element: <NoSsr />,
   },
   {
-    path: '/documentation/material-ui-components/pagination',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Pagination')),
+    path: 'material-ui-components/pagination',
+    element: <Pagination />,
   },
   {
-    path: '/documentation/material-ui-components/paper',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Paper')),
+    path: 'material-ui-components/paper',
+    element: <Paper />,
   },
   {
-    path: '/documentation/material-ui-components/pickers',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Pickers')),
+    path: 'material-ui-components/pickers',
+    element: <Pickers />,
   },
   {
-    path: '/documentation/material-ui-components/popover',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Popover')),
+    path: 'material-ui-components/popover',
+    element: <Popover />,
   },
   {
-    path: '/documentation/material-ui-components/popper',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Popper')),
+    path: 'material-ui-components/popper',
+    element: <Popper />,
   },
   {
-    path: '/documentation/material-ui-components/portal',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Portal')),
+    path: 'material-ui-components/portal',
+    element: <Portal />,
   },
   {
-    path: '/documentation/material-ui-components/progress',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Progress')),
+    path: 'material-ui-components/progress',
+    element: <Progress />,
   },
   {
-    path: '/documentation/material-ui-components/radio-buttons',
-    component: lazy(() =>
-      import('app/main/documentation/material-ui-components/pages/RadioButtons')
-    ),
+    path: 'material-ui-components/radio-buttons',
+    element: <RadioButtons />,
   },
   {
-    path: '/documentation/material-ui-components/rating',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Rating')),
+    path: 'material-ui-components/rating',
+    element: <Rating />,
   },
   {
-    path: '/documentation/material-ui-components/selects',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Selects')),
+    path: 'material-ui-components/selects',
+    element: <Selects />,
   },
   {
-    path: '/documentation/material-ui-components/skeleton',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Skeleton')),
+    path: 'material-ui-components/skeleton',
+    element: <Skeleton />,
   },
   {
-    path: '/documentation/material-ui-components/slider',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Slider')),
+    path: 'material-ui-components/slider',
+    element: <Slider />,
   },
   {
-    path: '/documentation/material-ui-components/snackbars',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Snackbars')),
+    path: 'material-ui-components/snackbars',
+    element: <Snackbars />,
   },
   {
-    path: '/documentation/material-ui-components/speed-dial',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/SpeedDial')),
+    path: 'material-ui-components/speed-dial',
+    element: <SpeedDial />,
   },
   {
-    path: '/documentation/material-ui-components/stack',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Stack')),
+    path: 'material-ui-components/stack',
+    element: <Stack />,
   },
   {
-    path: '/documentation/material-ui-components/steppers',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Steppers')),
+    path: 'material-ui-components/steppers',
+    element: <Steppers />,
   },
   {
-    path: '/documentation/material-ui-components/switches',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Switches')),
+    path: 'material-ui-components/switches',
+    element: <Switches />,
   },
   {
-    path: '/documentation/material-ui-components/tables',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Tables')),
+    path: 'material-ui-components/tables',
+    element: <Tables />,
   },
   {
-    path: '/documentation/material-ui-components/tabs',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Tabs')),
+    path: 'material-ui-components/tabs',
+    element: <Tabs />,
   },
   {
-    path: '/documentation/material-ui-components/text-fields',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/TextFields')),
+    path: 'material-ui-components/text-fields',
+    element: <TextFields />,
   },
   {
-    path: '/documentation/material-ui-components/textarea-autosize',
-    component: lazy(() =>
-      import('app/main/documentation/material-ui-components/pages/TextareaAutosize')
-    ),
+    path: 'material-ui-components/textarea-autosize',
+    element: <TextareaAutosize />,
   },
   {
-    path: '/documentation/material-ui-components/time-picker',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/TimePicker')),
+    path: 'material-ui-components/time-picker',
+    element: <TimePicker />,
   },
   {
-    path: '/documentation/material-ui-components/timeline',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Timeline')),
+    path: 'material-ui-components/timeline',
+    element: <Timeline />,
   },
   {
-    path: '/documentation/material-ui-components/toggle-button',
-    component: lazy(() =>
-      import('app/main/documentation/material-ui-components/pages/ToggleButton')
-    ),
+    path: 'material-ui-components/toggle-button',
+    element: <ToggleButton />,
   },
   {
-    path: '/documentation/material-ui-components/tooltips',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Tooltips')),
+    path: 'material-ui-components/tooltips',
+    element: <Tooltips />,
   },
   {
-    path: '/documentation/material-ui-components/transfer-list',
-    component: lazy(() =>
-      import('app/main/documentation/material-ui-components/pages/TransferList')
-    ),
+    path: 'material-ui-components/transfer-list',
+    element: <TransferList />,
   },
   {
-    path: '/documentation/material-ui-components/transitions',
-    component: lazy(() =>
-      import('app/main/documentation/material-ui-components/pages/Transitions')
-    ),
+    path: 'material-ui-components/transitions',
+    element: <Transitions />,
   },
   {
-    path: '/documentation/material-ui-components/trap-focus',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/TrapFocus')),
+    path: 'material-ui-components/trap-focus',
+    element: <TrapFocus />,
   },
   {
-    path: '/documentation/material-ui-components/tree-view',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/TreeView')),
+    path: 'material-ui-components/tree-view',
+    element: <TreeView />,
   },
   {
-    path: '/documentation/material-ui-components/typography',
-    component: lazy(() => import('app/main/documentation/material-ui-components/pages/Typography')),
+    path: 'material-ui-components/typography',
+    element: <Typography />,
   },
 ];
 

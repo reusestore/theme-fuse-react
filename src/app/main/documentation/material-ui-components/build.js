@@ -267,14 +267,14 @@ function writePage(file) {
 }
 
 function writeRouteFile(pages) {
-  // const importPath = "import %s from 'app/main/documentation/material-ui-components/pages/%s';";
-  // const imports = pages.map((page) => {
-  //   const componentName = _.upperFirst(_.camelCase(page));
-  //   return importPath.replace(/%s/g, componentName, componentName);
-  // });
+  const importPath =
+    "const %s = lazy(() => import('app/main/documentation/material-ui-components/pages/%s'));";
+  const imports = pages.map((page) => {
+    const componentName = _.upperFirst(_.camelCase(page));
+    return importPath.replace(/%s/g, componentName, componentName);
+  });
 
-  const routeObject =
-    "{ path     : '/documentation/material-ui-components/%s', component: lazy(() => import('app/main/documentation/material-ui-components/pages/%p'))}";
+  const routeObject = "{ path : 'material-ui-components/%s', element: <%p />}";
   const routes = pages.map((page) => {
     const componentName = _.upperFirst(_.camelCase(page));
 
@@ -283,10 +283,13 @@ function writeRouteFile(pages) {
       '%p': componentName,
     });
   });
+
   const content = Beautify(
     `
 		import { lazy } from 'react';
-
+        
+        ${imports.join('')}
+        
         const MaterialUIComponentsRoutes =  [${routes.join()}];
         
         export default MaterialUIComponentsRoutes;

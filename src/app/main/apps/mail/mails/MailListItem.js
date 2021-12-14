@@ -5,7 +5,7 @@ import Checkbox from '@mui/material/Checkbox';
 import ListItem from '@mui/material/ListItem';
 import Typography from '@mui/material/Typography';
 import { useDispatch, useSelector } from 'react-redux';
-import { withRouter, useParams } from 'react-router-dom';
+import withRouter from '@fuse/core/withRouter';
 import MailChip from '../MailChip';
 import { toggleInSelectedMails } from '../store/mailsSlice';
 import { selectLabelsEntities } from '../store/labelsSlice';
@@ -29,15 +29,11 @@ const StyledListItem = styled(ListItem)(({ theme, unread, selected }) => ({
   }),
 }));
 
-const pathToRegexp = require('path-to-regexp');
-
 const MailListItem = (props) => {
   const dispatch = useDispatch();
   const selectedMailIds = useSelector(({ mailApp }) => mailApp.mails.selectedMailIds);
   const labels = useSelector(selectLabelsEntities);
-  const routeParams = useParams();
 
-  const toPath = pathToRegexp.compile(props.match.path);
   const checked =
     selectedMailIds.length > 0 && selectedMailIds.find((id) => id === props.mail.id) !== undefined;
 
@@ -45,14 +41,7 @@ const MailListItem = (props) => {
     <StyledListItem
       dense
       button
-      onClick={() =>
-        props.history.push(
-          toPath({
-            ...routeParams,
-            mailId: props.mail.id,
-          })
-        )
-      }
+      onClick={() => props.navigate(`${props.mail.id}`)}
       selected={checked}
       unread={!props.mail.read ? 1 : 0}
       className="items-start py-20 px-0 md:px-8 relative"

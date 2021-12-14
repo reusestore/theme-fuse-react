@@ -6,7 +6,7 @@ import AppContext from 'app/AppContext';
 import SettingsPanel from 'app/fuse-layouts/shared-components/SettingsPanel';
 import { memo, useContext } from 'react';
 import { useSelector } from 'react-redux';
-import { renderRoutes } from 'react-router-config';
+import { useRoutes } from 'react-router-dom';
 import FooterLayout1 from './components/FooterLayout1';
 import LeftSideLayout1 from './components/LeftSideLayout1';
 import NavbarWrapperLayout1 from './components/NavbarWrapperLayout1';
@@ -53,7 +53,7 @@ function Layout1(props) {
           <div className="flex flex-col flex-auto min-h-0 relative z-10">
             <FuseDialog />
 
-            <FuseSuspense>{renderRoutes(routes)}</FuseSuspense>
+            <FuseSuspense>{useRoutes(routes)}</FuseSuspense>
 
             {props.children}
           </div>

@@ -3,22 +3,13 @@ import IconButton from '@mui/material/IconButton';
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
-import { withRouter, useParams } from 'react-router-dom';
+import withRouter from '@fuse/core/withRouter';
 import { updateMail } from '../store/mailSlice';
-
-const pathToRegexp = require('path-to-regexp');
 
 function MailToolbar(props) {
   const dispatch = useDispatch();
   const mail = useSelector(({ mailApp }) => mailApp.mail);
   const theme = useTheme();
-
-  const toPath = pathToRegexp.compile(props.match.path);
-
-  const routeParams = useParams();
-  const matchParams = { ...routeParams };
-  delete matchParams.mailId;
-  const deselectUrl = toPath(matchParams);
 
   if (!mail) {
     return null;
@@ -26,7 +17,7 @@ function MailToolbar(props) {
 
   return (
     <div className="flex flex-1 items-center justify-between overflow-hidden sm:px-16">
-      <IconButton onClick={() => props.history.push(deselectUrl)} size="large">
+      <IconButton onClick={() => props.navigate(-1)} size="large">
         <Icon>{theme.direction === 'ltr' ? 'arrow_back' : 'arrow_forward'}</Icon>
       </IconButton>
 
