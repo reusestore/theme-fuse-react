@@ -78,7 +78,7 @@
         "react-window": "1.8.6",
         "redux-logger": "4.0.0",
         "styled-components": "5.3.3",
-        "stylis": "4.0.13",
+        "stylis": "4.0.10",
         "stylis-plugin-rtl": "2.1.1",
         "web-vitals": "2.1.2",
         "yup": "0.32.11"
@@ -120,7 +120,7 @@
         "prettier": "^2.4.1",
         "promise": "8.1.0",
         "source-map-explorer": "2.5.2",
-        "tailwindcss": "npm:@tailwindcss/postcss7-compat@2.2.17",
+        "tailwindcss": "3.0.5",
         "tailwindcss-dir": "4.0.0",
         "typescript": "4.4.4",
         "util": "^0.12.4"
