@@ -53,15 +53,17 @@ function ChangingDefaultFontDoc() {
       </FuseHighlight>
 
       <Typography className="mt-16 mb-8" component="p">
-        There is also font-family assignment at <code>src/styles/index.css</code>
+        There is also font-family assignment at <code>src/styles/app-base.css </code>
       </Typography>
 
       <FuseHighlight component="pre" className="language-css mb-24">
         {`
 					html {
 						font-size: 62.5%;
-						font-family: Roboto, Helvetica Neue, Arial, sans-serif;
-						background-color: #121212;
+            font-family: 'Inter var', Roboto, Helvetica Neue, Arial, sans-serif;
+            background-color: #121212;
+            -webkit-font-smoothing: antialiased;
+            text-size-adjust: 100%;
 					}
 				`}
       </FuseHighlight>

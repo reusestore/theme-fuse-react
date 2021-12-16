@@ -120,21 +120,21 @@ function FuseAuthorizationDoc() {
 
       <FuseHighlight component="pre" className="language-js">
         {`  
-				  	const initialState = {
-						role: [],//guest
-						data: {
-							'displayName': 'John Doe',
-							'photoURL'   : 'assets/images/avatars/Velazquez.jpg',
-							'email'      : 'johndoe@withinpixels.com',
-							shortcuts    : [
-								'calendar',
-								'mail',
-								'contacts',
-								'todo'
-							]
-						}
-					};
-				 `}
+                const initialState = {
+                role: [],//guest
+                data: {
+                    'displayName': 'John Doe',
+                    'photoURL'   : 'assets/images/avatars/Velazquez.jpg',
+                    'email'      : 'johndoe@withinpixels.com',
+                    shortcuts    : [
+                      'calendar',
+                      'mail',
+                      'contacts',
+                      'todo'
+                    ]
+                  }
+                };
+       `}
       </FuseHighlight>
 
       <Paper className="max-w-md my-16">
@@ -325,7 +325,7 @@ function FuseAuthorizationDoc() {
       </Typography>
 
       <Typography className="mb-16" component="p">
-        Before dispatching <b>SET_USER_DATA</b> action you can set redirectUrl on
+        Before dispatching <b>SET_USER_DATA</b> action you can set loginRedirectUrl on
       </Typography>
 
       <Typography className="inline-block mb-8 italic" component="code">
@@ -335,13 +335,13 @@ function FuseAuthorizationDoc() {
       <FuseHighlight component="pre" className="language-js">
         {`
 					export const setUserData = user => async (dispatch, getState) => {
-						/*
-							You can redirect the logged-in user to a specific route depending on his role
-						 */
-						
-						history.location.state = {
-							redirectUrl: user.redirectUrl // for example 'apps/academy'
-						};
+					
+					  /*
+            You can redirect the logged-in user to a specific route depending on his role
+            */
+            if (user.loginRedirectUrl) {
+              settingsConfig.loginRedirectUrl = user.loginRedirectUrl; // for example 'apps/academy'
+            }
 						
 						/*
 							Set User Settings

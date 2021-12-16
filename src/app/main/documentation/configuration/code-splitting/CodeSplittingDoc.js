@@ -36,20 +36,27 @@ function CodeSplittingDoc() {
 
           <FuseHighlight component="pre" className="language-jsx my-16">
             {`
-                            export const AnalyticsDashboardAppConfig = {
-                                settings: {
-                                    layout: {
-                                        config: {}
-                                    }
-                                },
-                                routes  : [
-                                    {
-                                        path     : '/apps/dashboards/analytics',
-                                        element:React.lazy(() => import('./AnalyticsDashboardApp'))
-                                    }
-                                ]
-                            };
-                            `}
+              import { lazy } from 'react';
+
+              const AnalyticsDashboardApp = lazy(() => import('./AnalyticsDashboardApp'));
+              
+              const AnalyticsDashboardAppConfig = {
+                settings: {
+                  layout: {
+                    config: {},
+                  },
+                },
+                routes: [
+                  {
+                    path: 'apps/dashboards/analytics',
+                    element: <AnalyticsDashboardApp />,
+                  },
+                ],
+              };
+              
+              export default AnalyticsDashboardAppConfig;
+
+            `}
           </FuseHighlight>
         </div>
 
@@ -60,22 +67,22 @@ function CodeSplittingDoc() {
 
           <FuseHighlight component="pre" className="language-jsx my-16">
             {`
-                                    import AnalyticsDashboardApp from './AnalyticsDashboardApp';
+                import AnalyticsDashboardApp from './AnalyticsDashboardApp';
 
-                                    export const AnalyticsDashboardAppConfig = {
-                                        settings: {
-                                            layout: {
-                                                config: {}
-                                            }
-                                        },
-                                        routes  : [
-                                            {
-                                                path     : '/apps/dashboards/analytics',
-                                                element:AnalyticsDashboardApp
-                                            }
-                                        ]
-                                    };
-                                  `}
+                export const AnalyticsDashboardAppConfig = {
+                    settings: {
+                        layout: {
+                            config: {}
+                        }
+                    },
+                    routes  : [
+                        {
+                            path     : '/apps/dashboards/analytics',
+                            element:AnalyticsDashboardApp
+                        }
+                    ]
+                };
+            `}
           </FuseHighlight>
         </div>
       </div>

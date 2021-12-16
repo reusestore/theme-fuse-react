@@ -1,6 +1,6 @@
 {
     "name": "fuse-react-app",
-    "version": "7.0.2",
+    "version": "7.1.0",
     "private": true,
     "dependencies": {
         "@date-io/date-fns-jalali": "2.11.0",
@@ -13,7 +13,6 @@
         "@fullcalendar/timegrid": "5.10.1",
         "@hookform/resolvers": "2.8.5",
         "@mui/base": "5.0.0-alpha.60",
-        "@mui/core": "5.0.0-alpha.54",
         "@mui/icons-material": "5.2.4",
         "@mui/lab": "5.0.0-alpha.60",
         "@mui/material": "5.2.4",
@@ -46,7 +45,6 @@
         "mobile-detect": "1.4.5",
         "moment": "2.29.1",
         "notistack": "1.0.6-next.3",
-        "path-to-regexp": "3.2.0",
         "perfect-scrollbar": "1.5.3",
         "prismjs": "1.25.0",
         "prop-types": "15.7.2",

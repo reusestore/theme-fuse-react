@@ -2,6 +2,18 @@ import Typography from '@mui/material/Typography';
 
 const changelogData = [
   {
+    version: '7.1.0',
+    date: '2021-12-17',
+    newChanges: [
+      'material-ui updated to v5.2.4',
+      'react-router updated to v6.1.1',
+      'tailwindcss updated to v3.0.5',
+      'react-scripts updated to v5.0.0',
+      'All dependency packages updated.',
+    ],
+    breakingChanges: ['redirectUrl changed with loginRedirectUrl.'],
+  },
+  {
     version: '7.0.2',
     date: '2021-10-25',
     newChanges: [

@@ -5,51 +5,51 @@ import { Link } from 'react-router-dom';
 const demos = [
   {
     title: 'Full Width',
-    url: 'ui/page-layouts/carded/full-width',
+    url: '/ui/page-layouts/carded/full-width',
   },
   {
     title: 'Full Width Tabbed',
-    url: 'ui/page-layouts/carded/full-width-tabbed',
+    url: '/ui/page-layouts/carded/full-width-tabbed',
   },
   {
     title: 'Full Width 2',
-    url: 'ui/page-layouts/carded/full-width-2',
+    url: '/ui/page-layouts/carded/full-width-2',
   },
   {
     title: 'Full Width 2 Tabbed',
-    url: 'ui/page-layouts/carded/full-width-2-tabbed',
+    url: '/ui/page-layouts/carded/full-width-2-tabbed',
   },
   {
     title: 'Left Sidebar',
-    url: 'ui/page-layouts/carded/left-sidebar',
+    url: '/ui/page-layouts/carded/left-sidebar',
   },
   {
     title: 'Left Sidebar Tabbed',
-    url: 'ui/page-layouts/carded/left-sidebar-tabbed',
+    url: '/ui/page-layouts/carded/left-sidebar-tabbed',
   },
   {
     title: 'Left Sidebar 2',
-    url: 'ui/page-layouts/carded/left-sidebar-2',
+    url: '/ui/page-layouts/carded/left-sidebar-2',
   },
   {
     title: 'Left Sidebar 2 Tabbed',
-    url: 'ui/page-layouts/carded/left-sidebar-2-tabbed',
+    url: '/ui/page-layouts/carded/left-sidebar-2-tabbed',
   },
   {
     title: 'Right Sidebar',
-    url: 'ui/page-layouts/carded/right-sidebar',
+    url: '/ui/page-layouts/carded/right-sidebar',
   },
   {
     title: 'Right Sidebar Tabbed',
-    url: 'ui/page-layouts/carded/right-sidebar-tabbed',
+    url: '/ui/page-layouts/carded/right-sidebar-tabbed',
   },
   {
     title: 'Right Sidebar 2',
-    url: 'ui/page-layouts/carded/right-sidebar-2',
+    url: '/ui/page-layouts/carded/right-sidebar-2',
   },
   {
     title: 'Right Sidebar 2 Tabbed',
-    url: 'ui/page-layouts/carded/right-sidebar-2-tabbed',
+    url: '/ui/page-layouts/carded/right-sidebar-2-tabbed',
   },
 ];
 

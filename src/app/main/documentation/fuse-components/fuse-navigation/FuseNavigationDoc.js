@@ -141,10 +141,10 @@ function FuseNavigationDoc(props) {
                                 `}
       </FuseHighlight>
       <Typography className="text-20 mt-24 mb-8 font-medium" component="h2">
-        exact: bool
+        end: bool
       </Typography>
       <Typography className="text-16 mb-8" component="h2">
-        When true, the active class/style will only be applied if the location is matched exactly.
+        When true, the active class/style will only be applied if the location is exactly matched.
       </Typography>
       <FuseHighlight component="pre" className="language-json">
         {`
@@ -153,7 +153,7 @@ function FuseNavigationDoc(props) {
                                     'title': 'Project',
                                     'type' : 'item',
                                     'url'  : '/apps/dashboards/project',
-                                    'exact': true
+                                    'end': true
                                 }
                                 `}
       </FuseHighlight>

@@ -37,60 +37,41 @@ function RoutingDoc() {
 
       <FuseHighlight component="pre" className="language-jsx mb-32">
         {`
-                            import MailApp from './MailApp';
-                            import {Redirect} from 'react-router-dom';
+                        import i18next from 'i18next';
+                        import { lazy } from 'react';
+                        import { Navigate } from 'react-router-dom';
+                        
+                        const MailApp = lazy(() => import('./MailApp'));
+                        
+                        const MailAppConfig = {
+                          settings: {
+                            layout: {},
+                          },
+                          routes: [
+                            {
+                              path: 'apps/mail/label/:labelHandle',
+                              element: <MailApp />,
+                              children: [{ path: ':mailId', element: <MailApp /> }],
+                            },
+                            {
+                              path: 'apps/mail/filter/:filterHandle',
+                              element: <MailApp />,
+                              children: [{ path: ':mailId', element: <MailApp /> }],
+                            },
+                            {
+                              path: '/apps/mail/:folderHandle',
+                              element: <MailApp />,
+                              children: [{ path: ':mailId', element: <MailApp /> }],
+                            },
+                            {
+                              path: 'apps/mail',
+                              element: <Navigate to="/apps/mail/inbox" />,
+                            },
+                          ],
+                        };
+                        
+                        export default MailAppConfig;
 
-                            export const MailAppConfig = {
-                                settings: {
-                                    layout          : {
-                                        style : 'layout1',
-                                        config: {
-                                            scroll : 'content',
-                                            navbar : {
-                                                display : true,
-                                                folded  : false,
-                                                position: 'left'
-                                            },
-                                            toolbar: {
-                                                display : true,
-                                                style   : 'fixed',
-                                                position: 'below'
-                                            },
-                                            footer : {
-                                                display : true,
-                                                style   : 'fixed',
-                                                position: 'below'
-                                            },
-                                            mode   : 'fullwidth'
-                                        }
-                                    },
-                                    customScrollbars: true,
-                                    theme           : {
-                                        main   : 'default',
-                                        navbar : 'mainThemeDark',
-                                        toolbar: 'mainThemeLight',
-                                        footer : 'mainThemeDark'
-                                    }
-                                },
-                                routes  : [
-                                    {
-                                        path     : '/apps/mail/label/:labelHandle/:mailId?',
-                                        element: <MailApp/>
-                                    },
-                                    {
-                                        path     : '/apps/mail/filter/:filterHandle/:mailId?',
-                                        element: <MailApp/>
-                                    },
-                                    {
-                                        path     : '/apps/mail/:folderHandle/:mailId?',
-                                        element: <MailApp/>
-                                    },
-                                    {
-                                        path     : '/apps/mail',
-                                        element:() => <Navigate to="/apps/mail/inbox"/>
-                                    }
-                                ]
-                            };
                             `}
       </FuseHighlight>
 
@@ -102,7 +83,7 @@ function RoutingDoc() {
         {`
                                 import {appsRoutes} from 'app/main/apps/mail/MailAppConfig.js';
                                 import FuseUtils from '@fuse/utils';
-                                import {Redirect} from 'react-router-dom';
+                                import { Navigate } from 'react-router-dom';
 
                                 const routeConfigs = [
                                     MailAppConfig
@@ -110,10 +91,10 @@ function RoutingDoc() {
 
                                 export const routes = [
                                     ...FuseUtils.generateRoutesFromConfigs(routeConfigs, null),
-                                    {
-                                        path     : '/',
-                                        element:() => <Navigate to="/pages/errors/error-404"/>
-                                    }
+                                     {
+                                      path: '*',
+                                      element: <Navigate to="pages/errors/error-404" />,
+                                    },
                                 ];
                             `}
       </FuseHighlight>
