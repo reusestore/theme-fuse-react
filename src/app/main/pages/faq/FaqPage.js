@@ -69,7 +69,7 @@ function FaqPage() {
 
   return (
     <Root className="w-full flex flex-col flex-auto">
-      <div className="FaqPage-header flex flex-col flex-shrink-0 items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-360">
+      <div className="FaqPage-header flex flex-col shrink-0 items-center justify-center text-center p-16 sm:p-24 h-200 sm:h-360">
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.3 } }}>
           <Typography
             variant="subtitle1"
@@ -89,7 +89,7 @@ function FaqPage() {
           </Typography>
         </motion.div>
 
-        <Paper className="flex flex-shrink-0 items-center h-56 w-full max-w-md mt-16 sm:mt-32 rounded-16 shadow">
+        <Paper className="flex shrink-0 items-center h-56 w-full max-w-md mt-16 sm:mt-32 rounded-16 shadow">
           <Icon color="action" className="mx-16">
             search
           </Icon>
@@ -107,7 +107,7 @@ function FaqPage() {
         </Paper>
       </div>
 
-      <div className="flex flex-col flex-1 flex-shrink-0 max-w-xl w-full mx-auto px-16 sm:px-24 py-24 sm:py-32">
+      <div className="flex flex-col flex-1 shrink-0 max-w-xl w-full mx-auto px-16 sm:px-24 py-24 sm:py-32">
         {filteredData.length === 0 && (
           <div className="flex flex-auto items-center justify-center w-full h-full">
             <Typography color="textSecondary" variant="h5">

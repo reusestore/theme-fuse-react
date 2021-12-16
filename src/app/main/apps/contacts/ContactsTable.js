@@ -144,7 +144,7 @@ const EnhancedTable = ({ columns, data, onRowClick }) => {
       <TablePagination
         component="div"
         classes={{
-          root: 'flex-shrink-0 border-t-1',
+          root: 'shrink-0 border-t-1',
         }}
         rowsPerPageOptions={[5, 10, 25, { label: 'All', value: data.length + 1 }]}
         colSpan={5}

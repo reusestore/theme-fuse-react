@@ -46,7 +46,7 @@ function ContactList(props) {
 
   return (
     <Root
-      className="flex flex-shrink-0 flex-col overflow-y-auto py-8 overscroll-contain"
+      className="flex shrink-0 flex-col overflow-y-auto py-8 overscroll-contain"
       ref={contactListScroll}
       option={{ suppressScrollX: true, wheelPropagation: false }}
     >
@@ -56,7 +56,7 @@ function ContactList(props) {
             variants={container}
             initial="hidden"
             animate="show"
-            className="flex flex-col flex-shrink-0"
+            className="flex flex-col shrink-0"
           >
             {user &&
               user.chatList &&

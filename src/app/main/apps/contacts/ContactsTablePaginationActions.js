@@ -27,7 +27,7 @@ const ContactsTablePaginationActions = (props) => {
   };
 
   return (
-    <div className="flex-shrink-0 px-12 overflow-hidden">
+    <div className="shrink-0 px-12 overflow-hidden">
       <IconButton
         onClick={handleFirstPageButtonClick}
         disabled={page === 0}

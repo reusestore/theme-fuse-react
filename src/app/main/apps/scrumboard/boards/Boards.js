@@ -43,8 +43,8 @@ function Boards(props) {
   };
 
   return (
-    <Root className="flex flex-grow flex-shrink-0 flex-col items-center">
-      <div className="flex flex-grow flex-shrink-0 flex-col items-center container px-16 md:px-24">
+    <Root className="flex grow shrink-0 flex-col items-center">
+      <div className="flex grow shrink-0 flex-col items-center container px-16 md:px-24">
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.1 } }}>
           <Typography
             className="mt-44 sm:mt-88 sm:py-24 text-32 sm:text-40 font-bold"

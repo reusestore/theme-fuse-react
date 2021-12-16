@@ -61,7 +61,7 @@ function BoardList(props) {
               </CardContent>
             </>
 
-            <CardActions className="p-0 flex-shrink-0">
+            <CardActions className="p-0 shrink-0">
               <BoardAddCard listId={props.list.id} onCardAdded={handleCardAdded} />
             </CardActions>
           </StyledCard>

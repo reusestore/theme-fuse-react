@@ -49,7 +49,7 @@ const InputWrapper = styled('div')(
     padding: 4px 6px;
     width: 0;
     min-width: 30px;
-    flex-grow: 1;
+    grow: 1;
     border: 0;
     margin: 0;
     outline: 0;
@@ -127,7 +127,7 @@ const Listbox = styled('ul')(
     display: flex;
 
     & span {
-      flex-grow: 1;
+      grow: 1;
     }
 
     & svg {

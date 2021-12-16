@@ -103,7 +103,7 @@ function FuseShortcuts(props) {
     <div
       className={clsx(
         'flex flex-1',
-        props.variant === 'vertical' && 'flex-col flex-grow-0 flex-shrink',
+        props.variant === 'vertical' && 'flex-col grow-0 shrink',
         props.className
       )}
     >

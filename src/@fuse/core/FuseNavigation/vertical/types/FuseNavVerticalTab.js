@@ -129,7 +129,7 @@ function FuseNavVerticalTab(props) {
               </div>
 
               <ListItemText
-                className="fuse-list-item-text flex-grow-0 w-full m-0"
+                className="fuse-list-item-text grow-0 w-full m-0"
                 primary={item.title}
                 classes={{
                   primary: 'text-12 font-medium fuse-list-item-text-primary truncate text-center',

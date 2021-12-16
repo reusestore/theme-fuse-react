@@ -36,7 +36,7 @@ function ForgotPassword2Page() {
 
   return (
     <div className="flex flex-col flex-auto p-16 sm:p-24 md:flex-row md:p-0 overflow-hidden">
-      <div className="flex flex-col flex-grow-0 items-center  p-16 text-center md:p-128 md:items-start md:flex-shrink-0 md:flex-1 md:text-left">
+      <div className="flex flex-col grow-0 items-center  p-16 text-center md:p-128 md:items-start md:shrink-0 md:flex-1 md:text-left">
         <motion.div
           initial={{ opacity: 0, scale: 0.6 }}
           animate={{ opacity: 1, scale: 1, transition: { delay: 0.1 } }}

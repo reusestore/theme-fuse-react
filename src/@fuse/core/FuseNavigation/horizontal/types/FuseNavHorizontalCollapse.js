@@ -92,7 +92,7 @@ function FuseNavHorizontalCollapse(props) {
                   {item.icon && (
                     <Icon
                       color="action"
-                      className={clsx('fuse-list-item-icon text-16 flex-shrink-0', item.iconClass)}
+                      className={clsx('fuse-list-item-icon text-16 shrink-0', item.iconClass)}
                     >
                       {item.icon}
                     </Icon>

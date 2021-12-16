@@ -218,7 +218,7 @@ function ChatsSidebar(props) {
 
             return (
               <motion.div
-                className="flex flex-col flex-shrink-0"
+                className="flex flex-col shrink-0"
                 variants={container}
                 initial="hidden"
                 animate="show"

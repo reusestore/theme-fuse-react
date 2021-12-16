@@ -162,7 +162,7 @@ function Chat(props) {
                 <StyledMessageRow
                   key={item.time}
                   className={clsx(
-                    'flex flex-col flex-grow-0 flex-shrink-0 items-start justify-end relative px-16 pb-4',
+                    'flex flex-col grow-0 shrink-0 items-start justify-end relative px-16 pb-4',
                     { me: item.who === user.id },
                     { contact: item.who !== user.id },
                     { 'first-of-group': isFirstMessageOfGroup(item, i) },
@@ -208,7 +208,7 @@ function Chat(props) {
             <InputBase
               autoFocus={false}
               id="message-input"
-              className="flex-1 flex flex-grow flex-shrink-0 mx-16 ltr:mr-48 rtl:ml-48 my-8"
+              className="flex-1 flex grow shrink-0 mx-16 ltr:mr-48 rtl:ml-48 my-8"
               placeholder="Type your message"
               onChange={onInputChange}
               value={messageText}

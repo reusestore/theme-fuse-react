@@ -1,13 +1,7 @@
-/**
- * Normalize.css and sTailwind's base styles.
- */
-
-@import-normalize;
-
-@import 'tailwindcss/base';
+/*@tailwind base;*/
 
 /**
- * Custom base styles, applied after the tailwind-base classes
+ * Custom base styles
  */
 
 html {

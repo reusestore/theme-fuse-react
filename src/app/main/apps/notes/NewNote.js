@@ -46,7 +46,7 @@ function NewNote(props) {
   }
 
   return (
-    <Paper className="flex items-center w-full max-w-512 mt-8 mb-16 min-h-48 shadow flex-shrink-0 cursor-text">
+    <Paper className="flex items-center w-full max-w-512 mt-8 mb-16 min-h-48 shadow shrink-0 cursor-text">
       {formOpen ? (
         <ClickAwayListener onClickAway={handleClickAway}>
           <div className="w-full">

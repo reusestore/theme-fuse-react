@@ -46,7 +46,7 @@ function FuseNavHorizontalItem(props) {
       >
         {item.icon && (
           <Icon
-            className={clsx('fuse-list-item-icon text-16 flex-shrink-0', item.iconClass)}
+            className={clsx('fuse-list-item-icon text-16 shrink-0', item.iconClass)}
             color="action"
           >
             {item.icon}

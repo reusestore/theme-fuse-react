@@ -58,7 +58,7 @@ function Login3Page() {
   }
 
   return (
-    <Root className="flex flex-col flex-auto items-center justify-center flex-shrink-0 p-16 md:p-24">
+    <Root className="flex flex-col flex-auto items-center justify-center shrink-0 p-16 md:p-24">
       <motion.div
         initial={{ opacity: 0, scale: 0.6 }}
         animate={{ opacity: 1, scale: 1 }}

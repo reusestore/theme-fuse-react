@@ -21,12 +21,12 @@ function FooterLayout3(props) {
         style={{ backgroundColor: footerTheme.palette.background.paper }}
       >
         <Toolbar className="container min-h-48 md:min-h-64 px-8 sm:px-12 lg:px-20 py-0 flex items-center overflow-x-auto">
-          <div className="flex flex-grow flex-shrink-0">
+          <div className="flex grow shrink-0">
             <PurchaseButton className="mx-4" />
             <DocumentationButton className="mx-4" />
           </div>
 
-          <div className="flex flex-grow flex-shrink-0 px-12 justify-end">
+          <div className="flex grow shrink-0 px-12 justify-end">
             <PoweredByLinks />
           </div>
         </Toolbar>

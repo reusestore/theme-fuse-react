@@ -123,7 +123,7 @@ function OrdersTable(props) {
 
   return (
     <div className="w-full flex flex-col">
-      <FuseScrollbars className="flex-grow overflow-x-auto">
+      <FuseScrollbars className="grow overflow-x-auto">
         <Table stickyHeader className="min-w-xl" aria-labelledby="tableTitle">
           <OrdersTableHead
             selectedOrderIds={selected}
@@ -218,7 +218,7 @@ function OrdersTable(props) {
       </FuseScrollbars>
 
       <TablePagination
-        className="flex-shrink-0 border-t-1"
+        className="shrink-0 border-t-1"
         component="div"
         count={data.length}
         rowsPerPage={rowsPerPage}

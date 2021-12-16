@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 function NoSsrDoc(props) {
   return (
     <>
-      <div className="flex flex-1 flex-grow-0 items-center justify-end">
+      <div className="flex flex-1 grow-0 items-center justify-end">
         <Button
           className="normal-case"
           variant="contained"

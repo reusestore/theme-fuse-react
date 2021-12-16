@@ -118,7 +118,7 @@ function NavbarStyle3(props) {
           dense={props.dense ? 1 : 0}
           folded={folded ? 1 : 0}
           position={config.navbar.position}
-          className="flex-col flex-auto sticky top-0 h-screen flex-shrink-0 z-20 shadow-5"
+          className="flex-col flex-auto sticky top-0 h-screen shrink-0 z-20 shadow-5"
         >
           <NavbarStyle3Content dense={props.dense ? 1 : 0} folded={folded ? 1 : 0} />
         </StyledNavBar>

@@ -14,7 +14,7 @@ function NotesHeader(props) {
 
   return (
     <div className="flex flex-1 items-center justify-between p-8 sm:p-24 relative">
-      <div className="flex flex-shrink items-center sm:w-224">
+      <div className="flex shrink items-center sm:w-224">
         <Hidden lgUp>
           <IconButton
             onClick={(ev) => props.pageLayout.current.toggleLeftSidebar()}

@@ -46,7 +46,7 @@ const InvoiceTab = (props) => {
   });
 
   return (
-    <Root className="flex-grow flex-shrink-0 p-0">
+    <Root className="grow shrink-0 p-0">
       {props.order && (
         <Card className="w-xl mx-auto shadow-0">
           <CardContent className="p-88 print:p-0">
@@ -192,7 +192,7 @@ const InvoiceTab = (props) => {
               </Typography>
 
               <div className="flex">
-                <div className="flex-shrink-0">
+                <div className="shrink-0">
                   <img className="w-32" src="assets/images/logos/fuse.svg" alt="logo" />
                 </div>
 

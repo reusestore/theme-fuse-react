@@ -93,8 +93,8 @@ function Courses(props) {
   }
 
   return (
-    <Root className="flex flex-col flex-auto flex-shrink-0 w-full">
-      <div className="header relative overflow-hidden flex flex-shrink-0 items-center justify-center h-200 sm:h-288">
+    <Root className="flex flex-col flex-auto shrink-0 w-full">
+      <div className="header relative overflow-hidden flex shrink-0 items-center justify-center h-200 sm:h-288">
         <div className="flex flex-col max-w-2xl mx-auto w-full p-24 sm:p-32">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0 } }}>
             <Typography color="inherit" className="text-24 sm:text-44 font-bold tracking-tight">
@@ -117,7 +117,7 @@ function Courses(props) {
         <Icon className="header-icon">school</Icon>
       </div>
       <div className="flex flex-col flex-1 max-w-2xl w-full mx-auto px-8 sm:px-16 py-24">
-        <div className="flex flex-col flex-shrink-0 sm:flex-row items-center justify-between py-24">
+        <div className="flex flex-col shrink-0 sm:flex-row items-center justify-between py-24">
           <TextField
             label="Search for a course"
             placeholder="Enter a keyword..."
@@ -191,7 +191,7 @@ function Courses(props) {
                     >
                       <Card className="flex flex-col h-256 shadow">
                         <div
-                          className="flex flex-shrink-0 items-center justify-between px-24 h-64"
+                          className="flex shrink-0 items-center justify-between px-24 h-64"
                           style={{
                             background: category.color,
                             color: theme.palette.getContrastText(category.color),

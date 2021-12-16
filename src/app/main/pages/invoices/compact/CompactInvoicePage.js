@@ -48,7 +48,7 @@ function CompactInvoicePage() {
   }, []);
 
   return (
-    <Root className="flex-grow flex-shrink-0 p-0 sm:p-64 print:p-0 overflow-auto">
+    <Root className="grow shrink-0 p-0 sm:p-64 print:p-0 overflow-auto">
       {invoice && (
         <motion.div
           initial={{ opacity: 0, y: 200 }}
@@ -248,7 +248,7 @@ function CompactInvoicePage() {
                 </Typography>
 
                 <div className="flex">
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <img className="w-32" src="assets/images/logos/fuse.svg" alt="logo" />
                   </div>
 

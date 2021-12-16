@@ -24,12 +24,12 @@ const emotionCacheOptions = {
   rtl: {
     key: 'muirtl',
     stylisPlugins: [rtlPlugin],
-    prepend: true,
+    insertionPoint: document.getElementById('emotion-insertion-point'),
   },
   ltr: {
     key: 'muiltr',
     stylisPlugins: [],
-    prepend: true,
+    insertionPoint: document.getElementById('emotion-insertion-point'),
   },
 };
 
