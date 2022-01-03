@@ -1,115 +1,25 @@
-import { createSlice, createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit';
+import {
+  createSlice,
+  createAsyncThunk,
+  createEntityAdapter,
+  createSelector,
+} from '@reduxjs/toolkit';
 import axios from 'axios';
-import { getUserData } from './userSlice';
+import FuseUtils from '@fuse/utils';
+import {
+  updateContact,
+  addContact,
+  removeContact,
+} from 'app/main/apps/contacts/store/contactSlice';
 
 export const getContacts = createAsyncThunk(
   'contactsApp/contacts/getContacts',
-  async (routeParams, { getState }) => {
-    routeParams = routeParams || getState().contactsApp.contacts.routeParams;
-    const response = await axios.get('/api/contacts-app/contacts', {
-      params: routeParams,
-    });
+  async (params, { getState }) => {
+    const response = await axios.get('/api/apps/contacts/contacts');
+
     const data = await response.data;
 
-    return { data, routeParams };
-  }
-);
-
-export const addContact = createAsyncThunk(
-  'contactsApp/contacts/addContact',
-  async (contact, { dispatch, getState }) => {
-    const response = await axios.post('/api/contacts-app/add-contact', { contact });
-    const data = await response.data;
-
-    dispatch(getContacts());
-
-    return data;
-  }
-);
-
-export const updateContact = createAsyncThunk(
-  'contactsApp/contacts/updateContact',
-  async (contact, { dispatch, getState }) => {
-    const response = await axios.post('/api/contacts-app/update-contact', { contact });
-    const data = await response.data;
-
-    dispatch(getContacts());
-
-    return data;
-  }
-);
-
-export const removeContact = createAsyncThunk(
-  'contactsApp/contacts/removeContact',
-  async (contactId, { dispatch, getState }) => {
-    await axios.post('/api/contacts-app/remove-contact', { contactId });
-
-    return contactId;
-  }
-);
-
-export const removeContacts = createAsyncThunk(
-  'contactsApp/contacts/removeContacts',
-  async (contactIds, { dispatch, getState }) => {
-    await axios.post('/api/contacts-app/remove-contacts', { contactIds });
-
-    return contactIds;
-  }
-);
-
-export const toggleStarredContact = createAsyncThunk(
-  'contactsApp/contacts/toggleStarredContact',
-  async (contactId, { dispatch, getState }) => {
-    const response = await axios.post('/api/contacts-app/toggle-starred-contact', { contactId });
-    const data = await response.data;
-
-    dispatch(getUserData());
-
-    dispatch(getContacts());
-
-    return data;
-  }
-);
-
-export const toggleStarredContacts = createAsyncThunk(
-  'contactsApp/contacts/toggleStarredContacts',
-  async (contactIds, { dispatch, getState }) => {
-    const response = await axios.post('/api/contacts-app/toggle-starred-contacts', { contactIds });
-    const data = await response.data;
-
-    dispatch(getUserData());
-
-    dispatch(getContacts());
-
-    return data;
-  }
-);
-
-export const setContactsStarred = createAsyncThunk(
-  'contactsApp/contacts/setContactsStarred',
-  async (contactIds, { dispatch, getState }) => {
-    const response = await axios.post('/api/contacts-app/set-contacts-starred', { contactIds });
-    const data = await response.data;
-
-    dispatch(getUserData());
-
-    dispatch(getContacts());
-
-    return data;
-  }
-);
-
-export const setContactsUnstarred = createAsyncThunk(
-  'contactsApp/contacts/setContactsUnstarred',
-  async (contactIds, { dispatch, getState }) => {
-    const response = await axios.post('/api/contacts-app/set-contacts-unstarred', { contactIds });
-    const data = await response.data;
-
-    dispatch(getUserData());
-
-    dispatch(getContacts());
-
-    return data;
+    return { data };
   }
 );
 
@@ -118,18 +28,40 @@ const contactsAdapter = createEntityAdapter({});
 export const { selectAll: selectContacts, selectById: selectContactsById } =
   contactsAdapter.getSelectors((state) => state.contactsApp.contacts);
 
+const selectSearchText = ({ contactsApp }) => contactsApp.contacts.searchText;
+
+export const selectFilteredContacts = createSelector(
+  [selectContacts, selectSearchText],
+  (contacts, searchText) => {
+    if (searchText.length === 0) {
+      return contacts;
+    }
+    return FuseUtils.filterArrayByString(contacts, searchText);
+  }
+);
+
+export const selectGroupedFilteredContacts = createSelector(
+  [selectFilteredContacts],
+  (contacts) => {
+    return contacts
+      .sort((a, b) => a.name.localeCompare(b.name, 'es', { sensitivity: 'base' }))
+      .reduce((r, e) => {
+        // get first letter of name of current element
+        const group = e.name[0];
+        // if there is no property in accumulator with this letter create it
+        if (!r[group]) r[group] = { group, children: [e] };
+        // if there is push current element to children array for that letter
+        else r[group].children.push(e);
+        // return accumulator
+        return r;
+      }, {});
+  }
+);
+
 const contactsSlice = createSlice({
   name: 'contactsApp/contacts',
   initialState: contactsAdapter.getInitialState({
     searchText: '',
-    routeParams: {},
-    contactDialog: {
-      type: 'new',
-      props: {
-        open: false,
-      },
-      data: null,
-    },
   }),
   reducers: {
     setContactsSearchText: {
@@ -138,64 +70,19 @@ const contactsSlice = createSlice({
       },
       prepare: (event) => ({ payload: event.target.value || '' }),
     },
-    openNewContactDialog: (state, action) => {
-      state.contactDialog = {
-        type: 'new',
-        props: {
-          open: true,
-        },
-        data: null,
-      };
-    },
-    closeNewContactDialog: (state, action) => {
-      state.contactDialog = {
-        type: 'new',
-        props: {
-          open: false,
-        },
-        data: null,
-      };
-    },
-    openEditContactDialog: (state, action) => {
-      state.contactDialog = {
-        type: 'edit',
-        props: {
-          open: true,
-        },
-        data: action.payload,
-      };
-    },
-    closeEditContactDialog: (state, action) => {
-      state.contactDialog = {
-        type: 'edit',
-        props: {
-          open: false,
-        },
-        data: null,
-      };
-    },
   },
   extraReducers: {
     [updateContact.fulfilled]: contactsAdapter.upsertOne,
     [addContact.fulfilled]: contactsAdapter.addOne,
-    [removeContacts.fulfilled]: (state, action) =>
-      contactsAdapter.removeMany(state, action.payload),
     [removeContact.fulfilled]: (state, action) => contactsAdapter.removeOne(state, action.payload),
     [getContacts.fulfilled]: (state, action) => {
       const { data, routeParams } = action.payload;
       contactsAdapter.setAll(state, data);
-      state.routeParams = routeParams;
       state.searchText = '';
     },
   },
 });
 
-export const {
-  setContactsSearchText,
-  openNewContactDialog,
-  closeNewContactDialog,
-  openEditContactDialog,
-  closeEditContactDialog,
-} = contactsSlice.actions;
+export const { setContactsSearchText } = contactsSlice.actions;
 
 export default contactsSlice.reducer;

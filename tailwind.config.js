@@ -1,4 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
+const path = require('path');
+
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   safelist: ['pl-24', 'pl-40', 'pl-56', 'pl-72', 'pl-80'],
@@ -1367,6 +1369,26 @@ module.exports = {
       999: '999',
       9999: '9999',
     },
+    extend: {
+      // @tailwindcss/typography
+      typography: ({ theme }) => ({
+        DEFAULT: {
+          css: {
+            fontSize: '1.4rem',
+          },
+        },
+        sm: {
+          css: {
+            fontSize: '1.2rem',
+          },
+        },
+        lg: {
+          css: {
+            fontSize: '1.6rem',
+          },
+        },
+      }),
+    },
   },
   variantOrder: [
     'first',
@@ -1386,5 +1408,13 @@ module.exports = {
     'active',
     'disabled',
   ],
-  plugins: [require('tailwindcss-dir')()],
+  plugins: [
+    require('tailwindcss-dir')(),
+    // eslint-disable-next-line import/no-dynamic-require
+    require(path.resolve(__dirname, 'src/@fuse/tailwind/plugins/icon-size')),
+    // Other third party and/or custom plugins
+    require('@tailwindcss/typography')({ modifiers: ['sm', 'lg'] }),
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/line-clamp'),
+  ],
 };

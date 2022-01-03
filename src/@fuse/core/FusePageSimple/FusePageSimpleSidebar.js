@@ -6,14 +6,21 @@ import { forwardRef, useImperativeHandle, useState } from 'react';
 import FusePageSimpleSidebarContent from './FusePageSimpleSidebarContent';
 
 function FusePageSimpleSidebar(props, ref) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(props.open);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   useImperativeHandle(ref, () => ({
     toggleSidebar: handleToggleDrawer,
   }));
 
-  const handleToggleDrawer = () => {
-    setIsOpen(!isOpen);
+  const handleToggleDrawer = (val) => {
+    if (val !== undefined) {
+      setIsOpen(val);
+      setIsMobileOpen(val);
+    } else {
+      setIsOpen(!isOpen);
+      setIsMobileOpen(!isMobileOpen);
+    }
   };
 
   return (
@@ -22,7 +29,7 @@ function FusePageSimpleSidebar(props, ref) {
         <SwipeableDrawer
           variant="temporary"
           anchor={props.position}
-          open={isOpen}
+          open={isMobileOpen}
           onOpen={(ev) => {}}
           onClose={(ev) => handleToggleDrawer()}
           disableSwipeToOpen
@@ -54,16 +61,17 @@ function FusePageSimpleSidebar(props, ref) {
         <Hidden lgDown>
           <Drawer
             variant="permanent"
-            className={clsx('FusePageSimple-sidebarWrapper', props.variant)}
+            className={clsx(
+              'FusePageSimple-sidebarWrapper',
+              props.variant,
+              isOpen ? 'opened' : 'closed',
+              props.position === 'left'
+                ? 'FusePageSimple-leftSidebar'
+                : 'FusePageSimple-rightSidebar'
+            )}
             open={isOpen}
             classes={{
-              paper: clsx(
-                'FusePageSimple-sidebar',
-                props.variant,
-                props.position === 'left'
-                  ? 'FusePageSimple-leftSidebar'
-                  : 'FusePageSimple-rightSidebar'
-              ),
+              paper: clsx('FusePageSimple-sidebar', props.variant),
             }}
           >
             <FusePageSimpleSidebarContent {...props} />
@@ -73,5 +81,9 @@ function FusePageSimpleSidebar(props, ref) {
     </>
   );
 }
+
+FusePageSimpleSidebar.defaultProps = {
+  open: true,
+};
 
 export default forwardRef(FusePageSimpleSidebar);

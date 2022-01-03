@@ -10,6 +10,7 @@ import withRouterAndRef from '../withRouterAndRef/withRouterAndRef';
 
 const Root = styled('div')(({ theme }) => ({
   overscrollBehavior: 'contain',
+  minHeight: '100%',
 }));
 
 const md = new MobileDetect(window.navigator.userAgent);

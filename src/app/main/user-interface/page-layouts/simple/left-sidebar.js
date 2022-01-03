@@ -2,7 +2,6 @@ import DemoContent from '@fuse/core/DemoContent';
 import { styled } from '@mui/material/styles';
 import DemoSidebarContent from '@fuse/core/DemoSidebarContent';
 import FusePageSimple from '@fuse/core/FusePageSimple';
-import Hidden from '@mui/material/Hidden';
 import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import { useRef } from 'react';
@@ -23,15 +22,13 @@ function SimpleLeftSidebarSample() {
       header={
         <div className="flex flex-col flex-1">
           <div className="flex items-center p-24 px-12">
-            <Hidden lgUp>
-              <IconButton
-                onClick={(ev) => pageLayout.current.toggleLeftSidebar()}
-                aria-label="open left sidebar"
-                size="large"
-              >
-                <Icon>menu</Icon>
-              </IconButton>
-            </Hidden>
+            <IconButton
+              onClick={(ev) => pageLayout.current.toggleLeftSidebar()}
+              aria-label="open left sidebar"
+              size="large"
+            >
+              <Icon>menu</Icon>
+            </IconButton>
             <div className="flex-1 lg:px-12">
               <h4>Header</h4>
             </div>

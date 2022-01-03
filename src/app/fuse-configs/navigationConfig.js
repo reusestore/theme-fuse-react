@@ -137,7 +137,7 @@ const navigationConfig = [
         translate: 'CONTACTS',
         type: 'item',
         icon: 'account_box',
-        url: 'apps/contacts/all',
+        url: 'apps/contacts',
       },
       {
         id: 'chat',

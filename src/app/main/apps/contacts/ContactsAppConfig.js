@@ -1,5 +1,6 @@
 import { lazy } from 'react';
-import { Navigate } from 'react-router-dom';
+import ContactView from 'app/main/apps/contacts/contact/ContactView';
+import ContactForm from 'app/main/apps/contacts/contact/ContactForm';
 
 const ContactsApp = lazy(() => import('./ContactsApp'));
 
@@ -11,12 +12,18 @@ const ContactsAppConfig = {
   },
   routes: [
     {
-      path: 'apps/contacts/:id',
-      element: <ContactsApp />,
-    },
-    {
       path: 'apps/contacts',
-      element: <Navigate to="/apps/contacts/all" />,
+      element: <ContactsApp />,
+      children: [
+        {
+          path: ':id',
+          element: <ContactView />,
+        },
+        {
+          path: ':id/edit',
+          element: <ContactForm />,
+        },
+      ],
     },
   ],
 };

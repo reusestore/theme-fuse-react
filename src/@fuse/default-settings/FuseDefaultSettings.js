@@ -58,7 +58,11 @@ export const defaultThemeOptions = {
       styleOverrides: {
         root: {
           textTransform: 'none',
-          borderRadius: '18px',
+          borderRadius: 20,
+          height: 40,
+          minHeight: 40,
+          maxHeight: 40,
+          lineHeight: 1,
         },
         sizeSmall: {
           borderRadius: '15px',
@@ -109,6 +113,16 @@ export const defaultThemeOptions = {
         },
       },
     },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          height: 40,
+          minHeight: 40,
+          maxHeight: 40,
+          lineHeight: 1,
+        },
+      },
+    },
     MuiFilledInput: {
       styleOverrides: {
         root: {
@@ -145,12 +159,12 @@ export const defaultThemeOptions = {
 export const mustHaveThemeOptions = {
   typography: {
     htmlFontSize: 10,
-    fontSize: 13,
+    fontSize: 14,
     body1: {
-      fontSize: '1.3rem',
+      fontSize: '1.4rem',
     },
     body2: {
-      fontSize: '1.3rem',
+      fontSize: '1.4rem',
     },
   },
 };
