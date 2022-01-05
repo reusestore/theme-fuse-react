@@ -46,8 +46,7 @@ function isUrlInChildren(parent, url) {
         return true;
       }
     }
-
-    if (parent.children[i].url === url) {
+    if (parent.children[i].url === url || url.includes(parent.children[i].url)) {
       return true;
     }
   }
