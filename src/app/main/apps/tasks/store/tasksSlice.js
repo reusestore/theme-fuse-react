@@ -5,7 +5,6 @@ import {
   createSelector,
 } from '@reduxjs/toolkit';
 import axios from 'axios';
-import FuseUtils from '@fuse/utils';
 import { updateTask, addTask, removeTask } from 'app/main/apps/tasks/store/taskSlice';
 import { showMessage } from 'app/store/fuse/messageSlice';
 
@@ -16,7 +15,7 @@ export const getTasks = createAsyncThunk(
 
     const data = await response.data;
 
-    return { data };
+    return data;
   }
 );
 
@@ -48,45 +47,20 @@ export const { selectAll: selectTasks, selectById: selectTasksById } = tasksAdap
   (state) => state.tasksApp.tasks
 );
 
-const selectSearchText = ({ tasksApp }) => tasksApp.tasks.searchText;
-
-export const selectFilteredTasks = createSelector(
-  [selectTasks, selectSearchText],
-  (tasks, searchText) => {
-    if (searchText.length === 0) {
-      return tasks;
-    }
-    return FuseUtils.filterArrayByString(tasks, searchText);
-  }
-);
 
 export const selectRemainingTasks = createSelector([selectTasks], (tasks) => {
-  return tasks.filter((item) => item.type === 'task' && item.completed).length;
+  return tasks.filter((item) => item.type === 'task' && !item.completed).length;
 });
 
 const tasksSlice = createSlice({
   name: 'tasksApp/tasks',
-  initialState: tasksAdapter.getInitialState({
-    searchText: '',
-  }),
-  reducers: {
-    setTasksSearchText: {
-      reducer: (state, action) => {
-        state.searchText = action.payload;
-      },
-      prepare: (event) => ({ payload: event.target.value || '' }),
-    },
-  },
+  initialState: tasksAdapter.getInitialState(),
   extraReducers: {
     [reorderList.fulfilled]: tasksAdapter.setAll,
     [updateTask.fulfilled]: tasksAdapter.upsertOne,
     [addTask.fulfilled]: tasksAdapter.addOne,
     [removeTask.fulfilled]: (state, action) => tasksAdapter.removeOne(state, action.payload),
-    [getTasks.fulfilled]: (state, action) => {
-      const { data, routeParams } = action.payload;
-      tasksAdapter.setAll(state, data);
-      state.searchText = '';
-    },
+    [getTasks.fulfilled]: tasksAdapter.setAll,
   },
 });
 

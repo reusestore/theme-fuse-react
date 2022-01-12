@@ -1,14 +1,12 @@
 import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { selectRemainingTasks } from './store/tasksSlice';
 
 function TasksHeader(props) {
-  const dispatch = useDispatch();
-  const searchText = useSelector(({ tasksApp }) => tasksApp.tasks.searchText);
   const remainingTasks = useSelector(selectRemainingTasks);
 
   return (

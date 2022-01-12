@@ -2,19 +2,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import { reorderList, selectFilteredTasks } from './store/tasksSlice';
+import { reorderList, selectTasks } from './store/tasksSlice';
 import TaskListItem from './TaskListItem';
 import SectionListItem from './SectionListItem';
 
 function TasksList(props) {
   const dispatch = useDispatch();
-  const filteredData = useSelector(selectFilteredTasks);
+  const tasks = useSelector(selectTasks);
 
-  if (!filteredData) {
+  if (!tasks) {
     return null;
   }
 
-  if (filteredData.length === 0) {
+  if (tasks.length === 0) {
     return (
       <div className="flex flex-1 items-center justify-center h-full">
         <Typography color="textSecondary" variant="h5">
@@ -25,8 +25,6 @@ function TasksList(props) {
   }
 
   function onDragEnd(result) {
-    console.info('hey');
-    // dropped outside the list
     if (!result.destination) {
       return;
     }
@@ -37,7 +35,7 @@ function TasksList(props) {
 
     dispatch(
       reorderList({
-        arr: filteredData,
+        arr: tasks,
         startIndex: result.source.index,
         endIndex: result.destination.index,
       })
@@ -50,7 +48,7 @@ function TasksList(props) {
           {(provided) => (
             <>
               <div ref={provided.innerRef}>
-                {filteredData.map((item, index) => {
+                {tasks.map((item, index) => {
                   if (item.type === 'task') {
                     return <TaskListItem data={item} index={index} key={item.id} />;
                   }
