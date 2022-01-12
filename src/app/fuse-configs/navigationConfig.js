@@ -140,6 +140,14 @@ const navigationConfig = [
         url: 'apps/contacts',
       },
       {
+        id: 'tasks',
+        title: 'Tasks',
+        translate: 'TASKS',
+        type: 'item',
+        icon: 'account_box',
+        url: 'apps/tasks',
+      },
+      {
         id: 'chat',
         title: 'Chat',
         translate: 'CHAT',

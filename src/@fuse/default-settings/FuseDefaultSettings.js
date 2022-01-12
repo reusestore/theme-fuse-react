@@ -116,9 +116,7 @@ export const defaultThemeOptions = {
     MuiInputBase: {
       styleOverrides: {
         root: {
-          height: 40,
           minHeight: 40,
-          maxHeight: 40,
           lineHeight: 1,
         },
       },

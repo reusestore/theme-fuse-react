@@ -5,7 +5,7 @@ const locale = {
   FILTERS: 'Filters',
   LABELS: 'Labels',
   NO_MESSAGES: 'There are no messages!',
-  SEARCH_PLACEHOLDER: 'Search for an e-mail or contact',
+  SEARCH_PLACEHOLDER: 'Search for an e-mail or task',
   INBOX: 'Inbox',
   SENT: 'Sent',
   DRAFTS: 'Drafts',

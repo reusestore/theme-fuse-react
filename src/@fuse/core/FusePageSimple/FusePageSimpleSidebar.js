@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import { forwardRef, useImperativeHandle, useState } from 'react';
 import FusePageSimpleSidebarContent from './FusePageSimpleSidebarContent';
 
-function FusePageSimpleSidebar(props, ref) {
+const FusePageSimpleSidebar = forwardRef((props, ref) => {
   const [isOpen, setIsOpen] = useState(props.open);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
@@ -80,10 +80,10 @@ function FusePageSimpleSidebar(props, ref) {
       )}
     </>
   );
-}
+});
 
 FusePageSimpleSidebar.defaultProps = {
   open: true,
 };
 
-export default forwardRef(FusePageSimpleSidebar);
+export default FusePageSimpleSidebar;

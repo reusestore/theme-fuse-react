@@ -8,6 +8,7 @@ const locale = {
   TODO: 'To-Do',
   FILE_MANAGER: 'File Manager',
   CONTACTS: 'Contacts',
+  TASKS: 'Tasks',
   CHAT: 'Chat',
   SCRUMBOARD: 'Scrumboard',
   NOTES: 'Notes',

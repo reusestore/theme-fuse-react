@@ -6,11 +6,11 @@ import mock from './mock';
 const contactsDB = mockApi.components.examples.contacts.value;
 const tagsDB = mockApi.components.examples.contacts_tags.value;
 
-mock.onGet('/api/apps/contacts/contacts').reply((config) => {
+mock.onGet('/api/contacts').reply((config) => {
   return [200, contactsDB];
 });
 
-mock.onPost('/api/apps/contacts/contacts').reply(({ data }) => {
+mock.onPost('/api/contacts').reply(({ data }) => {
   const newContact = { id: FuseUtils.generateGUID(), ...JSON.parse(data) };
 
   contactsDB.push(newContact);
@@ -18,34 +18,33 @@ mock.onPost('/api/apps/contacts/contacts').reply(({ data }) => {
   return [200, newContact];
 });
 
-mock.onGet(/\/api\/apps\/contacts\/contacts\/[^/]+/).reply((config) => {
-  const { id } = config.url.match(/\/api\/apps\/contacts\/contacts\/(?<id>[^/]+)/).groups;
-
+mock.onGet(/\/api\/contacts\/(?!tags)[^/]+/).reply((config) => {
+  const { id } = config.url.match(/\/api\/contacts\/(?<id>[^/]+)/).groups;
   const contact = _.find(contactsDB, { id });
 
   if (contact) {
     return [200, contact];
   }
 
-  return [404, 'Requested contact do not exist.'];
+  return [404, 'Requested task do not exist.'];
 });
 
-mock.onPut(/\/api\/apps\/contacts\/contacts\/[^/]+/).reply(({ url, data }) => {
-  const { id } = url.match(/\/api\/apps\/contacts\/contacts\/(?<id>[^/]+)/).groups;
+mock.onPut(/\/api\/contacts\/[^/]+/).reply(({ url, data }) => {
+  const { id } = url.match(/\/api\/contacts\/(?<id>[^/]+)/).groups;
 
   _.assign(_.find(contactsDB, { id }), JSON.parse(data));
 
   return [200, _.find(contactsDB, { id })];
 });
 
-mock.onDelete(/\/api\/apps\/contacts\/contacts\/[^/]+/).reply((config) => {
-  const { id } = config.url.match(/\/api\/apps\/contacts\/contacts\/(?<id>[^/]+)/).groups;
+mock.onDelete(/\/api\/contacts\/[^/]+/).reply((config) => {
+  const { id } = config.url.match(/\/api\/contacts\/(?<id>[^/]+)/).groups;
 
   _.remove(contactsDB, { id });
 
   return [200, id];
 });
 
-mock.onGet('/api/apps/contacts/tags').reply((config) => {
+mock.onGet('/api/contacts/tags').reply((config) => {
   return [200, tagsDB];
 });

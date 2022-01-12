@@ -4,10 +4,10 @@ import ContactModel from 'app/main/apps/contacts/model/ContactModel';
 import history from '@history/@history';
 
 export const getContact = createAsyncThunk(
-  'contactsApp/contact/getContact',
+  'contactsApp/task/getContact',
   async (id, { dispatch, getState }) => {
     try {
-      const response = await axios.get(`/api/apps/contacts/contacts/${id}`);
+      const response = await axios.get(`/api/contacts/${id}`);
 
       const data = await response.data;
 
@@ -23,7 +23,7 @@ export const getContact = createAsyncThunk(
 export const addContact = createAsyncThunk(
   'contactsApp/contacts/addContact',
   async (contact, { dispatch, getState }) => {
-    const response = await axios.post('/api/apps/contacts/contacts', contact);
+    const response = await axios.post('/api/contacts', contact);
 
     const data = await response.data;
 
@@ -34,7 +34,7 @@ export const addContact = createAsyncThunk(
 export const updateContact = createAsyncThunk(
   'contactsApp/contacts/updateContact',
   async (contact, { dispatch, getState }) => {
-    const response = await axios.put(`/api/apps/contacts/contacts/${contact.id}`, contact);
+    const response = await axios.put(`/api/contacts/${contact.id}`, contact);
 
     const data = await response.data;
 
@@ -45,7 +45,7 @@ export const updateContact = createAsyncThunk(
 export const removeContact = createAsyncThunk(
   'contactsApp/contacts/removeContact',
   async (id, { dispatch, getState }) => {
-    const response = await axios.delete(`/api/apps/contacts/contacts/${id}`);
+    const response = await axios.delete(`/api/contacts/${id}`);
 
     await response.data;
 

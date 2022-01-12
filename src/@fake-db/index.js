@@ -1,5 +1,6 @@
 import './countries-api';
 import './contacts-api';
+import './tasks-api';
 import './db/academy-db';
 import './db/analytics-dashboard-db';
 import './db/auth-db';
