@@ -91,10 +91,10 @@ const Root = styled('div')(({ theme, ...props }) => ({
           }),
 
           '&.FusePageSimple-leftSidebar': {
-            marginLeft: -props.sidebarwidth,
+            marginLeft: -props.leftsidebarwidth,
           },
           '&.FusePageSimple-rightSidebar': {
-            marginRight: -props.sidebarwidth,
+            marginRight: -props.rightsidebarwidth,
           },
         },
       },
@@ -111,12 +111,13 @@ const Root = styled('div')(({ theme, ...props }) => ({
         position: 'relative',
       },
     },
-    width: props.sidebarwidth,
     maxWidth: '100%',
     height: '100%',
   },
 
   '& .FusePageSimple-leftSidebar': {
+    width: props.leftsidebarwidth,
+
     [theme.breakpoints.up('lg')]: {
       borderRight: `1px solid ${theme.palette.divider}`,
       borderLeft: 0,
@@ -124,6 +125,8 @@ const Root = styled('div')(({ theme, ...props }) => ({
   },
 
   '& .FusePageSimple-rightSidebar': {
+    width: props.rightsidebarwidth,
+
     [theme.breakpoints.up('lg')]: {
       borderLeft: `1px solid ${theme.palette.divider}`,
       borderRight: 0,
@@ -191,7 +194,8 @@ const FusePageSimple = forwardRef((props, ref) => {
           props.className
         )}
         ref={rootRef}
-        sidebarwidth={props.sidebarWidth}
+        leftsidebarwidth={props.leftSidebarWidth}
+        rightsidebarwidth={props.rightSidebarWidth}
       >
         <div className={clsx('FusePageSimple-header', 'FusePageSimple-topBg')} />
 
@@ -205,7 +209,8 @@ const FusePageSimple = forwardRef((props, ref) => {
                 variant={props.leftSidebarVariant || 'permanent'}
                 ref={leftSidebarRef}
                 rootRef={rootRef}
-                open={props.sidebarOpen}
+                open={props.leftSidebarOpen}
+                onClose={props.leftSidebarOnClose}
               />
             )}
 
@@ -233,7 +238,8 @@ const FusePageSimple = forwardRef((props, ref) => {
                 variant={props.rightSidebarVariant || 'permanent'}
                 ref={rightSidebarRef}
                 rootRef={rootRef}
-                open={props.sidebarOpen}
+                open={props.rightSidebarOpen}
+                onClose={props.rightSidebarOnClose}
               />
             )}
           </div>
@@ -254,15 +260,21 @@ FusePageSimple.propTypes = {
   content: PropTypes.node,
   contentToolbar: PropTypes.node,
   scroll: PropTypes.oneOf(['body', 'page', 'content']),
-  sidebarOpen: PropTypes.bool,
-  sidebarWidth: PropTypes.number,
+  leftSidebarOpen: PropTypes.bool,
+  rightSidebarOpen: PropTypes.bool,
+  leftSidebarWidth: PropTypes.number,
+  rightSidebarWidth: PropTypes.number,
+  rightSidebarOnClose: PropTypes.func,
+  leftSidebarOnClose: PropTypes.func,
 };
 
 FusePageSimple.defaultProps = {
   classes: {},
   scroll: 'page',
-  sidebarOpen: false,
-  sidebarWidth: 240,
+  leftSidebarOpen: false,
+  rightSidebarOpen: false,
+  rightSidebarWidth: 240,
+  leftSidebarWidth: 240,
 };
 
 export default memo(styled(FusePageSimple)``);

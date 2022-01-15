@@ -1,6 +1,6 @@
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import withReducer from 'app/store/withReducer';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useDeepCompareEffect } from '@fuse/hooks';
@@ -15,6 +15,7 @@ function TasksApp(props) {
   const dispatch = useDispatch();
   const pageLayout = useRef(null);
   const routeParams = useParams();
+  const [rightSidebarOpen, setRightSidebarOpen] = useState(false);
 
   useDeepCompareEffect(() => {
     dispatch(getTasks());
@@ -22,21 +23,20 @@ function TasksApp(props) {
   }, [dispatch]);
 
   useEffect(() => {
-    pageLayout.current?.toggleRightSidebar(Boolean(routeParams.id));
+    setRightSidebarOpen(Boolean(routeParams.id));
   }, [routeParams]);
 
   return (
-    <>
-      <FusePageSimple
-        header={<TasksHeader pageLayout={pageLayout} />}
-        content={<TasksList />}
-        ref={pageLayout}
-        rightSidebarContent={<TasksSidebarContent pageLayout={pageLayout} />}
-        sidebarOpen={false}
-        sidebarWidth={640}
-        scroll="content"
-      />
-    </>
+    <FusePageSimple
+      header={<TasksHeader pageLayout={pageLayout} />}
+      content={<TasksList />}
+      ref={pageLayout}
+      rightSidebarContent={<TasksSidebarContent />}
+      rightSidebarOpen={rightSidebarOpen}
+      rightSidebarOnClose={() => setRightSidebarOpen(false)}
+      rightSidebarWidth={640}
+      scroll="content"
+    />
   );
 }
 

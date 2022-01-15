@@ -11,6 +11,17 @@ const Root = styled(Box)(({ theme, ...props }) => ({
   minHeight: props.size,
   fontSize: props.size,
   lineHeight: props.size,
+  color: {
+    primary: theme.palette.primary.main,
+    secondary: theme.palette.secondary.main,
+    info: theme.palette.info.main,
+    success: theme.palette.success.main,
+    warning: theme.palette.warning.main,
+    action: theme.palette.action.active,
+    error: theme.palette.error.main,
+    disabled: theme.palette.action.disabled,
+    inherit: undefined,
+  }[props.color],
 }));
 
 const FuseSvgIcon = forwardRef(function SvgIcon(props, ref) {
@@ -26,6 +37,7 @@ const FuseSvgIcon = forwardRef(function SvgIcon(props, ref) {
       ref={ref}
       size={props.size}
       sx={props.sx}
+      color={props.color}
     >
       <use xlinkHref={`assets/icons/${iconPath}`} />
     </Root>
@@ -36,11 +48,24 @@ FuseSvgIcon.propTypes = {
   children: PropTypes.string,
   size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   sx: PropTypes.object,
+  color: PropTypes.oneOf([
+    'inherit',
+    'disabled',
+    'primary',
+    'secondary',
+    'action',
+    'error',
+    'info',
+    'success',
+    'warning',
+  ]),
 };
+
 FuseSvgIcon.defaultProps = {
   children: '',
   size: 24,
   sx: {},
+  color: 'inherit',
 };
 
 export default FuseSvgIcon;

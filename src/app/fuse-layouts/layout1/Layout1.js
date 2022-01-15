@@ -25,6 +25,11 @@ const Root = styled('div')(({ theme, config }) => ({
       maxWidth: `${config.containerWidth}px`,
       width: '100%',
       margin: '0 auto',
+      overflow: 'hidden',
+      borderLeft: 1,
+      borderRight: 1,
+      borderStyle: 'solid',
+      borderColor: theme.palette.divider,
     },
   }),
 }));

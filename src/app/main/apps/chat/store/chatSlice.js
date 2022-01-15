@@ -1,58 +1,43 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { setSelectedContactId } from './contactsSlice';
-import { closeMobileChatsSidebar } from './sidebarsSlice';
-import { updateUserChatList } from './userSlice';
+import { getChats } from './chatsSlice';
 
 export const getChat = createAsyncThunk(
   'chatApp/chat/getChat',
-  async ({ contactId, isMobile }, { dispatch, getState }) => {
-    const { id: userId } = getState().chatApp.user;
+  async (contactId, { dispatch, getState }) => {
+    const response = await axios.get(`/api/chat/chats/${contactId}`);
 
-    const response = await axios.get('/api/chat/get-chat', {
-      params: {
-        contactId,
-        userId,
-      },
-    });
-    const { chat, userChatList } = await response.data;
+    const data = await response.data;
 
-    dispatch(setSelectedContactId(contactId));
-    dispatch(updateUserChatList(userChatList));
-
-    if (isMobile) {
-      dispatch(closeMobileChatsSidebar());
-    }
-
-    return chat;
+    return data;
   }
 );
 
 export const sendMessage = createAsyncThunk(
   'chatApp/chat/sendMessage',
   async ({ messageText, chatId, contactId }, { dispatch, getState }) => {
-    const response = await axios.post('/api/chat/send-message', { chatId, messageText, contactId });
+    const response = await axios.post(`/api/chat/chats/${contactId}`, messageText);
 
-    const { message, userChatList } = await response.data;
+    const data = await response.data;
 
-    dispatch(updateUserChatList(userChatList));
+    dispatch(getChats());
 
-    return message;
+    return data;
   }
 );
 
 const chatSlice = createSlice({
   name: 'chatApp/chat',
-  initialState: null,
+  initialState: [],
   reducers: {
     removeChat: (state, action) => action.payload,
   },
   extraReducers: {
     [getChat.fulfilled]: (state, action) => action.payload,
-    [sendMessage.fulfilled]: (state, action) => {
-      state.dialog = [...state.dialog, action.payload];
-    },
+    [sendMessage.fulfilled]: (state, action) => [...state, action.payload],
   },
 });
+
+export const selectChat = ({ chatApp }) => chatApp.chat;
 
 export default chatSlice.reducer;

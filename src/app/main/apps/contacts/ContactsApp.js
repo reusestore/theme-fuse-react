@@ -1,6 +1,6 @@
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import withReducer from 'app/store/withReducer';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useDeepCompareEffect } from '@fuse/hooks';
@@ -16,6 +16,7 @@ function ContactsApp(props) {
   const dispatch = useDispatch();
   const pageLayout = useRef(null);
   const routeParams = useParams();
+  const [rightSidebarOpen, setRightSidebarOpen] = useState(false);
 
   useDeepCompareEffect(() => {
     dispatch(getContacts());
@@ -24,21 +25,20 @@ function ContactsApp(props) {
   }, [dispatch]);
 
   useEffect(() => {
-    pageLayout.current?.toggleRightSidebar(Boolean(routeParams.id));
+    setRightSidebarOpen(Boolean(routeParams.id));
   }, [routeParams]);
 
   return (
-    <>
-      <FusePageSimple
-        header={<ContactsHeader pageLayout={pageLayout} />}
-        content={<ContactsList />}
-        ref={pageLayout}
-        rightSidebarContent={<ContactsSidebarContent pageLayout={pageLayout} />}
-        sidebarOpen={false}
-        sidebarWidth={640}
-        scroll="content"
-      />
-    </>
+    <FusePageSimple
+      header={<ContactsHeader pageLayout={pageLayout} />}
+      content={<ContactsList />}
+      ref={pageLayout}
+      rightSidebarContent={<ContactsSidebarContent />}
+      rightSidebarOpen={rightSidebarOpen}
+      rightSidebarOnClose={() => setRightSidebarOpen(false)}
+      rightSidebarWidth={640}
+      scroll="content"
+    />
   );
 }
 

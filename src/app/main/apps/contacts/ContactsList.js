@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
@@ -7,7 +7,6 @@ import { selectFilteredContacts, selectGroupedFilteredContacts } from './store/c
 import ContactListItem from './ContactListItem';
 
 function ContactsList(props) {
-  const dispatch = useDispatch();
   const filteredData = useSelector(selectFilteredContacts);
   const groupedFilteredContacts = useSelector(selectGroupedFilteredContacts);
 

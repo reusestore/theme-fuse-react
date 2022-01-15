@@ -3,16 +3,16 @@ import { createSlice } from '@reduxjs/toolkit';
 const sidebarsSlice = createSlice({
   name: 'chatApp/sidebars',
   initialState: {
-    mobileChatsSidebarOpen: false,
+    mainSidebarOpen: false,
     userSidebarOpen: false,
     contactSidebarOpen: false,
   },
   reducers: {
-    openMobileChatsSidebar: (state, action) => {
-      state.mobileChatsSidebarOpen = true;
+    openMainSidebar: (state, action) => {
+      state.mainSidebarOpen = true;
     },
-    closeMobileChatsSidebar: (state, action) => {
-      state.mobileChatsSidebarOpen = false;
+    closeMainSidebar: (state, action) => {
+      state.mainSidebarOpen = false;
     },
     openUserSidebar: (state, action) => {
       state.userSidebarOpen = true;
@@ -30,12 +30,16 @@ const sidebarsSlice = createSlice({
 });
 
 export const {
-  openMobileChatsSidebar,
-  closeMobileChatsSidebar,
+  openMainSidebar,
+  closeMainSidebar,
   openUserSidebar,
   closeUserSidebar,
   openContactSidebar,
   closeContactSidebar,
 } = sidebarsSlice.actions;
+
+export const selectMainSidebarOpen = ({ chatApp }) => chatApp.sidebars.mainSidebarOpen;
+export const selectUserSidebarOpen = ({ chatApp }) => chatApp.sidebars.userSidebarOpen;
+export const selectContactSidebarOpen = ({ chatApp }) => chatApp.sidebars.contactSidebarOpen;
 
 export default sidebarsSlice.reducer;

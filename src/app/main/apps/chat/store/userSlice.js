@@ -3,12 +3,15 @@ import axios from 'axios';
 
 export const getUserData = createAsyncThunk('chatApp/user/getUserData', async () => {
   const response = await axios.get('/api/chat/user');
+
   const data = await response.data;
+
   return data;
 });
 
 export const updateUserData = createAsyncThunk('chatApp/user/updateUserData', async (newData) => {
-  const response = await axios.post('/api/chat/user/data', newData);
+  const response = await axios.post('/api/chat/user', newData);
+
   const data = await response.data;
 
   return data;
@@ -17,17 +20,12 @@ export const updateUserData = createAsyncThunk('chatApp/user/updateUserData', as
 const userSlice = createSlice({
   name: 'chatApp/user',
   initialState: null,
-  reducers: {
-    updateUserChatList: (state, action) => {
-      state.chatList = action.payload;
-    },
-  },
   extraReducers: {
     [getUserData.fulfilled]: (state, action) => action.payload,
     [updateUserData.fulfilled]: (state, action) => action.payload,
   },
 });
 
-export const { updateUserChatList } = userSlice.actions;
+export const selectUser = ({ chatApp }) => chatApp.user;
 
 export default userSlice.reducer;

@@ -6,7 +6,7 @@ import { memo } from 'react';
 function RightSideLayout1(props) {
   return (
     <>
-      <ChatPanel />
+      {/* <ChatPanel /> */}
 
       <QuickPanel />
 

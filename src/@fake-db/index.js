@@ -1,11 +1,11 @@
 import './countries-api';
 import './contacts-api';
+import './chat-api';
 import './tasks-api';
 import './db/academy-db';
 import './db/analytics-dashboard-db';
 import './db/auth-db';
 import './db/calendar-db';
-import './db/chat-db';
 import './db/e-commerce-db';
 import './db/faq-db';
 import './db/file-manager-db';
