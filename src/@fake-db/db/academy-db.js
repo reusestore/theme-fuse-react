@@ -715,3 +715,5 @@ mock.onPost('/api/academy-app/course/update').reply(request => {
 
 	return [200, data];
 });
+
+console.info(academyDB)

@@ -1,5 +1,6 @@
 import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
+import AcademyApp from './AcademyApp';
 
 const Course = lazy(() => import('./course/Course'));
 const Courses = lazy(() => import('./courses/Courses'));
@@ -10,16 +11,22 @@ const AcademyAppConfig = {
   },
   routes: [
     {
-      path: 'apps/academy/courses/:courseId/*',
-      element: <Course />,
-    },
-    {
-      path: 'apps/academy/courses',
-      element: <Courses />,
-    },
-    {
       path: 'apps/academy',
-      element: <Navigate to="/apps/academy/courses" />,
+      element: <AcademyApp />,
+      children: [
+        {
+          path: '',
+          element: <Navigate to="/apps/academy/courses" />,
+        },
+        {
+          path: 'courses/:courseId/*',
+          element: <Course />,
+        },
+        {
+          path: 'courses',
+          element: <Courses />,
+        },
+      ],
     },
   ],
 };

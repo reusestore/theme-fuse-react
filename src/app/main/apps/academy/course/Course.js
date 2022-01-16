@@ -1,59 +1,44 @@
 import FusePageSimple from '@fuse/core/FusePageSimple';
-import { useTheme, styled } from '@mui/material/styles';
-import FuseScrollbars from '@fuse/core/FuseScrollbars';
-import { green } from '@mui/material/colors';
-import Fab from '@mui/material/Fab';
+import { useTheme } from '@mui/material/styles';
 import Hidden from '@mui/material/Hidden';
 import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
-import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
 import Stepper from '@mui/material/Stepper';
-import Typography from '@mui/material/Typography';
 import withReducer from 'app/store/withReducer';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { useDeepCompareEffect } from '@fuse/hooks';
 import SwipeableViews from 'react-swipeable-views';
+import { Step, StepContent, StepLabel } from '@mui/material';
+import Divider from '@mui/material/Divider';
+import Button from '@mui/material/Button';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import Typography from '@mui/material/Typography';
+import { Box } from '@mui/system';
 import reducer from '../store';
 import { getCourse, updateCourse } from '../store/courseSlice';
-
-const Root = styled(FusePageSimple)(({ theme }) => ({
-  '& .FusePageSimple-header': {
-    minHeight: 72,
-    height: 72,
-    [theme.breakpoints.up('lg')]: {
-      borderBottomLeftRadius: 20,
-    },
-  },
-  '& .FusePageSimple-content': {
-    display: 'flex',
-    flexDirection: 'column',
-    flex: '1 1 auto',
-    overflow: 'hidden',
-  },
-  '& .FusePageSimple-sidebar': {
-    padding: 24,
-    border: 0,
-  },
-}));
+import CourseInfo from '../CourseInfo';
+import CourseProgress from '../CourseProgress';
 
 function Course(props) {
   const dispatch = useDispatch();
   const course = useSelector(({ academyApp }) => academyApp.course);
   const theme = useTheme();
-
+  const [leftSidebarOpen, setLeftSidebarOpen] = useState(false);
   const routeParams = useParams();
-
+  const { courseId } = routeParams;
+  const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
   const pageLayout = useRef(null);
 
   useDeepCompareEffect(() => {
     /**
      * Get the Course Data
      */
-    dispatch(getCourse(routeParams));
+    dispatch(getCourse(courseId));
   }, [dispatch, routeParams]);
 
   useEffect(() => {
@@ -61,117 +46,194 @@ function Course(props) {
      * If the course is opened for the first time
      * Change ActiveStep to 1
      */
-    if (course && course.activeStep === 0) {
-      dispatch(updateCourse({ activeStep: 1 }));
+    if (course && course.progress.currentStep === 0) {
+      dispatch(updateCourse({ progress: { currentStep: 1 } }));
     }
   }, [dispatch, course]);
 
-  function handleChangeActiveStep(index) {
-    dispatch(updateCourse({ activeStep: index + 1 }));
+  if (!course) {
+    return null;
+  }
+
+  const { currentStep } = course.progress;
+
+  function updateCurrentStep(index) {
+    if (index > course.totalSteps || index < 0) {
+      return;
+    }
+    dispatch(updateCourse({ progress: { currentStep: index } }));
   }
 
   function handleNext() {
-    dispatch(updateCourse({ activeStep: course.activeStep + 1 }));
+    updateCurrentStep(currentStep + 1);
   }
 
   function handleBack() {
-    dispatch(updateCourse({ activeStep: course.activeStep - 1 }));
+    updateCurrentStep(currentStep - 1);
   }
 
-  const activeStep = course && course.activeStep !== 0 ? course.activeStep : 1;
+  function handleStepChange(index) {
+    updateCurrentStep(index + 1);
+  }
+
+  const activeStep = currentStep !== 0 ? currentStep : 1;
 
   return (
-    <Root
-      header={
-        <div className="flex flex-1 items-center px-16 lg:px-24">
-          <Hidden lgUp>
-            <IconButton
-              onClick={(ev) => pageLayout.current.toggleLeftSidebar()}
-              aria-label="open left sidebar"
-              size="large"
-            >
-              <Icon>menu</Icon>
-            </IconButton>
+    <FusePageSimple
+      content={
+        <div className="w-full">
+          <Hidden lgDown>
+            <CourseProgress className="sticky top-0 z-10" course={course} />
           </Hidden>
-          <IconButton to="/apps/academy/courses" component={Link} size="large">
-            <Icon>{theme.direction === 'ltr' ? 'arrow_back' : 'arrow_forward'}</Icon>
-          </IconButton>
-          {course && <Typography className="flex-1 text-20 mx-16">{course.title}</Typography>}
+          <Hidden lgUp>
+            <Box
+              sx={{ backgroundColor: 'background.paper' }}
+              className="flex sticky top-0 z-10 items-center w-full p-16 border-b-1"
+            >
+              <IconButton to="/apps/academy/courses" component={Link} className="">
+                <FuseSvgIcon>
+                  {theme.direction === 'ltr'
+                    ? 'heroicons-outline:arrow-sm-left'
+                    : 'heroicons-outline:arrow-sm-right'}
+                </FuseSvgIcon>
+              </IconButton>
+
+              <Typography className="text-18 font-medium tracking-tight mx-10">
+                {course.title}
+              </Typography>
+            </Box>
+          </Hidden>
+          <SwipeableViews index={activeStep - 1} enableMouseEvents onChangeIndex={handleStepChange}>
+            {course.steps.map((step, index) => (
+              <div
+                className="flex justify-center p-16 pb-64 sm:p-24 sm:pb-64 md:p-48 md:pb-64"
+                key={index}
+              >
+                <Paper className="w-full max-w-lg mx-auto sm:my-8 lg:mt-16 p-24 sm:p-40 sm:py-48 rounded-16 shadow overflow-hidden">
+                  <div
+                    className="prose prose-sm w-full max-w-full"
+                    dangerouslySetInnerHTML={{ __html: step.content }}
+                    dir={theme.direction}
+                  />
+                </Paper>
+              </div>
+            ))}
+          </SwipeableViews>
+
+          <Hidden lgDown>
+            <div className="flex justify-center w-full sticky bottom-0 p-16 pb-32 z-10">
+              <ButtonGroup
+                variant="contained"
+                aria-label=""
+                className="rounded-full"
+                color="secondary"
+              >
+                <Button
+                  className="min-h-56 rounded-full"
+                  size="large"
+                  startIcon={<FuseSvgIcon>heroicons-outline:arrow-narrow-left</FuseSvgIcon>}
+                  onClick={handleBack}
+                >
+                  Prev
+                </Button>
+                <Button
+                  className="pointer-events-none min-h-56"
+                  size="large"
+                >{`${activeStep}/${course.totalSteps}`}</Button>
+                <Button
+                  className="min-h-56 rounded-full"
+                  size="large"
+                  endIcon={<FuseSvgIcon>heroicons-outline:arrow-narrow-right</FuseSvgIcon>}
+                  onClick={handleNext}
+                >
+                  Next
+                </Button>
+              </ButtonGroup>
+            </div>
+          </Hidden>
+
+          <Hidden lgUp>
+            <Box
+              sx={{ backgroundColor: 'background.paper' }}
+              className="flex sticky bottom-0 z-10 items-center w-full p-16 border-t-1"
+            >
+              <IconButton
+                onClick={(ev) => setLeftSidebarOpen(true)}
+                aria-label="open left sidebar"
+                size="large"
+              >
+                <Icon>menu</Icon>
+              </IconButton>
+
+              <Typography className="mx-8">{`${activeStep}/${course.totalSteps}`}</Typography>
+
+              <CourseProgress className="flex flex-1 mx-8" course={course} />
+
+              <IconButton lassName="" onClick={handleBack}>
+                <FuseSvgIcon>heroicons-outline:arrow-narrow-left</FuseSvgIcon>
+              </IconButton>
+
+              <IconButton lassName="" onClick={handleNext}>
+                <FuseSvgIcon>heroicons-outline:arrow-narrow-right</FuseSvgIcon>
+              </IconButton>
+            </Box>
+          </Hidden>
         </div>
       }
-      content={
-        course && (
-          <div className="flex flex-1 relative overflow-hidden">
-            <FuseScrollbars className="w-full overflow-auto">
-              <SwipeableViews
-                className="overflow-hidden"
-                index={activeStep - 1}
-                enableMouseEvents
-                onChangeIndex={handleChangeActiveStep}
-              >
-                {course.steps.map((step, index) => (
-                  <div
-                    className="flex justify-center p-16 pb-64 sm:p-24 sm:pb-64 md:p-48 md:pb-64"
-                    key={step.id}
-                  >
-                    <Paper className="w-full max-w-lg rounded-20 p-16 md:p-24 shadow text-14 leading-normal">
-                      <div
-                        dangerouslySetInnerHTML={{ __html: step.content }}
-                        dir={theme.direction}
-                      />
-                    </Paper>
-                  </div>
-                ))}
-              </SwipeableViews>
-            </FuseScrollbars>
-
-            <div className="flex justify-center w-full absolute left-0 right-0 bottom-0 pb-16 md:pb-32">
-              <div className="flex justify-between w-full max-w-xl px-8">
-                <div>
-                  {activeStep !== 1 && (
-                    <Fab className="" color="secondary" onClick={handleBack}>
-                      <Icon>{theme.direction === 'ltr' ? 'chevron_left' : 'chevron_right'}</Icon>
-                    </Fab>
-                  )}
-                </div>
-                <div>
-                  {activeStep < course.steps.length ? (
-                    <Fab className="" color="secondary" onClick={handleNext}>
-                      <Icon>{theme.direction === 'ltr' ? 'chevron_right' : 'chevron_left'}</Icon>
-                    </Fab>
-                  ) : (
-                    <Fab
-                      sx={{ background: `${green[500]}!important`, color: 'white!important' }}
-                      to="/apps/academy/courses"
-                      component={Link}
-                    >
-                      <Icon>check</Icon>
-                    </Fab>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        )
-      }
+      leftSidebarOpen={isMobile ? leftSidebarOpen : true}
+      leftSidebarOnClose={() => setLeftSidebarOpen(false)}
+      leftSidebarWidth={300}
       leftSidebarContent={
-        course && (
+        <>
+          <div className="p-32">
+            <Button
+              to="/apps/academy/courses"
+              component={Link}
+              className="space-x-8 p-0 mb-24"
+              color="secondary"
+              variant="text"
+            >
+              <FuseSvgIcon size={20}>
+                {theme.direction === 'ltr'
+                  ? 'heroicons-outline:arrow-sm-left'
+                  : 'heroicons-outline:arrow-sm-right'}
+              </FuseSvgIcon>
+              <span>Back to courses</span>
+            </Button>
+
+            <CourseInfo course={course} />
+          </div>
+          <Divider />
           <Stepper
-            classes={{ root: 'bg-transparent' }}
+            classes={{ root: 'bg-transparent p-32' }}
             activeStep={activeStep - 1}
             orientation="vertical"
           >
             {course.steps.map((step, index) => {
               return (
-                <Step key={step.id} onClick={() => handleChangeActiveStep(index)}>
-                  <StepLabel sx={{ cursor: 'pointer!important' }}>{step.title}</StepLabel>
+                <Step
+                  key={index}
+                  sx={{
+                    '& .MuiStepLabel-root, & .MuiStepContent-root': {
+                      cursor: 'pointer!important',
+                    },
+                    '& .MuiStepContent-root': {
+                      color: 'text.secondary',
+                      fontSize: 13,
+                    },
+                  }}
+                  onClick={() => handleStepChange(step.order)}
+                  expanded
+                >
+                  <StepLabel className="font-medium">{step.title}</StepLabel>
+                  <StepContent>{step.subtitle}</StepContent>
                 </Step>
               );
             })}
           </Stepper>
-        )
+        </>
       }
-      innerScroll
+      scroll="content"
       ref={pageLayout}
     />
   );

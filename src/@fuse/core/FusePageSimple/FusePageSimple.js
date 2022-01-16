@@ -197,8 +197,6 @@ const FusePageSimple = forwardRef((props, ref) => {
         leftsidebarwidth={props.leftSidebarWidth}
         rightsidebarwidth={props.rightSidebarWidth}
       >
-        <div className={clsx('FusePageSimple-header', 'FusePageSimple-topBg')} />
-
         <div className="flex flex-auto flex-col container z-10 h-full">
           <div className="FusePageSimple-wrapper">
             {(props.leftSidebarHeader || props.leftSidebarContent) && (
