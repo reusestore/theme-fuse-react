@@ -31,7 +31,7 @@ function ProductHeader(props) {
   }
 
   return (
-    <div className="flex flex-1 w-full items-center justify-between">
+    <div className="flex flex-1 w-full items-center justify-between py-32 px-24 md:px-32">
       <div className="flex flex-col items-start max-w-full min-w-0">
         <motion.div
           initial={{ x: 20, opacity: 0 }}

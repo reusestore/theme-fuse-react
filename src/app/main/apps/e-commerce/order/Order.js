@@ -35,11 +35,12 @@ function Order(props) {
   const theme = useTheme();
 
   const routeParams = useParams();
+  const { orderId } = routeParams;
   const [tabValue, setTabValue] = useState(0);
   const [noOrder, setNoOrder] = useState(false);
 
   useDeepCompareEffect(() => {
-    dispatch(getOrder(routeParams)).then((action) => {
+    dispatch(getOrder(orderId)).then((action) => {
       if (!action.payload) {
         setNoOrder(true);
       }
@@ -53,7 +54,7 @@ function Order(props) {
     };
   }, [dispatch]);
 
-  function handleChangeTab(event, value) {
+  function handleTabChange(event, value) {
     setTabValue(value);
   }
 
@@ -121,31 +122,31 @@ function Order(props) {
           </div>
         )
       }
-      contentToolbar={
-        <Tabs
-          value={tabValue}
-          onChange={handleChangeTab}
-          indicatorColor="primary"
-          textColor="primary"
-          variant="scrollable"
-          scrollButtons="auto"
-          classes={{ root: 'w-full h-64' }}
-        >
-          <Tab className="h-64" label="Order Details" />
-          <Tab className="h-64" label="Products" />
-          <Tab className="h-64" label="Invoice" />
-        </Tabs>
-      }
       content={
-        order && (
-          <div className="p-16 sm:p-24 max-w-2xl w-full">
-            {tabValue === 0 && <OrderDetailsTab />}
-            {tabValue === 1 && <ProductsTab />}
-            {tabValue === 2 && <InvoiceTab order={order} />}
-          </div>
-        )
+        <>
+          <Tabs
+            value={tabValue}
+            onChange={handleTabChange}
+            indicatorColor="secondary"
+            textColor="primary"
+            variant="scrollable"
+            scrollButtons="auto"
+            classes={{ root: 'w-full h-64 border-b-1' }}
+          >
+            <Tab className="h-64" label="Order Details" />
+            <Tab className="h-64" label="Products" />
+            <Tab className="h-64" label="Invoice" />
+          </Tabs>
+          {order && (
+            <div className="p-16 sm:p-24 max-w-2xl w-full">
+              {tabValue === 0 && <OrderDetailsTab />}
+              {tabValue === 1 && <ProductsTab />}
+              {tabValue === 2 && <InvoiceTab order={order} />}
+            </div>
+          )}
+        </>
       }
-      innerScroll
+      scroll="content"
     />
   );
 }

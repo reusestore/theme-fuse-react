@@ -14,7 +14,6 @@ import _ from '@lodash';
 import { useForm, FormProvider } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { styled } from '@mui/material/styles';
 import { resetProduct, newProduct, getProduct } from '../store/productSlice';
 import reducer from '../store';
 import ProductHeader from './ProductHeader';
@@ -23,18 +22,6 @@ import InventoryTab from './tabs/InventoryTab';
 import PricingTab from './tabs/PricingTab';
 import ProductImagesTab from './tabs/ProductImagesTab';
 import ShippingTab from './tabs/ShippingTab';
-
-const Root = styled(FusePageCarded)(({ theme }) => ({
-  '& .FusePageCarded-header': {
-    minHeight: 72,
-    height: 72,
-    alignItems: 'center',
-    [theme.breakpoints.up('sm')]: {
-      minHeight: 136,
-      height: 136,
-    },
-  },
-}));
 
 /**
  * Form Validation Schema
@@ -74,7 +61,7 @@ function Product(props) {
         /**
          * Get Product data
          */
-        dispatch(getProduct(routeParams)).then((action) => {
+        dispatch(getProduct(productId)).then((action) => {
           /**
            * If the requested product is not exist show message
            */
@@ -153,49 +140,49 @@ function Product(props) {
 
   return (
     <FormProvider {...methods}>
-      <Root
+      <FusePageCarded
         header={<ProductHeader />}
-        contentToolbar={
-          <Tabs
-            value={tabValue}
-            onChange={handleTabChange}
-            indicatorColor="primary"
-            textColor="primary"
-            variant="scrollable"
-            scrollButtons="auto"
-            classes={{ root: 'w-full h-64' }}
-          >
-            <Tab className="h-64" label="Basic Info" />
-            <Tab className="h-64" label="Product Images" />
-            <Tab className="h-64" label="Pricing" />
-            <Tab className="h-64" label="Inventory" />
-            <Tab className="h-64" label="Shipping" />
-          </Tabs>
-        }
         content={
-          <div className="p-16 sm:p-24 max-w-2xl">
-            <div className={tabValue !== 0 ? 'hidden' : ''}>
-              <BasicInfoTab />
-            </div>
+          <>
+            <Tabs
+              value={tabValue}
+              onChange={handleTabChange}
+              indicatorColor="secondary"
+              textColor="primary"
+              variant="scrollable"
+              scrollButtons="auto"
+              classes={{ root: 'w-full h-64 border-b-1' }}
+            >
+              <Tab className="h-64" label="Basic Info" />
+              <Tab className="h-64" label="Product Images" />
+              <Tab className="h-64" label="Pricing" />
+              <Tab className="h-64" label="Inventory" />
+              <Tab className="h-64" label="Shipping" />
+            </Tabs>
+            <div className="p-16 sm:p-24 max-w-2xl">
+              <div className={tabValue !== 0 ? 'hidden' : ''}>
+                <BasicInfoTab />
+              </div>
 
-            <div className={tabValue !== 1 ? 'hidden' : ''}>
-              <ProductImagesTab />
-            </div>
+              <div className={tabValue !== 1 ? 'hidden' : ''}>
+                <ProductImagesTab />
+              </div>
 
-            <div className={tabValue !== 2 ? 'hidden' : ''}>
-              <PricingTab />
-            </div>
+              <div className={tabValue !== 2 ? 'hidden' : ''}>
+                <PricingTab />
+              </div>
 
-            <div className={tabValue !== 3 ? 'hidden' : ''}>
-              <InventoryTab />
-            </div>
+              <div className={tabValue !== 3 ? 'hidden' : ''}>
+                <InventoryTab />
+              </div>
 
-            <div className={tabValue !== 4 ? 'hidden' : ''}>
-              <ShippingTab />
+              <div className={tabValue !== 4 ? 'hidden' : ''}>
+                <ShippingTab />
+              </div>
             </div>
-          </div>
+          </>
         }
-        innerScroll
+        scroll="content"
       />
     </FormProvider>
   );

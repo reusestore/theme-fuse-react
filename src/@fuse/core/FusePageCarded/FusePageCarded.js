@@ -7,9 +7,9 @@ import GlobalStyles from '@mui/material/GlobalStyles';
 import FusePageCardedHeader from './FusePageCardedHeader';
 import FusePageCardedSidebar from './FusePageCardedSidebar';
 
-const Root = styled('div')(({ theme }) => ({
+const Root = styled('div')(({ theme, ...props }) => ({
   display: 'flex',
-  flexDirection: 'row',
+  flexDirection: 'column',
   minWidth: 0,
   minHeight: '100%',
   position: 'relative',
@@ -18,55 +18,32 @@ const Root = styled('div')(({ theme }) => ({
   height: 'auto',
   backgroundColor: theme.palette.background.default,
 
-  '& .FusePageCarded-innerScroll': {
+  '& .FusePageCarded-scroll-content': {
     height: '100%',
   },
 
-  '& .FusePageCarded-topBg': {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    height: headerHeight,
-    background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
-    backgroundSize: 'cover',
-    pointerEvents: 'none',
+  '& .FusePageCarded-wrapper': {
+    display: 'flex',
+    flexDirection: 'row',
+    flex: '1 1 auto',
+    zIndex: 2,
+    maxWidth: '100%',
+    minWidth: 0,
+    height: '100%',
+    backgroundColor: theme.palette.background.paper,
+  },
+
+  '& .FusePageCarded-header': {
+    display: 'flex',
   },
 
   '& .FusePageCarded-contentWrapper': {
     display: 'flex',
     flexDirection: 'column',
-    padding: '0 3.2rem',
-    flex: '1 1 100%',
-    zIndex: 2,
-    maxWidth: '100%',
-    minWidth: 0,
-    minHeight: 0,
-    [theme.breakpoints.down('sm')]: {
-      padding: '0 1.6rem',
-    },
-  },
-
-  '& .FusePageCarded-header': {
-    height: headerContentHeight,
-    minHeight: headerContentHeight,
-    maxHeight: headerContentHeight,
-    display: 'flex',
-    color: theme.palette.primary.contrastText,
-  },
-
-  '& .FusePageCarded-headerSidebarToggleButton': {
-    color: theme.palette.primary.contrastText,
-  },
-
-  '& .FusePageCarded-contentCard': {
-    display: 'flex',
-    flex: '1 1 100%',
-    flexDirection: 'column',
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
-    minHeight: 0,
-    borderRadius: '20px 20px 0 0',
+    flex: '1 1 auto',
+    overflow: 'auto',
+    WebkitOverflowScrolling: 'touch',
+    zIndex: 9999,
   },
 
   '& .FusePageCarded-toolbar': {
@@ -74,68 +51,92 @@ const Root = styled('div')(({ theme }) => ({
     minHeight: toolbarHeight,
     display: 'flex',
     alignItems: 'center',
-    borderBottom: `1px solid ${theme.palette.divider}`,
   },
 
   '& .FusePageCarded-content': {
-    flex: '1 1 auto',
-    height: '100%',
-    overflow: 'auto',
-    WebkitOverflowScrolling: 'touch',
+    flex: '1 0 auto',
   },
 
   '& .FusePageCarded-sidebarWrapper': {
-    position: 'absolute',
-    backgroundColor: 'transparent',
-    zIndex: 5,
     overflow: 'hidden',
+    backgroundColor: 'transparent',
+    position: 'absolute',
     '&.permanent': {
       [theme.breakpoints.up('lg')]: {
-        zIndex: 1,
         position: 'relative',
+        marginLeft: 0,
+        marginRight: 0,
+        transition: theme.transitions.create('margin', {
+          easing: theme.transitions.easing.sharp,
+          duration: theme.transitions.duration.leavingScreen,
+        }),
+        '&.closed': {
+          transition: theme.transitions.create('margin', {
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen,
+          }),
+
+          '&.FusePageCarded-leftSidebar': {
+            marginLeft: -props.leftsidebarwidth,
+          },
+          '&.FusePageCarded-rightSidebar': {
+            marginRight: -props.rightsidebarwidth,
+          },
+        },
       },
     },
   },
 
   '& .FusePageCarded-sidebar': {
     position: 'absolute',
+    backgroundColor: theme.palette.background.paper,
+    color: theme.palette.text.primary,
+
     '&.permanent': {
       [theme.breakpoints.up('lg')]: {
-        backgroundColor: 'transparent',
         position: 'relative',
-        border: 'none',
-        overflow: 'hidden',
       },
     },
-    width: drawerWidth,
+    maxWidth: '100%',
     height: '100%',
   },
 
-  '& .FusePageCarded-leftSidebar': {},
-  '& .FusePageCarded-rightSidebar': {},
+  '& .FusePageCarded-leftSidebar': {
+    width: props.leftsidebarwidth,
+
+    [theme.breakpoints.up('lg')]: {
+      borderRight: `1px solid ${theme.palette.divider}`,
+      borderLeft: 0,
+    },
+  },
+
+  '& .FusePageCarded-rightSidebar': {
+    width: props.rightsidebarwidth,
+
+    [theme.breakpoints.up('lg')]: {
+      borderLeft: `1px solid ${theme.palette.divider}`,
+      borderRight: 0,
+    },
+  },
 
   '& .FusePageCarded-sidebarHeader': {
     height: headerHeight,
     minHeight: headerHeight,
-    color: theme.palette.primary.contrastText,
     backgroundColor: theme.palette.primary.dark,
-    '&.permanent': {
-      [theme.breakpoints.up('lg')]: {
-        backgroundColor: 'transparent',
-      },
-    },
+    color: theme.palette.primary.contrastText,
+  },
+
+  '& .FusePageCarded-sidebarHeaderInnerSidebar': {
+    backgroundColor: 'transparent',
+    color: 'inherit',
+    height: 'auto',
+    minHeight: 'auto',
   },
 
   '& .FusePageCarded-sidebarContent': {
     display: 'flex',
-    flex: '1 1 auto',
     flexDirection: 'column',
-    backgroundColor: theme.palette.background.default,
-    color: theme.palette.text.primary,
-    [theme.breakpoints.up('lg')]: {
-      overflow: 'auto',
-      WebkitOverflowScrolling: 'touch',
-    },
+    minHeight: '100%',
   },
 
   '& .FusePageCarded-backdrop': {
@@ -143,26 +144,22 @@ const Root = styled('div')(({ theme }) => ({
   },
 }));
 
-const drawerWidth = 240;
-const headerHeight = 200;
+const headerHeight = 120;
 const toolbarHeight = 64;
-const headerContentHeight = headerHeight - toolbarHeight;
 
 const FusePageCarded = forwardRef((props, ref) => {
+  // console.info("render::FusePageCarded");
   const leftSidebarRef = useRef(null);
   const rightSidebarRef = useRef(null);
   const rootRef = useRef(null);
 
-  const isRightSidebar = props.rightSidebarHeader || props.rightSidebarContent;
-  const isLeftSidebar = props.leftSidebarHeader || props.leftSidebarContent;
-
   useImperativeHandle(ref, () => ({
     rootRef,
-    toggleLeftSidebar: () => {
-      leftSidebarRef.current.toggleSidebar();
+    toggleLeftSidebar: (val) => {
+      leftSidebarRef.current.toggleSidebar(val);
     },
-    toggleRightSidebar: () => {
-      rightSidebarRef.current.toggleSidebar();
+    toggleRightSidebar: (val) => {
+      rightSidebarRef.current.toggleSidebar(val);
     },
   }));
 
@@ -171,78 +168,58 @@ const FusePageCarded = forwardRef((props, ref) => {
       <GlobalStyles
         styles={(theme) => ({
           '#fuse-main': {
-            height: props.innerScroll && '100vh',
+            height: props.scroll === 'content' && '100vh',
+            overflow: props.scroll === 'body' && 'hidden',
           },
         })}
       />
       <Root
         className={clsx(
           'FusePageCarded-root',
-          props.innerScroll && 'FusePageCarded-innerScroll',
+          `FusePageCarded-scroll-${props.scroll}`,
           props.className
         )}
         ref={rootRef}
+        leftsidebarwidth={props.leftSidebarWidth}
+        rightsidebarwidth={props.rightSidebarWidth}
       >
-        <div className="FusePageCarded-topBg" />
+        {props.header && <FusePageCardedHeader header={props.header} />}
 
-        <div className="flex container w-full">
-          {isLeftSidebar && (
-            <FusePageCardedSidebar
-              position="left"
-              header={props.leftSidebarHeader}
-              content={props.leftSidebarContent}
-              variant={props.leftSidebarVariant || 'permanent'}
-              innerScroll={props.innerScroll}
-              ref={leftSidebarRef}
-              rootRef={rootRef}
-            />
-          )}
-
-          <div
-            className={clsx(
-              'FusePageCarded-contentWrapper',
-              isLeftSidebar &&
-                (props.leftSidebarVariant === undefined ||
-                  props.leftSidebarVariant === 'permanent') &&
-                'lg:ltr:pl-0 lg:rtl:pr-0',
-              isRightSidebar &&
-                (props.rightSidebarVariant === undefined ||
-                  props.rightSidebarVariant === 'permanent') &&
-                'lg:pr-0'
+        <div className="flex flex-auto flex-col container z-10 h-full shadow-1 rounded-t-16">
+          <div className="FusePageCarded-wrapper">
+            {props.leftSidebarContent && (
+              <FusePageCardedSidebar
+                position="left"
+                header={props.leftSidebarHeader}
+                content={props.leftSidebarContent}
+                variant={props.leftSidebarVariant || 'permanent'}
+                ref={leftSidebarRef}
+                rootRef={rootRef}
+                open={props.leftSidebarOpen}
+                onClose={props.leftSidebarOnClose}
+              />
             )}
-          >
-            <FusePageCardedHeader header={props.header} />
-
-            <div
-              className={clsx('FusePageCarded-contentCard', props.innerScroll && 'inner-scroll')}
+            <FuseScrollbars
+              className="FusePageCarded-contentWrapper"
+              enable={props.scroll === 'content'}
             >
-              {props.contentToolbar && (
-                <div className="FusePageCarded-toolbar">{props.contentToolbar}</div>
-              )}
-
               {props.content && (
-                <FuseScrollbars
-                  className="FusePageCarded-content"
-                  enable={props.innerScroll}
-                  scrollToTopOnRouteChange={props.innerScroll}
-                >
-                  {props.content}
-                </FuseScrollbars>
+                <div className={clsx('FusePageCarded-content')}>{props.content}</div>
               )}
-            </div>
+            </FuseScrollbars>
+            {props.rightSidebarContent && (
+              <FusePageCardedSidebar
+                position="right"
+                header={props.rightSidebarHeader}
+                content={props.rightSidebarContent}
+                variant={props.rightSidebarVariant || 'permanent'}
+                ref={rightSidebarRef}
+                rootRef={rootRef}
+                open={props.rightSidebarOpen}
+                onClose={props.rightSidebarOnClose}
+              />
+            )}
           </div>
-
-          {isRightSidebar && (
-            <FusePageCardedSidebar
-              position="right"
-              header={props.rightSidebarHeader}
-              content={props.rightSidebarContent}
-              variant={props.rightSidebarVariant || 'permanent'}
-              innerScroll={props.innerScroll}
-              ref={rightSidebarRef}
-              rootRef={rootRef}
-            />
-          )}
         </div>
       </Root>
     </>
@@ -250,18 +227,31 @@ const FusePageCarded = forwardRef((props, ref) => {
 });
 
 FusePageCarded.propTypes = {
-  rightSidebarHeader: PropTypes.node,
-  rightSidebarContent: PropTypes.node,
-  rightSidebarVariant: PropTypes.node,
   leftSidebarHeader: PropTypes.node,
   leftSidebarContent: PropTypes.node,
   leftSidebarVariant: PropTypes.node,
+  rightSidebarHeader: PropTypes.node,
+  rightSidebarContent: PropTypes.node,
+  rightSidebarVariant: PropTypes.node,
   header: PropTypes.node,
   content: PropTypes.node,
   contentToolbar: PropTypes.node,
-  innerScroll: PropTypes.bool,
+  scroll: PropTypes.oneOf(['body', 'page', 'content']),
+  leftSidebarOpen: PropTypes.bool,
+  rightSidebarOpen: PropTypes.bool,
+  leftSidebarWidth: PropTypes.number,
+  rightSidebarWidth: PropTypes.number,
+  rightSidebarOnClose: PropTypes.func,
+  leftSidebarOnClose: PropTypes.func,
 };
 
-FusePageCarded.defaultProps = {};
+FusePageCarded.defaultProps = {
+  classes: {},
+  scroll: 'page',
+  leftSidebarOpen: false,
+  rightSidebarOpen: false,
+  rightSidebarWidth: 240,
+  leftSidebarWidth: 240,
+};
 
 export default memo(styled(FusePageCarded)``);

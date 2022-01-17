@@ -122,7 +122,7 @@ function OrdersTable(props) {
   }
 
   return (
-    <div className="w-full flex flex-col">
+    <div className="w-full flex flex-col min-h-full">
       <FuseScrollbars className="grow overflow-x-auto">
         <Table stickyHeader className="min-w-xl" aria-labelledby="tableTitle">
           <OrdersTableHead

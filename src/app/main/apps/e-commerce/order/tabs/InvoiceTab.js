@@ -11,7 +11,7 @@ import { memo } from 'react';
 
 const Root = styled('div')(({ theme }) => ({
   '& table ': {
-    '& th:first-child, & td:first-child': {
+    '& th:first-of-type, & td:first-of-type': {
       paddingLeft: `${0}!important`,
     },
     '& th:last-child, & td:last-child': {

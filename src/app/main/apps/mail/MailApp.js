@@ -51,8 +51,9 @@ function MailApp(props) {
       content={routeParams.mailId ? <MailDetails /> : <MailList />}
       leftSidebarHeader={<MailAppSidebarHeader />}
       leftSidebarContent={<MailAppSidebarContent />}
+      leftSidebarOpen
       ref={pageLayout}
-      innerScroll
+      scroll="content"
     />
   );
 }

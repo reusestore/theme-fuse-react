@@ -94,7 +94,7 @@ function ProductsTableHead(props) {
             <Box
               className="flex items-center justify-center absolute w-64 top-0 ltr:left-0 rtl:right-0 mx-56 h-64 z-10 border-b-1"
               sx={{
-                background: (theme) => theme.palette.background.paper,
+                background: (theme) => theme.palette.background.default,
               }}
             >
               <IconButton
