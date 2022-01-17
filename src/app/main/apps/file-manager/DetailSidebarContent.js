@@ -1,17 +1,22 @@
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
 import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
-import { useSelector } from 'react-redux';
-import { selectFileById } from './store/filesSlice';
-import StyledIcon from './StyledIcon';
+import { useDispatch, useSelector } from 'react-redux';
+import IconButton from '@mui/material/IconButton';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import { lighten } from '@mui/material/styles';
+import { Box } from '@mui/system';
+import Button from '@mui/material/Button';
+import { selectItemById, setSelectedItem } from './store/itemsSlice';
+import ItemIcon from './ItemIcon';
 
 function DetailSidebarContent(props) {
-  const selectedItem = useSelector((state) =>
-    selectFileById(state, state.fileManagerApp.files.selectedItemId)
+  const dispatch = useDispatch();
+
+  const item = useSelector((state) =>
+    selectItemById(state, state.fileManagerApp.items.selectedItemId)
   );
 
-  if (!selectedItem) {
+  if (!item) {
     return null;
   }
 
@@ -19,62 +24,68 @@ function DetailSidebarContent(props) {
     <motion.div
       initial={{ y: 50, opacity: 0.8 }}
       animate={{ y: 0, opacity: 1, transition: { delay: 0.3 } }}
-      className="file-details p-16 sm:p-24"
+      className="file-details p-24 sm:p-32"
     >
-      <div className="preview h-128 sm:h-256 file-icon flex items-center justify-center">
-        <motion.div initial={{ scale: 0 }} animate={{ scale: 1, transition: { delay: 0.3 } }}>
-          <StyledIcon className="text-48" type={selectedItem.type} />
-        </motion.div>
+      <div className="flex items-center justify-end w-full">
+        <IconButton className="" size="large" onClick={() => dispatch(setSelectedItem(null))}>
+          <FuseSvgIcon>heroicons-outline:x</FuseSvgIcon>
+        </IconButton>
       </div>
 
-      <FormControlLabel
-        className="offline-switch"
-        control={<Switch checked={selectedItem.offline} aria-label="Available Offline" />}
-        label="Available Offline"
-      />
+      <Box
+        className=" w-full rounded-8 border preview h-128 sm:h-256 file-icon flex items-center justify-center my-32"
+        sx={{
+          backgroundColor: (theme) => lighten(theme.palette.background.default, 0.4),
+        }}
+      >
+        <motion.div initial={{ scale: 0 }} animate={{ scale: 1, transition: { delay: 0.3 } }}>
+          <ItemIcon className="" type={item.type} />
+        </motion.div>
+      </Box>
 
-      <Typography variant="subtitle1" className="py-16">
-        Info
-      </Typography>
+      <Typography className="text-18 font-medium">{item.name}</Typography>
 
-      <table className="w-full text-justify">
-        <tbody>
-          <tr className="type h-52">
-            <th className="font-semibold">Type</th>
-            <td>{selectedItem.type}</td>
-          </tr>
+      <div className="text-16 font-medium mt-32">Information</div>
+      <div className="flex flex-col mt-16 border-t border-b divide-y font-medium">
+        <div className="flex items-center justify-between py-12">
+          <Typography color="textSecondary">Created By</Typography>
+          <Typography>{item.createdBy}</Typography>
+        </div>
+        <div className="flex items-center justify-between py-12">
+          <Typography color="textSecondary">Created At</Typography>
+          <Typography>{item.createdAt}</Typography>
+        </div>
+        <div className="flex items-center justify-between py-12">
+          <Typography color="textSecondary">Modified At</Typography>
+          <Typography>{item.modifiedAt}</Typography>
+        </div>
+        <div className="flex items-center justify-between py-12">
+          <Typography color="textSecondary">Size</Typography>
+          <Typography>{item.size}</Typography>
+        </div>
+        {item.contents && (
+          <div className="flex items-center justify-between py-12">
+            <Typography color="textSecondary">Contents</Typography>
+            <Typography>{item.contents}</Typography>
+          </div>
+        )}
+      </div>
 
-          <tr className="size h-52">
-            <th className="font-semibold">Size</th>
-            <td>{selectedItem.size === '' ? '-' : selectedItem.size}</td>
-          </tr>
+      {item.description && (
+        <>
+          <div className="text-16 font-medium mt-32 pb-16 border-b">Description</div>
+          <Typography className="py-12">{item.description}</Typography>
+        </>
+      )}
 
-          <tr className="location h-52 text-left">
-            <th className="font-semibold">Location</th>
-            <td>{selectedItem.location}</td>
-          </tr>
-
-          <tr className="owner h-52">
-            <th className="font-semibold">Owner</th>
-            <td>{selectedItem.owner}</td>
-          </tr>
-
-          <tr className="modified h-52">
-            <th className="font-semibold">Modified</th>
-            <td>{selectedItem.modified}</td>
-          </tr>
-
-          <tr className="opened h-52">
-            <th className="font-semibold">Opened</th>
-            <td>{selectedItem.opened}</td>
-          </tr>
-
-          <tr className="created h-52">
-            <th className="font-semibold">Created</th>
-            <td>{selectedItem.created}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="grid grid-cols-2 gap-16 w-full mt-32">
+        <Button className="flex-auto" color="secondary" variant="contained">
+          Download
+        </Button>
+        <Button className="flex-auto" variant="outlined">
+          Delete
+        </Button>
+      </div>
     </motion.div>
   );
 }

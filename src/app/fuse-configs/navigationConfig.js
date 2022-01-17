@@ -123,6 +123,7 @@ const navigationConfig = [
         type: 'item',
         icon: 'heroicons-outline:cloud',
         url: '/apps/file-manager',
+        end: true,
       },
       {
         id: 'apps.help-center',

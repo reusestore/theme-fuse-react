@@ -13,6 +13,10 @@ const FileManagerAppConfig = {
       path: 'apps/file-manager',
       element: <FileManagerApp />,
     },
+    {
+      path: 'apps/file-manager/:folderId',
+      element: <FileManagerApp />,
+    },
   ],
 };
 
