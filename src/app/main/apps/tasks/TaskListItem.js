@@ -21,7 +21,7 @@ function TaskListItem(props) {
       {(provided, snapshot) => (
         <>
           <ListItem
-            className={clsx(snapshot.isDragging ? 'shadow-lg' : 'shadow', 'px-32 py-16 group')}
+            className={clsx(snapshot.isDragging ? 'shadow-lg' : 'shadow', 'px-40 py-12 group')}
             sx={{ bgcolor: 'background.paper' }}
             button
             component={NavLinkAdapter}
@@ -37,7 +37,7 @@ function TaskListItem(props) {
                 heroicons-solid:menu
               </FuseSvgIcon>
             </div>
-            <ListItemIcon className="min-w-40 -ml-8 mr-8">
+            <ListItemIcon className="min-w-40 -ml-10 mr-8">
               <IconButton
                 sx={{ color: data.completed ? 'secondary.main' : 'text.disabled' }}
                 onClick={(ev) => {

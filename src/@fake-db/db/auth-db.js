@@ -16,7 +16,7 @@ const authDB = {
 			role: 'admin',
 			data: {
 				displayName: 'Abbott Keitch',
-				photoURL: 'assets/images/avatars/Abbott.jpg',
+				photoURL: 'assets/images/avatars/brian-hughes.jpg',
 				email: 'admin@fusetheme.com',
 				settings: {
 					layout: {
@@ -270,7 +270,7 @@ function generateJWTToken(tokenPayload)
 	const encodedPayload = base64url(stringifiedPayload);
 
 	// Sign the encoded header and mock-api
-	let signature: any = encodedHeader + '.' + encodedPayload;
+	let signature = encodedHeader + '.' + encodedPayload;
 	signature = HmacSHA256(signature, jwtSecret);
 	signature = base64url(signature);
 

@@ -14,6 +14,9 @@ const StyledList = styled(List)(({ theme }) => ({
         theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.06)' : 'rgba(0,0,0,.05)',
     },
   },
+  '& .fuse-list-item-text-primary': {
+    lineHeight: '1',
+  },
   '&.active-square-list': {
     '& .fuse-list-item, & .active.fuse-list-item': {
       width: '100%',

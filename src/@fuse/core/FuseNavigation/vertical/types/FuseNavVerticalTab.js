@@ -10,6 +10,7 @@ import { useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import FuseNavBadge from '../../FuseNavBadge';
+import FuseSvgIcon from '../../../FuseSvgIcon';
 
 const Root = styled('div')(({ theme }) => ({
   '& > .fuse-list-item': {
@@ -90,12 +91,12 @@ function FuseNavVerticalTab(props) {
             <Tooltip title={item.title || ''} placement="right">
               <div className="w-32 h-32 min-h-32 flex items-center justify-center relative">
                 {item.icon ? (
-                  <Icon
-                    className={clsx('fuse-list-item-icon text-24', item.iconClass)}
+                  <FuseSvgIcon
+                    className={clsx('fuse-list-item-icon', item.iconClass)}
                     color="action"
                   >
                     {item.icon}
-                  </Icon>
+                  </FuseSvgIcon>
                 ) : (
                   item.title && <div className="font-bold text-16">{item.title[0]}</div>
                 )}
@@ -129,7 +130,7 @@ function FuseNavVerticalTab(props) {
               </div>
 
               <ListItemText
-                className="fuse-list-item-text grow-0 w-full m-0"
+                className="fuse-list-item-text grow-0 w-full"
                 primary={item.title}
                 classes={{
                   primary: 'text-12 font-medium fuse-list-item-text-primary truncate text-center',

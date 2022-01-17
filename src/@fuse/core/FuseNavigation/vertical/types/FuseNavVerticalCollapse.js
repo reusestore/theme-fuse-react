@@ -11,23 +11,26 @@ import { useEffect, useState, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import FuseNavBadge from '../../FuseNavBadge';
 import FuseNavItem from '../../FuseNavItem';
+import FuseSvgIcon from '../../../FuseSvgIcon';
 
 const Root = styled('ul')(({ theme, ...props }) => ({
   padding: 0,
   '&.open': {},
   '& > .fuse-list-item': {
-    height: 40,
+    minHeight: 44,
     width: '100%',
     borderRadius: '6px',
     margin: '0 0 4px 0',
-    paddingRight: 12,
+    paddingRight: 16,
     paddingLeft: props.itempadding > 80 ? 80 : props.itempadding,
+    paddingTop: 10,
+    paddingBottom: 10,
     color: alpha(theme.palette.text.primary, 0.7),
     '&:hover': {
       color: theme.palette.text.primary,
     },
     '& > .fuse-list-item-icon': {
-      marginRight: 12,
+      marginRight: 16,
       color: 'inherit',
     },
   },
@@ -60,7 +63,7 @@ function isUrlInChildren(parent, url) {
 function FuseNavVerticalCollapse(props) {
   const [open, setOpen] = useState(() => needsToBeOpened(props.location, props.item));
   const { item, nestedLevel, onItemClick } = props;
-  const itempadding = nestedLevel > 0 ? 28 + nestedLevel * 16 : 12;
+  const itempadding = nestedLevel > 0 ? 28 + nestedLevel * 16 : 16;
 
   const location = useLocation();
 
@@ -86,25 +89,29 @@ function FuseNavVerticalCollapse(props) {
           role="button"
         >
           {item.icon && (
-            <Icon
-              className={clsx('fuse-list-item-icon text-20 shrink-0', item.iconClass)}
+            <FuseSvgIcon
+              className={clsx('fuse-list-item-icon shrink-0', item.iconClass)}
               color="action"
             >
               {item.icon}
-            </Icon>
+            </FuseSvgIcon>
           )}
 
           <ListItemText
             className="fuse-list-item-text"
             primary={item.title}
-            classes={{ primary: 'text-13 font-medium' }}
+            secondary={item.subtitle}
+            classes={{
+              primary: 'text-13 font-medium fuse-list-item-text-primary',
+              secondary: 'text-11 font-medium fuse-list-item-text-secondary leading-normal',
+            }}
           />
 
           {item.badge && <FuseNavBadge className="mx-4" badge={item.badge} />}
 
           <IconButton
             disableRipple
-            className="w-40 h-40 -mx-12 p-0 focus:bg-transparent hover:bg-transparent"
+            className="w-20 h-20 -mx-12 p-0 focus:bg-transparent hover:bg-transparent"
             onClick={(ev) => ev.preventDefault()}
             size="large"
           >

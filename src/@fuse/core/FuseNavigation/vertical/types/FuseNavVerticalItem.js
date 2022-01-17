@@ -1,21 +1,22 @@
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import { styled, alpha } from '@mui/material/styles';
-import Icon from '@mui/material/Icon';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { useMemo } from 'react';
-import { useDispatch } from 'react-redux';
 import FuseNavBadge from '../../FuseNavBadge';
+import FuseSvgIcon from '../../../FuseSvgIcon';
 
 const Root = styled(ListItem)(({ theme, ...props }) => ({
-  height: 40,
+  minHeight: 44,
   width: '100%',
   borderRadius: '6px',
   margin: '0 0 4px 0',
-  paddingRight: 12,
+  paddingRight: 16,
   paddingLeft: props.itempadding,
+  paddingTop: 10,
+  paddingBottom: 10,
   color: alpha(theme.palette.text.primary, 0.7),
   cursor: 'pointer',
   textDecoration: 'none!important',
@@ -38,24 +39,23 @@ const Root = styled(ListItem)(({ theme, ...props }) => ({
     },
   },
   '& >.fuse-list-item-icon': {
-    marginRight: 12,
+    marginRight: 16,
     color: 'inherit',
   },
   '& > .fuse-list-item-text': {},
 }));
 
 function FuseNavVerticalItem(props) {
-  const dispatch = useDispatch();
   const { item, nestedLevel, onItemClick } = props;
 
-  const itempadding = nestedLevel > 0 ? 28 + nestedLevel * 16 : 12;
+  const itempadding = nestedLevel > 0 ? 28 + nestedLevel * 16 : 16;
 
   return useMemo(
     () => (
       <Root
         button
         component={NavLinkAdapter}
-        to={item.url}
+        to={item.url || ''}
         activeClassName="active"
         className="fuse-list-item"
         onClick={() => onItemClick && onItemClick(item)}
@@ -64,18 +64,22 @@ function FuseNavVerticalItem(props) {
         role="button"
       >
         {item.icon && (
-          <Icon
-            className={clsx('fuse-list-item-icon text-20 shrink-0', item.iconClass)}
+          <FuseSvgIcon
+            className={clsx('fuse-list-item-icon shrink-0', item.iconClass)}
             color="action"
           >
             {item.icon}
-          </Icon>
+          </FuseSvgIcon>
         )}
 
         <ListItemText
           className="fuse-list-item-text"
           primary={item.title}
-          classes={{ primary: 'text-13 font-medium fuse-list-item-text-primary' }}
+          secondary={item.subtitle}
+          classes={{
+            primary: 'text-13 font-medium fuse-list-item-text-primary',
+            secondary: 'text-11 font-medium fuse-list-item-text-secondary leading-normal',
+          }}
         />
         {item.badge && <FuseNavBadge badge={item.badge} />}
       </Root>

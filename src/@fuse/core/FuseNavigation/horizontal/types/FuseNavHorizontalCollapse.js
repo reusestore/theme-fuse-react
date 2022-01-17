@@ -15,6 +15,7 @@ import { Manager, Popper, Reference } from 'react-popper';
 import withRouter from '@fuse/core/withRouter';
 import FuseNavBadge from '../../FuseNavBadge';
 import FuseNavItem from '../../FuseNavItem';
+import FuseSvgIcon from '../../../FuseSvgIcon';
 
 const StyledListItem = styled(ListItem)(({ theme }) => ({
   color: theme.palette.text.primary,
@@ -90,12 +91,12 @@ function FuseNavHorizontalCollapse(props) {
                   role="button"
                 >
                   {item.icon && (
-                    <Icon
+                    <FuseSvgIcon
                       color="action"
-                      className={clsx('fuse-list-item-icon text-16 shrink-0', item.iconClass)}
+                      className={clsx('fuse-list-item-icon shrink-0', item.iconClass)}
                     >
                       {item.icon}
-                    </Icon>
+                    </FuseSvgIcon>
                   )}
 
                   <ListItemText

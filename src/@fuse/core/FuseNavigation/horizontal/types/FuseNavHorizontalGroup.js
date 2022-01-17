@@ -14,6 +14,7 @@ import * as ReactDOM from 'react-dom';
 import { Manager, Popper, Reference } from 'react-popper';
 import withRouter from '@fuse/core/withRouter';
 import FuseNavItem from '../../FuseNavItem';
+import FuseSvgIcon from '../../../FuseSvgIcon';
 
 const StyledListItem = styled(ListItem)(({ theme }) => ({
   color: theme.palette.text.primary,
@@ -31,7 +32,7 @@ const StyledListItem = styled(ListItem)(({ theme }) => ({
     padding: '0 0 0 16px',
   },
   '&.level-0': {
-    height: 44,
+    minHeight: 44,
     borderRadius: 4,
     '&:hover': {
       background: 'transparent',
@@ -100,12 +101,12 @@ function FuseNavHorizontalGroup(props) {
                 role="button"
               >
                 {item.icon && (
-                  <Icon
+                  <FuseSvgIcon
                     color="action"
-                    className={clsx('fuse-list-item-icon text-16 shrink-0', item.iconClass)}
+                    className={clsx('fuse-list-item-icon shrink-0', item.iconClass)}
                   >
                     {item.icon}
-                  </Icon>
+                  </FuseSvgIcon>
                 )}
 
                 <ListItemText

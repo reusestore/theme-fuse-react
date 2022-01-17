@@ -12,7 +12,7 @@ function SectionListItem(props) {
       {(provided, snapshot) => (
         <>
           <ListItem
-            className="px-32 py-12 group"
+            className="px-40 py-12 group"
             sx={{ bgcolor: 'background.default' }}
             button
             component={NavLinkAdapter}

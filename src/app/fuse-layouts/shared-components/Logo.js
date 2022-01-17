@@ -1,5 +1,4 @@
 import { styled } from '@mui/material/styles';
-import Typography from '@mui/material/Typography';
 
 const Root = styled('div')(({ theme }) => ({
   '& > .logo-icon': {
@@ -8,7 +7,7 @@ const Root = styled('div')(({ theme }) => ({
       easing: theme.transitions.easing.easeInOut,
     }),
   },
-  '& > .badge, & > .logo-text': {
+  '& > .badge': {
     transition: theme.transitions.create('opacity', {
       duration: theme.transitions.duration.shortest,
       easing: theme.transitions.easing.easeInOut,
@@ -19,12 +18,10 @@ const Root = styled('div')(({ theme }) => ({
 function Logo() {
   return (
     <Root className="flex items-center">
-      <img className="logo-icon w-24 h-24" src="assets/images/logos/fuse.svg" alt="logo" />
-      <Typography className="logo-text text-16 leading-none mx-12 font-medium" color="inherit">
-        FUSE
-      </Typography>
+      <img className="logo-icon w-32 h-32" src="assets/images/logos/fuse.svg" alt="logo" />
+
       <div
-        className="badge flex items-center py-4 px-8 rounded"
+        className="badge flex items-center py-4 px-8 mx-8 rounded"
         style={{ backgroundColor: '#121212', color: '#61DAFB' }}
       >
         <img

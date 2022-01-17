@@ -3,6 +3,7 @@ import { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import { Box } from '@mui/system';
+import Icon from '@mui/material/Icon';
 
 const Root = styled(Box)(({ theme, ...props }) => ({
   width: props.size,
@@ -25,6 +26,10 @@ const Root = styled(Box)(({ theme, ...props }) => ({
 }));
 
 const FuseSvgIcon = forwardRef(function SvgIcon(props, ref) {
+  if (!props.children.includes(':')) {
+    return <Icon {...props} />;
+  }
+
   const iconPath = props.children.replace(':', '.svg#');
 
   return (

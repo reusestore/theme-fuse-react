@@ -151,6 +151,16 @@ export const defaultThemeOptions = {
         color: 'secondary',
       },
     },
+    MuiTypography: {
+      variants: [
+        {
+          props: { color: 'textSecondary' },
+          style: {
+            color: 'text.secondary',
+          },
+        },
+      ],
+    },
   },
 };
 
