@@ -1,7 +1,7 @@
 import FusePageCarded from '@fuse/core/FusePageCarded';
 import Button from '@mui/material/Button';
 import Icon from '@mui/material/Icon';
-import { useTheme, styled } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Typography from '@mui/material/Typography';
@@ -16,18 +16,6 @@ import { resetOrder, getOrder } from '../store/orderSlice';
 import InvoiceTab from './tabs/InvoiceTab';
 import OrderDetailsTab from './tabs/OrderDetailsTab';
 import ProductsTab from './tabs/ProductsTab';
-
-const Root = styled(FusePageCarded)(({ theme }) => ({
-  '& .FusePageCarded-header': {
-    minHeight: 72,
-    height: 72,
-    alignItems: 'center',
-    [theme.breakpoints.up('sm')]: {
-      minHeight: 136,
-      height: 136,
-    },
-  },
-}));
 
 function Order(props) {
   const dispatch = useDispatch();
@@ -82,42 +70,40 @@ function Order(props) {
   }
 
   return (
-    <Root
+    <FusePageCarded
       header={
         order && (
-          <div className="flex flex-1 w-full items-center justify-between">
-            <div className="flex flex-1 flex-col items-center sm:items-start">
+          <div className="flex flex-1 flex-col items-center sm:items-start py-32 px-24 md:px-32">
+            <motion.div
+              initial={{ x: 20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1, transition: { delay: 0.3 } }}
+            >
+              <Typography
+                className="flex items-center sm:mb-12"
+                component={Link}
+                role="button"
+                to="/apps/e-commerce/orders"
+                color="inherit"
+              >
+                <Icon className="text-20">
+                  {theme.direction === 'ltr' ? 'arrow_back' : 'arrow_forward'}
+                </Icon>
+                <span className="mx-4 font-medium">Orders</span>
+              </Typography>
+            </motion.div>
+
+            <div className="flex flex-col min-w-0 items-center sm:items-start">
               <motion.div
-                initial={{ x: 20, opacity: 0 }}
+                initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1, transition: { delay: 0.3 } }}
               >
-                <Typography
-                  className="flex items-center sm:mb-12"
-                  component={Link}
-                  role="button"
-                  to="/apps/e-commerce/orders"
-                  color="inherit"
-                >
-                  <Icon className="text-20">
-                    {theme.direction === 'ltr' ? 'arrow_back' : 'arrow_forward'}
-                  </Icon>
-                  <span className="mx-4 font-medium">Orders</span>
+                <Typography className="text-16 sm:text-20 truncate font-semibold">
+                  {`Order ${order.reference}`}
+                </Typography>
+                <Typography variant="caption" className="font-medium">
+                  {`From ${order.customer.firstName} ${order.customer.lastName}`}
                 </Typography>
               </motion.div>
-
-              <div className="flex flex-col min-w-0 items-center sm:items-start">
-                <motion.div
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1, transition: { delay: 0.3 } }}
-                >
-                  <Typography className="text-16 sm:text-20 truncate font-semibold">
-                    {`Order ${order.reference}`}
-                  </Typography>
-                  <Typography variant="caption" className="font-medium">
-                    {`From ${order.customer.firstName} ${order.customer.lastName}`}
-                  </Typography>
-                </motion.div>
-              </div>
             </div>
           </div>
         )
