@@ -194,7 +194,7 @@ function HelpCenterHome() {
           Here are the most frequently asked questions you may check before getting started
         </Typography>
 
-        <div className="flex flex-col w-full items-center mt-48">
+        <div className="flex flex-col w-full items-center my-48">
           <FaqList className="w-full max-w-4xl" list={faqsMost} />
         </div>
       </div>
