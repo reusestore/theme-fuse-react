@@ -14,7 +14,7 @@ const Root = styled(ListItem)(({ theme, ...props }) => ({
   borderRadius: '6px',
   margin: '0 0 4px 0',
   paddingRight: 16,
-  paddingLeft: props.itempadding,
+  paddingLeft: props.itempadding > 80 ? 80 : props.itempadding,
   paddingTop: 10,
   paddingBottom: 10,
   color: alpha(theme.palette.text.primary, 0.7),
@@ -48,7 +48,7 @@ const Root = styled(ListItem)(({ theme, ...props }) => ({
 function FuseNavVerticalItem(props) {
   const { item, nestedLevel, onItemClick } = props;
 
-  const itempadding = nestedLevel > 0 ? 28 + nestedLevel * 16 : 16;
+  const itempadding = nestedLevel > 0 ? 38 + nestedLevel * 16 : 16;
 
   return useMemo(
     () => (

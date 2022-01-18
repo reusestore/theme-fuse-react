@@ -63,7 +63,7 @@ function isUrlInChildren(parent, url) {
 function FuseNavVerticalCollapse(props) {
   const [open, setOpen] = useState(() => needsToBeOpened(props.location, props.item));
   const { item, nestedLevel, onItemClick } = props;
-  const itempadding = nestedLevel > 0 ? 28 + nestedLevel * 16 : 16;
+  const itempadding = nestedLevel > 0 ? 38 + nestedLevel * 16 : 16;
 
   const location = useLocation();
 

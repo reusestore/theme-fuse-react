@@ -41,7 +41,7 @@ function FuseNavVerticalLink(props) {
   const dispatch = useDispatch();
   const { item, nestedLevel, onItemClick } = props;
 
-  const itempadding = nestedLevel > 0 ? 28 + nestedLevel * 16 : 16;
+  const itempadding = nestedLevel > 0 ? 38 + nestedLevel * 16 : 16;
 
   return useMemo(
     () => (
