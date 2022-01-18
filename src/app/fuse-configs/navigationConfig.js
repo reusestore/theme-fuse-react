@@ -1349,7 +1349,7 @@ const navigationConfig = [
     ],
   },
   {
-    id: 'pages',
+    id: 'pages2',
     title: 'Pages',
     type: 'group',
     icon: 'pages',

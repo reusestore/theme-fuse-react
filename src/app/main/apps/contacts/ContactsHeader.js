@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import { Box } from '@mui/system';
 import { setContactsSearchText, selectFilteredContacts } from './store/contactsSlice';
 
 function ContactsHeader(props) {
@@ -36,7 +37,7 @@ function ContactsHeader(props) {
       </Typography>
 
       <div className="flex flex-1 items-center mt-16 -mx-8">
-        <div
+        <Box
           component={motion.div}
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}
@@ -55,7 +56,7 @@ function ContactsHeader(props) {
             }}
             onChange={(ev) => dispatch(setContactsSearchText(ev))}
           />
-        </div>
+        </Box>
         <Button
           className="mx-8"
           variant="contained"

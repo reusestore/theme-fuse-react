@@ -5,6 +5,7 @@ import './tasks-api';
 import './academy-api';
 import './ecommerce-api';
 import './file-manager-api';
+import './help-center-api';
 import './db/analytics-dashboard-db';
 import './db/auth-db';
 import './db/calendar-db';
