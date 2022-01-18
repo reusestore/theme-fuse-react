@@ -32,14 +32,16 @@ function CourseCard({ course }) {
         <Button
           to={`/apps/academy/courses/${course.id}/${course.slug}`}
           component={Link}
-          className="flex items-center justify-center space-x-6 px-16 min-w-128"
+          className="px-16 min-w-128"
           color="primary"
           variant="outlined"
+          endIcon={
+            <FuseSvgIcon className="" size={20}>
+              heroicons-solid:arrow-sm-right
+            </FuseSvgIcon>
+          }
         >
-          <span>{buttonStatus()}</span>
-          <FuseSvgIcon className="" size={20}>
-            heroicons-solid:arrow-sm-right
-          </FuseSvgIcon>
+          {buttonStatus()}
         </Button>
       </CardActions>
     </Card>

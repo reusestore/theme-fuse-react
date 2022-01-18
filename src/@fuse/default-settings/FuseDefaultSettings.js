@@ -58,17 +58,20 @@ export const defaultThemeOptions = {
       styleOverrides: {
         root: {
           textTransform: 'none',
+
+          lineHeight: 1,
+        },
+        sizeMedium: {
           borderRadius: 20,
           height: 40,
           minHeight: 40,
           maxHeight: 40,
-          lineHeight: 1,
         },
         sizeSmall: {
           borderRadius: '15px',
         },
         sizeLarge: {
-          borderRadius: '21px',
+          borderRadius: '28px',
         },
         contained: {
           boxShadow: 'none',
