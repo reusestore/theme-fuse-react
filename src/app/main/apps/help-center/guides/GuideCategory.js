@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import Typography from '@mui/material/Typography';
+import GuideListMenu from 'app/main/apps/help-center/guides/GuideListMenu';
 import { getGuides, selectGuides } from '../store/guidesSlice';
 import { selectGuideCategorieseBySlug } from '../store/guideCategoriesSlice';
 
@@ -34,18 +34,7 @@ function GuideCategory() {
           {category?.title}
         </div>
         <div className="mt-32 sm:mt-48">
-          {guides.map((guide) => (
-            <Typography
-              component={Link}
-              className="flex mt-12 font-medium no-underline hover:underline"
-              key={guide.id}
-              to={guide.slug}
-              color="secondary"
-              role="button"
-            >
-              {guide.title}
-            </Typography>
-          ))}
+          <GuideListMenu list={guides} />
         </div>
       </div>
     </div>

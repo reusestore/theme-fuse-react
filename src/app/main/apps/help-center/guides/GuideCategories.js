@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import GuideListMenu from 'app/main/apps/help-center/guides/GuideListMenu';
 import { getGuides, selectGroupedGuides } from '../store/guidesSlice';
 
 function GuideCategories() {
@@ -41,18 +42,8 @@ function GuideCategories() {
               >
                 {category.title}
               </Typography>
-              {category.guides.map((guide) => (
-                <Typography
-                  component={Link}
-                  className="flex mt-12 font-medium no-underline hover:underline"
-                  key={guide.id}
-                  to={`${category.slug}/${guide.slug}`}
-                  color="secondary"
-                  role="button"
-                >
-                  {guide.title}
-                </Typography>
-              ))}
+
+              <GuideListMenu list={category.guides} categorySlug={category.slug} maxItems={4} />
             </div>
           ))}
         </div>
