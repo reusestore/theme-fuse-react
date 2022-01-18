@@ -298,7 +298,7 @@ function NoteForm(props) {
                   <Icon fontSize="small">delete</Icon>
                 </IconButton>
               </Tooltip>
-              <Button className="m-4" onClick={props.onClose} variant="outlined" size="small">
+              <Button className="m-4" onClick={props.onClose} variant="default">
                 Close
               </Button>
             </>
