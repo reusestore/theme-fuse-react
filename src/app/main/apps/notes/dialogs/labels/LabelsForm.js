@@ -3,7 +3,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 import _ from '@lodash';
 import TextField from '@mui/material/TextField';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import Input from '@mui/material/Input';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -15,6 +14,7 @@ import clsx from 'clsx';
 import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { updateLabels } from '../../store/labelsSlice';
 
 const defaultValues = {
@@ -64,7 +64,7 @@ function LabelsForm(props) {
 
   return (
     <>
-      <Typography className="text-16 mb-8 font-semibold">Edit Labels</Typography>
+      <Typography className="text-20 mb-24 font-semibold">Edit Labels</Typography>
       <List dense>
         <form onSubmit={handleSubmit(onSubmit)}>
           <ListItem className="p-0 mb-16" dense>
@@ -82,9 +82,7 @@ function LabelsForm(props) {
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
-                        <Icon className="list-item-icon text-16" color="action">
-                          add
-                        </Icon>
+                        <FuseSvgIcon color="action">heroicons-outline:tag</FuseSvgIcon>
                       </InputAdornment>
                     ),
                     endAdornment: (
@@ -96,7 +94,9 @@ function LabelsForm(props) {
                           type="submit"
                           size="large"
                         >
-                          <Icon fontSize="small">check</Icon>
+                          <FuseSvgIcon color="action" size={20}>
+                            heroicons-outline:check
+                          </FuseSvgIcon>
                         </IconButton>
                       </InputAdornment>
                     ),
@@ -117,12 +117,12 @@ function LabelsForm(props) {
           }
 
           return Object.entries(labelsForm).map(([key, label]) => (
-            <ListItem className="p-0 mb-8" key={label.id} dense>
-              <Icon className="list-item-icon text-16" color="action">
-                label
-              </Icon>
+            <ListItem className="p-0 mb-8 px-12" key={label.id} dense>
+              <FuseSvgIcon color="action" size={20}>
+                heroicons-outline:tag
+              </FuseSvgIcon>
               <Input
-                className={clsx('flex flex-1 mx-8')}
+                className={clsx('flex flex-1 px-12')}
                 name="name"
                 value={label.name}
                 onChange={(event) => handleLabelChange(event, label)}
@@ -134,7 +134,9 @@ function LabelsForm(props) {
                 onClick={(ev) => handleOnDelete(label)}
                 size="large"
               >
-                <Icon fontSize="small">delete</Icon>
+                <FuseSvgIcon color="action" size={20}>
+                  heroicons-outline:trash
+                </FuseSvgIcon>
               </IconButton>
             </ListItem>
           ));

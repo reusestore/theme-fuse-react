@@ -67,7 +67,7 @@ const FusePageSimpleSidebar = forwardRef((props, ref) => {
             open={isOpen}
             onClose={props?.onClose}
             classes={{
-              paper: clsx('FusePageSimple-sidebar', variant),
+              paper: clsx('FusePageSimple-sidebar border-0', variant),
             }}
           >
             <FusePageSimpleSidebarContent {...props} />

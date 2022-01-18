@@ -27,7 +27,7 @@ const Root = styled('div')(({ theme, ...props }) => ({
     flexDirection: 'row',
     flex: '1 1 auto',
     zIndex: 2,
-    maxWidth: '100%',
+    // maxWidth: '100%',
     minWidth: 0,
     height: '100%',
     backgroundColor: theme.palette.background.default,
@@ -40,6 +40,7 @@ const Root = styled('div')(({ theme, ...props }) => ({
     backgroundColor: theme.palette.background.paper,
     color: theme.palette.primary.main,
     backgroundSize: 'cover',
+    borderBottom: `1px solid ${theme.palette.divider}`,
   },
 
   '& .FusePageSimple-topBg': {
@@ -197,14 +198,19 @@ const FusePageSimple = forwardRef((props, ref) => {
         leftsidebarwidth={props.leftSidebarWidth}
         rightsidebarwidth={props.rightSidebarWidth}
       >
-        <div className="flex flex-auto flex-col container z-10 h-full">
-          <div className="FusePageSimple-wrapper">
-            {(props.leftSidebarHeader || props.leftSidebarContent) && (
+        <div className="flex flex-auto flex-col z-10 h-full">
+          {props.header && props.sidebarInner && (
+            <FusePageSimpleHeader header={<div className="container">{props.header}</div>} />
+          )}
+
+          <div className="FusePageSimple-wrapper container">
+            {props.leftSidebarContent && (
               <FusePageSimpleSidebar
                 position="left"
                 header={props.leftSidebarHeader}
                 content={props.leftSidebarContent}
                 variant={props.leftSidebarVariant || 'permanent'}
+                sidebarInner={props.sidebarInner}
                 ref={leftSidebarRef}
                 rootRef={rootRef}
                 open={props.leftSidebarOpen}
@@ -214,26 +220,23 @@ const FusePageSimple = forwardRef((props, ref) => {
 
             <FuseScrollbars
               className="FusePageSimple-contentWrapper"
-              enable={props.scroll === 'content'}
+              enable={props.scroll === 'content' && !props.sidebarInner}
             >
-              {props.header && <FusePageSimpleHeader header={props.header} />}
-
-              {props.contentToolbar && (
-                <div className={clsx('FusePageSimple-toolbar')}>{props.contentToolbar}</div>
+              {props.header && !props.sidebarInner && (
+                <FusePageSimpleHeader header={props.header} />
               )}
-
               {props.content && (
                 <div className={clsx('FusePageSimple-content')}>{props.content}</div>
               )}
             </FuseScrollbars>
-            {/* </FuseScrollbars> */}
 
-            {(props.rightSidebarHeader || props.rightSidebarContent) && (
+            {props.rightSidebarContent && (
               <FusePageSimpleSidebar
                 position="right"
                 header={props.rightSidebarHeader}
                 content={props.rightSidebarContent}
                 variant={props.rightSidebarVariant || 'permanent'}
+                sidebarInner={props.sidebarInner}
                 ref={rightSidebarRef}
                 rootRef={rootRef}
                 open={props.rightSidebarOpen}
@@ -269,6 +272,7 @@ FusePageSimple.propTypes = {
 FusePageSimple.defaultProps = {
   classes: {},
   scroll: 'page',
+  sidebarInner: false,
   leftSidebarOpen: false,
   rightSidebarOpen: false,
   rightSidebarWidth: 240,

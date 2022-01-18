@@ -1,8 +1,9 @@
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import withReducer from 'app/store/withReducer';
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { styled } from '@mui/material/styles';
+import { styled, useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import LabelsDialog from './dialogs/labels/LabelsDialog';
 import NoteDialog from './dialogs/note/NoteDialog';
 import NewNote from './NewNote';
@@ -14,31 +15,21 @@ import { getLabels } from './store/labelsSlice';
 import { getNotes } from './store/notesSlice';
 
 const Root = styled(FusePageSimple)(({ theme }) => ({
-  '& .FusePageSimple-header': {
-    minHeight: 72,
-    height: 72,
-  },
-  '& .FusePageSimple-contentWrapper': {
-    padding: 16,
-    paddingBottom: 80,
-    [theme.breakpoints.up('sm')]: {
-      padding: 24,
-    },
-  },
-  '& .FusePageSimple-content': {
-    display: 'flex',
-    minHeight: '100%',
-  },
   '& .FusePageSimple-sidebar': {
-    width: 256,
-    border: 0,
+    backgroundColor: theme.palette.background.default,
+    color: theme.palette.primary.main,
+    boxShadow: 'none',
+  },
+  '& .FusePageSimple-leftSidebar': {
+    border: '0!important',
   },
 }));
 
 function NotesApp(props) {
   const dispatch = useDispatch();
-
-  const pageLayout = useRef(null);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
+  const [leftSidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
     dispatch(getNotes());
@@ -48,18 +39,22 @@ function NotesApp(props) {
   return (
     <>
       <Root
-        header={<NotesHeader pageLayout={pageLayout} />}
+        header={<NotesHeader onSetSidebarOpen={setSidebarOpen} />}
         content={
-          <div className="flex flex-col w-full items-center">
+          <div className="flex flex-col w-full items-center p-32">
             <NewNote />
             <NoteList />
             <NoteDialog />
             <LabelsDialog />
           </div>
         }
-        leftSidebarContent={<NotesSidebarContent />}
         sidebarInner
-        ref={pageLayout}
+        leftSidebarOpen={isMobile ? leftSidebarOpen : true}
+        leftSidebarOnClose={() => {
+          setSidebarOpen(false);
+        }}
+        leftSidebarContent={<NotesSidebarContent />}
+        scroll="content"
       />
     </>
   );

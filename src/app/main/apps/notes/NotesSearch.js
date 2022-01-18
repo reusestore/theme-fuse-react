@@ -1,13 +1,12 @@
-import ClickAwayListener from '@mui/material/ClickAwayListener';
 import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
-import Input from '@mui/material/Input';
-import Tooltip from '@mui/material/Tooltip';
-import clsx from 'clsx';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Box } from '@mui/system';
-import { resetNotesSearchText, setNotesSearchText } from './store/notesSlice';
+import { OutlinedInput } from '@mui/material';
+import { motion } from 'framer-motion';
+import InputAdornment from '@mui/material/InputAdornment';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import { setNotesSearchText } from './store/notesSlice';
 
 function NotesSearch(props) {
   const dispatch = useDispatch();
@@ -15,66 +14,26 @@ function NotesSearch(props) {
 
   const [search, setSearch] = useState(false);
 
-  function showSearch(ev) {
-    ev.stopPropagation();
-    setSearch(true);
-    document.addEventListener('keydown', escFunction, false);
-  }
-
-  function hideSearch() {
-    setSearch(false);
-    dispatch(resetNotesSearchText());
-    document.removeEventListener('keydown', escFunction, false);
-  }
-
-  function escFunction(event) {
-    if (event.keyCode === 27) {
-      hideSearch();
-    }
-  }
-
-  function handleClickAway() {
-    hideSearch();
-  }
-
   return (
-    <div className={clsx('flex', props.className)}>
-      <Tooltip title="Click to search" placement="bottom">
-        <div onClick={showSearch} onKeyDown={showSearch} role="button" tabIndex={0}>
-          {props.trigger}
-        </div>
-      </Tooltip>
-
-      {search && (
-        <ClickAwayListener onClickAway={handleClickAway}>
-          <div className="absolute left-0 right-0 top-0 bottom-0 h-full z-9999 px-8 sm:px-24">
-            <Box
-              sx={{
-                backgroundColor: (theme) => theme.palette.primary.dark,
-              }}
-              className="flex items-center w-full h-full"
-            >
-              <Input
-                placeholder="Search for anything"
-                className="flex flex-1 py-0 px-16 h-64"
-                disableUnderline
-                fullWidth
-                value={searchText}
-                inputProps={{
-                  'aria-label': 'Search',
-                }}
-                onChange={(ev) => dispatch(setNotesSearchText(ev))}
-                autoFocus
-              />
-
-              <IconButton onClick={hideSearch} className="mx-8" size="large">
-                <Icon>close</Icon>
-              </IconButton>
-            </Box>
-          </div>
-        </ClickAwayListener>
-      )}
-    </div>
+    <OutlinedInput
+      component={motion.div}
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}
+      className="flex flex-1 items-center px-16 rounded-full h-40 w-full max-w-320 sm:max-w-240"
+      placeholder="Search note"
+      variant="outlined"
+      fullWidth
+      startAdornment={
+        <InputAdornment position="start">
+          <FuseSvgIcon color="disabled">heroicons-solid:search</FuseSvgIcon>
+        </InputAdornment>
+      }
+      inputProps={{
+        'aria-label': 'Search',
+      }}
+      value={searchText}
+      onChange={(ev) => dispatch(setNotesSearchText(ev))}
+    />
   );
 }
 
