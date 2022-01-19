@@ -1,5 +1,4 @@
 import Chip from '@mui/material/Chip';
-import Icon from '@mui/material/Icon';
 import clsx from 'clsx';
 import format from 'date-fns/format';
 import { darken } from '@mui/material/styles';

@@ -1,22 +1,42 @@
 import { createSlice, createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const getNotes = createAsyncThunk('notesApp/notes/getNotes', async () => {
-  const response = await axios.get('/api/notes');
+export const getNotes = createAsyncThunk('notesApp/notes/getNotes', async (routeParams) => {
+  const { filter, id } = routeParams;
+
+  let url;
+
+  if (routeParams.filter === 'labels') {
+    url = `/api/notes/labels/${id}`;
+  }
+
+  if (routeParams.filter === 'archive') {
+    url = `/api/notes/archive`;
+  }
+
+  if (routeParams.filter === 'reminders') {
+    url = `/api/notes/reminders`;
+  }
+
+  if (!routeParams.filter) {
+    url = `/api/notes`;
+  }
+
+  const response = await axios.get(url);
   const data = await response.data;
 
   return data;
 });
 
 export const createNote = createAsyncThunk('notesApp/notes/createNote', async (note) => {
-  const response = await axios.post('/api/notes-app/create-note', { note });
+  const response = await axios.post('/api/notes', note);
   const data = await response.data;
 
   return data;
 });
 
 export const updateNote = createAsyncThunk('notesApp/notes/updateNote', async (note) => {
-  const response = await axios.post('/api/notes-app/update-note', { note });
+  const response = await axios.put(`/api/notes/${note.id}`, note);
   const data = await response.data;
 
   return data;
@@ -24,8 +44,8 @@ export const updateNote = createAsyncThunk('notesApp/notes/updateNote', async (n
 
 export const removeNote = createAsyncThunk(
   'notesApp/notes/removeNote',
-  async (noteId, { dispatch, getState }) => {
-    const response = await axios.post('/api/notes-app/remove-note', { noteId });
+  async (id, { dispatch, getState }) => {
+    const response = await axios.delete(`/api/notes/${id}`);
     const data = await response.data;
 
     dispatch(closeNoteDialog());

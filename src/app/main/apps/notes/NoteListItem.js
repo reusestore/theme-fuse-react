@@ -1,9 +1,9 @@
 import Card from '@mui/material/Card';
-import Icon from '@mui/material/Icon';
 import Typography from '@mui/material/Typography';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { useDispatch } from 'react-redux';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import NoteLabel from './NoteLabel';
 import NoteReminderLabel from './NoteReminderLabel';
 import setDescriptionStyle from './setDescriptionStyle';
@@ -48,9 +48,9 @@ function NoteListItem(props) {
           <ul className="px-20 my-16 flex flex-wrap list-reset">
             {props.note.tasks.map((item) => (
               <li key={item.id} className="flex items-center w-full">
-                <Icon color="action" className="text-16">
-                  {item.completed ? 'check_box_outline' : 'check_box_outline_blank'}
-                </Icon>
+                <FuseSvgIcon color={item.completed ? 'secondary' : 'disabled'} size={20}>
+                  heroicons-outline:check-circle
+                </FuseSvgIcon>
                 <Typography
                   className={clsx('truncate mx-8', item.completed && 'line-through')}
                   color={item.completed ? 'textSecondary' : 'inherit'}

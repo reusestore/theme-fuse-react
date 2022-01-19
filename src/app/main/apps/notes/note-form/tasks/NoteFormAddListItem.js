@@ -10,14 +10,14 @@ import * as yup from 'yup';
 import _ from '@lodash';
 
 const defaultValues = {
-  text: '',
+  content: '',
 };
 
 /**
  * Form Validation Schema
  */
 const schema = yup.object().shape({
-  text: yup.string().required('You must enter a label title'),
+  content: yup.string().required('You must enter a label title'),
 });
 
 function NoteFormAddListItem(props) {

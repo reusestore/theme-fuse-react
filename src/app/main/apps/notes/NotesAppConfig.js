@@ -14,13 +14,12 @@ const NotesAppConfig = {
       element: <NotesApp />,
       children: [
         {
-          path: ':id',
+          path: ':filter',
           element: <NotesApp />,
           children: [
             {
-              path: ':labelHandle',
+              path: ':id',
               element: <NotesApp />,
-              children: [{ path: ':labelId', element: <NotesApp /> }],
             },
           ],
         },

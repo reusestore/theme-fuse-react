@@ -1,11 +1,15 @@
 import Dialog from '@mui/material/Dialog';
 import { useDispatch, useSelector } from 'react-redux';
-import { closeLabelsDialog } from '../../store/labelsSlice';
-import LabelsForm from './LabelsForm';
+import Typography from '@mui/material/Typography';
+import NewLabelForm from 'app/main/apps/notes/dialogs/labels/NewLabelForm';
+import LabelItemForm from 'app/main/apps/notes/dialogs/labels/LabelItemForm';
+import List from '@mui/material/List';
+import { closeLabelsDialog, selectLabels } from '../../store/labelsSlice';
 
 function LabelsDialog(props) {
   const dispatch = useDispatch();
   const labelsDialogOpen = useSelector(({ notesApp }) => notesApp.labels.labelsDialogOpen);
+  const labels = useSelector(selectLabels);
 
   return (
     <Dialog
@@ -15,7 +19,15 @@ function LabelsDialog(props) {
       onClose={(ev) => dispatch(closeLabelsDialog())}
       open={labelsDialogOpen}
     >
-      <LabelsForm />
+      <Typography className="text-20 mb-24 font-semibold">Edit Labels</Typography>
+
+      <List dense>
+        <NewLabelForm />
+
+        {labels.map((item) => (
+          <LabelItemForm label={item} key={item.id} />
+        ))}
+      </List>
     </Dialog>
   );
 }

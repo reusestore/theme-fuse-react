@@ -1,10 +1,10 @@
 import _ from '@lodash';
 import Checkbox from '@mui/material/Checkbox';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import Input from '@mui/material/Input';
 import ListItem from '@mui/material/ListItem';
 import clsx from 'clsx';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 function NoteFormListItem(props) {
   function handleChange(event) {
@@ -45,7 +45,7 @@ function NoteFormListItem(props) {
         onClick={() => props.onListItemRemove(props.item.id)}
         size="large"
       >
-        <Icon fontSize="small">delete</Icon>
+        <FuseSvgIcon size={20}>heroicons-outline:trash</FuseSvgIcon>
       </IconButton>
     </ListItem>
   );

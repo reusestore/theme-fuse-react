@@ -17,6 +17,7 @@ import { useParams } from 'react-router-dom';
 import withRouter from '@fuse/core/withRouter';
 import * as yup from 'yup';
 import format from 'date-fns/format';
+import { useDispatch } from 'react-redux';
 import NoteFormList from './tasks/NoteFormList';
 import NoteFormLabelMenu from './NoteFormLabelMenu';
 import NoteFormReminder from './NoteFormReminder';
@@ -40,6 +41,8 @@ const schema = yup.object().shape({
 function NoteForm(props) {
   const [showList, setShowList] = useState(false);
   const routeParams = useParams();
+  const dispatch = useDispatch();
+
   const defaultValues = _.merge(
     {},
     NoteModel(),
@@ -155,12 +158,12 @@ function NoteForm(props) {
             control={control}
             defaultValue={[]}
             render={({ field: { onChange, value } }) => {
-              if (value?.length === 0 && !showList) {
+              if ((value?.length === 0 && !showList) || (!value && !showList)) {
                 return null;
               }
               return (
                 <div className="px-16">
-                  <NoteFormList tasks={value} onCheckListChange={(val) => onChange(val)} />
+                  <NoteFormList tasks={value || []} onCheckListChange={(val) => onChange(val)} />
                 </div>
               );
             }}
@@ -281,7 +284,7 @@ function NoteForm(props) {
         <div className="flex items-center">
           {props.variant === 'new' ? (
             <Button
-              className="m-4"
+              className="m-4 p-8"
               type="submit"
               variant="contained"
               color="secondary"

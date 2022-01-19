@@ -4,7 +4,8 @@ import Slide from '@mui/material/Slide';
 import NoteForm from 'app/main/apps/notes/note-form/NoteForm';
 import { forwardRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { closeNoteDialog, removeNote, updateNote } from '../../store/notesSlice';
+import { useParams } from 'react-router-dom';
+import { closeNoteDialog, removeNote, updateNote, getNotes } from '../../store/notesSlice';
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -13,9 +14,12 @@ const Transition = forwardRef(function Transition(props, ref) {
 function NoteDialog(props) {
   const dispatch = useDispatch();
   const notes = useSelector(({ notesApp }) => notesApp.notes);
+  const routeParams = useParams();
 
   const handleOnChange = useDebounce((note) => {
-    dispatch(updateNote(note));
+    dispatch(updateNote(note)).then(() => {
+      dispatch(getNotes(routeParams));
+    });
   }, 600);
 
   function handleOnRemove() {

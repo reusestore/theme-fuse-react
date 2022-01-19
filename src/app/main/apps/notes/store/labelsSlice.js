@@ -8,10 +8,22 @@ export const getLabels = createAsyncThunk('notesApp/labels/getLabels', async () 
   return data;
 });
 
-export const updateLabels = createAsyncThunk('notesApp/labels/updateLabels', async (labels) => {
-  const response = await axios.post('/api/notes-app/update-labels', {
-    labels: Object.values(labels),
-  });
+export const createLabel = createAsyncThunk('notesApp/labels/createLabel', async (label) => {
+  const response = await axios.post(`/api/notes/labels`, label);
+  const data = await response.data;
+
+  return data;
+});
+
+export const updateLabel = createAsyncThunk('notesApp/labels/updateLabel', async (label) => {
+  const response = await axios.put(`/api/notes/labels/${label.id}`, label);
+  const data = await response.data;
+
+  return data;
+});
+
+export const removeLabel = createAsyncThunk('notesApp/labels/removeLabel', async (id) => {
+  const response = await axios.delete(`/api/notes/labels/${id}`);
   const data = await response.data;
 
   return data;
@@ -38,7 +50,9 @@ const labelsSlice = createSlice({
   },
   extraReducers: {
     [getLabels.fulfilled]: labelsAdapter.setAll,
-    [updateLabels.fulfilled]: labelsAdapter.setAll,
+    [updateLabel.fulfilled]: labelsAdapter.upsertOne,
+    [removeLabel.fulfilled]: labelsAdapter.removeOne,
+    [createLabel.fulfilled]: labelsAdapter.addOne,
   },
 });
 

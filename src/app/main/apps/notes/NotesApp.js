@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { styled, useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { useParams } from 'react-router-dom';
 import LabelsDialog from './dialogs/labels/LabelsDialog';
 import NoteDialog from './dialogs/note/NoteDialog';
 import NewNote from './NewNote';
@@ -30,11 +31,12 @@ function NotesApp(props) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
   const [leftSidebarOpen, setSidebarOpen] = useState(false);
+  const routeParams = useParams();
 
   useEffect(() => {
-    dispatch(getNotes());
+    dispatch(getNotes(routeParams));
     dispatch(getLabels());
-  }, [dispatch]);
+  }, [dispatch, routeParams]);
 
   return (
     <>
