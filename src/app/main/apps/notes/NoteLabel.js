@@ -24,14 +24,14 @@ function NoteLabel(props) {
         onClick: (ev) => {
           ev.stopPropagation();
         },
-        to: `/apps/notes/labels/${label.handle}/${label.id}`,
+        to: `/apps/notes/labels/${label.id}`,
       }
     : {};
 
   return (
     <Chip
       {...linkProps}
-      label={label.name}
+      label={label.title}
       classes={{
         root: clsx('h-24 border-0', props.className),
         label: 'px-12 py-4 text-12 font-medium leading-none',

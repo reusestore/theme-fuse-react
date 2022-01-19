@@ -6,8 +6,8 @@ function NoteListItemModel(data) {
 
   return _.defaults(data, {
     id: FuseUtils.generateGUID(),
-    text: '',
-    checked: false,
+    content: '',
+    completed: false,
   });
 }
 

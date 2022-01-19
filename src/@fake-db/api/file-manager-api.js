@@ -1,6 +1,6 @@
 import _ from '@lodash';
-import mockApi from './mock-api.json';
-import mock from './mock';
+import mockApi from '../mock-api.json';
+import mock from '../mock';
 
 const itemsApi = mockApi.components.examples.file_manager_items.value;
 

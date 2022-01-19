@@ -1,7 +1,7 @@
 import _ from '@lodash';
 import FuseUtils from '@fuse/utils';
-import mockApi from './mock-api.json';
-import mock from './mock';
+import mockApi from '../mock-api.json';
+import mock from '../mock';
 
 let productsDB = mockApi.components.examples.ecommerce_products.value;
 let ordersDB = mockApi.components.examples.ecommerce_orders.value;

@@ -22,19 +22,19 @@ function NoteList(props) {
       let data = notes;
 
       if (labelId) {
-        data = data.filter((note) => note.labels.includes(labelId) && !note.archive);
+        data = data.filter((note) => note.labels.includes(labelId) && !note.archived);
       }
 
       if (!id) {
-        data = data.filter((note) => !note.archive);
+        data = data.filter((note) => !note.archived);
       }
 
       if (id === 'archive') {
-        data = data.filter((note) => note.archive);
+        data = data.filter((note) => note.archived);
       }
 
       if (id === 'reminders') {
-        data = data.filter((note) => Boolean(note.reminder) && !note.archive);
+        data = data.filter((note) => Boolean(note.reminder) && !note.archived);
       }
 
       if (searchText.length === 0) {

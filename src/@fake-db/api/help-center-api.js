@@ -1,6 +1,6 @@
 import _ from '@lodash';
-import mockApi from './mock-api.json';
-import mock from './mock';
+import mockApi from '../mock-api.json';
+import mock from '../mock';
 
 const faqsDB = mockApi.components.examples.help_center_faqs.value;
 const faqCategoriesDB = mockApi.components.examples.help_center_faq_categories.value;

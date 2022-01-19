@@ -25,7 +25,7 @@ const defaultValues = {
  * Form Validation Schema
  */
 const schema = yup.object().shape({
-  name: yup.string().required('You must enter a label title'),
+  title: yup.string().required('You must enter a label title'),
 });
 
 function LabelsForm(props) {
@@ -69,14 +69,14 @@ function LabelsForm(props) {
         <form onSubmit={handleSubmit(onSubmit)}>
           <ListItem className="p-0 mb-16" dense>
             <Controller
-              name="name"
+              name="title"
               control={control}
               render={({ field }) => (
                 <TextField
                   {...field}
                   className={clsx('flex flex-1')}
-                  error={!!errors.name}
-                  helperText={errors?.name?.message}
+                  error={!!errors.title}
+                  helperText={errors?.title?.message}
                   placeholder="Create new label"
                   variant="outlined"
                   InputProps={{
@@ -123,8 +123,8 @@ function LabelsForm(props) {
               </FuseSvgIcon>
               <Input
                 className={clsx('flex flex-1 px-12')}
-                name="name"
-                value={label.name}
+                name="title"
+                value={label.title}
                 onChange={(event) => handleLabelChange(event, label)}
                 disableUnderline
               />

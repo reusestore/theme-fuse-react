@@ -87,14 +87,14 @@ function NotesSidebarContent(props) {
               key={label.id}
               button
               component={NavLinkAdapter}
-              to={`/apps/notes/labels/${label.handle}/${label.id}`}
+              to={`/apps/notes/labels/${label.id}`}
               end
               activeClassName="active"
             >
               <FuseSvgIcon className="list-item-icon" color="disabled">
                 heroicons-outline:tag
               </FuseSvgIcon>
-              <ListItemText className="truncate" primary={label.name} disableTypography />
+              <ListItemText className="truncate" primary={label.title} disableTypography />
             </StyledListItem>
           ))}
           <StyledListItem button onClick={(ev) => dispatch(openLabelsDialog())}>

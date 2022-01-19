@@ -1,6 +1,6 @@
 import _ from '@lodash';
-import mockApi from './mock-api.json';
-import mock from './mock';
+import mockApi from '../mock-api.json';
+import mock from '../mock';
 
 const demoCourseContent = mockApi.components.examples.academy_demo_course_content.value;
 const exampleCourseSteps = mockApi.components.examples.academy_demo_course_steps.value;

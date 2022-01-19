@@ -17,7 +17,7 @@ import { useParams } from 'react-router-dom';
 import withRouter from '@fuse/core/withRouter';
 import * as yup from 'yup';
 import format from 'date-fns/format';
-import NoteFormList from './checklist/NoteFormList';
+import NoteFormList from './tasks/NoteFormList';
 import NoteFormLabelMenu from './NoteFormLabelMenu';
 import NoteFormReminder from './NoteFormReminder';
 import NoteFormUploadImage from './NoteFormUploadImage';
@@ -27,10 +27,10 @@ import NoteFormUploadImage from './NoteFormUploadImage';
  */
 const schema = yup.object().shape({
   title: yup.string(),
-  description: yup.string(),
+  content: yup.string(),
   image: yup.string(),
-  checklist: yup.array(),
-  oneOfThemRequired: yup.bool().when(['title', 'description', 'image', 'checklist'], {
+  tasks: yup.array(),
+  oneOfThemRequired: yup.bool().when(['title', 'content', 'image', 'tasks'], {
     is: (a, b, c, d) => (!a && !b && !c && !d) || (!!a && !!b && !!c && !!d),
     then: yup.bool().required(''),
     otherwise: yup.bool(),
@@ -45,7 +45,7 @@ function NoteForm(props) {
     NoteModel(),
     props.note,
     routeParams.labelId ? { labels: [routeParams.labelId] } : null,
-    routeParams.id === 'archive' ? { archive: true } : null
+    routeParams.id === 'archive' ? { archived: true } : null
   );
   const { formState, handleSubmit, getValues, reset, watch, setValue, control } = useForm({
     mode: 'onChange',
@@ -95,7 +95,7 @@ function NoteForm(props) {
             control={control}
             defaultValue=""
             render={({ field: { onChange, value } }) => {
-              if (value === '') {
+              if (!value || value === '') {
                 return null;
               }
               return (
@@ -135,7 +135,7 @@ function NoteForm(props) {
           </div>
           <div className="px-20 my-16">
             <Controller
-              name="description"
+              name="content"
               control={control}
               render={({ field }) => (
                 <Input
@@ -151,22 +151,22 @@ function NoteForm(props) {
           </div>
 
           <Controller
-            name="checklist"
+            name="tasks"
             control={control}
             defaultValue={[]}
             render={({ field: { onChange, value } }) => {
-              if (value.length === 0 && !showList) {
+              if (value?.length === 0 && !showList) {
                 return null;
               }
               return (
                 <div className="px-16">
-                  <NoteFormList checklist={value} onCheckListChange={(val) => onChange(val)} />
+                  <NoteFormList tasks={value} onCheckListChange={(val) => onChange(val)} />
                 </div>
               );
             }}
           />
 
-          {(noteForm.labels || noteForm.reminder || noteForm.time) && (
+          {(noteForm.labels || noteForm.reminder || noteForm.createdAt) && (
             <div className="flex flex-wrap w-full px-20 my-16 -mx-4">
               {noteForm.reminder && (
                 <NoteReminderLabel
@@ -197,9 +197,9 @@ function NoteForm(props) {
                 }}
               />
 
-              {noteForm.time && (
+              {noteForm.createdAt && (
                 <Typography color="textSecondary" className="text-12 mt-8 mx-4">
-                  Edited: {format(new Date(noteForm.time), 'MMM dd yy, h:mm')}
+                  Edited: {format(new Date(noteForm.createdAt), 'MMM dd yy, h:mm')}
                 </Typography>
               )}
             </div>
@@ -232,7 +232,7 @@ function NoteForm(props) {
             </div>
           </Tooltip>
 
-          <Tooltip title="Add checklist" placement="bottom">
+          <Tooltip title="Add tasks" placement="bottom">
             <IconButton
               className="w-32 h-32 mx-4 p-0"
               onClick={() => setShowList(!showList)}
@@ -252,7 +252,7 @@ function NoteForm(props) {
           </Tooltip>
 
           <Controller
-            name="archive"
+            name="archived"
             control={control}
             defaultValue={false}
             render={({ field: { onChange, value } }) => (

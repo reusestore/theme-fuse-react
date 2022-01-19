@@ -25,17 +25,17 @@ function NoteFormListItem(props) {
     <ListItem className="p-0" key={props.item.id} dense>
       <Checkbox
         className="p-0"
-        checked={props.item.checked}
+        checked={props.item.completed}
         tabIndex={-1}
         disableRipple
-        name="checked"
+        name="completed"
         onChange={handleChange}
         color="default"
       />
       <Input
-        className={clsx('flex flex-1 mx-8', props.item.checked && 'line-through opacity-50')}
+        className={clsx('flex flex-1 mx-8', props.item.completed && 'line-through opacity-50')}
         name="text"
-        value={props.item.text}
+        value={props.item.content}
         onChange={handleChange}
         disableUnderline
       />

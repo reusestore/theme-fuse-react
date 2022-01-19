@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk, createEntityAdapter } from '@reduxjs/too
 import axios from 'axios';
 
 export const getLabels = createAsyncThunk('notesApp/labels/getLabels', async () => {
-  const response = await axios.get('/api/notes-app/labels');
+  const response = await axios.get('/api/notes/labels');
   const data = await response.data;
 
   return data;

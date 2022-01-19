@@ -57,7 +57,7 @@ function NoteFormLabelMenu(props) {
                 <Icon className="list-item-icon text-16" color="action">
                   {props.note.labels.includes(label.id) ? 'check_box' : 'check_box_outline_blank'}
                 </Icon>
-                <ListItemText className="truncate px-8" primary={label.name} disableTypography />
+                <ListItemText className="truncate px-8" primary={label.title} disableTypography />
               </ListItem>
             ))}
           </List>

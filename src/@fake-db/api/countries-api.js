@@ -1,5 +1,5 @@
-import mockApi from './mock-api.json';
-import mock from './mock';
+import mockApi from '../mock-api.json';
+import mock from '../mock';
 
 const countriesApi = mockApi.components.examples.countries.value;
 

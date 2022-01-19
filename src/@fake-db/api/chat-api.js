@@ -1,7 +1,7 @@
 import _ from '@lodash';
-import mockApi from './mock-api.json';
-import mock from './mock';
-import FuseUtils from '../@fuse/utils';
+import mockApi from '../mock-api.json';
+import mock from '../mock';
+import FuseUtils from '../../@fuse/utils';
 
 const contactsDB = mockApi.components.examples.chat_contacts.value;
 let userDB = mockApi.components.examples.chat_profile.value;
@@ -114,34 +114,3 @@ function createNewChat(contactId) {
 
   return newMessageData;
 }
-
-// mock.onGet(/\/api\/contact\/(?!tags)[^/]+/).reply((config) => {
-//   const { id } = config.url.match(/\/api\/contact\/(?<id>[^/]+)/).groups;
-//   const contact = _.find(contactsDB, { id });
-//
-//   if (contact) {
-//     return [200, contact];
-//   }
-//
-//   return [404, 'Requested task do not exist.'];
-// });
-//
-// mock.onPut(/\/api\/contact\/[^/]+/).reply(({ url, data }) => {
-//   const { id } = url.match(/\/api\/contact\/(?<id>[^/]+)/).groups;
-//
-//   _.assign(_.find(contactsDB, { id }), JSON.parse(data));
-//
-//   return [200, _.find(contactsDB, { id })];
-// });
-//
-// mock.onDelete(/\/api\/contact\/[^/]+/).reply((config) => {
-//   const { id } = config.url.match(/\/api\/contact\/(?<id>[^/]+)/).groups;
-//
-//   _.remove(contactsDB, { id });
-//
-//   return [200, id];
-// });
-//
-// mock.onGet('/api/contact/tags').reply((config) => {
-//   return [200, tagsDB];
-// });

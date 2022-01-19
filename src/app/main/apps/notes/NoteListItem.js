@@ -29,33 +29,33 @@ function NoteListItem(props) {
           <Typography className="px-20 my-16 text-14 font-semibold">{props.note.title}</Typography>
         )}
 
-        {props.note.description && props.note.description !== '' && (
+        {props.note.content && props.note.content !== '' && (
           <Typography className="px-20 my-16 " component="div">
             <div
               className={clsx('w-full break-words', props.variateDescSize ? 'font-500' : 'text-14')}
               ref={(el) => {
                 setTimeout(() =>
-                  setDescriptionStyle(props.note.description, el, props.variateDescSize)
+                  setDescriptionStyle(props.note.content, el, props.variateDescSize)
                 );
               }}
             >
-              {props.note.description}
+              {props.note.content}
             </div>
           </Typography>
         )}
 
-        {props.note.checklist && props.note.checklist.length > 0 && (
+        {props.note.tasks && props.note.tasks.length > 0 && (
           <ul className="px-20 my-16 flex flex-wrap list-reset">
-            {props.note.checklist.map((item) => (
+            {props.note.tasks.map((item) => (
               <li key={item.id} className="flex items-center w-full">
                 <Icon color="action" className="text-16">
-                  {item.checked ? 'check_box_outline' : 'check_box_outline_blank'}
+                  {item.completed ? 'check_box_outline' : 'check_box_outline_blank'}
                 </Icon>
                 <Typography
-                  className={clsx('truncate mx-8', item.checked && 'line-through')}
-                  color={item.checked ? 'textSecondary' : 'inherit'}
+                  className={clsx('truncate mx-8', item.completed && 'line-through')}
+                  color={item.completed ? 'textSecondary' : 'inherit'}
                 >
-                  {item.text}
+                  {item.content}
                 </Typography>
               </li>
             ))}

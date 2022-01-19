@@ -38,14 +38,14 @@ function NoteFormAddListItem(props) {
     <form onSubmit={handleSubmit(onSubmit)}>
       <ListItem className="p-0" dense>
         <Controller
-          name="text"
+          name="content"
           control={control}
           render={({ field }) => (
             <TextField
               {...field}
               className="flex flex-1"
-              error={!!errors.text}
-              helperText={errors?.text?.message}
+              error={!!errors.content}
+              helperText={errors?.content?.message}
               placeholder="Add an item"
               variant="standard"
               autoFocus
