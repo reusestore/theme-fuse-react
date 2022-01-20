@@ -18,9 +18,6 @@
     "/notes": {
       "get": {
         "summary": "Get Notes",
-        "tags": [
-          "contacts"
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -29,32 +26,19 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/help_center_guide"
-                  }
-                },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
-              }
-            }
-          },
-          "": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
                     "$ref": "#/components/schemas/notes_note"
                   }
-                }
+                },
+                "examples": {}
               }
             }
           }
         },
         "operationId": "notes_getNotes",
-        "description": "Retrieve all notes except archived ones."
+        "description": "Retrieve all notes except archived ones.",
+        "tags": [
+          "notes"
+        ]
       },
       "parameters": [],
       "post": {
@@ -75,15 +59,15 @@
           },
           "description": ""
         },
-        "description": "Create new note."
+        "description": "Create new note.",
+        "tags": [
+          "notes"
+        ]
       }
     },
     "/notes/{noteId}": {
       "get": {
         "summary": "Get Note",
-        "tags": [
-          "contacts"
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -91,28 +75,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/notes_note"
-                },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
                 }
               }
             }
-          },
-          "": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ecommerce_order"
-                }
-              }
-            },
-            "description": ""
           }
         },
         "operationId": "notes_getNote",
-        "description": "Retrieve note by id."
+        "description": "Retrieve note by id.",
+        "tags": [
+          "notes"
+        ]
       },
       "parameters": [
         {
@@ -145,7 +117,10 @@
             }
           },
           "description": ""
-        }
+        },
+        "tags": [
+          "notes"
+        ]
       },
       "delete": {
         "summary": "Delete Note",
@@ -158,14 +133,17 @@
             "description": "Not Found"
           }
         },
-        "description": "Delete note."
+        "description": "Delete note.",
+        "tags": [
+          "notes"
+        ]
       }
     },
     "/notes/labels": {
       "get": {
         "summary": "Get Labels",
         "tags": [
-          "contacts"
+          "notes"
         ],
         "responses": {
           "200": {
@@ -178,23 +156,9 @@
                     "$ref": "#/components/schemas/notes_label"
                   }
                 },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
+                "examples": {}
               }
             }
-          },
-          "": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ecommerce_order"
-                }
-              }
-            },
-            "description": ""
           }
         },
         "operationId": "notes_getLabels",
@@ -203,6 +167,9 @@
       "parameters": [],
       "post": {
         "summary": "Create New Label",
+        "tags": [
+          "notes"
+        ],
         "operationId": "notes_createLabel",
         "responses": {
           "200": {
@@ -226,7 +193,7 @@
       "get": {
         "summary": "Get Label",
         "tags": [
-          "contacts"
+          "notes"
         ],
         "responses": {
           "200": {
@@ -236,23 +203,9 @@
                 "schema": {
                   "$ref": "#/components/schemas/notes_label"
                 },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
+                "examples": {}
               }
             }
-          },
-          "": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ecommerce_order"
-                }
-              }
-            },
-            "description": ""
           }
         },
         "operationId": "notes_getLabel",
@@ -270,6 +223,9 @@
       ],
       "put": {
         "summary": "Update Label",
+        "tags": [
+          "notes"
+        ],
         "operationId": "notes_updateLabel",
         "responses": {
           "200": {
@@ -293,6 +249,9 @@
       },
       "delete": {
         "summary": "Delete Label",
+        "tags": [
+          "notes"
+        ],
         "operationId": "notes_deleteLabel",
         "responses": {
           "200": {
@@ -309,7 +268,7 @@
       "get": {
         "summary": "Get Archived Notes",
         "tags": [
-          "contacts"
+          "notes"
         ],
         "responses": {
           "200": {
@@ -322,23 +281,7 @@
                     "$ref": "#/components/schemas/help_center_guide"
                   }
                 },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
-              }
-            }
-          },
-          "": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/notes_note"
-                  }
-                }
+                "examples": {}
               }
             }
           }
@@ -352,7 +295,7 @@
       "get": {
         "summary": "Get Archived Notes",
         "tags": [
-          "contacts"
+          "notes"
         ],
         "responses": {
           "200": {
@@ -365,23 +308,7 @@
                     "$ref": "#/components/schemas/help_center_guide"
                   }
                 },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
-              }
-            }
-          },
-          "": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/notes_note"
-                  }
-                }
+                "examples": {}
               }
             }
           }
@@ -395,7 +322,7 @@
       "get": {
         "summary": "Get Guides",
         "tags": [
-          "contacts"
+          "help-center"
         ],
         "responses": {
           "200": {
@@ -408,23 +335,7 @@
                     "$ref": "#/components/schemas/help_center_guide"
                   }
                 },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
-              }
-            }
-          },
-          "": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ecommerce_product"
-                  }
-                }
+                "examples": {}
               }
             }
           }
@@ -438,7 +349,7 @@
       "get": {
         "summary": "Get Guide list by Category",
         "tags": [
-          "contacts"
+          "help-center"
         ],
         "responses": {
           "200": {
@@ -451,23 +362,7 @@
                     "$ref": "#/components/schemas/help_center_guide"
                   }
                 },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
-              }
-            }
-          },
-          "": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ecommerce_product"
-                  }
-                }
+                "examples": {}
               }
             }
           }
@@ -490,7 +385,7 @@
       "get": {
         "summary": "Get Guide",
         "tags": [
-          "contacts"
+          "help-center"
         ],
         "responses": {
           "200": {
@@ -503,20 +398,7 @@
                     "$ref": "#/components/schemas/help_center_guide"
                   }
                 },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
-              }
-            }
-          },
-          "": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/help_center_guide"
-                }
+                "examples": {}
               }
             }
           }
@@ -547,7 +429,7 @@
       "get": {
         "summary": "Get FAQ Categories",
         "tags": [
-          "contacts"
+          "help-center"
         ],
         "responses": {
           "200": {
@@ -560,23 +442,7 @@
                     "$ref": "#/components/schemas/help_center_guide_category"
                   }
                 },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
-              }
-            }
-          },
-          "": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/help_center_guide_category"
-                  }
-                }
+                "examples": {}
               }
             }
           }
@@ -590,7 +456,7 @@
       "get": {
         "summary": "Get Orders",
         "tags": [
-          "contacts"
+          "help-center"
         ],
         "responses": {
           "200": {
@@ -603,23 +469,7 @@
                     "$ref": "#/components/schemas/help_center_faq"
                   }
                 },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
-              }
-            }
-          },
-          "": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ecommerce_product"
-                  }
-                }
+                "examples": {}
               }
             }
           }
@@ -633,7 +483,7 @@
       "get": {
         "summary": "Get Orders",
         "tags": [
-          "contacts"
+          "help-center"
         ],
         "responses": {
           "200": {
@@ -646,23 +496,7 @@
                     "$ref": "#/components/schemas/help_center_faq"
                   }
                 },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
-              }
-            }
-          },
-          "": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ecommerce_product"
-                  }
-                }
+                "examples": {}
               }
             }
           }
@@ -685,7 +519,7 @@
       "get": {
         "summary": "Get mostly faqs",
         "tags": [
-          "contacts"
+          "help-center"
         ],
         "responses": {
           "200": {
@@ -698,23 +532,7 @@
                     "$ref": "#/components/schemas/help_center_faq"
                   }
                 },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
-              }
-            }
-          },
-          "": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ecommerce_product"
-                  }
-                }
+                "examples": {}
               }
             }
           }
@@ -728,7 +546,7 @@
       "get": {
         "summary": "Get FAQ Categories",
         "tags": [
-          "contacts"
+          "help-center"
         ],
         "responses": {
           "200": {
@@ -741,23 +559,7 @@
                     "$ref": "#/components/schemas/help_center_faq_category"
                   }
                 },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
-              }
-            }
-          },
-          "": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/help_center_faq_category"
-                  }
-                }
+                "examples": {}
               }
             }
           }
@@ -767,54 +569,11 @@
       },
       "parameters": []
     },
-    "/ecommerce/orders": {
-      "get": {
-        "summary": "Get Orders",
-        "tags": [
-          "contacts"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ecommerce_order"
-                  }
-                },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
-              }
-            }
-          },
-          "": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ecommerce_product"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "operationId": "ecommerce_getOrders",
-        "description": "Retrieve orders."
-      },
-      "parameters": []
-    },
-    "/file-manager/{folderId} - copy": {
+    "/file-manager/{folderId}": {
       "get": {
         "summary": "Get Folder",
         "tags": [
-          "contacts"
+          "file-manager"
         ],
         "responses": {
           "200": {
@@ -824,23 +583,9 @@
                 "schema": {
                   "$ref": "#/components/schemas/file_manager_item"
                 },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
+                "examples": {}
               }
             }
-          },
-          "": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ecommerce_order"
-                }
-              }
-            },
-            "description": ""
           }
         },
         "operationId": "fileManager_getFolder",
@@ -858,6 +603,9 @@
       ],
       "put": {
         "summary": "Update Folder",
+        "tags": [
+          "file-manager"
+        ],
         "operationId": "fileManager_updateFolder",
         "responses": {
           "200": {
@@ -881,6 +629,9 @@
       },
       "delete": {
         "summary": "Delete Folder",
+        "tags": [
+          "file-manager"
+        ],
         "operationId": "fileManager_deleteFolder",
         "responses": {
           "200": {
@@ -893,11 +644,38 @@
         "description": "Delete folder."
       }
     },
-    "ecommerce/orders/{orderId} - copy": {
+    "/ecommerce/orders": {
+      "get": {
+        "summary": "Get Orders",
+        "tags": [
+          "e-commerce"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ecommerce_order"
+                  }
+                },
+                "examples": {}
+              }
+            }
+          }
+        },
+        "operationId": "ecommerce_getOrders",
+        "description": "Retrieve orders."
+      },
+      "parameters": []
+    },
+    "/ecommerce/orders/{orderId}": {
       "get": {
         "summary": "Get Order",
         "tags": [
-          "contacts"
+          "e-commerce"
         ],
         "responses": {
           "200": {
@@ -907,23 +685,9 @@
                 "schema": {
                   "$ref": "#/components/schemas/chat_contact"
                 },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
+                "examples": {}
               }
             }
-          },
-          "": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ecommerce_order"
-                }
-              }
-            },
-            "description": ""
           }
         },
         "operationId": "ecommerce_getOrder",
@@ -941,6 +705,9 @@
       ],
       "put": {
         "summary": "Update Order",
+        "tags": [
+          "e-commerce"
+        ],
         "operationId": "ecommerce_updateOrder",
         "responses": {
           "200": {
@@ -963,6 +730,9 @@
       },
       "delete": {
         "summary": "Delete Order",
+        "tags": [
+          "e-commerce"
+        ],
         "operationId": "ecommerce_deleteOrder",
         "responses": {
           "200": {
@@ -979,7 +749,7 @@
       "get": {
         "summary": "Get Products",
         "tags": [
-          "contacts"
+          "e-commerce"
         ],
         "responses": {
           "200": {
@@ -992,23 +762,7 @@
                     "$ref": "#/components/schemas/academy_course"
                   }
                 },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
-              }
-            }
-          },
-          "": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ecommerce_product"
-                  }
-                }
+                "examples": {}
               }
             }
           }
@@ -1019,6 +773,9 @@
       "parameters": [],
       "delete": {
         "summary": "",
+        "tags": [
+          "e-commerce"
+        ],
         "operationId": "ecommerce_removeProducts",
         "responses": {
           "200": {
@@ -1041,11 +798,11 @@
         "description": "Remove products by ids"
       }
     },
-    "ecommerce/products/{productId}": {
+    "/ecommerce/products/{productId}": {
       "get": {
         "summary": "Get Product",
         "tags": [
-          "contacts"
+          "e-commerce"
         ],
         "responses": {
           "200": {
@@ -1055,23 +812,9 @@
                 "schema": {
                   "$ref": "#/components/schemas/chat_contact"
                 },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
+                "examples": {}
               }
             }
-          },
-          "": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ecommerce_product"
-                }
-              }
-            },
-            "description": ""
           }
         },
         "operationId": "ecommerce_getProduct",
@@ -1089,6 +832,9 @@
       ],
       "put": {
         "summary": "Update Product",
+        "tags": [
+          "e-commerce"
+        ],
         "operationId": "ecommerce_updateProduct",
         "responses": {
           "200": {
@@ -1111,6 +857,9 @@
       },
       "delete": {
         "summary": "Delete Product",
+        "tags": [
+          "e-commerce"
+        ],
         "operationId": "ecommerce_deleteProduct",
         "responses": {
           "200": {
@@ -1127,7 +876,7 @@
       "get": {
         "summary": "Get Courses",
         "tags": [
-          "contacts"
+          "academy"
         ],
         "responses": {
           "200": {
@@ -1140,23 +889,7 @@
                     "$ref": "#/components/schemas/academy_course"
                   }
                 },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
-              }
-            }
-          },
-          "": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": ""
-                  }
-                }
+                "examples": {}
               }
             }
           }
@@ -1170,7 +903,7 @@
       "get": {
         "summary": "Get Course",
         "tags": [
-          "contacts"
+          "academy"
         ],
         "responses": {
           "200": {
@@ -1180,20 +913,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/chat_contact"
                 },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
-              }
-            }
-          },
-          "": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/academy_course"
-                }
+                "examples": {}
               }
             }
           }
@@ -1213,6 +933,9 @@
       ],
       "put": {
         "summary": "Update Course",
+        "tags": [
+          "academy"
+        ],
         "operationId": "academy_updateCourse",
         "responses": {
           "200": {
@@ -1235,6 +958,9 @@
       },
       "delete": {
         "summary": "Delete Course",
+        "tags": [
+          "academy"
+        ],
         "operationId": "academy_deleteCourse",
         "responses": {
           "200": {
@@ -1251,7 +977,7 @@
       "get": {
         "summary": "Get Categories",
         "tags": [
-          "contacts"
+          "academy"
         ],
         "responses": {
           "200": {
@@ -1264,23 +990,7 @@
                     "$ref": "#/components/schemas/academy_course"
                   }
                 },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
-              }
-            }
-          },
-          "": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/academy_category"
-                  }
-                }
+                "examples": {}
               }
             }
           }
@@ -1294,7 +1004,7 @@
       "get": {
         "summary": "Get Contacts",
         "tags": [
-          "contacts"
+          "chat"
         ],
         "responses": {
           "200": {
@@ -1307,23 +1017,7 @@
                     "$ref": "#/components/schemas/chat_contact"
                   }
                 },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
-              }
-            }
-          },
-          "": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": ""
-                  }
-                }
+                "examples": {}
               }
             }
           }
@@ -1337,7 +1031,7 @@
       "get": {
         "summary": "Get Contact",
         "tags": [
-          "contacts"
+          "chat"
         ],
         "responses": {
           "200": {
@@ -1347,23 +1041,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/chat_contact"
                 },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
-              }
-            }
-          },
-          "": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": ""
-                  }
-                }
+                "examples": {}
               }
             }
           }
@@ -1383,6 +1061,9 @@
       ],
       "put": {
         "summary": "Update Contact",
+        "tags": [
+          "chat"
+        ],
         "operationId": "chat_updateContact",
         "responses": {
           "200": {
@@ -1405,6 +1086,9 @@
       },
       "delete": {
         "summary": "Delete Contact",
+        "tags": [
+          "chat"
+        ],
         "operationId": "chat_deleteContact",
         "responses": {
           "200": {
@@ -1421,7 +1105,7 @@
       "get": {
         "summary": "Get Chats",
         "tags": [
-          "contacts"
+          "chat"
         ],
         "responses": {
           "200": {
@@ -1434,11 +1118,7 @@
                     "$ref": "#/components/schemas/chat_chat"
                   }
                 },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
+                "examples": {}
               }
             }
           }
@@ -1461,6 +1141,7 @@
       ],
       "get": {
         "summary": "Get Chat Messages",
+        "operationId": "chat_getChat",
         "responses": {
           "200": {
             "description": "OK",
@@ -1472,46 +1153,7 @@
                     "$ref": "#/components/schemas/chat_message"
                   }
                 },
-                "examples": {
-                  "Get User Dejesus Michael": {
-                    "value": {
-                      "id": "cd5fa417-b667-482d-b208-798d9da3213c",
-                      "avatar": "assets/images/avatars/male-01.jpg",
-                      "background": "assets/images/cards/14-640x480.jpg",
-                      "name": "Dejesus Michael",
-                      "emails": [
-                        {
-                          "email": "dejesusmichael@mail.org",
-                          "label": "Personal"
-                        },
-                        {
-                          "email": "michael.dejesus@vitricomp.io",
-                          "label": "Work"
-                        }
-                      ],
-                      "phoneNumbers": [
-                        {
-                          "country": "bs",
-                          "phoneNumber": "984 531 2468",
-                          "label": "Mobile"
-                        },
-                        {
-                          "country": "bs",
-                          "phoneNumber": "806 470 2693",
-                          "label": "Work"
-                        }
-                      ],
-                      "title": "Track Service Worker",
-                      "company": "Vitricomp",
-                      "birthday": "1975-01-10T12:00:00.000Z",
-                      "address": "279 Independence Avenue, Calvary, Guam, PO4127",
-                      "notes": "<p>Do incididunt cillum duis eu pariatur enim proident minim officia amet proident consequat consequat qui consequat magna magna occaecat aliquip culpa pariatur velit nisi nostrud irure eu ullamco exercitation sint.</p><p>Cillum deserunt laborum laborum quis nisi enim et aliquip labore excepteur in excepteur labore amet in ipsum ipsum nostrud deserunt lorem nisi voluptate dolor minim enim ut eu cupidatat enim.</p>",
-                      "tags": [
-                        "56ddbd47-4078-4ddd-8448-73c5e88d5f59"
-                      ]
-                    }
-                  }
-                }
+                "examples": {}
               }
             }
           },
@@ -1519,10 +1161,9 @@
             "description": "Not Found"
           }
         },
-        "operationId": "chat_getChat",
         "description": "Retrieve the messages of the chat with the matching contact ID.",
         "tags": [
-          "contacts"
+          "chat"
         ]
       },
       "delete": {
@@ -1538,11 +1179,14 @@
         },
         "description": "Delete an existing chat.",
         "tags": [
-          "contacts"
+          "chat"
         ]
       },
       "put": {
         "summary": "Update Chat Messages",
+        "tags": [
+          "chat"
+        ],
         "operationId": "chat_updateChat",
         "responses": {
           "200": {
@@ -1576,7 +1220,7 @@
       "get": {
         "summary": "Get User Profile",
         "tags": [
-          "contacts"
+          "chat"
         ],
         "responses": {
           "200": {
@@ -1586,11 +1230,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/chat_profile"
                 },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
+                "examples": {}
               }
             }
           }
@@ -1604,7 +1244,7 @@
       "get": {
         "summary": "Get Tasks",
         "tags": [
-          "contacts"
+          "tasks"
         ],
         "responses": {
           "200": {
@@ -1617,11 +1257,7 @@
                     "$ref": "#/components/schemas/task"
                   }
                 },
-                "examples": {
-                  "payload": {
-                    "$ref": "#/components/examples/contacts"
-                  }
-                }
+                "examples": {}
               }
             }
           }
@@ -1631,7 +1267,7 @@
       },
       "post": {
         "summary": "Create New Task",
-        "operationId": "contacts_createContact",
+        "operationId": "tasks_createTask",
         "responses": {
           "201": {
             "description": "Created",
@@ -1714,9 +1350,9 @@
             }
           }
         },
-        "description": "Creates new contact.",
+        "description": "Creates new task.",
         "tags": [
-          "contacts"
+          "tasks"
         ]
       },
       "parameters": []
@@ -1742,46 +1378,7 @@
                 "schema": {
                   "$ref": "#/components/schemas/task"
                 },
-                "examples": {
-                  "Get User Dejesus Michael": {
-                    "value": {
-                      "id": "cd5fa417-b667-482d-b208-798d9da3213c",
-                      "avatar": "assets/images/avatars/male-01.jpg",
-                      "background": "assets/images/cards/14-640x480.jpg",
-                      "name": "Dejesus Michael",
-                      "emails": [
-                        {
-                          "email": "dejesusmichael@mail.org",
-                          "label": "Personal"
-                        },
-                        {
-                          "email": "michael.dejesus@vitricomp.io",
-                          "label": "Work"
-                        }
-                      ],
-                      "phoneNumbers": [
-                        {
-                          "country": "bs",
-                          "phoneNumber": "984 531 2468",
-                          "label": "Mobile"
-                        },
-                        {
-                          "country": "bs",
-                          "phoneNumber": "806 470 2693",
-                          "label": "Work"
-                        }
-                      ],
-                      "title": "Track Service Worker",
-                      "company": "Vitricomp",
-                      "birthday": "1975-01-10T12:00:00.000Z",
-                      "address": "279 Independence Avenue, Calvary, Guam, PO4127",
-                      "notes": "<p>Do incididunt cillum duis eu pariatur enim proident minim officia amet proident consequat consequat qui consequat magna magna occaecat aliquip culpa pariatur velit nisi nostrud irure eu ullamco exercitation sint.</p><p>Cillum deserunt laborum laborum quis nisi enim et aliquip labore excepteur in excepteur labore amet in ipsum ipsum nostrud deserunt lorem nisi voluptate dolor minim enim ut eu cupidatat enim.</p>",
-                      "tags": [
-                        "56ddbd47-4078-4ddd-8448-73c5e88d5f59"
-                      ]
-                    }
-                  }
-                }
+                "examples": {}
               }
             }
           },
@@ -1792,7 +1389,7 @@
         "operationId": "tasks_getTask",
         "description": "Retrieve the information of the task with the matching task ID.",
         "tags": [
-          "contacts"
+          "tasks"
         ]
       },
       "delete": {
@@ -1808,11 +1405,14 @@
         },
         "description": "Delete an existing task.",
         "tags": [
-          "contacts"
+          "tasks"
         ]
       },
       "put": {
         "summary": "Update Task Information",
+        "tags": [
+          "tasks"
+        ],
         "operationId": "tasks_updateTask",
         "responses": {
           "200": {
@@ -1865,7 +1465,7 @@
         "operationId": "tasks_getTags",
         "description": "Retrieve all of the tags.",
         "tags": [
-          "contacts"
+          "tasks"
         ]
       },
       "parameters": [],
@@ -1910,7 +1510,7 @@
         },
         "description": "Creates new tag.",
         "tags": [
-          "contacts"
+          "tasks"
         ]
       }
     },
@@ -2341,7 +1941,9 @@
     "/countries": {
       "get": {
         "summary": "Get Countries",
-        "tags": [],
+        "tags": [
+          "countries"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -2564,6 +2166,35 @@
       "task": {
         "description": "",
         "type": "object",
+        "x-examples": {
+          "example-1": {
+            "id": "f65d517a-6f69-4c88-81f5-416f47405ce1",
+            "type": "section",
+            "title": "Company internal application v2.0.0",
+            "notes": "Magna consectetur culpa duis ad est tempor pariatur velit ullamco aute exercitation magna sunt commodo minim enim aliquip eiusmod ipsum adipisicing magna ipsum reprehenderit lorem magna voluptate magna aliqua culpa.\n\nSit nisi adipisicing pariatur enim enim sunt officia ad labore voluptate magna proident velit excepteur pariatur cillum sit excepteur elit veniam excepteur minim nisi cupidatat proident dolore irure veniam mollit.",
+            "completed": false,
+            "dueDate": "2017-10-18T13:03:37.943Z",
+            "priority": 1,
+            "tags": [
+              "91658b8a-f382-4b0c-a53f-e9390351c2c5",
+              "51483dd3-cb98-4400-9128-4bd66b455807"
+            ],
+            "assignedTo": null,
+            "subTasks": [
+              {
+                "id": "2768a969-a316-449b-bf82-93cff4252cbf",
+                "title": "Minim irure fugiat ullamco irure",
+                "completed": false
+              },
+              {
+                "id": "6cc5ac8f-3a02-47e6-ad4b-0bd0222e2717",
+                "title": "Sint velit ex in adipisicing fugiat",
+                "completed": false
+              }
+            ],
+            "order": 0
+          }
+        },
         "properties": {
           "id": {
             "type": "string",
@@ -2593,10 +2224,7 @@
           },
           "tags": {
             "type": "array",
-            "items": {
-              "required": [],
-              "properties": {}
-            }
+            "items": {}
           },
           "assignedTo": {},
           "subTasks": {
@@ -2604,11 +2232,7 @@
             "uniqueItems": true,
             "minItems": 1,
             "items": {
-              "required": [
-                "id",
-                "title",
-                "completed"
-              ],
+              "type": "object",
               "properties": {
                 "id": {
                   "type": "string",
@@ -2621,7 +2245,12 @@
                 "completed": {
                   "type": "boolean"
                 }
-              }
+              },
+              "required": [
+                "id",
+                "title",
+                "completed"
+              ]
             }
           },
           "order": {
@@ -2639,36 +2268,7 @@
           "tags",
           "subTasks",
           "order"
-        ],
-        "x-examples": {
-          "example-1": {
-            "id": "f65d517a-6f69-4c88-81f5-416f47405ce1",
-            "type": "section",
-            "title": "Company internal application v2.0.0",
-            "notes": "Magna consectetur culpa duis ad est tempor pariatur velit ullamco aute exercitation magna sunt commodo minim enim aliquip eiusmod ipsum adipisicing magna ipsum reprehenderit lorem magna voluptate magna aliqua culpa.\n\nSit nisi adipisicing pariatur enim enim sunt officia ad labore voluptate magna proident velit excepteur pariatur cillum sit excepteur elit veniam excepteur minim nisi cupidatat proident dolore irure veniam mollit.",
-            "completed": false,
-            "dueDate": "2017-10-18T13:03:37.943Z",
-            "priority": 1,
-            "tags": [
-              "91658b8a-f382-4b0c-a53f-e9390351c2c5",
-              "51483dd3-cb98-4400-9128-4bd66b455807"
-            ],
-            "assignedTo": null,
-            "subTasks": [
-              {
-                "id": "2768a969-a316-449b-bf82-93cff4252cbf",
-                "title": "Minim irure fugiat ullamco irure",
-                "completed": false
-              },
-              {
-                "id": "6cc5ac8f-3a02-47e6-ad4b-0bd0222e2717",
-                "title": "Sint velit ex in adipisicing fugiat",
-                "completed": false
-              }
-            ],
-            "order": 0
-          }
-        }
+        ]
       },
       "chat_message": {
         "description": "",
@@ -2760,139 +2360,6 @@
       "chat_contact": {
         "description": "",
         "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "minLength": 1
-          },
-          "avatar": {
-            "type": "string",
-            "minLength": 1
-          },
-          "name": {
-            "type": "string",
-            "minLength": 1
-          },
-          "about": {
-            "type": "string",
-            "minLength": 1
-          },
-          "details": {
-            "type": "object",
-            "properties": {
-              "emails": {
-                "type": "array",
-                "uniqueItems": true,
-                "minItems": 1,
-                "items": {
-                  "required": [
-                    "email",
-                    "label"
-                  ],
-                  "properties": {
-                    "email": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "label": {
-                      "type": "string",
-                      "minLength": 1
-                    }
-                  }
-                }
-              },
-              "phoneNumbers": {
-                "type": "array",
-                "uniqueItems": true,
-                "minItems": 1,
-                "items": {
-                  "required": [
-                    "country",
-                    "phoneNumber",
-                    "label"
-                  ],
-                  "properties": {
-                    "country": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "phoneNumber": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "label": {
-                      "type": "string",
-                      "minLength": 1
-                    }
-                  }
-                }
-              },
-              "title": {
-                "type": "string",
-                "minLength": 1
-              },
-              "company": {
-                "type": "string",
-                "minLength": 1
-              },
-              "birthday": {
-                "type": "string",
-                "minLength": 1
-              },
-              "address": {
-                "type": "string",
-                "minLength": 1
-              }
-            },
-            "required": [
-              "emails",
-              "phoneNumbers",
-              "title",
-              "company",
-              "birthday",
-              "address"
-            ]
-          },
-          "attachments": {
-            "type": "object",
-            "properties": {
-              "media": {
-                "type": "array",
-                "items": {
-                  "required": [],
-                  "properties": {}
-                }
-              },
-              "docs": {
-                "type": "array",
-                "items": {
-                  "required": [],
-                  "properties": {}
-                }
-              },
-              "links": {
-                "type": "array",
-                "items": {
-                  "required": [],
-                  "properties": {}
-                }
-              }
-            },
-            "required": [
-              "media",
-              "docs",
-              "links"
-            ]
-          }
-        },
-        "required": [
-          "id",
-          "avatar",
-          "name",
-          "about",
-          "details",
-          "attachments"
-        ],
         "x-examples": {
           "example-1": {
             "id": "cd5fa417-b667-482d-b208-798d9da3213c",
@@ -2942,7 +2409,133 @@
               "links": []
             }
           }
-        }
+        },
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "avatar": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "about": {
+            "type": "string",
+            "minLength": 1
+          },
+          "details": {
+            "type": "object",
+            "required": [
+              "emails",
+              "phoneNumbers",
+              "title",
+              "company",
+              "birthday",
+              "address"
+            ],
+            "properties": {
+              "emails": {
+                "type": "array",
+                "uniqueItems": true,
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "label": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "email",
+                    "label"
+                  ]
+                }
+              },
+              "phoneNumbers": {
+                "type": "array",
+                "uniqueItems": true,
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "country": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "phoneNumber": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "label": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "country",
+                    "phoneNumber",
+                    "label"
+                  ]
+                }
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1
+              },
+              "company": {
+                "type": "string",
+                "minLength": 1
+              },
+              "birthday": {
+                "type": "string",
+                "minLength": 1
+              },
+              "address": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "attachments": {
+            "type": "object",
+            "required": [
+              "media",
+              "docs",
+              "links"
+            ],
+            "properties": {
+              "media": {
+                "type": "array",
+                "items": {}
+              },
+              "docs": {
+                "type": "array",
+                "items": {}
+              },
+              "links": {
+                "type": "array",
+                "items": {}
+              }
+            }
+          }
+        },
+        "required": [
+          "id",
+          "avatar",
+          "name",
+          "about",
+          "details",
+          "attachments"
+        ]
       },
       "chat_profile": {
         "description": "",
@@ -3143,237 +2736,6 @@
       "ecommerce_order": {
         "description": "",
         "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "minLength": 1
-          },
-          "reference": {
-            "type": "string",
-            "minLength": 1
-          },
-          "subtotal": {
-            "type": "string",
-            "minLength": 1
-          },
-          "tax": {
-            "type": "string",
-            "minLength": 1
-          },
-          "discount": {
-            "type": "string",
-            "minLength": 1
-          },
-          "total": {
-            "type": "string",
-            "minLength": 1
-          },
-          "date": {
-            "type": "string",
-            "minLength": 1
-          },
-          "customer": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "number"
-              },
-              "firstName": {
-                "type": "string",
-                "minLength": 1
-              },
-              "lastName": {
-                "type": "string",
-                "minLength": 1
-              },
-              "avatar": {
-                "type": "string",
-                "minLength": 1
-              },
-              "company": {
-                "type": "string",
-                "minLength": 1
-              },
-              "jobTitle": {
-                "type": "string",
-                "minLength": 1
-              },
-              "email": {
-                "type": "string",
-                "minLength": 1
-              },
-              "phone": {
-                "type": "string",
-                "minLength": 1
-              },
-              "invoiceAddress": {
-                "type": "object",
-                "properties": {
-                  "address": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "lat": {
-                    "type": "number"
-                  },
-                  "lng": {
-                    "type": "number"
-                  }
-                },
-                "required": [
-                  "address",
-                  "lat",
-                  "lng"
-                ]
-              },
-              "shippingAddress": {
-                "type": "object",
-                "properties": {
-                  "address": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "lat": {
-                    "type": "number"
-                  },
-                  "lng": {
-                    "type": "number"
-                  }
-                },
-                "required": [
-                  "address",
-                  "lat",
-                  "lng"
-                ]
-              }
-            },
-            "required": [
-              "id",
-              "firstName",
-              "lastName",
-              "avatar",
-              "company",
-              "jobTitle",
-              "email",
-              "phone",
-              "invoiceAddress",
-              "shippingAddress"
-            ]
-          },
-          "products": {
-            "type": "array",
-            "items": {
-              "required": [],
-              "properties": {}
-            }
-          },
-          "status": {
-            "type": "array",
-            "uniqueItems": true,
-            "minItems": 1,
-            "items": {
-              "required": [
-                "id",
-                "name",
-                "color",
-                "date"
-              ],
-              "properties": {
-                "id": {
-                  "type": "number"
-                },
-                "name": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "color": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "date": {
-                  "type": "string",
-                  "minLength": 1
-                }
-              }
-            }
-          },
-          "payment": {
-            "type": "object",
-            "properties": {
-              "transactionId": {
-                "type": "string",
-                "minLength": 1
-              },
-              "amount": {
-                "type": "string",
-                "minLength": 1
-              },
-              "method": {
-                "type": "string",
-                "minLength": 1
-              },
-              "date": {
-                "type": "string",
-                "minLength": 1
-              }
-            },
-            "required": [
-              "transactionId",
-              "amount",
-              "method",
-              "date"
-            ]
-          },
-          "shippingDetails": {
-            "type": "array",
-            "uniqueItems": true,
-            "minItems": 1,
-            "items": {
-              "required": [
-                "tracking",
-                "carrier",
-                "weight",
-                "fee",
-                "date"
-              ],
-              "properties": {
-                "tracking": {
-                  "type": "string"
-                },
-                "carrier": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "weight": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "fee": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "date": {
-                  "type": "string",
-                  "minLength": 1
-                }
-              }
-            }
-          }
-        },
-        "required": [
-          "id",
-          "reference",
-          "subtotal",
-          "tax",
-          "discount",
-          "total",
-          "date",
-          "customer",
-          "products",
-          "status",
-          "payment",
-          "shippingDetails"
-        ],
         "x-examples": {
           "example-1": {
             "id": "1",
@@ -3434,11 +2796,271 @@
               }
             ]
           }
-        }
+        },
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reference": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subtotal": {
+            "type": "string",
+            "minLength": 1
+          },
+          "tax": {
+            "type": "string",
+            "minLength": 1
+          },
+          "discount": {
+            "type": "string",
+            "minLength": 1
+          },
+          "total": {
+            "type": "string",
+            "minLength": 1
+          },
+          "date": {
+            "type": "string",
+            "minLength": 1
+          },
+          "customer": {
+            "type": "object",
+            "required": [
+              "id",
+              "firstName",
+              "lastName",
+              "avatar",
+              "company",
+              "jobTitle",
+              "email",
+              "phone",
+              "invoiceAddress",
+              "shippingAddress"
+            ],
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "firstName": {
+                "type": "string",
+                "minLength": 1
+              },
+              "lastName": {
+                "type": "string",
+                "minLength": 1
+              },
+              "avatar": {
+                "type": "string",
+                "minLength": 1
+              },
+              "company": {
+                "type": "string",
+                "minLength": 1
+              },
+              "jobTitle": {
+                "type": "string",
+                "minLength": 1
+              },
+              "email": {
+                "type": "string",
+                "minLength": 1
+              },
+              "phone": {
+                "type": "string",
+                "minLength": 1
+              },
+              "invoiceAddress": {
+                "type": "object",
+                "required": [
+                  "address",
+                  "lat",
+                  "lng"
+                ],
+                "properties": {
+                  "address": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "lat": {
+                    "type": "number"
+                  },
+                  "lng": {
+                    "type": "number"
+                  }
+                }
+              },
+              "shippingAddress": {
+                "type": "object",
+                "required": [
+                  "address",
+                  "lat",
+                  "lng"
+                ],
+                "properties": {
+                  "address": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "lat": {
+                    "type": "number"
+                  },
+                  "lng": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          },
+          "products": {
+            "type": "array",
+            "items": {}
+          },
+          "status": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "color": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "date": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "color",
+                "date"
+              ]
+            }
+          },
+          "payment": {
+            "type": "object",
+            "required": [
+              "transactionId",
+              "amount",
+              "method",
+              "date"
+            ],
+            "properties": {
+              "transactionId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "amount": {
+                "type": "string",
+                "minLength": 1
+              },
+              "method": {
+                "type": "string",
+                "minLength": 1
+              },
+              "date": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "shippingDetails": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "tracking": {
+                  "type": "string"
+                },
+                "carrier": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "weight": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "fee": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "date": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "tracking",
+                "carrier",
+                "weight",
+                "fee",
+                "date"
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "reference",
+          "subtotal",
+          "tax",
+          "discount",
+          "total",
+          "date",
+          "customer",
+          "products",
+          "status",
+          "payment",
+          "shippingDetails"
+        ]
       },
       "ecommerce_product": {
         "description": "",
         "type": "object",
+        "x-examples": {
+          "example-1": {
+            "id": "1",
+            "name": "A Walk Amongst Friends - Canvas Print",
+            "handle": "a-walk-amongst-friends-canvas-print",
+            "description": "Officia amet eiusmod eu sunt tempor voluptate laboris velit nisi amet enim proident et. Consequat laborum non eiusmod cillum eu exercitation. Qui adipisicing est fugiat eiusmod esse. Sint aliqua cupidatat pariatur mollit ad est proident reprehenderit. Eiusmod adipisicing laborum incididunt sit aliqua ullamco.",
+            "categories": [
+              "Canvas Print",
+              "Nature"
+            ],
+            "tags": [
+              "canvas-print",
+              "nature"
+            ],
+            "featuredImageId": "1",
+            "images": [],
+            "priceTaxExcl": 9.309,
+            "priceTaxIncl": 10.24,
+            "taxRate": 10,
+            "comparedPrice": 19.9,
+            "quantity": 3,
+            "sku": "A445BV",
+            "width": "22cm",
+            "height": "24cm",
+            "depth": "15cm",
+            "weight": "3kg",
+            "extraShippingFee": 3,
+            "active": true
+          }
+        },
         "properties": {
           "id": {
             "type": "string",
@@ -3458,17 +3080,11 @@
           },
           "categories": {
             "type": "array",
-            "items": {
-              "required": [],
-              "properties": {}
-            }
+            "items": {}
           },
           "tags": {
             "type": "array",
-            "items": {
-              "required": [],
-              "properties": {}
-            }
+            "items": {}
           },
           "featuredImageId": {
             "type": "string",
@@ -3476,10 +3092,7 @@
           },
           "images": {
             "type": "array",
-            "items": {
-              "required": [],
-              "properties": {}
-            }
+            "items": {}
           },
           "priceTaxExcl": {
             "type": "number"
@@ -3544,37 +3157,7 @@
           "weight",
           "extraShippingFee",
           "active"
-        ],
-        "x-examples": {
-          "example-1": {
-            "id": "1",
-            "name": "A Walk Amongst Friends - Canvas Print",
-            "handle": "a-walk-amongst-friends-canvas-print",
-            "description": "Officia amet eiusmod eu sunt tempor voluptate laboris velit nisi amet enim proident et. Consequat laborum non eiusmod cillum eu exercitation. Qui adipisicing est fugiat eiusmod esse. Sint aliqua cupidatat pariatur mollit ad est proident reprehenderit. Eiusmod adipisicing laborum incididunt sit aliqua ullamco.",
-            "categories": [
-              "Canvas Print",
-              "Nature"
-            ],
-            "tags": [
-              "canvas-print",
-              "nature"
-            ],
-            "featuredImageId": "1",
-            "images": [],
-            "priceTaxExcl": 9.309,
-            "priceTaxIncl": 10.24,
-            "taxRate": 10,
-            "comparedPrice": 19.9,
-            "quantity": 3,
-            "sku": "A445BV",
-            "width": "22cm",
-            "height": "24cm",
-            "depth": "15cm",
-            "weight": "3kg",
-            "extraShippingFee": 3,
-            "active": true
-          }
-        }
+        ]
       },
       "file_manager_item": {
         "description": "",
@@ -3809,6 +3392,22 @@
       "notes_note": {
         "description": "",
         "type": "object",
+        "x-examples": {
+          "example-1": {
+            "id": "8f011ac5-b71c-4cd7-a317-857dcd7d85e0",
+            "title": "",
+            "content": "Find a new company name",
+            "tasks": null,
+            "image": null,
+            "reminder": null,
+            "labels": [
+              "e2f749f5-41ed-49d0-a92a-1c83d879e371"
+            ],
+            "archived": false,
+            "createdAt": "2021-10-13T07:19:08.245Z",
+            "updatedAt": null
+          }
+        },
         "properties": {
           "id": {
             "type": "string",
@@ -3826,10 +3425,7 @@
           "reminder": {},
           "labels": {
             "type": "array",
-            "items": {
-              "required": [],
-              "properties": {}
-            }
+            "items": {}
           },
           "archived": {
             "type": "boolean"
@@ -3847,23 +3443,7 @@
           "labels",
           "archived",
           "createdAt"
-        ],
-        "x-examples": {
-          "example-1": {
-            "id": "8f011ac5-b71c-4cd7-a317-857dcd7d85e0",
-            "title": "",
-            "content": "Find a new company name",
-            "tasks": null,
-            "image": null,
-            "reminder": null,
-            "labels": [
-              "e2f749f5-41ed-49d0-a92a-1c83d879e371"
-            ],
-            "archived": false,
-            "createdAt": "2021-10-13T07:19:08.245Z",
-            "updatedAt": null
-          }
-        }
+        ]
       }
     },
     "securitySchemes": {},
@@ -17856,10 +17436,31 @@
   },
   "tags": [
     {
+      "name": "academy"
+    },
+    {
+      "name": "chat"
+    },
+    {
       "name": "contacts"
     },
     {
       "name": "countries"
+    },
+    {
+      "name": "e-commerce"
+    },
+    {
+      "name": "file-manager"
+    },
+    {
+      "name": "help-center"
+    },
+    {
+      "name": "notes"
+    },
+    {
+      "name": "tasks"
     }
   ]
 }
