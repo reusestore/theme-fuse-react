@@ -30,7 +30,7 @@ function BoardTitle(props) {
   const { control, formState, handleSubmit, reset } = useForm({
     mode: 'onChange',
     defaultValues: {
-      title: board.name,
+      title: board.title,
     },
     resolver: yupResolver(schema),
   });
@@ -40,10 +40,10 @@ function BoardTitle(props) {
   useEffect(() => {
     if (!formOpen) {
       reset({
-        title: board.name,
+        title: board.title,
       });
     }
-  }, [formOpen, reset, board.name]);
+  }, [formOpen, reset, board.title]);
 
   function handleOpenForm(ev) {
     ev.stopPropagation();
@@ -96,13 +96,13 @@ function BoardTitle(props) {
         </ClickAwayListener>
       ) : (
         <div className="flex items-center justify-center">
-          {board.settings.subscribed && <Icon className="text-16">remove_red_eye</Icon>}
+          {board?.settings.subscribed && <Icon className="text-16">remove_red_eye</Icon>}
           <Typography
             className="text-14 sm:text-18 font-medium cursor-pointer mx-8"
             onClick={handleOpenForm}
             color="inherit"
           >
-            {board.name}
+            {board.title}
           </Typography>
         </div>
       )}

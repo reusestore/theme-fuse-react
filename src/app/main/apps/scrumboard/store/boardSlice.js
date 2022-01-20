@@ -12,9 +12,9 @@ import { removeCard, updateCard } from './cardSlice';
 
 export const getBoard = createAsyncThunk(
   'scrumboardApp/board/getBoard',
-  async (params, { dispatch }) => {
+  async (boardId, { dispatch }) => {
     try {
-      const response = await axios.get('/api/scrumboard-app/board', { params });
+      const response = await axios.get(`/api/scrumboard/boards/${boardId}`);
       const data = await response.data;
       return data;
     } catch (error) {
@@ -28,6 +28,7 @@ export const getBoard = createAsyncThunk(
           },
         })
       );
+
       history.push({
         pathname: '/apps/scrumboard/boards',
       });
@@ -283,5 +284,7 @@ const boardsSlice = createSlice({
 });
 
 export const { resetBoard, addLabel } = boardsSlice.actions;
+
+export const selectBoard = ({ scrumboardApp }) => scrumboardApp.board;
 
 export default boardsSlice.reducer;

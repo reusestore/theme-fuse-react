@@ -4,7 +4,7 @@ import history from '@history';
 import BoardModel from '../model/BoardModel';
 
 export const getBoards = createAsyncThunk('scrumboardApp/boards/getBoards', async () => {
-  const response = await axios.get('/api/scrumboard-app/boards');
+  const response = await axios.get('/api/scrumboard/boards');
   const data = await response.data;
 
   return data;
@@ -13,7 +13,7 @@ export const getBoards = createAsyncThunk('scrumboardApp/boards/getBoards', asyn
 export const newBoard = createAsyncThunk(
   'scrumboardApp/boards/newBoard',
   async (board, { dispatch }) => {
-    const response = await axios.post('/api/scrumboard-app/board/new', {
+    const response = await axios.post('/api/scrumboard/boards', {
       board: board || BoardModel(),
     });
     const data = await response.data;

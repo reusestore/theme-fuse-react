@@ -15,7 +15,7 @@ import withRouter from '@fuse/core/withRouter';
 import { useDeepCompareEffect } from '@fuse/hooks';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import reducer from '../store';
-import { reorderCard, reorderList, resetBoard, getBoard } from '../store/boardSlice';
+import { reorderCard, reorderList, resetBoard, getBoard, selectBoard } from '../store/boardSlice';
 import BoardAddList from './BoardAddList';
 import BoardList from './BoardList';
 import BoardTitle from './BoardTitle';
@@ -24,14 +24,14 @@ import BoardSettingsSidebar from './sidebars/settings/BoardSettingsSidebar';
 
 function Board(props) {
   const dispatch = useDispatch();
-  const board = useSelector(({ scrumboardApp }) => scrumboardApp.board);
+  const board = useSelector(selectBoard);
 
   const routeParams = useParams();
   const containerRef = useRef(null);
   const [settingsDrawerOpen, setSettingsDrawerOpen] = useState(false);
 
   useDeepCompareEffect(() => {
-    dispatch(getBoard(routeParams));
+    dispatch(getBoard(routeParams.boardId));
     return () => {
       dispatch(resetBoard());
     };
@@ -114,25 +114,27 @@ function Board(props) {
           </Toolbar>
         </AppBar>
 
-        <div className={clsx('flex flex-1 overflow-x-auto overflow-y-hidden')}>
-          <DragDropContext onDragEnd={onDragEnd}>
-            <Droppable droppableId="list" type="list" direction="horizontal">
-              {(provided) => (
-                <div
-                  ref={provided.innerRef}
-                  className="flex container py-16 md:py-24 px-8 md:px-12"
-                >
-                  {board.lists.map((list, index) => (
-                    <BoardList key={list.id} list={list} index={index} />
-                  ))}
-                  {provided.placeholder}
+        {board?.lists && (
+          <div className={clsx('flex flex-1 overflow-x-auto overflow-y-hidden')}>
+            <DragDropContext onDragEnd={onDragEnd}>
+              <Droppable droppableId="list" type="list" direction="horizontal">
+                {(provided) => (
+                  <div
+                    ref={provided.innerRef}
+                    className="flex container py-16 md:py-24 px-8 md:px-12"
+                  >
+                    {board?.lists.map((list, index) => (
+                      <BoardList key={list.id} list={list} index={index} />
+                    ))}
+                    {provided.placeholder}
 
-                  <BoardAddList />
-                </div>
-              )}
-            </Droppable>
-          </DragDropContext>
-        </div>
+                    <BoardAddList />
+                  </div>
+                )}
+              </Droppable>
+            </DragDropContext>
+          </div>
+        )}
 
         <SwipeableDrawer
           anchor="right"

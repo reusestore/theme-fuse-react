@@ -7,6 +7,7 @@ import './api/ecommerce-api';
 import './api/file-manager-api';
 import './api/help-center-api';
 import './api/notes-api';
+import './api/scrumboard-api';
 import './db/analytics-dashboard-db';
 import './db/auth-db';
 import './db/calendar-db';

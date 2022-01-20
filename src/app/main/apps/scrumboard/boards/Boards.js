@@ -1,22 +1,12 @@
-import Paper from '@mui/material/Paper';
-import { styled } from '@mui/material/styles';
-import Icon from '@mui/material/Icon';
 import Typography from '@mui/material/Typography';
 import withReducer from 'app/store/withReducer';
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import reducer from '../store';
-import { selectBoards, newBoard, getBoards, resetBoards } from '../store/boardsSlice';
-
-const Root = styled('div')(({ theme }) => ({
-  '& .board': {
-    transitionProperty: 'box-shadow border-color',
-    transitionDuration: theme.transitions.duration.short,
-    transitionTimingFunction: theme.transitions.easing.easeInOut,
-  },
-}));
+import { selectBoards, getBoards, resetBoards } from '../store/boardsSlice';
+import BoardItem from './BoardItem';
+import NewBoardItem from './NewBoardItem';
 
 function Boards(props) {
   const dispatch = useDispatch();
@@ -43,59 +33,33 @@ function Boards(props) {
   };
 
   return (
-    <Root className="flex grow shrink-0 flex-col items-center">
-      <div className="flex grow shrink-0 flex-col items-center container px-16 md:px-24">
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.1 } }}>
-          <Typography
-            className="mt-44 sm:mt-88 sm:py-24 text-32 sm:text-40 font-bold"
-            color="inherit"
-          >
-            Scrumboard App
-          </Typography>
-        </motion.div>
-
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate="show"
-          className="flex flex-wrap w-full justify-center py-32 px-16"
+    <div className="flex grow shrink-0 flex-col items-center container p-24 sm:p-40">
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.1 } }}>
+        <Typography
+          className="mt-16 md:mt-96 text-3xl md:text-6xl font-extrabold tracking-tight leading-7 sm:leading-10"
+          color="inherit"
         >
-          {boards.map((board) => (
-            <motion.div variants={item} className="w-224 h-224 p-16" key={board.id}>
-              <Paper
-                to={`/apps/scrumboard/boards/${board.id}/${board.uri}`}
-                className="board flex flex-col items-center justify-center w-full h-full rounded-16 py-24 shadow hover:shadow-lg cursor-pointer"
-                role="button"
-                component={Link}
-              >
-                <Icon className="text-56" color="action">
-                  assessment
-                </Icon>
-                <Typography className="text-16 font-medium text-center pt-16 px-32" color="inherit">
-                  {board.name}
-                </Typography>
-              </Paper>
-            </motion.div>
-          ))}
-          <motion.div variants={item} className="w-224 h-224 p-16">
-            <Paper
-              className="flex flex-col items-center justify-center w-full h-full rounded-16 py-24 shadow hover:shadow-lg outline-none cursor-pointer"
-              onClick={() => dispatch(newBoard())}
-              onKeyDown={() => dispatch(newBoard())}
-              role="button"
-              tabIndex={0}
-            >
-              <Icon className="text-56" color="secondary">
-                add_circle
-              </Icon>
-              <Typography className="text-16 font-medium text-center pt-16 px-32" color="inherit">
-                Add new board
-              </Typography>
-            </Paper>
+          Scrumboard Boards
+        </Typography>
+      </motion.div>
+
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16 mt-32 md:mt-64"
+      >
+        {boards.map((board) => (
+          <motion.div variants={item} className="min-w-224" key={board.id}>
+            <BoardItem board={board} key={board.id} />
           </motion.div>
+        ))}
+
+        <motion.div variants={item} className="min-w-224">
+          <NewBoardItem />
         </motion.div>
-      </div>
-    </Root>
+      </motion.div>
+    </div>
   );
 }
 
