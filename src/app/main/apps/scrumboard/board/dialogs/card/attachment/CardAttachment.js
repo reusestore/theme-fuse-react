@@ -33,7 +33,7 @@ function CardAttachment(props) {
               <Typography className="text-16 font-semibold truncate shrink">
                 {props.item.name}
               </Typography>
-              {props.card.idAttachmentCover === props.item.id && (
+              {props.card.attachmentCoverId === props.item.id && (
                 <Icon className="text-orange-300 text-20 mx-4">star</Icon>
               )}
             </div>
@@ -56,7 +56,7 @@ function CardAttachment(props) {
               open={Boolean(anchorEl)}
               onClose={handleMenuClose}
             >
-              {props.card.idAttachmentCover !== props.item.id ? (
+              {props.card.attachmentCoverId !== props.item.id ? (
                 <MenuItem
                   onClick={() => {
                     handleMenuClose();

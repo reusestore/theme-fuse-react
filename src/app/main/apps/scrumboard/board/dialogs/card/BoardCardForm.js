@@ -32,31 +32,38 @@ import DueMenu from './toolbar/DueMenu';
 import LabelsMenu from './toolbar/LabelsMenu';
 import MembersMenu from './toolbar/MembersMenu';
 import OptionsMenu from './toolbar/OptionsMenu';
+import { selectListById } from '../../../store/listsSlice';
+import { selectLabels } from '../../../store/labelsSlice';
+import { selectBoard } from '../../../store/boardSlice';
+import { selectMembers } from '../../../store/membersSlice';
 
 function BoardCardForm(props) {
   const dispatch = useDispatch();
+  const board = useSelector(selectBoard);
+  const labels = useSelector(selectLabels);
+  const members = useSelector(selectMembers);
   const card = useSelector(({ scrumboardApp }) => scrumboardApp.card.data);
-  const board = useSelector(({ scrumboardApp }) => scrumboardApp.board);
+  const list = useSelector((state) => selectListById(state, card?.listId));
+
   const { register, watch, control, setValue } = useForm({ mode: 'onChange', defaultValues: card });
+
   const cardForm = watch();
 
   const updateCardData = useDebounce((boardId, newCard) => {
     dispatch(updateCard({ boardId, card: { ...newCard } }));
   }, 600);
 
-  const list = card ? _.find(board.lists, (_list) => _list.idCards.includes(card.id)) : null;
-
   useEffect(() => {
     if (!card) {
       return;
     }
     if (!_.isEqual(card, cardForm)) {
-      updateCardData(board.id, cardForm);
+      // updateCardData(board.id, cardForm);
     }
   }, [board.id, card, cardForm, updateCardData]);
 
   useEffect(() => {
-    register('idAttachmentCover');
+    register('attachmentCoverId');
   }, [register]);
 
   if (!card) {
@@ -70,36 +77,38 @@ function BoardCardForm(props) {
           <Toolbar className="flex w-full overflow-x-auto px-8 sm:px-16">
             <div className="flex flex-1">
               <Controller
-                name="due"
+                name="dueDate"
                 control={control}
                 defaultValue={null}
                 render={({ field: { onChange, value } }) => (
-                  <DueMenu onDueChange={onChange} onRemoveDue={() => onChange(null)} due={value} />
-                )}
-              />
-
-              <Controller
-                name="idLabels"
-                control={control}
-                defaultValue={[]}
-                render={({ field: { onChange, value } }) => (
-                  <LabelsMenu
-                    onToggleLabel={(labelId) => onChange(_.xor(value, [labelId]))}
-                    labels={board.labels}
-                    idLabels={value}
+                  <DueMenu
+                    onDueChange={onChange}
+                    onRemoveDue={() => onChange(null)}
+                    dueDate={value}
                   />
                 )}
               />
 
               <Controller
-                name="idMembers"
+                name="labels"
+                control={control}
+                defaultValue={[]}
+                render={({ field: { onChange, value } }) => (
+                  <LabelsMenu
+                    onToggleLabel={(labelId) => onChange(_.xor(value, [labelId]))}
+                    labels={value}
+                  />
+                )}
+              />
+
+              <Controller
+                name="memberIds"
                 control={control}
                 defaultValue={[]}
                 render={({ field: { onChange, value } }) => (
                   <MembersMenu
                     onToggleMember={(memberId) => onChange(_.xor(value, [memberId]))}
-                    members={board.members}
-                    idMembers={value}
+                    memberIds={value}
                   />
                 )}
               />
@@ -142,19 +151,20 @@ function BoardCardForm(props) {
       <DialogContent className="p-16 sm:p-24">
         <div className="flex flex-col sm:flex-row sm:justify-between justify-center items-center my-24">
           <div className="mb-16 sm:mb-0 flex items-center">
-            <Typography>{board.name}</Typography>
+            <Typography>{board.title}</Typography>
 
             <Icon className="text-20" color="inherit">
               chevron_right
             </Icon>
 
-            <Typography>{list && list.name}</Typography>
+            <Typography>{list && list.title}</Typography>
           </div>
-          {cardForm.due && (
+
+          {cardForm.dueDate && (
             <DateTimePicker
-              value={format(fromUnixTime(cardForm.due), 'Pp')}
+              value={format(fromUnixTime(cardForm.dueDate), 'Pp')}
               inputFormat="Pp"
-              onChange={(val) => setValue('due', getUnixTime(val))}
+              onChange={(val) => setValue('dueDate', getUnixTime(val))}
               renderInput={(_props) => (
                 <TextField
                   label="Due date"
@@ -169,7 +179,7 @@ function BoardCardForm(props) {
 
         <div className="flex items-center mb-24">
           <Controller
-            name="name"
+            name="title"
             control={control}
             render={({ field }) => (
               <TextField
@@ -213,7 +223,7 @@ function BoardCardForm(props) {
         </div>
 
         <div className="flex flex-col sm:flex-row -mx-8">
-          {cardForm.idLabels && cardForm.idLabels.length > 0 && (
+          {cardForm.labels && cardForm.labels.length > 0 && (
             <div className="flex-1 mb-24 mx-8">
               <div className="flex items-center mt-16 mb-12">
                 <Icon className="text-20" color="inherit">
@@ -225,25 +235,21 @@ function BoardCardForm(props) {
                 className="mt-8 mb-16"
                 multiple
                 freeSolo
-                options={board.labels}
+                options={labels}
                 getOptionLabel={(label) => {
-                  return label.name;
+                  return label.title;
                 }}
-                value={cardForm.idLabels.map((id) => _.find(board.labels, { id }))}
+                value={cardForm.labels.map((id) => _.find(labels, { id }))}
                 onChange={(event, newValue) => {
                   setValue(
-                    'idLabels',
+                    'labels',
                     newValue.map((item) => item.id)
                   );
                 }}
                 renderTags={(value, getTagProps) =>
                   value.map((option, index) => {
                     return (
-                      <Chip
-                        label={option.name}
-                        {...getTagProps({ index })}
-                        className={clsx('m-3', option.class)}
-                      />
+                      <Chip label={option.title} {...getTagProps({ index })} className="m-3" />
                     );
                   })
                 }
@@ -262,7 +268,7 @@ function BoardCardForm(props) {
             </div>
           )}
 
-          {cardForm.idMembers && cardForm.idMembers.length > 0 && (
+          {cardForm.memberIds && cardForm.memberIds.length > 0 && (
             <div className="flex-1 mb-24 mx-8">
               <div className="flex items-center mt-16 mb-12">
                 <Icon className="text-20" color="inherit">
@@ -274,14 +280,14 @@ function BoardCardForm(props) {
                 className="mt-8 mb-16"
                 multiple
                 freeSolo
-                options={board.members}
+                options={members}
                 getOptionLabel={(member) => {
                   return member.name;
                 }}
-                value={cardForm.idMembers.map((id) => _.find(board.members, { id }))}
+                value={cardForm.memberIds.map((id) => _.find(members, { id }))}
                 onChange={(event, newValue) => {
                   setValue(
-                    'idMembers',
+                    'memberIds',
                     newValue.map((item) => item.id)
                   );
                 }}
@@ -364,7 +370,6 @@ function BoardCardForm(props) {
           </div>
           <div>
             <CardComment
-              members={board.members}
               onCommentAdd={(comment) => setValue('activities', [comment, ...cardForm.activities])}
             />
           </div>
@@ -386,7 +391,7 @@ function BoardCardForm(props) {
                   </div>
                   <List className="">
                     {value.map((item) => (
-                      <CardActivity item={item} key={item.id} members={board.members} />
+                      <CardActivity item={item} key={item.id} />
                     ))}
                   </List>
                 </div>

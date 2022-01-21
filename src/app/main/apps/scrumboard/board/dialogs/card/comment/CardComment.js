@@ -6,6 +6,8 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import CommentModel from 'app/main/apps/scrumboard/model/CommentModel';
 import * as yup from 'yup';
+import { useSelector } from 'react-redux';
+import { selectMemberById } from '../../../../store/membersSlice';
 
 /**
  * Form Validation Schema
@@ -14,11 +16,14 @@ const schema = yup.object().shape({
   message: yup.string().required('You must enter a comment'),
 });
 
+const defaultValues = {
+  idMember: 'baa88231-0ee6-4028-96d5-7f187e0f4cd5',
+  message: '',
+};
+
 function CardComment(props) {
-  const defaultValues = {
-    idMember: '36027j1930450d8bf7b10158',
-    message: '',
-  };
+  const user = useSelector((state) => selectMemberById(state, defaultValues.idMember));
+
   const { control, formState, handleSubmit, reset } = useForm({
     mode: 'onChange',
     defaultValues,
@@ -27,11 +32,13 @@ function CardComment(props) {
 
   const { isValid, dirtyFields, errors } = formState;
 
-  const user = _.find(props.members, { id: defaultValues.idMember });
-
   function onSubmit(data) {
     props.onCommentAdd(CommentModel({ ...defaultValues, ...data }));
     reset(defaultValues);
+  }
+
+  if (!user) {
+    return null;
   }
 
   return (

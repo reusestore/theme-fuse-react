@@ -5,10 +5,13 @@ import IconButton from '@mui/material/IconButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import ToolbarMenu from './ToolbarMenu';
+import { selectMembers } from '../../../../store/membersSlice';
 
 function MembersMenu(props) {
   const [anchorEl, setAnchorEl] = useState(null);
+  const members = useSelector(selectMembers);
 
   function handleMenuOpen(event) {
     setAnchorEl(event.currentTarget);
@@ -25,7 +28,7 @@ function MembersMenu(props) {
       </IconButton>
       <ToolbarMenu state={anchorEl} onClose={handleMenuClose}>
         <div className="">
-          {props.members.map((member) => {
+          {members.map((member) => {
             return (
               <MenuItem
                 className="px-8"
@@ -34,7 +37,7 @@ function MembersMenu(props) {
                   props.onToggleMember(member.id);
                 }}
               >
-                <Checkbox checked={props.idMembers.includes(member.id)} />
+                <Checkbox checked={props.memberIds.includes(member.id)} />
                 <Avatar className="w-32 h-32" src={member.avatar} />
                 <ListItemText className="mx-8">{member.name}</ListItemText>
               </MenuItem>

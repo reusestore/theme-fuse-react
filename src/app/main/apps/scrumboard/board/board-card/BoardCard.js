@@ -11,7 +11,10 @@ import fromUnixTime from 'date-fns/fromUnixTime';
 import getUnixTime from 'date-fns/getUnixTime';
 import { Draggable } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
-import { openCardDialog } from '../store/cardSlice';
+import { openCardDialog } from '../../store/cardSlice';
+import { selectCardById } from '../../store/cardsSlice';
+import BoardCardLabel from './BoardCardLabel';
+import { selectMembers } from '../../store/membersSlice';
 
 const StyledCard = styled(Card)(({ theme }) => ({
   transitionProperty: 'box-shadow',
@@ -20,11 +23,12 @@ const StyledCard = styled(Card)(({ theme }) => ({
 }));
 
 function BoardCard(props) {
+  const { cardId, index } = props;
   const dispatch = useDispatch();
   const board = useSelector(({ scrumboardApp }) => scrumboardApp.board);
+  const card = useSelector((state) => selectCardById(state, cardId));
+  const members = useSelector(selectMembers);
 
-  const { cardId, index } = props;
-  const card = _.find(board.cards, { id: cardId });
   const checkItemsChecked = getCheckItemsChecked(card);
   const checkItems = getCheckItems(card);
   const commentsCount = getCommentsCount(card);
@@ -59,43 +63,40 @@ function BoardCard(props) {
             )}
             onClick={(ev) => handleCardClick(ev, card)}
           >
-            {board.settings.cardCoverImages && card.idAttachmentCover !== '' && (
+            {board.settings.cardCoverImages && card.attachmentCoverId !== '' && (
               <img
                 className="block"
-                src={_.find(card.attachments, { id: card.idAttachmentCover }).src}
+                src={_.find(card.attachments, { id: card.attachmentCoverId }).src}
                 alt="card cover"
               />
             )}
 
             <div className="p-16 pb-0">
-              {card.idLabels.length > 0 && (
+              {card.labels.length > 0 && (
                 <div className="flex flex-wrap mb-8 -mx-4">
-                  {card.idLabels.map((id) => {
-                    const label = _.find(board.labels, { id });
-                    return (
-                      <Tooltip title={label.name} key={id}>
-                        <div className={clsx(label.class, 'w-32  h-6 rounded-6 mx-4 mb-6')} />
-                      </Tooltip>
-                    );
-                  })}
+                  {card.labels.map((id) => (
+                    <BoardCardLabel id={id} key={id} />
+                  ))}
                 </div>
               )}
 
-              <Typography className="font-medium mb-12">{card.name}</Typography>
+              <Typography className="font-medium mb-12">{card?.title}</Typography>
 
-              {(card.due || checkItems > 0) && (
+              {(card.dueDate || checkItems > 0) && (
                 <div className="flex items-center mb-12 -mx-4">
-                  {card.due && (
+                  {card.dueDate && (
                     <div
                       className={clsx(
                         'flex items-center px-8 py-4 mx-4 rounded-16',
-                        getUnixTime(new Date()) > card.due
+                        getUnixTime(new Date()) > card.dueDate
                           ? 'bg-red text-white'
                           : 'bg-green text-white'
                       )}
                     >
                       <Icon className="text-16">access_time</Icon>
-                      <span className="mx-4">{format(fromUnixTime(card.due), 'MMM do yy')}</span>
+                      <span className="mx-4">
+                        {format(fromUnixTime(card.dueDate), 'MMM do yy')}
+                      </span>
                     </div>
                   )}
 
@@ -115,10 +116,10 @@ function BoardCard(props) {
                 </div>
               )}
 
-              {card.idMembers.length > 0 && (
+              {card.memberIds.length > 0 && (
                 <div className="flex flex-wrap mb-12 -mx-4">
-                  {card.idMembers.map((id) => {
-                    const member = _.find(board.members, { id });
+                  {card.memberIds.map((id) => {
+                    const member = _.find(members, { id });
                     return (
                       <Tooltip title={member.name} key={id}>
                         <Avatar className="mx-4 w-32 h-32" src={member.avatar} />

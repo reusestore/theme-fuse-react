@@ -58,17 +58,6 @@ mock.onPost('/api/scrumboard/members').reply(({ data }) => {
   return [200, newMember];
 });
 
-mock.onGet(/\/api\/scrumboard\/members\/[^/]+/).reply((config) => {
-  const { id } = config.url.match(/\/api\/scrumboard\/members\/(?<id>[^/]+)/).groups;
-  const response = _.find(membersDB, { id });
-
-  if (response) {
-    return [200, response];
-  }
-
-  return [404, 'Requested member do not exist.'];
-});
-
 mock.onPut(/\/api\/scrumboard\/members\/[^/]+/).reply(({ url, data }) => {
   const { id } = url.match(/\/api\/scrumboard\/members\/(?<id>[^/]+)/).groups;
 
@@ -172,12 +161,36 @@ mock.onPost('/api/scrumboard/boards').reply(({ data }) => {
   return [200, newBoard];
 });
 
+mock.onGet(/\/api\/scrumboard\/boards\/(?<id>[^/]+)\/members/).reply((config) => {
+  const { id } = config.url.match(/\/api\/scrumboard\/boards\/(?<id>[^/]+)\/members/).groups;
+  const members = membersDB.filter((item) => item.boardId === id);
+  return [200, members];
+});
+
+mock.onGet(/\/api\/scrumboard\/boards\/(?<id>[^/]+)\/labels/).reply((config) => {
+  const { id } = config.url.match(/\/api\/scrumboard\/boards\/(?<id>[^/]+)\/labels/).groups;
+  const labels = labelsDB.filter((item) => item.boardId === id);
+  return [200, labels];
+});
+
+mock.onGet(/\/api\/scrumboard\/boards\/(?<id>[^/]+)\/lists/).reply((config) => {
+  const { id } = config.url.match(/\/api\/scrumboard\/boards\/(?<id>[^/]+)\/lists/).groups;
+  const lists = listsDB.filter((item) => item.boardId === id);
+  return [200, lists];
+});
+
+mock.onGet(/\/api\/scrumboard\/boards\/(?<id>[^/]+)\/cards/).reply((config) => {
+  const { id } = config.url.match(/\/api\/scrumboard\/boards\/(?<id>[^/]+)\/cards/).groups;
+  const cards = cardsDB.filter((item) => item.boardId === id);
+  return [200, cards];
+});
+
 mock.onGet(/\/api\/scrumboard\/boards\/[^/]+/).reply((config) => {
   const { id } = config.url.match(/\/api\/scrumboard\/boards\/(?<id>[^/]+)/).groups;
-  const response = _.find(boardsDB, { id });
+  const board = _.find(boardsDB, { id });
 
-  if (response) {
-    return [200, response];
+  if (board) {
+    return [200, board];
   }
 
   return [404, 'Requested board do not exist.'];

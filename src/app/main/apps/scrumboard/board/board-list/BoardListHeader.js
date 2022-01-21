@@ -15,7 +15,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
 import _ from '@lodash';
-import { removeList, renameList } from '../store/boardSlice';
+import { removeList, renameList } from '../../store/boardSlice';
 
 /**
  * Form Validation Schema
@@ -34,7 +34,7 @@ function BoardListHeader(props) {
   const { control, formState, handleSubmit, reset } = useForm({
     mode: 'onChange',
     defaultValues: {
-      title: props.list.name,
+      title: props.list.title,
     },
     resolver: yupResolver(schema),
   });
@@ -44,10 +44,10 @@ function BoardListHeader(props) {
   useEffect(() => {
     if (!formOpen) {
       reset({
-        title: props.list.name,
+        title: props.list.title,
       });
     }
-  }, [formOpen, reset, props.list.name]);
+  }, [formOpen, reset, props.list.title]);
 
   useEffect(() => {
     if (formOpen && anchorEl) {
@@ -113,7 +113,7 @@ function BoardListHeader(props) {
             </ClickAwayListener>
           ) : (
             <Typography className="text-16 font-medium cursor-pointer" onClick={handleOpenForm}>
-              {props.list.name}
+              {props.list.title}
             </Typography>
           )}
         </div>

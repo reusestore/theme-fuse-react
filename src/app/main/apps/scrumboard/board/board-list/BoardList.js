@@ -5,9 +5,11 @@ import CardContent from '@mui/material/CardContent';
 import clsx from 'clsx';
 import { useRef } from 'react';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
-import BoardAddCard from './BoardAddCard';
-import BoardCard from './BoardCard';
+import { useSelector } from 'react-redux';
+import BoardAddCard from '../board-card/BoardAddCard';
+import BoardCard from '../board-card/BoardCard';
 import BoardListHeader from './BoardListHeader';
+import { selectListById } from '../../store/listsSlice';
 
 const StyledCard = styled(Card)(({ theme }) => ({
   backgroundColor: darken(
@@ -20,14 +22,20 @@ const StyledCard = styled(Card)(({ theme }) => ({
 }));
 
 function BoardList(props) {
+  const { listId, cardIds } = props;
   const contentScrollEl = useRef(null);
+  const list = useSelector((state) => selectListById(state, listId));
 
   function handleCardAdded() {
     contentScrollEl.current.scrollTop = contentScrollEl.current.scrollHeight;
   }
 
+  if (!list) {
+    return null;
+  }
+
   return (
-    <Draggable draggableId={props.list.id} index={props.index} type="list">
+    <Draggable draggableId={listId} index={props.index} type="list">
       {(provided, snapshot) => (
         <div ref={provided.innerRef} {...provided.draggableProps}>
           <StyledCard
@@ -38,7 +46,7 @@ function BoardList(props) {
             square
           >
             <BoardListHeader
-              list={props.list}
+              list={list}
               className="border-b-1"
               handleProps={provided.dragHandleProps}
             />
@@ -48,11 +56,11 @@ function BoardList(props) {
                 className="flex flex-col flex-1 flex-auto h-full min-h-0 w-full p-0 overflow-auto"
                 ref={contentScrollEl}
               >
-                <Droppable droppableId={props.list.id} type="card" direction="vertical">
+                <Droppable droppableId={listId} type="card" direction="vertical">
                   {(_provided) => (
                     <div ref={_provided.innerRef} className="flex flex-col w-full h-full p-16">
-                      {props.list.idCards.map((cardId, index) => (
-                        <BoardCard key={cardId} cardId={cardId} index={index} list={props.list} />
+                      {cardIds.map((cardId, index) => (
+                        <BoardCard key={cardId} cardId={cardId} index={index} list={list} />
                       ))}
                       {_provided.placeholder}
                     </div>
@@ -62,7 +70,7 @@ function BoardList(props) {
             </>
 
             <CardActions className="p-0 shrink-0">
-              <BoardAddCard listId={props.list.id} onCardAdded={handleCardAdded} />
+              <BoardAddCard listId={listId} onCardAdded={handleCardAdded} />
             </CardActions>
           </StyledCard>
         </div>

@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
 import _ from '@lodash';
-import { newCard } from '../store/boardSlice';
+import { newCard } from '../../store/boardSlice';
 
 const defaultValues = {
   title: '',

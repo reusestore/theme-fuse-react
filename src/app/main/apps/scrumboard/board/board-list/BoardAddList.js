@@ -14,7 +14,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
 import _ from '@lodash';
-import { newList } from '../store/boardSlice';
+import { newList } from '../../store/boardSlice';
 
 const defaultValues = {
   title: '',

@@ -15,12 +15,15 @@ import withRouter from '@fuse/core/withRouter';
 import { useDeepCompareEffect } from '@fuse/hooks';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import reducer from '../store';
-import { reorderCard, reorderList, resetBoard, getBoard, selectBoard } from '../store/boardSlice';
-import BoardAddList from './BoardAddList';
-import BoardList from './BoardList';
+import { resetBoard, getBoard, selectBoard } from '../store/boardSlice';
+import BoardAddList from './board-list/BoardAddList';
+import BoardList from './board-list/BoardList';
 import BoardTitle from './BoardTitle';
 import BoardCardDialog from './dialogs/card/BoardCardDialog';
 import BoardSettingsSidebar from './sidebars/settings/BoardSettingsSidebar';
+import { getCards } from '../store/cardsSlice';
+import { getLists } from '../store/listsSlice';
+import { getLabels } from '../store/labelsSlice';
 
 function Board(props) {
   const dispatch = useDispatch();
@@ -32,6 +35,10 @@ function Board(props) {
 
   useDeepCompareEffect(() => {
     dispatch(getBoard(routeParams.boardId));
+    dispatch(getCards(routeParams.boardId));
+    dispatch(getLists(routeParams.boardId));
+    dispatch(getLabels(routeParams.boardId));
+
     return () => {
       dispatch(resetBoard());
     };
@@ -52,12 +59,12 @@ function Board(props) {
 
     // reordering list
     if (result.type === 'list') {
-      dispatch(reorderList(result));
+      // dispatch(reorderList(result));
     }
 
     // reordering card
     if (result.type === 'card') {
-      dispatch(reorderCard(result));
+      // dispatch(reorderCard(result));
     }
   }
 
@@ -124,8 +131,14 @@ function Board(props) {
                     className="flex container py-16 md:py-24 px-8 md:px-12"
                   >
                     {board?.lists.map((list, index) => (
-                      <BoardList key={list.id} list={list} index={index} />
+                      <BoardList
+                        key={list.id}
+                        listId={list.id}
+                        cardIds={list.cards}
+                        index={index}
+                      />
                     ))}
+
                     {provided.placeholder}
 
                     <BoardAddList />

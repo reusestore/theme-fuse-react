@@ -11,7 +11,7 @@ import ToolbarMenu from './ToolbarMenu';
 
 function DueMenu(props) {
   const [anchorEl, setAnchorEl] = useState(null);
-  const dueDate = props.due ? format(fromUnixTime(props.due), 'Pp') : format(new Date(), 'Pp');
+  const dueDate = props.dueDate ? format(fromUnixTime(props.dueDate), 'Pp') : format(new Date(), 'Pp');
 
   function handleMenuOpen(event) {
     setAnchorEl(event.currentTarget);
@@ -28,7 +28,7 @@ function DueMenu(props) {
       </IconButton>
       <ToolbarMenu state={anchorEl} onClose={handleMenuClose}>
         <div className="p-16 max-w-192">
-          {props.due ? (
+          {props.dueDate ? (
             <MenuItem
               onClick={(ev) => {
                 props.onRemoveDue();

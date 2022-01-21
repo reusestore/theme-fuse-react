@@ -5,9 +5,13 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import ToolbarMenu from './ToolbarMenu';
+import { selectLabels } from '../../../../store/labelsSlice';
 
 function LabelsMenu(props) {
+  const labels = useSelector(selectLabels);
+
   const [anchorEl, setAnchorEl] = useState(null);
 
   function handleMenuOpen(event) {
@@ -25,7 +29,7 @@ function LabelsMenu(props) {
       </IconButton>
       <ToolbarMenu state={anchorEl} onClose={handleMenuClose}>
         <div className="">
-          {props.labels.map((label) => {
+          {labels.map((label) => {
             return (
               <MenuItem
                 className="px-8"
@@ -34,8 +38,8 @@ function LabelsMenu(props) {
                   props.onToggleLabel(label.id);
                 }}
               >
-                <Checkbox checked={props.idLabels.includes(label.id)} />
-                <ListItemText className="mx-8">{label.name}</ListItemText>
+                <Checkbox checked={props.labels.includes(label.id)} />
+                <ListItemText className="mx-8">{label.title}</ListItemText>
                 <ListItemIcon className="min-w-24">
                   <Icon>label</Icon>
                 </ListItemIcon>
