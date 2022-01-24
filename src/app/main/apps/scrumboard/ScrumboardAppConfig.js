@@ -15,6 +15,10 @@ const ScrumboardAppConfig = {
       element: <ScrumboardApp />,
       children: [
         {
+          path: '',
+          element: <Navigate to="/apps/scrumboard/boards" />,
+        },
+        {
           path: 'boards',
           element: <Boards />,
         },
@@ -23,10 +27,6 @@ const ScrumboardAppConfig = {
           element: <Board />,
         },
       ],
-    },
-    {
-      path: 'apps/scrumboard',
-      element: <Navigate to="/apps/scrumboard/boards" />,
     },
   ],
 };

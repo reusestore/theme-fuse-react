@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
 import _ from '@lodash';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { newCard } from '../../store/boardSlice';
 
 const defaultValues = {
@@ -61,7 +62,7 @@ function BoardAddCard(props) {
   }
 
   return (
-    <div className="w-full border-t-1">
+    <div className="w-full">
       {formOpen ? (
         <ClickAwayListener onClickAway={handleCloseForm}>
           <form className="p-16" onSubmit={handleSubmit(onSubmit)}>
@@ -106,11 +107,11 @@ function BoardAddCard(props) {
         <Button
           onClick={handleOpenForm}
           classes={{
-            root: 'font-medium w-full px-16 rounded-none h-48 justify-start',
+            root: 'font-medium w-full rounded-lg p-24 justify-start',
           }}
+          startIcon={<FuseSvgIcon>heroicons-outline:plus-circle</FuseSvgIcon>}
         >
-          <Icon className="text-20">add</Icon>
-          <span className="mx-8">Add a card</span>
+          Add another card
         </Button>
       )}
     </div>

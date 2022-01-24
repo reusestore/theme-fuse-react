@@ -13,8 +13,8 @@ import { selectListById } from '../../store/listsSlice';
 
 const StyledCard = styled(Card)(({ theme }) => ({
   backgroundColor: darken(
-    theme.palette.background.paper,
-    theme.palette.mode === 'light' ? 0.02 : 0.25
+    theme.palette.background.default,
+    theme.palette.mode === 'light' ? 0.03 : 0.25
   ),
   transitionProperty: 'box-shadow',
   transitionDuration: theme.transitions.duration.short,
@@ -40,8 +40,8 @@ function BoardList(props) {
         <div ref={provided.innerRef} {...provided.draggableProps}>
           <StyledCard
             className={clsx(
-              snapshot.isDragging ? 'shadow-lg' : 'shadow',
-              'w-256 sm:w-320 mx-8 sm:mx-12 max-h-full flex flex-col rounded-20'
+              snapshot.isDragging ? 'shadow-lg' : 'shadow-0',
+              'w-256 sm:w-320 mx-8 sm:mx-12 max-h-full flex flex-col rounded-xl'
             )}
             square
           >
@@ -58,7 +58,7 @@ function BoardList(props) {
               >
                 <Droppable droppableId={listId} type="card" direction="vertical">
                   {(_provided) => (
-                    <div ref={_provided.innerRef} className="flex flex-col w-full h-full p-16">
+                    <div ref={_provided.innerRef} className="flex flex-col w-full h-full px-12">
                       {cardIds.map((cardId, index) => (
                         <BoardCard key={cardId} cardId={cardId} index={index} list={list} />
                       ))}
@@ -69,9 +69,9 @@ function BoardList(props) {
               </CardContent>
             </>
 
-            <CardActions className="p-0 shrink-0">
+            <div className="p-12">
               <BoardAddCard listId={listId} onCardAdded={handleCardAdded} />
-            </CardActions>
+            </div>
           </StyledCard>
         </div>
       )}

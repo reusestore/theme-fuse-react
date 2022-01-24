@@ -5,13 +5,13 @@ import ClickAwayListener from '@mui/material/ClickAwayListener';
 import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
-import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
 import _ from '@lodash';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { renameBoard } from '../store/boardSlice';
 
 /**
@@ -63,47 +63,45 @@ function BoardTitle(props) {
     <div className="flex items-center min-w-0">
       {formOpen ? (
         <ClickAwayListener onClickAway={handleCloseForm}>
-          <Paper>
-            <form className="flex w-full" onSubmit={handleSubmit(onSubmit)}>
-              <Controller
-                name="title"
-                control={control}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    variant="filled"
-                    margin="none"
-                    autoFocus
-                    hiddenLabel
-                    InputProps={{
-                      endAdornment: (
-                        <InputAdornment position="end">
-                          <IconButton
-                            type="submit"
-                            disabled={_.isEmpty(dirtyFields) || !isValid}
-                            size="large"
-                          >
-                            <Icon>check</Icon>
-                          </IconButton>
-                        </InputAdornment>
-                      ),
-                    }}
-                  />
-                )}
-              />
-            </form>
-          </Paper>
+          <form className="flex w-full" onSubmit={handleSubmit(onSubmit)}>
+            <Controller
+              name="title"
+              control={control}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  variant="filled"
+                  margin="none"
+                  autoFocus
+                  hiddenLabel
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          type="submit"
+                          disabled={_.isEmpty(dirtyFields) || !isValid}
+                          size="large"
+                        >
+                          <Icon>check</Icon>
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              )}
+            />
+          </form>
         </ClickAwayListener>
       ) : (
-        <div className="flex items-center justify-center">
-          {board?.settings.subscribed && <Icon className="text-16">remove_red_eye</Icon>}
+        <div className="flex items-center justify-center space-x-12">
           <Typography
-            className="text-14 sm:text-18 font-medium cursor-pointer mx-8"
+            className="text-14  sm:text-24 md:text-32 font-extrabold tracking-tight leading-none cursor-pointer"
             onClick={handleOpenForm}
             color="inherit"
           >
             {board.title}
           </Typography>
+          {board?.settings.subscribed && <FuseSvgIcon>heroicons-outline:eye</FuseSvgIcon>}
         </div>
       )}
     </div>

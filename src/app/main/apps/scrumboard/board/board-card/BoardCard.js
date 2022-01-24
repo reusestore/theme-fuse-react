@@ -58,8 +58,8 @@ function BoardCard(props) {
         <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
           <StyledCard
             className={clsx(
-              snapshot.isDragging ? 'shadow-lg' : 'shadow-0',
-              'w-full mb-16 rounded-16 cursor-pointer border-1'
+              snapshot.isDragging ? 'shadow-lg' : 'shadow',
+              'w-full mb-12 rounded-lg cursor-pointer'
             )}
             onClick={(ev) => handleCardClick(ev, card)}
           >
@@ -131,38 +131,38 @@ function BoardCard(props) {
               )}
             </div>
 
-            <div className="flex justify-between h-48 px-16 border-t-1">
-              <div className="flex items-center -mx-6">
+            <div className="flex justify-between h-48 px-16">
+              <div className="flex items-center space-x-12">
                 {card.subscribed && (
-                  <Icon className="text-18 mx-6" color="action">
+                  <Icon className="text-18" color="action">
                     remove_red_eye
                   </Icon>
                 )}
 
                 {card.description !== '' && (
-                  <Icon className="text-18 mx-6" color="action">
+                  <Icon className="text-18" color="action">
                     description
                   </Icon>
                 )}
               </div>
 
-              <div className="flex items-center justify-end -mx-6">
+              <div className="flex items-center justify-end space-x-12">
                 {card.attachments && (
-                  <span className="flex items-center mx-6">
+                  <span className="flex items-center space-x-8">
                     <Icon className="text-18" color="action">
                       attachment
                     </Icon>
-                    <Typography className="mx-8" color="textSecondary">
+                    <Typography className="" color="textSecondary">
                       {card.attachments.length}
                     </Typography>
                   </span>
                 )}
                 {commentsCount > 0 && (
-                  <span className="flex items-center mx-6">
+                  <span className="flex items-center space-x-8">
                     <Icon className="text-18" color="action">
                       comment
                     </Icon>
-                    <Typography className="mx-8" color="textSecondary">
+                    <Typography className="" color="textSecondary">
                       {commentsCount}
                     </Typography>
                   </span>

@@ -1,10 +1,11 @@
 import DemoContent from '@fuse/core/DemoContent';
-import { styled } from '@mui/material/styles';
+import { styled, useTheme } from '@mui/material/styles';
 import DemoSidebarContent from '@fuse/core/DemoSidebarContent';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
-import { useRef } from 'react';
+import { useState } from 'react';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Root = styled(FusePageSimple)({
   '& .FusePageSimple-header': {},
@@ -15,7 +16,10 @@ const Root = styled(FusePageSimple)({
 });
 
 function SimpleLeftSidebarSample() {
-  const pageLayout = useRef(null);
+  const [leftSidebarOpen, setSidebarOpen] = useState(false);
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
   return (
     <Root
@@ -23,7 +27,9 @@ function SimpleLeftSidebarSample() {
         <div className="flex flex-col flex-1">
           <div className="flex items-center p-24 px-12">
             <IconButton
-              onClick={(ev) => pageLayout.current.toggleLeftSidebar()}
+              onClick={(ev) => {
+                setSidebarOpen(true);
+              }}
               aria-label="open left sidebar"
               size="large"
             >
@@ -35,21 +41,11 @@ function SimpleLeftSidebarSample() {
           </div>
         </div>
       }
-      contentToolbar={
-        <div className="px-24">
-          <h4>Content Toolbar</h4>
-        </div>
-      }
       content={
         <div className="p-24">
           <h4>Content</h4>
           <br />
           <DemoContent />
-        </div>
-      }
-      leftSidebarHeader={
-        <div className="p-24">
-          <h4>Sidebar Header</h4>
         </div>
       }
       leftSidebarContent={
@@ -59,7 +55,12 @@ function SimpleLeftSidebarSample() {
           <DemoSidebarContent />
         </div>
       }
-      ref={pageLayout}
+      leftSidebarOpen={isMobile ? leftSidebarOpen : true}
+      leftSidebarOnClose={() => {
+        setSidebarOpen(false);
+      }}
+      sidebarInner
+      scroll="content"
     />
   );
 }

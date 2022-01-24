@@ -37,6 +37,7 @@ const Root = styled('div')(({ theme, ...props }) => ({
     // height: headerHeight,
     // minHeight: headerHeight,
     display: 'flex',
+    flex: '1 0 auto',
     backgroundColor: theme.palette.background.paper,
     color: theme.palette.primary.main,
     backgroundSize: 'cover',
@@ -55,9 +56,10 @@ const Root = styled('div')(({ theme, ...props }) => ({
   '& .FusePageSimple-contentWrapper': {
     display: 'flex',
     flexDirection: 'column',
+    width: '100%',
     flex: '1 1 auto',
-    overflow: 'auto',
-    WebkitOverflowScrolling: 'touch',
+    //    overflow: 'auto',
+    //    WebkitOverflowScrolling: 'touch',
     zIndex: 9999,
   },
 
@@ -69,7 +71,9 @@ const Root = styled('div')(({ theme, ...props }) => ({
   },
 
   '& .FusePageSimple-content': {
-    flex: '1 0 auto',
+    display: 'flex',
+    flex: '1 1 auto',
+    minHeight: 0,
   },
 
   '& .FusePageSimple-sidebarWrapper': {
@@ -218,17 +222,22 @@ const FusePageSimple = forwardRef((props, ref) => {
               />
             )}
 
-            <FuseScrollbars
+            <div
               className="FusePageSimple-contentWrapper"
-              enable={props.scroll === 'content' && !props.sidebarInner}
+              // enable={props.scroll === 'page'}
             >
               {props.header && !props.sidebarInner && (
                 <FusePageSimpleHeader header={props.header} />
               )}
               {props.content && (
-                <div className={clsx('FusePageSimple-content')}>{props.content}</div>
+                <FuseScrollbars
+                  enable={props.scroll === 'content'}
+                  className={clsx('FusePageSimple-content')}
+                >
+                  {props.content}
+                </FuseScrollbars>
               )}
-            </FuseScrollbars>
+            </div>
 
             {props.rightSidebarContent && (
               <FusePageSimpleSidebar

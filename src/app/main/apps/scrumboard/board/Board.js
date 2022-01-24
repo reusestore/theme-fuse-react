@@ -1,29 +1,34 @@
-import AppBar from '@mui/material/AppBar';
-import Button from '@mui/material/Button';
-import Hidden from '@mui/material/Hidden';
-import Icon from '@mui/material/Icon';
-import IconButton from '@mui/material/IconButton';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
-import Toolbar from '@mui/material/Toolbar';
 import withReducer from 'app/store/withReducer';
-import clsx from 'clsx';
 import { useRef, useState } from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import withRouter from '@fuse/core/withRouter';
 import { useDeepCompareEffect } from '@fuse/hooks';
-import GlobalStyles from '@mui/material/GlobalStyles';
+import BoardHeader from 'app/main/apps/scrumboard/board/BoardHeader';
+import { styled } from '@mui/material/styles';
+import FusePageSimple from '@fuse/core/FusePageSimple/FusePageSimple';
 import reducer from '../store';
 import { resetBoard, getBoard, selectBoard } from '../store/boardSlice';
 import BoardAddList from './board-list/BoardAddList';
 import BoardList from './board-list/BoardList';
-import BoardTitle from './BoardTitle';
 import BoardCardDialog from './dialogs/card/BoardCardDialog';
 import BoardSettingsSidebar from './sidebars/settings/BoardSettingsSidebar';
 import { getCards } from '../store/cardsSlice';
 import { getLists } from '../store/listsSlice';
 import { getLabels } from '../store/labelsSlice';
+
+const Root = styled(FusePageSimple)(({ theme }) => ({
+  // '& .FusePageSimple-sidebar': {
+  //   backgroundColor: theme.palette.background.default,
+  //   color: theme.palette.primary.main,
+  //   boxShadow: 'none',
+  // },
+  // '& .FusePageSimple-leftSidebar': {
+  //   border: '0!important',
+  // },
+}));
 
 function Board(props) {
   const dispatch = useDispatch();
@@ -31,7 +36,7 @@ function Board(props) {
 
   const routeParams = useParams();
   const containerRef = useRef(null);
-  const [settingsDrawerOpen, setSettingsDrawerOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useDeepCompareEffect(() => {
     dispatch(getBoard(routeParams.boardId));
@@ -69,7 +74,7 @@ function Board(props) {
   }
 
   function toggleSettingsDrawer(state) {
-    setSettingsDrawerOpen(state === undefined ? !settingsDrawerOpen : state);
+    setSidebarOpen(state === undefined ? !sidebarOpen : state);
   }
 
   if (!board) {
@@ -78,76 +83,49 @@ function Board(props) {
 
   return (
     <>
-      <GlobalStyles
-        styles={(theme) => ({
-          '#fuse-main': {
-            height: '100vh',
-          },
-        })}
+      <Root
+        header={<BoardHeader onSetSidebarOpen={setSidebarOpen} />}
+        content={
+          <>
+            {board?.lists && (
+              <div className="flex flex-1 overflow-x-auto overflow-y-hidden">
+                <DragDropContext onDragEnd={onDragEnd}>
+                  <Droppable droppableId="list" type="list" direction="horizontal">
+                    {(provided) => (
+                      <div ref={provided.innerRef} className="flex py-16 md:py-24 px-8 md:px-12">
+                        {board?.lists.map((list, index) => (
+                          <BoardList
+                            key={list.id}
+                            listId={list.id}
+                            cardIds={list.cards}
+                            index={index}
+                          />
+                        ))}
+
+                        {provided.placeholder}
+
+                        <BoardAddList />
+                      </div>
+                    )}
+                  </Droppable>
+                </DragDropContext>
+              </div>
+            )}
+          </>
+        }
+        rightSidebarOpen={sidebarOpen}
+        rightSidebarContent={<BoardSettingsSidebar />}
+        rightSidebarOnClose={() => toggleSettingsDrawer(false)}
+        scroll="content"
       />
+      <BoardCardDialog />
+    </>
+  );
+
+  return (
+    <>
       <div className="flex flex-1 flex-auto flex-col w-full h-full relative" ref={containerRef}>
-        <AppBar position="static" color="primary" elevation={0}>
-          <Toolbar className="flex items-center justify-between px-4 sm:px-24 h-48 sm:h-64 sm:h-96 container">
-            <Hidden smDown>
-              <Button
-                to="/apps/scrumboard/boards/"
-                component={Link}
-                variant="contained"
-                color="secondary"
-              >
-                <Icon>assessment</Icon>
-                <span className="px-8">Boards</span>
-              </Button>
-            </Hidden>
-
-            <Hidden smUp>
-              <IconButton
-                color="inherit"
-                to="/apps/scrumboard/boards/"
-                component={Link}
-                size="large"
-              >
-                <Icon>assessment</Icon>
-              </IconButton>
-            </Hidden>
-
-            <div className="flex flex-1 justify-center items-center">
-              <BoardTitle />
-            </div>
-
-            <IconButton color="inherit" onClick={() => toggleSettingsDrawer(true)} size="large">
-              <Icon>settings</Icon>
-            </IconButton>
-          </Toolbar>
-        </AppBar>
-
-        {board?.lists && (
-          <div className={clsx('flex flex-1 overflow-x-auto overflow-y-hidden')}>
-            <DragDropContext onDragEnd={onDragEnd}>
-              <Droppable droppableId="list" type="list" direction="horizontal">
-                {(provided) => (
-                  <div
-                    ref={provided.innerRef}
-                    className="flex container py-16 md:py-24 px-8 md:px-12"
-                  >
-                    {board?.lists.map((list, index) => (
-                      <BoardList
-                        key={list.id}
-                        listId={list.id}
-                        cardIds={list.cards}
-                        index={index}
-                      />
-                    ))}
-
-                    {provided.placeholder}
-
-                    <BoardAddList />
-                  </div>
-                )}
-              </Droppable>
-            </DragDropContext>
-          </div>
-        )}
+        <BoardHeader onToggleSettingsDrawer={toggleSettingsDrawer} />
 
         <SwipeableDrawer
           anchor="right"
@@ -165,15 +143,13 @@ function Board(props) {
             keepMounted: true,
             style: { position: 'absolute' },
           }}
-          open={settingsDrawerOpen}
+          open={sidebarOpen}
           onOpen={(ev) => {}}
           onClose={() => toggleSettingsDrawer(false)}
           disableSwipeToOpen
         >
           <BoardSettingsSidebar />
         </SwipeableDrawer>
-
-        <BoardCardDialog />
       </div>
     </>
   );

@@ -79,8 +79,8 @@ function BoardListHeader(props) {
 
   return (
     <div {...props.handleProps}>
-      <div className="flex items-center justify-between h-48 sm:h-64 px-8">
-        <div className="flex items-center min-w-0 px-12">
+      <div className="flex items-center justify-between h-48 sm:h-56 px-12">
+        <div className="flex items-center min-w-0">
           {formOpen ? (
             <ClickAwayListener onClickAway={handleCloseForm}>
               <form className="flex w-full" onSubmit={handleSubmit(onSubmit)}>
@@ -93,6 +93,7 @@ function BoardListHeader(props) {
                       variant="outlined"
                       margin="none"
                       autoFocus
+                      size="small"
                       InputProps={{
                         endAdornment: (
                           <InputAdornment position="end">
@@ -112,7 +113,7 @@ function BoardListHeader(props) {
               </form>
             </ClickAwayListener>
           ) : (
-            <Typography className="text-16 font-medium cursor-pointer" onClick={handleOpenForm}>
+            <Typography className="text-14 font-medium cursor-pointer" onClick={handleOpenForm}>
               {props.list.title}
             </Typography>
           )}

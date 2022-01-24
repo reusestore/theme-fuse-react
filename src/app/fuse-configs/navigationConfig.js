@@ -1563,7 +1563,7 @@ const navigationConfig = [
     ],
   },
   {
-    id: 'user-interface',
+    id: 'user-interface2',
     title: 'User Interface',
     type: 'group',
     icon: 'web',
