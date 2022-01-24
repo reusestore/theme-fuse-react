@@ -1,11 +1,11 @@
 import Avatar from '@mui/material/Avatar';
 import Checkbox from '@mui/material/Checkbox';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import ToolbarMenu from './ToolbarMenu';
 import { selectMembers } from '../../../../store/membersSlice';
 
@@ -23,8 +23,8 @@ function MembersMenu(props) {
 
   return (
     <div>
-      <IconButton color="inherit" onClick={handleMenuOpen} size="large">
-        <Icon>account_circle</Icon>
+      <IconButton onClick={handleMenuOpen} size="large">
+        <FuseSvgIcon>heroicons-outline:user-circle</FuseSvgIcon>
       </IconButton>
       <ToolbarMenu state={anchorEl} onClose={handleMenuClose}>
         <div className="">

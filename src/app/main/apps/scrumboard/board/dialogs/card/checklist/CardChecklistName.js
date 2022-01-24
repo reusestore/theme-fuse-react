@@ -3,7 +3,6 @@ import { useEffect, forwardRef, useImperativeHandle, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
 import ClickAwayListener from '@mui/material/ClickAwayListener';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
@@ -11,6 +10,7 @@ import Typography from '@mui/material/Typography';
 
 import * as yup from 'yup';
 import _ from '@lodash';
+import FuseSvgIcon from '../../../../../../../../@fuse/core/FuseSvgIcon';
 
 /**
  * Form Validation Schema
@@ -79,7 +79,7 @@ const CardChecklistName = forwardRef(function CardChecklistName(props, ref) {
                       disabled={_.isEmpty(dirtyFields) || !isValid}
                       size="large"
                     >
-                      <Icon>check</Icon>
+                      <FuseSvgIcon>heroicons-outline:check</FuseSvgIcon>
                     </IconButton>
                   </InputAdornment>
                 ),

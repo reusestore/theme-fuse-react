@@ -1,7 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 import Button from '@mui/material/Button';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import TextField from '@mui/material/TextField';
 import ChecklistModel from 'app/main/apps/scrumboard/model/ChecklistModel';
@@ -9,6 +8,7 @@ import { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import _ from '@lodash';
 import ToolbarMenu from './ToolbarMenu';
+import FuseSvgIcon from '../../../../../../../../@fuse/core/FuseSvgIcon';
 
 /**
  * Form Validation Schema
@@ -52,8 +52,8 @@ function CheckListMenu(props) {
 
   return (
     <div>
-      <IconButton color="inherit" onClick={handleMenuOpen} size="large">
-        <Icon>check_box</Icon>
+      <IconButton onClick={handleMenuOpen} size="large">
+        <FuseSvgIcon>heroicons-outline:check-circle</FuseSvgIcon>
       </IconButton>
       <ToolbarMenu state={anchorEl} onClose={handleMenuClose}>
         <form onSubmit={handleSubmit(onSubmit)} className="p-16 flex flex-col items-end">

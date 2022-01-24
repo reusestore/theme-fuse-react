@@ -1,11 +1,11 @@
 import { Controller, useForm } from 'react-hook-form';
 import { useEffect } from 'react';
 import Checkbox from '@mui/material/Checkbox';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import ListItem from '@mui/material/ListItem';
 import TextField from '@mui/material/TextField';
 import _ from '@lodash';
+import FuseSvgIcon from '../../../../../../../../@fuse/core/FuseSvgIcon';
 
 function CardChecklistItem(props) {
   const { item, onListItemChange, index } = props;
@@ -43,7 +43,7 @@ function CardChecklistItem(props) {
       />
 
       <IconButton aria-label="Delete" onClick={props.onListItemRemove} size="large">
-        <Icon>delete</Icon>
+        <FuseSvgIcon>heroicons-outline:trash</FuseSvgIcon>
       </IconButton>
     </ListItem>
   );

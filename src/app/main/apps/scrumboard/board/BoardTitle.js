@@ -2,7 +2,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 
 import ClickAwayListener from '@mui/material/ClickAwayListener';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
@@ -82,7 +81,7 @@ function BoardTitle(props) {
                           disabled={_.isEmpty(dirtyFields) || !isValid}
                           size="large"
                         >
-                          <Icon>check</Icon>
+                          <FuseSvgIcon>heroicons-outline:check</FuseSvgIcon>
                         </IconButton>
                       </InputAdornment>
                     ),

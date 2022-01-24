@@ -15,8 +15,9 @@ module.exports = {
       print: { raw: 'print' },
     },
     colors: ({ colors }) => ({
-      transparent: 'transparent',
+      inherit: colors.inherit,
       current: 'currentColor',
+      transparent: 'transparent',
       black: '#22292F',
       white: '#fff',
       grey: {

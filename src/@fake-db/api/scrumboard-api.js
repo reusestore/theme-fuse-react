@@ -199,9 +199,11 @@ mock.onGet(/\/api\/scrumboard\/boards\/[^/]+/).reply((config) => {
 mock.onPut(/\/api\/scrumboard\/boards\/[^/]+/).reply(({ url, data }) => {
   const { id } = url.match(/\/api\/scrumboard\/boards\/(?<id>[^/]+)/).groups;
 
-  _.assign(_.find(boardsDB, { id }), JSON.parse(data));
+  const board = _.find(boardsDB, { id });
 
-  return [200, _.find(boardsDB, { id })];
+  _.assign(board, { ...board, ...JSON.parse(data) });
+
+  return [200, board];
 });
 
 mock.onDelete(/\/api\/scrumboard\/boards\/[^/]+/).reply(({ url }) => {

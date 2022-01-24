@@ -2,7 +2,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 import Button from '@mui/material/Button';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
@@ -82,7 +81,7 @@ function BoardAddCard(props) {
                     endAdornment: (
                       <InputAdornment position="end">
                         <IconButton onClick={handleCloseForm} size="large">
-                          <Icon className="text-18">close</Icon>
+                          <FuseSvgIcon size={18}>heroicons-outline:x</FuseSvgIcon>
                         </IconButton>
                       </InputAdornment>
                     ),

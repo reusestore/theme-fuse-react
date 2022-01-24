@@ -37,7 +37,7 @@ const Root = styled('div')(({ theme, ...props }) => ({
     // height: headerHeight,
     // minHeight: headerHeight,
     display: 'flex',
-    flex: '1 0 auto',
+    flex: '0 1 auto',
     backgroundColor: theme.palette.background.paper,
     color: theme.palette.primary.main,
     backgroundSize: 'cover',

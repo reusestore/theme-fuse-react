@@ -45,10 +45,7 @@ export const reorderList = createAsyncThunk(
 
     const ordered = reorder(_.merge([], lists), result.source.index, result.destination.index);
 
-    const response = await axios.post('/api/scrumboard-app/list/order', {
-      boardId: board.id,
-      lists: ordered,
-    });
+    const response = await axios.put(`/api/scrumboard/boards/${board.id}`, { lists: ordered });
 
     const data = await response.data;
 
@@ -75,10 +72,7 @@ export const reorderCard = createAsyncThunk(
 
     const ordered = reorderQuoteMap(_.merge([], lists), source, destination);
 
-    const response = await axios.post('/api/scrumboard-app/card/order', {
-      boardId: board.id,
-      lists: ordered,
-    });
+    const response = await axios.put(`/api/scrumboard/boards/${board.id}`, { lists: ordered });
 
     const data = await response.data;
 
@@ -229,12 +223,8 @@ const boardsSlice = createSlice({
   },
   extraReducers: {
     [getBoard.fulfilled]: (state, action) => action.payload,
-    [reorderList.fulfilled]: (state, action) => {
-      state.lists = action.payload;
-    },
-    [reorderCard.fulfilled]: (state, action) => {
-      state.lists = action.payload;
-    },
+    [reorderList.fulfilled]: (state, action) => action.payload,
+    [reorderCard.fulfilled]: (state, action) => action.payload,
     [newList.fulfilled]: (state, action) => {
       state.lists = action.payload;
     },

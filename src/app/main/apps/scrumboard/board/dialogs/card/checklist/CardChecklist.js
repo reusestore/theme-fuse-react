@@ -1,6 +1,5 @@
 import { Controller, useForm } from 'react-hook-form';
 import _ from '@lodash';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import LinearProgress from '@mui/material/LinearProgress';
 import List from '@mui/material/List';
@@ -13,6 +12,7 @@ import { useRef, useState, useEffect } from 'react';
 import CardAddChecklistItem from './CardAddChecklistItem';
 import CardChecklistItem from './CardChecklistItem';
 import CardChecklistName from './CardChecklistName';
+import FuseSvgIcon from '../../../../../../../../@fuse/core/FuseSvgIcon';
 
 function CardChecklist(props) {
   const { onCheckListChange, checklist, index } = props;
@@ -51,7 +51,7 @@ function CardChecklist(props) {
     <div className="mb-24">
       <div className="flex items-center justify-between mt-16 mb-12">
         <div className="flex items-center">
-          <Icon className="text-20">check_box</Icon>
+          <FuseSvgIcon size={20}>heroicons-outline:check-circle</FuseSvgIcon>
           <Controller
             name="name"
             control={control}
@@ -73,7 +73,7 @@ function CardChecklist(props) {
             variant="outlined"
             size="small"
           >
-            <Icon className="text-20">more_vert</Icon>
+            <FuseSvgIcon size={20}>heroicons-outline:dots-vertical</FuseSvgIcon>
           </IconButton>
           <Menu
             id="actions-menu"
@@ -83,13 +83,13 @@ function CardChecklist(props) {
           >
             <MenuItem onClick={props.onRemoveCheckList}>
               <ListItemIcon className="min-w-40">
-                <Icon>delete</Icon>
+                <FuseSvgIcon>heroicons-outline:trash</FuseSvgIcon>
               </ListItemIcon>
               <ListItemText primary="Remove Checklist" />
             </MenuItem>
             <MenuItem onClick={handleOpenNameForm}>
               <ListItemIcon className="min-w-40">
-                <Icon>edit</Icon>
+                <FuseSvgIcon>heroicons-outline:pencil</FuseSvgIcon>
               </ListItemIcon>
               <ListItemText primary="Rename Checklist" />
             </MenuItem>

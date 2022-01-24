@@ -1,4 +1,3 @@
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import MenuItem from '@mui/material/MenuItem';
 import { DateTimePicker } from '@mui/lab';
@@ -8,10 +7,13 @@ import getUnixTime from 'date-fns/getUnixTime';
 import { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import ToolbarMenu from './ToolbarMenu';
+import FuseSvgIcon from '../../../../../../../../@fuse/core/FuseSvgIcon';
 
 function DueMenu(props) {
   const [anchorEl, setAnchorEl] = useState(null);
-  const dueDate = props.dueDate ? format(fromUnixTime(props.dueDate), 'Pp') : format(new Date(), 'Pp');
+  const dueDate = props.dueDate
+    ? format(fromUnixTime(props.dueDate), 'Pp')
+    : format(new Date(), 'Pp');
 
   function handleMenuOpen(event) {
     setAnchorEl(event.currentTarget);
@@ -23,8 +25,8 @@ function DueMenu(props) {
 
   return (
     <div>
-      <IconButton color="inherit" onClick={handleMenuOpen} size="large">
-        <Icon>today</Icon>
+      <IconButton onClick={handleMenuOpen} size="large">
+        <FuseSvgIcon>heroicons-outline:calendar</FuseSvgIcon>
       </IconButton>
       <ToolbarMenu state={anchorEl} onClose={handleMenuClose}>
         <div className="p-16 max-w-192">

@@ -1,6 +1,5 @@
 import Card from '@mui/material/Card';
 import { styled, darken } from '@mui/material/styles';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import clsx from 'clsx';
 import { useRef } from 'react';
@@ -47,6 +46,7 @@ function BoardList(props) {
           >
             <BoardListHeader
               list={list}
+              cardIds={cardIds}
               className="border-b-1"
               handleProps={provided.dragHandleProps}
             />

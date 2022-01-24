@@ -6,7 +6,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
@@ -15,6 +14,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
 import _ from '@lodash';
 import { newList } from '../../store/boardSlice';
+import FuseSvgIcon from '../../../../../../@fuse/core/FuseSvgIcon';
 
 const defaultValues = {
   title: '',
@@ -89,7 +89,7 @@ function BoardAddList(props) {
                       endAdornment: (
                         <InputAdornment position="end">
                           <IconButton onClick={handleCloseForm} size="large">
-                            <Icon className="text-18">close</Icon>
+                            <FuseSvgIcon size={18}>heroicons-outline:x</FuseSvgIcon>
                           </IconButton>
                         </InputAdornment>
                       ),
@@ -117,7 +117,9 @@ function BoardAddList(props) {
               root: 'font-medium w-full rounded-none h-64 px-16 justify-start',
             }}
           >
-            <Icon className="text-32 text-red">add_circle</Icon>
+            <FuseSvgIcon size={32} className="text-red">
+              heroicons-outline:plus-circle
+            </FuseSvgIcon>
             <span className="mx-8">Add a list</span>
           </Button>
         )}

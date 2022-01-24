@@ -1,5 +1,4 @@
 import Checkbox from '@mui/material/Checkbox';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
@@ -8,6 +7,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import ToolbarMenu from './ToolbarMenu';
 import { selectLabels } from '../../../../store/labelsSlice';
+import FuseSvgIcon from '../../../../../../../../@fuse/core/FuseSvgIcon';
 
 function LabelsMenu(props) {
   const labels = useSelector(selectLabels);
@@ -24,8 +24,8 @@ function LabelsMenu(props) {
 
   return (
     <div>
-      <IconButton color="inherit" onClick={handleMenuOpen} size="large">
-        <Icon>label</Icon>
+      <IconButton onClick={handleMenuOpen} size="large">
+        <FuseSvgIcon>heroicons-outline:tag</FuseSvgIcon>
       </IconButton>
       <ToolbarMenu state={anchorEl} onClose={handleMenuClose}>
         <div className="">
@@ -41,7 +41,7 @@ function LabelsMenu(props) {
                 <Checkbox checked={props.labels.includes(label.id)} />
                 <ListItemText className="mx-8">{label.title}</ListItemText>
                 <ListItemIcon className="min-w-24">
-                  <Icon>label</Icon>
+                  <FuseSvgIcon>heroicons-outline:tag</FuseSvgIcon>
                 </ListItemIcon>
               </MenuItem>
             );

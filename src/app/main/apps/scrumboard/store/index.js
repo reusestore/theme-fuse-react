@@ -14,7 +14,7 @@ const scrumboardAppReducers = combineReducers({
   cards,
   lists,
   labels,
-  members
+  members,
 });
 
 export default scrumboardAppReducers;

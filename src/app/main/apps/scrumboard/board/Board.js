@@ -1,16 +1,15 @@
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import withReducer from 'app/store/withReducer';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import withRouter from '@fuse/core/withRouter';
 import { useDeepCompareEffect } from '@fuse/hooks';
 import BoardHeader from 'app/main/apps/scrumboard/board/BoardHeader';
-import { styled } from '@mui/material/styles';
 import FusePageSimple from '@fuse/core/FusePageSimple/FusePageSimple';
 import reducer from '../store';
-import { resetBoard, getBoard, selectBoard } from '../store/boardSlice';
+import { resetBoard, getBoard, selectBoard, reorderCard, reorderList } from '../store/boardSlice';
 import BoardAddList from './board-list/BoardAddList';
 import BoardList from './board-list/BoardList';
 import BoardCardDialog from './dialogs/card/BoardCardDialog';
@@ -19,23 +18,11 @@ import { getCards } from '../store/cardsSlice';
 import { getLists } from '../store/listsSlice';
 import { getLabels } from '../store/labelsSlice';
 
-const Root = styled(FusePageSimple)(({ theme }) => ({
-  // '& .FusePageSimple-sidebar': {
-  //   backgroundColor: theme.palette.background.default,
-  //   color: theme.palette.primary.main,
-  //   boxShadow: 'none',
-  // },
-  // '& .FusePageSimple-leftSidebar': {
-  //   border: '0!important',
-  // },
-}));
-
 function Board(props) {
   const dispatch = useDispatch();
   const board = useSelector(selectBoard);
 
   const routeParams = useParams();
-  const containerRef = useRef(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useDeepCompareEffect(() => {
@@ -64,12 +51,13 @@ function Board(props) {
 
     // reordering list
     if (result.type === 'list') {
-      // dispatch(reorderList(result));
+      dispatch(reorderList(result));
     }
 
     // reordering card
     if (result.type === 'card') {
-      // dispatch(reorderCard(result));
+      console.info(result);
+      dispatch(reorderCard(result));
     }
   }
 
@@ -83,7 +71,7 @@ function Board(props) {
 
   return (
     <>
-      <Root
+      <FusePageSimple
         header={<BoardHeader onSetSidebarOpen={setSidebarOpen} />}
         content={
           <>

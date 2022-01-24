@@ -18529,7 +18529,7 @@
                 "type": "image"
               }
             ],
-            "subscribed": false,
+            "subscribed": true,
             "checklists": [
               {
                 "id": "63021cfdbe1x72wcf1fc451v",

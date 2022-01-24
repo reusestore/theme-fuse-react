@@ -2,7 +2,6 @@ import { Controller, useForm } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -15,6 +14,9 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
 import _ from '@lodash';
+import { Box } from '@mui/system';
+import { darken } from '@mui/material/styles';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { removeList, renameList } from '../../store/boardSlice';
 
 /**
@@ -25,6 +27,7 @@ const schema = yup.object().shape({
 });
 
 function BoardListHeader(props) {
+  const { list, cardIds } = props;
   const dispatch = useDispatch();
   const board = useSelector(({ scrumboardApp }) => scrumboardApp.board);
 
@@ -34,7 +37,7 @@ function BoardListHeader(props) {
   const { control, formState, handleSubmit, reset } = useForm({
     mode: 'onChange',
     defaultValues: {
-      title: props.list.title,
+      title: list.title,
     },
     resolver: yupResolver(schema),
   });
@@ -44,10 +47,10 @@ function BoardListHeader(props) {
   useEffect(() => {
     if (!formOpen) {
       reset({
-        title: props.list.title,
+        title: list.title,
       });
     }
-  }, [formOpen, reset, props.list.title]);
+  }, [formOpen, reset, list.title]);
 
   useEffect(() => {
     if (formOpen && anchorEl) {
@@ -73,7 +76,7 @@ function BoardListHeader(props) {
   }
 
   function onSubmit(data) {
-    dispatch(renameList({ boardId: board.id, listId: props.list.id, listTitle: data.title }));
+    dispatch(renameList({ boardId: board.id, listId: list.id, listTitle: data.title }));
     handleCloseForm();
   }
 
@@ -102,7 +105,7 @@ function BoardListHeader(props) {
                               disabled={_.isEmpty(dirtyFields) || !isValid}
                               size="large"
                             >
-                              <Icon>check</Icon>
+                              <FuseSvgIcon>heroicons-outline:check</FuseSvgIcon>
                             </IconButton>
                           </InputAdornment>
                         ),
@@ -114,11 +117,24 @@ function BoardListHeader(props) {
             </ClickAwayListener>
           ) : (
             <Typography className="text-14 font-medium cursor-pointer" onClick={handleOpenForm}>
-              {props.list.title}
+              {list.title}
             </Typography>
           )}
         </div>
-        <div className="">
+        <div className="flex items-center">
+          <Box
+            className="flex items-center justify-center min-w-24 h-24 mx-4 text-sm font-semibold leading-24 rounded-full"
+            sx={{
+              backgroundColor: (theme) =>
+                darken(
+                  theme.palette.background.default,
+                  theme.palette.mode === 'light' ? 0.1 : 0.3
+                ),
+              color: 'text.secondary',
+            }}
+          >
+            {cardIds.length}
+          </Box>
           <IconButton
             aria-owns={anchorEl ? 'actions-menu' : null}
             aria-haspopup="true"
@@ -126,7 +142,7 @@ function BoardListHeader(props) {
             variant="outlined"
             size="small"
           >
-            <Icon className="text-20">more_vert</Icon>
+            <FuseSvgIcon size={20}>heroicons-outline:dots-vertical</FuseSvgIcon>
           </IconButton>
           <Menu
             id="actions-menu"
@@ -136,17 +152,17 @@ function BoardListHeader(props) {
           >
             <MenuItem
               onClick={() => {
-                dispatch(removeList({ boardId: board.id, listId: props.list.id }));
+                dispatch(removeList({ boardId: board.id, listId: list.id }));
               }}
             >
               <ListItemIcon className="min-w-40">
-                <Icon>delete</Icon>
+                <FuseSvgIcon>heroicons-outline:trash</FuseSvgIcon>
               </ListItemIcon>
               <ListItemText primary="Remove List" />
             </MenuItem>
             <MenuItem onClick={handleOpenForm}>
               <ListItemIcon className="min-w-40">
-                <Icon>edit</Icon>
+                <FuseSvgIcon>heroicons-outline:pencil</FuseSvgIcon>
               </ListItemIcon>
               <ListItemText primary="Rename List" />
             </MenuItem>

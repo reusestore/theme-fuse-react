@@ -1,5 +1,4 @@
 import AppBar from '@mui/material/AppBar';
-import Icon from '@mui/material/Icon';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -9,6 +8,7 @@ import Switch from '@mui/material/Switch';
 import Toolbar from '@mui/material/Toolbar';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteBoard, copyBoard, changeBoardSettings } from '../../../store/boardSlice';
+import FuseSvgIcon from '../../../../../../../@fuse/core/FuseSvgIcon';
 
 function BoardSettingsSidebar(props) {
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ function BoardSettingsSidebar(props) {
           }
         >
           <ListItemIcon className="min-w-40">
-            <Icon>photo</Icon>
+            <FuseSvgIcon>heroicons-outline:photograph</FuseSvgIcon>
           </ListItemIcon>
           <ListItemText primary="Card Cover Images" />
           <ListItemSecondaryAction>
@@ -46,7 +46,7 @@ function BoardSettingsSidebar(props) {
           onClick={() => dispatch(changeBoardSettings({ subscribed: !board.settings.subscribed }))}
         >
           <ListItemIcon className="min-w-40">
-            <Icon>remove_red_eye</Icon>
+            <FuseSvgIcon>heroicons-outline:eye-off</FuseSvgIcon>
           </ListItemIcon>
           <ListItemText primary="Subscribe" />
           <ListItemSecondaryAction>
@@ -61,14 +61,14 @@ function BoardSettingsSidebar(props) {
 
         <ListItem button onClick={() => dispatch(copyBoard(board))}>
           <ListItemIcon className="min-w-40">
-            <Icon>file_copy</Icon>
+            <FuseSvgIcon>heroicons-outline:clipboard-copy</FuseSvgIcon>
           </ListItemIcon>
           <ListItemText primary="Copy Board" />
         </ListItem>
 
         <ListItem button onClick={() => dispatch(deleteBoard(board.id))}>
           <ListItemIcon className="min-w-40">
-            <Icon>delete</Icon>
+            <FuseSvgIcon>heroicons-outline:trash</FuseSvgIcon>
           </ListItemIcon>
           <ListItemText primary="Delete Board" />
         </ListItem>
