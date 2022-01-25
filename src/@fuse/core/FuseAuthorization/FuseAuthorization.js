@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { matchRoutes } from 'react-router-dom';
 import withRouter from '@fuse/core/withRouter';
 import settingsConfig from 'app/fuse-configs/settingsConfig';
+import history from '@history';
 
 class FuseAuthorization extends Component {
   constructor(props, context) {
@@ -58,9 +59,7 @@ class FuseAuthorization extends Component {
         Redirect to Login Page
         */
     if (!userRole || userRole.length === 0) {
-      navigate({
-        pathname: '/login',
-      });
+      history.push('/login');
       settingsConfig.loginRedirectUrl = pathname;
     } else {
       /*
@@ -68,9 +67,7 @@ class FuseAuthorization extends Component {
         User must be on unAuthorized page or just logged in
         Redirect to dashboard or loginRedirectUrl
         */
-      navigate({
-        pathname: loginRedirectUrl,
-      });
+      history.push(loginRedirectUrl);
       settingsConfig.loginRedirectUrl = this.defaultLoginRedirectUrl;
     }
   }
