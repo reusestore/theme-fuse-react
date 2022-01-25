@@ -56,13 +56,8 @@ function Board(props) {
 
     // reordering card
     if (result.type === 'card') {
-      console.info(result);
       dispatch(reorderCard(result));
     }
-  }
-
-  function toggleSettingsDrawer(state) {
-    setSidebarOpen(state === undefined ? !sidebarOpen : state);
   }
 
   if (!board) {
@@ -102,9 +97,10 @@ function Board(props) {
           </>
         }
         rightSidebarOpen={sidebarOpen}
-        rightSidebarContent={<BoardSettingsSidebar />}
-        rightSidebarOnClose={() => toggleSettingsDrawer(false)}
+        rightSidebarContent={<BoardSettingsSidebar onSetSidebarOpen={setSidebarOpen} />}
+        rightSidebarOnClose={() => setSidebarOpen(false)}
         scroll="content"
+        rightSidebarWidth={320}
       />
       <BoardCardDialog />
     </>

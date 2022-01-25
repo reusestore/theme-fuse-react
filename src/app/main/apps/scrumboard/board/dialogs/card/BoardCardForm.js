@@ -47,8 +47,8 @@ function BoardCardForm(props) {
 
   const cardForm = watch();
 
-  const updateCardData = useDebounce((boardId, newCard) => {
-    dispatch(updateCard({ boardId, card: { ...newCard } }));
+  const updateCardData = useDebounce((newCard) => {
+    dispatch(updateCard(newCard));
   }, 600);
 
   useEffect(() => {
@@ -56,9 +56,9 @@ function BoardCardForm(props) {
       return;
     }
     if (!_.isEqual(card, cardForm)) {
-      // updateCardData(board.id, cardForm);
+      updateCardData(cardForm);
     }
-  }, [board.id, card, cardForm, updateCardData]);
+  }, [card, cardForm, updateCardData]);
 
   useEffect(() => {
     register('attachmentCoverId');
@@ -249,9 +249,15 @@ function BoardCardForm(props) {
                   <CardAttachment
                     item={item}
                     card={cardForm}
-                    // makeCover={makeCover}
-                    // removeCover={removeCover}
-                    // removeAttachment={removeAttachment}
+                    makeCover={() => {
+                      setValue('attachmentCoverId', item.id);
+                    }}
+                    removeCover={() => {
+                      setValue('attachmentCoverId', '');
+                    }}
+                    removeAttachment={() => {
+                      setValue('attachments', _.reject(cardForm.attachments, { id: item.id }));
+                    }}
                     key={item.id}
                   />
                 ))}
@@ -385,11 +391,7 @@ function BoardCardForm(props) {
                 )}
               />
 
-              <OptionsMenu
-                onRemoveCard={() =>
-                  dispatch(removeCard({ boardId: board.id, cardId: cardForm.id }))
-                }
-              />
+              <OptionsMenu onRemoveCard={() => dispatch(removeCard())} />
             </div>
           </Box>
         </div>

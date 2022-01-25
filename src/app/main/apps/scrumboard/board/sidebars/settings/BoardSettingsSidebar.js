@@ -1,69 +1,110 @@
-import AppBar from '@mui/material/AppBar';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemSecondaryAction from '@mui/material/ListItemSecondaryAction';
 import ListItemText from '@mui/material/ListItemText';
 import Switch from '@mui/material/Switch';
-import Toolbar from '@mui/material/Toolbar';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteBoard, copyBoard, changeBoardSettings } from '../../../store/boardSlice';
-import FuseSvgIcon from '../../../../../../../@fuse/core/FuseSvgIcon';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import { Controller, useForm } from 'react-hook-form';
+import { useEffect } from 'react';
+import _ from '@lodash';
+import { useDebounce, useDeepCompareEffect } from '@fuse/hooks';
+import { deleteBoard, selectBoard, updateBoard } from '../../../store/boardSlice';
 
 function BoardSettingsSidebar(props) {
   const dispatch = useDispatch();
-  const board = useSelector(({ scrumboardApp }) => scrumboardApp.board);
+  const board = useSelector(selectBoard);
+
+  const { watch, control, reset } = useForm({
+    mode: 'onChange',
+    defaultValues: board.settings,
+  });
+
+  const boardSettingsForm = watch();
+
+  const updateBoardData = useDebounce((data) => {
+    dispatch(updateBoard(data));
+  }, 600);
+
+  useDeepCompareEffect(() => {
+    if (_.isEmpty(boardSettingsForm) || !board?.settings) {
+      return;
+    }
+    if (!_.isEqual(board.settings, boardSettingsForm)) {
+      updateBoardData({ settings: boardSettingsForm });
+    }
+  }, [board, boardSettingsForm, updateBoardData]);
+
+  useEffect(() => {
+    if (!board) {
+      return;
+    }
+    reset(board.settings);
+  }, [board, reset]);
+
+  if (_.isEmpty(boardSettingsForm)) {
+    return null;
+  }
 
   return (
     <div>
-      <AppBar position="static">
-        <Toolbar className="flex w-full justify-center">Settings</Toolbar>
+      <AppBar className="border-b-1" position="static" color="default" elevation={0}>
+        <Toolbar className="flex items-center px-4">
+          <IconButton onClick={() => props.onSetSidebarOpen(false)} color="inherit" size="large">
+            <FuseSvgIcon>heroicons-outline:x</FuseSvgIcon>
+          </IconButton>
+          <Typography className="px-4 font-medium text-16" color="inherit" variant="subtitle1">
+            Settings
+          </Typography>
+        </Toolbar>
       </AppBar>
 
-      <List className="py-16" dense>
-        <ListItem
-          button
-          onClick={() =>
-            dispatch(changeBoardSettings({ cardCoverImages: !board.settings.cardCoverImages }))
-          }
-        >
+      <List className="py-24">
+        <ListItem>
           <ListItemIcon className="min-w-40">
             <FuseSvgIcon>heroicons-outline:photograph</FuseSvgIcon>
           </ListItemIcon>
           <ListItemText primary="Card Cover Images" />
           <ListItemSecondaryAction>
-            <Switch
-              onChange={() =>
-                dispatch(changeBoardSettings({ cardCoverImages: !board.settings.cardCoverImages }))
-              }
-              checked={board.settings.cardCoverImages}
+            <Controller
+              name="cardCoverImages"
+              control={control}
+              render={({ field: { onChange, value } }) => (
+                <Switch
+                  onChange={(ev) => {
+                    onChange(ev.target.checked);
+                  }}
+                  checked={value}
+                />
+              )}
             />
           </ListItemSecondaryAction>
         </ListItem>
 
-        <ListItem
-          button
-          onClick={() => dispatch(changeBoardSettings({ subscribed: !board.settings.subscribed }))}
-        >
+        <ListItem>
           <ListItemIcon className="min-w-40">
             <FuseSvgIcon>heroicons-outline:eye-off</FuseSvgIcon>
           </ListItemIcon>
           <ListItemText primary="Subscribe" />
           <ListItemSecondaryAction>
-            <Switch
-              onChange={() =>
-                dispatch(changeBoardSettings({ subscribed: !board.settings.subscribed }))
-              }
-              checked={board.settings.subscribed}
+            <Controller
+              name="subscribed"
+              control={control}
+              render={({ field: { onChange, value } }) => (
+                <Switch
+                  onChange={(ev) => {
+                    onChange(ev.target.checked);
+                  }}
+                  checked={value}
+                />
+              )}
             />
           </ListItemSecondaryAction>
-        </ListItem>
-
-        <ListItem button onClick={() => dispatch(copyBoard(board))}>
-          <ListItemIcon className="min-w-40">
-            <FuseSvgIcon>heroicons-outline:clipboard-copy</FuseSvgIcon>
-          </ListItemIcon>
-          <ListItemText primary="Copy Board" />
         </ListItem>
 
         <ListItem button onClick={() => dispatch(deleteBoard(board.id))}>

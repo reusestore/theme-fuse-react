@@ -29,6 +29,7 @@ function BoardCard(props) {
   const card = useSelector((state) => selectCardById(state, cardId));
   const members = useSelector(selectMembers);
   const commentsCount = getCommentsCount(card);
+  const cardCoverImage = _.find(card.attachments, { id: card.attachmentCoverId });
 
   function handleCardClick(ev, _card) {
     ev.preventDefault();
@@ -50,12 +51,8 @@ function BoardCard(props) {
             )}
             onClick={(ev) => handleCardClick(ev, card)}
           >
-            {board.settings.cardCoverImages && card.attachmentCoverId !== '' && (
-              <img
-                className="block"
-                src={_.find(card.attachments, { id: card.attachmentCoverId }).src}
-                alt="card cover"
-              />
+            {board.settings.cardCoverImages && cardCoverImage && (
+              <img className="block" src={cardCoverImage.src} alt="card cover" />
             )}
 
             <div className="p-16 pb-0">

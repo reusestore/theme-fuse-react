@@ -6,14 +6,14 @@ function BoardModel(data) {
   return _.defaults(data, {
     title: 'Untitled Board',
     description: '',
-    icon: '',
-    lastActivity: '',
+    icon: 'heroicons-outline:template',
+    lastActivity: new Date(),
     members: [],
     settings: {
-      color: '',
       subscribed: true,
       cardCoverImages: true,
     },
+    lists: [],
   });
 }
 

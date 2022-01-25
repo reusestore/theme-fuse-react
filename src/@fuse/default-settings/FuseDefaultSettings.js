@@ -58,8 +58,7 @@ export const defaultThemeOptions = {
       styleOverrides: {
         root: {
           textTransform: 'none',
-
-          lineHeight: 1,
+          // lineHeight: 1,
         },
         sizeMedium: {
           borderRadius: 20,

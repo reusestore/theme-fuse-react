@@ -9,151 +9,18 @@ const cardsDB = mockApi.components.examples.scrumboard_cards.value;
 const membersDB = mockApi.components.examples.scrumboard_members.value;
 const listsDB = mockApi.components.examples.scrumboard_lists.value;
 
-mock.onGet('/api/scrumboard/labels').reply((config) => {
-  return [200, labelsDB];
-});
-
-mock.onPost('/api/scrumboard/labels').reply(({ data }) => {
-  const newLabel = { id: FuseUtils.generateGUID(), ...JSON.parse(data) };
-  labelsDB.push(newLabel);
-
-  return [200, newLabel];
-});
-
-mock.onGet(/\/api\/scrumboard\/labels\/[^/]+/).reply((config) => {
-  const { id } = config.url.match(/\/api\/scrumboard\/labels\/(?<id>[^/]+)/).groups;
-  const response = _.find(labelsDB, { id });
-
-  if (response) {
-    return [200, response];
-  }
-
-  return [404, 'Requested label do not exist.'];
-});
-
-mock.onPut(/\/api\/scrumboard\/labels\/[^/]+/).reply(({ url, data }) => {
-  const { id } = url.match(/\/api\/scrumboard\/labels\/(?<id>[^/]+)/).groups;
-
-  _.assign(_.find(labelsDB, { id }), JSON.parse(data));
-
-  return [200, _.find(labelsDB, { id })];
-});
-
-mock.onDelete(/\/api\/scrumboard\/labels\/[^/]+/).reply(({ url }) => {
-  const { id } = url.match(/\/api\/scrumboard\/labels\/(?<id>[^/]+)/).groups;
-
-  _.remove(labelsDB, { id });
-
-  return [200, id];
-});
-
-mock.onGet('/api/scrumboard/members').reply((config) => {
-  return [200, membersDB];
-});
-
-mock.onPost('/api/scrumboard/members').reply(({ data }) => {
-  const newMember = { id: FuseUtils.generateGUID(), ...JSON.parse(data) };
-  membersDB.push(newMember);
-
-  return [200, newMember];
-});
-
-mock.onPut(/\/api\/scrumboard\/members\/[^/]+/).reply(({ url, data }) => {
-  const { id } = url.match(/\/api\/scrumboard\/members\/(?<id>[^/]+)/).groups;
-
-  _.assign(_.find(membersDB, { id }), JSON.parse(data));
-
-  return [200, _.find(membersDB, { id })];
-});
-
-mock.onDelete(/\/api\/scrumboard\/members\/[^/]+/).reply(({ url }) => {
-  const { id } = url.match(/\/api\/scrumboard\/members\/(?<id>[^/]+)/).groups;
-
-  _.remove(membersDB, { id });
-
-  return [200, id];
-});
-
-mock.onGet('/api/scrumboard/cards').reply((config) => {
-  return [200, cardsDB];
-});
-
-mock.onPost('/api/scrumboard/cards').reply(({ data }) => {
-  const newCard = { id: FuseUtils.generateGUID(), ...JSON.parse(data) };
-  cardsDB.push(newCard);
-
-  return [200, newCard];
-});
-
-mock.onGet(/\/api\/scrumboard\/cards\/[^/]+/).reply((config) => {
-  const { id } = config.url.match(/\/api\/scrumboard\/cards\/(?<id>[^/]+)/).groups;
-  const response = _.find(cardsDB, { id });
-
-  if (response) {
-    return [200, response];
-  }
-
-  return [404, 'Requested card do not exist.'];
-});
-
-mock.onPut(/\/api\/scrumboard\/cards\/[^/]+/).reply(({ url, data }) => {
-  const { id } = url.match(/\/api\/scrumboard\/cards\/(?<id>[^/]+)/).groups;
-
-  _.assign(_.find(cardsDB, { id }), JSON.parse(data));
-
-  return [200, _.find(cardsDB, { id })];
-});
-
-mock.onDelete(/\/api\/scrumboard\/cards\/[^/]+/).reply(({ url }) => {
-  const { id } = url.match(/\/api\/scrumboard\/cards\/(?<id>[^/]+)/).groups;
-
-  _.remove(cardsDB, { id });
-
-  return [200, id];
-});
-
-mock.onGet('/api/scrumboard/lists').reply((config) => {
-  return [200, listsDB];
-});
-
-mock.onPost('/api/scrumboard/lists').reply(({ data }) => {
-  const newList = { id: FuseUtils.generateGUID(), ...JSON.parse(data) };
-  listsDB.push(newList);
-
-  return [200, newList];
-});
-
-mock.onGet(/\/api\/scrumboard\/lists\/[^/]+/).reply((config) => {
-  const { id } = config.url.match(/\/api\/scrumboard\/lists\/(?<id>[^/]+)/).groups;
-  const response = _.find(listsDB, { id });
-
-  if (response) {
-    return [200, response];
-  }
-
-  return [404, 'Requested list do not exist.'];
-});
-
-mock.onPut(/\/api\/scrumboard\/lists\/[^/]+/).reply(({ url, data }) => {
-  const { id } = url.match(/\/api\/scrumboard\/lists\/(?<id>[^/]+)/).groups;
-
-  _.assign(_.find(listsDB, { id }), JSON.parse(data));
-
-  return [200, _.find(listsDB, { id })];
-});
-
-mock.onDelete(/\/api\/scrumboard\/lists\/[^/]+/).reply(({ url }) => {
-  const { id } = url.match(/\/api\/scrumboard\/lists\/(?<id>[^/]+)/).groups;
-
-  _.remove(listsDB, { id });
-
-  return [200, id];
-});
-
+/**
+ * GET BOARDS
+ * GET api/scrumboard/boards
+ */
 mock.onGet('/api/scrumboard/boards').reply((config) => {
   return [200, boardsDB];
 });
 
+/**
+ * CREATE NEW BOARD
+ * POST api/scrumboard/boards
+ */
 mock.onPost('/api/scrumboard/boards').reply(({ data }) => {
   const newBoard = { id: FuseUtils.generateGUID(), ...JSON.parse(data) };
   boardsDB.push(newBoard);
@@ -161,30 +28,193 @@ mock.onPost('/api/scrumboard/boards').reply(({ data }) => {
   return [200, newBoard];
 });
 
-mock.onGet(/\/api\/scrumboard\/boards\/(?<id>[^/]+)\/members/).reply((config) => {
-  const { id } = config.url.match(/\/api\/scrumboard\/boards\/(?<id>[^/]+)\/members/).groups;
-  const members = membersDB.filter((item) => item.boardId === id);
-  return [200, members];
-});
-
+/**
+ * GET BOARD LABELS
+ * GET api/scrumboard/boards/{boardId}/labels
+ */
 mock.onGet(/\/api\/scrumboard\/boards\/(?<id>[^/]+)\/labels/).reply((config) => {
   const { id } = config.url.match(/\/api\/scrumboard\/boards\/(?<id>[^/]+)\/labels/).groups;
   const labels = labelsDB.filter((item) => item.boardId === id);
   return [200, labels];
 });
 
+/**
+ * CREATE CARD
+ * PUT api/scrumboard/boards/{boardId}/lists/{listId}/cards
+ */
+mock
+  .onPost(/\/api\/scrumboard\/boards\/(?<boardId>[^/]+)\/lists\/(?<listId>[^/]+)\/cards/)
+  .reply(({ url, data }) => {
+    const { boardId, listId } = url.match(
+      /\/api\/scrumboard\/boards\/(?<boardId>[^/]+)\/lists\/(?<listId>[^/]+)\/cards/
+    ).groups;
+
+    const newCard = {
+      title: '',
+      description: '',
+      labels: [],
+      dueDate: '',
+      attachmentCoverId: '',
+      memberIds: [],
+      attachments: [],
+      subscribed: true,
+      checklists: [],
+      activities: [],
+      ...JSON.parse(data),
+      id: FuseUtils.generateGUID(),
+      boardId,
+      listId,
+    };
+
+    cardsDB.push(newCard);
+
+    const board = _.find(boardsDB, { id: boardId });
+
+    // Add card into board
+    _.assign(board, {
+      ...board,
+      lists: board.lists.map((list) =>
+        list.id === listId ? { ...list, cards: [...list.cards, newCard.id] } : list
+      ),
+    });
+
+    return [200, newCard];
+  });
+
+/**
+ * UPDATE CARD
+ * PUT api/scrumboard/boards/{boardId}/cards/{cardId}
+ */
+mock
+  .onPut(/\/api\/scrumboard\/boards\/(?<boardId>[^/]+)\/cards\/(?<cardId>[^/]+)/)
+  .reply(({ url, data }) => {
+    const { boardId, cardId } = url.match(
+      /\/api\/scrumboard\/boards\/(?<boardId>[^/]+)\/cards\/(?<cardId>[^/]+)/
+    ).groups;
+
+    const card = _.find(cardsDB, { id: cardId });
+
+    _.assign(card, JSON.parse(data));
+    return [200, card];
+  });
+
+/**
+ * DELETE CARD
+ * api/scrumboard/boards/{boardId}/cards/{cardId}
+ */
+mock
+  .onDelete(/\/api\/scrumboard\/boards\/(?<boardId>[^/]+)\/cards\/(?<cardId>[^/]+)/)
+  .reply((config) => {
+    const { boardId, cardId } = config.url.match(
+      /\/api\/scrumboard\/boards\/(?<boardId>[^/]+)\/cards\/(?<cardId>[^/]+)/
+    ).groups;
+
+    const board = _.find(boardsDB, { id: boardId });
+
+    // Remove cards from board
+    _.assign(board, {
+      ...board,
+      lists: board.lists.map((list) => ({
+        ...list,
+        cards: _.reject(list.cards, (id) => id === cardId),
+      })),
+    });
+
+    // Remove card
+    _.remove(cardsDB, { id: cardId });
+
+    return [200, cardId];
+  });
+
+/** GET LISTS BY BOARD ID
+ * GET /api/scrumboard/boards/{boardId}/lists
+ */
 mock.onGet(/\/api\/scrumboard\/boards\/(?<id>[^/]+)\/lists/).reply((config) => {
   const { id } = config.url.match(/\/api\/scrumboard\/boards\/(?<id>[^/]+)\/lists/).groups;
   const lists = listsDB.filter((item) => item.boardId === id);
   return [200, lists];
 });
 
+/**
+ * UPDATE LIST
+ * PUT api/scrumboard/boards/{boardId}/lists/{listId}
+ */
+mock
+  .onPut(/\/api\/scrumboard\/boards\/(?<boardId>[^/]+)\/lists\/(?<listId>[^/]+)/)
+  .reply(({ url, data }) => {
+    const { boardId, listId } = url.match(
+      /\/api\/scrumboard\/boards\/(?<boardId>[^/]+)\/lists\/(?<listId>[^/]+)/
+    ).groups;
+
+    const list = _.find(listsDB, { id: listId });
+
+    _.assign(list, JSON.parse(data));
+
+    return [200, list];
+  });
+
+/**
+ * CREATE LIST
+ * POST api/scrumboard/boards/{boardId}/lists
+ */
+mock.onPost(/\/api\/scrumboard\/boards\/(?<boardId>[^/]+)\/lists/).reply(({ url, data }) => {
+  const { boardId } = url.match(/\/api\/scrumboard\/boards\/(?<boardId>[^/]+)\/lists/).groups;
+
+  const newList = {
+    id: FuseUtils.generateGUID(),
+    boardId,
+    ...JSON.parse(data),
+  };
+
+  listsDB.push(newList);
+
+  const board = _.find(boardsDB, { id: boardId });
+
+  // Add list into board
+  _.assign(board, { ...board, lists: [...board.lists, { id: newList.id, cards: [] }] });
+
+  return [200, newList];
+});
+
+/**
+ * DELETE LIST
+ * DELETE api/scrumboard/boards/{boardId}/lists/{listId}
+ */
+mock
+  .onDelete(/\/api\/scrumboard\/boards\/(?<boardId>[^/]+)\/lists\/(?<listId>[^/]+)/)
+  .reply((config) => {
+    const { boardId, listId } = config.url.match(
+      /\/api\/scrumboard\/boards\/(?<boardId>[^/]+)\/lists\/(?<listId>[^/]+)/
+    ).groups;
+
+    const board = _.find(boardsDB, { id: boardId });
+
+    // Remove cards of the list
+    _.remove(cardsDB, { listId });
+
+    // Remove list from board
+    _.assign(board, { ...board, lists: _.reject(board.lists, { id: listId }) });
+
+    // Remove list
+    _.remove(listsDB, { id: listId });
+
+    return [200, listId];
+  });
+
+/**
+ * GET BOARD CARDS
+ * GET api/scrumboard/boards/{boardId}/cards
+ */
 mock.onGet(/\/api\/scrumboard\/boards\/(?<id>[^/]+)\/cards/).reply((config) => {
   const { id } = config.url.match(/\/api\/scrumboard\/boards\/(?<id>[^/]+)\/cards/).groups;
   const cards = cardsDB.filter((item) => item.boardId === id);
   return [200, cards];
 });
 
+/**
+ * GET BOARD
+ * GET api/scrumboard/boards/{boardId}
+ */
 mock.onGet(/\/api\/scrumboard\/boards\/[^/]+/).reply((config) => {
   const { id } = config.url.match(/\/api\/scrumboard\/boards\/(?<id>[^/]+)/).groups;
   const board = _.find(boardsDB, { id });
@@ -196,6 +226,10 @@ mock.onGet(/\/api\/scrumboard\/boards\/[^/]+/).reply((config) => {
   return [404, 'Requested board do not exist.'];
 });
 
+/**
+ * UPDATE BOARD
+ * PUT api/scrumboard/boards/{boardId}
+ */
 mock.onPut(/\/api\/scrumboard\/boards\/[^/]+/).reply(({ url, data }) => {
   const { id } = url.match(/\/api\/scrumboard\/boards\/(?<id>[^/]+)/).groups;
 
@@ -206,10 +240,24 @@ mock.onPut(/\/api\/scrumboard\/boards\/[^/]+/).reply(({ url, data }) => {
   return [200, board];
 });
 
+/**
+ * DELETE BOARD
+ * DELETE api/scrumboard/boards/{boardId}
+ */
 mock.onDelete(/\/api\/scrumboard\/boards\/[^/]+/).reply(({ url }) => {
   const { id } = url.match(/\/api\/scrumboard\/boards\/(?<id>[^/]+)/).groups;
 
   _.remove(boardsDB, { id });
+  _.remove(cardsDB, { boardId: id });
+  _.remove(listsDB, { boardId: id });
 
   return [200, id];
+});
+
+/**
+ * GET ALL MEMBERS
+ * GET api/scrumboard/members
+ */
+mock.onGet('/api/scrumboard/members').reply(({ data }) => {
+  return [200, membersDB];
 });

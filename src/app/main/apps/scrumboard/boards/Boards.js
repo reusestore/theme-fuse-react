@@ -50,12 +50,12 @@ function Boards(props) {
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16 mt-32 md:mt-64"
       >
         {boards.map((board) => (
-          <motion.div variants={item} className="min-w-224" key={board.id}>
+          <motion.div variants={item} className="min-w-224 min-h-360" key={board.id}>
             <BoardItem board={board} key={board.id} />
           </motion.div>
         ))}
 
-        <motion.div variants={item} className="min-w-224">
+        <motion.div variants={item} className="min-w-224 min-h-360">
           <NewBoardItem />
         </motion.div>
       </motion.div>

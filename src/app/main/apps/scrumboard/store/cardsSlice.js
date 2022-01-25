@@ -1,7 +1,9 @@
 import { createSlice, createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit';
 import axios from 'axios';
-import history from '@history';
-import BoardModel from '../model/BoardModel';
+import _ from '@lodash';
+import { removeList } from './listsSlice';
+import { removeCard, updateCard } from './cardSlice';
+import CardModel from '../model/CardModel';
 
 export const getCards = createAsyncThunk('scrumboardApp/cards/getCards', async (boardId) => {
   const response = await axios.get(`/api/scrumboard/boards/${boardId}/cards`);
@@ -10,17 +12,16 @@ export const getCards = createAsyncThunk('scrumboardApp/cards/getCards', async (
   return data;
 });
 
-export const newBoard = createAsyncThunk(
-  'scrumboardApp/cards/newBoard',
-  async (board, { dispatch }) => {
-    const response = await axios.post('/api/scrumboard/cards', {
-      board: board || BoardModel(),
-    });
-    const data = await response.data;
+export const newCard = createAsyncThunk(
+  'scrumboardApp/cards/newCard',
+  async ({ listId, newData }, { dispatch, getState }) => {
+    const { board } = getState().scrumboardApp;
 
-    history.push({
-      pathname: `/apps/scrumboard/cards/${data.id}/${data.handle}`,
-    });
+    const response = await axios.post(
+      `/api/scrumboard/boards/${board.id}/lists/${listId}/cards`,
+      CardModel(newData)
+    );
+    const data = await response.data;
 
     return data;
   }
@@ -40,6 +41,16 @@ const cardsSlice = createSlice({
   },
   extraReducers: {
     [getCards.fulfilled]: cardsAdapter.setAll,
+    [removeList.fulfilled]: (state, action) => {
+      const listId = action.payload;
+      const { selectAll } = cardsAdapter.getSelectors();
+      const cards = selectAll(state);
+      const removedCardIds = _.map(_.filter(cards, { listId }), 'id');
+      return cardsAdapter.removeMany(state, removedCardIds);
+    },
+    [newCard.fulfilled]: cardsAdapter.addOne,
+    [updateCard.fulfilled]: cardsAdapter.setOne,
+    [removeCard.fulfilled]: cardsAdapter.removeOne,
   },
 });
 

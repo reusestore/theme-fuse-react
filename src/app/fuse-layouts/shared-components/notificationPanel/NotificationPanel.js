@@ -48,6 +48,7 @@ function NotificationPanel(props) {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
   useEffect(() => {
+    return;
     /*
 		Get Notifications from db
 		 */

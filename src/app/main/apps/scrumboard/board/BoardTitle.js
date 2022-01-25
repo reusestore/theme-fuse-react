@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
 import _ from '@lodash';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import { renameBoard } from '../store/boardSlice';
+import { updateBoard } from '../store/boardSlice';
 
 /**
  * Form Validation Schema
@@ -54,7 +54,7 @@ function BoardTitle(props) {
   }
 
   function onSubmit(data) {
-    dispatch(renameBoard({ boardId: board.id, boardTitle: data.title }));
+    dispatch(updateBoard(data));
     handleCloseForm();
   }
 

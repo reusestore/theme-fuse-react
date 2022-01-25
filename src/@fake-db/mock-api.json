@@ -136,7 +136,7 @@
         ]
       }
     },
-    "/scrumboard/board/{boardId}/lists": {
+    "/scrumboard/boards/{boardId}/lists": {
       "get": {
         "summary": "Get Lists",
         "responses": {
@@ -191,7 +191,7 @@
         }
       }
     },
-    "/scrumboard/board/{bordId}/lists/{listId}": {
+    "/scrumboard/boards/{bordId}/lists/{listId}": {
       "get": {
         "summary": "Get List",
         "responses": {
@@ -274,7 +274,7 @@
         ]
       }
     },
-    "/scrumboard/labels": {
+    "/scrumboard/boards/{boardId}/labels": {
       "get": {
         "summary": "Get Labels",
         "responses": {
@@ -296,7 +296,16 @@
           "scrumboard"
         ]
       },
-      "parameters": [],
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "boardId",
+          "in": "path",
+          "required": true
+        }
+      ],
       "post": {
         "summary": "Create Label",
         "operationId": "scrumboard_createLabel",
@@ -320,7 +329,7 @@
         }
       }
     },
-    "/scrumboard/labels/{labelId}": {
+    "/scrumboard/boards/{boardId}/labels/{labelId}": {
       "get": {
         "summary": "Get Label",
         "responses": {
@@ -348,6 +357,14 @@
             "type": "string"
           },
           "name": "labelId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "boardId",
           "in": "path",
           "required": true
         }
@@ -395,7 +412,7 @@
         ]
       }
     },
-    "/scrumboard/cards": {
+    "/scrumboard/boards/{boardId}/cards": {
       "get": {
         "summary": "Get Cards",
         "responses": {
@@ -417,7 +434,16 @@
           "scrumboard"
         ]
       },
-      "parameters": [],
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "boardId",
+          "in": "path",
+          "required": true
+        }
+      ],
       "post": {
         "summary": "Create Card",
         "operationId": "scrumboard_createCard",
@@ -441,7 +467,7 @@
         }
       }
     },
-    "/scrumboard/cards/{cardId}": {
+    "/scrumboard/boards/{boardId}/cards/{cardId}": {
       "get": {
         "summary": "Get Card",
         "responses": {
@@ -469,6 +495,14 @@
             "type": "string"
           },
           "name": "cardId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "boardId",
           "in": "path",
           "required": true
         }
@@ -4079,9 +4113,49 @@
             "icon": "heroicons-outline:template",
             "lastActivity": "2022-01-18T21:00:00.000Z",
             "members": [
-              "9c510cf3-460d-4a8c-b3be-bcc3db578c08",
-              "baa88231-0ee6-4028-96d5-7f187e0f4cd5",
-              "18bb18f3-ea7d-4465-8913-e8c9adf6f568"
+              "319ecb5b-f99c-4ee4-81b2-3aeffd1d4735",
+              "5bf7ed5b-8b04-46b7-b364-005958b7d82e",
+              "23a47d2c-c6cb-40cc-af87-e946a9df5028",
+              "6726643d-e8dc-42fa-83a6-b4ec06921a6b",
+              "6f6a1c34-390b-4b2e-97c8-ff0e0d787839"
+            ],
+            "settings": {
+              "subscribed": true,
+              "cardCoverImages": true
+            },
+            "lists": [
+              {
+                "id": "a2df7786-519c-485a-a85f-c09a61cc5f37",
+                "cards": [
+                  "ed58add1-45a7-41db-887d-3ca7ee7f2719",
+                  "e74e66e9-fe0f-441e-a8ce-28ed6eccc48d",
+                  "cd6897cb-acfd-4016-8b53-3f66a5b5fc68",
+                  "6da8747f-b474-4c9a-9eba-5ef212285500"
+                ]
+              },
+              {
+                "id": "83ca2a34-65af-49c0-a42e-94a34003fcf2",
+                "cards": [
+                  "94fb1dee-dd83-4cca-acdd-02e96d3cc4f1",
+                  "fc16f7d8-957d-43ed-ba85-20f99b5ce011",
+                  "cd7f01c5-a941-4076-8cef-37da0354e643"
+                ]
+              },
+              {
+                "id": "a85ea483-f8f7-42d9-a314-3fed6aac22ab",
+                "cards": [
+                  "c0b32f1f-64ec-4f8d-8b11-a8dc809df331"
+                ]
+              },
+              {
+                "id": "34cbef38-5687-4813-bd66-141a6df6d832",
+                "cards": [
+                  "532c2747-be79-464a-9897-6a682bf22b64",
+                  "1d908efe-c830-476e-9e87-d06e30d89bc2",
+                  "b1da11ed-7896-4826-962d-4b7b718896d4",
+                  "3b7f3ceb-107f-42bc-a204-c268c9a56cb4"
+                ]
+              }
             ]
           }
         },
@@ -4109,6 +4183,44 @@
           "members": {
             "type": "array",
             "items": {}
+          },
+          "settings": {
+            "type": "object",
+            "required": [
+              "subscribed",
+              "cardCoverImages"
+            ],
+            "properties": {
+              "subscribed": {
+                "type": "boolean"
+              },
+              "cardCoverImages": {
+                "type": "boolean"
+              }
+            }
+          },
+          "lists": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "cards": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              },
+              "required": [
+                "id"
+              ]
+            }
           }
         },
         "required": [
@@ -4117,7 +4229,9 @@
           "description",
           "icon",
           "lastActivity",
-          "members"
+          "members",
+          "settings",
+          "lists"
         ]
       },
       "scrumboard_card": {
@@ -4125,20 +4239,99 @@
         "type": "object",
         "x-examples": {
           "example-1": {
-            "id": "e74e66e9-fe0f-441e-a8ce-28ed6eccc48d",
+            "id": "ed58add1-45a7-41db-887d-3ca7ee7f2719",
             "boardId": "2c82225f-2a6c-45d3-b18a-1132712a4234",
             "listId": "a2df7786-519c-485a-a85f-c09a61cc5f37",
-            "position": 65536,
-            "title": "Example that showcase all of the available bits on the card with a fairly long title compared to other cards",
-            "description": "Example that showcase all of the available bits on the card with a fairly long title compared to other cards. Example that showcase all of the available bits on the card with a fairly long title compared to other cards.",
+            "title": "Do a research about most needed admin applications",
+            "description": "Current application doesn't support Node.js 7 and above.",
             "labels": [
-              "e0175175-2784-48f1-a519-a1d2e397c9b3",
-              "51779701-818a-4a53-bc16-137c3bd7a564",
-              "e8364d69-9595-46ce-a0f9-ce428632a0ac",
-              "caff9c9b-a198-4564-b1f4-8b3df1d345bb",
-              "f9eeb436-13a3-4208-a239-0d555960a567"
+              "e0175175-2784-48f1-a519-a1d2e397c9b3"
             ],
-            "dueDate": 1643026537
+            "dueDate": 1643026537,
+            "attachmentCoverId": "67027cahbe3b52ecf2dc631c",
+            "memberIds": [
+              "5bf7ed5b-8b04-46b7-b364-005958b7d82e",
+              "d1f612e6-3e3b-481f-a8a9-f917e243b06e",
+              "fe0fec0d-002b-406f-87ab-47eb87ba577c",
+              "23a47d2c-c6cb-40cc-af87-e946a9df5028",
+              "6726643d-e8dc-42fa-83a6-b4ec06921a6b",
+              "0d1eb062-13d5-4286-b8d4-e0bea15f3d56"
+            ],
+            "attachments": [
+              {
+                "id": "67027cahbe3b52ecf2dc631c",
+                "name": "mail.jpg",
+                "src": "assets/images/scrumboard/mail.jpg",
+                "time": 1642766617,
+                "type": "image"
+              },
+              {
+                "id": "56027cfcbe1b72ecf1fc452a",
+                "name": "calendar.jpg",
+                "src": "assets/images/scrumboard/calendar.jpg",
+                "time": 1642766617,
+                "type": "image"
+              }
+            ],
+            "subscribed": true,
+            "checklists": [
+              {
+                "id": "63021cfdbe1x72wcf1fc451v",
+                "name": "Checklist",
+                "checkItems": [
+                  {
+                    "id": 1,
+                    "name": "Implement a calendar library",
+                    "checked": false
+                  },
+                  {
+                    "id": 2,
+                    "name": "Replace event colors with Material Design colors",
+                    "checked": true
+                  },
+                  {
+                    "id": 3,
+                    "name": "Replace icons with Material Design icons",
+                    "checked": false
+                  },
+                  {
+                    "id": 4,
+                    "name": "Use date-fns",
+                    "checked": false
+                  }
+                ]
+              },
+              {
+                "name": "Checklist 2",
+                "id": "74031cfdbe1x72wcz1dc166z",
+                "checkItems": [
+                  {
+                    "id": 1,
+                    "name": "Replace event colors with Material Design colors",
+                    "checked": true
+                  },
+                  {
+                    "id": 2,
+                    "name": "Replace icons with Material Design icons",
+                    "checked": false
+                  },
+                  {
+                    "id": 3,
+                    "name": "Use date-fns",
+                    "checked": false
+                  }
+                ]
+              }
+            ],
+            "activities": [
+              {
+                "id": 1,
+                "type": "comment",
+                "idMember": "6726643d-e8dc-42fa-83a6-b4ec06921a6b",
+                "message": "AngularCLI could be a nice alternative.",
+                "time": 1642766617
+              }
+            ]
           }
         },
         "properties": {
@@ -4154,9 +4347,6 @@
             "type": "string",
             "minLength": 1
           },
-          "position": {
-            "type": "number"
-          },
           "title": {
             "type": "string",
             "minLength": 1
@@ -4167,22 +4357,157 @@
           },
           "labels": {
             "type": "array",
-            "items": {}
+            "items": {
+              "type": "object"
+            }
           },
           "dueDate": {
+            "type": "number"
+          },
+          "attachmentCoverId": {
             "type": "string",
             "minLength": 1
+          },
+          "memberIds": {
+            "type": "array",
+            "items": {}
+          },
+          "attachments": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "src": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "time": {
+                  "type": "number"
+                },
+                "type": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "src",
+                "time",
+                "type"
+              ]
+            }
+          },
+          "subscribed": {
+            "type": "boolean"
+          },
+          "checklists": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "checkItems": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number"
+                      },
+                      "name": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "checked": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name",
+                      "checked"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "name"
+              ]
+            }
+          },
+          "activities": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "type": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "idMember": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "message": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "time": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "id",
+                "type",
+                "idMember",
+                "message",
+                "time"
+              ]
+            }
           }
         },
         "required": [
           "id",
           "boardId",
           "listId",
-          "position",
           "title",
           "description",
           "labels",
-          "dueDate"
+          "dueDate",
+          "attachmentCoverId",
+          "memberIds",
+          "attachments",
+          "subscribed",
+          "checklists",
+          "activities"
         ]
       },
       "scrumboard_label": {
@@ -4257,9 +4582,6 @@
             "type": "string",
             "minLength": 1
           },
-          "position": {
-            "type": "number"
-          },
           "title": {
             "type": "string",
             "minLength": 1
@@ -4268,14 +4590,12 @@
         "required": [
           "id",
           "boardId",
-          "position",
           "title"
         ],
         "x-examples": {
           "example-1": {
             "id": "a2df7786-519c-485a-a85f-c09a61cc5f37",
             "boardId": "2c82225f-2a6c-45d3-b18a-1132712a4234",
-            "position": 65536,
             "title": "To do"
           }
         }
@@ -18275,12 +18595,13 @@
             "icon": "heroicons-outline:template",
             "lastActivity": "2022-01-18T21:00:00.000Z",
             "members": [
-              "9c510cf3-460d-4a8c-b3be-bcc3db578c08",
-              "baa88231-0ee6-4028-96d5-7f187e0f4cd5",
-              "18bb18f3-ea7d-4465-8913-e8c9adf6f568"
+              "319ecb5b-f99c-4ee4-81b2-3aeffd1d4735",
+              "5bf7ed5b-8b04-46b7-b364-005958b7d82e",
+              "23a47d2c-c6cb-40cc-af87-e946a9df5028",
+              "6726643d-e8dc-42fa-83a6-b4ec06921a6b",
+              "6f6a1c34-390b-4b2e-97c8-ff0e0d787839"
             ],
             "settings": {
-              "color": "fuse-dark",
               "subscribed": true,
               "cardCoverImages": true
             },
@@ -18326,17 +18647,11 @@
             "icon": "heroicons-outline:calendar",
             "lastActivity": "2022-01-17T21:00:00.000Z",
             "members": [
-              "79ebb9ee-1e57-4706-810c-03edaec8f56d",
-              "319ecb5b-f99c-4ee4-81b2-3aeffd1d4735",
-              "5bf7ed5b-8b04-46b7-b364-005958b7d82e",
-              "d1f612e6-3e3b-481f-a8a9-f917e243b06e",
-              "fe0fec0d-002b-406f-87ab-47eb87ba577c",
-              "23a47d2c-c6cb-40cc-af87-e946a9df5028",
-              "6726643d-e8dc-42fa-83a6-b4ec06921a6b",
-              "0d1eb062-13d5-4286-b8d4-e0bea15f3d56"
+              "9c510cf3-460d-4a8c-b3be-bcc3db578c08",
+              "baa88231-0ee6-4028-96d5-7f187e0f4cd5",
+              "18bb18f3-ea7d-4465-8913-e8c9adf6f568"
             ],
             "settings": {
-              "color": "fuse-dark",
               "subscribed": true,
               "cardCoverImages": true
             },
@@ -18352,7 +18667,6 @@
               "6f6a1c34-390b-4b2e-97c8-ff0e0d787839"
             ],
             "settings": {
-              "color": "fuse-dark",
               "subscribed": true,
               "cardCoverImages": true
             },
@@ -18469,25 +18783,21 @@
           {
             "id": "a2df7786-519c-485a-a85f-c09a61cc5f37",
             "boardId": "2c82225f-2a6c-45d3-b18a-1132712a4234",
-            "position": 65536,
             "title": "To do"
           },
           {
             "id": "83ca2a34-65af-49c0-a42e-94a34003fcf2",
             "boardId": "2c82225f-2a6c-45d3-b18a-1132712a4234",
-            "position": 131072,
             "title": "In progress"
           },
           {
             "id": "a85ea483-f8f7-42d9-a314-3fed6aac22ab",
             "boardId": "2c82225f-2a6c-45d3-b18a-1132712a4234",
-            "position": 196608,
             "title": "In review"
           },
           {
             "id": "34cbef38-5687-4813-bd66-141a6df6d832",
             "boardId": "2c82225f-2a6c-45d3-b18a-1132712a4234",
-            "position": 262144,
             "title": "Completed"
           }
         ]
@@ -18705,7 +19015,8 @@
             "memberIds": [
               "9c510cf3-460d-4a8c-b3be-bcc3db578c08",
               "baa88231-0ee6-4028-96d5-7f187e0f4cd5",
-              "18bb18f3-ea7d-4465-8913-e8c9adf6f568"],
+              "18bb18f3-ea7d-4465-8913-e8c9adf6f568"
+            ],
             "attachments": [
               {
                 "id": "67027cahbe3b52ecf2dc631c",
@@ -18813,7 +19124,6 @@
             "id": "fc16f7d8-957d-43ed-ba85-20f99b5ce011",
             "boardId": "2c82225f-2a6c-45d3-b18a-1132712a4234",
             "listId": "83ca2a34-65af-49c0-a42e-94a34003fcf2",
-            "position": 131072,
             "title": "Project dashboard design",
             "description": "",
             "labels": [

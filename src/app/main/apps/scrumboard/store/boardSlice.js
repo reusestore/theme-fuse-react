@@ -1,17 +1,18 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import FuseUtils from '@fuse/utils';
 import history from '@history';
 import _ from '@lodash';
 import { showMessage } from 'app/store/fuse/messageSlice';
-import CardModel from '../model/CardModel';
-import ListModel from '../model/ListModel';
 import reorder, { reorderQuoteMap } from './reorder';
-import { newBoard } from './boardsSlice';
-import { removeCard, updateCard } from './cardSlice';
+import { removeCard } from './cardSlice';
+import { newList, removeList } from './listsSlice';
+import { newCard } from './cardsSlice';
 
+/**
+ * Get Board
+ */
 export const getBoard = createAsyncThunk(
-  'scrumboardApp/board/getBoard',
+  'scrumboardApp/board/get',
   async (boardId, { dispatch }) => {
     try {
       const response = await axios.get(`/api/scrumboard/boards/${boardId}`);
@@ -37,6 +38,25 @@ export const getBoard = createAsyncThunk(
   }
 );
 
+/**
+ * Update Board
+ */
+export const updateBoard = createAsyncThunk(
+  'scrumboardApp/board/update',
+  async (newData, { dispatch, getState }) => {
+    const { board } = getState().scrumboardApp;
+
+    const response = await axios.put(`/api/scrumboard/boards/${board.id}`, newData);
+
+    const data = await response.data;
+
+    return data;
+  }
+);
+
+/**
+ * Reorder Board List
+ */
 export const reorderList = createAsyncThunk(
   'scrumboardApp/board/reorderList',
   async (result, { dispatch, getState }) => {
@@ -64,6 +84,9 @@ export const reorderList = createAsyncThunk(
   }
 );
 
+/**
+ * Reorder Board Card
+ */
 export const reorderCard = createAsyncThunk(
   'scrumboardApp/board/reorderCard',
   async ({ source, destination }, { dispatch, getState }) => {
@@ -91,119 +114,18 @@ export const reorderCard = createAsyncThunk(
   }
 );
 
-export const newCard = createAsyncThunk(
-  'scrumboardApp/board/newCard',
-  async ({ boardId, listId, cardTitle }, { dispatch, getState }) => {
-    const response = await axios.post('/api/scrumboard-app/card/new', {
-      boardId,
-      listId,
-      data: CardModel({ name: cardTitle }),
-    });
-
-    const data = await response.data;
-
-    return data;
-  }
-);
-
-export const newList = createAsyncThunk(
-  'scrumboardApp/board/newList',
-  async ({ boardId, listTitle }, { dispatch, getState }) => {
-    const response = await axios.post('/api/scrumboard-app/list/new', {
-      boardId,
-      data: ListModel({ name: listTitle }),
-    });
-
-    const data = await response.data;
-
-    return data;
-  }
-);
-
-export const renameList = createAsyncThunk(
-  'scrumboardApp/board/renameList',
-  async ({ boardId, listId, listTitle }, { dispatch, getState }) => {
-    const response = await axios.post('/api/scrumboard-app/list/rename', {
-      boardId,
-      listId,
-      listTitle,
-    });
-
-    const data = await response.data;
-
-    return data;
-  }
-);
-
-export const removeList = createAsyncThunk(
-  'scrumboardApp/board/removeList',
-  async ({ boardId, listId }, { dispatch, getState }) => {
-    const response = await axios.post('/api/scrumboard-app/list/remove', {
-      boardId,
-      listId,
-    });
-
-    const data = await response.data;
-
-    return data;
-  }
-);
-
-export const changeBoardSettings = createAsyncThunk(
-  'scrumboardApp/board/changeBoardSettings',
-  async (newSettings, { dispatch, getState }) => {
-    const { board } = getState().scrumboardApp;
-    const settings = _.merge({}, board.settings, newSettings);
-
-    const response = await axios.post('/api/scrumboard-app/board/settings/update', {
-      boardId: board.id,
-      settings,
-    });
-
-    const data = await response.data;
-
-    return data;
-  }
-);
-
+/**
+ * Delete Board
+ */
 export const deleteBoard = createAsyncThunk(
-  'scrumboardApp/board/deleteBoard',
-  async (boardId, { dispatch, getState }) => {
-    const response = await axios.post('/api/scrumboard-app/board/delete', {
-      boardId,
-    });
+  'scrumboardApp/board/delete',
+  async (params, { dispatch, getState }) => {
+    const { board } = getState().scrumboardApp;
+
+    const response = await axios.delete(`/api/scrumboard/boards/${board.id}`);
 
     history.push({
       pathname: '/apps/scrumboard/boards',
-    });
-
-    const data = await response.data;
-
-    return data;
-  }
-);
-
-export const copyBoard = createAsyncThunk(
-  'scrumboardApp/board/copyBoard',
-  async (board, { dispatch, getState }) => {
-    const newBoardData = _.merge({}, board, {
-      id: FuseUtils.generateGUID(),
-      name: `${board.name} (Copied)`,
-      uri: `${board.uri}-copied`,
-    });
-
-    dispatch(newBoard(newBoardData));
-
-    return newBoardData;
-  }
-);
-
-export const renameBoard = createAsyncThunk(
-  'scrumboardApp/board/renameBoard',
-  async ({ boardId, boardTitle }, { dispatch, getState }) => {
-    const response = await axios.post('/api/scrumboard-app/board/rename', {
-      boardId,
-      boardTitle,
     });
 
     const data = await response.data;
@@ -223,52 +145,33 @@ const boardsSlice = createSlice({
   },
   extraReducers: {
     [getBoard.fulfilled]: (state, action) => action.payload,
+    [updateBoard.fulfilled]: (state, action) => action.payload,
     [reorderList.fulfilled]: (state, action) => action.payload,
     [reorderCard.fulfilled]: (state, action) => action.payload,
-    [newList.fulfilled]: (state, action) => {
-      state.lists = action.payload;
-    },
-    [newCard.fulfilled]: (state, action) => action.payload,
-    [renameList.fulfilled]: (state, action) => {
-      const { listId, listTitle } = action.payload;
-      state.lists = state.lists.map((list) => {
-        if (list.id === listId) {
-          list.name = listTitle;
-        }
-        return list;
-      });
-    },
-    [removeList.fulfilled]: (state, action) => {
-      state.lists = _.reject(state.lists, { id: action.payload });
-    },
-    [changeBoardSettings.fulfilled]: (state, action) => {
-      state.settings = action.payload;
-    },
     [deleteBoard.fulfilled]: (state, action) => {
       state = {};
     },
-    [renameBoard.fulfilled]: (state, action) => {
-      state.name = action.payload;
-    },
-    [updateCard.fulfilled.type]: (state, action) => {
-      state.cards = state.cards.map((_card) => {
-        if (_card.id === action.payload.id) {
-          return action.payload;
-        }
-        return _card;
-      });
-    },
     [removeCard.fulfilled]: (state, action) => {
       const cardId = action.payload;
-      state.cards = _.reject(state.cards, { id: cardId });
-      state.lists = state.lists.map((list) => {
-        _.set(
-          list,
-          'idCards',
-          _.reject(list.idCards, (id) => id === cardId)
-        );
-        return list;
-      });
+
+      state.lists = state.lists.map((list) => ({
+        ...list,
+        cards: _.reject(list.cards, (id) => id === cardId),
+      }));
+    },
+    [removeList.fulfilled]: (state, action) => {
+      const listId = action.payload;
+
+      state.lists = _.reject(state.lists, { id: listId });
+    },
+    [newList.fulfilled]: (state, action) => {
+      state.lists = [...state.lists, { id: action.payload.id, cards: [] }];
+    },
+    [newCard.fulfilled]: (state, action) => {
+      const cardData = action.payload;
+      state.lists = state.lists.map((list) =>
+        list.id === cardData.listId ? { ...list, cards: [...list.cards, cardData.id] } : list
+      );
     },
   },
 });

@@ -6,11 +6,11 @@ import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 import _ from '@lodash';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import { newCard } from '../../store/boardSlice';
+import { newCard } from '../../store/cardsSlice';
 
 const defaultValues = {
   title: '',
@@ -25,7 +25,6 @@ const schema = yup.object().shape({
 
 function BoardAddCard(props) {
   const dispatch = useDispatch();
-  const board = useSelector(({ scrumboardApp }) => scrumboardApp.board);
 
   const [formOpen, setFormOpen] = useState(false);
   const { control, formState, handleSubmit, reset } = useForm({
@@ -51,12 +50,10 @@ function BoardAddCard(props) {
     setFormOpen(false);
   }
 
-  function onSubmit(data) {
-    dispatch(newCard({ boardId: board.id, listId: props.listId, cardTitle: data.title })).then(
-      () => {
-        props.onCardAdded();
-      }
-    );
+  function onSubmit(newData) {
+    dispatch(newCard({ listId: props.listId, newData })).then(() => {
+      props.onCardAdded();
+    });
     handleCloseForm();
   }
 
@@ -64,7 +61,7 @@ function BoardAddCard(props) {
     <div className="w-full">
       {formOpen ? (
         <ClickAwayListener onClickAway={handleCloseForm}>
-          <form className="p-16" onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <Controller
               name="title"
               control={control}
@@ -96,6 +93,7 @@ function BoardAddCard(props) {
                 color="secondary"
                 type="submit"
                 disabled={_.isEmpty(dirtyFields) || !isValid}
+                size="small"
               >
                 Add
               </Button>
@@ -109,6 +107,7 @@ function BoardAddCard(props) {
             root: 'font-medium w-full rounded-lg p-24 justify-start',
           }}
           startIcon={<FuseSvgIcon>heroicons-outline:plus-circle</FuseSvgIcon>}
+          sx={{ color: 'text.secondary' }}
         >
           Add another card
         </Button>

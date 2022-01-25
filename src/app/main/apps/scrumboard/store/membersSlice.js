@@ -1,6 +1,9 @@
 import { createSlice, createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+/**
+ * Get Members
+ */
 export const getMembers = createAsyncThunk('scrumboardApp/members/getMembers', async (boardId) => {
   const response = await axios.get(`/api/scrumboard/members`);
   const data = await response.data;

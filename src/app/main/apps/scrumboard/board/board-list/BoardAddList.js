@@ -13,8 +13,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
 import _ from '@lodash';
-import { newList } from '../../store/boardSlice';
-import FuseSvgIcon from '../../../../../../@fuse/core/FuseSvgIcon';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import { newList } from '../../store/listsSlice';
 
 const defaultValues = {
   title: '',
@@ -56,23 +56,23 @@ function BoardAddList(props) {
   }
 
   function onSubmit(data) {
-    dispatch(newList({ boardId: board.id, listTitle: data.title }));
+    dispatch(newList(data));
     handleCloseForm();
   }
 
   return (
     <div>
       <Card
-        className="w-320 mx-8 sm:mx-12 rounded-20 shadow"
+        className="w-320 mx-8 sm:mx-12 rounded-xl shadow-0"
         square
         sx={{
           backgroundColor: (theme) =>
-            darken(theme.palette.background.paper, theme.palette.mode === 'light' ? 0.02 : 0.25),
+            darken(theme.palette.background.default, theme.palette.mode === 'light' ? 0.03 : 0.25),
         }}
       >
         {formOpen ? (
           <ClickAwayListener onClickAway={handleCloseForm}>
-            <form className="p-16" onSubmit={handleSubmit(onSubmit)}>
+            <form className="p-12" onSubmit={handleSubmit(onSubmit)}>
               <Controller
                 name="title"
                 control={control}
@@ -104,6 +104,7 @@ function BoardAddList(props) {
                   color="secondary"
                   type="submit"
                   disabled={_.isEmpty(dirtyFields) || !isValid}
+                  size="small"
                 >
                   Add
                 </Button>
@@ -114,13 +115,12 @@ function BoardAddList(props) {
           <Button
             onClick={handleOpenForm}
             classes={{
-              root: 'font-medium w-full rounded-none h-64 px-16 justify-start',
+              root: 'font-medium w-full rounded-lg p-24 justify-start',
             }}
+            startIcon={<FuseSvgIcon>heroicons-outline:plus-circle</FuseSvgIcon>}
+            sx={{ color: 'text.secondary' }}
           >
-            <FuseSvgIcon size={32} className="text-red">
-              heroicons-outline:plus-circle
-            </FuseSvgIcon>
-            <span className="mx-8">Add a list</span>
+            Add another list
           </Button>
         )}
       </Card>
