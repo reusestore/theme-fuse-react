@@ -318,7 +318,7 @@ function BoardCardForm(props) {
           />
         </div>
 
-        <div className="flex order-first sm:order-last items-start">
+        <div className="flex order-first sm:order-last items-start sticky top-0">
           <Box
             className="flex flex-row sm:flex-col items-center sm:py-8 rounded-12 w-full"
             sx={{ backgroundColor: 'background.default' }}
