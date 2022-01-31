@@ -2,9 +2,27 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { showMessage } from 'app/store/fuse/messageSlice';
 
-export const getMail = createAsyncThunk('mailboxApp/mail/getMail', async (params) => {
-  const response = await axios.get('/api/mail-app/mail', { params });
+export const getMail = createAsyncThunk('mailboxApp/mail/getMail', async (routeParams) => {
+  let url = '/api/mailbox/mails/';
+  if (routeParams.folderHandle) {
+    url += `${routeParams.folderHandle}/${routeParams.mailId}`;
+  }
+
+  if (routeParams.labelHandle) {
+    url += `labels/${routeParams.labelHandle}/${routeParams.mailId}`;
+  }
+
+  if (routeParams.filterHandle) {
+    url += `filters/${routeParams.filterHandle}/${routeParams.mailId}`;
+  }
+
+  console.info(routeParams)
+
+  console.info(url)
+  const response = await axios.get(url);
+
   const data = await response.data;
+
   return data;
 });
 

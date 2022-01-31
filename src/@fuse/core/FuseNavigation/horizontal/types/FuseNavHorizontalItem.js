@@ -43,6 +43,7 @@ function FuseNavHorizontalItem(props) {
         className={clsx('fuse-list-item')}
         end={item.end}
         role="button"
+        sx={item.sx}
       >
         {item.icon && (
           <FuseSvgIcon

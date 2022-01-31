@@ -1,37 +1,41 @@
 import withReducer from 'app/store/withReducer';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams, Outlet } from 'react-router-dom';
-import { styled } from '@mui/material/styles';
+import { styled, useTheme } from '@mui/material/styles';
 import FusePageSimple from '@fuse/core/FusePageSimple';
-import MailDetails from './mail/MailDetails';
-import MailToolbar from './mail/MailToolbar';
-import MailboxAppHeader from './MailboxAppHeader';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import MailboxAppSidebarContent from './MailboxAppSidebarContent';
-import MailboxAppSidebarHeader from './MailboxAppSidebarHeader';
-import MailList from './mails/MailList';
-import MailsToolbar from './mails/MailsToolbar';
 import reducer from './store';
 import { getFilters } from './store/filtersSlice';
 import { getFolders } from './store/foldersSlice';
 import { getLabels } from './store/labelsSlice';
+import Mails from './mails/Mails';
 
 const Root = styled(FusePageSimple)(({ theme }) => ({
   '& .FusePageSimple-rightSidebar': {
     flex: '1',
+    [theme.breakpoints.down('lg')]: {
+      minWidth: '100%',
+    },
   },
   '& .FusePageSimple-contentWrapper': {
     [theme.breakpoints.up('lg')]: {
-      maxWidth: 360,
+      maxWidth: 400,
     },
   },
 }));
 
 function MailboxApp(props) {
   const dispatch = useDispatch();
+  const [rightSidebarOpen, setRightSidebarOpen] = useState(false);
+  const [leftSidebarOpen, setLeftSidebarOpen] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
 
   const pageLayout = useRef(null);
   const routeParams = useParams();
+  const { mailId } = routeParams;
 
   useEffect(() => {
     dispatch(getFilters());
@@ -39,14 +43,19 @@ function MailboxApp(props) {
     dispatch(getLabels());
   }, [dispatch]);
 
+  useEffect(() => {
+    setRightSidebarOpen(Boolean(mailId));
+  }, [mailId]);
+
   return (
     <Root
-      content={<MailList />}
+      content={<Mails />}
       leftSidebarContent={<MailboxAppSidebarContent />}
-      leftSidebarOpen
+      leftSidebarOpen={isMobile ? leftSidebarOpen : true}
+      leftSidebarWidth={288}
       scroll="content"
       rightSidebarContent={<Outlet />}
-      rightSidebarOpen
+      rightSidebarOpen={isMobile ? rightSidebarOpen : true}
     />
   );
 }

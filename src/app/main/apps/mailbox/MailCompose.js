@@ -15,7 +15,9 @@ import { useForm, Controller } from 'react-hook-form';
 import * as yup from 'yup';
 import _ from '@lodash';
 import WYSIWYGEditor from 'app/shared-components/WYSIWYGEditor';
+import clsx from 'clsx';
 import MailAttachment from './MailAttachment';
+import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 /**
  * Form Validation Schema
@@ -24,9 +26,10 @@ const schema = yup.object().shape({
   to: yup.string().required('You must enter an e-mail').email('You must enter a valid e-mail.'),
 });
 
-function MailCompose() {
+function MailCompose(props) {
+  const { className } = props;
   const [openDialog, setOpenDialog] = useState(false);
-  const { watch, handleSubmit, formState, control } = useForm({
+  const { handleSubmit, formState, control } = useForm({
     mode: 'onChange',
     defaultValues: {
       from: 'johndoe@creapond.com',
@@ -61,8 +64,14 @@ function MailCompose() {
   }
 
   return (
-    <div className="p-24 pb-8">
-      <Button variant="contained" color="secondary" className="w-full" onClick={handleOpenDialog}>
+    <div className={clsx('', className)}>
+      <Button
+        variant="contained"
+        color="secondary"
+        className="w-full"
+        onClick={handleOpenDialog}
+        startIcon={<FuseSvgIcon>heroicons-outline:plus</FuseSvgIcon>}
+      >
         {t('COMPOSE')}
       </Button>
 

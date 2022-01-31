@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk, createEntityAdapter } from '@reduxjs/too
 import axios from 'axios';
 
 export const getFolders = createAsyncThunk('mailboxApp/folders/getFolders', async () => {
-  const response = await axios.get('/api/mail-app/folders');
+  const response = await axios.get('/api/mailbox/folders');
   const data = await response.data;
 
   return data;

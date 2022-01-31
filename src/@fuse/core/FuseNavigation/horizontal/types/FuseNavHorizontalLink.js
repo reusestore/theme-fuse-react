@@ -41,6 +41,7 @@ function FuseNavHorizontalLink(props) {
         target={item.target ? item.target : '_blank'}
         className={clsx('fuse-list-item')}
         role="button"
+        sx={item.sx}
       >
         {item.icon && (
           <FuseSvgIcon

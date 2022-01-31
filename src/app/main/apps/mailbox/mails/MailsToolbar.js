@@ -5,6 +5,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Box } from '@mui/system';
 import { selectFolders } from '../store/foldersSlice';
 import { selectLabels } from '../store/labelsSlice';
 import {
@@ -48,13 +49,17 @@ function MailToolbar(props) {
   }
 
   return (
-    <div className="flex flex-1 items-center sm:px-8">
+    <Box
+      sx={{ backgroundColor: 'background.default' }}
+      className="flex items-center w-full min-h-64 px-8 border-b sticky top-0 z-10"
+    >
       <Checkbox
         onChange={handleCheckChange}
         checked={selectedMailIds.length === Object.keys(mails).length && selectedMailIds.length > 0}
         indeterminate={
           selectedMailIds.length !== Object.keys(mails).length && selectedMailIds.length > 0
         }
+        size="small"
       />
 
       <IconButton
@@ -92,7 +97,7 @@ function MailToolbar(props) {
         </MenuItem>
         <MenuItem
           onClick={(ev) => {
-            dispatch(selectMailsByParameter(['read', true]));
+            dispatch(selectMailsByParameter(['unread', false]));
             handleMenuClose(ev, 'select');
           }}
         >
@@ -100,7 +105,7 @@ function MailToolbar(props) {
         </MenuItem>
         <MenuItem
           onClick={(ev) => {
-            dispatch(selectMailsByParameter(['read', false]));
+            dispatch(selectMailsByParameter(['unread', true]));
             handleMenuClose(ev, 'select');
           }}
         >
@@ -213,7 +218,7 @@ function MailToolbar(props) {
           </Menu>
         </>
       )}
-    </div>
+    </Box>
   );
 }
 

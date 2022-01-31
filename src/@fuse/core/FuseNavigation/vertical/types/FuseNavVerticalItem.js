@@ -62,6 +62,7 @@ function FuseNavVerticalItem(props) {
         end={item.end}
         itempadding={itempadding}
         role="button"
+        sx={item.sx}
       >
         {item.icon && (
           <FuseSvgIcon

@@ -9,10 +9,11 @@ import PropTypes from 'prop-types';
 import { useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import { Box } from '@mui/system';
 import FuseNavBadge from '../../FuseNavBadge';
 import FuseSvgIcon from '../../../FuseSvgIcon';
 
-const Root = styled('div')(({ theme }) => ({
+const Root = styled(Box)(({ theme }) => ({
   '& > .fuse-list-item': {
     minHeight: 100,
     height: 100,
@@ -72,7 +73,7 @@ function FuseNavVerticalTab(props) {
 
   return useMemo(
     () => (
-      <Root>
+      <Root sx={item.sx}>
         <ListItem
           button
           component={item.url && NavLinkAdapter}

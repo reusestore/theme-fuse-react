@@ -54,6 +54,7 @@ function FuseNavVerticalLink(props) {
         onClick={() => onItemClick && onItemClick(item)}
         role="button"
         itempadding={itempadding}
+        sx={item.sx}
       >
         {item.icon && (
           <FuseSvgIcon

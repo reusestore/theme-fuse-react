@@ -9,11 +9,12 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { useEffect, useState, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
+import List from '@mui/material/List';
 import FuseNavBadge from '../../FuseNavBadge';
 import FuseNavItem from '../../FuseNavItem';
 import FuseSvgIcon from '../../../FuseSvgIcon';
 
-const Root = styled('ul')(({ theme, ...props }) => ({
+const Root = styled(List)(({ theme, ...props }) => ({
   padding: 0,
   '&.open': {},
   '& > .fuse-list-item': {
@@ -78,7 +79,7 @@ function FuseNavVerticalCollapse(props) {
 
   return useMemo(
     () => (
-      <Root className={clsx(open && 'open')} itempadding={itempadding}>
+      <Root className={clsx(open && 'open')} itempadding={itempadding} sx={item.sx}>
         <ListItem
           component={item.url ? NavLinkAdapter : 'li'}
           button

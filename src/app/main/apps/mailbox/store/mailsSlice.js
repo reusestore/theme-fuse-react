@@ -4,7 +4,6 @@ import axios from 'axios';
 export const getMails = createAsyncThunk(
   'mailboxApp/mails/getMails',
   async (routeParams, { getState }) => {
-    console.info(routeParams);
     routeParams = routeParams || getState().mailboxApp.mails.routeParams;
 
     let url = '/api/mailbox/mails/';
@@ -19,10 +18,10 @@ export const getMails = createAsyncThunk(
     if (routeParams.filterHandle) {
       url += `filters/${routeParams.filterHandle}`;
     }
-
+    console.info(url);
     const response = await axios.get(url);
     const data = await response.data;
-console.info(data)
+
     return { data, routeParams };
   }
 );

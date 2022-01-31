@@ -73,7 +73,7 @@ function MailList(props) {
 
   return (
     <List className="p-0 w-full">
-      <motion.div variants={container} initial="hidden" animate="show" v>
+      <motion.div variants={container} initial="hidden" animate="show">
         {filteredData.map((mail) => (
           <motion.div variants={item} key={mail.id}>
             <MailListItem mail={mail} />

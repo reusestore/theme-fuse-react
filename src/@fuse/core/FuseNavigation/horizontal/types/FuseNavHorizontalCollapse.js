@@ -89,6 +89,7 @@ function FuseNavHorizontalCollapse(props) {
                   to={item.url}
                   end={item.end}
                   role="button"
+                  sx={item.sx}
                 >
                   {item.icon && (
                     <FuseSvgIcon

@@ -13,11 +13,14 @@ import { toggleInSelectedMails } from '../store/mailsSlice';
 import { selectLabelsEntities } from '../store/labelsSlice';
 
 const StyledListItem = styled(ListItem)(({ theme, unread, selected }) => ({
+  background: theme.palette.background.default,
+  borderBottom: `1px solid ${theme.palette.divider}`,
+
   ...(unread && {
-    background: 'rgba(0,0,0,0.03)',
+    background: theme.palette.background.paper,
   }),
 
-  ...(selected && {
+  '&.selected': {
     '&::after': {
       content: '""',
       position: 'absolute',
@@ -28,7 +31,7 @@ const StyledListItem = styled(ListItem)(({ theme, unread, selected }) => ({
       width: 3,
       backgroundColor: theme.palette.primary.main,
     },
-  }),
+  },
 }));
 
 const MailListItem = (props) => {
@@ -46,8 +49,9 @@ const MailListItem = (props) => {
       component={NavLinkAdapter}
       to={props.mail.id}
       selected={checked}
-      unread={!props.mail.read ? 1 : 0}
+      unread={props.mail.unread ? 1 : 0}
       className="items-start py-20 px-0 md:px-8 relative w-full"
+      activeClassName="selected"
     >
       <Checkbox
         tabIndex={-1}

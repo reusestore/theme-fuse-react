@@ -1,18 +1,20 @@
-import _ from '@lodash';
 import Avatar from '@mui/material/Avatar';
-import Divider from '@mui/material/Divider';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import withRouter from '@fuse/core/withRouter';
 import { useDeepCompareEffect } from '@fuse/hooks';
-import MailChip from '../MailChip';
+import Paper from '@mui/material/Paper';
+import { Box } from '@mui/system';
+import Button from '@mui/material/Button';
 import { selectLabelsEntities } from '../store/labelsSlice';
 import { getMail } from '../store/mailSlice';
+import FuseSvgIcon from '../../../../../@fuse/core/FuseSvgIcon';
+import MailLabel from './MailLabel';
+import MailToolbar from './MailToolbar';
+import MailAttachment from './MailAttachment';
 
 function MailDetails(props) {
   const dispatch = useDispatch();
@@ -31,10 +33,125 @@ function MailDetails(props) {
   }
 
   return (
+    <>
+      <div className="z-10 relative flex flex-col flex-0 w-full border-b">
+        <MailToolbar />
+
+        <div className="flex flex-wrap items-center py-20 px-24">
+          <div className="flex flex-auto my-4 mr-16 text-2xl">{mail.subject}</div>
+          {mail.labels && mail.labels.length > 0 && (
+            <div className="flex flex-wrap items-center justify-start -mx-4">
+              {mail.labels.map((labelId) => (
+                <MailLabel className="m-4" key={labelId} labelId={labelId} />
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+
+      <Box
+        sx={{ backgroundColor: 'background.default' }}
+        className="flex flex-col flex-auto shrink-0 lg:shrink p-12 lg:overflow-y-auto"
+      >
+        <Paper className="flex flex-col flex-0 w-full shadow rounded-2xl overflow-hidden">
+          <div className="flex flex-col py-32 px-24">
+            <div className="flex items-center w-full">
+              <Avatar src={mail.from.avatar} />
+
+              <div className="ml-16 min-w-0">
+                <Typography className="font-semibold truncate">
+                  {mail.from.contact.split('<')[0].trim()}
+                </Typography>
+
+                <div className="flex items-center mt-2 leading-5">
+                  <div>to</div>
+                  <div className="ml-1 font-semibold">me</div>
+                  {mail.ccCount + mail.bccCount > 0 && (
+                    <div>
+                      <span className="ml-4">and</span>
+                      <span className="ml-4 font-semibold">{mail.ccCount + mail.bccCount}</span>
+                      <span className="ml-4 font-semibold">
+                        {mail.ccCount + mail.bccCount === 1 ? 'other' : 'others'}
+                      </span>
+                    </div>
+                  )}
+                  <IconButton className="w-20 h-20 min-h-20 ml-4">
+                    <FuseSvgIcon size={20}>heroicons-solid:chevron-down</FuseSvgIcon>
+                  </IconButton>
+
+                  {/*  <div className="flex">
+          <div className="min-w-56 font-medium text-right">date:</div>
+          <Typography className="pl-8 whitespace-pre-wrap">{format(new Date(mail.date),'EEEE, MMMM d, y - hh:mm a')}</Typography>
+        </div>
+        <div className="flex">
+          <Typography className="min-w-56 font-medium text-right">subject:</Typography>
+          <Typography className="pl-8 whitespace-pre-wrap">{mail.subject}</Typography>
+        </div> */}
+                </div>
+              </div>
+            </div>
+            <Typography
+              className="flex mt-32 whitespace-pre-line leading-relaxed"
+              variant="body2"
+              dangerouslySetInnerHTML={{ __html: mail.content }}
+            />
+
+            {mail.attachments && mail.attachments.length > 0 && (
+              <div className="flex flex-col w-full">
+                <div className="flex items-center mt-48">
+                  <FuseSvgIcon size={20}>heroicons-solid:paper-clip</FuseSvgIcon>
+                  <div className="mx-8 font-semibold">{mail.attachments.length} Attachments</div>
+                </div>
+
+                <div className="flex flex-wrap -m-12 mt-12">
+                  {mail.attachments.map((attachment, index) => (
+                    <MailAttachment key={index} attachment={attachment} />
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          <Box className="flex w-full p-24 border-t" sx={{ backgroundColor: 'background.default' }}>
+            <div className="flex flex-wrap w-full -m-8">
+              <Button
+                className="m-8"
+                color="secondary"
+                startIcon={<FuseSvgIcon size={20}>heroicons-solid:reply</FuseSvgIcon>}
+                variant="outlined"
+              >
+                Reply
+              </Button>
+              <Button
+                className="m-8"
+                color="secondary"
+                startIcon={<FuseSvgIcon size={20}>heroicons-solid:reply</FuseSvgIcon>}
+                variant="outlined"
+              >
+                Reply All
+              </Button>
+
+              <Button
+                className="m-8"
+                color="secondary"
+                startIcon={
+                  <FuseSvgIcon size={20}>heroicons-solid:chevron-double-right</FuseSvgIcon>
+                }
+                variant="outlined"
+              >
+                Forward
+              </Button>
+            </div>
+          </Box>
+        </Paper>
+      </Box>
+    </>
+  );
+  /*  return (
     <div className="p-16 sm:p-24">
       <div className="flex items-center justify-between overflow-hidden">
         <div className="flex flex-col">
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.1 } }}>
+          <motion.div initial={ opacity: 0 } animate={ opacity: 1, transition: { delay: 0.1 } }>
             <Typography variant="subtitle1" className="flex">
               {mail.subject}
             </Typography>
@@ -58,8 +175,8 @@ function MailDetails(props) {
       <Divider className="my-24" />
 
       <motion.div
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}
+        initial={ y: 50, opacity: 0 }
+        animate={ y: 0, opacity: 1, transition: { delay: 0.2 } }
       >
         <div className="flex items-start justify-between">
           <div className="flex items-center justify-start">
@@ -93,7 +210,7 @@ function MailDetails(props) {
             className="cursor-pointer underline mb-8"
             onClick={() => {
               setShowDetails(!showDetails);
-            }}
+            }
           >
             {showDetails ? <span>Hide Details</span> : <span>Show Details</span>}
           </Typography>
@@ -118,7 +235,7 @@ function MailDetails(props) {
         <Typography
           className="text-14 my-24 leading-normal"
           variant="body2"
-          dangerouslySetInnerHTML={{ __html: mail.message }}
+          dangerouslySetInnerHTML={ __html: mail.message }
         />
 
         <Divider className="my-24" />
@@ -162,7 +279,7 @@ function MailDetails(props) {
         )}
       </motion.div>
     </div>
-  );
+  ); */
 }
 
 export default withRouter(MailDetails);
