@@ -41,7 +41,7 @@ function MailCompose() {
 
   const { isValid, dirtyFields, errors } = formState;
 
-  const { t } = useTranslation('mailApp');
+  const { t } = useTranslation('mailboxApp');
 
   function handleOpenDialog() {
     setOpenDialog(true);

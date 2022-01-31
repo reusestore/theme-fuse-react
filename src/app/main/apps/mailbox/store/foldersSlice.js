@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const getFolders = createAsyncThunk('mailApp/folders/getFolders', async () => {
+export const getFolders = createAsyncThunk('mailboxApp/folders/getFolders', async () => {
   const response = await axios.get('/api/mail-app/folders');
   const data = await response.data;
 
@@ -11,10 +11,10 @@ export const getFolders = createAsyncThunk('mailApp/folders/getFolders', async (
 const foldersAdapter = createEntityAdapter({});
 
 export const { selectAll: selectFolders, selectById: selectFolderById } =
-  foldersAdapter.getSelectors((state) => state.mailApp.folders);
+  foldersAdapter.getSelectors((state) => state.mailboxApp.folders);
 
 const foldersSlice = createSlice({
-  name: 'mailApp/folders',
+  name: 'mailboxApp/folders',
   initialState: foldersAdapter.getInitialState({}),
   reducers: {},
   extraReducers: {

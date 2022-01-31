@@ -2,16 +2,16 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { showMessage } from 'app/store/fuse/messageSlice';
 
-export const getMail = createAsyncThunk('mailApp/mail/getMail', async (params) => {
+export const getMail = createAsyncThunk('mailboxApp/mail/getMail', async (params) => {
   const response = await axios.get('/api/mail-app/mail', { params });
   const data = await response.data;
   return data;
 });
 
 export const updateMail = createAsyncThunk(
-  'mailApp/mail/updateMail',
+  'mailboxApp/mail/updateMail',
   async (_data, { getState, dispatch }) => {
-    const { id } = getState().mailApp.mail;
+    const { id } = getState().mailboxApp.mail;
 
     const response = await axios.post('/api/mail-app/update-mail', { id, ..._data });
     const data = await response.data;
@@ -23,7 +23,7 @@ export const updateMail = createAsyncThunk(
 );
 
 const mailSlice = createSlice({
-  name: 'mailApp/mail',
+  name: 'mailboxApp/mail',
   initialState: null,
   reducers: {},
   extraReducers: {

@@ -8,7 +8,7 @@ import { updateMail } from '../store/mailSlice';
 
 function MailToolbar(props) {
   const dispatch = useDispatch();
-  const mail = useSelector(({ mailApp }) => mailApp.mail);
+  const mail = useSelector(({ mailboxApp }) => mailboxApp.mail);
   const theme = useTheme();
 
   if (!mail) {

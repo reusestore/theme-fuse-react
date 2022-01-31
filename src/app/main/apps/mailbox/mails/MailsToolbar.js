@@ -18,7 +18,7 @@ import {
 
 function MailToolbar(props) {
   const dispatch = useDispatch();
-  const selectedMailIds = useSelector(({ mailApp }) => mailApp.mails.selectedMailIds);
+  const selectedMailIds = useSelector(({ mailboxApp }) => mailboxApp.mails.selectedMailIds);
   const mails = useSelector(selectMails);
   const labels = useSelector(selectLabels);
   const folders = useSelector(selectFolders);

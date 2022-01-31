@@ -12,9 +12,9 @@ const accounts = {
   withinpixels: 'johndoe@withinpixels.com',
 };
 
-function MailAppSidebarHeader(props) {
+function MailboxAppSidebarHeader(props) {
   const [selectedAccount, setSelectedCount] = useState('creapond');
-  const { t } = useTranslation('mailApp');
+  const { t } = useTranslation('mailboxApp');
 
   function handleAccountChange(ev) {
     setSelectedCount(ev.target.value);
@@ -68,4 +68,4 @@ function MailAppSidebarHeader(props) {
   );
 }
 
-export default MailAppSidebarHeader;
+export default MailboxAppSidebarHeader;

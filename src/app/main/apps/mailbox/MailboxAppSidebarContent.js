@@ -4,10 +4,11 @@ import Icon from '@mui/material/Icon';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-import ListSubheader from '@mui/material/ListSubheader';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import Typography from '@mui/material/Typography';
 import MailCompose from './MailCompose';
 import { selectFilters } from './store/filtersSlice';
 import { selectFolders } from './store/foldersSlice';
@@ -40,12 +41,12 @@ const StyledListItem = styled(ListItem)(({ theme }) => ({
   },
 }));
 
-function MailAppSidebarContent(props) {
+function MailboxAppSidebarContent(props) {
   const folders = useSelector(selectFolders);
   const labels = useSelector(selectLabels);
   const filters = useSelector(selectFilters);
 
-  const { t } = useTranslation('mailApp');
+  const { t } = useTranslation('mailboxApp');
 
   return (
     <motion.div
@@ -57,16 +58,16 @@ function MailAppSidebarContent(props) {
 
       <div className="px-12">
         <List>
-          <ListSubheader className="pl-12" disableSticky>
+          <Typography className="px-16 py-10 uppercase text-12 font-600" color="secondary">
             {t('FOLDERS')}
-          </ListSubheader>
+          </Typography>
 
           {folders.length > 0 &&
             folders.map((folder) => (
               <StyledListItem
                 button
                 component={NavLinkAdapter}
-                to={`/apps/mail/${folder.handle}`}
+                to={`/apps/mailbox/${folder.handle}`}
                 key={folder.id}
                 activeClassName="active"
               >
@@ -82,16 +83,16 @@ function MailAppSidebarContent(props) {
         </List>
 
         <List>
-          <ListSubheader className="pl-12" disableSticky>
+          <Typography className="px-16 py-10 uppercase text-12 font-600" color="secondary">
             {t('FILTERS')}
-          </ListSubheader>
+          </Typography>
 
           {filters.length > 0 &&
             filters.map((filter) => (
               <StyledListItem
                 button
                 component={NavLinkAdapter}
-                to={`/apps/mail/filter/${filter.handle}`}
+                to={`/apps/mailbox/filter/${filter.slug}`}
                 activeClassName="active"
                 key={filter.id}
               >
@@ -107,21 +108,25 @@ function MailAppSidebarContent(props) {
         </List>
 
         <List>
-          <ListSubheader className="pl-12" disableSticky>
+          <Typography className="px-16 py-10 uppercase text-12 font-600" color="secondary">
             {t('LABELS')}
-          </ListSubheader>
+          </Typography>
 
           {labels &&
             labels.map((label) => (
               <StyledListItem
                 button
                 component={NavLinkAdapter}
-                to={`/apps/mail/label/${label.handle}`}
+                to={`/apps/mailbox/label/${label.slug}`}
                 key={label.id}
               >
-                <Icon className="list-item-icon" style={{ color: label.color }} color="action">
-                  label
-                </Icon>
+                <FuseSvgIcon
+                  className="list-item-icon opacity-60"
+                  sx={{ color: label.color }}
+                  color="disabled"
+                >
+                  heroicons-outline:tag
+                </FuseSvgIcon>
                 <ListItemText primary={label.title} disableTypography />
               </StyledListItem>
             ))}
@@ -131,4 +136,4 @@ function MailAppSidebarContent(props) {
   );
 }
 
-export default MailAppSidebarContent;
+export default MailboxAppSidebarContent;

@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import withRouter from '@fuse/core/withRouter';
 import { useDeepCompareEffect } from '@fuse/hooks';
 import { getMails, selectMails } from '../store/mailsSlice';
@@ -14,11 +14,14 @@ import MailListItem from './MailListItem';
 function MailList(props) {
   const dispatch = useDispatch();
   const mails = useSelector(selectMails);
-  const searchText = useSelector(({ mailApp }) => mailApp.mails.searchText);
+  const searchText = useSelector(({ mailboxApp }) => mailboxApp.mails.searchText);
 
   const routeParams = useParams();
+  const location = useLocation();
   const [filteredData, setFilteredData] = useState(null);
-  const { t } = useTranslation('mailApp');
+  const { t } = useTranslation('mailboxApp');
+
+  console.info(location);
 
   useDeepCompareEffect(() => {
     dispatch(getMails(routeParams));
@@ -69,7 +72,7 @@ function MailList(props) {
   };
 
   return (
-    <List className="p-0">
+    <List className="p-0 w-full">
       <motion.div variants={container} initial="hidden" animate="show" v>
         {filteredData.map((mail) => (
           <motion.div variants={item} key={mail.id}>

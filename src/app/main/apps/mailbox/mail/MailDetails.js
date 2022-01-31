@@ -16,7 +16,7 @@ import { getMail } from '../store/mailSlice';
 
 function MailDetails(props) {
   const dispatch = useDispatch();
-  const mail = useSelector(({ mailApp }) => mailApp.mail);
+  const mail = useSelector(({ mailboxApp }) => mailboxApp.mail);
   const labels = useSelector(selectLabelsEntities);
 
   const routeParams = useParams();

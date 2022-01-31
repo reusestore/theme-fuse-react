@@ -41,16 +41,16 @@ function MultiLanguageDoc() {
       </Typography>
 
       <FuseHighlight component="pre" className="language-jsx mb-24">
-        {require('!raw-loader!app/main/apps/mail/i18n/en.js')}
+        {require('!raw-loader!app/main/apps/mailbox/i18n/en.js')}
       </FuseHighlight>
 
       <Typography className="mb-16" component="p">
         And register the language file with <code>i18next.addResourceBundle()</code> at
-        <code>src/app/main/apps/mail/MailAppConfig.js</code>
+        <code>src/app/main/apps/mailbox/MailboxAppConfig.js</code>
       </Typography>
 
       <FuseHighlight component="pre" className="language-jsx mb-24">
-        {require('!raw-loader!app/main/apps/mail/MailAppConfig.js')}
+        {require('!raw-loader!app/main/apps/mailbox/MailboxAppConfig.js')}
       </FuseHighlight>
 
       <Typography className="mb-16" component="p">

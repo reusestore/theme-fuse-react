@@ -81,7 +81,7 @@ function RoutingDoc() {
 
       <FuseHighlight component="pre" className="language-jsx mb-32">
         {`
-                                import {appsRoutes} from 'app/main/apps/mail/MailAppConfig.js';
+                                import {appsRoutes} from 'app/main/apps/mailbox/MailboxAppConfig.js';
                                 import FuseUtils from '@fuse/utils';
                                 import { Navigate } from 'react-router-dom';
 

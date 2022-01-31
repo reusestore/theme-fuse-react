@@ -9,11 +9,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectMainTheme } from 'app/store/fuse/settingsSlice';
 import { setMailsSearchText } from './store/mailsSlice';
 
-function MailAppHeader(props) {
+function MailboxAppHeader(props) {
   const dispatch = useDispatch();
-  const searchText = useSelector(({ mailApp }) => mailApp.mails.searchText);
+  const searchText = useSelector(({ mailboxApp }) => mailboxApp.mails.searchText);
   const mainTheme = useSelector(selectMainTheme);
-  const { t } = useTranslation('mailApp');
+  const { t } = useTranslation('mailboxApp');
 
   return (
     <ThemeProvider theme={mainTheme}>
@@ -48,4 +48,4 @@ function MailAppHeader(props) {
   );
 }
 
-export default MailAppHeader;
+export default MailboxAppHeader;
