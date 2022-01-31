@@ -2,28 +2,39 @@ import Checkbox from '@mui/material/Checkbox';
 import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
+import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Box } from '@mui/system';
-import { selectFolders } from '../store/foldersSlice';
-import { selectLabels } from '../store/labelsSlice';
+import { useTranslation } from 'react-i18next';
+import InputAdornment from '@mui/material/InputAdornment';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import { OutlinedInput } from '@mui/material';
+import Hidden from '@mui/material/Hidden';
+import MailListTitle from 'app/main/apps/mailbox/mails/MailListTitle';
 import {
-  toggleLabelOnSelectedMails,
-  setFolderOnSelectedMails,
   selectMailsByParameter,
   deselectAllMails,
   selectAllMails,
   selectMails,
+  setMailsSearchText,
+  setActionToMails,
+  selectSelectedMailIds,
 } from '../store/mailsSlice';
+import { selectLabels } from '../store/labelsSlice';
+import { selectFolders, selectTrashFolderId } from '../store/foldersSlice';
 
 function MailToolbar(props) {
+  const { onToggleLeftSidebar } = props;
   const dispatch = useDispatch();
-  const selectedMailIds = useSelector(({ mailboxApp }) => mailboxApp.mails.selectedMailIds);
   const mails = useSelector(selectMails);
   const labels = useSelector(selectLabels);
   const folders = useSelector(selectFolders);
-
+  const searchText = useSelector(({ mailboxApp }) => mailboxApp.mails.searchText);
+  const { t } = useTranslation('mailboxApp');
+  const selectedMailIds = useSelector(selectSelectedMailIds);
+  const trashFolderId = useSelector(selectTrashFolderId);
   const [menu, setMenu] = useState({
     selectMenu: null,
     foldersMenu: null,
@@ -49,176 +60,274 @@ function MailToolbar(props) {
   }
 
   return (
-    <Box
-      sx={{ backgroundColor: 'background.default' }}
-      className="flex items-center w-full min-h-64 px-8 border-b sticky top-0 z-10"
-    >
-      <Checkbox
-        onChange={handleCheckChange}
-        checked={selectedMailIds.length === Object.keys(mails).length && selectedMailIds.length > 0}
-        indeterminate={
-          selectedMailIds.length !== Object.keys(mails).length && selectedMailIds.length > 0
-        }
-        size="small"
-      />
-
-      <IconButton
-        className=""
-        size="small"
-        aria-label="More"
-        aria-owns={menu.select ? 'select-menu' : null}
-        aria-haspopup="true"
-        onClick={(ev) => handleMenuOpen(ev, 'select')}
+    <div className="sticky top-0 z-10">
+      <Box
+        sx={{ backgroundColor: 'background.default' }}
+        className="flex items-center w-full min-h-64 space-x-8 px-8 border-b "
       >
-        <Icon>arrow_drop_down</Icon>
-      </IconButton>
+        <Hidden lgUp>
+          <IconButton
+            onClick={(ev) => onToggleLeftSidebar()}
+            aria-label="open left sidebar"
+            size="small"
+          >
+            <FuseSvgIcon>heroicons-outline:menu</FuseSvgIcon>
+          </IconButton>
+        </Hidden>
 
-      <Menu
-        id="select-menu"
-        anchorEl={menu.select}
-        open={Boolean(menu.select)}
-        onClose={(ev) => handleMenuClose(ev, 'select')}
+        <MailListTitle />
+
+        <OutlinedInput
+          className="flex flex-1 items-center px-16 rounded-full"
+          variant="outlined"
+          fullWidth
+          placeholder={t('SEARCH_PLACEHOLDER')}
+          value={searchText}
+          onChange={(ev) => dispatch(setMailsSearchText(ev))}
+          startAdornment={
+            <InputAdornment position="start">
+              <FuseSvgIcon color="disabled">heroicons-solid:search</FuseSvgIcon>
+            </InputAdornment>
+          }
+          inputProps={{
+            'aria-label': 'Search',
+          }}
+          size="small"
+        />
+      </Box>
+
+      <Box
+        className="flex items-center w-full min-h-56 px-8 border-b space-x-8"
+        sx={{ backgroundColor: 'background.paper' }}
       >
-        <MenuItem
-          onClick={(ev) => {
-            dispatch(selectAllMails());
-            handleMenuClose(ev, 'select');
-          }}
-        >
-          All
-        </MenuItem>
-        <MenuItem
-          onClick={(ev) => {
-            dispatch(deselectAllMails());
-            handleMenuClose(ev, 'select');
-          }}
-        >
-          None
-        </MenuItem>
-        <MenuItem
-          onClick={(ev) => {
-            dispatch(selectMailsByParameter(['unread', false]));
-            handleMenuClose(ev, 'select');
-          }}
-        >
-          Read
-        </MenuItem>
-        <MenuItem
-          onClick={(ev) => {
-            dispatch(selectMailsByParameter(['unread', true]));
-            handleMenuClose(ev, 'select');
-          }}
-        >
-          Unread
-        </MenuItem>
-        <MenuItem
-          onClick={(ev) => {
-            dispatch(selectMailsByParameter(['starred', true]));
-            handleMenuClose(ev, 'select');
-          }}
-        >
-          Starred
-        </MenuItem>
-        <MenuItem
-          onClick={(ev) => {
-            dispatch(selectMailsByParameter(['starred', false]));
-            handleMenuClose(ev, 'select');
-          }}
-        >
-          Unstarred
-        </MenuItem>
-        <MenuItem
-          onClick={(ev) => {
-            dispatch(selectMailsByParameter(['important', true]));
-            handleMenuClose(ev, 'select');
-          }}
-        >
-          Important
-        </MenuItem>
-        <MenuItem
-          onClick={(ev) => {
-            dispatch(selectMailsByParameter(['important', false]));
-            handleMenuClose(ev, 'select');
-          }}
-        >
-          Unimportant
-        </MenuItem>
-      </Menu>
+        <Checkbox
+          onChange={handleCheckChange}
+          checked={
+            selectedMailIds.length === Object.keys(mails).length && selectedMailIds.length > 0
+          }
+          indeterminate={
+            selectedMailIds.length !== Object.keys(mails).length && selectedMailIds.length > 0
+          }
+          size="small"
+        />
 
-      {selectedMailIds.length > 0 && (
-        <>
-          <div className="border-r-1 h-48 w-1 mx-12 my-0" />
+        <IconButton
+          className=""
+          size="small"
+          aria-label="More"
+          aria-owns={menu.select ? 'select-menu' : null}
+          aria-haspopup="true"
+          onClick={(ev) => handleMenuOpen(ev, 'select')}
+        >
+          <FuseSvgIcon size={16}>heroicons-outline:chevron-down</FuseSvgIcon>
+        </IconButton>
 
-          <IconButton
-            onClick={(ev) => dispatch(setFolderOnSelectedMails(4))}
-            aria-label="Delete"
-            size="large"
+        <Menu
+          id="select-menu"
+          anchorEl={menu.select}
+          open={Boolean(menu.select)}
+          onClose={(ev) => handleMenuClose(ev, 'select')}
+        >
+          <MenuItem
+            onClick={(ev) => {
+              dispatch(selectAllMails());
+              handleMenuClose(ev, 'select');
+            }}
           >
-            <Icon>delete</Icon>
-          </IconButton>
-
-          <IconButton
-            aria-label="More"
-            aria-owns={menu.folders ? 'folders-menu' : null}
-            aria-haspopup="true"
-            onClick={(ev) => handleMenuOpen(ev, 'folders')}
-            size="large"
+            All
+          </MenuItem>
+          <MenuItem
+            onClick={(ev) => {
+              dispatch(deselectAllMails());
+              handleMenuClose(ev, 'select');
+            }}
           >
-            <Icon>folder</Icon>
-          </IconButton>
-
-          <Menu
-            id="folders-menu"
-            anchorEl={menu.folders}
-            open={Boolean(menu.folders)}
-            onClose={(ev) => handleMenuClose(ev, 'folders')}
+            None
+          </MenuItem>
+          <MenuItem
+            onClick={(ev) => {
+              dispatch(selectMailsByParameter(['unread', false]));
+              handleMenuClose(ev, 'select');
+            }}
           >
-            {folders.length > 0 &&
-              folders.map((folder) => (
-                <MenuItem
-                  onClick={(ev) => {
-                    dispatch(setFolderOnSelectedMails(folder.id));
-                    handleMenuClose(ev, 'folders');
-                  }}
-                  key={folder.id}
-                >
-                  {folder.title}
-                </MenuItem>
-              ))}
-          </Menu>
-
-          <IconButton
-            aria-label="More"
-            aria-owns={menu.labels ? 'labels-menu' : null}
-            aria-haspopup="true"
-            onClick={(ev) => handleMenuOpen(ev, 'labels')}
-            size="large"
+            Read
+          </MenuItem>
+          <MenuItem
+            onClick={(ev) => {
+              dispatch(selectMailsByParameter(['unread', true]));
+              handleMenuClose(ev, 'select');
+            }}
           >
-            <Icon>label</Icon>
-          </IconButton>
-
-          <Menu
-            id="folders-menu"
-            anchorEl={menu.labels}
-            open={Boolean(menu.labels)}
-            onClose={(ev) => handleMenuClose(ev, 'labels')}
+            Unread
+          </MenuItem>
+          <MenuItem
+            onClick={(ev) => {
+              dispatch(selectMailsByParameter(['starred', true]));
+              handleMenuClose(ev, 'select');
+            }}
           >
-            {labels.length > 0 &&
-              labels.map((label) => (
-                <MenuItem
-                  onClick={(ev) => {
-                    dispatch(toggleLabelOnSelectedMails(label.id));
-                    handleMenuClose(ev, 'labels');
-                  }}
-                  key={label.id}
-                >
-                  {label.title}
-                </MenuItem>
-              ))}
-          </Menu>
-        </>
-      )}
-    </Box>
+            Starred
+          </MenuItem>
+          <MenuItem
+            onClick={(ev) => {
+              dispatch(selectMailsByParameter(['starred', false]));
+              handleMenuClose(ev, 'select');
+            }}
+          >
+            Unstarred
+          </MenuItem>
+          <MenuItem
+            onClick={(ev) => {
+              dispatch(selectMailsByParameter(['important', true]));
+              handleMenuClose(ev, 'select');
+            }}
+          >
+            Important
+          </MenuItem>
+          <MenuItem
+            onClick={(ev) => {
+              dispatch(selectMailsByParameter(['important', false]));
+              handleMenuClose(ev, 'select');
+            }}
+          >
+            Unimportant
+          </MenuItem>
+        </Menu>
+
+        {selectedMailIds.length > 0 && (
+          <>
+            <div className="border-r-1 h-32 w-1 mx-12 my-0" />
+
+            <Tooltip title="Delete">
+              <IconButton
+                onClick={(ev) => {
+                  dispatch(
+                    setActionToMails({ type: 'folder', value: trashFolderId, ids: selectedMailIds })
+                  );
+                }}
+                aria-label="Delete"
+                size="small"
+              >
+                <FuseSvgIcon>heroicons-outline:trash</FuseSvgIcon>
+              </IconButton>
+            </Tooltip>
+
+            <Tooltip title="Move to folder">
+              <IconButton
+                aria-label="More"
+                aria-owns={menu.folders ? 'folders-menu' : null}
+                aria-haspopup="true"
+                onClick={(ev) => handleMenuOpen(ev, 'folders')}
+                size="small"
+              >
+                <Icon>folder</Icon>
+              </IconButton>
+            </Tooltip>
+
+            <Menu
+              id="folders-menu"
+              anchorEl={menu.folders}
+              open={Boolean(menu.folders)}
+              onClose={(ev) => handleMenuClose(ev, 'folders')}
+            >
+              {folders.length > 0 &&
+                folders.map((folder) => (
+                  <MenuItem
+                    onClick={(ev) => {
+                      dispatch(
+                        setActionToMails({ type: 'folder', value: folder.id, ids: selectedMailIds })
+                      );
+                      handleMenuClose(ev, 'folders');
+                    }}
+                    key={folder.id}
+                  >
+                    {folder.title}
+                  </MenuItem>
+                ))}
+            </Menu>
+
+            <Tooltip title="Add label">
+              <IconButton
+                aria-label="label"
+                aria-owns={menu.labels ? 'labels-menu' : null}
+                aria-haspopup="true"
+                onClick={(ev) => handleMenuOpen(ev, 'labels')}
+                size="small"
+              >
+                <Icon>label</Icon>
+              </IconButton>
+            </Tooltip>
+
+            <Menu
+              id="labels-menu"
+              anchorEl={menu.labels}
+              open={Boolean(menu.labels)}
+              onClose={(ev) => handleMenuClose(ev, 'labels')}
+            >
+              {labels.length > 0 &&
+                labels.map((label) => (
+                  <MenuItem
+                    onClick={(ev) => {
+                      dispatch(
+                        setActionToMails({ type: 'label', value: label.id, ids: selectedMailIds })
+                      );
+
+                      handleMenuClose(ev, 'labels');
+                    }}
+                    key={label.id}
+                  >
+                    {label.title}
+                  </MenuItem>
+                ))}
+            </Menu>
+
+            <Tooltip title="Mark as unread">
+              <IconButton
+                onClick={(ev) => {
+                  dispatch(setActionToMails({ type: 'unread', value: true, ids: selectedMailIds }));
+                }}
+                aria-label="Mark as unread"
+                size="small"
+              >
+                <FuseSvgIcon className="">heroicons-outline:mail</FuseSvgIcon>
+              </IconButton>
+            </Tooltip>
+
+            <Tooltip title="Set important">
+              <IconButton
+                onClick={(ev) => {
+                  dispatch(
+                    setActionToMails({ type: 'important', value: true, ids: selectedMailIds })
+                  );
+                }}
+                aria-label="important"
+                size="small"
+              >
+                <FuseSvgIcon className="text-red-600 dark:text-red-500">
+                  heroicons-outline:exclamation-circle
+                </FuseSvgIcon>
+              </IconButton>
+            </Tooltip>
+
+            <Tooltip title="Set starred">
+              <IconButton
+                onClick={(ev) => {
+                  dispatch(
+                    setActionToMails({ type: 'starred', value: true, ids: selectedMailIds })
+                  );
+                }}
+                aria-label="important"
+                size="small"
+              >
+                <FuseSvgIcon className="text-orange-500 dark:text-red-400">
+                  heroicons-outline:star
+                </FuseSvgIcon>
+              </IconButton>
+            </Tooltip>
+          </>
+        )}
+      </Box>
+    </div>
   );
 }
 

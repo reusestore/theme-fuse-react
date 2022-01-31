@@ -1,7 +1,7 @@
 const locale = {
   APP_TITLE: 'Mailbox',
   COMPOSE: 'Compose',
-  FOLDERS: 'Folders',
+  FOLDERS: 'Mailboxes',
   FILTERS: 'Filters',
   LABELS: 'Labels',
   NO_MESSAGES: 'There are no messages!',

@@ -28,10 +28,10 @@ const Root = styled(FusePageSimple)(({ theme }) => ({
 
 function MailboxApp(props) {
   const dispatch = useDispatch();
-  const [rightSidebarOpen, setRightSidebarOpen] = useState(false);
-  const [leftSidebarOpen, setLeftSidebarOpen] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
+  const [rightSidebarOpen, setRightSidebarOpen] = useState(false);
+  const [leftSidebarOpen, setLeftSidebarOpen] = useState(false);
 
   const pageLayout = useRef(null);
   const routeParams = useParams();
@@ -49,13 +49,15 @@ function MailboxApp(props) {
 
   return (
     <Root
-      content={<Mails />}
+      content={<Mails onToggleLeftSidebar={() => setLeftSidebarOpen(!leftSidebarOpen)} />}
       leftSidebarContent={<MailboxAppSidebarContent />}
       leftSidebarOpen={isMobile ? leftSidebarOpen : true}
+      leftSidebarOnClose={() => setLeftSidebarOpen(false)}
       leftSidebarWidth={288}
       scroll="content"
       rightSidebarContent={<Outlet />}
       rightSidebarOpen={isMobile ? rightSidebarOpen : true}
+      rightSidebarOnClose={() => setRightSidebarOpen(false)}
     />
   );
 }

@@ -5,9 +5,10 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import withRouter from '@fuse/core/withRouter';
 import { useDeepCompareEffect } from '@fuse/hooks';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { getMails, selectMails } from '../store/mailsSlice';
 import MailListItem from './MailListItem';
 
@@ -17,11 +18,8 @@ function MailList(props) {
   const searchText = useSelector(({ mailboxApp }) => mailboxApp.mails.searchText);
 
   const routeParams = useParams();
-  const location = useLocation();
   const [filteredData, setFilteredData] = useState(null);
   const { t } = useTranslation('mailboxApp');
-
-  console.info(location);
 
   useDeepCompareEffect(() => {
     dispatch(getMails(routeParams));
@@ -49,9 +47,12 @@ function MailList(props) {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, transition: { delay: 0.1 } }}
-        className="flex flex-1 items-center justify-center h-full"
+        className="flex flex-col flex-1 items-center justify-center p-24"
       >
-        <Typography color="textSecondary" variant="h5">
+        <FuseSvgIcon className="icon-size-128 mb-16" color="disabled" size={24}>
+          heroicons-outline:mail-open
+        </FuseSvgIcon>
+        <Typography className="mt-16 text-2xl font-semibold tracking-tight" color="textSecondary">
           {t('NO_MESSAGES')}
         </Typography>
       </motion.div>

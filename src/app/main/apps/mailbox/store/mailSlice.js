@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { showMessage } from 'app/store/fuse/messageSlice';
+import { getMails } from 'app/main/apps/mailbox/store/mailsSlice';
+import _ from '@lodash';
+import history from '@history/@history';
 
 export const getMail = createAsyncThunk('mailboxApp/mail/getMail', async (routeParams) => {
   let url = '/api/mailbox/mails/';
@@ -16,29 +18,18 @@ export const getMail = createAsyncThunk('mailboxApp/mail/getMail', async (routeP
     url += `filters/${routeParams.filterHandle}/${routeParams.mailId}`;
   }
 
-  console.info(routeParams)
+  try {
+    const response = await axios.get(url);
 
-  console.info(url)
-  const response = await axios.get(url);
-
-  const data = await response.data;
-
-  return data;
-});
-
-export const updateMail = createAsyncThunk(
-  'mailboxApp/mail/updateMail',
-  async (_data, { getState, dispatch }) => {
-    const { id } = getState().mailboxApp.mail;
-
-    const response = await axios.post('/api/mail-app/update-mail', { id, ..._data });
     const data = await response.data;
 
-    dispatch(showMessage({ message: 'Mail Saved' }));
-
     return data;
+  } catch (error) {
+    history.push({ pathname: `/apps/mailbox` });
+
+    return null;
   }
-);
+});
 
 const mailSlice = createSlice({
   name: 'mailboxApp/mail',
@@ -46,11 +37,20 @@ const mailSlice = createSlice({
   reducers: {},
   extraReducers: {
     [getMail.fulfilled]: (state, action) => action.payload,
-    [updateMail.fulfilled]: (state, action) => ({
-      ...state,
-      ...action.payload,
-    }),
+    [getMails.fulfilled]: (state, action) => {
+      const mails = action.payload.data;
+
+      if (!state) {
+        return null;
+      }
+
+      const mail = _.find(mails, { id: state.id });
+
+      return mail || null;
+    },
   },
 });
+
+export const selectMail = ({ mailboxApp }) => mailboxApp.mail;
 
 export default mailSlice.reducer;

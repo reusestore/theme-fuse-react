@@ -4,7 +4,6 @@ import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import TextField from '@mui/material/TextField';
 import Toolbar from '@mui/material/Toolbar';
@@ -16,8 +15,8 @@ import * as yup from 'yup';
 import _ from '@lodash';
 import WYSIWYGEditor from 'app/shared-components/WYSIWYGEditor';
 import clsx from 'clsx';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import MailAttachment from './MailAttachment';
-import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 /**
  * Form Validation Schema
@@ -54,7 +53,7 @@ function MailCompose(props) {
     setOpenDialog(false);
   }
 
-  function handleDelete() {
+  function handleDiscard() {
     setOpenDialog(false);
   }
 
@@ -90,7 +89,7 @@ function MailCompose(props) {
         </AppBar>
 
         <form noValidate onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
-          <DialogContent classes={{ root: 'p-16 pb-0 sm:p-24 sm:pb-0' }}>
+          <DialogContent classes={{ root: 'p-16 pb-0 sm:p-32 sm:pb-0' }}>
             <Controller
               name="from"
               control={control}
@@ -186,23 +185,43 @@ function MailCompose(props) {
             </div>
           </DialogContent>
 
-          <DialogActions className="justify-between px-8 py-16">
-            <div className="px-16">
+          <DialogActions className="flex flex-col sm:flex-row sm:items-center justify-between py-16 sm:py-24 px-24">
+            <div className="-mx-8">
+              <IconButton>
+                <FuseSvgIcon size={20}>heroicons-solid:paper-clip</FuseSvgIcon>
+              </IconButton>
+
+              <IconButton>
+                <FuseSvgIcon size={20}>heroicons-solid:link</FuseSvgIcon>
+              </IconButton>
+
+              <IconButton>
+                <FuseSvgIcon size={20}>heroicons-solid:emoji-happy</FuseSvgIcon>
+              </IconButton>
+
+              <IconButton>
+                <FuseSvgIcon size={20}>heroicons-solid:photograph</FuseSvgIcon>
+              </IconButton>
+            </div>
+
+            <div className="flex items-center space-x-8 mt-16 sm:mt-0">
+              <Button className="" variant="outlined" color="secondary" onClick={handleDiscard}>
+                Discard
+              </Button>
+              <Button className="" variant="outlined" color="secondary">
+                Save as draft
+              </Button>
+
               <Button
+                className=""
                 variant="contained"
-                color="primary"
+                color="secondary"
                 type="submit"
                 disabled={_.isEmpty(dirtyFields) || !isValid}
               >
                 Send
               </Button>
-              <IconButton size="large">
-                <Icon>attach_file</Icon>
-              </IconButton>
             </div>
-            <IconButton onClick={handleDelete} size="large">
-              <Icon>delete</Icon>
-            </IconButton>
           </DialogActions>
         </form>
       </Dialog>

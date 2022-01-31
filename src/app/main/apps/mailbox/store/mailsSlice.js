@@ -1,5 +1,14 @@
-import { createSlice, createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit';
+import {
+  createSlice,
+  createAsyncThunk,
+  createEntityAdapter,
+  createSelector,
+} from '@reduxjs/toolkit';
 import axios from 'axios';
+import _ from '@lodash';
+import { selectFolders } from 'app/main/apps/mailbox/store/foldersSlice';
+import { selectLabels } from 'app/main/apps/mailbox/store/labelsSlice';
+import { selectFilters } from 'app/main/apps/mailbox/store/filtersSlice';
 
 export const getMails = createAsyncThunk(
   'mailboxApp/mails/getMails',
@@ -18,7 +27,6 @@ export const getMails = createAsyncThunk(
     if (routeParams.filterHandle) {
       url += `filters/${routeParams.filterHandle}`;
     }
-    console.info(url);
     const response = await axios.get(url);
     const data = await response.data;
 
@@ -26,32 +34,18 @@ export const getMails = createAsyncThunk(
   }
 );
 
-export const setFolderOnSelectedMails = createAsyncThunk(
-  'mailboxApp/mails/setFolderOnSelectedMails',
-  async (id, { dispatch, getState }) => {
-    const { selectedMailIds } = getState().mailboxApp.mails;
+export const setActionToMails = createAsyncThunk(
+  'mailboxApp/mails/setActionToMails',
+  async ({ type, value, ids }, { dispatch, getState }) => {
+    const { mails } = getState().mailboxApp;
+    const { selectedMailIds } = mails;
 
-    const response = await axios.post('/api/mail-app/set-folder', {
-      selectedMailIds,
-      folderId: id,
+    const response = await axios.post('/api/mailbox/actions', {
+      type,
+      value,
+      ids,
     });
-    const data = await response.data;
 
-    dispatch(getMails());
-
-    return data;
-  }
-);
-
-export const toggleLabelOnSelectedMails = createAsyncThunk(
-  'mailboxApp/mails/toggleLabelOnSelectedMails',
-  async (id, { dispatch, getState }) => {
-    const { selectedMailIds } = getState().mailboxApp.mails;
-
-    const response = await axios.post('/api/mail-app/toggle-label', {
-      selectedMailIds,
-      labelId: id,
-    });
     const data = await response.data;
 
     dispatch(getMails());
@@ -114,5 +108,24 @@ export const {
   selectMailsByParameter,
   toggleInSelectedMails,
 } = mailsSlice.actions;
+
+export const selectSelectedMailIds = ({ mailboxApp }) => mailboxApp.mails.selectedMailIds;
+
+export const selectMailsTitle = (routeParams) =>
+  createSelector([selectFolders, selectLabels, selectFilters], (folders, labels, filters) => {
+    let title;
+    if (routeParams.folderHandle) {
+      title = _.find(folders, { slug: routeParams.folderHandle })?.title;
+    }
+
+    if (routeParams.labelHandle) {
+      title = _.find(labels, { slug: routeParams.labelHandle })?.title;
+    }
+
+    if (routeParams.filterHandle) {
+      title = _.find(filters, { slug: routeParams.filterHandle })?.title;
+    }
+    return title;
+  });
 
 export default mailsSlice.reducer;

@@ -4,15 +4,22 @@ import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import { setActionToMails } from 'app/main/apps/mailbox/store/mailsSlice';
+import { selectMail } from 'app/main/apps/mailbox/store/mailSlice';
+import { selectSpamFolderId, selectTrashFolderId } from 'app/main/apps/mailbox/store/foldersSlice';
+import { useNavigate } from 'react-router-dom';
 
 function MailActionsMenu(props) {
   const { className } = props;
   const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-
+  const mail = useSelector(selectMail);
+  const spamFolderId = useSelector(selectSpamFolderId);
+  const trashFolderId = useSelector(selectTrashFolderId);
+  const navigate = useNavigate();
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -41,19 +48,40 @@ function MailActionsMenu(props) {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>
+        <MenuItem
+          onClick={() => {
+            dispatch(setActionToMails({ type: 'unread', value: true, ids: [mail.id] }));
+            handleClose();
+          }}
+        >
           <ListItemIcon className="min-w-40">
             <FuseSvgIcon>heroicons-outline:mail</FuseSvgIcon>
           </ListItemIcon>
           <ListItemText primary="Mark as unread" />
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+
+        <MenuItem
+          onClick={() => {
+            dispatch(setActionToMails({ type: 'folder', value: spamFolderId, ids: [mail.id] }));
+            handleClose();
+          }}
+        >
           <ListItemIcon className="min-w-40">
             <FuseSvgIcon>heroicons-outline:exclamation</FuseSvgIcon>
           </ListItemIcon>
           <ListItemText primary="Spam" />
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+
+        <MenuItem
+          onClick={() => {
+            dispatch(
+              setActionToMails({ type: 'folder', value: trashFolderId, ids: [mail.id] })
+            ).then(() => {
+              navigate(-1);
+            });
+            handleClose();
+          }}
+        >
           <ListItemIcon className="min-w-40">
             <FuseSvgIcon>heroicons-outline:trash</FuseSvgIcon>
           </ListItemIcon>

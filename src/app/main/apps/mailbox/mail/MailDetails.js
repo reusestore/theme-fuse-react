@@ -1,5 +1,4 @@
 import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,16 +8,17 @@ import { useDeepCompareEffect } from '@fuse/hooks';
 import Paper from '@mui/material/Paper';
 import { Box } from '@mui/system';
 import Button from '@mui/material/Button';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import MailInfo from 'app/main/apps/mailbox/mail/MailInfo';
 import { selectLabelsEntities } from '../store/labelsSlice';
-import { getMail } from '../store/mailSlice';
-import FuseSvgIcon from '../../../../../@fuse/core/FuseSvgIcon';
+import { getMail, selectMail } from '../store/mailSlice';
 import MailLabel from './MailLabel';
 import MailToolbar from './MailToolbar';
 import MailAttachment from './MailAttachment';
 
 function MailDetails(props) {
   const dispatch = useDispatch();
-  const mail = useSelector(({ mailboxApp }) => mailboxApp.mail);
+  const mail = useSelector(selectMail);
   const labels = useSelector(selectLabelsEntities);
 
   const routeParams = useParams();
@@ -63,30 +63,20 @@ function MailDetails(props) {
                   {mail.from.contact.split('<')[0].trim()}
                 </Typography>
 
-                <div className="flex items-center mt-2 leading-5">
+                <div className="flex items-center mt-8 leading-5">
                   <div>to</div>
-                  <div className="ml-1 font-semibold">me</div>
-                  {mail.ccCount + mail.bccCount > 0 && (
+                  <div className="mx-4 font-semibold">me</div>
+                  {mail.cc?.length + mail.bcc?.length > 0 && (
                     <div>
-                      <span className="ml-4">and</span>
-                      <span className="ml-4 font-semibold">{mail.ccCount + mail.bccCount}</span>
-                      <span className="ml-4 font-semibold">
-                        {mail.ccCount + mail.bccCount === 1 ? 'other' : 'others'}
+                      <span className="mx-4">and</span>
+                      <span className="mx-4 font-semibold">{mail.cc.length + mail.bcc.length}</span>
+                      <span className="mx-4 font-semibold">
+                        {mail.cc.length + mail.bcc.length === 1 ? 'other' : 'others'}
                       </span>
                     </div>
                   )}
-                  <IconButton className="w-20 h-20 min-h-20 ml-4">
-                    <FuseSvgIcon size={20}>heroicons-solid:chevron-down</FuseSvgIcon>
-                  </IconButton>
 
-                  {/*  <div className="flex">
-          <div className="min-w-56 font-medium text-right">date:</div>
-          <Typography className="pl-8 whitespace-pre-wrap">{format(new Date(mail.date),'EEEE, MMMM d, y - hh:mm a')}</Typography>
-        </div>
-        <div className="flex">
-          <Typography className="min-w-56 font-medium text-right">subject:</Typography>
-          <Typography className="pl-8 whitespace-pre-wrap">{mail.subject}</Typography>
-        </div> */}
+                  <MailInfo />
                 </div>
               </div>
             </div>
