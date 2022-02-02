@@ -64,6 +64,14 @@ const navigationConfig = [
         url: '/apps/academy',
       },
       {
+        id: 'apps.calendar',
+        title: 'Calendar',
+        subtitle: '3 upcoming events',
+        type: 'item',
+        icon: 'heroicons-outline:calendar',
+        url: '/apps/calendar',
+      },
+      {
         id: 'apps.chat',
         title: 'Chat',
         type: 'item',

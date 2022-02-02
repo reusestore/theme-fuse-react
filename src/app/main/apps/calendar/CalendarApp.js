@@ -1,15 +1,15 @@
-import Fab from '@mui/material/Fab';
-import { styled } from '@mui/material/styles';
-import Icon from '@mui/material/Icon';
+import { styled, useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import withReducer from 'app/store/withReducer';
-import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import FusePageSimple from '@fuse/core/FusePageSimple/FusePageSimple';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import CalendarAppSidebar from 'app/main/apps/calendar/CalendarAppSidebar';
 import CalendarHeader from './CalendarHeader';
 import EventDialog from './EventDialog';
 import reducer from './store';
@@ -21,13 +21,14 @@ import {
   getEvents,
 } from './store/eventsSlice';
 
-const Root = styled('div')(({ theme }) => ({
+const Root = styled(FusePageSimple)(({ theme }) => ({
   '& a': {
     color: `${theme.palette.text.primary}!important`,
     textDecoration: 'none!important',
   },
   '&  .fc-media-screen': {
     minHeight: '100%',
+    width: '100%',
   },
   '& .fc-scrollgrid, & .fc-theme-standard td, & .fc-theme-standard th': {
     borderColor: `${theme.palette.divider}!important`,
@@ -41,31 +42,56 @@ const Root = styled('div')(({ theme }) => ({
     },
   },
   '& .fc-col-header-cell': {
-    borderWidth: '0 0 1px 0',
-    padding: '16px 0',
+    borderWidth: '0 1px 0 1px',
+    padding: '8px 0 0 0',
     '& .fc-col-header-cell-cushion': {
       color: theme.palette.text.secondary,
       fontWeight: 500,
+      fontSize: 12,
+      textTransform: 'uppercase',
     },
   },
   '& .fc-view ': {
-    borderRadius: 20,
-    overflow: 'hidden',
-    border: `1px solid ${theme.palette.divider}`,
     '& > .fc-scrollgrid': {
       border: 0,
     },
   },
-  '& .fc-daygrid-day-number': {
-    color: theme.palette.text.secondary,
-    fontWeight: 500,
+  '& .fc-daygrid-day.fc-day-today': {
+    backgroundColor: 'transparent!important',
+    '& .fc-daygrid-day-number': {
+      borderRadius: '100%',
+      backgroundColor: `${theme.palette.secondary.main}!important`,
+      color: `${theme.palette.secondary.contrastText}!important`,
+    },
+  },
+  '& .fc-daygrid-day-top': {
+    justifyContent: 'center',
+
+    '& .fc-daygrid-day-number': {
+      color: theme.palette.text.secondary,
+      fontWeight: 500,
+      fontSize: 12,
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: 26,
+      height: 26,
+      margin: '4px 0',
+      borderRadius: '50%',
+      float: 'none',
+      lineHeight: 1,
+    },
   },
   '& .fc-event': {
     backgroundColor: `${theme.palette.primary.dark}!important`,
     color: `${theme.palette.primary.contrastText}!important`,
     border: 0,
-    padding: '0 6px',
-    borderRadius: '16px!important',
+    padding: '0 8px',
+    borderRadius: '4px!important',
+    fontSize: 12,
+    height: 22,
+    minHeight: 22,
+    margin: '0 6px 4px 6px!important',
   },
 }));
 
@@ -80,12 +106,25 @@ function CalendarApp(props) {
   const dispatch = useDispatch();
   const events = useSelector(selectEvents);
   const calendarRef = useRef();
-
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
+  const [leftSidebarOpen, setLeftSidebarOpen] = useState(!isMobile);
   const headerEl = useRef(null);
 
   useEffect(() => {
     dispatch(getEvents());
   }, [dispatch]);
+
+  useEffect(() => {
+    setLeftSidebarOpen(!isMobile);
+  }, [isMobile]);
+
+  useEffect(() => {
+    // Correct calendar dimentions after sidebar toggles
+    setTimeout(() => {
+      calendarRef.current?.getApi()?.updateSize();
+    }, 300);
+  }, [leftSidebarOpen]);
 
   const handleDateSelect = (selectInfo) => {
     const { start, end } = selectInfo;
@@ -135,16 +174,21 @@ function CalendarApp(props) {
 
   const handleEventRemove = (removeInfo) => {};
 
-  return (
-    <Root className="flex flex-col flex-auto relative">
-      <CalendarHeader calendarRef={calendarRef} currentDate={currentDate} />
+  function handleToggleLeftSidebar() {
+    setLeftSidebarOpen(!leftSidebarOpen);
+  }
 
-      <div className="flex flex-1 p-24 container">
-        <motion.div
-          className="w-full"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}
-        >
+  return (
+    <>
+      <Root
+        header={
+          <CalendarHeader
+            calendarRef={calendarRef}
+            currentDate={currentDate}
+            onToggleLeftSidebar={handleToggleLeftSidebar}
+          />
+        }
+        content={
           <FullCalendar
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
             headerToolbar={false}
@@ -166,31 +210,15 @@ function CalendarApp(props) {
             initialDate={new Date(2021, 3, 1)}
             ref={calendarRef}
           />
-        </motion.div>
-
-        <StyledAddButton
-          as={motion.div}
-          initial={{ scale: 0 }}
-          animate={{ scale: 1, transition: { delay: 0.4 } }}
-        >
-          <Fab
-            color="secondary"
-            aria-label="add"
-            onClick={() =>
-              dispatch(
-                openNewEventDialog({
-                  start: new Date(),
-                  end: new Date(),
-                })
-              )
-            }
-          >
-            <Icon>add</Icon>
-          </Fab>
-        </StyledAddButton>
-        <EventDialog />
-      </div>
-    </Root>
+        }
+        leftSidebarContent={<CalendarAppSidebar />}
+        leftSidebarOpen={leftSidebarOpen}
+        leftSidebarOnClose={() => setLeftSidebarOpen(false)}
+        leftSidebarWidth={240}
+        scroll="content"
+      />
+      <EventDialog />
+    </>
   );
 }
 
