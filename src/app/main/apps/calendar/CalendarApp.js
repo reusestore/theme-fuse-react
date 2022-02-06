@@ -10,16 +10,19 @@ import interactionPlugin from '@fullcalendar/interaction';
 import FusePageSimple from '@fuse/core/FusePageSimple/FusePageSimple';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import CalendarAppSidebar from 'app/main/apps/calendar/CalendarAppSidebar';
+import _ from '@lodash';
+import clsx from 'clsx';
 import CalendarHeader from './CalendarHeader';
-import EventDialog from './EventDialog';
+import EventDialog from './dialogs/event/EventDialog';
 import reducer from './store';
 import {
-  selectEvents,
   openNewEventDialog,
   openEditEventDialog,
   updateEvent,
   getEvents,
+  selectFilteredEvents,
 } from './store/eventsSlice';
+import { getLabels, selectLabels } from './store/labelsSlice';
 
 const Root = styled(FusePageSimple)(({ theme }) => ({
   '& a': {
@@ -82,37 +85,31 @@ const Root = styled(FusePageSimple)(({ theme }) => ({
       lineHeight: 1,
     },
   },
+  '& .fc-h-event': {
+    background: 'initial',
+  },
   '& .fc-event': {
-    backgroundColor: `${theme.palette.primary.dark}!important`,
-    color: `${theme.palette.primary.contrastText}!important`,
     border: 0,
-    padding: '0 8px',
-    borderRadius: '4px!important',
+    padding: '0 ',
     fontSize: 12,
-    height: 22,
-    minHeight: 22,
     margin: '0 6px 4px 6px!important',
   },
 }));
 
-const StyledAddButton = styled('div')(({ theme }) => ({
-  position: 'absolute',
-  right: 12,
-  top: 172,
-  zIndex: 99,
-}));
 function CalendarApp(props) {
   const [currentDate, setCurrentDate] = useState();
   const dispatch = useDispatch();
-  const events = useSelector(selectEvents);
+  const events = useSelector(selectFilteredEvents);
   const calendarRef = useRef();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
   const [leftSidebarOpen, setLeftSidebarOpen] = useState(!isMobile);
   const headerEl = useRef(null);
+  const labels = useSelector(selectLabels);
 
   useEffect(() => {
     dispatch(getEvents());
+    dispatch(getLabels());
   }, [dispatch]);
 
   useEffect(() => {
@@ -128,13 +125,9 @@ function CalendarApp(props) {
 
   const handleDateSelect = (selectInfo) => {
     const { start, end } = selectInfo;
+    console.info(selectInfo);
 
-    dispatch(
-      openNewEventDialog({
-        start,
-        end,
-      })
-    );
+    dispatch(openNewEventDialog(selectInfo));
   };
 
   const handleEventDrop = (eventDropInfo) => {
@@ -151,18 +144,25 @@ function CalendarApp(props) {
     );
   };
   const handleEventClick = (clickInfo) => {
-    const { id, title, allDay, start, end, extendedProps } = clickInfo.event;
-    dispatch(
-      openEditEventDialog({
-        id,
-        title,
-        allDay,
-        start,
-        end,
-        extendedProps,
-      })
-    );
+    dispatch(openEditEventDialog(clickInfo));
   };
+
+  function renderEventContent(eventInfo) {
+    const labelId = eventInfo.event.extendedProps.label;
+    const label = _.find(labels, { id: labelId });
+
+    return (
+      <div
+        className={clsx(
+          'flex items-center w-full rounded-4 px-8 py-2 h-22 text-white',
+          label?.color
+        )}
+      >
+        <Typography className="text-12 font-semibold">{eventInfo.timeText}</Typography>
+        <Typography className="text-12 px-4 truncate">{eventInfo.event.title}</Typography>
+      </div>
+    );
+  }
 
   const handleDates = (rangeInfo) => {
     setCurrentDate(rangeInfo);
@@ -207,7 +207,7 @@ function CalendarApp(props) {
             eventChange={handleEventChange}
             eventRemove={handleEventRemove}
             eventDrop={handleEventDrop}
-            initialDate={new Date(2021, 3, 1)}
+            initialDate={new Date(2022, 3, 1)}
             ref={calendarRef}
           />
         }
@@ -219,15 +219,6 @@ function CalendarApp(props) {
       />
       <EventDialog />
     </>
-  );
-}
-
-function renderEventContent(eventInfo) {
-  return (
-    <div className="flex items-center">
-      <Typography className="text-12 font-semibold">{eventInfo.timeText}</Typography>
-      <Typography className="text-12 px-4 truncate">{eventInfo.event.title}</Typography>
-    </div>
   );
 }
 

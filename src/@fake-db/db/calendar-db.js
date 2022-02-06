@@ -13,35 +13,55 @@ const calendarDB = {
 			title: 'All Day Event very long title',
 			allDay: true,
 			start: setDate(2021, 3, 1),
-			end: setDate(2021, 3, 2)
+			end: setDate(2021, 3, 2),
+			extendedProps:{
+				desc: 'Big conference for important people',
+				label : '5dab5f7b-757a-4467-ace1-305fe07b11fe',
+			}
 		},
 		{
 			id: 1,
 			title: 'Long Event',
 			allDay: false,
 			start: setDate(2021, 3, 7),
-			end: setDate(2021, 3, 10)
+			end: setDate(2021, 3, 10),
+			extendedProps:{
+				desc: '',
+				label : '09887870-f85a-40eb-8171-1b13d7a7f529',
+			}
 		},
 		{
 			id: 2,
 			title: 'DTS STARTS',
 			allDay: false,
 			start: setDate(2022, 2, 13, 0, 0, 0),
-			end: setDate(2022, 2, 20, 0, 0, 0)
+			end: setDate(2022, 2, 20, 0, 0, 0),
+			extendedProps:{
+				desc: '',
+				label : '1a470c8e-40ed-4c2d-b590-a4f1f6ead6cc',
+			}
 		},
 		{
 			id: 3,
 			title: 'DTS ENDS',
 			allDay: false,
 			start: setDate(2022, 10, 6, 0, 0, 0),
-			end: setDate(2022, 10, 13, 0, 0, 0)
+			end: setDate(2022, 10, 13, 0, 0, 0),
+			extendedProps:{
+				desc: '',
+				label : '09887870-f85a-40eb-8171-1b13d7a7f529',
+			}
 		},
 		{
 			id: 4,
 			title: 'Some Event',
 			allDay: false,
 			start: setDate(2021, 3, 9, 0, 0, 0),
-			end: setDate(2021, 3, 10, 0, 0, 0)
+			end: setDate(2021, 3, 10, 0, 0, 0),
+			extendedProps:{
+				desc: '',
+				label : '1a470c8e-40ed-4c2d-b590-a4f1f6ead6cc',
+			}
 		},
 		{
 			id: 5,
@@ -50,7 +70,8 @@ const calendarDB = {
 			start: setDate(2021, 3, 11),
 			end: setDate(2021, 3, 13),
 			extendedProps:{
-				desc: 'Big conference for important people'
+				desc: 'Big conference for important people',
+				label : '09887870-f85a-40eb-8171-1b13d7a7f529',
 			}
 		},
 		{
@@ -60,7 +81,8 @@ const calendarDB = {
 			start: setDate(2021, 3, 12, 10, 30, 0, 0),
 			end: setDate(2021, 3, 12, 12, 30, 0, 0),
 			extendedProps: {
-				desc: 'Pre-meeting meeting, to prepare for the meeting'
+				desc: 'Pre-meeting meeting, to prepare for the meeting',
+				label : '5dab5f7b-757a-4467-ace1-305fe07b11fe',
 			}
 		},
 		{
@@ -70,7 +92,8 @@ const calendarDB = {
 			start: setDate(2021, 3, 12, 12, 0, 0, 0),
 			end: setDate(2021, 3, 12, 13, 0, 0, 0),
 			extendedProps: {
-				desc: 'Power lunch'
+				desc: 'Power lunch',
+				label : '1a470c8e-40ed-4c2d-b590-a4f1f6ead6cc',
 			}
 		},
 		{
@@ -78,7 +101,11 @@ const calendarDB = {
 			title: 'Meeting',
 			allDay: false,
 			start: setDate(2021, 3, 12, 14, 0, 0, 0),
-			end: setDate(2021, 3, 12, 15, 0, 0, 0)
+			end: setDate(2021, 3, 12, 15, 0, 0, 0),
+			extendedProps:{
+				desc: '',
+				label : '1a470c8e-40ed-4c2d-b590-a4f1f6ead6cc',
+			}
 		},
 		{
 			id: 9,
@@ -87,7 +114,8 @@ const calendarDB = {
 			start: setDate(2021, 3, 12, 17, 0, 0, 0),
 			end: setDate(2021, 3, 12, 17, 30, 0, 0),
 			extendedProps: {
-				desc: 'Most important meal of the day'
+				desc: 'Most important meal of the day',
+				label : '09887870-f85a-40eb-8171-1b13d7a7f529',
 			}
 		},
 		{
@@ -95,28 +123,44 @@ const calendarDB = {
 			title: 'Dinner',
 			allDay: false,
 			start: setDate(2021, 3, 12, 20, 0, 0, 0),
-			end: setDate(2021, 3, 12, 21, 0, 0, 0)
+			end: setDate(2021, 3, 12, 21, 0, 0, 0),
+			extendedProps:{
+				desc: '',
+				label : '1a470c8e-40ed-4c2d-b590-a4f1f6ead6cc',
+			}
 		},
 		{
 			id: 11,
 			title: 'Birthday Party',
 			allDay: false,
 			start: setDate(2021, 3, 13, 7, 0, 0),
-			end: setDate(2021, 3, 13, 10, 30, 0)
+			end: setDate(2021, 3, 13, 10, 30, 0),
+			extendedProps:{
+				desc: '',
+				label : '5dab5f7b-757a-4467-ace1-305fe07b11fe',
+			}
 		},
 		{
 			id: 12,
 			title: 'Late Night Event',
 			allDay: false,
 			start: setDate(2021, 3, 17, 19, 30, 0),
-			end: setDate(2021, 3, 18, 2, 0, 0)
+			end: setDate(2021, 3, 18, 2, 0, 0),
+			extendedProps:{
+				desc: '',
+				label : '09887870-f85a-40eb-8171-1b13d7a7f529',
+			}
 		},
 		{
 			id: 13,
 			title: 'Multi-day Event',
 			allDay: false,
 			start: setDate(2021, 3, 20, 19, 30, 0),
-			end: setDate(2021, 3, 22, 2, 0, 0)
+			end: setDate(2021, 3, 22, 2, 0, 0),
+			extendedProps:{
+				desc: '',
+				label : '09887870-f85a-40eb-8171-1b13d7a7f529',
+			}
 		}
 	]
 };
@@ -155,3 +199,4 @@ mock.onPost('/api/calendar-app/remove-event').reply(request => {
 
 	return [200, event];
 });
+

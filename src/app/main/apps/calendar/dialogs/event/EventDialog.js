@@ -2,30 +2,27 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import formatISO from 'date-fns/formatISO';
 import { Controller, useForm } from 'react-hook-form';
 import FuseUtils from '@fuse/utils/FuseUtils';
-import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import { DateTimePicker } from '@mui/lab';
 import { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
 import _ from '@lodash';
+import { Popover } from '@mui/material';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import {
   removeEvent,
   closeNewEventDialog,
   closeEditEventDialog,
   updateEvent,
   addEvent,
-} from './store/eventsSlice';
+} from '../../store/eventsSlice';
+import EventLabelSelect from '../../EventLabelSelect';
 
 const defaultValues = {
   id: FuseUtils.generateGUID(),
@@ -33,7 +30,7 @@ const defaultValues = {
   allDay: true,
   start: formatISO(new Date()),
   end: formatISO(new Date()),
-  extendedProps: { desc: '' },
+  extendedProps: { desc: '', label: '1a470c8e-40ed-4c2d-b590-a4f1f6ead6cc' },
 };
 
 /**
@@ -123,23 +120,25 @@ function EventDialog(props) {
   }
 
   return (
-    <Dialog
+    <Popover
       {...eventDialog.props}
+      anchorReference="anchorPosition"
+      anchorOrigin={{
+        vertical: 'center',
+        horizontal: 'right',
+      }}
+      transformOrigin={{
+        vertical: 'center',
+        horizontal: 'left',
+      }}
       onClose={closeComposeDialog}
-      fullWidth
-      maxWidth="xs"
       component="form"
     >
-      <AppBar position="static" elevation={0}>
-        <Toolbar className="flex w-full">
-          <Typography variant="subtitle1" color="inherit">
-            {eventDialog.type === 'new' ? 'New Event' : 'Edit Event'}
-          </Typography>
-        </Toolbar>
-      </AppBar>
-
-      <form noValidate>
-        <DialogContent classes={{ root: 'p-16 pb-0 sm:p-24 sm:pb-0' }}>
+      <form noValidate className="flex flex-col w-full p-24 pt-32 sm:pt-40 sm:p-32 w-480">
+        <div className="flex space-x-24 mb-16">
+          <FuseSvgIcon className="hidden sm:inline-flex mt-16" color="action">
+            heroicons-outline:pencil-alt
+          </FuseSvgIcon>
           <Controller
             name="title"
             control={control}
@@ -148,7 +147,7 @@ function EventDialog(props) {
                 {...field}
                 id="title"
                 label="Title"
-                className="mt-8 mb-16"
+                className="flex-auto"
                 error={!!errors.title}
                 helperText={errors?.title?.message}
                 InputLabelProps={{
@@ -161,59 +160,86 @@ function EventDialog(props) {
               />
             )}
           />
+        </div>
 
-          <Controller
-            name="allDay"
-            control={control}
-            render={({ field: { onChange, value } }) => (
-              <FormControlLabel
-                className="mt-8 mb-16"
-                label="All Day"
-                control={
-                  <Switch
-                    onChange={(ev) => {
-                      onChange(ev.target.checked);
-                    }}
-                    checked={value}
-                    name="allDay"
+        <div className="flex space-x-24 mb-16">
+          <FuseSvgIcon className="hidden sm:inline-flex mt-16" color="action">
+            heroicons-outline:calendar
+          </FuseSvgIcon>
+          <div className="w-full">
+            <div className="flex flex-column sm:flex-row w-full items-center space-x-16">
+              <Controller
+                name="start"
+                control={control}
+                defaultValue=""
+                render={({ field: { onChange, value } }) => (
+                  <DateTimePicker
+                    value={value}
+                    onChange={onChange}
+                    renderInput={(_props) => (
+                      <TextField label="Start" className="mt-8 mb-16 w-full" {..._props} />
+                    )}
+                    className="mt-8 mb-16 w-full"
+                    maxDate={end}
                   />
-                }
+                )}
               />
-            )}
-          />
+
+              <Controller
+                name="end"
+                control={control}
+                defaultValue=""
+                render={({ field: { onChange, value } }) => (
+                  <DateTimePicker
+                    value={value}
+                    onChange={onChange}
+                    renderInput={(_props) => (
+                      <TextField label="End" className="mt-8 mb-16 w-full" {..._props} />
+                    )}
+                    minDate={start}
+                  />
+                )}
+              />
+            </div>
+
+            <Controller
+              name="allDay"
+              control={control}
+              render={({ field: { onChange, value } }) => (
+                <FormControlLabel
+                  className="mt-8"
+                  label="All Day"
+                  control={
+                    <Switch
+                      onChange={(ev) => {
+                        onChange(ev.target.checked);
+                      }}
+                      checked={value}
+                      name="allDay"
+                    />
+                  }
+                />
+              )}
+            />
+          </div>
+        </div>
+
+        <div className="flex space-x-24 mb-16">
+          <FuseSvgIcon className="hidden sm:inline-flex mt-16" color="action">
+            heroicons-outline:tag
+          </FuseSvgIcon>
 
           <Controller
-            name="start"
+            name="extendedProps.label"
             control={control}
-            defaultValue=""
-            render={({ field: { onChange, value } }) => (
-              <DateTimePicker
-                value={value}
-                onChange={onChange}
-                renderInput={(_props) => (
-                  <TextField label="Start" className="mt-8 mb-16 w-full" {..._props} />
-                )}
-                className="mt-8 mb-16 w-full"
-                maxDate={end}
-              />
-            )}
+            render={({ field }) => <EventLabelSelect className="mt-8 mb-16" {...field} />}
           />
+        </div>
 
-          <Controller
-            name="end"
-            control={control}
-            defaultValue=""
-            render={({ field: { onChange, value } }) => (
-              <DateTimePicker
-                value={value}
-                onChange={onChange}
-                renderInput={(_props) => (
-                  <TextField label="End" className="mt-8 mb-16 w-full" {..._props} />
-                )}
-                minDate={start}
-              />
-            )}
-          />
+        <div className="flex space-x-24 mb-16">
+          <FuseSvgIcon className="hidden sm:inline-flex mt-16" color="action">
+            heroicons-outline:menu-alt-2
+          </FuseSvgIcon>
 
           <Controller
             name="extendedProps.desc"
@@ -232,10 +258,11 @@ function EventDialog(props) {
               />
             )}
           />
-        </DialogContent>
+        </div>
 
         {eventDialog.type === 'new' ? (
-          <DialogActions className="justify-between px-8 sm:px-16 pb-16">
+          <div className="flex items-center space-x-8">
+            <div className="flex flex-1" />
             <Button
               variant="contained"
               color="primary"
@@ -244,9 +271,13 @@ function EventDialog(props) {
             >
               Add
             </Button>
-          </DialogActions>
+          </div>
         ) : (
-          <DialogActions className="justify-between px-8 sm:px-16 pb-16">
+          <div className="flex items-center space-x-8">
+            <div className="flex flex-1" />
+            <IconButton onClick={handleRemove} size="large">
+              <Icon>delete</Icon>
+            </IconButton>
             <Button
               variant="contained"
               color="primary"
@@ -255,13 +286,10 @@ function EventDialog(props) {
             >
               Save
             </Button>
-            <IconButton onClick={handleRemove} size="large">
-              <Icon>delete</Icon>
-            </IconButton>
-          </DialogActions>
+          </div>
         )}
       </form>
-    </Dialog>
+    </Popover>
   );
 }
 

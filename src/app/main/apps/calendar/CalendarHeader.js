@@ -69,9 +69,10 @@ function CalendarHeader(props) {
         <IconButton
           className="mx-8"
           aria-label="add"
-          onClick={() =>
+          onClick={(ev) =>
             dispatch(
               openNewEventDialog({
+                jsEvent: ev,
                 start: new Date(),
                 end: new Date(),
               })

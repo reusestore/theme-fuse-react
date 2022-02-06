@@ -15,6 +15,214 @@
     }
   ],
   "paths": {
+    "/calendar/events": {
+      "get": {
+        "summary": "Get Events",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/calendar_event"
+                  }
+                },
+                "examples": {}
+              }
+            }
+          }
+        },
+        "operationId": "calendar_getEvents",
+        "description": "Retrieve events.",
+        "tags": [
+          "calendar"
+        ]
+      },
+      "parameters": [],
+      "post": {
+        "summary": "Create Event",
+        "operationId": "calendar_createEvent",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/calendar_event"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "calendar"
+        ],
+        "description": "Create event.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/calendar_event"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/calendar/events/{eventSlug}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "eventSlug",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "put": {
+        "summary": "Update Event",
+        "operationId": "calendar_updateEvent",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/calendar_event"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/calendar_event"
+              }
+            }
+          }
+        },
+        "description": "Update event."
+      },
+      "delete": {
+        "summary": "",
+        "operationId": "calendar_deleteEvent",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Delete event."
+      }
+    },
+    "/calendar/labels": {
+      "get": {
+        "summary": "Get Labels",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/calendar_label"
+                  }
+                },
+                "examples": {}
+              }
+            }
+          }
+        },
+        "operationId": "calendar_getLabels",
+        "description": "Retrieve labels.",
+        "tags": [
+          "calendar"
+        ]
+      },
+      "parameters": [],
+      "post": {
+        "summary": "Create Label",
+        "operationId": "calendar_createLabel",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/calendar_label"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "calendar"
+        ],
+        "description": "Create label.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/calendar_label"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/calendar/labels/{labelSlug}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "labelSlug",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "put": {
+        "summary": "Update Label",
+        "operationId": "calendar_updateLabel",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/calendar_label"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/calendar_label"
+              }
+            }
+          }
+        },
+        "description": "Update label."
+      },
+      "delete": {
+        "summary": "",
+        "operationId": "calendar_deleteLabel",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Delete label."
+      }
+    },
     "/mailbox/mails/actions": {
       "parameters": [],
       "post": {
@@ -4380,7 +4588,7 @@
               "e2f749f5-41ed-49d0-a92a-1c83d879e371"
             ],
             "archived": false,
-            "createdAt": "2021-10-13T07:19:08.245Z",
+            "createdAt": "2022-10-13T07:19:08.245Z",
             "updatedAt": null
           }
         },
@@ -5167,6 +5375,36 @@
           }
         }
       },
+      "calendar_label": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "color": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "color"
+        ],
+        "x-examples": {
+          "example-1": {
+            "id": "1a470c8e-40ed-4c2d-b590-a4f1f6ead6cc",
+            "title": "Personal",
+            "color": "bg-teal-500"
+          }
+        }
+      },
       "mailbox_label": {
         "description": "",
         "type": "object",
@@ -5237,6 +5475,68 @@
           "value",
           "ids"
         ]
+      },
+      "calendar_event": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "allDay": {
+            "type": "boolean"
+          },
+          "start": {
+            "type": "string",
+            "minLength": 1
+          },
+          "end": {
+            "type": "string",
+            "minLength": 1
+          },
+          "extendedProps": {
+            "type": "object",
+            "properties": {
+              "desc": {
+                "type": "string",
+                "minLength": 1
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "desc",
+              "label"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "allDay",
+          "start",
+          "end",
+          "extendedProps"
+        ],
+        "x-examples": {
+          "example-1": {
+            "id": 0,
+            "title": "All Day Event very long title",
+            "allDay": true,
+            "start": "2022-04-01T00:00:00+03:00",
+            "end": "2022-04-02T00:00:00+03:00",
+            "extendedProps": {
+              "desc": "Big conference for important people",
+              "label": "5dab5f7b-757a-4467-ace1-305fe07b11fe"
+            }
+          }
+        }
       }
     },
     "securitySchemes": {},
@@ -10263,7 +10563,7 @@
             "title": "Re-think the current API restrictions to loosen them a bit",
             "notes": "Duis sint velit incididunt exercitation eiusmod nisi sunt ex est fugiat ad cupidatat sunt nisi elit do duis amet voluptate ipsum aliquip lorem aliqua sint esse in magna irure officia.\n\nNon eu ex elit ut est voluptate tempor amet ut officia in duis deserunt cillum labore do culpa id dolore magna anim consectetur qui consectetur fugiat labore mollit magna irure.",
             "completed": true,
-            "dueDate": "2021-02-22T17:42:00.257Z",
+            "dueDate": "2022-02-22T17:42:00.257Z",
             "priority": 2,
             "tags": [],
             "assignedTo": "65f1c421-83c5-4cdf-99da-d97794328679",
@@ -18905,7 +19205,7 @@
               "e2f749f5-41ed-49d0-a92a-1c83d879e371"
             ],
             "archived": false,
-            "createdAt": "2021-10-13T07:19:08.245Z",
+            "createdAt": "2022-10-13T07:19:08.245Z",
             "updatedAt": null
           },
           {
@@ -18920,7 +19220,7 @@
               "b1cde9ee-e54d-4142-ad8b-cf55dafc9528"
             ],
             "archived": false,
-            "createdAt": "2021-10-31T12:37:08.245Z",
+            "createdAt": "2022-10-31T12:37:08.245Z",
             "updatedAt": null
           },
           {
@@ -18934,8 +19234,8 @@
               "6c288794-47eb-4605-8bdf-785b61a449d3"
             ],
             "archived": false,
-            "createdAt": "2021-11-06T16:27:08.245Z",
-            "updatedAt": "2021-11-30T12:36:08.245Z"
+            "createdAt": "2022-11-06T16:27:08.245Z",
+            "updatedAt": "2022-11-30T12:36:08.245Z"
           },
           {
             "id": "89861bd4-0144-4bb4-8b39-332ca10371d5",
@@ -18948,7 +19248,7 @@
               "e2f749f5-41ed-49d0-a92a-1c83d879e371"
             ],
             "archived": false,
-            "createdAt": "2021-11-21T09:34:08.245Z",
+            "createdAt": "2022-11-21T09:34:08.245Z",
             "updatedAt": null
           },
           {
@@ -18983,7 +19283,7 @@
               "f47c92e5-20b9-44d9-917f-9ff4ad25dfd0"
             ],
             "archived": false,
-            "createdAt": "2021-12-03T13:04:08.245Z",
+            "createdAt": "2022-12-03T13:04:08.245Z",
             "updatedAt": null
           },
           {
@@ -19018,12 +19318,12 @@
               }
             ],
             "image": null,
-            "reminder": "2021-12-15T07:44:08.245Z",
+            "reminder": "2022-12-15T07:44:08.245Z",
             "labels": [
               "b1cde9ee-e54d-4142-ad8b-cf55dafc9528"
             ],
             "archived": false,
-            "createdAt": "2021-12-15T07:44:08.245Z",
+            "createdAt": "2022-12-15T07:44:08.245Z",
             "updatedAt": null
           },
           {
@@ -19064,7 +19364,7 @@
               "e2f749f5-41ed-49d0-a92a-1c83d879e371"
             ],
             "archived": false,
-            "createdAt": "2021-12-26T08:27:08.245Z",
+            "createdAt": "2022-12-26T08:27:08.245Z",
             "updatedAt": null
           },
           {
@@ -19073,12 +19373,12 @@
             "content": "Organize the dad's surprise retirement party",
             "tasks": null,
             "image": null,
-            "reminder": "2021-12-25T11:56:08.245Z",
+            "reminder": "2022-12-25T11:56:08.245Z",
             "labels": [
               "f47c92e5-20b9-44d9-917f-9ff4ad25dfd0"
             ],
             "archived": false,
-            "createdAt": "2021-12-30T11:56:08.245Z",
+            "createdAt": "2022-12-30T11:56:08.245Z",
             "updatedAt": null
           },
           {
@@ -19162,7 +19462,7 @@
               "6c288794-47eb-4605-8bdf-785b61a449d3"
             ],
             "archived": true,
-            "createdAt": "2021-10-11T14:14:08.245Z",
+            "createdAt": "2022-10-11T14:14:08.245Z",
             "updatedAt": null
           },
           {
@@ -19176,7 +19476,7 @@
               "e2f749f5-41ed-49d0-a92a-1c83d879e371"
             ],
             "archived": true,
-            "createdAt": "2021-10-26T07:29:08.245Z",
+            "createdAt": "2022-10-26T07:29:08.245Z",
             "updatedAt": null
           },
           {
@@ -19191,7 +19491,7 @@
               "b1cde9ee-e54d-4142-ad8b-cf55dafc9528"
             ],
             "archived": true,
-            "createdAt": "2021-11-11T12:30:08.245Z",
+            "createdAt": "2022-11-11T12:30:08.245Z",
             "updatedAt": null
           }
         ]
@@ -22676,9 +22976,9 @@
       "mailbox_labels": {
         "value": [
           {
-            "id"   : "b167d3c4-f6ed-4ea6-9579-a12f95a9d76e",
+            "id": "b167d3c4-f6ed-4ea6-9579-a12f95a9d76e",
             "title": "Personal",
-            "slug" : "personal",
+            "slug": "personal",
             "color": "blue"
           },
           {
@@ -22710,6 +23010,183 @@
             "title": "Forums",
             "slug": "forums",
             "color": "green"
+          }
+        ]
+      },
+      "calendar_labels": {
+        "value": [
+          {
+            "id": "1a470c8e-40ed-4c2d-b590-a4f1f6ead6cc",
+            "title": "Personal",
+            "color": "bg-teal-500"
+          },
+          {
+            "id": "5dab5f7b-757a-4467-ace1-305fe07b11fe",
+            "title": "Work",
+            "color": "bg-indigo-500"
+          },
+          {
+            "id": "09887870-f85a-40eb-8171-1b13d7a7f529",
+            "title": "Appointments",
+            "color": "bg-pink-500"
+          }
+        ]
+      },
+      "calendar_events": {
+        "value": [
+          {
+            "id": 0,
+            "title": "All Day Event very long title",
+            "allDay": true,
+            "start": "2022-04-01T00:00:00+03:00",
+            "end": "2022-04-02T00:00:00+03:00",
+            "extendedProps": {
+              "desc": "Big conference for important people",
+              "label": "5dab5f7b-757a-4467-ace1-305fe07b11fe"
+            }
+          },
+          {
+            "id": 1,
+            "title": "Long Event",
+            "allDay": false,
+            "start": "2022-04-07T00:00:00+03:00",
+            "end": "2022-04-10T00:00:00+03:00",
+            "extendedProps": {
+              "desc": "",
+              "label": "09887870-f85a-40eb-8171-1b13d7a7f529"
+            }
+          },
+          {
+            "id": 2,
+            "title": "DTS STARTS",
+            "allDay": false,
+            "start": "2022-03-13T00:00:00+03:00",
+            "end": "2022-03-20T00:00:00+03:00",
+            "extendedProps": {
+              "desc": "",
+              "label": "1a470c8e-40ed-4c2d-b590-a4f1f6ead6cc"
+            }
+          },
+          {
+            "id": 3,
+            "title": "DTS ENDS",
+            "allDay": false,
+            "start": "2022-11-06T00:00:00+03:00",
+            "end": "2022-11-13T00:00:00+03:00",
+            "extendedProps": {
+              "desc": "",
+              "label": "09887870-f85a-40eb-8171-1b13d7a7f529"
+            }
+          },
+          {
+            "id": 4,
+            "title": "Some Event",
+            "allDay": false,
+            "start": "2022-04-09T00:00:00+03:00",
+            "end": "2022-04-10T00:00:00+03:00",
+            "extendedProps": {
+              "desc": "",
+              "label": "1a470c8e-40ed-4c2d-b590-a4f1f6ead6cc"
+            }
+          },
+          {
+            "id": 5,
+            "title": "Conference",
+            "allDay": false,
+            "start": "2022-04-11T00:00:00+03:00",
+            "end": "2022-04-13T00:00:00+03:00",
+            "extendedProps": {
+              "desc": "Big conference for important people",
+              "label": "09887870-f85a-40eb-8171-1b13d7a7f529"
+            }
+          },
+          {
+            "id": 6,
+            "title": "Meeting",
+            "allDay": false,
+            "start": "2022-04-12T10:30:00+03:00",
+            "end": "2022-04-12T12:30:00+03:00",
+            "extendedProps": {
+              "desc": "Pre-meeting meeting, to prepare for the meeting",
+              "label": "5dab5f7b-757a-4467-ace1-305fe07b11fe"
+            }
+          },
+          {
+            "id": 7,
+            "title": "Lunch",
+            "allDay": false,
+            "start": "2022-04-12T12:00:00+03:00",
+            "end": "2022-04-12T13:00:00+03:00",
+            "extendedProps": {
+              "desc": "Power lunch",
+              "label": "1a470c8e-40ed-4c2d-b590-a4f1f6ead6cc"
+            }
+          },
+          {
+            "id": 8,
+            "title": "Meeting",
+            "allDay": false,
+            "start": "2022-04-12T14:00:00+03:00",
+            "end": "2022-04-12T15:00:00+03:00",
+            "extendedProps": {
+              "desc": "",
+              "label": "1a470c8e-40ed-4c2d-b590-a4f1f6ead6cc"
+            }
+          },
+          {
+            "id": 9,
+            "title": "Happy Hour",
+            "allDay": false,
+            "start": "2022-04-12T17:00:00+03:00",
+            "end": "2022-04-12T17:30:00+03:00",
+            "extendedProps": {
+              "desc": "Most important meal of the day",
+              "label": "09887870-f85a-40eb-8171-1b13d7a7f529"
+            }
+          },
+          {
+            "id": 10,
+            "title": "Dinner",
+            "allDay": false,
+            "start": "2022-04-12T20:00:00+03:00",
+            "end": "2022-04-12T21:00:00+03:00",
+            "extendedProps": {
+              "desc": "",
+              "label": "1a470c8e-40ed-4c2d-b590-a4f1f6ead6cc"
+            }
+          },
+          {
+            "id": 11,
+            "title": "Birthday Party",
+            "allDay": false,
+            "start": "2022-04-13T07:00:00+03:00",
+            "end": "2022-04-13T10:30:00+03:00",
+            "extendedProps": {
+              "desc": "",
+              "label": "5dab5f7b-757a-4467-ace1-305fe07b11fe"
+            }
+          },
+          {
+            "id": 12,
+            "title": "Late Night Event",
+            "allDay": false,
+            "start": "2022-04-17T19:30:00+03:00",
+            "end": "2022-04-18T02:00:00+03:00",
+            "extendedProps": {
+              "desc": "",
+              "label": "09887870-f85a-40eb-8171-1b13d7a7f529"
+            }
+          },
+          {
+            "id": 13,
+            "title": "Multi-day Event",
+            "allDay": false,
+            "start": "2022-04-20T19:30:00+03:00",
+            "end": "2022-04-22T02:00:00+03:00",
+            "extendedProps": {
+              "desc": "",
+              "label": "09887870-f85a-40eb-8171-1b13d7a7f529"
+            }
           }
         ]
       }

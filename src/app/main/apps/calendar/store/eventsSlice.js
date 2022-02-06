@@ -1,11 +1,17 @@
-import { createEntityAdapter, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import {
+  createEntityAdapter,
+  createSlice,
+  createAsyncThunk,
+  createSelector,
+} from '@reduxjs/toolkit';
 import axios from 'axios';
 import formatISO from 'date-fns/formatISO';
+import { selectSelectedLabels } from './labelsSlice';
 
 export const dateFormat = 'YYYY-MM-DDTHH:mm:ss.sssZ';
 
 export const getEvents = createAsyncThunk('calendarApp/events/getEvents', async () => {
-  const response = await axios.get('/api/calendar-app/events');
+  const response = await axios.get('/api/calendar/events');
   const data = await response.data;
 
   return data;
@@ -14,7 +20,7 @@ export const getEvents = createAsyncThunk('calendarApp/events/getEvents', async 
 export const addEvent = createAsyncThunk(
   'calendarApp/events/addEvent',
   async (newEvent, { dispatch }) => {
-    const response = await axios.post('/api/calendar-app/add-event', {
+    const response = await axios.post('/api/calendar/events', {
       newEvent,
     });
     const data = await response.data;
@@ -26,7 +32,7 @@ export const addEvent = createAsyncThunk(
 export const updateEvent = createAsyncThunk(
   'calendarApp/events/updateEvent',
   async (event, { dispatch }) => {
-    const response = await axios.post('/api/calendar-app/update-event', { event });
+    const response = await axios.put(`/api/calendar/events/${event.id}`, event);
     const data = await response.data;
 
     return data;
@@ -34,12 +40,12 @@ export const updateEvent = createAsyncThunk(
 );
 
 export const removeEvent = createAsyncThunk(
-  'calendarApp/events/remove-event',
+  'calendarApp/events/removeEvent',
   async (eventId, { dispatch }) => {
-    const response = await axios.post('/api/calendar-app/remove-event', { eventId });
+    const response = await axios.delete(`/api/calendar/events/${eventId}`);
     const data = await response.data;
 
-    return data.id;
+    return data;
   }
 );
 
@@ -58,21 +64,24 @@ const eventsSlice = createSlice({
       type: 'new',
       props: {
         open: false,
+        anchorPosition: { top: 200, left: 400 },
       },
       data: null,
     },
   }),
   reducers: {
     openNewEventDialog: {
-      prepare: (event) => {
+      prepare: (selectInfo) => {
+        const { start, end, jsEvent } = selectInfo;
         const payload = {
           type: 'new',
           props: {
             open: true,
+            anchorPosition: { top: jsEvent.pageY, left: jsEvent.pageX },
           },
           data: {
-            start: formatISO(event.start),
-            end: formatISO(event.end),
+            start: formatISO(start),
+            end: formatISO(end),
           },
         };
         return { payload };
@@ -82,16 +91,24 @@ const eventsSlice = createSlice({
       },
     },
     openEditEventDialog: {
-      prepare: (event) => {
+      prepare: (clickInfo) => {
+        console.info(clickInfo);
+        const { jsEvent, event } = clickInfo;
+        const { id, title, allDay, start, end, extendedProps } = event;
+
         const payload = {
           type: 'edit',
           props: {
             open: true,
+            anchorPosition: { top: jsEvent.pageY, left: jsEvent.pageX },
           },
           data: {
-            ...event,
-            start: formatISO(event.start),
-            end: formatISO(event.end),
+            id,
+            title,
+            allDay,
+            extendedProps,
+            start: formatISO(start),
+            end: formatISO(end),
           },
         };
         return { payload };
@@ -105,6 +122,7 @@ const eventsSlice = createSlice({
         type: 'new',
         props: {
           open: false,
+          anchorPosition: { top: 200, left: 400 },
         },
         data: null,
       };
@@ -114,6 +132,7 @@ const eventsSlice = createSlice({
         type: 'edit',
         props: {
           open: false,
+          anchorPosition: { top: 200, left: 400 },
         },
         data: null,
       };
@@ -133,5 +152,12 @@ export const {
   openEditEventDialog,
   closeEditEventDialog,
 } = eventsSlice.actions;
+
+export const selectFilteredEvents = createSelector(
+  [selectSelectedLabels, selectEvents],
+  (selectedLabels, events) => {
+    return events.filter((item) => selectedLabels.includes(item.extendedProps.label));
+  }
+);
 
 export default eventsSlice.reducer;
