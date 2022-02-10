@@ -4,12 +4,14 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useSelector } from 'react-redux';
 import clsx from 'clsx';
+import { forwardRef } from 'react';
 import { selectLabelById, selectLabels } from './store/labelsSlice';
 
-function EventLabelSelect(props) {
+const EventLabelSelect = forwardRef((props, ref) => {
   const { value, onChange, className } = props;
   const labels = useSelector(selectLabels);
   const selectedLabel = useSelector((state) => selectLabelById(state, value));
+
   const handleChange = (event) => {
     onChange(event.target.value);
   };
@@ -23,6 +25,7 @@ function EventLabelSelect(props) {
         value={value}
         label="Label"
         onChange={handleChange}
+        ref={ref}
         startAdornment={
           <span
             className={clsx(
@@ -41,6 +44,6 @@ function EventLabelSelect(props) {
       </Select>
     </FormControl>
   );
-}
+});
 
 export default EventLabelSelect;

@@ -69,6 +69,7 @@ const labelsSlice = createSlice({
 });
 
 export const selectSelectedLabels = ({ calendarApp }) => calendarApp.labels.selectedLabels;
+export const selectFirstLabelId = ({ calendarApp }) => calendarApp.labels.ids[0];
 
 export const { toggleSelectedLabels } = labelsSlice.actions;
 

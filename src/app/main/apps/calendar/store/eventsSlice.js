@@ -20,9 +20,7 @@ export const getEvents = createAsyncThunk('calendarApp/events/getEvents', async 
 export const addEvent = createAsyncThunk(
   'calendarApp/events/addEvent',
   async (newEvent, { dispatch }) => {
-    const response = await axios.post('/api/calendar/events', {
-      newEvent,
-    });
+    const response = await axios.post('/api/calendar/events', newEvent);
     const data = await response.data;
 
     return data;
@@ -80,8 +78,8 @@ const eventsSlice = createSlice({
             anchorPosition: { top: jsEvent.pageY, left: jsEvent.pageX },
           },
           data: {
-            start: formatISO(start),
-            end: formatISO(end),
+            start: formatISO(new Date(start)),
+            end: formatISO(new Date(end)),
           },
         };
         return { payload };
@@ -107,8 +105,8 @@ const eventsSlice = createSlice({
             title,
             allDay,
             extendedProps,
-            start: formatISO(start),
-            end: formatISO(end),
+            start: formatISO(new Date(start)),
+            end: formatISO(new Date(end)),
           },
         };
         return { payload };

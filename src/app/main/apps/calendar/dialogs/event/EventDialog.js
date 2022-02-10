@@ -1,5 +1,4 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import formatISO from 'date-fns/formatISO';
 import { Controller, useForm } from 'react-hook-form';
 import FuseUtils from '@fuse/utils/FuseUtils';
 import Button from '@mui/material/Button';
@@ -15,6 +14,8 @@ import * as yup from 'yup';
 import _ from '@lodash';
 import { Popover } from '@mui/material';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import ContactModel from 'app/main/apps/calendar/model/EventModel';
+import { selectFirstLabelId } from 'app/main/apps/calendar/store/labelsSlice';
 import {
   removeEvent,
   closeNewEventDialog,
@@ -24,14 +25,7 @@ import {
 } from '../../store/eventsSlice';
 import EventLabelSelect from '../../EventLabelSelect';
 
-const defaultValues = {
-  id: FuseUtils.generateGUID(),
-  title: '',
-  allDay: true,
-  start: formatISO(new Date()),
-  end: formatISO(new Date()),
-  extendedProps: { desc: '', label: '1a470c8e-40ed-4c2d-b590-a4f1f6ead6cc' },
-};
+const defaultValues = ContactModel();
 
 /**
  * Form Validation Schema
@@ -43,6 +37,7 @@ const schema = yup.object().shape({
 function EventDialog(props) {
   const dispatch = useDispatch();
   const eventDialog = useSelector(({ calendarApp }) => calendarApp.events.eventDialog);
+  const firstLabelId = useSelector(selectFirstLabelId);
 
   const { reset, formState, watch, control, getValues } = useForm({
     defaultValues,
@@ -74,6 +69,10 @@ function EventDialog(props) {
       reset({
         ...defaultValues,
         ...eventDialog.data,
+        extendedProps: {
+          ...defaultValues.extendedProps,
+          label: firstLabelId,
+        },
         id: FuseUtils.generateGUID(),
       });
     }
@@ -134,7 +133,7 @@ function EventDialog(props) {
       onClose={closeComposeDialog}
       component="form"
     >
-      <form noValidate className="flex flex-col w-full p-24 pt-32 sm:pt-40 sm:p-32 w-480">
+      <div className="flex flex-col w-full p-24 pt-32 sm:pt-40 sm:p-32 w-480">
         <div className="flex space-x-24 mb-16">
           <FuseSvgIcon className="hidden sm:inline-flex mt-16" color="action">
             heroicons-outline:pencil-alt
@@ -288,7 +287,7 @@ function EventDialog(props) {
             </Button>
           </div>
         )}
-      </form>
+      </div>
     </Popover>
   );
 }
