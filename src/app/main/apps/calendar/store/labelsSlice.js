@@ -51,10 +51,17 @@ const labelsSlice = createSlice({
   name: 'calendarApp/labels',
   initialState: labelsAdapter.getInitialState({
     selectedLabels: [],
+    labelsDialogOpen: false,
   }),
   reducers: {
     toggleSelectedLabels: (state, action) => {
       state.selectedLabels = _.xor(state.selectedLabels, [action.payload]);
+    },
+    openLabelsDialog: (state, action) => {
+      state.labelsDialogOpen = true;
+    },
+    closeLabelsDialog: (state, action) => {
+      state.labelsDialogOpen = false;
     },
   },
   extraReducers: {
@@ -70,7 +77,8 @@ const labelsSlice = createSlice({
 
 export const selectSelectedLabels = ({ calendarApp }) => calendarApp.labels.selectedLabels;
 export const selectFirstLabelId = ({ calendarApp }) => calendarApp.labels.ids[0];
+export const selectLabelsDialogOpen = ({ calendarApp }) => calendarApp.labels.labelsDialogOpen;
 
-export const { toggleSelectedLabels } = labelsSlice.actions;
+export const { toggleSelectedLabels, openLabelsDialog, closeLabelsDialog } = labelsSlice.actions;
 
 export default labelsSlice.reducer;

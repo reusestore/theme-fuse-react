@@ -12,6 +12,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import CalendarAppSidebar from 'app/main/apps/calendar/CalendarAppSidebar';
 import _ from '@lodash';
 import clsx from 'clsx';
+import { Box } from '@mui/system';
 import CalendarHeader from './CalendarHeader';
 import EventDialog from './dialogs/event/EventDialog';
 import reducer from './store';
@@ -23,6 +24,7 @@ import {
   selectFilteredEvents,
 } from './store/eventsSlice';
 import { getLabels, selectLabels } from './store/labelsSlice';
+import LabelsDialog from './dialogs/labels/LabelsDialog';
 
 const Root = styled(FusePageSimple)(({ theme }) => ({
   '& a': {
@@ -125,8 +127,6 @@ function CalendarApp(props) {
 
   const handleDateSelect = (selectInfo) => {
     const { start, end } = selectInfo;
-    console.info(selectInfo);
-
     dispatch(openNewEventDialog(selectInfo));
   };
 
@@ -152,15 +152,16 @@ function CalendarApp(props) {
     const label = _.find(labels, { id: labelId });
 
     return (
-      <div
-        className={clsx(
-          'flex items-center w-full rounded-4 px-8 py-2 h-22 text-white',
-          label?.color
-        )}
+      <Box
+        sx={{
+          backgroundColor: label?.color,
+          color: label && theme.palette.getContrastText(label?.color),
+        }}
+        className={clsx('flex items-center w-full rounded-4 px-8 py-2 h-22 text-white')}
       >
         <Typography className="text-12 font-semibold">{eventInfo.timeText}</Typography>
         <Typography className="text-12 px-4 truncate">{eventInfo.event.title}</Typography>
-      </div>
+      </Box>
     );
   }
 
@@ -218,6 +219,7 @@ function CalendarApp(props) {
         scroll="content"
       />
       <EventDialog />
+      <LabelsDialog />
     </>
   );
 }

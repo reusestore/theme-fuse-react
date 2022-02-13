@@ -90,7 +90,6 @@ const eventsSlice = createSlice({
     },
     openEditEventDialog: {
       prepare: (clickInfo) => {
-        console.info(clickInfo);
         const { jsEvent, event } = clickInfo;
         const { id, title, allDay, start, end, extendedProps } = event;
 

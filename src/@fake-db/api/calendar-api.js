@@ -51,6 +51,7 @@ mock.onDelete(/\/api\/calendar\/labels\/[^/]+/).reply((config) => {
   const { id } = config.url.match(/\/api\/calendar\/labels\/(?<id>[^/]+)/).groups;
 
   _.remove(labelsDB, { id });
+  _.remove(eventsDB, { extendedProps: { label: id } });
 
   return [200, id];
 });

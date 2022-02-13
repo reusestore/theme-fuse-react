@@ -3,8 +3,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useSelector } from 'react-redux';
-import clsx from 'clsx';
 import { forwardRef } from 'react';
+import { Box } from '@mui/system';
 import { selectLabelById, selectLabels } from './store/labelsSlice';
 
 const EventLabelSelect = forwardRef((props, ref) => {
@@ -26,18 +26,14 @@ const EventLabelSelect = forwardRef((props, ref) => {
         label="Label"
         onChange={handleChange}
         ref={ref}
-        startAdornment={
-          <span
-            className={clsx(
-              'w-12 h-12 shrink-0 rounded-full ltr:mr-12 rtl:ml-12',
-              selectedLabel?.color
-            )}
-          />
-        }
+        classes={{ select: 'flex items-center space-x-12' }}
       >
         {labels.map((label) => (
           <MenuItem value={label.id} key={label.id} className="space-x-12">
-            <span className={clsx('w-12 h-12 shrink-0 rounded-full', label.color)} />
+            <Box
+              className="w-12 h-12 shrink-0 rounded-full"
+              sx={{ backgroundColor: label.color }}
+            />
             <span>{label.title}</span>
           </MenuItem>
         ))}
