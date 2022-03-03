@@ -41,6 +41,7 @@ function SelectsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicSelect.js"
           className="my-24"
           iframe={false}
           component={
@@ -83,6 +84,7 @@ function SelectsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SelectVariants.js"
           className="my-24"
           iframe={false}
           component={
@@ -97,6 +99,7 @@ function SelectsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SelectLabels.js"
           className="my-24"
           iframe={false}
           component={
@@ -118,6 +121,7 @@ function SelectsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SelectAutoWidth.js"
           className="my-24"
           iframe={false}
           component={
@@ -132,6 +136,7 @@ function SelectsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SelectOtherProps.js"
           className="my-24"
           iframe={false}
           component={
@@ -150,6 +155,7 @@ function SelectsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="NativeSelect.js"
           className="my-24"
           iframe={false}
           component={
@@ -183,6 +189,7 @@ function SelectsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomizedSelects.js"
           className="my-24"
           iframe={false}
           component={
@@ -216,6 +223,7 @@ function SelectsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="MultipleSelect.js"
           className="my-24"
           iframe={false}
           component={
@@ -230,6 +238,7 @@ function SelectsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="MultipleSelectCheckmarks.js"
           className="my-24"
           iframe={false}
           component={
@@ -244,6 +253,7 @@ function SelectsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="MultipleSelectChip.js"
           className="my-24"
           iframe={false}
           component={
@@ -258,6 +268,7 @@ function SelectsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="MultipleSelectPlaceholder.js"
           className="my-24"
           iframe={false}
           component={
@@ -272,6 +283,7 @@ function SelectsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="MultipleSelectNative.js"
           className="my-24"
           iframe={false}
           component={
@@ -282,10 +294,16 @@ function SelectsDoc(props) {
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
-        Controlled open select
+        Controlling the open state
+      </Typography>
+      <Typography className="mb-40" component="div">
+        You can control the open state of the select with the <code>open</code> prop. Alternatively,
+        it is also possible to set the initial (uncontrolled) open state of the component with the{' '}
+        <code>defaultOpen</code> prop.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ControlledOpenSelect.js"
           className="my-24"
           iframe={false}
           component={
@@ -304,6 +322,7 @@ function SelectsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DialogSelect.js"
           className="my-24"
           iframe={false}
           component={
@@ -322,6 +341,7 @@ function SelectsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="GroupedSelect.js"
           className="my-24"
           iframe={false}
           component={
@@ -377,6 +397,200 @@ function SelectsDoc(props) {
 </NativeSelect>
 `}
       </FuseHighlight>
+      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
+        Unstyled
+      </Typography>
+      <Typography className="mb-40" component="div">
+        The Select also comes with an unstyled version. It&#39;s ideal for doing heavy
+        customizations and minimizing bundle size.
+      </Typography>
+      <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
+        Unstyled component
+      </Typography>
+
+      <FuseHighlight component="pre" className="language-jsx">
+        {` 
+import SelectUnstyled from '@mui/base/SelectUnstyled';
+`}
+      </FuseHighlight>
+      <Typography className="text-16 mt-16 mb-10" component="h4">
+        Basic usage
+      </Typography>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          name="UnstyledSelectSimple.js"
+          className="my-24"
+          iframe={false}
+          component={
+            require('app/main/documentation/material-ui-components/components/selects/UnstyledSelectSimple.js')
+              .default
+          }
+          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/UnstyledSelectSimple.js')}
+        />
+      </Typography>
+      <Typography className="mb-40" component="div">
+        The <code>SelectUnstyled</code> is a component that accepts generic props. Due to Typescript
+        limitations, this may cause unexpected behavior when wrapping the component in{' '}
+        <code>forwardRef</code> (or other higher-order components). In such cases, the generic
+        argument will be defaulted to <code>unknown</code> and type suggestions will be incomplete.
+        To avoid this, manually cast the resulting component to the correct type (as shown above).
+      </Typography>
+      <Typography className="mb-40" component="div">
+        The rest of the demos below will not use <code>forwardRef</code> for brevity.
+      </Typography>
+      <Typography className="text-16 mt-16 mb-10" component="h4">
+        Controlled select
+      </Typography>
+      <Typography className="mb-40" component="div">
+        The SelectUnstyled can be used as either uncontrolled (as shown in the demo above) or
+        controlled component.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          name="UnstyledSelectControlled.js"
+          className="my-24"
+          iframe={false}
+          component={
+            require('app/main/documentation/material-ui-components/components/selects/UnstyledSelectControlled.js')
+              .default
+          }
+          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/UnstyledSelectControlled.js')}
+        />
+      </Typography>
+      <Typography className="text-16 mt-16 mb-10" component="h4">
+        Usage with object values
+      </Typography>
+      <Typography className="mb-40" component="div">
+        The unstyled select may be used with non-string values.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          name="UnstyledSelectObjectValues.js"
+          className="my-24"
+          iframe={false}
+          component={
+            require('app/main/documentation/material-ui-components/components/selects/UnstyledSelectObjectValues.js')
+              .default
+          }
+          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/UnstyledSelectObjectValues.js')}
+        />
+      </Typography>
+      <Typography className="text-16 mt-16 mb-10" component="h4">
+        Customizing the selected value appearance
+      </Typography>
+      <Typography className="mb-40" component="div">
+        It is possible to customize the selected value display by providing a function to the{' '}
+        <code>renderValue</code> prop. The element returned by this function will be rendered inside
+        the select&#39;s button.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          name="UnstyledSelectCustomRenderValue.js"
+          className="my-24"
+          iframe={false}
+          component={
+            require('app/main/documentation/material-ui-components/components/selects/UnstyledSelectCustomRenderValue.js')
+              .default
+          }
+          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/UnstyledSelectCustomRenderValue.js')}
+        />
+      </Typography>
+      <Typography className="text-16 mt-16 mb-10" component="h4">
+        Customizing the options&#39; appearance
+      </Typography>
+      <Typography className="mb-40" component="div">
+        Options don&#39;t have to be plain strings. You can include custom elements to be rendered
+        inside the listbox.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          name="UnstyledSelectRichOptions.js"
+          className="my-24"
+          iframe={false}
+          component={
+            require('app/main/documentation/material-ui-components/components/selects/UnstyledSelectRichOptions.js')
+              .default
+          }
+          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/UnstyledSelectRichOptions.js')}
+        />
+      </Typography>
+      <Typography className="text-16 mt-16 mb-10" component="h4">
+        Grouping
+      </Typography>
+      <Typography className="mb-40" component="div">
+        Options can be grouped, similarly to the how the native <code>select</code> element works.
+        Unlike the native <code>select</code>, however, the groups can be nested.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        Place the <code>Option</code> components inside <code>OptionGroup</code> to achieve this.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          name="UnstyledSelectGrouping.js"
+          className="my-24"
+          iframe={false}
+          component={
+            require('app/main/documentation/material-ui-components/components/selects/UnstyledSelectGrouping.js')
+              .default
+          }
+          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/UnstyledSelectGrouping.js')}
+        />
+      </Typography>
+      <Typography className="text-16 mt-16 mb-10" component="h4">
+        Multiselect
+      </Typography>
+      <Typography className="mb-40" component="div">
+        To be able to select multiple options at once, use the <code>MultiSelectUnstyled</code>{' '}
+        component.
+      </Typography>
+
+      <FuseHighlight component="pre" className="language-js">
+        {` 
+import { MultiSelectUnstyled } from '@mui/base/SelectUnstyled';
+`}
+      </FuseHighlight>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          name="UnstyledSelectMultiple.js"
+          className="my-24"
+          iframe={false}
+          component={
+            require('app/main/documentation/material-ui-components/components/selects/UnstyledSelectMultiple.js')
+              .default
+          }
+          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/UnstyledSelectMultiple.js')}
+        />
+      </Typography>
+      <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
+        useSelect hook
+      </Typography>
+
+      <FuseHighlight component="pre" className="language-js">
+        {` 
+import { useSelect } from '@mui/base/SelectUnstyled';
+`}
+      </FuseHighlight>
+      <Typography className="mb-40" component="div">
+        If you need to use Select&#39;s functionality in another component, you can use the{' '}
+        <code>useSelect</code> hook. It enables maximal customizability at the cost of being
+        low-level.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        The following example shows a select that opens when hovered over or focused. It can be
+        controlled by a mouse/touch or a keyboard.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          name="UseSelect.js"
+          className="my-24"
+          iframe={false}
+          component={
+            require('app/main/documentation/material-ui-components/components/selects/UseSelect.js')
+              .default
+          }
+          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/UseSelect.js')}
+        />
+      </Typography>
     </>
   );
 }

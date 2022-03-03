@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: React Alert component
 components: Alert, AlertTitle
-githubLabel: 'component: Alert'
+githubLabel: 'component: alert'
 waiAria: https://www.w3.org/TR/wai-aria-practices/#alert
 ---
 
@@ -17,13 +18,13 @@ waiAria: https://www.w3.org/TR/wai-aria-practices/#alert
 
 The alert offers four severity levels that set a distinctive icon and color.
 
-{{"demo": "pages/components/alert/BasicAlerts.js"}}
+{{"demo": "BasicAlerts.js"}}
 
 ## Description
 
 You can use the `AlertTitle` component to display a formatted title above the content.
 
-{{"demo": "pages/components/alert/DescriptionAlerts.js"}}
+{{"demo": "DescriptionAlerts.js"}}
 
 ## Actions
 
@@ -32,13 +33,13 @@ It is rendered after the message, at the end of the alert.
 
 If an `onClose` callback is provided and no `action` prop is set, a close icon is displayed. The `action` prop can be used to provide an alternative action, for example using a Button or IconButton.
 
-{{"demo": "pages/components/alert/ActionAlerts.js"}}
+{{"demo": "ActionAlerts.js"}}
 
 ### Transition
 
 You can use a [transition component](/components/transitions/) such as `Collapse` to transition the appearance of the alert.
 
-{{"demo": "pages/components/alert/TransitionAlerts.js"}}
+{{"demo": "TransitionAlerts.js"}}
 
 ## Icons
 
@@ -49,7 +50,7 @@ You can change the default severity to icon mapping with the `iconMapping` prop.
 
 Setting the icon prop to `false` will remove the icon altogether.
 
-{{"demo": "pages/components/alert/IconAlerts.js"}}
+{{"demo": "IconAlerts.js"}}
 
 ## Variants
 
@@ -57,11 +58,11 @@ Two additional variants are available – outlined, and filled:
 
 ### Outlined
 
-{{"demo": "pages/components/alert/OutlinedAlerts.js"}}
+{{"demo": "OutlinedAlerts.js"}}
 
 ### Filled
 
-{{"demo": "pages/components/alert/FilledAlerts.js"}}
+{{"demo": "FilledAlerts.js"}}
 
 ## Toast
 
@@ -71,7 +72,7 @@ You can use the Snackbar to [display a toast](/components/snackbars/#customized-
 
 The `color` prop will override the default color for the specified severity.
 
-{{"demo": "pages/components/alert/ColorAlerts.js"}}
+{{"demo": "ColorAlerts.js"}}
 
 ## Accessibility
 

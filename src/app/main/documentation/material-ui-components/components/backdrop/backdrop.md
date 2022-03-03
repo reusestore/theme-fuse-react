@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: Backdrop React Component
 components: Backdrop, BackdropUnstyled
-githubLabel: 'component: Backdrop'
+githubLabel: 'component: backdrop'
 ---
 
 # Backdrop
@@ -15,11 +16,11 @@ In its simplest form, the backdrop component will add a dimmed layer over your a
 
 ## Example
 
-{{"demo": "pages/components/backdrop/SimpleBackdrop.js"}}
+{{"demo": "SimpleBackdrop.js"}}
 
 ## Unstyled
 
-The backdrop also comes with the unstyled package.
+The backdrop also comes with the Base package.
 It's ideal for doing heavy customizations and minimizing bundle size.
 
 ```js

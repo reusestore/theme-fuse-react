@@ -28,14 +28,15 @@ function MasonryDoc(props) {
         Masonry
       </Typography>
       <Typography className="description">
-        Masonry lays out contents of different sizes as blocks of the same width and variable height
-        with configurable gaps.
+        Masonry lays out contents of varying dimensions as blocks of the same width and different
+        height with configurable gaps.
       </Typography>
 
       <Typography className="mb-40" component="div">
-        Masonry maintains a list of content blocks with a consistent width but variable height. The
+        Masonry maintains a list of content blocks with a consistent width but different height. The
         contents are ordered by row. If a row is already filled with the specified number of
-        columns, the next item starts another row, and it is added to the shortest column.
+        columns, the next item starts another row, and it is added to the shortest column in order
+        to optimize the use of space.
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Basic masonry
@@ -47,6 +48,7 @@ function MasonryDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicMasonry.js"
           className="my-24"
           iframe={false}
           component={
@@ -66,6 +68,7 @@ function MasonryDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ImageMasonry.js"
           className="my-24"
           iframe={false}
           component={
@@ -73,6 +76,26 @@ function MasonryDoc(props) {
               .default
           }
           raw={require('!raw-loader!app/main/documentation/material-ui-components/components/masonry/ImageMasonry.js')}
+        />
+      </Typography>
+      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
+        Items with variable height
+      </Typography>
+      <Typography className="mb-40" component="div">
+        This example demonstrates the use of <code>Masonry</code> for items with variable height.
+        Items can move to other columns in order to abide by the rule that items are always added to
+        the shortest column and hence optimize the use of space.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          name="MasonryWithVariableHeightItems.js"
+          className="my-24"
+          iframe={false}
+          component={
+            require('app/main/documentation/material-ui-components/components/masonry/MasonryWithVariableHeightItems.js')
+              .default
+          }
+          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/masonry/MasonryWithVariableHeightItems.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -84,6 +107,7 @@ function MasonryDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FixedColumns.js"
           className="my-24"
           iframe={false}
           component={
@@ -98,6 +122,7 @@ function MasonryDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ResponsiveColumns.js"
           className="my-24"
           iframe={false}
           component={
@@ -117,6 +142,7 @@ function MasonryDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FixedSpacing.js"
           className="my-24"
           iframe={false}
           component={
@@ -131,6 +157,7 @@ function MasonryDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ResponsiveSpacing.js"
           className="my-24"
           iframe={false}
           component={
@@ -157,6 +184,7 @@ function MasonryDoc(props) {
       </blockquote>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SSRMasonry.js"
           className="my-24"
           iframe={false}
           component={

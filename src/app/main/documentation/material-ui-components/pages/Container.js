@@ -43,6 +43,7 @@ function ContainerDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SimpleContainer.js"
           className="my-24"
           iframe
           component={
@@ -68,6 +69,7 @@ function ContainerDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FixedContainer.js"
           className="my-24"
           iframe
           component={

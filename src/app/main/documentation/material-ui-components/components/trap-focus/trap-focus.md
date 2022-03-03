@@ -1,4 +1,5 @@
 ---
+product: material-ui
 title: Trap Focus React component
 components: Unstable_TrapFocus
 githubLabel: 'component: TrapFocus'
@@ -19,13 +20,13 @@ When `open={true}` the trap is enabled, and pressing <kbd class="key">Tab</kbd> 
 
 ## Example
 
-{{"demo": "pages/components/trap-focus/BasicTrapFocus.js"}}
+{{"demo": "BasicTrapFocus.js"}}
 
 ## Unstyled
 
 - 📦 [2.0 kB gzipped](https://bundlephobia.com/package/@mui/base@latest)
 
-As the component does not have any styles, it also comes with the unstyled package.
+As the component does not have any styles, it also comes with the Base package.
 
 ```js
 import TrapFocus from '@mui/base/Unstable_TrapFocus';
@@ -37,7 +38,7 @@ Clicks within the focus trap behave normally, but clicks outside the focus trap 
 
 You can disable this behavior with the `disableEnforceFocus` prop.
 
-{{"demo": "pages/components/trap-focus/DisableEnforceFocus.js"}}
+{{"demo": "DisableEnforceFocus.js"}}
 
 ## Lazy activation
 
@@ -46,10 +47,10 @@ By default, the component moves the focus to its descendants as soon as it opens
 You can disable this behavior and make it lazy with the `disableAutoFocus` prop.
 When auto focus is disabled, as in the demo below, the component only traps the focus once it gets focused.
 
-{{"demo": "pages/components/trap-focus/LazyTrapFocus.js"}}
+{{"demo": "LazyTrapFocus.js"}}
 
 ## Portal
 
 The following demo uses the [`Portal`](/components/portal/) component to render a subset of the trap focus children into a new "subtree" outside of the current DOM hierarchy; so that they no longer form part of the focus loop.
 
-{{"demo": "pages/components/trap-focus/PortalTrapFocus.js"}}
+{{"demo": "PortalTrapFocus.js"}}

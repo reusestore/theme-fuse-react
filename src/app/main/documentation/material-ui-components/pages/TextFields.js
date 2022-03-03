@@ -43,6 +43,7 @@ function TextFieldsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicTextFields.js"
           className="my-24"
           iframe={false}
           component={
@@ -70,6 +71,7 @@ function TextFieldsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FormPropsTextFields.js"
           className="my-24"
           iframe={false}
           component={
@@ -88,6 +90,7 @@ function TextFieldsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ValidationTextFields.js"
           className="my-24"
           iframe={false}
           component={
@@ -111,6 +114,7 @@ function TextFieldsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="MultilineTextFields.js"
           className="my-24"
           iframe={false}
           component={
@@ -129,6 +133,7 @@ function TextFieldsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SelectTextFields.js"
           className="my-24"
           iframe={false}
           component={
@@ -146,6 +151,7 @@ function TextFieldsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="InputWithIcon.js"
           className="my-24"
           iframe={false}
           component={
@@ -165,6 +171,7 @@ function TextFieldsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="InputAdornments.js"
           className="my-24"
           iframe={false}
           component={
@@ -182,6 +189,7 @@ function TextFieldsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TextFieldSizes.js"
           className="my-24"
           iframe={false}
           component={
@@ -197,6 +205,7 @@ function TextFieldsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TextFieldHiddenLabel.js"
           className="my-24"
           iframe={false}
           component={
@@ -216,6 +225,7 @@ function TextFieldsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="LayoutTextFields.js"
           className="my-24"
           iframe={false}
           component={
@@ -234,6 +244,7 @@ function TextFieldsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FullWidthTextField.js"
           className="my-24"
           iframe={false}
           component={
@@ -251,6 +262,7 @@ function TextFieldsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="StateTextFields.js"
           className="my-24"
           iframe={false}
           component={
@@ -299,6 +311,7 @@ function TextFieldsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ComposedTextField.js"
           className="my-24"
           iframe={false}
           component={
@@ -313,6 +326,7 @@ function TextFieldsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="Inputs.js"
           className="my-24"
           iframe={false}
           component={
@@ -330,6 +344,7 @@ function TextFieldsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ColorTextFields.js"
           className="my-24"
           iframe={false}
           component={
@@ -348,6 +363,7 @@ function TextFieldsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomizedInputs.js"
           className="my-24"
           iframe={false}
           component={
@@ -367,6 +383,7 @@ function TextFieldsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomizedInputBase.js"
           className="my-24"
           iframe={false}
           component={
@@ -476,6 +493,7 @@ import { useFormControl } from '@mui/material/FormControl';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="UseFormControl.js"
           className="my-24"
           iframe={false}
           component={
@@ -561,7 +579,7 @@ import { useFormControl } from '@mui/material/FormControl';
       </FuseHighlight>
       <Typography className="mb-40" component="div">
         In the future, we might provide a{' '}
-        <a href="https://github.com/mui-org/material-ui/issues/19154">number input component</a>.
+        <a href="https://github.com/mui/material-ui/issues/19154">number input component</a>.
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
         Helper text
@@ -573,6 +591,7 @@ import { useFormControl } from '@mui/material/FormControl';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="HelperTextMisaligned.js"
           className="my-24"
           iframe={false}
           component={
@@ -587,6 +606,7 @@ import { useFormControl } from '@mui/material/FormControl';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="HelperTextAligned.js"
           className="my-24"
           iframe={false}
           component={
@@ -608,10 +628,11 @@ import { useFormControl } from '@mui/material/FormControl';
         The following demo uses the <a href="https://github.com/uNmAnNeR/imaskjs">react-imask</a>{' '}
         and <a href="https://github.com/s-yadav/react-number-format">react-number-format</a>{' '}
         libraries. The same concept could be applied to{' '}
-        <a href="https://github.com/mui-org/material-ui/issues/16037">e.g. react-stripe-element</a>.
+        <a href="https://github.com/mui/material-ui/issues/16037">e.g. react-stripe-element</a>.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FormattedInputs.js"
           className="my-24"
           iframe={false}
           component={
@@ -744,6 +765,7 @@ const MyInputComponent = React.forwardRef((props, ref) => {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="UnstyledInput.js"
           className="my-24"
           iframe={false}
           component={
@@ -762,6 +784,7 @@ const MyInputComponent = React.forwardRef((props, ref) => {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="UseInput.js"
           className="my-24"
           iframe={false}
           component={

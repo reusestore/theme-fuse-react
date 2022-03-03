@@ -50,6 +50,7 @@ function ButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicButtons.js"
           className="my-24"
           iframe={false}
           component={
@@ -69,6 +70,7 @@ function ButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TextButtons.js"
           className="my-24"
           iframe={false}
           component={
@@ -88,6 +90,7 @@ function ButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ContainedButtons.js"
           className="my-24"
           iframe={false}
           component={
@@ -102,6 +105,7 @@ function ButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DisableElevation.js"
           className="my-24"
           iframe={false}
           component={
@@ -125,6 +129,7 @@ function ButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="OutlinedButtons.js"
           className="my-24"
           iframe={false}
           component={
@@ -162,6 +167,7 @@ function ButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ColorButtons.js"
           className="my-24"
           iframe={false}
           component={
@@ -185,6 +191,7 @@ function ButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ButtonSizes.js"
           className="my-24"
           iframe={false}
           component={
@@ -199,6 +206,7 @@ function ButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="UploadButtons.js"
           className="my-24"
           iframe={false}
           component={
@@ -218,6 +226,7 @@ function ButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="IconLabelButtons.js"
           className="my-24"
           iframe={false}
           component={
@@ -239,6 +248,7 @@ function ButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="IconButtons.js"
           className="my-24"
           iframe={false}
           component={
@@ -256,6 +266,7 @@ function ButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="IconButtonSizes.js"
           className="my-24"
           iframe={false}
           component={
@@ -273,6 +284,7 @@ function ButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="IconButtonColors.js"
           className="my-24"
           iframe={false}
           component={
@@ -291,6 +303,7 @@ function ButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomizedButtons.js"
           className="my-24"
           iframe={false}
           component={
@@ -315,6 +328,7 @@ function ButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="LoadingButtons.js"
           className="my-24"
           iframe={false}
           component={
@@ -329,6 +343,7 @@ function ButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="LoadingButtonsTransition.js"
           className="my-24"
           iframe={false}
           component={
@@ -348,6 +363,7 @@ function ButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ButtonBase.js"
           className="my-24"
           iframe={false}
           component={
@@ -444,6 +460,7 @@ import ButtonUnstyled from '@mui/base/ButtonUnstyled';
       </FuseHighlight>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="UnstyledButtonsSimple.js"
           className="my-24"
           iframe={false}
           component={
@@ -464,6 +481,7 @@ import ButtonUnstyled from '@mui/base/ButtonUnstyled';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="UnstyledButtonsSpan.js"
           className="my-24"
           iframe={false}
           component={
@@ -485,6 +503,7 @@ import ButtonUnstyled from '@mui/base/ButtonUnstyled';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="UnstyledButtonCustom.js"
           className="my-24"
           iframe={false}
           component={
@@ -515,6 +534,7 @@ import { useButton } from '@mui/base/ButtonUnstyled';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="UseButton.js"
           className="my-24"
           iframe={false}
           component={

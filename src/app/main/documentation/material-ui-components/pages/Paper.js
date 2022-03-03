@@ -41,6 +41,7 @@ function PaperDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SimplePaper.js"
           className="my-24"
           iframe={false}
           component={
@@ -58,6 +59,7 @@ function PaperDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="Variants.js"
           className="my-24"
           iframe={false}
           component={
@@ -77,6 +79,7 @@ function PaperDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="Elevation.js"
           className="my-24"
           iframe={false}
           component={

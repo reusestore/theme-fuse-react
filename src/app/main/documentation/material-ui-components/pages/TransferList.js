@@ -41,6 +41,7 @@ function TransferListDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TransferList.js"
           className="my-24"
           iframe={false}
           component={
@@ -59,6 +60,7 @@ function TransferListDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SelectAllTransferList.js"
           className="my-24"
           iframe={false}
           component={
@@ -79,12 +81,12 @@ function TransferListDoc(props) {
           It only works on desktop. If you have a limited amount of options to select, prefer the{' '}
           <a href="/components/autocomplete/#multiple-values">Autocomplete</a> component. If mobile
           support is important for you, have a look at{' '}
-          <a href="https://github.com/mui-org/material-ui/issues/27579">#27579</a>.
+          <a href="https://github.com/mui/material-ui/issues/27579">#27579</a>.
         </li>
         <li>
           There are no high-level components exported from npm. The demos are based on composition.
           If this is important for you, have a look at{' '}
-          <a href="https://github.com/mui-org/material-ui/issues/27579">#27579</a>.
+          <a href="https://github.com/mui/material-ui/issues/27579">#27579</a>.
         </li>
       </ul>
     </>

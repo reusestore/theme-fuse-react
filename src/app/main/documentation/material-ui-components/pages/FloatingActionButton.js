@@ -44,6 +44,7 @@ function FloatingActionButtonDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FloatingActionButtons.js"
           className="my-24"
           iframe={false}
           component={
@@ -62,6 +63,7 @@ function FloatingActionButtonDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FloatingActionButtonSize.js"
           className="my-24"
           iframe={false}
           component={
@@ -71,6 +73,7 @@ function FloatingActionButtonDoc(props) {
           raw={require('!raw-loader!app/main/documentation/material-ui-components/components/floating-action-button/FloatingActionButtonSize.js')}
         />
         <FuseExample
+          name="FloatingActionButtonExtendedSize.js"
           className="my-24"
           iframe={false}
           component={
@@ -98,6 +101,7 @@ function FloatingActionButtonDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FloatingActionButtonZoom.js"
           className="my-24"
           iframe={false}
           component={

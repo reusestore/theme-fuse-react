@@ -76,6 +76,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicDatePicker.js"
           className="my-24"
           iframe={false}
           component={
@@ -94,6 +95,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="StaticDatePickerDemo.js"
           className="my-24"
           iframe={false}
           component={
@@ -129,6 +131,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ResponsiveDatePickers.js"
           className="my-24"
           iframe={false}
           component={
@@ -146,6 +149,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FormPropsDatePickers.js"
           className="my-24"
           iframe={false}
           component={
@@ -165,6 +169,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="LocalizedDatePicker.js"
           className="my-24"
           iframe={false}
           component={
@@ -183,6 +188,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="JalaliDatePicker.js"
           className="my-24"
           iframe={false}
           component={
@@ -202,6 +208,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ViewsDatePicker.js"
           className="my-24"
           iframe={false}
           component={
@@ -221,6 +228,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="StaticDatePickerLandscape.js"
           className="my-24"
           iframe={false}
           component={
@@ -240,6 +248,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SubComponentsPickers.js"
           className="my-24"
           iframe={false}
           component={
@@ -259,6 +268,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomInput.js"
           className="my-24"
           iframe={false}
           component={
@@ -277,6 +287,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomDay.js"
           className="my-24"
           iframe={false}
           component={
@@ -296,6 +307,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ServerRequestDatePicker.js"
           className="my-24"
           iframe={false}
           component={
@@ -313,6 +325,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="HelperText.js"
           className="my-24"
           iframe={false}
           component={

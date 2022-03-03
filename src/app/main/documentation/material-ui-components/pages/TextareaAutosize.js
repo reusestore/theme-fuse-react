@@ -46,6 +46,7 @@ function TextareaAutosizeDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="EmptyTextarea.js"
           className="my-24"
           iframe={false}
           component={
@@ -60,6 +61,7 @@ function TextareaAutosizeDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="MinHeightTextarea.js"
           className="my-24"
           iframe={false}
           component={
@@ -74,6 +76,7 @@ function TextareaAutosizeDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="MaxHeightTextarea.js"
           className="my-24"
           iframe={false}
           component={
@@ -92,7 +95,7 @@ function TextareaAutosizeDoc(props) {
         </li>
       </ul>
       <Typography className="mb-40" component="div">
-        As the component does not have any styles, it also comes with the unstyled package.
+        As the component does not have any styles, it also comes with the Base package.
       </Typography>
 
       <FuseHighlight component="pre" className="language-js">

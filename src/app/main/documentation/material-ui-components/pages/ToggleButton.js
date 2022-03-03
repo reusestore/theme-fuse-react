@@ -53,6 +53,7 @@ function ToggleButtonDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ToggleButtons.js"
           className="my-24"
           iframe={false}
           component={
@@ -71,6 +72,7 @@ function ToggleButtonDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ToggleButtonsMultiple.js"
           className="my-24"
           iframe={false}
           component={
@@ -88,6 +90,7 @@ function ToggleButtonDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ToggleButtonSizes.js"
           className="my-24"
           iframe={false}
           component={
@@ -102,6 +105,7 @@ function ToggleButtonDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ColorToggleButton.js"
           className="my-24"
           iframe={false}
           component={
@@ -120,6 +124,7 @@ function ToggleButtonDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="VerticalToggleButtons.js"
           className="my-24"
           iframe={false}
           component={
@@ -154,6 +159,7 @@ const handleDevices = (event, newDevices) => {
       </FuseHighlight>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ToggleButtonNotEmpty.js"
           className="my-24"
           iframe={false}
           component={
@@ -168,6 +174,7 @@ const handleDevices = (event, newDevices) => {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="StandaloneToggleButton.js"
           className="my-24"
           iframe={false}
           component={
@@ -186,6 +193,7 @@ const handleDevices = (event, newDevices) => {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomizedDividers.js"
           className="my-24"
           iframe={false}
           component={

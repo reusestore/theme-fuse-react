@@ -44,6 +44,7 @@ function AlertDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicAlerts.js"
           className="my-24"
           iframe={false}
           component={
@@ -62,6 +63,7 @@ function AlertDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DescriptionAlerts.js"
           className="my-24"
           iframe={false}
           component={
@@ -85,6 +87,7 @@ function AlertDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ActionAlerts.js"
           className="my-24"
           iframe={false}
           component={
@@ -103,6 +106,7 @@ function AlertDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TransitionAlerts.js"
           className="my-24"
           iframe={false}
           component={
@@ -129,6 +133,7 @@ function AlertDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="IconAlerts.js"
           className="my-24"
           iframe={false}
           component={
@@ -149,6 +154,7 @@ function AlertDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="OutlinedAlerts.js"
           className="my-24"
           iframe={false}
           component={
@@ -163,6 +169,7 @@ function AlertDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FilledAlerts.js"
           className="my-24"
           iframe={false}
           component={
@@ -187,6 +194,7 @@ function AlertDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ColorAlerts.js"
           className="my-24"
           iframe={false}
           component={

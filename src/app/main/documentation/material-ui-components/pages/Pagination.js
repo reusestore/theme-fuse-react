@@ -37,6 +37,7 @@ function PaginationDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicPagination.js"
           className="my-24"
           iframe={false}
           component={
@@ -51,6 +52,7 @@ function PaginationDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="PaginationOutlined.js"
           className="my-24"
           iframe={false}
           component={
@@ -65,6 +67,7 @@ function PaginationDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="PaginationRounded.js"
           className="my-24"
           iframe={false}
           component={
@@ -79,6 +82,7 @@ function PaginationDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="PaginationSize.js"
           className="my-24"
           iframe={false}
           component={
@@ -97,6 +101,7 @@ function PaginationDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="PaginationButtons.js"
           className="my-24"
           iframe={false}
           component={
@@ -114,6 +119,7 @@ function PaginationDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomIcons.js"
           className="my-24"
           iframe={false}
           component={
@@ -133,6 +139,7 @@ function PaginationDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="PaginationRanges.js"
           className="my-24"
           iframe={false}
           component={
@@ -147,6 +154,7 @@ function PaginationDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="PaginationControlled.js"
           className="my-24"
           iframe={false}
           component={
@@ -161,6 +169,7 @@ function PaginationDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="PaginationLink.js"
           className="my-24"
           iframe={false}
           component={
@@ -186,6 +195,7 @@ import { usePagination } from '@mui/material/Pagination';
       </FuseHighlight>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="UsePagination.js"
           className="my-24"
           iframe={false}
           component={
@@ -209,6 +219,7 @@ import { usePagination } from '@mui/material/Pagination';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TablePagination.js"
           className="my-24"
           iframe={false}
           component={

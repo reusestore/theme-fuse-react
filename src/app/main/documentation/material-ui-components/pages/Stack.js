@@ -38,11 +38,12 @@ function StackDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <code>Stack</code> is concerned with one-dimensional layouts, while{' '}
-        <a href="/components/grid/">Grid</a> that handles two-dimensional layouts. The default
-        direction is <code>column</code> which stacks children vertically.
+        <a href="/components/grid/">Grid</a> handles two-dimensional layouts. The default direction
+        is <code>column</code> which stacks children vertically.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicStack.js"
           className="my-24"
           iframe={false}
           component={
@@ -71,6 +72,7 @@ function StackDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DirectionStack.js"
           className="my-24"
           iframe={false}
           component={
@@ -89,6 +91,7 @@ function StackDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DividerStack.js"
           className="my-24"
           iframe={false}
           component={
@@ -107,6 +110,7 @@ function StackDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ResponsiveStack.js"
           className="my-24"
           iframe={false}
           component={
@@ -125,6 +129,7 @@ function StackDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="InteractiveStack.js"
           className="my-24"
           iframe={false}
           component={

@@ -1,4 +1,5 @@
 ---
+product: material-ui
 title: React Typography component
 components: Typography
 githubLabel: 'component: Typography'
@@ -56,14 +57,14 @@ MUI default typography configuration only relies on 300, 400, 500, and 700 font 
 
 The Typography component makes it easy to apply a default set of font weights and sizes in your application.
 
-{{"demo": "pages/components/typography/Types.js"}}
+{{"demo": "Types.js"}}
 
 ## Theme
 
 In some situations you might not be able to use the `Typography` component.
 Hopefully, you might be able to take advantage of the [`typography`](/customization/default-theme/?expand-path=$.typography) keys of the theme.
 
-{{"demo": "pages/components/typography/TypographyTheme.js"}}
+{{"demo": "TypographyTheme.js"}}
 
 ## Changing the semantic element
 

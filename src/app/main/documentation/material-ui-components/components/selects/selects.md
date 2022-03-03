@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: React Select component
-components: Select, NativeSelect
-githubLabel: 'component: Select'
+components: Select, NativeSelect, SelectUnstyled, MultiSelectUnstyled, OptionUnstyled, OptionGroupUnstyled
+githubLabel: 'component: select'
 ---
 
 # Select
@@ -14,7 +15,7 @@ githubLabel: 'component: Select'
 
 Menus are positioned under their emitting elements, unless they are close to the bottom of the viewport.
 
-{{"demo": "pages/components/selects/BasicSelect.js"}}
+{{"demo": "BasicSelect.js"}}
 
 ## Advanced features
 
@@ -31,28 +32,28 @@ It shares the same styles and many of the same props. Refer to the respective co
 
 ### Filled and standard variants
 
-{{"demo": "pages/components/selects/SelectVariants.js"}}
+{{"demo": "SelectVariants.js"}}
 
 ### Labels and helper text
 
-{{"demo": "pages/components/selects/SelectLabels.js"}}
+{{"demo": "SelectLabels.js"}}
 
 > ⚠ Note that when using FormControl with the outlined variant of the Select, you need to provide a label in two places: in the InputLabel component and in the `label` prop of the Select component (see the above demo).
 
 ### Auto width
 
-{{"demo": "pages/components/selects/SelectAutoWidth.js"}}
+{{"demo": "SelectAutoWidth.js"}}
 
 ### Other props
 
-{{"demo": "pages/components/selects/SelectOtherProps.js"}}
+{{"demo": "SelectOtherProps.js"}}
 
 ## Native select
 
 As the user experience can be improved on mobile using the native select of the platform,
 we allow such pattern.
 
-{{"demo": "pages/components/selects/NativeSelect.js"}}
+{{"demo": "NativeSelect.js"}}
 
 ## TextField
 
@@ -68,7 +69,7 @@ The first step is to style the `InputBase` component.
 Once it's styled, you can either use it directly as a text field or provide it to the select `input` prop to have a `select` field.
 Notice that the `"standard"` variant is easier to customize, since it does not wrap the contents in a `fieldset`/`legend` markup.
 
-{{"demo": "pages/components/selects/CustomizedSelects.js"}}
+{{"demo": "CustomizedSelects.js"}}
 
 🎨 If you are looking for inspiration, you can check [MUI Treasury's customization examples](https://mui-treasury.com/styles/select/).
 
@@ -81,39 +82,41 @@ Like with the single selection, you can pull out the new value by accessing `eve
 
 ### Default
 
-{{"demo": "pages/components/selects/MultipleSelect.js"}}
+{{"demo": "MultipleSelect.js"}}
 
 ### Checkmarks
 
-{{"demo": "pages/components/selects/MultipleSelectCheckmarks.js"}}
+{{"demo": "MultipleSelectCheckmarks.js"}}
 
 ### Chip
 
-{{"demo": "pages/components/selects/MultipleSelectChip.js"}}
+{{"demo": "MultipleSelectChip.js"}}
 
 ### Placeholder
 
-{{"demo": "pages/components/selects/MultipleSelectPlaceholder.js"}}
+{{"demo": "MultipleSelectPlaceholder.js"}}
 
 ### Native
 
-{{"demo": "pages/components/selects/MultipleSelectNative.js"}}
+{{"demo": "MultipleSelectNative.js"}}
 
-## Controlled open select
+## Controlling the open state
 
-{{"demo": "pages/components/selects/ControlledOpenSelect.js"}}
+You can control the open state of the select with the `open` prop. Alternatively, it is also possible to set the initial (uncontrolled) open state of the component with the `defaultOpen` prop.
+
+{{"demo": "ControlledOpenSelect.js"}}
 
 ## With a dialog
 
 While it's discouraged by the Material Design guidelines, you can use a select inside a dialog.
 
-{{"demo": "pages/components/selects/DialogSelect.js"}}
+{{"demo": "DialogSelect.js"}}
 
 ## Grouping
 
 Display categories with the `ListSubheader` component or the native `<optgroup>` element.
 
-{{"demo": "pages/components/selects/GroupedSelect.js"}}
+{{"demo": "GroupedSelect.js"}}
 
 ## Accessibility
 
@@ -147,3 +150,84 @@ For a [native select](#native-select), you should mention a label by giving the 
   <option value="20">Twenty</option>
 </NativeSelect>
 ```
+
+## Unstyled
+
+The Select also comes with an unstyled version.
+It's ideal for doing heavy customizations and minimizing bundle size.
+
+### Unstyled component
+
+```jsx
+import SelectUnstyled from '@mui/base/SelectUnstyled';
+```
+
+#### Basic usage
+
+{{"demo": "UnstyledSelectSimple.js"}}
+
+The `SelectUnstyled` is a component that accepts generic props.
+Due to Typescript limitations, this may cause unexpected behavior when wrapping the component in `forwardRef` (or other higher-order components).
+In such cases, the generic argument will be defaulted to `unknown` and type suggestions will be incomplete.
+To avoid this, manually cast the resulting component to the correct type (as shown above).
+
+The rest of the demos below will not use `forwardRef` for brevity.
+
+#### Controlled select
+
+The SelectUnstyled can be used as either uncontrolled (as shown in the demo above) or controlled component.
+
+{{"demo": "UnstyledSelectControlled.js"}}
+
+#### Usage with object values
+
+The unstyled select may be used with non-string values.
+
+{{"demo": "UnstyledSelectObjectValues.js"}}
+
+#### Customizing the selected value appearance
+
+It is possible to customize the selected value display by providing a function to the `renderValue` prop.
+The element returned by this function will be rendered inside the select's button.
+
+{{"demo": "UnstyledSelectCustomRenderValue.js"}}
+
+#### Customizing the options' appearance
+
+Options don't have to be plain strings.
+You can include custom elements to be rendered inside the listbox.
+
+{{"demo": "UnstyledSelectRichOptions.js"}}
+
+#### Grouping
+
+Options can be grouped, similarly to the how the native `select` element works.
+Unlike the native `select`, however, the groups can be nested.
+
+Place the `Option` components inside `OptionGroup` to achieve this.
+
+{{"demo": "UnstyledSelectGrouping.js"}}
+
+#### Multiselect
+
+To be able to select multiple options at once, use the `MultiSelectUnstyled` component.
+
+```js
+import { MultiSelectUnstyled } from '@mui/base/SelectUnstyled';
+```
+
+{{"demo": "UnstyledSelectMultiple.js"}}
+
+### useSelect hook
+
+```js
+import { useSelect } from '@mui/base/SelectUnstyled';
+```
+
+If you need to use Select's functionality in another component, you can use the `useSelect` hook.
+It enables maximal customizability at the cost of being low-level.
+
+The following example shows a select that opens when hovered over or focused.
+It can be controlled by a mouse/touch or a keyboard.
+
+{{"demo": "UseSelect.js"}}

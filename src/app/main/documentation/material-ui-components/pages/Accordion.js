@@ -29,7 +29,8 @@ function AccordionDoc(props) {
         Accordion
       </Typography>
       <Typography className="description">
-        Accordions contain creation flows and allow lightweight editing of an element.
+        The accordion component allows the user to show and hide sections of related content on a
+        page.
       </Typography>
 
       <Typography className="mb-40" component="div">
@@ -48,6 +49,7 @@ function AccordionDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicAccordion.js"
           className="my-24"
           iframe={false}
           component={
@@ -66,6 +68,7 @@ function AccordionDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ControlledAccordions.js"
           className="my-24"
           iframe={false}
           component={
@@ -84,6 +87,7 @@ function AccordionDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomizedAccordions.js"
           className="my-24"
           iframe={false}
           component={

@@ -1,50 +1,51 @@
 ---
+product: material-ui
 title: React Breadcrumbs component
 components: Breadcrumbs, Link, Typography
-githubLabel: 'component: Breadcrumbs'
+githubLabel: 'component: breadcrumbs'
 waiAria: https://www.w3.org/TR/wai-aria-practices/#breadcrumb
 ---
 
 # Breadcrumbs
 
-<p class="description">Breadcrumbs allow users to make selections from a range of values.</p>
+<p class="description">Breadcrumbs consist of a list of links that help a user visualize a page's location within the hierarchical structure of a website, and allow navigation up to any of its "ancestors".</p>
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
 ## Basic breadcrumbs
 
-{{"demo": "pages/components/breadcrumbs/BasicBreadcrumbs.js"}}
+{{"demo": "BasicBreadcrumbs.js"}}
 
 ## Active last breadcrumb
 
 Keep the last breadcrumb interactive.
 
-{{"demo": "pages/components/breadcrumbs/ActiveLastBreadcrumb.js"}}
+{{"demo": "ActiveLastBreadcrumb.js"}}
 
 ## Custom separator
 
 In the following examples, we are using two string separators and an SVG icon.
 
-{{"demo": "pages/components/breadcrumbs/CustomSeparator.js"}}
+{{"demo": "CustomSeparator.js"}}
 
 ## Breadcrumbs with icons
 
-{{"demo": "pages/components/breadcrumbs/IconBreadcrumbs.js"}}
+{{"demo": "IconBreadcrumbs.js"}}
 
 ## Collapsed breadcrumbs
 
-{{"demo": "pages/components/breadcrumbs/CollapsedBreadcrumbs.js"}}
+{{"demo": "CollapsedBreadcrumbs.js"}}
 
 ## Customization
 
 Here is an example of customizing the component.
 You can learn more about this in the [overrides documentation page](/customization/how-to-customize/).
 
-{{"demo": "pages/components/breadcrumbs/CustomizedBreadcrumbs.js"}}
+{{"demo": "CustomizedBreadcrumbs.js"}}
 
 ## Integration with react-router
 
-{{"demo": "pages/components/breadcrumbs/RouterBreadcrumbs.js", "bg": true}}
+{{"demo": "RouterBreadcrumbs.js", "bg": true}}
 
 ## Accessibility
 

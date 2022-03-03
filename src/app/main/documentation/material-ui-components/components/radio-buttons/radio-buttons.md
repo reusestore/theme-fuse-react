@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: Radio buttons React component
 components: Radio, RadioGroup, FormControl, FormLabel, FormControlLabel
-githubLabel: 'component: Radio'
+githubLabel: 'component: radio'
 materialDesign: https://material.io/components/selection-controls#radio-buttons
 waiAria: https://www.w3.org/TR/wai-aria-practices/#radiobutton
 ---
@@ -11,7 +12,7 @@ waiAria: https://www.w3.org/TR/wai-aria-practices/#radiobutton
 <p class="description">Radio buttons allow the user to select one option from a set.</p>
 
 Use radio buttons when the user needs to see all available options.
-If available options can be collapsed, consider using a dropdown menu because it uses less space.
+If available options can be collapsed, consider using a [Select component](/components/selects/) because it uses less space.
 
 Radio buttons should have the most commonly used option selected by default.
 
@@ -21,54 +22,54 @@ Radio buttons should have the most commonly used option selected by default.
 
 `RadioGroup` is a helpful wrapper used to group `Radio` components that provides an easier API, and proper keyboard accessibility to the group.
 
-{{"demo": "pages/components/radio-buttons/RadioButtonsGroup.js"}}
+{{"demo": "RadioButtonsGroup.js"}}
 
 ### Direction
 
 To lay out the buttons horizontally, set the `row` prop:
 
-{{"demo": "pages/components/radio-buttons/RowRadioButtonsGroup.js"}}
+{{"demo": "RowRadioButtonsGroup.js"}}
 
 ### Controlled
 
 You can control the radio with the `value` and `onChange` props:
 
-{{"demo": "pages/components/radio-buttons/ControlledRadioButtonsGroup.js"}}
+{{"demo": "ControlledRadioButtonsGroup.js"}}
 
 ## Standalone radio buttons
 
 `Radio` can also be used standalone, without the RadioGroup wrapper.
 
-{{"demo": "pages/components/radio-buttons/RadioButtons.js"}}
+{{"demo": "RadioButtons.js"}}
 
 ## Size
 
 Use the `size` prop or customize the font size of the svg icons to change the size of the radios.
 
-{{"demo": "pages/components/radio-buttons/SizeRadioButtons.js"}}
+{{"demo": "SizeRadioButtons.js"}}
 
 ## Color
 
-{{"demo": "pages/components/radio-buttons/ColorRadioButtons.js"}}
+{{"demo": "ColorRadioButtons.js"}}
 
 ## Label placement
 
 You can change the placement of the label with the `FormControlLabel` component's `labelPlacement` prop:
 
-{{"demo": "pages/components/radio-buttons/FormControlLabelPlacement.js"}}
+{{"demo": "FormControlLabelPlacement.js"}}
 
 ## Show error
 
 In general, radio buttons should have a value selected by default. If this is not the case, you can display an error if no value is selected when the form is submitted:
 
-{{"demo": "pages/components/radio-buttons/ErrorRadios.js"}}
+{{"demo": "ErrorRadios.js"}}
 
 ## Customization
 
 Here is an example of customizing the component.
 You can learn more about this in the [overrides documentation page](/customization/how-to-customize/).
 
-{{"demo": "pages/components/radio-buttons/CustomizedRadios.js"}}
+{{"demo": "CustomizedRadios.js"}}
 
 ## `useRadioGroup`
 
@@ -92,7 +93,7 @@ import { useRadioGroup } from '@mui/material/RadioGroup';
 
 #### Example
 
-{{"demo": "pages/components/radio-buttons/UseRadioGroup.js"}}
+{{"demo": "UseRadioGroup.js"}}
 
 ## When to use
 

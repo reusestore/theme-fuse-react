@@ -75,6 +75,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicTimePicker.js"
           className="my-24"
           iframe={false}
           component={
@@ -93,6 +94,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="StaticTimePickerDemo.js"
           className="my-24"
           iframe={false}
           component={
@@ -128,6 +130,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ResponsiveTimePickers.js"
           className="my-24"
           iframe={false}
           component={
@@ -145,6 +148,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FormPropsTimePickers.js"
           className="my-24"
           iframe={false}
           component={
@@ -165,6 +169,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="LocalizedTimePicker.js"
           className="my-24"
           iframe={false}
           component={
@@ -179,6 +184,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TimeValidationTimePicker.js"
           className="my-24"
           iframe={false}
           component={
@@ -193,6 +199,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="StaticTimePickerLandscape.js"
           className="my-24"
           iframe={false}
           component={
@@ -212,6 +219,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SubComponentsTimePickers.js"
           className="my-24"
           iframe={false}
           component={
@@ -229,6 +237,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SecondsTimePicker.js"
           className="my-24"
           iframe={false}
           component={

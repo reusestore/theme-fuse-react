@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: React Speed Dial component
 components: SpeedDial, SpeedDialAction, SpeedDialIcon
-githubLabel: 'component: SpeedDial'
+githubLabel: 'component: speed dial'
 materialDesign: https://material.io/components/buttons-floating-action-button#types-of-transitions
 waiAria: https://www.w3.org/TR/wai-aria-practices/#menubutton
 ---
@@ -18,24 +19,24 @@ If more than six actions are needed, something other than a FAB should be used t
 
 The floating action button can display related actions.
 
-{{"demo": "pages/components/speed-dial/BasicSpeedDial.js"}}
+{{"demo": "BasicSpeedDial.js"}}
 
 ## Playground
 
-{{"demo": "pages/components/speed-dial/PlaygroundSpeedDial.js"}}
+{{"demo": "PlaygroundSpeedDial.js"}}
 
 ## Controlled speed dial
 
 The open state of the component can be controlled with the `open`/`onOpen`/`onClose` props.
 
-{{"demo": "pages/components/speed-dial/ControlledOpenSpeedDial.js"}}
+{{"demo": "ControlledOpenSpeedDial.js"}}
 
 ## Custom close icon
 
 You can provide an alternate icon for the closed and open states using the `icon` and `openIcon` props
 of the `SpeedDialIcon` component.
 
-{{"demo": "pages/components/speed-dial/OpenIconSpeedDial.js"}}
+{{"demo": "OpenIconSpeedDial.js"}}
 
 ## Persistent action tooltips
 
@@ -43,7 +44,7 @@ The SpeedDialActions tooltips can be displayed persistently so that users don't 
 
 It is enabled here across all devices for demo purposes, but in production it could use the `isTouch` logic to conditionally set the prop.
 
-{{"demo": "pages/components/speed-dial/SpeedDialTooltipOpen.js"}}
+{{"demo": "SpeedDialTooltipOpen.js"}}
 
 ## Accessibility
 

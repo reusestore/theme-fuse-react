@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: React Stepper component
 components: MobileStepper, Step, StepButton, StepConnector, StepContent, StepIcon, StepLabel, Stepper
-githubLabel: 'component: Stepper'
+githubLabel: 'component: stepper'
 materialDesign: https://material.io/archive/guidelines/components/steppers.html
 ---
 
@@ -33,7 +34,7 @@ The `Stepper` can be controlled by passing the current step index (zero-based) a
 
 This example also shows the use of an optional step by placing the `optional` prop on the second `Step` component. Note that it's up to you to manage when an optional step is skipped. Once you've determined this for a particular step you must set `completed={false}` to signify that even though the active step index has gone beyond the optional step, it's not actually complete.
 
-{{"demo": "pages/components/steppers/HorizontalLinearStepper.js"}}
+{{"demo": "HorizontalLinearStepper.js"}}
 
 ### Non-linear
 
@@ -45,30 +46,30 @@ The use of the `StepButton` here demonstrates clickable step labels, as well as 
 flag. However because steps can be accessed in a non-linear fashion, it's up to your own implementation to
 determine when all steps are completed (or even if they need to be completed).
 
-{{"demo": "pages/components/steppers/HorizontalNonLinearStepper.js"}}
+{{"demo": "HorizontalNonLinearStepper.js"}}
 
 ### Alternative label
 
 Labels can be placed below the step icon by setting the `alternativeLabel` prop on the `Stepper` component.
 
-{{"demo": "pages/components/steppers/HorizontalLinearAlternativeLabelStepper.js"}}
+{{"demo": "HorizontalLinearAlternativeLabelStepper.js"}}
 
 ### Error step
 
-{{"demo": "pages/components/steppers/HorizontalStepperWithError.js"}}
+{{"demo": "HorizontalStepperWithError.js"}}
 
 ### Customized horizontal stepper
 
 Here is an example of customizing the component.
 You can learn more about this in the [overrides documentation page](/customization/how-to-customize/).
 
-{{"demo": "pages/components/steppers/CustomizedSteppers.js"}}
+{{"demo": "CustomizedSteppers.js"}}
 
 ## Vertical stepper
 
 Vertical steppers are designed for narrow screen sizes. They are ideal for mobile. All the features of the horizontal stepper can be implemented.
 
-{{"demo": "pages/components/steppers/VerticalLinearStepper.js"}}
+{{"demo": "VerticalLinearStepper.js"}}
 
 ### Performance
 
@@ -89,23 +90,23 @@ The mobile stepper supports three variants to display progress through the avail
 
 The current step and total number of steps are displayed as text.
 
-{{"demo": "pages/components/steppers/TextMobileStepper.js", "bg": true}}
+{{"demo": "TextMobileStepper.js", "bg": true}}
 
 ### Text with carousel effect
 
 This demo uses
 [react-swipeable-views](https://github.com/oliviertassinari/react-swipeable-views) to create a carousel.
 
-{{"demo": "pages/components/steppers/SwipeableTextMobileStepper.js", "bg": true}}
+{{"demo": "SwipeableTextMobileStepper.js", "bg": true}}
 
 ### Dots
 
 Use dots when the number of steps is small.
 
-{{"demo": "pages/components/steppers/DotsMobileStepper.js", "bg": true}}
+{{"demo": "DotsMobileStepper.js", "bg": true}}
 
 ### Progress
 
 Use a progress bar when there are many steps, or if there are steps that need to be inserted during the process (based on responses to earlier steps).
 
-{{"demo": "pages/components/steppers/ProgressMobileStepper.js", "bg": true}}
+{{"demo": "ProgressMobileStepper.js", "bg": true}}

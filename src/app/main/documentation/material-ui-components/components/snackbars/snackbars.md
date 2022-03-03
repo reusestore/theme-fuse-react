@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: React Snackbar component
 components: Snackbar, SnackbarContent
-githubLabel: 'component: Snackbar'
+githubLabel: 'component: snackbar'
 materialDesign: https://material.io/components/snackbars
 waiAria: https://www.w3.org/TR/wai-aria-1.1/#alert
 ---
@@ -17,35 +18,33 @@ They may contain a text action, but no icons. You can use them to display notifi
 
 {{"component": "modules/components/ComponentLinkHeader.js"}}
 
-#### Frequency
-
-Only one snackbar may be displayed at a time.
+**Frequency**: Only one snackbar may be displayed at a time.
 
 ## Simple snackbars
 
 A basic snackbar that aims to reproduce Google Keep's snackbar behavior.
 
-{{"demo": "pages/components/snackbars/SimpleSnackbar.js"}}
+{{"demo": "SimpleSnackbar.js"}}
 
 ## Customization
 
 Here are some examples of customizing the component.
 You can learn more about this in the [overrides documentation page](/customization/how-to-customize/).
 
-{{"demo": "pages/components/snackbars/CustomizedSnackbars.js"}}
+{{"demo": "CustomizedSnackbars.js"}}
 
 ## Positioned snackbars
 
 In wide layouts, snackbars can be left-aligned or center-aligned if they are consistently placed on the same spot at the bottom of the screen, however there may be circumstances where the placement of the snackbar needs to be more flexible.
 You can control the position of the snackbar by specifying the `anchorOrigin` prop.
 
-{{"demo": "pages/components/snackbars/PositionedSnackbar.js"}}
+{{"demo": "PositionedSnackbar.js"}}
 
 ## Message Length
 
 Some snackbars with varying message length.
 
-{{"demo": "pages/components/snackbars/LongTextSnackbar.js"}}
+{{"demo": "LongTextSnackbar.js"}}
 
 ## Transitions
 
@@ -53,19 +52,19 @@ Some snackbars with varying message length.
 
 When multiple snackbar updates are necessary, they should appear one at a time.
 
-{{"demo": "pages/components/snackbars/ConsecutiveSnackbars.js"}}
+{{"demo": "ConsecutiveSnackbars.js"}}
 
 ### Snackbars and floating action buttons (FABs)
 
 Snackbars should appear above FABs (on mobile).
 
-{{"demo": "pages/components/snackbars/FabIntegrationSnackbar.js", "iframe": true, "maxWidth": 400}}
+{{"demo": "FabIntegrationSnackbar.js", "iframe": true, "maxWidth": 400}}
 
 ### Change transition
 
 [Grow](/components/transitions/#grow) is the default transition but you can use a different one.
 
-{{"demo": "pages/components/snackbars/TransitionsSnackbar.js"}}
+{{"demo": "TransitionsSnackbar.js"}}
 
 ### Control Slide direction
 
@@ -87,7 +86,7 @@ export default function MyComponent() {
 
 Other examples:
 
-{{"demo": "pages/components/snackbars/DirectionSnackbar.js"}}
+{{"demo": "DirectionSnackbar.js"}}
 
 ## Complementary projects
 
@@ -102,7 +101,7 @@ This example demonstrates how to use [notistack](https://github.com/iamhosseindh
 notistack has an **imperative API** that makes it easy to display snackbars, without having to handle their open/close state.
 It also enables you to **stack** them on top of one another (although this is discouraged by the Material Design guidelines).
 
-{{"demo": "pages/components/snackbars/IntegrationNotistack.js", "defaultCodeOpen": false}}
+{{"demo": "IntegrationNotistack.js", "defaultCodeOpen": false}}
 
 ## Accessibility
 

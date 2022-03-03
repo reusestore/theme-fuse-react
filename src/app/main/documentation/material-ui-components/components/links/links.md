@@ -1,6 +1,7 @@
 ---
+product: material-ui
 components: Link
-githubLabel: 'component: Link'
+githubLabel: 'component: link'
 waiAria: https://www.w3.org/TR/wai-aria-practices/#link
 ---
 
@@ -14,7 +15,7 @@ waiAria: https://www.w3.org/TR/wai-aria-practices/#link
 
 The Link component is built on top of the [Typography](/api/typography/) component, meaning that you can use its props.
 
-{{"demo": "pages/components/links/Links.js"}}
+{{"demo": "Links.js"}}
 
 However, the Link component has some different default props than the Typography component:
 
@@ -25,7 +26,7 @@ However, the Link component has some different default props than the Typography
 
 The `underline` prop can be used to set the underline behavior. The default is `always`.
 
-{{"demo": "pages/components/links/UnderlineLink.js"}}
+{{"demo": "UnderlineLink.js"}}
 
 ## Security
 
@@ -51,4 +52,4 @@ Here is a [more detailed guide](/guides/routing/#link).
 - For the best user experience, links should stand out from the text on the page. For instance, you can keep the default `underline="always"` behavior.
 - If a link doesn't have a meaningful href, [it should be rendered using a `<button>` element](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md).
 
-{{"demo": "pages/components/links/ButtonLink.js"}}
+{{"demo": "ButtonLink.js"}}

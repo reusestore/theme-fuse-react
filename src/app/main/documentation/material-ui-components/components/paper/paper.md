@@ -1,4 +1,5 @@
 ---
+product: material-ui
 title: React Paper component
 components: Paper
 githubLabel: 'component: Paper'
@@ -14,19 +15,19 @@ The background of an application resembles the flat, opaque texture of a sheet o
 
 ## Basic paper
 
-{{"demo": "pages/components/paper/SimplePaper.js", "bg": true}}
+{{"demo": "SimplePaper.js", "bg": true}}
 
 ## Variants
 
 If you need an outlined surface, use the `variant` prop.
 
-{{"demo": "pages/components/paper/Variants.js", "bg": "inline"}}
+{{"demo": "Variants.js", "bg": "inline"}}
 
 ## Elevation
 
 The elevation can be used to establish a hierachy between other content. In practical terms, the elevation controls the size of the shadow applied to the surface. In dark mode, raising the elevation also makes the surface lighter.
 
-{{"demo": "pages/components/paper/Elevation.js", "bg": "inline"}}
+{{"demo": "Elevation.js", "bg": "inline"}}
 
 The change of shade in dark mode is done by applying a semi-transparent gradient to the `background-image` property.
 This can lead to confusion when overriding the styles of `Paper`, as setting just the `background-color` property will not affect the elevation-related shading.

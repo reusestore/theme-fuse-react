@@ -41,6 +41,7 @@ function ListsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicList.js"
           className="my-24"
           iframe={false}
           component={
@@ -71,6 +72,7 @@ function ListsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="NestedList.js"
           className="my-24"
           iframe={false}
           component={
@@ -85,6 +87,7 @@ function ListsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FolderList.js"
           className="my-24"
           iframe={false}
           component={
@@ -103,6 +106,7 @@ function ListsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="InteractiveList.js"
           className="my-24"
           iframe={false}
           component={
@@ -117,6 +121,7 @@ function ListsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SelectedListItem.js"
           className="my-24"
           iframe={false}
           component={
@@ -136,6 +141,7 @@ function ListsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="AlignItemsList.js"
           className="my-24"
           iframe={false}
           component={
@@ -160,6 +166,7 @@ function ListsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CheckboxList.js"
           className="my-24"
           iframe={false}
           component={
@@ -174,6 +181,7 @@ function ListsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CheckboxListSecondary.js"
           className="my-24"
           iframe={false}
           component={
@@ -191,6 +199,7 @@ function ListsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SwitchListSecondary.js"
           className="my-24"
           iframe={false}
           component={
@@ -209,6 +218,7 @@ function ListsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="PinnedSubheaderList.js"
           className="my-24"
           iframe={false}
           component={
@@ -227,6 +237,7 @@ function ListsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="InsetList.js"
           className="my-24"
           iframe={false}
           component={
@@ -245,6 +256,7 @@ function ListsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="GutterlessList.js"
           className="my-24"
           iframe={false}
           component={
@@ -265,6 +277,7 @@ function ListsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="VirtualizedList.js"
           className="my-24"
           iframe={false}
           component={
@@ -289,6 +302,7 @@ function ListsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomizedList.js"
           className="my-24"
           iframe={false}
           component={

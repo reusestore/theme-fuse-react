@@ -1,4 +1,5 @@
 ---
+product: material-ui
 title: React Fab component
 components: Fab
 githubLabel: 'component: Fab'
@@ -19,15 +20,15 @@ Only one component is recommended per screen to represent the most common action
 
 ## Basic FAB
 
-{{"demo": "pages/components/floating-action-button/FloatingActionButtons.js"}}
+{{"demo": "FloatingActionButtons.js"}}
 
 ## Size
 
 By default, the size is `large`. Use the `size` prop for smaller floating action buttons.
 
-{{"demo": "pages/components/floating-action-button/FloatingActionButtonSize.js"}}
+{{"demo": "FloatingActionButtonSize.js"}}
 
-{{"demo": "pages/components/floating-action-button/FloatingActionButtonExtendedSize.js"}}
+{{"demo": "FloatingActionButtonExtendedSize.js"}}
 
 ## Animation
 
@@ -40,4 +41,4 @@ The Zoom transition can be used to achieve this. Note that since both the exitin
 animations are triggered at the same time, we use `enterDelay` to allow the outgoing Floating Action Button's
 animation to finish before the new one enters.
 
-{{"demo": "pages/components/floating-action-button/FloatingActionButtonZoom.js", "bg": true}}
+{{"demo": "FloatingActionButtonZoom.js", "bg": true}}

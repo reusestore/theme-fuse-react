@@ -61,6 +61,7 @@ function DialogsDoc(props) {
       </ul>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SimpleDialog.js"
           className="my-24"
           iframe={false}
           component={
@@ -104,6 +105,7 @@ function DialogsDoc(props) {
       </ul>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="AlertDialog.js"
           className="my-24"
           iframe={false}
           component={
@@ -121,6 +123,7 @@ function DialogsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="AlertDialogSlide.js"
           className="my-24"
           iframe={false}
           component={
@@ -140,6 +143,7 @@ function DialogsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FormDialog.js"
           className="my-24"
           iframe={false}
           component={
@@ -161,6 +165,7 @@ function DialogsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomizedDialogs.js"
           className="my-24"
           iframe={false}
           component={
@@ -175,6 +180,7 @@ function DialogsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FullScreenDialog.js"
           className="my-24"
           iframe={false}
           component={
@@ -194,6 +200,7 @@ function DialogsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="MaxWidthDialog.js"
           className="my-24"
           iframe={false}
           component={
@@ -228,6 +235,7 @@ function MyComponent() {
       </FuseHighlight>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ResponsiveDialog.js"
           className="my-24"
           iframe={false}
           component={
@@ -251,6 +259,7 @@ function MyComponent() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ConfirmationDialog.js"
           className="my-24"
           iframe={false}
           component={
@@ -272,6 +281,7 @@ function MyComponent() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DraggableDialog.js"
           className="my-24"
           iframe={false}
           component={
@@ -300,6 +310,7 @@ function MyComponent() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ScrollDialog.js"
           className="my-24"
           iframe={false}
           component={

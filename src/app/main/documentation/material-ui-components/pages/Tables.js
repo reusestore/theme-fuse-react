@@ -50,6 +50,7 @@ function TablesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicTable.js"
           className="my-24"
           iframe={false}
           component={
@@ -76,6 +77,7 @@ function TablesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DataTable.js"
           className="my-24"
           iframe={false}
           component={
@@ -93,6 +95,7 @@ function TablesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DenseTable.js"
           className="my-24"
           iframe={false}
           component={
@@ -119,6 +122,7 @@ function TablesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="EnhancedTable.js"
           className="my-24"
           iframe={false}
           component={
@@ -137,6 +141,7 @@ function TablesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomizedTables.js"
           className="my-24"
           iframe={false}
           component={
@@ -188,6 +193,7 @@ function TablesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomPaginationActionsTable.js"
           className="my-24"
           iframe={false}
           component={
@@ -206,6 +212,7 @@ function TablesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="StickyHeadTable.js"
           className="my-24"
           iframe={false}
           component={
@@ -232,6 +239,7 @@ function TablesDoc(props) {
       </FuseHighlight>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ColumnGroupingTable.js"
           className="my-24"
           iframe={false}
           component={
@@ -253,6 +261,7 @@ function TablesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CollapsibleTable.js"
           className="my-24"
           iframe={false}
           component={
@@ -270,6 +279,7 @@ function TablesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SpanningTable.js"
           className="my-24"
           iframe={false}
           component={
@@ -290,6 +300,7 @@ function TablesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ReactVirtualizedTable.js"
           className="my-24"
           iframe={false}
           component={
@@ -300,7 +311,7 @@ function TablesDoc(props) {
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
-        Unstyled table
+        Unstyled
       </Typography>
       <Typography className="mb-40" component="div">
         If you would like to use an unstyled Table, you can use the primitive elements and enhance
@@ -308,6 +319,7 @@ function TablesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TableUnstyled.js"
           className="my-24"
           iframe={false}
           component={
@@ -315,6 +327,21 @@ function TablesDoc(props) {
               .default
           }
           raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/TableUnstyled.js')}
+        />
+      </Typography>
+      <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
+        Customized look and feel
+      </Typography>
+      <Typography className="mb-40" component="div">
+        <FuseExample
+          name="TableCustomized.js"
+          className="my-24"
+          iframe={false}
+          component={
+            require('app/main/documentation/material-ui-components/components/tables/TableCustomized.js')
+              .default
+          }
+          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/TableCustomized.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -337,6 +364,7 @@ function TablesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="AcccessibleTable.js"
           className="my-24"
           iframe={false}
           component={

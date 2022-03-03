@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: React Switch component
 components: Switch, FormControl, FormGroup, FormLabel, FormControlLabel, SwitchUnstyled
-githubLabel: 'component: Switch'
+githubLabel: 'component: switch'
 materialDesign: https://material.io/components/selection-controls#switches
 ---
 
@@ -17,49 +18,51 @@ should be made clear from the corresponding inline label.
 
 ## Basic switches
 
-{{"demo": "pages/components/switches/BasicSwitches.js"}}
+{{"demo": "BasicSwitches.js"}}
 
 ## Label
 
 You can provide a label to the `Switch` thanks to the `FormControlLabel` component.
 
-{{"demo": "pages/components/switches/SwitchLabels.js"}}
+{{"demo": "SwitchLabels.js"}}
 
 ## Size
 
 Use the `size` prop to change the size of the switch.
 
-{{"demo": "pages/components/switches/SwitchesSize.js"}}
+{{"demo": "SwitchesSize.js"}}
 
 ## Color
 
-{{"demo": "pages/components/switches/ColorSwitches.js"}}
+{{"demo": "ColorSwitches.js"}}
 
 ## Controlled
 
 You can control the switch with the `checked` and `onChange` props:
 
-{{"demo": "pages/components/switches/ControlledSwitches.js"}}
+{{"demo": "ControlledSwitches.js"}}
 
 ## Switches with FormGroup
 
 `FormGroup` is a helpful wrapper used to group selection controls components that provides an easier API.
 However, you are encouraged to use [Checkboxes](/components/checkboxes/) instead if multiple related controls are required. (See: [When to use](#when-to-use)).
 
-{{"demo": "pages/components/switches/SwitchesGroup.js"}}
+{{"demo": "SwitchesGroup.js"}}
 
 ## Customization
 
 Here are some examples of customizing the component.
 You can learn more about this in the [overrides documentation page](/customization/how-to-customize/).
 
-{{"demo": "pages/components/switches/CustomizedSwitches.js"}}
+{{"demo": "CustomizedSwitches.js"}}
 
 🎨 If you are looking for inspiration, you can check [MUI Treasury's customization examples](https://mui-treasury.com/styles/switch/).
 
 ## Unstyled
 
 The switch also comes with an unstyled version. It's ideal for doing heavy customizations and minimizing bundle size.
+
+### Unstyled component
 
 ```jsx
 import SwitchUnstyled from '@mui/base/SwitchUnstyled';
@@ -71,7 +74,7 @@ It is also possible to replace these default components by other HTML elements o
 
 There are three components you can override by the `components` prop: `Root`, `Thumb` and `Input`. Each one's props can be set using the `componentsProps` object.
 
-{{"demo": "pages/components/switches/UnstyledSwitches.js"}}
+{{"demo": "UnstyledSwitches.js"}}
 
 ### useSwitch hook
 
@@ -84,17 +87,17 @@ import { useSwitch } from '@mui/base/SwitchUnstyled';
 
 #### Basic example
 
-{{"demo": "pages/components/switches/UseSwitchesBasic.js"}}
+{{"demo": "UseSwitchesBasic.js"}}
 
 #### Customized look and feel
 
-{{"demo": "pages/components/switches/UseSwitchesCustom.js"}}
+{{"demo": "UseSwitchesCustom.js"}}
 
 ## Label placement
 
 You can change the placement of the label:
 
-{{"demo": "pages/components/switches/FormControlLabelPosition.js"}}
+{{"demo": "FormControlLabelPosition.js"}}
 
 ## When to use
 

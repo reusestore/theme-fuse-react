@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: Toggle Button React component
 components: ToggleButton, ToggleButtonGroup
-githubLabel: 'component: ToggleButton'
+githubLabel: 'component: toggle button'
 materialDesign: https://material.io/components/buttons#toggle-button
 ---
 
@@ -23,29 +24,29 @@ In this example, text justification toggle buttons present options for left, cen
 
 **Note**: Exclusive selection does not enforce that a button must be active. For that effect see [enforce value set](#enforce-value-set).
 
-{{"demo": "pages/components/toggle-button/ToggleButtons.js"}}
+{{"demo": "ToggleButtons.js"}}
 
 ## Multiple selection
 
 Multiple selection allows for logically-grouped options, like bold, italic, and underline, to have multiple options selected.
 
-{{"demo": "pages/components/toggle-button/ToggleButtonsMultiple.js"}}
+{{"demo": "ToggleButtonsMultiple.js"}}
 
 ## Size
 
 For larger or smaller buttons, use the `size` prop.
 
-{{"demo": "pages/components/toggle-button/ToggleButtonSizes.js"}}
+{{"demo": "ToggleButtonSizes.js"}}
 
 ## Color
 
-{{"demo": "pages/components/toggle-button/ColorToggleButton.js"}}
+{{"demo": "ColorToggleButton.js"}}
 
 ## Vertical buttons
 
 The buttons can be stacked vertically with the `orientation` prop set to "vertical".
 
-{{"demo": "pages/components/toggle-button/VerticalToggleButtons.js"}}
+{{"demo": "VerticalToggleButtons.js"}}
 
 ## Enforce value set
 
@@ -65,18 +66,18 @@ const handleDevices = (event, newDevices) => {
 };
 ```
 
-{{"demo": "pages/components/toggle-button/ToggleButtonNotEmpty.js"}}
+{{"demo": "ToggleButtonNotEmpty.js"}}
 
 ## Standalone toggle button
 
-{{"demo": "pages/components/toggle-button/StandaloneToggleButton.js"}}
+{{"demo": "StandaloneToggleButton.js"}}
 
 ## Customization
 
 Here is an example of customizing the component.
 You can learn more about this in the [overrides documentation page](/customization/how-to-customize/).
 
-{{"demo": "pages/components/toggle-button/CustomizedDividers.js", "bg": true}}
+{{"demo": "CustomizedDividers.js", "bg": true}}
 
 ## Accessibility
 

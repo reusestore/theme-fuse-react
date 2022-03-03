@@ -10,17 +10,19 @@ import { useState } from 'react';
 import DemoFrame from './DemoFrame';
 
 const propTypes = {
+  name: PropTypes.string,
   raw: PropTypes.object,
   currentTabIndex: PropTypes.number,
 };
 
 const defaultProps = {
+  name: '',
   currentTabIndex: 0,
 };
 
 function FuseExample(props) {
   const [currentTab, setCurrentTab] = useState(props.currentTabIndex);
-  const { component: Component, raw, iframe, className } = props;
+  const { component: Component, raw, iframe, className, name } = props;
 
   function handleChange(event, value) {
     setCurrentTab(value);
@@ -45,7 +47,7 @@ function FuseExample(props) {
         <div className={currentTab === 0 ? 'flex flex-1 max-w-full' : 'hidden'}>
           {Component &&
             (iframe ? (
-              <DemoFrame>
+              <DemoFrame name={name}>
                 <Component />
               </DemoFrame>
             ) : (

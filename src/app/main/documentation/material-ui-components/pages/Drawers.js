@@ -55,6 +55,7 @@ function DrawersDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TemporaryDrawer.js"
           className="my-24"
           iframe={false}
           component={
@@ -77,6 +78,7 @@ function DrawersDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SwipeableTemporaryDrawer.js"
           className="my-24"
           iframe={false}
           component={
@@ -121,6 +123,7 @@ const iOS =
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SwipeableEdgeDrawer.js"
           className="my-24"
           iframe
           component={
@@ -160,6 +163,7 @@ const iOS =
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ResponsiveDrawer.js"
           className="my-24"
           iframe
           component={
@@ -189,6 +193,7 @@ const iOS =
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="PersistentDrawerLeft.js"
           className="my-24"
           iframe
           component={
@@ -198,6 +203,7 @@ const iOS =
           raw={require('!raw-loader!app/main/documentation/material-ui-components/components/drawers/PersistentDrawerLeft.js')}
         />
         <FuseExample
+          name="PersistentDrawerRight.js"
           className="my-24"
           iframe
           component={
@@ -221,6 +227,7 @@ const iOS =
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="MiniDrawer.js"
           className="my-24"
           iframe
           component={
@@ -248,6 +255,7 @@ const iOS =
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="PermanentDrawerLeft.js"
           className="my-24"
           iframe
           component={
@@ -257,6 +265,7 @@ const iOS =
           raw={require('!raw-loader!app/main/documentation/material-ui-components/components/drawers/PermanentDrawerLeft.js')}
         />
         <FuseExample
+          name="PermanentDrawerRight.js"
           className="my-24"
           iframe
           component={
@@ -274,6 +283,7 @@ const iOS =
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ClippedDrawer.js"
           className="my-24"
           iframe
           component={

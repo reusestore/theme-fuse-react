@@ -44,6 +44,7 @@ function SpeedDialDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicSpeedDial.js"
           className="my-24"
           iframe={false}
           component={
@@ -58,6 +59,7 @@ function SpeedDialDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="PlaygroundSpeedDial.js"
           className="my-24"
           iframe={false}
           component={
@@ -76,6 +78,7 @@ function SpeedDialDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ControlledOpenSpeedDial.js"
           className="my-24"
           iframe={false}
           component={
@@ -94,6 +97,7 @@ function SpeedDialDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="OpenIconSpeedDial.js"
           className="my-24"
           iframe={false}
           component={
@@ -116,6 +120,7 @@ function SpeedDialDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SpeedDialTooltipOpen.js"
           className="my-24"
           iframe={false}
           component={

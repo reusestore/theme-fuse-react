@@ -82,6 +82,7 @@ function ModalDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicModal.js"
           className="my-24"
           iframe={false}
           component={
@@ -115,6 +116,7 @@ import ModalUnstyled from '@mui/base/ModalUnstyled';
       </FuseHighlight>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ModalUnstyled.js"
           className="my-24"
           iframe={false}
           component={
@@ -133,6 +135,7 @@ import ModalUnstyled from '@mui/base/ModalUnstyled';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="NestedModal.js"
           className="my-24"
           iframe={false}
           component={
@@ -169,6 +172,7 @@ import ModalUnstyled from '@mui/base/ModalUnstyled';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TransitionsModal.js"
           className="my-24"
           iframe={false}
           component={
@@ -184,6 +188,7 @@ import ModalUnstyled from '@mui/base/ModalUnstyled';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SpringModal.js"
           className="my-24"
           iframe={false}
           component={
@@ -210,6 +215,7 @@ import ModalUnstyled from '@mui/base/ModalUnstyled';
       </FuseHighlight>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="KeepMountedModal.js"
           className="my-24"
           iframe={false}
           component={
@@ -236,6 +242,7 @@ import ModalUnstyled from '@mui/base/ModalUnstyled';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ServerModal.js"
           className="my-24"
           iframe={false}
           component={

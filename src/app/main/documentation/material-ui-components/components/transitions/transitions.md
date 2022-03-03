@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: React Transition component
 components: Collapse, Fade, Grow, Slide, Zoom
-githubLabel: 'component: Transition'
+githubLabel: 'component: transitions'
 ---
 
 # Transitions
@@ -18,13 +19,13 @@ Expand from the start edge of the child element.
 Use the `orientation` prop if you need a horizontal collapse.
 The `collapsedSize` prop can be used to set the minimum width/height when not expanded.
 
-{{"demo": "pages/components/transitions/SimpleCollapse.js", "bg": true}}
+{{"demo": "SimpleCollapse.js", "bg": true}}
 
 ## Fade
 
 Fade in from transparent to opaque.
 
-{{"demo": "pages/components/transitions/SimpleFade.js", "bg": true}}
+{{"demo": "SimpleFade.js", "bg": true}}
 
 ## Grow
 
@@ -33,7 +34,7 @@ Expands outwards from the center of the child element, while also fading in from
 The second example demonstrates how to change the `transform-origin`, and conditionally applies
 the `timeout` prop to change the entry speed.
 
-{{"demo": "pages/components/transitions/SimpleGrow.js", "bg": true}}
+{{"demo": "SimpleGrow.js", "bg": true}}
 
 ## Slide
 
@@ -46,14 +47,14 @@ This prevents the relatively positioned component from scrolling into view
 from its off-screen position.
 Similarly, the `unmountOnExit` prop removes the component from the DOM after it has been transition off-screen.
 
-{{"demo": "pages/components/transitions/SimpleSlide.js", "bg": true}}
+{{"demo": "SimpleSlide.js", "bg": true}}
 
 ### Slide relative to a container
 
 The Slide component also accepts `container` prop, which is a reference to a DOM node.
 If this prop is set, the Slide component will slide from the edge of that DOM node.
 
-{{"demo": "pages/components/transitions/SlideFromContainer.js"}}
+{{"demo": "SlideFromContainer.js"}}
 
 ## Zoom
 
@@ -61,7 +62,7 @@ Expand outwards from the center of the child element.
 
 This example also demonstrates how to delay the enter transition.
 
-{{"demo": "pages/components/transitions/SimpleZoom.js", "bg": true}}
+{{"demo": "SimpleZoom.js", "bg": true}}
 
 ## Child requirement
 
@@ -96,7 +97,7 @@ export default Main() {
 To animate a component when it is mounted or unmounted, you can use the [`TransitionGroup`](http://reactcommunity.org/react-transition-group/transition-group/) component from _react-transition-group_.
 As components are added or removed, the `in` prop is toggled automatically by `TransitionGroup`.
 
-{{"demo": "pages/components/transitions/TransitionGroupExample.js"}}
+{{"demo": "TransitionGroupExample.js"}}
 
 ## TransitionComponent prop
 
@@ -117,3 +118,17 @@ You can also visit the dedicated sections of some of the components:
 - [Popper](/components/popper/#transitions)
 - [Snackbar](/components/snackbars/#transitions)
 - [Tooltip](/components/tooltips/#transitions)
+
+## Performance & SEO
+
+The content of transition component is mounted by default even if `in={false}`.
+This default behavior has server-side rendering and SEO in mind.
+If you render expensive component trees inside your transition it might be a good idea to change this default behavior by enabling the
+`unmountOnExit` prop:
+
+```jsx
+<Fade in={false} unmountOnExit />
+```
+
+As with any performance optimization this is not a silver bullet.
+Be sure to identify bottlenecks first and then try out these optimization strategies.

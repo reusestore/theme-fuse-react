@@ -47,6 +47,7 @@ function CardsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicCard.js"
           className="my-24"
           iframe={false}
           component={
@@ -64,6 +65,7 @@ function CardsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="OutlinedCard.js"
           className="my-24"
           iframe={false}
           component={
@@ -81,6 +83,7 @@ function CardsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="RecipeReviewCard.js"
           className="my-24"
           iframe={false}
           component={
@@ -98,6 +101,7 @@ function CardsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="MediaCard.js"
           className="my-24"
           iframe={false}
           component={
@@ -115,6 +119,7 @@ function CardsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ImgMediaCard.js"
           className="my-24"
           iframe={false}
           component={
@@ -141,6 +146,7 @@ function CardsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ActionAreaCard.js"
           className="my-24"
           iframe={false}
           component={
@@ -156,6 +162,7 @@ function CardsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="MultiActionAreaCard.js"
           className="my-24"
           iframe={false}
           component={
@@ -177,6 +184,7 @@ function CardsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="MediaControlCard.js"
           className="my-24"
           iframe={false}
           component={

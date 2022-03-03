@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: React Modal component
 components: Modal, ModalUnstyled
-githubLabel: 'component: Modal'
+githubLabel: 'component: modal'
 waiAria: https://www.w3.org/TR/wai-aria-practices/#dialog_modal
 ---
 
@@ -35,7 +36,7 @@ Modal is a lower-level construct that is leveraged by the following components:
 
 ## Basic modal
 
-{{"demo": "pages/components/modal/BasicModal.js"}}
+{{"demo": "BasicModal.js"}}
 
 Notice that you can disable the outline (often blue or gold) with the `outline: 0` CSS property.
 
@@ -50,13 +51,13 @@ It's ideal for doing heavy customizations and minimizing bundle size.
 import ModalUnstyled from '@mui/base/ModalUnstyled';
 ```
 
-{{"demo": "pages/components/modal/ModalUnstyled.js"}}
+{{"demo": "ModalUnstyled.js"}}
 
 ## Nested modal
 
 Modals can be nested, for example a select within a dialog, but stacking of more than two modals, or any two modals with a backdrop is discouraged.
 
-{{"demo": "pages/components/modal/NestedModal.js"}}
+{{"demo": "NestedModal.js"}}
 
 ## Transitions
 
@@ -71,11 +72,11 @@ This component should respect the following conditions:
 
 Modal has built-in support for [react-transition-group](https://github.com/reactjs/react-transition-group).
 
-{{"demo": "pages/components/modal/TransitionsModal.js"}}
+{{"demo": "TransitionsModal.js"}}
 
 Alternatively, you can use [react-spring](https://github.com/pmndrs/react-spring).
 
-{{"demo": "pages/components/modal/SpringModal.js"}}
+{{"demo": "SpringModal.js"}}
 
 ## Performance
 
@@ -87,7 +88,7 @@ it might be a good idea to change this default behavior by enabling the `keepMou
 <Modal keepMounted />
 ```
 
-{{"demo": "pages/components/modal/KeepMountedModal.js", "defaultCodeOpen": false}}
+{{"demo": "KeepMountedModal.js", "defaultCodeOpen": false}}
 
 As with any performance optimization, this is not a silver bullet.
 Be sure to identify bottlenecks first, and then try out these optimization strategies.
@@ -97,7 +98,7 @@ Be sure to identify bottlenecks first, and then try out these optimization strat
 React [doesn't support](https://github.com/facebook/react/issues/13097) the [`createPortal()`](https://reactjs.org/docs/portals.html) API on the server.
 In order to display the modal, you need to disable the portal feature with the `disablePortal` prop:
 
-{{"demo": "pages/components/modal/ServerModal.js"}}
+{{"demo": "ServerModal.js"}}
 
 ## Limitations
 

@@ -57,6 +57,7 @@ function ProgressDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CircularIndeterminate.js"
           className="my-24"
           iframe={false}
           component={
@@ -71,6 +72,7 @@ function ProgressDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CircularColor.js"
           className="my-24"
           iframe={false}
           component={
@@ -85,6 +87,7 @@ function ProgressDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CircularDeterminate.js"
           className="my-24"
           iframe={false}
           component={
@@ -99,6 +102,7 @@ function ProgressDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CircularIntegration.js"
           className="my-24"
           iframe={false}
           component={
@@ -113,6 +117,7 @@ function ProgressDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CircularWithValueLabel.js"
           className="my-24"
           iframe={false}
           component={
@@ -130,6 +135,7 @@ function ProgressDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="LinearIndeterminate.js"
           className="my-24"
           iframe={false}
           component={
@@ -144,6 +150,7 @@ function ProgressDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="LinearColor.js"
           className="my-24"
           iframe={false}
           component={
@@ -158,6 +165,7 @@ function ProgressDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="LinearDeterminate.js"
           className="my-24"
           iframe={false}
           component={
@@ -172,6 +180,7 @@ function ProgressDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="LinearBuffer.js"
           className="my-24"
           iframe={false}
           component={
@@ -186,6 +195,7 @@ function ProgressDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="LinearWithValueLabel.js"
           className="my-24"
           iframe={false}
           component={
@@ -232,6 +242,7 @@ function Progress(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomizedProgressBars.js"
           className="my-24"
           iframe={false}
           component={
@@ -256,6 +267,7 @@ function Progress(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DelayingAppearance.js"
           className="my-24"
           iframe={false}
           component={
@@ -282,10 +294,11 @@ function Progress(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         When it&#39;s not possible, you can leverage the <code>disableShrink</code> prop to mitigate
-        the issue. See <a href="https://github.com/mui-org/material-ui/issues/10327">this issue</a>.
+        the issue. See <a href="https://github.com/mui/material-ui/issues/10327">this issue</a>.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CircularUnderLoad.js"
           className="my-24"
           iframe={false}
           component={

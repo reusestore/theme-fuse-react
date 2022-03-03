@@ -44,6 +44,7 @@ function PickersDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="MaterialUIPickers.js"
           className="my-24"
           iframe={false}
           component={
@@ -129,6 +130,7 @@ function App({ children }) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="NativePickers.js"
           className="my-24"
           iframe={false}
           component={

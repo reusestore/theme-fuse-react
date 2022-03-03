@@ -73,6 +73,7 @@ function SkeletonDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="Variants.js"
           className="my-24"
           iframe={false}
           component={
@@ -91,6 +92,7 @@ function SkeletonDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="Animations.js"
           className="my-24"
           iframe={false}
           component={
@@ -105,6 +107,7 @@ function SkeletonDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="YouTube.js"
           className="my-24"
           iframe={false}
           component={
@@ -119,6 +122,7 @@ function SkeletonDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="Facebook.js"
           className="my-24"
           iframe={false}
           component={
@@ -146,6 +150,7 @@ function SkeletonDoc(props) {
       </FuseHighlight>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SkeletonTypography.js"
           className="my-24"
           iframe={false}
           component={
@@ -174,6 +179,7 @@ loading ? (
       </FuseHighlight>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SkeletonChildren.js"
           className="my-24"
           iframe={false}
           component={
@@ -193,6 +199,7 @@ loading ? (
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SkeletonColor.js"
           className="my-24"
           iframe={false}
           component={

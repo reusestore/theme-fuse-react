@@ -42,6 +42,7 @@ function SwitchesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicSwitches.js"
           className="my-24"
           iframe={false}
           component={
@@ -60,6 +61,7 @@ function SwitchesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SwitchLabels.js"
           className="my-24"
           iframe={false}
           component={
@@ -77,6 +79,7 @@ function SwitchesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SwitchesSize.js"
           className="my-24"
           iframe={false}
           component={
@@ -91,6 +94,7 @@ function SwitchesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ColorSwitches.js"
           className="my-24"
           iframe={false}
           component={
@@ -108,6 +112,7 @@ function SwitchesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ControlledSwitches.js"
           className="my-24"
           iframe={false}
           component={
@@ -128,6 +133,7 @@ function SwitchesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SwitchesGroup.js"
           className="my-24"
           iframe={false}
           component={
@@ -146,6 +152,7 @@ function SwitchesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomizedSwitches.js"
           className="my-24"
           iframe={false}
           component={
@@ -169,6 +176,9 @@ function SwitchesDoc(props) {
         The switch also comes with an unstyled version. It&#39;s ideal for doing heavy
         customizations and minimizing bundle size.
       </Typography>
+      <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
+        Unstyled component
+      </Typography>
 
       <FuseHighlight component="pre" className="language-jsx">
         {` 
@@ -188,6 +198,7 @@ import SwitchUnstyled from '@mui/base/SwitchUnstyled';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="UnstyledSwitches.js"
           className="my-24"
           iframe={false}
           component={
@@ -216,6 +227,7 @@ import { useSwitch } from '@mui/base/SwitchUnstyled';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="UseSwitchesBasic.js"
           className="my-24"
           iframe={false}
           component={
@@ -230,6 +242,7 @@ import { useSwitch } from '@mui/base/SwitchUnstyled';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="UseSwitchesCustom.js"
           className="my-24"
           iframe={false}
           component={
@@ -247,6 +260,7 @@ import { useSwitch } from '@mui/base/SwitchUnstyled';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FormControlLabelPosition.js"
           className="my-24"
           iframe={false}
           component={

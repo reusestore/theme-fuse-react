@@ -43,6 +43,7 @@ function DividersDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ListDividers.js"
           className="my-24"
           iframe={false}
           component={
@@ -65,6 +66,7 @@ function DividersDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="InsetDividers.js"
           className="my-24"
           iframe={false}
           component={
@@ -79,6 +81,7 @@ function DividersDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SubheaderDividers.js"
           className="my-24"
           iframe={false}
           component={
@@ -93,6 +96,7 @@ function DividersDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="MiddleDividers.js"
           className="my-24"
           iframe={false}
           component={
@@ -110,6 +114,7 @@ function DividersDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DividerText.js"
           className="my-24"
           iframe={false}
           component={
@@ -127,6 +132,7 @@ function DividersDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="VerticalDividers.js"
           className="my-24"
           iframe={false}
           component={
@@ -149,6 +155,7 @@ function DividersDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="VerticalDividerMiddle.js"
           className="my-24"
           iframe={false}
           component={
@@ -166,6 +173,7 @@ function DividersDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="VerticalDividerText.js"
           className="my-24"
           iframe={false}
           component={

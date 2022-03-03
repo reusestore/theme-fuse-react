@@ -37,6 +37,7 @@ function RatingDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicRating.js"
           className="my-24"
           iframe={false}
           component={
@@ -55,6 +56,7 @@ function RatingDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="HalfRating.js"
           className="my-24"
           iframe={false}
           component={
@@ -73,6 +75,7 @@ function RatingDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="HoverRating.js"
           className="my-24"
           iframe={false}
           component={
@@ -90,6 +93,7 @@ function RatingDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="RatingSize.js"
           className="my-24"
           iframe={false}
           component={
@@ -108,6 +112,7 @@ function RatingDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomizedRating.js"
           className="my-24"
           iframe={false}
           component={
@@ -126,6 +131,7 @@ function RatingDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="RadioGroupRating.js"
           className="my-24"
           iframe={false}
           component={
@@ -155,9 +161,9 @@ function RatingDoc(props) {
           the <code>name</code> prop that is unique to the parent form.
         </li>
         <li>
-          Labels for the radio buttons containing actual text (“1 Star”, “2 Stars”, …). Be sure to
-          provide a suitable function to the <code>getLabelText</code> prop when the page is in a
-          language other than English. You can use the{' '}
+          Labels for the radio buttons containing actual text (&quot;1 Star&quot;, &quot;2
+          Stars&quot;, …). Be sure to provide a suitable function to the <code>getLabelText</code>{' '}
+          prop when the page is in a language other than English. You can use the{' '}
           <a href="https://mui.com/guides/localization/">included locales</a>, or provide your own.
         </li>
         <li>
@@ -171,6 +177,7 @@ function RatingDoc(props) {
       </ul>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TextRating.js"
           className="my-24"
           iframe={false}
           component={

@@ -71,7 +71,7 @@ function GridDoc(props) {
         <li>
           Integer values can be given to each breakpoint, indicating how many of the 12 available
           columns are occupied by the component when the viewport width satisfies the{' '}
-          <a href="/customization/breakpoints/#default-breakpoints">breakpoint contraints</a>.
+          <a href="/customization/breakpoints/#default-breakpoints">breakpoint constraints</a>.
         </li>
       </ul>
       <Typography className="mb-40" component="div">
@@ -100,6 +100,7 @@ function GridDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicGrid.js"
           className="my-24"
           iframe={false}
           component={
@@ -125,6 +126,7 @@ function GridDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FullWidthGrid.js"
           className="my-24"
           iframe={false}
           component={
@@ -148,6 +150,7 @@ function GridDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SpacingGrid.js"
           className="my-24"
           iframe={false}
           component={
@@ -168,6 +171,7 @@ function GridDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="RowAndColumnSpacing.js"
           className="my-24"
           iframe={false}
           component={
@@ -190,6 +194,7 @@ function GridDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ResponsiveGrid.js"
           className="my-24"
           iframe={false}
           component={
@@ -246,6 +251,7 @@ function GridDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="InteractiveGrid.js"
           className="my-24"
           iframe={false}
           component={
@@ -265,6 +271,7 @@ function GridDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="AutoGrid.js"
           className="my-24"
           iframe={false}
           component={
@@ -283,6 +290,7 @@ function GridDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="VariableWidthGrid.js"
           className="my-24"
           iframe={false}
           component={
@@ -301,6 +309,7 @@ function GridDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ComplexGrid.js"
           className="my-24"
           iframe={false}
           component={
@@ -332,6 +341,7 @@ function GridDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="NestedGrid.js"
           className="my-24"
           iframe={false}
           component={
@@ -362,6 +372,7 @@ function GridDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ColumnsGrid.js"
           className="my-24"
           iframe={false}
           component={
@@ -383,7 +394,7 @@ function GridDoc(props) {
         <code>display: flex;</code> to the parent.
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
-        white-space: nowrap;
+        white-space: nowrap
       </Typography>
       <Typography className="mb-40" component="div">
         The initial setting on flex items is <code>min-width: auto</code>. It&#39;s causing a
@@ -410,6 +421,7 @@ function GridDoc(props) {
       </FuseHighlight>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="AutoGridNoWrap.js"
           className="my-24"
           iframe={false}
           component={
@@ -442,6 +454,7 @@ function GridDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CSSGrid.js"
           className="my-24"
           iframe={false}
           component={

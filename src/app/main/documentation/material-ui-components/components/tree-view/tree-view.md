@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: Tree View React component
 components: TreeView, TreeItem
-githubLabel: 'component: TreeView'
+githubLabel: 'component: tree view'
 waiAria: https://www.w3.org/TR/wai-aria-practices/#TreeView
 packageName: '@mui/lab'
 ---
@@ -16,19 +17,19 @@ Tree views can be used to represent a file system navigator displaying folders a
 
 ## Basic tree view
 
-{{"demo": "pages/components/tree-view/FileSystemNavigator.js"}}
+{{"demo": "FileSystemNavigator.js"}}
 
 ## Multi-selection
 
 Tree views also support multi-selection.
 
-{{"demo": "pages/components/tree-view/MultiSelectTreeView.js"}}
+{{"demo": "MultiSelectTreeView.js"}}
 
 ## Controlled tree view
 
 The tree view also offers a controlled API.
 
-{{"demo": "pages/components/tree-view/ControlledTreeView.js"}}
+{{"demo": "ControlledTreeView.js"}}
 
 ## Rich object
 
@@ -50,7 +51,7 @@ const data = {
 };
 ```
 
-{{"demo": "pages/components/tree-view/RichObjectTreeView.js", "defaultCodeOpen": false}}
+{{"demo": "RichObjectTreeView.js", "defaultCodeOpen": false}}
 
 ## ContentComponent prop
 
@@ -58,25 +59,25 @@ You can use the `ContentComponent` prop and the `useTreeItem` hook to further cu
 
 Such as limiting expansion to clicking the icon:
 
-{{"demo": "pages/components/tree-view/IconExpansionTreeView.js", "defaultCodeOpen": false}}
+{{"demo": "IconExpansionTreeView.js", "defaultCodeOpen": false}}
 
 Or increasing the width of the state indicator:
 
-{{"demo": "pages/components/tree-view/BarTreeView.js", "defaultCodeOpen": false}}
+{{"demo": "BarTreeView.js", "defaultCodeOpen": false}}
 
 ## Customization
 
 ### Custom icons, border and animation
 
-{{"demo": "pages/components/tree-view/CustomizedTreeView.js"}}
+{{"demo": "CustomizedTreeView.js"}}
 
 ### Gmail clone
 
-{{"demo": "pages/components/tree-view/GmailTreeView.js"}}
+{{"demo": "GmailTreeView.js"}}
 
 ## Disabled tree items
 
-{{"demo": "pages/components/tree-view/DisabledTreeItems.js"}}
+{{"demo": "DisabledTreeItems.js"}}
 
 The behavior of disabled tree items depends on the `disabledItemsFocusable` prop.
 

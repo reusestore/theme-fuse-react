@@ -34,7 +34,8 @@ function RadioButtonsDoc(props) {
 
       <Typography className="mb-40" component="div">
         Use radio buttons when the user needs to see all available options. If available options can
-        be collapsed, consider using a dropdown menu because it uses less space.
+        be collapsed, consider using a <a href="/components/selects/">Select component</a> because
+        it uses less space.
       </Typography>
       <Typography className="mb-40" component="div">
         Radio buttons should have the most commonly used option selected by default.
@@ -48,6 +49,7 @@ function RadioButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="RadioButtonsGroup.js"
           className="my-24"
           iframe={false}
           component={
@@ -65,6 +67,7 @@ function RadioButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="RowRadioButtonsGroup.js"
           className="my-24"
           iframe={false}
           component={
@@ -82,6 +85,7 @@ function RadioButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ControlledRadioButtonsGroup.js"
           className="my-24"
           iframe={false}
           component={
@@ -99,6 +103,7 @@ function RadioButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="RadioButtons.js"
           className="my-24"
           iframe={false}
           component={
@@ -117,6 +122,7 @@ function RadioButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SizeRadioButtons.js"
           className="my-24"
           iframe={false}
           component={
@@ -131,6 +137,7 @@ function RadioButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ColorRadioButtons.js"
           className="my-24"
           iframe={false}
           component={
@@ -149,6 +156,7 @@ function RadioButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FormControlLabelPlacement.js"
           className="my-24"
           iframe={false}
           component={
@@ -167,6 +175,7 @@ function RadioButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ErrorRadios.js"
           className="my-24"
           iframe={false}
           component={
@@ -185,6 +194,7 @@ function RadioButtonsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomizedRadios.js"
           className="my-24"
           iframe={false}
           component={
@@ -235,6 +245,7 @@ import { useRadioGroup } from '@mui/material/RadioGroup';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="UseRadioGroup.js"
           className="my-24"
           iframe={false}
           component={

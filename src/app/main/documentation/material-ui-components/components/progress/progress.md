@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: Circular, Linear progress React components
 components: CircularProgress, LinearProgress
-githubLabel: 'component: CircularProgress'
+githubLabel: 'component: progress'
 materialDesign: https://material.io/components/progress-indicators
 ---
 
@@ -22,45 +23,45 @@ The animations of the components rely on CSS as much as possible to work even be
 
 ### Circular indeterminate
 
-{{"demo": "pages/components/progress/CircularIndeterminate.js"}}
+{{"demo": "CircularIndeterminate.js"}}
 
 ### Circular color
 
-{{"demo": "pages/components/progress/CircularColor.js"}}
+{{"demo": "CircularColor.js"}}
 
 ### Circular determinate
 
-{{"demo": "pages/components/progress/CircularDeterminate.js"}}
+{{"demo": "CircularDeterminate.js"}}
 
 ### Interactive integration
 
-{{"demo": "pages/components/progress/CircularIntegration.js"}}
+{{"demo": "CircularIntegration.js"}}
 
 ### Circular with label
 
-{{"demo": "pages/components/progress/CircularWithValueLabel.js"}}
+{{"demo": "CircularWithValueLabel.js"}}
 
 ## Linear
 
 ### Linear indeterminate
 
-{{"demo": "pages/components/progress/LinearIndeterminate.js"}}
+{{"demo": "LinearIndeterminate.js"}}
 
 ### Linear color
 
-{{"demo": "pages/components/progress/LinearColor.js"}}
+{{"demo": "LinearColor.js"}}
 
 ### Linear determinate
 
-{{"demo": "pages/components/progress/LinearDeterminate.js"}}
+{{"demo": "LinearDeterminate.js"}}
 
 ### Linear buffer
 
-{{"demo": "pages/components/progress/LinearBuffer.js"}}
+{{"demo": "LinearBuffer.js"}}
 
 ### Linear with label
 
-{{"demo": "pages/components/progress/LinearWithValueLabel.js"}}
+{{"demo": "LinearWithValueLabel.js"}}
 
 ## Non-standard ranges
 
@@ -88,7 +89,7 @@ function Progress(props) {
 Here are some examples of customizing the component.
 You can learn more about this in the [overrides documentation page](/customization/how-to-customize/).
 
-{{"demo": "pages/components/progress/CustomizedProgressBars.js", "defaultCodeOpen": false}}
+{{"demo": "CustomizedProgressBars.js", "defaultCodeOpen": false}}
 
 ## Delaying appearance
 
@@ -97,7 +98,7 @@ The ripple effect of the `ButtonBase` component ensures that the user feels that
 Normally, no special feedback is necessary during delays of more than 0.1 but less than 1.0 second.
 After 1.0 second, you can display a loader to keep user's flow of thought uninterrupted.
 
-{{"demo": "pages/components/progress/DelayingAppearance.js"}}
+{{"demo": "DelayingAppearance.js"}}
 
 ## Limitations
 
@@ -109,9 +110,9 @@ You should run processor intensive operations in a web worker or by batch in ord
 ![heavy load](/material-ui-static/images/progress/heavy-load.gif)
 
 When it's not possible, you can leverage the `disableShrink` prop to mitigate the issue.
-See [this issue](https://github.com/mui-org/material-ui/issues/10327).
+See [this issue](https://github.com/mui/material-ui/issues/10327).
 
-{{"demo": "pages/components/progress/CircularUnderLoad.js"}}
+{{"demo": "CircularUnderLoad.js"}}
 
 ### High frequency updates
 

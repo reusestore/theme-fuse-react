@@ -46,6 +46,7 @@ function BottomNavigationDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SimpleBottomNavigation.js"
           className="my-24"
           iframe={false}
           component={
@@ -64,6 +65,7 @@ function BottomNavigationDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="LabelBottomNavigation.js"
           className="my-24"
           iframe={false}
           component={
@@ -82,6 +84,7 @@ function BottomNavigationDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FixedBottomNavigation.js"
           className="my-24"
           iframe
           component={

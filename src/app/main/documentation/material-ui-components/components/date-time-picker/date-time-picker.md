@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: React Date Time Picker component
 components: DateTimePicker,DesktopDateTimePicker,MobileDateTimePicker,StaticDateTimePicker
-githubLabel: 'component: DateTimePicker'
+githubLabel: 'component: date time picker'
 packageName: '@mui/lab'
 materialDesign: https://material.io/components/date-pickers
 ---
@@ -39,7 +40,7 @@ function App() {
 
 Allows choosing date then time. There are 4 steps available (year, date, hour and minute), so tabs are required to visually distinguish date/time steps.
 
-{{"demo": "pages/components/date-time-picker/BasicDateTimePicker.js"}}
+{{"demo": "BasicDateTimePicker.js"}}
 
 ## Responsiveness
 
@@ -51,13 +52,13 @@ The `DateTimePicker` component is designed and optimized for the device it runs 
 By default, the `DateTimePicker` component renders the desktop version if the media query [`@media (pointer: fine)`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/pointer) matches.
 This can be customized with the `desktopModeMediaQuery` prop.
 
-{{"demo": "pages/components/date-time-picker/ResponsiveDateTimePickers.js"}}
+{{"demo": "ResponsiveDateTimePickers.js"}}
 
 ## Form props
 
 The date time picker component can be disabled or read-only.
 
-{{"demo": "pages/components/date-time-picker/FormPropsDateTimePickers.js"}}
+{{"demo": "FormPropsDateTimePickers.js"}}
 
 ## Date and time validation
 
@@ -66,16 +67,16 @@ It is possible to restrict date and time selection in two ways:
 - by using `minDateTime`/`maxDateTime` its possible to restrict time selection to before or after a particular moment in time
 - using `minTime`/`maxTime`, you can disable selecting times before or after a certain time each day respectively
 
-{{"demo": "pages/components/date-time-picker/DateTimeValidation.js"}}
+{{"demo": "DateTimeValidation.js"}}
 
 ## Static mode
 
 It's possible to render any date & time picker inline. This will enable building custom popover/modal containers.
 
-{{"demo": "pages/components/date-time-picker/StaticDateTimePickerDemo.js", "bg": true}}
+{{"demo": "StaticDateTimePickerDemo.js", "bg": true}}
 
 ## Customization
 
 Here are some examples of heavily customized date & time pickers:
 
-{{"demo": "pages/components/date-time-picker/CustomDateTimePicker.js"}}
+{{"demo": "CustomDateTimePicker.js"}}

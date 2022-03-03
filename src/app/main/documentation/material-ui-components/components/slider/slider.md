@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: React Slider component
 components: Slider, SliderUnstyled
-githubLabel: 'component: Slider'
+githubLabel: 'component: slider'
 materialDesign: https://material.io/components/sliders
 waiAria: https://www.w3.org/TR/wai-aria-practices/#slider
 ---
@@ -18,50 +19,50 @@ Sliders reflect a range of values along a bar, from which users may select a sin
 
 Continuous sliders allow users to select a value along a subjective range.
 
-{{"demo": "pages/components/slider/ContinuousSlider.js"}}
+{{"demo": "ContinuousSlider.js"}}
 
 ## Sizes
 
 For smaller slider, use the prop `size="small"`.
 
-{{"demo": "pages/components/slider/SliderSizes.js"}}
+{{"demo": "SliderSizes.js"}}
 
 ## Discrete sliders
 
 Discrete sliders can be adjusted to a specific value by referencing its value indicator.
 You can generate a mark for each step with `marks={true}`.
 
-{{"demo": "pages/components/slider/DiscreteSlider.js"}}
+{{"demo": "DiscreteSlider.js"}}
 
 ### Small steps
 
 You can change the default step increment.
 
-{{"demo": "pages/components/slider/DiscreteSliderSteps.js"}}
+{{"demo": "DiscreteSliderSteps.js"}}
 
 ### Custom marks
 
 You can have custom marks by providing a rich array to the `marks` prop.
 
-{{"demo": "pages/components/slider/DiscreteSliderMarks.js"}}
+{{"demo": "DiscreteSliderMarks.js"}}
 
 ### Restricted values
 
 You can restrict the selectable values to those provided with the `marks` prop with `step={null}`.
 
-{{"demo": "pages/components/slider/DiscreteSliderValues.js"}}
+{{"demo": "DiscreteSliderValues.js"}}
 
 ### Label always visible
 
 You can force the thumb label to be always visible with `valueLabelDisplay="on"`.
 
-{{"demo": "pages/components/slider/DiscreteSliderLabel.js"}}
+{{"demo": "DiscreteSliderLabel.js"}}
 
 ## Range slider
 
 The slider can be used to set the start and end of a range by supplying an array of values to the `value` prop.
 
-{{"demo": "pages/components/slider/RangeSlider.js"}}
+{{"demo": "RangeSlider.js"}}
 
 ### Minimum distance
 
@@ -69,32 +70,32 @@ You can enforce a minimum distance between values in the `onChange` event handle
 By default, when you move the pointer over a thumb while dragging another thumb, the active thumb will swap to the hovered thumb. You can disable this behavior with the `disableSwap` prop.
 If you want the range to shift when reaching minimum distance, you can utilize the `activeThumb` parameter in `onChange`.
 
-{{"demo": "pages/components/slider/MinimumDistanceSlider.js"}}
+{{"demo": "MinimumDistanceSlider.js"}}
 
 ## Slider with input field
 
 In this example, an input allows a discrete value to be set.
 
-{{"demo": "pages/components/slider/InputSlider.js"}}
+{{"demo": "InputSlider.js"}}
 
 ## Color
 
-{{"demo": "pages/components/slider/ColorSlider.js"}}
+{{"demo": "ColorSlider.js"}}
 
 ## Customization
 
 Here are some examples of customizing the component.
 You can learn more about this in the [overrides documentation page](/customization/how-to-customize/).
 
-{{"demo": "pages/components/slider/CustomizedSlider.js"}}
+{{"demo": "CustomizedSlider.js"}}
 
 ### Music player
 
-{{"demo": "pages/components/slider/MusicPlayerSlider.js"}}
+{{"demo": "MusicPlayerSlider.js"}}
 
 ## Vertical sliders
 
-{{"demo": "pages/components/slider/VerticalSlider.js"}}
+{{"demo": "VerticalSlider.js"}}
 
 **WARNING**: Chrome, Safari and newer Edge versions i.e. any browser based on WebKit exposes `<Slider orientation="vertical" />` as horizontal ([chromium issue #1158217](https://bugs.chromium.org/p/chromium/issues/detail?id=1158217)).
 By applying `-webkit-appearance: slider-vertical;` the slider is exposed as vertical.
@@ -104,7 +105,7 @@ Usually, up and right should increase and left and down should decrease the valu
 If you apply `-webkit-appearance` you could prevent keyboard navigation for horizontal arrow keys for a truly vertical slider.
 This might be less confusing to users compared to a change in direction.
 
-{{"demo": "pages/components/slider/VerticalAccessibleSlider.js"}}
+{{"demo": "VerticalAccessibleSlider.js"}}
 
 ## Track
 
@@ -114,13 +115,13 @@ The track shows the range available for user selection.
 
 The track can be turned off with `track={false}`.
 
-{{"demo": "pages/components/slider/TrackFalseSlider.js"}}
+{{"demo": "TrackFalseSlider.js"}}
 
 ### Inverted track
 
 The track can be inverted with `track="inverted"`.
 
-{{"demo": "pages/components/slider/TrackInvertedSlider.js"}}
+{{"demo": "TrackInvertedSlider.js"}}
 
 ## Non-linear scale
 
@@ -129,7 +130,7 @@ You can use the `scale` prop to represent the `value` on a different scale.
 In the following demo, the value _x_ represents the value _2^x_.
 Increasing _x_ by one increases the represented value by factor _2_.
 
-{{"demo": "pages/components/slider/NonLinearSlider.js"}}
+{{"demo": "NonLinearSlider.js"}}
 
 ## Unstyled
 
@@ -144,7 +145,7 @@ It's ideal for doing heavy customizations and minimizing bundle size.
 import SliderUnstyled from '@mui/base/SliderUnstyled';
 ```
 
-{{"demo": "pages/components/slider/UnstyledSlider.js"}}
+{{"demo": "UnstyledSlider.js"}}
 
 ## Accessibility
 
