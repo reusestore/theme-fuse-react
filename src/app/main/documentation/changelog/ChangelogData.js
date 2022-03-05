@@ -11,7 +11,10 @@ const changelogData = [
       '@reduxjs/toolkit updated to v1.8.0',
       'All dependency packages updated.',
     ],
-    fixedChanges: ['Authorization cannot hide navigation items in some cases.'],
+    fixedChanges: [
+      '/callback route component assignment.',
+      'Authorization cannot hide navigation items in some cases.',
+    ],
   },
   {
     version: '7.1.0',
