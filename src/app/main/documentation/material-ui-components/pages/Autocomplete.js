@@ -393,7 +393,7 @@ import useAutocomplete from '@mui/material/useAutocomplete';
 <Autocomplete filterOptions={(x) => x} />
 `}
       </FuseHighlight>
-      <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
+     {/*  <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
         Google Maps place
       </Typography>
       <Typography className="mb-40" component="div">
@@ -424,7 +424,7 @@ import useAutocomplete from '@mui/material/useAutocomplete';
           ⚠️ Before you can start using the Google Maps JavaScript API and Places API, you must sign
           up and create a billing account.
         </Typography>
-      </blockquote>
+      </blockquote> */}
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Multiple values
       </Typography>
