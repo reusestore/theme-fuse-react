@@ -13,8 +13,9 @@ module.exports = {
       print: { raw: 'print' },
     },
     colors: ({ colors }) => ({
+      inherit: colors.inherit,
+      current: colors.current,
       transparent: 'transparent',
-      current: 'currentColor',
       black: '#22292F',
       white: '#fff',
       grey: {
@@ -397,7 +398,7 @@ module.exports = {
       '4xl': '144rem',
       '5xl': '160rem',
       px: '1px',
-      0: '0',
+      0: '0px',
       0.5: '0.05rem',
       1: '0.1rem',
       1.5: '0.15rem',
@@ -735,7 +736,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
-        'Muli',
+        'Inter var',
         'Roboto',
         '-apple-system',
         'BlinkMacSystemFont',
@@ -750,8 +751,17 @@ module.exports = {
         '"Segoe UI Symbol"',
         '"Noto Color Emoji"',
       ],
-      serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
-      mono: ['Consolas', '"Liberation Mono"', 'Menlo', 'Courier', 'monospace'],
+      serif: ['ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+      mono: [
+        'ui-monospace',
+        'SFMono-Regular',
+        'Menlo',
+        'Monaco',
+        'Consolas',
+        '"Liberation Mono"',
+        '"Courier New"',
+        'monospace',
+      ],
     },
     fontSize: {
       xs: ['1.2rem', { lineHeight: '1.6rem' }],
@@ -1283,8 +1293,8 @@ module.exports = {
       none: 'none',
       all: 'all',
       DEFAULT:
-        'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter',
-      colors: 'background-color, border-color, color, fill, stroke',
+        'color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter',
+      colors: 'color, background-color, border-color, text-decoration-color, fill, stroke',
       opacity: 'opacity',
       shadow: 'box-shadow',
       transform: 'transform',
