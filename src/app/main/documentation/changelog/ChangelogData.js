@@ -2,6 +2,18 @@ import Typography from '@mui/material/Typography';
 
 const changelogData = [
   {
+    version: '7.2.0',
+    date: '2022-03-05',
+    newChanges: [
+      'material-ui updated to v5.4.4',
+      'react-router updated to v6.2.2',
+      'tailwindcss updated to v3.0.23',
+      '@reduxjs/toolkit updated to v1.8.0',
+      'All dependency packages updated.',
+    ],
+    fixedChanges: ['Authorization cannot hide navigation items in some cases.'],
+  },
+  {
     version: '7.1.0',
     date: '2021-12-17',
     newChanges: [
