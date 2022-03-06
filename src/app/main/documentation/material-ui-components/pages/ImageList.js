@@ -44,6 +44,7 @@ function ImageListDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="StandardImageList.js"
           className="my-24"
           iframe={false}
           component={
@@ -62,6 +63,7 @@ function ImageListDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="QuiltedImageList.js"
           className="my-24"
           iframe={false}
           component={
@@ -80,6 +82,7 @@ function ImageListDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="WovenImageList.js"
           className="my-24"
           iframe={false}
           component={
@@ -98,6 +101,7 @@ function ImageListDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="MasonryImageList.js"
           className="my-24"
           iframe={false}
           component={
@@ -117,6 +121,7 @@ function ImageListDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TitlebarImageList.js"
           className="my-24"
           iframe={false}
           component={
@@ -134,6 +139,7 @@ function ImageListDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TitlebarBelowImageList.js"
           className="my-24"
           iframe={false}
           component={
@@ -148,6 +154,7 @@ function ImageListDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TitlebarBelowMasonryImageList.js"
           className="my-24"
           iframe={false}
           component={
@@ -168,6 +175,7 @@ function ImageListDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomImageList.js"
           className="my-24"
           iframe={false}
           component={

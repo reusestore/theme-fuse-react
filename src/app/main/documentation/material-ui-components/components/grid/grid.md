@@ -1,4 +1,5 @@
 ---
+product: material-ui
 title: React Grid component
 components: Grid
 githubLabel: 'component: Grid'
@@ -25,7 +26,7 @@ The grid system is implemented with the `Grid` component:
 - Item widths are set in percentages, so they're always fluid and sized relative to their parent element.
 - Items have padding to create the spacing between individual items.
 - There are five grid breakpoints: xs, sm, md, lg, and xl.
-- Integer values can be given to each breakpoint, indicating how many of the 12 available columns are occupied by the component when the viewport width satisfies the [breakpoint contraints](/customization/breakpoints/#default-breakpoints).
+- Integer values can be given to each breakpoint, indicating how many of the 12 available columns are occupied by the component when the viewport width satisfies the [breakpoint constraints](/customization/breakpoints/#default-breakpoints).
 
 If you are **new to or unfamiliar with flexbox**, we encourage you to read this [CSS-Tricks flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) guide.
 
@@ -39,7 +40,7 @@ Column widths are integer values between 1 and 12; they apply at any breakpoint 
 
 A value given to a breakpoint applies to all the other breakpoints wider than it (unless overridden, as you can read later in this page). For example, `xs={12}` sizes a component to occupy the whole viewport width regardless of its size.
 
-{{"demo": "pages/components/grid/BasicGrid.js", "bg": true}}
+{{"demo": "BasicGrid.js", "bg": true}}
 
 ### Grid with multiple breakpoints
 
@@ -47,7 +48,7 @@ Components may have multiple widths defined, causing the layout to change at the
 
 For example, `xs={12} sm={6}` sizes a component to occupy half of the viewport width (6 columns) when viewport width is [600 or more pixels](/customization/breakpoints/#default-breakpoints). For smaller viewports, the component fills all 12 available columns.
 
-{{"demo": "pages/components/grid/FullWidthGrid.js", "bg": true}}
+{{"demo": "FullWidthGrid.js", "bg": true}}
 
 ## Spacing
 
@@ -55,21 +56,21 @@ To control space between children, use the `spacing` prop.
 The spacing value can be any positive number, including decimals and any string.
 The prop is converted into a CSS property using the [`theme.spacing()`](/customization/spacing/) helper.
 
-{{"demo": "pages/components/grid/SpacingGrid.js", "bg": true}}
+{{"demo": "SpacingGrid.js", "bg": true}}
 
 ### Row & column spacing
 
 The `rowSpacing` and `columnSpacing` props allow for specifying the row and column gaps independently.
 It's similar to the `row-gap` and `column-gap` properties of [CSS Grid](/system/grid/#row-gap-amp-column-gap).
 
-{{"demo": "pages/components/grid/RowAndColumnSpacing.js", "bg": true}}
+{{"demo": "RowAndColumnSpacing.js", "bg": true}}
 
 ## Responsive values
 
 You can switch the props' value based on the active breakpoint.
 For instance, we can implement the ["recommended"](https://material.io/design/layout/responsive-layout-grid.html) responsive layout grid of Material Design.
 
-{{"demo": "pages/components/grid/ResponsiveGrid.js", "bg": true}}
+{{"demo": "ResponsiveGrid.js", "bg": true}}
 
 Responsive values is supported by:
 
@@ -93,27 +94,27 @@ Responsive values is supported by:
 
 Below is an interactive demo that lets you explore the visual results of the different settings:
 
-{{"demo": "pages/components/grid/InteractiveGrid.js", "hideToolbar": true, "bg": true}}
+{{"demo": "InteractiveGrid.js", "hideToolbar": true, "bg": true}}
 
 ## Auto-layout
 
 The Auto-layout makes the _items_ equitably share the available space.
 That also means you can set the width of one _item_ and the others will automatically resize around it.
 
-{{"demo": "pages/components/grid/AutoGrid.js", "bg": true}}
+{{"demo": "AutoGrid.js", "bg": true}}
 
 ### Variable width content
 
 Set one of the size breakpoint props to `"auto"` instead of `true` / a `number` to size
 a column based on the natural width of its content.
 
-{{"demo": "pages/components/grid/VariableWidthGrid.js", "bg": true}}
+{{"demo": "VariableWidthGrid.js", "bg": true}}
 
 ## Complex Grid
 
 The following demo doesn't follow the Material Design guidelines, but illustrates how the grid can be used to build complex layouts.
 
-{{"demo": "pages/components/grid/ComplexGrid.js", "bg": true}}
+{{"demo": "ComplexGrid.js", "bg": true}}
 
 ## Nested Grid
 
@@ -123,7 +124,7 @@ The `container` and `item` props are two independent booleans; they can be combi
 
 https://www.w3.org/TR/css-flexbox-1/#box-model
 
-{{"demo": "pages/components/grid/NestedGrid.js", "bg": true}}
+{{"demo": "NestedGrid.js", "bg": true}}
 
 ⚠️ Defining an explicit width to a Grid element that is flex container, flex item, and has spacing at the same time lead to unexpected behavior, avoid doing it:
 
@@ -137,7 +138,7 @@ If you need to do such, remove one of the props.
 
 You can change the default number of columns (12) with the `columns` prop.
 
-{{"demo": "pages/components/grid/ColumnsGrid.js", "bg": true}}
+{{"demo": "ColumnsGrid.js", "bg": true}}
 
 ## Limitations
 
@@ -145,7 +146,7 @@ You can change the default number of columns (12) with the `columns` prop.
 
 The spacing between items is implemented with a negative margin. This might lead to unexpected behaviors. For instance, to apply a background color, you need to apply `display: flex;` to the parent.
 
-### white-space: nowrap;
+### white-space: nowrap
 
 The initial setting on flex items is `min-width: auto`.
 It's causing a positioning conflict when the children is using `white-space: nowrap;`.
@@ -164,7 +165,7 @@ In practice, you can set the `zeroMinWidth` prop:
   <Typography noWrap>
 ```
 
-{{"demo": "pages/components/grid/AutoGridNoWrap.js", "bg": true}}
+{{"demo": "AutoGridNoWrap.js", "bg": true}}
 
 ### direction: column | column-reverse
 
@@ -178,7 +179,7 @@ If used, these props may have undesirable effects on the height of the `Grid` it
 The `Grid` component is using CSS flexbox internally.
 But as seen below, you can easily use [the system](/system/grid/) and CSS Grid to layout your pages.
 
-{{"demo": "pages/components/grid/CSSGrid.js", "bg": true}}
+{{"demo": "CSSGrid.js", "bg": true}}
 
 ## System props
 

@@ -38,8 +38,8 @@ function PopperDoc(props) {
       </Typography>
       <ul>
         <li>
-          🕷 Popper relies on the 3rd party library (
-          <a href="https://github.com/popperjs/popper-core">Popper.js</a>) for perfect positioning.
+          🕷 Popper relies on the 3rd party library (<a href="https://popper.js.org/">Popper.js</a>)
+          for perfect positioning.
         </li>
         <li>💄 It&#39;s an alternative API to react-popper. It aims for simplicity.</li>
         <li>
@@ -79,6 +79,7 @@ function PopperDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SimplePopper.js"
           className="my-24"
           iframe={false}
           component={
@@ -112,6 +113,7 @@ function PopperDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TransitionsPopper.js"
           className="my-24"
           iframe={false}
           component={
@@ -127,6 +129,7 @@ function PopperDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SpringPopper.js"
           className="my-24"
           iframe={false}
           component={
@@ -141,6 +144,7 @@ function PopperDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="PositionedPopper.js"
           className="my-24"
           iframe={false}
           component={
@@ -155,6 +159,7 @@ function PopperDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ScrollPlayground.js"
           className="my-24"
           iframe={false}
           component={
@@ -180,6 +185,7 @@ function PopperDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="VirtualElementPopper.js"
           className="my-24"
           iframe={false}
           component={
@@ -207,6 +213,7 @@ function PopperDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="PopperPopupState.js"
           className="my-24"
           iframe={false}
           component={

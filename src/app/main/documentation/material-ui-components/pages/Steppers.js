@@ -81,6 +81,7 @@ function SteppersDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="HorizontalLinearStepper.js"
           className="my-24"
           iframe={false}
           component={
@@ -110,6 +111,7 @@ function SteppersDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="HorizontalNonLinearStepper.js"
           className="my-24"
           iframe={false}
           component={
@@ -128,6 +130,7 @@ function SteppersDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="HorizontalLinearAlternativeLabelStepper.js"
           className="my-24"
           iframe={false}
           component={
@@ -142,6 +145,7 @@ function SteppersDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="HorizontalStepperWithError.js"
           className="my-24"
           iframe={false}
           component={
@@ -160,6 +164,7 @@ function SteppersDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomizedSteppers.js"
           className="my-24"
           iframe={false}
           component={
@@ -178,6 +183,7 @@ function SteppersDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="VerticalLinearStepper.js"
           className="my-24"
           iframe={false}
           component={
@@ -224,6 +230,7 @@ function SteppersDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TextMobileStepper.js"
           className="my-24"
           iframe={false}
           component={
@@ -245,6 +252,7 @@ function SteppersDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SwipeableTextMobileStepper.js"
           className="my-24"
           iframe={false}
           component={
@@ -262,6 +270,7 @@ function SteppersDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DotsMobileStepper.js"
           className="my-24"
           iframe={false}
           component={
@@ -280,6 +289,7 @@ function SteppersDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ProgressMobileStepper.js"
           className="my-24"
           iframe={false}
           component={

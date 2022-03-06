@@ -56,6 +56,7 @@ function BoxDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BoxSx.js"
           className="my-24"
           iframe={false}
           component={
@@ -74,6 +75,7 @@ function BoxDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BoxComponent.js"
           className="my-24"
           iframe={false}
           component={

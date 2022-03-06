@@ -3,15 +3,26 @@ import clsx from 'clsx';
 import { styled } from '@mui/system';
 import { useSwitch } from '@mui/base/SwitchUnstyled';
 
-const BasicSwitchRoot = styled('span')`
+const blue = {
+  500: '#007FFF',
+};
+
+const grey = {
+  400: '#BFC7CF',
+  500: '#AAB4BE',
+  600: '#6F7E8C',
+};
+
+const BasicSwitchRoot = styled('span')(
+  ({ theme }) => `
   font-size: 0;
   position: relative;
   display: inline-block;
-  width: 32px;
+  width: 40px;
   height: 20px;
-  background: #b3c3d3;
-  border-radius: 10px;
   margin: 10px;
+  background: ${theme.palette.mode === 'dark' ? grey[600] : grey[400]};
+  border-radius: 10px;
   cursor: pointer;
 
   &.Switch-disabled {
@@ -20,9 +31,10 @@ const BasicSwitchRoot = styled('span')`
   }
 
   &.Switch-checked {
-    background: #007fff;
+    background: ${blue[500]};
   }
-`;
+  `,
+);
 
 const BasicSwitchInput = styled('input')`
   cursor: inherit;
@@ -48,12 +60,12 @@ const BasicSwitchThumb = styled('span')`
   transition: all 200ms ease;
 
   &.Switch-focusVisible {
-    background-color: rgba(255, 255, 255, 1);
+    background-color: ${grey[500]};
     box-shadow: 0 0 1px 8px rgba(0, 0, 0, 0.25);
   }
 
   &.Switch-checked {
-    left: 14px;
+    left: 22px;
     top: 3px;
     background-color: #fff;
   }

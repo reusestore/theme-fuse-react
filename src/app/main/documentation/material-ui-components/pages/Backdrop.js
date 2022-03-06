@@ -42,6 +42,7 @@ function BackdropDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SimpleBackdrop.js"
           className="my-24"
           iframe={false}
           component={
@@ -55,8 +56,8 @@ function BackdropDoc(props) {
         Unstyled
       </Typography>
       <Typography className="mb-40" component="div">
-        The backdrop also comes with the unstyled package. It&#39;s ideal for doing heavy
-        customizations and minimizing bundle size.
+        The backdrop also comes with the Base package. It&#39;s ideal for doing heavy customizations
+        and minimizing bundle size.
       </Typography>
 
       <FuseHighlight component="pre" className="language-js">

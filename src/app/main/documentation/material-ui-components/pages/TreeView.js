@@ -42,6 +42,7 @@ function TreeViewDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FileSystemNavigator.js"
           className="my-24"
           iframe={false}
           component={
@@ -59,6 +60,7 @@ function TreeViewDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="MultiSelectTreeView.js"
           className="my-24"
           iframe={false}
           component={
@@ -76,6 +78,7 @@ function TreeViewDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ControlledTreeView.js"
           className="my-24"
           iframe={false}
           component={
@@ -114,6 +117,7 @@ const data = {
       </FuseHighlight>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="RichObjectTreeView.js"
           className="my-24"
           iframe={false}
           component={
@@ -135,6 +139,7 @@ const data = {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="IconExpansionTreeView.js"
           className="my-24"
           iframe={false}
           component={
@@ -149,6 +154,7 @@ const data = {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BarTreeView.js"
           className="my-24"
           iframe={false}
           component={
@@ -166,6 +172,7 @@ const data = {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomizedTreeView.js"
           className="my-24"
           iframe={false}
           component={
@@ -180,6 +187,7 @@ const data = {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="GmailTreeView.js"
           className="my-24"
           iframe={false}
           component={
@@ -194,6 +202,7 @@ const data = {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DisabledTreeItems.js"
           className="my-24"
           iframe={false}
           component={

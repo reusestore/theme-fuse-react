@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: React Time Picker component
 components: DesktopTimePicker, MobileTimePicker, StaticTimePicker, TimePicker, ClockPicker
-githubLabel: 'component: TimePicker'
+githubLabel: 'component: time picker'
 packageName: '@mui/lab'
 materialDesign: https://material.io/components/time-pickers
 ---
@@ -37,13 +38,13 @@ function App() {
 
 The date picker is rendered as a modal dialog on mobile, and a textbox with a popup on desktop.
 
-{{"demo": "pages/components/time-picker/BasicTimePicker.js"}}
+{{"demo": "BasicTimePicker.js"}}
 
 ## Static mode
 
 It's possible to render any time picker inline. This will enable building custom popover/modal containers.
 
-{{"demo": "pages/components/time-picker/StaticTimePickerDemo.js", "bg": true}}
+{{"demo": "StaticTimePickerDemo.js", "bg": true}}
 
 ## Responsiveness
 
@@ -55,37 +56,37 @@ The time picker component is designed and optimized for the device it runs on.
 By default, the `TimePicker` component renders the desktop version if the media query [`@media (pointer: fine)`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/pointer) matches.
 This can be customized with the `desktopModeMediaQuery` prop.
 
-{{"demo": "pages/components/time-picker/ResponsiveTimePickers.js"}}
+{{"demo": "ResponsiveTimePickers.js"}}
 
 ## Form props
 
 The time picker component can be disabled or read-only.
 
-{{"demo": "pages/components/time-picker/FormPropsTimePickers.js"}}
+{{"demo": "FormPropsTimePickers.js"}}
 
 ## Localization
 
 Use `LocalizationProvider` to change the date-engine locale that is used to render the time picker.
 The time picker will automatically adjust to the locale's time setting, i.e. the 12-hour or 24-hour format. This can be controlled with `ampm` prop.
 
-{{"demo": "pages/components/time-picker/LocalizedTimePicker.js"}}
+{{"demo": "LocalizedTimePicker.js"}}
 
 ## Time validation
 
-{{"demo": "pages/components/time-picker/TimeValidationTimePicker.js"}}
+{{"demo": "TimeValidationTimePicker.js"}}
 
 ## Landscape
 
-{{"demo": "pages/components/time-picker/StaticTimePickerLandscape.js", "bg": true}}
+{{"demo": "StaticTimePickerLandscape.js", "bg": true}}
 
 ## Sub-components
 
 Some lower-level sub-components (`ClockPicker`) are also exported. These are rendered without a wrapper or outer logic (masked input, date values parsing and validation, etc.).
 
-{{"demo": "pages/components/time-picker/SubComponentsTimePickers.js"}}
+{{"demo": "SubComponentsTimePickers.js"}}
 
 ## Seconds
 
 The seconds input can be used for selection of a precise time point.
 
-{{"demo": "pages/components/time-picker/SecondsTimePicker.js"}}
+{{"demo": "SecondsTimePicker.js"}}

@@ -73,13 +73,21 @@ export const selectNavigation = createSelector(
     return setTranslationValues(
       _.merge(
         [],
-        FuseUtils.filterRecursive(navigation, (item) =>
-          FuseUtils.hasPermission(item.auth, userRole)
-        )
+        filterRecursively(navigation, (item) => FuseUtils.hasPermission(item.auth, userRole))
       )
     );
   }
 );
+
+function filterRecursively(arr, predicate) {
+  return arr.filter(predicate).map((item) => {
+    item = { ...item };
+    if (item.children) {
+      item.children = filterRecursively(item.children, predicate);
+    }
+    return item;
+  });
+}
 
 export const selectFlatNavigation = createSelector([selectNavigation], (navigation) =>
   FuseUtils.getFlatNavigation(navigation)

@@ -41,6 +41,7 @@ function AvatarsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ImageAvatars.js"
           className="my-24"
           iframe={false}
           component={
@@ -59,6 +60,7 @@ function AvatarsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="LetterAvatars.js"
           className="my-24"
           iframe={false}
           component={
@@ -74,6 +76,7 @@ function AvatarsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BackgroundLetterAvatars.js"
           className="my-24"
           iframe={false}
           component={
@@ -92,6 +95,7 @@ function AvatarsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SizeAvatars.js"
           className="my-24"
           iframe={false}
           component={
@@ -109,6 +113,7 @@ function AvatarsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="IconAvatars.js"
           className="my-24"
           iframe={false}
           component={
@@ -126,6 +131,7 @@ function AvatarsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="VariantAvatars.js"
           className="my-24"
           iframe={false}
           component={
@@ -151,6 +157,7 @@ function AvatarsDoc(props) {
       </ul>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FallbackAvatars.js"
           className="my-24"
           iframe={false}
           component={
@@ -169,6 +176,7 @@ function AvatarsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="GroupAvatars.js"
           className="my-24"
           iframe={false}
           component={
@@ -187,6 +195,7 @@ function AvatarsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TotalAvatars.js"
           className="my-24"
           iframe={false}
           component={
@@ -201,6 +210,7 @@ function AvatarsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BadgeAvatars.js"
           className="my-24"
           iframe={false}
           component={

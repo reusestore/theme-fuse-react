@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: React Tooltip component
 components: Tooltip
-githubLabel: 'component: Tooltip'
+githubLabel: 'component: tooltip'
 materialDesign: https://material.io/components/tooltips
 waiAria: https://www.w3.org/TR/wai-aria-practices/#tooltip
 ---
@@ -16,27 +17,27 @@ When activated, Tooltips display a text label identifying an element, such as a 
 
 ## Basic tooltip
 
-{{"demo": "pages/components/tooltips/BasicTooltip.js"}}
+{{"demo": "BasicTooltip.js"}}
 
 ## Positioned tooltips
 
 The `Tooltip` has 12 **placements** choice.
 They don't have directional arrows; instead, they rely on motion emanating from the source to convey direction.
 
-{{"demo": "pages/components/tooltips/PositionedTooltips.js"}}
+{{"demo": "PositionedTooltips.js"}}
 
 ## Customization
 
 Here are some examples of customizing the component.
 You can learn more about this in the [overrides documentation page](/customization/how-to-customize/).
 
-{{"demo": "pages/components/tooltips/CustomizedTooltips.js"}}
+{{"demo": "CustomizedTooltips.js"}}
 
 ## Arrow tooltips
 
 You can use the `arrow` prop to give your tooltip an arrow indicating which element it refers to.
 
-{{"demo": "pages/components/tooltips/ArrowTooltips.js"}}
+{{"demo": "ArrowTooltips.js"}}
 
 ## Custom child element
 
@@ -64,19 +65,19 @@ You can define the types of events that cause a tooltip to show.
 
 The touch action requires a long press due to the `enterTouchDelay` prop being set to `700`ms by default.
 
-{{"demo": "pages/components/tooltips/TriggersTooltips.js"}}
+{{"demo": "TriggersTooltips.js"}}
 
 ## Controlled tooltips
 
 You can use the `open`, `onOpen` and `onClose` props to control the behavior of the tooltip.
 
-{{"demo": "pages/components/tooltips/ControlledTooltips.js"}}
+{{"demo": "ControlledTooltips.js"}}
 
 ## Variable width
 
 The `Tooltip` wraps long text by default to make it readable.
 
-{{"demo": "pages/components/tooltips/VariableWidth.js"}}
+{{"demo": "VariableWidth.js"}}
 
 ## Interactive
 
@@ -84,7 +85,7 @@ Tooltips are interactive by default (to pass [WCAG 2.1 success criterion 1.4.13]
 It won't close when the user hovers over the tooltip before the `leaveDelay` is expired.
 You can disable this behavior (thus failing the success criterion which is required to reach level AA) by passing `disableInteractive`.
 
-{{"demo": "pages/components/tooltips/NonInteractiveTooltips.js"}}
+{{"demo": "NonInteractiveTooltips.js"}}
 
 ## Disabled elements
 
@@ -92,7 +93,7 @@ By default disabled elements like `<button>` do not trigger user interactions so
 
 > ⚠️ In order to work with Safari, you need at least one display block or flex item below the tooltip wrapper.
 
-{{"demo": "pages/components/tooltips/DisabledTooltips.js"}}
+{{"demo": "DisabledTooltips.js"}}
 
 > If you're not wrapping a MUI component that inherits from `ButtonBase`, for instance, a native `<button>` element, you should also add the CSS property _pointer-events: none;_ to your element when disabled:
 
@@ -110,13 +111,13 @@ By default disabled elements like `<button>` do not trigger user interactions so
 
 Use a different transition.
 
-{{"demo": "pages/components/tooltips/TransitionsTooltips.js"}}
+{{"demo": "TransitionsTooltips.js"}}
 
 ## Follow cursor
 
 You can enable the tooltip to follow the cursor by setting `followCursor={true}`.
 
-{{"demo": "pages/components/tooltips/FollowCursorTooltips.js"}}
+{{"demo": "FollowCursorTooltips.js"}}
 
 ## Virtual element
 
@@ -124,7 +125,7 @@ In the event you need to implement a custom placement, you can use the `anchorEl
 The value of the `anchorEl` prop can be a reference to a fake DOM element.
 You need to create an object shaped like the [`VirtualElement`](https://popper.js.org/docs/v2/virtual-elements/).
 
-{{"demo": "pages/components/tooltips/AnchorElTooltips.js"}}
+{{"demo": "AnchorElTooltips.js"}}
 
 ## Showing and hiding
 
@@ -132,7 +133,7 @@ The tooltip is normally shown immediately when the user's mouse hovers over the 
 
 On mobile, the tooltip is displayed when the user longpresses the element and hides after a delay of 1500ms. You can disable this feature with the `disableTouchListener` prop.
 
-{{"demo": "pages/components/tooltips/DelayTooltips.js"}}
+{{"demo": "DelayTooltips.js"}}
 
 ## Accessibility
 
@@ -150,4 +151,4 @@ the `title` acts as an accessible description.
 If you want the tooltip to act as an accessible description you can pass `describeChild`.
 Note that you shouldn't use `describeChild` if the tooltip provides the only visual label. Otherwise, the child would have no accessible name and the tooltip would violate [success criterion 2.5.3 in WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/label-in-name.html).
 
-{{"demo": "pages/components/tooltips/AccessibilityTooltips.js"}}
+{{"demo": "AccessibilityTooltips.js"}}

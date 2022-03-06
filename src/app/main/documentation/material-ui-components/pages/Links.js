@@ -41,6 +41,7 @@ function LinksDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="Links.js"
           className="my-24"
           iframe={false}
           component={
@@ -71,6 +72,7 @@ function LinksDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="UnderlineLink.js"
           className="my-24"
           iframe={false}
           component={
@@ -143,6 +145,7 @@ function LinksDoc(props) {
       </ul>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ButtonLink.js"
           className="my-24"
           iframe={false}
           component={

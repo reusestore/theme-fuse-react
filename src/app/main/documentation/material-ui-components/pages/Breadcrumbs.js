@@ -28,7 +28,8 @@ function BreadcrumbsDoc(props) {
         Breadcrumbs
       </Typography>
       <Typography className="description">
-        Breadcrumbs allow users to make selections from a range of values.
+        Breadcrumbs consist of a list of links that help a user visualize a page's location within
+        the hierarchical structure of a website, and allow navigation up to any of its "ancestors".
       </Typography>
 
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -36,6 +37,7 @@ function BreadcrumbsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicBreadcrumbs.js"
           className="my-24"
           iframe={false}
           component={
@@ -53,6 +55,7 @@ function BreadcrumbsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ActiveLastBreadcrumb.js"
           className="my-24"
           iframe={false}
           component={
@@ -70,6 +73,7 @@ function BreadcrumbsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomSeparator.js"
           className="my-24"
           iframe={false}
           component={
@@ -84,6 +88,7 @@ function BreadcrumbsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="IconBreadcrumbs.js"
           className="my-24"
           iframe={false}
           component={
@@ -98,6 +103,7 @@ function BreadcrumbsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CollapsedBreadcrumbs.js"
           className="my-24"
           iframe={false}
           component={
@@ -116,6 +122,7 @@ function BreadcrumbsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomizedBreadcrumbs.js"
           className="my-24"
           iframe={false}
           component={
@@ -125,11 +132,12 @@ function BreadcrumbsDoc(props) {
           raw={require('!raw-loader!app/main/documentation/material-ui-components/components/breadcrumbs/CustomizedBreadcrumbs.js')}
         />
       </Typography>
-    {/*  <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
+      {/* <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Integration with react-router
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="RouterBreadcrumbs.js"
           className="my-24"
           iframe={false}
           component={
@@ -138,7 +146,7 @@ function BreadcrumbsDoc(props) {
           }
           raw={require('!raw-loader!app/main/documentation/material-ui-components/components/breadcrumbs/RouterBreadcrumbs.js')}
         />
-      </Typography>*/}
+      </Typography> */}
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Accessibility
       </Typography>

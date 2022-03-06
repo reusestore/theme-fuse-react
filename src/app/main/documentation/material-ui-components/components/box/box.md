@@ -1,4 +1,5 @@
 ---
+product: material-ui
 title: React Box component
 githubLabel: 'component: Box'
 ---
@@ -20,7 +21,7 @@ The Box component packages [all the style functions](/system/basics/#all-inclusi
 All system properties are available via the [`sx` prop](/system/basics/#the-sx-prop).
 In addition, the `sx` prop allows you to specify any other CSS rules you may need. Here's an example of how you can use it:
 
-{{"demo": "pages/components/box/BoxSx.js", "defaultCodeOpen": true }}
+{{"demo": "BoxSx.js", "defaultCodeOpen": true }}
 
 ## Overriding MUI components
 
@@ -28,7 +29,7 @@ The Box component wraps your component.
 It creates a new DOM element, a `<div>` that by default can be changed with the `component` prop.
 Let's say you want to use a `<span>` instead:
 
-{{"demo": "pages/components/box/BoxComponent.js", "defaultCodeOpen": true }}
+{{"demo": "BoxComponent.js", "defaultCodeOpen": true }}
 
 This works great when the changes can be isolated to a new DOM element.
 For instance, you can change the margin this way.

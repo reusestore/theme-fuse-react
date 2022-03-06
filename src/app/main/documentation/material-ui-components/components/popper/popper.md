@@ -1,4 +1,5 @@
 ---
+product: material-ui
 title: React Popper component
 components: Popper, PopperUnstyled
 githubLabel: 'component: Popper'
@@ -10,7 +11,7 @@ githubLabel: 'component: Popper'
 
 Some important features of the `Popper` component:
 
-- 🕷 Popper relies on the 3rd party library ([Popper.js](https://github.com/popperjs/popper-core)) for perfect positioning.
+- 🕷 Popper relies on the 3rd party library ([Popper.js](https://popper.js.org/)) for perfect positioning.
 - 💄 It's an alternative API to react-popper. It aims for simplicity.
 - 📦 [8 kB gzipped](/size-snapshot).
 - The children is [`Portal`](/components/portal/) to the body of the document to avoid rendering problems.
@@ -25,7 +26,7 @@ Some important features of the `Popper` component:
 
 ## Basic popper
 
-{{"demo": "pages/components/popper/SimplePopper.js"}}
+{{"demo": "SimplePopper.js"}}
 
 ## Transitions
 
@@ -39,19 +40,19 @@ This component should respect the following conditions:
 
 Popper has built-in support for [react-transition-group](https://github.com/reactjs/react-transition-group).
 
-{{"demo": "pages/components/popper/TransitionsPopper.js"}}
+{{"demo": "TransitionsPopper.js"}}
 
 Alternatively, you can use [react-spring](https://github.com/pmndrs/react-spring).
 
-{{"demo": "pages/components/popper/SpringPopper.js"}}
+{{"demo": "SpringPopper.js"}}
 
 ## Positioned popper
 
-{{"demo": "pages/components/popper/PositionedPopper.js"}}
+{{"demo": "PositionedPopper.js"}}
 
 ## Scroll playground
 
-{{"demo": "pages/components/popper/ScrollPlayground.js", "hideToolbar": true, "bg": true}}
+{{"demo": "ScrollPlayground.js", "hideToolbar": true, "bg": true}}
 
 ## Virtual element
 
@@ -60,7 +61,7 @@ You need to create an object shaped like the [`VirtualElement`](https://popper.j
 
 Highlight part of the text to see the popper:
 
-{{"demo": "pages/components/popper/VirtualElementPopper.js"}}
+{{"demo": "VirtualElementPopper.js"}}
 
 ## Complementary projects
 
@@ -71,7 +72,7 @@ For more advanced use cases you might be able to take advantage of:
 There is a 3rd party package [`material-ui-popup-state`](https://github.com/jcoreio/material-ui-popup-state) that takes care of popper
 state for you in most cases.
 
-{{"demo": "pages/components/popper/PopperPopupState.js"}}
+{{"demo": "PopperPopupState.js"}}
 
 ## Unstyled
 

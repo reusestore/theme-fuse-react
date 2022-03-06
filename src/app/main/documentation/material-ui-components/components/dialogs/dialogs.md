@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: React Dialog component
 components: Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Slide
-githubLabel: 'component: Dialog'
+githubLabel: 'component: dialog'
 materialDesign: https://material.io/components/dialogs
 waiAria: https://www.w3.org/TR/wai-aria-practices/#dialog_modal
 ---
@@ -26,7 +27,7 @@ Touch mechanics:
 - Choosing an option immediately commits the option and closes the menu
 - Touching outside of the dialog, or pressing Back, cancels the action and closes the dialog
 
-{{"demo": "pages/components/dialogs/SimpleDialog.js"}}
+{{"demo": "SimpleDialog.js"}}
 
 ## Alerts
 
@@ -46,20 +47,20 @@ If a title is required:
 - Use a clear question or statement with an explanation in the content area, such as "Erase USB storage?".
 - Avoid apologies, ambiguity, or questions, such as "Warning!" or "Are you sure?"
 
-{{"demo": "pages/components/dialogs/AlertDialog.js"}}
+{{"demo": "AlertDialog.js"}}
 
 ## Transitions
 
 You can also swap out the transition, the next example uses `Slide`.
 
-{{"demo": "pages/components/dialogs/AlertDialogSlide.js"}}
+{{"demo": "AlertDialogSlide.js"}}
 
 ## Form dialogs
 
 Form dialogs allow users to fill out form fields within a dialog.
 For example, if your site prompts for potential subscribers to fill in their email address, they can fill out the email field and touch 'Submit'.
 
-{{"demo": "pages/components/dialogs/FormDialog.js"}}
+{{"demo": "FormDialog.js"}}
 
 ## Customization
 
@@ -68,18 +69,18 @@ You can learn more about this in the [overrides documentation page](/customizati
 
 The dialog has a close button added to aid usability.
 
-{{"demo": "pages/components/dialogs/CustomizedDialogs.js"}}
+{{"demo": "CustomizedDialogs.js"}}
 
 ## Full-screen dialogs
 
-{{"demo": "pages/components/dialogs/FullScreenDialog.js"}}
+{{"demo": "FullScreenDialog.js"}}
 
 ## Optional sizes
 
 You can set a dialog maximum width by using the `maxWidth` enumerable in combination with the `fullWidth` boolean.
 When the `fullWidth` prop is true, the dialog will adapt based on the `maxWidth` value.
 
-{{"demo": "pages/components/dialogs/MaxWidthDialog.js"}}
+{{"demo": "MaxWidthDialog.js"}}
 
 ## Responsive full-screen
 
@@ -96,7 +97,7 @@ function MyComponent() {
 }
 ```
 
-{{"demo": "pages/components/dialogs/ResponsiveDialog.js"}}
+{{"demo": "ResponsiveDialog.js"}}
 
 ## Confirmation dialogs
 
@@ -105,7 +106,7 @@ For example, users can listen to multiple ringtones but only make a final select
 
 Touching "Cancel" in a confirmation dialog, or pressing Back, cancels the action, discards any changes, and closes the dialog.
 
-{{"demo": "pages/components/dialogs/ConfirmationDialog.js"}}
+{{"demo": "ConfirmationDialog.js"}}
 
 ## Draggable dialog
 
@@ -113,7 +114,7 @@ You can create a draggable dialog by using [react-draggable](https://github.com/
 To do so, you can pass the imported `Draggable` component as the `PaperComponent` of the `Dialog` component.
 This will make the entire dialog draggable.
 
-{{"demo": "pages/components/dialogs/DraggableDialog.js"}}
+{{"demo": "DraggableDialog.js"}}
 
 ## Scrolling long content
 
@@ -124,7 +125,7 @@ When dialogs become too long for the user's viewport or device, they scroll.
 
 Try the demo below to see what we mean:
 
-{{"demo": "pages/components/dialogs/ScrollDialog.js"}}
+{{"demo": "ScrollDialog.js"}}
 
 ## Performance
 

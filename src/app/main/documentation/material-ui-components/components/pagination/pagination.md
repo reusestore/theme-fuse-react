@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: React Pagination component
 components: Pagination, PaginationItem
-githubLabel: 'component: Pagination'
+githubLabel: 'component: pagination'
 ---
 
 # Pagination
@@ -12,45 +13,45 @@ githubLabel: 'component: Pagination'
 
 ## Basic pagination
 
-{{"demo": "pages/components/pagination/BasicPagination.js"}}
+{{"demo": "BasicPagination.js"}}
 
 ## Outlined pagination
 
-{{"demo": "pages/components/pagination/PaginationOutlined.js"}}
+{{"demo": "PaginationOutlined.js"}}
 
 ## Rounded pagination
 
-{{"demo": "pages/components/pagination/PaginationRounded.js"}}
+{{"demo": "PaginationRounded.js"}}
 
 ## Pagination size
 
-{{"demo": "pages/components/pagination/PaginationSize.js"}}
+{{"demo": "PaginationSize.js"}}
 
 ## Buttons
 
 You can optionally enable first-page and last-page buttons, or disable the previous-page and next-page buttons.
 
-{{"demo": "pages/components/pagination/PaginationButtons.js"}}
+{{"demo": "PaginationButtons.js"}}
 
 ## Custom icons
 
 It's possible to customize the control icons.
 
-{{"demo": "pages/components/pagination/CustomIcons.js"}}
+{{"demo": "CustomIcons.js"}}
 
 ## Pagination ranges
 
 You can specify how many digits to display either side of current page with the `siblingRange` prop, and adjacent to the start and end page number with the `boundaryRange` prop.
 
-{{"demo": "pages/components/pagination/PaginationRanges.js"}}
+{{"demo": "PaginationRanges.js"}}
 
 ## Controlled pagination
 
-{{"demo": "pages/components/pagination/PaginationControlled.js"}}
+{{"demo": "PaginationControlled.js"}}
 
 ## Router integration
 
-{{"demo": "pages/components/pagination/PaginationLink.js"}}
+{{"demo": "PaginationLink.js"}}
 
 ## `usePagination`
 
@@ -63,7 +64,7 @@ The Pagination component is built on this hook.
 import { usePagination } from '@mui/material/Pagination';
 ```
 
-{{"demo": "pages/components/pagination/UsePagination.js"}}
+{{"demo": "UsePagination.js"}}
 
 ## Table pagination
 
@@ -72,7 +73,7 @@ It's preferred in contexts where SEO is important, for instance, a blog.
 
 For the pagination of a large set of tabular data, you should use the `TablePagination` component.
 
-{{"demo": "pages/components/pagination/TablePagination.js"}}
+{{"demo": "TablePagination.js"}}
 
 > ⚠️ Note that the `Pagination` page prop starts at 1 to match the requirement of including the value in the URL, while the `TablePagination` page prop starts at 0 to match the requirement of zero-based JavaScript arrays that comes with rendering a lot of tabular data.
 

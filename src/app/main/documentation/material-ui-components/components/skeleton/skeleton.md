@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: React Skeleton component
 components: Skeleton
-githubLabel: 'component: Skeleton'
+githubLabel: 'component: skeleton'
 ---
 
 # Skeleton
@@ -38,21 +39,21 @@ For instance:
 
 The component supports 3 shape variants.
 
-{{"demo": "pages/components/skeleton/Variants.js"}}
+{{"demo": "Variants.js"}}
 
 ## Animations
 
 By default, the skeleton pulsates, but you can change the animation to a wave or disable it entirely.
 
-{{"demo": "pages/components/skeleton/Animations.js"}}
+{{"demo": "Animations.js"}}
 
 ### Pulsate example
 
-{{"demo": "pages/components/skeleton/YouTube.js", "defaultCodeOpen": false}}
+{{"demo": "YouTube.js", "defaultCodeOpen": false}}
 
 ### Wave example
 
-{{"demo": "pages/components/skeleton/Facebook.js", "defaultCodeOpen": false, "bg": true}}
+{{"demo": "Facebook.js", "defaultCodeOpen": false, "bg": true}}
 
 ## Inferring dimensions
 
@@ -64,7 +65,7 @@ It works well when it comes to typography as its height is set using `em` units.
 <Typography variant="h1">{loading ? <Skeleton /> : 'h1'}</Typography>
 ```
 
-{{"demo": "pages/components/skeleton/SkeletonTypography.js", "defaultCodeOpen": false}}
+{{"demo": "SkeletonTypography.js", "defaultCodeOpen": false}}
 
 But when it comes to other components, you may not want to repeat the width and
 height. In these instances, you can pass `children` and it will
@@ -80,14 +81,14 @@ loading ? (
 );
 ```
 
-{{"demo": "pages/components/skeleton/SkeletonChildren.js", "defaultCodeOpen": false}}
+{{"demo": "SkeletonChildren.js", "defaultCodeOpen": false}}
 
 ## Color
 
 The color of the component can be customized by changing its `background-color` CSS property.
 This is especially useful when on a black background (as the skeleton will otherwise be invisible).
 
-{{"demo": "pages/components/skeleton/SkeletonColor.js", "bg": "inline"}}
+{{"demo": "SkeletonColor.js", "bg": "inline"}}
 
 ## Accessibility
 

@@ -44,6 +44,7 @@ function TabsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicTabs.js"
           className="my-24"
           iframe={false}
           component={
@@ -66,6 +67,7 @@ function TabsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="LabTabs.js"
           className="my-24"
           iframe={false}
           component={
@@ -84,6 +86,7 @@ function TabsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TabsWrappedLabel.js"
           className="my-24"
           iframe={false}
           component={
@@ -98,6 +101,7 @@ function TabsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ColorTabs.js"
           className="my-24"
           iframe={false}
           component={
@@ -115,6 +119,7 @@ function TabsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DisabledTabs.js"
           className="my-24"
           iframe={false}
           component={
@@ -144,6 +149,7 @@ function TabsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FullWidthTabs.js"
           className="my-24"
           iframe={false}
           component={
@@ -161,6 +167,7 @@ function TabsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CenteredTabs.js"
           className="my-24"
           iframe={false}
           component={
@@ -182,6 +189,7 @@ function TabsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ScrollableTabsButtonAuto.js"
           className="my-24"
           iframe={false}
           component={
@@ -200,6 +208,7 @@ function TabsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ScrollableTabsButtonForce.js"
           className="my-24"
           iframe={false}
           component={
@@ -222,6 +231,7 @@ function TabsDoc(props) {
       </FuseHighlight>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ScrollableTabsButtonVisible.js"
           className="my-24"
           iframe={false}
           component={
@@ -241,6 +251,7 @@ function TabsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ScrollableTabsButtonPrevent.js"
           className="my-24"
           iframe={false}
           component={
@@ -259,6 +270,7 @@ function TabsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomizedTabs.js"
           className="my-24"
           iframe={false}
           component={
@@ -284,6 +296,7 @@ function TabsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="VerticalTabs.js"
           className="my-24"
           iframe={false}
           component={
@@ -305,6 +318,7 @@ function TabsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="NavTabs.js"
           className="my-24"
           iframe={false}
           component={
@@ -322,6 +336,7 @@ function TabsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="IconTabs.js"
           className="my-24"
           iframe={false}
           component={
@@ -331,6 +346,7 @@ function TabsDoc(props) {
           raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/IconTabs.js')}
         />
         <FuseExample
+          name="IconLabelTabs.js"
           className="my-24"
           iframe={false}
           component={
@@ -349,6 +365,7 @@ function TabsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="IconPositionTabs.js"
           className="my-24"
           iframe={false}
           component={
@@ -426,6 +443,7 @@ function TabsDoc(props) {
       </FuseHighlight>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="AccessibleTabs1.js"
           className="my-24"
           iframe={false}
           component={
@@ -444,6 +462,7 @@ function TabsDoc(props) {
       </FuseHighlight>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="AccessibleTabs2.js"
           className="my-24"
           iframe={false}
           component={
@@ -474,6 +493,7 @@ import TabPanelUnstyled from '@mui/base/TabPanelUnstyled';
       </FuseHighlight>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="UnstyledTabsBasic.js"
           className="my-24"
           iframe={false}
           component={
@@ -500,6 +520,7 @@ import TabPanelUnstyled from '@mui/base/TabPanelUnstyled';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="UnstyledTabsCustomized.js"
           className="my-24"
           iframe={false}
           component={

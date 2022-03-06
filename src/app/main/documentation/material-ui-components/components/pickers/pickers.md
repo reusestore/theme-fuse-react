@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: Date picker, Time picker React components
 components: DatePicker,DateTimePicker,TimePicker,TextField
-githubLabel: 'component: DatePicker'
+githubLabel: 'component: date picker'
 materialDesign: https://material.io/components/date-pickers
 waiAria: https://www.w3.org/TR/wai-aria-practices/examples/dialog-modal/datepicker-dialog.html
 packageName: '@mui/lab'
@@ -18,7 +19,7 @@ packageName: '@mui/lab'
 
 ## React components
 
-{{"demo": "pages/components/pickers/MaterialUIPickers.js"}}
+{{"demo": "MaterialUIPickers.js"}}
 
 ### Setup
 
@@ -69,4 +70,4 @@ function App({ children }) {
 
 Native date (`type="date"`), time (`type="time"`) and date&time (`type="datetime-local"`) pickers.
 
-{{"demo": "pages/components/pickers/NativePickers.js"}}
+{{"demo": "NativePickers.js"}}

@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: React Drawer component
 components: Drawer, SwipeableDrawer
-githubLabel: 'component: Drawer'
+githubLabel: 'component: drawer'
 materialDesign: https://material.io/components/navigation-drawer
 ---
 
@@ -22,7 +23,7 @@ Temporary navigation drawers can toggle open or closed. Closed by default, the d
 The Drawer can be cancelled by clicking the overlay or pressing the Esc key.
 It closes when an item is selected, handled by controlling the `open` prop.
 
-{{"demo": "pages/components/drawers/TemporaryDrawer.js"}}
+{{"demo": "TemporaryDrawer.js"}}
 
 ### Swipeable
 
@@ -32,7 +33,7 @@ This component comes with a 2 kB gzipped payload overhead.
 Some low-end mobile devices won't be able to follow the fingers at 60 FPS.
 You can use the `disableBackdropTransition` prop to help.
 
-{{"demo": "pages/components/drawers/SwipeableTemporaryDrawer.js"}}
+{{"demo": "SwipeableTemporaryDrawer.js"}}
 
 The following properties are used in this documentation website for optimal usability of the component:
 
@@ -56,7 +57,7 @@ You can configure the `SwipeableDrawer` to have a visible edge when closed.
 If you are on a desktop, you can toggle the drawer with the "OPEN" button.
 If you are on mobile, you can open the demo in CodeSandbox ("edit" icon) and swipe.
 
-{{"demo": "pages/components/drawers/SwipeableEdgeDrawer.js", "iframe": true, "height": 400, "maxWidth": 300}}
+{{"demo": "SwipeableEdgeDrawer.js", "iframe": true, "height": 400, "maxWidth": 300}}
 
 ### Keep mounted
 
@@ -77,7 +78,7 @@ More details in the [Modal performance section](/components/modal/#performance).
 
 You can use the `temporary` variant to display a drawer for small screens and `permanent` for a drawer for wider screens.
 
-{{"demo": "pages/components/drawers/ResponsiveDrawer.js", "iframe": true}}
+{{"demo": "ResponsiveDrawer.js", "iframe": true}}
 
 ## Persistent drawer
 
@@ -91,9 +92,9 @@ When the drawer is outside of the page grid and opens, the drawer forces other c
 Persistent navigation drawers are acceptable for all sizes larger than mobile.
 They are not recommended for apps with multiple levels of hierarchy that require using an up arrow for navigation.
 
-{{"demo": "pages/components/drawers/PersistentDrawerLeft.js", "iframe": true}}
+{{"demo": "PersistentDrawerLeft.js", "iframe": true}}
 
-{{"demo": "pages/components/drawers/PersistentDrawerRight.js", "iframe": true}}
+{{"demo": "PersistentDrawerRight.js", "iframe": true}}
 
 ## Mini variant drawer
 
@@ -103,7 +104,7 @@ When expanded, it appears as the standard persistent navigation drawer.
 
 The mini variant is recommended for apps sections that need quick selection access alongside content.
 
-{{"demo": "pages/components/drawers/MiniDrawer.js", "iframe": true}}
+{{"demo": "MiniDrawer.js", "iframe": true}}
 
 ## Permanent drawer
 
@@ -115,12 +116,12 @@ Permanent navigation drawers are the **recommended default for desktop**.
 
 Apps focused on information consumption that use a left-to-right hierarchy.
 
-{{"demo": "pages/components/drawers/PermanentDrawerLeft.js", "iframe": true}}
+{{"demo": "PermanentDrawerLeft.js", "iframe": true}}
 
-{{"demo": "pages/components/drawers/PermanentDrawerRight.js", "iframe": true}}
+{{"demo": "PermanentDrawerRight.js", "iframe": true}}
 
 ### Clipped under the app bar
 
 Apps focused on productivity that require balance across the screen.
 
-{{"demo": "pages/components/drawers/ClippedDrawer.js", "iframe": true}}
+{{"demo": "ClippedDrawer.js", "iframe": true}}

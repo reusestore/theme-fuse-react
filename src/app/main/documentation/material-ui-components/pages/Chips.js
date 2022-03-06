@@ -46,6 +46,7 @@ function ChipsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicChips.js"
           className="my-24"
           iframe={false}
           component={
@@ -76,6 +77,7 @@ function ChipsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ClickableChips.js"
           className="my-24"
           iframe={false}
           component={
@@ -90,6 +92,7 @@ function ChipsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DeletableChips.js"
           className="my-24"
           iframe={false}
           component={
@@ -104,6 +107,7 @@ function ChipsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ClickableAndDeletableChips.js"
           className="my-24"
           iframe={false}
           component={
@@ -118,6 +122,7 @@ function ChipsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ClickableLinkChips.js"
           className="my-24"
           iframe={false}
           component={
@@ -132,6 +137,7 @@ function ChipsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomDeleteIconChips.js"
           className="my-24"
           iframe={false}
           component={
@@ -148,14 +154,15 @@ function ChipsDoc(props) {
         You can add ornaments to the beginning of the component.
       </Typography>
       <Typography className="mb-40" component="div">
-        Use the <code>avatar</code> prop to added a avatar or use the <code>icon</code> prop to
-        added a icon.
+        Use the <code>avatar</code> prop to add an avatar or use the <code>icon</code> prop to add
+        an icon.
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
         Avatar chip
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="AvatarChips.js"
           className="my-24"
           iframe={false}
           component={
@@ -170,6 +177,7 @@ function ChipsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="IconChips.js"
           className="my-24"
           iframe={false}
           component={
@@ -187,6 +195,7 @@ function ChipsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ColorChips.js"
           className="my-24"
           iframe={false}
           component={
@@ -204,6 +213,7 @@ function ChipsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SizesChips.js"
           className="my-24"
           iframe={false}
           component={
@@ -224,6 +234,7 @@ function ChipsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ChipsArray.js"
           className="my-24"
           iframe={false}
           component={
@@ -238,6 +249,7 @@ function ChipsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ChipsPlayground.js"
           className="my-24"
           iframe={false}
           component={

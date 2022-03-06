@@ -27,7 +27,7 @@ const CallbackConfig = {
   routes: [
     {
       path: 'callback',
-      element:Callback,
+      element: <Callback />,
     },
   ],
 };

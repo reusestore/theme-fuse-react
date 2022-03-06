@@ -59,6 +59,7 @@ function AutocompleteDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ComboBox.js"
           className="my-24"
           iframe={false}
           component={
@@ -109,6 +110,7 @@ const options = ['The Godfather', 'Pulp Fiction'];
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="Playground.js"
           className="my-24"
           iframe={false}
           component={
@@ -126,6 +128,7 @@ const options = ['The Godfather', 'Pulp Fiction'];
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CountrySelect.js"
           className="my-24"
           iframe={false}
           component={
@@ -160,6 +163,7 @@ const options = ['The Godfather', 'Pulp Fiction'];
       </blockquote>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ControllableStates.js"
           className="my-24"
           iframe={false}
           component={
@@ -184,6 +188,7 @@ const options = ['The Godfather', 'Pulp Fiction'];
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FreeSolo.js"
           className="my-24"
           iframe={false}
           component={
@@ -212,11 +217,12 @@ const options = ['The Godfather', 'Pulp Fiction'];
           <kbd className="key">Home</kbd> and <kbd className="key">End</kbd> keys.
         </li>
         <li>
-          A last option, for instance <code>Add "YOUR SEARCH"</code>.
+          A last option, for instance: <code>Add "YOUR SEARCH"</code>.
         </li>
       </ul>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FreeSoloCreateOption.js"
           className="my-24"
           iframe={false}
           component={
@@ -231,6 +237,7 @@ const options = ['The Godfather', 'Pulp Fiction'];
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FreeSoloCreateOptionDialog.js"
           className="my-24"
           iframe={false}
           component={
@@ -245,11 +252,12 @@ const options = ['The Godfather', 'Pulp Fiction'];
       </Typography>
       <Typography className="mb-40" component="div">
         You can group the options with the <code>groupBy</code> prop. If you do so, make sure that
-        the options are also sorted with the same dimension that they are grouped by, otherwise you
+        the options are also sorted with the same dimension that they are grouped by, otherwise, you
         will notice duplicate headers.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="Grouped.js"
           className="my-24"
           iframe={false}
           component={
@@ -264,6 +272,7 @@ const options = ['The Godfather', 'Pulp Fiction'];
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DisabledOptions.js"
           className="my-24"
           iframe={false}
           component={
@@ -304,6 +313,7 @@ import useAutocomplete from '@mui/material/useAutocomplete';
       </ul>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="UseAutocomplete.js"
           className="my-24"
           iframe={false}
           component={
@@ -318,6 +328,7 @@ import useAutocomplete from '@mui/material/useAutocomplete';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomizedHook.js"
           className="my-24"
           iframe={false}
           component={
@@ -355,6 +366,7 @@ import useAutocomplete from '@mui/material/useAutocomplete';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="Asynchronous.js"
           className="my-24"
           iframe={false}
           component={
@@ -381,14 +393,23 @@ import useAutocomplete from '@mui/material/useAutocomplete';
 <Autocomplete filterOptions={(x) => x} />
 `}
       </FuseHighlight>
-      <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
+     {/*  <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
         Google Maps place
       </Typography>
       <Typography className="mb-40" component="div">
-        A customized UI for Google Maps Places Autocomplete.
+        A customized UI for Google Maps Places Autocomplete. For this demo, we need to load the{' '}
+        <a href="https://developers.google.com/maps/documentation/javascript/overview">
+          Google Maps JavaScript
+        </a>{' '}
+        and{' '}
+        <a href="https://developers.google.com/maps/documentation/places/web-service/overview">
+          Google Places
+        </a>{' '}
+        API.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="GoogleMaps.js"
           className="my-24"
           iframe={false}
           component={
@@ -398,19 +419,12 @@ import useAutocomplete from '@mui/material/useAutocomplete';
           raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/GoogleMaps.js')}
         />
       </Typography>
-      <Typography className="mb-40" component="div">
-        For this demo, we need to load the{' '}
-        <a href="https://developers.google.com/maps/documentation/javascript/tutorial">
-          Google Maps JavaScript
-        </a>{' '}
-        API.
-      </Typography>
       <blockquote>
         <Typography className="mb-40" component="div">
-          ⚠️ Before you can start using the Google Maps JavaScript API, you must sign up and create
-          a billing account.
+          ⚠️ Before you can start using the Google Maps JavaScript API and Places API, you must sign
+          up and create a billing account.
         </Typography>
-      </blockquote>
+      </blockquote> */}
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Multiple values
       </Typography>
@@ -419,6 +433,7 @@ import useAutocomplete from '@mui/material/useAutocomplete';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="Tags.js"
           className="my-24"
           iframe={false}
           component={
@@ -432,11 +447,12 @@ import useAutocomplete from '@mui/material/useAutocomplete';
         Fixed options
       </Typography>
       <Typography className="mb-40" component="div">
-        In the event that you need to lock certain tag so that they can&#39;t be removed in the
-        interface, you can set the chips disabled.
+        In the event that you need to lock certain tags so that they can&#39;t be removed, you can
+        set the chips disabled.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FixedTags.js"
           className="my-24"
           iframe={false}
           component={
@@ -451,6 +467,7 @@ import useAutocomplete from '@mui/material/useAutocomplete';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CheckboxesTags.js"
           className="my-24"
           iframe={false}
           component={
@@ -469,6 +486,7 @@ import useAutocomplete from '@mui/material/useAutocomplete';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="LimitTags.js"
           className="my-24"
           iframe={false}
           component={
@@ -486,6 +504,7 @@ import useAutocomplete from '@mui/material/useAutocomplete';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="Sizes.js"
           className="my-24"
           iframe={false}
           component={
@@ -508,6 +527,7 @@ import useAutocomplete from '@mui/material/useAutocomplete';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomInputAutocomplete.js"
           className="my-24"
           iframe={false}
           component={
@@ -521,10 +541,11 @@ import useAutocomplete from '@mui/material/useAutocomplete';
         GitHub&#39;s picker
       </Typography>
       <Typography className="mb-40" component="div">
-        This demo reproduces the GitHub&#39;s label picker:
+        This demo reproduces GitHub&#39;s label picker:
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="GitHubLabel.js"
           className="my-24"
           iframe={false}
           component={
@@ -548,6 +569,7 @@ import useAutocomplete from '@mui/material/useAutocomplete';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="Highlights.js"
           className="my-24"
           iframe={false}
           component={
@@ -561,7 +583,7 @@ import useAutocomplete from '@mui/material/useAutocomplete';
         Custom filter
       </Typography>
       <Typography className="mb-40" component="div">
-        The component exposes a factory to create a filter method that can provided to the{' '}
+        The component exposes a factory to create a filter method that can be provided to the{' '}
         <code>filterOptions</code> prop. You can use it to change the default option filter
         behavior.
       </Typography>
@@ -634,6 +656,7 @@ const filterOptions = createFilterOptions({
       </FuseHighlight>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="Filter.js"
           className="my-24"
           iframe={false}
           component={
@@ -669,6 +692,7 @@ const filterOptions = (options, { inputValue }) => matchSorter(options, inputVal
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="Virtualize.js"
           className="my-24"
           iframe={false}
           component={

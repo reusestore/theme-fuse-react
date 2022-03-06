@@ -50,6 +50,7 @@ function NoSsrDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SimpleNoSsr.js"
           className="my-24"
           iframe={false}
           component={
@@ -78,6 +79,7 @@ function NoSsrDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FrameDeferring.js"
           className="my-24"
           iframe={false}
           component={
@@ -96,7 +98,7 @@ function NoSsrDoc(props) {
         </li>
       </ul>
       <Typography className="mb-40" component="div">
-        As the component does not have any styles, it also comes with the unstyled package.
+        As the component does not have any styles, it also comes with the Base package.
       </Typography>
 
       <FuseHighlight component="pre" className="language-js">

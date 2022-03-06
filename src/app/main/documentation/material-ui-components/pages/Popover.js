@@ -55,6 +55,7 @@ function PopoverDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicPopover.js"
           className="my-24"
           iframe={false}
           component={
@@ -76,6 +77,7 @@ function PopoverDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="AnchorPlayground.js"
           className="my-24"
           iframe={false}
           component={
@@ -94,6 +96,7 @@ function PopoverDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="MouseOverPopover.js"
           className="my-24"
           iframe={false}
           component={
@@ -121,6 +124,7 @@ function PopoverDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="PopoverPopupState.js"
           className="my-24"
           iframe={false}
           component={

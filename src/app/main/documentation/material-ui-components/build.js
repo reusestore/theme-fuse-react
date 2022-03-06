@@ -146,7 +146,7 @@ function getTitle(markdownSource) {
   return matches ? matches[1] : 'Material-UI';
 }
 
-function getHtmlCode(markdownSource) {
+function getHtmlCode(markdownSource, file) {
   let contentsArr = getContents(markdownSource);
   contentsArr = contentsArr.map((content, index) => {
     const match = content.match(demoRegexp);
@@ -154,11 +154,11 @@ function getHtmlCode(markdownSource) {
       const demoOptions = JSON.parse(`{${content}}`);
       const name = demoOptions.demo;
       const iframe = !!demoOptions.iframe;
-      const importPath = name.replace(
-        'pages/components/',
-        'app/main/documentation/material-ui-components/components/'
-      );
+      const importPath = `app/main/documentation/material-ui-components/components/${path.basename(
+        file
+      )}/${name}`;
       return `\n<FuseExample
+                    name="${name}"
                     className="my-24"
                     iframe={${iframe}}
                     component="{require('${importPath}').default}" 
@@ -217,7 +217,7 @@ function writePages(dir, list) {
 function writePage(file) {
   const markdownSource = fs.readFileSync(`${file}/${path.basename(file)}.md`, 'utf8');
   const fileName = _.upperFirst(_.camelCase(path.basename(file)));
-  const htmlCode = getHtmlCode(markdownSource);
+  const htmlCode = getHtmlCode(markdownSource, file);
   const title = getTitle(markdownSource);
 
   const contentJSX = `

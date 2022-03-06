@@ -44,6 +44,7 @@ function SliderDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ContinuousSlider.js"
           className="my-24"
           iframe={false}
           component={
@@ -61,6 +62,7 @@ function SliderDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SliderSizes.js"
           className="my-24"
           iframe={false}
           component={
@@ -79,6 +81,7 @@ function SliderDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DiscreteSlider.js"
           className="my-24"
           iframe={false}
           component={
@@ -96,6 +99,7 @@ function SliderDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DiscreteSliderSteps.js"
           className="my-24"
           iframe={false}
           component={
@@ -113,6 +117,7 @@ function SliderDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DiscreteSliderMarks.js"
           className="my-24"
           iframe={false}
           component={
@@ -131,6 +136,7 @@ function SliderDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DiscreteSliderValues.js"
           className="my-24"
           iframe={false}
           component={
@@ -148,6 +154,7 @@ function SliderDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DiscreteSliderLabel.js"
           className="my-24"
           iframe={false}
           component={
@@ -166,6 +173,7 @@ function SliderDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="RangeSlider.js"
           className="my-24"
           iframe={false}
           component={
@@ -187,6 +195,7 @@ function SliderDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="MinimumDistanceSlider.js"
           className="my-24"
           iframe={false}
           component={
@@ -204,6 +213,7 @@ function SliderDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="InputSlider.js"
           className="my-24"
           iframe={false}
           component={
@@ -218,6 +228,7 @@ function SliderDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ColorSlider.js"
           className="my-24"
           iframe={false}
           component={
@@ -236,6 +247,7 @@ function SliderDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomizedSlider.js"
           className="my-24"
           iframe={false}
           component={
@@ -250,6 +262,7 @@ function SliderDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="MusicPlayerSlider.js"
           className="my-24"
           iframe={false}
           component={
@@ -264,6 +277,7 @@ function SliderDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="VerticalSlider.js"
           className="my-24"
           iframe={false}
           component={
@@ -296,6 +310,7 @@ function SliderDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="VerticalAccessibleSlider.js"
           className="my-24"
           iframe={false}
           component={
@@ -319,6 +334,7 @@ function SliderDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TrackFalseSlider.js"
           className="my-24"
           iframe={false}
           component={
@@ -336,6 +352,7 @@ function SliderDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TrackInvertedSlider.js"
           className="my-24"
           iframe={false}
           component={
@@ -358,6 +375,7 @@ function SliderDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="NonLinearSlider.js"
           className="my-24"
           iframe={false}
           component={
@@ -388,6 +406,7 @@ import SliderUnstyled from '@mui/base/SliderUnstyled';
       </FuseHighlight>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="UnstyledSlider.js"
           className="my-24"
           iframe={false}
           component={

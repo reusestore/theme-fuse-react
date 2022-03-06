@@ -41,6 +41,7 @@ function TooltipsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicTooltip.js"
           className="my-24"
           iframe={false}
           component={
@@ -60,6 +61,7 @@ function TooltipsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="PositionedTooltips.js"
           className="my-24"
           iframe={false}
           component={
@@ -78,6 +80,7 @@ function TooltipsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomizedTooltips.js"
           className="my-24"
           iframe={false}
           component={
@@ -96,6 +99,7 @@ function TooltipsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ArrowTooltips.js"
           className="my-24"
           iframe={false}
           component={
@@ -144,6 +148,7 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TriggersTooltips.js"
           className="my-24"
           iframe={false}
           component={
@@ -162,6 +167,7 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ControlledTooltips.js"
           className="my-24"
           iframe={false}
           component={
@@ -179,6 +185,7 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="VariableWidth.js"
           className="my-24"
           iframe={false}
           component={
@@ -202,6 +209,7 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="NonInteractiveTooltips.js"
           className="my-24"
           iframe={false}
           component={
@@ -227,6 +235,7 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
       </blockquote>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DisabledTooltips.js"
           className="my-24"
           iframe={false}
           component={
@@ -263,6 +272,7 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TransitionsTooltips.js"
           className="my-24"
           iframe={false}
           component={
@@ -281,6 +291,7 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FollowCursorTooltips.js"
           className="my-24"
           iframe={false}
           component={
@@ -304,6 +315,7 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="AnchorElTooltips.js"
           className="my-24"
           iframe={false}
           component={
@@ -329,6 +341,7 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DelayTooltips.js"
           className="my-24"
           iframe={false}
           component={
@@ -371,6 +384,7 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="AccessibilityTooltips.js"
           className="my-24"
           iframe={false}
           component={

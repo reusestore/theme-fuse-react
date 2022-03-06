@@ -55,6 +55,7 @@ function MenusDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicMenu.js"
           className="my-24"
           iframe={false}
           component={
@@ -72,6 +73,7 @@ function MenusDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="IconMenu.js"
           className="my-24"
           iframe={false}
           component={
@@ -90,6 +92,7 @@ function MenusDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DenseMenu.js"
           className="my-24"
           iframe={false}
           component={
@@ -110,6 +113,7 @@ function MenusDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SimpleListMenu.js"
           className="my-24"
           iframe={false}
           component={
@@ -130,6 +134,7 @@ function MenusDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="PositionedMenu.js"
           className="my-24"
           iframe={false}
           component={
@@ -153,6 +158,7 @@ function MenusDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="MenuListComposition.js"
           className="my-24"
           iframe={false}
           component={
@@ -170,6 +176,7 @@ function MenusDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="AccountMenu.js"
           className="my-24"
           iframe={false}
           component={
@@ -188,6 +195,7 @@ function MenusDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomizedMenus.js"
           className="my-24"
           iframe={false}
           component={
@@ -218,6 +226,7 @@ function MenusDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="LongMenu.js"
           className="my-24"
           iframe={false}
           component={
@@ -238,6 +247,7 @@ function MenusDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TypographyMenu.js"
           className="my-24"
           iframe={false}
           component={
@@ -255,6 +265,7 @@ function MenusDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FadeMenu.js"
           className="my-24"
           iframe={false}
           component={
@@ -272,6 +283,7 @@ function MenusDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ContextMenu.js"
           className="my-24"
           iframe={false}
           component={
@@ -299,6 +311,7 @@ function MenusDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="MenuPopupState.js"
           className="my-24"
           iframe={false}
           component={

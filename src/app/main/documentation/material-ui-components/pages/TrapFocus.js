@@ -53,6 +53,7 @@ function TrapFocusDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicTrapFocus.js"
           className="my-24"
           iframe={false}
           component={
@@ -71,7 +72,7 @@ function TrapFocusDoc(props) {
         </li>
       </ul>
       <Typography className="mb-40" component="div">
-        As the component does not have any styles, it also comes with the unstyled package.
+        As the component does not have any styles, it also comes with the Base package.
       </Typography>
 
       <FuseHighlight component="pre" className="language-js">
@@ -90,6 +91,7 @@ import TrapFocus from '@mui/base/Unstable_TrapFocus';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DisableEnforceFocus.js"
           className="my-24"
           iframe={false}
           component={
@@ -113,6 +115,7 @@ import TrapFocus from '@mui/base/Unstable_TrapFocus';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="LazyTrapFocus.js"
           className="my-24"
           iframe={false}
           component={
@@ -135,6 +138,7 @@ import TrapFocus from '@mui/base/Unstable_TrapFocus';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="PortalTrapFocus.js"
           className="my-24"
           iframe={false}
           component={

@@ -99,6 +99,7 @@ import '@fontsource/roboto/700.css';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="Types.js"
           className="my-24"
           iframe={false}
           component={
@@ -121,6 +122,7 @@ import '@fontsource/roboto/700.css';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TypographyTheme.js"
           className="my-24"
           iframe={false}
           component={

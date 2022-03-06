@@ -1,8 +1,9 @@
 ---
+product: material-ui
 title: React Checkbox component
 components: Checkbox, FormControl, FormGroup, FormLabel, FormControlLabel
 materialDesign: https://material.io/components/selection-controls#checkboxes
-githubLabel: 'component: Checkbox'
+githubLabel: 'component: checkbox'
 waiAria: https://www.w3.org/TR/wai-aria-practices/#checkbox
 ---
 
@@ -20,33 +21,33 @@ If you have a single option, avoid using a checkbox and use an on/off switch ins
 
 ## Basic checkboxes
 
-{{"demo": "pages/components/checkboxes/Checkboxes.js"}}
+{{"demo": "Checkboxes.js"}}
 
 ## Label
 
 You can provide a label to the `Checkbox` thanks to the `FormControlLabel` component.
 
-{{"demo": "pages/components/checkboxes/CheckboxLabels.js"}}
+{{"demo": "CheckboxLabels.js"}}
 
 ## Size
 
 Use the `size` prop or customize the font size of the svg icons to change the size of the checkboxes.
 
-{{"demo": "pages/components/checkboxes/SizeCheckboxes.js"}}
+{{"demo": "SizeCheckboxes.js"}}
 
 ## Color
 
-{{"demo": "pages/components/checkboxes/ColorCheckboxes.js"}}
+{{"demo": "ColorCheckboxes.js"}}
 
 ## Icon
 
-{{"demo": "pages/components/checkboxes/IconCheckboxes.js"}}
+{{"demo": "IconCheckboxes.js"}}
 
 ## Controlled
 
 You can control the checkbox with the `checked` and `onChange` props:
 
-{{"demo": "pages/components/checkboxes/ControlledCheckbox.js"}}
+{{"demo": "ControlledCheckbox.js"}}
 
 ## Indeterminate
 
@@ -54,7 +55,7 @@ A checkbox input can only have two states in a form: checked or unchecked.
 It either submits its value or doesn't.
 Visually, there are **three** states a checkbox can be in: checked, unchecked, or indeterminate.
 
-{{"demo": "pages/components/checkboxes/IndeterminateCheckbox.js"}}
+{{"demo": "IndeterminateCheckbox.js"}}
 
 > ⚠️ When indeterminate is set, the value of the `checked` prop only impacts the form submitted values.
 > It has no accessibility or UX implications.
@@ -63,20 +64,20 @@ Visually, there are **three** states a checkbox can be in: checked, unchecked, o
 
 `FormGroup` is a helpful wrapper used to group selection control components.
 
-{{"demo": "pages/components/checkboxes/CheckboxesGroup.js"}}
+{{"demo": "CheckboxesGroup.js"}}
 
 ## Label placement
 
 You can change the placement of the label:
 
-{{"demo": "pages/components/checkboxes/FormControlLabelPosition.js"}}
+{{"demo": "FormControlLabelPosition.js"}}
 
 ## Customization
 
 Here is an example of customizing the component.
 You can learn more about this in the [overrides documentation page](/customization/how-to-customize/).
 
-{{"demo": "pages/components/checkboxes/CustomizedCheckbox.js"}}
+{{"demo": "CustomizedCheckbox.js"}}
 
 🎨 If you are looking for inspiration, you can check [MUI Treasury's customization examples](https://mui-treasury.com/styles/checkbox/).
 

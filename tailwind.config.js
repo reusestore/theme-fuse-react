@@ -16,7 +16,7 @@ module.exports = {
     },
     colors: ({ colors }) => ({
       inherit: colors.inherit,
-      current: 'currentColor',
+      current: colors.current,
       transparent: 'transparent',
       black: '#22292F',
       white: '#fff',
@@ -394,7 +394,7 @@ module.exports = {
       sm: '48rem',
       md: '64rem',
       lg: '80rem',
-      xl: '57.6rem',
+      xl: '96rem',
       '2xl': '65.6rem',
       '3xl': '76.8rem',
       '4xl': '89.6rem',
@@ -402,7 +402,7 @@ module.exports = {
       '6xl': '115.2rem',
       '7xl': '128rem',
       px: '1px',
-      0: '0',
+      0: '0px',
       0.5: '0.05rem',
       1: '0.1rem',
       1.5: '0.15rem',
@@ -741,7 +741,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
-        'Muli',
+        'Inter var',
         'Roboto',
         '-apple-system',
         'BlinkMacSystemFont',
@@ -756,8 +756,17 @@ module.exports = {
         '"Segoe UI Symbol"',
         '"Noto Color Emoji"',
       ],
-      serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
-      mono: ['Consolas', '"Liberation Mono"', 'Menlo', 'Courier', 'monospace'],
+      serif: ['ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+      mono: [
+        'ui-monospace',
+        'SFMono-Regular',
+        'Menlo',
+        'Monaco',
+        'Consolas',
+        '"Liberation Mono"',
+        '"Courier New"',
+        'monospace',
+      ],
     },
     fontSize: {
       xs: '1rem',
@@ -1304,8 +1313,8 @@ module.exports = {
       none: 'none',
       all: 'all',
       DEFAULT:
-        'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter',
-      colors: 'background-color, border-color, color, fill, stroke',
+        'color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter',
+      colors: 'color, background-color, border-color, text-decoration-color, fill, stroke',
       opacity: 'opacity',
       shadow: 'box-shadow',
       transform: 'transform',
@@ -1428,7 +1437,6 @@ module.exports = {
     'disabled',
   ],
   plugins: [
-    require('tailwindcss-dir')(),
     // eslint-disable-next-line import/no-dynamic-require
     require(path.resolve(__dirname, 'src/@fuse/tailwind/plugins/icon-size')),
     // Other third party and/or custom plugins

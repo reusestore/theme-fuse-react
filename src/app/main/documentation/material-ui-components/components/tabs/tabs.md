@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: React Tabs component
 components: Tabs, Tab, TabScrollButton, TabContext, TabList, TabPanel, TabsUnstyled, TabUnstyled, TabPanelUnstyled, TabsListUnstyled
-githubLabel: 'component: Tabs'
+githubLabel: 'component: tabs'
 materialDesign: https://material.io/components/tabs
 waiAria: https://www.w3.org/TR/wai-aria-practices/#tabpanel
 ---
@@ -18,31 +19,31 @@ Tabs organize and allow navigation between groups of content that are related an
 
 A basic example with tab panels.
 
-{{"demo": "pages/components/tabs/BasicTabs.js"}}
+{{"demo": "BasicTabs.js"}}
 
 ## Experimental API
 
 `@mui/lab` offers utility components that inject props to implement accessible tabs
 following [WAI-ARIA authoring practices](https://www.w3.org/TR/wai-aria-practices/#tabpanel).
 
-{{"demo": "pages/components/tabs/LabTabs.js"}}
+{{"demo": "LabTabs.js"}}
 
 ## Wrapped labels
 
 Long labels will automatically wrap on tabs.
 If the label is too long for the tab, it will overflow, and the text will not be visible.
 
-{{"demo": "pages/components/tabs/TabsWrappedLabel.js"}}
+{{"demo": "TabsWrappedLabel.js"}}
 
 ## Colored tab
 
-{{"demo": "pages/components/tabs/ColorTabs.js"}}
+{{"demo": "ColorTabs.js"}}
 
 ## Disabled tab
 
 A tab can be disabled by setting the `disabled` prop.
 
-{{"demo": "pages/components/tabs/DisabledTabs.js"}}
+{{"demo": "DisabledTabs.js"}}
 
 ## Fixed tabs
 
@@ -53,13 +54,13 @@ Fixed tabs should be used with a limited number of tabs, and when a consistent p
 The `variant="fullWidth"` prop should be used for smaller views.
 This demo also uses [react-swipeable-views](https://github.com/oliviertassinari/react-swipeable-views) to animate the Tab transition, and allowing tabs to be swiped on touch devices.
 
-{{"demo": "pages/components/tabs/FullWidthTabs.js", "bg": true}}
+{{"demo": "FullWidthTabs.js", "bg": true}}
 
 ### Centered
 
 The `centered` prop should be used for larger views.
 
-{{"demo": "pages/components/tabs/CenteredTabs.js", "bg": true}}
+{{"demo": "CenteredTabs.js", "bg": true}}
 
 ## Scrollable tabs
 
@@ -67,13 +68,13 @@ The `centered` prop should be used for larger views.
 
 By default, left and right scroll buttons are automatically presented on desktop and hidden on mobile. (based on viewport width)
 
-{{"demo": "pages/components/tabs/ScrollableTabsButtonAuto.js", "bg": true}}
+{{"demo": "ScrollableTabsButtonAuto.js", "bg": true}}
 
 ### Forced scroll buttons
 
 Left and right scroll buttons be presented (reserve space) regardless of the viewport width with `scrollButtons={true}` `allowScrollButtonsMobile`:
 
-{{"demo": "pages/components/tabs/ScrollableTabsButtonForce.js", "bg": true}}
+{{"demo": "ScrollableTabsButtonForce.js", "bg": true}}
 
 If you want to make sure the buttons are always visible, you should customize the opacity.
 
@@ -83,21 +84,21 @@ If you want to make sure the buttons are always visible, you should customize th
 }
 ```
 
-{{"demo": "pages/components/tabs/ScrollableTabsButtonVisible.js", "bg": true}}
+{{"demo": "ScrollableTabsButtonVisible.js", "bg": true}}
 
 ### Prevent scroll buttons
 
 Left and right scroll buttons are never be presented with `scrollButtons={false}`.
 All scrolling must be initiated through user agent scrolling mechanisms (e.g. left/right swipe, shift mouse wheel, etc.)
 
-{{"demo": "pages/components/tabs/ScrollableTabsButtonPrevent.js", "bg": true}}
+{{"demo": "ScrollableTabsButtonPrevent.js", "bg": true}}
 
 ## Customization
 
 Here is an example of customizing the component.
 You can learn more about this in the [overrides documentation page](/customization/how-to-customize/).
 
-{{"demo": "pages/components/tabs/CustomizedTabs.js"}}
+{{"demo": "CustomizedTabs.js"}}
 
 🎨 If you are looking for inspiration, you can check [MUI Treasury's customization examples](https://mui-treasury.com/styles/tabs/).
 
@@ -105,7 +106,7 @@ You can learn more about this in the [overrides documentation page](/customizati
 
 To make vertical tabs instead of default horizontal ones, there is `orientation="vertical"`:
 
-{{"demo": "pages/components/tabs/VerticalTabs.js", "bg": true}}
+{{"demo": "VerticalTabs.js", "bg": true}}
 
 Note that you can restore the scrollbar with `visibleScrollbar`.
 
@@ -113,21 +114,21 @@ Note that you can restore the scrollbar with `visibleScrollbar`.
 
 By default, tabs use a `button` element, but you can provide your custom tag or component. Here's an example of implementing tabbed navigation:
 
-{{"demo": "pages/components/tabs/NavTabs.js"}}
+{{"demo": "NavTabs.js"}}
 
 ## Icon tabs
 
 Tab labels may be either all icons or all text.
 
-{{"demo": "pages/components/tabs/IconTabs.js"}}
+{{"demo": "IconTabs.js"}}
 
-{{"demo": "pages/components/tabs/IconLabelTabs.js"}}
+{{"demo": "IconLabelTabs.js"}}
 
 ## Icon position
 
 By default, the icon is positioned at the `top` of a tab. Other supported positions are `start`, `end`, `bottom`.
 
-{{"demo": "pages/components/tabs/IconPositionTabs.js"}}
+{{"demo": "IconPositionTabs.js"}}
 
 ## Third-party routing library
 
@@ -163,14 +164,14 @@ Focus a tab and navigate with arrow keys to notice the difference, e.g. <kbd cla
 <Tabs selectionFollowsFocus />
 ```
 
-{{"demo": "pages/components/tabs/AccessibleTabs1.js", "defaultCodeOpen": false}}
+{{"demo": "AccessibleTabs1.js", "defaultCodeOpen": false}}
 
 ```jsx
 /* Tabs where each tab needs to be selected manually */
 <Tabs />
 ```
 
-{{"demo": "pages/components/tabs/AccessibleTabs2.js", "defaultCodeOpen": false}}
+{{"demo": "AccessibleTabs2.js", "defaultCodeOpen": false}}
 
 ## Unstyled
 
@@ -185,7 +186,7 @@ import TabUnstyled from '@mui/base/TabUnstyled';
 import TabPanelUnstyled from '@mui/base/TabPanelUnstyled';
 ```
 
-{{"demo": "pages/components/tabs/UnstyledTabsBasic.js"}}
+{{"demo": "UnstyledTabsBasic.js"}}
 
 #### Customizing the root element
 
@@ -196,4 +197,4 @@ If a non-interactive element (such as a span) is provided this way, the `TabUnst
 The `TabPanelUnstyled` on the other hand renders a native `div` element by default.
 You are free to override this as well by setting the `component` or `components.Root` prop on the `TabPanelUnstyled`.
 
-{{"demo": "pages/components/tabs/UnstyledTabsCustomized.js"}}
+{{"demo": "UnstyledTabsCustomized.js"}}

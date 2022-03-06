@@ -44,6 +44,7 @@ function AppBarDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ButtonAppBar.js"
           className="my-24"
           iframe={false}
           component={
@@ -58,6 +59,7 @@ function AppBarDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="MenuAppBar.js"
           className="my-24"
           iframe={false}
           component={
@@ -72,6 +74,7 @@ function AppBarDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ResponsiveAppBar.js"
           className="my-24"
           iframe={false}
           component={
@@ -89,6 +92,7 @@ function AppBarDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SearchAppBar.js"
           className="my-24"
           iframe={false}
           component={
@@ -106,6 +110,7 @@ function AppBarDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="PrimarySearchAppBar.js"
           className="my-24"
           iframe={false}
           component={
@@ -120,6 +125,7 @@ function AppBarDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DenseAppBar.js"
           className="my-24"
           iframe={false}
           component={
@@ -137,6 +143,7 @@ function AppBarDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ProminentAppBar.js"
           className="my-24"
           iframe={false}
           component={
@@ -151,6 +158,7 @@ function AppBarDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BottomAppBar.js"
           className="my-24"
           iframe
           component={
@@ -228,6 +236,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="HideAppBar.js"
           className="my-24"
           iframe
           component={
@@ -245,6 +254,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ElevateAppBar.js"
           className="my-24"
           iframe
           component={
@@ -263,6 +273,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BackToTop.js"
           className="my-24"
           iframe
           component={
@@ -337,6 +348,7 @@ function HideOnScroll(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="EnableColorOnDarkAppBar.js"
           className="my-24"
           iframe={false}
           component={

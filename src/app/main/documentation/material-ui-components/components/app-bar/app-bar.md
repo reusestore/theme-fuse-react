@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: App Bar React component
 components: AppBar, Toolbar, Menu
-githubLabel: 'component: AppBar'
+githubLabel: 'component: app bar'
 materialDesign: https://material.io/components/app-bars-top
 ---
 
@@ -17,41 +18,41 @@ It can transform into a contextual action bar or be used as a navbar.
 
 ## Basic App Bar
 
-{{"demo": "pages/components/app-bar/ButtonAppBar.js", "bg": true}}
+{{"demo": "ButtonAppBar.js", "bg": true}}
 
 ## App Bar with menu
 
-{{"demo": "pages/components/app-bar/MenuAppBar.js", "bg": true}}
+{{"demo": "MenuAppBar.js", "bg": true}}
 
 ## App Bar with responsive menu
 
-{{"demo": "pages/components/app-bar/ResponsiveAppBar.js", "bg": true}}
+{{"demo": "ResponsiveAppBar.js", "bg": true}}
 
 ## App Bar with search field
 
 A side searchbar.
 
-{{"demo": "pages/components/app-bar/SearchAppBar.js", "bg": true}}
+{{"demo": "SearchAppBar.js", "bg": true}}
 
 ## App Bar with a primary search field
 
 A primary searchbar.
 
-{{"demo": "pages/components/app-bar/PrimarySearchAppBar.js", "bg": true}}
+{{"demo": "PrimarySearchAppBar.js", "bg": true}}
 
 ## Dense (desktop only)
 
-{{"demo": "pages/components/app-bar/DenseAppBar.js", "bg": true}}
+{{"demo": "DenseAppBar.js", "bg": true}}
 
 ## Prominent
 
 A prominent app bar.
 
-{{"demo": "pages/components/app-bar/ProminentAppBar.js", "bg": true}}
+{{"demo": "ProminentAppBar.js", "bg": true}}
 
 ## Bottom App Bar
 
-{{"demo": "pages/components/app-bar/BottomAppBar.js", "iframe": true, "maxWidth": 400}}
+{{"demo": "BottomAppBar.js", "iframe": true, "maxWidth": 400}}
 
 ## Fixed placement
 
@@ -98,19 +99,19 @@ You can use the `useScrollTrigger()` hook to respond to user scroll actions.
 
 The app bar hides on scroll down to leave more space for reading.
 
-{{"demo": "pages/components/app-bar/HideAppBar.js", "iframe": true}}
+{{"demo": "HideAppBar.js", "iframe": true}}
 
 ### Elevate App Bar
 
 The app bar elevates on scroll to communicate that the user is not at the top of the page.
 
-{{"demo": "pages/components/app-bar/ElevateAppBar.js", "iframe": true}}
+{{"demo": "ElevateAppBar.js", "iframe": true}}
 
 ### Back to top
 
 A floating action buttons appears on scroll to make it easy to get back to the top of the page.
 
-{{"demo": "pages/components/app-bar/BackToTop.js", "iframe": true}}
+{{"demo": "BackToTop.js", "iframe": true}}
 
 ### `useScrollTrigger([options]) => trigger`
 
@@ -146,4 +147,4 @@ function HideOnScroll(props) {
 Following the [Material Design guidelines](https://material.io/design/color/dark-theme.html), the `color` prop has no effect on the appearance of the app bar in dark mode.
 You can override this behavior by setting the `enableColorOnDark` prop to `true`.
 
-{{"demo": "pages/components/app-bar/EnableColorOnDarkAppBar.js", "bg": true}}
+{{"demo": "EnableColorOnDarkAppBar.js", "bg": true}}

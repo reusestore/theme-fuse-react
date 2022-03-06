@@ -41,6 +41,7 @@ function BadgesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SimpleBadge.js"
           className="my-24"
           iframe={false}
           component={
@@ -58,6 +59,7 @@ function BadgesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ColorBadge.js"
           className="my-24"
           iframe={false}
           component={
@@ -76,6 +78,7 @@ function BadgesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomizedBadges.js"
           className="my-24"
           iframe={false}
           component={
@@ -93,6 +96,7 @@ function BadgesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BadgeVisibility.js"
           className="my-24"
           iframe={false}
           component={
@@ -108,6 +112,7 @@ function BadgesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ShowZeroBadge.js"
           className="my-24"
           iframe={false}
           component={
@@ -125,6 +130,7 @@ function BadgesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BadgeMax.js"
           className="my-24"
           iframe={false}
           component={
@@ -143,6 +149,7 @@ function BadgesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DotBadge.js"
           className="my-24"
           iframe={false}
           component={
@@ -161,6 +168,7 @@ function BadgesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BadgeOverlap.js"
           className="my-24"
           iframe={false}
           component={
@@ -179,6 +187,7 @@ function BadgesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BadgeAlignment.js"
           className="my-24"
           iframe={false}
           component={
@@ -203,6 +212,7 @@ import BadgeUnstyled from '@mui/base/BadgeUnstyled';
       </FuseHighlight>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="UnstyledBadge.js"
           className="my-24"
           iframe={false}
           component={
@@ -221,6 +231,7 @@ import BadgeUnstyled from '@mui/base/BadgeUnstyled';
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="AccessibleBadges.js"
           className="my-24"
           iframe={false}
           component={

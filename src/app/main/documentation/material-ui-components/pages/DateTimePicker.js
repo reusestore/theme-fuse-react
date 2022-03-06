@@ -79,6 +79,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicDateTimePicker.js"
           className="my-24"
           iframe={false}
           component={
@@ -115,6 +116,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ResponsiveDateTimePickers.js"
           className="my-24"
           iframe={false}
           component={
@@ -132,6 +134,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FormPropsDateTimePickers.js"
           className="my-24"
           iframe={false}
           component={
@@ -159,6 +162,7 @@ function App() {
       </ul>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DateTimeValidation.js"
           className="my-24"
           iframe={false}
           component={
@@ -177,6 +181,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="StaticDateTimePickerDemo.js"
           className="my-24"
           iframe={false}
           component={
@@ -194,6 +199,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomDateTimePicker.js"
           className="my-24"
           iframe={false}
           component={

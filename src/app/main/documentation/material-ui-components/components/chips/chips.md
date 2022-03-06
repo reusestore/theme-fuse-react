@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: React Chip component
 components: Chip
-githubLabel: 'component: Chip'
+githubLabel: 'component: chip'
 materialDesign: https://material.io/components/chips
 ---
 
@@ -21,7 +22,7 @@ not shown in context.
 
 The `Chip` component supports outlined and filled styling.
 
-{{"demo": "pages/components/chips/BasicChips.js"}}
+{{"demo": "BasicChips.js"}}
 
 ## Chip actions
 
@@ -32,49 +33,49 @@ You can use the following actions.
 
 ### Clickable
 
-{{"demo": "pages/components/chips/ClickableChips.js"}}
+{{"demo": "ClickableChips.js"}}
 
 ### Deletable
 
-{{"demo": "pages/components/chips/DeletableChips.js"}}
+{{"demo": "DeletableChips.js"}}
 
 ### Clickable and deletable
 
-{{"demo": "pages/components/chips/ClickableAndDeletableChips.js"}}
+{{"demo": "ClickableAndDeletableChips.js"}}
 
 ### Clickable link
 
-{{"demo": "pages/components/chips/ClickableLinkChips.js"}}
+{{"demo": "ClickableLinkChips.js"}}
 
 ### Custom delete icon
 
-{{"demo": "pages/components/chips/CustomDeleteIconChips.js"}}
+{{"demo": "CustomDeleteIconChips.js"}}
 
 ## Chip adornments
 
 You can add ornaments to the beginning of the component.
 
-Use the `avatar` prop to added a avatar or use the `icon` prop to added a icon.
+Use the `avatar` prop to add an avatar or use the `icon` prop to add an icon.
 
 ### Avatar chip
 
-{{"demo": "pages/components/chips/AvatarChips.js"}}
+{{"demo": "AvatarChips.js"}}
 
 ### Icon chip
 
-{{"demo": "pages/components/chips/IconChips.js"}}
+{{"demo": "IconChips.js"}}
 
 ## Color chip
 
 You can use the `color` prop to define a color from theme palette.
 
-{{"demo": "pages/components/chips/ColorChips.js"}}
+{{"demo": "ColorChips.js"}}
 
 ## Sizes chip
 
 You can use the `size` prop to define a small Chip.
 
-{{"demo": "pages/components/chips/SizesChips.js"}}
+{{"demo": "SizesChips.js"}}
 
 ## Chip array
 
@@ -83,11 +84,11 @@ Deleting a chip removes it from the array. Note that since no
 `onClick` prop is defined, the `Chip` can be focused, but does not
 gain depth while clicked or touched.
 
-{{"demo": "pages/components/chips/ChipsArray.js", "bg": true}}
+{{"demo": "ChipsArray.js", "bg": true}}
 
 ## Chip playground
 
-{{"demo": "pages/components/chips/ChipsPlayground.js", "hideToolbar": true}}
+{{"demo": "ChipsPlayground.js", "hideToolbar": true}}
 
 ## Accessibility
 

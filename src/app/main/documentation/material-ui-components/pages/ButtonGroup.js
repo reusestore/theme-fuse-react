@@ -40,6 +40,7 @@ function ButtonGroupDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicButtonGroup.js"
           className="my-24"
           iframe={false}
           component={
@@ -57,6 +58,7 @@ function ButtonGroupDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="VariantButtonGroup.js"
           className="my-24"
           iframe={false}
           component={
@@ -75,6 +77,7 @@ function ButtonGroupDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="GroupSizesColors.js"
           className="my-24"
           iframe={false}
           component={
@@ -92,6 +95,7 @@ function ButtonGroupDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="GroupOrientation.js"
           className="my-24"
           iframe={false}
           component={
@@ -110,6 +114,7 @@ function ButtonGroupDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SplitButton.js"
           className="my-24"
           iframe={false}
           component={
@@ -127,6 +132,7 @@ function ButtonGroupDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DisableElevation.js"
           className="my-24"
           iframe={false}
           component={

@@ -1,7 +1,8 @@
 ---
+product: material-ui
 title: React Divider component
 components: Divider
-githubLabel: 'component: Divider'
+githubLabel: 'component: divider'
 materialDesign: https://material.io/components/dividers
 ---
 
@@ -18,7 +19,7 @@ Dividers separate content into clear groups.
 The divider renders as an `<hr>` by default.
 You can save rendering this DOM element by using the `divider` prop on the `ListItem` component.
 
-{{"demo": "pages/components/dividers/ListDividers.js", "bg": true}}
+{{"demo": "ListDividers.js", "bg": true}}
 
 ## HTML5 specification
 
@@ -27,27 +28,27 @@ The examples below show two ways of achieving this.
 
 ## Inset dividers
 
-{{"demo": "pages/components/dividers/InsetDividers.js", "bg": true}}
+{{"demo": "InsetDividers.js", "bg": true}}
 
 ## Subheader dividers
 
-{{"demo": "pages/components/dividers/SubheaderDividers.js", "bg": true}}
+{{"demo": "SubheaderDividers.js", "bg": true}}
 
 ## Middle divider
 
-{{"demo": "pages/components/dividers/MiddleDividers.js", "bg": true}}
+{{"demo": "MiddleDividers.js", "bg": true}}
 
 ## Dividers with text
 
 You can also render a divider with content.
 
-{{"demo": "pages/components/dividers/DividerText.js"}}
+{{"demo": "DividerText.js"}}
 
 ## Vertical divider
 
 You can also render a divider vertically using the `orientation` prop.
 
-{{"demo": "pages/components/dividers/VerticalDividers.js", "bg": true}}
+{{"demo": "VerticalDividers.js", "bg": true}}
 
 > Note the use of the `flexItem` prop to accommodate for the flex container.
 
@@ -55,10 +56,10 @@ You can also render a divider vertically using the `orientation` prop.
 
 You can also render a vertical divider with `variant="middle"`.
 
-{{"demo": "pages/components/dividers/VerticalDividerMiddle.js", "bg": true}}
+{{"demo": "VerticalDividerMiddle.js", "bg": true}}
 
 ### Vertical with text
 
 You can also render a vertical divider with content.
 
-{{"demo": "pages/components/dividers/VerticalDividerText.js"}}
+{{"demo": "VerticalDividerText.js"}}

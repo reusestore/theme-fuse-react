@@ -46,6 +46,7 @@ function TransitionsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SimpleCollapse.js"
           className="my-24"
           iframe={false}
           component={
@@ -63,6 +64,7 @@ function TransitionsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SimpleFade.js"
           className="my-24"
           iframe={false}
           component={
@@ -85,6 +87,7 @@ function TransitionsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SimpleGrow.js"
           className="my-24"
           iframe={false}
           component={
@@ -110,6 +113,7 @@ function TransitionsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SimpleSlide.js"
           className="my-24"
           iframe={false}
           component={
@@ -128,6 +132,7 @@ function TransitionsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SlideFromContainer.js"
           className="my-24"
           iframe={false}
           component={
@@ -148,6 +153,7 @@ function TransitionsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SimpleZoom.js"
           className="my-24"
           iframe={false}
           component={
@@ -213,6 +219,7 @@ export default Main() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TransitionGroupExample.js"
           className="my-24"
           iframe={false}
           component={
@@ -267,6 +274,26 @@ export default Main() {
           <a href="/components/tooltips/#transitions">Tooltip</a>
         </li>
       </ul>
+      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
+        Performance &amp; SEO
+      </Typography>
+      <Typography className="mb-40" component="div">
+        The content of transition component is mounted by default even if{' '}
+        <code>{`in={false}`}</code>. This default behavior has server-side rendering and SEO in
+        mind. If you render expensive component trees inside your transition it might be a good idea
+        to change this default behavior by enabling the
+        <code>unmountOnExit</code> prop:
+      </Typography>
+
+      <FuseHighlight component="pre" className="language-jsx">
+        {` 
+<Fade in={false} unmountOnExit />
+`}
+      </FuseHighlight>
+      <Typography className="mb-40" component="div">
+        As with any performance optimization this is not a silver bullet. Be sure to identify
+        bottlenecks first and then try out these optimization strategies.
+      </Typography>
     </>
   );
 }

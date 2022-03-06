@@ -48,6 +48,7 @@ function ClickAwayListenerDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ClickAway.js"
           className="my-24"
           iframe={false}
           component={
@@ -73,6 +74,7 @@ function ClickAwayListenerDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="PortalClickAway.js"
           className="my-24"
           iframe={false}
           component={
@@ -91,6 +93,7 @@ function ClickAwayListenerDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="LeadingClickAway.js"
           className="my-24"
           iframe={false}
           component={
@@ -106,6 +109,34 @@ function ClickAwayListenerDoc(props) {
         </Typography>
       </blockquote>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
+        Accessibility
+      </Typography>
+      <Typography className="mb-40" component="div">
+        By default <code>{`<ClickAwayListener />`}</code> will add an <code>onClick</code> handler
+        to its children. This can result in e.g. screen readers announcing the children as
+        clickable. However, the purpose of the <code>onClick</code> handler is not to make{' '}
+        <code>children</code> interactive.
+      </Typography>
+      <Typography className="mb-40" component="div">
+        In order to prevent screen readers from marking non-interactive children as
+        &quot;clickable&quot; add <code>role="presentation"</code> to the immediate children:
+      </Typography>
+
+      <FuseHighlight component="pre" className="language-tsx">
+        {` 
+<ClickAwayListener>
+  <div role="presentation">
+    <h1>non-interactive heading</h1>
+  </div>
+</ClickAwayListern>
+`}
+      </FuseHighlight>
+      <Typography className="mb-40" component="div">
+        This is also required to fix a quirk in NVDA when using Firefox that prevents announcement
+        of alert messages (see{' '}
+        <a href="https://github.com/mui/material-ui/issues/29080">mui/material-ui#29080</a>).
+      </Typography>
+      <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Unstyled
       </Typography>
       <ul>
@@ -114,7 +145,7 @@ function ClickAwayListenerDoc(props) {
         </li>
       </ul>
       <Typography className="mb-40" component="div">
-        As the component does not have any styles, it also comes with the unstyled package.
+        As the component does not have any styles, it also comes with the Base package.
       </Typography>
 
       <FuseHighlight component="pre" className="language-js">

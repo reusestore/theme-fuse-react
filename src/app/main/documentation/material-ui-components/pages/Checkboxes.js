@@ -45,6 +45,7 @@ function CheckboxesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="Checkboxes.js"
           className="my-24"
           iframe={false}
           component={
@@ -63,6 +64,7 @@ function CheckboxesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CheckboxLabels.js"
           className="my-24"
           iframe={false}
           component={
@@ -81,6 +83,7 @@ function CheckboxesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SizeCheckboxes.js"
           className="my-24"
           iframe={false}
           component={
@@ -95,6 +98,7 @@ function CheckboxesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ColorCheckboxes.js"
           className="my-24"
           iframe={false}
           component={
@@ -109,6 +113,7 @@ function CheckboxesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="IconCheckboxes.js"
           className="my-24"
           iframe={false}
           component={
@@ -126,6 +131,7 @@ function CheckboxesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ControlledCheckbox.js"
           className="my-24"
           iframe={false}
           component={
@@ -145,6 +151,7 @@ function CheckboxesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="IndeterminateCheckbox.js"
           className="my-24"
           iframe={false}
           component={
@@ -168,6 +175,7 @@ function CheckboxesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CheckboxesGroup.js"
           className="my-24"
           iframe={false}
           component={
@@ -185,6 +193,7 @@ function CheckboxesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FormControlLabelPosition.js"
           className="my-24"
           iframe={false}
           component={
@@ -203,6 +212,7 @@ function CheckboxesDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomizedCheckbox.js"
           className="my-24"
           iframe={false}
           component={

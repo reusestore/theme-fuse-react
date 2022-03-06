@@ -43,6 +43,7 @@ function TimelineDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicTimeline.js"
           className="my-24"
           iframe={false}
           component={
@@ -61,6 +62,7 @@ function TimelineDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="LeftPositionedTimeline.js"
           className="my-24"
           iframe={false}
           component={
@@ -78,6 +80,7 @@ function TimelineDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="AlternateTimeline.js"
           className="my-24"
           iframe={false}
           component={
@@ -95,6 +98,7 @@ function TimelineDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ColorsTimeline.js"
           className="my-24"
           iframe={false}
           component={
@@ -109,6 +113,7 @@ function TimelineDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="OutlinedTimeline.js"
           className="my-24"
           iframe={false}
           component={
@@ -126,6 +131,7 @@ function TimelineDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="OppositeContentTimeline.js"
           className="my-24"
           iframe={false}
           component={
@@ -144,6 +150,7 @@ function TimelineDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomizedTimeline.js"
           className="my-24"
           iframe={false}
           component={

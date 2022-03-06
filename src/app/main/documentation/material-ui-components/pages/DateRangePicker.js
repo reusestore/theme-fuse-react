@@ -27,7 +27,7 @@ function DateRangePickerDoc(props) {
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
         Date Range Picker{' '}
-        <a href="https://material-ui.com/store/items/material-ui-pro/">
+        <a href="https://mui.com/store/items/material-ui-pro/">
           <span role="img" title="Enterprise">
             ⚡️
           </span>
@@ -48,8 +48,8 @@ function DateRangePickerDoc(props) {
           <br />
           This paid extension will include more advanced components (rich data grid, date range
           picker, tree view drag &amp; drop, etc.).{' '}
-          <a href="https://material-ui.com/store/items/material-ui-pro/">Early access</a> starts at
-          an affordable price.
+          <a href="https://mui.com/store/items/material-ui-pro/">Early access</a> starts at an
+          affordable price.
         </Typography>
       </blockquote>
       <Typography className="mb-40" component="div">
@@ -93,6 +93,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="BasicDateRangePicker.js"
           className="my-24"
           iframe={false}
           component={
@@ -111,6 +112,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="StaticDateRangePickerDemo.js"
           className="my-24"
           iframe={false}
           component={
@@ -146,6 +148,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ResponsiveDateRangePicker.js"
           className="my-24"
           iframe={false}
           component={
@@ -163,6 +166,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FormPropsDateRangePickers.js"
           className="my-24"
           iframe={false}
           component={
@@ -180,6 +184,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CalendarsDateRangePicker.js"
           className="my-24"
           iframe={false}
           component={
@@ -197,6 +202,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="MinMaxDateRangePicker.js"
           className="my-24"
           iframe={false}
           component={
@@ -217,6 +223,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomDateRangeInputs.js"
           className="my-24"
           iframe={false}
           component={
@@ -236,6 +243,7 @@ function App() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomDateRangePickerDay.js"
           className="my-24"
           iframe={false}
           component={

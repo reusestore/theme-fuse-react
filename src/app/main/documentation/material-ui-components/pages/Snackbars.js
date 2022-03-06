@@ -41,11 +41,8 @@ function SnackbarsDoc(props) {
         Snackbars contain a single line of text directly related to the operation performed. They
         may contain a text action, but no icons. You can use them to display notifications.
       </Typography>
-      <Typography className="text-16 mt-16 mb-10" component="h4">
-        Frequency
-      </Typography>
       <Typography className="mb-40" component="div">
-        Only one snackbar may be displayed at a time.
+        <strong>Frequency</strong>: Only one snackbar may be displayed at a time.
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Simple snackbars
@@ -55,6 +52,7 @@ function SnackbarsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="SimpleSnackbar.js"
           className="my-24"
           iframe={false}
           component={
@@ -73,6 +71,7 @@ function SnackbarsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="CustomizedSnackbars.js"
           className="my-24"
           iframe={false}
           component={
@@ -93,6 +92,7 @@ function SnackbarsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="PositionedSnackbar.js"
           className="my-24"
           iframe={false}
           component={
@@ -110,6 +110,7 @@ function SnackbarsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="LongTextSnackbar.js"
           className="my-24"
           iframe={false}
           component={
@@ -130,6 +131,7 @@ function SnackbarsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="ConsecutiveSnackbars.js"
           className="my-24"
           iframe={false}
           component={
@@ -147,6 +149,7 @@ function SnackbarsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="FabIntegrationSnackbar.js"
           className="my-24"
           iframe
           component={
@@ -165,6 +168,7 @@ function SnackbarsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="TransitionsSnackbar.js"
           className="my-24"
           iframe={false}
           component={
@@ -203,6 +207,7 @@ export default function MyComponent() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="DirectionSnackbar.js"
           className="my-24"
           iframe={false}
           component={
@@ -235,6 +240,7 @@ export default function MyComponent() {
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
+          name="IntegrationNotistack.js"
           className="my-24"
           iframe={false}
           component={
