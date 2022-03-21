@@ -9,7 +9,9 @@ const SplitScreenReversedResetPasswordPage = lazy(() =>
   import('./SplitScreenReversedResetPasswordPage')
 );
 const FullScreenResetPasswordPage = lazy(() => import('./FullScreenResetPasswordPage'));
-const FullScreenReversedResetPasswordPage = lazy(() => import('./FullScreenReversedResetPassword'));
+const FullScreenReversedResetPasswordPage = lazy(() =>
+  import('./FullScreenReversedResetPasswordPage')
+);
 
 const resetPasswordPagesConfig = {
   settings: {
