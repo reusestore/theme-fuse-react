@@ -25,15 +25,16 @@ const Root = styled(Box)(({ theme, ...props }) => ({
   }[props.color],
 }));
 
-const FuseSvgIcon = forwardRef(function SvgIcon(props, ref) {
+const FuseSvgIcon = forwardRef((props, ref) => {
   if (!props.children.includes(':')) {
-    return <Icon {...props} />;
+    return <Icon ref={ref} {...props} />;
   }
 
   const iconPath = props.children.replace(':', '.svg#');
 
   return (
     <Root
+      {...props}
       component="svg"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

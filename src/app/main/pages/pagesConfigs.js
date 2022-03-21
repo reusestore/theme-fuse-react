@@ -24,8 +24,11 @@ import PricingStyle3PageConfig from './pricing/style-3/PricingStyle3PageConfig';
 import ProfilePageConfig from './profile/ProfilePageConfig';
 import ClassicSearchPageConfig from './search/classic/ClassicSearchPageConfig';
 import ModernSearchPageConfig from './search/modern/ModernSearchPageConfig';
+import ActivitiesPageConfig from './activities/ActivitiesPageConfig';
+import authenticationPagesConfig from './authentication/authenticationPagesConfig';
 
 const pagesConfigs = [
+  ...authenticationPagesConfig,
   LoginPageConfig,
   RegisterPageConfig,
   ResetPasswordPageConfig,
@@ -52,6 +55,7 @@ const pagesConfigs = [
   ModernSearchPageConfig,
   FaqPageConfig,
   KnowledgeBasePageConfig,
+  ActivitiesPageConfig,
 ];
 
 export default pagesConfigs;

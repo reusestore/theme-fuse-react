@@ -37,11 +37,11 @@ const Root = styled('div')(({ theme, ...props }) => ({
     // height: headerHeight,
     // minHeight: headerHeight,
     display: 'flex',
-    flex: '0 1 auto',
+    flex: '0 0 auto',
     backgroundColor: theme.palette.background.paper,
     color: theme.palette.primary.main,
     backgroundSize: 'cover',
-    borderBottom: `1px solid ${theme.palette.divider}`,
+    // borderBottom: `1px solid ${theme.palette.divider}`,
   },
 
   '& .FusePageSimple-topBg': {
@@ -73,6 +73,7 @@ const Root = styled('div')(({ theme, ...props }) => ({
   '& .FusePageSimple-content': {
     display: 'flex',
     flex: '1 1 auto',
+    alignItems: 'start',
     minHeight: 0,
   },
 
@@ -207,7 +208,7 @@ const FusePageSimple = forwardRef((props, ref) => {
             <FusePageSimpleHeader header={<div className="container">{props.header}</div>} />
           )}
 
-          <div className="FusePageSimple-wrapper container">
+          <div className="FusePageSimple-wrapper">
             {props.leftSidebarContent && (
               <FusePageSimpleSidebar
                 position="left"
@@ -232,7 +233,7 @@ const FusePageSimple = forwardRef((props, ref) => {
               {props.content && (
                 <FuseScrollbars
                   enable={props.scroll === 'content'}
-                  className={clsx('FusePageSimple-content')}
+                  className={clsx('FusePageSimple-content container')}
                 >
                   {props.content}
                 </FuseScrollbars>

@@ -8,7 +8,7 @@ const ChatFirstScreen = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="flex flex-col flex-1 items-center justify-center p-24">
+    <div className="flex flex-col flex-1 items-center justify-center w-full p-24">
       <FuseSvgIcon className="icon-size-128 mb-16" color="disabled">
         heroicons-outline:chat
       </FuseSvgIcon>

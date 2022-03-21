@@ -1,24 +1,16 @@
 import Avatar from '@mui/material/Avatar';
-import { lighten } from '@mui/material/styles';
-import Hidden from '@mui/material/Hidden';
-import Icon from '@mui/material/Icon';
-import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
-import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import _ from '@lodash';
-import { Box } from '@mui/system';
+import Button from '@mui/material/Button';
 import { getProjects, selectProjects } from './store/projectsSlice';
-import { selectWidgets } from './store/widgetsSlice';
+import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 function ProjectDashboardAppHeader(props) {
-  const { pageLayout } = props;
-
   const dispatch = useDispatch();
-  const widgets = useSelector(selectWidgets);
   const projects = useSelector(selectProjects);
   const user = useSelector(({ auth }) => auth.user);
 
@@ -57,88 +49,81 @@ function ProjectDashboardAppHeader(props) {
   }
 
   return (
-    <div className="flex flex-col justify-between flex-1 min-w-0 px-24 pt-24">
-      <div className="flex justify-between items-center">
-        <div className="flex items-center min-w-0">
-          {user.data.photoURL ? (
-            <Avatar
-              className="w-52 h-52 sm:w-64 sm:h-64"
-              alt="user photo"
-              src={user.data.photoURL}
-            />
-          ) : (
-            <Avatar className="w-52 h-52 sm:w-64 sm:h-64">{user.data.displayName[0]}</Avatar>
-          )}
-          <div className="mx-12 min-w-0">
-            <Typography className="text-18 sm:text-24 md:text-32 font-bold leading-none mb-8 tracking-tight">
-              Welcome back, {user.data.displayName}!
+    <div className="flex flex-col w-full container px-24 sm:px-32">
+      <div className="flex flex-col sm:flex-row flex-auto sm:items-center min-w-0 my-32 sm:my-48">
+        <div className="flex flex-auto items-center min-w-0">
+          <Avatar className="flex-0 w-64 h-64" alt="user photo" src={user?.data?.photoURL}>
+            {user?.data?.displayName[0]}
+          </Avatar>
+          <div className="flex flex-col min-w-0 mx-16">
+            <Typography className="text-2xl md:text-5xl font-semibold tracking-tight leading-7 md:leading-snug truncate">
+              {`Welcome back, ${user.data.displayName}!`}
             </Typography>
 
-            <div className="flex items-center opacity-60 truncate">
-              <Icon className="text-14 sm:text-24">notifications</Icon>
-              <Typography className="text-12 sm:text-14 font-medium mx-4 truncate">
+            <div className="flex items-center">
+              <FuseSvgIcon size={20} color="action">
+                heroicons-solid:bell
+              </FuseSvgIcon>
+              <Typography className="mx-6 leading-6 truncate" color="textSecondary">
                 You have 2 new messages and 15 new tasks
               </Typography>
             </div>
           </div>
         </div>
-        <Hidden lgUp>
-          <IconButton
-            onClick={(ev) => pageLayout.current.toggleRightSidebar()}
-            aria-label="open left sidebar"
-            color="inherit"
-            size="large"
+        <div className="flex items-center mt-24 sm:mt-0 sm:mx-8 space-x-12">
+          <Button
+            className="whitespace-nowrap"
+            variant="contained"
+            color="primary"
+            startIcon={<FuseSvgIcon size={20}>heroicons-solid:mail</FuseSvgIcon>}
           >
-            <Icon>menu</Icon>
-          </IconButton>
-        </Hidden>
-      </div>
-      <div className="flex items-end">
-        <div className="flex items-center">
-          <Box
-            className={clsx('flex items-center h-40 px-16 text-13 sm:text-16')}
-            sx={{
-              background: (theme) => lighten(theme.palette.primary.dark, 0.1),
-              color: (theme) => theme.palette.primary.contrastText,
-              borderRadius: '16px 0 0 0',
-            }}
+            Messages
+          </Button>
+          <Button
+            className="whitespace-nowrap"
+            variant="contained"
+            color="secondary"
+            startIcon={<FuseSvgIcon size={20}>heroicons-solid:cog</FuseSvgIcon>}
           >
-            {_.find(projects, ['id', selectedProject.id]).name}
-          </Box>
-          <IconButton
-            className="h-40 w-40 p-0"
-            sx={{
-              background: (theme) => lighten(theme.palette.primary.dark, 0.1),
-              color: (theme) => theme.palette.primary.contrastText,
-              borderRadius: '0 16px 0 0',
-              marginLeft: '1px',
-            }}
-            aria-owns={selectedProject.menuEl ? 'project-menu' : undefined}
-            aria-haspopup="true"
-            onClick={handleOpenProjectMenu}
-            size="large"
-          >
-            <Icon>more_horiz</Icon>
-          </IconButton>
-          <Menu
-            id="project-menu"
-            anchorEl={selectedProject.menuEl}
-            open={Boolean(selectedProject.menuEl)}
-            onClose={handleCloseProjectMenu}
-          >
-            {projects &&
-              projects.map((project) => (
-                <MenuItem
-                  key={project.id}
-                  onClick={(ev) => {
-                    handleChangeProject(project.id);
-                  }}
-                >
-                  {project.name}
-                </MenuItem>
-              ))}
-          </Menu>
+            Settings
+          </Button>
         </div>
+      </div>
+      <div className="flex items-center">
+        <Button
+          onClick={handleOpenProjectMenu}
+          className="flex items-center border border-solid border-b-0 rounded-t-xl rounded-b-0 h-40 px-16 text-13 sm:text-16"
+          variant="default"
+          sx={{
+            backgroundColor: (theme) => theme.palette.background.default,
+            borderColor: (theme) => theme.palette.divider,
+          }}
+          endIcon={
+            <FuseSvgIcon size={20} color="action">
+              heroicons-solid:chevron-down
+            </FuseSvgIcon>
+          }
+        >
+          {_.find(projects, ['id', selectedProject.id]).name}
+        </Button>
+        <Menu
+          id="project-menu"
+          anchorEl={selectedProject.menuEl}
+          open={Boolean(selectedProject.menuEl)}
+          onClose={handleCloseProjectMenu}
+        >
+          {projects &&
+            projects.map((project) => (
+              <MenuItem
+                key={project.id}
+                onClick={(ev) => {
+                  handleChangeProject(project.id);
+                }}
+              >
+                {project.name}
+              </MenuItem>
+            ))}
+        </Menu>
       </div>
     </div>
   );

@@ -1,24 +1,26 @@
-import Typography from '@mui/material/Typography';
 import withReducer from 'app/store/withReducer';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import _ from '@lodash';
+import FusePageSimple from '@fuse/core/FusePageSimple';
 import { motion } from 'framer-motion';
+import Typography from '@mui/material/Typography';
 import reducer from './store';
-import { selectWidgetsEntities, getWidgets } from './store/widgetsSlice';
-import Widget1 from './widgets/Widget1';
-import Widget2 from './widgets/Widget2';
-import Widget3 from './widgets/Widget3';
-import Widget4 from './widgets/Widget4';
-import Widget5 from './widgets/Widget5';
-import Widget6 from './widgets/Widget6';
-import Widget7 from './widgets/Widget7';
-import Widget8 from './widgets/Widget8';
-import Widget9 from './widgets/Widget9';
+import { getWidgets, selectWidgets } from './store/widgetsSlice';
+import AnalyticsDashboardAppHeader from './AnalyticsDashboardAppHeader';
+import VisitorsOverviewWidget from './widgets/VisitorsOverviewWidget';
+import ConversionsWidget from './widgets/ConversionsWidget';
+import ImpressionsWidget from './widgets/ImpressionsWidget';
+import VisitsWidget from './widgets/VisitsWidget';
+import VisitorsVsPageViewsWidget from './widgets/VisitorsVsPageViewsWidget';
+import NewVsReturningWidget from './widgets/NewVsReturningWidget';
+import AgeWidget from './widgets/AgeWidget';
+import LanguageWidget from './widgets/LanguageWidget';
+import GenderWidget from './widgets/GenderWidget';
 
 function AnalyticsDashboardApp() {
   const dispatch = useDispatch();
-  const widgets = useSelector(selectWidgetsEntities);
+  const widgets = useSelector(selectWidgets);
 
   useEffect(() => {
     dispatch(getWidgets());
@@ -42,112 +44,61 @@ function AnalyticsDashboardApp() {
   };
 
   return (
-    <div className="w-full">
-      <Widget1 data={widgets.widget1} />
-      <motion.div
-        className="flex flex-col md:flex-row sm:p-8 container"
-        variants={container}
-        initial="hidden"
-        animate="show"
-      >
-        <div className="flex flex-1 flex-col min-w-0 pt-16">
-          <Typography
-            component={motion.div}
-            variants={item}
-            className="px-16 pb-8 text-18 font-medium"
-            color="textSecondary"
-          >
-            How are your active users trending over time?
-          </Typography>
-
-          <div className="flex flex-col sm:flex sm:flex-row pb-32">
-            <motion.div variants={item} className="widget flex w-full sm:w-1/3 p-16">
-              <Widget2 data={widgets.widget2} />
-            </motion.div>
-
-            <motion.div variants={item} className="widget flex w-full sm:w-1/3 p-16">
-              <Widget3 data={widgets.widget3} />
-            </motion.div>
-
-            <motion.div variants={item} className="widget w-full sm:w-1/3 p-16">
-              <Widget4 data={widgets.widget4} />
-            </motion.div>
-          </div>
-
-          <Typography
-            component={motion.div}
-            variants={item}
-            className="px-16 pb-8 text-18 font-medium"
-            color="textSecondary"
-          >
-            How many pages your users visit?
-          </Typography>
-
-          <motion.div variants={item} className="widget w-full p-16 pb-48">
-            <Widget5 data={widgets.widget5} />
+    <FusePageSimple
+      header={<AnalyticsDashboardAppHeader />}
+      content={
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-32 w-full p-24 md:p-32"
+          variants={container}
+          initial="hidden"
+          animate="show"
+        >
+          <motion.div variants={item} className="sm:col-span-2 lg:col-span-3">
+            <VisitorsOverviewWidget />
           </motion.div>
 
-          <Typography
-            component={motion.div}
-            variants={item}
-            className="px-16 pb-8 text-18 font-medium"
-            color="textSecondary"
-          >
-            Where are your users?
-          </Typography>
-
-          <motion.div variants={item} className="widget w-full p-16 pb-32">
-            <Widget6 data={widgets.widget6} />
+          <motion.div variants={item} className="sm:col-span-2 lg:col-span-1 ">
+            <ConversionsWidget />
           </motion.div>
-        </div>
 
-        <div className="flex flex-wrap w-full md:w-320 pt-16">
-          <div className="mb-32 w-full sm:w-1/2 md:w-full">
-            <Typography
-              component={motion.div}
-              variants={item}
-              className="px-16 pb-8 text-18 font-medium"
-              color="textSecondary"
-            >
-              What are your top devices?
+          <motion.div variants={item} className="sm:col-span-2 lg:col-span-1 ">
+            <ImpressionsWidget />
+          </motion.div>
+
+          <motion.div variants={item} className="sm:col-span-2 lg:col-span-1 ">
+            <VisitsWidget />
+          </motion.div>
+
+          <motion.div variants={item} className="sm:col-span-2 lg:col-span-3">
+            <VisitorsVsPageViewsWidget />
+          </motion.div>
+
+          <div className="w-full mt-16 col-span-3">
+            <Typography className="text-2xl font-semibold tracking-tight leading-6">
+              Your Audience
             </Typography>
-
-            <motion.div variants={item} className="widget w-full p-16">
-              <Widget7 data={widgets.widget7} />
-            </motion.div>
+            <Typography className="font-medium tracking-tight" color="textSecondary">
+              Demographic properties of your users
+            </Typography>
           </div>
 
-          <div className="mb-32 w-full sm:w-1/2 md:w-full">
-            <Typography
-              component={motion.div}
-              variants={item}
-              className="px-16 pb-8 text-18 font-medium"
-              color="textSecondary"
-            >
-              How are your sales?
-            </Typography>
-
-            <motion.div variants={item} className="widget w-full p-16">
-              <Widget8 data={widgets.widget8} />
+          <div className="col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-32 w-full">
+            <motion.div variants={item} className="">
+              <NewVsReturningWidget />
+            </motion.div>
+            <motion.div variants={item} className="">
+              <GenderWidget />
+            </motion.div>
+            <motion.div variants={item} className="">
+              <AgeWidget />
+            </motion.div>
+            <motion.div variants={item} className="">
+              <LanguageWidget />
             </motion.div>
           </div>
-
-          <div className="mb-32 w-full sm:w-1/2 md:w-full">
-            <Typography
-              component={motion.div}
-              variants={item}
-              className="px-16 pb-8 text-18 font-medium lg:pt-0"
-              color="textSecondary"
-            >
-              What are your top campaigns?
-            </Typography>
-            <motion.div variants={item} className="widget w-full p-16">
-              <Widget9 data={widgets.widget9} />
-            </motion.div>
-          </div>
-        </div>
-      </motion.div>
-    </div>
+        </motion.div>
+      }
+    />
   );
 }
 
