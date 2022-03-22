@@ -49,7 +49,7 @@ function ProjectDashboardAppHeader(props) {
   }
 
   return (
-    <div className="flex flex-col w-full container px-24 sm:px-32">
+    <div className="flex flex-col w-full px-24 sm:px-32">
       <div className="flex flex-col sm:flex-row flex-auto sm:items-center min-w-0 my-32 sm:my-48">
         <div className="flex flex-auto items-center min-w-0">
           <Avatar className="flex-0 w-64 h-64" alt="user photo" src={user?.data?.photoURL}>

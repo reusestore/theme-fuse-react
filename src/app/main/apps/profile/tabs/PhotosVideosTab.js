@@ -36,7 +36,7 @@ function PhotosVideosTab() {
 
   return (
     <motion.div variants={container} initial="hidden" animate="show">
-      <div className="md:flex max-w-2xl">
+      <div className="md:flex">
         <div className="flex flex-col flex-1 md:ltr:pr-32 md:rtl:pl-32">
           {data.map((period) => (
             <div key={period.id} className="mb-48">
@@ -45,10 +45,10 @@ function PhotosVideosTab() {
                 variants={item}
                 className="flex items-center px-0 mb-24 bg-transparent"
               >
-                <Typography variant="h6" className="font-medium">
+                <Typography className="text-2xl font-semibold leading-tight">
                   {period.name}
                 </Typography>
-                <Typography className="mx-12 font-normal" variant="subtitle1" color="textSecondary">
+                <Typography className="mx-12 font-medium leading-tight" color="textSecondary">
                   {period.info}
                 </Typography>
               </ListSubheader>

@@ -12,11 +12,11 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Paper from '@mui/material/Paper';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 function TimelineTab() {
   const [data, setData] = useState(null);
@@ -47,14 +47,60 @@ function TimelineTab() {
   return (
     <motion.div variants={container} initial="hidden" animate="show">
       <div className="md:flex">
-        <div className="flex flex-col flex-1 md:ltr:pr-32 md:rtl:pl-32">
+        <div className="flex flex-col md:w-320 md:ltr:mr-32 md:rtl:ml-32">
           <Card
             component={motion.div}
             variants={item}
-            className="w-full overflow-hidden rounded-16 shadow mb-32"
+            className="flex flex-col w-full max-w-320 w-full px-32 pt-24"
+          >
+            <div className="flex justify-between items-center pb-16">
+              <Typography className="text-2xl font-semibold leading-tight">
+                Latest Activity
+              </Typography>
+              <Button color="inherit" size="small" className="font-medium -mx-8">
+                See All
+              </Button>
+            </div>
+
+            <CardContent className="p-0">
+              <List className="p-0">
+                {data.activities.map((activity) => (
+                  <ListItem key={activity.id} className="px-0 space-x-12">
+                    <Avatar className="" alt={activity.user.name} src={activity.user.avatar} />
+                    <ListItemText
+                      className="flex-1"
+                      primary={
+                        <div className="flex">
+                          <Typography
+                            className="font-normal whitespace-nowrap"
+                            color="primary"
+                            paragraph={false}
+                          >
+                            {activity.user.name}
+                          </Typography>
+
+                          <Typography className="px-4 truncate" paragraph={false}>
+                            {activity.message}
+                          </Typography>
+                        </div>
+                      }
+                      secondary={activity.time}
+                    />
+                  </ListItem>
+                ))}
+              </List>
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="flex flex-col flex-1">
+          <Card
+            component={motion.div}
+            variants={item}
+            className="w-full overflow-hidden w-full mb-32"
           >
             <Input
-              className="p-16 w-full"
+              className="p-24 w-full"
               classes={{ root: 'text-14' }}
               placeholder="Write something.."
               multiline
@@ -63,24 +109,24 @@ function TimelineTab() {
               disableUnderline
             />
             <AppBar
-              className="card-footer flex flex-row border-t-1"
+              className="card-footer flex items-center flex-row border-t-1 px-24 py-12"
               position="static"
               color="default"
               elevation={0}
             >
-              <div className="flex-1 items-center">
-                <IconButton aria-label="Add photo" size="large">
-                  <Icon>photo</Icon>
+              <div className="flex flex-1 items-center">
+                <IconButton aria-label="Add photo">
+                  <FuseSvgIcon size={20}>heroicons-solid:photograph</FuseSvgIcon>
                 </IconButton>
-                <IconButton aria-label="Mention somebody" size="large">
-                  <Icon>person</Icon>
+                <IconButton aria-label="Mention somebody">
+                  <FuseSvgIcon size={20}>heroicons-solid:user</FuseSvgIcon>
                 </IconButton>
-                <IconButton aria-label="Add location" size="large">
-                  <Icon>location_on</Icon>
+                <IconButton aria-label="Add location">
+                  <FuseSvgIcon size={20}>heroicons-solid:location-marker</FuseSvgIcon>
                 </IconButton>
               </div>
 
-              <div className="p-8">
+              <div className="">
                 <Button variant="contained" color="primary" size="small" aria-label="post">
                   Post
                 </Button>
@@ -89,13 +135,9 @@ function TimelineTab() {
           </Card>
 
           {data.posts.map((post) => (
-            <Card
-              component={motion.div}
-              variants={item}
-              key={post.id}
-              className="mb-32 overflow-hidden rounded-16 shadow"
-            >
+            <Card component={motion.div} variants={item} key={post.id} className="mb-32">
               <CardHeader
+                className="px-32 pt-24"
                 avatar={<Avatar aria-label="Recipe" src={post.user.avatar} />}
                 action={
                   <IconButton aria-label="more" size="large">
@@ -118,7 +160,7 @@ function TimelineTab() {
                 subheader={post.time}
               />
 
-              <CardContent className="py-0">
+              <CardContent className="px-32">
                 {post.message && (
                   <Typography component="p" className="mb-16">
                     {post.message}
@@ -143,7 +185,7 @@ function TimelineTab() {
                 )}
               </CardContent>
 
-              <CardActions disableSpacing className="px-12">
+              <CardActions disableSpacing className="px-32">
                 <Button size="small" aria-label="Add to favorites">
                   <Icon className="text-16" color="action">
                     favorite
@@ -161,7 +203,7 @@ function TimelineTab() {
               </CardActions>
 
               <AppBar
-                className="card-footer flex flex-column p-16"
+                className="card-footer flex flex-column px-32 py-24"
                 position="static"
                 color="default"
                 elevation={0}
@@ -215,7 +257,7 @@ function TimelineTab() {
 
                 <div className="flex flex-auto -mx-4">
                   <Avatar className="mx-4" src="assets/images/avatars/profile.jpg" />
-                  <div className="flex-1 mx-4">
+                  <div className="flex flex-col flex-1 mx-4 items-end">
                     <Paper className="w-full mb-16 shadow-0">
                       <Input
                         className="p-8 w-full border-1 rounded-8"
@@ -227,61 +269,16 @@ function TimelineTab() {
                         disableUnderline
                       />
                     </Paper>
-                    <Button variant="contained" color="primary" size="small">
-                      Post Comment
-                    </Button>
+                    <div>
+                      <Button variant="contained" color="primary" size="small">
+                        Post comment
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </AppBar>
             </Card>
           ))}
-        </div>
-
-        <div className="flex flex-col md:w-320">
-          <Card component={motion.div} variants={item} className="w-full rounded-16 shadow mb-32">
-            <AppBar position="static" elevation={0}>
-              <Toolbar className="px-8">
-                <Typography
-                  variant="subtitle1"
-                  color="inherit"
-                  className="flex-1 px-12 font-medium"
-                >
-                  Latest Activity
-                </Typography>
-                <Button color="inherit" size="small" className="font-medium">
-                  See All
-                </Button>
-              </Toolbar>
-            </AppBar>
-            <CardContent className="p-0">
-              <List>
-                {data.activities.map((activity) => (
-                  <ListItem key={activity.id} className="px-12">
-                    <Avatar className="mx-4" alt={activity.user.name} src={activity.user.avatar} />
-                    <ListItemText
-                      className="flex-1 mx-4"
-                      primary={
-                        <div className="flex">
-                          <Typography
-                            className="font-normal whitespace-nowrap"
-                            color="primary"
-                            paragraph={false}
-                          >
-                            {activity.user.name}
-                          </Typography>
-
-                          <Typography className="px-4 truncate" paragraph={false}>
-                            {activity.message}
-                          </Typography>
-                        </div>
-                      }
-                      secondary={activity.time}
-                    />
-                  </ListItem>
-                ))}
-              </List>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </motion.div>

@@ -1,4 +1,3 @@
-import AppBar from '@mui/material/AppBar';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
@@ -9,7 +8,6 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemSecondaryAction from '@mui/material/ListItemSecondaryAction';
 import ListItemText from '@mui/material/ListItemText';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
 import { motion } from 'framer-motion';
@@ -46,22 +44,16 @@ function AboutTab() {
 
   return (
     <motion.div variants={container} initial="hidden" animate="show">
-      <div className="md:flex max-w-2xl">
+      <div className="md:flex">
         <div className="flex flex-col flex-1 md:ltr:pr-32 md:rtl:pl-32">
-          <Card component={motion.div} variants={item} className="w-full mb-32 rounded-16 shadow">
-            <AppBar position="static" elevation={0}>
-              <Toolbar className="px-8">
-                <Typography
-                  variant="subtitle1"
-                  color="inherit"
-                  className="flex-1 px-12 font-medium"
-                >
-                  General Information
-                </Typography>
-              </Toolbar>
-            </AppBar>
+          <Card component={motion.div} variants={item} className="w-full mb-32">
+            <div className="px-32 pt-24">
+              <Typography className="text-2xl font-semibold leading-tight">
+                General Information
+              </Typography>
+            </div>
 
-            <CardContent>
+            <CardContent className="px-32 py-24">
               <div className="mb-24">
                 <Typography className="font-semibold mb-4 text-15">Gender</Typography>
                 <Typography>{general.gender}</Typography>
@@ -92,20 +84,12 @@ function AboutTab() {
             </CardContent>
           </Card>
 
-          <Card component={motion.div} variants={item} className="w-full mb-32 rounded-16 shadow">
-            <AppBar position="static" elevation={0}>
-              <Toolbar className="px-8">
-                <Typography
-                  variant="subtitle1"
-                  color="inherit"
-                  className="flex-1 px-12 font-medium"
-                >
-                  Work
-                </Typography>
-              </Toolbar>
-            </AppBar>
+          <Card component={motion.div} variants={item} className="w-full mb-32">
+            <div className="px-32 pt-24">
+              <Typography className="text-2xl font-semibold leading-tight">Work</Typography>
+            </div>
 
-            <CardContent>
+            <CardContent className="px-32 py-24">
               <div className="mb-24">
                 <Typography className="font-semibold mb-4 text-15">Occupation</Typography>
                 <Typography>{work.occupation}</Typography>
@@ -136,20 +120,12 @@ function AboutTab() {
             </CardContent>
           </Card>
 
-          <Card component={motion.div} variants={item} className="w-full mb-32 rounded-16 shadow">
-            <AppBar position="static" elevation={0}>
-              <Toolbar className="px-8">
-                <Typography
-                  variant="subtitle1"
-                  color="inherit"
-                  className="flex-1 px-12 font-medium"
-                >
-                  Contact
-                </Typography>
-              </Toolbar>
-            </AppBar>
+          <Card component={motion.div} variants={item} className="w-full mb-32">
+            <div className="px-32 pt-24">
+              <Typography className="text-2xl font-semibold leading-tight">Contact</Typography>
+            </div>
 
-            <CardContent>
+            <CardContent className="px-32 py-24">
               <div className="mb-24">
                 <Typography className="font-semibold mb-4 text-15">Address</Typography>
                 <Typography>{contact.address}</Typography>
@@ -189,26 +165,22 @@ function AboutTab() {
         </div>
 
         <div className="flex flex-col md:w-320">
-          <Card component={motion.div} variants={item} className="w-full mb-32 rounded-16 shadow">
-            <AppBar position="static" elevation={0}>
-              <Toolbar className="px-8">
-                <Typography
-                  variant="subtitle1"
-                  color="inherit"
-                  className="flex-1 px-12 font-medium"
-                >
-                  Friends
-                </Typography>
-                <Button color="inherit" size="small">
-                  See 454 more
-                </Button>
-              </Toolbar>
-            </AppBar>
-            <CardContent className="flex flex-wrap p-16">
+          <Card component={motion.div} variants={item} className="w-full mb-32">
+            <div className="flex items-center px-32 pt-24">
+              <Typography className="flex flex-1 text-2xl font-semibold leading-tight">
+                Friends
+              </Typography>
+
+              <Button className="-mx-8" size="small">
+                See 454 more
+              </Button>
+            </div>
+
+            <CardContent className="flex flex-wrap px-32">
               {friends.map((friend) => (
-                <img
+                <Avatar
                   key={friend.id}
-                  className="w-64 m-4 rounded-16 block"
+                  className="w-64 h-64 rounded-12 m-4"
                   src={friend.avatar}
                   alt={friend.name}
                 />
@@ -217,25 +189,21 @@ function AboutTab() {
           </Card>
 
           <Card component={motion.div} variants={item} className="w-full mb-32 rounded-16 shadow">
-            <AppBar position="static" elevation={0}>
-              <Toolbar className="px-8">
-                <Typography
-                  variant="subtitle1"
-                  color="inherit"
-                  className="flex-1 px-12 font-medium"
-                >
-                  Joined Groups
-                </Typography>
+            <div className="px-32 pt-24 flex items-center">
+              <Typography className="flex flex-1 text-2xl font-semibold leading-tight">
+                Joined Groups
+              </Typography>
+              <div className="-mx-8">
                 <Button color="inherit" size="small">
                   See 6 more
                 </Button>
-              </Toolbar>
-            </AppBar>
-            <CardContent className="p-0">
+              </div>
+            </div>
+            <CardContent className="px-32">
               <List className="p-0">
                 {groups.map((group) => (
-                  <ListItem key={group.id} className="px-8">
-                    <Avatar className="mx-8" alt={group.name}>
+                  <ListItem key={group.id} className="px-0 space-x-8">
+                    <Avatar className="" alt={group.name}>
                       {group.name[0]}
                     </Avatar>
                     <ListItemText
