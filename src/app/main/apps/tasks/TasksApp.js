@@ -4,12 +4,19 @@ import { useRef, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useDeepCompareEffect } from '@fuse/hooks';
+import { styled } from '@mui/material/styles';
 import TasksSidebarContent from './TasksSidebarContent';
 import TasksHeader from './TasksHeader';
 import TasksList from './TasksList';
 import reducer from './store';
 import { getTags } from './store/tagsSlice';
 import { getTasks } from './store/tasksSlice';
+
+const Root = styled(FusePageSimple)(({ theme }) => ({
+  '& .FusePageSimple-header': {
+    backgroundColor: theme.palette.background.paper,
+  },
+}));
 
 function TasksApp(props) {
   const dispatch = useDispatch();
@@ -27,7 +34,7 @@ function TasksApp(props) {
   }, [routeParams]);
 
   return (
-    <FusePageSimple
+    <Root
       header={<TasksHeader pageLayout={pageLayout} />}
       content={<TasksList />}
       ref={pageLayout}

@@ -16,6 +16,12 @@ import { getLabels } from './store/labelsSlice';
 import { getNotes } from './store/notesSlice';
 
 const Root = styled(FusePageSimple)(({ theme }) => ({
+  '& .FusePageSimple-header': {
+    backgroundColor: theme.palette.background.paper,
+    borderBottomWidth: 1,
+    borderStyle: 'solid',
+    borderColor: theme.palette.divider,
+  },
   '& .FusePageSimple-sidebar': {
     backgroundColor: theme.palette.background.default,
     color: theme.palette.primary.main,

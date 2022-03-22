@@ -12,43 +12,12 @@ import PhotosVideosTab from './tabs/PhotosVideosTab';
 import TimelineTab from './tabs/TimelineTab';
 
 const Root = styled(FusePageSimple)(({ theme }) => ({
-  /* '& .FusePageSimple-topBg': {
-    background: 'url("assets/images/profile/morain-lake.jpg")!important',
-    backgroundSize: 'cover!important',
-    backgroundPosition: 'center center!important',
-  },
-
   '& .FusePageSimple-header': {
-    background: 'none',
-    height: 320,
-    minHeight: 320,
-    [theme.breakpoints.down('lg')]: {
-      height: 240,
-      minHeight: 240,
-    },
+    backgroundColor: theme.palette.background.paper,
+    borderBottomWidth: 1,
+    borderStyle: 'solid',
+    borderColor: theme.palette.divider,
   },
-
-  '& .FusePageSimple-wrapper': {
-    background: 'transparent',
-  },
-
-  '& .FusePageSimple-content': {
-    width: '100%',
-    maxWidth: 1120,
-    margin: 'auto',
-  },
-
-  '& .FusePageSimple-toolbar': {
-    width: '100%',
-    maxWidth: 1120,
-    margin: 'auto',
-    position: 'relative',
-    display: 'flex',
-    flexDirection: 'column',
-    minHeight: 'auto',
-    height: 'auto',
-    aliginItesm: 'flex-start',
-  }, */
 }));
 
 function ProfileApp() {
