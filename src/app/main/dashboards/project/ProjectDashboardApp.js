@@ -17,6 +17,7 @@ import BudgetTab from './tabs/budget/BudgetTab';
 const Root = styled(FusePageSimple)(({ theme }) => ({
   '& .FusePageSimple-header': {
     backgroundColor: theme.palette.background.paper,
+    boxShadow: `inset 0 0 0 1px  ${theme.palette.divider}`,
   },
 }));
 
