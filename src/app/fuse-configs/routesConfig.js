@@ -8,16 +8,16 @@ import LoginConfig from 'app/main/login/LoginConfig';
 import LogoutConfig from 'app/main/logout/LogoutConfig';
 import pagesConfigs from 'app/main/pages/pagesConfigs';
 import RegisterConfig from 'app/main/register/RegisterConfig';
-import UserInterfaceConfig from 'app/main/user-interface/UserInterfaceConfig';
 import FuseLoading from '@fuse/core/FuseLoading';
 import { Navigate } from 'react-router-dom';
+import userInterfaceConfigs from '../main/user-interface/UserInterfaceConfigs';
 
 const routeConfigs = [
   ...appsConfigs,
   ...dashboardsConfigs,
   ...pagesConfigs,
   ...authRoleExamplesConfigs,
-  UserInterfaceConfig,
+  ...userInterfaceConfigs,
   DocumentationConfig,
   LogoutConfig,
   LoginConfig,

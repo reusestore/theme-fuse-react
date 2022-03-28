@@ -722,7 +722,7 @@ const changelogData = [
       'FuseShortcuts: vertical variant added.',
       'FuseSearch: basic variant added (checkout layout-3)',
       'dark-material-bg.jpg changed to gradient background.',
-      'IconsUI page refined.',
+      'HeroiconsUI page refined.',
       'Generating source map disabled by default on production build.',
       'Navigation data refactored on the demo.',
       'Documentation updated.',

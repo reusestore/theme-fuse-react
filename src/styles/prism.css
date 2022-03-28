@@ -42,8 +42,8 @@ pre[class*="language-"] ::selection {
 pre[class*="language-"] {
     overflow: auto;
     position: relative;
-    padding: 10px;
-    border-radius: 16px;;
+    padding: 12px;
+    border-radius: 4px;;
 }
 
 .language-css > code,

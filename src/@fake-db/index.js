@@ -2,6 +2,7 @@ import './api/dashboards/analytics-api';
 import './api/dashboards/project-api';
 import './api/dashboards/crypto-api';
 import './api/dashboards/finance-api';
+import './api/ui/icons-api';
 import './api/countries-api';
 import './api/contacts-api';
 import './api/chat-api';
