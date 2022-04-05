@@ -1,10 +1,9 @@
-import FusePageSimple from '@fuse/core/FusePageSimple';
 import withReducer from 'app/store/withReducer';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { styled, useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import { lighten, styled } from '@mui/material/styles';
 import { useParams } from 'react-router-dom';
+import Box from '@mui/material/Box';
 import LabelsDialog from './dialogs/labels/LabelsDialog';
 import NoteDialog from './dialogs/note/NoteDialog';
 import NewNote from './NewNote';
@@ -14,29 +13,22 @@ import NotesSidebarContent from './NotesSidebarContent';
 import reducer from './store';
 import { getLabels } from './store/labelsSlice';
 import { getNotes } from './store/notesSlice';
+import FusePageCarded from '../../../../@fuse/core/FusePageCarded';
+import useThemeMediaQuery from '../../../../@fuse/hooks/useThemeMediaQuery';
 
-const Root = styled(FusePageSimple)(({ theme }) => ({
-  '& .FusePageSimple-header': {
-    backgroundColor: theme.palette.background.paper,
-    borderBottomWidth: 1,
-    borderStyle: 'solid',
-    borderColor: theme.palette.divider,
+const Root = styled(FusePageCarded)(({ theme }) => ({
+  '& .FusePageCarded-header': {
   },
-  '& .FusePageSimple-sidebar': {
-    backgroundColor: theme.palette.background.default,
-    color: theme.palette.primary.main,
-    boxShadow: 'none',
+  '& .FusePageCarded-sidebar': {
   },
-  '& .FusePageSimple-leftSidebar': {
-    border: '0!important',
+  '& .FusePageCarded-leftSidebar': {
   },
 }));
 
 function NotesApp(props) {
   const dispatch = useDispatch();
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
-  const [leftSidebarOpen, setSidebarOpen] = useState(false);
+  const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
+  const [leftSidebarOpen, setLeftSidebarOpen] = useState(!isMobile);
   const routeParams = useParams();
 
   useEffect(() => {
@@ -47,19 +39,25 @@ function NotesApp(props) {
   return (
     <>
       <Root
-        header={<NotesHeader onSetSidebarOpen={setSidebarOpen} />}
+        header={<NotesHeader onSetSidebarOpen={setLeftSidebarOpen} />}
         content={
-          <div className="flex flex-col w-full items-center p-32">
-            <NewNote />
-            <NoteList />
+          <div className="flex flex-col w-full items-center p-24">
+            <Box
+              className="w-full rounded-16 border p-12 flex flex-col items-center"
+              sx={{
+                backgroundColor: (theme) => lighten(theme.palette.background.default, 0.4),
+              }}
+            >
+              <NewNote />
+              <NoteList />
+            </Box>
             <NoteDialog />
             <LabelsDialog />
           </div>
         }
-        sidebarInner
-        leftSidebarOpen={isMobile ? leftSidebarOpen : true}
+        leftSidebarOpen={leftSidebarOpen}
         leftSidebarOnClose={() => {
-          setSidebarOpen(false);
+          setLeftSidebarOpen(false);
         }}
         leftSidebarContent={<NotesSidebarContent />}
         scroll="content"

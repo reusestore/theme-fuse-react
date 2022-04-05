@@ -38,7 +38,7 @@ function NotesSidebarContent(props) {
   const labels = useSelector(selectLabels);
 
   return (
-    <div className="p-24 lg:pr-0">
+    <div className="px-16 py-24">
       <div
         component={motion.div}
         initial={{ y: 20, opacity: 0 }}

@@ -12,15 +12,7 @@ function FusePageSimpleSidebarContent(props) {
     <FuseScrollbars enable={props.innerScroll}>
       {props.header && (
         <ThemeProvider theme={contrastTheme}>
-          <div
-            className={clsx(
-              'FusePageSimple-sidebarHeader',
-              props.variant,
-              props.sidebarInner && 'FusePageSimple-sidebarHeaderInnerSidebar'
-            )}
-          >
-            {props.header}
-          </div>
+          <div className={clsx('FusePageSimple-sidebarHeader', props.variant)}>{props.header}</div>
         </ThemeProvider>
       )}
 

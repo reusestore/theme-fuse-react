@@ -55,6 +55,7 @@ function FuseNavVerticalLink(props) {
         role="button"
         itempadding={itempadding}
         sx={item.sx}
+        disabled={item.disabled}
       >
         {item.icon && (
           <FuseSvgIcon
@@ -70,8 +71,8 @@ function FuseNavVerticalLink(props) {
           primary={item.title}
           secondary={item.subtitle}
           classes={{
-            primary: 'text-13 font-medium fuse-list-item-text-primary',
-            secondary: 'text-11 font-medium fuse-list-item-text-secondary leading-normal',
+            primary: 'text-13 font-medium fuse-list-item-text-primary truncate',
+            secondary: 'text-11 font-medium fuse-list-item-text-secondary leading-normal truncate',
           }}
         />
 

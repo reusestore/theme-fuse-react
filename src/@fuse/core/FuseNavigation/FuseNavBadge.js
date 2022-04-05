@@ -21,7 +21,7 @@ function FuseNavBadge(props) {
 
   return (
     <Root
-      className={clsx(className, 'item-badge')}
+      className={clsx('item-badge', className, badge?.classes)}
       style={{
         backgroundColor: badge.bg,
         color: badge.fg,

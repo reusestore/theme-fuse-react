@@ -1,26 +1,13 @@
-import { lazy } from 'react';
 import iconsUIConfig from './icons/iconsUIConfig';
-
-const Blank = lazy(() => import('./page-layouts/blank'));
-const TypographyUI = lazy(() => import('./typography/TypographyUI'));
-const TailwindCssUI = lazy(() => import('./tailwindcss/TailwindCssUI'));
+import tailwindcssUIConfig from './tailwindcss/tailwindcssUIConfig';
+import typographyUIConfig from './typography/typographyUIConfig';
+import pageLayoutsUIConfig from './page-layouts/pageLayoutsUIConfig';
 
 const userInterfaceConfigs = [
   iconsUIConfig,
-  // ...cardedLayoutRoutes,
-  // ...simpleLayoutRoutes,
-  // {
-  //   path: 'ui/page-layouts/blank',
-  //   element: <Blank />,
-  // },
-  // {
-  //   path: 'ui/typography',
-  //   element: <TypographyUI />,
-  // },
-  // {
-  //   path: 'ui/tailwindcss',
-  //   element: <TailwindCssUI />,
-  // },
+  tailwindcssUIConfig,
+  typographyUIConfig,
+  pageLayoutsUIConfig,
 ];
 
 export default userInterfaceConfigs;

@@ -47,6 +47,7 @@ function FuseNavVerticalGroup(props) {
           end={item.end}
           role="button"
           sx={item.sx}
+          disabled={item.disabled}
         >
           <ListItemText
             className="fuse-list-subheader-text"

@@ -42,6 +42,7 @@ function FuseNavHorizontalLink(props) {
         className={clsx('fuse-list-item')}
         role="button"
         sx={item.sx}
+        disabled={item.disabled}
       >
         {item.icon && (
           <FuseSvgIcon
@@ -55,7 +56,7 @@ function FuseNavHorizontalLink(props) {
         <ListItemText
           className="fuse-list-item-text"
           primary={item.title}
-          classes={{ primary: 'text-13 fuse-list-item-text-primary' }}
+          classes={{ primary: 'text-13 fuse-list-item-text-primary truncate' }}
         />
 
         {item.badge && <FuseNavBadge className="ltr:ml-8 rtl:mr-8" badge={item.badge} />}

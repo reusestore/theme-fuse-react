@@ -88,6 +88,7 @@ function FuseNavVerticalCollapse(props) {
           to={item.url}
           end={item.end}
           role="button"
+          disabled={item.disabled}
         >
           {item.icon && (
             <FuseSvgIcon
@@ -103,8 +104,8 @@ function FuseNavVerticalCollapse(props) {
             primary={item.title}
             secondary={item.subtitle}
             classes={{
-              primary: 'text-13 font-medium fuse-list-item-text-primary',
-              secondary: 'text-11 font-medium fuse-list-item-text-secondary leading-normal',
+              primary: 'text-13 font-medium fuse-list-item-text-primary truncate',
+              secondary: 'text-11 font-medium fuse-list-item-text-secondary leading-normal truncate',
             }}
           />
 

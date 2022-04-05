@@ -56,13 +56,14 @@ function FuseNavVerticalItem(props) {
         button
         component={NavLinkAdapter}
         to={item.url || ''}
-        activeClassName="active"
-        className="fuse-list-item"
+        activeClassName={item.url ? 'active' : ''}
+        className={clsx('fuse-list-item', item.active && 'active')}
         onClick={() => onItemClick && onItemClick(item)}
         end={item.end}
         itempadding={itempadding}
         role="button"
         sx={item.sx}
+        disabled={item.disabled}
       >
         {item.icon && (
           <FuseSvgIcon
@@ -78,8 +79,8 @@ function FuseNavVerticalItem(props) {
           primary={item.title}
           secondary={item.subtitle}
           classes={{
-            primary: 'text-13 font-medium fuse-list-item-text-primary',
-            secondary: 'text-11 font-medium fuse-list-item-text-secondary leading-normal',
+            primary: 'text-13 font-medium fuse-list-item-text-primary truncate',
+            secondary: 'text-11 font-medium fuse-list-item-text-secondary leading-normal truncate',
           }}
         />
         {item.badge && <FuseNavBadge badge={item.badge} />}

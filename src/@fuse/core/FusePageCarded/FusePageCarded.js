@@ -35,6 +35,7 @@ const Root = styled('div')(({ theme, ...props }) => ({
 
   '& .FusePageCarded-header': {
     display: 'flex',
+    flex: '0 0 auto',
   },
 
   '& .FusePageCarded-contentWrapper': {
@@ -105,8 +106,8 @@ const Root = styled('div')(({ theme, ...props }) => ({
     width: props.leftsidebarwidth,
 
     [theme.breakpoints.up('lg')]: {
-      borderRight: `1px solid ${theme.palette.divider}`,
-      borderLeft: 0,
+      // borderRight: `1px solid ${theme.palette.divider}`,
+      // borderLeft: 0,
     },
   },
 
@@ -114,8 +115,8 @@ const Root = styled('div')(({ theme, ...props }) => ({
     width: props.rightsidebarwidth,
 
     [theme.breakpoints.up('lg')]: {
-      borderLeft: `1px solid ${theme.palette.divider}`,
-      borderRight: 0,
+      // borderLeft: `1px solid ${theme.palette.divider}`,
+      // borderRight: 0,
     },
   },
 
@@ -169,7 +170,7 @@ const FusePageCarded = forwardRef((props, ref) => {
         styles={(theme) => ({
           '#fuse-main': {
             height: props.scroll === 'content' && '100vh',
-            overflow: props.scroll === 'body' && 'hidden',
+            overflow: props.scroll === 'normal' && 'hidden',
           },
         })}
       />
@@ -236,7 +237,7 @@ FusePageCarded.propTypes = {
   header: PropTypes.node,
   content: PropTypes.node,
   contentToolbar: PropTypes.node,
-  scroll: PropTypes.oneOf(['body', 'page', 'content']),
+  scroll: PropTypes.oneOf(['normal', 'page', 'content']),
   leftSidebarOpen: PropTypes.bool,
   rightSidebarOpen: PropTypes.bool,
   leftSidebarWidth: PropTypes.number,

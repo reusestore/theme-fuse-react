@@ -58,6 +58,7 @@ const FusePageCardedSidebar = forwardRef((props, ref) => {
         <Hidden lgDown>
           <Drawer
             variant="permanent"
+            anchor={position}
             className={clsx(
               'FusePageCarded-sidebarWrapper',
               variant,

@@ -1,4 +1,6 @@
 import Typography from '@mui/material/Typography';
+import { lighten } from '@mui/material/styles';
+import Box from '@mui/material/Box';
 import ChangelogCard from './ChangelogCard';
 import changelogData from './ChangelogData';
 
@@ -9,9 +11,16 @@ function ChangelogDoc() {
         Changelog
       </Typography>
 
-      {changelogData.map((item) => (
-        <ChangelogCard className="shrink-0 mb-24" key={item.version} {...item} />
-      ))}
+      <Box
+        className="w-full rounded-16 border p-12 flex flex-col items-center"
+        sx={{
+          backgroundColor: (theme) => lighten(theme.palette.background.default, 0.4),
+        }}
+      >
+        {changelogData.map((item) => (
+          <ChangelogCard className="shrink-0 mb-24 w-full" key={item.version} {...item} />
+        ))}
+      </Box>
     </>
   );
 }

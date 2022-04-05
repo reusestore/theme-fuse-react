@@ -100,6 +100,7 @@ function FuseNavHorizontalGroup(props) {
                 end={item.end}
                 role="button"
                 sx={item.sx}
+                disabled={item.disabled}
               >
                 {item.icon && (
                   <FuseSvgIcon
@@ -113,7 +114,7 @@ function FuseNavHorizontalGroup(props) {
                 <ListItemText
                   className="fuse-list-item-text"
                   primary={item.title}
-                  classes={{ primary: 'text-13' }}
+                  classes={{ primary: 'text-13 truncate' }}
                 />
 
                 {nestedLevel > 0 && (

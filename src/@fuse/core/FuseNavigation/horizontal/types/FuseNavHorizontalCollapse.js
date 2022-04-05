@@ -90,6 +90,7 @@ function FuseNavHorizontalCollapse(props) {
                   end={item.end}
                   role="button"
                   sx={item.sx}
+                  disabled={item.disabled}
                 >
                   {item.icon && (
                     <FuseSvgIcon
@@ -103,7 +104,7 @@ function FuseNavHorizontalCollapse(props) {
                   <ListItemText
                     className="fuse-list-item-text"
                     primary={item.title}
-                    classes={{ primary: 'text-13' }}
+                    classes={{ primary: 'text-13 truncate' }}
                   />
 
                   {item.badge && <FuseNavBadge className="mx-4" badge={item.badge} />}

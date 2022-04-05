@@ -87,6 +87,7 @@ function FuseNavVerticalTab(props) {
           )}
           onClick={() => onItemClick && onItemClick(item)}
           role="button"
+          disabled={item.disabled}
         >
           {dense ? (
             <Tooltip title={item.title || ''} placement="right">
@@ -134,7 +135,7 @@ function FuseNavVerticalTab(props) {
                 className="fuse-list-item-text grow-0 w-full"
                 primary={item.title}
                 classes={{
-                  primary: 'text-12 font-medium fuse-list-item-text-primary truncate text-center',
+                  primary: 'text-12 font-medium fuse-list-item-text-primary truncate text-center truncate',
                 }}
               />
             </>

@@ -6,14 +6,15 @@ import ThirdPartyComponentsNavigation from './third-party-components/ThirdPartyC
 const DocumentationNavigation = {
   id: 'documentation',
   title: 'Documentation',
+  subtitle: 'Everything you need to know about Fuse',
+  icon: 'heroicons-outline:support',
   type: 'group',
-  icon: 'star',
   children: [
     {
       id: 'changelog',
       title: 'Changelog',
       type: 'item',
-      icon: 'history',
+      icon: 'heroicons-outline:speakerphone',
       url: '/documentation/changelog',
       badge: {
         title: fuseReactLatestVersion,

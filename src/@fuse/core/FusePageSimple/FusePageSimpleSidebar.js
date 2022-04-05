@@ -58,6 +58,7 @@ const FusePageSimpleSidebar = forwardRef((props, ref) => {
         <Hidden lgDown>
           <Drawer
             variant="permanent"
+            anchor={position}
             className={clsx(
               'FusePageSimple-sidebarWrapper',
               variant,
