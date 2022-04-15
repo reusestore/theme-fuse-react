@@ -1,7 +1,6 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import _ from '@lodash';
 import Checkbox from '@mui/material/Checkbox';
-import Icon from '@mui/material/Icon';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -17,6 +16,7 @@ import withRouter from '@fuse/core/withRouter';
 import FuseLoading from '@fuse/core/FuseLoading';
 import { getProducts, selectProducts } from '../store/productsSlice';
 import ProductsTableHead from './ProductsTableHead';
+import FuseSvgIcon from '../../../../../@fuse/core/FuseSvgIcon';
 
 function ProductsTable(props) {
   const dispatch = useDispatch();
@@ -224,9 +224,13 @@ function ProductsTable(props) {
 
                     <TableCell className="p-4 md:p-16" component="th" scope="row" align="right">
                       {n.active ? (
-                        <Icon className="text-green text-20">check_circle</Icon>
+                        <FuseSvgIcon className="text-green" size={20}>
+                          heroicons-outline:check-circle
+                        </FuseSvgIcon>
                       ) : (
-                        <Icon className="text-red text-20">remove_circle</Icon>
+                        <FuseSvgIcon className="text-red" size={20}>
+                          heroicons-outline:minus-circle
+                        </FuseSvgIcon>
                       )}
                     </TableCell>
                   </TableRow>

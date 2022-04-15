@@ -1,4 +1,3 @@
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -165,7 +164,7 @@ function ScheduleWidget(props) {
             />
             <ListItemSecondaryAction>
               <IconButton aria-label="more" size="large">
-                <Icon>more_vert</Icon>
+                <FuseSvgIcon>heroicons-outline:dots-vertical</FuseSvgIcon>
               </IconButton>
             </ListItemSecondaryAction>
           </ListItem>

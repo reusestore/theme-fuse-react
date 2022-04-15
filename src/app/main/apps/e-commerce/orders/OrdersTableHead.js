@@ -1,5 +1,4 @@
 import Checkbox from '@mui/material/Checkbox';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
@@ -15,6 +14,7 @@ import { useDispatch } from 'react-redux';
 import { Box } from '@mui/system';
 import TableHead from '@mui/material/TableHead';
 import { removeOrders } from '../store/ordersSlice';
+import FuseSvgIcon from '../../../../../@fuse/core/FuseSvgIcon';
 
 const rows = [
   {
@@ -112,7 +112,7 @@ function OrdersTableHead(props) {
                 onClick={openSelectedOrdersMenu}
                 size="large"
               >
-                <Icon>more_horiz</Icon>
+                <FuseSvgIcon>heroicons-outline:dots-horizontal</FuseSvgIcon>
               </IconButton>
               <Menu
                 id="selectedOrdersMenu"
@@ -129,7 +129,7 @@ function OrdersTableHead(props) {
                     }}
                   >
                     <ListItemIcon className="min-w-40">
-                      <Icon>delete</Icon>
+                      <FuseSvgIcon>heroicons-outline:trash</FuseSvgIcon>
                     </ListItemIcon>
                     <ListItemText primary="Remove" />
                   </MenuItem>

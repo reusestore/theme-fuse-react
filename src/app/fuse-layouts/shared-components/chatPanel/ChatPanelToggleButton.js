@@ -1,7 +1,7 @@
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import { useDispatch } from 'react-redux';
 import { toggleChatPanel } from './store/stateSlice';
+import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 const ChatPanelToggleButton = (props) => {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const ChatPanelToggleButton = (props) => {
 };
 
 ChatPanelToggleButton.defaultProps = {
-  children: <Icon>chat</Icon>,
+  children: <FuseSvgIcon>heroicons-outline:chat</FuseSvgIcon>,
 };
 
 export default ChatPanelToggleButton;

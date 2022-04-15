@@ -5,7 +5,6 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import Input from '@mui/material/Input';
 import List from '@mui/material/List';
@@ -141,7 +140,7 @@ function TimelineTab() {
                 avatar={<Avatar aria-label="Recipe" src={post.user.avatar} />}
                 action={
                   <IconButton aria-label="more" size="large">
-                    <Icon>more_vert</Icon>
+                    <FuseSvgIcon>heroicons-outline:dots-vertical</FuseSvgIcon>
                   </IconButton>
                 }
                 title={
@@ -187,16 +186,16 @@ function TimelineTab() {
 
               <CardActions disableSpacing className="px-32">
                 <Button size="small" aria-label="Add to favorites">
-                  <Icon className="text-16" color="action">
-                    favorite
-                  </Icon>
+                  <FuseSvgIcon size={16} color="action">
+                    heroicons-outline:heart
+                  </FuseSvgIcon>
                   <Typography className="mx-4">Like</Typography>
                   <Typography>({post.like})</Typography>
                 </Button>
                 <Button aria-label="Share">
-                  <Icon className="text-16" color="action">
-                    share
-                  </Icon>
+                  <FuseSvgIcon size={16} color="action">
+                    heroicons-outline:share
+                  </FuseSvgIcon>
                   <Typography className="mx-4">Share</Typography>
                   <Typography>({post.share})</Typography>
                 </Button>
@@ -212,9 +211,9 @@ function TimelineTab() {
                   <div className="">
                     <div className="flex items-center">
                       <Typography>{post.comments.length} comments</Typography>
-                      <Icon className="text-16 mx-4" color="action">
-                        keyboard_arrow_down
-                      </Icon>
+                      <FuseSvgIcon size={16} className="mx-4" color="action">
+                        heroicons-outline:chevron-down
+                      </FuseSvgIcon>
                     </div>
 
                     <List>
@@ -246,8 +245,11 @@ function TimelineTab() {
                             />
                           </ListItem>
                           <div className="flex items-center mx-52 mb-8">
-                            <Button>Reply</Button>
-                            <Icon className="text-14 mx-8 cursor-pointer">flag</Icon>
+                            <Button
+                              endIcon={<FuseSvgIcon size={14}>heroicons-outline:reply</FuseSvgIcon>}
+                            >
+                              Reply
+                            </Button>
                           </div>
                         </div>
                       ))}

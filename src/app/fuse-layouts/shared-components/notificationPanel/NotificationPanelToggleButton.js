@@ -1,11 +1,11 @@
 import Badge from '@mui/material/Badge';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import { useSelector, useDispatch } from 'react-redux';
 import withReducer from 'app/store/withReducer';
 import reducer from './store';
 import { selectNotifications } from './store/dataSlice';
 import { toggleNotificationPanel } from './store/stateSlice';
+import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 function NotificationPanelToggleButton(props) {
   const notifications = useSelector(selectNotifications);
@@ -26,7 +26,7 @@ function NotificationPanelToggleButton(props) {
 }
 
 NotificationPanelToggleButton.defaultProps = {
-  children: <Icon>notifications</Icon>,
+  children: <FuseSvgIcon>heroicons-outline:bell</FuseSvgIcon>,
 };
 
 export default withReducer('notificationPanel', reducer)(NotificationPanelToggleButton);

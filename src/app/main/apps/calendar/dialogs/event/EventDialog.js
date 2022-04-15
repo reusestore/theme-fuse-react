@@ -3,7 +3,6 @@ import { Controller, useForm } from 'react-hook-form';
 import FuseUtils from '@fuse/utils/FuseUtils';
 import Button from '@mui/material/Button';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
@@ -275,7 +274,7 @@ function EventDialog(props) {
           <div className="flex items-center space-x-8">
             <div className="flex flex-1" />
             <IconButton onClick={handleRemove} size="large">
-              <Icon>delete</Icon>
+              <FuseSvgIcon>heroicons-outline:trash</FuseSvgIcon>
             </IconButton>
             <Button
               variant="contained"

@@ -1,5 +1,4 @@
 import AppBar from '@mui/material/AppBar';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -10,6 +9,7 @@ import { useContext } from 'react';
 import { selectContactById } from '../../store/contactsSlice';
 import ContactAvatar from '../../ContactAvatar';
 import { ChatAppContext } from '../../ChatApp';
+import FuseSvgIcon from '../../../../../../@fuse/core/FuseSvgIcon';
 
 function ContactSidebar(props) {
   const { setContactSidebarOpen } = useContext(ChatAppContext);
@@ -26,7 +26,7 @@ function ContactSidebar(props) {
       <AppBar className="border-b-1" position="static" color="default" elevation={0}>
         <Toolbar className="flex items-center px-4">
           <IconButton onClick={() => setContactSidebarOpen(false)} color="inherit" size="large">
-            <Icon>close</Icon>
+            <FuseSvgIcon>heroicons-outline:x</FuseSvgIcon>
           </IconButton>
           <Typography className="px-4 font-medium text-16" color="inherit" variant="subtitle1">
             Contact info

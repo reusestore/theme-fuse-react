@@ -1,6 +1,5 @@
 import { amber, blue, green } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import Snackbar from '@mui/material/Snackbar';
 import SnackbarContent from '@mui/material/SnackbarContent';
@@ -8,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { hideMessage } from 'app/store/fuse/messageSlice';
+import FuseSvgIcon from '../FuseSvgIcon';
 
 const StyledSnackbar = styled(Snackbar)(({ theme, variant }) => ({
   '& .FuseMessage-content': {
@@ -63,7 +63,7 @@ function FuseMessage(props) {
         message={
           <div className="flex items-center">
             {variantIcon[options.variant] && (
-              <Icon color="inherit">{variantIcon[options.variant]}</Icon>
+              <FuseSvgIcon color="inherit">{variantIcon[options.variant]}</FuseSvgIcon>
             )}
             <Typography className="mx-8">{options.message}</Typography>
           </div>
@@ -76,7 +76,7 @@ function FuseMessage(props) {
             onClick={() => dispatch(hideMessage())}
             size="large"
           >
-            <Icon>close</Icon>
+            <FuseSvgIcon>heroicons-outline:x</FuseSvgIcon>
           </IconButton>,
         ]}
       />

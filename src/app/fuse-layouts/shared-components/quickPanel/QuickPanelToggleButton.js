@@ -1,7 +1,7 @@
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import { useDispatch } from 'react-redux';
 import { toggleQuickPanel } from './store/stateSlice';
+import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 function QuickPanelToggleButton(props) {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ function QuickPanelToggleButton(props) {
 }
 
 QuickPanelToggleButton.defaultProps = {
-  children: <Icon>bookmarks</Icon>,
+  children: <FuseSvgIcon>heroicons-outline:bookmark</FuseSvgIcon>,
 };
 
 export default QuickPanelToggleButton;

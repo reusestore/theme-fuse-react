@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import Slider from '@mui/material/Slider';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import clsx from 'clsx';
+import FuseSvgIcon from '../../../@fuse/core/FuseSvgIcon';
 
 const marks = [
   { value: 0.7, label: '70%' },
@@ -42,7 +42,7 @@ function AdjustFontSize(props) {
         onClick={handleClick}
         size="large"
       >
-        <Icon>format_size</Icon>
+        <FuseSvgIcon>material-outline:format_size</FuseSvgIcon>
       </IconButton>
       <Menu
         classes={{ paper: 'w-320' }}
@@ -62,9 +62,9 @@ function AdjustFontSize(props) {
       >
         <div className="py-12 px-24">
           <Typography className="flex items-center justify-center text-16 font-semibold mb-8">
-            <Icon color="action" className="mr-4">
-              format_size
-            </Icon>
+            <FuseSvgIcon color="action" className="mr-4">
+              material-outline:format_size
+            </FuseSvgIcon>
             Font Size
           </Typography>
           <Slider

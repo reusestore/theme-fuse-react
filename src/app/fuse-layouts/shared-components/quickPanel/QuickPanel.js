@@ -1,7 +1,6 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import { styled } from '@mui/material/styles';
 import Divider from '@mui/material/Divider';
-import Icon from '@mui/material/Icon';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -18,6 +17,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import reducer from './store';
 import { getData } from './store/dataSlice';
 import { toggleQuickPanel } from './store/stateSlice';
+import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 const StyledSwipeableDrawer = styled(SwipeableDrawer)(({ theme }) => ({
   '& .MuiDrawer-paper': {
@@ -101,7 +101,7 @@ function QuickPanel(props) {
           <ListSubheader component="div">Quick Settings</ListSubheader>
           <ListItem>
             <ListItemIcon className="min-w-40">
-              <Icon>notifications</Icon>
+              <FuseSvgIcon>material-outline:notifications</FuseSvgIcon>
             </ListItemIcon>
             <ListItemText primary="Notifications" />
             <ListItemSecondaryAction>
@@ -114,7 +114,7 @@ function QuickPanel(props) {
           </ListItem>
           <ListItem>
             <ListItemIcon className="min-w-40">
-              <Icon>cloud</Icon>
+              <FuseSvgIcon>material-outline:cloud</FuseSvgIcon>
             </ListItemIcon>
             <ListItemText primary="Cloud Sync" />
             <ListItemSecondaryAction>
@@ -127,7 +127,7 @@ function QuickPanel(props) {
           </ListItem>
           <ListItem>
             <ListItemIcon className="min-w-40">
-              <Icon>brightness_high</Icon>
+              <FuseSvgIcon>material-outline:brightness_high</FuseSvgIcon>
             </ListItemIcon>
             <ListItemText primary="Retro Thrusters" />
             <ListItemSecondaryAction>

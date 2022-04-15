@@ -1,6 +1,6 @@
 import Button from '@mui/material/Button';
-import Icon from '@mui/material/Icon';
 import clsx from 'clsx';
+import FuseSvgIcon from '../../../@fuse/core/FuseSvgIcon';
 
 function PurchaseButton({ className }) {
   return (
@@ -13,9 +13,9 @@ function PurchaseButton({ className }) {
       className={clsx('', className)}
       variant="contained"
       color="secondary"
+      startIcon={<FuseSvgIcon size={16}>heroicons-outline:shopping-cart</FuseSvgIcon>}
     >
-      <Icon className="text-16">shopping_cart</Icon>
-      <span className="mx-4">Purchase FUSE React</span>
+      Purchase FUSE React
     </Button>
   );
 }

@@ -1,7 +1,4 @@
 import FusePageSimple from '@fuse/core/FusePageSimple';
-import Button from '@mui/material/Button';
-import Icon from '@mui/material/Icon';
-import IconButton from '@mui/material/IconButton';
 import Input from '@mui/material/Input';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
@@ -10,6 +7,8 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { blue, green } from '@mui/material/colors';
 import { useTheme } from '@mui/material/styles';
+import { Pagination } from '@mui/material';
+import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 function ModernSearchPage() {
   const theme = useTheme();
@@ -47,7 +46,7 @@ function ModernSearchPage() {
                 'aria-label': 'Search',
               }}
             />
-            <Icon color="action">search</Icon>
+            <FuseSvgIcon color="action">heroicons-outline:search</FuseSvgIcon>
           </Paper>
         </div>
       }
@@ -91,23 +90,7 @@ function ModernSearchPage() {
           )}
 
           <div className="flex justify-center mt-48">
-            <Paper className="rounded-16 shadow">
-              <IconButton size="large">
-                <Icon className="text-20">
-                  {theme.direction === 'ltr' ? 'chevron_left' : 'chevron_right'}
-                </Icon>
-              </IconButton>
-              <Button className="min-w-48 h-48 p-0 px-16">1</Button>
-              <Button className="min-w-48 h-48 p-0 px-16">2</Button>
-              <Button className="min-w-48 h-48 p-0 px-16">3</Button>
-              <Button className="min-w-48 h-48 p-0 px-16">4</Button>
-              <Button className="min-w-48 h-48 p-0 px-16">5</Button>
-              <IconButton size="large">
-                <Icon className="text-20">
-                  {theme.direction === 'ltr' ? 'chevron_right' : 'chevron_left'}
-                </Icon>
-              </IconButton>
-            </Paper>
+            <Pagination count={10} variant="outlined" color="secondary" />
           </div>
         </div>
       }

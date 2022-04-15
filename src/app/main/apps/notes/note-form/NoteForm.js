@@ -4,7 +4,6 @@ import { Controller, useForm } from 'react-hook-form';
 import _ from '@lodash';
 import Button from '@mui/material/Button';
 import Fab from '@mui/material/Fab';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import Input from '@mui/material/Input';
 import Tooltip from '@mui/material/Tooltip';
@@ -22,6 +21,7 @@ import NoteFormList from './tasks/NoteFormList';
 import NoteFormLabelMenu from './NoteFormLabelMenu';
 import NoteFormReminder from './NoteFormReminder';
 import NoteFormUploadImage from './NoteFormUploadImage';
+import FuseSvgIcon from '../../../../../@fuse/core/FuseSvgIcon';
 
 /**
  * Form Validation Schema
@@ -113,7 +113,7 @@ function NoteForm(props) {
                     type="button"
                     onClick={() => onChange('')}
                   >
-                    <Icon fontSize="small">delete</Icon>
+                    <FuseSvgIcon size={20}>heroicons-outline:trash</FuseSvgIcon>
                   </Fab>
                 </div>
               );
@@ -241,7 +241,7 @@ function NoteForm(props) {
               onClick={() => setShowList(!showList)}
               size="large"
             >
-              <Icon fontSize="small">playlist_add_check</Icon>
+              <FuseSvgIcon size={20}>heroicons-outline:pencil-alt</FuseSvgIcon>
             </IconButton>
           </Tooltip>
 
@@ -273,7 +273,9 @@ function NoteForm(props) {
                     }}
                     size="large"
                   >
-                    <Icon fontSize="small">{value ? 'unarchive' : 'archive'}</Icon>
+                    <FuseSvgIcon size={20}>
+                      {value ? 'heroicons-solid:archive' : 'heroicons-outline:archive'}
+                    </FuseSvgIcon>
                   </IconButton>
                 </div>
               </Tooltip>
@@ -298,7 +300,7 @@ function NoteForm(props) {
             <>
               <Tooltip title="Delete Note" placement="bottom">
                 <IconButton className="w-32 h-32 mx-4 p-0" onClick={props.onRemove} size="large">
-                  <Icon fontSize="small">delete</Icon>
+                  <FuseSvgIcon size={20}>heroicons-outline:trash</FuseSvgIcon>
                 </IconButton>
               </Tooltip>
               <Button className="m-4" onClick={props.onClose} variant="default">

@@ -1,6 +1,5 @@
 import _ from '@lodash';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -8,6 +7,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Popover from '@mui/material/Popover';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import FuseSvgIcon from '../../../../../@fuse/core/FuseSvgIcon';
 
 function NoteFormLabelMenu(props) {
   const labels = useSelector(({ notesApp }) => notesApp.labels.entities);
@@ -30,7 +30,7 @@ function NoteFormLabelMenu(props) {
   return (
     <div>
       <IconButton className="w-32 h-32 mx-4 p-0" onClick={handleMenuClick} size="large">
-        <Icon fontSize="small">label</Icon>
+        <FuseSvgIcon size={20}>heroicons-outline:tag</FuseSvgIcon>
       </IconButton>
       <Popover
         hideBackdrop
@@ -54,9 +54,11 @@ function NoteFormLabelMenu(props) {
           <List className="p-0">
             {Object.entries(labels).map(([key, label]) => (
               <ListItem key={label.id} button dense onClick={() => handleToggleLabel(label.id)}>
-                <Icon className="list-item-icon text-16" color="action">
-                  {props.note.labels.includes(label.id) ? 'check_box' : 'check_box_outline_blank'}
-                </Icon>
+                <FuseSvgIcon className="list-item-icon" size={20} color="action">
+                  {props.note.labels.includes(label.id)
+                    ? 'heroicons-outline:check-circle'
+                    : 'heroicons-outline:minus-circle'}
+                </FuseSvgIcon>
                 <ListItemText className="truncate px-8" primary={label.title} disableTypography />
               </ListItem>
             ))}

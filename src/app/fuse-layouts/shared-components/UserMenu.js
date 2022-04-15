@@ -1,6 +1,5 @@
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Icon from '@mui/material/Icon';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import MenuItem from '@mui/material/MenuItem';
@@ -8,13 +7,13 @@ import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { logoutUser } from 'app/auth/store/userSlice';
+import FuseSvgIcon from '../../../@fuse/core/FuseSvgIcon';
 
 function UserMenu(props) {
   const dispatch = useDispatch();
   const user = useSelector(({ auth }) => auth.user);
-  const navigate = useNavigate();
 
   const [userMenu, setUserMenu] = useState(null);
 
@@ -70,13 +69,13 @@ function UserMenu(props) {
           <>
             <MenuItem component={Link} to="/login" role="button">
               <ListItemIcon className="min-w-40">
-                <Icon>lock</Icon>
+                <FuseSvgIcon>heroicons-outline:lock-closed</FuseSvgIcon>
               </ListItemIcon>
               <ListItemText primary="Login" />
             </MenuItem>
             <MenuItem component={Link} to="/register" role="button">
               <ListItemIcon className="min-w-40">
-                <Icon>person_add</Icon>
+                <FuseSvgIcon>heroicons-outline:user-add </FuseSvgIcon>
               </ListItemIcon>
               <ListItemText primary="Register" />
             </MenuItem>
@@ -85,13 +84,13 @@ function UserMenu(props) {
           <>
             <MenuItem component={Link} to="/pages/profile" onClick={userMenuClose} role="button">
               <ListItemIcon className="min-w-40">
-                <Icon>account_circle</Icon>
+                <FuseSvgIcon>heroicons-outline:user-circle</FuseSvgIcon>
               </ListItemIcon>
               <ListItemText primary="My Profile" />
             </MenuItem>
             <MenuItem component={Link} to="/apps/mail" onClick={userMenuClose} role="button">
               <ListItemIcon className="min-w-40">
-                <Icon>mail</Icon>
+                <FuseSvgIcon>heroicons-outline:mail-open</FuseSvgIcon>
               </ListItemIcon>
               <ListItemText primary="Inbox" />
             </MenuItem>
@@ -102,7 +101,7 @@ function UserMenu(props) {
               }}
             >
               <ListItemIcon className="min-w-40">
-                <Icon>exit_to_app</Icon>
+                <FuseSvgIcon>heroicons-outline:logout</FuseSvgIcon>
               </ListItemIcon>
               <ListItemText primary="Logout" />
             </MenuItem>

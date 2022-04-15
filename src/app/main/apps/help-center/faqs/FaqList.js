@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
-import Icon from '@mui/material/Icon';
 import Typography from '@mui/material/Typography';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import { useState } from 'react';
 import clsx from 'clsx';
 import { styled } from '@mui/material/styles';
+import FuseSvgIcon from '../../../../../@fuse/core/FuseSvgIcon';
 
 const container = {
   show: {
@@ -62,9 +62,11 @@ function FaqList(props) {
             expanded={expanded === faq.id}
             onChange={toggleAccordion(faq.id)}
           >
-            <AccordionSummary expandIcon={<Icon>expand_more</Icon>}>
+            <AccordionSummary
+              expandIcon={<FuseSvgIcon>heroicons-outline:chevron-down</FuseSvgIcon>}
+            >
               <div className="flex items-center py-4">
-                <Icon color="action">help_outline</Icon>
+                <FuseSvgIcon color="action">heroicons-outline:question-mark-circle</FuseSvgIcon>
                 <Typography className="px-12 font-medium">{faq.question}</Typography>
               </div>
             </AccordionSummary>

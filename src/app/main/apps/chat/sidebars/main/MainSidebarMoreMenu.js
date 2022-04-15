@@ -1,9 +1,9 @@
 import { useContext, useState } from 'react';
 import IconButton from '@mui/material/IconButton';
-import Icon from '@mui/material/Icon';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { ChatAppContext } from '../../ChatApp';
+import FuseSvgIcon from '../../../../../../@fuse/core/FuseSvgIcon';
 
 const MainSidebarMoreMenu = (props) => {
   const { setUserSidebarOpen } = useContext(ChatAppContext);
@@ -26,7 +26,7 @@ const MainSidebarMoreMenu = (props) => {
         onClick={handleMoreMenuClick}
         size="large"
       >
-        <Icon>more_vert</Icon>
+        <FuseSvgIcon>heroicons-outline:dots-vertical</FuseSvgIcon>
       </IconButton>
       <Menu
         id="chats-more-menu"

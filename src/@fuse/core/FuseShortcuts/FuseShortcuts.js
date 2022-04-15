@@ -1,6 +1,5 @@
 import { amber } from '@mui/material/colors';
 import Divider from '@mui/material/Divider';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import Input from '@mui/material/Input';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -16,6 +15,7 @@ import { memo, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { updateUserShortcuts } from 'app/auth/store/userSlice';
+import FuseSvgIcon from '../FuseSvgIcon';
 
 function FuseShortcuts(props) {
   const dispatch = useDispatch();
@@ -66,7 +66,7 @@ function FuseShortcuts(props) {
         <MenuItem key={item.id}>
           <ListItemIcon className="min-w-40">
             {item.icon ? (
-              <Icon>{item.icon}</Icon>
+              <FuseSvgIcon>{item.icon}</FuseSvgIcon>
             ) : (
               <span className="text-20 font-semibold uppercase text-center">{item.title[0]}</span>
             )}
@@ -80,7 +80,9 @@ function FuseShortcuts(props) {
             }}
             size="large"
           >
-            <Icon color="action">{shortcuts.includes(item.id) ? 'star' : 'star_border'}</Icon>
+            <FuseSvgIcon color="action">
+              {shortcuts.includes(item.id) ? 'heroicons-solid:star' : 'heroicons-outline:star'}
+            </FuseSvgIcon>
           </IconButton>
         </MenuItem>
       </Link>
@@ -128,7 +130,7 @@ function FuseShortcuts(props) {
                     size="large"
                   >
                     {_item.icon ? (
-                      <Icon>{_item.icon}</Icon>
+                      <FuseSvgIcon>{_item.icon}</FuseSvgIcon>
                     ) : (
                       <span className="text-20 font-semibold uppercase">{_item.title[0]}</span>
                     )}
@@ -151,7 +153,7 @@ function FuseShortcuts(props) {
             onClick={addMenuClick}
             size="large"
           >
-            <Icon sx={{ color: amber[600] }}>star</Icon>
+            <FuseSvgIcon sx={{ color: amber[600] }}>heroicons-solid:star</FuseSvgIcon>
           </IconButton>
         </Tooltip>
       </motion.div>

@@ -2,7 +2,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -12,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import FuseSvgIcon from '../../../../../@fuse/core/FuseSvgIcon';
 
 function AboutTab() {
   const [data, setData] = useState(null);
@@ -70,9 +70,9 @@ function AboutTab() {
                 {general.locations.map((location) => (
                   <div className="flex items-center" key={location}>
                     <Typography>{location}</Typography>
-                    <Icon className="text-16 mx-4" color="action">
-                      location_on
-                    </Icon>
+                    <FuseSvgIcon className="mx-4" size={16} color="action">
+                      heroicons-outline:location-marker
+                    </FuseSvgIcon>
                   </div>
                 ))}
               </div>
@@ -222,7 +222,7 @@ function AboutTab() {
                     />
                     <ListItemSecondaryAction>
                       <IconButton size="large">
-                        <Icon>more_vert</Icon>
+                        <FuseSvgIcon>heroicons-outline:dots-vertical</FuseSvgIcon>
                       </IconButton>
                     </ListItemSecondaryAction>
                   </ListItem>

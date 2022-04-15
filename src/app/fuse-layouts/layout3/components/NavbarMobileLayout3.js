@@ -2,13 +2,13 @@ import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import { styled, useTheme } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Hidden from '@mui/material/Hidden';
-import Icon from '@mui/material/Icon';
 import Logo from 'app/fuse-layouts/shared-components/Logo';
 import NavbarToggleButton from 'app/fuse-layouts/shared-components/NavbarToggleButton';
 import Navigation from 'app/fuse-layouts/shared-components/Navigation';
 import UserNavbarHeader from 'app/fuse-layouts/shared-components/UserNavbarHeader';
 import clsx from 'clsx';
 import { memo } from 'react';
+import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 const Root = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.background.default,
@@ -46,7 +46,11 @@ function NavbarMobileLayout3(props) {
 
         <Hidden lgUp>
           <NavbarToggleButton className="w-40 h-40 p-0">
-            <Icon>{theme.direction === 'ltr' ? 'arrow_back' : 'arrow_forward'}"</Icon>
+            <FuseSvgIcon>
+              {theme.direction === 'ltr'
+                ? 'heroicons-outline:arrow-left'
+                : 'heroicons-outline:arrow-right'}
+            </FuseSvgIcon>
           </NavbarToggleButton>
         </Hidden>
       </AppBar>

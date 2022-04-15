@@ -1,7 +1,7 @@
-import Icon from '@mui/material/Icon';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
+import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 const Root = styled('div')({
   fontSize: 13,
@@ -34,7 +34,7 @@ function MailAttachment(props) {
         </Typography>
       </div>
       <IconButton size="large">
-        <Icon className="text-16">close</Icon>
+        <FuseSvgIcon size={16}>heroicons-outline:x</FuseSvgIcon>
       </IconButton>
     </Root>
   );

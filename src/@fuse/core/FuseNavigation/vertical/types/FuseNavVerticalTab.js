@@ -1,7 +1,6 @@
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import { styled, alpha } from '@mui/material/styles';
 import Tooltip from '@mui/material/Tooltip';
-import Icon from '@mui/material/Icon';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import clsx from 'clsx';
@@ -114,12 +113,13 @@ function FuseNavVerticalTab(props) {
             <>
               <div className="w-32 h-32 min-h-32 flex items-center justify-center relative mb-8">
                 {item.icon ? (
-                  <Icon
-                    className={clsx('fuse-list-item-icon text-32', item.iconClass)}
+                  <FuseSvgIcon
+                    size={32}
+                    className={clsx('fuse-list-item-icon', item.iconClass)}
                     color="action"
                   >
                     {item.icon}
-                  </Icon>
+                  </FuseSvgIcon>
                 ) : (
                   item.title && <div className="font-bold text-20">{item.title[0]}</div>
                 )}
@@ -135,7 +135,8 @@ function FuseNavVerticalTab(props) {
                 className="fuse-list-item-text grow-0 w-full"
                 primary={item.title}
                 classes={{
-                  primary: 'text-12 font-medium fuse-list-item-text-primary truncate text-center truncate',
+                  primary:
+                    'text-12 font-medium fuse-list-item-text-primary truncate text-center truncate',
                 }}
               />
             </>

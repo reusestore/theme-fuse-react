@@ -1,10 +1,10 @@
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDefaultSettings } from 'app/store/fuse/settingsSlice';
 import _ from '@lodash';
 import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 import { navbarToggleMobile, navbarToggle } from '../../store/fuse/navbarSlice';
+import FuseSvgIcon from '../../../@fuse/core/FuseSvgIcon';
 
 function NavbarToggleButton(props) {
   const dispatch = useDispatch();
@@ -38,9 +38,9 @@ function NavbarToggleButton(props) {
 
 NavbarToggleButton.defaultProps = {
   children: (
-    <Icon fontSize="inherit" className="text-16">
-      menu_open
-    </Icon>
+    <FuseSvgIcon size={20} color="action">
+      heroicons-outline:view-list
+    </FuseSvgIcon>
   ),
 };
 

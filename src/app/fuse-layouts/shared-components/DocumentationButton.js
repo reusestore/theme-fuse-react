@@ -1,6 +1,6 @@
 import Button from '@mui/material/Button';
-import Icon from '@mui/material/Icon';
 import { Link } from 'react-router-dom';
+import FuseSvgIcon from '../../../@fuse/core/FuseSvgIcon';
 
 function DocumentationButton({ className }) {
   return (
@@ -12,7 +12,7 @@ function DocumentationButton({ className }) {
       variant="contained"
       color="primary"
     >
-      <Icon className="text-16">import_contacts</Icon>
+      <FuseSvgIcon size={16}>heroicons-outline:book-open</FuseSvgIcon>
       <span className="mx-4">Documentation</span>
     </Button>
   );

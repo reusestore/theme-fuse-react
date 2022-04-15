@@ -1,7 +1,6 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import { styled } from '@mui/material/styles';
 import Avatar from '@mui/material/Avatar';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
@@ -12,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import InputBase from '@mui/material/InputBase';
 import { sendMessage } from './store/chatSlice';
 import { selectContacts } from './store/contactsSlice';
+import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 const StyledMessageRow = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -201,9 +201,9 @@ function Chat(props) {
           >
             {!chat && (
               <div className="flex flex-col flex-1 items-center justify-center p-24">
-                <Icon className="text-128" color="disabled">
-                  chat
-                </Icon>
+                <FuseSvgIcon size={128} color="disabled">
+                  heroicons-outline:chat
+                </FuseSvgIcon>
                 <Typography className="px-16 pb-24 mt-24 text-center" color="textSecondary">
                   Select a contact to start a conversation.
                 </Typography>
@@ -245,9 +245,9 @@ function Chat(props) {
             {chat?.dialog.length === 0 && (
               <div className="flex flex-col flex-1">
                 <div className="flex flex-col flex-1 items-center justify-center">
-                  <Icon className="text-128" color="disabled">
-                    chat
-                  </Icon>
+                  <FuseSvgIcon size={128} color="disabled">
+                    heroicons-outline:chat
+                  </FuseSvgIcon>
                 </div>
                 <Typography className="px-16 pb-24 text-center" color="textSecondary">
                   Start a conversation by typing your message below.
@@ -274,9 +274,9 @@ function Chat(props) {
               type="submit"
               size="large"
             >
-              <Icon className="text-24" color="action">
-                send
-              </Icon>
+              <FuseSvgIcon size={24} color="action">
+                heroicons-outline:chevron-right
+              </FuseSvgIcon>
             </IconButton>
           </Paper>
         </form>

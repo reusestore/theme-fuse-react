@@ -1,5 +1,4 @@
 import Checkbox from '@mui/material/Checkbox';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import Tooltip from '@mui/material/Tooltip';
@@ -220,7 +219,7 @@ function MailToolbar(props) {
                 onClick={(ev) => handleMenuOpen(ev, 'folders')}
                 size="small"
               >
-                <Icon>folder</Icon>
+                <FuseSvgIcon>heroicons-outline:folder</FuseSvgIcon>
               </IconButton>
             </Tooltip>
 
@@ -254,7 +253,7 @@ function MailToolbar(props) {
                 onClick={(ev) => handleMenuOpen(ev, 'labels')}
                 size="small"
               >
-                <Icon>label</Icon>
+                <FuseSvgIcon>heroicons-outline:tag</FuseSvgIcon>
               </IconButton>
             </Tooltip>
 

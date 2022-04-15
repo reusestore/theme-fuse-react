@@ -1,4 +1,3 @@
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
 import Select from '@mui/material/Select';
@@ -7,6 +6,7 @@ import { memo, useState } from 'react';
 import MenuItem from '@mui/material/MenuItem';
 import { useSelector } from 'react-redux';
 import { selectWidgets } from '../../../store/widgetsSlice';
+import FuseSvgIcon from '../../../../../../../@fuse/core/FuseSvgIcon';
 
 function SummaryWidget() {
   const widgets = useSelector(selectWidgets);
@@ -41,7 +41,7 @@ function SummaryWidget() {
           })}
         </Select>
         <IconButton aria-label="more" size="large">
-          <Icon>more_vert</Icon>
+          <FuseSvgIcon>heroicons-outline:dots-vertical</FuseSvgIcon>
         </IconButton>
       </div>
       <div className="text-center mt-8">

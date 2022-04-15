@@ -1,4 +1,3 @@
-import Icon from '@mui/material/Icon';
 import Input from '@mui/material/Input';
 import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
@@ -43,7 +42,7 @@ function ContactsHeader(props) {
           animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}
           className="flex flex-1 items-center px-16 mx-8 border-1 rounded-full"
         >
-          <Icon color="action">search</Icon>
+          <FuseSvgIcon color="action">heroicons-outline:search</FuseSvgIcon>
 
           <Input
             placeholder="Search contacts"

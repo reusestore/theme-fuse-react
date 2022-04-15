@@ -1,13 +1,13 @@
 import FuseHighlight from '@fuse/core/FuseHighlight';
 import AppBar from '@mui/material/AppBar';
 import Card from '@mui/material/Card';
-import Icon from '@mui/material/Icon';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import DemoFrame from './DemoFrame';
+import FuseSvgIcon from '../FuseSvgIcon';
 
 const propTypes = {
   name: PropTypes.string,
@@ -39,8 +39,18 @@ function FuseExample(props) {
           value={currentTab}
           onChange={handleChange}
         >
-          {Component && <Tab classes={{ root: 'min-w-64' }} icon={<Icon>remove_red_eye</Icon>} />}
-          {raw && <Tab classes={{ root: 'min-w-64' }} icon={<Icon>code</Icon>} />}
+          {Component && (
+            <Tab
+              classes={{ root: 'min-w-64' }}
+              icon={<FuseSvgIcon>heroicons-outline:eye</FuseSvgIcon>}
+            />
+          )}
+          {raw && (
+            <Tab
+              classes={{ root: 'min-w-64' }}
+              icon={<FuseSvgIcon>heroicons-outline:code</FuseSvgIcon>}
+            />
+          )}
         </Tabs>
       </AppBar>
       <div className="flex justify-center max-w-full relative">

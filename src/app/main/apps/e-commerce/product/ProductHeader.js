@@ -1,5 +1,4 @@
 import Button from '@mui/material/Button';
-import Icon from '@mui/material/Icon';
 import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
@@ -8,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import _ from '@lodash';
 import { saveProduct, removeProduct } from '../store/productSlice';
+import FuseSvgIcon from '../../../../../@fuse/core/FuseSvgIcon';
 
 function ProductHeader(props) {
   const dispatch = useDispatch();
@@ -44,9 +44,11 @@ function ProductHeader(props) {
             to="/apps/e-commerce/products"
             color="inherit"
           >
-            <Icon className="text-20">
-              {theme.direction === 'ltr' ? 'arrow_back' : 'arrow_forward'}
-            </Icon>
+            <FuseSvgIcon size={20}>
+              {theme.direction === 'ltr'
+                ? 'heroicons-outline:arrow-sm-left'
+                : 'heroicons-outline:arrow-sm-right'}
+            </FuseSvgIcon>
             <span className="hidden sm:flex mx-4 font-medium">Products</span>
           </Typography>
         </motion.div>
@@ -93,7 +95,7 @@ function ProductHeader(props) {
           variant="contained"
           color="secondary"
           onClick={handleRemoveProduct}
-          startIcon={<Icon className="hidden sm:flex">delete</Icon>}
+          startIcon={<FuseSvgIcon className="hidden sm:flex">heroicons-outline:trash</FuseSvgIcon>}
         >
           Remove
         </Button>

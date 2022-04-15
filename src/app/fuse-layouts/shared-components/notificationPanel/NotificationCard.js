@@ -1,9 +1,9 @@
 import Card from '@mui/material/Card';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import clsx from 'clsx';
 import NotificationIcon from './NotificationIcon';
+import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 function NotificationCard(props) {
   const { item, className } = props;
@@ -36,9 +36,9 @@ function NotificationCard(props) {
         size="small"
         onClick={handleClose}
       >
-        <Icon className="text-12 opacity-75" color="inherit">
-          close
-        </Icon>
+        <FuseSvgIcon size={12} className="opacity-75" color="inherit">
+          heroicons-outline:x
+        </FuseSvgIcon>
       </IconButton>
       {item.children}
     </Card>

@@ -1,9 +1,9 @@
 import { orange } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
-import Icon from '@mui/material/Icon';
 import clsx from 'clsx';
 import FuseUtils from '@fuse/utils';
 import { Controller, useFormContext } from 'react-hook-form';
+import FuseSvgIcon from '../../../../../../@fuse/core/FuseSvgIcon';
 
 const Root = styled('div')(({ theme }) => ({
   '& .productImageFeaturedStar': {
@@ -92,9 +92,9 @@ function ProductImagesTab(props) {
                   onChange([newImage, ...value]);
                 }}
               />
-              <Icon fontSize="large" color="action">
-                cloud_upload
-              </Icon>
+              <FuseSvgIcon size={32} color="action">
+                heroicons-outline:upload
+              </FuseSvgIcon>
             </label>
           )}
         />
@@ -115,7 +115,7 @@ function ProductImagesTab(props) {
                 )}
                 key={media.id}
               >
-                <Icon className="productImageFeaturedStar">star</Icon>
+                <FuseSvgIcon className="productImageFeaturedStar">heroicons-solid:star</FuseSvgIcon>
                 <img className="max-w-none w-auto h-full" src={media.url} alt="product" />
               </div>
             ))

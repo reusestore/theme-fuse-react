@@ -11,7 +11,6 @@ import Paper from '@mui/material/Paper';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Icon from '@mui/material/Icon';
 import { useParams } from 'react-router-dom';
 import { getChat, selectChat, sendMessage } from '../store/chatSlice';
 import { selectContactById } from '../store/contactsSlice';
@@ -169,7 +168,7 @@ function Chat(props) {
               className="flex lg:hidden"
               size="large"
             >
-              <Icon>chat</Icon>
+              <FuseSvgIcon>heroicons-outline:chat</FuseSvgIcon>
             </IconButton>
             <div
               className="flex items-center cursor-pointer"

@@ -159,7 +159,7 @@ function Product(props) {
               <Tab className="h-64" label="Inventory" />
               <Tab className="h-64" label="Shipping" />
             </Tabs>
-            <div className="p-16 sm:p-24 max-w-2xl">
+            <div className="p-16 sm:p-24 max-w-3xl">
               <div className={tabValue !== 0 ? 'hidden' : ''}>
                 <BasicInfoTab />
               </div>

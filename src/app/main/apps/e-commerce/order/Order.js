@@ -1,6 +1,5 @@
 import FusePageCarded from '@fuse/core/FusePageCarded';
 import Button from '@mui/material/Button';
-import Icon from '@mui/material/Icon';
 import { useTheme } from '@mui/material/styles';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
@@ -16,6 +15,7 @@ import { resetOrder, getOrder } from '../store/orderSlice';
 import InvoiceTab from './tabs/InvoiceTab';
 import OrderDetailsTab from './tabs/OrderDetailsTab';
 import ProductsTab from './tabs/ProductsTab';
+import FuseSvgIcon from '../../../../../@fuse/core/FuseSvgIcon';
 
 function Order(props) {
   const dispatch = useDispatch();
@@ -85,9 +85,11 @@ function Order(props) {
                 to="/apps/e-commerce/orders"
                 color="inherit"
               >
-                <Icon className="text-20">
-                  {theme.direction === 'ltr' ? 'arrow_back' : 'arrow_forward'}
-                </Icon>
+                <FuseSvgIcon size={20}>
+                  {theme.direction === 'ltr'
+                    ? 'heroicons-outline:arrow-sm-left'
+                    : 'heroicons-outline:arrow-sm-right'}
+                </FuseSvgIcon>
                 <span className="mx-4 font-medium">Orders</span>
               </Typography>
             </motion.div>
@@ -124,7 +126,7 @@ function Order(props) {
             <Tab className="h-64" label="Invoice" />
           </Tabs>
           {order && (
-            <div className="p-16 sm:p-24 max-w-2xl w-full">
+            <div className="p-16 sm:p-24 max-w-3xl w-full">
               {tabValue === 0 && <OrderDetailsTab />}
               {tabValue === 1 && <ProductsTab />}
               {tabValue === 2 && <InvoiceTab order={order} />}

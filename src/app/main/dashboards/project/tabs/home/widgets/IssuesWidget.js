@@ -1,10 +1,10 @@
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { selectWidgets } from '../../../store/widgetsSlice';
+import FuseSvgIcon from '../../../../../../../@fuse/core/FuseSvgIcon';
 
 function IssuesWidget() {
   const widgets = useSelector(selectWidgets);
@@ -20,7 +20,7 @@ function IssuesWidget() {
           {title}
         </Typography>
         <IconButton aria-label="more" size="large">
-          <Icon>more_vert</Icon>
+          <FuseSvgIcon>heroicons-outline:dots-vertical</FuseSvgIcon>
         </IconButton>
       </div>
       <div className="text-center mt-8">

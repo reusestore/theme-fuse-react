@@ -1,7 +1,6 @@
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import { useTheme } from '@mui/material/styles';
 import Hidden from '@mui/material/Hidden';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
 import Stepper from '@mui/material/Stepper';
@@ -166,7 +165,7 @@ function Course(props) {
                 aria-label="open left sidebar"
                 size="large"
               >
-                <Icon>menu</Icon>
+                <FuseSvgIcon>heroicons-outline:view-list</FuseSvgIcon>
               </IconButton>
 
               <Typography className="mx-8">{`${activeStep}/${course.totalSteps}`}</Typography>

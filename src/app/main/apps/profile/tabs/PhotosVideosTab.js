@@ -1,12 +1,12 @@
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import ListSubheader from '@mui/material/ListSubheader';
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import FuseSvgIcon from '../../../../../@fuse/core/FuseSvgIcon';
 
 function PhotosVideosTab() {
   const [data, setData] = useState(null);
@@ -66,7 +66,9 @@ function PhotosVideosTab() {
                         title={media.title}
                         actionIcon={
                           <IconButton size="large">
-                            <Icon className="text-white opacity-75">info</Icon>
+                            <FuseSvgIcon className="text-white opacity-75">
+                              heroicons-outline:information-circle
+                            </FuseSvgIcon>
                           </IconButton>
                         }
                       />

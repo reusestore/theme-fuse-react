@@ -1,10 +1,10 @@
 import FuseHighlight from '@fuse/core/FuseHighlight';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import Button from '@mui/material/Button';
-import Icon from '@mui/material/Icon';
 import Typography from '@mui/material/Typography';
 import { useDispatch } from 'react-redux';
 import { logoutUser } from 'app/auth/store/userSlice';
+import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 function AdminRoleExample(props) {
   const dispatch = useDispatch();
@@ -14,9 +14,12 @@ function AdminRoleExample(props) {
       header={
         <div className="flex flex-1 items-center justify-between p-24">
           <Typography className="h2">Admin: Auth role example page</Typography>
-          <Button variant="contained" onClick={(ev) => dispatch(logoutUser())}>
-            <Icon>exit_to_app</Icon>
-            <span className="mx-4">Logout</span>
+          <Button
+            variant="contained"
+            onClick={(ev) => dispatch(logoutUser())}
+            startIcon={<FuseSvgIcon>heroicons-outline:logout</FuseSvgIcon>}
+          >
+            Logout
           </Button>
         </div>
       }

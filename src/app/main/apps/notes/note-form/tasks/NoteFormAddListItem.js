@@ -2,12 +2,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import { Controller, useForm } from 'react-hook-form';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import ListItem from '@mui/material/ListItem';
 import NoteListItemModel from 'app/main/apps/notes/model/NoteListItemModel';
 import * as yup from 'yup';
 import _ from '@lodash';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 const defaultValues = {
   content: '',
@@ -62,7 +62,7 @@ function NoteFormAddListItem(props) {
                       disabled={_.isEmpty(dirtyFields) || !isValid}
                       size="large"
                     >
-                      <Icon fontSize="small">add</Icon>
+                      <FuseSvgIcon size={20}>heroicons-outline:plus</FuseSvgIcon>
                     </IconButton>
                   </InputAdornment>
                 ),

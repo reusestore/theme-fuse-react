@@ -1,15 +1,14 @@
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import { useTheme } from '@mui/material/styles';
-import Button from '@mui/material/Button';
 import { blue, green } from '@mui/material/colors';
-import Icon from '@mui/material/Icon';
-import IconButton from '@mui/material/IconButton';
 import Input from '@mui/material/Input';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { Pagination } from '@mui/material';
+import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 function ClassicSearchPage() {
   const theme = useTheme();
@@ -47,7 +46,7 @@ function ClassicSearchPage() {
                 'aria-label': 'Search',
               }}
             />
-            <Icon color="action">search</Icon>
+            <FuseSvgIcon color="action">heroicons-outline:search</FuseSvgIcon>
           </Paper>
         </div>
       }
@@ -84,24 +83,8 @@ function ClassicSearchPage() {
             </motion.div>
           )}
 
-          <div className="flex justify-center mt-32">
-            <div className="flex item-center">
-              <IconButton className="w-32" size="large">
-                <Icon className="text-20">
-                  {theme.direction === 'ltr' ? 'chevron_left' : 'chevron_right'}
-                </Icon>
-              </IconButton>
-              <Button className="font-normal min-w-32 h-48 p-0 px-8">1</Button>
-              <Button className="font-normal min-w-32 h-48 p-0 px-8">2</Button>
-              <Button className="font-normal min-w-32 h-48 p-0 px-8">3</Button>
-              <Button className="font-normal min-w-32 h-48 p-0 px-8">4</Button>
-              <Button className="font-normal min-w-32 h-48 p-0 px-8">5</Button>
-              <IconButton className="w-32" size="large">
-                <Icon className="text-20">
-                  {theme.direction === 'ltr' ? 'chevron_right' : 'chevron_left'}
-                </Icon>
-              </IconButton>
-            </div>
+          <div className="flex justify-center mt-48">
+            <Pagination count={10} color="secondary" />
           </div>
         </div>
       }

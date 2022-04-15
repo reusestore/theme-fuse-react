@@ -2,19 +2,19 @@ import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Avatar from '@mui/material/Avatar';
-import Icon from '@mui/material/Icon';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import GoogleMap from 'google-map-react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import OrdersStatus from '../OrdersStatus';
 
 function Marker(props) {
   return (
     <Tooltip title={props.text} placement="top">
-      <Icon className="text-red">place</Icon>
+      <FuseSvgIcon className="text-red">heroicons-outline:location-marker</FuseSvgIcon>
     </Tooltip>
   );
 }
@@ -27,7 +27,7 @@ function OrderDetailsTab() {
     <div>
       <div className="pb-48">
         <div className="pb-16 flex items-center">
-          <Icon color="action">account_circle</Icon>
+          <FuseSvgIcon color="action">heroicons-outline:user-circle</FuseSvgIcon>
           <Typography className="h2 mx-12 font-medium" color="textSecondary">
             Customer
           </Typography>
@@ -152,7 +152,7 @@ function OrderDetailsTab() {
 
       <div className="pb-48">
         <div className="pb-16 flex items-center">
-          <Icon color="action">access_time</Icon>
+          <FuseSvgIcon color="action">heroicons-outline:clock</FuseSvgIcon>
           <Typography className="h2 mx-12 font-medium" color="textSecondary">
             Order Status
           </Typography>
@@ -186,7 +186,7 @@ function OrderDetailsTab() {
 
       <div className="pb-48">
         <div className="pb-16 flex items-center">
-          <Icon color="action">attach_money</Icon>
+          <FuseSvgIcon color="action">heroicons-outline:currency-dollar</FuseSvgIcon>
           <Typography className="h2 mx-12 font-medium" color="textSecondary">
             Payment
           </Typography>
@@ -232,7 +232,7 @@ function OrderDetailsTab() {
 
       <div className="pb-48">
         <div className="pb-16 flex items-center">
-          <Icon color="action">local_shipping</Icon>
+          <FuseSvgIcon color="action">heroicons-outline:truck</FuseSvgIcon>
           <Typography className="h2 mx-12 font-medium" color="textSecondary">
             Shipping
           </Typography>

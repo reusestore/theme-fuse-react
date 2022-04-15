@@ -2,13 +2,13 @@ import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import { styled } from '@mui/material/styles';
 import Fab from '@mui/material/Fab';
 import Hidden from '@mui/material/Hidden';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Tooltip from '@mui/material/Tooltip';
 import clsx from 'clsx';
 import { memo, useState } from 'react';
+import FuseSvgIcon from '../FuseSvgIcon';
 
 const Root = styled('div')(({ theme }) => ({
   '& .FuseSidePanel-paper': {
@@ -212,7 +212,9 @@ function FuseSidePanel(props) {
                 disableRipple
                 size="large"
               >
-                <Icon className="FuseSidePanel-buttonIcon">keyboard_arrow_left</Icon>
+                <FuseSvgIcon className="FuseSidePanel-buttonIcon">
+                  heroicons-outline:chevron-left
+                </FuseSvgIcon>
               </IconButton>
             </Tooltip>
           </div>
@@ -240,9 +242,9 @@ function FuseSidePanel(props) {
             onClick={toggleMobileDrawer}
             disableRipple
           >
-            <Icon className="FuseSidePanel-buttonIcon" color="action">
-              keyboard_arrow_right
-            </Icon>
+            <FuseSvgIcon className="FuseSidePanel-buttonIcon">
+              heroicons-outline:chevron-right
+            </FuseSvgIcon>
           </Fab>
         </Tooltip>
       </Hidden>

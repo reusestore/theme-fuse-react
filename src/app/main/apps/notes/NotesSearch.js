@@ -1,4 +1,3 @@
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -41,7 +40,7 @@ NotesSearch.propTypes = {};
 NotesSearch.defaultProps = {
   trigger: (
     <IconButton className="w-64 h-64" size="large">
-      <Icon>search</Icon>
+      <FuseSvgIcon>heroicons-outline:search</FuseSvgIcon>
     </IconButton>
   ),
 };

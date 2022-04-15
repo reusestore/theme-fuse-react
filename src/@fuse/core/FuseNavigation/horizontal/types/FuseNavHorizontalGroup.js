@@ -2,7 +2,6 @@ import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import { styled, useTheme } from '@mui/material/styles';
 import { useDebounce } from '@fuse/hooks';
 import Grow from '@mui/material/Grow';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
@@ -124,9 +123,11 @@ function FuseNavHorizontalGroup(props) {
                     color="inherit"
                     size="large"
                   >
-                    <Icon className="text-16 arrow-icon">
-                      {theme.direction === 'ltr' ? 'keyboard_arrow_right' : 'keyboard_arrow_left'}
-                    </Icon>
+                    <FuseSvgIcon size={16} className="arrow-icon">
+                      {theme.direction === 'ltr'
+                        ? 'heroicons-outline:arrow-sm-right'
+                        : 'heroicons-outline:arrow-sm-left'}
+                    </FuseSvgIcon>
                   </IconButton>
                 )}
               </StyledListItem>

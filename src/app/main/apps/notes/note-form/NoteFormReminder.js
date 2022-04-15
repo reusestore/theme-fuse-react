@@ -1,6 +1,6 @@
-import Icon from '@mui/material/Icon';
 import { DateTimePicker } from '@mui/lab';
 import TextField from '@mui/material/TextField';
+import FuseSvgIcon from '../../../../../@fuse/core/FuseSvgIcon';
 
 function NoteFormReminder(props) {
   const reminder = new Date(props.reminder);
@@ -22,6 +22,9 @@ function NoteFormReminder(props) {
             '& .MuiOutlinedInput-notchedOutline': {
               display: 'none',
             },
+            '& .MuiOutlinedInput-root': {
+              padding: 0,
+            },
             '& .MuiInputBase-input': {
               position: 'absolute',
               pointerEvents: 'none',
@@ -31,7 +34,9 @@ function NoteFormReminder(props) {
           {..._props}
         />
       )}
-      components={{ OpenPickerIcon: () => <Icon fontSize="small">notifications_active</Icon> }}
+      components={{
+        OpenPickerIcon: () => <FuseSvgIcon size={20}>heroicons-outline:bell</FuseSvgIcon>,
+      }}
     />
   );
 }

@@ -4,13 +4,13 @@ import FuseSettings from '@fuse/core/FuseSettings';
 import Button from '@mui/material/Button';
 import { red } from '@mui/material/colors';
 import Dialog from '@mui/material/Dialog';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import Slide from '@mui/material/Slide';
 import Typography from '@mui/material/Typography';
 import { forwardRef, memo, useState } from 'react';
 import FuseThemeSchemes from '@fuse/core/FuseThemeSchemes';
 import { useSwipeable } from 'react-swipeable';
+import FuseSvgIcon from '../../../@fuse/core/FuseSvgIcon';
 
 const Root = styled('div')(({ theme }) => ({
   position: 'absolute',
@@ -37,7 +37,7 @@ const Root = styled('div')(({ theme }) => ({
   },
 
   '& .settingsButton': {
-    '& > span': {
+    '& > svg': {
       animation: 'rotating 3s linear infinite',
     },
   },
@@ -107,7 +107,7 @@ function SettingsPanel() {
           variant="text"
           color="inherit"
         >
-          <Icon className="text-20">settings</Icon>
+          <FuseSvgIcon size={20}>heroicons-outline:cog</FuseSvgIcon>
         </Button>
 
         <Button
@@ -116,7 +116,7 @@ function SettingsPanel() {
           variant="text"
           color="inherit"
         >
-          <Icon className="text-20">palette</Icon>
+          <FuseSvgIcon size={20}>heroicons-outline:color-swatch</FuseSvgIcon>
         </Button>
       </Root>
       <StyledDialog
@@ -138,7 +138,7 @@ function SettingsPanel() {
             onClick={handleClose}
             size="large"
           >
-            <Icon>close</Icon>
+            <FuseSvgIcon>heroicons-outline:x</FuseSvgIcon>
           </IconButton>
 
           <Typography className="mb-32 font-semibold" variant="h6">
@@ -167,7 +167,7 @@ function SettingsPanel() {
             onClick={handleClose}
             size="large"
           >
-            <Icon>close</Icon>
+            <FuseSvgIcon>heroicons-outline:x</FuseSvgIcon>
           </IconButton>
 
           <Typography className="mb-32" variant="h6">

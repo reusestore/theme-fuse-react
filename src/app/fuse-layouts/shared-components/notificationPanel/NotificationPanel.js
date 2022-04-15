@@ -1,6 +1,5 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import { styled } from '@mui/material/styles';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Typography from '@mui/material/Typography';
@@ -21,6 +20,7 @@ import {
 } from './store/dataSlice';
 import reducer from './store';
 import { closeNotificationPanel, toggleNotificationPanel } from './store/stateSlice';
+import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 const StyledSwipeableDrawer = styled(SwipeableDrawer)(({ theme }) => ({
   '& .MuiDrawer-paper': {
@@ -163,7 +163,7 @@ function NotificationPanel(props) {
       disableSwipeToOpen
     >
       <IconButton className="m-4 absolute top-0 right-0 z-999" onClick={handleClose} size="large">
-        <Icon color="action">close</Icon>
+        <FuseSvgIcon color="action">heroicons-outline:x</FuseSvgIcon>
       </IconButton>
       {notifications.length > 0 ? (
         <FuseScrollbars className="p-16">

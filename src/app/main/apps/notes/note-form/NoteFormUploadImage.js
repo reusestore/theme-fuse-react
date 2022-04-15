@@ -1,5 +1,5 @@
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
+import FuseSvgIcon from '../../../../../@fuse/core/FuseSvgIcon';
 
 function NoteFormUploadImage(props) {
   function handleChange(e) {
@@ -33,7 +33,7 @@ function NoteFormUploadImage(props) {
           onChange={handleChange}
         />
         <IconButton className="w-32 h-32 mx-4 p-0" component="span" size="large">
-          <Icon fontSize="small">image</Icon>
+          <FuseSvgIcon size={20}>heroicons-outline:photograph</FuseSvgIcon>
         </IconButton>
       </label>
     </>

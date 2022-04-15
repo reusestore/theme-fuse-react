@@ -1,6 +1,5 @@
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import { styled } from '@mui/material/styles';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
@@ -19,6 +18,7 @@ import Autosuggest from 'react-autosuggest';
 import { useSelector } from 'react-redux';
 import withRouter from '@fuse/core/withRouter';
 import { selectFlatNavigation } from 'app/store/fuse/navigationSlice';
+import FuseSvgIcon from '../FuseSvgIcon';
 
 const Root = styled('div')(({ theme }) => ({
   '& .FuseSearch-container': {
@@ -76,12 +76,12 @@ function renderInputComponent(inputProps) {
             variant="outlined"
             {...other}
           />
-          <Icon
+          <FuseSvgIcon
             className="absolute top-0 ltr:right-0 rtl:left-0 h-40 md:h-48 w-48 p-12 pointer-events-none"
             color="action"
           >
-            search
-          </Icon>
+            heroicons-outline:search
+          </FuseSvgIcon>
         </>
       ) : (
         // Standard
@@ -113,7 +113,7 @@ function renderSuggestion(suggestion, { query, isHighlighted }) {
     <MenuItem selected={isHighlighted} component="div">
       <ListItemIcon className="min-w-40">
         {suggestion.icon ? (
-          <Icon>{suggestion.icon}</Icon>
+          <FuseSvgIcon>{suggestion.icon}</FuseSvgIcon>
         ) : (
           <span className="text-20 w-24 font-semibold uppercase text-center">
             {suggestion.title[0]}
@@ -411,7 +411,7 @@ function FuseSearch(props) {
                     )}
                   />
                   <IconButton onClick={hideSearch} className="mx-8" size="large">
-                    <Icon>close</Icon>
+                    <FuseSvgIcon>heroicons-outline:x</FuseSvgIcon>
                   </IconButton>
                 </div>
               </Paper>
@@ -430,7 +430,7 @@ FuseSearch.propTypes = {};
 FuseSearch.defaultProps = {
   trigger: (
     <IconButton className="w-40 h-40" size="large">
-      <Icon>search</Icon>
+      <FuseSvgIcon>heroicons-outline:search</FuseSvgIcon>
     </IconButton>
   ),
   variant: 'full',

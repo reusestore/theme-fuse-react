@@ -1,5 +1,4 @@
 import Hidden from '@mui/material/Hidden';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import Input from '@mui/material/Input';
 import Paper from '@mui/material/Paper';
@@ -8,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectMainTheme } from 'app/store/fuse/settingsSlice';
 import { setMailsSearchText } from './store/mailsSlice';
+import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 function MailboxAppHeader(props) {
   const dispatch = useDispatch();
@@ -25,11 +25,11 @@ function MailboxAppHeader(props) {
               aria-label="open left sidebar"
               size="large"
             >
-              <Icon>menu</Icon>
+              <FuseSvgIcon>heroicons-outline:view-list</FuseSvgIcon>
             </IconButton>
           </Hidden>
 
-          <Icon color="action">search</Icon>
+          <FuseSvgIcon color="action">heroicons-outline:search</FuseSvgIcon>
 
           <Input
             placeholder={t('SEARCH_PLACEHOLDER')}

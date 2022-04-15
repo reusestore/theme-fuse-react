@@ -1,7 +1,6 @@
 import AppBar from '@mui/material/AppBar';
 import { styled, useTheme } from '@mui/material/styles';
 import Avatar from '@mui/material/Avatar';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
 import Toolbar from '@mui/material/Toolbar';
@@ -17,6 +16,7 @@ import reducer from './store';
 import { getContacts, selectContacts } from './store/contactsSlice';
 import { openChatPanel, closeChatPanel } from './store/stateSlice';
 import { getUserData } from './store/userSlice';
+import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 const Root = styled('div')(({ theme, opened }) => ({
   position: 'sticky',
@@ -175,7 +175,7 @@ function ChatPanel(props) {
                   onClick={(ev) => dispatch(openChatPanel())}
                   size="large"
                 >
-                  <Icon className="text-32">chat</Icon>
+                  <FuseSvgIcon size={32}>heroicons-outline:chat</FuseSvgIcon>
                 </IconButton>
                 {!selectedContactId && (
                   <Typography className="mx-8 text-16" color="inherit">
@@ -194,7 +194,7 @@ function ChatPanel(props) {
             )}
             <div className="flex px-4">
               <IconButton onClick={(ev) => dispatch(closeChatPanel())} color="inherit" size="large">
-                <Icon>close</Icon>
+                <FuseSvgIcon>heroicons-outline:x</FuseSvgIcon>
               </IconButton>
             </div>
           </Toolbar>

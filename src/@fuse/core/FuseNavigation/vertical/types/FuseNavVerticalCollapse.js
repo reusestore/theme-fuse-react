@@ -1,7 +1,6 @@
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import { styled, alpha } from '@mui/material/styles';
 import Collapse from '@mui/material/Collapse';
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
@@ -105,7 +104,8 @@ function FuseNavVerticalCollapse(props) {
             secondary={item.subtitle}
             classes={{
               primary: 'text-13 font-medium fuse-list-item-text-primary truncate',
-              secondary: 'text-11 font-medium fuse-list-item-text-secondary leading-normal truncate',
+              secondary:
+                'text-11 font-medium fuse-list-item-text-secondary leading-normal truncate',
             }}
           />
 
@@ -117,9 +117,9 @@ function FuseNavVerticalCollapse(props) {
             onClick={(ev) => ev.preventDefault()}
             size="large"
           >
-            <Icon className="text-16 arrow-icon" color="inherit">
-              {open ? 'expand_less' : 'expand_more'}
-            </Icon>
+            <FuseSvgIcon size={16} className="arrow-icon" color="inherit">
+              {open ? 'heroicons-solid:chevron-down' : 'heroicons-solid:chevron-right'}
+            </FuseSvgIcon>
           </IconButton>
         </ListItem>
 
