@@ -1,12 +1,12 @@
-import FuseShortcuts from '@fuse/core/FuseShortcuts';
 import FuseSidePanel from '@fuse/core/FuseSidePanel';
 import { memo } from 'react';
+import NavigationShortcuts from '../../shared-components/NavigationShortcuts';
 
 function LeftSideLayout3() {
   return (
     <>
       <FuseSidePanel>
-        <FuseShortcuts className="py-16 px-8" variant="vertical" />
+        <NavigationShortcuts className="py-16 px-8" variant="vertical" />
       </FuseSidePanel>
     </>
   );

@@ -8,19 +8,14 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import { selectFlatNavigation } from 'app/store/fuse/navigationSlice';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { memo, useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { updateUserShortcuts } from 'app/auth/store/userSlice';
 import FuseSvgIcon from '../FuseSvgIcon';
 
 function FuseShortcuts(props) {
-  const dispatch = useDispatch();
-  const shortcuts = useSelector(({ auth }) => auth.user.data.shortcuts) || [];
-  const navigation = useSelector(selectFlatNavigation);
+  const { navigation, shortcuts, onChange } = props;
 
   const searchInputRef = useRef(null);
   const [addMenu, setAddMenu] = useState(null);
@@ -57,12 +52,24 @@ function FuseShortcuts(props) {
     newShortcuts = newShortcuts.includes(id)
       ? newShortcuts.filter((_id) => id !== _id)
       : [...newShortcuts, id];
-    dispatch(updateUserShortcuts(newShortcuts));
+    onChange(newShortcuts);
   }
 
+  const container = {
+    show: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
   function ShortcutMenuItem({ item, onToggle }) {
+    if (!item || !item.id) {
+      return null;
+    }
+
     return (
-      <Link to={item.url} role="button">
+      <Link to={item.url || ''} role="button">
         <MenuItem key={item.id}>
           <ListItemIcon className="min-w-40">
             {item.icon ? (
@@ -88,13 +95,6 @@ function FuseShortcuts(props) {
       </Link>
     );
   }
-  const container = {
-    show: {
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
 
   const item = {
     hidden: { opacity: 0, scale: 0.6 },
@@ -164,7 +164,7 @@ function FuseShortcuts(props) {
         open={Boolean(addMenu)}
         onClose={addMenuClose}
         classes={{
-          paper: 'mt-48 min-w-256',
+          paper: 'min-w-256',
         }}
         TransitionProps={{
           onEntered: () => {

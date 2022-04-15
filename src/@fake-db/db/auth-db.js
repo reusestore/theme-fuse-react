@@ -49,7 +49,7 @@ const authDB = {
 						footer: 'defaultDark'
 					}
 				},
-				shortcuts: ['calendar', 'mail', 'contacts']
+				shortcuts: ['apps.calendar', 'apps.mailbox', 'apps.contacts']
 			}
 		},
 		{
@@ -88,7 +88,7 @@ const authDB = {
 						footer: 'mainThemeDark'
 					}
 				},
-				shortcuts: ['calendar', 'mail', 'contacts', 'todo']
+				shortcuts: ['apps.calendar', 'apps.mailbox', 'apps.contacts', 'apps.tasks']
 			}
 		}
 	]

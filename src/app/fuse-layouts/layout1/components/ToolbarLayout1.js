@@ -1,6 +1,5 @@
 import FuseSearch from '@fuse/core/FuseSearch';
 import { ThemeProvider } from '@mui/material/styles';
-import FuseShortcuts from '@fuse/core/FuseShortcuts';
 import AppBar from '@mui/material/AppBar';
 import Hidden from '@mui/material/Hidden';
 import Toolbar from '@mui/material/Toolbar';
@@ -16,6 +15,7 @@ import AdjustFontSize from '../../shared-components/AdjustFontSize';
 import FullScreenToggle from '../../shared-components/FullScreenToggle';
 import LanguageSwitcher from '../../shared-components/LanguageSwitcher';
 import NotificationPanelToggleButton from '../../shared-components/notificationPanel/NotificationPanelToggleButton';
+import NavigationShortcuts from '../../shared-components/NavigationShortcuts';
 
 function ToolbarLayout1(props) {
   const config = useSelector(({ fuse }) => fuse.settings.current.layout.config);
@@ -53,7 +53,7 @@ function ToolbarLayout1(props) {
             )}
 
             <Hidden lgDown>
-              <FuseShortcuts />
+              <NavigationShortcuts />
             </Hidden>
           </div>
 
