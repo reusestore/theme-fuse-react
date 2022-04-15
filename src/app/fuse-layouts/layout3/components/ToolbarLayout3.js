@@ -1,4 +1,3 @@
-import FuseSearch from '@fuse/core/FuseSearch';
 import { ThemeProvider } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Hidden from '@mui/material/Hidden';
@@ -16,6 +15,7 @@ import AdjustFontSize from '../../shared-components/AdjustFontSize';
 import FullScreenToggle from '../../shared-components/FullScreenToggle';
 import LanguageSwitcher from '../../shared-components/LanguageSwitcher';
 import NotificationPanelToggleButton from '../../shared-components/notificationPanel/NotificationPanelToggleButton';
+import NavigationSearch from '../../shared-components/NavigationSearch';
 
 function ToolbarLayout3(props) {
   const config = useSelector(({ fuse }) => fuse.settings.current.layout.config);
@@ -44,13 +44,13 @@ function ToolbarLayout3(props) {
 
           <div className="flex flex-1">
             <Hidden smDown>
-              <FuseSearch className="mx-16 lg:mx-24" variant="basic" />
+              <NavigationSearch className="mx-16 lg:mx-24" variant="basic" />
             </Hidden>
           </div>
 
           <div className="flex items-center px-8 md:px-0 h-full overflow-x-auto">
             <Hidden smUp>
-              <FuseSearch />
+              <NavigationSearch />
             </Hidden>
 
             <Hidden lgUp>

@@ -16,6 +16,7 @@ import FullScreenToggle from '../../shared-components/FullScreenToggle';
 import LanguageSwitcher from '../../shared-components/LanguageSwitcher';
 import NotificationPanelToggleButton from '../../shared-components/notificationPanel/NotificationPanelToggleButton';
 import NavigationShortcuts from '../../shared-components/NavigationShortcuts';
+import NavigationSearch from '../../shared-components/NavigationSearch';
 
 function ToolbarLayout2(props) {
   const config = useSelector(({ fuse }) => fuse.settings.current.layout.config);
@@ -49,7 +50,7 @@ function ToolbarLayout2(props) {
 
             <FullScreenToggle />
 
-            <FuseSearch />
+            <NavigationSearch />
 
             <Hidden lgUp>
               <ChatPanelToggleButton />

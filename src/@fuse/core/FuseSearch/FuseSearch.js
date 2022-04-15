@@ -15,9 +15,7 @@ import clsx from 'clsx';
 import _ from '@lodash';
 import { memo, useEffect, useReducer, useRef } from 'react';
 import Autosuggest from 'react-autosuggest';
-import { useSelector } from 'react-redux';
 import withRouter from '@fuse/core/withRouter';
-import { selectFlatNavigation } from 'app/store/fuse/navigationSlice';
 import FuseSvgIcon from '../FuseSvgIcon';
 
 const Root = styled('div')(({ theme }) => ({
@@ -222,7 +220,7 @@ function reducer(state, action) {
 }
 
 function FuseSearch(props) {
-  const navigation = useSelector(selectFlatNavigation);
+  const { navigation } = props;
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
