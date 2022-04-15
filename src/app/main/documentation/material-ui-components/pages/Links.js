@@ -1,6 +1,6 @@
 import FuseExample from '@fuse/core/FuseExample';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Button from '@mui/material/Button';
-import Icon from '@mui/material/Icon';
 import Typography from '@mui/material/Typography';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint import/extensions: off */
@@ -19,9 +19,9 @@ function LinksDoc(props) {
           href="https://mui.com/components/links"
           target="_blank"
           role="button"
+          startIcon={<FuseSvgIcon>heroicons-outline:external-link</FuseSvgIcon>}
         >
-          <Icon>link</Icon>
-          <span className="mx-4">Reference</span>
+          Reference
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
@@ -56,11 +56,11 @@ function LinksDoc(props) {
       </Typography>
       <ul>
         <li>
-          <code>color="primary"</code> as the link needs to stand out.
+          <code>{`color="primary"`}</code> as the link needs to stand out.
         </li>
         <li>
-          <code>variant="inherit"</code> as the link will, most of the time, be used as a child of a
-          Typography component.
+          <code>{`variant="inherit"`}</code> as the link will, most of the time, be used as a child
+          of a Typography component.
         </li>
       </ul>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -86,21 +86,21 @@ function LinksDoc(props) {
         Security
       </Typography>
       <Typography className="mb-40" component="div">
-        When you use <code>target="_blank"</code> with Links, it is{' '}
+        When you use <code>{`target="_blank"`}</code> with Links, it is{' '}
         <a href="https://developers.google.com/web/tools/lighthouse/audits/noopener">recommended</a>{' '}
-        to always set <code>rel="noopener"</code> or <code>rel="noreferrer"</code> when linking to
-        third party content.
+        to always set <code>{`rel="noopener"`}</code> or <code>{`rel="noreferrer"`}</code> when
+        linking to third party content.
       </Typography>
       <ul>
         <li>
-          <code>rel="noopener"</code> prevents the new page from being able to access the{' '}
+          <code>{`rel="noopener"`}</code> prevents the new page from being able to access the{' '}
           <code>window.opener</code> property and ensures it runs in a separate process. Without
           this, the target page can potentially redirect your page to a malicious URL.
         </li>
         <li>
-          <code>rel="noreferrer"</code> has the same effect, but also prevents the <em>Referer</em>{' '}
-          header from being sent to the new page. ⚠️ Removing the referrer header will affect
-          analytics.
+          <code>{`rel="noreferrer"`}</code> has the same effect, but also prevents the{' '}
+          <em>Referer</em> header from being sent to the new page. ⚠️ Removing the referrer header
+          will affect analytics.
         </li>
       </ul>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -133,7 +133,7 @@ function LinksDoc(props) {
         </li>
         <li>
           For the best user experience, links should stand out from the text on the page. For
-          instance, you can keep the default <code>underline="always"</code> behavior.
+          instance, you can keep the default <code>{`underline="always"`}</code> behavior.
         </li>
         <li>
           If a link doesn&#39;t have a meaningful href,{' '}

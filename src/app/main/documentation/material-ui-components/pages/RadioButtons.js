@@ -1,7 +1,7 @@
 import FuseExample from '@fuse/core/FuseExample';
 import FuseHighlight from '@fuse/core/FuseHighlight';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Button from '@mui/material/Button';
-import Icon from '@mui/material/Icon';
 import Typography from '@mui/material/Typography';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint import/extensions: off */
@@ -20,9 +20,9 @@ function RadioButtonsDoc(props) {
           href="https://mui.com/components/radio-buttons"
           target="_blank"
           role="button"
+          startIcon={<FuseSvgIcon>heroicons-outline:external-link</FuseSvgIcon>}
         >
-          <Icon>link</Icon>
-          <span className="mx-4">Reference</span>
+          Reference
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
@@ -295,7 +295,7 @@ import { useRadioGroup } from '@mui/material/RadioGroup';
   value="radioA"
   inputProps={{
     'aria-label': 'Radio A',
-
+  
 />
 `}
       </FuseHighlight>

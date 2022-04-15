@@ -1,7 +1,7 @@
 import FuseExample from '@fuse/core/FuseExample';
 import FuseHighlight from '@fuse/core/FuseHighlight';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Button from '@mui/material/Button';
-import Icon from '@mui/material/Icon';
 import Typography from '@mui/material/Typography';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint import/extensions: off */
@@ -20,9 +20,9 @@ function AutocompleteDoc(props) {
           href="https://mui.com/components/autocomplete"
           target="_blank"
           role="button"
+          startIcon={<FuseSvgIcon>heroicons-outline:external-link</FuseSvgIcon>}
         >
-          <Icon>link</Icon>
-          <span className="mx-4">Reference</span>
+          Reference
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
@@ -217,7 +217,7 @@ const options = ['The Godfather', 'Pulp Fiction'];
           <kbd className="key">Home</kbd> and <kbd className="key">End</kbd> keys.
         </li>
         <li>
-          A last option, for instance: <code>Add "YOUR SEARCH"</code>.
+          A last option, for instance: <code>{`Add "YOUR SEARCH"`}</code>.
         </li>
       </ul>
       <Typography className="mb-40" component="div">
@@ -393,7 +393,7 @@ import useAutocomplete from '@mui/material/useAutocomplete';
 <Autocomplete filterOptions={(x) => x} />
 `}
       </FuseHighlight>
-     {/*  <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
+      <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
         Google Maps place
       </Typography>
       <Typography className="mb-40" component="div">
@@ -424,7 +424,7 @@ import useAutocomplete from '@mui/material/useAutocomplete';
           ⚠️ Before you can start using the Google Maps JavaScript API and Places API, you must sign
           up and create a billing account.
         </Typography>
-      </blockquote> */}
+      </blockquote>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
         Multiple values
       </Typography>
@@ -621,7 +621,7 @@ import { createFilterOptions } from '@mui/material/Autocomplete';
         </li>
         <li>
           <code>config.matchFrom</code> (<em>&#39;any&#39; | &#39;start&#39;</em> [optional]):
-          Defaults to <code>'any'</code>.
+          Defaults to <code>{`'any'`}</code>.
         </li>
         <li>
           <code>config.stringify</code> (<em>func</em> [optional]): Controls how an option is
@@ -719,7 +719,7 @@ const filterOptions = (options, { inputValue }) => matchSorter(options, inputVal
       event.defaultMuiPrevented = true;
       // your handler code
     }
-
+  
 />
 `}
       </FuseHighlight>
@@ -736,7 +736,7 @@ const filterOptions = (options, { inputValue }) => matchSorter(options, inputVal
       <Typography className="mb-40" component="div">
         By default, the component disables the input <strong>autocomplete</strong> feature
         (remembering what the user has typed for a given field in a previous session) with the{' '}
-        <code>autoComplete="off"</code> attribute. Google Chrome does not currently support this
+        <code>{`autoComplete="off"`}</code> attribute. Google Chrome does not currently support this
         attribute setting (
         <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=587466">Issue 587466</a>). A
         possible workaround is to remove the <code>id</code> to have the component generate a random
@@ -751,13 +751,13 @@ const filterOptions = (options, { inputValue }) => matchSorter(options, inputVal
         <li>
           <Typography className="mb-40" component="div">
             Name the input without leaking any information the browser can use. e.g.{' '}
-            <code>id="field1"</code> instead of <code>id="country"</code>. If you leave the id
-            empty, the component uses a random id.
+            <code>{`id="field1"`}</code> instead of <code>{`id="country"`}</code>. If you leave the
+            id empty, the component uses a random id.
           </Typography>
         </li>
         <li>
           <Typography className="mb-40" component="div">
-            Set <code>autoComplete="new-password"</code> (some browsers will suggest a strong
+            Set <code>{`autoComplete="new-password"`}</code> (some browsers will suggest a strong
             password for inputs with this attribute setting):
           </Typography>
 
@@ -768,7 +768,7 @@ const filterOptions = (options, { inputValue }) => matchSorter(options, inputVal
   inputProps={{
     ...params.inputProps,
     autoComplete: 'new-password',
-
+  
 />
 `}
           </FuseHighlight>

@@ -1,7 +1,7 @@
 import FuseExample from '@fuse/core/FuseExample';
 import FuseHighlight from '@fuse/core/FuseHighlight';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Button from '@mui/material/Button';
-import Icon from '@mui/material/Icon';
 import Typography from '@mui/material/Typography';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint import/extensions: off */
@@ -20,9 +20,9 @@ function SnackbarsDoc(props) {
           href="https://mui.com/components/snackbars"
           target="_blank"
           role="button"
+          startIcon={<FuseSvgIcon>heroicons-outline:external-link</FuseSvgIcon>}
         >
-          <Icon>link</Icon>
-          <span className="mx-4">Reference</span>
+          Reference
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
@@ -269,8 +269,8 @@ export default function MyComponent() {
       <Typography className="mb-40" component="div">
         When open, <strong>every</strong> <code>Snackbar</code> will be dismissed if{' '}
         <kbd className="key">Escape</kbd> is pressed. Unless you don&#39;t handle{' '}
-        <code>onClose</code> with the <code>"escapeKeyDown"</code> reason. If you want to limit this
-        behavior to only dismiss the oldest currently open Snackbar call{' '}
+        <code>onClose</code> with the <code>{`"escapeKeyDown"`}</code> reason. If you want to limit
+        this behavior to only dismiss the oldest currently open Snackbar call{' '}
         <code>event.preventDefault</code> in <code>onClose</code>.
       </Typography>
 
@@ -287,7 +287,7 @@ export default function MyComponent() {
           // \`reason === 'escapeKeyDown'\` if \`Escape\` was pressed
           setOpen(false);
           // call \`event.preventDefault\` to only close one Snackbar at a time.
-
+        
       />
       <Snackbar open={open} onClose={() => setOpen(false)} />
     </React.Fragment>

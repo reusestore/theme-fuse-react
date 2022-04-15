@@ -1,7 +1,7 @@
 import FuseExample from '@fuse/core/FuseExample';
 import FuseHighlight from '@fuse/core/FuseHighlight';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Button from '@mui/material/Button';
-import Icon from '@mui/material/Icon';
 import Typography from '@mui/material/Typography';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint import/extensions: off */
@@ -20,9 +20,9 @@ function SelectsDoc(props) {
           href="https://mui.com/components/selects"
           target="_blank"
           role="button"
+          startIcon={<FuseSvgIcon>heroicons-outline:external-link</FuseSvgIcon>}
         >
-          <Icon>link</Icon>
-          <span className="mx-4">Reference</span>
+          Reference
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
@@ -183,9 +183,9 @@ function SelectsDoc(props) {
       <Typography className="mb-40" component="div">
         The first step is to style the <code>InputBase</code> component. Once it&#39;s styled, you
         can either use it directly as a text field or provide it to the select <code>input</code>{' '}
-        prop to have a <code>select</code> field. Notice that the <code>"standard"</code> variant is
-        easier to customize, since it does not wrap the contents in a <code>fieldset</code>/
-        <code>legend</code> markup.
+        prop to have a <code>select</code> field. Notice that the <code>{`"standard"`}</code>{' '}
+        variant is easier to customize, since it does not wrap the contents in a{' '}
+        <code>fieldset</code>/<code>legend</code> markup.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample

@@ -1,7 +1,7 @@
 import FuseExample from '@fuse/core/FuseExample';
 import FuseHighlight from '@fuse/core/FuseHighlight';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Button from '@mui/material/Button';
-import Icon from '@mui/material/Icon';
 import Typography from '@mui/material/Typography';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint import/extensions: off */
@@ -20,9 +20,9 @@ function GridDoc(props) {
           href="https://mui.com/components/grid"
           target="_blank"
           role="button"
+          startIcon={<FuseSvgIcon>heroicons-outline:external-link</FuseSvgIcon>}
         >
-          <Icon>link</Icon>
-          <span className="mx-4">Reference</span>
+          Reference
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
@@ -285,8 +285,8 @@ function GridDoc(props) {
         Variable width content
       </Typography>
       <Typography className="mb-40" component="div">
-        Set one of the size breakpoint props to <code>"auto"</code> instead of <code>true</code> / a{' '}
-        <code>number</code> to size a column based on the natural width of its content.
+        Set one of the size breakpoint props to <code>{`"auto"`}</code> instead of <code>true</code>{' '}
+        / a <code>number</code> to size a column based on the natural width of its content.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -436,8 +436,8 @@ function GridDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         The <code>xs</code>, <code>sm</code>, <code>md</code>, <code>lg</code>, and <code>xl</code>{' '}
-        props are <strong>not supported</strong> within <code>direction="column"</code> and{' '}
-        <code>direction="column-reverse"</code> containers.
+        props are <strong>not supported</strong> within <code>{`direction="column"`}</code> and{' '}
+        <code>{`direction="column-reverse"`}</code> containers.
       </Typography>
       <Typography className="mb-40" component="div">
         They define the number of grids the component will use for a given breakpoint. They are

@@ -1,4 +1,3 @@
-import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
@@ -6,33 +5,16 @@ import FuseNavigation from '@fuse/core/FuseNavigation/FuseNavigation';
 import FuseSuspense from '@fuse/core/FuseSuspense';
 import { Link, Outlet } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
-import DocumentationNavigation from './DocumentationNavigation';
+import FusePageCarded from '@fuse/core/FusePageCarded';
+import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import DocumentationPageBreadcrumb from './DocumentationPageBreadcrumb';
-import FusePageCarded from '../../../@fuse/core/FusePageCarded';
-import useThemeMediaQuery from '../../../@fuse/hooks/useThemeMediaQuery';
+import DocumentationNavigation from './DocumentationNavigation';
 
 const Root = styled(FusePageCarded)(({ theme }) => ({
-  height: '100%',
-  '& .FusePageSimple-header': {
-    minHeight: 64,
-    height: 64,
-  },
-  '& .FusePageSimple-wrapper': {
-    minHeight: 0,
-  },
-  '& .FusePageSimple-content': {
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100%',
-    padding: 16,
-    [theme.breakpoints.up('md')]: {
-      padding: 24,
-    },
-  },
-  '& .FusePageSimple-sidebar': {
-    width: 288,
-    paddingTop: 8,
-  },
+  '& .FusePageCarded-header': {},
+  '& .FusePageCarded-wrapper': {},
+  '& .FusePageCarded-leftSidebar': {},
   '& .description': {
     fontSize: 20,
     marginBottom: 40,
@@ -56,7 +38,7 @@ function DocumentationPageLayout(props) {
             aria-label="toggle left sidebar"
             size="large"
           >
-            <Icon>menu</Icon>
+            <FuseSvgIcon>heroicons-outline:view-list</FuseSvgIcon>
           </IconButton>
           <div className="flex flex-1 items-center sm:justify-center px-8 lg:px-12">
             <Link
@@ -65,13 +47,14 @@ function DocumentationPageLayout(props) {
               className="text-14 md:text-18 font-medium flex items-center"
               role="button"
             >
-              <Icon className="mr-8">import_contacts</Icon> <span>Fuse React - Documentation</span>
+              <FuseSvgIcon className="mr-8">heroicons-outline:book-open</FuseSvgIcon>{' '}
+              <span>Fuse React - Documentation</span>
             </Link>
           </div>
         </div>
       }
       content={
-        <div className="p-24 max-w-2xl min-h-full flex flex-auto flex-col">
+        <div className="p-16 md:p-24 max-w-3xl min-h-full flex flex-auto flex-col">
           <DocumentationPageBreadcrumb />
           <div className="flex flex-col flex-1 relative py-32">
             <FuseSuspense>
@@ -89,6 +72,7 @@ function DocumentationPageLayout(props) {
         </div>
       }
       leftSidebarOpen={leftSidebarOpen}
+      leftSidebarWidth={288}
       leftSidebarOnClose={() => {
         setLeftSidebarOpen(false);
       }}

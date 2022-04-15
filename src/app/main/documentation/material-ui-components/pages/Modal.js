@@ -1,7 +1,7 @@
 import FuseExample from '@fuse/core/FuseExample';
 import FuseHighlight from '@fuse/core/FuseHighlight';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Button from '@mui/material/Button';
-import Icon from '@mui/material/Icon';
 import Typography from '@mui/material/Typography';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint import/extensions: off */
@@ -20,9 +20,9 @@ function ModalDoc(props) {
           href="https://mui.com/components/modal"
           target="_blank"
           role="button"
+          startIcon={<FuseSvgIcon>heroicons-outline:external-link</FuseSvgIcon>}
         >
-          <Icon>link</Icon>
-          <span className="mx-4">Reference</span>
+          Reference
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
@@ -285,9 +285,9 @@ import ModalUnstyled from '@mui/base/ModalUnstyled';
       <ul>
         <li>
           <Typography className="mb-40" component="div">
-            Be sure to add <code>aria-labelledby="id..."</code>, referencing the modal title, to the{' '}
-            <code>Modal</code>. Additionally, you may give a description of your modal with the{' '}
-            <code>aria-describedby="id..."</code> prop on the <code>Modal</code>.
+            Be sure to add <code>{`aria-labelledby="id..."`}</code>, referencing the modal title, to
+            the <code>Modal</code>. Additionally, you may give a description of your modal with the{' '}
+            <code>{`aria-describedby="id..."`}</code> prop on the <code>Modal</code>.
           </Typography>
 
           <FuseHighlight component="pre" className="language-jsx">

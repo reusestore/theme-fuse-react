@@ -1,7 +1,7 @@
 import FuseExample from '@fuse/core/FuseExample';
 import FuseHighlight from '@fuse/core/FuseHighlight';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Button from '@mui/material/Button';
-import Icon from '@mui/material/Icon';
 import Typography from '@mui/material/Typography';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint import/extensions: off */
@@ -20,9 +20,9 @@ function TabsDoc(props) {
           href="https://mui.com/components/tabs"
           target="_blank"
           role="button"
+          startIcon={<FuseSvgIcon>heroicons-outline:external-link</FuseSvgIcon>}
         >
-          <Icon>link</Icon>
-          <span className="mx-4">Reference</span>
+          Reference
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
@@ -140,8 +140,8 @@ function TabsDoc(props) {
         Full width
       </Typography>
       <Typography className="mb-40" component="div">
-        The <code>variant="fullWidth"</code> prop should be used for smaller views. This demo also
-        uses{' '}
+        The <code>{`variant="fullWidth"`}</code> prop should be used for smaller views. This demo
+        also uses{' '}
         <a href="https://github.com/oliviertassinari/react-swipeable-views">
           react-swipeable-views
         </a>{' '}
@@ -292,7 +292,7 @@ function TabsDoc(props) {
       </Typography>
       <Typography className="mb-40" component="div">
         To make vertical tabs instead of default horizontal ones, there is{' '}
-        <code>orientation="vertical"</code>:
+        <code>{`orientation="vertical"`}</code>:
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -404,7 +404,7 @@ function TabsDoc(props) {
         </li>
         <li>
           <code>Tab</code>s need to be connected to their corresponding{' '}
-          <code>[role="tabpanel"]</code> by setting the correct <code>id</code>,{' '}
+          <code>{`[role="tabpanel"]`}</code> by setting the correct <code>id</code>,{' '}
           <code>aria-controls</code> and <code>aria-labelledby</code>.
         </li>
       </ol>

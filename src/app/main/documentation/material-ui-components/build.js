@@ -2,7 +2,7 @@
 import fs from 'fs';
 import Beautify from 'js-beautify';
 import _ from 'lodash';
-import marked from 'marked';
+import { marked } from 'marked';
 import path from 'path';
 import { spawn } from 'child_process';
 
@@ -27,7 +27,16 @@ marked.Lexer.prototype.lex = function lex(src) {
     .replace(/\r\n|\r/g, '\n')
     .replace(/\t/g, '    ')
     .replace(/\u2424/g, '\n');
-  return this.token(src, true);
+
+  this.blockTokens(src, this.tokens);
+
+  let next;
+  // eslint-disable-next-line no-cond-assign
+  while ((next = this.inlineQueue.shift())) {
+    this.inlineTokens(next.src, next.tokens);
+  }
+
+  return this.tokens;
 };
 
 const renderer = new marked.Renderer();
@@ -231,9 +240,9 @@ function writePage(file) {
 							href="https://mui.com/components/${path.basename(file)}" 
 							target="_blank"
 							role="button"
+							startIcon={<FuseSvgIcon>heroicons-outline:external-link</FuseSvgIcon>}
 							>
-							<Icon>link</Icon>
-							<span className="mx-4">Reference</span>
+							Reference
 						</Button>
 					</div>
                      ${htmlCode}
@@ -244,6 +253,7 @@ function writePage(file) {
 
   const content = `import FuseExample from '@fuse/core/FuseExample';
                    import FuseHighlight from '@fuse/core/FuseHighlight';
+                   import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
                    import Button from '@mui/material/Button';
                    import Icon from '@mui/material/Icon';
                    import Typography from '@mui/material/Typography';

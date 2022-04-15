@@ -1,6 +1,6 @@
 import { styled } from '@mui/material/styles';
 import clsx from 'clsx';
-import marked from 'marked';
+import { marked } from 'marked';
 import PropTypes from 'prop-types';
 import prism from './prism';
 
@@ -176,15 +176,21 @@ const Root = styled('div')(({ theme }) => ({
   },
 }));
 
-// Monkey patch to preserve non-breaking spaces
-// https://github.com/chjj/marked/blob/6b0416d10910702f73da9cb6bb3d4c8dcb7dead7/lib/marked.js#L142-L150
 marked.Lexer.prototype.lex = function lex(src) {
   src = src
     .replace(/\r\n|\r/g, '\n')
     .replace(/\t/g, '    ')
     .replace(/\u2424/g, '\n');
 
-  return this.token(src, true);
+  this.blockTokens(src, this.tokens);
+
+  let next;
+  // eslint-disable-next-line no-cond-assign
+  while ((next = this.inlineQueue.shift())) {
+    this.inlineTokens(next.src, next.tokens);
+  }
+
+  return this.tokens;
 };
 
 const renderer = new marked.Renderer();

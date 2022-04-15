@@ -1,6 +1,6 @@
 import FuseHighlight from '@fuse/core/FuseHighlight';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Button from '@mui/material/Button';
-import Icon from '@mui/material/Icon';
 import Typography from '@mui/material/Typography';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint import/extensions: off */
@@ -19,9 +19,9 @@ function CssBaselineDoc(props) {
           href="https://mui.com/components/css-baseline"
           target="_blank"
           role="button"
+          startIcon={<FuseSvgIcon>heroicons-outline:external-link</FuseSvgIcon>}
         >
-          <Icon>link</Icon>
-          <span className="mx-4">Reference</span>
+          Reference
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
@@ -160,9 +160,9 @@ const theme = createTheme({
         Color scheme
       </Typography>
       <Typography className="mb-40" component="div">
-        This API is introduced in @mui/material (v5.1.0) for switching between <code>"light"</code>{' '}
-        and <code>"dark"</code> modes of native components such as scrollbar, using the{' '}
-        <code>color-scheme</code> CSS property. To enable it, you can set{' '}
+        This API is introduced in @mui/material (v5.1.0) for switching between{' '}
+        <code>{`"light"`}</code> and <code>{`"dark"`}</code> modes of native components such as
+        scrollbar, using the <code>color-scheme</code> CSS property. To enable it, you can set{' '}
         <code>enableColorScheme=true</code> as follows:
       </Typography>
 

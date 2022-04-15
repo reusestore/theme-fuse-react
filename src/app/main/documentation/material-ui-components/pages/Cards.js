@@ -1,6 +1,6 @@
 import FuseExample from '@fuse/core/FuseExample';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Button from '@mui/material/Button';
-import Icon from '@mui/material/Icon';
 import Typography from '@mui/material/Typography';
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint import/extensions: off */
@@ -19,9 +19,9 @@ function CardsDoc(props) {
           href="https://mui.com/components/cards"
           target="_blank"
           role="button"
+          startIcon={<FuseSvgIcon>heroicons-outline:external-link</FuseSvgIcon>}
         >
-          <Icon>link</Icon>
-          <span className="mx-4">Reference</span>
+          Reference
         </Button>
       </div>
       <Typography className="text-40 my-16 font-700" component="h1">
@@ -61,7 +61,7 @@ function CardsDoc(props) {
         Outlined Card
       </Typography>
       <Typography className="mb-40" component="div">
-        Set <code>variant="outlined"</code> to render an outlined card.
+        Set <code>{`variant="outlined"`}</code> to render an outlined card.
       </Typography>
       <Typography className="mb-40" component="div">
         <FuseExample
@@ -131,7 +131,7 @@ function CardsDoc(props) {
       </Typography>
       <blockquote>
         <Typography className="mb-40" component="div">
-          ⚠️ When <code>component="img"</code>, CardMedia relies on <code>object-fit</code> for
+          ⚠️ When <code>{`component="img"`}</code>, CardMedia relies on <code>object-fit</code> for
           centering the image. It&#39;s not supported by IE11.
         </Typography>
       </blockquote>
