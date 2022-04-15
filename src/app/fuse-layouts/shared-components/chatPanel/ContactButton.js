@@ -74,7 +74,10 @@ const ContactButton = ({ contact, selectedContactId, onClick }) => {
     <Root title={contact.name} placement="left" active={selectedContactId === contact.id ? 1 : 0}>
       <Button
         onClick={() => onClick(contact.id)}
-        className={clsx('contactButton', selectedContactId === contact.id && 'active')}
+        className={clsx(
+          'contactButton rounded-0 py-4 h-auto min-h-auto max-h-none',
+          selectedContactId === contact.id && 'active'
+        )}
       >
         {contact.unread && <StyledUreadBadge>{contact.unread}</StyledUreadBadge>}
 

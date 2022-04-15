@@ -17,6 +17,7 @@ import { getContacts, selectContacts } from './store/contactsSlice';
 import { openChatPanel, closeChatPanel } from './store/stateSlice';
 import { getUserData } from './store/userSlice';
 import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
+import { getChats } from './store/chatsSlice';
 
 const Root = styled('div')(({ theme, opened }) => ({
   position: 'sticky',
@@ -128,6 +129,7 @@ function ChatPanel(props) {
   useEffect(() => {
     dispatch(getUserData());
     dispatch(getContacts());
+    dispatch(getChats());
     return () => {
       document.removeEventListener('keydown', handleDocumentKeyDown);
     };

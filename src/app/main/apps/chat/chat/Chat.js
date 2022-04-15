@@ -252,7 +252,7 @@ function Chat(props) {
                   sx={{ backgroundColor: 'background.paper' }}
                 />
                 <IconButton className="" type="submit" size="large">
-                  <FuseSvgIcon className="text-24 rotate-90" color="action">
+                  <FuseSvgIcon className="rotate-90" color="action">
                     heroicons-outline:paper-airplane
                   </FuseSvgIcon>
                 </IconButton>

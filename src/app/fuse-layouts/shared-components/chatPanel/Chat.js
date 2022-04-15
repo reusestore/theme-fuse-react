@@ -1,12 +1,11 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import { styled } from '@mui/material/styles';
-import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import clsx from 'clsx';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import InputBase from '@mui/material/InputBase';
 import { sendMessage } from './store/chatSlice';
@@ -14,49 +13,10 @@ import { selectContacts } from './store/contactsSlice';
 import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 const StyledMessageRow = styled('div')(({ theme }) => ({
-  position: 'relative',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'flex-start',
-  justifyContent: 'flex-end',
-  padding: '0 16px 4px 16px',
-  flex: '0 0 auto',
-
-  '& .avatar': {
-    position: 'absolute',
-    left: -32,
-    margin: 0,
-  },
-
-  '& .bubble': {
-    position: 'relative',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 12,
-    maxWidth: '100%',
-  },
-
-  '& .message': {
-    whiteSpace: 'pre-wrap',
-    lineHeight: 1.2,
-  },
-
-  '& .time': {
-    position: 'absolute',
-    display: 'none',
-    width: '100%',
-    fontSize: 11,
-    marginTop: 8,
-    top: '100%',
-    left: 0,
-    whiteSpace: 'nowrap',
-  },
-
   '&.contact': {
     '& .bubble': {
-      backgroundColor: theme.palette.background.paper,
-      color: theme.palette.getContrastText(theme.palette.background.paper),
+      backgroundColor: theme.palette.secondary.light,
+      color: theme.palette.secondary.contrastText,
       borderTopLeftRadius: 5,
       borderBottomLeftRadius: 5,
       borderTopRightRadius: 20,
@@ -79,14 +39,9 @@ const StyledMessageRow = styled('div')(({ theme }) => ({
   '&.me': {
     paddingLeft: 40,
 
-    '& .avatar': {
-      order: 2,
-      margin: '0 0 0 16px',
-    },
-
     '& .bubble': {
       marginLeft: 'auto',
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: theme.palette.primary.light,
       color: theme.palette.primary.contrastText,
       borderTopLeftRadius: 20,
       borderBottomLeftRadius: 20,
@@ -146,7 +101,13 @@ function Chat(props) {
   }, [chat]);
 
   function scrollToBottom() {
-    chatScroll.current.scrollTop = chatScroll.current.scrollHeight;
+    if (!chatScroll.current) {
+      return;
+    }
+    chatScroll.current.scrollTo({
+      top: chatScroll.current.scrollHeight,
+      behavior: 'smooth',
+    });
   }
 
   const onInputChange = (ev) => {
@@ -169,94 +130,80 @@ function Chat(props) {
     });
   };
 
+  function isFirstMessageOfGroup(item, i) {
+    return i === 0 || (chat[i - 1] && chat[i - 1].contactId !== item.contactId);
+  }
+
+  function isLastMessageOfGroup(item, i) {
+    return i === chat.length - 1 || (chat[i + 1] && chat[i + 1].contactId !== item.contactId);
+  }
+  if (!user || !chat) {
+    return null;
+  }
+
   return (
     <Paper
       className={clsx('flex flex-col relative pb-64 shadow', props.className)}
       sx={{ background: (theme) => theme.palette.background.default }}
     >
-      {useMemo(() => {
-        const shouldShowContactAvatar = (item, i) => {
-          return (
-            item.who === selectedContactId &&
-            ((chat.dialog[i + 1] && chat.dialog[i + 1].who !== selectedContactId) ||
-              !chat.dialog[i + 1])
-          );
-        };
+      <FuseScrollbars
+        ref={chatScroll}
+        className="flex flex-1 flex-col overflow-y-auto overscroll-contain"
+        option={{ suppressScrollX: true, wheelPropagation: false }}
+      >
+        {!chat && (
+          <div className="flex flex-col flex-1 items-center justify-center p-24">
+            <FuseSvgIcon size={128} color="disabled">
+              heroicons-outline:chat
+            </FuseSvgIcon>
+            <Typography className="px-16 pb-24 mt-24 text-center" color="textSecondary">
+              Select a contact to start a conversation.
+            </Typography>
+          </div>
+        )}
 
-        const isFirstMessageOfGroup = (item, i) => {
-          return i === 0 || (chat.dialog[i - 1] && chat.dialog[i - 1].who !== item.who);
-        };
-
-        const isLastMessageOfGroup = (item, i) => {
-          return (
-            i === chat.dialog.length - 1 ||
-            (chat.dialog[i + 1] && chat.dialog[i + 1].who !== item.who)
-          );
-        };
-        return (
-          <FuseScrollbars
-            ref={chatScroll}
-            className="flex flex-1 flex-col overflow-y-auto overscroll-contain"
-            option={{ suppressScrollX: true, wheelPropagation: false }}
-          >
-            {!chat && (
-              <div className="flex flex-col flex-1 items-center justify-center p-24">
-                <FuseSvgIcon size={128} color="disabled">
-                  heroicons-outline:chat
-                </FuseSvgIcon>
-                <Typography className="px-16 pb-24 mt-24 text-center" color="textSecondary">
-                  Select a contact to start a conversation.
-                </Typography>
-              </div>
-            )}
-
-            {chat?.dialog.length > 0 && (
-              <div className="flex flex-col pt-16 ltr:pl-40 rtl:pr-40 pb-40">
-                {chat.dialog.map((item, i) => {
-                  const contact =
-                    item.who === user.id
-                      ? user
-                      : contacts.find((_contact) => _contact.id === item.who);
-                  return (
-                    <StyledMessageRow
-                      key={item.time}
-                      className={clsx(
-                        { me: item.who === user.id },
-                        { contact: item.who !== user.id },
-                        { 'first-of-group': isFirstMessageOfGroup(item, i) },
-                        { 'last-of-group': isLastMessageOfGroup(item, i) }
-                      )}
+        {chat?.length > 0 && (
+          <div className="flex flex-col pt-16">
+            {chat.map((item, i) => {
+              return (
+                <StyledMessageRow
+                  key={i}
+                  className={clsx(
+                    'flex flex-col grow-0 shrink-0 items-start justify-end relative px-16 pb-4',
+                    item.contactId === user.id ? 'me' : 'contact',
+                    { 'first-of-group': isFirstMessageOfGroup(item, i) },
+                    { 'last-of-group': isLastMessageOfGroup(item, i) },
+                    i + 1 === chat.length && 'pb-72'
+                  )}
+                >
+                  <div className="bubble flex relative items-center justify-center p-12 max-w-full">
+                    <div className="leading-tight whitespace-pre-wrap">{item.value}</div>
+                    <Typography
+                      className="time absolute hidden w-full text-11 mt-8 -mb-24 ltr:left-0 rtl:right-0 bottom-0 whitespace-nowrap"
+                      color="textSecondary"
                     >
-                      {shouldShowContactAvatar(item, i) && (
-                        <Avatar className="avatar" src={contact.avatar} />
-                      )}
-                      <div className="bubble shadow">
-                        <div className="message">{item.message}</div>
-                        <Typography className="time" color="textSecondary">
-                          {formatDistanceToNow(new Date(item.time), { addSuffix: true })}
-                        </Typography>
-                      </div>
-                    </StyledMessageRow>
-                  );
-                })}
-              </div>
-            )}
+                      {formatDistanceToNow(new Date(item.createdAt), { addSuffix: true })}
+                    </Typography>
+                  </div>
+                </StyledMessageRow>
+              );
+            })}
+          </div>
+        )}
 
-            {chat?.dialog.length === 0 && (
-              <div className="flex flex-col flex-1">
-                <div className="flex flex-col flex-1 items-center justify-center">
-                  <FuseSvgIcon size={128} color="disabled">
-                    heroicons-outline:chat
-                  </FuseSvgIcon>
-                </div>
-                <Typography className="px-16 pb-24 text-center" color="textSecondary">
-                  Start a conversation by typing your message below.
-                </Typography>
-              </div>
-            )}
-          </FuseScrollbars>
-        );
-      }, [chat, contacts, selectedContactId, user])}
+        {chat?.length === 0 && (
+          <div className="flex flex-col flex-1">
+            <div className="flex flex-col flex-1 items-center justify-center">
+              <FuseSvgIcon size={128} color="disabled">
+                heroicons-outline:chat
+              </FuseSvgIcon>
+            </div>
+            <Typography className="px-16 pb-24 text-center" color="textSecondary">
+              Start a conversation by typing your message below.
+            </Typography>
+          </div>
+        )}
+      </FuseScrollbars>
 
       {chat && (
         <form onSubmit={onMessageSubmit} className="pb-16 px-8 absolute bottom-0 left-0 right-0">
@@ -274,8 +221,8 @@ function Chat(props) {
               type="submit"
               size="large"
             >
-              <FuseSvgIcon size={24} color="action">
-                heroicons-outline:chevron-right
+              <FuseSvgIcon className="rotate-90" color="action">
+                heroicons-outline:paper-airplane
               </FuseSvgIcon>
             </IconButton>
           </Paper>

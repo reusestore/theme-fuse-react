@@ -8,6 +8,7 @@ import { getChat } from './store/chatSlice';
 import { selectContacts } from './store/contactsSlice';
 import { openChatPanel } from './store/stateSlice';
 import ContactButton from './ContactButton';
+import { selectChats } from './store/chatsSlice';
 
 const Root = styled(FuseScrollbars)(({ theme }) => ({
   background: theme.palette.background.paper,
@@ -17,13 +18,20 @@ function ContactList(props) {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
   const selectedContactId = useSelector(({ chatPanel }) => chatPanel.contacts.selectedContactId);
-  const user = useSelector(({ chatPanel }) => chatPanel.user);
+  const chats = useSelector(selectChats);
+  const chatListContacts =
+    contacts.length > 0 && chats.length > 0
+      ? chats.map((_chat) => ({
+          ..._chat,
+          ...contacts.find((_contact) => _contact.id === _chat.contactId),
+        }))
+      : [];
 
   const contactListScroll = useRef(null);
 
   const handleContactClick = (contactId) => {
     dispatch(openChatPanel());
-    dispatch(getChat({ contactId }));
+    dispatch(getChat(contactId));
     scrollToTop();
   };
 
@@ -58,10 +66,8 @@ function ContactList(props) {
             animate="show"
             className="flex flex-col shrink-0"
           >
-            {user &&
-              user.chatList &&
-              user.chatList.map((chat) => {
-                const contact = contacts.find((_contact) => _contact.id === chat.contactId);
+            {chatListContacts &&
+              chatListContacts.map((contact) => {
                 return (
                   <motion.div variants={item} key={contact.id}>
                     <ContactButton
@@ -74,7 +80,7 @@ function ContactList(props) {
               })}
             <Divider className="mx-24 my-8" />
             {contacts.map((contact) => {
-              const chatContact = user.chatList.find((_chat) => _chat.contactId === contact.id);
+              const chatContact = chats.find((_chat) => _chat.contactId === contact.id);
               return !chatContact ? (
                 <motion.div variants={item} key={contact.id}>
                   <ContactButton

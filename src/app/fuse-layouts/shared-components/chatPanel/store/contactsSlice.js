@@ -5,6 +5,7 @@ import { closeChatPanel } from './stateSlice';
 
 export const getContacts = createAsyncThunk('chatPanel/contacts/getContacts', async (params) => {
   const response = await axios.get('/api/chat/contacts', { params });
+
   const data = await response.data;
 
   return data;
