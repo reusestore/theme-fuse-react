@@ -22,7 +22,6 @@ const Root = styled('div')(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'center',
   overflow: 'hidden',
-  opacity: 0.9,
   padding: 0,
   borderTopLeftRadius: 6,
   borderBottomLeftRadius: 6,
@@ -30,14 +29,13 @@ const Root = styled('div')(({ theme }) => ({
   borderTopRightRadius: 0,
   zIndex: 999,
   color: theme.palette.getContrastText(red[500]),
-  backgroundColor: red[500],
+  backgroundColor: red[400],
   '&:hover': {
     backgroundColor: red[500],
-    opacity: 1,
   },
 
   '& .settingsButton': {
-    '& > svg': {
+    '& > span': {
       animation: 'rotating 3s linear infinite',
     },
   },
@@ -107,7 +105,9 @@ function SettingsPanel() {
           variant="text"
           color="inherit"
         >
-          <FuseSvgIcon size={20}>heroicons-outline:cog</FuseSvgIcon>
+          <span>
+            <FuseSvgIcon size={20}>heroicons-solid:cog</FuseSvgIcon>
+          </span>
         </Button>
 
         <Button
