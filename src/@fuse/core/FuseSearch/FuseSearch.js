@@ -426,6 +426,7 @@ function FuseSearch(props) {
 
 FuseSearch.propTypes = {};
 FuseSearch.defaultProps = {
+  navigation: [],
   trigger: (
     <IconButton className="w-40 h-40" size="large">
       <FuseSvgIcon>heroicons-outline:search</FuseSvgIcon>
