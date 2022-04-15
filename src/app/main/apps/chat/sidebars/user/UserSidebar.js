@@ -10,18 +10,19 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Controller, useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { Box } from '@mui/system';
 import Button from '@mui/material/Button';
 import _ from '@lodash';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import InputAdornment from '@mui/material/InputAdornment';
-import { closeUserSidebar } from '../../store/sidebarsSlice';
 import Statuses from '../../Statuses';
 import ContactAvatar from '../../ContactAvatar';
 import { selectUser, updateUserData } from '../../store/userSlice';
+import { ChatAppContext } from '../../ChatApp';
 
 function UserSidebar(props) {
+  const { setUserSidebarOpen } = useContext(ChatAppContext);
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const { control, handleSubmit, watch, reset, formState } = useForm({ defaultValues: user });
@@ -44,7 +45,7 @@ function UserSidebar(props) {
     <div className="flex flex-col flex-auto h-full">
       <AppBar position="static" color="default" elevation={0}>
         <Toolbar className="flex items-center px-24 border-b-1">
-          <IconButton onClick={() => dispatch(closeUserSidebar())}>
+          <IconButton onClick={() => setUserSidebarOpen(false)}>
             <FuseSvgIcon>heroicons-outline:arrow-narrow-left</FuseSvgIcon>
           </IconButton>
           <Typography className="px-8 font-semibold text-20">Profile</Typography>

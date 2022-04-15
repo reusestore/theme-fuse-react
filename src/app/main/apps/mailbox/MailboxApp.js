@@ -1,10 +1,10 @@
 import withReducer from 'app/store/withReducer';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useParams, Outlet } from 'react-router-dom';
-import { styled, useTheme } from '@mui/material/styles';
+import { useParams, Outlet, useLocation } from 'react-router-dom';
+import { styled } from '@mui/material/styles';
 import FusePageSimple from '@fuse/core/FusePageSimple';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 import MailboxAppSidebarContent from './MailboxAppSidebarContent';
 import reducer from './store';
 import { getFilters } from './store/filtersSlice';
@@ -28,14 +28,12 @@ const Root = styled(FusePageSimple)(({ theme }) => ({
 
 function MailboxApp(props) {
   const dispatch = useDispatch();
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
-  const [rightSidebarOpen, setRightSidebarOpen] = useState(false);
-  const [leftSidebarOpen, setLeftSidebarOpen] = useState(false);
-
-  const pageLayout = useRef(null);
+  const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
+  const [leftSidebarOpen, setLeftSidebarOpen] = useState(!isMobile);
+  const [rightSidebarOpen, setRightSidebarOpen] = useState(!isMobile);
   const routeParams = useParams();
   const { mailId } = routeParams;
+  const location = useLocation();
 
   useEffect(() => {
     dispatch(getFilters());
@@ -47,16 +45,26 @@ function MailboxApp(props) {
     setRightSidebarOpen(Boolean(mailId));
   }, [mailId]);
 
+  useEffect(() => {
+    setLeftSidebarOpen(!isMobile);
+  }, [isMobile]);
+
+  useEffect(() => {
+    if (isMobile) {
+      setLeftSidebarOpen(false);
+    }
+  }, [location, isMobile]);
+
   return (
     <Root
       content={<Mails onToggleLeftSidebar={() => setLeftSidebarOpen(!leftSidebarOpen)} />}
       leftSidebarContent={<MailboxAppSidebarContent />}
-      leftSidebarOpen={isMobile ? leftSidebarOpen : true}
+      leftSidebarOpen={leftSidebarOpen}
       leftSidebarOnClose={() => setLeftSidebarOpen(false)}
       leftSidebarWidth={288}
       scroll="content"
       rightSidebarContent={<Outlet />}
-      rightSidebarOpen={isMobile ? rightSidebarOpen : true}
+      rightSidebarOpen={rightSidebarOpen}
       rightSidebarOnClose={() => setRightSidebarOpen(false)}
     />
   );

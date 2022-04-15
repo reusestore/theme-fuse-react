@@ -1,20 +1,19 @@
 import FuseNavigation from '@fuse/core/FuseNavigation';
-import { useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import clsx from 'clsx';
 import { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectNavigation } from 'app/store/fuse/navigationSlice';
+import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 import { navbarCloseMobile } from '../../store/fuse/navbarSlice';
 
 function Navigation(props) {
   const navigation = useSelector(selectNavigation);
-  const theme = useTheme();
-  const mdDown = useMediaQuery(theme.breakpoints.down('lg'));
+  const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
+
   const dispatch = useDispatch();
 
   function handleItemClick(item) {
-    if (mdDown) {
+    if (isMobile) {
       dispatch(navbarCloseMobile());
     }
   }

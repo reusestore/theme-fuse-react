@@ -3,15 +3,16 @@ import Icon from '@mui/material/Icon';
 import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import format from 'date-fns/format';
 import { useParams } from 'react-router-dom';
+import { useContext } from 'react';
 import { selectContactById } from '../../store/contactsSlice';
-import { closeContactSidebar } from '../../store/sidebarsSlice';
 import ContactAvatar from '../../ContactAvatar';
+import { ChatAppContext } from '../../ChatApp';
 
 function ContactSidebar(props) {
-  const dispatch = useDispatch();
+  const { setContactSidebarOpen } = useContext(ChatAppContext);
   const routeParams = useParams();
   const contactId = routeParams.id;
   const contact = useSelector((state) => selectContactById(state, contactId));
@@ -24,7 +25,7 @@ function ContactSidebar(props) {
     <div className="flex flex-col flex-auto h-full">
       <AppBar className="border-b-1" position="static" color="default" elevation={0}>
         <Toolbar className="flex items-center px-4">
-          <IconButton onClick={() => dispatch(closeContactSidebar())} color="inherit" size="large">
+          <IconButton onClick={() => setContactSidebarOpen(false)} color="inherit" size="large">
             <Icon>close</Icon>
           </IconButton>
           <Typography className="px-4 font-medium text-16" color="inherit" variant="subtitle1">

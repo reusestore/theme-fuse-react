@@ -1,29 +1,22 @@
-import { styled, useTheme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import withReducer from 'app/store/withReducer';
-import { useEffect, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Outlet } from 'react-router-dom';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import { useEffect, useState, createContext } from 'react';
+import { useDispatch } from 'react-redux';
+import { Outlet, useLocation } from 'react-router-dom';
 import FusePageSimple from '@fuse/core/FusePageSimple/FusePageSimple';
+import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 import MainSidebar from './sidebars/main/MainSidebar';
 import ContactSidebar from './sidebars/contact/ContactSidebar';
 import reducer from './store';
 import { getUserData } from './store/userSlice';
 import { getContacts } from './store/contactsSlice';
-import {
-  closeMainSidebar,
-  closeContactSidebar,
-  closeUserSidebar,
-  selectMainSidebarOpen,
-  selectContactSidebarOpen,
-  selectUserSidebarOpen,
-} from './store/sidebarsSlice';
-
 import UserSidebar from './sidebars/user/UserSidebar';
 import { getChats } from './store/chatsSlice';
 
 const drawerWidth = 400;
+
+export const ChatAppContext = createContext({});
 
 const Root = styled(FusePageSimple)(({ theme }) => ({
   '& .FusePageSimple-content': {
@@ -44,15 +37,13 @@ const StyledSwipeableDrawer = styled(SwipeableDrawer)(({ theme }) => ({
     },
   },
 }));
-
 function ChatApp(props) {
   const dispatch = useDispatch();
-  const pageLayout = useRef(null);
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
-  const MainSidebarOpen = useSelector(selectMainSidebarOpen);
-  const userSidebarOpen = useSelector(selectUserSidebarOpen);
-  const contactSidebarOpen = useSelector(selectContactSidebarOpen);
+  const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
+  const [mainSidebarOpen, setMainSidebarOpen] = useState(!isMobile);
+  const [contactSidebarOpen, setContactSidebarOpen] = useState(false);
+  const [userSidebarOpen, setUserSidebarOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     dispatch(getUserData());
@@ -60,32 +51,43 @@ function ChatApp(props) {
     dispatch(getChats());
   }, [dispatch]);
 
+  useEffect(() => {
+    setMainSidebarOpen(!isMobile);
+  }, [isMobile]);
+
+  useEffect(() => {
+    if (isMobile) {
+      setMainSidebarOpen(false);
+    }
+  }, [location, isMobile]);
+
   return (
-    <>
+    <ChatAppContext.Provider
+      value={{ setMainSidebarOpen, setContactSidebarOpen, setUserSidebarOpen }}
+    >
       <Root
-        content={<Outlet pageLayout={pageLayout} />}
-        ref={pageLayout}
-        leftSidebarContent={<MainSidebar pageLayout={pageLayout} />}
-        leftSidebarOpen={isMobile ? MainSidebarOpen : true}
+        content={<Outlet />}
+        leftSidebarContent={<MainSidebar />}
+        leftSidebarOpen={mainSidebarOpen}
         leftSidebarOnClose={() => {
-          dispatch(closeMainSidebar());
+          setMainSidebarOpen(false);
         }}
         leftSidebarWidth={400}
-        rightSidebarContent={<ContactSidebar pageLayout={pageLayout} />}
+        rightSidebarContent={<ContactSidebar />}
         rightSidebarOpen={contactSidebarOpen}
         rightSidebarOnClose={() => {
-          dispatch(closeContactSidebar());
+          setContactSidebarOpen(false);
         }}
         rightSidebarWidth={400}
         scroll="content"
       />
       <StyledSwipeableDrawer
-        className="h-full absolute z-30"
+        className="h-full absolute z-9999"
         variant="temporary"
         anchor="left"
         open={userSidebarOpen}
         onOpen={(ev) => {}}
-        onClose={() => dispatch(closeUserSidebar())}
+        onClose={() => setUserSidebarOpen(false)}
         classes={{
           paper: 'absolute left-0',
         }}
@@ -102,7 +104,7 @@ function ChatApp(props) {
       >
         <UserSidebar />
       </StyledSwipeableDrawer>
-    </>
+    </ChatAppContext.Provider>
   );
 }
 

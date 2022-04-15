@@ -8,7 +8,6 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import FusePageSimple from '@fuse/core/FusePageSimple/FusePageSimple';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import CalendarAppSidebar from 'app/main/apps/calendar/CalendarAppSidebar';
 import _ from '@lodash';
 import clsx from 'clsx';
@@ -25,6 +24,7 @@ import {
 } from './store/eventsSlice';
 import { getLabels, selectLabels } from './store/labelsSlice';
 import LabelsDialog from './dialogs/labels/LabelsDialog';
+import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 
 const Root = styled(FusePageSimple)(({ theme }) => ({
   '& a': {
@@ -103,10 +103,9 @@ function CalendarApp(props) {
   const dispatch = useDispatch();
   const events = useSelector(selectFilteredEvents);
   const calendarRef = useRef();
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
+  const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
   const [leftSidebarOpen, setLeftSidebarOpen] = useState(!isMobile);
-  const headerEl = useRef(null);
+  const theme = useTheme();
   const labels = useSelector(selectLabels);
 
   useEffect(() => {

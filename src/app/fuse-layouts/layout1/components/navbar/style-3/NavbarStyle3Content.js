@@ -1,7 +1,6 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import { styled, ThemeProvider, useTheme } from '@mui/material/styles';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import clsx from 'clsx';
 import { memo, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,6 +9,7 @@ import { selectNavigation } from 'app/store/fuse/navigationSlice';
 import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
 import { selectContrastMainTheme } from 'app/store/fuse/settingsSlice';
 import { useLocation } from 'react-router-dom';
+import useThemeMediaQuery from '../../../../../../@fuse/hooks/useThemeMediaQuery';
 
 const Root = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
@@ -55,12 +55,11 @@ function isUrlInChildren(parent, url) {
 }
 
 function NavbarStyle3Content(props) {
+  const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
   const navigation = useSelector(selectNavigation);
   const [selectedNavigation, setSelectedNavigation] = useState([]);
-
   const [panelOpen, setPanelOpen] = useState(false);
   const theme = useTheme();
-  const mdDown = useMediaQuery(theme.breakpoints.down('lg'));
   const dispatch = useDispatch();
   const contrastTheme = useSelector(selectContrastMainTheme(theme.palette.primary.main));
   const location = useLocation();
@@ -98,7 +97,7 @@ function NavbarStyle3Content(props) {
 
   function handleChildItemClick(selected) {
     setPanelOpen(false);
-    if (mdDown) {
+    if (isMobile) {
       dispatch(navbarCloseMobile());
     }
   }

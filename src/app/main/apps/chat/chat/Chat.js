@@ -4,7 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import clsx from 'clsx';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import InputBase from '@mui/material/InputBase';
 import Paper from '@mui/material/Paper';
@@ -13,12 +13,12 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Icon from '@mui/material/Icon';
 import { useParams } from 'react-router-dom';
-import { openMainSidebar, openContactSidebar } from '../store/sidebarsSlice';
 import { getChat, selectChat, sendMessage } from '../store/chatSlice';
 import { selectContactById } from '../store/contactsSlice';
 import { selectUser } from '../store/userSlice';
 import ContactAvatar from '../ContactAvatar';
 import ChatMoreMenu from './ChatMoreMenu';
+import { ChatAppContext } from '../ChatApp';
 
 const StyledMessageRow = styled('div')(({ theme }) => ({
   '&.contact': {
@@ -95,6 +95,7 @@ const StyledMessageRow = styled('div')(({ theme }) => ({
 }));
 
 function Chat(props) {
+  const { setMainSidebarOpen, setContactSidebarOpen } = useContext(ChatAppContext);
   const dispatch = useDispatch();
   const chat = useSelector(selectChat);
   const user = useSelector(selectUser);
@@ -164,8 +165,8 @@ function Chat(props) {
             <IconButton
               color="inherit"
               aria-label="Open drawer"
-              onClick={() => dispatch(openMainSidebar())}
-              className="flex md:hidden"
+              onClick={() => setMainSidebarOpen(true)}
+              className="flex lg:hidden"
               size="large"
             >
               <Icon>chat</Icon>
@@ -173,9 +174,9 @@ function Chat(props) {
             <div
               className="flex items-center cursor-pointer"
               onClick={() => {
-                dispatch(openContactSidebar());
+                setContactSidebarOpen(true);
               }}
-              onKeyDown={() => dispatch(openContactSidebar())}
+              onKeyDown={() => setContactSidebarOpen(true)}
               role="button"
               tabIndex={0}
             >
@@ -189,7 +190,7 @@ function Chat(props) {
         </Toolbar>
       </AppBar>
 
-      <div className="flex flex-auto h-full min-h-0">
+      <div className="flex flex-auto h-full min-h-0 w-full">
         <div className={clsx('flex flex-1 z-10 flex-col relative', props.className)}>
           <FuseScrollbars ref={chatRef} className="flex flex-1 flex-col overflow-y-auto">
             {chat?.length > 0 && (

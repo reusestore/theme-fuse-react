@@ -1,14 +1,13 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import IconButton from '@mui/material/IconButton';
 import Icon from '@mui/material/Icon';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { useDispatch } from 'react-redux';
-import { openUserSidebar } from '../../store/sidebarsSlice';
+import { ChatAppContext } from '../../ChatApp';
 
 const MainSidebarMoreMenu = (props) => {
+  const { setUserSidebarOpen } = useContext(ChatAppContext);
   const { className } = props;
-  const dispatch = useDispatch();
 
   const [moreMenuEl, setMoreMenuEl] = useState(null);
 
@@ -37,7 +36,7 @@ const MainSidebarMoreMenu = (props) => {
       >
         <MenuItem
           onClick={() => {
-            dispatch(openUserSidebar());
+            setUserSidebarOpen(true);
             handleMoreMenuClose();
           }}
         >

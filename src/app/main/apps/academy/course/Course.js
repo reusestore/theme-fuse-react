@@ -16,9 +16,9 @@ import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import ButtonGroup from '@mui/material/ButtonGroup';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
+import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 import reducer from '../store';
 import { getCourse, updateCourse } from '../store/courseSlice';
 import CourseInfo from '../CourseInfo';
@@ -27,11 +27,11 @@ import CourseProgress from '../CourseProgress';
 function Course(props) {
   const dispatch = useDispatch();
   const course = useSelector(({ academyApp }) => academyApp.course);
+  const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
   const theme = useTheme();
-  const [leftSidebarOpen, setLeftSidebarOpen] = useState(false);
+  const [leftSidebarOpen, setLeftSidebarOpen] = useState(!isMobile);
   const routeParams = useParams();
   const { courseId } = routeParams;
-  const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
   const pageLayout = useRef(null);
 
   useDeepCompareEffect(() => {
@@ -50,6 +50,10 @@ function Course(props) {
       dispatch(updateCourse({ progress: { currentStep: 1 } }));
     }
   }, [dispatch, course]);
+
+  useEffect(() => {
+    setLeftSidebarOpen(!isMobile);
+  }, [isMobile]);
 
   if (!course) {
     return null;
@@ -169,19 +173,21 @@ function Course(props) {
 
               <CourseProgress className="flex flex-1 mx-8" course={course} />
 
-              <IconButton lassName="" onClick={handleBack}>
+              <IconButton onClick={handleBack}>
                 <FuseSvgIcon>heroicons-outline:arrow-narrow-left</FuseSvgIcon>
               </IconButton>
 
-              <IconButton lassName="" onClick={handleNext}>
+              <IconButton onClick={handleNext}>
                 <FuseSvgIcon>heroicons-outline:arrow-narrow-right</FuseSvgIcon>
               </IconButton>
             </Box>
           </Hidden>
         </div>
       }
-      leftSidebarOpen={isMobile ? leftSidebarOpen : true}
-      leftSidebarOnClose={() => setLeftSidebarOpen(false)}
+      leftSidebarOpen={leftSidebarOpen}
+      leftSidebarOnClose={() => {
+        setLeftSidebarOpen(false);
+      }}
       leftSidebarWidth={300}
       leftSidebarContent={
         <>

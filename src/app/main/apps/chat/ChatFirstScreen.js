@@ -1,11 +1,11 @@
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { useDispatch } from 'react-redux';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import { openMainSidebar } from './store/sidebarsSlice';
+import { useContext } from 'react';
+import { ChatAppContext } from './ChatApp';
 
 const ChatFirstScreen = () => {
-  const dispatch = useDispatch();
+  const { setMainSidebarOpen } = useContext(ChatAppContext);
 
   return (
     <div className="flex flex-col flex-1 items-center justify-center w-full p-24">
@@ -22,7 +22,7 @@ const ChatFirstScreen = () => {
         variant="outlined"
         color="primary"
         className="flex md:hidden"
-        onClick={() => dispatch(openMainSidebar())}
+        onClick={() => setMainSidebarOpen(true)}
       >
         Select a conversation or start a new chat
       </Button>

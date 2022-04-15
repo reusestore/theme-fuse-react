@@ -3,8 +3,6 @@ import { styled, useTheme, alpha } from '@mui/material/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { useMemo } from 'react';
-import { useDispatch } from 'react-redux';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import ListItem from '@mui/material/ListItem';
 import { ListItemText } from '@mui/material';
 import FuseNavItem from '../../FuseNavItem';
@@ -24,10 +22,7 @@ const Root = styled(ListItem)(({ theme, itempadding, ...props }) => ({
 }));
 
 function FuseNavVerticalGroup(props) {
-  const dispatch = useDispatch();
-
   const theme = useTheme();
-  const mdDown = useMediaQuery(theme.breakpoints.down('lg'));
   const { item, nestedLevel, onItemClick } = props;
 
   const itempadding = nestedLevel > 0 ? 38 + nestedLevel * 16 : 16;

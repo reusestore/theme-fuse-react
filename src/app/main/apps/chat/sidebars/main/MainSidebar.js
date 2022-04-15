@@ -6,19 +6,21 @@ import List from '@mui/material/List';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
-import { useMemo, useState } from 'react';
+import { useContext, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import ContactListItem from './ContactListItem';
 import { getChat } from '../../store/chatSlice';
 import { selectContacts } from '../../store/contactsSlice';
-import { openUserSidebar } from '../../store/sidebarsSlice';
 import { selectChats } from '../../store/chatsSlice';
 import ContactAvatar from '../../ContactAvatar';
 import MainSidebarMoreMenu from './MainSidebarMoreMenu';
+import { ChatAppContext } from '../../ChatApp';
 
 function MainSidebar(props) {
+  const { setUserSidebarOpen } = useContext(ChatAppContext);
+
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
   const chats = useSelector(selectChats);
@@ -37,8 +39,8 @@ function MainSidebar(props) {
           {user && (
             <div
               className="flex items-center cursor-pointer"
-              onClick={() => dispatch(openUserSidebar())}
-              onKeyDown={() => dispatch(openUserSidebar())}
+              onClick={() => setUserSidebarOpen(true)}
+              onKeyDown={() => setUserSidebarOpen(true)}
               role="button"
               tabIndex={0}
             >

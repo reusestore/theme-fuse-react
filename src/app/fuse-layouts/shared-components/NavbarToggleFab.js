@@ -1,12 +1,12 @@
 import Fab from '@mui/material/Fab';
-import { styled, useTheme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import Icon from '@mui/material/Icon';
 
 import Tooltip from '@mui/material/Tooltip';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import { navbarToggle, navbarToggleMobile } from 'app/store/fuse/navbarSlice';
 import clsx from 'clsx';
 import { useDispatch, useSelector } from 'react-redux';
+import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 
 const Root = styled(Tooltip)(({ theme, position }) => ({
   '& > .button': {
@@ -59,8 +59,8 @@ const Root = styled(Tooltip)(({ theme, position }) => ({
 }));
 
 function NavbarToggleFab(props) {
-  const theme = useTheme();
-  const mdDown = useMediaQuery(theme.breakpoints.down('lg'));
+  const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
+
   const config = useSelector(({ fuse }) => fuse.settings.current.layout.config);
 
   const dispatch = useDispatch();
@@ -73,7 +73,7 @@ function NavbarToggleFab(props) {
     >
       <Fab
         className={clsx('button', props.className)}
-        onClick={(ev) => dispatch(mdDown ? navbarToggleMobile() : navbarToggle())}
+        onClick={(ev) => dispatch(isMobile ? navbarToggleMobile() : navbarToggle())}
         disableRipple
       >
         <Icon className="button-icon" color="action">
