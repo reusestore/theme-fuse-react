@@ -1,12 +1,12 @@
-import Icon from '@mui/material/Icon';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import GoogleMap from 'google-map-react';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 function Marker({ text }) {
 	return (
 		<Tooltip title={text} placement="top">
-			<Icon className="text-red">place</Icon>
+			<FuseSvgIcon className="text-red">heroicons-outline:location-marker</FuseSvgIcon>
 		</Tooltip>
 	);
 }
