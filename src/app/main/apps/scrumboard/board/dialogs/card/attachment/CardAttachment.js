@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import format from 'date-fns/format';
 import fromUnixTime from 'date-fns/fromUnixTime';
 import { useState } from 'react';
-import FuseSvgIcon from '../../../../../../../../@fuse/core/FuseSvgIcon';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 function CardAttachment(props) {
   const [anchorEl, setAnchorEl] = useState(null);

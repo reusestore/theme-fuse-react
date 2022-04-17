@@ -2,12 +2,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import Fab from '@mui/material/Fab';
 import ListItem from '@mui/material/ListItem';
 import TextField from '@mui/material/TextField';
-import ChecklistItemModel from 'app/main/apps/scrumboard/model/ChecklistItemModel';
 import { Controller, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
 import _ from '@lodash';
-import FuseSvgIcon from '../../../../../../../../@fuse/core/FuseSvgIcon';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import ChecklistItemModel from '../../../../model/ChecklistItemModel';
 
 /**
  * Form Validation Schema

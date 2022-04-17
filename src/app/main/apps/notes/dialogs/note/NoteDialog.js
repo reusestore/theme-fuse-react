@@ -1,11 +1,11 @@
 import { useDebounce } from '@fuse/hooks';
 import Dialog from '@mui/material/Dialog';
 import Slide from '@mui/material/Slide';
-import NoteForm from 'app/main/apps/notes/note-form/NoteForm';
 import { forwardRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { closeNoteDialog, removeNote, updateNote, getNotes } from '../../store/notesSlice';
+import { closeNoteDialog, getNotes, removeNote, updateNote } from '../../store/notesSlice';
+import NoteForm from '../../note-form/NoteForm';
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;

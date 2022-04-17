@@ -5,22 +5,16 @@ import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Typography from '@mui/material/Typography';
 import withReducer from 'app/store/withReducer';
 import { useSnackbar } from 'notistack';
-import { useEffect, memo } from 'react';
+import { memo, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import NotificationModel from './model/NotificationModel';
 import NotificationCard from './NotificationCard';
 import NotificationTemplate from './NotificationTemplate';
-import {
-  getNotifications,
-  addNotification,
-  dismissAll,
-  dismissItem,
-  selectNotifications,
-} from './store/dataSlice';
+import { addNotification, dismissAll, dismissItem, getNotifications, selectNotifications } from './store/dataSlice';
 import reducer from './store';
 import { closeNotificationPanel, toggleNotificationPanel } from './store/stateSlice';
-import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 const StyledSwipeableDrawer = styled(SwipeableDrawer)(({ theme }) => ({
   '& .MuiDrawer-paper': {

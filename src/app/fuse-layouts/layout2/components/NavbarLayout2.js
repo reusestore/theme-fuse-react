@@ -1,9 +1,9 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import { styled } from '@mui/material/styles';
-import Logo from 'app/fuse-layouts/shared-components/Logo';
-import Navigation from 'app/fuse-layouts/shared-components/Navigation';
 import clsx from 'clsx';
 import { memo } from 'react';
+import Logo from '../../shared-components/Logo';
+import Navigation from '../../shared-components/Navigation';
 
 const Root = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.background.default,

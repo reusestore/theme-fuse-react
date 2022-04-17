@@ -2,14 +2,14 @@ import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import { styled, ThemeProvider, useTheme } from '@mui/material/styles';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import clsx from 'clsx';
-import { memo, useState, useEffect } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import FuseNavigation from '@fuse/core/FuseNavigation/FuseNavigation';
-import { selectNavigation } from 'app/store/fuse/navigationSlice';
+import FuseNavigation from '@fuse/core/FuseNavigation';
 import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
 import { selectContrastMainTheme } from 'app/store/fuse/settingsSlice';
 import { useLocation } from 'react-router-dom';
-import useThemeMediaQuery from '../../../../../../@fuse/hooks/useThemeMediaQuery';
+import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
+import { selectNavigation } from 'app/store/fuse/navigationSlice';
 
 const Root = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,

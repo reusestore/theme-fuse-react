@@ -1,7 +1,7 @@
 import withReducer from 'app/store/withReducer';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useParams, Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';

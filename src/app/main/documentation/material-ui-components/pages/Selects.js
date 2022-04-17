@@ -44,11 +44,8 @@ function SelectsDoc(props) {
           name="BasicSelect.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/selects/BasicSelect.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/BasicSelect.js')}
+          component={require('../components/selects/BasicSelect.js').default}
+          raw={require('!raw-loader!../components/selects/BasicSelect.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -87,11 +84,8 @@ function SelectsDoc(props) {
           name="SelectVariants.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/selects/SelectVariants.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/SelectVariants.js')}
+          component={require('../components/selects/SelectVariants.js').default}
+          raw={require('!raw-loader!../components/selects/SelectVariants.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -102,11 +96,8 @@ function SelectsDoc(props) {
           name="SelectLabels.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/selects/SelectLabels.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/SelectLabels.js')}
+          component={require('../components/selects/SelectLabels.js').default}
+          raw={require('!raw-loader!../components/selects/SelectLabels.js')}
         />
       </Typography>
       <blockquote>
@@ -124,11 +115,8 @@ function SelectsDoc(props) {
           name="SelectAutoWidth.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/selects/SelectAutoWidth.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/SelectAutoWidth.js')}
+          component={require('../components/selects/SelectAutoWidth.js').default}
+          raw={require('!raw-loader!../components/selects/SelectAutoWidth.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -139,11 +127,8 @@ function SelectsDoc(props) {
           name="SelectOtherProps.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/selects/SelectOtherProps.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/SelectOtherProps.js')}
+          component={require('../components/selects/SelectOtherProps.js').default}
+          raw={require('!raw-loader!../components/selects/SelectOtherProps.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -158,11 +143,8 @@ function SelectsDoc(props) {
           name="NativeSelect.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/selects/NativeSelect.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/NativeSelect.js')}
+          component={require('../components/selects/NativeSelect.js').default}
+          raw={require('!raw-loader!../components/selects/NativeSelect.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -192,11 +174,8 @@ function SelectsDoc(props) {
           name="CustomizedSelects.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/selects/CustomizedSelects.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/CustomizedSelects.js')}
+          component={require('../components/selects/CustomizedSelects.js').default}
+          raw={require('!raw-loader!../components/selects/CustomizedSelects.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -226,11 +205,8 @@ function SelectsDoc(props) {
           name="MultipleSelect.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/selects/MultipleSelect.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/MultipleSelect.js')}
+          component={require('../components/selects/MultipleSelect.js').default}
+          raw={require('!raw-loader!../components/selects/MultipleSelect.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -241,11 +217,8 @@ function SelectsDoc(props) {
           name="MultipleSelectCheckmarks.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/selects/MultipleSelectCheckmarks.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/MultipleSelectCheckmarks.js')}
+          component={require('../components/selects/MultipleSelectCheckmarks.js').default}
+          raw={require('!raw-loader!../components/selects/MultipleSelectCheckmarks.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -256,11 +229,8 @@ function SelectsDoc(props) {
           name="MultipleSelectChip.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/selects/MultipleSelectChip.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/MultipleSelectChip.js')}
+          component={require('../components/selects/MultipleSelectChip.js').default}
+          raw={require('!raw-loader!../components/selects/MultipleSelectChip.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -271,11 +241,8 @@ function SelectsDoc(props) {
           name="MultipleSelectPlaceholder.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/selects/MultipleSelectPlaceholder.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/MultipleSelectPlaceholder.js')}
+          component={require('../components/selects/MultipleSelectPlaceholder.js').default}
+          raw={require('!raw-loader!../components/selects/MultipleSelectPlaceholder.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -286,11 +253,8 @@ function SelectsDoc(props) {
           name="MultipleSelectNative.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/selects/MultipleSelectNative.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/MultipleSelectNative.js')}
+          component={require('../components/selects/MultipleSelectNative.js').default}
+          raw={require('!raw-loader!../components/selects/MultipleSelectNative.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -306,11 +270,8 @@ function SelectsDoc(props) {
           name="ControlledOpenSelect.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/selects/ControlledOpenSelect.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/ControlledOpenSelect.js')}
+          component={require('../components/selects/ControlledOpenSelect.js').default}
+          raw={require('!raw-loader!../components/selects/ControlledOpenSelect.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -325,11 +286,8 @@ function SelectsDoc(props) {
           name="DialogSelect.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/selects/DialogSelect.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/DialogSelect.js')}
+          component={require('../components/selects/DialogSelect.js').default}
+          raw={require('!raw-loader!../components/selects/DialogSelect.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -344,11 +302,8 @@ function SelectsDoc(props) {
           name="GroupedSelect.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/selects/GroupedSelect.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/GroupedSelect.js')}
+          component={require('../components/selects/GroupedSelect.js').default}
+          raw={require('!raw-loader!../components/selects/GroupedSelect.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -421,11 +376,8 @@ import SelectUnstyled from '@mui/base/SelectUnstyled';
           name="UnstyledSelectSimple.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/selects/UnstyledSelectSimple.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/UnstyledSelectSimple.js')}
+          component={require('../components/selects/UnstyledSelectSimple.js').default}
+          raw={require('!raw-loader!../components/selects/UnstyledSelectSimple.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -450,11 +402,8 @@ import SelectUnstyled from '@mui/base/SelectUnstyled';
           name="UnstyledSelectControlled.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/selects/UnstyledSelectControlled.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/UnstyledSelectControlled.js')}
+          component={require('../components/selects/UnstyledSelectControlled.js').default}
+          raw={require('!raw-loader!../components/selects/UnstyledSelectControlled.js')}
         />
       </Typography>
       <Typography className="text-16 mt-16 mb-10" component="h4">
@@ -468,11 +417,8 @@ import SelectUnstyled from '@mui/base/SelectUnstyled';
           name="UnstyledSelectObjectValues.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/selects/UnstyledSelectObjectValues.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/UnstyledSelectObjectValues.js')}
+          component={require('../components/selects/UnstyledSelectObjectValues.js').default}
+          raw={require('!raw-loader!../components/selects/UnstyledSelectObjectValues.js')}
         />
       </Typography>
       <Typography className="text-16 mt-16 mb-10" component="h4">
@@ -488,11 +434,8 @@ import SelectUnstyled from '@mui/base/SelectUnstyled';
           name="UnstyledSelectCustomRenderValue.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/selects/UnstyledSelectCustomRenderValue.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/UnstyledSelectCustomRenderValue.js')}
+          component={require('../components/selects/UnstyledSelectCustomRenderValue.js').default}
+          raw={require('!raw-loader!../components/selects/UnstyledSelectCustomRenderValue.js')}
         />
       </Typography>
       <Typography className="text-16 mt-16 mb-10" component="h4">
@@ -507,11 +450,8 @@ import SelectUnstyled from '@mui/base/SelectUnstyled';
           name="UnstyledSelectRichOptions.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/selects/UnstyledSelectRichOptions.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/UnstyledSelectRichOptions.js')}
+          component={require('../components/selects/UnstyledSelectRichOptions.js').default}
+          raw={require('!raw-loader!../components/selects/UnstyledSelectRichOptions.js')}
         />
       </Typography>
       <Typography className="text-16 mt-16 mb-10" component="h4">
@@ -529,11 +469,8 @@ import SelectUnstyled from '@mui/base/SelectUnstyled';
           name="UnstyledSelectGrouping.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/selects/UnstyledSelectGrouping.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/UnstyledSelectGrouping.js')}
+          component={require('../components/selects/UnstyledSelectGrouping.js').default}
+          raw={require('!raw-loader!../components/selects/UnstyledSelectGrouping.js')}
         />
       </Typography>
       <Typography className="text-16 mt-16 mb-10" component="h4">
@@ -554,11 +491,8 @@ import { MultiSelectUnstyled } from '@mui/base/SelectUnstyled';
           name="UnstyledSelectMultiple.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/selects/UnstyledSelectMultiple.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/UnstyledSelectMultiple.js')}
+          component={require('../components/selects/UnstyledSelectMultiple.js').default}
+          raw={require('!raw-loader!../components/selects/UnstyledSelectMultiple.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -584,11 +518,8 @@ import { useSelect } from '@mui/base/SelectUnstyled';
           name="UseSelect.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/selects/UseSelect.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/selects/UseSelect.js')}
+          component={require('../components/selects/UseSelect.js').default}
+          raw={require('!raw-loader!../components/selects/UseSelect.js')}
         />
       </Typography>
     </>

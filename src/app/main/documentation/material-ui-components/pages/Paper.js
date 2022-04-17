@@ -44,11 +44,8 @@ function PaperDoc(props) {
           name="SimplePaper.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/paper/SimplePaper.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/paper/SimplePaper.js')}
+          component={require('../components/paper/SimplePaper.js').default}
+          raw={require('!raw-loader!../components/paper/SimplePaper.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -62,11 +59,8 @@ function PaperDoc(props) {
           name="Variants.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/paper/Variants.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/paper/Variants.js')}
+          component={require('../components/paper/Variants.js').default}
+          raw={require('!raw-loader!../components/paper/Variants.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -82,11 +76,8 @@ function PaperDoc(props) {
           name="Elevation.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/paper/Elevation.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/paper/Elevation.js')}
+          component={require('../components/paper/Elevation.js').default}
+          raw={require('!raw-loader!../components/paper/Elevation.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">

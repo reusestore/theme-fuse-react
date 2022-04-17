@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 import { Link } from 'react-router-dom';
-import FuseSvgIcon from '../../../../../@fuse/core/FuseSvgIcon';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 /* eslint import/no-webpack-loader-syntax: off */
 /* eslint import/extensions: off */

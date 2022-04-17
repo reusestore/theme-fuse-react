@@ -6,7 +6,7 @@ import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 // web.cjs is required for IE11 support
-import { useSpring, animated } from 'react-spring/web.cjs';
+import { animated, useSpring } from 'react-spring/web.cjs';
 
 const Fade = React.forwardRef(function Fade(props, ref) {
   const { in: open, children, onEnter, onExited, ...other } = props;

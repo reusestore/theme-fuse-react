@@ -1,7 +1,7 @@
-import ChatPanel from 'app/fuse-layouts/shared-components/chatPanel/ChatPanel';
-import QuickPanel from 'app/fuse-layouts/shared-components/quickPanel/QuickPanel';
-import NotificationPanel from 'app/fuse-layouts/shared-components/notificationPanel/NotificationPanel';
 import { memo } from 'react';
+import NotificationPanel from '../../shared-components/notificationPanel/NotificationPanel';
+import QuickPanel from '../../shared-components/quickPanel/QuickPanel';
+import ChatPanel from '../../shared-components/chatPanel/ChatPanel';
 
 function RightSideLayout3() {
   return (

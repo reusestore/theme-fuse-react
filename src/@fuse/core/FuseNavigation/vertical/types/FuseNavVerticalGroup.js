@@ -1,5 +1,5 @@
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
-import { styled, useTheme, alpha } from '@mui/material/styles';
+import { alpha, styled, useTheme } from '@mui/material/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { useMemo } from 'react';

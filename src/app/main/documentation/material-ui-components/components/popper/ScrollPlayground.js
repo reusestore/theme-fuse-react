@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import HighlightedCode from 'app/main/documentation/material-ui-components/utils/HighlightedCode';
+import HighlightedCode from '../../utils/HighlightedCode';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';

@@ -3,9 +3,9 @@ import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import GuideListMenu from 'app/main/apps/help-center/guides/GuideListMenu';
 import { getGuides, selectGuides } from '../store/guidesSlice';
 import { selectGuideCategorieseBySlug } from '../store/guideCategoriesSlice';
+import GuideListMenu from './GuideListMenu';
 
 function GuideCategory() {
   const dispatch = useDispatch();

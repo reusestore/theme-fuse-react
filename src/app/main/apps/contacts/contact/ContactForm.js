@@ -1,22 +1,12 @@
 import Button from '@mui/material/Button';
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
-import { useSelector, useDispatch } from 'react-redux';
-import {
-  selectContact,
-  getContact,
-  updateContact,
-  removeContact,
-  newContact,
-  addContact,
-} from 'app/main/apps/contacts/store/contactSlice';
-import { selectCountries } from 'app/main/apps/contacts/store/countriesSlice';
-import { selectTags } from 'app/main/apps/contacts/store/tagsSlice';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import FuseLoading from '@fuse/core/FuseLoading';
 import _ from '@lodash';
 import * as yup from 'yup';
-import { useForm, Controller } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
 import Box from '@mui/system/Box';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
@@ -27,8 +17,18 @@ import IconButton from '@mui/material/IconButton';
 import Autocomplete from '@mui/material/Autocomplete/Autocomplete';
 import Checkbox from '@mui/material/Checkbox/Checkbox';
 import DateTimePicker from '@mui/lab/DateTimePicker/DateTimePicker';
-import ContactEmailSelector from 'app/main/apps/contacts/contact/email-selector/ContactEmailSelector';
-import PhoneNumberSelector from 'app/main/apps/contacts/contact/phone-number-selector/PhoneNumberSelector';
+import {
+  addContact,
+  getContact,
+  newContact,
+  removeContact,
+  selectContact,
+  updateContact,
+} from '../store/contactSlice';
+import { selectCountries } from '../store/countriesSlice';
+import { selectTags } from '../store/tagsSlice';
+import ContactEmailSelector from './email-selector/ContactEmailSelector';
+import PhoneNumberSelector from './phone-number-selector/PhoneNumberSelector';
 
 /**
  * Form Validation Schema

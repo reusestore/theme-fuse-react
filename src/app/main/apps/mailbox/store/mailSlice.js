@@ -1,8 +1,8 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { getMails } from 'app/main/apps/mailbox/store/mailsSlice';
 import _ from '@lodash';
-import history from '@history/@history';
+import history from '@history';
+import { getMails } from './mailsSlice';
 
 export const getMail = createAsyncThunk('mailboxApp/mail/getMail', async (routeParams) => {
   let url = '/api/mailbox/mails/';

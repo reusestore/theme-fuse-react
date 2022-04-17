@@ -1,5 +1,5 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import auth from 'app/auth/store';
+import auth from 'src/app/auth/store';
 import fuse from './fuse';
 import i18n from './i18nSlice';
 

@@ -4,10 +4,10 @@ import _ from '@lodash';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import CommentModel from 'app/main/apps/scrumboard/model/CommentModel';
 import * as yup from 'yup';
 import { useSelector } from 'react-redux';
 import { selectMemberById } from '../../../../store/membersSlice';
+import CommentModel from '../../../../model/CommentModel';
 
 /**
  * Form Validation Schema

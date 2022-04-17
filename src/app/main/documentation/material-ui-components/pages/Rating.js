@@ -40,11 +40,8 @@ function RatingDoc(props) {
           name="BasicRating.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/rating/BasicRating.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/rating/BasicRating.js')}
+          component={require('../components/rating/BasicRating.js').default}
+          raw={require('!raw-loader!../components/rating/BasicRating.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -59,11 +56,8 @@ function RatingDoc(props) {
           name="HalfRating.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/rating/HalfRating.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/rating/HalfRating.js')}
+          component={require('../components/rating/HalfRating.js').default}
+          raw={require('!raw-loader!../components/rating/HalfRating.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -78,11 +72,8 @@ function RatingDoc(props) {
           name="HoverRating.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/rating/HoverRating.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/rating/HoverRating.js')}
+          component={require('../components/rating/HoverRating.js').default}
+          raw={require('!raw-loader!../components/rating/HoverRating.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -96,11 +87,8 @@ function RatingDoc(props) {
           name="RatingSize.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/rating/RatingSize.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/rating/RatingSize.js')}
+          component={require('../components/rating/RatingSize.js').default}
+          raw={require('!raw-loader!../components/rating/RatingSize.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -115,11 +103,8 @@ function RatingDoc(props) {
           name="CustomizedRating.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/rating/CustomizedRating.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/rating/CustomizedRating.js')}
+          component={require('../components/rating/CustomizedRating.js').default}
+          raw={require('!raw-loader!../components/rating/CustomizedRating.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -134,11 +119,8 @@ function RatingDoc(props) {
           name="RadioGroupRating.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/rating/RadioGroupRating.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/rating/RadioGroupRating.js')}
+          component={require('../components/rating/RadioGroupRating.js').default}
+          raw={require('!raw-loader!../components/rating/RadioGroupRating.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -180,11 +162,8 @@ function RatingDoc(props) {
           name="TextRating.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/rating/TextRating.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/rating/TextRating.js')}
+          component={require('../components/rating/TextRating.js').default}
+          raw={require('!raw-loader!../components/rating/TextRating.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">

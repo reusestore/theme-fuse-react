@@ -3,7 +3,7 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Grid from '@mui/material/Grid';
-import HighlightedCode from 'app/main/documentation/material-ui-components/utils/HighlightedCode';
+import HighlightedCode from '../../utils/HighlightedCode';
 import Paper from '@mui/material/Paper';
 import RadioGroup from '@mui/material/RadioGroup';
 import Radio from '@mui/material/Radio';

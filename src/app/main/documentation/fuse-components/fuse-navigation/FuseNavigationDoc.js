@@ -2,16 +2,16 @@ import FuseHighlight from '@fuse/core/FuseHighlight';
 import FuseUtils from '@fuse/utils';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { authRoles } from 'app/auth';
 import { useDispatch } from 'react-redux';
 import {
   appendNavigationItem,
   prependNavigationItem,
   removeNavigationItem,
-  updateNavigationItem,
-  setNavigation,
   resetNavigation,
+  setNavigation,
+  updateNavigationItem,
 } from 'app/store/fuse/navigationSlice';
+import authRoles from '../../../../auth/authRoles';
 
 function FuseNavigationDoc(props) {
   const dispatch = useDispatch();

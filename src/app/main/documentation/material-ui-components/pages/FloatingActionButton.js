@@ -48,10 +48,9 @@ function FloatingActionButtonDoc(props) {
           className="my-24"
           iframe={false}
           component={
-            require('app/main/documentation/material-ui-components/components/floating-action-button/FloatingActionButtons.js')
-              .default
+            require('../components/floating-action-button/FloatingActionButtons.js').default
           }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/floating-action-button/FloatingActionButtons.js')}
+          raw={require('!raw-loader!../components/floating-action-button/FloatingActionButtons.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -67,20 +66,19 @@ function FloatingActionButtonDoc(props) {
           className="my-24"
           iframe={false}
           component={
-            require('app/main/documentation/material-ui-components/components/floating-action-button/FloatingActionButtonSize.js')
-              .default
+            require('../components/floating-action-button/FloatingActionButtonSize.js').default
           }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/floating-action-button/FloatingActionButtonSize.js')}
+          raw={require('!raw-loader!../components/floating-action-button/FloatingActionButtonSize.js')}
         />
         <FuseExample
           name="FloatingActionButtonExtendedSize.js"
           className="my-24"
           iframe={false}
           component={
-            require('app/main/documentation/material-ui-components/components/floating-action-button/FloatingActionButtonExtendedSize.js')
+            require('../components/floating-action-button/FloatingActionButtonExtendedSize.js')
               .default
           }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/floating-action-button/FloatingActionButtonExtendedSize.js')}
+          raw={require('!raw-loader!../components/floating-action-button/FloatingActionButtonExtendedSize.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -105,10 +103,9 @@ function FloatingActionButtonDoc(props) {
           className="my-24"
           iframe={false}
           component={
-            require('app/main/documentation/material-ui-components/components/floating-action-button/FloatingActionButtonZoom.js')
-              .default
+            require('../components/floating-action-button/FloatingActionButtonZoom.js').default
           }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/floating-action-button/FloatingActionButtonZoom.js')}
+          raw={require('!raw-loader!../components/floating-action-button/FloatingActionButtonZoom.js')}
         />
       </Typography>
     </>

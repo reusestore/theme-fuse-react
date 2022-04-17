@@ -1,7 +1,7 @@
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 const Root = styled('div')({
   fontSize: 13,

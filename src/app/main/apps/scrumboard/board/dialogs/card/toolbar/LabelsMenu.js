@@ -5,9 +5,9 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import ToolbarMenu from './ToolbarMenu';
 import { selectLabels } from '../../../../store/labelsSlice';
-import FuseSvgIcon from '../../../../../../../../@fuse/core/FuseSvgIcon';
 
 function LabelsMenu(props) {
   const labels = useSelector(selectLabels);

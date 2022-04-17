@@ -62,11 +62,8 @@ function AutocompleteDoc(props) {
           name="ComboBox.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/autocomplete/ComboBox.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/ComboBox.js')}
+          component={require('../components/autocomplete/ComboBox.js').default}
+          raw={require('!raw-loader!../components/autocomplete/ComboBox.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -113,11 +110,8 @@ const options = ['The Godfather', 'Pulp Fiction'];
           name="Playground.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/autocomplete/Playground.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/Playground.js')}
+          component={require('../components/autocomplete/Playground.js').default}
+          raw={require('!raw-loader!../components/autocomplete/Playground.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -131,11 +125,8 @@ const options = ['The Godfather', 'Pulp Fiction'];
           name="CountrySelect.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/autocomplete/CountrySelect.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/CountrySelect.js')}
+          component={require('../components/autocomplete/CountrySelect.js').default}
+          raw={require('!raw-loader!../components/autocomplete/CountrySelect.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -166,11 +157,8 @@ const options = ['The Godfather', 'Pulp Fiction'];
           name="ControllableStates.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/autocomplete/ControllableStates.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/ControllableStates.js')}
+          component={require('../components/autocomplete/ControllableStates.js').default}
+          raw={require('!raw-loader!../components/autocomplete/ControllableStates.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -191,11 +179,8 @@ const options = ['The Godfather', 'Pulp Fiction'];
           name="FreeSolo.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/autocomplete/FreeSolo.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/FreeSolo.js')}
+          component={require('../components/autocomplete/FreeSolo.js').default}
+          raw={require('!raw-loader!../components/autocomplete/FreeSolo.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -225,11 +210,8 @@ const options = ['The Godfather', 'Pulp Fiction'];
           name="FreeSoloCreateOption.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/autocomplete/FreeSoloCreateOption.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/FreeSoloCreateOption.js')}
+          component={require('../components/autocomplete/FreeSoloCreateOption.js').default}
+          raw={require('!raw-loader!../components/autocomplete/FreeSoloCreateOption.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -240,11 +222,8 @@ const options = ['The Godfather', 'Pulp Fiction'];
           name="FreeSoloCreateOptionDialog.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/autocomplete/FreeSoloCreateOptionDialog.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/FreeSoloCreateOptionDialog.js')}
+          component={require('../components/autocomplete/FreeSoloCreateOptionDialog.js').default}
+          raw={require('!raw-loader!../components/autocomplete/FreeSoloCreateOptionDialog.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -260,11 +239,8 @@ const options = ['The Godfather', 'Pulp Fiction'];
           name="Grouped.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/autocomplete/Grouped.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/Grouped.js')}
+          component={require('../components/autocomplete/Grouped.js').default}
+          raw={require('!raw-loader!../components/autocomplete/Grouped.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -275,11 +251,8 @@ const options = ['The Godfather', 'Pulp Fiction'];
           name="DisabledOptions.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/autocomplete/DisabledOptions.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/DisabledOptions.js')}
+          component={require('../components/autocomplete/DisabledOptions.js').default}
+          raw={require('!raw-loader!../components/autocomplete/DisabledOptions.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -316,11 +289,8 @@ import useAutocomplete from '@mui/material/useAutocomplete';
           name="UseAutocomplete.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/autocomplete/UseAutocomplete.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/UseAutocomplete.js')}
+          component={require('../components/autocomplete/UseAutocomplete.js').default}
+          raw={require('!raw-loader!../components/autocomplete/UseAutocomplete.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -331,11 +301,8 @@ import useAutocomplete from '@mui/material/useAutocomplete';
           name="CustomizedHook.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/autocomplete/CustomizedHook.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/CustomizedHook.js')}
+          component={require('../components/autocomplete/CustomizedHook.js').default}
+          raw={require('!raw-loader!../components/autocomplete/CustomizedHook.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -369,11 +336,8 @@ import useAutocomplete from '@mui/material/useAutocomplete';
           name="Asynchronous.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/autocomplete/Asynchronous.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/Asynchronous.js')}
+          component={require('../components/autocomplete/Asynchronous.js').default}
+          raw={require('!raw-loader!../components/autocomplete/Asynchronous.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -412,11 +376,8 @@ import useAutocomplete from '@mui/material/useAutocomplete';
           name="GoogleMaps.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/autocomplete/GoogleMaps.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/GoogleMaps.js')}
+          component={require('../components/autocomplete/GoogleMaps.js').default}
+          raw={require('!raw-loader!../components/autocomplete/GoogleMaps.js')}
         />
       </Typography>
       <blockquote>
@@ -436,11 +397,8 @@ import useAutocomplete from '@mui/material/useAutocomplete';
           name="Tags.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/autocomplete/Tags.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/Tags.js')}
+          component={require('../components/autocomplete/Tags.js').default}
+          raw={require('!raw-loader!../components/autocomplete/Tags.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -455,11 +413,8 @@ import useAutocomplete from '@mui/material/useAutocomplete';
           name="FixedTags.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/autocomplete/FixedTags.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/FixedTags.js')}
+          component={require('../components/autocomplete/FixedTags.js').default}
+          raw={require('!raw-loader!../components/autocomplete/FixedTags.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -470,11 +425,8 @@ import useAutocomplete from '@mui/material/useAutocomplete';
           name="CheckboxesTags.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/autocomplete/CheckboxesTags.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/CheckboxesTags.js')}
+          component={require('../components/autocomplete/CheckboxesTags.js').default}
+          raw={require('!raw-loader!../components/autocomplete/CheckboxesTags.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -489,11 +441,8 @@ import useAutocomplete from '@mui/material/useAutocomplete';
           name="LimitTags.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/autocomplete/LimitTags.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/LimitTags.js')}
+          component={require('../components/autocomplete/LimitTags.js').default}
+          raw={require('!raw-loader!../components/autocomplete/LimitTags.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -507,11 +456,8 @@ import useAutocomplete from '@mui/material/useAutocomplete';
           name="Sizes.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/autocomplete/Sizes.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/Sizes.js')}
+          component={require('../components/autocomplete/Sizes.js').default}
+          raw={require('!raw-loader!../components/autocomplete/Sizes.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -530,11 +476,8 @@ import useAutocomplete from '@mui/material/useAutocomplete';
           name="CustomInputAutocomplete.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/autocomplete/CustomInputAutocomplete.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/CustomInputAutocomplete.js')}
+          component={require('../components/autocomplete/CustomInputAutocomplete.js').default}
+          raw={require('!raw-loader!../components/autocomplete/CustomInputAutocomplete.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -548,11 +491,8 @@ import useAutocomplete from '@mui/material/useAutocomplete';
           name="GitHubLabel.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/autocomplete/GitHubLabel.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/GitHubLabel.js')}
+          component={require('../components/autocomplete/GitHubLabel.js').default}
+          raw={require('!raw-loader!../components/autocomplete/GitHubLabel.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -572,11 +512,8 @@ import useAutocomplete from '@mui/material/useAutocomplete';
           name="Highlights.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/autocomplete/Highlights.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/Highlights.js')}
+          component={require('../components/autocomplete/Highlights.js').default}
+          raw={require('!raw-loader!../components/autocomplete/Highlights.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -659,11 +596,8 @@ const filterOptions = createFilterOptions({
           name="Filter.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/autocomplete/Filter.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/Filter.js')}
+          component={require('../components/autocomplete/Filter.js').default}
+          raw={require('!raw-loader!../components/autocomplete/Filter.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -695,11 +629,8 @@ const filterOptions = (options, { inputValue }) => matchSorter(options, inputVal
           name="Virtualize.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/autocomplete/Virtualize.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/autocomplete/Virtualize.js')}
+          component={require('../components/autocomplete/Virtualize.js').default}
+          raw={require('!raw-loader!../components/autocomplete/Virtualize.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

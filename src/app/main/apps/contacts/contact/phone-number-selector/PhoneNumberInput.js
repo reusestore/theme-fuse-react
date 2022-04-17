@@ -1,14 +1,14 @@
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import { useForm, Controller } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
 import * as yup from 'yup';
 import IconButton from '@mui/material/IconButton';
 import { useSelector } from 'react-redux';
-import { selectCountries } from 'app/main/apps/contacts/store/countriesSlice';
-import CountryCodeSelector from 'app/main/apps/contacts/contact/phone-number-selector/CountryCodeSelector';
 import { useEffect } from 'react';
+import { selectCountries } from '../../store/countriesSlice';
+import CountryCodeSelector from './CountryCodeSelector';
 
 const schema = yup.object().shape({
   country: yup.string(),

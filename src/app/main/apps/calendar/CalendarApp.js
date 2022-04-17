@@ -7,24 +7,24 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import FusePageSimple from '@fuse/core/FusePageSimple/FusePageSimple';
-import CalendarAppSidebar from 'app/main/apps/calendar/CalendarAppSidebar';
+import FusePageSimple from '@fuse/core/FusePageSimple';
 import _ from '@lodash';
 import clsx from 'clsx';
 import { Box } from '@mui/system';
+import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 import CalendarHeader from './CalendarHeader';
 import EventDialog from './dialogs/event/EventDialog';
 import reducer from './store';
 import {
-  openNewEventDialog,
-  openEditEventDialog,
-  updateEvent,
   getEvents,
+  openEditEventDialog,
+  openNewEventDialog,
   selectFilteredEvents,
+  updateEvent,
 } from './store/eventsSlice';
 import { getLabels, selectLabels } from './store/labelsSlice';
 import LabelsDialog from './dialogs/labels/LabelsDialog';
-import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
+import CalendarAppSidebar from './CalendarAppSidebar';
 
 const Root = styled(FusePageSimple)(({ theme }) => ({
   '& a': {

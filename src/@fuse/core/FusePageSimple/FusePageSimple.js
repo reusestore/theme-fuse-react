@@ -2,7 +2,7 @@ import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import { styled } from '@mui/material/styles';
 import clsx from 'clsx';
 import * as PropTypes from 'prop-types';
-import { forwardRef, useImperativeHandle, memo, useRef } from 'react';
+import { forwardRef, memo, useImperativeHandle, useRef } from 'react';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import FusePageSimpleHeader from './FusePageSimpleHeader';
 import FusePageSimpleSidebar from './FusePageSimpleSidebar';
@@ -204,7 +204,6 @@ const FusePageSimple = forwardRef((props, ref) => {
         rightsidebarwidth={props.rightSidebarWidth}
       >
         <div className="flex flex-auto flex-col z-10 h-full">
-
           <div className="FusePageSimple-wrapper">
             {props.leftSidebarContent && (
               <FusePageSimpleSidebar
@@ -223,9 +222,7 @@ const FusePageSimple = forwardRef((props, ref) => {
               className="FusePageSimple-contentWrapper"
               // enable={props.scroll === 'page'}
             >
-              {props.header && (
-                <FusePageSimpleHeader header={props.header} />
-              )}
+              {props.header && <FusePageSimpleHeader header={props.header} />}
               {props.content && (
                 <FuseScrollbars
                   enable={props.scroll === 'content'}

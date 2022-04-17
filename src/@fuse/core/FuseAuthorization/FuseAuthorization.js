@@ -1,10 +1,10 @@
 import FuseUtils from '@fuse/utils';
-import AppContext from 'app/AppContext';
+import AppContext from 'src/app/AppContext';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { matchRoutes } from 'react-router-dom';
 import withRouter from '@fuse/core/withRouter';
-import settingsConfig from 'app/fuse-configs/settingsConfig';
+import settingsConfig from 'src/app/fuse-configs/settingsConfig';
 import history from '@history';
 
 class FuseAuthorization extends Component {

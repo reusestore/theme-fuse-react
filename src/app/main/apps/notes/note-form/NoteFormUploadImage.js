@@ -1,5 +1,5 @@
 import IconButton from '@mui/material/IconButton';
-import FuseSvgIcon from '../../../../../@fuse/core/FuseSvgIcon';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 function NoteFormUploadImage(props) {
   function handleChange(e) {

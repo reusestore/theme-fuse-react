@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import { forwardRef, memo, useState } from 'react';
 import FuseThemeSchemes from '@fuse/core/FuseThemeSchemes';
 import { useSwipeable } from 'react-swipeable';
-import FuseSvgIcon from '../../../@fuse/core/FuseSvgIcon';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 const Root = styled('div')(({ theme }) => ({
   position: 'absolute',

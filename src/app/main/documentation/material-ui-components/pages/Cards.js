@@ -50,11 +50,8 @@ function CardsDoc(props) {
           name="BasicCard.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/cards/BasicCard.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/cards/BasicCard.js')}
+          component={require('../components/cards/BasicCard.js').default}
+          raw={require('!raw-loader!../components/cards/BasicCard.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -68,11 +65,8 @@ function CardsDoc(props) {
           name="OutlinedCard.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/cards/OutlinedCard.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/cards/OutlinedCard.js')}
+          component={require('../components/cards/OutlinedCard.js').default}
+          raw={require('!raw-loader!../components/cards/OutlinedCard.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -86,11 +80,8 @@ function CardsDoc(props) {
           name="RecipeReviewCard.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/cards/RecipeReviewCard.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/cards/RecipeReviewCard.js')}
+          component={require('../components/cards/RecipeReviewCard.js').default}
+          raw={require('!raw-loader!../components/cards/RecipeReviewCard.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -104,11 +95,8 @@ function CardsDoc(props) {
           name="MediaCard.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/cards/MediaCard.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/cards/MediaCard.js')}
+          component={require('../components/cards/MediaCard.js').default}
+          raw={require('!raw-loader!../components/cards/MediaCard.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -122,11 +110,8 @@ function CardsDoc(props) {
           name="ImgMediaCard.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/cards/ImgMediaCard.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/cards/ImgMediaCard.js')}
+          component={require('../components/cards/ImgMediaCard.js').default}
+          raw={require('!raw-loader!../components/cards/ImgMediaCard.js')}
         />
       </Typography>
       <blockquote>
@@ -149,11 +134,8 @@ function CardsDoc(props) {
           name="ActionAreaCard.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/cards/ActionAreaCard.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/cards/ActionAreaCard.js')}
+          component={require('../components/cards/ActionAreaCard.js').default}
+          raw={require('!raw-loader!../components/cards/ActionAreaCard.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -165,11 +147,8 @@ function CardsDoc(props) {
           name="MultiActionAreaCard.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/cards/MultiActionAreaCard.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/cards/MultiActionAreaCard.js')}
+          component={require('../components/cards/MultiActionAreaCard.js').default}
+          raw={require('!raw-loader!../components/cards/MultiActionAreaCard.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -187,11 +166,8 @@ function CardsDoc(props) {
           name="MediaControlCard.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/cards/MediaControlCard.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/cards/MediaControlCard.js')}
+          component={require('../components/cards/MediaControlCard.js').default}
+          raw={require('!raw-loader!../components/cards/MediaControlCard.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">

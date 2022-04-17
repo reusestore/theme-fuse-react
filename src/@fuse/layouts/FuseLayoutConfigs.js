@@ -1,1 +1,1 @@
-export { default } from 'app/fuse-layouts/FuseLayoutConfigs';
+export { default } from 'src/app/fuse-layouts/FuseLayoutConfigs';

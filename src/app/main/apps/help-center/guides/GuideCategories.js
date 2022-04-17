@@ -4,8 +4,8 @@ import Typography from '@mui/material/Typography';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import GuideListMenu from 'app/main/apps/help-center/guides/GuideListMenu';
 import { getGuides, selectGroupedGuides } from '../store/guidesSlice';
+import GuideListMenu from './GuideListMenu';
 
 function GuideCategories() {
   const dispatch = useDispatch();

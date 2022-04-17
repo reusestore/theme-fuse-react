@@ -78,11 +78,8 @@ function App() {
           name="BasicTimePicker.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/time-picker/BasicTimePicker.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/time-picker/BasicTimePicker.js')}
+          component={require('../components/time-picker/BasicTimePicker.js').default}
+          raw={require('!raw-loader!../components/time-picker/BasicTimePicker.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -97,11 +94,8 @@ function App() {
           name="StaticTimePickerDemo.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/time-picker/StaticTimePickerDemo.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/time-picker/StaticTimePickerDemo.js')}
+          component={require('../components/time-picker/StaticTimePickerDemo.js').default}
+          raw={require('!raw-loader!../components/time-picker/StaticTimePickerDemo.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -133,11 +127,8 @@ function App() {
           name="ResponsiveTimePickers.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/time-picker/ResponsiveTimePickers.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/time-picker/ResponsiveTimePickers.js')}
+          component={require('../components/time-picker/ResponsiveTimePickers.js').default}
+          raw={require('!raw-loader!../components/time-picker/ResponsiveTimePickers.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -151,11 +142,8 @@ function App() {
           name="FormPropsTimePickers.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/time-picker/FormPropsTimePickers.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/time-picker/FormPropsTimePickers.js')}
+          component={require('../components/time-picker/FormPropsTimePickers.js').default}
+          raw={require('!raw-loader!../components/time-picker/FormPropsTimePickers.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -172,11 +160,8 @@ function App() {
           name="LocalizedTimePicker.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/time-picker/LocalizedTimePicker.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/time-picker/LocalizedTimePicker.js')}
+          component={require('../components/time-picker/LocalizedTimePicker.js').default}
+          raw={require('!raw-loader!../components/time-picker/LocalizedTimePicker.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -187,11 +172,8 @@ function App() {
           name="TimeValidationTimePicker.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/time-picker/TimeValidationTimePicker.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/time-picker/TimeValidationTimePicker.js')}
+          component={require('../components/time-picker/TimeValidationTimePicker.js').default}
+          raw={require('!raw-loader!../components/time-picker/TimeValidationTimePicker.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -202,11 +184,8 @@ function App() {
           name="StaticTimePickerLandscape.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/time-picker/StaticTimePickerLandscape.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/time-picker/StaticTimePickerLandscape.js')}
+          component={require('../components/time-picker/StaticTimePickerLandscape.js').default}
+          raw={require('!raw-loader!../components/time-picker/StaticTimePickerLandscape.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -222,11 +201,8 @@ function App() {
           name="SubComponentsTimePickers.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/time-picker/SubComponentsTimePickers.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/time-picker/SubComponentsTimePickers.js')}
+          component={require('../components/time-picker/SubComponentsTimePickers.js').default}
+          raw={require('!raw-loader!../components/time-picker/SubComponentsTimePickers.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -240,11 +216,8 @@ function App() {
           name="SecondsTimePicker.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/time-picker/SecondsTimePicker.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/time-picker/SecondsTimePicker.js')}
+          component={require('../components/time-picker/SecondsTimePicker.js').default}
+          raw={require('!raw-loader!../components/time-picker/SecondsTimePicker.js')}
         />
       </Typography>
     </>

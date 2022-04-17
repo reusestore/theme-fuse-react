@@ -10,8 +10,8 @@ import * as yup from 'yup';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { useEffect } from 'react';
 import { useDebounce } from '@fuse/hooks';
-import { updateLabel, removeLabel } from 'app/main/apps/notes/store/labelsSlice';
 import _ from '@lodash';
+import { removeLabel, updateLabel } from '../../store/labelsSlice';
 
 /**
  * Form Validation Schema

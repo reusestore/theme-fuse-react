@@ -1,5 +1,5 @@
 import { fuseDark, skyBlue } from '@fuse/colors';
-import { lightBlue, red, blueGrey } from '@mui/material/colors';
+import { blueGrey, lightBlue, red } from '@mui/material/colors';
 
 const lightText = {
   primary: 'rgb(17, 24, 39)',

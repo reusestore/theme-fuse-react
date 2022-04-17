@@ -1,7 +1,7 @@
 import _ from '@lodash';
 import formatISO from 'date-fns/formatISO';
 
-const ContactModel = (data) =>
+const EventModel = (data) =>
   _.defaults(data || {}, {
     title: '',
     allDay: true,
@@ -10,4 +10,4 @@ const ContactModel = (data) =>
     extendedProps: { desc: '', label: '' },
   });
 
-export default ContactModel;
+export default EventModel;

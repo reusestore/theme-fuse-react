@@ -3,12 +3,12 @@ import { Controller, useForm } from 'react-hook-form';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import TextField from '@mui/material/TextField';
-import ChecklistModel from 'app/main/apps/scrumboard/model/ChecklistModel';
 import { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import _ from '@lodash';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import ToolbarMenu from './ToolbarMenu';
-import FuseSvgIcon from '../../../../../../../../@fuse/core/FuseSvgIcon';
+import ChecklistModel from '../../../../model/ChecklistModel';
 
 /**
  * Form Validation Schema

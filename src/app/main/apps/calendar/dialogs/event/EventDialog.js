@@ -13,18 +13,18 @@ import * as yup from 'yup';
 import _ from '@lodash';
 import { Popover } from '@mui/material';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import ContactModel from 'app/main/apps/calendar/model/EventModel';
-import { selectFirstLabelId } from 'app/main/apps/calendar/store/labelsSlice';
 import {
-  removeEvent,
-  closeNewEventDialog,
-  closeEditEventDialog,
-  updateEvent,
   addEvent,
+  closeEditEventDialog,
+  closeNewEventDialog,
+  removeEvent,
+  updateEvent,
 } from '../../store/eventsSlice';
 import EventLabelSelect from '../../EventLabelSelect';
+import EventModel from '../../model/EventModel';
+import { selectFirstLabelId } from '../../store/labelsSlice';
 
-const defaultValues = ContactModel();
+const defaultValues = EventModel();
 
 /**
  * Form Validation Schema

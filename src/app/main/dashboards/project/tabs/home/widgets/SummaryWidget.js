@@ -5,8 +5,8 @@ import Typography from '@mui/material/Typography';
 import { memo, useState } from 'react';
 import MenuItem from '@mui/material/MenuItem';
 import { useSelector } from 'react-redux';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { selectWidgets } from '../../../store/widgetsSlice';
-import FuseSvgIcon from '../../../../../../../@fuse/core/FuseSvgIcon';
 
 function SummaryWidget() {
   const widgets = useSelector(selectWidgets);

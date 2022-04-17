@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import FuseSvgIcon from '../../../../../@fuse/core/FuseSvgIcon';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 function AboutTab() {
   const [data, setData] = useState(null);

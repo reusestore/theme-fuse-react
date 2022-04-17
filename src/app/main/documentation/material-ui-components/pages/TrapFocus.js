@@ -56,11 +56,8 @@ function TrapFocusDoc(props) {
           name="BasicTrapFocus.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/trap-focus/BasicTrapFocus.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/trap-focus/BasicTrapFocus.js')}
+          component={require('../components/trap-focus/BasicTrapFocus.js').default}
+          raw={require('!raw-loader!../components/trap-focus/BasicTrapFocus.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -94,11 +91,8 @@ import TrapFocus from '@mui/base/Unstable_TrapFocus';
           name="DisableEnforceFocus.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/trap-focus/DisableEnforceFocus.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/trap-focus/DisableEnforceFocus.js')}
+          component={require('../components/trap-focus/DisableEnforceFocus.js').default}
+          raw={require('!raw-loader!../components/trap-focus/DisableEnforceFocus.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -118,11 +112,8 @@ import TrapFocus from '@mui/base/Unstable_TrapFocus';
           name="LazyTrapFocus.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/trap-focus/LazyTrapFocus.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/trap-focus/LazyTrapFocus.js')}
+          component={require('../components/trap-focus/LazyTrapFocus.js').default}
+          raw={require('!raw-loader!../components/trap-focus/LazyTrapFocus.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -141,11 +132,8 @@ import TrapFocus from '@mui/base/Unstable_TrapFocus';
           name="PortalTrapFocus.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/trap-focus/PortalTrapFocus.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/trap-focus/PortalTrapFocus.js')}
+          component={require('../components/trap-focus/PortalTrapFocus.js').default}
+          raw={require('!raw-loader!../components/trap-focus/PortalTrapFocus.js')}
         />
       </Typography>
     </>

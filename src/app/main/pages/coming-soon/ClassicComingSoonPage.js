@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import * as yup from 'yup';
 import _ from '@lodash';
 import Paper from '@mui/material/Paper';
-import FuseCountdown from '../../../../@fuse/core/FuseCountdown/FuseCountdown';
+import FuseCountdown from '@fuse/core/FuseCountdown';
 
 /**
  * Form Validation Schema

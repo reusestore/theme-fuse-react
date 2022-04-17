@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import FuseSvgIcon from '../../../@fuse/core/FuseSvgIcon';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import JwtService from '../../auth/services/jwtService';
 
 function UserMenu(props) {

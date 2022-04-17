@@ -59,10 +59,8 @@ function BoxDoc(props) {
           name="BoxSx.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/box/BoxSx.js').default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/box/BoxSx.js')}
+          component={require('../components/box/BoxSx.js').default}
+          raw={require('!raw-loader!../components/box/BoxSx.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -78,11 +76,8 @@ function BoxDoc(props) {
           name="BoxComponent.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/box/BoxComponent.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/box/BoxComponent.js')}
+          component={require('../components/box/BoxComponent.js').default}
+          raw={require('!raw-loader!../components/box/BoxComponent.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">

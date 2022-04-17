@@ -3,8 +3,8 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { selectWidgets } from '../../../store/widgetsSlice';
-import FuseSvgIcon from '../../../../../../../@fuse/core/FuseSvgIcon';
 
 function OverdueWidget() {
   const widgets = useSelector(selectWidgets);

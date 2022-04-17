@@ -46,11 +46,8 @@ function TextFieldsDoc(props) {
           name="BasicTextFields.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/text-fields/BasicTextFields.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/BasicTextFields.js')}
+          component={require('../components/text-fields/BasicTextFields.js').default}
+          raw={require('!raw-loader!../components/text-fields/BasicTextFields.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -74,11 +71,8 @@ function TextFieldsDoc(props) {
           name="FormPropsTextFields.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/text-fields/FormPropsTextFields.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/FormPropsTextFields.js')}
+          component={require('../components/text-fields/FormPropsTextFields.js').default}
+          raw={require('!raw-loader!../components/text-fields/FormPropsTextFields.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -93,11 +87,8 @@ function TextFieldsDoc(props) {
           name="ValidationTextFields.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/text-fields/ValidationTextFields.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/ValidationTextFields.js')}
+          component={require('../components/text-fields/ValidationTextFields.js').default}
+          raw={require('!raw-loader!../components/text-fields/ValidationTextFields.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -117,11 +108,8 @@ function TextFieldsDoc(props) {
           name="MultilineTextFields.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/text-fields/MultilineTextFields.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/MultilineTextFields.js')}
+          component={require('../components/text-fields/MultilineTextFields.js').default}
+          raw={require('!raw-loader!../components/text-fields/MultilineTextFields.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -136,11 +124,8 @@ function TextFieldsDoc(props) {
           name="SelectTextFields.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/text-fields/SelectTextFields.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/SelectTextFields.js')}
+          component={require('../components/text-fields/SelectTextFields.js').default}
+          raw={require('!raw-loader!../components/text-fields/SelectTextFields.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -154,11 +139,8 @@ function TextFieldsDoc(props) {
           name="InputWithIcon.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/text-fields/InputWithIcon.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/InputWithIcon.js')}
+          component={require('../components/text-fields/InputWithIcon.js').default}
+          raw={require('!raw-loader!../components/text-fields/InputWithIcon.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -174,11 +156,8 @@ function TextFieldsDoc(props) {
           name="InputAdornments.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/text-fields/InputAdornments.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/InputAdornments.js')}
+          component={require('../components/text-fields/InputAdornments.js').default}
+          raw={require('!raw-loader!../components/text-fields/InputAdornments.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -192,11 +171,8 @@ function TextFieldsDoc(props) {
           name="TextFieldSizes.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/text-fields/TextFieldSizes.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/TextFieldSizes.js')}
+          component={require('../components/text-fields/TextFieldSizes.js').default}
+          raw={require('!raw-loader!../components/text-fields/TextFieldSizes.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -208,11 +184,8 @@ function TextFieldsDoc(props) {
           name="TextFieldHiddenLabel.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/text-fields/TextFieldHiddenLabel.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/TextFieldHiddenLabel.js')}
+          component={require('../components/text-fields/TextFieldHiddenLabel.js').default}
+          raw={require('!raw-loader!../components/text-fields/TextFieldHiddenLabel.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -228,11 +201,8 @@ function TextFieldsDoc(props) {
           name="LayoutTextFields.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/text-fields/LayoutTextFields.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/LayoutTextFields.js')}
+          component={require('../components/text-fields/LayoutTextFields.js').default}
+          raw={require('!raw-loader!../components/text-fields/LayoutTextFields.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -247,11 +217,8 @@ function TextFieldsDoc(props) {
           name="FullWidthTextField.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/text-fields/FullWidthTextField.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/FullWidthTextField.js')}
+          component={require('../components/text-fields/FullWidthTextField.js').default}
+          raw={require('!raw-loader!../components/text-fields/FullWidthTextField.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -265,11 +232,8 @@ function TextFieldsDoc(props) {
           name="StateTextFields.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/text-fields/StateTextFields.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/StateTextFields.js')}
+          component={require('../components/text-fields/StateTextFields.js').default}
+          raw={require('!raw-loader!../components/text-fields/StateTextFields.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -314,11 +278,8 @@ function TextFieldsDoc(props) {
           name="ComposedTextField.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/text-fields/ComposedTextField.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/ComposedTextField.js')}
+          component={require('../components/text-fields/ComposedTextField.js').default}
+          raw={require('!raw-loader!../components/text-fields/ComposedTextField.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -329,11 +290,8 @@ function TextFieldsDoc(props) {
           name="Inputs.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/text-fields/Inputs.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/Inputs.js')}
+          component={require('../components/text-fields/Inputs.js').default}
+          raw={require('!raw-loader!../components/text-fields/Inputs.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -347,11 +305,8 @@ function TextFieldsDoc(props) {
           name="ColorTextFields.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/text-fields/ColorTextFields.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/ColorTextFields.js')}
+          component={require('../components/text-fields/ColorTextFields.js').default}
+          raw={require('!raw-loader!../components/text-fields/ColorTextFields.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -366,11 +321,8 @@ function TextFieldsDoc(props) {
           name="CustomizedInputs.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/text-fields/CustomizedInputs.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/CustomizedInputs.js')}
+          component={require('../components/text-fields/CustomizedInputs.js').default}
+          raw={require('!raw-loader!../components/text-fields/CustomizedInputs.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -386,11 +338,8 @@ function TextFieldsDoc(props) {
           name="CustomizedInputBase.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/text-fields/CustomizedInputBase.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/CustomizedInputBase.js')}
+          component={require('../components/text-fields/CustomizedInputBase.js').default}
+          raw={require('!raw-loader!../components/text-fields/CustomizedInputBase.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -496,11 +445,8 @@ import { useFormControl } from '@mui/material/FormControl';
           name="UseFormControl.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/text-fields/UseFormControl.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/UseFormControl.js')}
+          component={require('../components/text-fields/UseFormControl.js').default}
+          raw={require('!raw-loader!../components/text-fields/UseFormControl.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -594,11 +540,8 @@ import { useFormControl } from '@mui/material/FormControl';
           name="HelperTextMisaligned.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/text-fields/HelperTextMisaligned.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/HelperTextMisaligned.js')}
+          component={require('../components/text-fields/HelperTextMisaligned.js').default}
+          raw={require('!raw-loader!../components/text-fields/HelperTextMisaligned.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -609,11 +552,8 @@ import { useFormControl } from '@mui/material/FormControl';
           name="HelperTextAligned.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/text-fields/HelperTextAligned.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/HelperTextAligned.js')}
+          component={require('../components/text-fields/HelperTextAligned.js').default}
+          raw={require('!raw-loader!../components/text-fields/HelperTextAligned.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -635,11 +575,8 @@ import { useFormControl } from '@mui/material/FormControl';
           name="FormattedInputs.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/text-fields/FormattedInputs.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/FormattedInputs.js')}
+          component={require('../components/text-fields/FormattedInputs.js').default}
+          raw={require('!raw-loader!../components/text-fields/FormattedInputs.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -768,11 +705,8 @@ const MyInputComponent = React.forwardRef((props, ref) => {
           name="UnstyledInput.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/text-fields/UnstyledInput.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/UnstyledInput.js')}
+          component={require('../components/text-fields/UnstyledInput.js').default}
+          raw={require('!raw-loader!../components/text-fields/UnstyledInput.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -787,11 +721,8 @@ const MyInputComponent = React.forwardRef((props, ref) => {
           name="UseInput.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/text-fields/UseInput.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/text-fields/UseInput.js')}
+          component={require('../components/text-fields/UseInput.js').default}
+          raw={require('!raw-loader!../components/text-fields/UseInput.js')}
         />
       </Typography>
     </>

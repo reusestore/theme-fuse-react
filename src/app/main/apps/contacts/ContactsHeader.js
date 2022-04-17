@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { Box } from '@mui/system';
-import { setContactsSearchText, selectFilteredContacts } from './store/contactsSlice';
+import { selectFilteredContacts, setContactsSearchText } from './store/contactsSlice';
 
 function ContactsHeader(props) {
   const dispatch = useDispatch();

@@ -8,7 +8,7 @@ import axios from 'axios';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { Pagination } from '@mui/material';
-import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 function ClassicSearchPage() {
   const theme = useTheme();

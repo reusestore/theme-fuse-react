@@ -1,12 +1,7 @@
-import FuseSearch from '@fuse/core/FuseSearch';
 import { ThemeProvider } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Hidden from '@mui/material/Hidden';
 import Toolbar from '@mui/material/Toolbar';
-import ChatPanelToggleButton from 'app/fuse-layouts/shared-components/chatPanel/ChatPanelToggleButton';
-import NavbarToggleButton from 'app/fuse-layouts/shared-components/NavbarToggleButton';
-import QuickPanelToggleButton from 'app/fuse-layouts/shared-components/quickPanel/QuickPanelToggleButton';
-import UserMenu from 'app/fuse-layouts/shared-components/UserMenu';
 import clsx from 'clsx';
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
@@ -17,6 +12,10 @@ import LanguageSwitcher from '../../shared-components/LanguageSwitcher';
 import NotificationPanelToggleButton from '../../shared-components/notificationPanel/NotificationPanelToggleButton';
 import NavigationShortcuts from '../../shared-components/NavigationShortcuts';
 import NavigationSearch from '../../shared-components/NavigationSearch';
+import NavbarToggleButton from '../../shared-components/NavbarToggleButton';
+import UserMenu from '../../shared-components/UserMenu';
+import QuickPanelToggleButton from '../../shared-components/quickPanel/QuickPanelToggleButton';
+import ChatPanelToggleButton from '../../shared-components/chatPanel/ChatPanelToggleButton';
 
 function ToolbarLayout2(props) {
   const config = useSelector(({ fuse }) => fuse.settings.current.layout.config);

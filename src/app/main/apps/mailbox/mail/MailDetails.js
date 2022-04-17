@@ -9,12 +9,12 @@ import Paper from '@mui/material/Paper';
 import { Box } from '@mui/system';
 import Button from '@mui/material/Button';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import MailInfo from 'app/main/apps/mailbox/mail/MailInfo';
 import { selectLabelsEntities } from '../store/labelsSlice';
 import { getMail, selectMail } from '../store/mailSlice';
 import MailLabel from './MailLabel';
 import MailToolbar from './MailToolbar';
 import MailAttachment from './MailAttachment';
+import MailInfo from './MailInfo';
 
 function MailDetails(props) {
   const dispatch = useDispatch();

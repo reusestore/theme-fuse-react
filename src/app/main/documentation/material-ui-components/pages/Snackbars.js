@@ -55,11 +55,8 @@ function SnackbarsDoc(props) {
           name="SimpleSnackbar.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/snackbars/SimpleSnackbar.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/snackbars/SimpleSnackbar.js')}
+          component={require('../components/snackbars/SimpleSnackbar.js').default}
+          raw={require('!raw-loader!../components/snackbars/SimpleSnackbar.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -74,11 +71,8 @@ function SnackbarsDoc(props) {
           name="CustomizedSnackbars.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/snackbars/CustomizedSnackbars.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/snackbars/CustomizedSnackbars.js')}
+          component={require('../components/snackbars/CustomizedSnackbars.js').default}
+          raw={require('!raw-loader!../components/snackbars/CustomizedSnackbars.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -95,11 +89,8 @@ function SnackbarsDoc(props) {
           name="PositionedSnackbar.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/snackbars/PositionedSnackbar.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/snackbars/PositionedSnackbar.js')}
+          component={require('../components/snackbars/PositionedSnackbar.js').default}
+          raw={require('!raw-loader!../components/snackbars/PositionedSnackbar.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -113,11 +104,8 @@ function SnackbarsDoc(props) {
           name="LongTextSnackbar.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/snackbars/LongTextSnackbar.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/snackbars/LongTextSnackbar.js')}
+          component={require('../components/snackbars/LongTextSnackbar.js').default}
+          raw={require('!raw-loader!../components/snackbars/LongTextSnackbar.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -134,11 +122,8 @@ function SnackbarsDoc(props) {
           name="ConsecutiveSnackbars.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/snackbars/ConsecutiveSnackbars.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/snackbars/ConsecutiveSnackbars.js')}
+          component={require('../components/snackbars/ConsecutiveSnackbars.js').default}
+          raw={require('!raw-loader!../components/snackbars/ConsecutiveSnackbars.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -152,11 +137,8 @@ function SnackbarsDoc(props) {
           name="FabIntegrationSnackbar.js"
           className="my-24"
           iframe
-          component={
-            require('app/main/documentation/material-ui-components/components/snackbars/FabIntegrationSnackbar.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/snackbars/FabIntegrationSnackbar.js')}
+          component={require('../components/snackbars/FabIntegrationSnackbar.js').default}
+          raw={require('!raw-loader!../components/snackbars/FabIntegrationSnackbar.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -171,11 +153,8 @@ function SnackbarsDoc(props) {
           name="TransitionsSnackbar.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/snackbars/TransitionsSnackbar.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/snackbars/TransitionsSnackbar.js')}
+          component={require('../components/snackbars/TransitionsSnackbar.js').default}
+          raw={require('!raw-loader!../components/snackbars/TransitionsSnackbar.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -210,11 +189,8 @@ export default function MyComponent() {
           name="DirectionSnackbar.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/snackbars/DirectionSnackbar.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/snackbars/DirectionSnackbar.js')}
+          component={require('../components/snackbars/DirectionSnackbar.js').default}
+          raw={require('!raw-loader!../components/snackbars/DirectionSnackbar.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -243,11 +219,8 @@ export default function MyComponent() {
           name="IntegrationNotistack.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/snackbars/IntegrationNotistack.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/snackbars/IntegrationNotistack.js')}
+          component={require('../components/snackbars/IntegrationNotistack.js').default}
+          raw={require('!raw-loader!../components/snackbars/IntegrationNotistack.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

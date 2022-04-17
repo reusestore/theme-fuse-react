@@ -6,7 +6,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import RadioGroup from '@mui/material/RadioGroup';
 import Radio from '@mui/material/Radio';
 import Paper from '@mui/material/Paper';
-import HighlightedCode from 'app/main/documentation/material-ui-components/utils/HighlightedCode';
+import HighlightedCode from '../../utils/HighlightedCode';
 
 export default function InteractiveGrid() {
   const [direction, setDirection] = React.useState('row');

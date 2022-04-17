@@ -17,7 +17,7 @@ function SettingsDoc() {
       </Typography>
 
       <FuseHighlight component="pre" className="language-jsx">
-        {require('!raw-loader!app/fuse-configs/settingsConfig.js')}
+        {require('!raw-loader!src/app/fuse-configs/settingsConfig.js')}
       </FuseHighlight>
     </>
   );

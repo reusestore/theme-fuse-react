@@ -1,5 +1,5 @@
-import Chart from 'react-apexcharts'
-import {useState} from 'react';
+import Chart from 'react-apexcharts';
+import { useState } from 'react';
 
 function Area()
 {

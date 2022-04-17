@@ -1,6 +1,6 @@
-import { useState, forwardRef } from 'react';
+import { forwardRef, useState } from 'react';
 import { styled } from '@mui/material/styles';
-import { EditorState, convertToRaw } from 'draft-js';
+import { convertToRaw, EditorState } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import draftToHtml from 'draftjs-to-html';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';

@@ -76,11 +76,8 @@ function SkeletonDoc(props) {
           name="Variants.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/skeleton/Variants.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/skeleton/Variants.js')}
+          component={require('../components/skeleton/Variants.js').default}
+          raw={require('!raw-loader!../components/skeleton/Variants.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -95,11 +92,8 @@ function SkeletonDoc(props) {
           name="Animations.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/skeleton/Animations.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/skeleton/Animations.js')}
+          component={require('../components/skeleton/Animations.js').default}
+          raw={require('!raw-loader!../components/skeleton/Animations.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -110,11 +104,8 @@ function SkeletonDoc(props) {
           name="YouTube.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/skeleton/YouTube.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/skeleton/YouTube.js')}
+          component={require('../components/skeleton/YouTube.js').default}
+          raw={require('!raw-loader!../components/skeleton/YouTube.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -125,11 +116,8 @@ function SkeletonDoc(props) {
           name="Facebook.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/skeleton/Facebook.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/skeleton/Facebook.js')}
+          component={require('../components/skeleton/Facebook.js').default}
+          raw={require('!raw-loader!../components/skeleton/Facebook.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -153,11 +141,8 @@ function SkeletonDoc(props) {
           name="SkeletonTypography.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/skeleton/SkeletonTypography.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/skeleton/SkeletonTypography.js')}
+          component={require('../components/skeleton/SkeletonTypography.js').default}
+          raw={require('!raw-loader!../components/skeleton/SkeletonTypography.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -182,11 +167,8 @@ loading ? (
           name="SkeletonChildren.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/skeleton/SkeletonChildren.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/skeleton/SkeletonChildren.js')}
+          component={require('../components/skeleton/SkeletonChildren.js').default}
+          raw={require('!raw-loader!../components/skeleton/SkeletonChildren.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -202,11 +184,8 @@ loading ? (
           name="SkeletonColor.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/skeleton/SkeletonColor.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/skeleton/SkeletonColor.js')}
+          component={require('../components/skeleton/SkeletonColor.js').default}
+          raw={require('!raw-loader!../components/skeleton/SkeletonColor.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

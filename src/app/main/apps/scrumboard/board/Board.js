@@ -6,10 +6,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import withRouter from '@fuse/core/withRouter';
 import { useDeepCompareEffect } from '@fuse/hooks';
-import BoardHeader from 'app/main/apps/scrumboard/board/BoardHeader';
-import FusePageSimple from '@fuse/core/FusePageSimple/FusePageSimple';
+import FusePageSimple from '@fuse/core/FusePageSimple';
 import reducer from '../store';
-import { resetBoard, getBoard, selectBoard, reorderCard, reorderList } from '../store/boardSlice';
+import { getBoard, reorderCard, reorderList, resetBoard, selectBoard } from '../store/boardSlice';
 import BoardAddList from './board-list/BoardAddList';
 import BoardList from './board-list/BoardList';
 import BoardCardDialog from './dialogs/card/BoardCardDialog';
@@ -17,6 +16,7 @@ import BoardSettingsSidebar from './sidebars/settings/BoardSettingsSidebar';
 import { getCards } from '../store/cardsSlice';
 import { getLists } from '../store/listsSlice';
 import { getLabels } from '../store/labelsSlice';
+import BoardHeader from './BoardHeader';
 
 function Board(props) {
   const dispatch = useDispatch();

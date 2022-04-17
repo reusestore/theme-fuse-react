@@ -22,7 +22,7 @@ function FuseThemeDoc() {
       </Typography>
 
       <FuseHighlight component="pre" className="language-jsx">
-        {require('!raw-loader!app/App.js')}
+        {require('!raw-loader!src/app/App.js')}
       </FuseHighlight>
 
       <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">

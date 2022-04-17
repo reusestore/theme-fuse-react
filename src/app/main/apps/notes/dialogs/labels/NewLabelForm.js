@@ -5,12 +5,12 @@ import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import ListItem from '@mui/material/ListItem';
-import LabelModel from 'app/main/apps/notes/model/LabelModel';
 import clsx from 'clsx';
 import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { createLabel } from '../../store/labelsSlice';
+import LabelModel from '../../model/LabelModel';
 
 const defaultValues = {
   title: '',

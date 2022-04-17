@@ -1,5 +1,5 @@
-import { authRoles } from 'app/auth';
 import SignInPage from './SignInPage';
+import authRoles from '../../auth/authRoles';
 
 const SignInConfig = {
   settings: {

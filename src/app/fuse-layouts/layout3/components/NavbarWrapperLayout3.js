@@ -1,7 +1,6 @@
 import Hidden from '@mui/material/Hidden';
 import { styled, ThemeProvider } from '@mui/material/styles';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
-import NavbarToggleFab from 'app/fuse-layouts/shared-components//NavbarToggleFab';
 import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
 import clsx from 'clsx';
 import { memo } from 'react';
@@ -9,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectNavbarTheme } from 'app/store/fuse/settingsSlice';
 import NavbarLayout3 from './NavbarLayout3';
 import NavbarMobileLayout3 from './NavbarMobileLayout3';
+import NavbarToggleFab from '../../shared-components/NavbarToggleFab';
 
 const StyledSwipeableDrawer = styled(SwipeableDrawer)(({ theme }) => ({
   '& > .MuiDrawer-paper': {

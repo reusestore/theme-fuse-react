@@ -1,11 +1,11 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import { styled, useTheme } from '@mui/material/styles';
-import Logo from 'app/fuse-layouts/shared-components/Logo';
-import NavbarToggleButton from 'app/fuse-layouts/shared-components/NavbarToggleButton';
-import Navigation from 'app/fuse-layouts/shared-components/Navigation';
-import UserNavbarHeader from 'app/fuse-layouts/shared-components/UserNavbarHeader';
 import clsx from 'clsx';
 import { memo } from 'react';
+import Logo from '../../../../shared-components/Logo';
+import NavbarToggleButton from '../../../../shared-components/NavbarToggleButton';
+import UserNavbarHeader from '../../../../shared-components/UserNavbarHeader';
+import Navigation from '../../../../shared-components/Navigation';
 
 const Root = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.background.default,
@@ -54,11 +54,7 @@ function NavbarStyle1Content(props) {
         <Navigation layout="vertical" />
 
         <div className="flex flex-0 items-center justify-center py-48 opacity-10">
-          <img
-            className="w-full max-w-64"
-            src="assets/images/logo/logo.svg"
-            alt="footer logo"
-          />
+          <img className="w-full max-w-64" src="assets/images/logo/logo.svg" alt="footer logo" />
         </div>
       </StyledContent>
     </Root>

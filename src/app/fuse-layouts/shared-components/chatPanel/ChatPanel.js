@@ -10,13 +10,13 @@ import keycode from 'keycode';
 import { memo, useCallback, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useSwipeable } from 'react-swipeable';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Chat from './Chat';
 import ContactList from './ContactList';
 import reducer from './store';
 import { getContacts, selectContacts } from './store/contactsSlice';
-import { openChatPanel, closeChatPanel } from './store/stateSlice';
+import { closeChatPanel, openChatPanel } from './store/stateSlice';
 import { getUserData } from './store/userSlice';
-import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 import { getChats } from './store/chatsSlice';
 
 const Root = styled('div')(({ theme, opened }) => ({

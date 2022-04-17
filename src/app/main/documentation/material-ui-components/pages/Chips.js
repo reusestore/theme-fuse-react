@@ -49,11 +49,8 @@ function ChipsDoc(props) {
           name="BasicChips.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/chips/BasicChips.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/chips/BasicChips.js')}
+          component={require('../components/chips/BasicChips.js').default}
+          raw={require('!raw-loader!../components/chips/BasicChips.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -80,11 +77,8 @@ function ChipsDoc(props) {
           name="ClickableChips.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/chips/ClickableChips.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/chips/ClickableChips.js')}
+          component={require('../components/chips/ClickableChips.js').default}
+          raw={require('!raw-loader!../components/chips/ClickableChips.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -95,11 +89,8 @@ function ChipsDoc(props) {
           name="DeletableChips.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/chips/DeletableChips.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/chips/DeletableChips.js')}
+          component={require('../components/chips/DeletableChips.js').default}
+          raw={require('!raw-loader!../components/chips/DeletableChips.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -110,11 +101,8 @@ function ChipsDoc(props) {
           name="ClickableAndDeletableChips.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/chips/ClickableAndDeletableChips.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/chips/ClickableAndDeletableChips.js')}
+          component={require('../components/chips/ClickableAndDeletableChips.js').default}
+          raw={require('!raw-loader!../components/chips/ClickableAndDeletableChips.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -125,11 +113,8 @@ function ChipsDoc(props) {
           name="ClickableLinkChips.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/chips/ClickableLinkChips.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/chips/ClickableLinkChips.js')}
+          component={require('../components/chips/ClickableLinkChips.js').default}
+          raw={require('!raw-loader!../components/chips/ClickableLinkChips.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -140,11 +125,8 @@ function ChipsDoc(props) {
           name="CustomDeleteIconChips.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/chips/CustomDeleteIconChips.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/chips/CustomDeleteIconChips.js')}
+          component={require('../components/chips/CustomDeleteIconChips.js').default}
+          raw={require('!raw-loader!../components/chips/CustomDeleteIconChips.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -165,11 +147,8 @@ function ChipsDoc(props) {
           name="AvatarChips.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/chips/AvatarChips.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/chips/AvatarChips.js')}
+          component={require('../components/chips/AvatarChips.js').default}
+          raw={require('!raw-loader!../components/chips/AvatarChips.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -180,11 +159,8 @@ function ChipsDoc(props) {
           name="IconChips.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/chips/IconChips.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/chips/IconChips.js')}
+          component={require('../components/chips/IconChips.js').default}
+          raw={require('!raw-loader!../components/chips/IconChips.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -198,11 +174,8 @@ function ChipsDoc(props) {
           name="ColorChips.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/chips/ColorChips.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/chips/ColorChips.js')}
+          component={require('../components/chips/ColorChips.js').default}
+          raw={require('!raw-loader!../components/chips/ColorChips.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -216,11 +189,8 @@ function ChipsDoc(props) {
           name="SizesChips.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/chips/SizesChips.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/chips/SizesChips.js')}
+          component={require('../components/chips/SizesChips.js').default}
+          raw={require('!raw-loader!../components/chips/SizesChips.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -237,11 +207,8 @@ function ChipsDoc(props) {
           name="ChipsArray.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/chips/ChipsArray.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/chips/ChipsArray.js')}
+          component={require('../components/chips/ChipsArray.js').default}
+          raw={require('!raw-loader!../components/chips/ChipsArray.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -252,11 +219,8 @@ function ChipsDoc(props) {
           name="ChipsPlayground.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/chips/ChipsPlayground.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/chips/ChipsPlayground.js')}
+          component={require('../components/chips/ChipsPlayground.js').default}
+          raw={require('!raw-loader!../components/chips/ChipsPlayground.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

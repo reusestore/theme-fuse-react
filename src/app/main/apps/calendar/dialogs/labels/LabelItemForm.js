@@ -13,14 +13,14 @@ import { useEffect } from 'react';
 import { useDebounce } from '@fuse/hooks';
 import _ from '@lodash';
 import FormLabel from '@mui/material/FormLabel';
-import { openDialog, closeDialog } from 'app/store/fuse/dialogSlice';
+import { closeDialog, openDialog } from 'app/store/fuse/dialogSlice';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
-import { getEvents } from 'app/main/apps/calendar/store/eventsSlice';
-import { updateLabel, removeLabel } from '../../store/labelsSlice';
+import { removeLabel, updateLabel } from '../../store/labelsSlice';
+import { getEvents } from '../../store/eventsSlice';
 
 /**
  * Form Validation Schema

@@ -52,11 +52,8 @@ function AccordionDoc(props) {
           name="BasicAccordion.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/accordion/BasicAccordion.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/accordion/BasicAccordion.js')}
+          component={require('../components/accordion/BasicAccordion.js').default}
+          raw={require('!raw-loader!../components/accordion/BasicAccordion.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -71,11 +68,8 @@ function AccordionDoc(props) {
           name="ControlledAccordions.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/accordion/ControlledAccordions.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/accordion/ControlledAccordions.js')}
+          component={require('../components/accordion/ControlledAccordions.js').default}
+          raw={require('!raw-loader!../components/accordion/ControlledAccordions.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -90,11 +84,8 @@ function AccordionDoc(props) {
           name="CustomizedAccordions.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/accordion/CustomizedAccordions.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/accordion/CustomizedAccordions.js')}
+          component={require('../components/accordion/CustomizedAccordions.js').default}
+          raw={require('!raw-loader!../components/accordion/CustomizedAccordions.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

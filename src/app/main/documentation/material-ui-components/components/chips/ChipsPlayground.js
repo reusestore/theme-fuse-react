@@ -1,5 +1,5 @@
 import * as React from 'react';
-import HighlightedCode from 'app/main/documentation/material-ui-components/utils/HighlightedCode';
+import HighlightedCode from '../../utils/HighlightedCode';
 import Grid from '@mui/material/Grid';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';

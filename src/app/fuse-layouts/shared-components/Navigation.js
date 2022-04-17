@@ -4,7 +4,7 @@ import { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectNavigation } from 'app/store/fuse/navigationSlice';
 import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
-import { navbarCloseMobile } from '../../store/fuse/navbarSlice';
+import { navbarCloseMobile } from 'app/store/fuse/navbarSlice';
 
 function Navigation(props) {
   const navigation = useSelector(selectNavigation);

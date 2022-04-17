@@ -6,7 +6,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import { useState } from 'react';
 import clsx from 'clsx';
 import { styled } from '@mui/material/styles';
-import FuseSvgIcon from '../../../../../@fuse/core/FuseSvgIcon';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 const container = {
   show: {

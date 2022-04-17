@@ -1,9 +1,9 @@
 import { useDeepCompareEffect } from '@fuse/hooks';
 import FuseLayouts from '@fuse/layouts/FuseLayouts';
 import _ from '@lodash';
-import AppContext from 'app/AppContext';
+import AppContext from 'src/app/AppContext';
 import { generateSettings, setSettings } from 'app/store/fuse/settingsSlice';
-import { memo, useContext, useMemo, useCallback, useRef } from 'react';
+import { memo, useCallback, useContext, useMemo, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { matchRoutes, useLocation } from 'react-router-dom';
 import GlobalStyles from '@mui/material/GlobalStyles';

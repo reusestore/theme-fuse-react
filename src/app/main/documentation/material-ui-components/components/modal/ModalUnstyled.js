@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { styled, Box } from '@mui/system';
+import { Box, styled } from '@mui/system';
 import ModalUnstyled from '@mui/base/ModalUnstyled';
 
 const StyledModal = styled(ModalUnstyled)`

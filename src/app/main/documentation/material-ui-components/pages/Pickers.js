@@ -47,11 +47,8 @@ function PickersDoc(props) {
           name="MaterialUIPickers.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/pickers/MaterialUIPickers.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/pickers/MaterialUIPickers.js')}
+          component={require('../components/pickers/MaterialUIPickers.js').default}
+          raw={require('!raw-loader!../components/pickers/MaterialUIPickers.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -133,11 +130,8 @@ function App({ children }) {
           name="NativePickers.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/pickers/NativePickers.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/pickers/NativePickers.js')}
+          component={require('../components/pickers/NativePickers.js').default}
+          raw={require('!raw-loader!../components/pickers/NativePickers.js')}
         />
       </Typography>
     </>

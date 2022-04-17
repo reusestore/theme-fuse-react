@@ -1,4 +1,4 @@
-import NotificationModel from 'app/fuse-layouts/shared-components/notificationPanel/model/NotificationModel';
+import NotificationModel from 'src/app/fuse-layouts/shared-components/notificationPanel/model/NotificationModel';
 import mock from '../mock';
 
 const notificationPanelDB = [

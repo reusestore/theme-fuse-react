@@ -1,5 +1,5 @@
 import Card from '@mui/material/Card';
-import { styled, darken } from '@mui/material/styles';
+import { darken, styled } from '@mui/material/styles';
 import CardContent from '@mui/material/CardContent';
 import clsx from 'clsx';
 import { useRef } from 'react';

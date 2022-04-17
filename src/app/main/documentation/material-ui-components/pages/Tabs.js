@@ -47,11 +47,8 @@ function TabsDoc(props) {
           name="BasicTabs.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tabs/BasicTabs.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/BasicTabs.js')}
+          component={require('../components/tabs/BasicTabs.js').default}
+          raw={require('!raw-loader!../components/tabs/BasicTabs.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -70,11 +67,8 @@ function TabsDoc(props) {
           name="LabTabs.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tabs/LabTabs.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/LabTabs.js')}
+          component={require('../components/tabs/LabTabs.js').default}
+          raw={require('!raw-loader!../components/tabs/LabTabs.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -89,11 +83,8 @@ function TabsDoc(props) {
           name="TabsWrappedLabel.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tabs/TabsWrappedLabel.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/TabsWrappedLabel.js')}
+          component={require('../components/tabs/TabsWrappedLabel.js').default}
+          raw={require('!raw-loader!../components/tabs/TabsWrappedLabel.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -104,11 +95,8 @@ function TabsDoc(props) {
           name="ColorTabs.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tabs/ColorTabs.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/ColorTabs.js')}
+          component={require('../components/tabs/ColorTabs.js').default}
+          raw={require('!raw-loader!../components/tabs/ColorTabs.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -122,11 +110,8 @@ function TabsDoc(props) {
           name="DisabledTabs.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tabs/DisabledTabs.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/DisabledTabs.js')}
+          component={require('../components/tabs/DisabledTabs.js').default}
+          raw={require('!raw-loader!../components/tabs/DisabledTabs.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -152,11 +137,8 @@ function TabsDoc(props) {
           name="FullWidthTabs.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tabs/FullWidthTabs.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/FullWidthTabs.js')}
+          component={require('../components/tabs/FullWidthTabs.js').default}
+          raw={require('!raw-loader!../components/tabs/FullWidthTabs.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -170,11 +152,8 @@ function TabsDoc(props) {
           name="CenteredTabs.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tabs/CenteredTabs.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/CenteredTabs.js')}
+          component={require('../components/tabs/CenteredTabs.js').default}
+          raw={require('!raw-loader!../components/tabs/CenteredTabs.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -192,11 +171,8 @@ function TabsDoc(props) {
           name="ScrollableTabsButtonAuto.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tabs/ScrollableTabsButtonAuto.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/ScrollableTabsButtonAuto.js')}
+          component={require('../components/tabs/ScrollableTabsButtonAuto.js').default}
+          raw={require('!raw-loader!../components/tabs/ScrollableTabsButtonAuto.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -211,11 +187,8 @@ function TabsDoc(props) {
           name="ScrollableTabsButtonForce.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tabs/ScrollableTabsButtonForce.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/ScrollableTabsButtonForce.js')}
+          component={require('../components/tabs/ScrollableTabsButtonForce.js').default}
+          raw={require('!raw-loader!../components/tabs/ScrollableTabsButtonForce.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -234,11 +207,8 @@ function TabsDoc(props) {
           name="ScrollableTabsButtonVisible.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tabs/ScrollableTabsButtonVisible.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/ScrollableTabsButtonVisible.js')}
+          component={require('../components/tabs/ScrollableTabsButtonVisible.js').default}
+          raw={require('!raw-loader!../components/tabs/ScrollableTabsButtonVisible.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -254,11 +224,8 @@ function TabsDoc(props) {
           name="ScrollableTabsButtonPrevent.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tabs/ScrollableTabsButtonPrevent.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/ScrollableTabsButtonPrevent.js')}
+          component={require('../components/tabs/ScrollableTabsButtonPrevent.js').default}
+          raw={require('!raw-loader!../components/tabs/ScrollableTabsButtonPrevent.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -273,11 +240,8 @@ function TabsDoc(props) {
           name="CustomizedTabs.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tabs/CustomizedTabs.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/CustomizedTabs.js')}
+          component={require('../components/tabs/CustomizedTabs.js').default}
+          raw={require('!raw-loader!../components/tabs/CustomizedTabs.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -299,11 +263,8 @@ function TabsDoc(props) {
           name="VerticalTabs.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tabs/VerticalTabs.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/VerticalTabs.js')}
+          component={require('../components/tabs/VerticalTabs.js').default}
+          raw={require('!raw-loader!../components/tabs/VerticalTabs.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -321,11 +282,8 @@ function TabsDoc(props) {
           name="NavTabs.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tabs/NavTabs.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/NavTabs.js')}
+          component={require('../components/tabs/NavTabs.js').default}
+          raw={require('!raw-loader!../components/tabs/NavTabs.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -339,21 +297,15 @@ function TabsDoc(props) {
           name="IconTabs.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tabs/IconTabs.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/IconTabs.js')}
+          component={require('../components/tabs/IconTabs.js').default}
+          raw={require('!raw-loader!../components/tabs/IconTabs.js')}
         />
         <FuseExample
           name="IconLabelTabs.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tabs/IconLabelTabs.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/IconLabelTabs.js')}
+          component={require('../components/tabs/IconLabelTabs.js').default}
+          raw={require('!raw-loader!../components/tabs/IconLabelTabs.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -368,11 +320,8 @@ function TabsDoc(props) {
           name="IconPositionTabs.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tabs/IconPositionTabs.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/IconPositionTabs.js')}
+          component={require('../components/tabs/IconPositionTabs.js').default}
+          raw={require('!raw-loader!../components/tabs/IconPositionTabs.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -446,11 +395,8 @@ function TabsDoc(props) {
           name="AccessibleTabs1.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tabs/AccessibleTabs1.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/AccessibleTabs1.js')}
+          component={require('../components/tabs/AccessibleTabs1.js').default}
+          raw={require('!raw-loader!../components/tabs/AccessibleTabs1.js')}
         />
       </Typography>
 
@@ -465,11 +411,8 @@ function TabsDoc(props) {
           name="AccessibleTabs2.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tabs/AccessibleTabs2.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/AccessibleTabs2.js')}
+          component={require('../components/tabs/AccessibleTabs2.js').default}
+          raw={require('!raw-loader!../components/tabs/AccessibleTabs2.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -496,11 +439,8 @@ import TabPanelUnstyled from '@mui/base/TabPanelUnstyled';
           name="UnstyledTabsBasic.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tabs/UnstyledTabsBasic.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/UnstyledTabsBasic.js')}
+          component={require('../components/tabs/UnstyledTabsBasic.js').default}
+          raw={require('!raw-loader!../components/tabs/UnstyledTabsBasic.js')}
         />
       </Typography>
       <Typography className="text-16 mt-16 mb-10" component="h4">
@@ -523,11 +463,8 @@ import TabPanelUnstyled from '@mui/base/TabPanelUnstyled';
           name="UnstyledTabsCustomized.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tabs/UnstyledTabsCustomized.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tabs/UnstyledTabsCustomized.js')}
+          component={require('../components/tabs/UnstyledTabsCustomized.js').default}
+          raw={require('!raw-loader!../components/tabs/UnstyledTabsCustomized.js')}
         />
       </Typography>
     </>

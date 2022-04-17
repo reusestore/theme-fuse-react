@@ -1,18 +1,18 @@
 import { createTheme, getContrastRatio } from '@mui/material/styles';
-import { createSlice, createSelector } from '@reduxjs/toolkit';
+import { createSelector, createSlice } from '@reduxjs/toolkit';
 import _ from '@lodash';
 import {
-  defaultThemes,
-  mainThemeVariations,
-  extendThemeWithMixins,
-  mustHaveThemeOptions,
-  defaultThemeOptions,
-  getParsedQuerySettings,
   defaultSettings,
+  defaultThemeOptions,
+  defaultThemes,
+  extendThemeWithMixins,
+  getParsedQuerySettings,
+  mainThemeVariations,
+  mustHaveThemeOptions,
 } from '@fuse/default-settings';
-import FuseSettingsConfig from 'app/fuse-configs/settingsConfig';
-import FuseThemesConfig from 'app/fuse-configs/themesConfig';
-import FuseLayoutConfigs from 'app/fuse-layouts/FuseLayoutConfigs';
+import FuseSettingsConfig from 'src/app/fuse-configs/settingsConfig';
+import FuseThemesConfig from 'src/app/fuse-configs/themesConfig';
+import FuseLayoutConfigs from 'src/app/fuse-layouts/FuseLayoutConfigs';
 
 function getInitialSettings() {
   const defaultLayoutStyle =

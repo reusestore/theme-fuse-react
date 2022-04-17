@@ -96,11 +96,8 @@ function App() {
           name="BasicDateRangePicker.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/date-range-picker/BasicDateRangePicker.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-range-picker/BasicDateRangePicker.js')}
+          component={require('../components/date-range-picker/BasicDateRangePicker.js').default}
+          raw={require('!raw-loader!../components/date-range-picker/BasicDateRangePicker.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -116,10 +113,9 @@ function App() {
           className="my-24"
           iframe={false}
           component={
-            require('app/main/documentation/material-ui-components/components/date-range-picker/StaticDateRangePickerDemo.js')
-              .default
+            require('../components/date-range-picker/StaticDateRangePickerDemo.js').default
           }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-range-picker/StaticDateRangePickerDemo.js')}
+          raw={require('!raw-loader!../components/date-range-picker/StaticDateRangePickerDemo.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -152,10 +148,9 @@ function App() {
           className="my-24"
           iframe={false}
           component={
-            require('app/main/documentation/material-ui-components/components/date-range-picker/ResponsiveDateRangePicker.js')
-              .default
+            require('../components/date-range-picker/ResponsiveDateRangePicker.js').default
           }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-range-picker/ResponsiveDateRangePicker.js')}
+          raw={require('!raw-loader!../components/date-range-picker/ResponsiveDateRangePicker.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -170,10 +165,9 @@ function App() {
           className="my-24"
           iframe={false}
           component={
-            require('app/main/documentation/material-ui-components/components/date-range-picker/FormPropsDateRangePickers.js')
-              .default
+            require('../components/date-range-picker/FormPropsDateRangePickers.js').default
           }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-range-picker/FormPropsDateRangePickers.js')}
+          raw={require('!raw-loader!../components/date-range-picker/FormPropsDateRangePickers.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -187,11 +181,8 @@ function App() {
           name="CalendarsDateRangePicker.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/date-range-picker/CalendarsDateRangePicker.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-range-picker/CalendarsDateRangePicker.js')}
+          component={require('../components/date-range-picker/CalendarsDateRangePicker.js').default}
+          raw={require('!raw-loader!../components/date-range-picker/CalendarsDateRangePicker.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -205,11 +196,8 @@ function App() {
           name="MinMaxDateRangePicker.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/date-range-picker/MinMaxDateRangePicker.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-range-picker/MinMaxDateRangePicker.js')}
+          component={require('../components/date-range-picker/MinMaxDateRangePicker.js').default}
+          raw={require('!raw-loader!../components/date-range-picker/MinMaxDateRangePicker.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -226,11 +214,8 @@ function App() {
           name="CustomDateRangeInputs.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/date-range-picker/CustomDateRangeInputs.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-range-picker/CustomDateRangeInputs.js')}
+          component={require('../components/date-range-picker/CustomDateRangeInputs.js').default}
+          raw={require('!raw-loader!../components/date-range-picker/CustomDateRangeInputs.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -246,11 +231,8 @@ function App() {
           name="CustomDateRangePickerDay.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/date-range-picker/CustomDateRangePickerDay.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-range-picker/CustomDateRangePickerDay.js')}
+          component={require('../components/date-range-picker/CustomDateRangePickerDay.js').default}
+          raw={require('!raw-loader!../components/date-range-picker/CustomDateRangePickerDay.js')}
         />
       </Typography>
     </>

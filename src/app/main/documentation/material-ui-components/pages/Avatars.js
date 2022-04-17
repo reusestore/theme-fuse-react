@@ -44,11 +44,8 @@ function AvatarsDoc(props) {
           name="ImageAvatars.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/avatars/ImageAvatars.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/avatars/ImageAvatars.js')}
+          component={require('../components/avatars/ImageAvatars.js').default}
+          raw={require('!raw-loader!../components/avatars/ImageAvatars.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -63,11 +60,8 @@ function AvatarsDoc(props) {
           name="LetterAvatars.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/avatars/LetterAvatars.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/avatars/LetterAvatars.js')}
+          component={require('../components/avatars/LetterAvatars.js').default}
+          raw={require('!raw-loader!../components/avatars/LetterAvatars.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -79,11 +73,8 @@ function AvatarsDoc(props) {
           name="BackgroundLetterAvatars.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/avatars/BackgroundLetterAvatars.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/avatars/BackgroundLetterAvatars.js')}
+          component={require('../components/avatars/BackgroundLetterAvatars.js').default}
+          raw={require('!raw-loader!../components/avatars/BackgroundLetterAvatars.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -98,11 +89,8 @@ function AvatarsDoc(props) {
           name="SizeAvatars.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/avatars/SizeAvatars.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/avatars/SizeAvatars.js')}
+          component={require('../components/avatars/SizeAvatars.js').default}
+          raw={require('!raw-loader!../components/avatars/SizeAvatars.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -116,11 +104,8 @@ function AvatarsDoc(props) {
           name="IconAvatars.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/avatars/IconAvatars.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/avatars/IconAvatars.js')}
+          component={require('../components/avatars/IconAvatars.js').default}
+          raw={require('!raw-loader!../components/avatars/IconAvatars.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -134,11 +119,8 @@ function AvatarsDoc(props) {
           name="VariantAvatars.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/avatars/VariantAvatars.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/avatars/VariantAvatars.js')}
+          component={require('../components/avatars/VariantAvatars.js').default}
+          raw={require('!raw-loader!../components/avatars/VariantAvatars.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -160,11 +142,8 @@ function AvatarsDoc(props) {
           name="FallbackAvatars.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/avatars/FallbackAvatars.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/avatars/FallbackAvatars.js')}
+          component={require('../components/avatars/FallbackAvatars.js').default}
+          raw={require('!raw-loader!../components/avatars/FallbackAvatars.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -179,11 +158,8 @@ function AvatarsDoc(props) {
           name="GroupAvatars.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/avatars/GroupAvatars.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/avatars/GroupAvatars.js')}
+          component={require('../components/avatars/GroupAvatars.js').default}
+          raw={require('!raw-loader!../components/avatars/GroupAvatars.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -198,11 +174,8 @@ function AvatarsDoc(props) {
           name="TotalAvatars.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/avatars/TotalAvatars.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/avatars/TotalAvatars.js')}
+          component={require('../components/avatars/TotalAvatars.js').default}
+          raw={require('!raw-loader!../components/avatars/TotalAvatars.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -213,11 +186,8 @@ function AvatarsDoc(props) {
           name="BadgeAvatars.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/avatars/BadgeAvatars.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/avatars/BadgeAvatars.js')}
+          component={require('../components/avatars/BadgeAvatars.js').default}
+          raw={require('!raw-loader!../components/avatars/BadgeAvatars.js')}
         />
       </Typography>
     </>

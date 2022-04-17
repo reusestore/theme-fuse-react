@@ -11,18 +11,18 @@ import InputAdornment from '@mui/material/InputAdornment';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { OutlinedInput } from '@mui/material';
 import Hidden from '@mui/material/Hidden';
-import MailListTitle from 'app/main/apps/mailbox/mails/MailListTitle';
 import {
-  selectMailsByParameter,
   deselectAllMails,
   selectAllMails,
   selectMails,
-  setMailsSearchText,
-  setActionToMails,
+  selectMailsByParameter,
   selectSelectedMailIds,
+  setActionToMails,
+  setMailsSearchText,
 } from '../store/mailsSlice';
 import { selectLabels } from '../store/labelsSlice';
 import { selectFolders, selectTrashFolderId } from '../store/foldersSlice';
+import MailListTitle from './MailListTitle';
 
 function MailToolbar(props) {
   const { onToggleLeftSidebar } = props;

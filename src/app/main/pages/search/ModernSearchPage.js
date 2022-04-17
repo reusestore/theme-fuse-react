@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import { blue, green } from '@mui/material/colors';
 import { useTheme } from '@mui/material/styles';
 import { Pagination } from '@mui/material';
-import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 function ModernSearchPage() {
   const theme = useTheme();

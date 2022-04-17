@@ -3,8 +3,8 @@ import FusePageSimple from '@fuse/core/FusePageSimple';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useDispatch } from 'react-redux';
-import { logoutUser } from 'app/auth/store/userSlice';
-import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import { logoutUser } from '../../../auth/store/userSlice';
 
 function StaffRoleExample(props) {
   const dispatch = useDispatch();
@@ -34,24 +34,24 @@ function StaffRoleExample(props) {
 
           <FuseHighlight component="pre" className="language-js">
             {`
-                            import {authRoles} from 'auth';
-                            import StaffRoleExample from 'app/main/auth/staff-role-example/StaffRoleExample';
+              import {authRoles} from 'auth';
+              import StaffRoleExample from './StaffRoleExample';
 
-                            export const StaffRoleExampleConfig = {
-                                settings: {
-                                    layout: {
-                                        config: {}
-                                    }
-                                },
-                                auth    : authRoles.staff,//['admin',staff']
-                                routes  : [
-                                    {
-                                        path     : '/auth/staff-role-example',
-                                        element:StaffRoleExample
-                                    }
-                                ]
-                            };
-                            `}
+              export const StaffRoleExampleConfig = {
+                  settings: {
+                      layout: {
+                          config: {}
+                      }
+                  },
+                  auth    : authRoles.staff,//['admin',staff']
+                  routes  : [
+                      {
+                          path     : '/auth/staff-role-example',
+                          element:StaffRoleExample
+                      }
+                  ]
+              };
+              `}
           </FuseHighlight>
 
           <Typography className="my-24">
@@ -61,17 +61,17 @@ function StaffRoleExample(props) {
 
           <FuseHighlight component="pre" className="language-json">
             {`
-                                export const fuseNavigationConfig = [
-                                   {
-                                        'id'   : 'only-staff-navigation-item',
-                                        'title': 'Nav item only for Staff',
-                                        'type' : 'item',
-                                        'auth' : authRoles.staff,//['admin','staff']
-                                        'url'  : '/auth/staff-role-example',
-                                        'icon' : 'verified_user'
-                                    }
-                                ];
-                            `}
+              export const fuseNavigationConfig = [
+                 {
+                      'id'   : 'only-staff-navigation-item',
+                      'title': 'Nav item only for Staff',
+                      'type' : 'item',
+                      'auth' : authRoles.staff,//['admin','staff']
+                      'url'  : '/auth/staff-role-example',
+                      'icon' : 'verified_user'
+                  }
+              ];
+          `}
           </FuseHighlight>
         </div>
       }

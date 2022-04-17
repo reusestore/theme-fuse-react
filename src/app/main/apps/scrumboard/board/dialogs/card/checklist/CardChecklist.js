@@ -8,11 +8,11 @@ import ListItemText from '@mui/material/ListItemText';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
-import { useRef, useState, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import CardAddChecklistItem from './CardAddChecklistItem';
 import CardChecklistItem from './CardChecklistItem';
 import CardChecklistName from './CardChecklistName';
-import FuseSvgIcon from '../../../../../../../../@fuse/core/FuseSvgIcon';
 
 function CardChecklist(props) {
   const { onCheckListChange, checklist, index } = props;

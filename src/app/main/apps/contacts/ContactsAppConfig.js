@@ -1,6 +1,6 @@
 import { lazy } from 'react';
-import ContactView from 'app/main/apps/contacts/contact/ContactView';
-import ContactForm from 'app/main/apps/contacts/contact/ContactForm';
+import ContactView from './contact/ContactView';
+import ContactForm from './contact/ContactForm';
 
 const ContactsApp = lazy(() => import('./ContactsApp'));
 

@@ -46,11 +46,8 @@ function StackDoc(props) {
           name="BasicStack.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/stack/BasicStack.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/stack/BasicStack.js')}
+          component={require('../components/stack/BasicStack.js').default}
+          raw={require('!raw-loader!../components/stack/BasicStack.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -75,11 +72,8 @@ function StackDoc(props) {
           name="DirectionStack.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/stack/DirectionStack.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/stack/DirectionStack.js')}
+          component={require('../components/stack/DirectionStack.js').default}
+          raw={require('!raw-loader!../components/stack/DirectionStack.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -94,11 +88,8 @@ function StackDoc(props) {
           name="DividerStack.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/stack/DividerStack.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/stack/DividerStack.js')}
+          component={require('../components/stack/DividerStack.js').default}
+          raw={require('!raw-loader!../components/stack/DividerStack.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -113,11 +104,8 @@ function StackDoc(props) {
           name="ResponsiveStack.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/stack/ResponsiveStack.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/stack/ResponsiveStack.js')}
+          component={require('../components/stack/ResponsiveStack.js').default}
+          raw={require('!raw-loader!../components/stack/ResponsiveStack.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -132,11 +120,8 @@ function StackDoc(props) {
           name="InteractiveStack.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/stack/InteractiveStack.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/stack/InteractiveStack.js')}
+          component={require('../components/stack/InteractiveStack.js').default}
+          raw={require('!raw-loader!../components/stack/InteractiveStack.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

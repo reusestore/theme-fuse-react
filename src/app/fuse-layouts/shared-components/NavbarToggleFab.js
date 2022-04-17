@@ -6,7 +6,7 @@ import { navbarToggle, navbarToggleMobile } from 'app/store/fuse/navbarSlice';
 import clsx from 'clsx';
 import { useDispatch, useSelector } from 'react-redux';
 import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
-import FuseSvgIcon from '../../../@fuse/core/FuseSvgIcon';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 const Root = styled(Tooltip)(({ theme, position }) => ({
   '& > .button': {

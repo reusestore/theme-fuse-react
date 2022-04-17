@@ -4,10 +4,10 @@ import InputAdornment from '@mui/material/InputAdornment';
 import { Controller, useForm } from 'react-hook-form';
 import IconButton from '@mui/material/IconButton';
 import ListItem from '@mui/material/ListItem';
-import NoteListItemModel from 'app/main/apps/notes/model/NoteListItemModel';
 import * as yup from 'yup';
 import _ from '@lodash';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import NoteListItemModel from '../../model/NoteListItemModel';
 
 const defaultValues = {
   content: '',

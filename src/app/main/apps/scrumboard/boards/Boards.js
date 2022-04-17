@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import reducer from '../store';
-import { selectBoards, getBoards, resetBoards } from '../store/boardsSlice';
+import { getBoards, resetBoards, selectBoards } from '../store/boardsSlice';
 import BoardItem from './BoardItem';
 import NewBoardItem from './NewBoardItem';
 

@@ -1,9 +1,9 @@
-import PhoneNumberInput from 'app/main/apps/contacts/contact/phone-number-selector/PhoneNumberInput';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Button from '@mui/material/Button';
 import { forwardRef } from 'react';
 import clsx from 'clsx';
-import ContactModel from 'app/main/apps/contacts/model/ContactModel';
+import PhoneNumberInput from './PhoneNumberInput';
+import ContactModel from '../../model/ContactModel';
 
 const PhoneNumberSelector = forwardRef(({ value, onChange, className }, ref) => {
   return (

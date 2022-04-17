@@ -13,10 +13,10 @@ import RadioGroup from '@mui/material/RadioGroup';
 import Select from '@mui/material/Select';
 import Switch from '@mui/material/Switch';
 import Typography from '@mui/material/Typography';
-import { useCallback, useMemo, memo, useEffect } from 'react';
+import { memo, useCallback, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateUserSettings } from 'app/auth/store/userSlice';
 import { setDefaultSettings } from 'app/store/fuse/settingsSlice';
+import { updateUserSettings } from '../../../app/auth/store/userSlice';
 
 const Root = styled('div')(({ theme }) => ({
   '& .FuseSettings-formControl': {

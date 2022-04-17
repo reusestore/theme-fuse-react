@@ -1,6 +1,6 @@
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import { useEffect, memo, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { useSelector } from 'react-redux';
 import Chip from '@mui/material/Chip';

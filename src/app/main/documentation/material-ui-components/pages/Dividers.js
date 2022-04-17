@@ -46,11 +46,8 @@ function DividersDoc(props) {
           name="ListDividers.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/dividers/ListDividers.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dividers/ListDividers.js')}
+          component={require('../components/dividers/ListDividers.js').default}
+          raw={require('!raw-loader!../components/dividers/ListDividers.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -69,11 +66,8 @@ function DividersDoc(props) {
           name="InsetDividers.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/dividers/InsetDividers.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dividers/InsetDividers.js')}
+          component={require('../components/dividers/InsetDividers.js').default}
+          raw={require('!raw-loader!../components/dividers/InsetDividers.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -84,11 +78,8 @@ function DividersDoc(props) {
           name="SubheaderDividers.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/dividers/SubheaderDividers.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dividers/SubheaderDividers.js')}
+          component={require('../components/dividers/SubheaderDividers.js').default}
+          raw={require('!raw-loader!../components/dividers/SubheaderDividers.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -99,11 +90,8 @@ function DividersDoc(props) {
           name="MiddleDividers.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/dividers/MiddleDividers.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dividers/MiddleDividers.js')}
+          component={require('../components/dividers/MiddleDividers.js').default}
+          raw={require('!raw-loader!../components/dividers/MiddleDividers.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -117,11 +105,8 @@ function DividersDoc(props) {
           name="DividerText.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/dividers/DividerText.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dividers/DividerText.js')}
+          component={require('../components/dividers/DividerText.js').default}
+          raw={require('!raw-loader!../components/dividers/DividerText.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -135,11 +120,8 @@ function DividersDoc(props) {
           name="VerticalDividers.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/dividers/VerticalDividers.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dividers/VerticalDividers.js')}
+          component={require('../components/dividers/VerticalDividers.js').default}
+          raw={require('!raw-loader!../components/dividers/VerticalDividers.js')}
         />
       </Typography>
       <blockquote>
@@ -158,11 +140,8 @@ function DividersDoc(props) {
           name="VerticalDividerMiddle.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/dividers/VerticalDividerMiddle.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dividers/VerticalDividerMiddle.js')}
+          component={require('../components/dividers/VerticalDividerMiddle.js').default}
+          raw={require('!raw-loader!../components/dividers/VerticalDividerMiddle.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -176,11 +155,8 @@ function DividersDoc(props) {
           name="VerticalDividerText.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/dividers/VerticalDividerText.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dividers/VerticalDividerText.js')}
+          component={require('../components/dividers/VerticalDividerText.js').default}
+          raw={require('!raw-loader!../components/dividers/VerticalDividerText.js')}
         />
       </Typography>
     </>

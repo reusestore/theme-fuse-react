@@ -2,7 +2,7 @@ import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import { styled } from '@mui/material/styles';
 import clsx from 'clsx';
 import * as PropTypes from 'prop-types';
-import { forwardRef, useImperativeHandle, memo, useRef } from 'react';
+import { forwardRef, memo, useImperativeHandle, useRef } from 'react';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import FusePageCardedHeader from './FusePageCardedHeader';
 import FusePageCardedSidebar from './FusePageCardedSidebar';

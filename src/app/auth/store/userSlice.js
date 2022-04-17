@@ -3,10 +3,10 @@ import { createSlice } from '@reduxjs/toolkit';
 import 'firebase/compat/auth';
 import history from '@history';
 import _ from '@lodash';
-import { setInitialSettings, setDefaultSettings } from 'app/store/fuse/settingsSlice';
+import { setDefaultSettings, setInitialSettings } from 'app/store/fuse/settingsSlice';
 import { showMessage } from 'app/store/fuse/messageSlice';
-import jwtService from 'app/auth/services/jwtService';
-import settingsConfig from 'app/fuse-configs/settingsConfig';
+import settingsConfig from '../../fuse-configs/settingsConfig';
+import jwtService from '../services/jwtService';
 
 export const setUserData = (user) => async (dispatch, getState) => {
   /*

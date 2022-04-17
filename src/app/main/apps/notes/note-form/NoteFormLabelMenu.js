@@ -7,7 +7,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Popover from '@mui/material/Popover';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import FuseSvgIcon from '../../../../../@fuse/core/FuseSvgIcon';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 function NoteFormLabelMenu(props) {
   const labels = useSelector(({ notesApp }) => notesApp.labels.entities);

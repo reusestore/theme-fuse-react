@@ -53,11 +53,8 @@ function ButtonsDoc(props) {
           name="BasicButtons.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/buttons/BasicButtons.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/BasicButtons.js')}
+          component={require('../components/buttons/BasicButtons.js').default}
+          raw={require('!raw-loader!../components/buttons/BasicButtons.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -73,11 +70,8 @@ function ButtonsDoc(props) {
           name="TextButtons.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/buttons/TextButtons.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/TextButtons.js')}
+          component={require('../components/buttons/TextButtons.js').default}
+          raw={require('!raw-loader!../components/buttons/TextButtons.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -93,11 +87,8 @@ function ButtonsDoc(props) {
           name="ContainedButtons.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/buttons/ContainedButtons.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/ContainedButtons.js')}
+          component={require('../components/buttons/ContainedButtons.js').default}
+          raw={require('!raw-loader!../components/buttons/ContainedButtons.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -108,11 +99,8 @@ function ButtonsDoc(props) {
           name="DisableElevation.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/buttons/DisableElevation.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/DisableElevation.js')}
+          component={require('../components/buttons/DisableElevation.js').default}
+          raw={require('!raw-loader!../components/buttons/DisableElevation.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -132,11 +120,8 @@ function ButtonsDoc(props) {
           name="OutlinedButtons.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/buttons/OutlinedButtons.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/OutlinedButtons.js')}
+          component={require('../components/buttons/OutlinedButtons.js').default}
+          raw={require('!raw-loader!../components/buttons/OutlinedButtons.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -170,11 +155,8 @@ function ButtonsDoc(props) {
           name="ColorButtons.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/buttons/ColorButtons.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/ColorButtons.js')}
+          component={require('../components/buttons/ColorButtons.js').default}
+          raw={require('!raw-loader!../components/buttons/ColorButtons.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -194,11 +176,8 @@ function ButtonsDoc(props) {
           name="ButtonSizes.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/buttons/ButtonSizes.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/ButtonSizes.js')}
+          component={require('../components/buttons/ButtonSizes.js').default}
+          raw={require('!raw-loader!../components/buttons/ButtonSizes.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -209,11 +188,8 @@ function ButtonsDoc(props) {
           name="UploadButtons.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/buttons/UploadButtons.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/UploadButtons.js')}
+          component={require('../components/buttons/UploadButtons.js').default}
+          raw={require('!raw-loader!../components/buttons/UploadButtons.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -229,11 +205,8 @@ function ButtonsDoc(props) {
           name="IconLabelButtons.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/buttons/IconLabelButtons.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/IconLabelButtons.js')}
+          component={require('../components/buttons/IconLabelButtons.js').default}
+          raw={require('!raw-loader!../components/buttons/IconLabelButtons.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -251,11 +224,8 @@ function ButtonsDoc(props) {
           name="IconButtons.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/buttons/IconButtons.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/IconButtons.js')}
+          component={require('../components/buttons/IconButtons.js').default}
+          raw={require('!raw-loader!../components/buttons/IconButtons.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -269,11 +239,8 @@ function ButtonsDoc(props) {
           name="IconButtonSizes.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/buttons/IconButtonSizes.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/IconButtonSizes.js')}
+          component={require('../components/buttons/IconButtonSizes.js').default}
+          raw={require('!raw-loader!../components/buttons/IconButtonSizes.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -287,11 +254,8 @@ function ButtonsDoc(props) {
           name="IconButtonColors.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/buttons/IconButtonColors.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/IconButtonColors.js')}
+          component={require('../components/buttons/IconButtonColors.js').default}
+          raw={require('!raw-loader!../components/buttons/IconButtonColors.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -306,11 +270,8 @@ function ButtonsDoc(props) {
           name="CustomizedButtons.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/buttons/CustomizedButtons.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/CustomizedButtons.js')}
+          component={require('../components/buttons/CustomizedButtons.js').default}
+          raw={require('!raw-loader!../components/buttons/CustomizedButtons.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -331,11 +292,8 @@ function ButtonsDoc(props) {
           name="LoadingButtons.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/buttons/LoadingButtons.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/LoadingButtons.js')}
+          component={require('../components/buttons/LoadingButtons.js').default}
+          raw={require('!raw-loader!../components/buttons/LoadingButtons.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -346,11 +304,8 @@ function ButtonsDoc(props) {
           name="LoadingButtonsTransition.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/buttons/LoadingButtonsTransition.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/LoadingButtonsTransition.js')}
+          component={require('../components/buttons/LoadingButtonsTransition.js').default}
+          raw={require('!raw-loader!../components/buttons/LoadingButtonsTransition.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -366,11 +321,8 @@ function ButtonsDoc(props) {
           name="ButtonBase.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/buttons/ButtonBase.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/ButtonBase.js')}
+          component={require('../components/buttons/ButtonBase.js').default}
+          raw={require('!raw-loader!../components/buttons/ButtonBase.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -463,11 +415,8 @@ import ButtonUnstyled from '@mui/base/ButtonUnstyled';
           name="UnstyledButtonsSimple.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/buttons/UnstyledButtonsSimple.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/UnstyledButtonsSimple.js')}
+          component={require('../components/buttons/UnstyledButtonsSimple.js').default}
+          raw={require('!raw-loader!../components/buttons/UnstyledButtonsSimple.js')}
         />
       </Typography>
       <Typography className="text-16 mt-16 mb-10" component="h4">
@@ -484,11 +433,8 @@ import ButtonUnstyled from '@mui/base/ButtonUnstyled';
           name="UnstyledButtonsSpan.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/buttons/UnstyledButtonsSpan.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/UnstyledButtonsSpan.js')}
+          component={require('../components/buttons/UnstyledButtonsSpan.js').default}
+          raw={require('!raw-loader!../components/buttons/UnstyledButtonsSpan.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -506,11 +452,8 @@ import ButtonUnstyled from '@mui/base/ButtonUnstyled';
           name="UnstyledButtonCustom.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/buttons/UnstyledButtonCustom.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/UnstyledButtonCustom.js')}
+          component={require('../components/buttons/UnstyledButtonCustom.js').default}
+          raw={require('!raw-loader!../components/buttons/UnstyledButtonCustom.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -537,11 +480,8 @@ import { useButton } from '@mui/base/ButtonUnstyled';
           name="UseButton.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/buttons/UseButton.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/buttons/UseButton.js')}
+          component={require('../components/buttons/UseButton.js').default}
+          raw={require('!raw-loader!../components/buttons/UseButton.js')}
         />
       </Typography>
     </>

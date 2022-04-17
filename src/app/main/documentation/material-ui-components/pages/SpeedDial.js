@@ -47,11 +47,8 @@ function SpeedDialDoc(props) {
           name="BasicSpeedDial.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/speed-dial/BasicSpeedDial.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/speed-dial/BasicSpeedDial.js')}
+          component={require('../components/speed-dial/BasicSpeedDial.js').default}
+          raw={require('!raw-loader!../components/speed-dial/BasicSpeedDial.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -62,11 +59,8 @@ function SpeedDialDoc(props) {
           name="PlaygroundSpeedDial.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/speed-dial/PlaygroundSpeedDial.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/speed-dial/PlaygroundSpeedDial.js')}
+          component={require('../components/speed-dial/PlaygroundSpeedDial.js').default}
+          raw={require('!raw-loader!../components/speed-dial/PlaygroundSpeedDial.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -81,11 +75,8 @@ function SpeedDialDoc(props) {
           name="ControlledOpenSpeedDial.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/speed-dial/ControlledOpenSpeedDial.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/speed-dial/ControlledOpenSpeedDial.js')}
+          component={require('../components/speed-dial/ControlledOpenSpeedDial.js').default}
+          raw={require('!raw-loader!../components/speed-dial/ControlledOpenSpeedDial.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -100,11 +91,8 @@ function SpeedDialDoc(props) {
           name="OpenIconSpeedDial.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/speed-dial/OpenIconSpeedDial.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/speed-dial/OpenIconSpeedDial.js')}
+          component={require('../components/speed-dial/OpenIconSpeedDial.js').default}
+          raw={require('!raw-loader!../components/speed-dial/OpenIconSpeedDial.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -123,11 +111,8 @@ function SpeedDialDoc(props) {
           name="SpeedDialTooltipOpen.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/speed-dial/SpeedDialTooltipOpen.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/speed-dial/SpeedDialTooltipOpen.js')}
+          component={require('../components/speed-dial/SpeedDialTooltipOpen.js').default}
+          raw={require('!raw-loader!../components/speed-dial/SpeedDialTooltipOpen.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

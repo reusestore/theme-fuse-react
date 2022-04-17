@@ -1,5 +1,5 @@
-import { authRoles } from 'app/auth';
 import SignUpPage from './SignUpPage';
+import authRoles from '../../auth/authRoles';
 
 const SignUpConfig = {
   settings: {

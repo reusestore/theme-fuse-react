@@ -47,11 +47,8 @@ function SliderDoc(props) {
           name="ContinuousSlider.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/slider/ContinuousSlider.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/slider/ContinuousSlider.js')}
+          component={require('../components/slider/ContinuousSlider.js').default}
+          raw={require('!raw-loader!../components/slider/ContinuousSlider.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -65,11 +62,8 @@ function SliderDoc(props) {
           name="SliderSizes.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/slider/SliderSizes.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/slider/SliderSizes.js')}
+          component={require('../components/slider/SliderSizes.js').default}
+          raw={require('!raw-loader!../components/slider/SliderSizes.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -84,11 +78,8 @@ function SliderDoc(props) {
           name="DiscreteSlider.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/slider/DiscreteSlider.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/slider/DiscreteSlider.js')}
+          component={require('../components/slider/DiscreteSlider.js').default}
+          raw={require('!raw-loader!../components/slider/DiscreteSlider.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -102,11 +93,8 @@ function SliderDoc(props) {
           name="DiscreteSliderSteps.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/slider/DiscreteSliderSteps.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/slider/DiscreteSliderSteps.js')}
+          component={require('../components/slider/DiscreteSliderSteps.js').default}
+          raw={require('!raw-loader!../components/slider/DiscreteSliderSteps.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -120,11 +108,8 @@ function SliderDoc(props) {
           name="DiscreteSliderMarks.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/slider/DiscreteSliderMarks.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/slider/DiscreteSliderMarks.js')}
+          component={require('../components/slider/DiscreteSliderMarks.js').default}
+          raw={require('!raw-loader!../components/slider/DiscreteSliderMarks.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -139,11 +124,8 @@ function SliderDoc(props) {
           name="DiscreteSliderValues.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/slider/DiscreteSliderValues.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/slider/DiscreteSliderValues.js')}
+          component={require('../components/slider/DiscreteSliderValues.js').default}
+          raw={require('!raw-loader!../components/slider/DiscreteSliderValues.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -158,11 +140,8 @@ function SliderDoc(props) {
           name="DiscreteSliderLabel.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/slider/DiscreteSliderLabel.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/slider/DiscreteSliderLabel.js')}
+          component={require('../components/slider/DiscreteSliderLabel.js').default}
+          raw={require('!raw-loader!../components/slider/DiscreteSliderLabel.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -177,11 +156,8 @@ function SliderDoc(props) {
           name="RangeSlider.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/slider/RangeSlider.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/slider/RangeSlider.js')}
+          component={require('../components/slider/RangeSlider.js').default}
+          raw={require('!raw-loader!../components/slider/RangeSlider.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -199,11 +175,8 @@ function SliderDoc(props) {
           name="MinimumDistanceSlider.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/slider/MinimumDistanceSlider.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/slider/MinimumDistanceSlider.js')}
+          component={require('../components/slider/MinimumDistanceSlider.js').default}
+          raw={require('!raw-loader!../components/slider/MinimumDistanceSlider.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -217,11 +190,8 @@ function SliderDoc(props) {
           name="InputSlider.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/slider/InputSlider.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/slider/InputSlider.js')}
+          component={require('../components/slider/InputSlider.js').default}
+          raw={require('!raw-loader!../components/slider/InputSlider.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -232,11 +202,8 @@ function SliderDoc(props) {
           name="ColorSlider.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/slider/ColorSlider.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/slider/ColorSlider.js')}
+          component={require('../components/slider/ColorSlider.js').default}
+          raw={require('!raw-loader!../components/slider/ColorSlider.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -251,11 +218,8 @@ function SliderDoc(props) {
           name="CustomizedSlider.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/slider/CustomizedSlider.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/slider/CustomizedSlider.js')}
+          component={require('../components/slider/CustomizedSlider.js').default}
+          raw={require('!raw-loader!../components/slider/CustomizedSlider.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -266,11 +230,8 @@ function SliderDoc(props) {
           name="MusicPlayerSlider.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/slider/MusicPlayerSlider.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/slider/MusicPlayerSlider.js')}
+          component={require('../components/slider/MusicPlayerSlider.js').default}
+          raw={require('!raw-loader!../components/slider/MusicPlayerSlider.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -281,11 +242,8 @@ function SliderDoc(props) {
           name="VerticalSlider.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/slider/VerticalSlider.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/slider/VerticalSlider.js')}
+          component={require('../components/slider/VerticalSlider.js').default}
+          raw={require('!raw-loader!../components/slider/VerticalSlider.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -314,11 +272,8 @@ function SliderDoc(props) {
           name="VerticalAccessibleSlider.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/slider/VerticalAccessibleSlider.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/slider/VerticalAccessibleSlider.js')}
+          component={require('../components/slider/VerticalAccessibleSlider.js').default}
+          raw={require('!raw-loader!../components/slider/VerticalAccessibleSlider.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -338,11 +293,8 @@ function SliderDoc(props) {
           name="TrackFalseSlider.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/slider/TrackFalseSlider.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/slider/TrackFalseSlider.js')}
+          component={require('../components/slider/TrackFalseSlider.js').default}
+          raw={require('!raw-loader!../components/slider/TrackFalseSlider.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -356,11 +308,8 @@ function SliderDoc(props) {
           name="TrackInvertedSlider.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/slider/TrackInvertedSlider.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/slider/TrackInvertedSlider.js')}
+          component={require('../components/slider/TrackInvertedSlider.js').default}
+          raw={require('!raw-loader!../components/slider/TrackInvertedSlider.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -379,11 +328,8 @@ function SliderDoc(props) {
           name="NonLinearSlider.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/slider/NonLinearSlider.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/slider/NonLinearSlider.js')}
+          component={require('../components/slider/NonLinearSlider.js').default}
+          raw={require('!raw-loader!../components/slider/NonLinearSlider.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -410,11 +356,8 @@ import SliderUnstyled from '@mui/base/SliderUnstyled';
           name="UnstyledSlider.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/slider/UnstyledSlider.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/slider/UnstyledSlider.js')}
+          component={require('../components/slider/UnstyledSlider.js').default}
+          raw={require('!raw-loader!../components/slider/UnstyledSlider.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

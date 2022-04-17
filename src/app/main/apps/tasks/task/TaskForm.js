@@ -1,20 +1,12 @@
 import Button from '@mui/material/Button';
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
-import { useSelector, useDispatch } from 'react-redux';
-import {
-  selectTask,
-  getTask,
-  updateTask,
-  newTask,
-  addTask,
-} from 'app/main/apps/tasks/store/taskSlice';
-import { selectTags } from 'app/main/apps/tasks/store/tagsSlice';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import FuseLoading from '@fuse/core/FuseLoading';
 import _ from '@lodash';
 import * as yup from 'yup';
-import { useForm, Controller } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
 import Box from '@mui/system/Box';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
@@ -27,6 +19,8 @@ import IconButton from '@mui/material/IconButton';
 import { useDeepCompareEffect } from '@fuse/hooks';
 import TaskPrioritySelector from './TaskPrioritySelector';
 import FormActionsMenu from './FormActionsMenu';
+import { addTask, getTask, newTask, selectTask, updateTask } from '../store/taskSlice';
+import { selectTags } from '../store/tagsSlice';
 
 /**
  * Form Validation Schema

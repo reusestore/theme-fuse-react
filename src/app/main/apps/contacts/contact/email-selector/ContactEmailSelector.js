@@ -1,9 +1,9 @@
-import EmailInput from 'app/main/apps/contacts/contact/email-selector/EmailInput';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Button from '@mui/material/Button';
 import { forwardRef } from 'react';
 import clsx from 'clsx';
-import ContactModel from 'app/main/apps/contacts/model/ContactModel';
+import EmailInput from './EmailInput';
+import ContactModel from '../../model/ContactModel';
 
 const ContactEmailSelector = forwardRef(({ value, onChange, className }, ref) => {
   return (

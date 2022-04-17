@@ -9,7 +9,7 @@ import Paper from '@mui/material/Paper';
 import AvatarGroup from '@mui/material/AvatarGroup';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
-import FuseCountdown from '../../../../@fuse/core/FuseCountdown/FuseCountdown';
+import FuseCountdown from '@fuse/core/FuseCountdown';
 
 /**
  * Form Validation Schema

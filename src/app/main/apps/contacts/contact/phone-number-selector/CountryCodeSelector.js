@@ -1,13 +1,13 @@
 import { useSelector } from 'react-redux';
-import { selectCountries } from 'app/main/apps/contacts/store/countriesSlice';
 import _ from '@lodash';
 import * as React from 'react';
+import { forwardRef } from 'react';
 import Button from '@mui/material/Button';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Box from '@mui/system/Box';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { forwardRef } from 'react';
+import { selectCountries } from '../../store/countriesSlice';
 
 const CountryCodeSelector = forwardRef(({ value, onChange, className }, ref) => {
   const countries = useSelector(selectCountries);

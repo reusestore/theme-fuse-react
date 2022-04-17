@@ -1,15 +1,15 @@
 import FuseUtils from '@fuse/utils';
-import dashboardsConfigs from 'app/main/dashboards/dashboardsConfigs';
-import appsConfigs from 'app/main/apps/appsConfigs';
-import authRoleExamplesConfigs from 'app/main/auth/authRoleExamplesConfigs';
-import DocumentationConfig from 'app/main/documentation/DocumentationConfig';
-import pagesConfigs from 'app/main/pages/pagesConfigs';
 import FuseLoading from '@fuse/core/FuseLoading';
 import { Navigate } from 'react-router-dom';
 import userInterfaceConfigs from '../main/user-interface/UserInterfaceConfigs';
 import SignInConfig from '../main/sign-in/SignInConfig';
 import SignUpConfig from '../main/sign-up/SignUpConfig';
 import SignOutConfig from '../main/sign-out/SignOutConfig';
+import dashboardsConfigs from '../main/dashboards/dashboardsConfigs';
+import appsConfigs from '../main/apps/appsConfigs';
+import pagesConfigs from '../main/pages/pagesConfigs';
+import authRoleExamplesConfigs from '../main/auth/authRoleExamplesConfigs';
+import DocumentationConfig from '../main/documentation/DocumentationConfig';
 
 const routeConfigs = [
   ...appsConfigs,

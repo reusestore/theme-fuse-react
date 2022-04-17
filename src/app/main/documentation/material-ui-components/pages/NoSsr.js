@@ -53,11 +53,8 @@ function NoSsrDoc(props) {
           name="SimpleNoSsr.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/no-ssr/SimpleNoSsr.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/no-ssr/SimpleNoSsr.js')}
+          component={require('../components/no-ssr/SimpleNoSsr.js').default}
+          raw={require('!raw-loader!../components/no-ssr/SimpleNoSsr.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -82,11 +79,8 @@ function NoSsrDoc(props) {
           name="FrameDeferring.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/no-ssr/FrameDeferring.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/no-ssr/FrameDeferring.js')}
+          component={require('../components/no-ssr/FrameDeferring.js').default}
+          raw={require('!raw-loader!../components/no-ssr/FrameDeferring.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

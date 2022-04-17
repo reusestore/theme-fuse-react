@@ -14,9 +14,9 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import withRouter from '@fuse/core/withRouter';
 import FuseLoading from '@fuse/core/FuseLoading';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { getProducts, selectProducts } from '../store/productsSlice';
 import ProductsTableHead from './ProductsTableHead';
-import FuseSvgIcon from '../../../../../@fuse/core/FuseSvgIcon';
 
 function ProductsTable(props) {
   const dispatch = useDispatch();

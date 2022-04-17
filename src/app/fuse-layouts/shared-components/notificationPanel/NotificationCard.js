@@ -2,8 +2,8 @@ import Card from '@mui/material/Card';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import clsx from 'clsx';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import NotificationIcon from './NotificationIcon';
-import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 function NotificationCard(props) {
   const { item, className } = props;

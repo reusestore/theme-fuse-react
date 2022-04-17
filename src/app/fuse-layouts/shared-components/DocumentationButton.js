@@ -1,6 +1,6 @@
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
-import FuseSvgIcon from '../../../@fuse/core/FuseSvgIcon';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 function DocumentationButton({ className }) {
   return (

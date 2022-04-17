@@ -1,7 +1,7 @@
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { styled } from '@mui/material/styles';
 import { Box } from '@mui/system';
-import { amber, red, blue, green, grey } from '@mui/material/colors';
+import { amber, blue, green, grey, red } from '@mui/material/colors';
 
 const TypeBadge = styled(Box)(({ theme, ...props }) => ({
   backgroundColor: {

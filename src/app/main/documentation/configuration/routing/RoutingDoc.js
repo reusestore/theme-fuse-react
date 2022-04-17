@@ -81,22 +81,22 @@ function RoutingDoc() {
 
       <FuseHighlight component="pre" className="language-jsx mb-32">
         {`
-                                import {appsRoutes} from 'app/main/apps/mailbox/MailboxAppConfig.js';
-                                import FuseUtils from '@fuse/utils';
-                                import { Navigate } from 'react-router-dom';
+          import {appsRoutes} from '../main/apps/mailbox/MailboxAppConfig.js';
+          import FuseUtils from '@fuse/utils';
+          import { Navigate } from 'react-router-dom';
 
-                                const routeConfigs = [
-                                    MailAppConfig
-                                ];
+          const routeConfigs = [
+              MailAppConfig
+          ];
 
-                                export const routes = [
-                                    ...FuseUtils.generateRoutesFromConfigs(routeConfigs, null),
-                                     {
-                                      path: '*',
-                                      element: <Navigate to="pages/errors/error-404" />,
-                                    },
-                                ];
-                            `}
+          export const routes = [
+              ...FuseUtils.generateRoutesFromConfigs(routeConfigs, null),
+               {
+                path: '*',
+                element: <Navigate to="pages/errors/error-404" />,
+              },
+          ];
+      `}
       </FuseHighlight>
     </>
   );

@@ -17,7 +17,7 @@ import _ from '@lodash';
 import { Box } from '@mui/system';
 import { darken } from '@mui/material/styles';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import { updateList, removeList } from '../../store/listsSlice';
+import { removeList, updateList } from '../../store/listsSlice';
 
 /**
  * Form Validation Schema

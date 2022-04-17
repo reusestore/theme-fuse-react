@@ -45,11 +45,8 @@ function SwitchesDoc(props) {
           name="BasicSwitches.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/switches/BasicSwitches.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/switches/BasicSwitches.js')}
+          component={require('../components/switches/BasicSwitches.js').default}
+          raw={require('!raw-loader!../components/switches/BasicSwitches.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -64,11 +61,8 @@ function SwitchesDoc(props) {
           name="SwitchLabels.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/switches/SwitchLabels.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/switches/SwitchLabels.js')}
+          component={require('../components/switches/SwitchLabels.js').default}
+          raw={require('!raw-loader!../components/switches/SwitchLabels.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -82,11 +76,8 @@ function SwitchesDoc(props) {
           name="SwitchesSize.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/switches/SwitchesSize.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/switches/SwitchesSize.js')}
+          component={require('../components/switches/SwitchesSize.js').default}
+          raw={require('!raw-loader!../components/switches/SwitchesSize.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -97,11 +88,8 @@ function SwitchesDoc(props) {
           name="ColorSwitches.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/switches/ColorSwitches.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/switches/ColorSwitches.js')}
+          component={require('../components/switches/ColorSwitches.js').default}
+          raw={require('!raw-loader!../components/switches/ColorSwitches.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -115,11 +103,8 @@ function SwitchesDoc(props) {
           name="ControlledSwitches.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/switches/ControlledSwitches.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/switches/ControlledSwitches.js')}
+          component={require('../components/switches/ControlledSwitches.js').default}
+          raw={require('!raw-loader!../components/switches/ControlledSwitches.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -136,11 +121,8 @@ function SwitchesDoc(props) {
           name="SwitchesGroup.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/switches/SwitchesGroup.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/switches/SwitchesGroup.js')}
+          component={require('../components/switches/SwitchesGroup.js').default}
+          raw={require('!raw-loader!../components/switches/SwitchesGroup.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -155,11 +137,8 @@ function SwitchesDoc(props) {
           name="CustomizedSwitches.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/switches/CustomizedSwitches.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/switches/CustomizedSwitches.js')}
+          component={require('../components/switches/CustomizedSwitches.js').default}
+          raw={require('!raw-loader!../components/switches/CustomizedSwitches.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -201,11 +180,8 @@ import SwitchUnstyled from '@mui/base/SwitchUnstyled';
           name="UnstyledSwitches.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/switches/UnstyledSwitches.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/switches/UnstyledSwitches.js')}
+          component={require('../components/switches/UnstyledSwitches.js').default}
+          raw={require('!raw-loader!../components/switches/UnstyledSwitches.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -230,11 +206,8 @@ import { useSwitch } from '@mui/base/SwitchUnstyled';
           name="UseSwitchesBasic.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/switches/UseSwitchesBasic.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/switches/UseSwitchesBasic.js')}
+          component={require('../components/switches/UseSwitchesBasic.js').default}
+          raw={require('!raw-loader!../components/switches/UseSwitchesBasic.js')}
         />
       </Typography>
       <Typography className="text-16 mt-16 mb-10" component="h4">
@@ -245,11 +218,8 @@ import { useSwitch } from '@mui/base/SwitchUnstyled';
           name="UseSwitchesCustom.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/switches/UseSwitchesCustom.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/switches/UseSwitchesCustom.js')}
+          component={require('../components/switches/UseSwitchesCustom.js').default}
+          raw={require('!raw-loader!../components/switches/UseSwitchesCustom.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -263,11 +233,8 @@ import { useSwitch } from '@mui/base/SwitchUnstyled';
           name="FormControlLabelPosition.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/switches/FormControlLabelPosition.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/switches/FormControlLabelPosition.js')}
+          component={require('../components/switches/FormControlLabelPosition.js').default}
+          raw={require('!raw-loader!../components/switches/FormControlLabelPosition.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

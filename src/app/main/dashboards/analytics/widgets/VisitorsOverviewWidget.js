@@ -5,8 +5,8 @@ import { useState } from 'react';
 import Tabs from '@mui/material/Tabs';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
+import { selectContrastMainTheme } from 'app/store/fuse/settingsSlice';
 import { selectWidgets } from '../store/widgetsSlice';
-import { selectContrastMainTheme } from '../../../../store/fuse/settingsSlice';
 
 const Root = styled('div')(({ theme }) => ({
   background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,

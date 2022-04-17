@@ -46,11 +46,8 @@ function ContainerDoc(props) {
           name="SimpleContainer.js"
           className="my-24"
           iframe
-          component={
-            require('app/main/documentation/material-ui-components/components/container/SimpleContainer.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/container/SimpleContainer.js')}
+          component={require('../components/container/SimpleContainer.js').default}
+          raw={require('!raw-loader!../components/container/SimpleContainer.js')}
         />
       </Typography>
 
@@ -72,11 +69,8 @@ function ContainerDoc(props) {
           name="FixedContainer.js"
           className="my-24"
           iframe
-          component={
-            require('app/main/documentation/material-ui-components/components/container/FixedContainer.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/container/FixedContainer.js')}
+          component={require('../components/container/FixedContainer.js').default}
+          raw={require('!raw-loader!../components/container/FixedContainer.js')}
         />
       </Typography>
 

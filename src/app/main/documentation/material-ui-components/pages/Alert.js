@@ -47,11 +47,8 @@ function AlertDoc(props) {
           name="BasicAlerts.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/alert/BasicAlerts.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/alert/BasicAlerts.js')}
+          component={require('../components/alert/BasicAlerts.js').default}
+          raw={require('!raw-loader!../components/alert/BasicAlerts.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -66,11 +63,8 @@ function AlertDoc(props) {
           name="DescriptionAlerts.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/alert/DescriptionAlerts.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/alert/DescriptionAlerts.js')}
+          component={require('../components/alert/DescriptionAlerts.js').default}
+          raw={require('!raw-loader!../components/alert/DescriptionAlerts.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -90,11 +84,8 @@ function AlertDoc(props) {
           name="ActionAlerts.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/alert/ActionAlerts.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/alert/ActionAlerts.js')}
+          component={require('../components/alert/ActionAlerts.js').default}
+          raw={require('!raw-loader!../components/alert/ActionAlerts.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -109,11 +100,8 @@ function AlertDoc(props) {
           name="TransitionAlerts.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/alert/TransitionAlerts.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/alert/TransitionAlerts.js')}
+          component={require('../components/alert/TransitionAlerts.js').default}
+          raw={require('!raw-loader!../components/alert/TransitionAlerts.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -136,11 +124,8 @@ function AlertDoc(props) {
           name="IconAlerts.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/alert/IconAlerts.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/alert/IconAlerts.js')}
+          component={require('../components/alert/IconAlerts.js').default}
+          raw={require('!raw-loader!../components/alert/IconAlerts.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -157,11 +142,8 @@ function AlertDoc(props) {
           name="OutlinedAlerts.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/alert/OutlinedAlerts.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/alert/OutlinedAlerts.js')}
+          component={require('../components/alert/OutlinedAlerts.js').default}
+          raw={require('!raw-loader!../components/alert/OutlinedAlerts.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -172,11 +154,8 @@ function AlertDoc(props) {
           name="FilledAlerts.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/alert/FilledAlerts.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/alert/FilledAlerts.js')}
+          component={require('../components/alert/FilledAlerts.js').default}
+          raw={require('!raw-loader!../components/alert/FilledAlerts.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -197,11 +176,8 @@ function AlertDoc(props) {
           name="ColorAlerts.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/alert/ColorAlerts.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/alert/ColorAlerts.js')}
+          component={require('../components/alert/ColorAlerts.js').default}
+          raw={require('!raw-loader!../components/alert/ColorAlerts.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

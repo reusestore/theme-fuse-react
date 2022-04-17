@@ -1,9 +1,4 @@
-import {
-  createEntityAdapter,
-  createSlice,
-  createAsyncThunk,
-  createSelector,
-} from '@reduxjs/toolkit';
+import { createAsyncThunk, createEntityAdapter, createSelector, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import formatISO from 'date-fns/formatISO';
 import { selectSelectedLabels } from './labelsSlice';

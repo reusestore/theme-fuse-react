@@ -163,9 +163,7 @@ function getHtmlCode(markdownSource, file) {
       const demoOptions = JSON.parse(`{${content}}`);
       const name = demoOptions.demo;
       const iframe = !!demoOptions.iframe;
-      const importPath = `app/main/documentation/material-ui-components/components/${path.basename(
-        file
-      )}/${name}`;
+      const importPath = `../components/${path.basename(file)}/${name}`;
       return `\n<FuseExample
                     name="${name}"
                     className="my-24"
@@ -277,8 +275,7 @@ function writePage(file) {
 }
 
 function writeRouteFile(pages) {
-  const importPath =
-    "const %s = lazy(() => import('app/main/documentation/material-ui-components/pages/%s'));";
+  const importPath = "const %s = lazy(() => import('./pages/%s'));";
   const imports = pages.map((page) => {
     const componentName = _.upperFirst(_.camelCase(page));
     return importPath.replace(/%s/g, componentName, componentName);
@@ -412,17 +409,14 @@ function replaceInExamples() {
     list.forEach((file) => {
       const fileSource = fs.readFileSync(file, 'utf8');
       const result = fileSource
-        .replace(
-          new RegExp('docs/src/modules/utils/compose', 'g'),
-          'app/main/documentation/material-ui-components/compose'
-        )
+        .replace(new RegExp('docs/src/modules/utils/compose', 'g'), '../../compose')
         .replace(
           new RegExp('docs/src/modules/components/MarkdownElement', 'g'),
-          'app/main/documentation/material-ui-components/utils/MarkdownElement'
+          '../../utils/MarkdownElement'
         )
         .replace(
           new RegExp('docs/src/modules/components/HighlightedCode', 'g'),
-          'app/main/documentation/material-ui-components/utils/HighlightedCode'
+          '../../utils/HighlightedCode'
         )
         .replace(new RegExp('/static/', 'g'), '/material-ui-static/');
       fs.writeFileSync(file, result, 'utf8', (_err) => {

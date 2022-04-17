@@ -6,10 +6,10 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { useDispatch, useSelector } from 'react-redux';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import { setActionToMails } from 'app/main/apps/mailbox/store/mailsSlice';
-import { selectMail } from 'app/main/apps/mailbox/store/mailSlice';
-import { selectSpamFolderId, selectTrashFolderId } from 'app/main/apps/mailbox/store/foldersSlice';
 import { useNavigate } from 'react-router-dom';
+import { selectMail } from '../store/mailSlice';
+import { selectSpamFolderId, selectTrashFolderId } from '../store/foldersSlice';
+import { setActionToMails } from '../store/mailsSlice';
 
 function MailActionsMenu(props) {
   const { className } = props;

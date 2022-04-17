@@ -1,10 +1,10 @@
 import { styled } from '@mui/material/styles';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import withReducer from 'app/store/withReducer';
-import { useEffect, useState, createContext } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Outlet, useLocation } from 'react-router-dom';
-import FusePageSimple from '@fuse/core/FusePageSimple/FusePageSimple';
+import FusePageSimple from '@fuse/core/FusePageSimple';
 import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 import MainSidebar from './sidebars/main/MainSidebar';
 import ContactSidebar from './sidebars/contact/ContactSidebar';

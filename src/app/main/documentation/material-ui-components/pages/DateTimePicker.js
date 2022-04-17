@@ -82,11 +82,8 @@ function App() {
           name="BasicDateTimePicker.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/date-time-picker/BasicDateTimePicker.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-time-picker/BasicDateTimePicker.js')}
+          component={require('../components/date-time-picker/BasicDateTimePicker.js').default}
+          raw={require('!raw-loader!../components/date-time-picker/BasicDateTimePicker.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -119,11 +116,8 @@ function App() {
           name="ResponsiveDateTimePickers.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/date-time-picker/ResponsiveDateTimePickers.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-time-picker/ResponsiveDateTimePickers.js')}
+          component={require('../components/date-time-picker/ResponsiveDateTimePickers.js').default}
+          raw={require('!raw-loader!../components/date-time-picker/ResponsiveDateTimePickers.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -137,11 +131,8 @@ function App() {
           name="FormPropsDateTimePickers.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/date-time-picker/FormPropsDateTimePickers.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-time-picker/FormPropsDateTimePickers.js')}
+          component={require('../components/date-time-picker/FormPropsDateTimePickers.js').default}
+          raw={require('!raw-loader!../components/date-time-picker/FormPropsDateTimePickers.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -165,11 +156,8 @@ function App() {
           name="DateTimeValidation.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/date-time-picker/DateTimeValidation.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-time-picker/DateTimeValidation.js')}
+          component={require('../components/date-time-picker/DateTimeValidation.js').default}
+          raw={require('!raw-loader!../components/date-time-picker/DateTimeValidation.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -184,11 +172,8 @@ function App() {
           name="StaticDateTimePickerDemo.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/date-time-picker/StaticDateTimePickerDemo.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-time-picker/StaticDateTimePickerDemo.js')}
+          component={require('../components/date-time-picker/StaticDateTimePickerDemo.js').default}
+          raw={require('!raw-loader!../components/date-time-picker/StaticDateTimePickerDemo.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -202,11 +187,8 @@ function App() {
           name="CustomDateTimePicker.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/date-time-picker/CustomDateTimePicker.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-time-picker/CustomDateTimePicker.js')}
+          component={require('../components/date-time-picker/CustomDateTimePicker.js').default}
+          raw={require('!raw-loader!../components/date-time-picker/CustomDateTimePicker.js')}
         />
       </Typography>
     </>

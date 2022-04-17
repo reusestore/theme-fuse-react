@@ -1,8 +1,8 @@
 import IconButton from '@mui/material/IconButton';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import ToolbarMenu from './ToolbarMenu';
-import FuseSvgIcon from '../../../../../../../../@fuse/core/FuseSvgIcon';
 
 function OptionsMenu(props) {
   const [anchorEl, setAnchorEl] = useState(null);

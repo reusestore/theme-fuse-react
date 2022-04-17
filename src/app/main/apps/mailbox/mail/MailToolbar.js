@@ -6,11 +6,11 @@ import { Box } from '@mui/system';
 import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import { setActionToMails } from 'app/main/apps/mailbox/store/mailsSlice';
-import { selectMail } from 'app/main/apps/mailbox/store/mailSlice';
 import Tooltip from '@mui/material/Tooltip';
 import MailActionsMenu from './MailActionsMenu';
 import MailLabelsMenu from './MailLabelsMenu';
+import { selectMail } from '../store/mailSlice';
+import { setActionToMails } from '../store/mailsSlice';
 
 function MailToolbar(props) {
   const dispatch = useDispatch();

@@ -1,12 +1,12 @@
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
-import { styled, alpha } from '@mui/material/styles';
+import { alpha, styled } from '@mui/material/styles';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import List from '@mui/material/List';
 import FuseNavBadge from '../../FuseNavBadge';

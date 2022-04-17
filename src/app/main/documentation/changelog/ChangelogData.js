@@ -442,7 +442,7 @@ const changelogData = [
       'material-ui updated to v4.5.1',
       'react updated to 16.11.0',
       'All dependency packages updated.',
-      'Fake-db delay option added for testing purposes (src/@fake-db/mock.js).',
+      '@fake-db/mock.js).',
       'E-Commerce App, shows FuseLoading component while product data is loading.',
       'Contacts App Contact Dialog Mobile refinement for scroll.',
       'Calendar App Native date input changed with DateTimePicker.',

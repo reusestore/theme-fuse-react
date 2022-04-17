@@ -1,7 +1,7 @@
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Typography from '@mui/material/Typography';
 import clsx from 'clsx';
-import { useLocation, Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import DocumentationNavigation from './DocumentationNavigation';
 
 const getPathTree = (departmentTree, url) => {

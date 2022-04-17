@@ -53,11 +53,8 @@ function TablesDoc(props) {
           name="BasicTable.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tables/BasicTable.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/BasicTable.js')}
+          component={require('../components/tables/BasicTable.js').default}
+          raw={require('!raw-loader!../components/tables/BasicTable.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -80,11 +77,8 @@ function TablesDoc(props) {
           name="DataTable.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tables/DataTable.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/DataTable.js')}
+          component={require('../components/tables/DataTable.js').default}
+          raw={require('!raw-loader!../components/tables/DataTable.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -98,11 +92,8 @@ function TablesDoc(props) {
           name="DenseTable.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tables/DenseTable.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/DenseTable.js')}
+          component={require('../components/tables/DenseTable.js').default}
+          raw={require('!raw-loader!../components/tables/DenseTable.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -125,11 +116,8 @@ function TablesDoc(props) {
           name="EnhancedTable.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tables/EnhancedTable.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/EnhancedTable.js')}
+          component={require('../components/tables/EnhancedTable.js').default}
+          raw={require('!raw-loader!../components/tables/EnhancedTable.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -144,11 +132,8 @@ function TablesDoc(props) {
           name="CustomizedTables.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tables/CustomizedTables.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/CustomizedTables.js')}
+          component={require('../components/tables/CustomizedTables.js').default}
+          raw={require('!raw-loader!../components/tables/CustomizedTables.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -196,11 +181,8 @@ function TablesDoc(props) {
           name="CustomPaginationActionsTable.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tables/CustomPaginationActionsTable.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/CustomPaginationActionsTable.js')}
+          component={require('../components/tables/CustomPaginationActionsTable.js').default}
+          raw={require('!raw-loader!../components/tables/CustomPaginationActionsTable.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -215,11 +197,8 @@ function TablesDoc(props) {
           name="StickyHeadTable.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tables/StickyHeadTable.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/StickyHeadTable.js')}
+          component={require('../components/tables/StickyHeadTable.js').default}
+          raw={require('!raw-loader!../components/tables/StickyHeadTable.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -242,11 +221,8 @@ function TablesDoc(props) {
           name="ColumnGroupingTable.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tables/ColumnGroupingTable.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/ColumnGroupingTable.js')}
+          component={require('../components/tables/ColumnGroupingTable.js').default}
+          raw={require('!raw-loader!../components/tables/ColumnGroupingTable.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -264,11 +240,8 @@ function TablesDoc(props) {
           name="CollapsibleTable.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tables/CollapsibleTable.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/CollapsibleTable.js')}
+          component={require('../components/tables/CollapsibleTable.js').default}
+          raw={require('!raw-loader!../components/tables/CollapsibleTable.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -282,11 +255,8 @@ function TablesDoc(props) {
           name="SpanningTable.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tables/SpanningTable.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/SpanningTable.js')}
+          component={require('../components/tables/SpanningTable.js').default}
+          raw={require('!raw-loader!../components/tables/SpanningTable.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -303,11 +273,8 @@ function TablesDoc(props) {
           name="ReactVirtualizedTable.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tables/ReactVirtualizedTable.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/ReactVirtualizedTable.js')}
+          component={require('../components/tables/ReactVirtualizedTable.js').default}
+          raw={require('!raw-loader!../components/tables/ReactVirtualizedTable.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -322,11 +289,8 @@ function TablesDoc(props) {
           name="TableUnstyled.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tables/TableUnstyled.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/TableUnstyled.js')}
+          component={require('../components/tables/TableUnstyled.js').default}
+          raw={require('!raw-loader!../components/tables/TableUnstyled.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -337,11 +301,8 @@ function TablesDoc(props) {
           name="TableCustomized.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tables/TableCustomized.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/TableCustomized.js')}
+          component={require('../components/tables/TableCustomized.js').default}
+          raw={require('!raw-loader!../components/tables/TableCustomized.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -367,11 +328,8 @@ function TablesDoc(props) {
           name="AcccessibleTable.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tables/AcccessibleTable.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tables/AcccessibleTable.js')}
+          component={require('../components/tables/AcccessibleTable.js').default}
+          raw={require('!raw-loader!../components/tables/AcccessibleTable.js')}
         />
       </Typography>
     </>

@@ -79,11 +79,8 @@ function App() {
           name="BasicDatePicker.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/date-picker/BasicDatePicker.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-picker/BasicDatePicker.js')}
+          component={require('../components/date-picker/BasicDatePicker.js').default}
+          raw={require('!raw-loader!../components/date-picker/BasicDatePicker.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -98,11 +95,8 @@ function App() {
           name="StaticDatePickerDemo.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/date-picker/StaticDatePickerDemo.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-picker/StaticDatePickerDemo.js')}
+          component={require('../components/date-picker/StaticDatePickerDemo.js').default}
+          raw={require('!raw-loader!../components/date-picker/StaticDatePickerDemo.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -134,11 +128,8 @@ function App() {
           name="ResponsiveDatePickers.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/date-picker/ResponsiveDatePickers.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-picker/ResponsiveDatePickers.js')}
+          component={require('../components/date-picker/ResponsiveDatePickers.js').default}
+          raw={require('!raw-loader!../components/date-picker/ResponsiveDatePickers.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -152,11 +143,8 @@ function App() {
           name="FormPropsDatePickers.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/date-picker/FormPropsDatePickers.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-picker/FormPropsDatePickers.js')}
+          component={require('../components/date-picker/FormPropsDatePickers.js').default}
+          raw={require('!raw-loader!../components/date-picker/FormPropsDatePickers.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -172,11 +160,8 @@ function App() {
           name="LocalizedDatePicker.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/date-picker/LocalizedDatePicker.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-picker/LocalizedDatePicker.js')}
+          component={require('../components/date-picker/LocalizedDatePicker.js').default}
+          raw={require('!raw-loader!../components/date-picker/LocalizedDatePicker.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -191,11 +176,8 @@ function App() {
           name="JalaliDatePicker.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/date-picker/JalaliDatePicker.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-picker/JalaliDatePicker.js')}
+          component={require('../components/date-picker/JalaliDatePicker.js').default}
+          raw={require('!raw-loader!../components/date-picker/JalaliDatePicker.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -211,11 +193,8 @@ function App() {
           name="ViewsDatePicker.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/date-picker/ViewsDatePicker.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-picker/ViewsDatePicker.js')}
+          component={require('../components/date-picker/ViewsDatePicker.js').default}
+          raw={require('!raw-loader!../components/date-picker/ViewsDatePicker.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -231,11 +210,8 @@ function App() {
           name="StaticDatePickerLandscape.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/date-picker/StaticDatePickerLandscape.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-picker/StaticDatePickerLandscape.js')}
+          component={require('../components/date-picker/StaticDatePickerLandscape.js').default}
+          raw={require('!raw-loader!../components/date-picker/StaticDatePickerLandscape.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -251,11 +227,8 @@ function App() {
           name="SubComponentsPickers.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/date-picker/SubComponentsPickers.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-picker/SubComponentsPickers.js')}
+          component={require('../components/date-picker/SubComponentsPickers.js').default}
+          raw={require('!raw-loader!../components/date-picker/SubComponentsPickers.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -271,11 +244,8 @@ function App() {
           name="CustomInput.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/date-picker/CustomInput.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-picker/CustomInput.js')}
+          component={require('../components/date-picker/CustomInput.js').default}
+          raw={require('!raw-loader!../components/date-picker/CustomInput.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -290,11 +260,8 @@ function App() {
           name="CustomDay.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/date-picker/CustomDay.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-picker/CustomDay.js')}
+          component={require('../components/date-picker/CustomDay.js').default}
+          raw={require('!raw-loader!../components/date-picker/CustomDay.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -310,11 +277,8 @@ function App() {
           name="ServerRequestDatePicker.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/date-picker/ServerRequestDatePicker.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-picker/ServerRequestDatePicker.js')}
+          component={require('../components/date-picker/ServerRequestDatePicker.js').default}
+          raw={require('!raw-loader!../components/date-picker/ServerRequestDatePicker.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -328,11 +292,8 @@ function App() {
           name="HelperText.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/date-picker/HelperText.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/date-picker/HelperText.js')}
+          component={require('../components/date-picker/HelperText.js').default}
+          raw={require('!raw-loader!../components/date-picker/HelperText.js')}
         />
       </Typography>
     </>

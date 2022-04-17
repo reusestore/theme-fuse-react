@@ -1,10 +1,4 @@
-import {
-  TimelineConnector,
-  TimelineContent,
-  TimelineDot,
-  TimelineItem,
-  TimelineSeparator,
-} from '@mui/lab';
+import { TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineSeparator } from '@mui/lab';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Avatar from '@mui/material/Avatar';
 import { grey } from '@mui/material/colors';

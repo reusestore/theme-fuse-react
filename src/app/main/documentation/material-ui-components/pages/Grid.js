@@ -103,11 +103,8 @@ function GridDoc(props) {
           name="BasicGrid.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/grid/BasicGrid.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/grid/BasicGrid.js')}
+          component={require('../components/grid/BasicGrid.js').default}
+          raw={require('!raw-loader!../components/grid/BasicGrid.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -129,11 +126,8 @@ function GridDoc(props) {
           name="FullWidthGrid.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/grid/FullWidthGrid.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/grid/FullWidthGrid.js')}
+          component={require('../components/grid/FullWidthGrid.js').default}
+          raw={require('!raw-loader!../components/grid/FullWidthGrid.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -153,11 +147,8 @@ function GridDoc(props) {
           name="SpacingGrid.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/grid/SpacingGrid.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/grid/SpacingGrid.js')}
+          component={require('../components/grid/SpacingGrid.js').default}
+          raw={require('!raw-loader!../components/grid/SpacingGrid.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -174,11 +165,8 @@ function GridDoc(props) {
           name="RowAndColumnSpacing.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/grid/RowAndColumnSpacing.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/grid/RowAndColumnSpacing.js')}
+          component={require('../components/grid/RowAndColumnSpacing.js').default}
+          raw={require('!raw-loader!../components/grid/RowAndColumnSpacing.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -197,11 +185,8 @@ function GridDoc(props) {
           name="ResponsiveGrid.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/grid/ResponsiveGrid.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/grid/ResponsiveGrid.js')}
+          component={require('../components/grid/ResponsiveGrid.js').default}
+          raw={require('!raw-loader!../components/grid/ResponsiveGrid.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -254,11 +239,8 @@ function GridDoc(props) {
           name="InteractiveGrid.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/grid/InteractiveGrid.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/grid/InteractiveGrid.js')}
+          component={require('../components/grid/InteractiveGrid.js').default}
+          raw={require('!raw-loader!../components/grid/InteractiveGrid.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -274,11 +256,8 @@ function GridDoc(props) {
           name="AutoGrid.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/grid/AutoGrid.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/grid/AutoGrid.js')}
+          component={require('../components/grid/AutoGrid.js').default}
+          raw={require('!raw-loader!../components/grid/AutoGrid.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -293,11 +272,8 @@ function GridDoc(props) {
           name="VariableWidthGrid.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/grid/VariableWidthGrid.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/grid/VariableWidthGrid.js')}
+          component={require('../components/grid/VariableWidthGrid.js').default}
+          raw={require('!raw-loader!../components/grid/VariableWidthGrid.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -312,11 +288,8 @@ function GridDoc(props) {
           name="ComplexGrid.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/grid/ComplexGrid.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/grid/ComplexGrid.js')}
+          component={require('../components/grid/ComplexGrid.js').default}
+          raw={require('!raw-loader!../components/grid/ComplexGrid.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -344,11 +317,8 @@ function GridDoc(props) {
           name="NestedGrid.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/grid/NestedGrid.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/grid/NestedGrid.js')}
+          component={require('../components/grid/NestedGrid.js').default}
+          raw={require('!raw-loader!../components/grid/NestedGrid.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -375,11 +345,8 @@ function GridDoc(props) {
           name="ColumnsGrid.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/grid/ColumnsGrid.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/grid/ColumnsGrid.js')}
+          component={require('../components/grid/ColumnsGrid.js').default}
+          raw={require('!raw-loader!../components/grid/ColumnsGrid.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -424,11 +391,8 @@ function GridDoc(props) {
           name="AutoGridNoWrap.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/grid/AutoGridNoWrap.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/grid/AutoGridNoWrap.js')}
+          component={require('../components/grid/AutoGridNoWrap.js').default}
+          raw={require('!raw-loader!../components/grid/AutoGridNoWrap.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -457,11 +421,8 @@ function GridDoc(props) {
           name="CSSGrid.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/grid/CSSGrid.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/grid/CSSGrid.js')}
+          component={require('../components/grid/CSSGrid.js').default}
+          raw={require('!raw-loader!../components/grid/CSSGrid.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

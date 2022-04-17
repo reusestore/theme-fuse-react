@@ -1,11 +1,11 @@
 import Badge from '@mui/material/Badge';
 import IconButton from '@mui/material/IconButton';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import withReducer from 'app/store/withReducer';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import reducer from './store';
 import { selectNotifications } from './store/dataSlice';
 import { toggleNotificationPanel } from './store/stateSlice';
-import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 function NotificationPanelToggleButton(props) {
   const notifications = useSelector(selectNotifications);

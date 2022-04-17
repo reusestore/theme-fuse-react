@@ -6,8 +6,8 @@ import fromUnixTime from 'date-fns/fromUnixTime';
 import getUnixTime from 'date-fns/getUnixTime';
 import { useState } from 'react';
 import TextField from '@mui/material/TextField';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import ToolbarMenu from './ToolbarMenu';
-import FuseSvgIcon from '../../../../../../../../@fuse/core/FuseSvgIcon';
 
 function DueMenu(props) {
   const [anchorEl, setAnchorEl] = useState(null);

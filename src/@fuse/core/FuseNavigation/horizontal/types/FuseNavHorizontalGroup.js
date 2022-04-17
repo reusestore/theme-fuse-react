@@ -8,7 +8,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Paper from '@mui/material/Paper';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { memo, useState, useMemo } from 'react';
+import { memo, useMemo, useState } from 'react';
 import * as ReactDOM from 'react-dom';
 import { Manager, Popper, Reference } from 'react-popper';
 import withRouter from '@fuse/core/withRouter';

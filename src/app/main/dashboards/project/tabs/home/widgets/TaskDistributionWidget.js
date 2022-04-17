@@ -1,7 +1,7 @@
 import Paper from '@mui/material/Paper';
 import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import { useEffect, memo, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { useSelector } from 'react-redux';
 import Tabs from '@mui/material/Tabs';

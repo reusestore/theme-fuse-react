@@ -14,10 +14,10 @@ import withReducer from 'app/store/withReducer';
 import format from 'date-fns/format';
 import { memo, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import reducer from './store';
 import { getData } from './store/dataSlice';
 import { toggleQuickPanel } from './store/stateSlice';
-import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 const StyledSwipeableDrawer = styled(SwipeableDrawer)(({ theme }) => ({
   '& .MuiDrawer-paper': {

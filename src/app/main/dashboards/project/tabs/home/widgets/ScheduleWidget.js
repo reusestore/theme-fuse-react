@@ -12,8 +12,8 @@ import { useSelector } from 'react-redux';
 import Tabs from '@mui/material/Tabs';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { selectWidgets } from '../../../store/widgetsSlice';
-import FuseSvgIcon from '../../../../../../../@fuse/core/FuseSvgIcon';
 
 function ScheduleWidget(props) {
   const widgets = useSelector(selectWidgets);

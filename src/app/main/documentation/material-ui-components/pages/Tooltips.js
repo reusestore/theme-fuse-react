@@ -44,11 +44,8 @@ function TooltipsDoc(props) {
           name="BasicTooltip.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tooltips/BasicTooltip.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tooltips/BasicTooltip.js')}
+          component={require('../components/tooltips/BasicTooltip.js').default}
+          raw={require('!raw-loader!../components/tooltips/BasicTooltip.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -64,11 +61,8 @@ function TooltipsDoc(props) {
           name="PositionedTooltips.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tooltips/PositionedTooltips.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tooltips/PositionedTooltips.js')}
+          component={require('../components/tooltips/PositionedTooltips.js').default}
+          raw={require('!raw-loader!../components/tooltips/PositionedTooltips.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -83,11 +77,8 @@ function TooltipsDoc(props) {
           name="CustomizedTooltips.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tooltips/CustomizedTooltips.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tooltips/CustomizedTooltips.js')}
+          component={require('../components/tooltips/CustomizedTooltips.js').default}
+          raw={require('!raw-loader!../components/tooltips/CustomizedTooltips.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -102,11 +93,8 @@ function TooltipsDoc(props) {
           name="ArrowTooltips.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tooltips/ArrowTooltips.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tooltips/ArrowTooltips.js')}
+          component={require('../components/tooltips/ArrowTooltips.js').default}
+          raw={require('!raw-loader!../components/tooltips/ArrowTooltips.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -151,11 +139,8 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
           name="TriggersTooltips.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tooltips/TriggersTooltips.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tooltips/TriggersTooltips.js')}
+          component={require('../components/tooltips/TriggersTooltips.js').default}
+          raw={require('!raw-loader!../components/tooltips/TriggersTooltips.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -170,11 +155,8 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
           name="ControlledTooltips.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tooltips/ControlledTooltips.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tooltips/ControlledTooltips.js')}
+          component={require('../components/tooltips/ControlledTooltips.js').default}
+          raw={require('!raw-loader!../components/tooltips/ControlledTooltips.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -188,11 +170,8 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
           name="VariableWidth.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tooltips/VariableWidth.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tooltips/VariableWidth.js')}
+          component={require('../components/tooltips/VariableWidth.js').default}
+          raw={require('!raw-loader!../components/tooltips/VariableWidth.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -212,11 +191,8 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
           name="NonInteractiveTooltips.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tooltips/NonInteractiveTooltips.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tooltips/NonInteractiveTooltips.js')}
+          component={require('../components/tooltips/NonInteractiveTooltips.js').default}
+          raw={require('!raw-loader!../components/tooltips/NonInteractiveTooltips.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -238,11 +214,8 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
           name="DisabledTooltips.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tooltips/DisabledTooltips.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tooltips/DisabledTooltips.js')}
+          component={require('../components/tooltips/DisabledTooltips.js').default}
+          raw={require('!raw-loader!../components/tooltips/DisabledTooltips.js')}
         />
       </Typography>
       <blockquote>
@@ -275,11 +248,8 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
           name="TransitionsTooltips.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tooltips/TransitionsTooltips.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tooltips/TransitionsTooltips.js')}
+          component={require('../components/tooltips/TransitionsTooltips.js').default}
+          raw={require('!raw-loader!../components/tooltips/TransitionsTooltips.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -294,11 +264,8 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
           name="FollowCursorTooltips.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tooltips/FollowCursorTooltips.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tooltips/FollowCursorTooltips.js')}
+          component={require('../components/tooltips/FollowCursorTooltips.js').default}
+          raw={require('!raw-loader!../components/tooltips/FollowCursorTooltips.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -318,11 +285,8 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
           name="AnchorElTooltips.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tooltips/AnchorElTooltips.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tooltips/AnchorElTooltips.js')}
+          component={require('../components/tooltips/AnchorElTooltips.js').default}
+          raw={require('!raw-loader!../components/tooltips/AnchorElTooltips.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -344,11 +308,8 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
           name="DelayTooltips.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tooltips/DelayTooltips.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tooltips/DelayTooltips.js')}
+          component={require('../components/tooltips/DelayTooltips.js').default}
+          raw={require('!raw-loader!../components/tooltips/DelayTooltips.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -387,11 +348,8 @@ const MyComponent = React.forwardRef(function MyComponent(props, ref) {
           name="AccessibilityTooltips.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tooltips/AccessibilityTooltips.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tooltips/AccessibilityTooltips.js')}
+          component={require('../components/tooltips/AccessibilityTooltips.js').default}
+          raw={require('!raw-loader!../components/tooltips/AccessibilityTooltips.js')}
         />
       </Typography>
     </>

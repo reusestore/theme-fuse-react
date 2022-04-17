@@ -1,12 +1,7 @@
-import {
-  createSlice,
-  createAsyncThunk,
-  createEntityAdapter,
-  createSelector,
-} from '@reduxjs/toolkit';
+import { createAsyncThunk, createEntityAdapter, createSelector, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { updateTask, addTask, removeTask } from 'app/main/apps/tasks/store/taskSlice';
 import { showMessage } from 'app/store/fuse/messageSlice';
+import { addTask, removeTask, updateTask } from './taskSlice';
 
 export const getTasks = createAsyncThunk(
   'tasksApp/tasks/getTasks',
@@ -46,7 +41,6 @@ const tasksAdapter = createEntityAdapter({});
 export const { selectAll: selectTasks, selectById: selectTasksById } = tasksAdapter.getSelectors(
   (state) => state.tasksApp.tasks
 );
-
 
 export const selectRemainingTasks = createSelector([selectTasks], (tasks) => {
   return tasks.filter((item) => item.type === 'task' && !item.completed).length;

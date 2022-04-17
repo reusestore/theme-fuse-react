@@ -47,11 +47,8 @@ function ImageListDoc(props) {
           name="StandardImageList.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/image-list/StandardImageList.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/image-list/StandardImageList.js')}
+          component={require('../components/image-list/StandardImageList.js').default}
+          raw={require('!raw-loader!../components/image-list/StandardImageList.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -66,11 +63,8 @@ function ImageListDoc(props) {
           name="QuiltedImageList.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/image-list/QuiltedImageList.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/image-list/QuiltedImageList.js')}
+          component={require('../components/image-list/QuiltedImageList.js').default}
+          raw={require('!raw-loader!../components/image-list/QuiltedImageList.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -85,11 +79,8 @@ function ImageListDoc(props) {
           name="WovenImageList.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/image-list/WovenImageList.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/image-list/WovenImageList.js')}
+          component={require('../components/image-list/WovenImageList.js').default}
+          raw={require('!raw-loader!../components/image-list/WovenImageList.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -104,11 +95,8 @@ function ImageListDoc(props) {
           name="MasonryImageList.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/image-list/MasonryImageList.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/image-list/MasonryImageList.js')}
+          component={require('../components/image-list/MasonryImageList.js').default}
+          raw={require('!raw-loader!../components/image-list/MasonryImageList.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -124,11 +112,8 @@ function ImageListDoc(props) {
           name="TitlebarImageList.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/image-list/TitlebarImageList.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/image-list/TitlebarImageList.js')}
+          component={require('../components/image-list/TitlebarImageList.js').default}
+          raw={require('!raw-loader!../components/image-list/TitlebarImageList.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -142,11 +127,8 @@ function ImageListDoc(props) {
           name="TitlebarBelowImageList.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/image-list/TitlebarBelowImageList.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/image-list/TitlebarBelowImageList.js')}
+          component={require('../components/image-list/TitlebarBelowImageList.js').default}
+          raw={require('!raw-loader!../components/image-list/TitlebarBelowImageList.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -157,11 +139,8 @@ function ImageListDoc(props) {
           name="TitlebarBelowMasonryImageList.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/image-list/TitlebarBelowMasonryImageList.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/image-list/TitlebarBelowMasonryImageList.js')}
+          component={require('../components/image-list/TitlebarBelowMasonryImageList.js').default}
+          raw={require('!raw-loader!../components/image-list/TitlebarBelowMasonryImageList.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -178,11 +157,8 @@ function ImageListDoc(props) {
           name="CustomImageList.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/image-list/CustomImageList.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/image-list/CustomImageList.js')}
+          component={require('../components/image-list/CustomImageList.js').default}
+          raw={require('!raw-loader!../components/image-list/CustomImageList.js')}
         />
       </Typography>
     </>

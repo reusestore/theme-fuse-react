@@ -13,8 +13,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Box } from '@mui/system';
 import TableHead from '@mui/material/TableHead';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { removeProducts } from '../store/productsSlice';
-import FuseSvgIcon from '../../../../../@fuse/core/FuseSvgIcon';
 
 const rows = [
   {

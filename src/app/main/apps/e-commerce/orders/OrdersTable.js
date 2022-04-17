@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import withRouter from '@fuse/core/withRouter';
 import FuseLoading from '@fuse/core/FuseLoading';
 import OrdersStatus from '../order/OrdersStatus';
-import { selectOrders, getOrders } from '../store/ordersSlice';
+import { getOrders, selectOrders } from '../store/ordersSlice';
 import OrdersTableHead from './OrdersTableHead';
 
 function OrdersTable(props) {

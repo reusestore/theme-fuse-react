@@ -1,5 +1,5 @@
-import { authRoles } from 'app/auth';
 import AdminRoleExample from './AdminRoleExample';
+import authRoles from '../../../auth/authRoles';
 
 const AdminRoleExampleConfig = {
   settings: {

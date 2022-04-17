@@ -1,5 +1,5 @@
-import { authRoles } from 'app/auth';
 import StaffRoleExample from './StaffRoleExample';
+import authRoles from '../../../auth/authRoles';
 
 const StaffRoleExampleConfig = {
   settings: {
@@ -11,7 +11,7 @@ const StaffRoleExampleConfig = {
   routes: [
     {
       path: 'auth/staff-role-example',
-      element:<StaffRoleExample/>,
+      element: <StaffRoleExample />,
     },
   ],
 };

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import FuseShortcuts from '../../../@fuse/core/FuseShortcuts/FuseShortcuts';
-import { selectFlatNavigation } from '../../store/fuse/navigationSlice';
+import FuseShortcuts from '@fuse/core/FuseShortcuts';
+import { selectFlatNavigation } from 'app/store/fuse/navigationSlice';
 import { updateUserShortcuts } from '../../auth/store/userSlice';
 
 function NavigationShortcuts(props) {

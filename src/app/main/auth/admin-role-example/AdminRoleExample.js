@@ -3,8 +3,8 @@ import FusePageSimple from '@fuse/core/FusePageSimple';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useDispatch } from 'react-redux';
-import { logoutUser } from 'app/auth/store/userSlice';
-import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import { logoutUser } from '../../../auth/store/userSlice';
 
 function AdminRoleExample(props) {
   const dispatch = useDispatch();
@@ -34,24 +34,24 @@ function AdminRoleExample(props) {
 
           <FuseHighlight component="pre" className="language-js">
             {`
-                            import {authRoles} from 'auth';
-                            import AdminRoleExample from 'app/main/auth/admin-role-example/AdminRoleExample';
+              import {authRoles} from 'auth';
+              import AdminRoleExample from './AdminRoleExample';
 
-                            export const AdminRoleExampleConfig = {
-                                settings: {
-                                    layout: {
-                                        config: {}
-                                    }
-                                },
-                                auth    : authRoles.admin,//['admin']
-                                routes  : [
-                                    {
-                                        path     : '/auth/admin-role-example',
-                                        element: <AdminRoleExample/>
-                                    }
-                                ]
-                            };
-                            `}
+              export const AdminRoleExampleConfig = {
+                  settings: {
+                      layout: {
+                          config: {}
+                      }
+                  },
+                  auth    : authRoles.admin,//['admin']
+                  routes  : [
+                      {
+                          path     : '/auth/admin-role-example',
+                          element: <AdminRoleExample/>
+                      }
+                  ]
+              };
+              `}
           </FuseHighlight>
 
           <Typography className="my-24">
@@ -61,17 +61,17 @@ function AdminRoleExample(props) {
 
           <FuseHighlight component="pre" className="language-json">
             {`
-                                export const fuseNavigationConfig = [
-                                   {
-                                        'id'   : 'only-admin-navigation-item',
-                                        'title': 'Nav item only for Admin',
-                                        'type' : 'item',
-                                        'auth' : authRoles.admin,//['admin']
-                                        'url'  : '/auth/admin-role-example',
-                                        'icon' : 'verified_user'
-                                    }
-                                ];
-                            `}
+              export const fuseNavigationConfig = [
+                 {
+                      'id'   : 'only-admin-navigation-item',
+                      'title': 'Nav item only for Admin',
+                      'type' : 'item',
+                      'auth' : authRoles.admin,//['admin']
+                      'url'  : '/auth/admin-role-example',
+                      'icon' : 'verified_user'
+                  }
+              ];
+          `}
           </FuseHighlight>
         </div>
       }

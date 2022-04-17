@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import FusePageSimple from '@fuse/core/FusePageSimple/FusePageSimple';
+import FusePageSimple from '@fuse/core/FusePageSimple';
 import Typography from '@mui/material/Typography';
 import Timeline from '@mui/lab/Timeline';
 import exampleActivitiesData from './exampleActivitiesData';

@@ -58,11 +58,8 @@ function DrawersDoc(props) {
           name="TemporaryDrawer.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/drawers/TemporaryDrawer.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/drawers/TemporaryDrawer.js')}
+          component={require('../components/drawers/TemporaryDrawer.js').default}
+          raw={require('!raw-loader!../components/drawers/TemporaryDrawer.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -81,11 +78,8 @@ function DrawersDoc(props) {
           name="SwipeableTemporaryDrawer.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/drawers/SwipeableTemporaryDrawer.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/drawers/SwipeableTemporaryDrawer.js')}
+          component={require('../components/drawers/SwipeableTemporaryDrawer.js').default}
+          raw={require('!raw-loader!../components/drawers/SwipeableTemporaryDrawer.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -126,11 +120,8 @@ const iOS =
           name="SwipeableEdgeDrawer.js"
           className="my-24"
           iframe
-          component={
-            require('app/main/documentation/material-ui-components/components/drawers/SwipeableEdgeDrawer.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/drawers/SwipeableEdgeDrawer.js')}
+          component={require('../components/drawers/SwipeableEdgeDrawer.js').default}
+          raw={require('!raw-loader!../components/drawers/SwipeableEdgeDrawer.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -166,11 +157,8 @@ const iOS =
           name="ResponsiveDrawer.js"
           className="my-24"
           iframe
-          component={
-            require('app/main/documentation/material-ui-components/components/drawers/ResponsiveDrawer.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/drawers/ResponsiveDrawer.js')}
+          component={require('../components/drawers/ResponsiveDrawer.js').default}
+          raw={require('!raw-loader!../components/drawers/ResponsiveDrawer.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -196,21 +184,15 @@ const iOS =
           name="PersistentDrawerLeft.js"
           className="my-24"
           iframe
-          component={
-            require('app/main/documentation/material-ui-components/components/drawers/PersistentDrawerLeft.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/drawers/PersistentDrawerLeft.js')}
+          component={require('../components/drawers/PersistentDrawerLeft.js').default}
+          raw={require('!raw-loader!../components/drawers/PersistentDrawerLeft.js')}
         />
         <FuseExample
           name="PersistentDrawerRight.js"
           className="my-24"
           iframe
-          component={
-            require('app/main/documentation/material-ui-components/components/drawers/PersistentDrawerRight.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/drawers/PersistentDrawerRight.js')}
+          component={require('../components/drawers/PersistentDrawerRight.js').default}
+          raw={require('!raw-loader!../components/drawers/PersistentDrawerRight.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -230,11 +212,8 @@ const iOS =
           name="MiniDrawer.js"
           className="my-24"
           iframe
-          component={
-            require('app/main/documentation/material-ui-components/components/drawers/MiniDrawer.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/drawers/MiniDrawer.js')}
+          component={require('../components/drawers/MiniDrawer.js').default}
+          raw={require('!raw-loader!../components/drawers/MiniDrawer.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -258,21 +237,15 @@ const iOS =
           name="PermanentDrawerLeft.js"
           className="my-24"
           iframe
-          component={
-            require('app/main/documentation/material-ui-components/components/drawers/PermanentDrawerLeft.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/drawers/PermanentDrawerLeft.js')}
+          component={require('../components/drawers/PermanentDrawerLeft.js').default}
+          raw={require('!raw-loader!../components/drawers/PermanentDrawerLeft.js')}
         />
         <FuseExample
           name="PermanentDrawerRight.js"
           className="my-24"
           iframe
-          component={
-            require('app/main/documentation/material-ui-components/components/drawers/PermanentDrawerRight.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/drawers/PermanentDrawerRight.js')}
+          component={require('../components/drawers/PermanentDrawerRight.js').default}
+          raw={require('!raw-loader!../components/drawers/PermanentDrawerRight.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -286,11 +259,8 @@ const iOS =
           name="ClippedDrawer.js"
           className="my-24"
           iframe
-          component={
-            require('app/main/documentation/material-ui-components/components/drawers/ClippedDrawer.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/drawers/ClippedDrawer.js')}
+          component={require('../components/drawers/ClippedDrawer.js').default}
+          raw={require('!raw-loader!../components/drawers/ClippedDrawer.js')}
         />
       </Typography>
     </>

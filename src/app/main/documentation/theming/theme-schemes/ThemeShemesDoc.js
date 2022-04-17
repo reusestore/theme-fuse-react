@@ -31,7 +31,7 @@ function ThemeShemesDoc() {
       </Typography>
 
       <FuseHighlight component="pre" className="language-jsx">
-        {require('!raw-loader!app/fuse-configs/themesConfig.js')}
+        {require('!raw-loader!src/app/fuse-configs/themesConfig.js')}
       </FuseHighlight>
     </>
   );

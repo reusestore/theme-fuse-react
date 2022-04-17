@@ -5,7 +5,7 @@ import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Typography from '@mui/material/Typography';
 import format from 'date-fns/format';
 import { useSelector } from 'react-redux';
-import { selectMail } from 'app/main/apps/mailbox/store/mailSlice';
+import { selectMail } from '../store/mailSlice';
 
 function MailInfo(props) {
   const { className } = props;

@@ -1,7 +1,7 @@
 import IconButton from '@mui/material/IconButton';
 import { useDispatch } from 'react-redux';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { toggleQuickPanel } from './store/stateSlice';
-import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 function QuickPanelToggleButton(props) {
   const dispatch = useDispatch();

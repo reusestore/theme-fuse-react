@@ -1,9 +1,4 @@
-import {
-  createSlice,
-  createAsyncThunk,
-  createEntityAdapter,
-  createSelector,
-} from '@reduxjs/toolkit';
+import { createAsyncThunk, createEntityAdapter, createSelector, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import _ from '@lodash';
 import { selectFaqCategories } from './faqCategoriesSlice';

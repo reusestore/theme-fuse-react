@@ -1,7 +1,7 @@
 import Button from '@mui/material/Button';
-import BoardTitle from 'app/main/apps/scrumboard/board/BoardTitle';
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import BoardTitle from './BoardTitle';
 
 function BoardHeader(props) {
   return (

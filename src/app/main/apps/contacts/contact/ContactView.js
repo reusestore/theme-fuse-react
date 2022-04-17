@@ -3,7 +3,6 @@ import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContact, selectContact } from 'app/main/apps/contacts/store/contactSlice';
 import FuseLoading from '@fuse/core/FuseLoading';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
@@ -13,8 +12,9 @@ import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Box from '@mui/system/Box';
 import format from 'date-fns/format';
 import _ from '@lodash';
-import { selectCountries } from 'app/main/apps/contacts/store/countriesSlice';
-import { selectTags } from 'app/main/apps/contacts/store/tagsSlice';
+import { getContact, selectContact } from '../store/contactSlice';
+import { selectCountries } from '../store/countriesSlice';
+import { selectTags } from '../store/tagsSlice';
 
 const ContactView = () => {
   const contact = useSelector(selectContact);

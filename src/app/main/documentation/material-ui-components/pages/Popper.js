@@ -82,11 +82,8 @@ function PopperDoc(props) {
           name="SimplePopper.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/popper/SimplePopper.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/popper/SimplePopper.js')}
+          component={require('../components/popper/SimplePopper.js').default}
+          raw={require('!raw-loader!../components/popper/SimplePopper.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -116,11 +113,8 @@ function PopperDoc(props) {
           name="TransitionsPopper.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/popper/TransitionsPopper.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/popper/TransitionsPopper.js')}
+          component={require('../components/popper/TransitionsPopper.js').default}
+          raw={require('!raw-loader!../components/popper/TransitionsPopper.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -132,11 +126,8 @@ function PopperDoc(props) {
           name="SpringPopper.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/popper/SpringPopper.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/popper/SpringPopper.js')}
+          component={require('../components/popper/SpringPopper.js').default}
+          raw={require('!raw-loader!../components/popper/SpringPopper.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -147,11 +138,8 @@ function PopperDoc(props) {
           name="PositionedPopper.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/popper/PositionedPopper.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/popper/PositionedPopper.js')}
+          component={require('../components/popper/PositionedPopper.js').default}
+          raw={require('!raw-loader!../components/popper/PositionedPopper.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -162,11 +150,8 @@ function PopperDoc(props) {
           name="ScrollPlayground.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/popper/ScrollPlayground.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/popper/ScrollPlayground.js')}
+          component={require('../components/popper/ScrollPlayground.js').default}
+          raw={require('!raw-loader!../components/popper/ScrollPlayground.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -188,11 +173,8 @@ function PopperDoc(props) {
           name="VirtualElementPopper.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/popper/VirtualElementPopper.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/popper/VirtualElementPopper.js')}
+          component={require('../components/popper/VirtualElementPopper.js').default}
+          raw={require('!raw-loader!../components/popper/VirtualElementPopper.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -216,11 +198,8 @@ function PopperDoc(props) {
           name="PopperPopupState.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/popper/PopperPopupState.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/popper/PopperPopupState.js')}
+          component={require('../components/popper/PopperPopupState.js').default}
+          raw={require('!raw-loader!../components/popper/PopperPopupState.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

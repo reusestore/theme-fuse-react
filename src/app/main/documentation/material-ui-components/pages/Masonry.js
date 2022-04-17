@@ -51,11 +51,8 @@ function MasonryDoc(props) {
           name="BasicMasonry.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/masonry/BasicMasonry.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/masonry/BasicMasonry.js')}
+          component={require('../components/masonry/BasicMasonry.js').default}
+          raw={require('!raw-loader!../components/masonry/BasicMasonry.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -71,11 +68,8 @@ function MasonryDoc(props) {
           name="ImageMasonry.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/masonry/ImageMasonry.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/masonry/ImageMasonry.js')}
+          component={require('../components/masonry/ImageMasonry.js').default}
+          raw={require('!raw-loader!../components/masonry/ImageMasonry.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -91,11 +85,8 @@ function MasonryDoc(props) {
           name="MasonryWithVariableHeightItems.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/masonry/MasonryWithVariableHeightItems.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/masonry/MasonryWithVariableHeightItems.js')}
+          component={require('../components/masonry/MasonryWithVariableHeightItems.js').default}
+          raw={require('!raw-loader!../components/masonry/MasonryWithVariableHeightItems.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -110,11 +101,8 @@ function MasonryDoc(props) {
           name="FixedColumns.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/masonry/FixedColumns.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/masonry/FixedColumns.js')}
+          component={require('../components/masonry/FixedColumns.js').default}
+          raw={require('!raw-loader!../components/masonry/FixedColumns.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -125,11 +113,8 @@ function MasonryDoc(props) {
           name="ResponsiveColumns.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/masonry/ResponsiveColumns.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/masonry/ResponsiveColumns.js')}
+          component={require('../components/masonry/ResponsiveColumns.js').default}
+          raw={require('!raw-loader!../components/masonry/ResponsiveColumns.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -145,11 +130,8 @@ function MasonryDoc(props) {
           name="FixedSpacing.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/masonry/FixedSpacing.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/masonry/FixedSpacing.js')}
+          component={require('../components/masonry/FixedSpacing.js').default}
+          raw={require('!raw-loader!../components/masonry/FixedSpacing.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -160,11 +142,8 @@ function MasonryDoc(props) {
           name="ResponsiveSpacing.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/masonry/ResponsiveSpacing.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/masonry/ResponsiveSpacing.js')}
+          component={require('../components/masonry/ResponsiveSpacing.js').default}
+          raw={require('!raw-loader!../components/masonry/ResponsiveSpacing.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -187,11 +166,8 @@ function MasonryDoc(props) {
           name="SSRMasonry.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/masonry/SSRMasonry.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/masonry/SSRMasonry.js')}
+          component={require('../components/masonry/SSRMasonry.js').default}
+          raw={require('!raw-loader!../components/masonry/SSRMasonry.js')}
         />
       </Typography>
     </>

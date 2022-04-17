@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import FuseSplashScreen from '@fuse/core/FuseSplashScreen';
+import { showMessage } from 'app/store/fuse/messageSlice';
 import jwtService from './services/jwtService';
-import FuseSplashScreen from '../../@fuse/core/FuseSplashScreen/FuseSplashScreen';
 import { logoutUser, setUserData } from './store/userSlice';
-import { showMessage } from '../store/fuse/messageSlice';
 
 const AuthContext = React.createContext();
 

@@ -6,10 +6,10 @@ import { useSelector } from 'react-redux';
 import format from 'date-fns/format';
 import { useParams } from 'react-router-dom';
 import { useContext } from 'react';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { selectContactById } from '../../store/contactsSlice';
 import ContactAvatar from '../../ContactAvatar';
 import { ChatAppContext } from '../../ChatApp';
-import FuseSvgIcon from '../../../../../../@fuse/core/FuseSvgIcon';
 
 function ContactSidebar(props) {
   const { setContactSidebarOpen } = useContext(ChatAppContext);

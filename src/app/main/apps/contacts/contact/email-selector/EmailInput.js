@@ -1,12 +1,12 @@
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import { useForm, Controller } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
 import * as yup from 'yup';
 import IconButton from '@mui/material/IconButton';
 import { useEffect } from 'react';
-import PhoneNumberInput from 'app/main/apps/contacts/contact/phone-number-selector/PhoneNumberInput';
+import PhoneNumberInput from '../phone-number-selector/PhoneNumberInput';
 
 const schema = yup.object().shape({
   email: yup.string().email('You must enter a valid email').required('You must enter a email'),

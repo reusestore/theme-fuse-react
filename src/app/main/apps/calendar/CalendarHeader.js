@@ -3,10 +3,10 @@ import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import { selectMainThemeDark } from 'app/store/fuse/settingsSlice';
 import { motion } from 'framer-motion';
-import { useSelector, useDispatch } from 'react-redux';
-import CalendarViewMenu from 'app/main/apps/calendar/CalendarViewMenu';
+import { useDispatch, useSelector } from 'react-redux';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import { openNewEventDialog } from 'app/main/apps/calendar/store/eventsSlice';
+import { openNewEventDialog } from './store/eventsSlice';
+import CalendarViewMenu from './CalendarViewMenu';
 
 function CalendarHeader(props) {
   const { calendarRef, currentDate, onToggleLeftSidebar } = props;

@@ -64,11 +64,8 @@ function DialogsDoc(props) {
           name="SimpleDialog.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/dialogs/SimpleDialog.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dialogs/SimpleDialog.js')}
+          component={require('../components/dialogs/SimpleDialog.js').default}
+          raw={require('!raw-loader!../components/dialogs/SimpleDialog.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -108,11 +105,8 @@ function DialogsDoc(props) {
           name="AlertDialog.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/dialogs/AlertDialog.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dialogs/AlertDialog.js')}
+          component={require('../components/dialogs/AlertDialog.js').default}
+          raw={require('!raw-loader!../components/dialogs/AlertDialog.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -126,11 +120,8 @@ function DialogsDoc(props) {
           name="AlertDialogSlide.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/dialogs/AlertDialogSlide.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dialogs/AlertDialogSlide.js')}
+          component={require('../components/dialogs/AlertDialogSlide.js').default}
+          raw={require('!raw-loader!../components/dialogs/AlertDialogSlide.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -146,11 +137,8 @@ function DialogsDoc(props) {
           name="FormDialog.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/dialogs/FormDialog.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dialogs/FormDialog.js')}
+          component={require('../components/dialogs/FormDialog.js').default}
+          raw={require('!raw-loader!../components/dialogs/FormDialog.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -168,11 +156,8 @@ function DialogsDoc(props) {
           name="CustomizedDialogs.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/dialogs/CustomizedDialogs.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dialogs/CustomizedDialogs.js')}
+          component={require('../components/dialogs/CustomizedDialogs.js').default}
+          raw={require('!raw-loader!../components/dialogs/CustomizedDialogs.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -183,11 +168,8 @@ function DialogsDoc(props) {
           name="FullScreenDialog.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/dialogs/FullScreenDialog.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dialogs/FullScreenDialog.js')}
+          component={require('../components/dialogs/FullScreenDialog.js').default}
+          raw={require('!raw-loader!../components/dialogs/FullScreenDialog.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -203,11 +185,8 @@ function DialogsDoc(props) {
           name="MaxWidthDialog.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/dialogs/MaxWidthDialog.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dialogs/MaxWidthDialog.js')}
+          component={require('../components/dialogs/MaxWidthDialog.js').default}
+          raw={require('!raw-loader!../components/dialogs/MaxWidthDialog.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -238,11 +217,8 @@ function MyComponent() {
           name="ResponsiveDialog.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/dialogs/ResponsiveDialog.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dialogs/ResponsiveDialog.js')}
+          component={require('../components/dialogs/ResponsiveDialog.js').default}
+          raw={require('!raw-loader!../components/dialogs/ResponsiveDialog.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -262,11 +238,8 @@ function MyComponent() {
           name="ConfirmationDialog.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/dialogs/ConfirmationDialog.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dialogs/ConfirmationDialog.js')}
+          component={require('../components/dialogs/ConfirmationDialog.js').default}
+          raw={require('!raw-loader!../components/dialogs/ConfirmationDialog.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -284,11 +257,8 @@ function MyComponent() {
           name="DraggableDialog.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/dialogs/DraggableDialog.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dialogs/DraggableDialog.js')}
+          component={require('../components/dialogs/DraggableDialog.js').default}
+          raw={require('!raw-loader!../components/dialogs/DraggableDialog.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -313,11 +283,8 @@ function MyComponent() {
           name="ScrollDialog.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/dialogs/ScrollDialog.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/dialogs/ScrollDialog.js')}
+          component={require('../components/dialogs/ScrollDialog.js').default}
+          raw={require('!raw-loader!../components/dialogs/ScrollDialog.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

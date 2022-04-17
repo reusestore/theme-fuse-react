@@ -49,11 +49,8 @@ function BottomNavigationDoc(props) {
           name="SimpleBottomNavigation.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/bottom-navigation/SimpleBottomNavigation.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/bottom-navigation/SimpleBottomNavigation.js')}
+          component={require('../components/bottom-navigation/SimpleBottomNavigation.js').default}
+          raw={require('!raw-loader!../components/bottom-navigation/SimpleBottomNavigation.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -68,11 +65,8 @@ function BottomNavigationDoc(props) {
           name="LabelBottomNavigation.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/bottom-navigation/LabelBottomNavigation.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/bottom-navigation/LabelBottomNavigation.js')}
+          component={require('../components/bottom-navigation/LabelBottomNavigation.js').default}
+          raw={require('!raw-loader!../components/bottom-navigation/LabelBottomNavigation.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -87,11 +81,8 @@ function BottomNavigationDoc(props) {
           name="FixedBottomNavigation.js"
           className="my-24"
           iframe
-          component={
-            require('app/main/documentation/material-ui-components/components/bottom-navigation/FixedBottomNavigation.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/bottom-navigation/FixedBottomNavigation.js')}
+          component={require('../components/bottom-navigation/FixedBottomNavigation.js').default}
+          raw={require('!raw-loader!../components/bottom-navigation/FixedBottomNavigation.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

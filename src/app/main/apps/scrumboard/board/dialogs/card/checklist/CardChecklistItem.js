@@ -5,7 +5,7 @@ import IconButton from '@mui/material/IconButton';
 import ListItem from '@mui/material/ListItem';
 import TextField from '@mui/material/TextField';
 import _ from '@lodash';
-import FuseSvgIcon from '../../../../../../../../@fuse/core/FuseSvgIcon';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 function CardChecklistItem(props) {
   const { item, onListItemChange, index } = props;

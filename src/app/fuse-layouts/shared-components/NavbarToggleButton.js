@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setDefaultSettings } from 'app/store/fuse/settingsSlice';
 import _ from '@lodash';
 import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
-import { navbarToggleMobile, navbarToggle } from '../../store/fuse/navbarSlice';
-import FuseSvgIcon from '../../../@fuse/core/FuseSvgIcon';
+import { navbarToggle, navbarToggleMobile } from 'app/store/fuse/navbarSlice';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 function NavbarToggleButton(props) {
   const dispatch = useDispatch();

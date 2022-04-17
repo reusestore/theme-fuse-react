@@ -4,7 +4,7 @@ import FormLabel from '@mui/material/FormLabel';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import RadioGroup from '@mui/material/RadioGroup';
 import Radio from '@mui/material/Radio';
-import HighlightedCode from 'app/main/documentation/material-ui-components/utils/HighlightedCode';
+import HighlightedCode from '../../utils/HighlightedCode';
 import Grid from '@mui/material/Grid';
 import { green } from '@mui/material/colors';
 import Typography from '@mui/material/Typography';

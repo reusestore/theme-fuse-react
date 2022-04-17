@@ -1,8 +1,8 @@
 import Tooltip from '@mui/material/Tooltip';
 import clsx from 'clsx';
-import { useLayoutEffect, useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import IconButton from '@mui/material/IconButton';
-import FuseSvgIcon from '../../../@fuse/core/FuseSvgIcon';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 const useEnhancedEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 

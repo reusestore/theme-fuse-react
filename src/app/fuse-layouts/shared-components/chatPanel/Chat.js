@@ -8,9 +8,9 @@ import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import InputBase from '@mui/material/InputBase';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { sendMessage } from './store/chatSlice';
 import { selectContacts } from './store/contactsSlice';
-import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 const StyledMessageRow = styled('div')(({ theme }) => ({
   '&.contact': {

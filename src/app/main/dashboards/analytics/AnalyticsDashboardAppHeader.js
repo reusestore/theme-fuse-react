@@ -1,6 +1,6 @@
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 function AnalyticsDashboardAppHeader(props) {
   return (

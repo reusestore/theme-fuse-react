@@ -8,12 +8,10 @@ import IconButton from '@mui/material/IconButton';
 import Input from '@mui/material/Input';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import NoteModel from 'app/main/apps/notes/model/NoteModel';
-import NoteLabel from 'app/main/apps/notes/NoteLabel';
-import NoteReminderLabel from 'app/main/apps/notes/NoteReminderLabel';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import withRouter from '@fuse/core/withRouter';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import * as yup from 'yup';
 import format from 'date-fns/format';
 import { useDispatch } from 'react-redux';
@@ -21,7 +19,9 @@ import NoteFormList from './tasks/NoteFormList';
 import NoteFormLabelMenu from './NoteFormLabelMenu';
 import NoteFormReminder from './NoteFormReminder';
 import NoteFormUploadImage from './NoteFormUploadImage';
-import FuseSvgIcon from '../../../../../@fuse/core/FuseSvgIcon';
+import NoteModel from '../model/NoteModel';
+import NoteReminderLabel from '../NoteReminderLabel';
+import NoteLabel from '../NoteLabel';
 
 /**
  * Form Validation Schema

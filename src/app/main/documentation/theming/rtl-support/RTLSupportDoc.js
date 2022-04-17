@@ -74,7 +74,7 @@ function RTLSupportDoc() {
       </Typography>
 
       <FuseHighlight component="pre" className="language-jsx mb-24">
-        {require('!raw-loader!app/fuse-configs/settingsConfig.js')}
+        {require('!raw-loader!src/app/fuse-configs/settingsConfig.js')}
       </FuseHighlight>
 
       <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">

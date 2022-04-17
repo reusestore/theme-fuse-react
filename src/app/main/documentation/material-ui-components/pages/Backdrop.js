@@ -45,11 +45,8 @@ function BackdropDoc(props) {
           name="SimpleBackdrop.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/backdrop/SimpleBackdrop.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/backdrop/SimpleBackdrop.js')}
+          component={require('../components/backdrop/SimpleBackdrop.js').default}
+          raw={require('!raw-loader!../components/backdrop/SimpleBackdrop.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

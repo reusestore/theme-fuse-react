@@ -3,9 +3,8 @@ import { Checkbox, IconButton } from '@mui/material';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { useDispatch, useSelector } from 'react-redux';
 import Typography from '@mui/material/Typography';
-import { openLabelsDialog } from 'app/main/apps/calendar/store/labelsSlice';
 import { Box } from '@mui/system';
-import { selectLabels, selectSelectedLabels, toggleSelectedLabels } from './store/labelsSlice';
+import { openLabelsDialog, selectLabels, selectSelectedLabels, toggleSelectedLabels } from './store/labelsSlice';
 
 function CalendarAppSidebar() {
   const labels = useSelector(selectLabels);

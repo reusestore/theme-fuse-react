@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import clsx from 'clsx';
 import FuseUtils from '@fuse/utils';
 import { Controller, useFormContext } from 'react-hook-form';
-import FuseSvgIcon from '../../../../../../@fuse/core/FuseSvgIcon';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 const Root = styled('div')(({ theme }) => ({
   '& .productImageFeaturedStar': {

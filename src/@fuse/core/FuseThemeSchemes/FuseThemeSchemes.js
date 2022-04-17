@@ -3,8 +3,8 @@ import { useTheme } from '@mui/material/styles';
 import { memo } from 'react';
 import clsx from 'clsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateUserSettings } from 'app/auth/store/userSlice';
 import { setDefaultSettings } from 'app/store/fuse/settingsSlice';
+import { updateUserSettings } from '../../../app/auth/store/userSlice';
 
 function SchemePreview({ theme, className, id, onSelect }) {
   const _theme = useTheme();

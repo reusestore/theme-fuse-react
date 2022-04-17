@@ -49,11 +49,8 @@ function TextareaAutosizeDoc(props) {
           name="EmptyTextarea.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/textarea-autosize/EmptyTextarea.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/textarea-autosize/EmptyTextarea.js')}
+          component={require('../components/textarea-autosize/EmptyTextarea.js').default}
+          raw={require('!raw-loader!../components/textarea-autosize/EmptyTextarea.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -64,11 +61,8 @@ function TextareaAutosizeDoc(props) {
           name="MinHeightTextarea.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/textarea-autosize/MinHeightTextarea.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/textarea-autosize/MinHeightTextarea.js')}
+          component={require('../components/textarea-autosize/MinHeightTextarea.js').default}
+          raw={require('!raw-loader!../components/textarea-autosize/MinHeightTextarea.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -79,11 +73,8 @@ function TextareaAutosizeDoc(props) {
           name="MaxHeightTextarea.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/textarea-autosize/MaxHeightTextarea.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/textarea-autosize/MaxHeightTextarea.js')}
+          component={require('../components/textarea-autosize/MaxHeightTextarea.js').default}
+          raw={require('!raw-loader!../components/textarea-autosize/MaxHeightTextarea.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

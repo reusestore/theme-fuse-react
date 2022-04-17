@@ -44,11 +44,8 @@ function TransferListDoc(props) {
           name="TransferList.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/transfer-list/TransferList.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/transfer-list/TransferList.js')}
+          component={require('../components/transfer-list/TransferList.js').default}
+          raw={require('!raw-loader!../components/transfer-list/TransferList.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -63,11 +60,8 @@ function TransferListDoc(props) {
           name="SelectAllTransferList.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/transfer-list/SelectAllTransferList.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/transfer-list/SelectAllTransferList.js')}
+          component={require('../components/transfer-list/SelectAllTransferList.js').default}
+          raw={require('!raw-loader!../components/transfer-list/SelectAllTransferList.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

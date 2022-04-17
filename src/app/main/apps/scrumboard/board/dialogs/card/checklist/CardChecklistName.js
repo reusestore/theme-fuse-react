@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useEffect, forwardRef, useImperativeHandle, useState } from 'react';
+import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
 import ClickAwayListener from '@mui/material/ClickAwayListener';
@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 
 import * as yup from 'yup';
 import _ from '@lodash';
-import FuseSvgIcon from '../../../../../../../../@fuse/core/FuseSvgIcon';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 
 /**
  * Form Validation Schema

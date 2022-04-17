@@ -6,8 +6,8 @@ import { ThemeProvider } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectMainTheme } from 'app/store/fuse/settingsSlice';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { setMailsSearchText } from './store/mailsSlice';
-import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 function MailboxAppHeader(props) {
   const dispatch = useDispatch();

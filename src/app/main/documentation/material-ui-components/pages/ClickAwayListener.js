@@ -51,11 +51,8 @@ function ClickAwayListenerDoc(props) {
           name="ClickAway.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/click-away-listener/ClickAway.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/click-away-listener/ClickAway.js')}
+          component={require('../components/click-away-listener/ClickAway.js').default}
+          raw={require('!raw-loader!../components/click-away-listener/ClickAway.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -77,11 +74,8 @@ function ClickAwayListenerDoc(props) {
           name="PortalClickAway.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/click-away-listener/PortalClickAway.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/click-away-listener/PortalClickAway.js')}
+          component={require('../components/click-away-listener/PortalClickAway.js').default}
+          raw={require('!raw-loader!../components/click-away-listener/PortalClickAway.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -96,11 +90,8 @@ function ClickAwayListenerDoc(props) {
           name="LeadingClickAway.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/click-away-listener/LeadingClickAway.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/click-away-listener/LeadingClickAway.js')}
+          component={require('../components/click-away-listener/LeadingClickAway.js').default}
+          raw={require('!raw-loader!../components/click-away-listener/LeadingClickAway.js')}
         />
       </Typography>
       <blockquote>

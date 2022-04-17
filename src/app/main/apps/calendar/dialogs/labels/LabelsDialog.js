@@ -1,10 +1,10 @@
 import Dialog from '@mui/material/Dialog';
 import { useDispatch, useSelector } from 'react-redux';
 import Typography from '@mui/material/Typography';
-import NewLabelForm from 'app/main/apps/calendar/dialogs/labels/NewLabelForm';
-import LabelItemForm from 'app/main/apps/calendar/dialogs/labels/LabelItemForm';
 import List from '@mui/material/List';
 import { closeLabelsDialog, selectLabels, selectLabelsDialogOpen } from '../../store/labelsSlice';
+import NewLabelForm from './NewLabelForm';
+import LabelItemForm from './LabelItemForm';
 
 function LabelsDialog(props) {
   const dispatch = useDispatch();

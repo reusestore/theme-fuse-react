@@ -1,14 +1,9 @@
-import {
-  createSlice,
-  createAsyncThunk,
-  createEntityAdapter,
-  createSelector,
-} from '@reduxjs/toolkit';
+import { createAsyncThunk, createEntityAdapter, createSelector, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import _ from '@lodash';
-import { selectFolders } from 'app/main/apps/mailbox/store/foldersSlice';
-import { selectLabels } from 'app/main/apps/mailbox/store/labelsSlice';
-import { selectFilters } from 'app/main/apps/mailbox/store/filtersSlice';
+import { selectFolders } from './foldersSlice';
+import { selectLabels } from './labelsSlice';
+import { selectFilters } from './filtersSlice';
 
 export const getMails = createAsyncThunk(
   'mailboxApp/mails/getMails',

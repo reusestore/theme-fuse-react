@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 import Paper from '@mui/material/Paper';
 import Chip from '@mui/material/Chip';
 import Typography from '@mui/material/Typography';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { selectWidgets } from '../store/widgetsSlice';
-import FuseSvgIcon from '../../../../../@fuse/core/FuseSvgIcon';
 
 function Impressions(props) {
   const theme = useTheme();

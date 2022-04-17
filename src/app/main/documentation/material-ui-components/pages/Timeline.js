@@ -46,11 +46,8 @@ function TimelineDoc(props) {
           name="BasicTimeline.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/timeline/BasicTimeline.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/timeline/BasicTimeline.js')}
+          component={require('../components/timeline/BasicTimeline.js').default}
+          raw={require('!raw-loader!../components/timeline/BasicTimeline.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -65,11 +62,8 @@ function TimelineDoc(props) {
           name="LeftPositionedTimeline.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/timeline/LeftPositionedTimeline.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/timeline/LeftPositionedTimeline.js')}
+          component={require('../components/timeline/LeftPositionedTimeline.js').default}
+          raw={require('!raw-loader!../components/timeline/LeftPositionedTimeline.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -83,11 +77,8 @@ function TimelineDoc(props) {
           name="AlternateTimeline.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/timeline/AlternateTimeline.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/timeline/AlternateTimeline.js')}
+          component={require('../components/timeline/AlternateTimeline.js').default}
+          raw={require('!raw-loader!../components/timeline/AlternateTimeline.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -101,11 +92,8 @@ function TimelineDoc(props) {
           name="ColorsTimeline.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/timeline/ColorsTimeline.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/timeline/ColorsTimeline.js')}
+          component={require('../components/timeline/ColorsTimeline.js').default}
+          raw={require('!raw-loader!../components/timeline/ColorsTimeline.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -116,11 +104,8 @@ function TimelineDoc(props) {
           name="OutlinedTimeline.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/timeline/OutlinedTimeline.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/timeline/OutlinedTimeline.js')}
+          component={require('../components/timeline/OutlinedTimeline.js').default}
+          raw={require('!raw-loader!../components/timeline/OutlinedTimeline.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -134,11 +119,8 @@ function TimelineDoc(props) {
           name="OppositeContentTimeline.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/timeline/OppositeContentTimeline.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/timeline/OppositeContentTimeline.js')}
+          component={require('../components/timeline/OppositeContentTimeline.js').default}
+          raw={require('!raw-loader!../components/timeline/OppositeContentTimeline.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -153,11 +135,8 @@ function TimelineDoc(props) {
           name="CustomizedTimeline.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/timeline/CustomizedTimeline.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/timeline/CustomizedTimeline.js')}
+          component={require('../components/timeline/CustomizedTimeline.js').default}
+          raw={require('!raw-loader!../components/timeline/CustomizedTimeline.js')}
         />
       </Typography>
     </>

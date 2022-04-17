@@ -1,5 +1,5 @@
 import Card from '@mui/material/Card';
-import { styled, alpha } from '@mui/material/styles';
+import { alpha, styled } from '@mui/material/styles';
 import { blue, green, red } from '@mui/material/colors';
 import Typography from '@mui/material/Typography';
 import clsx from 'clsx';

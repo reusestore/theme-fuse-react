@@ -5,7 +5,7 @@ import rtlPlugin from 'stylis-plugin-rtl';
 import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
 import { StyleSheetManager } from 'styled-components';
-import { useTheme, styled } from '@mui/material/styles';
+import { styled, useTheme } from '@mui/material/styles';
 import GlobalStyles from '@mui/material/GlobalStyles';
 
 function FramedDemo(props) {

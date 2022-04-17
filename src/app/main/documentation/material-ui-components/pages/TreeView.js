@@ -45,11 +45,8 @@ function TreeViewDoc(props) {
           name="FileSystemNavigator.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tree-view/FileSystemNavigator.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tree-view/FileSystemNavigator.js')}
+          component={require('../components/tree-view/FileSystemNavigator.js').default}
+          raw={require('!raw-loader!../components/tree-view/FileSystemNavigator.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -63,11 +60,8 @@ function TreeViewDoc(props) {
           name="MultiSelectTreeView.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tree-view/MultiSelectTreeView.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tree-view/MultiSelectTreeView.js')}
+          component={require('../components/tree-view/MultiSelectTreeView.js').default}
+          raw={require('!raw-loader!../components/tree-view/MultiSelectTreeView.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -81,11 +75,8 @@ function TreeViewDoc(props) {
           name="ControlledTreeView.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tree-view/ControlledTreeView.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tree-view/ControlledTreeView.js')}
+          component={require('../components/tree-view/ControlledTreeView.js').default}
+          raw={require('!raw-loader!../components/tree-view/ControlledTreeView.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -120,11 +111,8 @@ const data = {
           name="RichObjectTreeView.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tree-view/RichObjectTreeView.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tree-view/RichObjectTreeView.js')}
+          component={require('../components/tree-view/RichObjectTreeView.js').default}
+          raw={require('!raw-loader!../components/tree-view/RichObjectTreeView.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -142,11 +130,8 @@ const data = {
           name="IconExpansionTreeView.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tree-view/IconExpansionTreeView.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tree-view/IconExpansionTreeView.js')}
+          component={require('../components/tree-view/IconExpansionTreeView.js').default}
+          raw={require('!raw-loader!../components/tree-view/IconExpansionTreeView.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -157,11 +142,8 @@ const data = {
           name="BarTreeView.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tree-view/BarTreeView.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tree-view/BarTreeView.js')}
+          component={require('../components/tree-view/BarTreeView.js').default}
+          raw={require('!raw-loader!../components/tree-view/BarTreeView.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -175,11 +157,8 @@ const data = {
           name="CustomizedTreeView.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tree-view/CustomizedTreeView.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tree-view/CustomizedTreeView.js')}
+          component={require('../components/tree-view/CustomizedTreeView.js').default}
+          raw={require('!raw-loader!../components/tree-view/CustomizedTreeView.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -190,11 +169,8 @@ const data = {
           name="GmailTreeView.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tree-view/GmailTreeView.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tree-view/GmailTreeView.js')}
+          component={require('../components/tree-view/GmailTreeView.js').default}
+          raw={require('!raw-loader!../components/tree-view/GmailTreeView.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -205,11 +181,8 @@ const data = {
           name="DisabledTreeItems.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/tree-view/DisabledTreeItems.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/tree-view/DisabledTreeItems.js')}
+          component={require('../components/tree-view/DisabledTreeItems.js').default}
+          raw={require('!raw-loader!../components/tree-view/DisabledTreeItems.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">

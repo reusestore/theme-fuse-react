@@ -1,11 +1,11 @@
 import i18next from 'i18next';
 import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
-import MailDetails from 'app/main/apps/mailbox/mail/MailDetails';
-import SelectMailMessage from 'app/main/apps/mailbox/SelectMailMessage';
 import ar from './i18n/ar';
 import en from './i18n/en';
 import tr from './i18n/tr';
+import SelectMailMessage from './SelectMailMessage';
+import MailDetails from './mail/MailDetails';
 
 const MailboxApp = lazy(() => import('./MailboxApp'));
 

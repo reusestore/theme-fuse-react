@@ -2,8 +2,7 @@ import FuseDialog from '@fuse/core/FuseDialog';
 import { styled } from '@mui/material/styles';
 import FuseMessage from '@fuse/core/FuseMessage';
 import FuseSuspense from '@fuse/core/FuseSuspense';
-import AppContext from 'app/AppContext';
-import SettingsPanel from 'app/fuse-layouts/shared-components/SettingsPanel';
+import AppContext from 'src/app/AppContext';
 import clsx from 'clsx';
 import { memo, useContext } from 'react';
 import { useSelector } from 'react-redux';
@@ -13,6 +12,7 @@ import LeftSideLayout2 from './components/LeftSideLayout2';
 import NavbarWrapperLayout2 from './components/NavbarWrapperLayout2';
 import RightSideLayout2 from './components/RightSideLayout2';
 import ToolbarLayout2 from './components/ToolbarLayout2';
+import SettingsPanel from '../shared-components/SettingsPanel';
 
 const Root = styled('div')(({ theme, config }) => ({
   ...(config.mode === 'boxed' && {

@@ -10,12 +10,12 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { useDeepCompareEffect } from '@fuse/hooks';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import reducer from '../store';
-import { resetOrder, getOrder } from '../store/orderSlice';
+import { getOrder, resetOrder } from '../store/orderSlice';
 import InvoiceTab from './tabs/InvoiceTab';
 import OrderDetailsTab from './tabs/OrderDetailsTab';
 import ProductsTab from './tabs/ProductsTab';
-import FuseSvgIcon from '../../../../../@fuse/core/FuseSvgIcon';
 
 function Order(props) {
   const dispatch = useDispatch();

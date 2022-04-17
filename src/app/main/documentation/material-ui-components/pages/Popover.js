@@ -58,11 +58,8 @@ function PopoverDoc(props) {
           name="BasicPopover.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/popover/BasicPopover.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/popover/BasicPopover.js')}
+          component={require('../components/popover/BasicPopover.js').default}
+          raw={require('!raw-loader!../components/popover/BasicPopover.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -80,11 +77,8 @@ function PopoverDoc(props) {
           name="AnchorPlayground.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/popover/AnchorPlayground.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/popover/AnchorPlayground.js')}
+          component={require('../components/popover/AnchorPlayground.js').default}
+          raw={require('!raw-loader!../components/popover/AnchorPlayground.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -99,11 +93,8 @@ function PopoverDoc(props) {
           name="MouseOverPopover.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/popover/MouseOverPopover.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/popover/MouseOverPopover.js')}
+          component={require('../components/popover/MouseOverPopover.js').default}
+          raw={require('!raw-loader!../components/popover/MouseOverPopover.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -127,11 +118,8 @@ function PopoverDoc(props) {
           name="PopoverPopupState.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/popover/PopoverPopupState.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/popover/PopoverPopupState.js')}
+          component={require('../components/popover/PopoverPopupState.js').default}
+          raw={require('!raw-loader!../components/popover/PopoverPopupState.js')}
         />
       </Typography>
     </>

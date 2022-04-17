@@ -49,11 +49,8 @@ function TransitionsDoc(props) {
           name="SimpleCollapse.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/transitions/SimpleCollapse.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/transitions/SimpleCollapse.js')}
+          component={require('../components/transitions/SimpleCollapse.js').default}
+          raw={require('!raw-loader!../components/transitions/SimpleCollapse.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -67,11 +64,8 @@ function TransitionsDoc(props) {
           name="SimpleFade.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/transitions/SimpleFade.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/transitions/SimpleFade.js')}
+          component={require('../components/transitions/SimpleFade.js').default}
+          raw={require('!raw-loader!../components/transitions/SimpleFade.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -90,11 +84,8 @@ function TransitionsDoc(props) {
           name="SimpleGrow.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/transitions/SimpleGrow.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/transitions/SimpleGrow.js')}
+          component={require('../components/transitions/SimpleGrow.js').default}
+          raw={require('!raw-loader!../components/transitions/SimpleGrow.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -116,11 +107,8 @@ function TransitionsDoc(props) {
           name="SimpleSlide.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/transitions/SimpleSlide.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/transitions/SimpleSlide.js')}
+          component={require('../components/transitions/SimpleSlide.js').default}
+          raw={require('!raw-loader!../components/transitions/SimpleSlide.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -135,11 +123,8 @@ function TransitionsDoc(props) {
           name="SlideFromContainer.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/transitions/SlideFromContainer.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/transitions/SlideFromContainer.js')}
+          component={require('../components/transitions/SlideFromContainer.js').default}
+          raw={require('!raw-loader!../components/transitions/SlideFromContainer.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -156,11 +141,8 @@ function TransitionsDoc(props) {
           name="SimpleZoom.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/transitions/SimpleZoom.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/transitions/SimpleZoom.js')}
+          component={require('../components/transitions/SimpleZoom.js').default}
+          raw={require('!raw-loader!../components/transitions/SimpleZoom.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -222,11 +204,8 @@ export default Main() {
           name="TransitionGroupExample.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/transitions/TransitionGroupExample.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/transitions/TransitionGroupExample.js')}
+          component={require('../components/transitions/TransitionGroupExample.js').default}
+          raw={require('!raw-loader!../components/transitions/TransitionGroupExample.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">

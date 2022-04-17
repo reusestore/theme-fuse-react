@@ -48,11 +48,8 @@ function CheckboxesDoc(props) {
           name="Checkboxes.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/checkboxes/Checkboxes.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/checkboxes/Checkboxes.js')}
+          component={require('../components/checkboxes/Checkboxes.js').default}
+          raw={require('!raw-loader!../components/checkboxes/Checkboxes.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -67,11 +64,8 @@ function CheckboxesDoc(props) {
           name="CheckboxLabels.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/checkboxes/CheckboxLabels.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/checkboxes/CheckboxLabels.js')}
+          component={require('../components/checkboxes/CheckboxLabels.js').default}
+          raw={require('!raw-loader!../components/checkboxes/CheckboxLabels.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -86,11 +80,8 @@ function CheckboxesDoc(props) {
           name="SizeCheckboxes.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/checkboxes/SizeCheckboxes.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/checkboxes/SizeCheckboxes.js')}
+          component={require('../components/checkboxes/SizeCheckboxes.js').default}
+          raw={require('!raw-loader!../components/checkboxes/SizeCheckboxes.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -101,11 +92,8 @@ function CheckboxesDoc(props) {
           name="ColorCheckboxes.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/checkboxes/ColorCheckboxes.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/checkboxes/ColorCheckboxes.js')}
+          component={require('../components/checkboxes/ColorCheckboxes.js').default}
+          raw={require('!raw-loader!../components/checkboxes/ColorCheckboxes.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -116,11 +104,8 @@ function CheckboxesDoc(props) {
           name="IconCheckboxes.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/checkboxes/IconCheckboxes.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/checkboxes/IconCheckboxes.js')}
+          component={require('../components/checkboxes/IconCheckboxes.js').default}
+          raw={require('!raw-loader!../components/checkboxes/IconCheckboxes.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -134,11 +119,8 @@ function CheckboxesDoc(props) {
           name="ControlledCheckbox.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/checkboxes/ControlledCheckbox.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/checkboxes/ControlledCheckbox.js')}
+          component={require('../components/checkboxes/ControlledCheckbox.js').default}
+          raw={require('!raw-loader!../components/checkboxes/ControlledCheckbox.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -154,11 +136,8 @@ function CheckboxesDoc(props) {
           name="IndeterminateCheckbox.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/checkboxes/IndeterminateCheckbox.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/checkboxes/IndeterminateCheckbox.js')}
+          component={require('../components/checkboxes/IndeterminateCheckbox.js').default}
+          raw={require('!raw-loader!../components/checkboxes/IndeterminateCheckbox.js')}
         />
       </Typography>
       <blockquote>
@@ -178,11 +157,8 @@ function CheckboxesDoc(props) {
           name="CheckboxesGroup.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/checkboxes/CheckboxesGroup.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/checkboxes/CheckboxesGroup.js')}
+          component={require('../components/checkboxes/CheckboxesGroup.js').default}
+          raw={require('!raw-loader!../components/checkboxes/CheckboxesGroup.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -196,11 +172,8 @@ function CheckboxesDoc(props) {
           name="FormControlLabelPosition.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/checkboxes/FormControlLabelPosition.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/checkboxes/FormControlLabelPosition.js')}
+          component={require('../components/checkboxes/FormControlLabelPosition.js').default}
+          raw={require('!raw-loader!../components/checkboxes/FormControlLabelPosition.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -215,11 +188,8 @@ function CheckboxesDoc(props) {
           name="CustomizedCheckbox.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/checkboxes/CustomizedCheckbox.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/checkboxes/CustomizedCheckbox.js')}
+          component={require('../components/checkboxes/CustomizedCheckbox.js').default}
+          raw={require('!raw-loader!../components/checkboxes/CustomizedCheckbox.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">

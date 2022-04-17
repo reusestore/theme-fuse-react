@@ -1,120 +1,68 @@
 import { lazy } from 'react';
 
-const Accordion = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/Accordion')
-);
-const Alert = lazy(() => import('app/main/documentation/material-ui-components/pages/Alert'));
-const AppBar = lazy(() => import('app/main/documentation/material-ui-components/pages/AppBar'));
-const Autocomplete = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/Autocomplete')
-);
-const Avatars = lazy(() => import('app/main/documentation/material-ui-components/pages/Avatars'));
-const Backdrop = lazy(() => import('app/main/documentation/material-ui-components/pages/Backdrop'));
-const Badges = lazy(() => import('app/main/documentation/material-ui-components/pages/Badges'));
-const BottomNavigation = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/BottomNavigation')
-);
-const Box = lazy(() => import('app/main/documentation/material-ui-components/pages/Box'));
-const Breadcrumbs = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/Breadcrumbs')
-);
-const ButtonGroup = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/ButtonGroup')
-);
-const Buttons = lazy(() => import('app/main/documentation/material-ui-components/pages/Buttons'));
-const Cards = lazy(() => import('app/main/documentation/material-ui-components/pages/Cards'));
-const Checkboxes = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/Checkboxes')
-);
-const Chips = lazy(() => import('app/main/documentation/material-ui-components/pages/Chips'));
-const ClickAwayListener = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/ClickAwayListener')
-);
-const Container = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/Container')
-);
-const CssBaseline = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/CssBaseline')
-);
-const DatePicker = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/DatePicker')
-);
-const DateRangePicker = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/DateRangePicker')
-);
-const DateTimePicker = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/DateTimePicker')
-);
-const Dialogs = lazy(() => import('app/main/documentation/material-ui-components/pages/Dialogs'));
-const Dividers = lazy(() => import('app/main/documentation/material-ui-components/pages/Dividers'));
-const Drawers = lazy(() => import('app/main/documentation/material-ui-components/pages/Drawers'));
-const FloatingActionButton = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/FloatingActionButton')
-);
-const Grid = lazy(() => import('app/main/documentation/material-ui-components/pages/Grid'));
-const ImageList = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/ImageList')
-);
-const Links = lazy(() => import('app/main/documentation/material-ui-components/pages/Links'));
-const Lists = lazy(() => import('app/main/documentation/material-ui-components/pages/Lists'));
-const Masonry = lazy(() => import('app/main/documentation/material-ui-components/pages/Masonry'));
-const Menus = lazy(() => import('app/main/documentation/material-ui-components/pages/Menus'));
-const Modal = lazy(() => import('app/main/documentation/material-ui-components/pages/Modal'));
-const NoSsr = lazy(() => import('app/main/documentation/material-ui-components/pages/NoSsr'));
-const Pagination = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/Pagination')
-);
-const Paper = lazy(() => import('app/main/documentation/material-ui-components/pages/Paper'));
-const Pickers = lazy(() => import('app/main/documentation/material-ui-components/pages/Pickers'));
-const Popover = lazy(() => import('app/main/documentation/material-ui-components/pages/Popover'));
-const Popper = lazy(() => import('app/main/documentation/material-ui-components/pages/Popper'));
-const Portal = lazy(() => import('app/main/documentation/material-ui-components/pages/Portal'));
-const Progress = lazy(() => import('app/main/documentation/material-ui-components/pages/Progress'));
-const RadioButtons = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/RadioButtons')
-);
-const Rating = lazy(() => import('app/main/documentation/material-ui-components/pages/Rating'));
-const Selects = lazy(() => import('app/main/documentation/material-ui-components/pages/Selects'));
-const Skeleton = lazy(() => import('app/main/documentation/material-ui-components/pages/Skeleton'));
-const Slider = lazy(() => import('app/main/documentation/material-ui-components/pages/Slider'));
-const Snackbars = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/Snackbars')
-);
-const SpeedDial = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/SpeedDial')
-);
-const Stack = lazy(() => import('app/main/documentation/material-ui-components/pages/Stack'));
-const Steppers = lazy(() => import('app/main/documentation/material-ui-components/pages/Steppers'));
-const Switches = lazy(() => import('app/main/documentation/material-ui-components/pages/Switches'));
-const Tables = lazy(() => import('app/main/documentation/material-ui-components/pages/Tables'));
-const Tabs = lazy(() => import('app/main/documentation/material-ui-components/pages/Tabs'));
-const TextFields = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/TextFields')
-);
-const TextareaAutosize = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/TextareaAutosize')
-);
-const TimePicker = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/TimePicker')
-);
-const Timeline = lazy(() => import('app/main/documentation/material-ui-components/pages/Timeline'));
-const ToggleButton = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/ToggleButton')
-);
-const Tooltips = lazy(() => import('app/main/documentation/material-ui-components/pages/Tooltips'));
-const TransferList = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/TransferList')
-);
-const Transitions = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/Transitions')
-);
-const TrapFocus = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/TrapFocus')
-);
-const TreeView = lazy(() => import('app/main/documentation/material-ui-components/pages/TreeView'));
-const Typography = lazy(() =>
-  import('app/main/documentation/material-ui-components/pages/Typography')
-);
+const Accordion = lazy(() => import('./pages/Accordion'));
+const Alert = lazy(() => import('./pages/Alert'));
+const AppBar = lazy(() => import('./pages/AppBar'));
+const Autocomplete = lazy(() => import('./pages/Autocomplete'));
+const Avatars = lazy(() => import('./pages/Avatars'));
+const Backdrop = lazy(() => import('./pages/Backdrop'));
+const Badges = lazy(() => import('./pages/Badges'));
+const BottomNavigation = lazy(() => import('./pages/BottomNavigation'));
+const Box = lazy(() => import('./pages/Box'));
+const Breadcrumbs = lazy(() => import('./pages/Breadcrumbs'));
+const ButtonGroup = lazy(() => import('./pages/ButtonGroup'));
+const Buttons = lazy(() => import('./pages/Buttons'));
+const Cards = lazy(() => import('./pages/Cards'));
+const Checkboxes = lazy(() => import('./pages/Checkboxes'));
+const Chips = lazy(() => import('./pages/Chips'));
+const ClickAwayListener = lazy(() => import('./pages/ClickAwayListener'));
+const Container = lazy(() => import('./pages/Container'));
+const CssBaseline = lazy(() => import('./pages/CssBaseline'));
+const DatePicker = lazy(() => import('./pages/DatePicker'));
+const DateRangePicker = lazy(() => import('./pages/DateRangePicker'));
+const DateTimePicker = lazy(() => import('./pages/DateTimePicker'));
+const Dialogs = lazy(() => import('./pages/Dialogs'));
+const Dividers = lazy(() => import('./pages/Dividers'));
+const Drawers = lazy(() => import('./pages/Drawers'));
+const FloatingActionButton = lazy(() => import('./pages/FloatingActionButton'));
+const Grid = lazy(() => import('./pages/Grid'));
+const ImageList = lazy(() => import('./pages/ImageList'));
+const Links = lazy(() => import('./pages/Links'));
+const Lists = lazy(() => import('./pages/Lists'));
+const Masonry = lazy(() => import('./pages/Masonry'));
+const Menus = lazy(() => import('./pages/Menus'));
+const Modal = lazy(() => import('./pages/Modal'));
+const NoSsr = lazy(() => import('./pages/NoSsr'));
+const Pagination = lazy(() => import('./pages/Pagination'));
+const Paper = lazy(() => import('./pages/Paper'));
+const Pickers = lazy(() => import('./pages/Pickers'));
+const Popover = lazy(() => import('./pages/Popover'));
+const Popper = lazy(() => import('./pages/Popper'));
+const Portal = lazy(() => import('./pages/Portal'));
+const Progress = lazy(() => import('./pages/Progress'));
+const RadioButtons = lazy(() => import('./pages/RadioButtons'));
+const Rating = lazy(() => import('./pages/Rating'));
+const Selects = lazy(() => import('./pages/Selects'));
+const Skeleton = lazy(() => import('./pages/Skeleton'));
+const Slider = lazy(() => import('./pages/Slider'));
+const Snackbars = lazy(() => import('./pages/Snackbars'));
+const SpeedDial = lazy(() => import('./pages/SpeedDial'));
+const Stack = lazy(() => import('./pages/Stack'));
+const Steppers = lazy(() => import('./pages/Steppers'));
+const Switches = lazy(() => import('./pages/Switches'));
+const Tables = lazy(() => import('./pages/Tables'));
+const Tabs = lazy(() => import('./pages/Tabs'));
+const TextFields = lazy(() => import('./pages/TextFields'));
+const TextareaAutosize = lazy(() => import('./pages/TextareaAutosize'));
+const TimePicker = lazy(() => import('./pages/TimePicker'));
+const Timeline = lazy(() => import('./pages/Timeline'));
+const ToggleButton = lazy(() => import('./pages/ToggleButton'));
+const Tooltips = lazy(() => import('./pages/Tooltips'));
+const TransferList = lazy(() => import('./pages/TransferList'));
+const Transitions = lazy(() => import('./pages/Transitions'));
+const TrapFocus = lazy(() => import('./pages/TrapFocus'));
+const TreeView = lazy(() => import('./pages/TreeView'));
+const Typography = lazy(() => import('./pages/Typography'));
 
 const MaterialUIComponentsRoutes = [
   {

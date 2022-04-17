@@ -1,8 +1,8 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-import TaskModel from 'app/main/apps/tasks/model/TaskModel';
-import SectionModel from 'app/main/apps/tasks/model/SectionModel';
-import history from '@history/@history';
+import history from '@history';
+import SectionModel from '../model/SectionModel';
+import TaskModel from '../model/TaskModel';
 
 export const getTask = createAsyncThunk(
   'tasksApp/task/getTask',

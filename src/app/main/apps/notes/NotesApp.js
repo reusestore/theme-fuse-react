@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import { lighten, styled } from '@mui/material/styles';
 import { useParams } from 'react-router-dom';
 import Box from '@mui/material/Box';
+import FusePageCarded from '@fuse/core/FusePageCarded';
+import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 import LabelsDialog from './dialogs/labels/LabelsDialog';
 import NoteDialog from './dialogs/note/NoteDialog';
 import NewNote from './NewNote';
@@ -13,16 +15,11 @@ import NotesSidebarContent from './NotesSidebarContent';
 import reducer from './store';
 import { getLabels } from './store/labelsSlice';
 import { getNotes } from './store/notesSlice';
-import FusePageCarded from '../../../../@fuse/core/FusePageCarded';
-import useThemeMediaQuery from '../../../../@fuse/hooks/useThemeMediaQuery';
 
 const Root = styled(FusePageCarded)(({ theme }) => ({
-  '& .FusePageCarded-header': {
-  },
-  '& .FusePageCarded-sidebar': {
-  },
-  '& .FusePageCarded-leftSidebar': {
-  },
+  '& .FusePageCarded-header': {},
+  '& .FusePageCarded-sidebar': {},
+  '& .FusePageCarded-leftSidebar': {},
 }));
 
 function NotesApp(props) {

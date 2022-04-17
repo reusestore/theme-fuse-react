@@ -47,11 +47,8 @@ function AppBarDoc(props) {
           name="ButtonAppBar.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/app-bar/ButtonAppBar.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/app-bar/ButtonAppBar.js')}
+          component={require('../components/app-bar/ButtonAppBar.js').default}
+          raw={require('!raw-loader!../components/app-bar/ButtonAppBar.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -62,11 +59,8 @@ function AppBarDoc(props) {
           name="MenuAppBar.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/app-bar/MenuAppBar.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/app-bar/MenuAppBar.js')}
+          component={require('../components/app-bar/MenuAppBar.js').default}
+          raw={require('!raw-loader!../components/app-bar/MenuAppBar.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -77,11 +71,8 @@ function AppBarDoc(props) {
           name="ResponsiveAppBar.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/app-bar/ResponsiveAppBar.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/app-bar/ResponsiveAppBar.js')}
+          component={require('../components/app-bar/ResponsiveAppBar.js').default}
+          raw={require('!raw-loader!../components/app-bar/ResponsiveAppBar.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -95,11 +86,8 @@ function AppBarDoc(props) {
           name="SearchAppBar.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/app-bar/SearchAppBar.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/app-bar/SearchAppBar.js')}
+          component={require('../components/app-bar/SearchAppBar.js').default}
+          raw={require('!raw-loader!../components/app-bar/SearchAppBar.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -113,11 +101,8 @@ function AppBarDoc(props) {
           name="PrimarySearchAppBar.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/app-bar/PrimarySearchAppBar.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/app-bar/PrimarySearchAppBar.js')}
+          component={require('../components/app-bar/PrimarySearchAppBar.js').default}
+          raw={require('!raw-loader!../components/app-bar/PrimarySearchAppBar.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -128,11 +113,8 @@ function AppBarDoc(props) {
           name="DenseAppBar.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/app-bar/DenseAppBar.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/app-bar/DenseAppBar.js')}
+          component={require('../components/app-bar/DenseAppBar.js').default}
+          raw={require('!raw-loader!../components/app-bar/DenseAppBar.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -146,11 +128,8 @@ function AppBarDoc(props) {
           name="ProminentAppBar.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/app-bar/ProminentAppBar.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/app-bar/ProminentAppBar.js')}
+          component={require('../components/app-bar/ProminentAppBar.js').default}
+          raw={require('!raw-loader!../components/app-bar/ProminentAppBar.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -161,11 +140,8 @@ function AppBarDoc(props) {
           name="BottomAppBar.js"
           className="my-24"
           iframe
-          component={
-            require('app/main/documentation/material-ui-components/components/app-bar/BottomAppBar.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/app-bar/BottomAppBar.js')}
+          component={require('../components/app-bar/BottomAppBar.js').default}
+          raw={require('!raw-loader!../components/app-bar/BottomAppBar.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -239,11 +215,8 @@ function App() {
           name="HideAppBar.js"
           className="my-24"
           iframe
-          component={
-            require('app/main/documentation/material-ui-components/components/app-bar/HideAppBar.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/app-bar/HideAppBar.js')}
+          component={require('../components/app-bar/HideAppBar.js').default}
+          raw={require('!raw-loader!../components/app-bar/HideAppBar.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -257,11 +230,8 @@ function App() {
           name="ElevateAppBar.js"
           className="my-24"
           iframe
-          component={
-            require('app/main/documentation/material-ui-components/components/app-bar/ElevateAppBar.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/app-bar/ElevateAppBar.js')}
+          component={require('../components/app-bar/ElevateAppBar.js').default}
+          raw={require('!raw-loader!../components/app-bar/ElevateAppBar.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -276,11 +246,8 @@ function App() {
           name="BackToTop.js"
           className="my-24"
           iframe
-          component={
-            require('app/main/documentation/material-ui-components/components/app-bar/BackToTop.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/app-bar/BackToTop.js')}
+          component={require('../components/app-bar/BackToTop.js').default}
+          raw={require('!raw-loader!../components/app-bar/BackToTop.js')}
         />
       </Typography>
       <Typography className="text-20 mt-20 mb-10 font-700" component="h3">
@@ -351,11 +318,8 @@ function HideOnScroll(props) {
           name="EnableColorOnDarkAppBar.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/app-bar/EnableColorOnDarkAppBar.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/app-bar/EnableColorOnDarkAppBar.js')}
+          component={require('../components/app-bar/EnableColorOnDarkAppBar.js').default}
+          raw={require('!raw-loader!../components/app-bar/EnableColorOnDarkAppBar.js')}
         />
       </Typography>
     </>

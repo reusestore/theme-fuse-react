@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import TaskForm from 'app/main/apps/tasks/task/TaskForm';
+import TaskForm from './task/TaskForm';
 
 const TasksApp = lazy(() => import('./TasksApp'));
 

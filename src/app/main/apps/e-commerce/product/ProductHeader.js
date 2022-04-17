@@ -6,8 +6,8 @@ import { useFormContext } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import _ from '@lodash';
-import { saveProduct, removeProduct } from '../store/productSlice';
-import FuseSvgIcon from '../../../../../@fuse/core/FuseSvgIcon';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import { removeProduct, saveProduct } from '../store/productSlice';
 
 function ProductHeader(props) {
   const dispatch = useDispatch();

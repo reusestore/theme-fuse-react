@@ -5,8 +5,8 @@ import Typography from '@mui/material/Typography';
 import format from 'date-fns/format';
 import { Box } from '@mui/system';
 import { useParams } from 'react-router-dom';
-import FuseSvgIcon from '../../../../../../@fuse/core/FuseSvgIcon';
-import NavLinkAdapter from '../../../../../../@fuse/core/NavLinkAdapter';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import ContactAvatar from '../../ContactAvatar';
 
 const StyledListItem = styled(ListItem)(({ theme, active }) => ({

@@ -1,5 +1,5 @@
-import { authRoles } from 'app/auth';
 import JwtService from '../../auth/services/jwtService';
+import authRoles from '../../auth/authRoles';
 
 const SignOutConfig = {
   auth: authRoles.user,

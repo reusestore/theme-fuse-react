@@ -1,7 +1,7 @@
 import IconButton from '@mui/material/IconButton';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
-import FuseNavigation from '@fuse/core/FuseNavigation/FuseNavigation';
+import FuseNavigation from '@fuse/core/FuseNavigation';
 import FuseSuspense from '@fuse/core/FuseSuspense';
 import { Link, Outlet } from 'react-router-dom';
 import { styled } from '@mui/material/styles';

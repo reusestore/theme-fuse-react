@@ -44,11 +44,8 @@ function BadgesDoc(props) {
           name="SimpleBadge.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/badges/SimpleBadge.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/badges/SimpleBadge.js')}
+          component={require('../components/badges/SimpleBadge.js').default}
+          raw={require('!raw-loader!../components/badges/SimpleBadge.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -62,11 +59,8 @@ function BadgesDoc(props) {
           name="ColorBadge.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/badges/ColorBadge.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/badges/ColorBadge.js')}
+          component={require('../components/badges/ColorBadge.js').default}
+          raw={require('!raw-loader!../components/badges/ColorBadge.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -81,11 +75,8 @@ function BadgesDoc(props) {
           name="CustomizedBadges.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/badges/CustomizedBadges.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/badges/CustomizedBadges.js')}
+          component={require('../components/badges/CustomizedBadges.js').default}
+          raw={require('!raw-loader!../components/badges/CustomizedBadges.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -99,11 +90,8 @@ function BadgesDoc(props) {
           name="BadgeVisibility.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/badges/BadgeVisibility.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/badges/BadgeVisibility.js')}
+          component={require('../components/badges/BadgeVisibility.js').default}
+          raw={require('!raw-loader!../components/badges/BadgeVisibility.js')}
         />
       </Typography>
       <Typography className="mb-40" component="div">
@@ -115,11 +103,8 @@ function BadgesDoc(props) {
           name="ShowZeroBadge.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/badges/ShowZeroBadge.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/badges/ShowZeroBadge.js')}
+          component={require('../components/badges/ShowZeroBadge.js').default}
+          raw={require('!raw-loader!../components/badges/ShowZeroBadge.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -133,11 +118,8 @@ function BadgesDoc(props) {
           name="BadgeMax.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/badges/BadgeMax.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/badges/BadgeMax.js')}
+          component={require('../components/badges/BadgeMax.js').default}
+          raw={require('!raw-loader!../components/badges/BadgeMax.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -152,11 +134,8 @@ function BadgesDoc(props) {
           name="DotBadge.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/badges/DotBadge.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/badges/DotBadge.js')}
+          component={require('../components/badges/DotBadge.js').default}
+          raw={require('!raw-loader!../components/badges/DotBadge.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -171,11 +150,8 @@ function BadgesDoc(props) {
           name="BadgeOverlap.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/badges/BadgeOverlap.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/badges/BadgeOverlap.js')}
+          component={require('../components/badges/BadgeOverlap.js').default}
+          raw={require('!raw-loader!../components/badges/BadgeOverlap.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -190,11 +166,8 @@ function BadgesDoc(props) {
           name="BadgeAlignment.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/badges/BadgeAlignment.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/badges/BadgeAlignment.js')}
+          component={require('../components/badges/BadgeAlignment.js').default}
+          raw={require('!raw-loader!../components/badges/BadgeAlignment.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -215,11 +188,8 @@ import BadgeUnstyled from '@mui/base/BadgeUnstyled';
           name="UnstyledBadge.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/badges/UnstyledBadge.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/badges/UnstyledBadge.js')}
+          component={require('../components/badges/UnstyledBadge.js').default}
+          raw={require('!raw-loader!../components/badges/UnstyledBadge.js')}
         />
       </Typography>
       <Typography className="text-32 mt-40 mb-10 font-700" component="h2">
@@ -234,11 +204,8 @@ import BadgeUnstyled from '@mui/base/BadgeUnstyled';
           name="AccessibleBadges.js"
           className="my-24"
           iframe={false}
-          component={
-            require('app/main/documentation/material-ui-components/components/badges/AccessibleBadges.js')
-              .default
-          }
-          raw={require('!raw-loader!app/main/documentation/material-ui-components/components/badges/AccessibleBadges.js')}
+          component={require('../components/badges/AccessibleBadges.js').default}
+          raw={require('!raw-loader!../components/badges/AccessibleBadges.js')}
         />
       </Typography>
     </>

@@ -1,8 +1,13 @@
 {
     "compilerOptions": {
-        "baseUrl": "src"
-    },
-    "include": [
-        "src"
-    ]
+      "baseUrl": "./",
+      "paths": {
+            "@fuse/*": ["./src/@fuse/*"],
+            "@history*": ["./src/@history"],
+            "@lodash": ["./src/@lodash"],
+            "@fake-db": ["./src/@fake-db"],
+            "app/store/*": ["./src/app/store/*"],
+            "app/shared-components/*": ["./src/app/shared-components/*"]
+          }
+      }
 }

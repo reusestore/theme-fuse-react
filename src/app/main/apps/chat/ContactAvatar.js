@@ -1,7 +1,7 @@
 import { styled } from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
 import Avatar from '@mui/material/Avatar';
-import _ from '../../../../@lodash';
+import _ from '@lodash';
 import Statuses from './Statuses';
 
 const StyledBadge = styled(Badge)(({ theme, ...props }) => ({

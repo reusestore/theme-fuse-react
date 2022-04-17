@@ -6,8 +6,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import _ from '@lodash';
 import Button from '@mui/material/Button';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { getProjects, selectProjects } from './store/projectsSlice';
-import FuseSvgIcon from '../../../../@fuse/core/FuseSvgIcon';
 
 function ProjectDashboardAppHeader(props) {
   const dispatch = useDispatch();
