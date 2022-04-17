@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import FuseShortcuts from '@fuse/core/FuseShortcuts';
 import { selectFlatNavigation } from 'app/store/fuse/navigationSlice';
-import { updateUserShortcuts } from '../../auth/store/userSlice';
+import { updateUserShortcuts } from 'app/store/userSlice';
 
 function NavigationShortcuts(props) {
   const { variant, className } = props;
   const dispatch = useDispatch();
-  const shortcuts = useSelector(({ auth }) => auth.user.data.shortcuts) || [];
+  const shortcuts = useSelector(({ user }) => user.data.shortcuts) || [];
   const navigation = useSelector(selectFlatNavigation);
 
   function handleShortcutsChange(newShortcuts) {

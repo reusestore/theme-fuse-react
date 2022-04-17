@@ -12,7 +12,7 @@ import { getProjects, selectProjects } from './store/projectsSlice';
 function ProjectDashboardAppHeader(props) {
   const dispatch = useDispatch();
   const projects = useSelector(selectProjects);
-  const user = useSelector(({ auth }) => auth.user);
+  const user = useSelector(({ user }) => user);
 
   const [selectedProject, setSelectedProject] = useState({
     id: 1,

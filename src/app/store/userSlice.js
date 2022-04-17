@@ -5,8 +5,8 @@ import history from '@history';
 import _ from '@lodash';
 import { setDefaultSettings, setInitialSettings } from 'app/store/fuse/settingsSlice';
 import { showMessage } from 'app/store/fuse/messageSlice';
-import settingsConfig from '../../fuse-configs/settingsConfig';
-import jwtService from '../services/jwtService';
+import settingsConfig from '../fuse-configs/settingsConfig';
+import jwtService from '../auth/services/jwtService';
 
 export const setUserData = (user) => async (dispatch, getState) => {
   /*
@@ -25,7 +25,7 @@ export const setUserData = (user) => async (dispatch, getState) => {
 };
 
 export const updateUserSettings = (settings) => async (dispatch, getState) => {
-  const oldUser = getState().auth.user;
+  const oldUser = getState().user;
   const user = _.merge({}, oldUser, { data: { settings } });
 
   dispatch(updateUserData(user));
@@ -34,7 +34,7 @@ export const updateUserSettings = (settings) => async (dispatch, getState) => {
 };
 
 export const updateUserShortcuts = (shortcuts) => async (dispatch, getState) => {
-  const { user } = getState().auth;
+  const { user } = getState();
   const newUser = {
     ...user,
     data: {
@@ -49,7 +49,7 @@ export const updateUserShortcuts = (shortcuts) => async (dispatch, getState) => 
 };
 
 export const logoutUser = () => async (dispatch, getState) => {
-  const { user } = getState().auth;
+  const { user } = getState();
 
   if (!user.role || user.role.length === 0) {
     // is guest
@@ -92,7 +92,7 @@ const initialState = {
 };
 
 const userSlice = createSlice({
-  name: 'auth/user',
+  name: 'user',
   initialState,
   reducers: {
     setUser: (state, action) => action.payload,

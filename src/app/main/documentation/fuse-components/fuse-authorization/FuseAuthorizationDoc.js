@@ -106,7 +106,7 @@ function FuseAuthorizationDoc() {
       </Typography>
 
       <Typography className="mb-16" component="p">
-        User <b>role</b> and <b>data</b> are stored at <b>auth.user</b> in the redux store.
+        User <b>role</b> and <b>data</b> are stored at <b>user</b> in the redux store.
       </Typography>
 
       <Typography className="mb-16" component="p">
@@ -115,7 +115,7 @@ function FuseAuthorizationDoc() {
       </Typography>
 
       <Typography className="inline-block mb-8 italic" component="code">
-        src/app/auth/store/reducers/user.reducer.js (initial user state)
+        app/store/userSlice.js (initial user state)
       </Typography>
 
       <FuseHighlight component="pre" className="language-js">
@@ -343,7 +343,7 @@ function FuseAuthorizationDoc() {
       </Typography>
 
       <Typography className="inline-block mb-8 italic" component="code">
-        src/app/auth/store/userSlice.js
+        app/store/userSlice.js
       </Typography>
 
       <FuseHighlight component="pre" className="language-js">

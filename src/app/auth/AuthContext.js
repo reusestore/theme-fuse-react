@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import FuseSplashScreen from '@fuse/core/FuseSplashScreen';
 import { showMessage } from 'app/store/fuse/messageSlice';
 import jwtService from './services/jwtService';
-import { logoutUser, setUserData } from './store/userSlice';
+import { logoutUser, setUserData } from 'app/store/userSlice';
 
 const AuthContext = React.createContext();
 

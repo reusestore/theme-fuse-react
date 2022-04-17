@@ -49,7 +49,7 @@ const navigationSlice = createSlice({
 
 export const { setNavigation, resetNavigation } = navigationSlice.actions;
 
-const getUserRole = (state) => state.auth.user.role;
+const getUserRole = (state) => state.user.role;
 
 export const selectNavigation = createSelector(
   [selectNavigationAll, ({ i18n }) => i18n.language, getUserRole],

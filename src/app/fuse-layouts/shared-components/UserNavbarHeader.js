@@ -25,7 +25,7 @@ const Root = styled('div')(({ theme }) => ({
 }));
 
 function UserNavbarHeader(props) {
-  const user = useSelector(({ auth }) => auth.user);
+  const user = useSelector(({ user }) => user);
 
   return (
     <Root className="user relative flex flex-col items-center justify-center p-16 pb-14 shadow-0">

@@ -16,7 +16,7 @@ import Typography from '@mui/material/Typography';
 import { memo, useCallback, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDefaultSettings } from 'app/store/fuse/settingsSlice';
-import { updateUserSettings } from '../../../app/auth/store/userSlice';
+import { updateUserSettings } from 'app/store/userSlice';
 
 const Root = styled('div')(({ theme }) => ({
   '& .FuseSettings-formControl': {
@@ -52,7 +52,7 @@ const Root = styled('div')(({ theme }) => ({
 
 function FuseSettings(props) {
   const dispatch = useDispatch();
-  const user = useSelector(({ auth }) => auth.user);
+  const user = useSelector(({ user }) => user);
   const themes = useSelector(({ fuse }) => fuse.settings.themes);
   const settings = useSelector(({ fuse }) => fuse.settings.current);
   const { reset, watch, control } = useForm({

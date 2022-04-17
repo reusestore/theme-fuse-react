@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useDispatch } from 'react-redux';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import { logoutUser } from '../../../auth/store/userSlice';
+import { logoutUser } from 'app/store/userSlice';
 
 function StaffRoleExample(props) {
   const dispatch = useDispatch();

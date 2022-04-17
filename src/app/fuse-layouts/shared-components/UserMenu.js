@@ -13,7 +13,7 @@ import JwtService from '../../auth/services/jwtService';
 
 function UserMenu(props) {
   const dispatch = useDispatch();
-  const user = useSelector(({ auth }) => auth.user);
+  const user = useSelector(({ user }) => user);
 
   const [userMenu, setUserMenu] = useState(null);
 
