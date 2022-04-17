@@ -51,6 +51,7 @@ class JwtService extends FuseUtils.EventEmitter {
         if (response.data.user) {
           this.setSession(response.data.access_token);
           resolve(response.data.user);
+          this.emit('onLogin', response.data.user);
         } else {
           reject(response.data.error);
         }
@@ -71,6 +72,7 @@ class JwtService extends FuseUtils.EventEmitter {
           if (response.data.user) {
             this.setSession(response.data.access_token);
             resolve(response.data.user);
+            this.emit('onLogin', response.data.user);
           } else {
             reject(response.data.error);
           }
@@ -120,6 +122,7 @@ class JwtService extends FuseUtils.EventEmitter {
 
   logout = () => {
     this.setSession(null);
+    this.emit('onLogout', 'Logged out');
   };
 
   isAuthTokenValid = (access_token) => {

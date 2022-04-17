@@ -10,7 +10,7 @@ import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
 import { selectCurrLangDir } from 'app/store/i18nSlice';
 import withAppProviders from './withAppProviders';
-import { Auth } from './auth';
+import { AuthProvider } from './auth/AuthContext';
 
 // import axios from 'axios';
 /**
@@ -38,7 +38,7 @@ const App = () => {
 
   return (
     <CacheProvider value={createCache(emotionCacheOptions[langDirection])}>
-      <Auth>
+      <AuthProvider>
         <BrowserRouter>
           <FuseAuthorization>
             <FuseTheme>
@@ -57,7 +57,7 @@ const App = () => {
             </FuseTheme>
           </FuseAuthorization>
         </BrowserRouter>
-      </Auth>
+      </AuthProvider>
     </CacheProvider>
   );
 };

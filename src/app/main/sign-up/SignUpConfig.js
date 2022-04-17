@@ -1,7 +1,7 @@
 import { authRoles } from 'app/auth';
-import Callback from './Callback';
+import SignUpPage from './SignUpPage';
 
-const CallbackConfig = {
+const SignUpConfig = {
   settings: {
     layout: {
       config: {
@@ -26,10 +26,10 @@ const CallbackConfig = {
   auth: authRoles.onlyGuest,
   routes: [
     {
-      path: 'callback',
-      element: <Callback />,
+      path: 'sign-up',
+      element: <SignUpPage />,
     },
   ],
 };
 
-export default CallbackConfig;
+export default SignUpConfig;

@@ -1,79 +1,12 @@
 /* eslint import/no-extraneous-dependencies: off */
 import { createSlice } from '@reduxjs/toolkit';
-import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import history from '@history';
 import _ from '@lodash';
 import { setInitialSettings, setDefaultSettings } from 'app/store/fuse/settingsSlice';
 import { showMessage } from 'app/store/fuse/messageSlice';
-import auth0Service from 'app/services/auth0Service';
-import firebaseService from 'app/services/firebaseService';
-import jwtService from 'app/services/jwtService';
+import jwtService from 'app/auth/services/jwtService';
 import settingsConfig from 'app/fuse-configs/settingsConfig';
-
-export const setUserDataAuth0 = (tokenData) => async (dispatch) => {
-  const user = {
-    role: ['admin'],
-    from: 'auth0',
-    data: {
-      displayName: tokenData.username || tokenData.name,
-      photoURL: tokenData.picture,
-      email: tokenData.email,
-      settings:
-        tokenData.user_metadata && tokenData.user_metadata.settings
-          ? tokenData.user_metadata.settings
-          : {},
-      shortcuts:
-        tokenData.user_metadata && tokenData.user_metadata.shortcuts
-          ? tokenData.user_metadata.shortcuts
-          : [],
-    },
-  };
-
-  return dispatch(setUserData(user));
-};
-
-export const setUserDataFirebase = (user, authUser) => async (dispatch) => {
-  if (
-    user &&
-    user.data &&
-    user.data.settings &&
-    user.data.settings.theme &&
-    user.data.settings.layout &&
-    user.data.settings.layout.style
-  ) {
-    // Set user data but do not update
-    return dispatch(setUserData(user));
-  }
-
-  // Create missing user settings
-  return dispatch(createUserSettingsFirebase(authUser));
-};
-
-export const createUserSettingsFirebase = (authUser) => async (dispatch, getState) => {
-  const guestUser = getState().auth.user;
-  const fuseDefaultSettings = getState().fuse.settings.defaults;
-  const { currentUser } = firebase.auth();
-
-  /**
-   * Merge with current Settings
-   */
-  const user = _.merge({}, guestUser, {
-    uid: authUser.uid,
-    from: 'firebase',
-    role: ['admin'],
-    data: {
-      displayName: authUser.displayName,
-      email: authUser.email,
-      settings: { ...fuseDefaultSettings },
-    },
-  });
-  currentUser.updateProfile(user.data);
-
-  dispatch(updateUserData(user));
-
-  return dispatch(setUserData(user));
-};
 
 export const setUserData = (user) => async (dispatch, getState) => {
   /*
@@ -127,20 +60,6 @@ export const logoutUser = () => async (dispatch, getState) => {
     pathname: '/',
   });
 
-  switch (user.from) {
-    case 'firebase': {
-      firebaseService.signOut();
-      break;
-    }
-    case 'auth0': {
-      auth0Service.logout();
-      break;
-    }
-    default: {
-      jwtService.logout();
-    }
-  }
-
   dispatch(setInitialSettings());
 
   return dispatch(userLoggedOut());
@@ -151,44 +70,15 @@ export const updateUserData = (user) => async (dispatch, getState) => {
     // is guest
     return;
   }
-  switch (user.from) {
-    case 'firebase': {
-      firebaseService
-        .updateUserData(user)
-        .then(() => {
-          dispatch(showMessage({ message: 'User data saved to firebase' }));
-        })
-        .catch((error) => {
-          dispatch(showMessage({ message: error.message }));
-        });
-      break;
-    }
-    case 'auth0': {
-      auth0Service
-        .updateUserData({
-          settings: user.data.settings,
-          shortcuts: user.data.shortcuts,
-        })
-        .then(() => {
-          dispatch(showMessage({ message: 'User data saved to auth0' }));
-        })
-        .catch((error) => {
-          dispatch(showMessage({ message: error.message }));
-        });
-      break;
-    }
-    default: {
-      jwtService
-        .updateUserData(user)
-        .then(() => {
-          dispatch(showMessage({ message: 'User data saved with api' }));
-        })
-        .catch((error) => {
-          dispatch(showMessage({ message: error.message }));
-        });
-      break;
-    }
-  }
+
+  jwtService
+    .updateUserData(user)
+    .then(() => {
+      dispatch(showMessage({ message: 'User data saved with api' }));
+    })
+    .catch((error) => {
+      dispatch(showMessage({ message: error.message }));
+    });
 };
 
 const initialState = {

@@ -1,7 +1,7 @@
 import { authRoles } from 'app/auth';
-import Login from './Login';
+import SignInPage from './SignInPage';
 
-const LoginConfig = {
+const SignInConfig = {
   settings: {
     layout: {
       config: {
@@ -26,10 +26,10 @@ const LoginConfig = {
   auth: authRoles.onlyGuest,
   routes: [
     {
-      path: 'login',
-      element: <Login />,
+      path: 'sign-in',
+      element: <SignInPage />,
     },
   ],
 };
 
-export default LoginConfig;
+export default SignInConfig;

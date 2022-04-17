@@ -8,8 +8,8 @@ import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { logoutUser } from 'app/auth/store/userSlice';
 import FuseSvgIcon from '../../../@fuse/core/FuseSvgIcon';
+import JwtService from '../../auth/services/jwtService';
 
 function UserMenu(props) {
   const dispatch = useDispatch();
@@ -67,17 +67,17 @@ function UserMenu(props) {
       >
         {!user.role || user.role.length === 0 ? (
           <>
-            <MenuItem component={Link} to="/login" role="button">
+            <MenuItem component={Link} to="/sign-in" role="button">
               <ListItemIcon className="min-w-40">
                 <FuseSvgIcon>heroicons-outline:lock-closed</FuseSvgIcon>
               </ListItemIcon>
-              <ListItemText primary="Login" />
+              <ListItemText primary="Sign In" />
             </MenuItem>
-            <MenuItem component={Link} to="/register" role="button">
+            <MenuItem component={Link} to="/sign-up" role="button">
               <ListItemIcon className="min-w-40">
                 <FuseSvgIcon>heroicons-outline:user-add </FuseSvgIcon>
               </ListItemIcon>
-              <ListItemText primary="Register" />
+              <ListItemText primary="Sign up" />
             </MenuItem>
           </>
         ) : (
@@ -96,7 +96,7 @@ function UserMenu(props) {
             </MenuItem>
             <MenuItem
               onClick={() => {
-                dispatch(logoutUser());
+                JwtService.logout();
                 userMenuClose();
               }}
             >
