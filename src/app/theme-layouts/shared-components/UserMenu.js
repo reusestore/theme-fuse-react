@@ -6,14 +6,14 @@ import MenuItem from '@mui/material/MenuItem';
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import { selectUser } from 'app/store/userSlice';
 import JwtService from '../../auth/services/jwtService';
 
 function UserMenu(props) {
-  const dispatch = useDispatch();
-  const user = useSelector(({ user }) => user);
+  const user = useSelector(selectUser);
 
   const [userMenu, setUserMenu] = useState(null);
 

@@ -27,11 +27,11 @@ function ThemeShemesDoc() {
         </a>
       </Typography>
       <Typography className="mb-16" component="p">
-        Theme configurations are located at <code>src/app/fuse-configs/themesConfig.js</code> file.
+        Theme configurations are located at <code>app/configs/themesConfig.js</code> file.
       </Typography>
 
       <FuseHighlight component="pre" className="language-jsx">
-        {require('!raw-loader!src/app/fuse-configs/themesConfig.js')}
+        {require('!raw-loader!app/configs/themesConfig.js')}
       </FuseHighlight>
     </>
   );

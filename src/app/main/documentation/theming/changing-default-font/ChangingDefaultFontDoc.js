@@ -37,7 +37,7 @@ function ChangingDefaultFontDoc() {
 
       <Typography className="mt-16 mb-8" component="p">
         You need to add <code>typography.fontFamily</code> values into the desired theme config at{' '}
-        <code>src/app/fuse-configs/themesConfig</code>
+        <code>app/configs/themesConfig</code>
       </Typography>
       <FuseHighlight component="pre" className="language-jsx mb-24">
         {`

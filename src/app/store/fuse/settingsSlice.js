@@ -10,27 +10,25 @@ import {
   mainThemeVariations,
   mustHaveThemeOptions,
 } from '@fuse/default-settings';
-import FuseSettingsConfig from 'src/app/fuse-configs/settingsConfig';
-import FuseThemesConfig from 'src/app/fuse-configs/themesConfig';
-import FuseLayoutConfigs from 'src/app/fuse-layouts/FuseLayoutConfigs';
+import settingsConfig from 'app/configs/settingsConfig';
+import themesConfig from 'app/configs/themesConfig';
+import themeLayoutConfigs from 'app/theme-layouts/themeLayoutConfigs';
 
 function getInitialSettings() {
   const defaultLayoutStyle =
-    FuseSettingsConfig.layout && FuseSettingsConfig.layout.style
-      ? FuseSettingsConfig.layout.style
-      : 'layout1';
+    settingsConfig.layout && settingsConfig.layout.style ? settingsConfig.layout.style : 'layout1';
   const layout = {
     style: defaultLayoutStyle,
-    config: FuseLayoutConfigs[defaultLayoutStyle].defaults,
+    config: themeLayoutConfigs[defaultLayoutStyle].defaults,
   };
-  return _.merge({}, defaultSettings, { layout }, FuseSettingsConfig, getParsedQuerySettings());
+  return _.merge({}, defaultSettings, { layout }, settingsConfig, getParsedQuerySettings());
 }
 
 export function generateSettings(_defaultSettings, _newSettings) {
   const response = _.merge(
     {},
     _defaultSettings,
-    { layout: { config: FuseLayoutConfigs[_newSettings?.layout?.style]?.defaults } },
+    { layout: { config: themeLayoutConfigs[_newSettings?.layout?.style]?.defaults } },
     _newSettings
   );
 
@@ -38,7 +36,7 @@ export function generateSettings(_defaultSettings, _newSettings) {
    * Making theme values failsafe
    */
   Object.entries(response.theme).forEach(([key, value]) => {
-    if (value !== 'mainThemeDark' && value !== 'mainThemeLight' && !FuseThemesConfig[value]) {
+    if (value !== 'mainThemeDark' && value !== 'mainThemeLight' && !themesConfig[value]) {
       response.theme[key] = 'default';
     }
   });
@@ -105,7 +103,7 @@ export const selectFooterTheme = createSelector(
   (themes, direction, id) => generateMuiTheme(themes, id, direction)
 );
 
-const themesObjRaw = Object.keys(FuseThemesConfig).length !== 0 ? FuseThemesConfig : defaultThemes;
+const themesObjRaw = Object.keys(themesConfig).length !== 0 ? themesConfig : defaultThemes;
 const initialSettings = getInitialSettings();
 const initialThemes = {
   ...themesObjRaw,

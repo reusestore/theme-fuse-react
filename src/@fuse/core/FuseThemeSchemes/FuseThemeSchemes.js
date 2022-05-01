@@ -4,7 +4,7 @@ import { memo } from 'react';
 import clsx from 'clsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDefaultSettings } from 'app/store/fuse/settingsSlice';
-import { updateUserSettings } from 'app/store/userSlice';
+import { selectUser, updateUserSettings } from 'app/store/userSlice';
 
 function SchemePreview({ theme, className, id, onSelect }) {
   const _theme = useTheme();
@@ -76,7 +76,7 @@ function SchemePreview({ theme, className, id, onSelect }) {
 
 function FuseThemeSchemes(props) {
   const dispatch = useDispatch();
-  const user = useSelector(({ user }) => user);
+  const user = useSelector(selectUser);
   const themes = useSelector(({ fuse }) => fuse.settings.themes);
   const settings = useSelector(({ fuse }) => fuse.settings.current);
 

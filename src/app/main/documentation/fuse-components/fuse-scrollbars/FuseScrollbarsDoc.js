@@ -22,7 +22,7 @@ function FuseScrollbarsDoc() {
 
       <Typography className="mb-16" component="p">
         It can be disabled globally by Fuse Settings (
-        <code>app/fuse-configs/settingsConfig.js</code>).
+        <code>app/configs/settingsConfig.js</code>).
       </Typography>
 
       <FuseHighlight component="pre" className="language-jsx">

@@ -70,11 +70,11 @@ function RTLSupportDoc() {
 
       <Typography className="mb-16" component="p">
         To change the default direction of the Fuse React, you need to change <code>direction</code>
-        setting in the file <code>src/app/fuse-configs/settingsConfig.js</code>
+        setting in the file <code>app/configs/settingsConfig.js</code>
       </Typography>
 
       <FuseHighlight component="pre" className="language-jsx mb-24">
-        {require('!raw-loader!src/app/fuse-configs/settingsConfig.js')}
+        {require('!raw-loader!app/configs/settingsConfig.js')}
       </FuseHighlight>
 
       <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
@@ -94,7 +94,7 @@ function RTLSupportDoc() {
 
       <Typography className="mb-16" component="p">
         Checkout example usage at
-        <code>src/app/fuse-layouts/shared-components/LanguageSwitcher.js</code>
+        <code>app/theme-layouts/shared-components/LanguageSwitcher.js</code>
       </Typography>
     </>
   );

@@ -9,6 +9,10 @@ import rtlPlugin from 'stylis-plugin-rtl';
 import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
 import { selectCurrLangDir } from 'app/store/i18nSlice';
+import settingsConfig from 'app/configs/settingsConfig';
+import { selectUser } from 'app/store/userSlice';
+import themeLayouts from 'app/theme-layouts/themeLayouts';
+import { selectMainTheme } from 'app/store/fuse/settingsSlice';
 import withAppProviders from './withAppProviders';
 import { AuthProvider } from './auth/AuthContext';
 
@@ -34,14 +38,19 @@ const emotionCacheOptions = {
 };
 
 const App = () => {
+  const user = useSelector(selectUser);
   const langDirection = useSelector(selectCurrLangDir);
+  const mainTheme = useSelector(selectMainTheme);
 
   return (
     <CacheProvider value={createCache(emotionCacheOptions[langDirection])}>
       <AuthProvider>
         <BrowserRouter>
-          <FuseAuthorization>
-            <FuseTheme>
+          <FuseAuthorization
+            userRole={user.role}
+            loginRedirectUrl={settingsConfig.loginRedirectUrl}
+          >
+            <FuseTheme theme={mainTheme} direction={langDirection}>
               <SnackbarProvider
                 maxSnack={5}
                 anchorOrigin={{
@@ -52,7 +61,7 @@ const App = () => {
                   containerRoot: 'bottom-0 right-0 mb-52 md:mb-68 mr-8 lg:mr-80 z-99',
                 }}
               >
-                <FuseLayout />
+                <FuseLayout layouts={themeLayouts} />
               </SnackbarProvider>
             </FuseTheme>
           </FuseAuthorization>

@@ -5,7 +5,7 @@ import history from '@history';
 import _ from '@lodash';
 import { setDefaultSettings, setInitialSettings } from 'app/store/fuse/settingsSlice';
 import { showMessage } from 'app/store/fuse/messageSlice';
-import settingsConfig from '../fuse-configs/settingsConfig';
+import settingsConfig from 'app/configs/settingsConfig';
 import jwtService from '../auth/services/jwtService';
 
 export const setUserData = (user) => async (dispatch, getState) => {
@@ -102,5 +102,7 @@ const userSlice = createSlice({
 });
 
 export const { setUser, userLoggedOut } = userSlice.actions;
+
+export const selectUser = ({ user }) => user;
 
 export default userSlice.reducer;

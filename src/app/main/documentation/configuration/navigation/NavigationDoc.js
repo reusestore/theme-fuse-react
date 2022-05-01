@@ -14,7 +14,7 @@ function NavigationDoc() {
 
       <Typography className="mb-16" component="p">
         The theme navigation array is located at{' '}
-        <code>src/app/fuse-configs/navigationConfig.js</code>
+        <code>app/configs/navigationConfig.js</code>
       </Typography>
 
       <Typography className="mb-16" component="p">

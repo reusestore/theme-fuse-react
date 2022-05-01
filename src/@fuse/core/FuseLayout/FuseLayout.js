@@ -1,7 +1,6 @@
 import { useDeepCompareEffect } from '@fuse/hooks';
-import FuseLayouts from '@fuse/layouts/FuseLayouts';
 import _ from '@lodash';
-import AppContext from 'src/app/AppContext';
+import AppContext from 'app/AppContext';
 import { generateSettings, setSettings } from 'app/store/fuse/settingsSlice';
 import { memo, useCallback, useContext, useMemo, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -74,6 +73,7 @@ const inputGlobalStyles = (
 );
 
 function FuseLayout(props) {
+  const { layouts } = props;
   const dispatch = useDispatch();
   const settings = useSelector(({ fuse }) => fuse.settings.current);
   const defaultSettings = useSelector(({ fuse }) => fuse.settings.defaults);
@@ -127,7 +127,7 @@ function FuseLayout(props) {
 
   // console.warn('::FuseLayout:: rendered');
 
-  const Layout = useMemo(() => FuseLayouts[settings.layout.style], [settings.layout.style]);
+  const Layout = useMemo(() => layouts[settings.layout.style], [layouts, settings.layout.style]);
 
   return _.isEqual(newSettings.current, settings) ? (
     <>

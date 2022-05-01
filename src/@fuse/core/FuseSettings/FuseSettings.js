@@ -1,7 +1,7 @@
 import { useDebounce, usePrevious } from '@fuse/hooks';
 import { styled } from '@mui/material/styles';
 import { Controller, useForm } from 'react-hook-form';
-import FuseLayoutConfigs from '@fuse/layouts/FuseLayoutConfigs';
+import themeLayoutConfigs from 'app/theme-layouts/themeLayoutConfigs';
 import _ from '@lodash';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
@@ -16,7 +16,7 @@ import Typography from '@mui/material/Typography';
 import { memo, useCallback, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDefaultSettings } from 'app/store/fuse/settingsSlice';
-import { updateUserSettings } from 'app/store/userSlice';
+import { selectUser, updateUserSettings } from 'app/store/userSlice';
 
 const Root = styled('div')(({ theme }) => ({
   '& .FuseSettings-formControl': {
@@ -52,7 +52,7 @@ const Root = styled('div')(({ theme }) => ({
 
 function FuseSettings(props) {
   const dispatch = useDispatch();
-  const user = useSelector(({ user }) => user);
+  const user = useSelector(selectUser);
   const themes = useSelector(({ fuse }) => fuse.settings.themes);
   const settings = useSelector(({ fuse }) => fuse.settings.current);
   const { reset, watch, control } = useForm({
@@ -60,7 +60,7 @@ function FuseSettings(props) {
     defaultValues: settings,
   });
   const form = watch();
-  const { form: formConfigs } = FuseLayoutConfigs[form.layout.style];
+  const { form: formConfigs } = themeLayoutConfigs[form.layout.style];
   const prevForm = usePrevious(form ? _.merge({}, form) : null);
   const prevSettings = usePrevious(settings ? _.merge({}, settings) : null);
   const formChanged = !_.isEqual(form, prevForm);
@@ -99,7 +99,7 @@ function FuseSettings(props) {
         _.set(
           newSettings,
           'layout.config',
-          FuseLayoutConfigs[newSettings?.layout?.style]?.defaults
+          themeLayoutConfigs[newSettings?.layout?.style]?.defaults
         );
       }
       handleUpdate(newSettings);
@@ -307,7 +307,7 @@ function FuseSettings(props) {
                 Style
               </FormLabel>
               <RadioGroup {...field} aria-label="Layout Style" className="FuseSettings-group">
-                {Object.entries(FuseLayoutConfigs).map(([key, layout]) => (
+                {Object.entries(themeLayoutConfigs).map(([key, layout]) => (
                   <FormControlLabel
                     key={key}
                     value={key}

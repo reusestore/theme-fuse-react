@@ -97,7 +97,7 @@ function MultiLanguageDoc() {
 
       <Typography className="mb-16" component="p">
         Checkout example usage at
-        <code>src/app/fuse-layouts/shared-components/LanguageSwitcher.js</code>
+        <code>app/theme-layouts/shared-components/LanguageSwitcher.js</code>
       </Typography>
     </>
   );

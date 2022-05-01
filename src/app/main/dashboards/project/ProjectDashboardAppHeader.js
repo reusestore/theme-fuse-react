@@ -7,12 +7,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import _ from '@lodash';
 import Button from '@mui/material/Button';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import { selectUser } from 'app/store/userSlice';
 import { getProjects, selectProjects } from './store/projectsSlice';
 
 function ProjectDashboardAppHeader(props) {
   const dispatch = useDispatch();
   const projects = useSelector(selectProjects);
-  const user = useSelector(({ user }) => user);
+  const user = useSelector(selectUser);
 
   const [selectedProject, setSelectedProject] = useState({
     id: 1,

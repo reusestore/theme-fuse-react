@@ -2,7 +2,7 @@ import FuseDialog from '@fuse/core/FuseDialog';
 import { styled } from '@mui/material/styles';
 import FuseMessage from '@fuse/core/FuseMessage';
 import FuseSuspense from '@fuse/core/FuseSuspense';
-import AppContext from 'src/app/AppContext';
+import AppContext from 'app/AppContext';
 import { memo, useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { useRoutes } from 'react-router-dom';

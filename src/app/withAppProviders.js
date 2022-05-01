@@ -7,9 +7,9 @@ import Provider from 'react-redux/es/components/Provider';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import { StyledEngineProvider } from '@mui/material/styles';
-import AppContext from './AppContext';
-import routes from './fuse-configs/routesConfig';
+import routes from 'app/configs/routesConfig';
 import store from './store';
+import AppContext from './AppContext';
 
 const withAppProviders = (Component) => (props) => {
   const WrapperComponent = () => (

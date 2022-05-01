@@ -174,7 +174,7 @@ function FuseAuthorizationDoc() {
 
       <Typography className="mb-16" component="p">
         You can control the navigation <b>item/group/collapse</b> visibility by adding <b>auth</b>
-        property in <code>src/app/fuse-configs/NavigationConfig.js</code>.
+        property in <code>app/configs/NavigationConfig.js</code>.
       </Typography>
 
       <Typography className="mt-32 mb-8" variant="subtitle2">
@@ -206,7 +206,7 @@ function FuseAuthorizationDoc() {
         If you don't want to set auth on every page config;
         <br />
         You can give default auth role value in the{' '}
-        <code>src/app/fuse-configs/routesConfig.js</code>
+        <code>app/configs/routesConfig.js</code>
         file,
         <br />
         Set defaultAuth paramater

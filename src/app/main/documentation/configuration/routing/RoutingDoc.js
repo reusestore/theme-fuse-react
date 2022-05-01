@@ -76,7 +76,7 @@ function RoutingDoc() {
       </FuseHighlight>
 
       <Typography className="mb-16" component="p">
-        Then we import and generate routes from that file in <code>fuse-configs/routesConfig</code>
+        Then we import and generate routes from that file in <code>configs/routesConfig</code>
       </Typography>
 
       <FuseHighlight component="pre" className="language-jsx mb-32">

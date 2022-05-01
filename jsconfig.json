@@ -7,7 +7,10 @@
             "@lodash": ["./src/@lodash"],
             "@fake-db": ["./src/@fake-db"],
             "app/store/*": ["./src/app/store/*"],
-            "app/shared-components/*": ["./src/app/shared-components/*"]
-          }
+            "app/shared-components/*": ["./src/app/shared-components/*"],
+            "app/configs/*": ["./src/app/configs/*"],
+            "app/theme-layouts/*": ["./src/app/theme-layouts/*"],
+            "app/AppContext": ["./src/app/AppContext"]
+      }
       }
 }
