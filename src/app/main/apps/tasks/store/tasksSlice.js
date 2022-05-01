@@ -1,4 +1,9 @@
-import { createAsyncThunk, createEntityAdapter, createSelector, createSlice } from '@reduxjs/toolkit';
+import {
+  createAsyncThunk,
+  createEntityAdapter,
+  createSelector,
+  createSlice,
+} from '@reduxjs/toolkit';
 import axios from 'axios';
 import { showMessage } from 'app/store/fuse/messageSlice';
 import { addTask, removeTask, updateTask } from './taskSlice';

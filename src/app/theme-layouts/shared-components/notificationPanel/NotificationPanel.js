@@ -12,7 +12,13 @@ import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import NotificationModel from './model/NotificationModel';
 import NotificationCard from './NotificationCard';
 import NotificationTemplate from './NotificationTemplate';
-import { addNotification, dismissAll, dismissItem, getNotifications, selectNotifications } from './store/dataSlice';
+import {
+  addNotification,
+  dismissAll,
+  dismissItem,
+  getNotifications,
+  selectNotifications,
+} from './store/dataSlice';
 import reducer from './store';
 import { closeNotificationPanel, toggleNotificationPanel } from './store/stateSlice';
 

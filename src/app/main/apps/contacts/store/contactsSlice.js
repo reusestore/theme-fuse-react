@@ -1,4 +1,9 @@
-import { createAsyncThunk, createEntityAdapter, createSelector, createSlice } from '@reduxjs/toolkit';
+import {
+  createAsyncThunk,
+  createEntityAdapter,
+  createSelector,
+  createSlice,
+} from '@reduxjs/toolkit';
 import axios from 'axios';
 import FuseUtils from '@fuse/utils';
 import { addContact, removeContact, updateContact } from './contactSlice';

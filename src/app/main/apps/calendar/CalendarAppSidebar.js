@@ -4,7 +4,12 @@ import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { useDispatch, useSelector } from 'react-redux';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
-import { openLabelsDialog, selectLabels, selectSelectedLabels, toggleSelectedLabels } from './store/labelsSlice';
+import {
+  openLabelsDialog,
+  selectLabels,
+  selectSelectedLabels,
+  toggleSelectedLabels,
+} from './store/labelsSlice';
 
 function CalendarAppSidebar() {
   const labels = useSelector(selectLabels);

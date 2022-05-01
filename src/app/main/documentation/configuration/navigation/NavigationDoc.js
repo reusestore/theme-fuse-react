@@ -13,8 +13,7 @@ function NavigationDoc() {
       </Typography>
 
       <Typography className="mb-16" component="p">
-        The theme navigation array is located at{' '}
-        <code>app/configs/navigationConfig.js</code>
+        The theme navigation array is located at <code>app/configs/navigationConfig.js</code>
       </Typography>
 
       <Typography className="mb-16" component="p">

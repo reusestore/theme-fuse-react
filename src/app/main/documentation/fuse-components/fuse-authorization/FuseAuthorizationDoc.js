@@ -205,8 +205,7 @@ function FuseAuthorizationDoc() {
       <Typography className="mb-16" component="p">
         If you don't want to set auth on every page config;
         <br />
-        You can give default auth role value in the{' '}
-        <code>app/configs/routesConfig.js</code>
+        You can give default auth role value in the <code>app/configs/routesConfig.js</code>
         file,
         <br />
         Set defaultAuth paramater
