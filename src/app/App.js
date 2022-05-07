@@ -1,4 +1,4 @@
-import '@fake-db';
+import '@mock-api';
 import BrowserRouter from '@fuse/core/BrowserRouter';
 import FuseAuthorization from '@fuse/core/FuseAuthorization';
 import FuseLayout from '@fuse/core/FuseLayout';

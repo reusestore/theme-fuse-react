@@ -4,7 +4,7 @@ import axios from 'axios';
 export const getProjects = createAsyncThunk(
   'projectDashboardApp/projects/getProjects',
   async () => {
-    const response = await axios.get('/api/project-dashboard-app/projects');
+    const response = await axios.get('/api/dashboards/project/projects');
     return response.data;
   }
 );

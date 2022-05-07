@@ -18,7 +18,7 @@ export const updateCourse = createAsyncThunk(
     const response = await axios.put(`/api/academy/courses/${id}`, _data);
 
     const data = await response.data;
-    console.info(data);
+
     dispatch(showMessage({ message: 'Course Saved' }));
 
     return data;

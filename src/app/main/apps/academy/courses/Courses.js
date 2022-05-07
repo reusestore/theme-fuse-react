@@ -5,14 +5,12 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import withReducer from 'app/store/withReducer';
 import { motion } from 'framer-motion';
 import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Box } from '@mui/system';
 import Switch from '@mui/material/Switch';
 import { FormControlLabel } from '@mui/material';
-import reducer from '../store';
 import { selectCategories } from '../store/categoriesSlice';
 import { getCourses, selectCourses } from '../store/coursesSlice';
 import CourseCard from './CourseCard';
@@ -219,4 +217,4 @@ function Courses(props) {
   );
 }
 
-export default withReducer('academyApp', reducer)(Courses);
+export default Courses;

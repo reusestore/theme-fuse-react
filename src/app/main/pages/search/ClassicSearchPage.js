@@ -1,23 +1,21 @@
 import FusePageSimple from '@fuse/core/FusePageSimple';
-import { useTheme } from '@mui/material/styles';
 import { blue, green } from '@mui/material/colors';
 import Input from '@mui/material/Input';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import axios from 'axios';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { Pagination } from '@mui/material';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import exampleSearchResponse from './exampleSearchResponse';
 
 function ClassicSearchPage() {
-  const theme = useTheme();
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/search').then((res) => {
-      setData(res.data);
-    });
+    setTimeout(() => {
+      setData(exampleSearchResponse);
+    }, 100);
   }, []);
 
   const container = {
@@ -51,37 +49,39 @@ function ClassicSearchPage() {
         </div>
       }
       content={
-        <div className="p-24 pt-0 sm:p-32 sm:pt-0 max-w-md">
-          {data.length > 0 && (
-            <motion.div variants={container} initial="hidden" animate="show">
-              <motion.div variants={item}>
-                <Typography color="textSecondary" className="text-13 mb-24">
-                  {data.length} results
-                </Typography>
-              </motion.div>
-
-              {data.map((_item) => (
-                <motion.div variants={item} className="mb-28" key={_item.id}>
-                  <Typography
-                    className="text-18 cursor-pointer"
-                    sx={{
-                      color: blue[800],
-                    }}
-                  >
-                    {_item.title}
+        <div className="flex flex-col flex-auto h-full p-24 pt-0 sm:p-32 sm:pt-0 max-w-md">
+          <div className="flex flex-1 flex-col">
+            {data.length > 0 && (
+              <motion.div variants={container} initial="hidden" animate="show">
+                <motion.div variants={item}>
+                  <Typography color="textSecondary" className="text-13 mb-24">
+                    {data.length} results
                   </Typography>
-                  <Typography
-                    sx={{
-                      color: green[800],
-                    }}
-                  >
-                    {_item.url}
-                  </Typography>
-                  <Typography className="text-13">{_item.excerpt}</Typography>
                 </motion.div>
-              ))}
-            </motion.div>
-          )}
+
+                {data.map((_item) => (
+                  <motion.div variants={item} className="mb-28" key={_item.id}>
+                    <Typography
+                      className="text-18 cursor-pointer"
+                      sx={{
+                        color: blue[800],
+                      }}
+                    >
+                      {_item.title}
+                    </Typography>
+                    <Typography
+                      sx={{
+                        color: green[800],
+                      }}
+                    >
+                      {_item.url}
+                    </Typography>
+                    <Typography className="text-13">{_item.excerpt}</Typography>
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
+          </div>
 
           <div className="flex justify-center mt-48">
             <Pagination count={10} color="secondary" />

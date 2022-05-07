@@ -5,7 +5,7 @@
             "@fuse/*": ["./src/@fuse/*"],
             "@history*": ["./src/@history"],
             "@lodash": ["./src/@lodash"],
-            "@fake-db": ["./src/@fake-db"],
+            "@mock-api": ["./src/@mock-api"],
             "app/store/*": ["./src/app/store/*"],
             "app/shared-components/*": ["./src/app/shared-components/*"],
             "app/configs/*": ["./src/app/configs/*"],

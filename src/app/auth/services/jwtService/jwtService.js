@@ -1,6 +1,7 @@
 import FuseUtils from '@fuse/utils/FuseUtils';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
+import jwtServiceConfig from './jwtServiceConfig';
 
 /* eslint-disable camelcase */
 
@@ -48,7 +49,7 @@ class JwtService extends FuseUtils.EventEmitter {
 
   createUser = (data) => {
     return new Promise((resolve, reject) => {
-      axios.post('/api/auth/register', data).then((response) => {
+      axios.post(jwtServiceConfig.signUp, data).then((response) => {
         if (response.data.user) {
           this.setSession(response.data.access_token);
           resolve(response.data.user);
@@ -63,7 +64,7 @@ class JwtService extends FuseUtils.EventEmitter {
   signInWithEmailAndPassword = (email, password) => {
     return new Promise((resolve, reject) => {
       axios
-        .get('/api/auth', {
+        .get(jwtServiceConfig.signIn, {
           data: {
             email,
             password,
@@ -84,7 +85,7 @@ class JwtService extends FuseUtils.EventEmitter {
   signInWithToken = () => {
     return new Promise((resolve, reject) => {
       axios
-        .get('/api/auth/access-token', {
+        .get(jwtServiceConfig.accessToken, {
           data: {
             access_token: this.getAccessToken(),
           },
@@ -106,7 +107,7 @@ class JwtService extends FuseUtils.EventEmitter {
   };
 
   updateUserData = (user) => {
-    return axios.post('/api/auth/user/update', {
+    return axios.post(jwtServiceConfig.updateUser, {
       user,
     });
   };

@@ -1,21 +1,45 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-
-import axios from 'axios';
-
-export const getData = createAsyncThunk('quickPanel/data/getData', async () => {
-  const response = await axios.get('/api/quick-panel/data');
-  const data = await response.data;
-
-  return data;
-});
+import { createSlice } from '@reduxjs/toolkit';
 
 const dataSlice = createSlice({
   name: 'quickPanel/data',
-  initialState: null,
-  reducers: {},
-  extraReducers: {
-    [getData.fulfilled]: (state, action) => action.payload,
+  initialState: {
+    notes: [
+      {
+        id: 1,
+        title: 'Best songs to listen while working',
+        detail: 'Last edit: May 8th, 2015',
+      },
+      {
+        id: 2,
+        title: 'Useful subreddits',
+        detail: 'Last edit: January 12th, 2015',
+      },
+    ],
+    events: [
+      {
+        id: 1,
+        title: 'Group Meeting',
+        detail: 'In 32 Minutes, Room 1B',
+      },
+      {
+        id: 2,
+
+        title: 'Public Beta Release',
+        detail: '11:00 PM',
+      },
+      {
+        id: 3,
+        title: 'Dinner with David',
+        detail: '17:30 PM',
+      },
+      {
+        id: 4,
+        title: 'Q&A Session',
+        detail: '20:30 PM',
+      },
+    ],
   },
+  reducers: {},
 });
 
 export default dataSlice.reducer;

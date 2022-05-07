@@ -35,7 +35,7 @@ function JwtAuthDoc() {
 
       <Typography className="my-24 italic" component="p" color="textSecondary">
         Important: We don't give you any backend code. We are demonstrating the usage with
-        <code>@fake-db</code> (which is works with https requests as real).
+        <code>@mock-api</code> (which is works with https requests as real).
       </Typography>
     </>
   );

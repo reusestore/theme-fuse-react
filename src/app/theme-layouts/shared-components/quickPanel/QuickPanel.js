@@ -12,11 +12,10 @@ import Switch from '@mui/material/Switch';
 import Typography from '@mui/material/Typography';
 import withReducer from 'app/store/withReducer';
 import format from 'date-fns/format';
-import { memo, useEffect, useState } from 'react';
+import { memo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import reducer from './store';
-import { getData } from './store/dataSlice';
 import { toggleQuickPanel } from './store/stateSlice';
 
 const StyledSwipeableDrawer = styled(SwipeableDrawer)(({ theme }) => ({
@@ -44,10 +43,6 @@ function QuickPanel(props) {
 
     setChecked(newChecked);
   };
-
-  useEffect(() => {
-    dispatch(getData());
-  }, [dispatch]);
 
   return (
     <StyledSwipeableDrawer

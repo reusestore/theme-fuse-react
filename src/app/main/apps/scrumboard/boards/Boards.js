@@ -1,9 +1,7 @@
 import Typography from '@mui/material/Typography';
-import withReducer from 'app/store/withReducer';
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import reducer from '../store';
 import { getBoards, resetBoards, selectBoards } from '../store/boardsSlice';
 import BoardItem from './BoardItem';
 import NewBoardItem from './NewBoardItem';
@@ -63,4 +61,4 @@ function Boards(props) {
   );
 }
 
-export default withReducer('scrumboardApp', reducer)(Boards);
+export default Boards;

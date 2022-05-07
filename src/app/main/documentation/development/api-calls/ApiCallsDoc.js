@@ -41,7 +41,7 @@ function ApiCallsDoc() {
       </FuseHighlight>
 
       <Typography className="text-20 mt-20 mb-10 font-700" variant="h5">
-        @fake-db
+        @mock-api
       </Typography>
       <Typography className="mb-16" component="p">
         We are using{' '}
@@ -52,12 +52,12 @@ function ApiCallsDoc() {
         >
           axios-mock-adapter
         </a>{' '}
-        to demonstrate http requests, all of the example backend data is located at src/@fake-db.
+        to demonstrate http requests, all of the example backend data is located at src/@mock-api.
       </Typography>
 
       <Typography className="mb-16" component="p">
         You can adjust <code>delayResponse</code> value to test slow networks in the file:{' '}
-        <code>src/@fake-db/mock.js</code>.
+        <code>src/@mock-api/mock.js</code>.
       </Typography>
 
       <FuseHighlight component="pre" className="language-js">
