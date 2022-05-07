@@ -1,5 +1,5 @@
 import { fuseDark, skyBlue } from '@fuse/colors';
-import { blueGrey, lightBlue, red } from '@mui/material/colors';
+import { blueGrey, lightBlue } from '@mui/material/colors';
 
 export const lightText = {
   primary: 'rgb(17, 24, 39)',
@@ -22,7 +22,11 @@ const themesConfig = {
         black: 'rgb(17, 24, 39)',
         white: 'rgb(255, 255, 255)',
       },
-      primary: fuseDark,
+      primary: {
+        light: fuseDark[200],
+        main: fuseDark[500],
+        dark: fuseDark[800],
+      },
       secondary: {
         light: skyBlue[100],
         main: skyBlue[500],
@@ -32,7 +36,11 @@ const themesConfig = {
         paper: '#FFFFFF',
         default: '#f6f7f9',
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
@@ -42,7 +50,11 @@ const themesConfig = {
     palette: {
       mode: 'dark',
       text: darkText,
-      primary: fuseDark,
+      primary: {
+        light: fuseDark[200],
+        main: fuseDark[500],
+        dark: fuseDark[800],
+      },
       secondary: {
         light: skyBlue[100],
         main: skyBlue[500],
@@ -52,7 +64,11 @@ const themesConfig = {
         paper: '#1E2125',
         default: '#121212',
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
@@ -62,7 +78,11 @@ const themesConfig = {
     palette: {
       mode: 'light',
       text: lightText,
-      primary: fuseDark,
+      primary: {
+        light: fuseDark[200],
+        main: fuseDark[500],
+        dark: fuseDark[800],
+      },
       secondary: {
         light: lightBlue[400],
         main: lightBlue[600],
@@ -72,7 +92,11 @@ const themesConfig = {
         paper: '#FFFFFF',
         default: '#F7F7F7',
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
@@ -97,7 +121,11 @@ const themesConfig = {
         paper: '#FFFFFF',
         default: '#F0F7F7',
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
@@ -123,7 +151,11 @@ const themesConfig = {
         paper: '#FAFBFD',
         default: '#FFFFFF',
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
@@ -148,7 +180,11 @@ const themesConfig = {
         paper: '#FFF0DF',
         default: '#FAFAFE',
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
@@ -173,7 +209,11 @@ const themesConfig = {
         paper: '#FFFFFF',
         default: '#F6F7FB',
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
@@ -198,7 +238,11 @@ const themesConfig = {
         paper: '#FFFFFF',
         default: '#F7FAFF',
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
@@ -223,7 +267,11 @@ const themesConfig = {
         paper: '#FFFFFF',
         default: '#F2F8F1',
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
@@ -248,7 +296,11 @@ const themesConfig = {
         paper: '#FFFFFF',
         default: '#EDF0F6',
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
@@ -273,7 +325,11 @@ const themesConfig = {
         paper: '#FAF6F3',
         default: '#FFFFFF',
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
@@ -298,7 +354,11 @@ const themesConfig = {
         paper: '#FFFFFF',
         default: '#FAFAFE',
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
@@ -323,7 +383,11 @@ const themesConfig = {
         paper: '#FFFFFF',
         default: '#F5F4F6',
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
@@ -377,7 +441,11 @@ const themesConfig = {
         paper: '#FFFFFF',
         default: '#FCF8F5',
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
@@ -402,7 +470,11 @@ const themesConfig = {
         paper: '#262526',
         default: '#1E1D1E',
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
@@ -456,7 +528,11 @@ const themesConfig = {
         paper: '#23354E',
         default: '#1B2A3F',
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
@@ -481,7 +557,11 @@ const themesConfig = {
         paper: '#22184B',
         default: '#180F3D',
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
@@ -506,7 +586,11 @@ const themesConfig = {
         paper: '#465261',
         default: '#232931',
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
@@ -531,7 +615,11 @@ const themesConfig = {
         paper: '#2F3438',
         default: '#25292E',
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
@@ -556,7 +644,11 @@ const themesConfig = {
         paper: '#2A2E32',
         default: '#212529',
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
@@ -581,7 +673,11 @@ const themesConfig = {
         paper: '#2D3159',
         default: '#202441',
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
@@ -606,7 +702,11 @@ const themesConfig = {
         paper: '#1C1E27',
         default: '#15171E',
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
@@ -631,7 +731,11 @@ const themesConfig = {
         paper: '#2D2A5D',
         default: '#26244E',
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
@@ -656,7 +760,11 @@ const themesConfig = {
         paper: '#200D1F',
         default: '#2D132C',
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
@@ -681,7 +789,11 @@ const themesConfig = {
         paper: '#4D4351',
         default: '#27141F',
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
@@ -705,7 +817,11 @@ const themesConfig = {
         paper: blueGrey[700],
         default: blueGrey[900],
       },
-      error: red,
+      error: {
+        light: '#ffcdd2',
+        main: '#f44336',
+        dark: '#b71c1c',
+      },
     },
     status: {
       danger: 'orange',
