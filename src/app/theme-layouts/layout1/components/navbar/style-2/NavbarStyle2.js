@@ -18,8 +18,8 @@ const Root = styled('div')(({ theme, folded }) => ({
 
   ...(folded && {
     [theme.breakpoints.up('lg')]: {
-      width: 64,
-      minWidth: 64,
+      width: 76,
+      minWidth: 76,
     },
   }),
 }));
@@ -45,8 +45,8 @@ const StyledNavbar = styled('div')(
 
     ...(folded && {
       position: 'absolute',
-      width: 64,
-      minWidth: 64,
+      width: 76,
+      minWidth: 76,
       top: 0,
       bottom: 0,
     }),
@@ -59,14 +59,17 @@ const StyledNavbar = styled('div')(
     ...(foldedandclosed && {
       '& .NavbarStyle2-content': {
         '& .logo-icon': {
-          width: 32,
-          height: 32,
+          width: 44,
+          height: 44,
         },
         '& .logo-text': {
           opacity: 0,
         },
         '& .react-badge': {
           opacity: 0,
+        },
+        '& .fuse-list-item': {
+          width: 56,
         },
         '& .fuse-list-item-text, & .arrow-icon, & .item-badge': {
           opacity: 0,
@@ -84,20 +87,6 @@ const StyledNavbar = styled('div')(
         },
         '& .collapse-children': {
           display: 'none',
-        },
-        '& .user': {
-          '& .username, & .email': {
-            opacity: 0,
-          },
-          '& .avatar': {
-            width: 40,
-            height: 40,
-            bottom: 104,
-            padding: 0,
-          },
-        },
-        '& .fuse-list-item.active': {
-          width: 44,
         },
       },
     }),

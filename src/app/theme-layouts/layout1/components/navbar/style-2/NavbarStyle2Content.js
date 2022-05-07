@@ -1,11 +1,10 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
-import { styled, useTheme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import clsx from 'clsx';
 import { memo } from 'react';
 import Logo from '../../../../shared-components/Logo';
 import NavbarToggleButton from '../../../../shared-components/NavbarToggleButton';
-import UserNavbarHeader from '../../../../shared-components/UserNavbarHeader';
 import Navigation from '../../../../shared-components/Navigation';
 
 const Root = styled('div')(({ theme }) => ({
@@ -36,14 +35,12 @@ const StyledContent = styled(FuseScrollbars)(({ theme }) => ({
 }));
 
 function NavbarStyle2Content(props) {
-  const theme = useTheme();
-
   return (
     <Root className={clsx('flex flex-auto flex-col overflow-hidden h-full', props.className)}>
       <AppBar
         color="primary"
         position="static"
-        className="flex flex-row items-center shrink h-48 md:h-64 min-h-48 md:min-h-64 px-12 shadow-0"
+        className="flex flex-row items-center shrink h-48 md:h-76 min-h-48 md:min-h-76 px-12 shadow-0"
       >
         <div className="flex flex-1 mx-4">
           <Logo />
@@ -53,8 +50,6 @@ function NavbarStyle2Content(props) {
       </AppBar>
 
       <StyledContent option={{ suppressScrollX: true, wheelPropagation: false }}>
-        <UserNavbarHeader />
-
         <Navigation layout="vertical" />
       </StyledContent>
     </Root>

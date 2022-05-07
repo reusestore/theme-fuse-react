@@ -36,7 +36,7 @@ function UserNavbarHeader(props) {
             backgroundColor: 'background.paper',
             color: 'text.secondary',
           }}
-          className="text-32 font-bold w-96 h-96"
+          className="avatar text-32 font-bold w-96 h-96"
           src={user.data.photoURL}
           alt={user.data.displayName}
         >
