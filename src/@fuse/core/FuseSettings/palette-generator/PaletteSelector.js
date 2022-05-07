@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import _ from '@lodash';
 import { darkText, lightText } from 'app/configs/themesConfig';
-import { getContrastRatio } from '@mui/material/styles';
+import { darken, getContrastRatio, lighten } from '@mui/material/styles';
 import { useTheme } from '@mui/styles';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -18,8 +18,7 @@ function isDark(color) {
 }
 
 function PaletteSelector(props) {
-  const { value, onChange } = props;
-  const palette = value;
+  const { value } = props;
   const [openDialog, setOpenDialog] = useState(false);
   const theme = useTheme();
 
@@ -150,8 +149,14 @@ function PaletteSelector(props) {
                     value={_value}
                     onChange={(ev) => {
                       _onChange(ev.target.value);
+                      setValue('palette.primary.light', lighten(ev.target.value, 0.8), {
+                        shouldDirty: true,
+                      });
+                      setValue('palette.primary.dark', darken(ev.target.value, 0.2), {
+                        shouldDirty: true,
+                      });
                       setValue(
-                        'primary.contrastText',
+                        'palette.primary.contrastText',
                         theme.palette.getContrastText(ev.target.value),
                         { shouldDirty: true }
                       );
@@ -173,8 +178,14 @@ function PaletteSelector(props) {
                     value={_value}
                     onChange={(ev) => {
                       _onChange(ev.target.value);
+                      setValue('palette.secondary.light', lighten(ev.target.value, 0.8), {
+                        shouldDirty: true,
+                      });
+                      setValue('palette.secondary.dark', darken(ev.target.value, 0.2), {
+                        shouldDirty: true,
+                      });
                       setValue(
-                        'secondary.contrastText',
+                        'palette.secondary.contrastText',
                         theme.palette.getContrastText(ev.target.value),
                         { shouldDirty: true }
                       );
