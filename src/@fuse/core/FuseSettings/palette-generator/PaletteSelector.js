@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import _ from '@lodash';
-import { darkText, lightText } from 'app/configs/themesConfig';
+import { darkPaletteText, lightPaletteText } from 'app/configs/themesConfig';
 import { darken, getContrastRatio, lighten } from '@mui/material/styles';
 import { useTheme } from '@mui/styles';
 import AppBar from '@mui/material/AppBar';
@@ -121,7 +121,7 @@ function PaletteSelector(props) {
                     <Button
                       onClick={async () => {
                         _onChange('light');
-                        setValue('palette.text', lightText, { shouldDirty: true });
+                        setValue('palette.text', lightPaletteText, { shouldDirty: true });
                       }}
                       color={_value === 'light' ? 'secondary' : 'inherit'}
                     >
@@ -131,7 +131,7 @@ function PaletteSelector(props) {
                     <Button
                       onClick={async () => {
                         _onChange('dark');
-                        setValue('palette.text', darkText, { shouldDirty: true });
+                        setValue('palette.text', darkPaletteText, { shouldDirty: true });
                       }}
                       color={_value === 'dark' ? 'secondary' : 'inherit'}
                     >
