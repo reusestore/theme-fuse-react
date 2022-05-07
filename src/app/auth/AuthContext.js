@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import FuseSplashScreen from '@fuse/core/FuseSplashScreen';
 import { showMessage } from 'app/store/fuse/messageSlice';
-import { logoutUser, setUserData } from 'app/store/userSlice';
+import { logoutUser, setUser } from 'app/store/userSlice';
 import jwtService from './services/jwtService';
 
 const AuthContext = React.createContext();
@@ -58,7 +58,7 @@ function AuthProvider({ children }) {
       }
 
       Promise.all([
-        dispatch(setUserData(user)),
+        dispatch(setUser(user)),
         // You can receive data in here before app initialization
       ]).then((values) => {
         setWaitAuthCheck(false);

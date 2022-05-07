@@ -2,9 +2,6 @@ import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 import { memo } from 'react';
 import clsx from 'clsx';
-import { useDispatch, useSelector } from 'react-redux';
-import { setDefaultSettings } from 'app/store/fuse/settingsSlice';
-import { selectUser, updateUserSettings } from 'app/store/userSlice';
 
 function SchemePreview({ theme, className, id, onSelect }) {
   const _theme = useTheme();
@@ -31,7 +28,7 @@ function SchemePreview({ theme, className, id, onSelect }) {
           backgroundColor,
           color: backgroundColorContrast,
         }}
-        onClick={() => onSelect(id)}
+        onClick={() => onSelect(theme)}
         type="button"
       >
         <div
@@ -75,28 +72,7 @@ function SchemePreview({ theme, className, id, onSelect }) {
 }
 
 function FuseThemeSchemes(props) {
-  const dispatch = useDispatch();
-  const user = useSelector(selectUser);
-  const themes = useSelector(({ fuse }) => fuse.settings.themes);
-  const settings = useSelector(({ fuse }) => fuse.settings.current);
-
-  function handleSchemeSelect(themeId) {
-    const newSettings = {
-      ...settings,
-      theme: {
-        main: themeId,
-        navbar: themeId,
-        toolbar: themeId,
-        footer: themeId,
-      },
-    };
-
-    if (user.role === 'guest') {
-      dispatch(setDefaultSettings(newSettings));
-    } else {
-      dispatch(updateUserSettings(newSettings));
-    }
-  }
+  const { themes } = props;
 
   return (
     <div>
@@ -105,7 +81,7 @@ function FuseThemeSchemes(props) {
           .filter(([key, val]) => !(key === 'mainThemeDark' || key === 'mainThemeLight'))
           .map(([key, val]) => (
             <div key={key} className="w-1/2 p-8">
-              <SchemePreview id={key} theme={val} onSelect={handleSchemeSelect} />
+              <SchemePreview id={key} theme={val} onSelect={() => props?.onSelect(val)} />
             </div>
           ))}
       </div>

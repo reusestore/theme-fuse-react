@@ -16,7 +16,9 @@ import Typography from '@mui/material/Typography';
 import { memo, useCallback, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDefaultSettings } from 'app/store/fuse/settingsSlice';
-import { selectUser, updateUserSettings } from 'app/store/userSlice';
+import { selectUser } from 'app/store/userSlice';
+import PaletteSelector from './palette-generator/PaletteSelector';
+import SectionPreview from './palette-generator/SectionPreview';
 
 const Root = styled('div')(({ theme }) => ({
   '& .FuseSettings-formControl': {
@@ -67,11 +69,7 @@ function FuseSettings(props) {
   const settingsChanged = !_.isEqual(settings, prevSettings);
 
   const handleUpdate = useDebounce((newSettings) => {
-    if (user.role === 'guest') {
-      dispatch(setDefaultSettings(newSettings));
-    } else {
-      dispatch(updateUserSettings(newSettings));
-    }
+    dispatch(setDefaultSettings(newSettings));
   }, 300);
 
   useEffect(() => {
@@ -332,59 +330,95 @@ function FuseSettings(props) {
           Theme
         </Typography>
 
-        <Controller
-          name="theme.main"
-          control={control}
-          render={({ field: { onChange, value } }) => (
-            <FormControl component="fieldset" className="FuseSettings-formControl">
-              <FormLabel component="legend" className="text-14">
-                Main
-              </FormLabel>
-              <ThemeSelect value={value} handleThemeChange={onChange} name="theme.main" />
-            </FormControl>
-          )}
-        />
+        <div className="flex flex-wrap -mx-8">
+          <Controller
+            name="theme.main"
+            control={control}
+            render={({ field: { value, onChange } }) => (
+              <PaletteSelector
+                value={value}
+                onChange={onChange}
+                trigger={
+                  <div className="flex flex-col items-center space-y-8 w-128 m-8 cursor-pointer group">
+                    <SectionPreview
+                      className="group-hover:shadow-lg transition-shadow"
+                      section="main"
+                    />
+                    <Typography className="flex-1 text-14 font-semibold mb-24 opacity-80 group-hover:opacity-100">
+                      Main Palette
+                    </Typography>
+                  </div>
+                }
+              />
+            )}
+          />
 
-        <Controller
-          name="theme.navbar"
-          control={control}
-          render={({ field: { onChange, value } }) => (
-            <FormControl component="fieldset" className="FuseSettings-formControl">
-              <FormLabel component="legend" className="text-14">
-                Navbar
-              </FormLabel>
+          <Controller
+            name="theme.navbar"
+            control={control}
+            render={({ field: { value, onChange } }) => (
+              <PaletteSelector
+                value={value}
+                onChange={onChange}
+                trigger={
+                  <div className="flex flex-col items-center space-y-8 w-128 m-8 cursor-pointer group">
+                    <SectionPreview
+                      className="group-hover:shadow-lg transition-shadow"
+                      section="navbar"
+                    />
+                    <Typography className="flex-1 text-14 font-semibold mb-24 opacity-80 group-hover:opacity-100">
+                      Navbar Palette
+                    </Typography>
+                  </div>
+                }
+              />
+            )}
+          />
 
-              <ThemeSelect value={value} handleThemeChange={onChange} name="theme.navbar" />
-            </FormControl>
-          )}
-        />
+          <Controller
+            name="theme.toolbar"
+            control={control}
+            render={({ field: { value, onChange } }) => (
+              <PaletteSelector
+                value={value}
+                onChange={onChange}
+                trigger={
+                  <div className="flex flex-col items-center space-y-8 w-128 m-8 cursor-pointer group">
+                    <SectionPreview
+                      className="group-hover:shadow-lg transition-shadow"
+                      section="toolbar"
+                    />
+                    <Typography className="flex-1 text-14 font-semibold mb-24 opacity-80 group-hover:opacity-100">
+                      Toolbar Palette
+                    </Typography>
+                  </div>
+                }
+              />
+            )}
+          />
 
-        <Controller
-          name="theme.toolbar"
-          control={control}
-          render={({ field: { onChange, value } }) => (
-            <FormControl component="fieldset" className="FuseSettings-formControl">
-              <FormLabel component="legend" className="text-14">
-                Toolbar
-              </FormLabel>
-
-              <ThemeSelect value={value} handleThemeChange={onChange} name="theme.toolbar" />
-            </FormControl>
-          )}
-        />
-
-        <Controller
-          name="theme.footer"
-          control={control}
-          render={({ field: { onChange, value } }) => (
-            <FormControl component="fieldset" className="FuseSettings-formControl">
-              <FormLabel component="legend" className="text-14">
-                Footer
-              </FormLabel>
-              <ThemeSelect value={value} handleThemeChange={onChange} name="theme.footer" />
-            </FormControl>
-          )}
-        />
+          <Controller
+            name="theme.footer"
+            control={control}
+            render={({ field: { value, onChange } }) => (
+              <PaletteSelector
+                value={value}
+                onChange={onChange}
+                trigger={
+                  <div className="flex flex-col items-center space-y-8 w-128 m-8 cursor-pointer group">
+                    <SectionPreview
+                      className="group-hover:shadow-lg transition-shadow"
+                      section="footer"
+                    />
+                    <Typography className="flex-1 text-14 font-semibold mb-24 opacity-80 group-hover:opacity-100">
+                      Footer Palette
+                    </Typography>
+                  </div>
+                }
+              />
+            )}
+          />
+        </div>
       </div>
 
       <Controller

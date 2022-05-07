@@ -57,10 +57,6 @@ const authDB = {
 					},
 					customScrollbars: true,
 					theme: {
-						main: 'greeny',
-						navbar: 'mainThemeDark',
-						toolbar: 'mainThemeDark',
-						footer: 'mainThemeDark'
 					}
 				},
 				shortcuts: ['apps.calendar', 'apps.mailbox', 'apps.contacts', 'apps.tasks']

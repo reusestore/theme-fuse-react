@@ -1,3 +1,5 @@
+import themesConfig from 'app/configs/themesConfig';
+
 const settingsConfig = {
   layout: {
     style: 'layout1', // layout1 layout2 layout3
@@ -6,10 +8,10 @@ const settingsConfig = {
   customScrollbars: true,
   direction: 'ltr', // rtl, ltr
   theme: {
-    main: 'default',
-    navbar: 'greyDark',
-    toolbar: 'mainThemeLight',
-    footer: 'mainThemeDark',
+    main: themesConfig.default,
+    navbar: themesConfig.greyDark,
+    toolbar: themesConfig.default,
+    footer: themesConfig.defaultDark,
   },
   loginRedirectUrl: '/', // Default redirect url for the logged-in user
 };

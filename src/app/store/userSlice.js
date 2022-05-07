@@ -1,52 +1,53 @@
 /* eslint import/no-extraneous-dependencies: off */
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import 'firebase/compat/auth';
 import history from '@history';
 import _ from '@lodash';
-import { setDefaultSettings, setInitialSettings } from 'app/store/fuse/settingsSlice';
+import { setInitialSettings } from 'app/store/fuse/settingsSlice';
 import { showMessage } from 'app/store/fuse/messageSlice';
 import settingsConfig from 'app/configs/settingsConfig';
 import jwtService from '../auth/services/jwtService';
 
-export const setUserData = (user) => async (dispatch, getState) => {
+export const setUser = createAsyncThunk('user/setUser', async (user, { dispatch, getState }) => {
   /*
-  You can redirect the logged-in user to a specific route depending on his role
-  */
+    You can redirect the logged-in user to a specific route depending on his role
+    */
   if (user.loginRedirectUrl) {
     settingsConfig.loginRedirectUrl = user.loginRedirectUrl; // for example 'apps/academy'
   }
 
-  /*
-  Set User Settings
-  */
-  dispatch(setDefaultSettings(user.data.settings));
+  return user;
+});
 
-  dispatch(setUser(user));
-};
+export const updateUserSettings = createAsyncThunk(
+  'user/updateSettings',
+  async (settings, { dispatch, getState }) => {
+    const { user } = getState();
+    const newUser = _.merge({}, user, { data: { settings } });
 
-export const updateUserSettings = (settings) => async (dispatch, getState) => {
-  const oldUser = getState().user;
-  const user = _.merge({}, oldUser, { data: { settings } });
+    dispatch(updateUserData(newUser));
 
-  dispatch(updateUserData(user));
+    return newUser;
+  }
+);
 
-  return dispatch(setUserData(user));
-};
+export const updateUserShortcuts = createAsyncThunk(
+  'user/updateShortucts',
+  async (shortcuts, { dispatch, getState }) => {
+    const { user } = getState();
+    const newUser = {
+      ...user,
+      data: {
+        ...user.data,
+        shortcuts,
+      },
+    };
 
-export const updateUserShortcuts = (shortcuts) => async (dispatch, getState) => {
-  const { user } = getState();
-  const newUser = {
-    ...user,
-    data: {
-      ...user.data,
-      shortcuts,
-    },
-  };
+    dispatch(updateUserData(newUser));
 
-  dispatch(updateUserData(newUser));
-
-  return dispatch(setUserData(newUser));
-};
+    return newUser;
+  }
+);
 
 export const logoutUser = () => async (dispatch, getState) => {
   const { user } = getState();
@@ -95,13 +96,16 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setUser: (state, action) => action.payload,
     userLoggedOut: (state, action) => initialState,
   },
-  extraReducers: {},
+  extraReducers: {
+    [updateUserSettings.fulfilled]: (state, action) => action.payload,
+    [updateUserShortcuts.fulfilled]: (state, action) => action.payload,
+    [setUser.fulfilled]: (state, action) => action.payload,
+  },
 });
 
-export const { setUser, userLoggedOut } = userSlice.actions;
+export const { userLoggedOut } = userSlice.actions;
 
 export const selectUser = ({ user }) => user;
 

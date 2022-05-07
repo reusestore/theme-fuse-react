@@ -1,7 +1,7 @@
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import { selectMainThemeDark } from 'app/store/fuse/settingsSlice';
+import { selectMainTheme } from 'app/store/fuse/settingsSlice';
 import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
@@ -11,7 +11,7 @@ import CalendarViewMenu from './CalendarViewMenu';
 function CalendarHeader(props) {
   const { calendarRef, currentDate, onToggleLeftSidebar } = props;
 
-  const mainThemeDark = useSelector(selectMainThemeDark);
+  const mainTheme = useSelector(selectMainTheme);
   const calendarApi = () => calendarRef.current?.getApi();
   const dispatch = useDispatch();
 
@@ -33,7 +33,7 @@ function CalendarHeader(props) {
         <Tooltip title="Previous">
           <IconButton aria-label="Previous" onClick={() => calendarApi().prev()}>
             <FuseSvgIcon size={20}>
-              {mainThemeDark.direction === 'ltr'
+              {mainTheme.direction === 'ltr'
                 ? 'heroicons-solid:chevron-left'
                 : 'heroicons-solid:chevron-right'}
             </FuseSvgIcon>
@@ -43,7 +43,7 @@ function CalendarHeader(props) {
         <Tooltip title="Next">
           <IconButton aria-label="Next" onClick={() => calendarApi().next()}>
             <FuseSvgIcon size={20}>
-              {mainThemeDark.direction === 'ltr'
+              {mainTheme.direction === 'ltr'
                 ? 'heroicons-solid:chevron-right'
                 : 'heroicons-solid:chevron-left'}
             </FuseSvgIcon>

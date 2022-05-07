@@ -11,6 +11,9 @@ import { forwardRef, memo, useState } from 'react';
 import FuseThemeSchemes from '@fuse/core/FuseThemeSchemes';
 import { useSwipeable } from 'react-swipeable';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import themesConfig from 'app/configs/themesConfig';
+import { changeFuseTheme } from 'app/store/fuse/settingsSlice';
+import { useDispatch } from 'react-redux';
 
 const Root = styled('div')(({ theme }) => ({
   position: 'absolute',
@@ -74,8 +77,9 @@ const Transition = forwardRef(function Transition(props, ref) {
 
 function SettingsPanel() {
   const theme = useTheme();
-
   const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
+
   const handlerOptions = {
     onSwipedLeft: () => {
       return open && theme.direction === 'rtl' && handleClose();
@@ -180,7 +184,12 @@ function SettingsPanel() {
             settings.
           </Typography>
 
-          <FuseThemeSchemes />
+          <FuseThemeSchemes
+            themes={themesConfig}
+            onSelect={(_theme) => {
+              dispatch(changeFuseTheme(_theme));
+            }}
+          />
         </FuseScrollbars>
       </StyledDialog>
     </>
