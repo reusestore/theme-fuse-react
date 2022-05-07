@@ -1,5 +1,5 @@
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
-import { alpha, styled, useTheme } from '@mui/material/styles';
+import { alpha, styled } from '@mui/material/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { useMemo } from 'react';
@@ -22,7 +22,6 @@ const Root = styled(ListItem)(({ theme, itempadding, ...props }) => ({
 }));
 
 function FuseNavVerticalGroup(props) {
-  const theme = useTheme();
   const { item, nestedLevel, onItemClick } = props;
 
   const itempadding = nestedLevel > 0 ? 38 + nestedLevel * 16 : 16;

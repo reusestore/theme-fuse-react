@@ -38,8 +38,8 @@ function FuseNavHorizontalItem(props) {
       <StyledListItem
         button
         component={NavLinkAdapter}
-        to={item.url}
-        activeClassName="active"
+        to={item.url || ''}
+        activeClassName={item.url ? 'active' : ''}
         className={clsx('fuse-list-item', item.active && 'active')}
         end={item.end}
         role="button"
