@@ -10,7 +10,7 @@ import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
-import { memo, useRef, useState } from 'react';
+import { memo, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import FuseSvgIcon from '../FuseSvgIcon';
 
@@ -55,14 +55,6 @@ function FuseShortcuts(props) {
     onChange(newShortcuts);
   }
 
-  const container = {
-    show: {
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
   function ShortcutMenuItem({ item, onToggle }) {
     if (!item || !item.id) {
       return null;
@@ -96,11 +88,6 @@ function FuseShortcuts(props) {
     );
   }
 
-  const item = {
-    hidden: { opacity: 0, scale: 0.6 },
-    show: { opacity: 1, scale: 1 },
-  };
-
   return (
     <div
       className={clsx(
@@ -109,54 +96,69 @@ function FuseShortcuts(props) {
         props.className
       )}
     >
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate="show"
-        className={clsx('flex flex-1', props.variant === 'vertical' && 'flex-col')}
-      >
-        {shortcutItems.map(
-          (_item) =>
-            _item && (
-              <Link to={_item.url} key={_item.id} role="button">
-                <Tooltip
-                  title={_item.title}
-                  placement={props.variant === 'horizontal' ? 'bottom' : 'left'}
-                >
-                  <IconButton
-                    className="w-40 h-40 p-0"
-                    component={motion.div}
-                    variants={item}
-                    size="large"
-                  >
-                    {_item.icon ? (
-                      <FuseSvgIcon>{_item.icon}</FuseSvgIcon>
-                    ) : (
-                      <span className="text-20 font-semibold uppercase">{_item.title[0]}</span>
-                    )}
-                  </IconButton>
-                </Tooltip>
-              </Link>
-            )
-        )}
-
-        <Tooltip
-          title="Click to add/remove shortcut"
-          placement={props.variant === 'horizontal' ? 'bottom' : 'left'}
-        >
-          <IconButton
-            component={motion.div}
-            variants={item}
-            className="w-40 h-40 p-0"
-            aria-owns={addMenu ? 'add-menu' : null}
-            aria-haspopup="true"
-            onClick={addMenuClick}
-            size="large"
+      {useMemo(() => {
+        const container = {
+          show: {
+            transition: {
+              staggerChildren: 0.1,
+            },
+          },
+        };
+        const item = {
+          hidden: { opacity: 0, scale: 0.6 },
+          show: { opacity: 1, scale: 1 },
+        };
+        return (
+          <motion.div
+            variants={container}
+            initial="hidden"
+            animate="show"
+            className={clsx('flex flex-1', props.variant === 'vertical' && 'flex-col')}
           >
-            <FuseSvgIcon sx={{ color: amber[600] }}>heroicons-solid:star</FuseSvgIcon>
-          </IconButton>
-        </Tooltip>
-      </motion.div>
+            {shortcutItems.map(
+              (_item) =>
+                _item && (
+                  <Link to={_item.url} key={_item.id} role="button">
+                    <Tooltip
+                      title={_item.title}
+                      placement={props.variant === 'horizontal' ? 'bottom' : 'left'}
+                    >
+                      <IconButton
+                        className="w-40 h-40 p-0"
+                        component={motion.div}
+                        variants={item}
+                        size="large"
+                      >
+                        {_item.icon ? (
+                          <FuseSvgIcon>{_item.icon}</FuseSvgIcon>
+                        ) : (
+                          <span className="text-20 font-semibold uppercase">{_item.title[0]}</span>
+                        )}
+                      </IconButton>
+                    </Tooltip>
+                  </Link>
+                )
+            )}
+
+            <Tooltip
+              title="Click to add/remove shortcut"
+              placement={props.variant === 'horizontal' ? 'bottom' : 'left'}
+            >
+              <IconButton
+                component={motion.div}
+                variants={item}
+                className="w-40 h-40 p-0"
+                aria-owns={addMenu ? 'add-menu' : null}
+                aria-haspopup="true"
+                onClick={addMenuClick}
+                size="large"
+              >
+                <FuseSvgIcon sx={{ color: amber[600] }}>heroicons-solid:star</FuseSvgIcon>
+              </IconButton>
+            </Tooltip>
+          </motion.div>
+        );
+      }, [addMenu, props.variant, shortcutItems])}
 
       <Menu
         id="add-menu"

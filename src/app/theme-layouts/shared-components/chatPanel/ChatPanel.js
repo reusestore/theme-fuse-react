@@ -203,7 +203,19 @@ function ChatPanel(props) {
         </AppBar>
         <Paper className="flex flex-1 flex-row min-h-px shadow-0">
           <ContactList className="flex shrink-0" />
-          <Chat className="flex flex-1 z-10" />
+
+          {state && selectedContact ? (
+            <Chat className="flex flex-1 z-10" />
+          ) : (
+            <div className="flex flex-col flex-1 items-center justify-center p-24">
+              <FuseSvgIcon size={128} color="disabled">
+                heroicons-outline:chat
+              </FuseSvgIcon>
+              <Typography className="px-16 pb-24 mt-24 text-center" color="textSecondary">
+                Select a contact to start a conversation.
+              </Typography>
+            </div>
+          )}
         </Paper>
       </div>
     </Root>

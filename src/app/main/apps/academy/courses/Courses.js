@@ -211,7 +211,7 @@ function Courses(props) {
               </div>
             ))
           );
-        }, [filteredData, categories])}
+        }, [filteredData])}
       </div>
     </div>
   );

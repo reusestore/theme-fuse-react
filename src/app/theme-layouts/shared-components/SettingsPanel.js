@@ -108,6 +108,7 @@ function SettingsPanel() {
           onClick={() => handleOpen('settings')}
           variant="text"
           color="inherit"
+          disableRipple
         >
           <span>
             <FuseSvgIcon size={20}>heroicons-solid:cog</FuseSvgIcon>
@@ -119,6 +120,7 @@ function SettingsPanel() {
           onClick={() => handleOpen('schemes')}
           variant="text"
           color="inherit"
+          disableRipple
         >
           <FuseSvgIcon size={20}>heroicons-outline:color-swatch</FuseSvgIcon>
         </Button>
@@ -128,7 +130,6 @@ function SettingsPanel() {
         aria-labelledby="settings-panel"
         aria-describedby="settings"
         open={open === 'settings'}
-        keepMounted
         onClose={handleClose}
         BackdropProps={{ invisible: true }}
         classes={{
@@ -157,7 +158,6 @@ function SettingsPanel() {
         aria-labelledby="schemes-panel"
         aria-describedby="schemes"
         open={open === 'schemes'}
-        keepMounted
         onClose={handleClose}
         BackdropProps={{ invisible: true }}
         classes={{
