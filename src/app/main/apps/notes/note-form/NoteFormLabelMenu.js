@@ -8,9 +8,10 @@ import Popover from '@mui/material/Popover';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import { selectLabels } from '../store/labelsSlice';
 
 function NoteFormLabelMenu(props) {
-  const labels = useSelector(({ notesApp }) => notesApp.labels.entities);
+  const labels = useSelector(selectLabels);
 
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -52,7 +53,7 @@ function NoteFormLabelMenu(props) {
       >
         <ClickAwayListener onClickAway={handleMenuClose}>
           <List className="p-0">
-            {Object.entries(labels).map(([key, label]) => (
+            {labels.map((label) => (
               <ListItem key={label.id} button dense onClick={() => handleToggleLabel(label.id)}>
                 <FuseSvgIcon className="list-item-icon" size={20} color="action">
                   {props.note.labels.includes(label.id)

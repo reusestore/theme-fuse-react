@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { memo, useMemo, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getChat } from './store/chatSlice';
-import { selectContacts } from './store/contactsSlice';
+import { selectContacts, selectSelectedContactId } from './store/contactsSlice';
 import { openChatPanel } from './store/stateSlice';
 import ContactButton from './ContactButton';
 import { selectChats } from './store/chatsSlice';
@@ -17,7 +17,7 @@ const Root = styled(FuseScrollbars)(({ theme }) => ({
 function ContactList(props) {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
-  const selectedContactId = useSelector(({ chatPanel }) => chatPanel.contacts.selectedContactId);
+  const selectedContactId = useSelector(selectSelectedContactId);
   const chats = useSelector(selectChats);
   const contactListScroll = useRef(null);
 

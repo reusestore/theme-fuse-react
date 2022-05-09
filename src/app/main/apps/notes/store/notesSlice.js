@@ -1,4 +1,9 @@
-import { createAsyncThunk, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
+import {
+  createAsyncThunk,
+  createEntityAdapter,
+  createSelector,
+  createSlice,
+} from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const getNotes = createAsyncThunk('notesApp/notes/getNotes', async (routeParams) => {
@@ -104,5 +109,18 @@ export const {
   openNoteDialog,
   closeNoteDialog,
 } = notesSlice.actions;
+
+export const selectVariateDescSize = ({ notesApp }) => notesApp.notes.variateDescSize;
+
+export const selectSearchText = ({ notesApp }) => notesApp.notes.searchText;
+
+export const selectDialogNoteId = ({ notesApp }) => notesApp.notes.noteDialogId;
+
+export const selectDialogNote = createSelector(
+  [selectDialogNoteId, selectNotesEntities],
+  (noteId, notesEntities) => {
+    return notesEntities[noteId];
+  }
+);
 
 export default notesSlice.reducer;

@@ -11,7 +11,7 @@ import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 import _ from '@lodash';
 import { Box } from '@mui/system';
@@ -29,7 +29,6 @@ const schema = yup.object().shape({
 function BoardListHeader(props) {
   const { list, cardIds } = props;
   const dispatch = useDispatch();
-  const board = useSelector(({ scrumboardApp }) => scrumboardApp.board);
 
   const [anchorEl, setAnchorEl] = useState(null);
   const [formOpen, setFormOpen] = useState(false);

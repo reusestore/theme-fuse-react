@@ -58,4 +58,6 @@ const labelsSlice = createSlice({
 
 export const { openLabelsDialog, closeLabelsDialog } = labelsSlice.actions;
 
+export const selectLabelsDialogOpen = ({ notesApp }) => notesApp.labels.labelsDialogOpen;
+
 export default labelsSlice.reducer;

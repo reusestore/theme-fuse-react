@@ -14,7 +14,7 @@ import _ from '@lodash';
 import { FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { getProduct, newProduct, resetProduct } from '../store/productSlice';
+import { getProduct, newProduct, resetProduct, selectProduct } from '../store/productSlice';
 import reducer from '../store';
 import ProductHeader from './ProductHeader';
 import BasicInfoTab from './tabs/BasicInfoTab';
@@ -35,7 +35,7 @@ const schema = yup.object().shape({
 
 function Product(props) {
   const dispatch = useDispatch();
-  const product = useSelector(({ eCommerceApp }) => eCommerceApp.product);
+  const product = useSelector(selectProduct);
 
   const routeParams = useParams();
   const [tabValue, setTabValue] = useState(0);

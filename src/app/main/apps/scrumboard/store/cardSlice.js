@@ -75,4 +75,7 @@ const cardSlice = createSlice({
 
 export const { openCardDialog, closeCardDialog } = cardSlice.actions;
 
+export const selectCardDialogOpen = ({ scrumboardApp }) => scrumboardApp.card.dialogOpen;
+export const selectCardData = ({ scrumboardApp }) => scrumboardApp.card.data;
+
 export default cardSlice.reducer;

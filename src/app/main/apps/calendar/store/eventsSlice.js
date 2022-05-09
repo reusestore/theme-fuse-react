@@ -157,4 +157,6 @@ export const selectFilteredEvents = createSelector(
   }
 );
 
+export const selectEventDialog = ({ calendarApp }) => calendarApp.events.eventDialog;
+
 export default eventsSlice.reducer;

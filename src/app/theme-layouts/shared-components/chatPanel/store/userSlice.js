@@ -28,4 +28,6 @@ const userSlice = createSlice({
 
 export const { updateUserChatList } = userSlice.actions;
 
+export const selectUser = ({ chatPanel }) => chatPanel.user;
+
 export default userSlice.reducer;

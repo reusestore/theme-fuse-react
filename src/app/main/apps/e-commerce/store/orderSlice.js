@@ -29,4 +29,6 @@ const orderSlice = createSlice({
 
 export const { resetOrder } = orderSlice.actions;
 
+export const selectOrder = ({ eCommerceApp }) => eCommerceApp.order;
+
 export default orderSlice.reducer;

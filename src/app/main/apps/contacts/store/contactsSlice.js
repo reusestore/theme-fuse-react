@@ -24,8 +24,6 @@ const contactsAdapter = createEntityAdapter({});
 export const { selectAll: selectContacts, selectById: selectContactsById } =
   contactsAdapter.getSelectors((state) => state.contactsApp.contacts);
 
-const selectSearchText = ({ contactsApp }) => contactsApp.contacts.searchText;
-
 export const selectFilteredContacts = createSelector(
   [selectContacts, selectSearchText],
   (contacts, searchText) => {
@@ -80,5 +78,7 @@ const contactsSlice = createSlice({
 });
 
 export const { setContactsSearchText } = contactsSlice.actions;
+
+export const selectSearchText = ({ contactsApp }) => contactsApp.contacts.searchText;
 
 export default contactsSlice.reducer;

@@ -17,6 +17,7 @@ import { selectChats } from '../../store/chatsSlice';
 import ContactAvatar from '../../ContactAvatar';
 import MainSidebarMoreMenu from './MainSidebarMoreMenu';
 import { ChatAppContext } from '../../ChatApp';
+import { selectUser } from '../../store/userSlice';
 
 function MainSidebar(props) {
   const { setUserSidebarOpen } = useContext(ChatAppContext);
@@ -24,7 +25,7 @@ function MainSidebar(props) {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
   const chats = useSelector(selectChats);
-  const user = useSelector(({ chatApp }) => chatApp.user);
+  const user = useSelector(selectUser);
 
   const [searchText, setSearchText] = useState('');
 

@@ -20,7 +20,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { Box } from '@mui/system';
-import { closeCardDialog, removeCard, updateCard } from '../../../store/cardSlice';
+import { closeCardDialog, removeCard, selectCardData, updateCard } from '../../../store/cardSlice';
 import CardActivity from './activity/CardActivity';
 import CardAttachment from './attachment/CardAttachment';
 import CardChecklist from './checklist/CardChecklist';
@@ -40,7 +40,7 @@ function BoardCardForm(props) {
   const board = useSelector(selectBoard);
   const labels = useSelector(selectLabels);
   const members = useSelector(selectMembers);
-  const card = useSelector(({ scrumboardApp }) => scrumboardApp.card.data);
+  const card = useSelector(selectCardData);
   const list = useSelector((state) => selectListById(state, card?.listId));
 
   const { register, watch, control, setValue } = useForm({ mode: 'onChange', defaultValues: card });

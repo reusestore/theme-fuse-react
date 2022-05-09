@@ -12,14 +12,14 @@ import { Link, useParams } from 'react-router-dom';
 import { useDeepCompareEffect } from '@fuse/hooks';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import reducer from '../store';
-import { getOrder, resetOrder } from '../store/orderSlice';
+import { getOrder, resetOrder, selectOrder } from '../store/orderSlice';
 import InvoiceTab from './tabs/InvoiceTab';
 import OrderDetailsTab from './tabs/OrderDetailsTab';
 import ProductsTab from './tabs/ProductsTab';
 
 function Order(props) {
   const dispatch = useDispatch();
-  const order = useSelector(({ eCommerceApp }) => eCommerceApp.order);
+  const order = useSelector(selectOrder);
   const theme = useTheme();
 
   const routeParams = useParams();

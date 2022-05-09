@@ -49,4 +49,6 @@ export const {
   navbarToggleMobile,
 } = navbarSlice.actions;
 
+export const selectFuseNavbar = ({ fuse }) => fuse.navbar;
+
 export default navbarSlice.reducer;

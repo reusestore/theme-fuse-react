@@ -1,9 +1,10 @@
 import Typography from '@mui/material/Typography';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { selectOrder } from '../../store/orderSlice';
 
 function ProductsTab() {
-  const order = useSelector(({ eCommerceApp }) => eCommerceApp.order);
+  const order = useSelector(selectOrder);
 
   return (
     <div className="table-responsive">

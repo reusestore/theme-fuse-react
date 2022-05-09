@@ -231,6 +231,14 @@ export const selectFooterThemeLight = createSelector(
   (theme, direction) => generateMuiTheme(changeThemeMode(theme, 'light'), direction)
 );
 
+export const selectFuseCurrentSettings = ({ fuse }) => fuse.settings.current;
+
+export const selectFuseCurrentLayoutConfig = ({ fuse }) => fuse.settings.current.layout.config;
+
+export const selectFuseDefaultSettings = ({ fuse }) => fuse.settings.defaults;
+
+export const selectFuseThemesSettings = ({ fuse }) => fuse.settings.themes;
+
 export const { resetSettings, setInitialSettings, setSettings } = settingsSlice.actions;
 
 export default settingsSlice.reducer;

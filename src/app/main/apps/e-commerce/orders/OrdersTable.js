@@ -14,13 +14,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import withRouter from '@fuse/core/withRouter';
 import FuseLoading from '@fuse/core/FuseLoading';
 import OrdersStatus from '../order/OrdersStatus';
-import { getOrders, selectOrders } from '../store/ordersSlice';
+import { getOrders, selectOrders, selectOrdersSearchText } from '../store/ordersSlice';
 import OrdersTableHead from './OrdersTableHead';
 
 function OrdersTable(props) {
   const dispatch = useDispatch();
   const orders = useSelector(selectOrders);
-  const searchText = useSelector(({ eCommerceApp }) => eCommerceApp.orders.searchText);
+  const searchText = useSelector(selectOrdersSearchText);
 
   const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState([]);

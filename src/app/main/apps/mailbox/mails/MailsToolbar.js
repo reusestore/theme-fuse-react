@@ -16,6 +16,7 @@ import {
   selectAllMails,
   selectMails,
   selectMailsByParameter,
+  selectSearchText,
   selectSelectedMailIds,
   setActionToMails,
   setMailsSearchText,
@@ -30,7 +31,7 @@ function MailToolbar(props) {
   const mails = useSelector(selectMails);
   const labels = useSelector(selectLabels);
   const folders = useSelector(selectFolders);
-  const searchText = useSelector(({ mailboxApp }) => mailboxApp.mails.searchText);
+  const searchText = useSelector(selectSearchText);
   const { t } = useTranslation('mailboxApp');
   const selectedMailIds = useSelector(selectSelectedMailIds);
   const trashFolderId = useSelector(selectTrashFolderId);

@@ -35,4 +35,6 @@ const courseSlice = createSlice({
   },
 });
 
+export const selectCourse = ({ academyApp }) => academyApp.course;
+
 export default courseSlice.reducer;

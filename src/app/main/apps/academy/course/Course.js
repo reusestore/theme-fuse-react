@@ -19,13 +19,13 @@ import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
 import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 import reducer from '../store';
-import { getCourse, updateCourse } from '../store/courseSlice';
+import { getCourse, selectCourse, updateCourse } from '../store/courseSlice';
 import CourseInfo from '../CourseInfo';
 import CourseProgress from '../CourseProgress';
 
 function Course(props) {
   const dispatch = useDispatch();
-  const course = useSelector(({ academyApp }) => academyApp.course);
+  const course = useSelector(selectCourse);
   const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
   const theme = useTheme();
   const [leftSidebarOpen, setLeftSidebarOpen] = useState(!isMobile);

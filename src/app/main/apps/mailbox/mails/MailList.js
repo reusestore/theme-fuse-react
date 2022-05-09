@@ -9,13 +9,13 @@ import { useParams } from 'react-router-dom';
 import withRouter from '@fuse/core/withRouter';
 import { useDeepCompareEffect } from '@fuse/hooks';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import { getMails, selectMails } from '../store/mailsSlice';
+import { getMails, selectMails, selectSearchText } from '../store/mailsSlice';
 import MailListItem from './MailListItem';
 
 function MailList(props) {
   const dispatch = useDispatch();
   const mails = useSelector(selectMails);
-  const searchText = useSelector(({ mailboxApp }) => mailboxApp.mails.searchText);
+  const searchText = useSelector(selectSearchText);
 
   const routeParams = useParams();
   const [filteredData, setFilteredData] = useState(null);

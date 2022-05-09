@@ -21,4 +21,8 @@ const dialogSlice = createSlice({
 
 export const { openDialog, closeDialog } = dialogSlice.actions;
 
+export const selectFuseDialogState = ({ fuse }) => fuse.dialog.state;
+
+export const selectFuseDialogOptions = ({ fuse }) => fuse.dialog.options;
+
 export default dialogSlice.reducer;

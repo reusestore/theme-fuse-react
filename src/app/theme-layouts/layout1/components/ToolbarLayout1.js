@@ -5,7 +5,8 @@ import Toolbar from '@mui/material/Toolbar';
 import clsx from 'clsx';
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
-import { selectToolbarTheme } from 'app/store/fuse/settingsSlice';
+import { selectFuseCurrentLayoutConfig, selectToolbarTheme } from 'app/store/fuse/settingsSlice';
+import { selectFuseNavbar } from 'app/store/fuse/navbarSlice';
 import AdjustFontSize from '../../shared-components/AdjustFontSize';
 import FullScreenToggle from '../../shared-components/FullScreenToggle';
 import LanguageSwitcher from '../../shared-components/LanguageSwitcher';
@@ -18,8 +19,8 @@ import QuickPanelToggleButton from '../../shared-components/quickPanel/QuickPane
 import ChatPanelToggleButton from '../../shared-components/chatPanel/ChatPanelToggleButton';
 
 function ToolbarLayout1(props) {
-  const config = useSelector(({ fuse }) => fuse.settings.current.layout.config);
-  const navbar = useSelector(({ fuse }) => fuse.navbar);
+  const config = useSelector(selectFuseCurrentLayoutConfig);
+  const navbar = useSelector(selectFuseNavbar);
   const toolbarTheme = useSelector(selectToolbarTheme);
 
   return (

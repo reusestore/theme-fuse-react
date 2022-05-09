@@ -6,11 +6,11 @@ import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import { setProductsSearchText } from '../store/productsSlice';
+import { selectProductsSearchText, setProductsSearchText } from '../store/productsSlice';
 
 function ProductsHeader(props) {
   const dispatch = useDispatch();
-  const searchText = useSelector(({ eCommerceApp }) => eCommerceApp.products.searchText);
+  const searchText = useSelector(selectProductsSearchText);
 
   return (
     <div className="flex flex-1 w-full items-center justify-between py-32 px-24 md:px-32">

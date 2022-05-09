@@ -7,21 +7,13 @@ import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { changeLanguage } from 'app/store/i18nSlice';
-
-const languages = [
-  { id: 'en', title: 'English', flag: 'us' },
-  { id: 'tr', title: 'Turkish', flag: 'tr' },
-  { id: 'ar', title: 'Arabic', flag: 'sa' },
-];
+import { changeLanguage, selectCurrentLanguage, selectLanguages } from 'app/store/i18nSlice';
 
 function LanguageSwitcher(props) {
-  const dispatch = useDispatch();
-
-  const currentLanguageId = useSelector(({ i18n }) => i18n.language);
-  const currentLanguage = languages.find((lng) => lng.id === currentLanguageId);
-
+  const currentLanguage = useSelector(selectCurrentLanguage);
+  const languages = useSelector(selectLanguages);
   const [menu, setMenu] = useState(null);
+  const dispatch = useDispatch();
 
   const langMenuClick = (event) => {
     setMenu(event.currentTarget);

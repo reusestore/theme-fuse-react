@@ -6,11 +6,15 @@ import Button from '@mui/material/Button';
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { Box } from '@mui/system';
-import { selectFilteredContacts, setContactsSearchText } from './store/contactsSlice';
+import {
+  selectFilteredContacts,
+  selectSearchText,
+  setContactsSearchText,
+} from './store/contactsSlice';
 
 function ContactsHeader(props) {
   const dispatch = useDispatch();
-  const searchText = useSelector(({ contactsApp }) => contactsApp.contacts.searchText);
+  const searchText = useSelector(selectSearchText);
   const filteredData = useSelector(selectFilteredContacts);
 
   return (

@@ -39,4 +39,6 @@ const contactsSlice = createSlice({
 
 export const { setSelectedContactId, removeSelectedContactId } = contactsSlice.actions;
 
+export const selectSelectedContactId = ({ chatPanel }) => chatPanel.contacts.selectedContactId;
+
 export default contactsSlice.reducer;

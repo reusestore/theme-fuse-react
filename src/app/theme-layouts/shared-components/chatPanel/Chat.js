@@ -9,7 +9,9 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import InputBase from '@mui/material/InputBase';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import { sendMessage } from './store/chatSlice';
+import { selectSelectedContactId } from './store/contactsSlice';
+import { selectChat, sendMessage } from './store/chatSlice';
+import { selectUser } from './store/userSlice';
 
 const StyledMessageRow = styled('div')(({ theme }) => ({
   '&.contact': {
@@ -87,9 +89,9 @@ const StyledMessageRow = styled('div')(({ theme }) => ({
 
 function Chat(props) {
   const dispatch = useDispatch();
-  const selectedContactId = useSelector(({ chatPanel }) => chatPanel.contacts.selectedContactId);
-  const chat = useSelector(({ chatPanel }) => chatPanel.chat);
-  const user = useSelector(({ chatPanel }) => chatPanel.user);
+  const selectedContactId = useSelector(selectSelectedContactId);
+  const chat = useSelector(selectChat);
+  const user = useSelector(selectUser);
 
   const chatScroll = useRef(null);
   const [messageText, setMessageText] = useState('');

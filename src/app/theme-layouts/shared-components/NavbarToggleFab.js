@@ -7,6 +7,7 @@ import clsx from 'clsx';
 import { useDispatch, useSelector } from 'react-redux';
 import useThemeMediaQuery from '@fuse/hooks/useThemeMediaQuery';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import { selectFuseCurrentLayoutConfig } from 'app/store/fuse/settingsSlice';
 
 const Root = styled(Tooltip)(({ theme, position }) => ({
   '& > .button': {
@@ -60,8 +61,7 @@ const Root = styled(Tooltip)(({ theme, position }) => ({
 
 function NavbarToggleFab(props) {
   const isMobile = useThemeMediaQuery((theme) => theme.breakpoints.down('lg'));
-
-  const config = useSelector(({ fuse }) => fuse.settings.current.layout.config);
+  const config = useSelector(selectFuseCurrentLayoutConfig);
 
   const dispatch = useDispatch();
 

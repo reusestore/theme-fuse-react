@@ -21,7 +21,11 @@ import {
   selectNotifications,
 } from './store/dataSlice';
 import reducer from './store';
-import { closeNotificationPanel, toggleNotificationPanel } from './store/stateSlice';
+import {
+  closeNotificationPanel,
+  selectNotificationPanelState,
+  toggleNotificationPanel,
+} from './store/stateSlice';
 
 const StyledSwipeableDrawer = styled(SwipeableDrawer)(({ theme }) => ({
   '& .MuiDrawer-paper': {
@@ -33,7 +37,7 @@ const StyledSwipeableDrawer = styled(SwipeableDrawer)(({ theme }) => ({
 function NotificationPanel(props) {
   const location = useLocation();
   const dispatch = useDispatch();
-  const state = useSelector(({ notificationPanel }) => notificationPanel.state);
+  const state = useSelector(selectNotificationPanelState);
   const notifications = useSelector(selectNotifications);
 
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();

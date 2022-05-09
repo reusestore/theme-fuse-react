@@ -9,8 +9,7 @@ import withRouter from '@fuse/core/withRouter';
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import format from 'date-fns/format';
-import { toggleInSelectedMails } from '../store/mailsSlice';
-import { selectLabelsEntities } from '../store/labelsSlice';
+import { selectSelectedMailIds, toggleInSelectedMails } from '../store/mailsSlice';
 
 const StyledListItem = styled(ListItem)(({ theme, unread, selected }) => ({
   background: theme.palette.background.default,
@@ -36,8 +35,7 @@ const StyledListItem = styled(ListItem)(({ theme, unread, selected }) => ({
 
 const MailListItem = (props) => {
   const dispatch = useDispatch();
-  const selectedMailIds = useSelector(({ mailboxApp }) => mailboxApp.mails.selectedMailIds);
-  const labels = useSelector(selectLabelsEntities);
+  const selectedMailIds = useSelector(selectSelectedMailIds);
   const { mail } = props;
   const checked =
     selectedMailIds.length > 0 && selectedMailIds.find((id) => id === props.mail.id) !== undefined;

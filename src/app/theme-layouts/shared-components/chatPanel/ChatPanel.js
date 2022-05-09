@@ -14,8 +14,8 @@ import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Chat from './Chat';
 import ContactList from './ContactList';
 import reducer from './store';
-import { getContacts, selectContacts } from './store/contactsSlice';
-import { closeChatPanel, openChatPanel } from './store/stateSlice';
+import { getContacts, selectContacts, selectSelectedContactId } from './store/contactsSlice';
+import { closeChatPanel, openChatPanel, selectChatPanelState } from './store/stateSlice';
 import { getUserData } from './store/userSlice';
 import { getChats } from './store/chatsSlice';
 
@@ -101,8 +101,8 @@ const Root = styled('div')(({ theme, opened }) => ({
 function ChatPanel(props) {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
-  const selectedContactId = useSelector(({ chatPanel }) => chatPanel.contacts.selectedContactId);
-  const state = useSelector(({ chatPanel }) => chatPanel.state);
+  const selectedContactId = useSelector(selectSelectedContactId);
+  const state = useSelector(selectChatPanelState);
   const theme = useTheme();
 
   const ref = useRef();

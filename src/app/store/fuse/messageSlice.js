@@ -7,7 +7,7 @@ const initialState = {
       vertical: 'top',
       horizontal: 'center',
     },
-    autoHideDuration: 6000,
+    autoHideDuration: 3000,
     message: 'Hi',
     variant: null,
   },
@@ -30,5 +30,9 @@ const messageSlice = createSlice({
 });
 
 export const { hideMessage, showMessage } = messageSlice.actions;
+
+export const selectFuseMessageState = ({ fuse }) => fuse.message.state;
+
+export const selectFuseMessageOptions = ({ fuse }) => fuse.message.options;
 
 export default messageSlice.reducer;

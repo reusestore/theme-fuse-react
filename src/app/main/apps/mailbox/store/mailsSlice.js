@@ -109,8 +109,6 @@ export const {
   toggleInSelectedMails,
 } = mailsSlice.actions;
 
-export const selectSelectedMailIds = ({ mailboxApp }) => mailboxApp.mails.selectedMailIds;
-
 export const selectMailsTitle = (routeParams) =>
   createSelector([selectFolders, selectLabels, selectFilters], (folders, labels, filters) => {
     let title;
@@ -127,5 +125,9 @@ export const selectMailsTitle = (routeParams) =>
     }
     return title;
   });
+
+export const selectSearchText = ({ mailboxApp }) => mailboxApp.mails.searchText;
+
+export const selectSelectedMailIds = ({ mailboxApp }) => mailboxApp.mails.selectedMailIds;
 
 export default mailsSlice.reducer;

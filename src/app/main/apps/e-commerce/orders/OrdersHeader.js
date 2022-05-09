@@ -4,11 +4,11 @@ import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import { setOrdersSearchText } from '../store/ordersSlice';
+import { selectOrdersSearchText, setOrdersSearchText } from '../store/ordersSlice';
 
 function OrdersHeader(props) {
   const dispatch = useDispatch();
-  const searchText = useSelector(({ eCommerceApp }) => eCommerceApp.orders.searchText);
+  const searchText = useSelector(selectOrdersSearchText);
 
   return (
     <div className="flex flex-1 w-full items-center justify-between py-32 px-24 md:px-32">

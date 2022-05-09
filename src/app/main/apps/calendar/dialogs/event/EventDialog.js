@@ -18,6 +18,7 @@ import {
   closeEditEventDialog,
   closeNewEventDialog,
   removeEvent,
+  selectEventDialog,
   updateEvent,
 } from '../../store/eventsSlice';
 import EventLabelSelect from '../../EventLabelSelect';
@@ -35,7 +36,7 @@ const schema = yup.object().shape({
 
 function EventDialog(props) {
   const dispatch = useDispatch();
-  const eventDialog = useSelector(({ calendarApp }) => calendarApp.events.eventDialog);
+  const eventDialog = useSelector(selectEventDialog);
   const firstLabelId = useSelector(selectFirstLabelId);
 
   const { reset, formState, watch, control, getValues } = useForm({

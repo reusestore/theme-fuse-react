@@ -15,6 +15,7 @@ import BoardCardLabel from './BoardCardLabel';
 import { selectMembers } from '../../store/membersSlice';
 import BoardCardDueDate from './BoardCardDueDate';
 import BoardCardCheckItems from './BoardCardCheckItems';
+import { selectBoard } from '../../store/boardSlice';
 
 const StyledCard = styled(Card)(({ theme }) => ({
   transitionProperty: 'box-shadow',
@@ -25,7 +26,7 @@ const StyledCard = styled(Card)(({ theme }) => ({
 function BoardCard(props) {
   const { cardId, index } = props;
   const dispatch = useDispatch();
-  const board = useSelector(({ scrumboardApp }) => scrumboardApp.board);
+  const board = useSelector(selectBoard);
   const card = useSelector((state) => selectCardById(state, cardId));
   const members = useSelector(selectMembers);
   const commentsCount = getCommentsCount(card);

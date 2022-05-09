@@ -44,4 +44,6 @@ const productsSlice = createSlice({
 
 export const { setProductsSearchText } = productsSlice.actions;
 
+export const selectProductsSearchText = ({ eCommerceApp }) => eCommerceApp.products.searchText;
+
 export default productsSlice.reducer;

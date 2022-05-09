@@ -7,11 +7,11 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectMainTheme } from 'app/store/fuse/settingsSlice';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import { setMailsSearchText } from './store/mailsSlice';
+import { selectSearchText, setMailsSearchText } from './store/mailsSlice';
 
 function MailboxAppHeader(props) {
   const dispatch = useDispatch();
-  const searchText = useSelector(({ mailboxApp }) => mailboxApp.mails.searchText);
+  const searchText = useSelector(selectSearchText);
   const mainTheme = useSelector(selectMainTheme);
   const { t } = useTranslation('mailboxApp');
 

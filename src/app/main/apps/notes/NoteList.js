@@ -6,12 +6,12 @@ import { useSelector } from 'react-redux';
 import withRouter from '@fuse/core/withRouter';
 import { useParams } from 'react-router-dom';
 import NoteListItem from './NoteListItem';
-import { selectNotes } from './store/notesSlice';
+import { selectNotes, selectSearchText, selectVariateDescSize } from './store/notesSlice';
 
 function NoteList(props) {
   const notes = useSelector(selectNotes);
-  const variateDescSize = useSelector(({ notesApp }) => notesApp.notes.variateDescSize);
-  const searchText = useSelector(({ notesApp }) => notesApp.notes.searchText);
+  const variateDescSize = useSelector(selectVariateDescSize);
+  const searchText = useSelector(selectSearchText);
   const params = useParams();
   const [filteredData, setFilteredData] = useState(null);
 

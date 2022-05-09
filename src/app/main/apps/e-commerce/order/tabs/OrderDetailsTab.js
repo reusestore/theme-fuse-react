@@ -10,6 +10,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import OrdersStatus from '../OrdersStatus';
+import { selectOrder } from '../../store/orderSlice';
 
 function Marker(props) {
   return (
@@ -20,7 +21,7 @@ function Marker(props) {
 }
 
 function OrderDetailsTab() {
-  const order = useSelector(({ eCommerceApp }) => eCommerceApp.order);
+  const order = useSelector(selectOrder);
   const [map, setMap] = useState('shipping');
 
   return (

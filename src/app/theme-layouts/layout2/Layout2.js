@@ -7,6 +7,7 @@ import clsx from 'clsx';
 import { memo, useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { useRoutes } from 'react-router-dom';
+import { selectFuseCurrentLayoutConfig } from 'app/store/fuse/settingsSlice';
 import FooterLayout2 from './components/FooterLayout2';
 import LeftSideLayout2 from './components/LeftSideLayout2';
 import NavbarWrapperLayout2 from './components/NavbarWrapperLayout2';
@@ -31,7 +32,7 @@ const Root = styled('div')(({ theme, config }) => ({
 }));
 
 function Layout2(props) {
-  const config = useSelector(({ fuse }) => fuse.settings.current.layout.config);
+  const config = useSelector(selectFuseCurrentLayoutConfig);
   const appContext = useContext(AppContext);
   const { routes } = appContext;
 

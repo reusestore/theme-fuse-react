@@ -45,4 +45,6 @@ const chatSlice = createSlice({
 
 export const { removeChat } = chatSlice.actions;
 
+export const selectChat = ({ chatPanel }) => chatPanel.chat;
+
 export default chatSlice.reducer;

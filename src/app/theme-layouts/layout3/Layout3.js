@@ -7,6 +7,7 @@ import { memo, useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { useRoutes } from 'react-router-dom';
 import AppContext from 'app/AppContext';
+import { selectFuseCurrentLayoutConfig } from 'app/store/fuse/settingsSlice';
 import FooterLayout3 from './components/FooterLayout3';
 import LeftSideLayout3 from './components/LeftSideLayout3';
 import NavbarWrapperLayout3 from './components/NavbarWrapperLayout3';
@@ -31,7 +32,7 @@ const Root = styled('div')(({ theme, config }) => ({
 }));
 
 function Layout3(props) {
-  const config = useSelector(({ fuse }) => fuse.settings.current.layout.config);
+  const config = useSelector(selectFuseCurrentLayoutConfig);
   const appContext = useContext(AppContext);
   const { routes } = appContext;
   return (

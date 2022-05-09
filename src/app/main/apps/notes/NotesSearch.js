@@ -1,17 +1,14 @@
 import IconButton from '@mui/material/IconButton';
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { OutlinedInput } from '@mui/material';
 import { motion } from 'framer-motion';
 import InputAdornment from '@mui/material/InputAdornment';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import { setNotesSearchText } from './store/notesSlice';
+import { selectSearchText, setNotesSearchText } from './store/notesSlice';
 
 function NotesSearch(props) {
   const dispatch = useDispatch();
-  const searchText = useSelector(({ notesApp }) => notesApp.notes.notesSearchText);
-
-  const [search, setSearch] = useState(false);
+  const searchText = useSelector(selectSearchText);
 
   return (
     <OutlinedInput

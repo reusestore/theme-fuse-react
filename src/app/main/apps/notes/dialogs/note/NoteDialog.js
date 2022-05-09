@@ -4,7 +4,13 @@ import Slide from '@mui/material/Slide';
 import { forwardRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { closeNoteDialog, getNotes, removeNote, updateNote } from '../../store/notesSlice';
+import {
+  closeNoteDialog,
+  getNotes,
+  removeNote,
+  selectDialogNote,
+  updateNote,
+} from '../../store/notesSlice';
 import NoteForm from '../../note-form/NoteForm';
 
 const Transition = forwardRef(function Transition(props, ref) {
@@ -13,20 +19,20 @@ const Transition = forwardRef(function Transition(props, ref) {
 
 function NoteDialog(props) {
   const dispatch = useDispatch();
-  const notes = useSelector(({ notesApp }) => notesApp.notes);
   const routeParams = useParams();
+  const note = useSelector(selectDialogNote);
 
-  const handleOnChange = useDebounce((note) => {
-    dispatch(updateNote(note)).then(() => {
+  const handleOnChange = useDebounce((_note) => {
+    dispatch(updateNote(_note)).then(() => {
       dispatch(getNotes(routeParams));
     });
   }, 600);
 
   function handleOnRemove() {
-    dispatch(removeNote(notes.noteDialogId));
+    dispatch(removeNote(note?.id));
   }
 
-  if (!notes.entities) {
+  if (!note) {
     return null;
   }
 
@@ -37,10 +43,10 @@ function NoteDialog(props) {
       }}
       TransitionComponent={Transition}
       onClose={(ev) => dispatch(closeNoteDialog())}
-      open={Boolean(notes.noteDialogId)}
+      open={Boolean(note?.id)}
     >
       <NoteForm
-        note={notes.entities[notes.noteDialogId]}
+        note={note}
         onChange={handleOnChange}
         onClose={(ev) => dispatch(closeNoteDialog())}
         onRemove={handleOnRemove}

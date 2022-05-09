@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
 import _ from '@lodash';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import { updateBoard } from '../store/boardSlice';
+import { selectBoard, updateBoard } from '../store/boardSlice';
 
 /**
  * Form Validation Schema
@@ -22,7 +22,7 @@ const schema = yup.object().shape({
 
 function BoardTitle(props) {
   const dispatch = useDispatch();
-  const board = useSelector(({ scrumboardApp }) => scrumboardApp.board);
+  const board = useSelector(selectBoard);
 
   const [formOpen, setFormOpen] = useState(false);
 

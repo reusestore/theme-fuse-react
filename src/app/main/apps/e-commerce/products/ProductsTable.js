@@ -15,13 +15,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import withRouter from '@fuse/core/withRouter';
 import FuseLoading from '@fuse/core/FuseLoading';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import { getProducts, selectProducts } from '../store/productsSlice';
+import { getProducts, selectProducts, selectProductsSearchText } from '../store/productsSlice';
 import ProductsTableHead from './ProductsTableHead';
 
 function ProductsTable(props) {
   const dispatch = useDispatch();
   const products = useSelector(selectProducts);
-  const searchText = useSelector(({ eCommerceApp }) => eCommerceApp.products.searchText);
+  const searchText = useSelector(selectProductsSearchText);
 
   const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState([]);

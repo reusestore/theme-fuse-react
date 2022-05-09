@@ -15,8 +15,9 @@ import format from 'date-fns/format';
 import { memo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import { selectQuickPanelData } from './store/dataSlice';
 import reducer from './store';
-import { toggleQuickPanel } from './store/stateSlice';
+import { selectQuickPanelState, toggleQuickPanel } from './store/stateSlice';
 
 const StyledSwipeableDrawer = styled(SwipeableDrawer)(({ theme }) => ({
   '& .MuiDrawer-paper': {
@@ -26,8 +27,9 @@ const StyledSwipeableDrawer = styled(SwipeableDrawer)(({ theme }) => ({
 
 function QuickPanel(props) {
   const dispatch = useDispatch();
-  const data = useSelector(({ quickPanel }) => quickPanel.data);
-  const state = useSelector(({ quickPanel }) => quickPanel.state);
+
+  const data = useSelector(selectQuickPanelData);
+  const state = useSelector(selectQuickPanelState);
 
   const [checked, setChecked] = useState('notifications');
 

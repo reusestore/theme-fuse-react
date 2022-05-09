@@ -15,7 +15,11 @@ import Switch from '@mui/material/Switch';
 import Typography from '@mui/material/Typography';
 import { memo, useCallback, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setDefaultSettings } from 'app/store/fuse/settingsSlice';
+import {
+  selectFuseCurrentSettings,
+  selectFuseThemesSettings,
+  setDefaultSettings,
+} from 'app/store/fuse/settingsSlice';
 import { selectUser } from 'app/store/userSlice';
 import PaletteSelector from './palette-generator/PaletteSelector';
 import SectionPreview from './palette-generator/SectionPreview';
@@ -55,8 +59,8 @@ const Root = styled('div')(({ theme }) => ({
 function FuseSettings(props) {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  const themes = useSelector(({ fuse }) => fuse.settings.themes);
-  const settings = useSelector(({ fuse }) => fuse.settings.current);
+  const themes = useSelector(selectFuseThemesSettings);
+  const settings = useSelector(selectFuseCurrentSettings);
   const { reset, watch, control } = useForm({
     mode: 'onChange',
     defaultValues: settings,
