@@ -1,12 +1,36 @@
 import { createAsyncThunk, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const getNotifications = createAsyncThunk('notificationPanel/data/getData', async () => {
-  const response = await axios.get('/api/notification-panel/data');
+export const getNotifications = createAsyncThunk('notificationPanel/getData', async () => {
+  const response = await axios.get('/api/notifications');
   const data = await response.data;
 
   return data;
 });
+
+export const dismissAll = createAsyncThunk('notificationPanel/dismissAll', async () => {
+  const response = await axios.delete('/api/notifications');
+  await response.data;
+
+  return true;
+});
+
+export const dismissItem = createAsyncThunk('notificationPanel/dismissItem', async (id) => {
+  const response = await axios.delete(`/api/notifications/${id}`);
+  await response.data;
+
+  return id;
+});
+
+export const addNotification = createAsyncThunk(
+  'notificationPanel/addNotification',
+  async (item) => {
+    const response = await axios.post(`/api/notifications`, { ...item });
+    const data = await response.data;
+
+    return data;
+  }
+);
 
 const notificationsAdapter = createEntityAdapter({});
 
@@ -18,17 +42,16 @@ export const { selectAll: selectNotifications, selectById: selectNotificationsBy
 const dataSlice = createSlice({
   name: 'notificationPanel/data',
   initialState,
-  reducers: {
-    dismissItem: (state, action) => notificationsAdapter.removeOne(state, action.payload),
-    dismissAll: (state, action) => notificationsAdapter.removeAll(state),
-    addNotification: (state, action) => notificationsAdapter.addOne(state, action.payload),
-  },
+  reducers: {},
   extraReducers: {
+    [dismissItem.fulfilled]: (state, action) =>
+      notificationsAdapter.removeOne(state, action.payload),
+    [dismissAll.fulfilled]: (state, action) => notificationsAdapter.removeAll(state),
     [getNotifications.fulfilled]: (state, action) =>
       notificationsAdapter.addMany(state, action.payload),
+    [addNotification.fulfilled]: (state, action) =>
+      notificationsAdapter.addOne(state, action.payload),
   },
 });
-
-export const { dismissItem, dismissAll, addNotification } = dataSlice.actions;
 
 export default dataSlice.reducer;

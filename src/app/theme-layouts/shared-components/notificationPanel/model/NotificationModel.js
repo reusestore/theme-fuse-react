@@ -6,10 +6,12 @@ function NotificationModel(data) {
 
   return _.defaults(data, {
     id: FuseUtils.generateGUID(),
-    message: '',
-    options: {
-      variant: 'default',
-    },
+    icon: 'heroicons-solid:star',
+    title: '',
+    description: '',
+    time: new Date().toISOString(),
+    read: false,
+    variant: 'default',
   });
 }
 

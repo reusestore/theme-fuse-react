@@ -17,6 +17,7 @@ import './api/mailbox-api';
 import './api/calendar-api';
 import './api/profile-api';
 import './api/auth-api';
+import './api/notifications-api';
 import history from '@history';
 import mock from './mock';
 
