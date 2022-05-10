@@ -5260,14 +5260,14 @@
               {
                 "id": "67027cahbe3b52ecf2dc631c",
                 "name": "mail.jpg",
-                "src": "assets/images/scrumboard/mail.jpg",
+                "src": "assets/images/apps/scrumboard/mail.jpg",
                 "time": 1642766617,
                 "type": "image"
               },
               {
                 "id": "56027cfcbe1b72ecf1fc452a",
                 "name": "calendar.jpg",
-                "src": "assets/images/scrumboard/calendar.jpg",
+                "src": "assets/images/apps/scrumboard/calendar.jpg",
                 "time": 1642766617,
                 "type": "image"
               }
@@ -15769,52 +15769,52 @@
             "images": [
               {
                 "id": "0",
-                "url": "assets/images/ecommerce/a-walk-amongst-friends.jpg",
+                "url": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg",
                 "type": "image"
               },
               {
                 "id": "1",
-                "url": "assets/images/ecommerce/braies-lake.jpg",
+                "url": "assets/images/apps/ecommerce/braies-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "2",
-                "url": "assets/images/ecommerce/fall-glow.jpg",
+                "url": "assets/images/apps/ecommerce/fall-glow.jpg",
                 "type": "image"
               },
               {
                 "id": "3",
-                "url": "assets/images/ecommerce/first-snow.jpg",
+                "url": "assets/images/apps/ecommerce/first-snow.jpg",
                 "type": "image"
               },
               {
                 "id": "4",
-                "url": "assets/images/ecommerce/lago-di-braies.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-braies.jpg",
                 "type": "image"
               },
               {
                 "id": "5",
-                "url": "assets/images/ecommerce/lago-di-sorapis.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-sorapis.jpg",
                 "type": "image"
               },
               {
                 "id": "6",
-                "url": "assets/images/ecommerce/never-stop-changing.jpg",
+                "url": "assets/images/apps/ecommerce/never-stop-changing.jpg",
                 "type": "image"
               },
               {
                 "id": "7",
-                "url": "assets/images/ecommerce/reaching.jpg",
+                "url": "assets/images/apps/ecommerce/reaching.jpg",
                 "type": "image"
               },
               {
                 "id": "8",
-                "url": "assets/images/ecommerce/morain-lake.jpg",
+                "url": "assets/images/apps/ecommerce/morain-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "9",
-                "url": "assets/images/ecommerce/yosemite.jpg",
+                "url": "assets/images/apps/ecommerce/yosemite.jpg",
                 "type": "image"
               }
             ],
@@ -15848,52 +15848,52 @@
             "images": [
               {
                 "id": "0",
-                "url": "assets/images/ecommerce/a-walk-amongst-friends.jpg",
+                "url": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg",
                 "type": "image"
               },
               {
                 "id": "1",
-                "url": "assets/images/ecommerce/braies-lake.jpg",
+                "url": "assets/images/apps/ecommerce/braies-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "2",
-                "url": "assets/images/ecommerce/fall-glow.jpg",
+                "url": "assets/images/apps/ecommerce/fall-glow.jpg",
                 "type": "image"
               },
               {
                 "id": "3",
-                "url": "assets/images/ecommerce/first-snow.jpg",
+                "url": "assets/images/apps/ecommerce/first-snow.jpg",
                 "type": "image"
               },
               {
                 "id": "4",
-                "url": "assets/images/ecommerce/lago-di-braies.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-braies.jpg",
                 "type": "image"
               },
               {
                 "id": "5",
-                "url": "assets/images/ecommerce/lago-di-sorapis.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-sorapis.jpg",
                 "type": "image"
               },
               {
                 "id": "6",
-                "url": "assets/images/ecommerce/never-stop-changing.jpg",
+                "url": "assets/images/apps/ecommerce/never-stop-changing.jpg",
                 "type": "image"
               },
               {
                 "id": "7",
-                "url": "assets/images/ecommerce/reaching.jpg",
+                "url": "assets/images/apps/ecommerce/reaching.jpg",
                 "type": "image"
               },
               {
                 "id": "8",
-                "url": "assets/images/ecommerce/morain-lake.jpg",
+                "url": "assets/images/apps/ecommerce/morain-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "9",
-                "url": "assets/images/ecommerce/yosemite.jpg",
+                "url": "assets/images/apps/ecommerce/yosemite.jpg",
                 "type": "image"
               }
             ],
@@ -15927,52 +15927,52 @@
             "images": [
               {
                 "id": "0",
-                "url": "assets/images/ecommerce/a-walk-amongst-friends.jpg",
+                "url": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg",
                 "type": "image"
               },
               {
                 "id": "1",
-                "url": "assets/images/ecommerce/braies-lake.jpg",
+                "url": "assets/images/apps/ecommerce/braies-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "2",
-                "url": "assets/images/ecommerce/fall-glow.jpg",
+                "url": "assets/images/apps/ecommerce/fall-glow.jpg",
                 "type": "image"
               },
               {
                 "id": "3",
-                "url": "assets/images/ecommerce/first-snow.jpg",
+                "url": "assets/images/apps/ecommerce/first-snow.jpg",
                 "type": "image"
               },
               {
                 "id": "4",
-                "url": "assets/images/ecommerce/lago-di-braies.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-braies.jpg",
                 "type": "image"
               },
               {
                 "id": "5",
-                "url": "assets/images/ecommerce/lago-di-sorapis.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-sorapis.jpg",
                 "type": "image"
               },
               {
                 "id": "6",
-                "url": "assets/images/ecommerce/never-stop-changing.jpg",
+                "url": "assets/images/apps/ecommerce/never-stop-changing.jpg",
                 "type": "image"
               },
               {
                 "id": "7",
-                "url": "assets/images/ecommerce/reaching.jpg",
+                "url": "assets/images/apps/ecommerce/reaching.jpg",
                 "type": "image"
               },
               {
                 "id": "8",
-                "url": "assets/images/ecommerce/morain-lake.jpg",
+                "url": "assets/images/apps/ecommerce/morain-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "9",
-                "url": "assets/images/ecommerce/yosemite.jpg",
+                "url": "assets/images/apps/ecommerce/yosemite.jpg",
                 "type": "image"
               }
             ],
@@ -16006,52 +16006,52 @@
             "images": [
               {
                 "id": "0",
-                "url": "assets/images/ecommerce/a-walk-amongst-friends.jpg",
+                "url": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg",
                 "type": "image"
               },
               {
                 "id": "1",
-                "url": "assets/images/ecommerce/braies-lake.jpg",
+                "url": "assets/images/apps/ecommerce/braies-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "2",
-                "url": "assets/images/ecommerce/fall-glow.jpg",
+                "url": "assets/images/apps/ecommerce/fall-glow.jpg",
                 "type": "image"
               },
               {
                 "id": "3",
-                "url": "assets/images/ecommerce/first-snow.jpg",
+                "url": "assets/images/apps/ecommerce/first-snow.jpg",
                 "type": "image"
               },
               {
                 "id": "4",
-                "url": "assets/images/ecommerce/lago-di-braies.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-braies.jpg",
                 "type": "image"
               },
               {
                 "id": "5",
-                "url": "assets/images/ecommerce/lago-di-sorapis.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-sorapis.jpg",
                 "type": "image"
               },
               {
                 "id": "6",
-                "url": "assets/images/ecommerce/never-stop-changing.jpg",
+                "url": "assets/images/apps/ecommerce/never-stop-changing.jpg",
                 "type": "image"
               },
               {
                 "id": "7",
-                "url": "assets/images/ecommerce/reaching.jpg",
+                "url": "assets/images/apps/ecommerce/reaching.jpg",
                 "type": "image"
               },
               {
                 "id": "8",
-                "url": "assets/images/ecommerce/morain-lake.jpg",
+                "url": "assets/images/apps/ecommerce/morain-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "9",
-                "url": "assets/images/ecommerce/yosemite.jpg",
+                "url": "assets/images/apps/ecommerce/yosemite.jpg",
                 "type": "image"
               }
             ],
@@ -16085,52 +16085,52 @@
             "images": [
               {
                 "id": "0",
-                "url": "assets/images/ecommerce/a-walk-amongst-friends.jpg",
+                "url": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg",
                 "type": "image"
               },
               {
                 "id": "1",
-                "url": "assets/images/ecommerce/braies-lake.jpg",
+                "url": "assets/images/apps/ecommerce/braies-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "2",
-                "url": "assets/images/ecommerce/fall-glow.jpg",
+                "url": "assets/images/apps/ecommerce/fall-glow.jpg",
                 "type": "image"
               },
               {
                 "id": "3",
-                "url": "assets/images/ecommerce/first-snow.jpg",
+                "url": "assets/images/apps/ecommerce/first-snow.jpg",
                 "type": "image"
               },
               {
                 "id": "4",
-                "url": "assets/images/ecommerce/lago-di-braies.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-braies.jpg",
                 "type": "image"
               },
               {
                 "id": "5",
-                "url": "assets/images/ecommerce/lago-di-sorapis.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-sorapis.jpg",
                 "type": "image"
               },
               {
                 "id": "6",
-                "url": "assets/images/ecommerce/never-stop-changing.jpg",
+                "url": "assets/images/apps/ecommerce/never-stop-changing.jpg",
                 "type": "image"
               },
               {
                 "id": "7",
-                "url": "assets/images/ecommerce/reaching.jpg",
+                "url": "assets/images/apps/ecommerce/reaching.jpg",
                 "type": "image"
               },
               {
                 "id": "8",
-                "url": "assets/images/ecommerce/morain-lake.jpg",
+                "url": "assets/images/apps/ecommerce/morain-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "9",
-                "url": "assets/images/ecommerce/yosemite.jpg",
+                "url": "assets/images/apps/ecommerce/yosemite.jpg",
                 "type": "image"
               }
             ],
@@ -16164,52 +16164,52 @@
             "images": [
               {
                 "id": "0",
-                "url": "assets/images/ecommerce/a-walk-amongst-friends.jpg",
+                "url": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg",
                 "type": "image"
               },
               {
                 "id": "1",
-                "url": "assets/images/ecommerce/braies-lake.jpg",
+                "url": "assets/images/apps/ecommerce/braies-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "2",
-                "url": "assets/images/ecommerce/fall-glow.jpg",
+                "url": "assets/images/apps/ecommerce/fall-glow.jpg",
                 "type": "image"
               },
               {
                 "id": "3",
-                "url": "assets/images/ecommerce/first-snow.jpg",
+                "url": "assets/images/apps/ecommerce/first-snow.jpg",
                 "type": "image"
               },
               {
                 "id": "4",
-                "url": "assets/images/ecommerce/lago-di-braies.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-braies.jpg",
                 "type": "image"
               },
               {
                 "id": "5",
-                "url": "assets/images/ecommerce/lago-di-sorapis.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-sorapis.jpg",
                 "type": "image"
               },
               {
                 "id": "6",
-                "url": "assets/images/ecommerce/never-stop-changing.jpg",
+                "url": "assets/images/apps/ecommerce/never-stop-changing.jpg",
                 "type": "image"
               },
               {
                 "id": "7",
-                "url": "assets/images/ecommerce/reaching.jpg",
+                "url": "assets/images/apps/ecommerce/reaching.jpg",
                 "type": "image"
               },
               {
                 "id": "8",
-                "url": "assets/images/ecommerce/morain-lake.jpg",
+                "url": "assets/images/apps/ecommerce/morain-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "9",
-                "url": "assets/images/ecommerce/yosemite.jpg",
+                "url": "assets/images/apps/ecommerce/yosemite.jpg",
                 "type": "image"
               }
             ],
@@ -16243,52 +16243,52 @@
             "images": [
               {
                 "id": "0",
-                "url": "assets/images/ecommerce/a-walk-amongst-friends.jpg",
+                "url": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg",
                 "type": "image"
               },
               {
                 "id": "1",
-                "url": "assets/images/ecommerce/braies-lake.jpg",
+                "url": "assets/images/apps/ecommerce/braies-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "2",
-                "url": "assets/images/ecommerce/fall-glow.jpg",
+                "url": "assets/images/apps/ecommerce/fall-glow.jpg",
                 "type": "image"
               },
               {
                 "id": "3",
-                "url": "assets/images/ecommerce/first-snow.jpg",
+                "url": "assets/images/apps/ecommerce/first-snow.jpg",
                 "type": "image"
               },
               {
                 "id": "4",
-                "url": "assets/images/ecommerce/lago-di-braies.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-braies.jpg",
                 "type": "image"
               },
               {
                 "id": "5",
-                "url": "assets/images/ecommerce/lago-di-sorapis.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-sorapis.jpg",
                 "type": "image"
               },
               {
                 "id": "6",
-                "url": "assets/images/ecommerce/never-stop-changing.jpg",
+                "url": "assets/images/apps/ecommerce/never-stop-changing.jpg",
                 "type": "image"
               },
               {
                 "id": "7",
-                "url": "assets/images/ecommerce/reaching.jpg",
+                "url": "assets/images/apps/ecommerce/reaching.jpg",
                 "type": "image"
               },
               {
                 "id": "8",
-                "url": "assets/images/ecommerce/morain-lake.jpg",
+                "url": "assets/images/apps/ecommerce/morain-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "9",
-                "url": "assets/images/ecommerce/yosemite.jpg",
+                "url": "assets/images/apps/ecommerce/yosemite.jpg",
                 "type": "image"
               }
             ],
@@ -16322,52 +16322,52 @@
             "images": [
               {
                 "id": "0",
-                "url": "assets/images/ecommerce/a-walk-amongst-friends.jpg",
+                "url": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg",
                 "type": "image"
               },
               {
                 "id": "1",
-                "url": "assets/images/ecommerce/braies-lake.jpg",
+                "url": "assets/images/apps/ecommerce/braies-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "2",
-                "url": "assets/images/ecommerce/fall-glow.jpg",
+                "url": "assets/images/apps/ecommerce/fall-glow.jpg",
                 "type": "image"
               },
               {
                 "id": "3",
-                "url": "assets/images/ecommerce/first-snow.jpg",
+                "url": "assets/images/apps/ecommerce/first-snow.jpg",
                 "type": "image"
               },
               {
                 "id": "4",
-                "url": "assets/images/ecommerce/lago-di-braies.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-braies.jpg",
                 "type": "image"
               },
               {
                 "id": "5",
-                "url": "assets/images/ecommerce/lago-di-sorapis.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-sorapis.jpg",
                 "type": "image"
               },
               {
                 "id": "6",
-                "url": "assets/images/ecommerce/never-stop-changing.jpg",
+                "url": "assets/images/apps/ecommerce/never-stop-changing.jpg",
                 "type": "image"
               },
               {
                 "id": "7",
-                "url": "assets/images/ecommerce/reaching.jpg",
+                "url": "assets/images/apps/ecommerce/reaching.jpg",
                 "type": "image"
               },
               {
                 "id": "8",
-                "url": "assets/images/ecommerce/morain-lake.jpg",
+                "url": "assets/images/apps/ecommerce/morain-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "9",
-                "url": "assets/images/ecommerce/yosemite.jpg",
+                "url": "assets/images/apps/ecommerce/yosemite.jpg",
                 "type": "image"
               }
             ],
@@ -16401,52 +16401,52 @@
             "images": [
               {
                 "id": "0",
-                "url": "assets/images/ecommerce/a-walk-amongst-friends.jpg",
+                "url": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg",
                 "type": "image"
               },
               {
                 "id": "1",
-                "url": "assets/images/ecommerce/braies-lake.jpg",
+                "url": "assets/images/apps/ecommerce/braies-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "2",
-                "url": "assets/images/ecommerce/fall-glow.jpg",
+                "url": "assets/images/apps/ecommerce/fall-glow.jpg",
                 "type": "image"
               },
               {
                 "id": "3",
-                "url": "assets/images/ecommerce/first-snow.jpg",
+                "url": "assets/images/apps/ecommerce/first-snow.jpg",
                 "type": "image"
               },
               {
                 "id": "4",
-                "url": "assets/images/ecommerce/lago-di-braies.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-braies.jpg",
                 "type": "image"
               },
               {
                 "id": "5",
-                "url": "assets/images/ecommerce/lago-di-sorapis.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-sorapis.jpg",
                 "type": "image"
               },
               {
                 "id": "6",
-                "url": "assets/images/ecommerce/never-stop-changing.jpg",
+                "url": "assets/images/apps/ecommerce/never-stop-changing.jpg",
                 "type": "image"
               },
               {
                 "id": "7",
-                "url": "assets/images/ecommerce/reaching.jpg",
+                "url": "assets/images/apps/ecommerce/reaching.jpg",
                 "type": "image"
               },
               {
                 "id": "8",
-                "url": "assets/images/ecommerce/morain-lake.jpg",
+                "url": "assets/images/apps/ecommerce/morain-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "9",
-                "url": "assets/images/ecommerce/yosemite.jpg",
+                "url": "assets/images/apps/ecommerce/yosemite.jpg",
                 "type": "image"
               }
             ],
@@ -16480,52 +16480,52 @@
             "images": [
               {
                 "id": "0",
-                "url": "assets/images/ecommerce/a-walk-amongst-friends.jpg",
+                "url": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg",
                 "type": "image"
               },
               {
                 "id": "1",
-                "url": "assets/images/ecommerce/braies-lake.jpg",
+                "url": "assets/images/apps/ecommerce/braies-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "2",
-                "url": "assets/images/ecommerce/fall-glow.jpg",
+                "url": "assets/images/apps/ecommerce/fall-glow.jpg",
                 "type": "image"
               },
               {
                 "id": "3",
-                "url": "assets/images/ecommerce/first-snow.jpg",
+                "url": "assets/images/apps/ecommerce/first-snow.jpg",
                 "type": "image"
               },
               {
                 "id": "4",
-                "url": "assets/images/ecommerce/lago-di-braies.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-braies.jpg",
                 "type": "image"
               },
               {
                 "id": "5",
-                "url": "assets/images/ecommerce/lago-di-sorapis.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-sorapis.jpg",
                 "type": "image"
               },
               {
                 "id": "6",
-                "url": "assets/images/ecommerce/never-stop-changing.jpg",
+                "url": "assets/images/apps/ecommerce/never-stop-changing.jpg",
                 "type": "image"
               },
               {
                 "id": "7",
-                "url": "assets/images/ecommerce/reaching.jpg",
+                "url": "assets/images/apps/ecommerce/reaching.jpg",
                 "type": "image"
               },
               {
                 "id": "8",
-                "url": "assets/images/ecommerce/morain-lake.jpg",
+                "url": "assets/images/apps/ecommerce/morain-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "9",
-                "url": "assets/images/ecommerce/yosemite.jpg",
+                "url": "assets/images/apps/ecommerce/yosemite.jpg",
                 "type": "image"
               }
             ],
@@ -16559,52 +16559,52 @@
             "images": [
               {
                 "id": "0",
-                "url": "assets/images/ecommerce/a-walk-amongst-friends.jpg",
+                "url": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg",
                 "type": "image"
               },
               {
                 "id": "1",
-                "url": "assets/images/ecommerce/braies-lake.jpg",
+                "url": "assets/images/apps/ecommerce/braies-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "2",
-                "url": "assets/images/ecommerce/fall-glow.jpg",
+                "url": "assets/images/apps/ecommerce/fall-glow.jpg",
                 "type": "image"
               },
               {
                 "id": "3",
-                "url": "assets/images/ecommerce/first-snow.jpg",
+                "url": "assets/images/apps/ecommerce/first-snow.jpg",
                 "type": "image"
               },
               {
                 "id": "4",
-                "url": "assets/images/ecommerce/lago-di-braies.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-braies.jpg",
                 "type": "image"
               },
               {
                 "id": "5",
-                "url": "assets/images/ecommerce/lago-di-sorapis.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-sorapis.jpg",
                 "type": "image"
               },
               {
                 "id": "6",
-                "url": "assets/images/ecommerce/never-stop-changing.jpg",
+                "url": "assets/images/apps/ecommerce/never-stop-changing.jpg",
                 "type": "image"
               },
               {
                 "id": "7",
-                "url": "assets/images/ecommerce/reaching.jpg",
+                "url": "assets/images/apps/ecommerce/reaching.jpg",
                 "type": "image"
               },
               {
                 "id": "8",
-                "url": "assets/images/ecommerce/morain-lake.jpg",
+                "url": "assets/images/apps/ecommerce/morain-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "9",
-                "url": "assets/images/ecommerce/yosemite.jpg",
+                "url": "assets/images/apps/ecommerce/yosemite.jpg",
                 "type": "image"
               }
             ],
@@ -16638,52 +16638,52 @@
             "images": [
               {
                 "id": "0",
-                "url": "assets/images/ecommerce/a-walk-amongst-friends.jpg",
+                "url": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg",
                 "type": "image"
               },
               {
                 "id": "1",
-                "url": "assets/images/ecommerce/braies-lake.jpg",
+                "url": "assets/images/apps/ecommerce/braies-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "2",
-                "url": "assets/images/ecommerce/fall-glow.jpg",
+                "url": "assets/images/apps/ecommerce/fall-glow.jpg",
                 "type": "image"
               },
               {
                 "id": "3",
-                "url": "assets/images/ecommerce/first-snow.jpg",
+                "url": "assets/images/apps/ecommerce/first-snow.jpg",
                 "type": "image"
               },
               {
                 "id": "4",
-                "url": "assets/images/ecommerce/lago-di-braies.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-braies.jpg",
                 "type": "image"
               },
               {
                 "id": "5",
-                "url": "assets/images/ecommerce/lago-di-sorapis.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-sorapis.jpg",
                 "type": "image"
               },
               {
                 "id": "6",
-                "url": "assets/images/ecommerce/never-stop-changing.jpg",
+                "url": "assets/images/apps/ecommerce/never-stop-changing.jpg",
                 "type": "image"
               },
               {
                 "id": "7",
-                "url": "assets/images/ecommerce/reaching.jpg",
+                "url": "assets/images/apps/ecommerce/reaching.jpg",
                 "type": "image"
               },
               {
                 "id": "8",
-                "url": "assets/images/ecommerce/morain-lake.jpg",
+                "url": "assets/images/apps/ecommerce/morain-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "9",
-                "url": "assets/images/ecommerce/yosemite.jpg",
+                "url": "assets/images/apps/ecommerce/yosemite.jpg",
                 "type": "image"
               }
             ],
@@ -16717,52 +16717,52 @@
             "images": [
               {
                 "id": "0",
-                "url": "assets/images/ecommerce/a-walk-amongst-friends.jpg",
+                "url": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg",
                 "type": "image"
               },
               {
                 "id": "1",
-                "url": "assets/images/ecommerce/braies-lake.jpg",
+                "url": "assets/images/apps/ecommerce/braies-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "2",
-                "url": "assets/images/ecommerce/fall-glow.jpg",
+                "url": "assets/images/apps/ecommerce/fall-glow.jpg",
                 "type": "image"
               },
               {
                 "id": "3",
-                "url": "assets/images/ecommerce/first-snow.jpg",
+                "url": "assets/images/apps/ecommerce/first-snow.jpg",
                 "type": "image"
               },
               {
                 "id": "4",
-                "url": "assets/images/ecommerce/lago-di-braies.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-braies.jpg",
                 "type": "image"
               },
               {
                 "id": "5",
-                "url": "assets/images/ecommerce/lago-di-sorapis.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-sorapis.jpg",
                 "type": "image"
               },
               {
                 "id": "6",
-                "url": "assets/images/ecommerce/never-stop-changing.jpg",
+                "url": "assets/images/apps/ecommerce/never-stop-changing.jpg",
                 "type": "image"
               },
               {
                 "id": "7",
-                "url": "assets/images/ecommerce/reaching.jpg",
+                "url": "assets/images/apps/ecommerce/reaching.jpg",
                 "type": "image"
               },
               {
                 "id": "8",
-                "url": "assets/images/ecommerce/morain-lake.jpg",
+                "url": "assets/images/apps/ecommerce/morain-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "9",
-                "url": "assets/images/ecommerce/yosemite.jpg",
+                "url": "assets/images/apps/ecommerce/yosemite.jpg",
                 "type": "image"
               }
             ],
@@ -16796,52 +16796,52 @@
             "images": [
               {
                 "id": "0",
-                "url": "assets/images/ecommerce/a-walk-amongst-friends.jpg",
+                "url": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg",
                 "type": "image"
               },
               {
                 "id": "1",
-                "url": "assets/images/ecommerce/braies-lake.jpg",
+                "url": "assets/images/apps/ecommerce/braies-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "2",
-                "url": "assets/images/ecommerce/fall-glow.jpg",
+                "url": "assets/images/apps/ecommerce/fall-glow.jpg",
                 "type": "image"
               },
               {
                 "id": "3",
-                "url": "assets/images/ecommerce/first-snow.jpg",
+                "url": "assets/images/apps/ecommerce/first-snow.jpg",
                 "type": "image"
               },
               {
                 "id": "4",
-                "url": "assets/images/ecommerce/lago-di-braies.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-braies.jpg",
                 "type": "image"
               },
               {
                 "id": "5",
-                "url": "assets/images/ecommerce/lago-di-sorapis.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-sorapis.jpg",
                 "type": "image"
               },
               {
                 "id": "6",
-                "url": "assets/images/ecommerce/never-stop-changing.jpg",
+                "url": "assets/images/apps/ecommerce/never-stop-changing.jpg",
                 "type": "image"
               },
               {
                 "id": "7",
-                "url": "assets/images/ecommerce/reaching.jpg",
+                "url": "assets/images/apps/ecommerce/reaching.jpg",
                 "type": "image"
               },
               {
                 "id": "8",
-                "url": "assets/images/ecommerce/morain-lake.jpg",
+                "url": "assets/images/apps/ecommerce/morain-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "9",
-                "url": "assets/images/ecommerce/yosemite.jpg",
+                "url": "assets/images/apps/ecommerce/yosemite.jpg",
                 "type": "image"
               }
             ],
@@ -16875,52 +16875,52 @@
             "images": [
               {
                 "id": "0",
-                "url": "assets/images/ecommerce/a-walk-amongst-friends.jpg",
+                "url": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg",
                 "type": "image"
               },
               {
                 "id": "1",
-                "url": "assets/images/ecommerce/braies-lake.jpg",
+                "url": "assets/images/apps/ecommerce/braies-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "2",
-                "url": "assets/images/ecommerce/fall-glow.jpg",
+                "url": "assets/images/apps/ecommerce/fall-glow.jpg",
                 "type": "image"
               },
               {
                 "id": "3",
-                "url": "assets/images/ecommerce/first-snow.jpg",
+                "url": "assets/images/apps/ecommerce/first-snow.jpg",
                 "type": "image"
               },
               {
                 "id": "4",
-                "url": "assets/images/ecommerce/lago-di-braies.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-braies.jpg",
                 "type": "image"
               },
               {
                 "id": "5",
-                "url": "assets/images/ecommerce/lago-di-sorapis.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-sorapis.jpg",
                 "type": "image"
               },
               {
                 "id": "6",
-                "url": "assets/images/ecommerce/never-stop-changing.jpg",
+                "url": "assets/images/apps/ecommerce/never-stop-changing.jpg",
                 "type": "image"
               },
               {
                 "id": "7",
-                "url": "assets/images/ecommerce/reaching.jpg",
+                "url": "assets/images/apps/ecommerce/reaching.jpg",
                 "type": "image"
               },
               {
                 "id": "8",
-                "url": "assets/images/ecommerce/morain-lake.jpg",
+                "url": "assets/images/apps/ecommerce/morain-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "9",
-                "url": "assets/images/ecommerce/yosemite.jpg",
+                "url": "assets/images/apps/ecommerce/yosemite.jpg",
                 "type": "image"
               }
             ],
@@ -16954,52 +16954,52 @@
             "images": [
               {
                 "id": "0",
-                "url": "assets/images/ecommerce/a-walk-amongst-friends.jpg",
+                "url": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg",
                 "type": "image"
               },
               {
                 "id": "1",
-                "url": "assets/images/ecommerce/braies-lake.jpg",
+                "url": "assets/images/apps/ecommerce/braies-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "2",
-                "url": "assets/images/ecommerce/fall-glow.jpg",
+                "url": "assets/images/apps/ecommerce/fall-glow.jpg",
                 "type": "image"
               },
               {
                 "id": "3",
-                "url": "assets/images/ecommerce/first-snow.jpg",
+                "url": "assets/images/apps/ecommerce/first-snow.jpg",
                 "type": "image"
               },
               {
                 "id": "4",
-                "url": "assets/images/ecommerce/lago-di-braies.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-braies.jpg",
                 "type": "image"
               },
               {
                 "id": "5",
-                "url": "assets/images/ecommerce/lago-di-sorapis.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-sorapis.jpg",
                 "type": "image"
               },
               {
                 "id": "6",
-                "url": "assets/images/ecommerce/never-stop-changing.jpg",
+                "url": "assets/images/apps/ecommerce/never-stop-changing.jpg",
                 "type": "image"
               },
               {
                 "id": "7",
-                "url": "assets/images/ecommerce/reaching.jpg",
+                "url": "assets/images/apps/ecommerce/reaching.jpg",
                 "type": "image"
               },
               {
                 "id": "8",
-                "url": "assets/images/ecommerce/morain-lake.jpg",
+                "url": "assets/images/apps/ecommerce/morain-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "9",
-                "url": "assets/images/ecommerce/yosemite.jpg",
+                "url": "assets/images/apps/ecommerce/yosemite.jpg",
                 "type": "image"
               }
             ],
@@ -17033,52 +17033,52 @@
             "images": [
               {
                 "id": "0",
-                "url": "assets/images/ecommerce/a-walk-amongst-friends.jpg",
+                "url": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg",
                 "type": "image"
               },
               {
                 "id": "1",
-                "url": "assets/images/ecommerce/braies-lake.jpg",
+                "url": "assets/images/apps/ecommerce/braies-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "2",
-                "url": "assets/images/ecommerce/fall-glow.jpg",
+                "url": "assets/images/apps/ecommerce/fall-glow.jpg",
                 "type": "image"
               },
               {
                 "id": "3",
-                "url": "assets/images/ecommerce/first-snow.jpg",
+                "url": "assets/images/apps/ecommerce/first-snow.jpg",
                 "type": "image"
               },
               {
                 "id": "4",
-                "url": "assets/images/ecommerce/lago-di-braies.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-braies.jpg",
                 "type": "image"
               },
               {
                 "id": "5",
-                "url": "assets/images/ecommerce/lago-di-sorapis.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-sorapis.jpg",
                 "type": "image"
               },
               {
                 "id": "6",
-                "url": "assets/images/ecommerce/never-stop-changing.jpg",
+                "url": "assets/images/apps/ecommerce/never-stop-changing.jpg",
                 "type": "image"
               },
               {
                 "id": "7",
-                "url": "assets/images/ecommerce/reaching.jpg",
+                "url": "assets/images/apps/ecommerce/reaching.jpg",
                 "type": "image"
               },
               {
                 "id": "8",
-                "url": "assets/images/ecommerce/morain-lake.jpg",
+                "url": "assets/images/apps/ecommerce/morain-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "9",
-                "url": "assets/images/ecommerce/yosemite.jpg",
+                "url": "assets/images/apps/ecommerce/yosemite.jpg",
                 "type": "image"
               }
             ],
@@ -17112,52 +17112,52 @@
             "images": [
               {
                 "id": "0",
-                "url": "assets/images/ecommerce/a-walk-amongst-friends.jpg",
+                "url": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg",
                 "type": "image"
               },
               {
                 "id": "1",
-                "url": "assets/images/ecommerce/braies-lake.jpg",
+                "url": "assets/images/apps/ecommerce/braies-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "2",
-                "url": "assets/images/ecommerce/fall-glow.jpg",
+                "url": "assets/images/apps/ecommerce/fall-glow.jpg",
                 "type": "image"
               },
               {
                 "id": "3",
-                "url": "assets/images/ecommerce/first-snow.jpg",
+                "url": "assets/images/apps/ecommerce/first-snow.jpg",
                 "type": "image"
               },
               {
                 "id": "4",
-                "url": "assets/images/ecommerce/lago-di-braies.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-braies.jpg",
                 "type": "image"
               },
               {
                 "id": "5",
-                "url": "assets/images/ecommerce/lago-di-sorapis.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-sorapis.jpg",
                 "type": "image"
               },
               {
                 "id": "6",
-                "url": "assets/images/ecommerce/never-stop-changing.jpg",
+                "url": "assets/images/apps/ecommerce/never-stop-changing.jpg",
                 "type": "image"
               },
               {
                 "id": "7",
-                "url": "assets/images/ecommerce/reaching.jpg",
+                "url": "assets/images/apps/ecommerce/reaching.jpg",
                 "type": "image"
               },
               {
                 "id": "8",
-                "url": "assets/images/ecommerce/morain-lake.jpg",
+                "url": "assets/images/apps/ecommerce/morain-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "9",
-                "url": "assets/images/ecommerce/yosemite.jpg",
+                "url": "assets/images/apps/ecommerce/yosemite.jpg",
                 "type": "image"
               }
             ],
@@ -17191,52 +17191,52 @@
             "images": [
               {
                 "id": "0",
-                "url": "assets/images/ecommerce/a-walk-amongst-friends.jpg",
+                "url": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg",
                 "type": "image"
               },
               {
                 "id": "1",
-                "url": "assets/images/ecommerce/braies-lake.jpg",
+                "url": "assets/images/apps/ecommerce/braies-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "2",
-                "url": "assets/images/ecommerce/fall-glow.jpg",
+                "url": "assets/images/apps/ecommerce/fall-glow.jpg",
                 "type": "image"
               },
               {
                 "id": "3",
-                "url": "assets/images/ecommerce/first-snow.jpg",
+                "url": "assets/images/apps/ecommerce/first-snow.jpg",
                 "type": "image"
               },
               {
                 "id": "4",
-                "url": "assets/images/ecommerce/lago-di-braies.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-braies.jpg",
                 "type": "image"
               },
               {
                 "id": "5",
-                "url": "assets/images/ecommerce/lago-di-sorapis.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-sorapis.jpg",
                 "type": "image"
               },
               {
                 "id": "6",
-                "url": "assets/images/ecommerce/never-stop-changing.jpg",
+                "url": "assets/images/apps/ecommerce/never-stop-changing.jpg",
                 "type": "image"
               },
               {
                 "id": "7",
-                "url": "assets/images/ecommerce/reaching.jpg",
+                "url": "assets/images/apps/ecommerce/reaching.jpg",
                 "type": "image"
               },
               {
                 "id": "8",
-                "url": "assets/images/ecommerce/morain-lake.jpg",
+                "url": "assets/images/apps/ecommerce/morain-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "9",
-                "url": "assets/images/ecommerce/yosemite.jpg",
+                "url": "assets/images/apps/ecommerce/yosemite.jpg",
                 "type": "image"
               }
             ],
@@ -17270,52 +17270,52 @@
             "images": [
               {
                 "id": "0",
-                "url": "assets/images/ecommerce/a-walk-amongst-friends.jpg",
+                "url": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg",
                 "type": "image"
               },
               {
                 "id": "1",
-                "url": "assets/images/ecommerce/braies-lake.jpg",
+                "url": "assets/images/apps/ecommerce/braies-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "2",
-                "url": "assets/images/ecommerce/fall-glow.jpg",
+                "url": "assets/images/apps/ecommerce/fall-glow.jpg",
                 "type": "image"
               },
               {
                 "id": "3",
-                "url": "assets/images/ecommerce/first-snow.jpg",
+                "url": "assets/images/apps/ecommerce/first-snow.jpg",
                 "type": "image"
               },
               {
                 "id": "4",
-                "url": "assets/images/ecommerce/lago-di-braies.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-braies.jpg",
                 "type": "image"
               },
               {
                 "id": "5",
-                "url": "assets/images/ecommerce/lago-di-sorapis.jpg",
+                "url": "assets/images/apps/ecommerce/lago-di-sorapis.jpg",
                 "type": "image"
               },
               {
                 "id": "6",
-                "url": "assets/images/ecommerce/never-stop-changing.jpg",
+                "url": "assets/images/apps/ecommerce/never-stop-changing.jpg",
                 "type": "image"
               },
               {
                 "id": "7",
-                "url": "assets/images/ecommerce/reaching.jpg",
+                "url": "assets/images/apps/ecommerce/reaching.jpg",
                 "type": "image"
               },
               {
                 "id": "8",
-                "url": "assets/images/ecommerce/morain-lake.jpg",
+                "url": "assets/images/apps/ecommerce/morain-lake.jpg",
                 "type": "image"
               },
               {
                 "id": "9",
-                "url": "assets/images/ecommerce/yosemite.jpg",
+                "url": "assets/images/apps/ecommerce/yosemite.jpg",
                 "type": "image"
               }
             ],
@@ -17371,7 +17371,7 @@
                 "price": "10.24",
                 "quantity": 1,
                 "total": "10.24",
-                "image": "assets/images/ecommerce/a-walk-amongst-friends.jpg"
+                "image": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg"
               },
               {
                 "id": 2,
@@ -17379,7 +17379,7 @@
                 "price": "24.62",
                 "quantity": 1,
                 "total": "24.62",
-                "image": "assets/images/ecommerce/lago-di-braies.jpg"
+                "image": "assets/images/apps/ecommerce/lago-di-braies.jpg"
               },
               {
                 "id": 3,
@@ -17387,7 +17387,7 @@
                 "price": "49.29",
                 "quantity": 1,
                 "total": "49.29",
-                "image": "assets/images/ecommerce/never-stop-changing.jpg"
+                "image": "assets/images/apps/ecommerce/never-stop-changing.jpg"
               }
             ],
             "status": [
@@ -17455,7 +17455,7 @@
                 "price": "10.24",
                 "quantity": 1,
                 "total": "10.24",
-                "image": "assets/images/ecommerce/a-walk-amongst-friends.jpg"
+                "image": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg"
               },
               {
                 "id": 2,
@@ -17463,7 +17463,7 @@
                 "price": "24.62",
                 "quantity": 1,
                 "total": "24.62",
-                "image": "assets/images/ecommerce/lago-di-braies.jpg"
+                "image": "assets/images/apps/ecommerce/lago-di-braies.jpg"
               },
               {
                 "id": 3,
@@ -17471,7 +17471,7 @@
                 "price": "49.29",
                 "quantity": 1,
                 "total": "49.29",
-                "image": "assets/images/ecommerce/never-stop-changing.jpg"
+                "image": "assets/images/apps/ecommerce/never-stop-changing.jpg"
               }
             ],
             "status": [
@@ -17539,7 +17539,7 @@
                 "price": "10.24",
                 "quantity": 1,
                 "total": "10.24",
-                "image": "assets/images/ecommerce/a-walk-amongst-friends.jpg"
+                "image": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg"
               },
               {
                 "id": 2,
@@ -17547,7 +17547,7 @@
                 "price": "24.62",
                 "quantity": 1,
                 "total": "24.62",
-                "image": "assets/images/ecommerce/lago-di-braies.jpg"
+                "image": "assets/images/apps/ecommerce/lago-di-braies.jpg"
               },
               {
                 "id": 3,
@@ -17555,7 +17555,7 @@
                 "price": "49.29",
                 "quantity": 1,
                 "total": "49.29",
-                "image": "assets/images/ecommerce/never-stop-changing.jpg"
+                "image": "assets/images/apps/ecommerce/never-stop-changing.jpg"
               }
             ],
             "status": [
@@ -17623,7 +17623,7 @@
                 "price": "10.24",
                 "quantity": 1,
                 "total": "10.24",
-                "image": "assets/images/ecommerce/a-walk-amongst-friends.jpg"
+                "image": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg"
               },
               {
                 "id": 2,
@@ -17631,7 +17631,7 @@
                 "price": "24.62",
                 "quantity": 1,
                 "total": "24.62",
-                "image": "assets/images/ecommerce/lago-di-braies.jpg"
+                "image": "assets/images/apps/ecommerce/lago-di-braies.jpg"
               },
               {
                 "id": 3,
@@ -17639,7 +17639,7 @@
                 "price": "49.29",
                 "quantity": 1,
                 "total": "49.29",
-                "image": "assets/images/ecommerce/never-stop-changing.jpg"
+                "image": "assets/images/apps/ecommerce/never-stop-changing.jpg"
               }
             ],
             "status": [
@@ -17707,7 +17707,7 @@
                 "price": "10.24",
                 "quantity": 1,
                 "total": "10.24",
-                "image": "assets/images/ecommerce/a-walk-amongst-friends.jpg"
+                "image": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg"
               },
               {
                 "id": 2,
@@ -17715,7 +17715,7 @@
                 "price": "24.62",
                 "quantity": 1,
                 "total": "24.62",
-                "image": "assets/images/ecommerce/lago-di-braies.jpg"
+                "image": "assets/images/apps/ecommerce/lago-di-braies.jpg"
               },
               {
                 "id": 3,
@@ -17723,7 +17723,7 @@
                 "price": "49.29",
                 "quantity": 1,
                 "total": "49.29",
-                "image": "assets/images/ecommerce/never-stop-changing.jpg"
+                "image": "assets/images/apps/ecommerce/never-stop-changing.jpg"
               }
             ],
             "status": [
@@ -17791,7 +17791,7 @@
                 "price": "10.24",
                 "quantity": 1,
                 "total": "10.24",
-                "image": "assets/images/ecommerce/a-walk-amongst-friends.jpg"
+                "image": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg"
               },
               {
                 "id": 2,
@@ -17799,7 +17799,7 @@
                 "price": "24.62",
                 "quantity": 1,
                 "total": "24.62",
-                "image": "assets/images/ecommerce/lago-di-braies.jpg"
+                "image": "assets/images/apps/ecommerce/lago-di-braies.jpg"
               },
               {
                 "id": 3,
@@ -17807,7 +17807,7 @@
                 "price": "49.29",
                 "quantity": 1,
                 "total": "49.29",
-                "image": "assets/images/ecommerce/never-stop-changing.jpg"
+                "image": "assets/images/apps/ecommerce/never-stop-changing.jpg"
               }
             ],
             "status": [
@@ -17875,7 +17875,7 @@
                 "price": "10.24",
                 "quantity": 1,
                 "total": "10.24",
-                "image": "assets/images/ecommerce/a-walk-amongst-friends.jpg"
+                "image": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg"
               },
               {
                 "id": 2,
@@ -17883,7 +17883,7 @@
                 "price": "24.62",
                 "quantity": 1,
                 "total": "24.62",
-                "image": "assets/images/ecommerce/lago-di-braies.jpg"
+                "image": "assets/images/apps/ecommerce/lago-di-braies.jpg"
               },
               {
                 "id": 3,
@@ -17891,7 +17891,7 @@
                 "price": "49.29",
                 "quantity": 1,
                 "total": "49.29",
-                "image": "assets/images/ecommerce/never-stop-changing.jpg"
+                "image": "assets/images/apps/ecommerce/never-stop-changing.jpg"
               }
             ],
             "status": [
@@ -17959,7 +17959,7 @@
                 "price": "10.24",
                 "quantity": 1,
                 "total": "10.24",
-                "image": "assets/images/ecommerce/a-walk-amongst-friends.jpg"
+                "image": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg"
               },
               {
                 "id": 2,
@@ -17967,7 +17967,7 @@
                 "price": "24.62",
                 "quantity": 1,
                 "total": "24.62",
-                "image": "assets/images/ecommerce/lago-di-braies.jpg"
+                "image": "assets/images/apps/ecommerce/lago-di-braies.jpg"
               },
               {
                 "id": 3,
@@ -17975,7 +17975,7 @@
                 "price": "49.29",
                 "quantity": 1,
                 "total": "49.29",
-                "image": "assets/images/ecommerce/never-stop-changing.jpg"
+                "image": "assets/images/apps/ecommerce/never-stop-changing.jpg"
               }
             ],
             "status": [
@@ -18043,7 +18043,7 @@
                 "price": "10.24",
                 "quantity": 1,
                 "total": "10.24",
-                "image": "assets/images/ecommerce/a-walk-amongst-friends.jpg"
+                "image": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg"
               },
               {
                 "id": 2,
@@ -18051,7 +18051,7 @@
                 "price": "24.62",
                 "quantity": 1,
                 "total": "24.62",
-                "image": "assets/images/ecommerce/lago-di-braies.jpg"
+                "image": "assets/images/apps/ecommerce/lago-di-braies.jpg"
               },
               {
                 "id": 3,
@@ -18059,7 +18059,7 @@
                 "price": "49.29",
                 "quantity": 1,
                 "total": "49.29",
-                "image": "assets/images/ecommerce/never-stop-changing.jpg"
+                "image": "assets/images/apps/ecommerce/never-stop-changing.jpg"
               }
             ],
             "status": [
@@ -18127,7 +18127,7 @@
                 "price": "10.24",
                 "quantity": 1,
                 "total": "10.24",
-                "image": "assets/images/ecommerce/a-walk-amongst-friends.jpg"
+                "image": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg"
               },
               {
                 "id": 2,
@@ -18135,7 +18135,7 @@
                 "price": "24.62",
                 "quantity": 1,
                 "total": "24.62",
-                "image": "assets/images/ecommerce/lago-di-braies.jpg"
+                "image": "assets/images/apps/ecommerce/lago-di-braies.jpg"
               },
               {
                 "id": 3,
@@ -18143,7 +18143,7 @@
                 "price": "49.29",
                 "quantity": 1,
                 "total": "49.29",
-                "image": "assets/images/ecommerce/never-stop-changing.jpg"
+                "image": "assets/images/apps/ecommerce/never-stop-changing.jpg"
               }
             ],
             "status": [
@@ -18211,7 +18211,7 @@
                 "price": "10.24",
                 "quantity": 1,
                 "total": "10.24",
-                "image": "assets/images/ecommerce/a-walk-amongst-friends.jpg"
+                "image": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg"
               },
               {
                 "id": 2,
@@ -18219,7 +18219,7 @@
                 "price": "24.62",
                 "quantity": 1,
                 "total": "24.62",
-                "image": "assets/images/ecommerce/lago-di-braies.jpg"
+                "image": "assets/images/apps/ecommerce/lago-di-braies.jpg"
               },
               {
                 "id": 3,
@@ -18227,7 +18227,7 @@
                 "price": "49.29",
                 "quantity": 1,
                 "total": "49.29",
-                "image": "assets/images/ecommerce/never-stop-changing.jpg"
+                "image": "assets/images/apps/ecommerce/never-stop-changing.jpg"
               }
             ],
             "status": [
@@ -18295,7 +18295,7 @@
                 "price": "10.24",
                 "quantity": 1,
                 "total": "10.24",
-                "image": "assets/images/ecommerce/a-walk-amongst-friends.jpg"
+                "image": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg"
               },
               {
                 "id": 2,
@@ -18303,7 +18303,7 @@
                 "price": "24.62",
                 "quantity": 1,
                 "total": "24.62",
-                "image": "assets/images/ecommerce/lago-di-braies.jpg"
+                "image": "assets/images/apps/ecommerce/lago-di-braies.jpg"
               },
               {
                 "id": 3,
@@ -18311,7 +18311,7 @@
                 "price": "49.29",
                 "quantity": 1,
                 "total": "49.29",
-                "image": "assets/images/ecommerce/never-stop-changing.jpg"
+                "image": "assets/images/apps/ecommerce/never-stop-changing.jpg"
               }
             ],
             "status": [
@@ -18379,7 +18379,7 @@
                 "price": "10.24",
                 "quantity": 1,
                 "total": "10.24",
-                "image": "assets/images/ecommerce/a-walk-amongst-friends.jpg"
+                "image": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg"
               },
               {
                 "id": 2,
@@ -18387,7 +18387,7 @@
                 "price": "24.62",
                 "quantity": 1,
                 "total": "24.62",
-                "image": "assets/images/ecommerce/lago-di-braies.jpg"
+                "image": "assets/images/apps/ecommerce/lago-di-braies.jpg"
               },
               {
                 "id": 3,
@@ -18395,7 +18395,7 @@
                 "price": "49.29",
                 "quantity": 1,
                 "total": "49.29",
-                "image": "assets/images/ecommerce/never-stop-changing.jpg"
+                "image": "assets/images/apps/ecommerce/never-stop-changing.jpg"
               }
             ],
             "status": [
@@ -18463,7 +18463,7 @@
                 "price": "10.24",
                 "quantity": 1,
                 "total": "10.24",
-                "image": "assets/images/ecommerce/a-walk-amongst-friends.jpg"
+                "image": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg"
               },
               {
                 "id": 2,
@@ -18471,7 +18471,7 @@
                 "price": "24.62",
                 "quantity": 1,
                 "total": "24.62",
-                "image": "assets/images/ecommerce/lago-di-braies.jpg"
+                "image": "assets/images/apps/ecommerce/lago-di-braies.jpg"
               },
               {
                 "id": 3,
@@ -18479,7 +18479,7 @@
                 "price": "49.29",
                 "quantity": 1,
                 "total": "49.29",
-                "image": "assets/images/ecommerce/never-stop-changing.jpg"
+                "image": "assets/images/apps/ecommerce/never-stop-changing.jpg"
               }
             ],
             "status": [
@@ -18547,7 +18547,7 @@
                 "price": "10.24",
                 "quantity": 1,
                 "total": "10.24",
-                "image": "assets/images/ecommerce/a-walk-amongst-friends.jpg"
+                "image": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg"
               },
               {
                 "id": 2,
@@ -18555,7 +18555,7 @@
                 "price": "24.62",
                 "quantity": 1,
                 "total": "24.62",
-                "image": "assets/images/ecommerce/lago-di-braies.jpg"
+                "image": "assets/images/apps/ecommerce/lago-di-braies.jpg"
               },
               {
                 "id": 3,
@@ -18563,7 +18563,7 @@
                 "price": "49.29",
                 "quantity": 1,
                 "total": "49.29",
-                "image": "assets/images/ecommerce/never-stop-changing.jpg"
+                "image": "assets/images/apps/ecommerce/never-stop-changing.jpg"
               }
             ],
             "status": [
@@ -18631,7 +18631,7 @@
                 "price": "10.24",
                 "quantity": 1,
                 "total": "10.24",
-                "image": "assets/images/ecommerce/a-walk-amongst-friends.jpg"
+                "image": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg"
               },
               {
                 "id": 2,
@@ -18639,7 +18639,7 @@
                 "price": "24.62",
                 "quantity": 1,
                 "total": "24.62",
-                "image": "assets/images/ecommerce/lago-di-braies.jpg"
+                "image": "assets/images/apps/ecommerce/lago-di-braies.jpg"
               },
               {
                 "id": 3,
@@ -18647,7 +18647,7 @@
                 "price": "49.29",
                 "quantity": 1,
                 "total": "49.29",
-                "image": "assets/images/ecommerce/never-stop-changing.jpg"
+                "image": "assets/images/apps/ecommerce/never-stop-changing.jpg"
               }
             ],
             "status": [
@@ -18715,7 +18715,7 @@
                 "price": "10.24",
                 "quantity": 1,
                 "total": "10.24",
-                "image": "assets/images/ecommerce/a-walk-amongst-friends.jpg"
+                "image": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg"
               },
               {
                 "id": 2,
@@ -18723,7 +18723,7 @@
                 "price": "24.62",
                 "quantity": 1,
                 "total": "24.62",
-                "image": "assets/images/ecommerce/lago-di-braies.jpg"
+                "image": "assets/images/apps/ecommerce/lago-di-braies.jpg"
               },
               {
                 "id": 3,
@@ -18731,7 +18731,7 @@
                 "price": "49.29",
                 "quantity": 1,
                 "total": "49.29",
-                "image": "assets/images/ecommerce/never-stop-changing.jpg"
+                "image": "assets/images/apps/ecommerce/never-stop-changing.jpg"
               }
             ],
             "status": [
@@ -18799,7 +18799,7 @@
                 "price": "10.24",
                 "quantity": 1,
                 "total": "10.24",
-                "image": "assets/images/ecommerce/a-walk-amongst-friends.jpg"
+                "image": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg"
               },
               {
                 "id": 2,
@@ -18807,7 +18807,7 @@
                 "price": "24.62",
                 "quantity": 1,
                 "total": "24.62",
-                "image": "assets/images/ecommerce/lago-di-braies.jpg"
+                "image": "assets/images/apps/ecommerce/lago-di-braies.jpg"
               },
               {
                 "id": 3,
@@ -18815,7 +18815,7 @@
                 "price": "49.29",
                 "quantity": 1,
                 "total": "49.29",
-                "image": "assets/images/ecommerce/never-stop-changing.jpg"
+                "image": "assets/images/apps/ecommerce/never-stop-changing.jpg"
               }
             ],
             "status": [
@@ -18883,7 +18883,7 @@
                 "price": "10.24",
                 "quantity": 1,
                 "total": "10.24",
-                "image": "assets/images/ecommerce/a-walk-amongst-friends.jpg"
+                "image": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg"
               },
               {
                 "id": 2,
@@ -18891,7 +18891,7 @@
                 "price": "24.62",
                 "quantity": 1,
                 "total": "24.62",
-                "image": "assets/images/ecommerce/lago-di-braies.jpg"
+                "image": "assets/images/apps/ecommerce/lago-di-braies.jpg"
               },
               {
                 "id": 3,
@@ -18899,7 +18899,7 @@
                 "price": "49.29",
                 "quantity": 1,
                 "total": "49.29",
-                "image": "assets/images/ecommerce/never-stop-changing.jpg"
+                "image": "assets/images/apps/ecommerce/never-stop-changing.jpg"
               }
             ],
             "status": [
@@ -18967,7 +18967,7 @@
                 "price": "10.24",
                 "quantity": 1,
                 "total": "10.24",
-                "image": "assets/images/ecommerce/a-walk-amongst-friends.jpg"
+                "image": "assets/images/apps/ecommerce/a-walk-amongst-friends.jpg"
               },
               {
                 "id": 2,
@@ -18975,7 +18975,7 @@
                 "price": "24.62",
                 "quantity": 1,
                 "total": "24.62",
-                "image": "assets/images/ecommerce/lago-di-braies.jpg"
+                "image": "assets/images/apps/ecommerce/lago-di-braies.jpg"
               },
               {
                 "id": 3,
@@ -18983,7 +18983,7 @@
                 "price": "49.29",
                 "quantity": 1,
                 "total": "49.29",
-                "image": "assets/images/ecommerce/never-stop-changing.jpg"
+                "image": "assets/images/apps/ecommerce/never-stop-changing.jpg"
               }
             ],
             "status": [
@@ -20279,14 +20279,14 @@
               {
                 "id": "67027cahbe3b52ecf2dc631c",
                 "name": "mail.jpg",
-                "src": "assets/images/scrumboard/mail.jpg",
+                "src": "assets/images/apps/scrumboard/mail.jpg",
                 "time": 1642766617,
                 "type": "image"
               },
               {
                 "id": "56027cfcbe1b72ecf1fc452a",
                 "name": "calendar.jpg",
-                "src": "assets/images/scrumboard/calendar.jpg",
+                "src": "assets/images/apps/scrumboard/calendar.jpg",
                 "time": 1642766617,
                 "type": "image"
               }
@@ -20375,14 +20375,14 @@
               {
                 "id": "67027cahbe3b52ecf2dc631c",
                 "name": "mail.jpg",
-                "src": "assets/images/scrumboard/mail.jpg",
+                "src": "assets/images/apps/scrumboard/mail.jpg",
                 "time": 1642766617,
                 "type": "image"
               },
               {
                 "id": "56027cfcbe1b72ecf1fc452a",
                 "name": "calendar.jpg",
-                "src": "assets/images/scrumboard/calendar.jpg",
+                "src": "assets/images/apps/scrumboard/calendar.jpg",
                 "time": 1642766617,
                 "type": "image"
               }
@@ -20429,14 +20429,14 @@
               {
                 "id": "67027cahbe3b52ecf2dc631c",
                 "name": "mail.jpg",
-                "src": "assets/images/scrumboard/mail.jpg",
+                "src": "assets/images/apps/scrumboard/mail.jpg",
                 "time": 1642766617,
                 "type": "image"
               },
               {
                 "id": "56027cfcbe1b72ecf1fc452a",
                 "name": "calendar.jpg",
-                "src": "assets/images/scrumboard/calendar.jpg",
+                "src": "assets/images/apps/scrumboard/calendar.jpg",
                 "time": 1642766617,
                 "type": "image"
               }
@@ -20473,14 +20473,14 @@
               {
                 "id": "67027cahbe3b52ecf2dc631c",
                 "name": "mail.jpg",
-                "src": "assets/images/scrumboard/mail.jpg",
+                "src": "assets/images/apps/scrumboard/mail.jpg",
                 "time": 1642766617,
                 "type": "image"
               },
               {
                 "id": "56027cfcbe1b72ecf1fc452a",
                 "name": "calendar.jpg",
-                "src": "assets/images/scrumboard/calendar.jpg",
+                "src": "assets/images/apps/scrumboard/calendar.jpg",
                 "time": 1642766617,
                 "type": "image"
               }
@@ -20516,14 +20516,14 @@
               {
                 "id": "67027cahbe3b52ecf2dc631c",
                 "name": "mail.jpg",
-                "src": "assets/images/scrumboard/mail.jpg",
+                "src": "assets/images/apps/scrumboard/mail.jpg",
                 "time": 1642766617,
                 "type": "image"
               },
               {
                 "id": "56027cfcbe1b72ecf1fc452a",
                 "name": "calendar.jpg",
-                "src": "assets/images/scrumboard/calendar.jpg",
+                "src": "assets/images/apps/scrumboard/calendar.jpg",
                 "time": 1642766617,
                 "type": "image"
               }
@@ -20588,14 +20588,14 @@
               {
                 "id": "67027cahbe3b52ecf2dc631c",
                 "name": "mail.jpg",
-                "src": "assets/images/scrumboard/mail.jpg",
+                "src": "assets/images/apps/scrumboard/mail.jpg",
                 "time": 1642766617,
                 "type": "image"
               },
               {
                 "id": "56027cfcbe1b72ecf1fc452a",
                 "name": "calendar.jpg",
-                "src": "assets/images/scrumboard/calendar.jpg",
+                "src": "assets/images/apps/scrumboard/calendar.jpg",
                 "time": 1642766617,
                 "type": "image"
               }
@@ -20642,14 +20642,14 @@
               {
                 "id": "67027cahbe3b52ecf2dc631c",
                 "name": "mail.jpg",
-                "src": "assets/images/scrumboard/mail.jpg",
+                "src": "assets/images/apps/scrumboard/mail.jpg",
                 "time": 1642766617,
                 "type": "image"
               },
               {
                 "id": "56027cfcbe1b72ecf1fc452a",
                 "name": "calendar.jpg",
-                "src": "assets/images/scrumboard/calendar.jpg",
+                "src": "assets/images/apps/scrumboard/calendar.jpg",
                 "time": 1642766617,
                 "type": "image"
               }
@@ -20680,14 +20680,14 @@
               {
                 "id": "67027cahbe3b52ecf2dc631c",
                 "name": "mail.jpg",
-                "src": "assets/images/scrumboard/mail.jpg",
+                "src": "assets/images/apps/scrumboard/mail.jpg",
                 "time": 1642766617,
                 "type": "image"
               },
               {
                 "id": "56027cfcbe1b72ecf1fc452a",
                 "name": "calendar.jpg",
-                "src": "assets/images/scrumboard/calendar.jpg",
+                "src": "assets/images/apps/scrumboard/calendar.jpg",
                 "time": 1642766617,
                 "type": "image"
               }
@@ -20718,14 +20718,14 @@
               {
                 "id": "67027cahbe3b52ecf2dc631c",
                 "name": "mail.jpg",
-                "src": "assets/images/scrumboard/mail.jpg",
+                "src": "assets/images/apps/scrumboard/mail.jpg",
                 "time": 1642766617,
                 "type": "image"
               },
               {
                 "id": "56027cfcbe1b72ecf1fc452a",
                 "name": "calendar.jpg",
-                "src": "assets/images/scrumboard/calendar.jpg",
+                "src": "assets/images/apps/scrumboard/calendar.jpg",
                 "time": 1642766617,
                 "type": "image"
               }
@@ -20761,14 +20761,14 @@
               {
                 "id": "67027cahbe3b52ecf2dc631c",
                 "name": "mail.jpg",
-                "src": "assets/images/scrumboard/mail.jpg",
+                "src": "assets/images/apps/scrumboard/mail.jpg",
                 "time": 1642766617,
                 "type": "image"
               },
               {
                 "id": "56027cfcbe1b72ecf1fc452a",
                 "name": "calendar.jpg",
-                "src": "assets/images/scrumboard/calendar.jpg",
+                "src": "assets/images/apps/scrumboard/calendar.jpg",
                 "time": 1642766617,
                 "type": "image"
               }
@@ -20803,14 +20803,14 @@
               {
                 "id": "67027cahbe3b52ecf2dc631c",
                 "name": "mail.jpg",
-                "src": "assets/images/scrumboard/mail.jpg",
+                "src": "assets/images/apps/scrumboard/mail.jpg",
                 "time": 1642766617,
                 "type": "image"
               },
               {
                 "id": "56027cfcbe1b72ecf1fc452a",
                 "name": "calendar.jpg",
-                "src": "assets/images/scrumboard/calendar.jpg",
+                "src": "assets/images/apps/scrumboard/calendar.jpg",
                 "time": 1642766617,
                 "type": "image"
               }
@@ -20889,14 +20889,14 @@
               {
                 "id": "67027cahbe3b52ecf2dc631c",
                 "name": "mail.jpg",
-                "src": "assets/images/scrumboard/mail.jpg",
+                "src": "assets/images/apps/scrumboard/mail.jpg",
                 "time": 1642766617,
                 "type": "image"
               },
               {
                 "id": "56027cfcbe1b72ecf1fc452a",
                 "name": "calendar.jpg",
-                "src": "assets/images/scrumboard/calendar.jpg",
+                "src": "assets/images/apps/scrumboard/calendar.jpg",
                 "time": 1642766617,
                 "type": "image"
               }
@@ -30561,27 +30561,27 @@
               {
                 "type": "photo",
                 "title": "A Walk Amongst Friends",
-                "preview": "assets/images/profile/a-walk-amongst-friends-small.jpg"
+                "preview": "assets/images/apps/profile/a-walk-amongst-friends-small.jpg"
               },
               {
                 "type": "photo",
                 "title": "Braies Lake",
-                "preview": "assets/images/profile/braies-lake-small.jpg"
+                "preview": "assets/images/apps/profile/braies-lake-small.jpg"
               },
               {
                 "type": "photo",
                 "title": "Fall Glow",
-                "preview": "assets/images/profile/fall-glow-small.jpg"
+                "preview": "assets/images/apps/profile/fall-glow-small.jpg"
               },
               {
                 "type": "photo",
                 "title": "First Snow",
-                "preview": "assets/images/profile/first-snow-small.jpg"
+                "preview": "assets/images/apps/profile/first-snow-small.jpg"
               },
               {
                 "type": "photo",
                 "title": "Lago di Braies",
-                "preview": "assets/images/profile/lago-di-braies-small.jpg"
+                "preview": "assets/images/apps/profile/lago-di-braies-small.jpg"
               }
             ]
           },
@@ -30593,52 +30593,52 @@
               {
                 "type": "photo",
                 "title": "Lago di Sorapis",
-                "preview": "assets/images/profile/lago-di-sorapis-small.jpg"
+                "preview": "assets/images/apps/profile/lago-di-sorapis-small.jpg"
               },
               {
                 "type": "photo",
                 "title": "Morain Lake",
-                "preview": "assets/images/profile/morain-lake-small.jpg"
+                "preview": "assets/images/apps/profile/morain-lake-small.jpg"
               },
               {
                 "type": "photo",
                 "title": "Never Stop Changing",
-                "preview": "assets/images/profile/never-stop-changing-small.jpg"
+                "preview": "assets/images/apps/profile/never-stop-changing-small.jpg"
               },
               {
                 "type": "photo",
                 "title": "Reaching",
-                "preview": "assets/images/profile/reaching-small.jpg"
+                "preview": "assets/images/apps/profile/reaching-small.jpg"
               },
               {
                 "type": "photo",
                 "title": "Yosemite",
-                "preview": "assets/images/profile/yosemite-small.jpg"
+                "preview": "assets/images/apps/profile/yosemite-small.jpg"
               },
               {
                 "type": "photo",
                 "title": "A Walk Amongst Friends",
-                "preview": "assets/images/profile/a-walk-amongst-friends-small.jpg"
+                "preview": "assets/images/apps/profile/a-walk-amongst-friends-small.jpg"
               },
               {
                 "type": "photo",
                 "title": "Braies Lake",
-                "preview": "assets/images/profile/braies-lake-small.jpg"
+                "preview": "assets/images/apps/profile/braies-lake-small.jpg"
               },
               {
                 "type": "photo",
                 "title": "Fall Glow",
-                "preview": "assets/images/profile/fall-glow-small.jpg"
+                "preview": "assets/images/apps/profile/fall-glow-small.jpg"
               },
               {
                 "type": "photo",
                 "title": "First Snow",
-                "preview": "assets/images/profile/first-snow-small.jpg"
+                "preview": "assets/images/apps/profile/first-snow-small.jpg"
               },
               {
                 "type": "photo",
                 "title": "Lago di Braies",
-                "preview": "assets/images/profile/lago-di-braies-small.jpg"
+                "preview": "assets/images/apps/profile/lago-di-braies-small.jpg"
               }
             ]
           },
@@ -30650,37 +30650,37 @@
               {
                 "type": "photo",
                 "title": "Lago di Sorapis",
-                "preview": "assets/images/profile/lago-di-sorapis-small.jpg"
+                "preview": "assets/images/apps/profile/lago-di-sorapis-small.jpg"
               },
               {
                 "type": "photo",
                 "title": "Morain Lake",
-                "preview": "assets/images/profile/morain-lake-small.jpg"
+                "preview": "assets/images/apps/profile/morain-lake-small.jpg"
               },
               {
                 "type": "photo",
                 "title": "Never Stop Changing",
-                "preview": "assets/images/profile/never-stop-changing-small.jpg"
+                "preview": "assets/images/apps/profile/never-stop-changing-small.jpg"
               },
               {
                 "type": "photo",
                 "title": "Reaching",
-                "preview": "assets/images/profile/reaching-small.jpg"
+                "preview": "assets/images/apps/profile/reaching-small.jpg"
               },
               {
                 "type": "photo",
                 "title": "Yosemite",
-                "preview": "assets/images/profile/yosemite-small.jpg"
+                "preview": "assets/images/apps/profile/yosemite-small.jpg"
               },
               {
                 "type": "photo",
                 "title": "A Walk Amongst Friends",
-                "preview": "assets/images/profile/a-walk-amongst-friends-small.jpg"
+                "preview": "assets/images/apps/profile/a-walk-amongst-friends-small.jpg"
               },
               {
                 "type": "photo",
                 "title": "Braies Lake",
-                "preview": "assets/images/profile/braies-lake-small.jpg"
+                "preview": "assets/images/apps/profile/braies-lake-small.jpg"
               }
             ]
           }

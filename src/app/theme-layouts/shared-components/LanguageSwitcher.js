@@ -34,7 +34,7 @@ function LanguageSwitcher(props) {
       <Button className="h-40 w-64" onClick={langMenuClick}>
         <img
           className="mx-4 min-w-20"
-          src={`assets/images/flags/${currentLanguage.flag}.png`}
+          src={`assets/images/flags/${currentLanguage.flag}.svg`}
           alt={currentLanguage.title}
         />
 
@@ -64,7 +64,7 @@ function LanguageSwitcher(props) {
             <ListItemIcon className="min-w-40">
               <img
                 className="min-w-20"
-                src={`assets/images/flags/${lng.flag}.png`}
+                src={`assets/images/flags/${lng.flag}.svg`}
                 alt={lng.title}
               />
             </ListItemIcon>
