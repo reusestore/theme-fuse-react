@@ -123,7 +123,7 @@ function PaletteSelector(props) {
                         _onChange('light');
                         setValue('palette.text', lightPaletteText, { shouldDirty: true });
                       }}
-                      color={_value === 'light' ? 'secondary' : 'inherit'}
+                      variant={_value === 'light' ? 'contained' : 'outlined'}
                     >
                       Light
                     </Button>
@@ -133,7 +133,7 @@ function PaletteSelector(props) {
                         _onChange('dark');
                         setValue('palette.text', darkPaletteText, { shouldDirty: true });
                       }}
-                      color={_value === 'dark' ? 'secondary' : 'inherit'}
+                      variant={_value === 'dark' ? 'contained' : 'outlined'}
                     >
                       Dark
                     </Button>
