@@ -1,6 +1,7 @@
 import FuseUtils from '@fuse/utils';
 import FuseLoading from '@fuse/core/FuseLoading';
 import { Navigate } from 'react-router-dom';
+import settingsConfig from 'app/configs/settingsConfig';
 import userInterfaceConfigs from '../main/user-interface/UserInterfaceConfigs';
 import SignInConfig from '../main/sign-in/SignInConfig';
 import SignUpConfig from '../main/sign-up/SignUpConfig';
@@ -24,13 +25,11 @@ const routeConfigs = [
 ];
 
 const routes = [
-  // if you want to make whole app auth protected by default change defaultAuth for example:
-  // ...FuseUtils.generateRoutesFromConfigs(routeConfigs, ['admin','staff','user']),
-  // The individual route configs which has auth option won't be overridden.
-  ...FuseUtils.generateRoutesFromConfigs(routeConfigs, ['admin']),
+  ...FuseUtils.generateRoutesFromConfigs(routeConfigs, settingsConfig.defaultAuth),
   {
     path: '/',
     element: <Navigate to="dashboards/analytics" />,
+    auth: settingsConfig.defaultAuth,
   },
   {
     path: 'loading',
