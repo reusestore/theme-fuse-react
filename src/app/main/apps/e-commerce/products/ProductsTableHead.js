@@ -14,6 +14,7 @@ import { useDispatch } from 'react-redux';
 import { Box } from '@mui/system';
 import TableHead from '@mui/material/TableHead';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import { lighten } from '@mui/material/styles';
 import { removeProducts } from '../store/productsSlice';
 
 const rows = [
@@ -84,7 +85,16 @@ function ProductsTableHead(props) {
   return (
     <TableHead>
       <TableRow className="h-48 sm:h-64">
-        <TableCell padding="none" className="w-40 md:w-64 text-center z-99">
+        <TableCell
+          sx={{
+            backgroundColor: (theme) =>
+              theme.palette.mode === 'light'
+                ? lighten(theme.palette.background.default, 0.4)
+                : lighten(theme.palette.background.default, 0.02),
+          }}
+          padding="none"
+          className="w-40 md:w-64 text-center z-99"
+        >
           <Checkbox
             indeterminate={numSelected > 0 && numSelected < props.rowCount}
             checked={props.rowCount !== 0 && numSelected === props.rowCount}
@@ -132,6 +142,12 @@ function ProductsTableHead(props) {
         {rows.map((row) => {
           return (
             <TableCell
+              sx={{
+                backgroundColor: (theme) =>
+                  theme.palette.mode === 'light'
+                    ? lighten(theme.palette.background.default, 0.4)
+                    : lighten(theme.palette.background.default, 0.02),
+              }}
               className="p-4 md:p-16"
               key={row.id}
               align={row.align}

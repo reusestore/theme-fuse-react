@@ -53,7 +53,7 @@ function NoteListItem(props) {
                 </FuseSvgIcon>
                 <Typography
                   className={clsx('truncate mx-8', item.completed && 'line-through')}
-                  color={item.completed ? 'textSecondary' : 'inherit'}
+                  color={item.completed ? 'text.secondary' : 'inherit'}
                 >
                   {item.content}
                 </Typography>

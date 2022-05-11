@@ -51,7 +51,7 @@ function ProfileApp() {
 
             <div className="flex flex-col items-center lg:items-start mt-16 lg:mt-0 lg:ml-32">
               <Typography className="text-lg font-bold leading-none">Brian Hughes</Typography>
-              <Typography color="textSecondary">London, UK</Typography>
+              <Typography color="text.secondary">London, UK</Typography>
             </div>
 
             <div className="hidden lg:flex h-32 mx-32 border-l-2" />
@@ -59,13 +59,13 @@ function ProfileApp() {
             <div className="flex items-center mt-24 lg:mt-0 space-x-24">
               <div className="flex flex-col items-center">
                 <Typography className="font-bold">200k</Typography>
-                <Typography className="text-sm font-medium" color="textSecondary">
+                <Typography className="text-sm font-medium" color="text.secondary">
                   FOLLOWERS
                 </Typography>
               </div>
               <div className="flex flex-col items-center">
                 <Typography className="font-bold">1.2k</Typography>
-                <Typography className="text-sm font-medium" color="textSecondary">
+                <Typography className="text-sm font-medium" color="text.secondary">
                   FOLLOWING
                 </Typography>
               </div>

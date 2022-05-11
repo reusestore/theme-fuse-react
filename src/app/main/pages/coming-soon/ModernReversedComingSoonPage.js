@@ -116,7 +116,7 @@ function ModernReversedComingSoonPage() {
           </div>
         </Box>
 
-        <div className="w-full sm:w-auto py-32 px-16 sm:p-48 md:p-64">
+        <div className="w-full sm:w-auto py-32 px-16 sm:p-48 md:p-64 rtl:border-r-1 ltr:border-l-1">
           <div className="w-full max-w-320 sm:w-320 mx-auto sm:mx-0">
             <img className="w-48" src="assets/images/logo/logo.svg" alt="logo" />
 
@@ -168,7 +168,7 @@ function ModernReversedComingSoonPage() {
                 Notify me when you launch
               </Button>
 
-              <Typography className="mt-32 text-md font-medium" color="textSecondary">
+              <Typography className="mt-32 text-md font-medium" color="text.secondary">
                 This isn't a newsletter subscription. We will send one email to you when we launch
                 and then you will be removed from the list.
               </Typography>

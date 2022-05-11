@@ -14,6 +14,7 @@ import { useDispatch } from 'react-redux';
 import { Box } from '@mui/system';
 import TableHead from '@mui/material/TableHead';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import { darken, lighten } from '@mui/material/styles';
 import { removeOrders } from '../store/ordersSlice';
 
 const rows = [
@@ -93,7 +94,14 @@ function OrdersTableHead(props) {
   return (
     <TableHead>
       <TableRow className="h-48 sm:h-64">
-        <TableCell padding="none" className="w-40 md:w-64 text-center z-99">
+        <TableCell
+          padding="none"
+          className="w-40 md:w-64 text-center z-99"
+          sx={{
+            backgroundColor: (theme) =>
+              darken(theme.palette.background.paper, theme.palette.mode === 'light' ? 0.02 : 0.2),
+          }}
+        >
           <Checkbox
             indeterminate={numSelected > 0 && numSelected < props.rowCount}
             checked={props.rowCount !== 0 && numSelected === props.rowCount}
@@ -103,7 +111,10 @@ function OrdersTableHead(props) {
             <Box
               className="flex items-center justify-center absolute w-64 top-0 ltr:left-0 rtl:right-0 mx-56 h-64 z-10 border-b-1"
               sx={{
-                background: (theme) => theme.palette.background.default,
+                backgroundColor: (theme) =>
+                  theme.palette.mode === 'light'
+                    ? lighten(theme.palette.background.default, 0.4)
+                    : lighten(theme.palette.background.default, 0.02),
               }}
             >
               <IconButton
@@ -141,6 +152,12 @@ function OrdersTableHead(props) {
         {rows.map((row) => {
           return (
             <TableCell
+              sx={{
+                backgroundColor: (theme) =>
+                  theme.palette.mode === 'light'
+                    ? lighten(theme.palette.background.default, 0.4)
+                    : lighten(theme.palette.background.default, 0.02),
+              }}
               className="p-4 md:p-16"
               key={row.id}
               align={row.align}

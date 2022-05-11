@@ -48,7 +48,7 @@ function FullScreenReversedSignInPage() {
   return (
     <div className="flex flex-col sm:flex-row items-center md:items-start sm:justify-center md:justify-start flex-auto min-w-0">
       <Box
-        className="relative hidden md:flex flex-auto items-center justify-center h-full p-64 lg:px-112 overflow-hidden"
+        className="relative hidden md:flex flex-auto items-center justify-center h-full p-64 lg:px-112 overflow-hidden "
         sx={{ backgroundColor: 'primary.main' }}
       >
         <svg
@@ -125,7 +125,7 @@ function FullScreenReversedSignInPage() {
         </div>
       </Box>
 
-      <Paper className="md:flex w-full sm:w-auto md:h-full py-32 px-16 sm:p-48 md:p-64 md:pt-96 sm:rounded-2xl md:rounded-none sm:shadow md:shadow-none">
+      <Paper className="md:flex w-full sm:w-auto md:h-full py-32 px-16 sm:p-48 md:p-64 md:pt-96 sm:rounded-2xl md:rounded-none sm:shadow md:shadow-none rtl:border-r-1 ltr:border-l-1">
         <div className="w-full max-w-320 sm:w-320 mx-auto sm:mx-0">
           <img className="w-48" src="assets/images/logo/logo.svg" alt="logo" />
 
@@ -215,7 +215,7 @@ function FullScreenReversedSignInPage() {
 
             <div className="flex items-center mt-32">
               <div className="flex-auto mt-px border-t" />
-              <Typography className="mx-8" color="textSecondary">
+              <Typography className="mx-8" color="text.secondary">
                 Or continue with
               </Typography>
               <div className="flex-auto mt-px border-t" />

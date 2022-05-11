@@ -49,7 +49,7 @@ function FuseNavVerticalGroup(props) {
               margin: 0,
               '& > .MuiListItemText-primary': {
                 fontSize: 12,
-                color: 'secondary.main',
+                color: 'secondary.light',
                 fontWeight: 600,
                 textTransform: 'uppercase',
                 letterSpacing: '.05em',

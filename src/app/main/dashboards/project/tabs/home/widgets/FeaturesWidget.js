@@ -15,7 +15,7 @@ function FeaturesWidget() {
       <div className="flex items-center justify-between px-8 pt-12">
         <Typography
           className="px-16 text-lg font-medium tracking-tight leading-6 truncate"
-          color="textSecondary"
+          color="text.secondary"
         >
           {title}
         </Typography>
@@ -31,7 +31,7 @@ function FeaturesWidget() {
       </div>
       <Typography
         className="flex items-baseline justify-center w-full mt-20 mb-24"
-        color="textSecondary"
+        color="text.secondary"
       >
         <span className="truncate">{data.extra.name}</span>:
         <b className="px-8">{data.extra.count}</b>

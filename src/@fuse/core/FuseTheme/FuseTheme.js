@@ -5,10 +5,16 @@ const useEnhancedEffect = typeof window === 'undefined' ? useEffect : useLayoutE
 
 function FuseTheme(props) {
   const { direction, theme } = props;
+  const { mode } = theme.palette;
 
   useEnhancedEffect(() => {
     document.body.dir = direction;
   }, [direction]);
+
+  useEffect(() => {
+    document.body.classList.add(mode === 'light' ? 'light' : 'dark');
+    document.body.classList.remove(mode === 'light' ? 'dark' : 'light');
+  }, [mode]);
 
   // console.warn('FuseTheme:: rendered',mainTheme);
   return <ThemeProvider theme={theme}>{props.children}</ThemeProvider>;

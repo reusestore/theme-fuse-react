@@ -95,7 +95,7 @@ function BoardCard(props) {
                     <FuseSvgIcon size={16} color="action">
                       heroicons-outline:paper-clip
                     </FuseSvgIcon>
-                    <Typography className="" color="textSecondary">
+                    <Typography className="" color="text.secondary">
                       {card.attachments.length}
                     </Typography>
                   </span>
@@ -106,7 +106,7 @@ function BoardCard(props) {
                       heroicons-outline:chat
                     </FuseSvgIcon>
 
-                    <Typography className="" color="textSecondary">
+                    <Typography className="" color="text.secondary">
                       {commentsCount}
                     </Typography>
                   </span>

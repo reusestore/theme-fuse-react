@@ -41,7 +41,7 @@ function TeamMembersWidget(props) {
               <img className="w-full h-full object-cover" src={member.avatar} alt="member" />
             </div>
             <Typography className="mt-24 font-medium">{member.name}</Typography>
-            <Typography color="textSecondary">{member.title}</Typography>
+            <Typography color="text.secondary">{member.title}</Typography>
           </div>
           <div className="flex items-center w-full border-t divide-x">
             <a

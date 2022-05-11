@@ -32,12 +32,12 @@ function SimplePricingCard(props) {
           {period === 'month' && monthlyPrice}
           {period === 'year' && yearlyPrice}
         </Typography>
-        <Typography className="ml-8 text-2xl" color="textSecondary">
+        <Typography className="ml-8 text-2xl" color="text.secondary">
           / month
         </Typography>
       </div>
 
-      <Typography className="flex flex-col mt-8" color="textSecondary">
+      <Typography className="flex flex-col mt-8" color="text.secondary">
         {period === 'month' && (
           <>
             <span>billed monthly</span>

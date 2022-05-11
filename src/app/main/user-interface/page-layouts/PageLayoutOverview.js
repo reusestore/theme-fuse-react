@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import { darken, styled } from '@mui/material/styles';
+import { darken, lighten, styled } from '@mui/material/styles';
 import Tabs from '@mui/material/Tabs';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
@@ -77,7 +77,7 @@ function PageLayoutOverview(props) {
           <Typography className="text-3xl md:text-4xl font-extrabold tracking-tight">
             {title}
           </Typography>
-          <Typography className="text-lg md:text-xl" color="textSecondary">
+          <Typography className="text-lg md:text-xl" color="text.secondary">
             {description}
           </Typography>
 
@@ -112,11 +112,14 @@ function PageLayoutOverview(props) {
           </div>
         </div>
         <div className="px-24 sm:px-40 w-full">
-          <Paper className="preview-wrapper z-20 relative h-3xl w-full rounded-2xl shadow-xl flex flex-auto min-h-full overflow-hidden">
+          <Paper className="preview-wrapper z-20 relative h-3xl w-full rounded-2xl shadow-xl flex flex-auto min-h-full overflow-hidden border">
             <Box
               className="preview-navbar hidden md:block sticky top-0 flex-0 min-w-224 h-768 border-r z-20"
               sx={{
-                backgroundColor: (theme) => darken(theme.palette.background.default, 0.05),
+                backgroundColor: (theme) =>
+                  theme.palette.mode === 'light'
+                    ? lighten(theme.palette.background.default, 0.4)
+                    : lighten(theme.palette.background.default, 0.02),
               }}
             >
               <div className="h-16" />
@@ -124,26 +127,26 @@ function PageLayoutOverview(props) {
               <Box
                 className="w-2/3 h-16 m-24 rounded"
                 sx={{
-                  backgroundColor: (theme) => darken(theme.palette.background.default, 0.2),
+                  backgroundColor: (theme) => darken(theme.palette.background.default, 0.1),
                 }}
               />
 
               <Box
                 className="w-3/4 h-16 m-24 rounded"
                 sx={{
-                  backgroundColor: (theme) => darken(theme.palette.background.default, 0.2),
+                  backgroundColor: (theme) => darken(theme.palette.background.default, 0.1),
                 }}
               />
               <Box
                 className="w-1/2 h-16 m-24 rounded"
                 sx={{
-                  backgroundColor: (theme) => darken(theme.palette.background.default, 0.2),
+                  backgroundColor: (theme) => darken(theme.palette.background.default, 0.1),
                 }}
               />
               <Box
                 className="w-2/3 h-16 m-24 rounded"
                 sx={{
-                  backgroundColor: (theme) => darken(theme.palette.background.default, 0.2),
+                  backgroundColor: (theme) => darken(theme.palette.background.default, 0.1),
                 }}
               />
             </Box>
@@ -152,13 +155,16 @@ function PageLayoutOverview(props) {
               <Box
                 className="preview-header relative z-20 flex flex-shrink-0 items-center justify-end h-64 px-24 sm:px-40 border-b"
                 sx={{
-                  backgroundColor: (theme) => darken(theme.palette.background.default, 0.05),
+                  backgroundColor: (theme) =>
+                    theme.palette.mode === 'light'
+                      ? lighten(theme.palette.background.default, 0.4)
+                      : lighten(theme.palette.background.default, 0.02),
                 }}
               >
                 <Box
                   className="w-24 h-24 rounded-full"
                   sx={{
-                    backgroundColor: (theme) => darken(theme.palette.background.default, 0.2),
+                    backgroundColor: (theme) => darken(theme.palette.background.default, 0.1),
                   }}
                 />
               </Box>
@@ -170,13 +176,16 @@ function PageLayoutOverview(props) {
               <Box
                 className="preview-footer relative z-20 flex flex-shrink-0 items-center h-56 px-24 sm:px-40 border-t"
                 sx={{
-                  backgroundColor: (theme) => darken(theme.palette.background.default, 0.05),
+                  backgroundColor: (theme) =>
+                    theme.palette.mode === 'light'
+                      ? lighten(theme.palette.background.default, 0.4)
+                      : lighten(theme.palette.background.default, 0.02),
                 }}
               >
                 <Box
                   className="w-128 h-16 rounded-full"
                   sx={{
-                    backgroundColor: (theme) => darken(theme.palette.background.default, 0.2),
+                    backgroundColor: (theme) => darken(theme.palette.background.default, 0.1),
                   }}
                 />
               </Box>

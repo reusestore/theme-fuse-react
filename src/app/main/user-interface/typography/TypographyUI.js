@@ -22,7 +22,7 @@ function TypographyUI() {
           <div className="flex-1 min-w-0">
             <div className="flex flex-wrap items-center font-medium">
               <div>
-                <Typography className="whitespace-nowrap" color="secondary">
+                <Typography className="whitespace-nowrap" color="secondary.main">
                   User Interface
                 </Typography>
               </div>

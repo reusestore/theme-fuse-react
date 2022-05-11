@@ -16,7 +16,7 @@ function ClassicSignOutPage() {
             Redirecting in 5 seconds
           </Typography>
 
-          <Typography className="mt-32 text-md font-medium text-center" color="textSecondary">
+          <Typography className="mt-32 text-md font-medium text-center" color="text.secondary">
             <span>Go to</span>
             <Link className="ml-4" to="/sign-in">
               sign in

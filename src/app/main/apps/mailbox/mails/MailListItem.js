@@ -85,7 +85,7 @@ const MailListItem = (props) => {
 
               <Typography
                 className="ml-auto text-md text-right whitespace-nowrap"
-                color="textSecondary"
+                color="text.secondary"
               >
                 {format(new Date(mail.date), 'LLL dd')}
               </Typography>
@@ -111,7 +111,7 @@ const MailListItem = (props) => {
             </div>
           </div>
         </div>
-        <Typography color="textSecondary" className="mt-8 leading-normal line-clamp-2">
+        <Typography color="text.secondary" className="mt-8 leading-normal line-clamp-2">
           {_.truncate(props.mail.content.replace(/<(?:.|\n)*?>/gm, ''), { length: 180 })}
         </Typography>
       </div>

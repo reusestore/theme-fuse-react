@@ -56,7 +56,7 @@ function NewNote(props) {
       ) : (
         <Typography
           className="w-full px-16 py-12 text-16 w-full"
-          color="textSecondary"
+          color="text.secondary"
           onClick={handleFormOpen}
         >
           Take a note...

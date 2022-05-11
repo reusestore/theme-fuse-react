@@ -1,4 +1,3 @@
-import AppBar from '@mui/material/AppBar';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
@@ -16,6 +15,8 @@ import axios from 'axios';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import { lighten } from '@mui/material/styles';
+import Box from '@mui/material/Box';
 
 function TimelineTab() {
   const [data, setData] = useState(null);
@@ -72,7 +73,7 @@ function TimelineTab() {
                         <div className="flex">
                           <Typography
                             className="font-normal whitespace-nowrap"
-                            color="primary"
+                            color="secondary"
                             paragraph={false}
                           >
                             {activity.user.name}
@@ -107,11 +108,14 @@ function TimelineTab() {
               margin="none"
               disableUnderline
             />
-            <AppBar
+            <Box
               className="card-footer flex items-center flex-row border-t-1 px-24 py-12"
-              position="static"
-              color="default"
-              elevation={0}
+              sx={{
+                backgroundColor: (theme) =>
+                  theme.palette.mode === 'light'
+                    ? lighten(theme.palette.background.default, 0.4)
+                    : lighten(theme.palette.background.default, 0.02),
+              }}
             >
               <div className="flex flex-1 items-center">
                 <IconButton aria-label="Add photo">
@@ -126,11 +130,11 @@ function TimelineTab() {
               </div>
 
               <div className="">
-                <Button variant="contained" color="primary" size="small" aria-label="post">
+                <Button variant="contained" color="secondary" size="small" aria-label="post">
                   Post
                 </Button>
               </div>
-            </AppBar>
+            </Box>
           </Card>
 
           {data.posts.map((post) => (
@@ -144,11 +148,11 @@ function TimelineTab() {
                   </IconButton>
                 }
                 title={
-                  <span className="flex">
-                    <Typography className="font-normal" color="primary" paragraph={false}>
+                  <span className="flex items-center space-x-8">
+                    <Typography className="font-normal" color="secondary.main" paragraph={false}>
                       {post.user.name}
                     </Typography>
-                    <span className="mx-4">
+                    <span>
                       {post.type === 'post' && 'posted on your timeline'}
                       {post.type === 'something' && 'shared something with you'}
                       {post.type === 'video' && 'shared a video with you'}
@@ -201,11 +205,14 @@ function TimelineTab() {
                 </Button>
               </CardActions>
 
-              <AppBar
-                className="card-footer flex flex-column px-32 py-24"
-                position="static"
-                color="default"
-                elevation={0}
+              <Box
+                className="card-footer flex flex-col px-32 py-24 border-t-1"
+                sx={{
+                  backgroundColor: (theme) =>
+                    theme.palette.mode === 'light'
+                      ? lighten(theme.palette.background.default, 0.4)
+                      : lighten(theme.palette.background.default, 0.02),
+                }}
               >
                 {post.comments && post.comments.length > 0 && (
                   <div className="">
@@ -228,17 +235,15 @@ function TimelineTab() {
                             <ListItemText
                               className="px-4"
                               primary={
-                                <div className="flex">
+                                <div className="flex items-center space-x-8">
                                   <Typography
                                     className="font-normal"
-                                    color="initial"
+                                    color="secondary"
                                     paragraph={false}
                                   >
                                     {comment.user.name}
                                   </Typography>
-                                  <Typography className="mx-4" variant="caption">
-                                    {comment.time}
-                                  </Typography>
+                                  <Typography variant="caption">{comment.time}</Typography>
                                 </div>
                               }
                               secondary={comment.message}
@@ -260,9 +265,9 @@ function TimelineTab() {
                 <div className="flex flex-auto -mx-4">
                   <Avatar className="mx-4" src="assets/images/avatars/profile.jpg" />
                   <div className="flex flex-col flex-1 mx-4 items-end">
-                    <Paper className="w-full mb-16 shadow-0">
+                    <Paper className="w-full mb-16 shadow-0 border-1  overflow-hidden">
                       <Input
-                        className="p-8 w-full border-1 rounded-8"
+                        className="p-12 w-full"
                         classes={{ root: 'text-13' }}
                         placeholder="Add a comment.."
                         multiline
@@ -272,13 +277,13 @@ function TimelineTab() {
                       />
                     </Paper>
                     <div>
-                      <Button variant="contained" color="primary" size="small">
+                      <Button variant="contained" color="secondary" size="small">
                         Post comment
                       </Button>
                     </div>
                   </div>
                 </div>
-              </AppBar>
+              </Box>
             </Card>
           ))}
         </div>

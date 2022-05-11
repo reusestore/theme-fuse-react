@@ -47,7 +47,7 @@ function FullScreenSignInPage() {
 
   return (
     <div className="flex flex-col sm:flex-row items-center md:items-start sm:justify-center md:justify-start flex-auto min-w-0">
-      <Paper className="md:flex md:justify-end w-full sm:w-auto md:h-full py-32 px-16 sm:p-48 md:p-64 md:pt-96 sm:rounded-2xl md:rounded-none sm:shadow md:shadow-none">
+      <Paper className="md:flex md:justify-end w-full sm:w-auto md:h-full py-32 px-16 sm:p-48 md:p-64 md:pt-96 sm:rounded-2xl md:rounded-none sm:shadow md:shadow-none ltr:border-r-1 rtl:border-l-1">
         <div className="w-full max-w-320 sm:w-320 mx-auto sm:mx-0">
           <img className="w-48" src="assets/images/logo/logo.svg" alt="logo" />
 
@@ -137,7 +137,7 @@ function FullScreenSignInPage() {
 
             <div className="flex items-center mt-32">
               <div className="flex-auto mt-px border-t" />
-              <Typography className="mx-8" color="textSecondary">
+              <Typography className="mx-8" color="text.secondary">
                 Or continue with
               </Typography>
               <div className="flex-auto mt-px border-t" />

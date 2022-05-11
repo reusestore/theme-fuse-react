@@ -29,7 +29,7 @@ function OrderDetailsTab() {
       <div className="pb-48">
         <div className="pb-16 flex items-center">
           <FuseSvgIcon color="action">heroicons-outline:user-circle</FuseSvgIcon>
-          <Typography className="h2 mx-12 font-medium" color="textSecondary">
+          <Typography className="h2 mx-12 font-medium" color="text.secondary">
             Customer
           </Typography>
         </div>
@@ -154,7 +154,7 @@ function OrderDetailsTab() {
       <div className="pb-48">
         <div className="pb-16 flex items-center">
           <FuseSvgIcon color="action">heroicons-outline:clock</FuseSvgIcon>
-          <Typography className="h2 mx-12 font-medium" color="textSecondary">
+          <Typography className="h2 mx-12 font-medium" color="text.secondary">
             Order Status
           </Typography>
         </div>
@@ -188,7 +188,7 @@ function OrderDetailsTab() {
       <div className="pb-48">
         <div className="pb-16 flex items-center">
           <FuseSvgIcon color="action">heroicons-outline:currency-dollar</FuseSvgIcon>
-          <Typography className="h2 mx-12 font-medium" color="textSecondary">
+          <Typography className="h2 mx-12 font-medium" color="text.secondary">
             Payment
           </Typography>
         </div>
@@ -234,7 +234,7 @@ function OrderDetailsTab() {
       <div className="pb-48">
         <div className="pb-16 flex items-center">
           <FuseSvgIcon color="action">heroicons-outline:truck</FuseSvgIcon>
-          <Typography className="h2 mx-12 font-medium" color="textSecondary">
+          <Typography className="h2 mx-12 font-medium" color="text.secondary">
             Shipping
           </Typography>
         </div>

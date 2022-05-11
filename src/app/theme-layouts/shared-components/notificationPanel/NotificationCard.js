@@ -62,7 +62,7 @@ function NotificationCard(props) {
         )}
 
         {item.item && (
-          <Typography className="mt-8 text-sm leading-none " color="textSecondary">
+          <Typography className="mt-8 text-sm leading-none " color="text.secondary">
             {formatDistanceToNow(new Date(item.time), { addSuffix: true })}
           </Typography>
         )}

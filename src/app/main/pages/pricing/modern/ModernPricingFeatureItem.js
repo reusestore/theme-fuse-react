@@ -14,7 +14,7 @@ function ModernPricingFeatureItem(props) {
         <FuseSvgIcon>{icon}</FuseSvgIcon>
       </Box>
       <Typography className="mt-16 text-xl font-medium">{title}</Typography>
-      <Typography className="mt-8 leading-24" color="textSecondary">
+      <Typography className="mt-8 leading-24" color="text.secondary">
         {subtitle}
       </Typography>
     </div>

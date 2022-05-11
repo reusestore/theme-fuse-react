@@ -53,7 +53,7 @@ function FuseCountdown(props) {
         <Typography variant="h4" className="mb-4">
           {countdown.days}
         </Typography>
-        <Typography variant="caption" color="textSecondary">
+        <Typography variant="caption" color="text.secondary">
           days
         </Typography>
       </div>
@@ -61,7 +61,7 @@ function FuseCountdown(props) {
         <Typography variant="h4" className="mb-4">
           {countdown.hours}
         </Typography>
-        <Typography variant="caption" color="textSecondary">
+        <Typography variant="caption" color="text.secondary">
           hours
         </Typography>
       </div>
@@ -69,7 +69,7 @@ function FuseCountdown(props) {
         <Typography variant="h4" className="mb-4">
           {countdown.minutes}
         </Typography>
-        <Typography variant="caption" color="textSecondary">
+        <Typography variant="caption" color="text.secondary">
           minutes
         </Typography>
       </div>
@@ -77,7 +77,7 @@ function FuseCountdown(props) {
         <Typography variant="h4" className="mb-4">
           {countdown.seconds}
         </Typography>
-        <Typography variant="caption" color="textSecondary">
+        <Typography variant="caption" color="text.secondary">
           seconds
         </Typography>
       </div>

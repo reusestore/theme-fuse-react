@@ -6,10 +6,12 @@ import Tabs from '@mui/material/Tabs';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import { selectContrastMainTheme } from 'app/store/fuse/settingsSlice';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
 import { selectWidgets } from '../store/widgetsSlice';
 
-const Root = styled('div')(({ theme }) => ({
-  background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
+const Root = styled(Paper)(({ theme }) => ({
+  background: theme.palette.primary.main,
   color: theme.palette.primary.contrastText,
 }));
 
@@ -46,7 +48,7 @@ function VisitorsOverviewWidget() {
       enabled: false,
     },
     fill: {
-      colors: [contrastTheme.palette.secondary.main],
+      colors: [contrastTheme.palette.secondary.dark],
     },
     grid: {
       show: true,
@@ -122,10 +124,12 @@ function VisitorsOverviewWidget() {
       <Root className="sm:col-span-2 lg:col-span-3 dark flex flex-col flex-auto shadow rounded-2xl overflow-hidden">
         <div className="flex items-center justify-between mt-40 ml-40 mr-24 sm:mr-40">
           <div className="flex flex-col">
-            <div className="mr-16 text-2xl md:text-3xl font-semibold tracking-tight leading-7">
+            <Typography className="mr-16 text-2xl md:text-3xl font-semibold tracking-tight leading-7">
               Visitors Overview
-            </div>
-            <div className="font-medium text-secondary">Number of unique visitors</div>
+            </Typography>
+            <Typography className="font-medium" color="text.secondary">
+              Number of unique visitors
+            </Typography>
           </div>
           <div className="mt-12 sm:mt-0 sm:ml-8">
             <Tabs

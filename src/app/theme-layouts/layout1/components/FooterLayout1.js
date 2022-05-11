@@ -18,7 +18,12 @@ function FooterLayout1(props) {
         id="fuse-footer"
         className={clsx('relative z-20 shadow-md', props.className)}
         color="default"
-        style={{ backgroundColor: footerTheme.palette.background.paper }}
+        sx={{
+          backgroundColor: (theme) =>
+            theme.palette.mode === 'light'
+              ? footerTheme.palette.background.paper
+              : footerTheme.palette.background.default,
+        }}
       >
         <Toolbar className="min-h-48 md:min-h-64 px-8 sm:px-12 py-0 flex items-center overflow-x-auto">
           <div className="flex grow shrink-0">

@@ -245,7 +245,7 @@ function PaletteSelector(props) {
             </div>
 
             <div className="flex flex-col items-center justify-center p-48">
-              <Typography className="text-16 font-semibold mb-16 -mt-48" color="textSecondary">
+              <Typography className="text-16 font-semibold mb-16 -mt-48" color="text.secondary">
                 Preview
               </Typography>
               <PalettePreview className="" palette={form.palette} />

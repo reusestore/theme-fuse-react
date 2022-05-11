@@ -8,12 +8,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import { Controller, useForm } from 'react-hook-form';
 import { useEffect } from 'react';
 import _ from '@lodash';
 import { useDebounce, useDeepCompareEffect } from '@fuse/hooks';
+import { lighten } from '@mui/material/styles';
+import Box from '@mui/material/Box';
 import { deleteBoard, selectBoard, updateBoard } from '../../../store/boardSlice';
 
 function BoardSettingsSidebar(props) {
@@ -53,7 +54,15 @@ function BoardSettingsSidebar(props) {
 
   return (
     <div>
-      <AppBar className="border-b-1" position="static" color="default" elevation={0}>
+      <Box
+        sx={{
+          backgroundColor: (theme) =>
+            theme.palette.mode === 'light'
+              ? lighten(theme.palette.background.default, 0.4)
+              : lighten(theme.palette.background.default, 0.02),
+        }}
+        className="border-b-1"
+      >
         <Toolbar className="flex items-center px-4">
           <IconButton onClick={() => props.onSetSidebarOpen(false)} color="inherit" size="large">
             <FuseSvgIcon>heroicons-outline:x</FuseSvgIcon>
@@ -62,7 +71,7 @@ function BoardSettingsSidebar(props) {
             Settings
           </Typography>
         </Toolbar>
-      </AppBar>
+      </Box>
 
       <List className="py-24">
         <ListItem>

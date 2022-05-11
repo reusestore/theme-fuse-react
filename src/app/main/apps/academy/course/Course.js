@@ -89,10 +89,7 @@ function Course(props) {
             <CourseProgress className="sticky top-0 z-10" course={course} />
           </Hidden>
           <Hidden lgUp>
-            <Box
-              sx={{ backgroundColor: 'background.paper' }}
-              className="flex sticky top-0 z-10 items-center w-full p-16 border-b-1"
-            >
+            <Paper className="flex sticky top-0 z-10 items-center w-full p-16 border-b-1">
               <IconButton to="/apps/academy/courses" component={Link} className="">
                 <FuseSvgIcon>
                   {theme.direction === 'ltr'
@@ -104,7 +101,7 @@ function Course(props) {
               <Typography className="text-18 font-medium tracking-tight mx-10">
                 {course.title}
               </Typography>
-            </Box>
+            </Paper>
           </Hidden>
           <SwipeableViews index={activeStep - 1} enableMouseEvents onChangeIndex={handleStepChange}>
             {course.steps.map((step, index) => (
@@ -114,7 +111,7 @@ function Course(props) {
               >
                 <Paper className="w-full max-w-lg mx-auto sm:my-8 lg:mt-16 p-24 sm:p-40 sm:py-48 rounded-16 shadow overflow-hidden">
                   <div
-                    className="prose prose-sm w-full max-w-full"
+                    className="prose prose-sm dark:prose-invert w-full max-w-full"
                     dangerouslySetInnerHTML={{ __html: step.content }}
                     dir={theme.direction}
                   />
@@ -194,26 +191,24 @@ function Course(props) {
             <Button
               to="/apps/academy/courses"
               component={Link}
-              className="space-x-8 p-0 mb-24"
+              className="mb-24"
               color="secondary"
               variant="text"
+              startIcon={
+                <FuseSvgIcon size={20}>
+                  {theme.direction === 'ltr'
+                    ? 'heroicons-outline:arrow-sm-left'
+                    : 'heroicons-outline:arrow-sm-right'}
+                </FuseSvgIcon>
+              }
             >
-              <FuseSvgIcon size={20}>
-                {theme.direction === 'ltr'
-                  ? 'heroicons-outline:arrow-sm-left'
-                  : 'heroicons-outline:arrow-sm-right'}
-              </FuseSvgIcon>
-              <span>Back to courses</span>
+              Back to courses
             </Button>
 
             <CourseInfo course={course} />
           </div>
           <Divider />
-          <Stepper
-            classes={{ root: 'bg-transparent p-32' }}
-            activeStep={activeStep - 1}
-            orientation="vertical"
-          >
+          <Stepper classes={{ root: 'p-32' }} activeStep={activeStep - 1} orientation="vertical">
             {course.steps.map((step, index) => {
               return (
                 <Step
@@ -230,7 +225,31 @@ function Course(props) {
                   onClick={() => handleStepChange(step.order)}
                   expanded
                 >
-                  <StepLabel className="font-medium">{step.title}</StepLabel>
+                  <StepLabel
+                    className="font-medium"
+                    sx={{
+                      '& .MuiSvgIcon-root': {
+                        color: 'background.default',
+                        '& .MuiStepIcon-text': {
+                          fill: (_theme) => _theme.palette.text.secondary,
+                        },
+                        '&.Mui-completed': {
+                          color: 'secondary.main',
+                          '& .MuiStepIcon-text ': {
+                            fill: (_theme) => _theme.palette.secondary.contrastText,
+                          },
+                        },
+                        '&.Mui-active': {
+                          color: 'secondary.main',
+                          '& .MuiStepIcon-text ': {
+                            fill: (_theme) => _theme.palette.secondary.contrastText,
+                          },
+                        },
+                      },
+                    }}
+                  >
+                    {step.title}
+                  </StepLabel>
                   <StepContent>{step.subtitle}</StepContent>
                 </Step>
               );

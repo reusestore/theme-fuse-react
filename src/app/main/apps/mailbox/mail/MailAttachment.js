@@ -26,7 +26,7 @@ function MailAttachment(props) {
 
       <div className="mx-12">
         <Typography className="text-md font-medium truncate">{attachment.name}</Typography>
-        <Typography className="text-sm font-medium truncate" color="textSecondary">
+        <Typography className="text-sm font-medium truncate" color="text.secondary">
           {attachment.size / 1000} KB
         </Typography>
       </div>

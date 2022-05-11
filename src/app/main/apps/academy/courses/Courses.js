@@ -67,7 +67,7 @@ function Courses(props) {
       <Box
         className="relative overflow-hidden flex shrink-0 items-center justify-center px-16 py-32 md:p-64"
         sx={{
-          backgroundColor: 'primary.dark',
+          backgroundColor: 'primary.main',
           color: (theme) => theme.palette.getContrastText(theme.palette.primary.main),
         }}
       >
@@ -205,7 +205,7 @@ function Courses(props) {
               </motion.div>
             ) : (
               <div className="flex flex-1 items-center justify-center">
-                <Typography color="textSecondary" className="text-24 my-24">
+                <Typography color="text.secondary" className="text-24 my-24">
                   No courses found!
                 </Typography>
               </div>

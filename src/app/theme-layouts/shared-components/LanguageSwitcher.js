@@ -38,7 +38,7 @@ function LanguageSwitcher(props) {
           alt={currentLanguage.title}
         />
 
-        <Typography className="mx-4 font-semibold uppercase" color="textSecondary">
+        <Typography className="mx-4 font-semibold uppercase" color="text.secondary">
           {currentLanguage.id}
         </Typography>
       </Button>

@@ -1,5 +1,5 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
-import { styled } from '@mui/material/styles';
+import { lighten, styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import clsx from 'clsx';
@@ -9,9 +9,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import InputBase from '@mui/material/InputBase';
 import Paper from '@mui/material/Paper';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import { useParams } from 'react-router-dom';
+import Box from '@mui/material/Box';
 import { getChat, selectChat, sendMessage } from '../store/chatSlice';
 import { selectContactById } from '../store/contactsSlice';
 import { selectUser } from '../store/userSlice';
@@ -158,7 +158,15 @@ function Chat(props) {
 
   return (
     <>
-      <AppBar className="w-full border-b-1" elevation={0} position="static" color="default">
+      <Box
+        className="w-full border-b-1"
+        sx={{
+          backgroundColor: (theme) =>
+            theme.palette.mode === 'light'
+              ? lighten(theme.palette.background.default, 0.4)
+              : lighten(theme.palette.background.default, 0.02),
+        }}
+      >
         <Toolbar className="flex items-center justify-between px-16 w-full">
           <div className="flex items-center">
             <IconButton
@@ -187,7 +195,7 @@ function Chat(props) {
           </div>
           <ChatMoreMenu className="-mx-8" />
         </Toolbar>
-      </AppBar>
+      </Box>
 
       <div className="flex flex-auto h-full min-h-0 w-full">
         <div className={clsx('flex flex-1 z-10 flex-col relative', props.className)}>
@@ -210,7 +218,7 @@ function Chat(props) {
                         <div className="leading-tight whitespace-pre-wrap">{item.value}</div>
                         <Typography
                           className="time absolute hidden w-full text-11 mt-8 -mb-24 ltr:left-0 rtl:right-0 bottom-0 whitespace-nowrap"
-                          color="textSecondary"
+                          color="text.secondary"
                         >
                           {formatDistanceToNow(new Date(item.createdAt), { addSuffix: true })}
                         </Typography>
@@ -227,7 +235,12 @@ function Chat(props) {
               component="form"
               onSubmit={onMessageSubmit}
               className="absolute border-t-1 bottom-0 right-0 left-0 py-16 px-16"
-              sx={{ backgroundColor: 'background.default' }}
+              sx={{
+                backgroundColor: (theme) =>
+                  theme.palette.mode === 'light'
+                    ? lighten(theme.palette.background.default, 0.4)
+                    : lighten(theme.palette.background.default, 0.02),
+              }}
             >
               <div className="flex items-center relative">
                 <IconButton className="" type="submit" size="large">

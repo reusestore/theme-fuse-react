@@ -54,7 +54,7 @@ function ClassicSearchPage() {
             {data.length > 0 && (
               <motion.div variants={container} initial="hidden" animate="show">
                 <motion.div variants={item}>
-                  <Typography color="textSecondary" className="text-13 mb-24">
+                  <Typography color="text.secondary" className="text-13 mb-24">
                     {data.length} results
                   </Typography>
                 </motion.div>

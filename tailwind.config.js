@@ -5,7 +5,7 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   safelist: ['pl-24', 'pl-40', 'pl-56', 'pl-72', 'pl-80'],
   presets: [],
-  darkMode: 'media', // or 'class'
+  darkMode: 'class', // or 'class'
   theme: {
     screens: {
       sm: '600px',

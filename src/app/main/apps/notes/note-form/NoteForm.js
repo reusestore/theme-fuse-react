@@ -201,7 +201,7 @@ function NoteForm(props) {
               />
 
               {noteForm.createdAt && (
-                <Typography color="textSecondary" className="text-12 mt-8 mx-4">
+                <Typography color="text.secondary" className="text-12 mt-8 mx-4">
                   Edited: {format(new Date(noteForm.createdAt), 'MMM dd yy, h:mm')}
                 </Typography>
               )}

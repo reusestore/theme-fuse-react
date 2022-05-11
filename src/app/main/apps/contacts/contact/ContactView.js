@@ -69,7 +69,7 @@ const ContactView = () => {
               {contact.name.charAt(0)}
             </Avatar>
             <div className="flex items-center ml-auto mb-4">
-              <Button className="" variant="outlined" component={NavLinkAdapter} to="edit">
+              <Button variant="contained" color="secondary" component={NavLinkAdapter} to="edit">
                 <FuseSvgIcon size={20}>heroicons-outline:pencil-alt</FuseSvgIcon>
                 <span className="mx-8">Edit</span>
               </Button>
@@ -124,7 +124,7 @@ const ContactView = () => {
                           </a>
                           {item.label && (
                             <>
-                              <Typography className="text-md truncate" color="textSecondary">
+                              <Typography className="text-md truncate" color="text.secondary">
                                 <span className="mx-8">&bull;</span>
                                 <span className="font-medium">{item.label}</span>
                               </Typography>
@@ -164,7 +164,7 @@ const ContactView = () => {
 
                             {item.label && (
                               <>
-                                <Typography className="text-md truncate" color="textSecondary">
+                                <Typography className="text-md truncate" color="text.secondary">
                                   <span className="mx-8">&bull;</span>
                                   <span className="font-medium">{item.label}</span>
                                 </Typography>
@@ -197,7 +197,7 @@ const ContactView = () => {
               <div className="flex">
                 <FuseSvgIcon>heroicons-outline:menu-alt-2</FuseSvgIcon>
                 <div
-                  className="max-w-none ml-24 prose"
+                  className="max-w-none ml-24 prose dark:prose-invert"
                   dangerouslySetInnerHTML={{ __html: contact.notes }}
                 />
               </div>

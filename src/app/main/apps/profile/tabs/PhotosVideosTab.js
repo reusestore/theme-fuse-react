@@ -48,7 +48,7 @@ function PhotosVideosTab() {
                 <Typography className="text-2xl font-semibold leading-tight">
                   {period.name}
                 </Typography>
-                <Typography className="mx-12 font-medium leading-tight" color="textSecondary">
+                <Typography className="mx-12 font-medium leading-tight" color="text.secondary">
                   {period.info}
                 </Typography>
               </ListSubheader>

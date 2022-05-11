@@ -1,5 +1,5 @@
 import Paper from '@mui/material/Paper';
-import { useTheme } from '@mui/material/styles';
+import { lighten, useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { memo, useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
@@ -128,7 +128,15 @@ function TaskDistributionWidget(props) {
           type={chartOptions.chart.type}
         />
       </div>
-      <div className="grid grid-cols-2 border-t divide-x -m-24 mt-16 bg-gray-50">
+      <Box
+        sx={{
+          backgroundColor: (_theme) =>
+            _theme.palette.mode === 'light'
+              ? lighten(theme.palette.background.default, 0.4)
+              : lighten(theme.palette.background.default, 0.02),
+        }}
+        className="grid grid-cols-2 border-t divide-x -m-24 mt-16"
+      >
         <div className="flex flex-col items-center justify-center p-24 sm:p-32">
           <div className="text-5xl font-semibold leading-none tracking-tighter">
             {overview[currentRange].new}
@@ -141,7 +149,7 @@ function TaskDistributionWidget(props) {
           </div>
           <Typography className="mt-4 text-center text-secondary">Completed tasks</Typography>
         </div>
-      </div>
+      </Box>
     </Paper>
   );
 }

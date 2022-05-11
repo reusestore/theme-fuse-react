@@ -1,6 +1,7 @@
 import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import Box from '@mui/material/Box';
 
 function Error500Page() {
   return (
@@ -10,13 +11,15 @@ function Error500Page() {
           initial={{ opacity: 0, scale: 0.6 }}
           animate={{ opacity: 1, scale: 1, transition: { delay: 0.1 } }}
         >
-          <svg
+          <Box
+            component="svg"
             width="100%"
             height="100%"
             viewBox="0 0 1120 699"
             fill="none"
             preserveAspectRatio="xMidYMax slice"
             xmlns="http://www.w3.org/2000/svg"
+            sx={{ color: 'secondary.main' }}
           >
             <g clipPath="url(#clip0)">
               <path
@@ -26,12 +29,10 @@ function Error500Page() {
               />
               <path
                 d="M108.701 191.351C108.701 112.982 162.956 49.567 230.004 49.567L108.701 191.351Z"
-                className="text-primary"
                 fill="currentColor"
               />
               <path
                 d="M39.3843 58.1677C39.3843 131.782 70.3872 191.351 108.701 191.351L39.3843 58.1677Z"
-                className="text-primary"
                 fill="currentColor"
               />
               <path
@@ -167,57 +168,15 @@ function Error500Page() {
                 className="text-gray-800"
                 fill="currentColor"
               />
-              <path
-                opacity="0.4"
-                d="M277.609 150H261.609V166H277.609V150Z"
-                className="text-primary"
-                fill="currentColor"
-              />
-              <path
-                opacity="0.8"
-                d="M300.609 150H284.609V166H300.609V150Z"
-                className="text-primary"
-                fill="currentColor"
-              />
-              <path
-                d="M323.609 150H307.609V166H323.609V150Z"
-                className="text-primary"
-                fill="currentColor"
-              />
-              <path
-                opacity="0.4"
-                d="M277.609 251H261.609V267H277.609V251Z"
-                className="text-primary"
-                fill="currentColor"
-              />
-              <path
-                opacity="0.8"
-                d="M300.609 251H284.609V267H300.609V251Z"
-                className="text-primary"
-                fill="currentColor"
-              />
-              <path
-                d="M323.609 251H307.609V267H323.609V251Z"
-                className="text-primary"
-                fill="currentColor"
-              />
-              <path
-                opacity="0.4"
-                d="M277.609 352H261.609V368H277.609V352Z"
-                className="text-primary"
-                fill="currentColor"
-              />
-              <path
-                opacity="0.8"
-                d="M300.609 352H284.609V368H300.609V352Z"
-                className="text-primary"
-                fill="currentColor"
-              />
-              <path
-                d="M323.609 352H307.609V368H323.609V352Z"
-                className="text-primary"
-                fill="currentColor"
-              />
+              <path opacity="0.4" d="M277.609 150H261.609V166H277.609V150Z" fill="currentColor" />
+              <path opacity="0.8" d="M300.609 150H284.609V166H300.609V150Z" fill="currentColor" />
+              <path d="M323.609 150H307.609V166H323.609V150Z" fill="currentColor" />
+              <path opacity="0.4" d="M277.609 251H261.609V267H277.609V251Z" fill="currentColor" />
+              <path opacity="0.8" d="M300.609 251H284.609V267H300.609V251Z" fill="currentColor" />
+              <path d="M323.609 251H307.609V267H323.609V251Z" fill="currentColor" />
+              <path opacity="0.4" d="M277.609 352H261.609V368H277.609V352Z" fill="currentColor" />
+              <path opacity="0.8" d="M300.609 352H284.609V368H300.609V352Z" fill="currentColor" />
+              <path d="M323.609 352H307.609V368H323.609V352Z" fill="currentColor" />
               <path
                 d="M316.609 617C360.24 617 395.609 581.63 395.609 538C395.609 494.37 360.24 459 316.609 459C272.979 459 237.609 494.37 237.609 538C237.609 581.63 272.979 617 316.609 617Z"
                 className="text-gray-800"
@@ -255,7 +214,6 @@ function Error500Page() {
               />
               <path
                 d="M239.976 464.532C233.598 435.965 253.988 407.098 285.52 400.057C317.053 393.017 347.786 410.467 354.164 439.035C360.543 467.603 339.646 478.139 308.114 485.18C276.582 492.221 246.355 493.1 239.976 464.532Z"
-                className="text-primary"
                 fill="currentColor"
               />
               <path
@@ -279,7 +237,7 @@ function Error500Page() {
                 <rect width="1119.61" height="699" fill="white" />
               </clipPath>
             </defs>
-          </svg>
+          </Box>
         </motion.div>
 
         <motion.div
@@ -300,7 +258,7 @@ function Error500Page() {
         >
           <Typography
             variant="h5"
-            color="textSecondary"
+            color="text.secondary"
             className="mt-8 text-lg md:text-xl font-medium tracking-tight text-center"
           >
             Server Error 500. Our staff has been notified, thank you for your understanding.

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import './prism-languages';
 import { styled } from '@mui/material/styles';
+import clsx from 'clsx';
 
 function FuseHighlight(props) {
   const highlight = useCallback(() => {
@@ -68,7 +69,7 @@ function FuseHighlight(props) {
   const { className, component: Wrapper } = props;
 
   return (
-    <Wrapper ref={domNode} className={className}>
+    <Wrapper ref={domNode} className={clsx('border', className)}>
       {source}
     </Wrapper>
   );

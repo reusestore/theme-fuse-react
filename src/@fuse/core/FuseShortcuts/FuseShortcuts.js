@@ -205,7 +205,7 @@ function FuseShortcuts(props) {
           ))}
 
         {searchText.length !== 0 && searchResults.length === 0 && (
-          <Typography color="textSecondary" className="p-16 pb-8">
+          <Typography color="text.secondary" className="p-16 pb-8">
             No results..
           </Typography>
         )}

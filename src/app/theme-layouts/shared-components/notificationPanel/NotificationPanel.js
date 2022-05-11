@@ -122,7 +122,7 @@ function NotificationPanel(props) {
         </FuseScrollbars>
       ) : (
         <div className="flex flex-1 items-center justify-center p-16">
-          <Typography className="text-24 text-center" color="textSecondary">
+          <Typography className="text-24 text-center" color="text.secondary">
             There are no notifications for now.
           </Typography>
         </div>

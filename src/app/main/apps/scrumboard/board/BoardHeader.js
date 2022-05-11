@@ -13,7 +13,6 @@ function BoardHeader(props) {
       <div className="flex items-center justify-end space-x-12">
         <Button
           className="whitespace-nowrap"
-          variant="outlined"
           component={NavLinkAdapter}
           to="/apps/scrumboard/boards/"
           startIcon={<FuseSvgIcon size={20}>heroicons-outline:view-boards</FuseSvgIcon>}
@@ -23,7 +22,8 @@ function BoardHeader(props) {
 
         <Button
           className="whitespace-nowrap"
-          variant="outlined"
+          variant="contained"
+          color="secondary"
           onClick={() => props.onSetSidebarOpen(true)}
           startIcon={<FuseSvgIcon size={20}>heroicons-outline:cog</FuseSvgIcon>}
         >

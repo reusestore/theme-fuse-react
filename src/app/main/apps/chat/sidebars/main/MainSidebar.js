@@ -1,6 +1,5 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import FuseUtils from '@fuse/utils';
-import AppBar from '@mui/material/AppBar';
 import Input from '@mui/material/Input';
 import List from '@mui/material/List';
 import Paper from '@mui/material/Paper';
@@ -10,6 +9,8 @@ import { useContext, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import Box from '@mui/material/Box';
+import { lighten } from '@mui/material/styles';
 import ContactListItem from './ContactListItem';
 import { getChat } from '../../store/chatSlice';
 import { selectContacts } from '../../store/contactsSlice';
@@ -35,7 +36,15 @@ function MainSidebar(props) {
 
   return (
     <div className="flex flex-col flex-auto h-full">
-      <AppBar className="py-16 px-32 border-b-1" position="static" color="default" elevation={0}>
+      <Box
+        className="py-16 px-32 border-b-1"
+        sx={{
+          backgroundColor: (theme) =>
+            theme.palette.mode === 'light'
+              ? lighten(theme.palette.background.default, 0.4)
+              : lighten(theme.palette.background.default, 0.02),
+        }}
+      >
         <div className="flex justify-between items-center mb-16">
           {user && (
             <div
@@ -74,7 +83,7 @@ function MainSidebar(props) {
           ),
           [searchText]
         )}
-      </AppBar>
+      </Box>
 
       <FuseScrollbars className="overflow-y-auto flex-1">
         <List className="w-full">
@@ -118,7 +127,7 @@ function MainSidebar(props) {
               >
                 {filteredChatList.length > 0 && (
                   <motion.div variants={item}>
-                    <Typography className="font-medium text-20 px-32 py-24" color="secondary">
+                    <Typography className="font-medium text-20 px-32 py-24" color="secondary.main">
                       Chats
                     </Typography>
                   </motion.div>
@@ -138,7 +147,7 @@ function MainSidebar(props) {
 
                 {filteredContacts.length > 0 && (
                   <motion.div variants={item}>
-                    <Typography className="font-medium text-20 px-32 py-24" color="secondary">
+                    <Typography className="font-medium text-20 px-32 py-24" color="secondary.main">
                       Contacts
                     </Typography>
                   </motion.div>

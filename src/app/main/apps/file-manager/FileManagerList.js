@@ -16,7 +16,10 @@ function FileManagerList() {
         <Box
           className="p-16 w-full rounded-16 mb-24 border"
           sx={{
-            backgroundColor: (theme) => lighten(theme.palette.background.default, 0.4),
+            backgroundColor: (theme) =>
+              theme.palette.mode === 'light'
+                ? lighten(theme.palette.background.default, 0.4)
+                : lighten(theme.palette.background.default, 0.02),
           }}
         >
           <Typography className="font-medium">Folders</Typography>
@@ -33,7 +36,10 @@ function FileManagerList() {
         <Box
           className="p-16 w-full rounded-16 mb-24 border"
           sx={{
-            backgroundColor: (theme) => lighten(theme.palette.background.default, 0.4),
+            backgroundColor: (theme) =>
+              theme.palette.mode === 'light'
+                ? lighten(theme.palette.background.default, 0.4)
+                : lighten(theme.palette.background.default, 0.02),
           }}
         >
           <Typography className="font-medium">Files</Typography>

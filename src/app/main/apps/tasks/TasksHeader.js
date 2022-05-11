@@ -27,20 +27,14 @@ function TasksHeader(props) {
           animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}
           delay={500}
           className="text-14 font-medium ml-2"
-          color="textSecondary"
+          color="text.secondary"
         >
           {`${remainingTasks} remaining tasks`}
         </Typography>
       </div>
 
       <div className="flex items-center -mx-8">
-        <Button
-          className="mx-8 whitespace-nowrap"
-          variant="contained"
-          color="primary"
-          component={NavLinkAdapter}
-          to="new/section"
-        >
+        <Button className="mx-8 whitespace-nowrap" component={NavLinkAdapter} to="new/section">
           <FuseSvgIcon size={20}>heroicons-outline:plus</FuseSvgIcon>
           <span className="mx-8">Add Section</span>
         </Button>

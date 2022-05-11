@@ -27,7 +27,7 @@ function BudgetDetailsWidget(props) {
               {columns.map((column, index) => (
                 <TableCell key={index}>
                   <Typography
-                    color="textSecondary"
+                    color="text.secondary"
                     className="font-semibold text-12 whitespace-nowrap"
                   >
                     {column}

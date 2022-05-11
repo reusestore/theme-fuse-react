@@ -153,7 +153,7 @@ function Chat(props) {
                         <div className="leading-tight whitespace-pre-wrap">{item.value}</div>
                         <Typography
                           className="time absolute hidden w-full text-11 mt-8 -mb-24 ltr:left-0 rtl:right-0 bottom-0 whitespace-nowrap"
-                          color="textSecondary"
+                          color="text.secondary"
                         >
                           {formatDistanceToNow(new Date(item.createdAt), { addSuffix: true })}
                         </Typography>
@@ -172,7 +172,7 @@ function Chat(props) {
                 heroicons-outline:chat
               </FuseSvgIcon>
             </div>
-            <Typography className="px-16 pb-24 text-center" color="textSecondary">
+            <Typography className="px-16 pb-24 text-center" color="text.secondary">
               Start a conversation by typing your message below.
             </Typography>
           </div>

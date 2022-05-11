@@ -80,7 +80,7 @@ function MailCompose(props) {
         aria-labelledby="form-dialog-title"
         scroll="body"
       >
-        <AppBar position="static" elevation={0}>
+        <AppBar position="static" color="secondary" elevation={0}>
           <Toolbar className="flex w-full">
             <Typography variant="subtitle1" color="inherit">
               New Message

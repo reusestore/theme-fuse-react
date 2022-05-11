@@ -7,11 +7,11 @@ import {
 } from '@mui/lab';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import Avatar from '@mui/material/Avatar';
-import { grey } from '@mui/material/colors';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import format from 'date-fns/format';
 import { Link } from 'react-router-dom';
+import { lighten } from '@mui/material/styles';
 
 function ActivityTimelineItem({ item, last }) {
   return (
@@ -34,7 +34,7 @@ function ActivityTimelineItem({ item, last }) {
         {item.description && <div dangerouslySetInnerHTML={{ __html: item.description }} />}
 
         <div className="flex flex-col sm:flex-row sm:items-center mt-8 sm:mt-4 sm:space-x-8 text-md leading-5">
-          <Typography className="text-13" color="textSecondary">
+          <Typography className="text-13" color="text.secondary">
             {format(new Date(item.date), 'MMM dd, h:mm a')}
           </Typography>
           {item.linkedContent && <div className="hidden sm:block">&bull;</div>}
@@ -54,8 +54,13 @@ function ActivityTimelineItem({ item, last }) {
 
         {item.extraContent && (
           <Box
-            className="mt-16 py-16 px-20 rounded-lg"
-            sx={{ background: (theme) => (theme.palette.mode === 'dark' ? grey[900] : grey[200]) }}
+            className="mt-16 py-16 px-20 rounded-lg border"
+            sx={{
+              backgroundColor: (theme) =>
+                theme.palette.mode === 'light'
+                  ? lighten(theme.palette.background.default, 0.4)
+                  : lighten(theme.palette.background.default, 0.02),
+            }}
           >
             <div dangerouslySetInnerHTML={{ __html: item.extraContent }} />
           </Box>

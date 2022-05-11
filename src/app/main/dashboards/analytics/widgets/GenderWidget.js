@@ -5,12 +5,14 @@ import ReactApexChart from 'react-apexcharts';
 import { useSelector } from 'react-redux';
 import Chip from '@mui/material/Chip';
 import Box from '@mui/material/Box';
+import { useTheme } from '@mui/material/styles';
 import { selectWidgets } from '../store/widgetsSlice';
 
 function GenderWidget(props) {
   const widgets = useSelector(selectWidgets);
   const { series, labels, uniqueVisitors } = widgets?.gender;
   const [awaitRender, setAwaitRender] = useState(true);
+  const theme = useTheme();
 
   const chartOptions = {
     chart: {
@@ -38,6 +40,9 @@ function GenderWidget(props) {
           size: '70%',
         },
       },
+    },
+    stroke: {
+      colors: [theme.palette.background.paper],
     },
     series,
     states: {
@@ -106,7 +111,7 @@ function GenderWidget(props) {
               <Typography className="font-medium text-right">
                 {((uniqueVisitors * dataset) / 100).toLocaleString('en-US')}
               </Typography>
-              <Typography className="text-right" color="textSecondary">
+              <Typography className="text-right" color="text.secondary">
                 {dataset}%
               </Typography>
             </div>

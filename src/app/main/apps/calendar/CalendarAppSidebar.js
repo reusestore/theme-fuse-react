@@ -28,7 +28,7 @@ function CalendarAppSidebar() {
       </motion.span>
 
       <div className="group flex items-center justify-between mb-12">
-        <Typography className="text-15 font-600 leading-none" color="secondary">
+        <Typography className="text-15 font-600 leading-none" color="secondary.main">
           LABELS
         </Typography>
 

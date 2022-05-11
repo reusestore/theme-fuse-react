@@ -10,14 +10,13 @@ function AnalyticsDashboardAppHeader(props) {
           <Typography className="text-3xl font-semibold tracking-tight leading-8">
             Analytics dashboard
           </Typography>
-          <Typography className="font-medium tracking-tight" color="textSecondary">
+          <Typography className="font-medium tracking-tight" color="text.secondary">
             Monitor metrics, check reports and review performance
           </Typography>
         </div>
         <div className="flex items-center mt-24 sm:mt-0 sm:mx-8 space-x-12">
           <Button
             className="whitespace-nowrap"
-            variant="outlined"
             startIcon={<FuseSvgIcon size={20}>heroicons-solid:cog</FuseSvgIcon>}
           >
             Settings

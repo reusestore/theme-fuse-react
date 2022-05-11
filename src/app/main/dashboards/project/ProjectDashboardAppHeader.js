@@ -65,7 +65,7 @@ function ProjectDashboardAppHeader(props) {
               <FuseSvgIcon size={20} color="action">
                 heroicons-solid:bell
               </FuseSvgIcon>
-              <Typography className="mx-6 leading-6 truncate" color="textSecondary">
+              <Typography className="mx-6 leading-6 truncate" color="text.secondary">
                 You have 2 new messages and 15 new tasks
               </Typography>
             </div>

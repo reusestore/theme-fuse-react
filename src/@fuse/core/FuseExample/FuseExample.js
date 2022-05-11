@@ -1,11 +1,12 @@
 import FuseHighlight from '@fuse/core/FuseHighlight';
-import AppBar from '@mui/material/AppBar';
 import Card from '@mui/material/Card';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { darken } from '@mui/material/styles';
+import Box from '@mui/material/Box';
 import DemoFrame from './DemoFrame';
 import FuseSvgIcon from '../FuseSvgIcon';
 
@@ -29,8 +30,19 @@ function FuseExample(props) {
   }
 
   return (
-    <Card className={clsx(className, 'shadow')}>
-      <AppBar position="static" color="default" className="shadow-0">
+    <Card
+      className={clsx(className, 'shadow')}
+      sx={{
+        backgroundColor: (theme) =>
+          darken(theme.palette.background.paper, theme.palette.mode === 'light' ? 0.01 : 0.1),
+      }}
+    >
+      <Box
+        sx={{
+          backgroundColor: (theme) =>
+            darken(theme.palette.background.paper, theme.palette.mode === 'light' ? 0.02 : 0.2),
+        }}
+      >
         <Tabs
           classes={{
             root: 'border-b-1',
@@ -38,6 +50,8 @@ function FuseExample(props) {
           }}
           value={currentTab}
           onChange={handleChange}
+          textColor="secondary"
+          indicatorColor="secondary"
         >
           {Component && (
             <Tab
@@ -52,7 +66,7 @@ function FuseExample(props) {
             />
           )}
         </Tabs>
-      </AppBar>
+      </Box>
       <div className="flex justify-center max-w-full relative">
         <div className={currentTab === 0 ? 'flex flex-1 max-w-full' : 'hidden'}>
           {Component &&

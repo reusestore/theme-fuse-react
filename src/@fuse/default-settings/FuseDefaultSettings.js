@@ -89,6 +89,10 @@ export const defaultThemeOptions = {
       },
     },
     MuiButton: {
+      defaultProps: {
+        variant: 'text',
+        color: 'inherit',
+      },
       styleOverrides: {
         root: {
           textTransform: 'none',
@@ -137,6 +141,9 @@ export const defaultThemeOptions = {
     },
     MuiPaper: {
       styleOverrides: {
+        root: {
+          backgroundImage: 'none',
+        },
         rounded: {
           borderRadius: 16,
         },
@@ -147,6 +154,26 @@ export const defaultThemeOptions = {
         paper: {
           borderRadius: 8,
         },
+      },
+    },
+    MuiTextField: {
+      defaultProps: {
+        color: 'secondary',
+      },
+    },
+    MuiInputLabel: {
+      defaultProps: {
+        color: 'secondary',
+      },
+    },
+    MuiSelect: {
+      defaultProps: {
+        color: 'secondary',
+      },
+    },
+    MuiOutlinedInput: {
+      defaultProps: {
+        color: 'secondary',
       },
     },
     MuiInputBase: {
@@ -190,7 +217,7 @@ export const defaultThemeOptions = {
     MuiTypography: {
       variants: [
         {
-          props: { color: 'textSecondary' },
+          props: { color: 'text.secondary' },
           style: {
             color: 'text.secondary',
           },

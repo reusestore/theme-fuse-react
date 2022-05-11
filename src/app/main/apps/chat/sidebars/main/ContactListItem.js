@@ -46,7 +46,7 @@ function ContactListItem(props) {
           {contact?.lastMessageAt && (
             <Typography
               className="whitespace-nowrap mb-8 font-medium text-12"
-              color="textSecondary"
+              color="text.secondary"
             >
               {format(new Date(contact.lastMessageAt), 'PP')}
             </Typography>

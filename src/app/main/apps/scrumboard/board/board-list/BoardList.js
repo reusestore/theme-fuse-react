@@ -1,5 +1,5 @@
 import Card from '@mui/material/Card';
-import { darken, styled } from '@mui/material/styles';
+import { lighten, styled } from '@mui/material/styles';
 import CardContent from '@mui/material/CardContent';
 import clsx from 'clsx';
 import { useRef } from 'react';
@@ -11,10 +11,6 @@ import BoardListHeader from './BoardListHeader';
 import { selectListById } from '../../store/listsSlice';
 
 const StyledCard = styled(Card)(({ theme }) => ({
-  backgroundColor: darken(
-    theme.palette.background.default,
-    theme.palette.mode === 'light' ? 0.03 : 0.25
-  ),
   transitionProperty: 'box-shadow',
   transitionDuration: theme.transitions.duration.short,
   transitionTimingFunction: theme.transitions.easing.easeInOut,
@@ -38,9 +34,15 @@ function BoardList(props) {
       {(provided, snapshot) => (
         <div ref={provided.innerRef} {...provided.draggableProps}>
           <StyledCard
+            sx={{
+              backgroundColor: (theme) =>
+                theme.palette.mode === 'light'
+                  ? lighten(theme.palette.background.default, 0.4)
+                  : lighten(theme.palette.background.default, 0.02),
+            }}
             className={clsx(
               snapshot.isDragging ? 'shadow-lg' : 'shadow-0',
-              'w-256 sm:w-320 mx-8 sm:mx-12 max-h-full flex flex-col rounded-xl'
+              'w-256 sm:w-320 mx-8 sm:mx-12 max-h-full flex flex-col rounded-xl border'
             )}
             square
           >

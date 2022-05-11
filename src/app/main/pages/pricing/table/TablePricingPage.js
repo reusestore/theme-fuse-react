@@ -58,7 +58,7 @@ function TablePricingPage() {
           >
             <Typography
               className="mt-12 sm:text-2xl text-center tracking-tight"
-              color="textSecondary"
+              color="text.secondary"
             >
               Start small and free, upgrade as you go.
               <br />
@@ -109,7 +109,7 @@ function TablePricingPage() {
             <Typography className="text-4xl font-extrabold tracking-tight leading-tight">
               Everything you need to build efficiently
             </Typography>
-            <Typography className="max-w-xl mt-2 text-xl" color="textSecondary">
+            <Typography className="max-w-xl mt-2 text-xl" color="text.secondary">
               Start building your app using our tools, be efficient, spend less time with details
               more time with your business
             </Typography>
@@ -163,7 +163,7 @@ function TablePricingPage() {
           </Typography>
           <Typography
             className="mt-8 text-3xl sm:text-4xl sm:text-5xl font-extrabold leading-6 sm:leading-10"
-            color="textSecondary"
+            color="text.secondary"
           >
             Start using Fuse today.
           </Typography>
@@ -184,7 +184,7 @@ function TablePricingPage() {
             <Typography className="text-4xl font-extrabold tracking-tight leading-tight">
               Frequently asked questions
             </Typography>
-            <Typography className="max-w-xl mt-8 text-xl" color="textSecondary">
+            <Typography className="max-w-xl mt-8 text-xl" color="text.secondary">
               Here are the most frequently asked questions you may check before getting started
             </Typography>
           </div>
@@ -193,7 +193,7 @@ function TablePricingPage() {
               <Typography className="text-xl font-semibold">
                 What is the duration of the free trial?
               </Typography>
-              <Typography className="mt-8 leading-6" color="textSecondary">
+              <Typography className="mt-8 leading-6" color="text.secondary">
                 Our app is free to try for 14 days, if you want more, you can provide payment
                 details which will extend your trial to 30 days providing you an extra 16 more days
                 to try our app.
@@ -203,7 +203,7 @@ function TablePricingPage() {
               <Typography className="text-xl font-semibold">
                 Are there discounts for non-profits or educational use?
               </Typography>
-              <Typography className="mt-2 leading-6" color="textSecondary">
+              <Typography className="mt-2 leading-6" color="text.secondary">
                 Yes, our Personal and Premium packages are free for non-profits and educational use.
                 E-mail your details to us after starting your Free Trial and we will upgrade your
                 account if you qualify.
@@ -211,12 +211,12 @@ function TablePricingPage() {
             </div>
             <div>
               <Typography className="text-xl font-semibold">What is the storage is for?</Typography>
-              <Typography className="mt-8 leading-6" color="textSecondary">
+              <Typography className="mt-8 leading-6" color="text.secondary">
                 Since we provide an extremely detailed reporting and analytics tool, they require
                 quite a bit storage space. For average use, you don’t have to worry about running
                 out of space since the Personal package limits the projects you can have.
               </Typography>
-              <Typography className="mt-8 leading-6" color="textSecondary">
+              <Typography className="mt-8 leading-6" color="text.secondary">
                 For some reason if you run out of space, contact us and we will see what can be done
                 about it and make sure you are not generating unnecessary reports and/or analytics
                 data.
@@ -226,12 +226,12 @@ function TablePricingPage() {
               <Typography className="text-xl font-semibold">
                 What happens if I’m not satisfied?
               </Typography>
-              <Typography className="mt-8 leading-6" color="textSecondary">
+              <Typography className="mt-8 leading-6" color="text.secondary">
                 If you are still in your free trial period, you can cancel your account at anytime
                 with a single click of a button. If you already paid for your first month, we also
                 offer 30-day money-back guarantee with no questions asked.
               </Typography>
-              <Typography className="mt-8 leading-6" color="textSecondary">
+              <Typography className="mt-8 leading-6" color="text.secondary">
                 After first month, you can still cancel your account at any time but we will
                 calculate the amount that corresponds to days you have been using our app for that
                 month and refund only the remaining amount.

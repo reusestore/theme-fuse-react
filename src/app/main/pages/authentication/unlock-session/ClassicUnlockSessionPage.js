@@ -104,7 +104,7 @@ function ClassicUnlockSessionPage() {
               Unlock your session
             </Button>
 
-            <Typography className="mt-32 text-md font-medium" color="textSecondary">
+            <Typography className="mt-32 text-md font-medium" color="text.secondary">
               <span>I'm not</span>
               <Link className="ml-4" to="/sign-in">
                 Brian Hughes

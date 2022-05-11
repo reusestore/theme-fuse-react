@@ -50,7 +50,7 @@ const InvoiceTab = (props) => {
       {props.order && (
         <Card className="w-xl mx-auto shadow-0">
           <CardContent className="p-88 print:p-0">
-            <Typography color="textSecondary" className="mb-32">
+            <Typography color="text.secondary" className="mb-32">
               {props.order.date}
             </Typography>
 
@@ -60,7 +60,7 @@ const InvoiceTab = (props) => {
                   <tbody>
                     <tr>
                       <td className="pb-4">
-                        <Typography className="font-light" variant="h6" color="textSecondary">
+                        <Typography className="font-light" variant="h6" color="text.secondary">
                           INVOICE
                         </Typography>
                       </td>
@@ -73,25 +73,25 @@ const InvoiceTab = (props) => {
                   </tbody>
                 </table>
 
-                <Typography color="textSecondary">
+                <Typography color="text.secondary">
                   {`${props.order.customer.firstName} ${props.order.customer.lastName}`}
                 </Typography>
 
                 {props.order.customer.invoiceAddress.address && (
-                  <Typography color="textSecondary">
+                  <Typography color="text.secondary">
                     {props.order.customer.invoiceAddress.address}
                   </Typography>
                 )}
                 {props.order.customer.phone && (
-                  <Typography color="textSecondary">{props.order.customer.phone}</Typography>
+                  <Typography color="text.secondary">{props.order.customer.phone}</Typography>
                 )}
                 {props.order.customer.email && (
-                  <Typography color="textSecondary">{props.order.customer.email}</Typography>
+                  <Typography color="text.secondary">{props.order.customer.email}</Typography>
                 )}
               </div>
 
               <div className="seller flex items-center p-16">
-                <img className="w-80" src="assets/images/logo/fuse.svg" alt="logo" />
+                <img className="w-80" src="assets/images/logo/logo.svg" alt="logo" />
 
                 <div className="divider mx-8 h-96" />
 
@@ -136,48 +136,72 @@ const InvoiceTab = (props) => {
                 <TableBody>
                   <TableRow>
                     <TableCell>
-                      <Typography className="font-normal" variant="subtitle1" color="textSecondary">
+                      <Typography
+                        className="font-normal"
+                        variant="subtitle1"
+                        color="text.secondary"
+                      >
                         SUBTOTAL
                       </Typography>
                     </TableCell>
                     <TableCell align="right">
-                      <Typography className="font-normal" variant="subtitle1" color="textSecondary">
+                      <Typography
+                        className="font-normal"
+                        variant="subtitle1"
+                        color="text.secondary"
+                      >
                         {formatter.format(props.order.subtotal)}
                       </Typography>
                     </TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell>
-                      <Typography className="font-normal" variant="subtitle1" color="textSecondary">
+                      <Typography
+                        className="font-normal"
+                        variant="subtitle1"
+                        color="text.secondary"
+                      >
                         TAX
                       </Typography>
                     </TableCell>
                     <TableCell align="right">
-                      <Typography className="font-normal" variant="subtitle1" color="textSecondary">
+                      <Typography
+                        className="font-normal"
+                        variant="subtitle1"
+                        color="text.secondary"
+                      >
                         {formatter.format(props.order.tax)}
                       </Typography>
                     </TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell>
-                      <Typography className="font-normal" variant="subtitle1" color="textSecondary">
+                      <Typography
+                        className="font-normal"
+                        variant="subtitle1"
+                        color="text.secondary"
+                      >
                         DISCOUNT
                       </Typography>
                     </TableCell>
                     <TableCell align="right">
-                      <Typography className="font-normal" variant="subtitle1" color="textSecondary">
+                      <Typography
+                        className="font-normal"
+                        variant="subtitle1"
+                        color="text.secondary"
+                      >
                         {formatter.format(props.order.discount)}
                       </Typography>
                     </TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell>
-                      <Typography className="font-light" variant="h4" color="textSecondary">
+                      <Typography className="font-light" variant="h4" color="text.secondary">
                         TOTAL
                       </Typography>
                     </TableCell>
                     <TableCell align="right">
-                      <Typography className="font-light" variant="h4" color="textSecondary">
+                      <Typography className="font-light" variant="h4" color="text.secondary">
                         {formatter.format(props.order.total)}
                       </Typography>
                     </TableCell>
@@ -193,13 +217,13 @@ const InvoiceTab = (props) => {
 
               <div className="flex">
                 <div className="shrink-0">
-                  <img className="w-32" src="assets/images/logo/fuse.svg" alt="logo" />
+                  <img className="w-32" src="assets/images/logo/logo.svg" alt="logo" />
                 </div>
 
                 <Typography
                   className="font-normal mb-64 px-24"
                   variant="caption"
-                  color="textSecondary"
+                  color="text.secondary"
                 >
                   In condimentum malesuada efficitur. Mauris volutpat placerat auctor. Ut ac congue
                   dolor. Quisque scelerisque lacus sed feugiat fermentum. Cras aliquet facilisis

@@ -1,5 +1,5 @@
 import Paper from '@mui/material/Paper';
-import { useTheme } from '@mui/material/styles';
+import { lighten, useTheme } from '@mui/material/styles';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Typography from '@mui/material/Typography';
@@ -137,7 +137,7 @@ function GithubIssuesWidget() {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 grid-flow-row gap-24 w-full mt-32 sm:mt-16">
         <div className="flex flex-col flex-auto">
-          <Typography className="font-medium" color="textSecondary">
+          <Typography className="font-medium" color="text.secondary">
             New vs. Closed
           </Typography>
           <div className="flex flex-col flex-auto">
@@ -150,7 +150,7 @@ function GithubIssuesWidget() {
           </div>
         </div>
         <div className="flex flex-col">
-          <Typography className="font-medium" color="textSecondary">
+          <Typography className="font-medium" color="text.secondary">
             Overview
           </Typography>
           <div className="flex-auto grid grid-cols-4 gap-16 mt-24">
@@ -166,42 +166,62 @@ function GithubIssuesWidget() {
               </Typography>
               <Typography className="mt-4 text-sm sm:text-lg font-medium">Closed</Typography>
             </div>
-            <div
-              className="col-span-2 sm:col-span-1 flex flex-col items-center justify-center py-32 px-4 rounded-2xl bg-gray-100"
-              color="textSecondary"
+            <Box
+              sx={{
+                backgroundColor: (_theme) =>
+                  _theme.palette.mode === 'light'
+                    ? lighten(theme.palette.background.default, 0.4)
+                    : lighten(theme.palette.background.default, 0.02),
+              }}
+              className="col-span-2 sm:col-span-1 flex flex-col items-center justify-center py-32 px-4 rounded-2xl"
             >
               <Typography className="text-5xl font-semibold leading-none tracking-tight">
                 {overview[currentRange].fixed}
               </Typography>
               <Typography className="mt-4 text-sm font-medium text-center">Fixed</Typography>
-            </div>
-            <div
-              className="col-span-2 sm:col-span-1 flex flex-col items-center justify-center py-32 px-4 rounded-2xl bg-gray-100"
-              color="textSecondary"
+            </Box>
+            <Box
+              sx={{
+                backgroundColor: (_theme) =>
+                  _theme.palette.mode === 'light'
+                    ? lighten(theme.palette.background.default, 0.4)
+                    : lighten(theme.palette.background.default, 0.02),
+              }}
+              className="col-span-2 sm:col-span-1 flex flex-col items-center justify-center py-32 px-4 rounded-2xl"
             >
               <Typography className="text-5xl font-semibold leading-none tracking-tight">
                 {overview[currentRange]['wont-fix']}
               </Typography>
               <Typography className="mt-4 text-sm font-medium text-center">Won't Fix</Typography>
-            </div>
-            <div
-              className="col-span-2 sm:col-span-1 flex flex-col items-center justify-center py-32 px-4 rounded-2xl bg-gray-100"
-              color="textSecondary"
+            </Box>
+            <Box
+              sx={{
+                backgroundColor: (_theme) =>
+                  _theme.palette.mode === 'light'
+                    ? lighten(theme.palette.background.default, 0.4)
+                    : lighten(theme.palette.background.default, 0.02),
+              }}
+              className="col-span-2 sm:col-span-1 flex flex-col items-center justify-center py-32 px-4 rounded-2xl"
             >
               <Typography className="text-5xl font-semibold leading-none tracking-tight">
                 {overview[currentRange]['re-opened']}
               </Typography>
               <Typography className="mt-4 text-sm font-medium text-center">Re-opened</Typography>
-            </div>
-            <div
-              className="col-span-2 sm:col-span-1 flex flex-col items-center justify-center py-32 px-4 rounded-2xl bg-gray-100"
-              color="textSecondary"
+            </Box>
+            <Box
+              sx={{
+                backgroundColor: (_theme) =>
+                  _theme.palette.mode === 'light'
+                    ? lighten(theme.palette.background.default, 0.4)
+                    : lighten(theme.palette.background.default, 0.02),
+              }}
+              className="col-span-2 sm:col-span-1 flex flex-col items-center justify-center py-32 px-4 rounded-2xl"
             >
               <Typography className="text-5xl font-semibold leading-none tracking-tight">
                 {overview[currentRange]['needs-triage']}
               </Typography>
               <Typography className="mt-4 text-sm font-medium text-center">Needs Triage</Typography>
-            </div>
+            </Box>
           </div>
         </div>
       </div>

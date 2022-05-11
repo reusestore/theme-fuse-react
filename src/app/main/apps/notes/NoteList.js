@@ -37,7 +37,7 @@ function NoteList(props) {
 
   return !filteredData || filteredData.length === 0 ? (
     <div className="flex items-center justify-center h-full">
-      <Typography color="textSecondary" variant="h5">
+      <Typography color="text.secondary" variant="h5">
         There are no notes!
       </Typography>
     </div>

@@ -115,7 +115,7 @@ function FullScreenReversedForgotPasswordPage() {
         </div>
       </Box>
 
-      <Paper className="md:flex w-full sm:w-auto md:h-full py-32 px-16 sm:p-48 md:p-64 md:pt-96 sm:rounded-2xl md:rounded-none sm:shadow md:shadow-none">
+      <Paper className="md:flex w-full sm:w-auto md:h-full py-32 px-16 sm:p-48 md:p-64 md:pt-96 sm:rounded-2xl md:rounded-none sm:shadow md:shadow-none rtl:border-r-1 ltr:border-l-1">
         <div className="w-full max-w-320 sm:w-320 mx-auto sm:mx-0">
           <img className="w-48" src="assets/images/logo/logo.svg" alt="logo" />
 
@@ -162,7 +162,7 @@ function FullScreenReversedForgotPasswordPage() {
               Send reset link
             </Button>
 
-            <Typography className="mt-32 text-md font-medium" color="textSecondary">
+            <Typography className="mt-32 text-md font-medium" color="text.secondary">
               <span>Return to</span>
               <Link className="ml-4" to="/sign-in">
                 sign in

@@ -54,7 +54,7 @@ function SummaryWidget() {
       </div>
       <Typography
         className="flex items-baseline justify-center w-full mt-20 mb-24"
-        color="textSecondary"
+        color="text.secondary"
       >
         <span className="truncate">{data.extra.name}</span>:
         <b className="px-8">{data.extra.count[currentRange]}</b>

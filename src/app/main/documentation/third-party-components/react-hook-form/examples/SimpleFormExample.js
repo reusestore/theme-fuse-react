@@ -191,7 +191,7 @@ function SimpleFormExample()
                     {JSON.stringify(data, null, 2)}
                 </pre>
 
-                <Typography className="mt-16 font-medium text-12 italic" color="textSecondary">Render Count: {renderCount}</Typography>
+                <Typography className="mt-16 font-medium text-12 italic" color="text.secondary">Render Count: {renderCount}</Typography>
             </div>
         </div>
     );

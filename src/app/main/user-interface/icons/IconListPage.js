@@ -172,13 +172,13 @@ function IconListPage(props) {
 
                       <Typography
                         className="text-sm text-center break-all"
-                        color="textSecondary"
+                        color="text.secondary"
                       >{`${iconName}:${icon}`}</Typography>
                     </Paper>
                   ))
                 ) : (
                   <div className="col-span-6 flex flex-auto items-center justify-center w-full h-full p-32 md:p-128">
-                    <Typography color="textSecondary" variant="h5">
+                    <Typography color="text.secondary" variant="h5">
                       No results!
                     </Typography>
                   </div>

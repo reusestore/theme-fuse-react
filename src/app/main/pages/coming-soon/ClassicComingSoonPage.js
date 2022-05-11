@@ -86,7 +86,7 @@ function ClassicComingSoonPage() {
               Notify me when you launch
             </Button>
 
-            <Typography className="mt-32 text-md font-medium" color="textSecondary">
+            <Typography className="mt-32 text-md font-medium" color="text.secondary">
               This isn't a newsletter subscription. We will send one email to you when we launch and
               then you will be removed from the list.
             </Typography>

@@ -110,7 +110,7 @@ function AboutTab() {
                           <Typography>{job.company}</Typography>
                         </td>
                         <td className="px-16">
-                          <Typography color="textSecondary">{job.date}</Typography>
+                          <Typography color="text.secondary">{job.date}</Typography>
                         </td>
                       </tr>
                     ))}
@@ -209,7 +209,11 @@ function AboutTab() {
                     <ListItemText
                       primary={
                         <div className="flex">
-                          <Typography className="font-medium" color="secondary" paragraph={false}>
+                          <Typography
+                            className="font-medium"
+                            color="secondary.main"
+                            paragraph={false}
+                          >
                             {group.name}
                           </Typography>
 

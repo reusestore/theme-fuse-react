@@ -31,7 +31,7 @@ function ModernInvoicePage() {
                 <div className="grid auto-cols-max grid-flow-col gap-x-32">
                   <Typography
                     className="place-self-center w-96 text-center text-2xl"
-                    color="textSecondary"
+                    color="text.secondary"
                   >
                     Bill To
                   </Typography>
@@ -47,28 +47,28 @@ function ModernInvoicePage() {
               <div className="grid grid-cols-2 gap-x-16 gap-y-4 ml-auto">
                 <Typography
                   className="justify-self-end text-4xl tracking-tight"
-                  color="textSecondary"
+                  color="text.secondary"
                 >
                   INVOICE
                 </Typography>
                 <Typography className="text-4xl">#9-0004</Typography>
                 <Typography
                   className="justify-self-end font-medium tracking-tight"
-                  color="textSecondary"
+                  color="text.secondary"
                 >
                   INVOICE DATE
                 </Typography>
                 <Typography className="font-medium">Jul 19, 2022</Typography>
                 <Typography
                   className="justify-self-end font-medium tracking-tight"
-                  color="textSecondary"
+                  color="text.secondary"
                 >
                   DUE DATE
                 </Typography>
                 <Typography className="font-medium">Aug 19, 2022</Typography>
                 <Typography
                   className="justify-self-end font-medium tracking-tight"
-                  color="textSecondary"
+                  color="text.secondary"
                 >
                   TOTAL DUE
                 </Typography>
@@ -77,18 +77,18 @@ function ModernInvoicePage() {
             </div>
 
             <div className="grid grid-cols-12 gap-x-4 mt-16">
-              <Typography className="col-span-8 font-medium text-md" color="textSecondary">
+              <Typography className="col-span-8 font-medium text-md" color="text.secondary">
                 SERVICE
               </Typography>
-              <Typography className="font-medium text-md text-right" color="textSecondary">
+              <Typography className="font-medium text-md text-right" color="text.secondary">
                 RATE
               </Typography>
-              <Typography className="font-medium text-md text-right" color="textSecondary">
+              <Typography className="font-medium text-md text-right" color="text.secondary">
                 QTY
               </Typography>
               <Typography
                 className="col-span-2 font-medium text-md text-right"
-                color="textSecondary"
+                color="text.secondary"
               >
                 TOTAL
               </Typography>
@@ -97,7 +97,7 @@ function ModernInvoicePage() {
 
               <div className="col-span-8">
                 <Typography className="text-lg font-medium">Prototype & Design</Typography>
-                <Typography className="mt-8 text-md" color="textSecondary">
+                <Typography className="mt-8 text-md" color="text.secondary">
                   Prototyping of the application's general workflow and the detailed design of its
                   72 screens as a working prototype.
                 </Typography>
@@ -110,7 +110,7 @@ function ModernInvoicePage() {
 
               <div className="col-span-8">
                 <Typography className="text-lg font-medium">Development</Typography>
-                <Typography className="mt-8 text-md" color="textSecondary">
+                <Typography className="mt-8 text-md" color="text.secondary">
                   The web and mobile development of the application using appropriate tools and
                   registering it to major application stores.
                 </Typography>
@@ -123,7 +123,7 @@ function ModernInvoicePage() {
 
               <div className="col-span-8">
                 <Typography className="text-lg font-medium">Testing</Typography>
-                <Typography className="mt-8 text-md" color="textSecondary">
+                <Typography className="mt-8 text-md" color="text.secondary">
                   Extensive testing of the application using various mobile and desktop devices with
                   different operating systems.
                 </Typography>
@@ -136,7 +136,7 @@ function ModernInvoicePage() {
 
               <div className="col-span-8">
                 <Typography className="text-lg font-medium">Documentation & Training</Typography>
-                <Typography className="mt-8 text-md" color="textSecondary">
+                <Typography className="mt-8 text-md" color="text.secondary">
                   Development of the detailed documentation, preparing guides and instructional
                   videos and extensive training of 2 people.
                 </Typography>
@@ -149,7 +149,7 @@ function ModernInvoicePage() {
 
               <Typography
                 className="col-span-10 self-center font-medium tracking-tight"
-                color="textSecondary"
+                color="text.secondary"
               >
                 SUBTOTAL
               </Typography>
@@ -159,7 +159,7 @@ function ModernInvoicePage() {
 
               <Typography
                 className="col-span-10 self-center font-medium tracking-tight"
-                color="textSecondary"
+                color="text.secondary"
               >
                 TAX
               </Typography>
@@ -169,7 +169,7 @@ function ModernInvoicePage() {
 
               <Typography
                 className="col-span-10 self-center font-medium tracking-tight"
-                color="textSecondary"
+                color="text.secondary"
               >
                 DISCOUNT
               </Typography>
@@ -179,7 +179,7 @@ function ModernInvoicePage() {
 
               <Typography
                 className="col-span-10 self-center text-2xl font-medium tracking-tight"
-                color="textSecondary"
+                color="text.secondary"
               >
                 TOTAL
               </Typography>
@@ -194,7 +194,7 @@ function ModernInvoicePage() {
               </Typography>
               <div className="flex items-start mt-16">
                 <img className="flex-0 w-40 mt-8" src="assets/images/logo/logo.svg" alt="logo" />
-                <Typography className="ml-24 text-sm" color="textSecondary">
+                <Typography className="ml-24 text-sm" color="text.secondary">
                   In condimentum malesuada efficitur. Mauris volutpat placerat auctor. Ut ac congue
                   dolor. Quisque scelerisque lacus sed feugiat fermentum. Cras aliquet facilisis
                   pellentesque. Nunc hendrerit quam at leo commodo, a suscipit tellus dapibus. Etiam

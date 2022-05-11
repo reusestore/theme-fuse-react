@@ -58,17 +58,17 @@ function QuickPanel(props) {
         <ListSubheader component="div">Today</ListSubheader>
 
         <div className="mb-0 py-16 px-24">
-          <Typography className="mb-12 text-32" color="textSecondary">
+          <Typography className="mb-12 text-32" color="text.secondary">
             {format(new Date(), 'eeee')}
           </Typography>
           <div className="flex">
-            <Typography className="leading-none text-32" color="textSecondary">
+            <Typography className="leading-none text-32" color="text.secondary">
               {format(new Date(), 'dd')}
             </Typography>
-            <Typography className="leading-none text-16" color="textSecondary">
+            <Typography className="leading-none text-16" color="text.secondary">
               th
             </Typography>
-            <Typography className="leading-none text-32" color="textSecondary">
+            <Typography className="leading-none text-32" color="text.secondary">
               {format(new Date(), 'MMMM')}
             </Typography>
           </div>

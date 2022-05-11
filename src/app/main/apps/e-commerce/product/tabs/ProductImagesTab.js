@@ -1,9 +1,10 @@
 import { orange } from '@mui/material/colors';
-import { styled } from '@mui/material/styles';
+import { lighten, styled } from '@mui/material/styles';
 import clsx from 'clsx';
 import FuseUtils from '@fuse/utils';
 import { Controller, useFormContext } from 'react-hook-form';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+import Box from '@mui/material/Box';
 
 const Root = styled('div')(({ theme }) => ({
   '& .productImageFeaturedStar': {
@@ -44,7 +45,7 @@ const Root = styled('div')(({ theme }) => ({
 
 function ProductImagesTab(props) {
   const methods = useFormContext();
-  const { control, watch, setValue } = methods;
+  const { control, watch } = methods;
 
   const images = watch('images');
 
@@ -55,7 +56,14 @@ function ProductImagesTab(props) {
           name="images"
           control={control}
           render={({ field: { onChange, value } }) => (
-            <label
+            <Box
+              sx={{
+                backgroundColor: (theme) =>
+                  theme.palette.mode === 'light'
+                    ? lighten(theme.palette.background.default, 0.4)
+                    : lighten(theme.palette.background.default, 0.02),
+              }}
+              component="label"
               htmlFor="button-file"
               className="productImageUpload flex items-center justify-center relative w-128 h-128 rounded-16 mx-12 mb-24 overflow-hidden cursor-pointer shadow hover:shadow-lg"
             >
@@ -95,7 +103,7 @@ function ProductImagesTab(props) {
               <FuseSvgIcon size={32} color="action">
                 heroicons-outline:upload
               </FuseSvgIcon>
-            </label>
+            </Box>
           )}
         />
         <Controller

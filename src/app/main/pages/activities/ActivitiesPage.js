@@ -21,7 +21,7 @@ function ActivitiesPage() {
           <Typography className="text-4xl font-extrabold tracking-tight leading-none">
             All Activities
           </Typography>
-          <Typography className="mt-6 text-lg" color="textSecondary">
+          <Typography className="mt-6 text-lg" color="text.secondary">
             Application wide activities are listed here as individual items, starting with the most
             recent.
           </Typography>

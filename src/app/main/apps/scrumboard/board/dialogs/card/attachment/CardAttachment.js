@@ -39,7 +39,7 @@ function CardAttachment(props) {
                 </FuseSvgIcon>
               )}
             </div>
-            <Typography className="truncate w-full mb-12" color="textSecondary">
+            <Typography className="truncate w-full mb-12" color="text.secondary">
               {format(fromUnixTime(props.item.time), 'Pp')}
             </Typography>
             <Button
@@ -100,7 +100,7 @@ function CardAttachment(props) {
             <Typography className="text-16 font-semibold truncate w-full">
               {props.item.url}
             </Typography>
-            <Typography className="truncate w-full mb-12" color="textSecondary">
+            <Typography className="truncate w-full mb-12" color="text.secondary">
               {props.item.time}
             </Typography>
             <Button

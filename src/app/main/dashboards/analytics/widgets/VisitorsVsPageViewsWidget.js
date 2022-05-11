@@ -30,12 +30,12 @@ function VisitorsVsPageViewsWidget(props) {
         enabled: false,
       },
     },
-    colors: [theme.palette.primary.main, theme.palette.primary.light],
+    colors: [theme.palette.primary.light, theme.palette.primary.light],
     dataLabels: {
       enabled: false,
     },
     fill: {
-      colors: [theme.palette.primary.main, theme.palette.primary.light],
+      colors: [theme.palette.primary.dark, theme.palette.primary.light],
       opacity: 0.5,
     },
     grid: {

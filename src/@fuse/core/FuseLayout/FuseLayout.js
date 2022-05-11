@@ -53,10 +53,13 @@ const inputGlobalStyles = (
           textDecoration: 'none',
         },
       },
-      '[class^="border-"]': {
+      '[class^="border"]': {
         borderColor: theme.palette.divider,
       },
-      '[class*="border-"]': {
+      '[class*="border"]': {
+        borderColor: theme.palette.divider,
+      },
+      '[class*="divide-"] > :not([hidden]) ~ :not([hidden])': {
         borderColor: theme.palette.divider,
       },
       hr: {

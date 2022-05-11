@@ -28,7 +28,7 @@ function ModernPricingCard(props) {
 
       <Typography className="text-4xl font-bold tracking-tight leading-tight">{title}</Typography>
 
-      <Typography className="mt-8 text-lg font-medium tracking-tight" color="textSecondary">
+      <Typography className="mt-8 text-lg font-medium tracking-tight" color="text.secondary">
         {subtitle}
       </Typography>
 
@@ -42,7 +42,7 @@ function ModernPricingCard(props) {
         </Typography>
       </div>
 
-      <Typography className="flex flex-col mt-8" color="textSecondary">
+      <Typography className="flex flex-col mt-8" color="text.secondary">
         {period === 'month' && (
           <>
             <span>billed monthly</span>

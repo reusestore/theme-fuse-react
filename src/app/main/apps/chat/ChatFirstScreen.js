@@ -14,7 +14,7 @@ const ChatFirstScreen = () => {
       </FuseSvgIcon>
       <Typography
         className="hidden md:flex text-20 font-semibold tracking-tight text-secondary"
-        color="textSecondary"
+        color="text.secondary"
       >
         Select a conversation or start a new chat
       </Typography>

@@ -65,7 +65,7 @@ function TaskListItem(props) {
               </div>
 
               {data.dueDate && (
-                <Typography className="text-12 whitespace-nowrap" color="textSecondary">
+                <Typography className="text-12 whitespace-nowrap" color="text.secondary">
                   {format(new Date(data.dueDate), 'LLL dd')}
                 </Typography>
               )}

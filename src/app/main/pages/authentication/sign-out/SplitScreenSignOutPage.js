@@ -8,7 +8,7 @@ import Paper from '@mui/material/Paper';
 function SplitScreenSignOutPage() {
   return (
     <div className="flex flex-col sm:flex-row items-center md:items-start sm:justify-center md:justify-start flex-auto min-w-0">
-      <Paper className="md:flex md:items-center md:justify-end w-full sm:w-auto md:h-full md:w-1/2 py-8 px-16 sm:p-48 md:p-64 sm:rounded-2xl md:rounded-none sm:shadow md:shadow-none">
+      <Paper className="md:flex md:items-center md:justify-end w-full sm:w-auto md:h-full md:w-1/2 py-8 px-16 sm:p-48 md:p-64 sm:rounded-2xl md:rounded-none sm:shadow md:shadow-none ltr:border-r-1 rtl:border-l-1">
         <div className="w-full max-w-320 sm:w-320 mx-auto sm:mx-0">
           <img className="w-48 mx-auto" src="assets/images/logo/logo.svg" alt="logo" />
 
@@ -19,7 +19,7 @@ function SplitScreenSignOutPage() {
             Redirecting in 5 seconds
           </Typography>
 
-          <Typography className="mt-32 text-md font-medium text-center" color="textSecondary">
+          <Typography className="mt-32 text-md font-medium text-center" color="text.secondary">
             <span>Go to</span>
             <Link className="ml-4" to="/sign-in">
               sign in

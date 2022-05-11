@@ -1,4 +1,3 @@
-import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import withReducer from 'app/store/withReducer';
 import { useState } from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
@@ -103,38 +102,6 @@ function Board(props) {
         rightSidebarWidth={320}
       />
       <BoardCardDialog />
-    </>
-  );
-
-  return (
-    <>
-      <div className="flex flex-1 flex-auto flex-col w-full h-full relative" ref={containerRef}>
-        <BoardHeader onToggleSettingsDrawer={toggleSettingsDrawer} />
-
-        <SwipeableDrawer
-          anchor="right"
-          className="absolute overflow-hidden"
-          classes={{
-            paper: 'absolute w-320',
-          }}
-          BackdropProps={{
-            classes: {
-              root: 'absolute',
-            },
-          }}
-          container={containerRef.current}
-          ModalProps={{
-            keepMounted: true,
-            style: { position: 'absolute' },
-          }}
-          open={sidebarOpen}
-          onOpen={(ev) => {}}
-          onClose={() => toggleSettingsDrawer(false)}
-          disableSwipeToOpen
-        >
-          <BoardSettingsSidebar />
-        </SwipeableDrawer>
-      </div>
     </>
   );
 }

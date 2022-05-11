@@ -70,7 +70,7 @@ function ScheduleWidget(props) {
                       <FuseSvgIcon size={20} color="disabled">
                         heroicons-solid:clock
                       </FuseSvgIcon>
-                      <Typography component="span" className="mx-6 text-md" color="textSecondary">
+                      <Typography component="span" className="mx-6 text-md" color="text.secondary">
                         {item.time}
                       </Typography>
                     </span>
@@ -81,7 +81,7 @@ function ScheduleWidget(props) {
                       <FuseSvgIcon size={20} color="disabled">
                         heroicons-solid:location-marker
                       </FuseSvgIcon>
-                      <Typography component="span" className="mx-6 text-md" color="textSecondary">
+                      <Typography component="span" className="mx-6 text-md" color="text.secondary">
                         {item.location}
                       </Typography>
                     </span>

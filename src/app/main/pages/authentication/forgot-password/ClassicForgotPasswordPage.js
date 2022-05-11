@@ -81,7 +81,7 @@ function ClassicForgotPasswordPage() {
               Send reset link
             </Button>
 
-            <Typography className="mt-32 text-md font-medium" color="textSecondary">
+            <Typography className="mt-32 text-md font-medium" color="text.secondary">
               <span>Return to</span>
               <Link className="ml-4" to="/sign-in">
                 sign in

@@ -277,7 +277,7 @@ function FuseSettings(props) {
           case 'group': {
             return (
               <div key={target} className="FuseSettings-formGroup">
-                <Typography className="FuseSettings-formGroupTitle" color="textSecondary">
+                <Typography className="FuseSettings-formGroupTitle" color="text.secondary">
                   {formControl.title}
                 </Typography>
 
@@ -296,7 +296,7 @@ function FuseSettings(props) {
   return (
     <Root>
       <div className="FuseSettings-formGroup">
-        <Typography className="FuseSettings-formGroupTitle" color="textSecondary">
+        <Typography className="FuseSettings-formGroupTitle" color="text.secondary">
           Layout
         </Typography>
 
@@ -324,13 +324,13 @@ function FuseSettings(props) {
 
         {useMemo(() => getForm(formConfigs, 'layout.config'), [formConfigs, getForm])}
 
-        <Typography className="my-16 text-12 italic" color="textSecondary">
+        <Typography className="my-16 text-12 italic" color="text.secondary">
           *Not all option combinations are available
         </Typography>
       </div>
 
       <div className="FuseSettings-formGroup pb-16">
-        <Typography className="FuseSettings-formGroupTitle" color="textSecondary">
+        <Typography className="FuseSettings-formGroupTitle" color="text.secondary">
           Theme
         </Typography>
 

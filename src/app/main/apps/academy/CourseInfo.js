@@ -23,19 +23,19 @@ function CourseInfo({ course, className }) {
 
       <Typography className="text-16 font-medium">{course.title}</Typography>
 
-      <Typography className="text-13 mt-2 line-clamp-2" color="textSecondary">
+      <Typography className="text-13 mt-2 line-clamp-2" color="text.secondary">
         {course.description}
       </Typography>
 
       <Divider className="w-48 my-24 border-1" light />
 
-      <Typography className="flex items-center space-x-6 text-13" color="textSecondary">
+      <Typography className="flex items-center space-x-6 text-13" color="text.secondary">
         <FuseSvgIcon color="disabled" size={20}>
           heroicons-solid:clock
         </FuseSvgIcon>
         <span className="whitespace-nowrap leading-none">{`${course.duration} minutes`}</span>
       </Typography>
-      <Typography className="flex items-center space-x-6 text-13 mt-8" color="textSecondary">
+      <Typography className="flex items-center space-x-6 text-13 mt-8" color="text.secondary">
         <FuseSvgIcon color="disabled" size={20}>
           heroicons-solid:academic-cap
         </FuseSvgIcon>

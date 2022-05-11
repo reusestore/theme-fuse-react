@@ -1,5 +1,6 @@
 import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
+import Box from '@mui/material/Box';
 
 function MaintenancePage() {
   return (
@@ -9,13 +10,15 @@ function MaintenancePage() {
           initial={{ opacity: 0, scale: 0.6 }}
           animate={{ opacity: 1, scale: 1, transition: { delay: 0.1 } }}
         >
-          <svg
+          <Box
+            component="svg"
             width="100%"
             height="100%"
             viewBox="0 0 945 584"
             fill="none"
             preserveAspectRatio="xMidYMax slice"
             xmlns="http://www.w3.org/2000/svg"
+            sx={{ color: 'secondary.main' }}
           >
             <g clipPath="url(#clip0)">
               <path
@@ -23,24 +26,17 @@ function MaintenancePage() {
                 className="text-gray-200 dark:text-gray-800"
                 fill="currentColor"
               />
-              <path
-                d="M570.335 273.885H500.274V281.846H570.335V273.885Z"
-                className="text-primary"
-                fill="currentColor"
-              />
+              <path d="M570.335 273.885H500.274V281.846H570.335V273.885Z" fill="currentColor" />
               <path
                 d="M662.69 283.439C665.328 283.439 667.466 281.3 667.466 278.662C667.466 276.023 665.328 273.885 662.69 273.885C660.051 273.885 657.913 276.023 657.913 278.662C657.913 281.3 660.051 283.439 662.69 283.439Z"
-                className="text-primary"
                 fill="currentColor"
               />
               <path
                 d="M678.613 283.439C681.251 283.439 683.39 281.3 683.39 278.662C683.39 276.023 681.251 273.885 678.613 273.885C675.974 273.885 673.836 276.023 673.836 278.662C673.836 281.3 675.974 283.439 678.613 283.439Z"
-                className="text-primary"
                 fill="currentColor"
               />
               <path
                 d="M694.536 283.439C697.174 283.439 699.313 281.3 699.313 278.662C699.313 276.023 697.174 273.885 694.536 273.885C691.898 273.885 689.759 276.023 689.759 278.662C689.759 281.3 691.898 283.439 694.536 283.439Z"
-                className="text-primary"
                 fill="currentColor"
               />
               <path
@@ -48,24 +44,17 @@ function MaintenancePage() {
                 className="text-gray-200 dark:text-gray-800"
                 fill="currentColor"
               />
-              <path
-                d="M570.335 386.939H500.274V394.901H570.335V386.939Z"
-                className="text-primary"
-                fill="currentColor"
-              />
+              <path d="M570.335 386.939H500.274V394.901H570.335V386.939Z" fill="currentColor" />
               <path
                 d="M662.69 396.493C665.328 396.493 667.466 394.354 667.466 391.716C667.466 389.078 665.328 386.939 662.69 386.939C660.051 386.939 657.913 389.078 657.913 391.716C657.913 394.354 660.051 396.493 662.69 396.493Z"
-                className="text-primary"
                 fill="currentColor"
               />
               <path
                 d="M678.613 396.493C681.251 396.493 683.39 394.354 683.39 391.716C683.39 389.078 681.251 386.939 678.613 386.939C675.974 386.939 673.836 389.078 673.836 391.716C673.836 394.354 675.974 396.493 678.613 396.493Z"
-                className="text-primary"
                 fill="currentColor"
               />
               <path
                 d="M694.536 396.493C697.174 396.493 699.313 394.354 699.313 391.716C699.313 389.078 697.174 386.939 694.536 386.939C691.898 386.939 689.759 389.078 689.759 391.716C689.759 394.354 691.898 396.493 694.536 396.493Z"
-                className="text-primary"
                 fill="currentColor"
               />
               <path
@@ -73,24 +62,17 @@ function MaintenancePage() {
                 className="text-gray-200 dark:text-gray-800"
                 fill="currentColor"
               />
-              <path
-                d="M570.335 499.993H500.274V507.955H570.335V499.993Z"
-                className="text-primary"
-                fill="currentColor"
-              />
+              <path d="M570.335 499.993H500.274V507.955H570.335V499.993Z" fill="currentColor" />
               <path
                 d="M662.69 509.547C665.328 509.547 667.466 507.408 667.466 504.77C667.466 502.132 665.328 499.993 662.69 499.993C660.051 499.993 657.913 502.132 657.913 504.77C657.913 507.408 660.051 509.547 662.69 509.547Z"
-                className="text-primary"
                 fill="currentColor"
               />
               <path
                 d="M678.613 509.547C681.251 509.547 683.39 507.408 683.39 504.77C683.39 502.132 681.251 499.993 678.613 499.993C675.974 499.993 673.836 502.132 673.836 504.77C673.836 507.408 675.974 509.547 678.613 509.547Z"
-                className="text-primary"
                 fill="currentColor"
               />
               <path
                 d="M694.536 509.547C697.174 509.547 699.313 507.408 699.313 504.77C699.313 502.132 697.174 499.993 694.536 499.993C691.898 499.993 689.759 502.132 689.759 504.77C689.759 507.408 691.898 509.547 694.536 509.547Z"
-                className="text-primary"
                 fill="currentColor"
               />
               <path
@@ -164,7 +146,7 @@ function MaintenancePage() {
                 <rect width="945" height="583.224" fill="white" />
               </clipPath>
             </defs>
-          </svg>
+          </Box>
         </motion.div>
       </div>
 
@@ -186,7 +168,7 @@ function MaintenancePage() {
       >
         <Typography
           variant="h5"
-          color="textSecondary"
+          color="text.secondary"
           className="mt-8 text-lg md:text-xl font-medium tracking-tight text-center"
         >
           Sorry for the inconvenience, we will be back shortly!

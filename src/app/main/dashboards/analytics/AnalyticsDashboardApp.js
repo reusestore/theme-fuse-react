@@ -77,7 +77,7 @@ function AnalyticsDashboardApp() {
                     <Typography className="text-2xl font-semibold tracking-tight leading-6">
                       Your Audience
                     </Typography>
-                    <Typography className="font-medium tracking-tight" color="textSecondary">
+                    <Typography className="font-medium tracking-tight" color="text.secondary">
                       Demographic properties of your users
                     </Typography>
                   </div>

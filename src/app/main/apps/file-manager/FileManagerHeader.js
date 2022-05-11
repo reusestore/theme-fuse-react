@@ -55,7 +55,7 @@ function FileManagerHeader(props) {
           animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}
           delay={500}
           className="text-14 font-medium ml-2"
-          color="textSecondary"
+          color="text.secondary"
         >
           {`${folders.length} folders, ${files.length} files`}
         </Typography>

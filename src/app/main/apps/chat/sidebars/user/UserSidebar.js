@@ -1,4 +1,3 @@
-import AppBar from '@mui/material/AppBar';
 import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
@@ -16,6 +15,7 @@ import Button from '@mui/material/Button';
 import _ from '@lodash';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import InputAdornment from '@mui/material/InputAdornment';
+import { lighten } from '@mui/material/styles';
 import Statuses from '../../Statuses';
 import ContactAvatar from '../../ContactAvatar';
 import { selectUser, updateUserData } from '../../store/userSlice';
@@ -43,14 +43,21 @@ function UserSidebar(props) {
 
   return (
     <div className="flex flex-col flex-auto h-full">
-      <AppBar position="static" color="default" elevation={0}>
+      <Box
+        sx={{
+          backgroundColor: (theme) =>
+            theme.palette.mode === 'light'
+              ? lighten(theme.palette.background.default, 0.4)
+              : lighten(theme.palette.background.default, 0.02),
+        }}
+      >
         <Toolbar className="flex items-center px-24 border-b-1">
           <IconButton onClick={() => setUserSidebarOpen(false)}>
             <FuseSvgIcon>heroicons-outline:arrow-narrow-left</FuseSvgIcon>
           </IconButton>
           <Typography className="px-8 font-semibold text-20">Profile</Typography>
         </Toolbar>
-      </AppBar>
+      </Box>
 
       <div className="flex flex-col justify-center items-center py-32">
         <ContactAvatar className="w-160 h-160 text-64" contact={user} />

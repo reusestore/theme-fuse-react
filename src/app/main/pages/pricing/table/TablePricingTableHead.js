@@ -23,18 +23,18 @@ function TablePricingTableHead(props) {
         </div>
 
         <div className="flex items-baseline lg:mt-16 whitespace-nowrap">
-          <Typography className="text-lg" color="textSecondary">
+          <Typography className="text-lg" color="text.secondary">
             USD
           </Typography>
           <Typography className="lg:mx-8 text-2xl lg:text-4xl font-bold tracking-tight">
             {period === 'month' && monthlyPrice}
             {period === 'year' && yearlyPrice}
           </Typography>
-          <Typography className="text-2xl" color="textSecondary">
+          <Typography className="text-2xl" color="text.secondary">
             / month
           </Typography>
         </div>
-        <Typography className="mt-4 lg:mt-12 text-sm lg:text-base" color="textSecondary">
+        <Typography className="mt-4 lg:mt-12 text-sm lg:text-base" color="text.secondary">
           {period === 'month' && (
             <>
               billed monthly

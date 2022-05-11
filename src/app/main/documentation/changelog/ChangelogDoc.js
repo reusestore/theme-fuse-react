@@ -14,7 +14,10 @@ function ChangelogDoc() {
       <Box
         className="w-full rounded-16 border p-12 flex flex-col items-center"
         sx={{
-          backgroundColor: (theme) => lighten(theme.palette.background.default, 0.4),
+          backgroundColor: (theme) =>
+            theme.palette.mode === 'light'
+              ? lighten(theme.palette.background.default, 0.4)
+              : lighten(theme.palette.background.default, 0.02),
         }}
       >
         {changelogData.map((item) => (

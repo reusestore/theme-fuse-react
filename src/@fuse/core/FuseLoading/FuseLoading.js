@@ -1,9 +1,9 @@
 import { useTimeout } from '@fuse/hooks';
-import LinearProgress from '@mui/material/LinearProgress';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import clsx from 'clsx';
+import Box from '@mui/material/Box';
 
 function FuseLoading(props) {
   const [showLoading, setShowLoading] = useState(!props.delay);
@@ -19,10 +19,21 @@ function FuseLoading(props) {
         !showLoading && 'hidden'
       )}
     >
-      <Typography className="text-13 sm:text-20 mb-16" color="textSecondary">
-        Loading...
+      <Typography className="text-13 sm:text-20 font-medium -mb-16" color="text.secondary">
+        Loading
       </Typography>
-      <LinearProgress className="w-192 sm:w-320 max-w-full rounded-2" color="secondary" />
+      <Box
+        id="spinner"
+        sx={{
+          '& > div': {
+            backgroundColor: 'palette.secondary.main',
+          },
+        }}
+      >
+        <div className="bounce1" />
+        <div className="bounce2" />
+        <div className="bounce3" />
+      </Box>
     </div>
   );
 }

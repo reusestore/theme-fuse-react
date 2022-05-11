@@ -28,12 +28,12 @@ function JwtAuthDoc() {
         Related Service folder is located at <code>/src/app/services/jwtService</code>
       </Typography>
 
-      <Typography className="my-24 italic" component="p" color="textSecondary">
+      <Typography className="my-24 italic" component="p" color="text.secondary">
         Note: Make sure {`<Router>`} component wrapped with {`<Auth>`} component in
         <code>src/app/App.js</code>. The service initializes in the Auth component.
       </Typography>
 
-      <Typography className="my-24 italic" component="p" color="textSecondary">
+      <Typography className="my-24 italic" component="p" color="text.secondary">
         Important: We don't give you any backend code. We are demonstrating the usage with
         <code>@mock-api</code> (which is works with https requests as real).
       </Typography>

@@ -63,7 +63,7 @@ function ConversionsWidget(props) {
           </FuseSvgIcon>
           <Typography
             className="flex items-center ml-4 lg:ml-0 lg:mt-2 text-md leading-none whitespace-nowrap"
-            color="textSecondary"
+            color="text.secondary"
           >
             <span className="font-medium text-red-500">2%</span>
             <span className="ml-4">below target</span>

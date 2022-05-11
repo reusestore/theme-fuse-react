@@ -29,7 +29,12 @@ function ToolbarLayout1(props) {
         id="fuse-toolbar"
         className={clsx('flex relative z-20 shadow-md', props.className)}
         color="default"
-        sx={{ backgroundColor: toolbarTheme.palette.background.paper }}
+        sx={{
+          backgroundColor: (theme) =>
+            theme.palette.mode === 'light'
+              ? toolbarTheme.palette.background.paper
+              : toolbarTheme.palette.background.default,
+        }}
         position="static"
       >
         <Toolbar className="p-0 min-h-48 md:min-h-64">

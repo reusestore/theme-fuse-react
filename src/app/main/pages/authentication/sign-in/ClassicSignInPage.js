@@ -134,7 +134,7 @@ function ClassicSignInPage() {
 
             <div className="flex items-center mt-32">
               <div className="flex-auto mt-px border-t" />
-              <Typography className="mx-8" color="textSecondary">
+              <Typography className="mx-8" color="text.secondary">
                 Or continue with
               </Typography>
               <div className="flex-auto mt-px border-t" />

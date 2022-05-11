@@ -17,7 +17,7 @@ function ClassicConfirmationRequiredPage() {
             instructions to confirm your email address and activate your account.
           </Typography>
 
-          <Typography className="mt-32 text-md font-medium" color="textSecondary">
+          <Typography className="mt-32 text-md font-medium" color="text.secondary">
             <span>Return to</span>
             <Link className="ml-4 text-primary-500 hover:underline" to="/sign-in">
               sign in

@@ -112,7 +112,7 @@ function Product(props) {
         animate={{ opacity: 1, transition: { delay: 0.1 } }}
         className="flex flex-col flex-1 items-center justify-center h-full"
       >
-        <Typography color="textSecondary" variant="h5">
+        <Typography color="text.secondary" variant="h5">
           There is no such product!
         </Typography>
         <Button
@@ -148,7 +148,7 @@ function Product(props) {
               value={tabValue}
               onChange={handleTabChange}
               indicatorColor="secondary"
-              textColor="primary"
+              textColor="secondary"
               variant="scrollable"
               scrollButtons="auto"
               classes={{ root: 'w-full h-64 border-b-1' }}

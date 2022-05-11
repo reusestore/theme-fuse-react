@@ -35,7 +35,10 @@ function DetailSidebarContent(props) {
       <Box
         className=" w-full rounded-8 border preview h-128 sm:h-256 file-icon flex items-center justify-center my-32"
         sx={{
-          backgroundColor: (theme) => lighten(theme.palette.background.default, 0.4),
+          backgroundColor: (theme) =>
+            theme.palette.mode === 'light'
+              ? lighten(theme.palette.background.default, 0.4)
+              : lighten(theme.palette.background.default, 0.02),
         }}
       >
         <motion.div initial={{ scale: 0 }} animate={{ scale: 1, transition: { delay: 0.3 } }}>
@@ -48,24 +51,24 @@ function DetailSidebarContent(props) {
       <div className="text-16 font-medium mt-32">Information</div>
       <div className="flex flex-col mt-16 border-t border-b divide-y font-medium">
         <div className="flex items-center justify-between py-12">
-          <Typography color="textSecondary">Created By</Typography>
+          <Typography color="text.secondary">Created By</Typography>
           <Typography>{item.createdBy}</Typography>
         </div>
         <div className="flex items-center justify-between py-12">
-          <Typography color="textSecondary">Created At</Typography>
+          <Typography color="text.secondary">Created At</Typography>
           <Typography>{item.createdAt}</Typography>
         </div>
         <div className="flex items-center justify-between py-12">
-          <Typography color="textSecondary">Modified At</Typography>
+          <Typography color="text.secondary">Modified At</Typography>
           <Typography>{item.modifiedAt}</Typography>
         </div>
         <div className="flex items-center justify-between py-12">
-          <Typography color="textSecondary">Size</Typography>
+          <Typography color="text.secondary">Size</Typography>
           <Typography>{item.size}</Typography>
         </div>
         {item.contents && (
           <div className="flex items-center justify-between py-12">
-            <Typography color="textSecondary">Contents</Typography>
+            <Typography color="text.secondary">Contents</Typography>
             <Typography>{item.contents}</Typography>
           </div>
         )}
@@ -82,9 +85,7 @@ function DetailSidebarContent(props) {
         <Button className="flex-auto" color="secondary" variant="contained">
           Download
         </Button>
-        <Button className="flex-auto" variant="outlined">
-          Delete
-        </Button>
+        <Button className="flex-auto">Delete</Button>
       </div>
     </motion.div>
   );

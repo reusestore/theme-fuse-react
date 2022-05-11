@@ -34,7 +34,7 @@ function ContactsHeader(props) {
         animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}
         delay={500}
         className="text-14 font-medium ml-2"
-        color="textSecondary"
+        color="text.secondary"
       >
         {`${filteredData.length} contacts`}
       </Typography>
@@ -46,7 +46,9 @@ function ContactsHeader(props) {
           animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}
           className="flex flex-1 items-center px-16 mx-8 border-1 rounded-full"
         >
-          <FuseSvgIcon color="action">heroicons-outline:search</FuseSvgIcon>
+          <FuseSvgIcon color="action" size={20}>
+            heroicons-outline:search
+          </FuseSvgIcon>
 
           <Input
             placeholder="Search contacts"

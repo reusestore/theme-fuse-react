@@ -47,7 +47,7 @@ function HelpCenterGuide() {
         </Typography>
 
         <div
-          className="mt-32 sm:mt-48 max-w-none prose"
+          className="mt-32 sm:mt-48 max-w-none prose dark:prose-invert"
           dangerouslySetInnerHTML={{ __html: guide.content }}
         />
 

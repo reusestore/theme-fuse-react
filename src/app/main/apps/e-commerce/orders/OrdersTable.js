@@ -104,7 +104,11 @@ function OrdersTable(props) {
   }
 
   if (loading) {
-    return <FuseLoading />;
+    return (
+      <div className="flex items-center justify-center h-full">
+        <FuseLoading />
+      </div>
+    );
   }
 
   if (data.length === 0) {
@@ -114,7 +118,7 @@ function OrdersTable(props) {
         animate={{ opacity: 1, transition: { delay: 0.1 } }}
         className="flex flex-1 items-center justify-center h-full"
       >
-        <Typography color="textSecondary" variant="h5">
+        <Typography color="text.secondary" variant="h5">
           There are no orders!
         </Typography>
       </motion.div>

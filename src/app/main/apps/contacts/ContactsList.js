@@ -17,7 +17,7 @@ function ContactsList(props) {
   if (filteredData.length === 0) {
     return (
       <div className="flex flex-1 items-center justify-center h-full">
-        <Typography color="textSecondary" variant="h5">
+        <Typography color="text.secondary" variant="h5">
           There are no contacts!
         </Typography>
       </div>
@@ -33,7 +33,7 @@ function ContactsList(props) {
       {Object.entries(groupedFilteredContacts).map(([key, group]) => {
         return (
           <div key={key} className="relative">
-            <Typography color="textSecondary" className="px-32 py-4 text-14 font-medium">
+            <Typography color="text.secondary" className="px-32 py-4 text-14 font-medium">
               {key}
             </Typography>
             <Divider />

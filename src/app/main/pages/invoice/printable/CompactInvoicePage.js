@@ -17,19 +17,19 @@ function CompactInvoicePage() {
           <CardContent className="">
             <div className="flex items-start justify-between">
               <div className="grid grid-cols-2 gap-x-16 gap-y-1">
-                <Typography className="text-4xl tracking-tight" color="textSecondary">
+                <Typography className="text-4xl tracking-tight" color="text.secondary">
                   INVOICE
                 </Typography>
                 <Typography className="text-4xl">#9-0004</Typography>
-                <Typography className="font-medium tracking-tight" color="textSecondary">
+                <Typography className="font-medium tracking-tight" color="text.secondary">
                   INVOICE DATE
                 </Typography>
                 <Typography className="font-medium">Jul 19, 2022</Typography>
-                <Typography className="font-medium tracking-tight" color="textSecondary">
+                <Typography className="font-medium tracking-tight" color="text.secondary">
                   DUE DATE
                 </Typography>
                 <Typography className="font-medium">Aug 19, 2022</Typography>
-                <Typography className="font-medium tracking-tight" color="textSecondary">
+                <Typography className="font-medium tracking-tight" color="text.secondary">
                   TOTAL DUE
                 </Typography>
                 <Typography className="font-medium">$235,000.00</Typography>
@@ -70,16 +70,16 @@ function CompactInvoicePage() {
             </div>
 
             <div className="grid grid-cols-12 gap-x-4 mt-48">
-              <div className="col-span-8 font-medium text-md" color="textSecondary">
+              <div className="col-span-8 font-medium text-md" color="text.secondary">
                 SERVICE
               </div>
-              <div className="font-medium text-md text-right" color="textSecondary">
+              <div className="font-medium text-md text-right" color="text.secondary">
                 RATE
               </div>
-              <div className="font-medium text-md text-right" color="textSecondary">
+              <div className="font-medium text-md text-right" color="text.secondary">
                 QTY
               </div>
-              <div className="col-span-2 font-medium text-md text-right" color="textSecondary">
+              <div className="col-span-2 font-medium text-md text-right" color="text.secondary">
                 TOTAL
               </div>
 
@@ -142,7 +142,7 @@ function CompactInvoicePage() {
 
               <Typography
                 className="col-span-10 self-center font-medium tracking-tight"
-                color="textSecondary"
+                color="text.secondary"
               >
                 SUBTOTAL
               </Typography>
@@ -152,7 +152,7 @@ function CompactInvoicePage() {
 
               <Typography
                 className="col-span-10 self-center font-medium tracking-tight"
-                color="textSecondary"
+                color="text.secondary"
               >
                 TAX
               </Typography>
@@ -162,7 +162,7 @@ function CompactInvoicePage() {
 
               <Typography
                 className="col-span-10 self-center font-medium tracking-tight"
-                color="textSecondary"
+                color="text.secondary"
               >
                 DISCOUNT
               </Typography>
@@ -172,7 +172,7 @@ function CompactInvoicePage() {
 
               <Typography
                 className="col-span-10 self-center text-2xl font-medium tracking-tight"
-                color="textSecondary"
+                color="text.secondary"
               >
                 TOTAL
               </Typography>
@@ -185,7 +185,7 @@ function CompactInvoicePage() {
               </Typography>
               <div className="flex items-start mt-16">
                 <img className="flex-0 w-40 mt-8" src="assets/images/logo/logo.svg" alt="logo" />
-                <Typography className="ml-24 text-sm" color="textSecondary">
+                <Typography className="ml-24 text-sm" color="text.secondary">
                   In condimentum malesuada efficitur. Mauris volutpat placerat auctor. Ut ac congue
                   dolor. Quisque scelerisque lacus sed feugiat fermentum. Cras aliquet facilisis
                   pellentesque. Nunc hendrerit quam at leo commodo, a suscipit tellus dapibus. Etiam

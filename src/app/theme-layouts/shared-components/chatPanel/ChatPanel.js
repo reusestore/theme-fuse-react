@@ -170,17 +170,17 @@ function ChatPanel(props) {
         <AppBar position="static" className="shadow-md">
           <Toolbar className="px-4">
             {(!state || !selectedContactId) && (
-              <div className="flex flex-1 items-center px-4">
+              <div className="flex flex-1 items-center px-8 space-x-12">
                 <IconButton
                   className=""
                   color="inherit"
                   onClick={(ev) => dispatch(openChatPanel())}
                   size="large"
                 >
-                  <FuseSvgIcon size={32}>heroicons-outline:chat</FuseSvgIcon>
+                  <FuseSvgIcon size={24}>heroicons-outline:chat-alt-2</FuseSvgIcon>
                 </IconButton>
                 {!selectedContactId && (
-                  <Typography className="mx-8 text-16" color="inherit">
+                  <Typography className="text-16" color="inherit">
                     Team Chat
                   </Typography>
                 )}
@@ -211,7 +211,7 @@ function ChatPanel(props) {
               <FuseSvgIcon size={128} color="disabled">
                 heroicons-outline:chat
               </FuseSvgIcon>
-              <Typography className="px-16 pb-24 mt-24 text-center" color="textSecondary">
+              <Typography className="px-16 pb-24 mt-24 text-center" color="text.secondary">
                 Select a contact to start a conversation.
               </Typography>
             </div>

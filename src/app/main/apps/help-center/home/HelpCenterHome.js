@@ -48,7 +48,7 @@ function HelpCenterHome() {
               animate={{ opacity: 1, transition: { delay: 0.3 } }}
             >
               <Typography
-                color="textSecondary"
+                color="text.secondary"
                 className="mt-12 sm:text-20 text-center tracking-tight"
               >
                 Search for a topic or question, check out our FAQs and guides, contact us for
@@ -105,14 +105,17 @@ function HelpCenterHome() {
           >
             <div className="flex flex-col flex-auto items-center justify-center p-32 text-center">
               <div className="text-2xl font-semibold">FAQs</div>
-              <div className="md:max-w-160 mt-4" color="textSecondary">
+              <div className="md:max-w-160 mt-4" color="text.secondary">
                 Frequently asked questions and answers
               </div>
             </div>
             <Box
               className="flex items-center justify-center py-16 px-32"
               sx={{
-                backgroundColor: (theme) => lighten(theme.palette.background.default, 0.2),
+                backgroundColor: (theme) =>
+                  theme.palette.mode === 'light'
+                    ? lighten(theme.palette.background.default, 0.4)
+                    : lighten(theme.palette.background.default, 0.02),
               }}
             >
               <Typography color="secondary" className="mx-8">
@@ -132,14 +135,17 @@ function HelpCenterHome() {
           >
             <div className="flex flex-col flex-auto items-center justify-center p-32 text-center">
               <div className="text-2xl font-semibold">Guides</div>
-              <div className="md:max-w-160 mt-4" color="textSecondary">
+              <div className="md:max-w-160 mt-4" color="text.secondary">
                 Articles and resources to guide you
               </div>
             </div>
             <Box
               className="flex items-center justify-center py-16 px-32"
               sx={{
-                backgroundColor: (theme) => lighten(theme.palette.background.default, 0.2),
+                backgroundColor: (theme) =>
+                  theme.palette.mode === 'light'
+                    ? lighten(theme.palette.background.default, 0.4)
+                    : lighten(theme.palette.background.default, 0.02),
               }}
             >
               <Typography color="secondary" className="mx-8">
@@ -159,14 +165,17 @@ function HelpCenterHome() {
           >
             <div className="flex flex-col flex-auto items-center justify-center p-32 text-center">
               <div className="text-2xl font-semibold">Support</div>
-              <div className="md:max-w-160 mt-4" color="textSecondary">
+              <div className="md:max-w-160 mt-4" color="text.secondary">
                 Contact us for more detailed support
               </div>
             </div>
             <Box
               className="flex items-center justify-center py-16 px-32"
               sx={{
-                backgroundColor: (theme) => lighten(theme.palette.background.default, 0.2),
+                backgroundColor: (theme) =>
+                  theme.palette.mode === 'light'
+                    ? lighten(theme.palette.background.default, 0.4)
+                    : lighten(theme.palette.background.default, 0.02),
               }}
             >
               <Typography color="secondary" className="mx-8">

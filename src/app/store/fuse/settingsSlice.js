@@ -11,6 +11,7 @@ import {
 import settingsConfig from 'app/configs/settingsConfig';
 import themeLayoutConfigs from 'app/theme-layouts/themeLayoutConfigs';
 import { setUser, updateUserSettings } from 'app/store/userSlice';
+import { darkPaletteText, lightPaletteText } from 'app/configs/themesConfig';
 
 export const changeFuseTheme = (theme) => (dispatch, getState) => {
   const { fuse } = getState();
@@ -141,29 +142,23 @@ function changeThemeMode(theme, mode) {
     dark: {
       palette: {
         mode: 'dark',
+        divider: 'rgba(241,245,249,.12)',
         background: {
           paper: '#1E2125',
           default: '#121212',
         },
-        text: {
-          primary: 'rgb(255,255,255)',
-          secondary: 'rgb(229, 231, 235)',
-          disabled: 'rgb(156, 163, 175)',
-        },
+        text: darkPaletteText,
       },
     },
     light: {
       palette: {
         mode: 'light',
+        divider: '#e2e8f0',
         background: {
           paper: '#FFFFFF',
           default: '#F7F7F7',
         },
-        text: {
-          primary: 'rgb(17, 24, 39)',
-          secondary: 'rgb(107, 114, 128)',
-          disabled: 'rgb(149, 156, 169)',
-        },
+        text: lightPaletteText,
       },
     },
   };

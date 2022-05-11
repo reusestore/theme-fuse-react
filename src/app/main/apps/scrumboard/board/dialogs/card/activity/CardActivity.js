@@ -24,7 +24,7 @@ function CardActivity(props) {
           >
             <div className="flex items-center">
               <Typography>{user?.name}</Typography>
-              <Typography className="mx-8 text-12" color="textSecondary">
+              <Typography className="mx-8 text-12" color="text.secondary">
                 {formatDistanceToNow(fromUnixTime(props.item.time), { addSuffix: true })}
               </Typography>
             </div>
@@ -40,7 +40,7 @@ function CardActivity(props) {
           <div className="flex items-center mx-16">
             <Typography>{user?.name},</Typography>
             <Typography className="mx-8">{props.item.message}</Typography>
-            <Typography className="text-12" color="textSecondary">
+            <Typography className="text-12" color="text.secondary">
               {formatDistanceToNow(fromUnixTime(props.item.time), { addSuffix: true })}
             </Typography>
           </div>
