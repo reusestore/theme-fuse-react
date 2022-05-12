@@ -119,6 +119,9 @@ export const defaultThemeOptions = {
       },
     },
     MuiButtonGroup: {
+      defaultProps: {
+        color: 'secondary',
+      },
       styleOverrides: {
         contained: {
           borderRadius: 18,
