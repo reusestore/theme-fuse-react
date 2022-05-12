@@ -563,6 +563,9 @@ module.exports = {
       28: '2.8rem',
       32: '3.2rem',
     },
+    borderSpacing: ({ theme }) => ({
+      ...theme('spacing'),
+    }),
     borderWidth: {
       DEFAULT: '1px',
       0: '0px',

@@ -16,7 +16,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import Autocomplete from '@mui/material/Autocomplete/Autocomplete';
 import Checkbox from '@mui/material/Checkbox/Checkbox';
-import DateTimePicker from '@mui/lab/DateTimePicker/DateTimePicker';
+import DateTimePicker from '@mui/lab/DateTimePicker';
 import {
   addContact,
   getContact,
